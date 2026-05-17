@@ -79,18 +79,24 @@
   ],
   "resources": [
     {
-      "name": "HathiTrust（双清仙馆 1832 v.1-12）",
+      "id": "hathitrust",
+      "name": "HathiTrust",
       "type": "image",
-      "id": "hathitrust-v1",
       "url": "https://babel.hathitrust.org/cgi/pt?id=uc1.c105785684",
-      "details": "加州大学藏，全卷高清扫描"
-    },
-    {
-      "name": "HathiTrust（双清仙馆 1832 v.13-24）",
-      "type": "image",
-      "id": "hathitrust-v2",
-      "url": "https://babel.hathitrust.org/cgi/pt?id=uc1.c105785736",
-      "details": "加州大学藏，全卷高清扫描，配 v.1-12 合成 24 册全本"
+      "details": "加州大学藏雙清仙館 1832 原刊本，高清扫描，分上下兩函",
+      "volumes": [
+        {
+          "volume": 1,
+          "url": "https://babel.hathitrust.org/cgi/pt?id=uc1.c105785684",
+          "label": "v.1-12（第1-60回）"
+        },
+        {
+          "volume": 2,
+          "url": "https://babel.hathitrust.org/cgi/pt?id=uc1.c105785736",
+          "label": "v.13-24（第61-120回）"
+        }
+      ],
+      "expected_volumes": 2
     },
     {
       "name": "书格（道光12年/1832 双清仙馆原刊本）",
@@ -100,21 +106,12 @@
       "details": "道光十二年（1832）雙清仙館原刊本"
     },
     {
-      "id": "ncl-tw-via-wanyou",
-      "name": "臺灣國家圖書館（萬有文庫合刊本）",
-      "url": "https://taiwanebook.ncl.edu.tw/zh-tw/search/all/%22%E7%9F%B3%E9%A0%AD%E8%A8%98%22/all/asc/grid/1",
-      "type": "image",
-      "details": "王希廉評收入 1930 上海商務印書館萬有文庫本《增評補圖石頭記》三家評合刊。"
-    },
-    {
       "id": "ia-hongloumeng-wangxilian",
       "name": "Internet Archive",
       "url": "https://archive.org/details/hongloumeng-wangxilian",
       "types": [
         "image"
-      ],
-      "group": "shuangqing-1832",
-      "group_role": "mirror"
+      ]
     },
     {
       "id": "baidu-shuangqing-1832",
@@ -123,8 +120,6 @@
       "types": [
         "image"
       ],
-      "group": "shuangqing-1832",
-      "group_role": "mirror",
       "metadata": {
         "access_code": "0000"
       }
@@ -133,12 +128,6 @@
   "edition": "王希廉評",
   "revision": "1.0.10",
   "revised_at": "2026-05-17",
-  "resource_groups": {
-    "shuangqing-1832": {
-      "label": "雙清仙館原刊本（道光 12 年 1832）",
-      "description": "王希廉「護花主人」批本之原刊本，三大評本之首。"
-    }
-  },
   "related_books": [
     "96l2nocd1c"
   ]
