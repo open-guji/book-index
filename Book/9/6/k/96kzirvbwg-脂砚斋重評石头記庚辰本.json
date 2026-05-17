@@ -57,18 +57,25 @@
     {
       "id": "shidianguji",
       "name": "识典古籍",
-      "url": "https://www.shidianguji.com/book/7428573169323081747/chapter/1lnc5zp4t2ngf?page_from=searching_page&version=40",
-      "details": "粗校 带彩色影印",
+      "url": "https://www.shidianguji.com/book/7428573169323081747/chapter/1lnc5zp4t2ngf",
+      "details": "粗校文本 + 彩色影印對照（影印底本即北京大學圖書館藏原本，與中華再造善本本、人民文學影印本顏色／題記／裁切均不同）",
       "types": [
-        "text"
-      ]
+        "text",
+        "image"
+      ],
+      "group": "beida-original",
+      "group_role": "origin"
     },
     {
-      "name": "中華再造善本",
-      "type": "image",
       "id": "zhsy100476",
+      "name": "中華再造善本（Wikimedia Commons）",
       "url": "https://commons.wikimedia.org/wiki/File:ZHSY100476%20%E8%84%82%E7%A1%AF%E9%BD%8B%E9%87%8D%E8%A9%95%E7%9F%B3%E9%A0%AD%E8%A8%98%20%E6%B8%85%E6%9B%B9%E9%9C%91%E6%92%B0%E8%84%82%E7%A1%AF%E9%BD%8B%E4%B8%BB%E4%BA%BA%E8%A9%95%20%E6%B8%85%E6%8A%84%E6%9C%AC.pdf",
-      "details": "中華再造善本明清編 ZHSY100476 彩色高清影印 PDF（Wikimedia Commons），含胡適民國廿二年題記"
+      "details": "中華再造善本明清編 ZHSY100476 彩色高清影印 PDF，含胡適民國廿二年題記；中華再造善本由原本修復後製版影印，與識典所載北大原本掃描為兩種視覺呈現",
+      "types": [
+        "image"
+      ],
+      "group": "zhsy100476-zaizao",
+      "group_role": "origin"
     },
     {
       "id": "ia-hongloumeng-gengchen",
@@ -143,12 +150,20 @@
     }
   ],
   "edition": "庚辰本",
-  "revision": "1.0.10",
+  "revision": "1.0.11",
   "revised_at": "2026-05-16",
   "resource_groups": {
+    "beida-original": {
+      "label": "北京大學圖書館藏原本（識典古籍直掃）",
+      "description": "北京大學圖書館典藏庚辰本原本之直接掃描影像，由識典古籍發布並作粗校文本對照。彩色，與中華再造善本系列、人民文學影印本均為獨立影像來源。"
+    },
+    "zhsy100476-zaizao": {
+      "label": "中華再造善本明清編 ZHSY100476",
+      "description": "國家圖書館「中華再造善本」明清編收錄，原本經修復後製版影印之彩色高清版，含胡適民國廿二年題記。Wikimedia Commons 發布 PDF。與識典所示北大原本掃描在顏色／題記／裁切上均有區別。"
+    },
     "renmin-1975-bw": {
       "label": "人民文學出版社 1975 年影印本",
-      "description": ""
+      "description": "人民文學出版社 1975 年影印北京大學圖書館藏庚辰本，黑白單色，缺第 64、67 兩回另以蒙府本配補（區別於 1955 年首版以己卯本配補）。為 1982 年人文版校注本前 80 回所據底本之影印母本。"
     }
   }
 }
