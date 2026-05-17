@@ -44,10 +44,19 @@
   },
   "resources": [
     {
+      "id": "wikisource",
+      "name": "維基文庫",
+      "url": "https://zh.wikisource.org/zh-hant/%E7%B4%85%E6%A8%93%E5%A4%A2%EF%BC%88%E7%A8%8B%E7%94%B2%E6%9C%AC%EF%BC%89",
+      "details": "120 回完整本",
+      "types": [
+        "text"
+      ]
+    },
+    {
       "id": "nlc-yuanben-003290079",
       "name": "中華古籍資源庫（國家圖書館）",
       "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=all&showType=1&indexName=data_892&fid=003290079",
-      "details": "data_892, fid=003290079, identifier SBGJ09567，全本 24 卷；黑白掃描，有水印（國圖讀者雲門戶版本）",
+      "details": "國家圖書館「讀者雲門戶」藏本，全本 24 卷，黑白掃描（有水印）",
       "types": [
         "image"
       ],
@@ -55,10 +64,10 @@
       "group_role": "origin"
     },
     {
-      "id": "jiangyu-banhua",
-      "name": "天一生水",
+      "id": "shuge-banhua-fragment",
+      "name": "书格（彩色殘片，原 PDF 出處）",
       "url": "https://dropbox.jiangyu.org/读书/红楼梦系列/%E7%BA%A2%E6%A5%BC%E6%A2%A6.%E6%B8%85.%E6%9B%B9%E9%9C%91%E6%92%B0.%E4%BB%85%E4%B9%A6%E5%89%8D%E7%89%88%E7%94%BB24%E5%B9%85%E5%8F%8A%E5%89%8D%E4%B8%89%E5%9B%9E.%E6%B8%85%E4%B9%BE%E9%9A%86%E4%BA%94%E5%8D%81%E5%85%AD%E5%B9%B4%E8%8B%8F%E5%B7%9E%E8%90%83%E6%96%87%E4%B9%A6%E5%B1%8B%E6%9C%A8%E6%B4%BB%E5%AD%97%E6%9C%AC.%E7%A8%8B%E7%94%B2%E6%9C%AC.pdf",
-      "details": "僅書前版畫 24 幅 + 前 3 回殘片；彩色、無水印（與 nlc 全本黑白有水印互補，學術上系同一程甲本原本之兩種掃描來源）",
+      "details": "162 頁殘片：原書書衣 + 書前版畫 24 幅 + 前 3 卷正文。原 PDF 由書格（shuge.org）整理發布（PDF Keywords 元數據確認），現存於書格轉鏈天一生水（書格站內主 topic 15464 已失效，本鏈為實際下載地址）；彩色、無水印",
       "types": [
         "image"
       ],
@@ -66,6 +75,31 @@
       "group_role": "origin",
       "metadata": {
         "fragment": true
+      }
+    },
+    {
+      "id": "ia-hongloumeng-chengjia-banhua",
+      "name": "Internet Archive",
+      "url": "https://archive.org/details/hongloumeng-chengjia-banhua",
+      "details": "彩色殘片 IA 鏡像（同上 shuge-banhua-fragment 之副本）",
+      "types": [
+        "image"
+      ],
+      "group": "chengjia-yuanben",
+      "group_role": "mirror"
+    },
+    {
+      "id": "baidu-chengjia-banhua",
+      "name": "百度网盘",
+      "url": "https://pan.baidu.com/s/1BY4Rmk2BUdb5ePBkeQYzkA?pwd=0000#list/path=%2Fbook-index%2F96kzkdm8e8%2Fchengjia-yuanben",
+      "details": "彩色殘片 + 國圖全本（同 group）百度鏡像",
+      "types": [
+        "image"
+      ],
+      "group": "chengjia-yuanben",
+      "group_role": "mirror",
+      "metadata": {
+        "access_code": "0000"
       }
     },
     {
@@ -117,12 +151,12 @@
     "note": "程伟元、高鹗编刻；前 80 回出自脂评本系统旧抄本，后 40 回为高鹗续补整理。后世东观阁、藤花榭、本衙藏板等翻刻本均自此出。"
   },
   "edition": "程甲本",
-  "revision": "1.0.11",
+  "revision": "1.1.0",
   "revised_at": "2026-05-16",
   "resource_groups": {
     "chengjia-yuanben": {
-      "label": "程甲本原本掃描（國圖讀者雲門戶 + 私藏彩色版畫殘片）",
-      "description": "清乾隆五十六年（1791）萃文書屋木活字程甲本原本掃描。本組含兩份互補來源：(1) 國圖讀者雲門戶 fid=003290079（SBGJ09567）— 全本 24 卷黑白掃描有水印；(2) 私藏彩色掃描殘片 — 僅前 3 回 + 書前版畫 24 幅，無水印。兩者展示原書文字／版畫實際面貌（區別於後出影印本之黑白翻拍）。"
+      "label": "程甲本原本掃描（國圖全本黑白 + 書格彩色殘片）",
+      "description": "清乾隆五十六年（1791）萃文書屋木活字程甲本原本掃描。本組含兩份互補來源：(1) 國家圖書館「讀者雲門戶」藏本 — 全本 24 卷黑白掃描，有水印；(2) 書格（shuge.org）整理發布之彩色殘片 — 含原書書衣裝訂 + 書前版畫 24 幅 + 前 3 卷正文，162 頁，無水印（已鏡像至 IA + 百度）。兩者展示原書文字／版畫實際面貌（區別於後出影印本之黑白翻拍）。"
     },
     "shumu-chengjia-1992": {
       "label": "書目文獻出版社 1992 年影印本",
