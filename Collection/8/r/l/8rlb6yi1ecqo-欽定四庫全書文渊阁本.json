@@ -57,18 +57,32 @@
       ]
     },
     {
-      "id": "ia-hank-b-wenyuange-series",
+      "id": "ia-zhejiang-cadal-wenyuange",
       "name": "Internet Archive · 浙大 CADAL 散卷",
       "short_name": "IA·浙大散卷",
-      "url": "https://archive.org/search?query=uploader%3A%22hank_b%22+%E6%AC%BD%E5%AE%9A%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8",
-      "details": "Internet Archive 上 hank_b 用戶（浙江大學 CADAL 項目）2009 年起上傳的「欽定四庫全書·文淵閣本」浙大 600dpi 掃描散卷系列，編號為 06xxxxx.cn（如 06047210.cn 切韻指掌圖、06057589.cn 考證、06061300.cn 總目、06064237.cn 簡明目錄 等），按書分段連續上傳，覆蓋全套 1488+ 文件。本連結為 hank_b 上傳的欽定四庫全書 items 搜索結果頁。",
+      "url": "https://archive.org/search?query=collection%3Auniversallibrary+%E6%AC%BD%E5%AE%9A%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8",
+      "details": "Internet Archive collection \"universallibrary\"（浙江大學 CADAL 項目，hank_b 上傳）所含「欽定四庫全書·文淵閣本」散卷，共約 30762 個 .cn 文件，編號範圍 06040004.cn ~ 06082337.cn。按書分段連續上傳，每 item 對應某書一冊（含目錄/卷次）。本連結為按 \"欽定四庫全書\" 標題搜索的入口頁。",
       "types": [
         "image"
       ],
       "volumes": {
         "url_template": "https://archive.org/details/{n}.cn",
-        "id_format": "8-digit zero-padded (06xxxxx)",
-        "note": "全套按書分段連續上傳，編號約 06000000-06090000 範圍內某些段。具體分段：總目 06061300-06061498（199 冊）/ 簡明目錄 06064237-06064246（10 冊）/ 考證 06057589-06057654（66 冊）/ 經部小學類含 06047210 切韻指掌圖 等。"
+        "id_format": "8-digit zero-padded (06xxxxxx)",
+        "range_start": 6040004,
+        "range_end": 6082337,
+        "item_count": 30762,
+        "collection": "universallibrary",
+        "uploader": "hank_b",
+        "scanner": "浙江大學 CADAL",
+        "upload_date": "2009-10-11 起",
+        "known_segments": {
+          "總目": "06061300 - 06061498（200 卷另卷首 4 卷拆 199 冊）",
+          "簡明目錄": "06064237 - 06064246（20 卷拆 10 冊）",
+          "考證": "06057589 - 06057654（100 卷拆 66 冊）",
+          "經部·小學類": "含 06047210 切韻指掌圖 等"
+        },
+        "metadata_cache": "tmp/ia_wenyuange/wenyuange_all.csv（已拉 10000 條，IA 默認 deep scroll 上限）",
+        "note": "使用 IA advancedsearch API 可批量拉 metadata: https://archive.org/advancedsearch.php?q=collection%3Auniversallibrary+%E6%AC%BD%E5%AE%9A%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8&output=json"
       }
     }
   ],
@@ -171,6 +185,6 @@
       "note": "文字早於定本《總目》（屬「閣本提要」階段），文淵/文津/文溯三閣互有歧異。研究參吳格、廖申白《文淵、文溯、文津三閣書前提要文字比勘》。"
     }
   ],
-  "revision": "1.0.1",
+  "revision": "1.0.2",
   "revised_at": "2026-05-17"
 }
