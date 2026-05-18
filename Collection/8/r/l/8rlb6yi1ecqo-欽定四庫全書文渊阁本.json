@@ -26,31 +26,11 @@
   },
   "resources": [
     {
-      "id": "cptw",
-      "name": "臺灣商務印書館影印本",
-      "short_name": "商務印書館",
-      "url": "https://commons.wikimedia.org/wiki/Category:Wenyuange_Siku_Quanshu",
-      "details": "維基共享資源上的文淵閣四庫全書影像。各分冊與書名的對應關係可參見維基文庫專題頁面：https://zh.wikisource.org/zh/Wikisource:专题/影印书籍上传/四庫全書/文淵閣四庫全書",
-      "types": [
-        "image"
-      ]
-    },
-    {
-      "id": "ia-siku-quanshu-buyi",
-      "name": "Internet Archive",
-      "short_name": "IA·文淵閣補遺",
-      "url": "https://archive.org/details/siku-quanshu-buyi",
-      "details": "文淵閣四庫全書補遺",
-      "types": [
-        "image"
-      ]
-    },
-    {
       "id": "wikimedia-commons-wenyuange",
-      "name": "Wikimedia Commons",
-      "short_name": "維基共享·文淵閣",
+      "name": "Wikimedia Commons · 文淵閣四庫全書",
+      "short_name": "維基共享",
       "url": "https://commons.wikimedia.org/wiki/Category:Wenyuange_Siku_Quanshu",
-      "details": "Wenyuange_Siku_Quanshu 主分類 1488 個 DjVu 文件（經 236 / 史 450 / 子 367 / 集 435），浙大數位化、維基文庫專題搬運，覆蓋接近全套",
+      "details": "Wenyuange_Siku_Quanshu 主分類 1488 個 DjVu 文件（經 236 / 史 450 / 子 367 / 集 435），浙大數位化、維基文庫專題搬運，覆蓋接近全套。分冊與書名對應關係詳見維基文庫專題頁：https://zh.wikisource.org/zh/Wikisource:专题/影印书籍上传/四庫全書/文淵閣四庫全書",
       "types": [
         "image"
       ]
@@ -75,6 +55,21 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "ia-hank-b-wenyuange-series",
+      "name": "Internet Archive · 浙大 CADAL 散卷",
+      "short_name": "IA·浙大散卷",
+      "url": "https://archive.org/search?query=uploader%3A%22hank_b%22+%E6%AC%BD%E5%AE%9A%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8",
+      "details": "Internet Archive 上 hank_b 用戶（浙江大學 CADAL 項目）2009 年起上傳的「欽定四庫全書·文淵閣本」浙大 600dpi 掃描散卷系列，編號為 06xxxxx.cn（如 06047210.cn 切韻指掌圖、06057589.cn 考證、06061300.cn 總目、06064237.cn 簡明目錄 等），按書分段連續上傳，覆蓋全套 1488+ 文件。本連結為 hank_b 上傳的欽定四庫全書 items 搜索結果頁。",
+      "types": [
+        "image"
+      ],
+      "volumes": {
+        "url_template": "https://archive.org/details/{n}.cn",
+        "id_format": "8-digit zero-padded (06xxxxx)",
+        "note": "全套按書分段連續上傳，編號約 06000000-06090000 範圍內某些段。具體分段：總目 06061300-06061498（199 冊）/ 簡明目錄 06064237-06064246（10 冊）/ 考證 06057589-06057654（66 冊）/ 經部小學類含 06047210 切韻指掌圖 等。"
+      }
     }
   ],
   "sources": [],
@@ -176,6 +171,6 @@
       "note": "文字早於定本《總目》（屬「閣本提要」階段），文淵/文津/文溯三閣互有歧異。研究參吳格、廖申白《文淵、文溯、文津三閣書前提要文字比勘》。"
     }
   ],
-  "revision": "1.0.0",
+  "revision": "1.0.1",
   "revised_at": "2026-05-17"
 }
