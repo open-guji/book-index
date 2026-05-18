@@ -61,28 +61,46 @@
       "name": "Internet Archive · 浙大 CADAL 散卷",
       "short_name": "IA·浙大散卷",
       "url": "https://archive.org/search?query=collection%3Auniversallibrary+%E6%AC%BD%E5%AE%9A%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8",
-      "details": "Internet Archive collection \"universallibrary\"（浙江大學 CADAL 項目，hank_b 上傳）所含「欽定四庫全書·文淵閣本」散卷，共約 30762 個 .cn 文件，編號範圍 06040004.cn ~ 06082337.cn。按書分段連續上傳，每 item 對應某書一冊（含目錄/卷次）。本連結為按 \"欽定四庫全書\" 標題搜索的入口頁。",
+      "details": "Internet Archive collection \"universallibrary\"（浙江大學 CADAL 項目，hank_b 上傳 2009-10 起）所含「欽定四庫全書·文淵閣本」散卷掃描，已抓全：30762 個 IA items（每 item 為某書一冊，含若干卷次），覆蓋 2590 種書，四部分布：經部 4954、史部 9537、子部 7049、集部 8961 items。每 item 600ppi 掃描 + tesseract OCR + PDF 全文。元數據完整：title、creator、subject（四庫部類）、description、imagecount 等 100% 覆蓋。",
       "types": [
         "image"
       ],
       "volumes": {
         "url_template": "https://archive.org/details/{n}.cn",
         "id_format": "8-digit zero-padded (06xxxxxx)",
-        "range_start": 6040004,
-        "range_end": 6082337,
+        "range_start": 6040001,
+        "range_end": 6082340,
         "item_count": 30762,
-        "collection": "universallibrary",
-        "uploader": "hank_b",
-        "scanner": "浙江大學 CADAL",
-        "upload_date": "2009-10-11 起",
-        "known_segments": {
-          "總目": "06061300 - 06061498（200 卷另卷首 4 卷拆 199 冊）",
-          "簡明目錄": "06064237 - 06064246（20 卷拆 10 冊）",
-          "考證": "06057589 - 06057654（100 卷拆 66 冊）",
-          "經部·小學類": "含 06047210 切韻指掌圖 等"
+        "book_count": 2590,
+        "spec_distribution": {
+          "經部": 4954,
+          "史部": 9537,
+          "子部": 7049,
+          "集部": 8961,
+          "未分類": 261
         },
-        "metadata_cache": "tmp/ia_wenyuange/wenyuange_all.csv（已拉 10000 條，IA 默認 deep scroll 上限）",
-        "note": "使用 IA advancedsearch API 可批量拉 metadata: https://archive.org/advancedsearch.php?q=collection%3Auniversallibrary+%E6%AC%BD%E5%AE%9A%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8&output=json"
+        "collection": "universallibrary",
+        "uploader": "hank@archive.org",
+        "scanner": "浙江大學 CADAL",
+        "ppi": 600,
+        "sponsor": "China-America Digital Academic Library (CADAL)",
+        "upload_date": "2009-10-11 起",
+        "sample_books": {
+          "總目（99 冊）": "06061300 起",
+          "簡明目錄（10 冊）": "06064237 起",
+          "考證（66 冊）": "06057589 起",
+          "史記（44 冊）": "06054495 起",
+          "宋史（192 冊）": "06059068 起",
+          "冊府元龜（363 冊）": "06065203 起",
+          "資治通鑑（139 冊）": "06057069 起",
+          "說文解字（8 冊）": "06050615 起"
+        },
+        "metadata_cache": {
+          "json": "book-index-draft/tmp/ia_wenyuange/wenyuange_full.json（30762 條完整 metadata）",
+          "csv": "book-index-draft/tmp/ia_wenyuange/wenyuange_full.csv",
+          "book_index": "book-index-draft/tmp/ia_wenyuange/wenyuange_book_to_ids.json（書名 → identifier 數組）"
+        },
+        "api_ref": "https://archive.org/services/search/v1/scrape?q=collection%3Auniversallibrary+%E6%AC%BD%E5%AE%9A%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8"
       }
     }
   ],
@@ -185,6 +203,6 @@
       "note": "文字早於定本《總目》（屬「閣本提要」階段），文淵/文津/文溯三閣互有歧異。研究參吳格、廖申白《文淵、文溯、文津三閣書前提要文字比勘》。"
     }
   ],
-  "revision": "1.0.2",
+  "revision": "1.0.3",
   "revised_at": "2026-05-17"
 }
