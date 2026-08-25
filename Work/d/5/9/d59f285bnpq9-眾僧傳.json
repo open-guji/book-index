@@ -50,13 +50,13 @@
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《隋書經籍志》（唐長孫無忌等，成於顯慶元年（656）），故不晚於 sui-tang",
   "period": "nanbeichao",
   "period_basis": "撰人朝代闕，據其 Entity「裴子野」之 period 傳播；上限 sui-tang 覆驗不相斥（2026-08-22 C1）",
-  "ai_note": "N4 撰人朝代回填（2026-08-24）：authors[].dynasty 原闕而其 entity 已有其代，今取之——「核人不核書」，定人之代則其書之代隨定。判據記於 authors[].dynasty_basis。\n\n2026-08-24 production 內異體重出併：自 `d59f286ocqgz`《衆僧傳》併入——焦竑《國史經籍志》「《衆僧傳》二十卷（裴子毀）」，「衆」「眾」異體同字，「裴子毀」乃裴子野之形訛（毀／野形近；同題同卷數二十卷，隋志明著裴子野撰）。",
-  "revision": "1.0.1",
-  "revised_at": "2026-08-24",
+  "ai_note": "N4 撰人朝代回填（2026-08-24）：authors[].dynasty 原闕而其 entity 已有其代，今取之——「核人不核書」，定人之代則其書之代隨定。判據記於 authors[].dynasty_basis。\n\n2026-08-24 production 內異體重出併：自 `d59f286ocqgz`《衆僧傳》併入——焦竑《國史經籍志》「《衆僧傳》二十卷（裴子毀）」，「衆」「眾」異體同字，「裴子毀」乃裴子野之形訛（毀／野形近；同題同卷數二十卷，隋志明著裴子野撰）。\n\n2026-08-25 修 `merged_from` 自指：本欄舊填自身之 id（`d59f285bnpq9`），當記被併者。被併者之真 id 由 `8c91e098`（異體歸正對側：六組併）所刪之 production 檔取回，並與 promotions.json 之歷史相印證——`d59f286ocqgz`《衆僧傳》，其 draft 記錄今皆改指本條。",
+  "revision": "1.0.2",
+  "revised_at": "2026-08-25",
   "additional_titles": [
     "衆僧傳"
   ],
   "merged_from": [
-    "d59f285bnpq9"
+    "d59f286ocqgz"
   ]
 }
