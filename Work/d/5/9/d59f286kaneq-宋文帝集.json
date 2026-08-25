@@ -57,12 +57,15 @@
     }
   ],
   "measure_info": "十卷",
-  "ai_note": "本條之 work 於整理本匯入時鑄有 id 而未生成檔案，今據該志整理本 集類#1103 補建。　前有類序「右晉」，次《宋武帝集》，是宋文帝。\n\n2026-08-18 全庫同名異書核對：併入新唐書藝文志同卷數（十卷）裸題「文帝集」（context 確認同為劉宋文帝），並補撰人劉義隆，本庫無同名 entity，未繫。\n\n2026-08-25 無斷代批次合併（plan_3.json 判、主進程執行）：《宋文帝集》：題名自著撰人（宋文帝＝劉義隆），draft 條出隋志七卷／舊唐志十卷而不著撰人，production 條出國史＋新唐志十卷繫劉義隆，一書重出。（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）",
+  "ai_note": "本條之 work 於整理本匯入時鑄有 id 而未生成檔案，今據該志整理本 集類#1103 補建。　前有類序「右晉」，次《宋武帝集》，是宋文帝。\n\n2026-08-18 全庫同名異書核對：併入新唐書藝文志同卷數（十卷）裸題「文帝集」（context 確認同為劉宋文帝），並補撰人劉義隆，本庫無同名 entity，未繫。\n\n2026-08-25 無斷代批次合併（plan_3.json 判、主進程執行）：《宋文帝集》：題名自著撰人（宋文帝＝劉義隆），draft 條出隋志七卷／舊唐志十卷而不著撰人，production 條出國史＋新唐志十卷繫劉義隆，一書重出。（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）\n\n2026-08-25 補 `merged_from`：`1evcmobnzc1ds` 併入本條之際，merge_ib 未寫此欄（已記於 known-issues），今補——不補則來歷失載，且 E07 見同題二 id 而不知其為併。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "dynasty": "南朝宋",
   "dynasty_basis": "author_propagation:唯一作者朝代",
   "period": "nanbeichao",
   "period_basis": "據 authors[0].dynasty「南朝宋」",
-  "revision": "1.0.1",
-  "revised_at": "2026-08-24"
+  "revision": "1.0.2",
+  "revised_at": "2026-08-24",
+  "merged_from": [
+    "1evcmobnzc1ds"
+  ]
 }

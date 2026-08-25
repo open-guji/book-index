@@ -50,10 +50,13 @@
   "dynasty_basis": "author_propagation:唯一作者朝代",
   "period": "nanbeichao",
   "period_basis": "據 authors[0].dynasty「南朝梁」",
-  "ai_note": "\n\n2026-08-19 全庫同名異書核對：本條為梁蕃《周易文句義疏》二十卷，與同志陸德明《周易文句義疏》二十四卷（`1evcpcsw8t3wg`）撰人、卷數俱異，非一書，未予合併。\n\n2026-08-25 無斷代批次合併（plan_2.json 判、主進程執行）：周易文句義疏：國史經籍志作「梁□」即梁蕃，卷數同為二十卷（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）",
-  "revision": "1.0.1",
+  "ai_note": "\n\n2026-08-19 全庫同名異書核對：本條為梁蕃《周易文句義疏》二十卷，與同志陸德明《周易文句義疏》二十四卷（`1evcpcsw8t3wg`）撰人、卷數俱異，非一書，未予合併。\n\n2026-08-25 無斷代批次合併（plan_2.json 判、主進程執行）：周易文句義疏：國史經籍志作「梁□」即梁蕃，卷數同為二十卷（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）\n\n2026-08-25 補 `merged_from`：`1evgoparw2ebk` 併入本條之際，merge_ib 未寫此欄（已記於 known-issues），今補——不補則來歷失載，且 E07 見同題二 id 而不知其為併。",
+  "revision": "1.0.2",
   "revised_at": "2026-08-24",
   "additional_titles": [
     "周易文句義䟽"
+  ],
+  "merged_from": [
+    "1evgoparw2ebk"
   ]
 }

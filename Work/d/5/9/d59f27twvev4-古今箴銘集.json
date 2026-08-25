@@ -59,7 +59,7 @@
   "period_basis": "據 authors[0].dynasty「東晉」（原作籠統「晉」，2026-08-11 晉朝探勘分期第一階段訂正：《列子注》作者，東晉人）",
   "dynasty": "東晉",
   "dynasty_basis": "entity_propagation",
-  "ai_note": "[ming-round1: 誤入明：移出 period=ming→jin, dynasty=晉（kind=entity_misclass）] [ming-round1: author(張湛) dynasty null→晉 (依 Entity)]\n\n2026-08-10 撰人字首式重出候選覆核：1evcs17hjn56o（撰人折入題名之異寫）併入本條（同題同撰人）。\n\n2026-08-24 J5 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 無斷代批次合併（plan_5.json 判、主進程執行）：古今箴銘集：國史經籍志撰人欄作「三洪秦」（碎語），與隋志張湛本同為十四卷（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）",
+  "ai_note": "[ming-round1: 誤入明：移出 period=ming→jin, dynasty=晉（kind=entity_misclass）] [ming-round1: author(張湛) dynasty null→晉 (依 Entity)]\n\n2026-08-10 撰人字首式重出候選覆核：1evcs17hjn56o（撰人折入題名之異寫）併入本條（同題同撰人）。\n\n2026-08-24 J5 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 無斷代批次合併（plan_5.json 判、主進程執行）：古今箴銘集：國史經籍志撰人欄作「三洪秦」（碎語），與隋志張湛本同為十四卷（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）\n\n2026-08-25 補 `merged_from`：`1evgqg4ffj9c0` 併入本條之際，merge_ib 未寫此欄（已記於 known-issues），今補——不補則來歷失載，且 E07 見同題二 id 而不知其為併。",
   "emendated_by": [],
   "books": [],
   "related_works": [],
@@ -72,6 +72,9 @@
       "新唐書藝文志"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-08-24"
+  "revision": "1.0.2",
+  "revised_at": "2026-08-24",
+  "merged_from": [
+    "1evgqg4ffj9c0"
+  ]
 }

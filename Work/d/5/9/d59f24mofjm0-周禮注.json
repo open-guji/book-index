@@ -33,7 +33,7 @@
     "number": 12
   },
   "measure_info": "十二卷",
-  "ai_note": "2026-08-24 磁鐵 N1 別出：直齋書錄解題 禮類 第 14 節《周禮注》十二卷。其母條第 13 節《周禮》十二卷留繫 1evr5e3mjd14n。period／loss_status／entity_id 依 N1 之例不繫。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ex0j802hpbsx` 不同（authors）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-08-25 無斷代批次合併（plan_1.json 判、主進程執行）：《周禮注》，本條所繫書目答問語明作「鄭注，附《釋文》」，即鄭玄《周禮注》十二卷之清刻本，與存留條（鄭康成周禮注十二卷）同書；本條實是版本著錄。（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）",
+  "ai_note": "2026-08-24 磁鐵 N1 別出：直齋書錄解題 禮類 第 14 節《周禮注》十二卷。其母條第 13 節《周禮》十二卷留繫 1evr5e3mjd14n。period／loss_status／entity_id 依 N1 之例不繫。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ex0j802hpbsx` 不同（authors）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-08-25 無斷代批次合併（plan_1.json 判、主進程執行）：《周禮注》，本條所繫書目答問語明作「鄭注，附《釋文》」，即鄭玄《周禮注》十二卷之清刻本，與存留條（鄭康成周禮注十二卷）同書；本條實是版本著錄。（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）\n\n2026-08-25 補 `merged_from`：`1evincctgq58g` 併入本條之際，merge_ib 未寫此欄（已記於 known-issues），今補——不補則來歷失載，且 E07 見同題二 id 而不知其為併。",
   "related_works": [
     {
       "id": "d59f1ioc6m0w",
@@ -46,6 +46,9 @@
   "period": "qin-han",
   "period_basis": "漢鄭康成（鄭玄）撰（2026-08-24 R3 引文定代）",
   "updated_at": "2026-08-24T09:25:53.590831+00:00",
-  "revision": "1.1.1",
-  "revised_at": "2026-08-24"
+  "revision": "1.1.2",
+  "revised_at": "2026-08-24",
+  "merged_from": [
+    "1evincctgq58g"
+  ]
 }

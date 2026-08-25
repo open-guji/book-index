@@ -56,7 +56,7 @@
       "name_basis": "2026-08-24 補繫 entity：本條 authors 舊有名「賈公彥」而無 entity_id，今繫 `1j96haa0o3wu8`——庫中 primary_name 同之者唯一。其代「唐」與本書已定之代「sui-tang」相合。"
     }
   ],
-  "ai_note": "作者「唐賈公彥撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjy7t83lo8w 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 索引中尚有同名異書：1evcpctet46ww()（不同作者，故新建獨立 Work）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（五十卷），今據以補。\n\n2026-08-25 無斷代批次合併（plan_3.json 判、主進程執行）：《儀禮疏》五十卷：崇文總目裸題五十卷，與 production 賈公彥《儀禮疏》五十卷（兩唐志明著「賈公彥撰」）卷數全合；唐以下《儀禮疏》五十卷惟賈氏一部。（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）",
+  "ai_note": "作者「唐賈公彥撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjy7t83lo8w 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 索引中尚有同名異書：1evcpctet46ww()（不同作者，故新建獨立 Work）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（五十卷），今據以補。\n\n2026-08-25 無斷代批次合併（plan_3.json 判、主進程執行）：《儀禮疏》五十卷：崇文總目裸題五十卷，與 production 賈公彥《儀禮疏》五十卷（兩唐志明著「賈公彥撰」）卷數全合；唐以下《儀禮疏》五十卷惟賈氏一部。（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）\n\n2026-08-25 補 `merged_from`：`1evr5e3mfaxw4` 併入本條之際，merge_ib 未寫此欄（已記於 known-issues），今補——不補則來歷失載，且 E07 見同題二 id 而不知其為併。",
   "description": {
     "text": "本書收入《中華再造善本》明清編（ZHSY100464）。清黃氏士禮居影宋抄本。",
     "sources": [
@@ -90,9 +90,12 @@
     }
   ],
   "measure_info": "五十卷",
-  "revision": "1.0.1",
+  "revision": "1.0.2",
   "revised_at": "2026-08-24",
   "additional_titles": [
     "儀禮䟽"
+  ],
+  "merged_from": [
+    "1evr5e3mfaxw4"
   ]
 }

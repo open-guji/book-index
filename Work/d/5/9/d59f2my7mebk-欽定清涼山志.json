@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjr1ny7fmyo(影印遼寧省圖書館藏清乾隆武英殿刻本)（不同作者，故新建獨立 Work）。\n\n2026-08-25 無斷代批次合併（plan_3.json 判、主進程執行）：《欽定清涼山志》：二條同為武英殿本欽定之書，draft 條不著撰人而 production 繫高宗乾隆敕輯；「欽定」即敕撰之標，卷數異（二十二／八）不足以判二書。production 條 ai_note 所云「不同作者故新建」係機械之誤（draft 實無撰人）。（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjr1ny7fmyo(影印遼寧省圖書館藏清乾隆武英殿刻本)（不同作者，故新建獨立 Work）。\n\n2026-08-25 無斷代批次合併（plan_3.json 判、主進程執行）：《欽定清涼山志》：二條同為武英殿本欽定之書，draft 條不著撰人而 production 繫高宗乾隆敕輯；「欽定」即敕撰之標，卷數異（二十二／八）不足以判二書。production 條 ai_note 所云「不同作者故新建」係機械之誤（draft 實無撰人）。（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）\n\n2026-08-25 跨庫併之善後：上文所提之 draft 條目 `1evjr1ny7fmyo` 今已併入 `d59f2my7mebk`。上文繫年之語不改——那是當日之記錄；此行止為指其今之所在。\n\n2026-08-25 補 `merged_from`：`1evjr1ny7fmyo` 併入本條之際，merge_ib 未寫此欄（已記於 known-issues），今補——不補則來歷失載，且 E07 見同題二 id 而不知其為併。",
   "juan_count": {
     "number": 8
   },
@@ -38,7 +38,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
+  "revision": "1.0.2",
   "revised_at": "2026-08-24",
   "indexed_by": [
     {
@@ -51,5 +51,8 @@
       "volume": "第722冊",
       "section": "史部 史部"
     }
+  ],
+  "merged_from": [
+    "1evjr1ny7fmyo"
   ]
 }
