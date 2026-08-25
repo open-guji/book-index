@@ -8,6 +8,12 @@
       "source_bid": "d59f2gdp696q",
       "title_info": "《高郵志》",
       "summary": "孫祖義《高郵志》三卷宇文紹奕"
+    },
+    {
+      "source": "直齋書錄解題",
+      "source_bid": "d59f2htm01du",
+      "summary": "高郵志》三卷、《續修",
+      "merged_from": "d59f2q4lsmpt"
     }
   ],
   "id": "d59f2og6qznk",
@@ -27,6 +33,8 @@
   "dynasty": "宋",
   "period": "song",
   "period_basis": "2026-08-25 period未定批次 3.1：撰人「孫祖義」（entity 1j967da97jlzs）已定代「宋」，且與本條 period_upper（song）相容，據以定代。",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.0.2",
+  "revised_at": "2026-08-24",
+  "ai_note": "2026-08-25 無斷代批次收尾：併入 production 內同題重出 `d59f2q4lsmpt`（直齋書錄解題）。二者同指孫祖義《高郵志》三卷——直齋該節之解題作「興化縣主簿孫祖義撰。郡守趙不慚刻之。淳熙四五年間也……嘉定中，守汪綱再修」，與宋志「孫祖義《高郵志》三卷」全合。（併入條原 juan_count 作 10，係其著錄語「高郵志》三卷、《續修」之截斷枚舉所誤帶，不取。）\n\n2026-08-25 補記並條之痕：本條併入 production 內同題重出 `d59f2q4lsmpt` 時漏寫 `merged_from`，致 validate-promotions 之 E07 把「一 production id 為二 draft 記錄所指」誤判為撞號（E07 之判準正是「存者若全無 merged_from 即斷為撞號」，見 promotion.py:509）。今補記於頂層與所併入之直齋節。**工具缺口**：`curate_lib.merge_ib` 不寫此欄，故凡手工作 production 內並條者皆須自行補記。",
+  "merged_from": "d59f2q4lsmpt"
 }

@@ -28,6 +28,12 @@
       "summary": "《律疏》三十卷",
       "merged_from": "1evgpino3ayo0",
       "note": "兩唐志、宋史藝文志與國史經籍志所著《律疏》為一書，今合併。"
+    },
+    {
+      "source": "崇文總目",
+      "source_bid": "d59f2hqc0c1t",
+      "title_info": "律䟽三十卷",
+      "summary": "律䟽三十卷"
     }
   ],
   "id": "d59f28l5bt34",
@@ -42,7 +48,7 @@
     }
   ],
   "measure_info": "三十卷",
-  "ai_note": "2026-08-19 全庫同名異書核對：兩唐志、宋史藝文志、國史經籍志同著《律疏》，係一書互著（或重出），今合併。",
+  "ai_note": "2026-08-19 全庫同名異書核對：兩唐志、宋史藝文志、國史經籍志同著《律疏》，係一書互著（或重出），今合併。\n\n2026-08-25 無斷代批次合併（plan_4.json 判、主進程執行）：《律疏》三十卷：唐長孫無忌等撰，崇文條三十卷不著撰人，卷數全合（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）",
   "authors": [
     {
       "name": "長孫無忌",
@@ -56,6 +62,9 @@
   "dynasty_basis": "author_propagation:唯一作者朝代",
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「唐」——撰人自《舊唐書經籍志》著錄語尾名抽出（見 authors[].name_basis）。本條原上限 sui-tang，今得撰人，定作 sui-tang。",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "revision": "1.0.1",
+  "revised_at": "2026-08-24",
+  "additional_titles": [
+    "律䟽"
+  ]
 }
