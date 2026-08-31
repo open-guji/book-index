@@ -2,6 +2,7 @@
   "schema_version": 1,
   "id": "d59f2o2mjq4i",
   "type": "work",
+  "subtype": "chapter",
   "title": "補遼史經籍志",
   "authors": [
     {
@@ -45,7 +46,7 @@
       "volume_index": "第21卷"
     }
   ],
-  "ai_note": "清代著作，收入《二十五史藝文經籍志考補萃編》第21卷。\n\n2026-08-31 試點建Book時發現：本條實為《遼史拾遺》（`d59f2mc80kqp`，已有完整Work記錄及多種版本資源）卷十六之抽出別行，補 part_of 關聯；本條資源（維基文庫卷十六連結）保留，但正式版本資訊（刻本/四庫本等）之 Book 記錄應建於母書 `d59f2mc80kqp`，不在本條重複建立。",
+  "ai_note": "清代著作，收入《二十五史藝文經籍志考補萃編》第21卷。\n\n2026-08-31 試點建Book時發現：本條實為《遼史拾遺》（`d59f2mc80kqp`，已有完整Work記錄及多種版本資源）卷十六之抽出別行，補 part_of 關聯；本條資源（維基文庫卷十六連結）保留，但正式版本資訊（刻本/四庫本等）之 Book 記錄應建於母書 `d59f2mc80kqp`，不在本條重複建立。\n\n2026-08-31 補 subtype=chapter：本條有 related_works.relation=part_of 指向母書《遼史拾遺》(d59f2mc80kqp)，依SCHEMA判定規則（明確是書中一章且被單獨索引→chapter）應標為 chapter，非預設之 book。",
   "related_works": [
     {
       "id": "d59f2gosq0ht",
