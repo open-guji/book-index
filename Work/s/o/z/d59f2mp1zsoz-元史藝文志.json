@@ -81,7 +81,7 @@
       "volume_index": "第22卷"
     }
   ],
-  "ai_note": "清代著作，收入《二十五史藝文經籍志考補萃編》第22卷。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ev3bbfapa39c` 已併入 `d59f2ni4xukk`（《名公書判清明集》：輯宋元人判語之書，題名獨一，明張四維校刻；十七卷本與十四卷本同書），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。",
+  "ai_note": "清代著作，收入《二十五史藝文經籍志考補萃編》第22卷。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ev3bbfapa39c` 已併入 `d59f2ni4xukk`（《名公書判清明集》：輯宋元人判語之書，題名獨一，明張四維校刻；十七卷本與十四卷本同書），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-31 補繫《二十五史藝文經籍志考補萃編》：據用戶所存書目文檔新建該 Collection（`3lsx40665rfc`），本條為其所收81種之一，今補 related_works（relation: collected_in）回指之。",
   "indexed_by": [
     {
       "source": "續修四庫全書",
@@ -99,6 +99,11 @@
       "id": "d59f2njivtog",
       "title": "元史",
       "relation": "contains_text_of"
+    },
+    {
+      "id": "3lsx40665rfc",
+      "title": "二十五史藝文經籍志考補萃編",
+      "relation": "collected_in"
     }
   ],
   "updated_at": "2026-08-23T00:00:00-07:00",
@@ -106,6 +111,6 @@
   "_has_collated": true,
   "period": "qing",
   "period_basis": "著錄原文自書撰人朝代：《續修四庫全書》「清錢大昕撰」",
-  "revision": "1.0.1",
-  "revised_at": "2026-08-24"
+  "revision": "1.0.2",
+  "revised_at": "2026-08-31"
 }

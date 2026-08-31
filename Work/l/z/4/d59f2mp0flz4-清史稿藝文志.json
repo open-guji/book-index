@@ -44,6 +44,11 @@
       "id": "d59f2mp0flz5",
       "title": "清史稿",
       "relation": "part_of"
+    },
+    {
+      "id": "3lsx40665rfc",
+      "title": "二十五史藝文經籍志考補萃編",
+      "relation": "collected_in"
     }
   ],
   "updated_at": "2026-08-09T10:40:18+00:00",
@@ -54,7 +59,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-08-24",
-  "ai_note": "\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evr5e3mezpe1` 已併入 `d59f27w45oub`（《符子》，清史稿藝文志輯佚類著「苻朗《符子》一卷」，苻朗即存留條之撰人符朗，存留條已繫玉函山房輯佚書，正是此輯本。），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。"
+  "revision": "1.0.2",
+  "revised_at": "2026-08-31",
+  "ai_note": "\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evr5e3mezpe1` 已併入 `d59f27w45oub`（《符子》，清史稿藝文志輯佚類著「苻朗《符子》一卷」，苻朗即存留條之撰人符朗，存留條已繫玉函山房輯佚書，正是此輯本。），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-31 補繫《二十五史藝文經籍志考補萃編》：據用戶所存書目文檔新建該 Collection（`3lsx40665rfc`），本條為其所收81種之一，今補 related_works（relation: collected_in）回指之。"
 }

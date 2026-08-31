@@ -69,9 +69,14 @@
       "id": "d59f2htqolj5",
       "title": "新唐書",
       "relation": "part_of"
+    },
+    {
+      "id": "3lsx40665rfc",
+      "title": "二十五史藝文經籍志考補萃編",
+      "relation": "collected_in"
     }
   ],
-  "ai_note": "原有非 schema 之頂層欄位 part_of，今改記為 related_works 之 part_of 關係。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evr5e3mfxf2j` 已併入 `d59f28jbgqh2`（《採茶錄》：唐溫庭筠撰，新唐志本作「又採茶錄一卷」承其上條，崇文條亦不著撰人），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ex0jdj6f7fgh` 已併入 `d59f28lyzcp1`（唐循資格：崇文總目、新唐志之無撰人本，與宋志、國史經籍志王涯本同為一卷），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：上文所提之 draft 條目 `1ex0jdj6f7fgh` 今已併入 `d59f28lyzcp1`。上文繫年之語不改——那是當日之記錄；此行止為指其今之所在。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evcpd8gdjf9c` 已併入 `d59f28j5j85j`（丘悅集：舊唐志、新唐志十卷與國史經籍志「丘恱集」十卷，悅／恱異體，同書），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。",
+  "ai_note": "原有非 schema 之頂層欄位 part_of，今改記為 related_works 之 part_of 關係。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evr5e3mfxf2j` 已併入 `d59f28jbgqh2`（《採茶錄》：唐溫庭筠撰，新唐志本作「又採茶錄一卷」承其上條，崇文條亦不著撰人），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ex0jdj6f7fgh` 已併入 `d59f28lyzcp1`（唐循資格：崇文總目、新唐志之無撰人本，與宋志、國史經籍志王涯本同為一卷），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：上文所提之 draft 條目 `1ex0jdj6f7fgh` 今已併入 `d59f28lyzcp1`。上文繫年之語不改——那是當日之記錄；此行止為指其今之所在。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evcpd8gdjf9c` 已併入 `d59f28j5j85j`（丘悅集：舊唐志、新唐志十卷與國史經籍志「丘恱集」十卷，悅／恱異體，同書），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-31 補繫《二十五史藝文經籍志考補萃編》：據用戶所存書目文檔新建該 Collection（`3lsx40665rfc`），本條為其所收81種之一，今補 related_works（relation: collected_in）回指之。",
   "updated_at": "2026-08-23T00:00:00-07:00",
   "_has_collated": true,
   "_has_text": true,
@@ -80,6 +85,6 @@
   "period_basis": "撰人 Entity 之代：歐陽修（北宋）——同人名下他書 {'song': 296} 佐證一致",
   "dynasty": "北宋",
   "dynasty_basis": "2026-08-25 宋代G5b 殘餘逐條斷代（依 2026-08-25 用戶裁定：按成年／成熟年代歸屬，難決歸宋）：歐陽修、宋祁。",
-  "revision": "1.0.1",
-  "revised_at": "2026-08-24"
+  "revision": "1.0.2",
+  "revised_at": "2026-08-31"
 }
