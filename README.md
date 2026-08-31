@@ -1,5 +1,26 @@
 # 书本索引系统核心概念说明
 
+> ## ⚠ 文本已遷出（2026-08-26）
+>
+> 整理本（`collated_edition`）、輯佚（`fragments`）、全文（`full_text`）、
+> 抓取素材（`ctext`／`source_text`）已遷入 **[`book-text`](https://github.com/open-guji/book-text)**，
+> 本倉自此**只存元資料**（Work／Book／Collection／Entity 條目、`index/`、`promotions.json`）。
+>
+> **凡寫文本者當寫 book-text。** 本倉之資產目錄已刪淨；寫在這裡的東西
+> 下一次合流就會消失——遷移當日即已發生一次：另一條車道在舊 checkout 上做完
+> 《後漢藝文志》佛經磁鐵切分寫回本倉，合流時取了刪除，其繫連隨之而去，
+> 事後自 commit 裡撈回（book-text `642a6fa`）。
+>
+> 兩倉靠**同一套 snowflake ID** 互指。由 id 推路徑一律經
+> `book_index_manager.storage.shard_dirs`（取 id **尾**三字元三級），三倉同一函式。
+>
+> 跨倉之驗：`book-index-draft/.claude/skills/hanzhi-curation/scripts/chk-cross.py`
+> `--text-root ../book-text --meta ../book-index`。
+> **每一驗都印其掃了幾檔**——掃 0 檔之驗與全過之驗輸出一模一樣。
+>
+> 書影（`images`，87 MB）另移往 `overview/书影/`，落腳點待定。
+
+
 本系统通过建立一套标准化的 ID 体系，旨在解决古籍及现代文献在数字化过程中面临的层级归属复杂、版本关联困难等问题。系统核心由以下三个概念组成：
 
 ## 一、 核心概念定义

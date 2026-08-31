@@ -16,6 +16,19 @@
       "source_bid": "d59f2mp1zsox",
       "title_info": "項壘山中言志前後續集八卷",
       "summary": "元項壘山中言志前後續集八卷"
+    },
+    {
+      "source": "元史藝文志",
+      "source_bid": "d59f2mp1zsoz",
+      "title_info": "項壘山中言志前後續集八卷",
+      "summary": "元項壘山中言志前後續集八卷"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "項壘山中言志前後續集",
+      "author_info": "字彦高龍興人與石抹宜孫劉基相倡和",
+      "summary": "項壘山中言志前後續集⟨字彦高龍興人與石抹宜孫劉基相倡和⟩"
     }
   ],
   "juan_count": {
@@ -34,13 +47,23 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-31 HBCC對比第十二輪任務二：回查book-text元史藝文志（d59f2mp1zsoz）全文.md原文「元項壘山中言志前後續集八卷」，確認即HBCC absent候選「山中言志 8卷 (元)項壘撰」（HBCC節略書名），補元史藝文志索引節。另發現draft側重出殘題「山中言志前後續集共」（1ex1kcmqo8ah5，源出千頃堂書目，題末衍「共」字），一併合併。",
   "description": {
     "text": "項壘（元）撰。八卷。見著錄於《補遼金元藝文志》。其著錄之文，《補遼金元藝文志》作「元項壘山中言志前後續集八卷」。本書惟《補遼金元藝文志》一志著錄，別無他證。別集之屬，所收為其人之詩文。",
     "sources": [
       "補遼金元藝文志"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.0.1",
+  "revised_at": "2026-08-31",
+  "merged_in": [
+    {
+      "id": "1ex1kcmqo8ah5",
+      "title": "山中言志前後續集共",
+      "indexed_by_moved": [
+        "千頃堂書目"
+      ],
+      "note": "2026-08-31 HBCC對比第十二輪任務二：千頃堂書目批次匯入之重出殘題（題末衍「共」字，撰人項壘、卷數8全合），合併並補入千頃堂書目索引節（清除衍字）。"
+    }
+  ]
 }

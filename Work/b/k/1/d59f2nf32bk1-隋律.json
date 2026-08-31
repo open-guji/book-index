@@ -4,11 +4,11 @@
   "title": "隋律",
   "authors": [
     {
-      "name": "高頴",
+      "name": "高熲",
       "role": "撰",
       "entity_id": "hixhd2h9bhu8",
-      "dynasty": "明",
-      "dynasty_basis": "entity_propagation:1j96a3rlxwt92（J21 S5 收尾）"
+      "dynasty": "隋",
+      "dynasty_basis": "entity_propagation:hixhd2h9bhu8（2026-08-27 訂正 entity 之代後同步；原據之 entity dynasty「明」係 CBDB c_personid 308625 同名異代誤配，見該 entity ai_note）"
     }
   ],
   "juan_count": {
@@ -21,6 +21,26 @@
       "title_info": "《隋律》十二卷",
       "summary": "《隋律》十二卷（高頴等）",
       "author_info": "高頴等"
+    },
+    {
+      "source": "隋書經籍志",
+      "source_bid": "d59f28nmafwh",
+      "title_info": "《隋律》十二卷",
+      "summary": "《隋律》十二卷",
+      "note": "2026-08-26 雙向鏈回補：本志整理本繫本條而 work 側未記，今補。"
+    },
+    {
+      "source": "舊唐書經籍志",
+      "source_bid": "d59f2gcburcx",
+      "title_info": "《隋律》十二卷",
+      "summary": "《隋律》十二卷高熲等撰。",
+      "note": "2026-08-26 雙向鏈回補：本志整理本繫本條而 work 側未記，今補。"
+    },
+    {
+      "source": "新唐書藝文志",
+      "source_bid": "d59f2hl0cmio",
+      "title_info": "高熲等隋律",
+      "summary": "高熲等隋律十二卷"
     }
   ],
   "description": {
@@ -29,7 +49,7 @@
       "國史經籍志"
     ]
   },
-  "ai_note": "missing_reason: 短title \"隋律\" 唯一候选无作者\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j96a3rlxwt92`.dynasty「明」propagate 補齊；work.dynasty 同步。",
+  "ai_note": "missing_reason: 短title \"隋律\" 唯一候选无作者\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j96a3rlxwt92`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-08-27 HBCC反向比對衍生審核（任務A）：新唐書藝文志候選「高熲等隋律」（HBCC entry_id 10012021001776：隋律 12卷 (隋)高熲撰 亦見《新唐書·藝文志》）。候選當前撰人作「高頴」，僅見於候選之《國史經籍志》一節（焦竑書，本庫已屢次記其「抄撮舊目而訛誤極多」）；候選自己的《舊唐書經籍志》節原文已作「高熲等撰」，與本條新唐志、《隋書經籍志》節之《隋律》互證之隋代權臣高熲（字昭玄，渤海蓨人，主持修訂《開皇律》，兩唐書皆有傳）相合。訂正撰人拼寫為「高熲」，「高頴」移入既存資料保留（不刪除該節原文）。未覆核原書。",
   "id": "d59f2nf32bk1",
   "measures": [
     {
@@ -38,9 +58,9 @@
     }
   ],
   "measure_info": "十二卷",
-  "updated_at": "2026-08-23T00:00:00-07:00",
-  "period": "ming",
-  "period_basis": "撰人 Entity 之代：高頴（Entity 1j96a3rlxwt92），並經 CBDB c_personid 308625 覆驗相符",
+  "updated_at": "2026-08-27T00:00:00Z",
+  "period": "sui-tang",
+  "period_basis": "2026-08-27 訂正：原判「撰人 Entity 之代：高頴（Entity 1j96a3rlxwt92），並經 CBDB c_personid 308625 覆驗相符」——該 CBDB id 實為明代同名異代人物之誤配，非隋代高熲本人。姊妹著錄《隋吉禮》d59f28ma7w91 已於 2026-08-24 C1 查明並訂正同一誤配（「原判 ming 據CBDB c_personid 308625，係同名異代人物誤配」），本條屬同一撰人漏同步，今據之訂正。《隋書經籍志》《舊唐書經籍志》兩節皆載「高熲等撰」，主修《開皇律》確為隋代事，人書代三者相合。",
   "period_upper": "ming",
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming",
   "emendated_by": [
@@ -52,8 +72,8 @@
       "note": "（2026-08-23 整理本回鏈補記：該整理本之節已繫本 Work 而本 Work 無其著錄，致 chk「整理本繫連而 work 側無記錄」。今補。）"
     }
   ],
-  "dynasty": "明",
-  "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
+  "dynasty": "隋",
+  "dynasty_basis": "據 authors[0].dynasty「隋」（entity propagation，2026-08-27 訂正）",
   "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revised_at": "2026-08-27"
 }
