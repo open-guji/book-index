@@ -34,14 +34,6 @@
       ]
     },
     {
-      "id": "ctext",
-      "name": "CText",
-      "url": "https://ctext.org/wiki.pl?if=en&res=795988",
-      "types": [
-        "text"
-      ]
-    },
-    {
       "name": "识典古籍（新唐書·二十四史本）",
       "id": "shidianguji-ls-xintangshu",
       "url": "https://www.shidianguji.com/book/LS0017",
@@ -72,7 +64,7 @@
       "relation": "part_of"
     }
   ],
-  "ai_note": "原有非 schema 之頂層欄位 part_of，今改記為 related_works 之 part_of 關係。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evr5e3mfxf2j` 已併入 `d59f28jbgqh2`（《採茶錄》：唐溫庭筠撰，新唐志本作「又採茶錄一卷」承其上條，崇文條亦不著撰人），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ex0jdj6f7fgh` 已併入 `d59f28lyzcp1`（唐循資格：崇文總目、新唐志之無撰人本，與宋志、國史經籍志王涯本同為一卷），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：上文所提之 draft 條目 `1ex0jdj6f7fgh` 今已併入 `d59f28lyzcp1`。上文繫年之語不改——那是當日之記錄；此行止為指其今之所在。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evcpd8gdjf9c` 已併入 `d59f28j5j85j`（丘悅集：舊唐志、新唐志十卷與國史經籍志「丘恱集」十卷，悅／恱異體，同書），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-31 補 subtype=chapter：本條有 related_works.relation=part_of 指向母書《新唐書》，依SCHEMA判定規則（明確是書中一章且被單獨索引→chapter）應標為 chapter；參照《漢書藝文志》(d59f23o7ygw2) 先例，chapter層本身仍可正常擁有獨立刊本（Book）。",
+  "ai_note": "原有非 schema 之頂層欄位 part_of，今改記為 related_works 之 part_of 關係。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evr5e3mfxf2j` 已併入 `d59f28jbgqh2`（《採茶錄》：唐溫庭筠撰，新唐志本作「又採茶錄一卷」承其上條，崇文條亦不著撰人），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ex0jdj6f7fgh` 已併入 `d59f28lyzcp1`（唐循資格：崇文總目、新唐志之無撰人本，與宋志、國史經籍志王涯本同為一卷），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：上文所提之 draft 條目 `1ex0jdj6f7fgh` 今已併入 `d59f28lyzcp1`。上文繫年之語不改——那是當日之記錄；此行止為指其今之所在。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evcpd8gdjf9c` 已併入 `d59f28j5j85j`（丘悅集：舊唐志、新唐志十卷與國史經籍志「丘恱集」十卷，悅／恱異體，同書），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-31 補 subtype=chapter：本條有 related_works.relation=part_of 指向母書《新唐書》，依SCHEMA判定規則（明確是書中一章且被單獨索引→chapter）應標為 chapter；參照《漢書藝文志》(d59f23o7ygw2) 先例，chapter層本身仍可正常擁有獨立刊本（Book）。\n\n2026-08-31 資源清理：CText資源(res=795988)經覆核已被ctext.org刪除，予以移除。維基文庫鏈接（卷057）已核實正確。",
   "updated_at": "2026-08-23T00:00:00-07:00",
   "_has_collated": true,
   "_has_text": true,
@@ -88,5 +80,8 @@
       "id": "8rlcsybg2hhh",
       "volume_index": "第48卷"
     }
+  ],
+  "books": [
+    "2vtg6dhw0w"
   ]
 }
