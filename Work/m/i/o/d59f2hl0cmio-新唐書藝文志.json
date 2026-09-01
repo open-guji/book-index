@@ -2,6 +2,7 @@
   "schema_version": 1,
   "id": "d59f2hl0cmio",
   "type": "work",
+  "subtype": "chapter",
   "title": "新唐書·藝文志",
   "description": {
     "text": "北宋歐陽修、宋祁等撰《新唐書》時編入的藝文志，為《新唐書》卷五十七至六十（志第四十七至五十）。以唐《開元四庫書目》為基礎，補入開元以後至五代所著之書，共分甲（經）、乙（史）、丙（子）、丁（集）四部，著錄書目遠多於《舊唐書·經籍志》。與《舊唐書·經籍志》相比，新志增補了大量唐代後期文獻，分類也更為細密，為研究唐代學術文化的重要目錄文獻。",
@@ -71,7 +72,7 @@
       "relation": "part_of"
     }
   ],
-  "ai_note": "原有非 schema 之頂層欄位 part_of，今改記為 related_works 之 part_of 關係。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evr5e3mfxf2j` 已併入 `d59f28jbgqh2`（《採茶錄》：唐溫庭筠撰，新唐志本作「又採茶錄一卷」承其上條，崇文條亦不著撰人），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ex0jdj6f7fgh` 已併入 `d59f28lyzcp1`（唐循資格：崇文總目、新唐志之無撰人本，與宋志、國史經籍志王涯本同為一卷），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：上文所提之 draft 條目 `1ex0jdj6f7fgh` 今已併入 `d59f28lyzcp1`。上文繫年之語不改——那是當日之記錄；此行止為指其今之所在。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evcpd8gdjf9c` 已併入 `d59f28j5j85j`（丘悅集：舊唐志、新唐志十卷與國史經籍志「丘恱集」十卷，悅／恱異體，同書），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。",
+  "ai_note": "原有非 schema 之頂層欄位 part_of，今改記為 related_works 之 part_of 關係。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evr5e3mfxf2j` 已併入 `d59f28jbgqh2`（《採茶錄》：唐溫庭筠撰，新唐志本作「又採茶錄一卷」承其上條，崇文條亦不著撰人），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ex0jdj6f7fgh` 已併入 `d59f28lyzcp1`（唐循資格：崇文總目、新唐志之無撰人本，與宋志、國史經籍志王涯本同為一卷），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：上文所提之 draft 條目 `1ex0jdj6f7fgh` 今已併入 `d59f28lyzcp1`。上文繫年之語不改——那是當日之記錄；此行止為指其今之所在。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evcpd8gdjf9c` 已併入 `d59f28j5j85j`（丘悅集：舊唐志、新唐志十卷與國史經籍志「丘恱集」十卷，悅／恱異體，同書），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-31 補 subtype=chapter：本條有 related_works.relation=part_of 指向母書《新唐書》，依SCHEMA判定規則（明確是書中一章且被單獨索引→chapter）應標為 chapter；參照《漢書藝文志》(d59f23o7ygw2) 先例，chapter層本身仍可正常擁有獨立刊本（Book）。",
   "updated_at": "2026-08-23T00:00:00-07:00",
   "_has_collated": true,
   "_has_text": true,
