@@ -40,11 +40,23 @@
   },
   "resources": [
     {
+      "id": "ia-siku-quanshu-archive-collection-2",
+      "name": "Internet Archive · 四庫全書文淵閣本及續修",
+      "short_name": "IA·續修(全)",
+      "url": "https://archive.org/details/siku-quanshu-archive-collection-2",
+      "details": "續修部分 xuxiushibu/ 下 1759 冊 PDF（缺 41 冊，多在第 1777-1800 冊），約 130 GB。2026-09-03 實測，覆蓋最全。",
+      "types": [
+        "image"
+      ]
+    },
+    {
       "id": "internet-archive",
-      "name": "Internet Archive 全本掃描",
+      "name": "Internet Archive · 续修四库全书",
+      "short_name": "IA·續修(殘)",
       "url": "https://archive.org/details/xuxiu-siku-quanshu",
+      "details": "1393 個 PDF 約 112 GB，但 2026-09-03 實測僅 1315 冊，缺 485 冊（第 1323-1800 冊幾乎整個集部全缺），且為上一資源的完全子集。",
       "metadata": {
-        "total_volumes": 1800,
+        "total_volumes": 1315,
         "format": "PDF"
       },
       "types": [
@@ -72,12 +84,18 @@
       "note": "本叢編（1995-2002 上古社影印）係《續修四庫全書總目提要》（1929-1942 編纂）精神延續；二者書目並非一一對應，但同屬「續修四庫」學術脈絡"
     }
   ],
-  "ai_note": "2026-05-18 ia-xuxiu-zongmu resource 已拆到獨立 Work 1evsx080vs3r4 續修四庫全書總目提要（民國稿本）。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evjr1ny7fmyo` 已併入 `d59f2my7mebk`（《欽定清涼山志》：二條同為武英殿本欽定之書，draft 條不著撰人而 production 繫高宗乾隆敕輯；「欽定」即敕），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。",
+  "ai_note": "2026-05-18 ia-xuxiu-zongmu resource 已拆到獨立 Work 1evsx080vs3r4 續修四庫全書總目提要（民國稿本）。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evjr1ny7fmyo` 已併入 `d59f2my7mebk`（《欽定清涼山志》：二條同為武英殿本欽定之書，draft 條不著撰人而 production 繫高宗乾隆敕輯；「欽定」即敕），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-09-03 (1) 新建 Collection `8rlcxphotse8`（續修四庫全書）並繫 contained_in；(2) 資源訂正：原主資源 xuxiu-siku-quanshu 實測僅 1315/1800 冊、缺整個集部，且為 siku-quanshu-archive-collection-2（1759 冊）的完全子集，故補入後者並降前者次序。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "_has_image": true,
   "_has_collated": true,
   "period": "modern",
   "period_basis": "據 authors[0].dynasty「近代」",
-  "revision": "1.0.1",
-  "revised_at": "2026-08-24"
+  "revision": "1.1.0",
+  "revised_at": "2026-09-03",
+  "contained_in": [
+    {
+      "id": "8rlcxphotse8",
+      "volume_index": ""
+    }
+  ]
 }
