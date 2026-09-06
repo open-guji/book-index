@@ -5,8 +5,8 @@
  ],
  "works": 4582,
  "state": "running",
- "batch": 2,
- "focus": "A 類真斷代錯",
+ "batch": 3,
+ "focus": "D 類 period_upper 相衝",
  "commit": null,
  "counts": {
   "A": {
@@ -23,9 +23,9 @@
   },
   "D": {
    "found": 23,
-   "fixed": 0,
-   "researched": 0,
-   "recorded": 0
+   "fixed": 23,
+   "researched": 5,
+   "recorded": 2
   },
   "E": {
    "found": 5,
@@ -74,6 +74,12 @@
    "fixed": 0,
    "researched": 0,
    "recorded": 0
+  },
+  "M": {
+   "found": 0,
+   "fixed": 58,
+   "researched": 0,
+   "recorded": 0
   }
  },
  "log": [
@@ -91,7 +97,17 @@
    "at": "2026-09-06T11:52:06+00:00",
    "batch": 2,
    "note": "批二：A 類真斷代錯 11 條改期（→song 9、→nanbeichao 1、→qing 1）、6 條「引不存在之值為據」改依著錄立據；entity 4 動（郭茂倩→北宋、趙順孫→南宋、王繪解繫、演說文與雁門集改繫正主）；記疑 3 則。查得 L5 斷代歸一之「確證」循環（56 之 28），已報坑。"
+  },
+  {
+   "at": "2026-09-06T12:01:38+00:00",
+   "batch": 3,
+   "note": "批三：D 類 23 條盡清。型一（同題異書之偽 catalog_bound）12 條撤 period_upper；型二（period 本身錯）11 條改期：→sui-tang 4（博異志、五經對訣、漢書音義、神異書）、→song 7。記疑 2 則，報新檢 4 條。"
+  },
+  {
+   "at": "2026-09-06T12:04:51+00:00",
+   "batch": 3,
+   "note": "批三附：頂層 dynasty 與 authors[0].dynasty 相牴者 58 條補正（PITFALLS 坑 10 所指，L5 只改 authors 未改頂層；索引取頂層）。verify --strict 之單向邊 9 條非本道所生，已記 inbox。"
   }
  ],
- "updated_at": "2026-09-06T11:52:06+00:00"
+ "updated_at": "2026-09-06T12:04:51+00:00"
 }
