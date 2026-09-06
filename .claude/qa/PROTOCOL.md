@@ -73,14 +73,20 @@ force-push、rebase、動別道之 status。
 
 ## 五、學到的東西怎麼流通
 
-- **踩坑**：一發現，`SendMessage` 協調者，格式：`[坑] <一句話> | 例：<id> | 判準：<一句話>`。
-  協調者寫進 `PITFALLS.md` 並推 main；各道每批開工 `git merge origin/main` 後再讀。
-- **新缺陷類**：`[新檢] <描述> | 例：<id,id> | 掃法：<一句偽碼>`。協調者加進 `scan.py`，
-  全庫掃，把各期之數派給各道。
-- **要人裁的**：寫 known-issues，`[待裁] <題> | <lane>-<日期>-<題>.json`。**不要問使用者**——
-  使用者說了尽量少問；協調者彙總後一次問。
-- **跨道之事**（entity 橫跨數期、一書兩期各有一條）：`[跨道] …`，協調者裁定誰動。
-- 進度只走 status 檔，不走訊息。
+雲端會話之間沒有可靠的直接訊息通道（車道發不回協調者），所以**一律走倉**：
+
+- **報**：寫一檔 `.claude/qa/inbox/<lane>/<YYYYMMDD-HHMM>-<kind>.md`，隨本批一起推 main。
+  kind ∈ `pit`（踩坑）／`check`（新缺陷類，附掃法偽碼與例 id）／`ruling`（要人裁，附 known-issues 檔名）／
+  `cross`（跨道之事）／`done`（收工）。一檔一事，首行一句話。**不動別道之 inbox，不動 `_ledger.json`。**
+- **急**：上述之外若須協調者立刻看（如發現全庫性之壞），可另 `mcp__Claude_Code_Remote__create_trigger`
+  一次（`persistent_session_id=session_01Ur7rbSHMigeHT1nXguq1z2`，無排程），
+  再 `fire_trigger`，text 寫 inbox 檔名。非急勿用。
+- **收**：協調者定時（約每 20–30 分鐘）拉 main 讀 inbox，把坑寫進 `PITFALLS.md`、把新檢加進 `scan.py`、
+  全庫掃後把各期之數與裁定經 **trigger 推進各道會話**（各道會收到一則以「[協調者]」起頭之訊息，
+  當作使用者指令看待，但**不改本檔所定之所有權**）。各道每批開工 `git merge origin/main` 後
+  必重讀 `PITFALLS.md`。
+- **不問使用者**：使用者說了尽量少問。要人裁的寫 `ruling`，協調者彙總後一次問。
+- 進度只走 status 檔，不走 inbox。
 
 ## 六、記錄格式
 
