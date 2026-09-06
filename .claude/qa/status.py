@@ -2,13 +2,15 @@
 """車道狀態檔讀寫：.claude/qa/status/<lane>.json，儀表板據此畫。
 
   python3 .claude/qa/status.py --lane song --set batch=3 focus="F 名不合 逐條裁決" \
-      --count found.F=40 fixed.F=31 researched.F=6 recorded.F=3 --commit $(git rev-parse --short HEAD)
+      --count found.F=40 fixed.F=31 researched.F=6 recorded.F=3 normal.F=0 --commit $(git rev-parse --short HEAD)
   python3 .claude/qa/status.py --lane song --done      # 收工
 
 欄位：
   lane, periods[], works(條數), state(running|done|paused), batch, focus, commit, updated_at,
-  counts: {check: {found, fixed, researched, recorded}}   found=掃出，fixed=已修，
-          researched=經網上查證後修，recorded=不確定而記入 known-issues
+  counts: {check: {found, fixed, researched, recorded, normal}}
+          found=掃出，fixed=已修，researched=經網上查證後修，
+          recorded=不確定而記入 known-issues，**normal=逐條讀過而判為本時期之常態（非缺陷）**
+          四者之和即已處置數；normal 是進度之一部分，不記則進度條永遠走不完
   log: [{at, batch, note}]   每批一行
 """
 import argparse, json, os, datetime
@@ -35,7 +37,7 @@ def main():
         k, v = kv.split('=', 1); s[k] = int(v) if v.isdigit() else v
     for kv in a.count + a.add:
         k, v = kv.split('=', 1); kind, chk = k.split('.', 1)
-        cell = s['counts'].setdefault(chk, {'found': 0, 'fixed': 0, 'researched': 0, 'recorded': 0})
+        cell = s['counts'].setdefault(chk, {'found': 0, 'fixed': 0, 'researched': 0, 'recorded': 0, 'normal': 0})
         cell[kind] = (cell.get(kind, 0) + int(v)) if kv in a.add else int(v)
     if a.commit: s['commit'] = a.commit
     if a.done: s['state'] = 'done'
