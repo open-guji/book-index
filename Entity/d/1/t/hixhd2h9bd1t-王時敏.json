@@ -1,9 +1,31 @@
 {
-  "schema_version": 1,
-  "id": "hixhd2h9bd1t",
   "type": "entity",
-  "subtype": "people",
+  "external_ids": {
+    "cbdb_id": 55432,
+    "cbdb_match": "auto",
+    "cbdb_source": "name_exact+dy_match+work_recall_1.00+unique"
+  },
+  "native_place": "太倉直隸州",
+  "id": "hixhd2h9bd1t",
+  "death_year": 1680,
   "primary_name": "王時敏",
+  "dynasty": "清",
+  "native_place_basis": "CBDB 55432 index_addr（2026-09-06 CBDB enrich）",
+  "ai_note": "拆出同名異代之人物 1jae2gjvdhybt（晉王時敏）：本記錄原兼繫兩人之書。晉王時敏。與清王時敏（1592-1680）同名異代。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=55432 補入空槽——籍貫「太倉直隸州」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6et91ybp。",
+  "period_basis": "據 dynasty「清」自動歸併",
+  "updated_at": "2026-09-06T00:00:00+00:00",
+  "works": [
+    {
+      "work_id": "d59f2nhfnima",
+      "role": "撰"
+    },
+    {
+      "work_id": "d59f6et91ybp",
+      "role": "撰"
+    }
+  ],
+  "period": "qing",
+  "birth_year": 1592,
   "alt_names": [
     {
       "name": "偶諧道人",
@@ -62,28 +84,6 @@
       "type": "字"
     }
   ],
-  "dynasty": "清",
-  "birth_year": 1592,
-  "death_year": 1680,
-  "works": [
-    {
-      "work_id": "d59f2nhfnima",
-      "role": "撰"
-    },
-    {
-      "work_id": "d59f6et91ybp",
-      "role": "撰"
-    }
-  ],
-  "external_ids": {
-    "cbdb_id": 55432,
-    "cbdb_match": "auto",
-    "cbdb_source": "name_exact+dy_match+work_recall_1.00+unique"
-  },
-  "ai_note": "拆出同名異代之人物 1jae2gjvdhybt（晉王時敏）：本記錄原兼繫兩人之書。晉王時敏。與清王時敏（1592-1680）同名異代。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=55432 補入空槽——籍貫「太倉直隸州」。既有之值一概未動。",
-  "updated_at": "2026-08-08T11:51:58+00:00",
-  "period": "qing",
-  "period_basis": "據 dynasty「清」自動歸併",
-  "native_place": "太倉直隸州",
-  "native_place_basis": "CBDB 55432 index_addr（2026-09-06 CBDB enrich）"
+  "subtype": "people",
+  "schema_version": 1
 }

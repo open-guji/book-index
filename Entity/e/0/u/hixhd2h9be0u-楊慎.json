@@ -1,42 +1,21 @@
 {
-  "schema_version": 1,
-  "id": "hixhd2h9be0u",
   "type": "entity",
-  "subtype": "people",
-  "primary_name": "楊慎",
-  "alt_names": [
-    {
-      "name": "一",
-      "type": "行第"
-    },
-    {
-      "name": "升庵",
-      "type": "號"
-    },
-    {
-      "name": "升菴",
-      "type": "號"
-    },
-    {
-      "name": "文憲",
-      "type": "諡號"
-    },
-    {
-      "name": "新都",
-      "type": "號"
-    },
-    {
-      "name": "洞天貞逸",
-      "type": "號"
-    },
-    {
-      "name": "用修",
-      "type": "字"
-    }
-  ],
-  "dynasty": "明",
-  "birth_year": 1488,
+  "external_ids": {
+    "cbdb_id": 34657,
+    "cbdb_match": "auto",
+    "cbdb_source": "name_exact+dy_match+work_recall_0.50+ambiguous_2"
+  },
+  "native_place": "新都",
+  "id": "hixhd2h9be0u",
   "death_year": 1559,
+  "revision": "1.0.0",
+  "primary_name": "楊慎",
+  "dynasty": "明",
+  "native_place_basis": "CBDB 34657 index_addr（2026-09-06 CBDB enrich）",
+  "period_basis": "據 dynasty「明」自動歸併",
+  "ai_note": "2026-08-24 補繫 entity：新收 4 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-04 「坑32」批次逐條核查：新收 1 部 work 之繫（據別集類「人名＋集」書名體例補其撰人而回填反向）。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 53 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=34657 補入空槽——籍貫「新都」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6efk68le、d59f6ehrgiko、d59f6ejd7f29、d59f6eophloj、d59f6embncat、d59f6eopsu82、d59f6eiz5qmf、d59f6ej2lclc、d59f6en8qhvk、d59f6etaxdkx、d59f6esiu0p0、d59f6etaawhv、d59f6etbjuo7、d59f6eoq42rl、d59f6et0bb42、d59f6em3ueps、d59f6egkdrlx、d59f6ehuw4jn、d59f6ejcw6io、d59f6ejudgxx、d59f6etbjuo4、d59f6ej2a41u、d59f6ejofymd、d59f6ej2a41z、d59f6ejckxz8、d59f6ejcw6iu、d59f6ejtqzuv、d59f6ervf7y8、d59f6etaawhy、d59f6etyc6bn、d59f6ejudgy0、d59f6ervf7y9、d59f6etyc6bo、d59f6egb0nb5、d59f6etljg1x、d59f68d9uxa9、d59f6eophlom、d59f6eousmwz、d59f6esgncw1、d59f6etyc6bm、d59f6efsaepv、d59f6emmknb6、d59f6erv3zeq、d59f6esg0vt1、d59f6etaxdky、d59f6ejd7f2a、d59f6erv3zer、d59f6elsx3pi、d59f6etbjuo1、d59f6eju28ef、d59f6emmknba、d59f6escl9ty、d59f6etyc6bl。",
+  "updated_at": "2026-09-06T00:00:00+00:00",
+  "revised_at": "2026-09-04",
   "works": [
     {
       "work_id": "d59f2nhepxc3",
@@ -583,17 +562,38 @@
       "role": "撰"
     }
   ],
-  "external_ids": {
-    "cbdb_id": 34657,
-    "cbdb_match": "auto",
-    "cbdb_source": "name_exact+dy_match+work_recall_0.50+ambiguous_2"
-  },
-  "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "ming",
-  "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 4 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-04 「坑32」批次逐條核查：新收 1 部 work 之繫（據別集類「人名＋集」書名體例補其撰人而回填反向）。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 53 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=34657 補入空槽——籍貫「新都」。既有之值一概未動。",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-04",
-  "native_place": "新都",
-  "native_place_basis": "CBDB 34657 index_addr（2026-09-06 CBDB enrich）"
+  "birth_year": 1488,
+  "alt_names": [
+    {
+      "name": "一",
+      "type": "行第"
+    },
+    {
+      "name": "升庵",
+      "type": "號"
+    },
+    {
+      "name": "升菴",
+      "type": "號"
+    },
+    {
+      "name": "文憲",
+      "type": "諡號"
+    },
+    {
+      "name": "新都",
+      "type": "號"
+    },
+    {
+      "name": "洞天貞逸",
+      "type": "號"
+    },
+    {
+      "name": "用修",
+      "type": "字"
+    }
+  ],
+  "subtype": "people",
+  "schema_version": 1
 }

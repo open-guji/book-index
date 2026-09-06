@@ -1,30 +1,19 @@
 {
-  "schema_version": 1,
-  "id": "hixhd2h9bdv4",
   "type": "entity",
-  "subtype": "people",
-  "primary_name": "陳仁錫",
-  "alt_names": [
-    {
-      "name": "文莊",
-      "type": "諡號"
-    },
-    {
-      "name": "明卿",
-      "type": "字"
-    },
-    {
-      "name": "澹退居士",
-      "type": "別名"
-    },
-    {
-      "name": "芝台",
-      "type": "號"
-    }
-  ],
-  "dynasty": "明",
-  "birth_year": 1579,
+  "external_ids": {
+    "cbdb_id": 29575,
+    "cbdb_match": "auto",
+    "cbdb_source": "name_exact+dy_match+unique"
+  },
+  "native_place": "長洲",
+  "id": "hixhd2h9bdv4",
   "death_year": 1634,
+  "primary_name": "陳仁錫",
+  "dynasty": "明",
+  "native_place_basis": "CBDB 29575 index_addr（2026-09-06 CBDB enrich）",
+  "period_basis": "據 dynasty「明」自動歸併",
+  "ai_note": "2026-08-24 補繫 entity：新收 5 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 15 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=29575 補入空槽——籍貫「長洲」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6emntlhe、d59f6er2e5fl、d59f6eiv3nk4、d59f6eiiaxad、d59f6enr5hxj、d59f6er2pdz4、d59f6erbr9q8、d59f6elpsq9v、d59f6elqf7d2、d59f6ehj13wo、d59f6eiusf0m、d59f6epcwef8、d59f6epcl5vq、d59f6epcl5vr、d59f6elpsq9y。",
+  "updated_at": "2026-09-06T00:00:00+00:00",
   "works": [
     {
       "work_id": "d59f2nf0kfeq",
@@ -199,15 +188,26 @@
       "role": "撰"
     }
   ],
-  "external_ids": {
-    "cbdb_id": 29575,
-    "cbdb_match": "auto",
-    "cbdb_source": "name_exact+dy_match+unique"
-  },
-  "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "ming",
-  "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 5 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 15 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=29575 補入空槽——籍貫「長洲」。既有之值一概未動。",
-  "native_place": "長洲",
-  "native_place_basis": "CBDB 29575 index_addr（2026-09-06 CBDB enrich）"
+  "birth_year": 1579,
+  "alt_names": [
+    {
+      "name": "文莊",
+      "type": "諡號"
+    },
+    {
+      "name": "明卿",
+      "type": "字"
+    },
+    {
+      "name": "澹退居士",
+      "type": "別名"
+    },
+    {
+      "name": "芝台",
+      "type": "號"
+    }
+  ],
+  "subtype": "people",
+  "schema_version": 1
 }
