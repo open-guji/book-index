@@ -661,7 +661,7 @@ P 是坑 18 之檢——`ai_note` 自稱「撰人異稱：本志作『X』而庫
 
 ## 54. `description` 之型不一，掃描器讀資料未容型，全庫九道盡廢 [nanbeichao 急報]
 `scan.py` 之 M 類寫作 `((w.get('description') or {}).get('text') or '')`——**假定 description
-必是 dict 或 None**。而庫中確有存**純字串**者（`d59f28k3vbwl`，weijin 桶），
+必是 dict 或 None**。而庫中確有存**純字串**者——`d59f28k3vbwl`《神仙服食藥方》，**period 屬 jin（weijin 桶）而其值是 suitang 道所寫**（該道作《補晉書藝文志》諸本之事，順手補了這條 jin 之 description）。該道事後自查並自報，且已改回 `{"text": …}` 物件形（提交 `41a2541270`）——**自報是對的**。
 `.get` 施於 `str` 即 `AttributeError`，**全庫任何 `--period` 皆崩**，九道一時盡不能掃。
 nanbeichao 道七分鐘內報到，且指出行號與二法（改資料／加型別容錯）。
 
@@ -673,6 +673,12 @@ nanbeichao 道七分鐘內報到，且指出行號與二法（改資料／加型
 `description`（dict／str）、`alt_names`（dict／str 皆有，坑 52 之 `alias_of` 已容之）、
 `merged_in`（dict／str，早前踩過）、`indexed_by[].author_info`（有無皆可）。
 一個 `AttributeError` 就能讓九道全停——**掃描器之健壯，比它多掃出幾條更要緊**。
+
+**順帶一則所有權之事**：suitang 道寫了一條 `period=jin` 之 description——**跨桶而寫**。
+其事出有因（作補晉志諸本之整理，本就跨 jin），且該道自查自報自修，處置無可議。
+但這提醒：**目錄書一路之工作天然跨桶**（一部志之著錄散在諸期），
+與坑 46 所立「Y `misattached` 按 owner 定主」同理，**凡跨桶而寫，寫完即報**——
+本次正是靠該道自報，才知那條純字串是何時何人所寫。
 
 **又一則自省**：這是今日**第四次**我改共用工具而出事（坑 45、48、53、54）。
 坑 53 之訓「改工具後自己先重掃比對前後之數」我當時只做了全庫掃，**沒跑 `--period`**——
