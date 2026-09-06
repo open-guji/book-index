@@ -98,6 +98,12 @@ RESIDUE_RE = re.compile(
 # 校勘語殘留（「廣作中作」）。名中已有括注者另有 punct 型收之，此處不重報。
 COLLATE_RE = re.compile(r'(一作|或作|題作|中作|作中|原作)')
 RADICAL_RE = re.compile(r'^[\u2e80-\u2fff\u31c0-\u31ef]')
+# X 檢（撰人／書名切分之誤）之字表，移植自 entity-cbdb 道之 scan_author_title_split.py
+SPLIT_NOTE_RE = re.compile(r'[⟨（(【\[].*?[⟩）)】\]]')
+ZHAI = set('齋斋軒轩堂山谷溪雲云亭樓楼園园庵菴洲峯峰石竹松梅居舍館馆廬庐窩窝村塘湖江河潭')
+BAD_HEAD = set('論论門门經经傳传注疏解義义記记志史書书子語语詩诗文集稿編编錄录鈔钞')
+TITLE_TAIL = ('集','志','録','錄','稿','編','傳','考','記','譜','論','解','注','圖','說','説',
+              '書','鑑','鑒','略','畧','要','鈔','钞','草','詩','文','卷','篇','典','經','史','談','話')
 def odd_kinds(nm):
     """撰人名之可疑型。數字一則已收窄：明人排行字（數字在名之中段）是常態，不報。"""
     ks = []
@@ -335,6 +341,69 @@ def run_checks(works, IW, IB, IE, IC, ents):
                                    'entity_name': e.get('primary_name'), 'entity_dynasty': e.get('dynasty'),
                                    'majority_period': top, 'majority_n': n,
                                    'role': next((a.get('role') for a in ((wrec or {}).get('authors') or []) if a.get('entity_id') == eid), None)})
+
+    # ── X：撰人／書名切分之誤（entity-cbdb 道所發，坑 30）──────────────────
+    # 志書著錄之體例是「撰人＋書名⟨小注⟩」，匯入時要在二者之間切一刀。切錯一格就
+    # 憑空造出一個人，而拼起來與原文一字不差——字串比對查不出，CBDB 也驗不出
+    # （這輩多是方志別集之作者，無官無科第，本不在 CBDB）。判準移植自該道
+    # overview/scripts/cbdb-sync/scan_author_title_split.py（已經三輪抽核打磨）。
+    in_name, head_title, name_all, title_all = (collections.Counter() for _ in range(4))
+    bg_name, bg_title = collections.Counter(), collections.Counter()
+    for w in works.values():
+        t = (w.get('title') or '').strip()
+        if t:
+            head_title[t[0]] += 1; title_all[t] += 1
+            for i in range(len(t)-1): bg_title[t[i:i+2]] += 1
+        for x in (w.get('authors') or []):
+            nm = (x.get('name') or '').strip()
+            name_all[nm] += 1
+            for ch in nm[1:]: in_name[ch] += 1
+            for i in range(len(nm)-1): bg_name[nm[i:i+2]] += 1
+    nworks = {eid: len(d.get('works') or []) for eid, d in ents.items()}
+    for wid, w in works.items():
+        title = (w.get('title') or '').strip()
+        if len(title) < 3: continue
+        c, rest = title[0], title[1:]
+        for a_ in (w.get('authors') or []):
+            nm, eid = (a_.get('name') or '').strip(), a_.get('entity_id')
+            if len(nm) != 2: continue
+            hits = [ib for ib in (w.get('indexed_by') or [])
+                    if SPLIT_NOTE_RE.sub('', (ib.get('title_info') or ib.get('summary') or '')).strip().startswith(nm + c)]
+            if not hits: continue
+            ratio = in_name[c] / (head_title[c] + 1)
+            if ratio < 1.0: continue
+            ib0 = hits[0]
+            note0 = ' '.join(SPLIT_NOTE_RE.findall(ib0.get('summary') or ib0.get('title_info') or ''))
+            sc = 2 if ratio >= 4 else (1 if ratio >= 2 else 0.5)
+            sc += 1 if rest[-1] in TITLE_TAIL else 0
+            sc += 1 if (eid and nworks.get(eid, 0) <= 1) else 0
+            if note0 and re.search(r'[字號号]\s*[^人\s]{0,3}' + re.escape(c), note0): sc -= 3   # 以字名集
+            if set(title[1:4]) & ZHAI: sc -= 2                                                  # 齋號切進書名
+            if rest and rest[0] in BAD_HEAD: sc -= 2                                            # 去首字不成詞
+            if note0 and re.search(r'[字號号]', note0) and c not in note0: sc += 1
+            strong = ''
+            if rest.startswith(nm[0]) and len(rest) > 2:                                        # 書名以姓＋字／諡／官起
+                mid = rest[1:]
+                for key in re.findall(r'[字號号諡谥]\s*([^\s，,。]{2})', note0):
+                    if mid.startswith(key): strong = f'書名以姓＋{key}起'; break
+                if not strong and re.match(r'^(文|忠|孝|莊|庄|端|恭|簡|简|靖|貞|贞|定|懿|襄|節|节|毅|裕|憲|宪|清|敏|肅|肃|安)', mid):
+                    strong = '書名以姓＋諡字起'
+                if not strong and re.search(r'(公|先生|府君)', rest[:5]): strong = '書名以姓＋尊稱起'
+            if strong: sc += 3
+            left, right = nm[1] + c, (c + rest[0] if rest else '')
+            ln, lt, rn, rt = bg_name[left], bg_title[left], bg_name[right], bg_title[right]
+            bg = ''
+            if ln >= 3 and ln > lt * 2: sc += 1.5; bg = f'「{left}」入人名{ln}次'
+            if rt >= 3 and rt > rn * 2: sc -= 2; bg = (bg + '；' if bg else '') + f'「{right}」入書名{rt}次'
+            if lt >= 3 and lt > ln * 2: sc -= 1.5; bg = (bg + '；' if bg else '') + f'「{left}」入書名{lt}次'
+            sc += 1 if name_all.get(nm + c, 0) > 0 else 0
+            if title_all.get(title, 0) > 1: sc -= 2                                             # 同題他處亦見
+            if re.match(r'^[鄉縣州府都里]?(縣志|州志|府志|志)$', rest): sc -= 2                    # 通名成詞
+            if sc < 3.0: continue
+            bare = SPLIT_NOTE_RE.sub('', (ib0.get('title_info') or ib0.get('summary') or '')).strip()
+            R['X'].append(row(w, score=round(sc, 1), kind=strong or '撰人切短', author=nm,
+                              guess_name=nm + c, guess_title=rest, entity=eid,
+                              source=ib0.get('source', ''), raw=bare[:50], note=note0[:36], bigram=bg))
     return R
 
 def main():
