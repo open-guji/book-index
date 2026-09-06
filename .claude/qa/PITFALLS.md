@@ -914,3 +914,53 @@ verify 連報三種懸空，一種比一種深：
 **通則**：凡 ai_note 見「所繫之 work 已由更早某某個案考出」一類**不點名本條專證**之
 套語，皆當覆核；尤其當該 work 之 period 本身又是自 entity.dynasty 機械推得時，
 其所謂之「證」實是自己。**兩欄互推者，必有一欄是空的。**
+
+## 63. id 自己就寫著它是什麼型——別再用肉眼猜
+
+**兩件久卡之事，同一個根**：
+
+1. **立不了新 work**。nanbeichao 之 G 類（串條待拆 5 條）、undated 之「倪思八題」（6 條）
+   都停在「本道無 id 生成工具」——真正之生成器在庫外
+   （`book-index-manager`，使用者機上 `D:/workspace`），車道取不到。
+2. **坑 61**。本座把 `related_works` 裡的 id 一概當作 Work，險刪 84 條有效之 Collection
+   引用。當時的教訓寫作「庫有五個 id 空間，查不到不等於不存在」——**對，但不夠**。
+
+不夠在哪：**id 不是不透明的字串，是一個 64 位 Snowflake，type 就明擺在 bit 61-59**。
+規範一直都在 `overview/设计文档/古籍索引/索引ID.md`（v2.0，2026-05-14）：
+
+```
+bit 63 Sign(固定0) │ bit 62 Status(0=Official,1=Draft) │ bit 61-59 Type
+bit 58-19 Timestamp(40 位) │ bit 18-8 MachineID │ bit 7-0 Sequence
+Type: 0=Book 2=Collection 3=Work 4=Entity（1、5、6、7 保留，禁用）
+```
+
+那四個險被我刪掉的 id，一行就能辨：
+
+```
+$ python3 .claude/qa/mintid.py --parse 8rlcsybg2hhm 8rlcsybg2hhi 8rlb6yk66qdc
+8rlcsybg2hhm   Collection  Official ts=2026-08-26T07:37:56 檔=Collection/h/h/m/ 索引分片=7
+8rlcsybg2hhi   Collection  ...
+8rlb6yk66qdc   Collection  ...
+```
+
+**我用了半天去比對「HEAD 與工作區之 related_works 集合差異」來還原，而答案在 id 本身。**
+
+### 今補之工具 `.claude/qa/mintid.py`
+
+- `idtype(i)` — 一行辨型。**凡欲對一串 id 做「查不到就刪」之事者，先叫它。**
+- `mint(kind, lane, n)` — 依規範鑄新 id，解上列第 1 件。
+- `path_for(i, name)` — 記錄檔路徑（倒三位）。
+- `shard(i)` — 索引分片鍵（h\*31 雜湊）。**與 path_for 是兩條不同規則，勿混**（坑 42、50）。
+
+**MachineID 之分配**：實測庫中 119 個在用者最大 1977，**2000–2047 全空**。
+故取 2000 予協調者、2001–2009 予九道（見 `LANE_MACHINE`）。如此鑄出之 id 與上游
+生成器**永不相撞**，且日後一望而知何者出自本次複查。
+
+**反驗**：隨機抽庫中 332 條現有記錄，`idtype` 判型與所在之 `<Family>/` 目錄、
+`path_for` 推出之路徑與實際檔案位置，**332/332 全合**。
+
+### 通則
+
+**凡有規範可循之事，先去找規範，不要從資料反猜。**
+坑 61 我從資料反猜（「檔中有無此 id」），猜錯了還得再猜一次（改比對欄位集合）；
+規範就在鄰倉的設計文檔裡，一次就對。
