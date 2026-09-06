@@ -34,10 +34,10 @@
   "measure_info": "二卷",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
-  "period_basis": "據 authors[0].dynasty「明」",
-  "dynasty": "明",
-  "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 遼金元 L5：撰人「徐達左」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。",
+  "period_basis": "2026-09-06 qa-sweep/ming A 類重立據：《欽定四庫全書總目》著錄之文作「明徐達左編」。撰人徐達左（1333–1395）元末明初人。本條 period 仍作 ming。原句「據 authors[0].dynasty「明」」與實錄之「元末明初」相牴（2026-08-25 遼金元 L5 改撰人之代而未改本句）；本批不動 period，只重立其據。原值：period_basis=\"據 authors[0].dynasty「明」\"。",
+  "dynasty": "元末明初",
+  "dynasty_basis": "author_propagation（2026-09-06 qa-sweep/ming A 類重propagate：authors[0].dynasty 已作「元末明初」而本欄仍留「明」，同步之。原值：明）",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 遼金元 L5：撰人「徐達左」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-09-06 qa-sweep/ming A 類重立據：period_basis 引 authors[0].dynasty「明」而實錄非之，重立其據（見 period_basis）。",
   "description": {
     "text": "徐達左（明）編。二卷。見著錄於《欽定四庫全書總目》。本書惟《欽定四庫全書總目》一志著錄，別無他證。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [

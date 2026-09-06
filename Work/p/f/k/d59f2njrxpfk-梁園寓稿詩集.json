@@ -85,14 +85,14 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1evkajczicb28 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxqf6m48w 與 11q37twf9ai9s 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-25 遼金元 L5：撰人「王翰」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。",
+  "ai_note": "從 1evkajczicb28 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxqf6m48w 與 11q37twf9ai9s 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-25 遼金元 L5：撰人「王翰」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-09-06 qa-sweep/ming A 類重立據：period_basis 引 authors[0].dynasty「明」而實錄非之，重立其據（見 period_basis）。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "_has_text": true,
   "_has_image": true,
   "period": "ming",
-  "period_basis": "據 authors[0].dynasty「明」",
-  "dynasty": "明",
-  "dynasty_basis": "author_propagation",
+  "period_basis": "2026-09-06 qa-sweep/ming A 類重立據：《欽定四庫全書總目》著錄之文作「明王翰撰」，提要：「翰字時舉，禹州人。元季隱居中條山。明初出為周王橚長史……後起為翰林編修，尋謫廉州教授。夷獠亂，城陷，抗節死。」（按：與本條所繫之 entity hixhd2h9bi6c「字用文、廬州、卒 1378」之王翰非一人，繫連另案，見 known-issues。）本條 period 仍作 ming。原句「據 authors[0].dynasty「明」」與實錄之「元末明初」相牴（2026-08-25 遼金元 L5 改撰人之代而未改本句）；本批不動 period，只重立其據。原值：period_basis=\"據 authors[0].dynasty「明」\"。",
+  "dynasty": "元末明初",
+  "dynasty_basis": "author_propagation（2026-09-06 qa-sweep/ming A 類重propagate：authors[0].dynasty 已作「元末明初」而本欄仍留「明」，同步之。原值：明）",
   "revision": "1.0.0",
   "revised_at": "2026-08-25"
 }
