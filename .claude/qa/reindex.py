@@ -16,7 +16,7 @@
   dynasty ← 頂層 dynasty，無則 authors[0].dynasty（空字串視同無）
 索引 entities 分片：primary_name/dynasty/birth_year/death_year/period ← 同名頂層欄
 """
-import json, os, sys, glob
+import json, os, sys, glob, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import jio
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 SH = '0123456789abcdef'
@@ -34,13 +34,32 @@ def expect_work(d):
             'dynasty': nz(d.get('dynasty')) if nz(d.get('dynasty')) is not None else nz(a0.get('dynasty'))}
 def expect_ent(d):
     return {k: nz(d.get(k)) for k in ('primary_name', 'dynasty', 'birth_year', 'death_year', 'period')}
+REC_RE = re.compile(r'^[0-9a-z]{12,13}-')
 def scan_files():
-    """一次建全庫 id→路徑表（勿逐 id glob，九萬條會慢到不可用）。"""
+    """一次建全庫 id→路徑表（勿逐 id glob，九萬條會慢到不可用）。
+    **用遞迴 glob 而非固定四層**：檔名一改，人手誤置深淺一層者有之
+    （2026-09-06 `d59f6eq7hnnl`《紫霞洞琴譜》正題改檔名時落在 `Work/n/l/` 而非
+    `Work/n/n/l/`），固定層數之 glob 掃不到，membership 遂補不了鍵，全庫閘因之而紅（坑 50）。"""
     byid = {}
     for sub in ('Work', 'Entity'):
-        for f in glob.glob(os.path.join(ROOT, sub, '*', '*', '*', '*.json')):
-            byid[os.path.basename(f).split('-', 1)[0]] = os.path.relpath(f, ROOT)
+        for f in glob.glob(os.path.join(ROOT, sub, '**', '*.json'), recursive=True):
+            b = os.path.basename(f)
+            if not REC_RE.match(b): continue          # collated_edition 之屬不是記錄檔
+            byid[b.split('-', 1)[0]] = os.path.relpath(f, ROOT)
     return byid
+
+def misplaced():
+    """記錄檔是否坐在其 id 末三字所定之分片路徑上。回傳 [(現路徑, 應在)]。"""
+    out = []
+    for sub in ('Work', 'Entity', 'Book', 'Collection'):
+        for f in glob.glob(os.path.join(ROOT, sub, '**', '*.json'), recursive=True):
+            b = os.path.basename(f)
+            if not REC_RE.match(b): continue
+            wid = b.split('-', 1)[0]
+            want = os.path.join(sub, *list(wid[-3:]))
+            got = os.path.dirname(os.path.relpath(f, ROOT))
+            if got != want: out.append((os.path.relpath(f, ROOT), want))
+    return out
 
 def fix_membership(run):
     """對齊索引之成員與 path（坑 41）。回傳 (補建, 刪鍵, 修path) 三數。"""
@@ -84,6 +103,10 @@ def main():
     if '--membership' in sys.argv:
         a, d_, r = fix_membership(run)
         print(('已' if run else '待') + f'補鍵 {a}、刪鍵 {d_}、修 path {r}')
+        mp = misplaced()
+        if mp:
+            print(f'另有 {len(mp)} 檔不坐在其 id 所定之分片路徑上（坑 50，須人手移動）：')
+            for f, want in mp[:10]: print(f'  {f}  →應在 {want}/')
     for fam, exp in (('works', expect_work), ('entities', expect_ent)):
         for f in sorted(glob.glob(os.path.join(ROOT, 'index', fam, '*.json'))):
             rel = os.path.relpath(f, ROOT); idx, fmt = jio.load(rel); ch = False
