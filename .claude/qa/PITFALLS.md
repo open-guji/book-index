@@ -65,3 +65,35 @@ skill 之 13 坑（`hanzhi-curation/SKILL.md`）不重抄，此處只記本輪�
 索引 works 分片除 period／loss_status／title／subtype 外還載 `author`／`dynasty`／`role`
 （取 authors[0]）。改了撰人名而未回寫，`verify.py` 報「works 索引漂移 … author」。
 例：`d59f6ep6cf0h` 千金寶鑑 雷伯→雷伯宗。用 `jio.update_index('works', wid, lambda e: e.update({'author': 新名}))`。
+
+## 12. 併書後照 merge_history 改 Entity.works，不看 target 之 authors 指誰，會留單向邊 [entity-cbdb]
+source 併入 target 後，把人物之邊改繫 target——若那書併後撰人歸了別人，就成「人指書、書不指人」。
+懸空 0、索引漂移 0，verify 照樣綠。例：葉文→《菉竹堂書目》（撰人實葉盛）、丁丙藏→《八千卷樓書目》。
+判準：改繫前看 target 之 `authors[].entity_id` 有無本人；有則改繫，已有則去重，無則**摘**並記 ai_note。
+`verify.py` 今已加「單向邊」一數，`scan.py` K 類已含此向。
+
+## 13. 「名下之 work 分居兩代之桶」是磁鐵之徵候，不是跨代之證 [ming]
+2026-08-25 L5 以「其人名下之 work 同時分居 ming／liao-jin-yuan 諸桶」為確證，把 28 個 entity 之
+dynasty 改作「元末明初」——循環論據。例：馮復京（1573–1622）因名下掛了元大德間《昌國州圖志》
+（實潼川馮福京撰）而被判元末明初。判準：scan O 類；凡以桶之分布立據者，須以生卒／著錄之字里官歷覆驗。
+
+## 14. 朝代比對不要比字串 [entity-cbdb]
+本庫 dynasty 102 種寫法、CBDB 85 個碼位，粒度與寫法俱異（南朝宋／宋(劉)、東漢／後漢）。
+按字串比，491 條「衝突」三分之二是假。用 `overview/scripts/cbdb-sync/probe_offline.py` 之
+`dynasty_relation`（DYNASTY_SPAN 區間：交疊不報、相隔 60 年內另列、60 年以上才是信號）。
+三個名字會騙人的 CBDB 碼位：**dy=52「後漢」是五代後漢**（非東漢）、dy=77「周」是武周、dy=9「吳」是楊吳。
+
+## 15. 繁簡異體不可用 opencc 自動轉 [entity-cbdb]
+地名會被過度轉換：范陽→範陽、浮梁→浮樑、鳳台→鳳臺、餘干→餘幹、咸陽→鹹陽。只用顯式表
+（`probe_offline.py` 之 ORTHODOX 可寫盤、CHAR_VARIANTS 只作比對）；朴、范、岳兼作姓氏，不收。
+
+## 16. 以 Collection 為著錄來源者本無 source_bid [undated]
+國立故宮博物院善本舊籍、二十五史藝文經籍志考補萃編、中國明朝檔案總匯、中華再造善本四者
+在庫中只有 Collection 記錄（`8rl…`），無對應之目錄書 Work，故其 220 條 indexed_by 無 bid 是體例非漏填。
+`scan.py` N 類已豁免（source 名見於 collections 之 title 者）。資料不動。
+
+## 17. 索引之 dynasty 取記錄頂層 `dynasty`，無則取 authors[0].dynasty [coordinator，覆驗 nanbeichao 所報]
+nanbeichao 道以 authors[0].dynasty 比索引得 2,989 條「不符」，其中 2,7xx 條記錄有頂層 `dynasty`
+（如《補南北史藝文志》新入之 `d59f9c*` 一族），索引正取自彼，非漂移；真漂移 240 條係
+頂層 dynasty 改了而索引未回寫，協調者已以 `reindex.py` 回寫。`verify.py`／`scan.py` M 類今照此規則
+比 author／dynasty／role 三欄。改撰人名、改頂層 dynasty 皆須回寫索引（坑 11 之推廣）。
