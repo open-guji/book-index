@@ -50,7 +50,17 @@ python3 .claude/qa/status.py --lane <lane> --periods <p1,p2> --works <N> --set b
        著錄原文明載此名；此名撞庫（全庫 entity 之 primary_name／alt_names）無他人。
        不動 primary_name、不動任何繫連；type 依 SCHEMA 枚舉；ai_note 記所據之著錄。
    其餘 entity 之改（跨期之 entity、primary_name 之併、CBDB 之配）→ 記 known-issues 並報協調者。
+2b. **他道 work 之單節著錄——只限 Y `misattached` 一型**（2026-09-06 增，坑 46）：
+   Y 之 `misattached` 是「一節著錄同時掛在兩條同題異書上」，其病本身**橫跨二桶**，
+   故按 `owner` 欄定其主：**著錄文所點名之撰人在誰的桶，就由誰辦**——包括自不該有它的
+   那一條（可能在他道之桶）刪去**那一節 `indexed_by`**。條件四：
+   (i) 只刪 `scan` 所報之那一節，不動該記錄之任何他欄（period／authors／entity／繫連皆不碰）；
+   (ii) 所刪之節原文全文抄入該記錄之 `ai_note`，註明正主之 id 與所據，**務求可逆**；
+   (iii) 在 inbox 寫 `<時戳>-cross.md` 列表報備所刪之側、期、節、正主；
+   (iv) `owner` 欄為空或指向多條者不辦，記 known-issues 交協調者。
+   **非 `owner` 側之道不得代辦**——一組只許一個人動，這條就是定誰動的。
 3. **Book**：只經本道 work 之 `books[]`；Book 記錄本身除 `ai_note` 記疑外不動。
+   例外：協調者明文授權之併條所必需之 `work_id` 改繫（見 `_coordinator` 之裁決文書）。
 4. **索引**：只回寫自己改過之記錄之索引項，用 `jio.update_index`（保留分片原格式，diff 最小）。
 5. **自己的檔**：`.claude/qa/status/<lane>.json`、`.claude/qa/known-issues/<lane>-*.json`。
 

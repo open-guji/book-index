@@ -40,7 +40,7 @@ prefix 身分官銜前綴／bracket 括號按語／single 單字／punct 其他�
 
 判準與踩坑見 PROTOCOL.md、PITFALLS.md。本檔只掃不改。
 """
-import argparse, collections, glob, json, os, re, sys
+import argparse, collections, glob, json, os, re, sys, urllib.parse
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 ORD = ['pre-qin','qin-han','three-kingdoms','jin','nanbeichao','sui-tang','five-dynasties',
@@ -101,7 +101,40 @@ RADICAL_RE = re.compile(r'^[\u2e80-\u2fff\u31c0-\u31ef]')
 # X 檢（撰人／書名切分之誤）之字表，移植自 entity-cbdb 道之 scan_author_title_split.py
 # 回溯重建之志：補X書藝文志／經籍志之屬，成書在清末民初而非其所補之代
 RETRO_RE = re.compile(r'補[^》，,。\s]{1,4}(書)?(藝文志|经籍志|經籍志)')
+M_POS = re.compile(r'(今存|今尚存|原文賴[^，。]{0,12}以存|全文見於|全文賴|完帙尚存|今有傳本)')
+M_BARE = re.compile(r'尚存')
+M_PAST = re.compile(r'(時|代|志|世|初|末|間|前|後)$')   # 「梁時尚存」是存至某代而後亡
+M_NEG = re.compile(r'(之目賴|目錄賴|其目賴|原書已佚|已佚|佚文|輯本|殘卷|亡佚|不存|未見傳本|而亡|已亡|全亡)')
+# 撰人小傳式之小注：字／號／諡／籍貫／科第／官職——編目者確知有此人，是原分法之正證
+BIO_RE = re.compile(r'[字號号諡谥]\s*[^\s，,。]|[縣县州府郡]人|進士|舉人|貢生|生員|知[縣県府州]|訓導|教諭|通判|同知|按察|布政|御史|翰林')
+# 帝號／諡號式之異稱（元帝＝蕭繹、武帝＝梁武帝）本無共字，非偽稱
+# 「王」「公」單字結尾在人名中太常見（顧野王、王儉），不可作帝號之徵；
+# 只收帝／后／太子／世子之結尾與明確之廟號年號式起首。
+TITLE_RE = re.compile(r'(帝|后|太子|世子|皇后)$|^(梁|陳|齊|周|隋|魏|宋|晉|漢|唐|後梁)?(高祖|太祖|世祖|太宗|文帝|武帝|明帝|元帝|宣帝|簡文帝|孝武帝|後主|煬帝|昭明)')
+JUAN_RE = re.compile(r'([〇一二三四五六七八九十百千]+|\d+)\s*卷')
+_NUM = {c: i for i, c in enumerate('〇一二三四五六七八九')}
+def _cn2int(x):
+    if x.isdigit(): return int(x)
+    if x == '十': return 10
+    n = 0; unit = 1; tot = 0
+    for c in reversed(x):
+        if c == '十': unit = 10; n = 0 if n else 1; tot += n * unit; n = 0
+        elif c == '百': unit = 100; n = 0 if n else 1; tot += n * unit; n = 0
+        elif c == '千': unit = 1000; n = 0 if n else 1; tot += n * unit; n = 0
+        elif c in _NUM: tot += _NUM[c] * (unit if unit > 1 and n == 0 else 1); n = 1; unit = 1
+    return tot or None
+def juan_of(w):
+    """自本條諸著錄之引文抽卷數（可多，諸志所記本有異同）。無者回空集。"""
+    out = set()
+    for ib in (w.get('indexed_by') or []):
+        for fld in ('title_info', 'summary'):
+            for m in JUAN_RE.finditer(ib.get(fld) or ''):
+                v = _cn2int(m.group(1))
+                if v: out.add(v)
+    return out
 BOUND_RE = re.compile(r'最緊者為[^，,。]{0,30}')
+# 異譯之明證（Y 之 variant 型；坑 45）
+TRANSL_RE = re.compile(r'(第[二三四五]出|所譯之本|所出[一二三四五六七八九十百]+部|出者[大小]同|小異|異譯|重譯|別譯)')
 Y_NORM = re.compile(r'[《》〈〉「」『』（）()⟨⟩\s、，。]')
 SPLIT_NOTE_RE = re.compile(r'[⟨（(【\[].*?[⟩）)】\]]')
 ZHAI = set('齋斋軒轩堂山谷溪雲云亭樓楼園园庵菴洲峯峰石竹松梅居舍館馆廬庐窩窝村塘湖江河潭')
@@ -151,6 +184,18 @@ def run_checks(works, IW, IB, IE, IC, ents):
     ALL = set(IW) | set(IB) | set(IE) | set(IC)
     COLL_TITLES = {v.get('title') for v in IC.values()}
     R = collections.defaultdict(list)
+    # P 之「先問庫」用表：名 → 同一 entity 之全部名（primary_name ＋ alt_names）。
+    # 二名若同屬一個 entity，其「同指一人」之說即有本庫自身之證。此法把帝號式異稱
+    # （元帝＝蕭繹、簡文帝＝蕭綱、梁武帝＝蕭衍）與偽稱（武帝／熊安生、范岫／文帝）
+    # 一刀分開，勝過任何字面之判（坑 52）。
+    alias_of = collections.defaultdict(set)
+    for _e in ents.values():
+        _ns = {(_e.get('primary_name') or '').strip()}
+        for _a in (_e.get('alt_names') or []):
+            _n = _a.get('name') if isinstance(_a, dict) else _a
+            if _n: _ns.add(str(_n).strip())
+        _ns = {n for n in _ns if n}
+        for _n in _ns: alias_of[_n] |= _ns
     def row(w, **kw):
         d = {'id': w['id'], 'title': w.get('title'), 'period': period_key(w.get('period'))}
         d.update(kw); return d
@@ -240,9 +285,24 @@ def run_checks(works, IW, IB, IE, IC, ents):
         for fld, verb in (('birth_year', '生卒'), ('death_year', '生卒'), ('cbdb_id', 'cbdb')):
             pass
         # P
+        # P 之分型（坑 52）：ai_note 自稱「本志作 X 而庫中作 Y，同指一人」，其可信度分四等。
+        # 全無共字者未必皆偽——帝號／諡號式之異稱（元帝＝蕭繹、武帝＝梁武帝）本就無共字，
+        # 故先以 TITLE_RE 別之；扣去帝號一路，餘下之「全無共字」才是偽稱之大宗。
         for m in ALIAS_RE.finditer(w.get('ai_note') or ''):
             x, y = m.group(1), m.group(2)
-            R['P'].append(row(w, x=x, y=y, no_common=not (set(x) & set(y))))
+            sx, sy = set(x), set(y)
+            # **先問庫**：二名若同屬一個 entity（primary_name／alt_names 相通），
+            # 其「同指一人」之說即有本庫自身之證，不必再疑。此法把帝號式異稱
+            # （元帝＝蕭繹、簡文帝＝蕭綱、梁武帝＝蕭衍）與偽稱（武帝／熊安生、
+            # 范岫／文帝）一刀分開，勝過任何字面之判（坑 52）。
+            if y in alias_of.get(x, ()) or x in alias_of.get(y, ()):
+                k = 'confirmed'
+            elif x == y: k = 'same'
+            elif len(sx & sy) >= min(len(sx), len(sy)): k = 'variant_char'
+            elif sx & sy: k = 'partial'
+            elif TITLE_RE.search(x) or TITLE_RE.search(y): k = 'imperial'
+            else: k = 'no_common'
+            R['P'].append(row(w, kind=k, x=x, y=y, no_common=not (sx & sy)))
         # J
         d = w.get('description'); dt = (d.get('text') if isinstance(d, dict) else d) or ''
         if not dt and len(w.get('indexed_by') or []) >= 4:
@@ -271,16 +331,26 @@ def run_checks(works, IW, IB, IE, IC, ents):
         r['clash'] = bool(hits)
         if hits: r['clash_ids'] = hits[:5]
 
-    # I 同題同撰人
+    # I 同題同撰人。**卷數異即異書**（skill〈同名異書識別判準〉）——undated 道逐組裁
+    # 142 組，其中 119 組卷數互異（如《毛詩義疏》一組五條作 20／10／29／11／28 卷，
+    # 皆繫隋志，正是隋志所著錄之五家義疏，斷不可併）。志書裸條之題又多是截斷之形
+    # （《雜傳》《義疏》《詩》《書》《經》），同題本不足為據。故卷數互異者降為
+    # kind='juan_differ' 而不作重出候選（坑 47）。墓碑不入組（坑 37 同理）。
     groups = collections.defaultdict(list)
     for w in works.values():
+        if w.get('merged_into'): continue
         au = tuple(sorted((a.get('name') or '') for a in (w.get('authors') or [])))
         groups[(w.get('title'), au)].append(w)
     for (t, au), ws in groups.items():
-        if len(ws) > 1:
-            for w in ws:
-                R['I'].append(row(w, group_title=t, authors=list(au), group_ids=[x['id'] for x in ws],
-                                  sources=[i.get('source') for i in (w.get('indexed_by') or [])]))
+        if len(ws) < 2: continue
+        juans = {frozenset(juan_of(w)) for w in ws}
+        known = [j for j in juans if j]
+        differ = len(known) > 1 and not set.intersection(*[set(j) for j in known])
+        kind = 'juan_differ' if differ else 'same_juan'
+        for w in ws:
+            R['I'].append(row(w, kind=kind, group_title=t, authors=list(au),
+                              group_ids=[x['id'] for x in ws], juan=sorted(juan_of(w)),
+                              sources=[i.get('source') for i in (w.get('indexed_by') or [])]))
 
     # K(entity side) / L / O
     for eid, e in ents.items():
@@ -387,7 +457,12 @@ def run_checks(works, IW, IB, IE, IC, ents):
             if note0 and re.search(r'[字號号]\s*[^人\s]{0,3}' + re.escape(c), note0): sc -= 3   # 以字名集
             if set(title[1:4]) & ZHAI: sc -= 2                                                  # 齋號切進書名
             if rest and rest[0] in BAD_HEAD: sc -= 2                                            # 去首字不成詞
-            if note0 and re.search(r'[字號号]', note0) and c not in note0: sc += 1
+            # 小注若為現撰人之小傳（「字某某，號某某，某地人」「某年進士」），
+            # 即是編目者確知有此二字之人——**是原分法之正證，非猜法之正證**。
+            # 原判準在此加分，方向反了：抽驗 undated 桶 12 條，僅 1 條真缺陷（八分之一），
+            # 九條皆帶此型小注而現撰人無誤（呉䎖《升恒堂集》、潘章《力田餘稿》、
+            # 傅梅《簡翁詩集》、鄭渭《望川存稿》、呉沉《應酬稿》……）。今改為減分（坑 48）。
+            if note0 and BIO_RE.search(note0): sc -= 2
             strong = ''
             if rest.startswith(nm[0]) and len(rest) > 2:                                        # 書名以姓＋字／諡／官起
                 mid = rest[1:]
@@ -441,8 +516,18 @@ def run_checks(works, IW, IB, IE, IC, ents):
         su = k[2]
         aus = {x: [(a.get('name') or '').strip() for a in (works[x].get('authors') or [])] for x in v}
         owners = [x for x in v if any(a and a in su for a in aus[x])]
+        # (d) 同經異譯之防（坑 45）：佛典之譯人多不著錄，兩造 authors 皆空，只憑撰人判不出。
+        # 其別載在 author_info——「第二出」「與某某出者小異」「此為某某所譯之本」
+        # 「某某所出十部之一」皆是異譯之明證。故 author_info 相異者一律不判 dup。
+        ai = {x: Y_NORM.sub('', ' '.join(
+            (ib.get('author_info') or '') for ib in (works[x].get('indexed_by') or [])
+            if (ib.get('source_bid') == k[0]))) for x in v}
+        transl = any(TRANSL_RE.search(t) for t in ai.values())
         if owners and len(owners) < len(v):
             kind, extra = 'misattached', {'owner': owners}
+        elif len(set(ai.values())) > 1 or transl:
+            # 著錄之 author_info 有別（或明言異譯）：非重出，報作 variant——**不可併**
+            kind, extra = 'variant', {'author_info': {x: ai[x][:40] for x in v}}
         elif len({frozenset(a for a in aus[x] if a) for x in v}) == 1:
             kind, extra = 'dup', {}
         else:
@@ -494,6 +579,44 @@ def run_checks(works, IW, IB, IE, IC, ents):
                           contradict=bool(w.get('period') and w.get('period_upper')
                                           and w.get('period') != w.get('period_upper')),
                           other_sources=others[:4], basis=b[:90]))
+
+    # ── M：loss_status 與 description 不相覆核（weijin 所報，坑 43）──────────
+    # 二型：contra＝loss 明作 lost 之屬而 desc 稱今存（真矛盾）；blank＝loss 未填而 desc 稱今存。
+    # 「尚存」前若有時間限定（梁時尚存、唐志尚存、校書時尚存）是「存至某代而後亡」，非今存——
+    # 初稿不辨此，11 條裡 10 條假陽性（坑 21 之訓），今以 M_PAST 排除。
+    for wid, w in works.items():
+        ls = w.get('loss_status')
+        if ls in ('extant', 'partially_extant'): continue
+        t = ((w.get('description') or {}).get('text') or '')
+        if not t: continue
+        m = M_POS.search(t)
+        if not m:
+            for b in M_BARE.finditer(t):
+                if not M_PAST.search(t[max(0, b.start()-1):b.start()]): m = b; break
+        if not m: continue
+        seg = t[max(0, m.start()-16):m.end()+16]
+        if M_NEG.search(seg): continue
+        R['M'].append(row(w, kind='contra' if ls else 'blank', loss_status=ls, evidence=seg.strip()[:52]))
+
+    # ── V：維基文庫之題名孤證連結（weijin 所報，坑 44）──────────────────────
+    # resources 之 url 形如 zh.wikisource.org/wiki/<題名>（頁名恰等題名、無消歧義後綴），
+    # 而題僅二至四字者，最易撞上「明星同名書」——謝沈《晉書》連到房玄齡官修正史、
+    # 阮籍《樂論》連到蘇洵、陸機《晉紀》連到干寶輯本，皆此。
+    # 只報候選，須逐一 WebFetch 覆核頁面之撰人／朝代；以「庫中同題之數」為危度。
+    same_title = collections.Counter((w.get('title') or '').strip() for w in works.values())
+    for wid, w in works.items():
+        t = (w.get('title') or '').strip()
+        if not (2 <= len(t) <= 4): continue
+        for r_ in (w.get('resources') or []):
+            u = r_.get('url') or ''
+            if 'zh.wikisource.org/wiki/' not in u: continue
+            page = urllib.parse.unquote(u.split('/wiki/', 1)[1])
+            if '(' in page or '（' in page or '/' in page: continue   # 帶消歧義後綴或子頁者不報
+            if page.strip() != t: continue
+            n = same_title[t]
+            if n < 3: continue                                        # 庫中同題不足三見者危度低
+            R['V'].append(row(w, page=page, same_title=n, url=u[:90]))
+            break
     return R
 
 def main():
