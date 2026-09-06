@@ -21,6 +21,10 @@ resolve_conflicts() {
       index/*) git checkout --theirs -- "$f" || echo "取彼方失敗：$f" >&2 ;;
       *)       echo "非索引衝突，取己方：$f"; git checkout --ours -- "$f" || echo "取己方失敗：$f" >&2 ;;
     esac
+    # `git checkout --ours/--theirs` 只還原內容，**不把該路徑自未合併之列除去**——
+    # 須 `git add` 方算解決。2026-09-06 加了「提交前驗收未解之衝突為零」一步（坑 36 之乙法）
+    # 後，此漏遂現形：內容已取而路徑仍列未合併，驗收即誤判為「解衝突未竟」而中止（坑 58）。
+    git add -- "$f" || echo "標記已解失敗：$f" >&2
   done
   # 顯式驗收：迴圈跑完後不得再有未解之衝突，也不得有衝突標記殘留於工作區
   local left

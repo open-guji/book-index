@@ -36,8 +36,7 @@
     {
       "name": "李遵",
       "role": "撰",
-      "name_basis": "2026-09-06 qa-sweep/nanbeichao：解繫：所繫 entity `hixhd2h9bhic` 之 dynasty 作「唐」、卒年 757（名下《太元真人茅君內傳》《三茅君內傳》《九章算術》並 sui-tang），而本書之李遵，《隋書經籍志》明作「弟子李遵撰」——茅君之弟子，《補晉書藝文志》著錄作「太玄真人東鄕司命茅君內傳一卷李遵撰」，是晉世上清一系之書。同名異代，故解其繫。庫中無代合之同名 entity，存名待考。",
-      "entity_id": "hixhd2h9bhic"
+      "name_basis": "2026-09-06 qa-sweep/nanbeichao：解繫：所繫 entity `hixhd2h9bhic` 之 dynasty 作「唐」、卒年 757（名下《太元真人茅君內傳》《三茅君內傳》《九章算術》並 sui-tang），而本書之李遵，《隋書經籍志》明作「弟子李遵撰」——茅君之弟子，《補晉書藝文志》著錄作「太玄真人東鄕司命茅君內傳一卷李遵撰」，是晉世上清一系之書。同名異代，故解其繫。庫中無代合之同名 entity，存名待考。"
     }
   ],
   "juan_count": {
@@ -64,7 +63,16 @@
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《隋書經籍志》（唐長孫無忌等，成於顯慶元年（656）），故不晚於 sui-tang",
   "period": "jin",
   "period_basis": "據《補晉書藝文志》著錄——「太玄真人東鄕司命茅君內傳一卷李遵撰」，斷代志繫之於晉；《隋書經籍志》作「《太元真人東鄉司命茅君內傳》一卷弟子李遵撰」，撰人是茅君之弟子而不著其代。（2026-09-06 qa-sweep/nanbeichao 改：舊據作「撰人朝代闕，據其 Entity「李遵」之 period 傳播；上限 sui-tang 覆驗不相斥」，而該 entity 是唐之李遵（卒 757），其 period 亦已作 sui-tang，與本條之 nanbeichao 兩不相應——所謂「傳播」傳的是一個已不存在之值，今解其繫並改依斷代志立據。）",
-  "ai_note": "N4 存疑（2026-08-24）：本條撰人「李遵」所繫 entity `1j967da97jm1d` 之代作「唐」，與本條之代（nanbeichao，據隋志著錄「《太元真人東鄉司命茅君內傳》一卷弟子李遵撰」）相牴。該 entity 名下另有《太元真人茅君內傳》《三茅君內傳》（皆 sui-tang）與《九章算術》——《九章算術》與李遵無涉，疑其為聚合誤配之 entity。本輪不強判：authors[].dynasty 留空，其代之判與該 entity 之拆併交人物併池車道。\n\n2026-09-06 qa-sweep/nanbeichao：斷代訂正：period 由 nanbeichao 改 jin，並解去誤繫之 entity。舊 period_basis 稱「據其 Entity「李遵」之 period 傳播」，而該 entity（hixhd2h9bhic）之 dynasty 是「唐」、卒年 757、period 是 sui-tang——既非本條之代，其「傳播」所得亦非 nanbeichao，是一條自始不自洽之據（scan C／L 類皆報之）。今據《補晉書藝文志》之著錄定作 jin。同 entity 名下之《太元真人茅君內傳》d59f28jwdmv6（period sui-tang）與本條疑是一書之兩著錄，不在本道，記 known-issues。原值：period=nanbeichao，authors[0].entity_id=hixhd2h9bhic。\n\n2026-09-06 《補晉書藝文志》（文廷式）整理：收《補晉書藝文志》（文廷式撰）一節，作「李遵　太元真人東鄉司命茅君內傳一卷」。庫條《太元真人東鄉司命茅君內傳》一卷撰人作李遵，與本志「李遵」相合，朝代相容，出《隋書經籍志》，同書\n\n2026-09-06 晉志 source 正名：indexed_by.source 綴撰人以別五家補晉志（四本同題《補晉書藝文志》，非綴撰人不可辨）。source_bid 未動。\n\n2026-09-06 《補晉書藝文志》（黃逢元）整理：收《補晉書藝文志》（黃逢元撰）一節，作「李遵　太元真人東鄉司命茅君内傳一卷」。撰人相符（本志「李遵」／庫「李遵」），時代相容（jin）；庫題「太元真人東鄉司命茅君内傳」",
+  "ai_note": "N4 存疑（2026-08-24）：本條撰人「李遵」所繫 entity `1j967da97jm1d` 之代作「唐」，與本條之代（nanbeichao，據隋志著錄「《太元真人東鄉司命茅君內傳》一卷弟子李遵撰」）相牴。該 entity 名下另有《太元真人茅君內傳》《三茅君內傳》（皆 sui-tang）與《九章算術》——《九章算術》與李遵無涉，疑其為聚合誤配之 entity。本輪不強判：authors[].dynasty 留空，其代之判與該 entity 之拆併交人物併池車道。\n\n2026-09-06 qa-sweep/nanbeichao：斷代訂正：period 由 nanbeichao 改 jin，並解去誤繫之 entity。舊 period_basis 稱「據其 Entity「李遵」之 period 傳播」，而該 entity（hixhd2h9bhic）之 dynasty 是「唐」、卒年 757、period 是 sui-tang——既非本條之代，其「傳播」所得亦非 nanbeichao，是一條自始不自洽之據（scan C／L 類皆報之）。今據《補晉書藝文志》之著錄定作 jin。同 entity 名下之《太元真人茅君內傳》d59f28jwdmv6（period sui-tang）與本條疑是一書之兩著錄，不在本道，記 known-issues。原值：period=nanbeichao，authors[0].entity_id=hixhd2h9bhic。\n\n2026-09-06 《補晉書藝文志》（文廷式）整理：收《補晉書藝文志》（文廷式撰）一節，作「李遵　太元真人東鄉司命茅君內傳一卷」。庫條《太元真人東鄉司命茅君內傳》一卷撰人作李遵，與本志「李遵」相合，朝代相容，出《隋書經籍志》，同書\n\n2026-09-06 晉志 source 正名：indexed_by.source 綴撰人以別五家補晉志（四本同題《補晉書藝文志》，非綴撰人不可辨）。source_bid 未動。\n\n2026-09-06 《補晉書藝文志》（黃逢元）整理：收《補晉書藝文志》（黃逢元撰）一節，作「李遵　太元真人東鄉司命茅君内傳一卷」。撰人相符（本志「李遵」／庫「李遵」），時代相容（jin）；庫題「太元真人東鄉司命茅君内傳」\n\n2026-09-06 qa-sweep/weijin·坑24（宣稱已清而未清）逐條裁：復解繫。name_basis 已載「2026-09-06 qa-sweep/nanbeichao」之解繫案語（本書李遵是茅君弟子、晉世上清一系之人，與 entity hixhd2h9bhic「李遵」唐人、卒 757 者同名異代），而 entity_id 欄實仍留該 entity，兩側之回指亦仍在——「宣稱已清而未清」（PITFALLS 坑 24）。今復解，兩側同步。庫中無代合之同名 entity，依〈繫連寧缺毋濫〉存名不強配。\n\n2026-09-06 qa-sweep/weijin·J 類：description 撮自本條所繫之著錄（見著錄於《隋書經籍志》《補晉書藝文志（丁國鈞）》《補晉書藝文志（文廷式）》《補晉書藝文志（黃逢元）》），每節皆據 indexed_by 之引文，不出其外，亦不臆造（curate-dynasty S3〈借力志書〉之法）。未覆核原書。",
   "revision": "1.1.0",
-  "revised_at": "2026-08-31"
+  "revised_at": "2026-09-06",
+  "description": {
+    "text": "李遵撰。一卷。見著錄於《隋書經籍志》《補晉書藝文志（丁國鈞）》《補晉書藝文志（文廷式）》《補晉書藝文志（黃逢元）》。",
+    "sources": [
+      "隋書經籍志",
+      "補晉書藝文志（丁國鈞）",
+      "補晉書藝文志（文廷式）",
+      "補晉書藝文志（黃逢元）"
+    ]
+  }
 }
