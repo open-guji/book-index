@@ -1,0 +1,25 @@
+{
+ "lane": "coordinator",
+ "date": "2026-09-07",
+ "kind": "重出待併",
+ "title": "倪思諸著連書條之善後：新建五條、補一條著錄、補七條之繫；並揪出 entity「倪正甫」與「倪思」是一人二目",
+ "origin": "undated 道 20260906-2023-pit.md（自 overview 掃『同一 work_id 掛數節而書名互異』494 組所得）；undated 之 session 已 IDLE（19:05 後無動作），其活歸協調者代辦",
+ "case": "《直齋書錄解題》以頓號連書倪思數部著作而解題只寫一遍，book-text 拆節時各節應各有 work_id，實際全鏈到頭一部（齊齋甲槁 d59f2pwcbh1d 掛五節、齊齋奏議 d59f2pu6wmiq 掛三節）。",
+ "found_more_than_reported": "undated 報八題，本座覆核**庫中已有者比其所知為多**——《翰林前槁》`d59f2q1h3z0h`、《齊齋臺諫論》`d59f2q7kv1fk`、《齊齋年譜》`d59f2hcmi58i`、《倪思齊齋五稿》`d59f2q8f51xc`、《掖垣詞草》`d59f2px5cjr5`、《昆命元龜說》`d59f2hdajf2a` 皆已在；《翰林後槁》`d59f2q0o2w3l` 二卷即直齋連書之「《後槁》二卷」（承前條「翰林」而省，卷數亦合），亦已在。故實缺者非六題，是**五題**。",
+ "done": {
+  "新建五條": ["d59f9ttxu328 齊齋乙槁（十五卷）","d59f9ttxu329 兼山論著（三十卷）","d59f9ttxu32a 齊齋附益（五卷）","d59f9ttxu32b 掖垣繳論（四卷）","d59f9ttxu32c 銀臺章奏（五卷）"],
+  "補著錄一條": "d59f2q0o2w3l 翰林後槁 —— 補《直齋書錄解題》「《後槁》二卷」一節，不另立新條",
+  "補繫七條": ["d59f2q1h3z0h 翰林前槁","d59f2q7kv1fk 齊齋臺諫論","d59f2hcmi58i 齊齋年譜","d59f2q8f51xc 倪思齊齋五稿","d59f2px5cjr5 掖垣詞草（並正其題，原作「倪思掖垣詞草」，題黏撰人）","d59f2pwcbh1d 齊齋甲槁","d59f2pu6wmiq 齊齋奏議"],
+  "entity": "倪思 hixhd2h9be75 補繫 13 部",
+  "id之鑄": "以 .claude/qa/mintid.py（坑 63）依 overview/设计文档/古籍索引/索引ID.md 之 64 位規範鑄，MachineID=2000（協調者），與上游生成器不相撞。此為該工具首次實用。"
+ },
+ "open": [
+  {"kind":"entity 一人二目","entities":["hixhd2h9be75","hixhd2h9bowd"],
+   "detail":"`hixhd2h9bowd`「倪正甫」是 2026-08-24 之乙等新建（庫中止一見），名下唯《兼山小集》`d59f2q89is5d`（三十卷）。**倪思字正甫**——《直齋書錄解題》正作「禮部尚書歸安倪思**正父**撰」（正父／正甫一也）。該次新建之四道之驗，其第三道本為此設（「四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建」），惟「倪正甫」止三字，遂漏網。",
+   "next":"entity-cbdb：併 hixhd2h9bowd 入 hixhd2h9be75，並將「正甫」「正父」入其 alt_names；順檢庫中他處三字之「姓＋字」型是否同漏（該驗只及四字）。"},
+  {"kind":"疑同書未併","records":["d59f9ttxu329","d59f2q89is5d"],
+   "detail":"新建之《兼山論著》三十卷（直齋）與既有之《兼山小集》三十卷（倪正甫）——撰人同（倪思字正甫）、卷數同（三十），惟題異（論著／小集）。已於二條之 related_works 互指 `suspected_same`，未逕併。",
+   "next":"俟裁；若併，keeper 宜取著錄較全者，並照坑 64 之善後五件"}
+ ],
+ "records": ["d59f2pwcbh1d","d59f2pu6wmiq","hixhd2h9be75","hixhd2h9bowd"]
+}
