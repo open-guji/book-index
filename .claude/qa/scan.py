@@ -105,6 +105,27 @@ M_POS = re.compile(r'(今存|今尚存|原文賴[^，。]{0,12}以存|全文見�
 M_BARE = re.compile(r'尚存')
 M_PAST = re.compile(r'(時|代|志|世|初|末|間|前|後)$')   # 「梁時尚存」是存至某代而後亡
 M_NEG = re.compile(r'(之目賴|目錄賴|其目賴|原書已佚|已佚|佚文|輯本|殘卷|亡佚|不存|未見傳本|而亡|已亡|全亡)')
+JUAN_RE = re.compile(r'([〇一二三四五六七八九十百千]+|\d+)\s*卷')
+_NUM = {c: i for i, c in enumerate('〇一二三四五六七八九')}
+def _cn2int(x):
+    if x.isdigit(): return int(x)
+    if x == '十': return 10
+    n = 0; unit = 1; tot = 0
+    for c in reversed(x):
+        if c == '十': unit = 10; n = 0 if n else 1; tot += n * unit; n = 0
+        elif c == '百': unit = 100; n = 0 if n else 1; tot += n * unit; n = 0
+        elif c == '千': unit = 1000; n = 0 if n else 1; tot += n * unit; n = 0
+        elif c in _NUM: tot += _NUM[c] * (unit if unit > 1 and n == 0 else 1); n = 1; unit = 1
+    return tot or None
+def juan_of(w):
+    """自本條諸著錄之引文抽卷數（可多，諸志所記本有異同）。無者回空集。"""
+    out = set()
+    for ib in (w.get('indexed_by') or []):
+        for fld in ('title_info', 'summary'):
+            for m in JUAN_RE.finditer(ib.get(fld) or ''):
+                v = _cn2int(m.group(1))
+                if v: out.add(v)
+    return out
 BOUND_RE = re.compile(r'最緊者為[^，,。]{0,30}')
 # 異譯之明證（Y 之 variant 型；坑 45）
 TRANSL_RE = re.compile(r'(第[二三四五]出|所譯之本|所出[一二三四五六七八九十百]+部|出者[大小]同|小異|異譯|重譯|別譯)')
@@ -277,16 +298,26 @@ def run_checks(works, IW, IB, IE, IC, ents):
         r['clash'] = bool(hits)
         if hits: r['clash_ids'] = hits[:5]
 
-    # I 同題同撰人
+    # I 同題同撰人。**卷數異即異書**（skill〈同名異書識別判準〉）——undated 道逐組裁
+    # 142 組，其中 119 組卷數互異（如《毛詩義疏》一組五條作 20／10／29／11／28 卷，
+    # 皆繫隋志，正是隋志所著錄之五家義疏，斷不可併）。志書裸條之題又多是截斷之形
+    # （《雜傳》《義疏》《詩》《書》《經》），同題本不足為據。故卷數互異者降為
+    # kind='juan_differ' 而不作重出候選（坑 47）。墓碑不入組（坑 37 同理）。
     groups = collections.defaultdict(list)
     for w in works.values():
+        if w.get('merged_into'): continue
         au = tuple(sorted((a.get('name') or '') for a in (w.get('authors') or [])))
         groups[(w.get('title'), au)].append(w)
     for (t, au), ws in groups.items():
-        if len(ws) > 1:
-            for w in ws:
-                R['I'].append(row(w, group_title=t, authors=list(au), group_ids=[x['id'] for x in ws],
-                                  sources=[i.get('source') for i in (w.get('indexed_by') or [])]))
+        if len(ws) < 2: continue
+        juans = {frozenset(juan_of(w)) for w in ws}
+        known = [j for j in juans if j]
+        differ = len(known) > 1 and not set.intersection(*[set(j) for j in known])
+        kind = 'juan_differ' if differ else 'same_juan'
+        for w in ws:
+            R['I'].append(row(w, kind=kind, group_title=t, authors=list(au),
+                              group_ids=[x['id'] for x in ws], juan=sorted(juan_of(w)),
+                              sources=[i.get('source') for i in (w.get('indexed_by') or [])]))
 
     # K(entity side) / L / O
     for eid, e in ents.items():
