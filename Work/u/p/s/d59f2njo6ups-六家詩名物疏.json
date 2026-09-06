@@ -6,9 +6,9 @@
     {
       "name": "馮復京",
       "role": "撰",
-      "dynasty": "元末明初",
+      "dynasty": "明",
       "entity_id": "hixhd2h9bgfw",
-      "dynasty_basis": "L5 斷代歸一（2026-08-25 遼金元輪）：本欄舊作「明」，而其書之著錄源《元史藝文志》作「元某某」。二說皆非全誤——其人是**過渡期人物**，生於前朝而書成於後朝（或反之）。庫中本有「元末明初」一值正為此設，今歸之。確證：其人名下之 work 同時分居 ming×3／liao-jin-yuan×1 諸桶。"
+      "dynasty_basis": "2026-09-06 qa-sweep/ming A 類：本欄舊作「元末明初」，出 2026-08-25 遼金元 L5「斷代歸一」，其所稱之確證為「其人名下之 work 同時分居 ming×3／liao-jin-yuan×1 諸桶」——此正是同名異人之徵候，非跨代之證（循環論據）。馮復京生卒 1573–1622（entity hixhd2h9bgfw 自載，維基百科同：字嗣宗，蘇州府常熟縣人，明藏書家，著《六家詩名物疏》五十五卷、《常熟先賢事略》十卷，天啟二年卒），生於明建國二百餘年後，與「元末明初」相斥。所謂 liao-jin-yuan 之一書乃《昌國州圖志》，《元史藝文志》著錄之文作「元馮復京昌國州圖志七卷（大德中馮復京、郭薦撰）」，大德二年（1298）成書，其人為潼川馮福京（號學泉居士，元貞元年昌國州知州），與明常熟馮復京同名異人。今回正本欄為「明」。原值：dynasty=「元末明初」。"
     }
   ],
   "indexed_by": [
@@ -45,7 +45,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3b9ybysd8g(馮應京)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvn51gu0w 與 11q37o3pbuqdc 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-25 遼金元 L5：撰人「馮復京」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3b9ybysd8g(馮應京)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvn51gu0w 與 11q37o3pbuqdc 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-25 遼金元 L5：撰人「馮復京」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-09-06 qa-sweep/ming A 類重立據：period_basis 引 authors[0].dynasty「明」而實錄非之，重立其據（見 period_basis）。 併回正撰人之代「元末明初」→「明」，據見 authors[0].dynasty_basis。",
   "resources": [
     {
       "id": "shidianguji-sikuquanshuben",
@@ -122,7 +122,7 @@
   "_has_text": true,
   "_has_image": true,
   "period": "ming",
-  "period_basis": "據 authors[0].dynasty「明」",
+  "period_basis": "2026-09-06 qa-sweep/ming A 類重立據：本書見錄於《明史藝文志》《經義考》《欽定四庫全書總目》；維基百科載馮復京（1573–1622）著《六家詩名物疏》五十五卷。（《欽定四庫全書總目》所載撰人之名作「明馮應京」，與本條之「馮復京」一字之差，另案，見 known-issues。）本條 period 仍作 ming。原句「據 authors[0].dynasty「明」」所引之值，2026-08-25 遼金元 L5 已改作「元末明初」而本句未隨，是引已不存在之值為據；今本批既回正撰人之代為「明」，復以著錄立據，不復倚欄位派生。原值：period_basis=\"據 authors[0].dynasty「明」\"。",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
   "revision": "1.0.0",

@@ -6,9 +6,9 @@
     {
       "name": "王儀",
       "role": "等纂修",
-      "dynasty": "元末明初",
+      "dynasty": "明",
       "entity_id": "hixhd2h9bghd",
-      "dynasty_basis": "L5 斷代歸一（2026-08-25 遼金元輪）：本欄舊作「明」，而其書之著錄源《元史藝文志》作「元某某」。二說皆非全誤——其人是**過渡期人物**，生於前朝而書成於後朝（或反之）。庫中本有「元末明初」一值正為此設，今歸之。確證：其人名下之 work 同時分居 ming×2／liao-jin-yuan×1 諸桶。"
+      "dynasty_basis": "2026-09-06 qa-sweep/ming A 類：本欄舊作「元末明初」，出 2026-08-25 遼金元 L5「斷代歸一」，其確證為「名下 work 分居 ming×2／liao-jin-yuan×1」——循環論據，說見馮復京條。王儀生卒 1482–1559（entity hixhd2h9bghd 自載，字克敏／克敬，號肅菴，文安人，CBDB 68341），明中葉人，與「元末明初」相斥。所謂 liao-jin-yuan 之一書乃《王儀文集》，《元史藝文志》作「元王儀王儀文集」，是元之同名者。今回正本欄為「明」。原值：dynasty=「元末明初」。"
     }
   ],
   "description": {
@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-08-25 遼金元 L5：撰人「王儀」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-08-25 遼金元 L5：撰人「王儀」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-09-06 qa-sweep/ming A 類重立據：period_basis 引 authors[0].dynasty「明」而實錄非之，重立其據（見 period_basis）。 併回正撰人之代「元末明初」→「明」，據見 authors[0].dynasty_basis。",
   "juan_count": {
     "number": 2
   },
@@ -34,7 +34,7 @@
   ],
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
-  "period_basis": "據 authors[0].dynasty「明」",
+  "period_basis": "2026-09-06 qa-sweep/ming A 類重立據：所繫 Book 為明萬曆末年刊本（《國立故宮博物院善本舊籍》平圖007647-007648）；撰人王儀（1482–1559）明中葉人。本條 period 仍作 ming。原句「據 authors[0].dynasty「明」」所引之值，2026-08-25 遼金元 L5 已改作「元末明初」而本句未隨，是引已不存在之值為據；今本批既回正撰人之代為「明」，復以著錄立據，不復倚欄位派生。原值：period_basis=\"據 authors[0].dynasty「明」\"。",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
   "revision": "1.0.0",
