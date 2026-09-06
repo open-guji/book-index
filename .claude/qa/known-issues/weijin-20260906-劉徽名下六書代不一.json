@@ -1,0 +1,51 @@
+{
+  "lane": "weijin",
+  "date": "2026-09-06",
+  "title": "劉徽名下六書分居 jin×5／three-kingdoms×1，宜歸一",
+  "kind": "斷代兩可",
+  "records": [
+    {
+      "id": "d59f27ywcv7m",
+      "title": "九章算術",
+      "period": "jin"
+    },
+    {
+      "id": "d59f27x68n40",
+      "title": "海島算經",
+      "period": "jin"
+    },
+    {
+      "id": "d59f2e2vuozl",
+      "title": "九章算經",
+      "period": "jin"
+    },
+    {
+      "id": "d59f27x4d7ur",
+      "title": "九章算經",
+      "period": "jin"
+    },
+    {
+      "id": "d59f27w7latd",
+      "title": "九章六曹算經",
+      "period": "jin"
+    },
+    {
+      "id": "d59f27scop37",
+      "title": "九章重差圖",
+      "period": "three-kingdoms"
+    },
+    {
+      "id": "hixhd2h9bn26",
+      "title": "劉徽（entity，dynasty 三國魏）",
+      "period": "three-kingdoms"
+    }
+  ],
+  "evidence": "著錄之代一律作晉：《欽定四庫全書總目·海島算經》「晉劉徽撰」、《續修四庫全書》「《九章筭經九卷(存1—5卷)》晉劉徽注」；《補晉書藝文志》丙部子錄層數類收《九章算術》十卷、《海島算經》一卷、《九章重差圖》一卷。其人之代：劉徽注《九章算術》在魏景元四年（263），正史無傳，今人多目為「三國魏數學家」（本庫 entity hixhd2h9bn26 之 dynasty 即此）。六書之中《九章重差圖》獨在 three-kingdoms（其 period_basis 據 authors[0].dynasty「三國魏」），餘五在 jin——同一撰人同一批著錄而代不一，是分期之不齊，非二人。",
+  "options": [
+    "甲：六書一律從著錄作 jin（《九章重差圖》three-kingdoms→jin），entity 之代仍作三國魏而不以之定書之代",
+    "乙：六書一律從其人作 three-kingdoms（五條 jin→tk），並改諸條之 period_basis",
+    "丙：分——《九章重差圖》《海島算經》等成於景元四年者從魏，其餘從晉"
+  ],
+  "recommend": "甲",
+  "why": "諸志（隋志、兩唐志、崇文總目、四庫總目、續修四庫、補晉志）之代一律作晉，著錄之證獨多且一致；本庫既有「著錄之代與其人之代不必同」之例。丙案無據可分（諸書皆無獨立之成書年）。惟乙案亦有理（263 年實在魏），且動五條，故不逕行而記此。跨 period 之移（five in jin → tk）宜由協調者排時段。"
+}
