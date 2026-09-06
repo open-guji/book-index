@@ -13,7 +13,7 @@
   "dynasty": "元末明初",
   "native_place_basis": "CBDB 30244 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-25 遼金元 L5：dynasty 由「明」歸一為「元末明初」。判據見 dynasty_basis。其名下 work 之 authors[].dynasty 同步。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=30244 補入空槽——籍貫「常熟」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6egqmigz。",
+  "ai_note": "2026-08-25 遼金元 L5：dynasty 由「明」歸一為「元末明初」。判據見 dynasty_basis。其名下 work 之 authors[].dynasty 同步。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=30244 補入空槽——籍貫「常熟」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6egqmigz。\n\n2026-09-06 qa-sweep/liaojinyuan：《昌國州圖志》（d59f2gldqigx）自本條 works 撤出——同名二人之誤繫。\n據：《元史藝文志》「元馮復京昌國州圖志七卷（**大德中**馮復京、郭薦撰）」；該志自注其修於「大德中」（元成宗大德，1297–1307）；而所繫 entity 之馮復京（字嗣宗，常熟人，《六家詩名物疏》之撰者）生於萬曆元年（1573），**晚於大德二百七十年**。此即 PITFALLS 坑 13 所舉之例——該坑已考明大德《昌國州圖志》之修者實是潼川**馮福京**，與明之馮復京一字之差而非一人。本條 authors[0].name 仍存著錄原形「馮復京」不改（坑 10「只寫來源真有的」），正名與否俟協調者裁。\n本條 dynasty「元末明初」出 2026-08-25「L5 斷代歸一」，其據「名下之 work 同時分居 ming／liao-jin-yuan 諸桶」正由此誤繫造成，是循環（PITFALLS 坑 13）。撤出後名下所餘之 work 其期皆為 ['ming']，不在本道所有權之內（規程三·2），故本條之 dynasty 未動，已報協調者派 ming 道正之。",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "works": [
     {
@@ -26,10 +26,6 @@
     },
     {
       "work_id": "d59f2njo6ups",
-      "role": "撰"
-    },
-    {
-      "work_id": "d59f2gldqigx",
       "role": "撰"
     },
     {
