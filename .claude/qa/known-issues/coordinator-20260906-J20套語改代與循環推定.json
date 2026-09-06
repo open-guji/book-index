@@ -1,0 +1,110 @@
+{
+ "lane": "coordinator",
+ "date": "2026-09-06",
+ "title": "J20/J25 套語式 dynasty 逆改 25 條全庫覆核；並揭 work.period 與 entity.dynasty 之循環推定",
+ "origin": "qing 道 inbox 20260906-2100-pit.md 報 J20 之 19 條清→明，本座依規程「一道所見之病當全庫一掃」擴查",
+ "sweep": {
+  "字串": "J20：dynasty 由「X」訂正為「Y」",
+  "命中": {
+   "清→明": 19,
+   "元→明": 3,
+   "宋→明": 1,
+   "元→元末明初": 1,
+   "J25 清→明": 1,
+   "反向（明→清）": 0
+  },
+  "合計 entity": 25
+ },
+ "qing_已核": "19 條清→明：9 條判 J20 誤改（已正清）、5 條判 J20 無誤、4 條五五之分待覈（李鼎/陳天定/王建中/張倬）",
+ "coordinator_已核": "其餘 6 條（元→明 3、宋→明 1、元→元末明初 1、J25 清→明 1）",
+ "root_cause": {
+  "名": "循環推定",
+  "說": "ljy-round1 曾為 3,777 條 work 之 period 以「據 author.dynasty 集合補」機械推得；2026-08-25 之 J20 批次又以「所繫之 work 已考出其人為某代」為由回改 entity.dynasty。兩造互為根據，成一循環——work 之代本自 entity 來，卻反過來當作 entity 之代的證據。",
+  "量": "3,777 條有此註之 work 中，310 條之註所補之代已與 entity 今值不符；其中 12 條連 period 桶都相牴（liao-jin-yuan 之書而其人今作明 11 條／作南宋 1 條）"
+ },
+ "fixed": [
+  {
+   "entity": "hixhd2h9bho4",
+   "name": "胡三省",
+   "from": "南宋",
+   "to": "宋末元初",
+   "evidence": "記錄自載生卒 1229/1230–1302；宋寶祐四年進士而卒於元大德六年，《通鑑釋文辨誤》成於元初"
+  },
+  {
+   "entity": "hixhd2h9bgos",
+   "name": "邵亨貞",
+   "from": "明",
+   "to": "元末明初",
+   "evidence": "生卒 1309–1401；《蟻術詩選》《蟻術詞選》皆元代之作"
+  },
+  {
+   "entity": "hixhd2h9bmiu",
+   "name": "華幼武",
+   "from": "明",
+   "to": "元末明初",
+   "evidence": "生卒 1307–1375；《黃楊集》元代已成"
+  },
+  {
+   "entity": "hixhd2h9bmiv",
+   "name": "吳會",
+   "from": "明",
+   "to": "元末明初",
+   "evidence": "卒 1388，名下《吳書山先生遺集》著錄於元代志書"
+  },
+  {
+   "entity": "hixhd2h9bmih",
+   "name": "丁鶴年",
+   "from": "明",
+   "to": "元末明初",
+   "evidence": "生卒 1335–1424，元末色目詩人，入明不仕"
+  },
+  {
+   "entity": "hixhd2h9bgd6",
+   "name": "梁寅",
+   "from": "明",
+   "to": "元末明初",
+   "evidence": "生卒 1303–1389，元末隱居石門，明初徵修禮書"
+  },
+  {
+   "entity": "hixhd2h9bh65",
+   "name": "葉瑞",
+   "from": "明",
+   "to": "元",
+   "by": "liao-jin-yuan 道 40508d8cf1（複查十·U 類），本座只覆核",
+   "evidence": "名下三書皆 liao-jin-yuan；ai_note 之『J20：dynasty 由「元」訂正為「明」』一語今已成陳跡（值已回元），本座另附註標其失效"
+  }
+ ],
+ "fix_rule": "改 entity.dynasty 用本庫既有之跨代稱（元末明初 51 例、宋末元初 42 例、明末清初 11 例）；所繫之 work 之 period 一概不動——著述之代自有著錄為據，與其人之代本可不同，此正是各道歷來判 C 類「跨代人物」為常態之理。",
+ "open": [
+  {
+   "entity": "hixhd2h9bgyb",
+   "name": "馮珵",
+   "state": "J20 元→明，無生卒",
+   "detail": "名下三書：四書中說（元史藝文志系，period=liao-jin-yuan）、四書發微（經義考，liao-jin-yuan）、五經正議（經義考，ming）。四書中說之 ai_note 自陳『ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」』——即此書之代本自 entity 之舊值『元』來，J20 反以此書為據改 entity 為『明』，正是循環之典型。網檢《經義考》外無他傳，未能定其代。",
+   "next": "查《經義考》四書類／羣經類原文所繫之志，若出元史藝文志則其人當為元或元末明初"
+  },
+  {
+   "entity": "hixhd2h9bmq6",
+   "name": "謝顯",
+   "state": "J20 元→明，無生卒",
+   "detail": "entity 之舊註（ljy-round2）自陳『citation（補遼金元藝文志／元史藝文志）撰者實作「時榮」（金華人），citation 內證明載「元時榮」無矛盾』——著錄明白稱『元』，而 J20 逕改為『明』且未舉本條之證。名下《易說》period 卻已作 ming（period_upper=qing），《一墩遺稿》period=None。",
+   "next": "覆核《經義考》易類『謝氏（顯）易說』與補遼金元藝文志之『元時榮』是否同一人；若是，dynasty 當還元或改元末明初，《易說》之 period 亦當覆核"
+  },
+  {
+   "entity": "hixhd2h9bthv",
+   "name": "何士信",
+   "state": "非 J20，屬 stale_bucket 12 條之一",
+   "detail": "《類編古今事林群書一覽》entity 今作明，而書 period=liao-jin-yuan。何士信之名見於《事林廣記》元至順建安椿莊書院刊本（西園精舍類編），網檢未得其生卒與確切之代。",
+   "next": "查至順本《事林廣記》題署"
+  },
+  {
+   "entity": "?",
+   "name": "沈易",
+   "state": "屬 stale_bucket 12 條之一",
+   "detail": "《論語旁訓》《孝經旁訓》二書 period=liao-jin-yuan 而其人今作明，無生卒。",
+   "next": "待考"
+  }
+ ],
+ "advice": "凡 ai_note 見『所繫之 work 已由更早某某個案考出』一類**不點名本條專證**之套語者，皆當覆核；尤其當該 work 之 period 本身又是自 entity.dynasty 機械推得時，其『證』實是自己。",
+ "corroboration": "J20 之誤已由三道各自不同之檢出獨立揪出：qing 道以『名下之書之期分布』核出 9 條、liao-jin-yuan 道以 U 類（CBDB 卒年早於朝代開國）核出葉瑞 1 條、本座以『period 桶與 entity.dynasty 相牴』核出 6 條。三路異法而同歸，足證 2026-08-25 J20 批次係系統性不可信，非零星之失。"
+}
