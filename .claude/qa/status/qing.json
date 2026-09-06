@@ -6,9 +6,9 @@
  ],
  "works": 16259,
  "state": "running",
- "batch": 5,
- "focus": "D 類·孤證之書撤代、磁鐵記疑",
- "commit": "1deb906d4f",
+ "batch": 7,
+ "focus": "G 類·重出待併（坑28）",
+ "commit": "e9e6fd7f06",
  "counts": {
   "A": {
    "found": 0,
@@ -18,9 +18,9 @@
   },
   "C": {
    "found": 281,
-   "fixed": 0,
+   "fixed": 11,
    "researched": 0,
-   "recorded": 0
+   "recorded": 2
   },
   "D": {
    "found": 0,
@@ -36,9 +36,9 @@
   },
   "G": {
    "found": 79,
-   "fixed": 0,
+   "fixed": 32,
    "researched": 0,
-   "recorded": 0
+   "recorded": 1
   },
   "H": {
    "found": 209,
@@ -107,7 +107,17 @@
    "at": "2026-09-06T12:21:24+00:00",
    "batch": 5,
    "note": "批5：D 類餘 27 條盡，D 50→0。24 條撤 period（惟《國史經籍志》一志著錄、撰人僻不可考、網查無獲，其代無據可定；不逕改 ming——那是上界非其代），並解 CBDB 誤配之繫 23；3 條（春秋新義·攝山志·滎陽縣志）period 有硬據而各掛一條明代同題異書之著錄／藏本，刪其偽上界並記 known-issues 待拆。"
+  },
+  {
+   "at": "2026-09-06T17:25:28+00:00",
+   "batch": 6,
+   "note": "批6：C 類 11 條——2 entity（杜綱・魏文中）dynasty 已正而 period 陳舊，據現行 dynasty 重算；7 work 解誤繫之名（趙寧・常明・景綸・郭雍x2・陳紀・陸淳，皆同名或全然誤配之清人書掛到他代同名/不同名之 entity）；孝經注刪已判定應空之撰人（順治御撰）；鄧析子通考 period modern→qing（清同治十一年刻本）。C 類三大常態記於此不動：(1) modern-entity/qing-work 97 條——late-Qing卒於民國之學者，work 自身著錄多有清代刻本紀年為據（authors[].dynasty=清），entity 之「中華民國」只是其人卒年之終代標籤，非其書之代，本道核校抽樣 6 條全數著錄有據，判為常態；(2) annot=true 之 47 條（role∈注疏箋校輯等）為後人注前代書之常態；(3) 原著/託名型（張機=張仲景、岐伯託名）為原撰人與後世刊定者並列之常態。C 265→255（減11，另有正常態約144條不動）。跨道記疑一則（張預·郭雍疑併二人共一entity，涉song道之書，本道權限不及）。"
+  },
+  {
+   "at": "2026-09-06T17:44:55+00:00",
+   "batch": 7,
+   "note": "批7：G 類撞庫（clash）38 對逐條核撰人，32 條判為重出併之（30 對 entity_id 全同、2 對名異而生卒/alt_names/卷數/版本四證合一：張爾岐/張爾歧、陳鴻墀/陳源墀），16 對判為異書不動（多代重修官書、題泛稱各家異作），詳 inbox pit。keeper 取 Books/idx 較豐者，indexed_by/resources 去重併入，Books 改指，loser Work 檔與索引刪，entity.works 雙向同步，並清 2 條因併條而生之懸空 related_works（尚書、儀禮二 hub 記錄原分掛新舊二條）。G 79→51。"
   }
  ],
- "updated_at": "2026-09-06T12:21:24+00:00"
+ "updated_at": "2026-09-06T17:44:55+00:00"
 }

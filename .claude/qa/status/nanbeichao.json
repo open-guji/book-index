@@ -5,9 +5,9 @@
  ],
  "works": 4121,
  "state": "running",
- "batch": 7,
- "focus": "F 補 alt_names（依 1b 輪之裁）",
- "commit": "2aa0543c7f",
+ "batch": 16,
+ "focus": "F 收尾——顔延之異體字",
+ "commit": "acc76844de",
  "counts": {
   "A": {
    "found": 205,
@@ -19,55 +19,59 @@
    "found": 33,
    "fixed": 10,
    "researched": 2,
-   "recorded": 2
+   "recorded": 2,
+   "normal": 23
   },
   "D": {
    "found": 2,
-   "fixed": 0,
-   "researched": 0,
+   "fixed": 2,
+   "researched": 1,
    "recorded": 0
   },
   "E": {
    "found": 2,
-   "fixed": 0,
+   "fixed": 1,
    "researched": 0,
-   "recorded": 0
+   "recorded": 1
   },
   "F": {
    "found": 33,
-   "fixed": 19,
+   "fixed": 2,
    "researched": 0,
    "recorded": 29
   },
   "G": {
    "found": 7,
-   "fixed": 0,
+   "fixed": 2,
    "researched": 0,
-   "recorded": 0
+   "recorded": 3
   },
   "H": {
-   "found": 41,
-   "fixed": 0,
+   "found": 36,
+   "fixed": 26,
    "researched": 0,
-   "recorded": 0
+   "recorded": 0,
+   "normal": 10
   },
   "I": {
-   "found": 155,
-   "fixed": 0,
+   "found": 162,
+   "fixed": 148,
    "researched": 0,
-   "recorded": 0
+   "recorded": 10,
+   "normal": 2
   },
   "J": {
-   "found": 192,
-   "fixed": 0,
+   "found": 198,
+   "fixed": 198,
    "researched": 0,
    "recorded": 0
   },
   "L": {
-   "found": 12,
-   "fixed": 7,
+   "found": 1,
+   "fixed": 1,
    "researched": 0,
-   "recorded": 0
+   "recorded": 0,
+   "normal": 9
   },
   "K": {
    "found": 0,
@@ -80,6 +84,34 @@
    "fixed": 95,
    "researched": 0,
    "recorded": 0
+  },
+  "R": {
+   "found": 1,
+   "fixed": 1,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
+  },
+  "S": {
+   "found": 1,
+   "fixed": 0,
+   "researched": 0,
+   "recorded": 1,
+   "normal": 0
+  },
+  "U": {
+   "found": 17,
+   "fixed": 0,
+   "researched": 0,
+   "recorded": 17,
+   "normal": 0
+  },
+  "Y": {
+   "found": 11,
+   "fixed": 2,
+   "researched": 0,
+   "recorded": 5,
+   "normal": 0
   }
  },
  "log": [
@@ -117,7 +149,47 @@
    "at": "2026-09-06T12:26:28+00:00",
    "batch": 7,
    "note": "批七：coordinator 1b 輪准 PROTOCOL 三之 2(d)（三條件下只增 alt_names）並為 scan F 加異體歸一。異體型七條隨掃法自消（55→33）；逐一覆核可補者只二：蕭道成補「高帝」（清三條）、劉駿補「孝武帝」（清一條），F 33→29。餘 29 條各有其阻，已逐一寫入 known-issues——新見庫中「陶隱居」竟有三個 entity、又一個 primary_name 逕作「周武帝」之影 entity。"
+  },
+  {
+   "at": "2026-09-06T16:35:54+00:00",
+   "batch": 8,
+   "note": "批八：G 7條。真重出一併（海岱志四十卷半→海岱志，本傳「起太公迄西晉人物為四十卷半未成」印證同書異階段之卷數，非異書；刪 source，keeper 記 merge_history）；假撞一清（祇園精舍圖偈六卷注解實趙柔注源賀之圖偈，非同書重出，題去混入之原典卷數、role 撰→注、補 commentary_on 繫連，仿本庫周髀等注本之例）；小乘經單本與四部書大目 clash=false 無需動；餘三條記 known-issues——論議疏、律文錄序二條係串條待拆（需 id 生成工具，非本道所有）、後漢書九十卷志之 measure_info 與題自相矛盾待核原目。"
+  },
+  {
+   "at": "2026-09-06T16:41:35+00:00",
+   "batch": 9,
+   "note": "批九：R 1 條修——春秋三傳評 period_upper 誤取《補晉書藝文志》（清人回溯重建，非成書於晉）為界，改依本條 indexed_by 實有之《隋書經籍志》立界（jin→sui-tang），已報同型病灶全庫 50 例大半屬 weijin 道（inbox pit）。S 1 條（論語疏十卷，複查四已記known-issue，本批確認無新動作）。U 17 條全出四個 entity（李繪/李渾/崔肇師/姚最），2026-09-06 CBDB enrich 填之卒年皆早於其 dynasty 開國（甚至早於姚最本人生年），WebSearch 核實四人史實皆晚於卒年之值，已轉 entity-cbdb（inbox cross），本道未動 entity。"
+  },
+  {
+   "at": "2026-09-06T16:46:18+00:00",
+   "batch": 10,
+   "note": "批十：D 1 條（脈訣）出桶——撰人崔嘉彥實南宋醫家（1189成書《脈訣》），WebSearch核實，period nanbeichao→song，period_upper「jin」之誤（同R類病灶）連帶撤銷。E 2 條：徐孝穆集箋注 loss lost→extant（四庫提要之「久佚」講的是徐陵原集，非吳兆宜箋注輯本本身，WebSearch核實六卷本收四庫全書、多處全文可查，坑\"存佚判別\"之\"輯本非原書\"反例——此處恰是輯本尚存而誤把原書之佚計上）；錢譜 Book孤證繫存疑，歸既有\"再造善本繫Work存疑\"案，兩造記疑不逕解。"
+  },
+  {
+   "at": "2026-09-06T17:00:33+00:00",
+   "batch": 11,
+   "note": "批十一：H 36→10。發現並修三處真重出（三十國春秋改繫正主蕭方等而非蕭方；靖恭堂序頌圖讚併入既有靖恭堂頌/李暠；周武成曆/明帝敕撰併入既有周武成曆/明克讓；先聖本記併入既有先聖本紀/劉縚，WebSearch核實南史「昭子紹字言明……著先聖本紀十卷」）。正名十四（entity primary_name含役字/群體語/帝號：佛馱什等/釋智嚴等/釋慧嚴等/釋法通等/趙素等→剝等；宣武帝敕撰→元恪、後主敕撰→高緯、南八關制莊嚴旻法師→僧旻，皆WebSearch核實）。work層面剝等九（崔浩/孫僧化/元暉/釋慧覺/張洪x2/張該/般若流支/釋智嚴，entity本潔只需清work之name）。餘10條為假陽性/常態：蕭方等x5(其人本名如此)、天監八年皇太子(源本不著名,存疑不臆補)、通鄭「原」殘名(entity=null已正)、崔纂/謝纂(纂為本名非役字)、釋翔（或作朔）公(源本存異文)。記known-issues一則(批八至十一新增三個空殼entity待廢)。"
+  },
+  {
+   "at": "2026-09-06T17:11:52+00:00",
+   "batch": 12,
+   "note": "批十二/十三：I 162→11。85組中77組named-author，73組entity全同直接併（71組by script+2組手工：徐廣禮答問jin側keeper、封懿燕書jin側keeper皆因人物卒年早於nanbeichao之界420）；十三州志反向keeper（nanbeichao側因有魏書本傳權威更高）；王褒集確認係漢王褒/後周王褒二人同名，false positive不併。另手工核出一組跨題重出（星占75卷=星經諸家集占...，H批已剝役字之孫僧化書，合為一書兩題）。8組無撰人組中3組merge（孝文帝集/虞嚼集據卷數異文史源印證）、5組(成實論/孝經義疏/建元起居注/宋儀注/孝經義)逐條核著錄原文後因卷數/史源歧異度高、疑係異書，記known-issues不併。另發現徐廣entity（南朝宋）與闞駰entity（北涼）併後仍非空殼，殘餘work疑似同書異題，記known-issues待下批。"
+  },
+  {
+   "at": "2026-09-06T17:16:38+00:00",
+   "batch": 14,
+   "note": "批十四：D 2條修——廬山唱和詩完成weijin道複查十九已標記之併（張野entity統一nanbeichao），九州名山圖撤period_upper（同批九/批十之catalog_bound誤把補晉書志所補朝代當成書代）。L 1條修——二晉雜詩誤植撰人「荀綽」，實為隋志同句「古今五言詩美文五卷，荀綽撰」隔行誤配（既有記錄d59f27w6143l本傳考定該書撰人當是孫綽，互證荀綽確屬誤植），刪之復為無撰人。餘L 9條皆常態（跨代注疏/人物）。C 24→23（隨I批合併entity減一）。"
+  },
+  {
+   "at": "2026-09-06T17:28:51+00:00",
+   "batch": 15,
+   "note": "批十五：J 198→0。仿既有N6之法寫生成腳本，機械撮述indexed_by（撰人代／measure_info／諸志卷數異同／N家著錄清單），不出indexed_by之外不臆造，198條全補，ai_note載「N9 description 補全」。過程中發現新增scan Y類（同一source_bid citation誤植於兩記錄），本道桶11條：2條為本道自身記錄互污染已修（述異記任昉條誤有祖沖之條之著錄二則、清溪集齊武帝條誤有宋人汪革之著錄一則）——過程中一度誤刪四庫提要一則辨異文字（非污染，是澄清任昉/祖沖之二書不同之考證），即時查覺復原並補全遺漏欄位；餘5條污染落在liao-jin-yuan/song/sui-tang/qing四道之記錄，逐條核非辨異文字（純短著錄語重出）後轉報inbox cross。"
+  },
+  {
+   "at": "2026-09-06T17:31:54+00:00",
+   "batch": 16,
+   "note": "批十六：F 顔延之(異體)→顏延之 2條，entity本已正確連結，僅work層字形不合，直接正之。全面覆核C(23)L(9)確認皆既有之常態案（跨代人物/注疏），無新增。至此本輪 nanbeichao 桶：A0 B0 C23(常態) D0 E1(known-issue) F29(known-issue待entity-cbdb) G5(known-issue待id-gen工具) H10(常態) I10(2王褒集常態+8known-issue) J0 L9(常態) N0 P148(47真+9同文未動,13待覈+82偽已標廢) R0 S1(known-issue) U16(轉entity-cbdb) Y6(5轉他道) Q0 T0 W0 X0。"
   }
  ],
- "updated_at": "2026-09-06T12:26:28+00:00"
+ "updated_at": "2026-09-06T17:31:54+00:00"
 }
