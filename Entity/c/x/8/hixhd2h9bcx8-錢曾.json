@@ -51,15 +51,7 @@
   "death_year": 1701,
   "works": [
     {
-      "work_id": "d59f2nfh3vup",
-      "role": "撰"
-    },
-    {
       "work_id": "d59f2meo1hxc",
-      "role": "撰"
-    },
-    {
-      "work_id": "d59f2meo1hxd",
       "role": "撰"
     },
     {
@@ -83,7 +75,7 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "qing",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-08-24 新收 2 部 work 之繫——其 authors 作「名＋字」連書之形，本是一人，故歸之，不別建 entity。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=33188 補入空槽——籍貫「常熟」。既有之值一概未動。",
+  "ai_note": "2026-08-24 新收 2 部 work 之繫——其 authors 作「名＋字」連書之形，本是一人，故歸之，不別建 entity。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=33188 補入空槽——籍貫「常熟」。既有之值一概未動。\n\n2026-09-06 併書後反向鏈清理：main「C 層清賬（一）：併同書異條」刪 source work 而未同步 Entity.works，本條遺 2 條指向已刪 id 之邊。逐條依 target 之 merge_history 查去向後處置：d59f2nfh3vup→d59f2msw9xc1《錢遵王述古堂藏書目錄》（本條已有其繫，去重）；d59f2meo1hxd→d59f2msw9xc1《錢遵王述古堂藏書目錄》（本條已有其繫，去重）。",
   "native_place": "常熟",
   "native_place_basis": "CBDB 33188 index_addr（2026-09-06 CBDB enrich）"
 }
