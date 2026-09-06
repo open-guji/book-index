@@ -60,3 +60,8 @@ skill 之 13 坑（`hanzhi-curation/SKILL.md`）不重抄，此處只記本輪�
 且被併者所繫之 entity.works 改指 keeper。本輪協調者已代修（索引 8 條、去重 2 條）。
 另：`d59f28npetc4` 靈樞經記錄頂層 `dynasty` 仍作「唐」（王冰）而 authors[0] 已改史崧（南宋）——
 頂層 dynasty 與 authors 相牴，索引取頂層，待該道自正。
+
+## 11. 改撰人名（authors[0].name）要回寫索引之 author [coordinator，合流所見]
+索引 works 分片除 period／loss_status／title／subtype 外還載 `author`／`dynasty`／`role`
+（取 authors[0]）。改了撰人名而未回寫，`verify.py` 報「works 索引漂移 … author」。
+例：`d59f6ep6cf0h` 千金寶鑑 雷伯→雷伯宗。用 `jio.update_index('works', wid, lambda e: e.update({'author': 新名}))`。
