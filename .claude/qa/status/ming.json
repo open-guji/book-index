@@ -5,9 +5,9 @@
  ],
  "works": 14310,
  "state": "running",
- "batch": 11,
- "focus": "X 類 26 條逐條核",
- "commit": "502f0cd043",
+ "batch": 13,
+ "focus": "D/E/W 類收尾",
+ "commit": "4eb52f611c",
  "counts": {
   "A": {
    "found": 36,
@@ -61,13 +61,13 @@
   },
   "E": {
    "found": 1,
-   "fixed": 0,
+   "fixed": 1,
    "researched": 0,
    "recorded": 0
   },
   "D": {
    "found": 1,
-   "fixed": 0,
+   "fixed": 1,
    "researched": 0,
    "recorded": 0
   },
@@ -89,6 +89,20 @@
    "researched": 0,
    "recorded": 1,
    "normal": 25
+  },
+  "U": {
+   "found": 0,
+   "fixed": 11,
+   "researched": 0,
+   "recorded": 3,
+   "normal": 5
+  },
+  "W": {
+   "found": 0,
+   "fixed": 2,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
   }
  },
  "log": [
@@ -146,7 +160,17 @@
    "at": "2026-09-06T17:02:12+00:00",
    "batch": 11,
    "note": "批11／X：撰人/書名切分 26 條逐條以千頃堂小注核義——25 條之題義與小注所載仕履/籍貫/際遇高度吻合（胄監長編對應國子監助教、好生録對應平反刑獄、暨陽遺稿對應籍貫江陰古稱等），確認現狀已正，score 3-5 皆假陽性；1 條（章太倉志/蔣奎）題首贅字疑為三字撰人「蔣奎章」之誤切，無他志可校，記 known-issues 候查。建議協調者將「小注職銜/籍貫與淨題語義相合」列入坑30豁免規則。"
+  },
+  {
+   "at": "2026-09-06T17:08:02+00:00",
+   "batch": 12,
+   "note": "批12／U：19條逐條核——8條(王豫3/周京1/李果3/王原1)撰人實為清人而經義考單源無朝代字樣致誤留ming，已改qing；3條(春秋異義解/春秋通義/皇綱論)撤回批六之誤判——查證維基「王皙」條確認為北宋王晢(1011-1093)之作，改period為song(entity dynasty本已正確為北宋，birth/death殘值未清)；3條(俞安期/尹淳/孫炎)entity生卒與著錄/他書所指之代相斥，work側period本身無誤，entity生卒錯配非本道之權，記known-issues；5條為明清之際常態。"
+  },
+  {
+   "at": "2026-09-06T17:11:34+00:00",
+   "batch": 13,
+   "note": "批13／D-E-W：D類（宋史全文續資治通鑑）period_upper早於period——本條實有元刊本/元刻本傳世（988g0dgm4x/988lj2y2vn），撰人游明role僅「校正」不足定代，period ming→liao-jin-yuan。E類（孝經列傳）loss_status=lost而有Book——本條實有明萬曆刻本傳世（中華再造善本ZHSY100002，有實際掃描頁），loss_status lost→extant，經義考朱彝尊之「佚」判乃十七世紀見聞不敵今存實物。W類2條（宣稱已清而未清）——江左entity卸cbdb_id 572231（2026-09-05按語已判誤配而未卸）、謝顯entity撤birth_year 1445（2026-08-18已判CBDB誤配清除，2026-09-06 enrich又據同一已判誤配之cbdb_id補回，今再清並記流程漏洞）。"
   }
  ],
- "updated_at": "2026-09-06T17:02:12+00:00"
+ "updated_at": "2026-09-06T17:11:34+00:00"
 }
