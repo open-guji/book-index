@@ -582,8 +582,16 @@ def run_checks(works, IW, IB, IE, IC, ents):
         bids = [b for _, _, b in lst]
         if set.intersection(*bids): continue                # 已共一志者非此型（另有他檢）
         ids = sorted(w for w, _, _ in lst)
+        # **先問庫**（坑 52 之施於此）：兩造之撰人若各繫不同之 entity，多半不是一人——
+        # 「明帝」「文帝」之類帝號尤甚：《明帝集》一條繫晉明帝、一條繫宋（周）明帝，
+        # 名同而人異，非重出。故 entity 相異者別為 `same_name` 型，其義是「同名待辨，非必重出」（坑 60）。
+        eids = []
+        for x in ids:
+            e = {a.get('entity_id') for a in (works[x].get('authors') or []) if a.get('entity_id')}
+            if e: eids.append(frozenset(e))
+        conflict = len(eids) >= 2 and not set.intersection(*[set(e) for e in eids])
         for wid in ids:
-            R['Y'].append(row(works[wid], kind='twin_edition',
+            R['Y'].append(row(works[wid], kind='same_name' if conflict else 'twin_edition',
                               group=ids, authors=list(au),
                               n_sources=len(works[wid].get('indexed_by') or [])))
 
