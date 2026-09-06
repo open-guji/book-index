@@ -100,7 +100,12 @@ COLLATE_RE = re.compile(r'(一作|或作|題作|中作|作中|原作)')
 RADICAL_RE = re.compile(r'^[\u2e80-\u2fff\u31c0-\u31ef]')
 # X 檢（撰人／書名切分之誤）之字表，移植自 entity-cbdb 道之 scan_author_title_split.py
 # 回溯重建之志：補X書藝文志／經籍志之屬，成書在清末民初而非其所補之代
-RETRO_RE = re.compile(r'補[^》，,。\s]{1,4}(書)?(藝文志|经籍志|經籍志)')
+# 回溯重建之志：成書在清末民初而非其所補之代。名目不止「補X書藝文志」一種——
+# 《元史藝文志》（錢大昕補元）《三國藝文志》《後漢藝文志》（姚振宗）《宋史藝文志補》
+# 皆是，其 basis 之括注每每自陳「清人補」「清某某補X，斷代」。故兼認名目與自陳（坑 55）。
+RETRO_RE = re.compile(r'補[^》，,。\s]{1,4}(書)?(藝文志|经籍志|經籍志)|(藝文志|經籍志)補|元史藝文志|三國藝文志|後漢藝文志')
+# basis 之括注自陳為清人所補者（「清人補」「清錢大昕補元，斷代」「清姚振宗考證隋志」）
+RETRO_NOTE_RE = re.compile(r'清人補|清[^）]{0,6}補[^）]{0,4}[，,]?\s*斷代|補[^）]{0,4}[，,]\s*斷代')
 M_POS = re.compile(r'(今存|今尚存|原文賴[^，。]{0,12}以存|全文見於|全文賴|完帙尚存|今有傳本)')
 M_BARE = re.compile(r'尚存')
 M_PAST = re.compile(r'(時|代|志|世|初|末|間|前|後)$')   # 「梁時尚存」是存至某代而後亡
@@ -578,8 +583,10 @@ def run_checks(works, IW, IB, IE, IC, ents):
         # 邏輯之誤只在它被當作 catalog_bound 之界時才傷人（455 → 72）。
         m = BOUND_RE.search(b)
         if not m: continue
-        m = RETRO_RE.search(m.group(0))
-        if not m: continue
+        seg = m.group(0)
+        mm = RETRO_RE.search(seg) or RETRO_NOTE_RE.search(b)
+        if not mm: continue
+        m = mm
         others = sorted({(ib.get('source') or '') for ib in (w.get('indexed_by') or [])
                          if ib.get('source') and not RETRO_RE.search(ib.get('source') or '')})
         R['Z'].append(row(w, retro=m.group(0), period_upper=w.get('period_upper'),
