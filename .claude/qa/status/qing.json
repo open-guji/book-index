@@ -7,8 +7,8 @@
  "works": 16259,
  "state": "running",
  "batch": 22,
- "focus": "M/U類清零；V類覆核一致無新增",
- "commit": "22dd4af6d3",
+ "focus": "G類撞題組覆核：張子野詞誤標清代訂正",
+ "commit": "c5523e9852",
  "counts": {
   "A": {
    "found": 0,
@@ -36,9 +36,9 @@
   },
   "G": {
    "found": 79,
-   "fixed": 34,
+   "fixed": 35,
    "researched": 0,
-   "recorded": 1
+   "recorded": 2
   },
   "H": {
    "found": 209,
@@ -255,7 +255,12 @@
    "at": "2026-09-06T21:34:08+00:00",
    "batch": 22,
    "note": "批22收尾：M類2條（山西省六政調查表/廣宗縣志）description自陳'今存版本1種'且books[]確有1部，loss_status逕補extant，M 2→0。U類最後1組（張預，2書：崇蘭堂詩存/量月廔詞）——查明09-05'entity朝代覈修(B)'曾為配合彼時兼繫之《百將傳》(宋人張預作)暫改dynasty為宋，song道09-06已將百將傳拆出另建entity，惟本條dynasty/period拆分後漏改回，而本條餘二書皆與其自身生卒(1840-1910)/籍貫(錢塘)/CBDB(80056)相符之清人張預之作，訂正dynasty/period回清/qing，U 2→0（原張預跨道疑案至此完全了結）。V類5條覆核與批13一致，無新增。C類連帶再減2（179→177，經entity修正之side effect）。"
+  },
+  {
+   "at": "2026-09-06T21:38:47+00:00",
+   "batch": 22,
+   "note": "批22終：G類clash=true 5組覆核——張子野詞二卷補遺（原批21已發現之姊妹案）：撰人張先dynasty誤作'清'（實為知不足齋叢書刊行年代），張子野即北宋張先(990-1078)字子野，其詞集逕以字稱，庫中已有張先entity(alt_names含'子野')，訂正dynasty/period為北宋/song，繫回該entity，逾本道範圍。印說一卷（二）（續修四庫全書author_info「影印上海圖書館藏稿本撰」撰人名闕失，與周應愿明本/陳鍊清本印說clash但查無決證判定歸屬）、數學/諧聲韻學（clash對象為period=None之空白stub，無從比對）、春秋通論三家（姚際恆/方苞/劉紹攽，同名不同書之常態）——皆存疑或常態不動，1則補入known-issues。本輪批22階段性完成：C 201→177、Y 1→0、H 65→63、M 2→0、U 2→0、G 50→49，另報infra bug 2件、cross-lane報告2件、known-issues新增3件。"
   }
  ],
- "updated_at": "2026-09-06T21:34:08+00:00"
+ "updated_at": "2026-09-06T21:38:47+00:00"
 }
