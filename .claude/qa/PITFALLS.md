@@ -52,3 +52,11 @@ skill 之 13 坑（`hanzhi-curation/SKILL.md`）不重抄，此處只記本輪�
 ## 9. 合流之後必重掃 [18 號 坑 22]
 本輪三度合流各帶進數十條新入之條，其中誤繫者多。每次 `git merge origin/main` 後跑 `verify.py`，
 收工前對本道 `scan.py` 再掃一次。
+
+## 10. 併條、改撰人之後，索引與人物回指要同步 [coordinator，合流所見]
+2026-09-06 上游《內經》族併條、「C 層清賬」一批：改了 9 條記錄之 period／loss／撰人而索引未回寫，
+併掉之 work 仍留在 entity.works 裡（懸空 58→70）。
+判準：`verify.py` 之「索引漂移」必為 0；併條時 keeper 之 `merged_in` 要載被併者，
+且被併者所繫之 entity.works 改指 keeper。本輪協調者已代修（索引 8 條、去重 2 條）。
+另：`d59f28npetc4` 靈樞經記錄頂層 `dynasty` 仍作「唐」（王冰）而 authors[0] 已改史崧（南宋）——
+頂層 dynasty 與 authors 相牴，索引取頂層，待該道自正。
