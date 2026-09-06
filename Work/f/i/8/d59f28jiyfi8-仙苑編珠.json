@@ -7,9 +7,10 @@
     {
       "name": "王松年",
       "role": "舊題撰",
-      "dynasty": "唐",
+      "dynasty": "五代",
       "entity_id": "hixhd2h9bik5",
-      "role_basis": "據著錄語「王松年《仙苑編珠》一卷李昌齡舊本題唐王松年撰。松年，天臺道士。《文獻通考》作唐人，然書中有梁」——所題之撰人不確，非謂本書偽。見 SCHEMA〈authenticity〉。"
+      "role_basis": "據著錄語「王松年《仙苑編珠》一卷李昌齡舊本題唐王松年撰。松年，天臺道士。《文獻通考》作唐人，然書中有梁」——所題之撰人不確，非謂本書偽。見 SCHEMA〈authenticity〉。",
+      "dynasty_basis": "2026-09-06 qa-sweep/suitang·C 斷代訂正（sui-tang → five-dynasties）：本條 authors[0].role 已作「舊題撰」，而 period 猶據該舊題所冠之「唐」而定。《欽定四庫全書總目》辨之：「舊本題唐王松年撰。松年，天臺道士。**《文獻通考》作唐人，然書中有梁開成二年事，則已入五代矣**。」——館臣以書中所記之年事斷其入五代（「梁開成」蓋「梁開平」之訛，後梁開平二年為 908 年）。所繫 entity `hixhd2h9bik5`「王松年」dynasty 作「五代」、period=five-dynasties，正與此合，而本條反作 sui-tang（scan C）。《續修四庫全書》《四庫全書存目叢書》之「唐王松年撰」皆襲道藏本之舊題，非別有考。今正 period 為 five-dynasties，authors[0].dynasty「唐」→「五代」。原值可逆：period=sui-tang、dynasty=「唐」。"
     }
   ],
   "indexed_by": [
@@ -132,11 +133,11 @@
   "updated_at": "2026-08-21T00:00:00-07:00",
   "_has_text": true,
   "_has_image": true,
-  "period": "sui-tang",
-  "period_basis": "據 authors[0].dynasty「唐」",
-  "dynasty": "唐",
+  "period": "five-dynasties",
+  "period_basis": "2026-09-06 qa-sweep/suitang·C 斷代訂正（sui-tang → five-dynasties）：本條 authors[0].role 已作「舊題撰」，而 period 猶據該舊題所冠之「唐」而定。《欽定四庫全書總目》辨之：「舊本題唐王松年撰。松年，天臺道士。**《文獻通考》作唐人，然書中有梁開成二年事，則已入五代矣**。」——館臣以書中所記之年事斷其入五代（「梁開成」蓋「梁開平」之訛，後梁開平二年為 908 年）。所繫 entity `hixhd2h9bik5`「王松年」dynasty 作「五代」、period=five-dynasties，正與此合，而本條反作 sui-tang（scan C）。《續修四庫全書》《四庫全書存目叢書》之「唐王松年撰」皆襲道藏本之舊題，非別有考。今正 period 為 five-dynasties，authors[0].dynasty「唐」→「五代」。原值可逆：period=sui-tang、dynasty=「唐」。",
+  "dynasty": "五代",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-21 舊題撰人專項：著錄語作「王松年《仙苑編珠》一卷李昌齡舊本題唐王松年撰。松年，天臺道士。《文獻通考》作唐人」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。",
+  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-21 舊題撰人專項：著錄語作「王松年《仙苑編珠》一卷李昌齡舊本題唐王松年撰。松年，天臺道士。《文獻通考》作唐人」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·C 斷代訂正（sui-tang → five-dynasties）：本條 authors[0].role 已作「舊題撰」，而 period 猶據該舊題所冠之「唐」而定。《欽定四庫全書總目》辨之：「舊本題唐王松年撰。松年，天臺道士。**《文獻通考》作唐人，然書中有梁開成二年事，則已入五代矣**。」——館臣以書中所記之年事斷其入五代（「梁開成」蓋「梁開平」之訛，後梁開平二年為 908 年）。所繫 entity `hixhd2h9bik5`「王松年」dynasty 作「五代」、period=five-dynasties，正與此合，而本條反作 sui-tang（scan C）。《續修四庫全書》《四庫全書存目叢書》之「唐王松年撰」皆襲道藏本之舊題，非別有考。今正 period 為 five-dynasties，authors[0].dynasty「唐」→「五代」。原值可逆：period=sui-tang、dynasty=「唐」。",
   "revision": "1.0.0",
   "revised_at": "2026-08-24"
 }
