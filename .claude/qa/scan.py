@@ -304,11 +304,17 @@ def run_checks(works, IW, IB, IE, IC, ents):
         # 故先以 TITLE_RE_IMPERIAL 別之；扣去帝號一路，餘下之「全無共字」才是偽稱之大宗。
         _an = w.get('ai_note') or ''
         for m in ALIAS_RE.finditer(_an):
-            # 該註記其後若已有標廢之語（「判偽，作廢」「標廢」），即是已裁過之案，不再報。
-            # 上游提交 `9ce46a4407` 與 nanbeichao 道已聯手廢去 104 條，若不排除，
-            # P 每輪重報已辦之案——與坑 37（G 未排除墓碑）同型（坑 56）。
-            if RETRACT_RE.search(_an[m.end():m.end() + 700]): continue
             x, y = m.group(1), m.group(2)
+            # 該註記其後若已有標廢之語，即是已裁過之案，不再報（坑 56）。
+            # **窗不可定長**：初版只看其後 700 字，而標廢之段常綴於 ai_note 之末，
+            # 中間隔著他批之記述，遂漏認己方剛加之廢語（我自己就踩了一次）。
+            # 今取其後全文，並要求廢語鄰近處點名本案之二名之一，免與他案之廢語相混。
+            _tail = _an[m.end():]
+            _ok = False
+            for _r in RETRACT_RE.finditer(_tail):
+                _ctx = _tail[max(0, _r.start() - 260):_r.end() + 260]
+                if x in _ctx or y in _ctx: _ok = True; break
+            if _ok: continue
             sx, sy = set(x), set(y)
             # **先問庫**：二名若同屬一個 entity（primary_name／alt_names 相通），
             # 其「同指一人」之說即有本庫自身之證，不必再疑。此法把帝號式異稱
