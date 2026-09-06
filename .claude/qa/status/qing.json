@@ -6,9 +6,9 @@
  ],
  "works": 16259,
  "state": "running",
- "batch": 21,
- "focus": "修共用scan.py之schema bug；貞居詞張冠李戴之考出",
- "commit": "b89f2859a7",
+ "batch": 22,
+ "focus": "Y類回補復發之再摘除；C類「代相鄰者」磁鐵系統性覆核(17條)；分片路徑修正",
+ "commit": "4effcab3dc",
  "counts": {
   "A": {
    "found": 0,
@@ -18,7 +18,7 @@
   },
   "C": {
    "found": 281,
-   "fixed": 45,
+   "fixed": 62,
    "researched": 0,
    "recorded": 3
   },
@@ -78,7 +78,7 @@
   },
   "Y": {
    "found": 0,
-   "fixed": 8,
+   "fixed": 9,
    "researched": 0,
    "recorded": 0,
    "normal": 0
@@ -218,7 +218,12 @@
    "at": "2026-09-06T20:05:26+00:00",
    "batch": 21,
    "note": "批21：修復scan.py全庫崩潰之schema bug——d59f28k3vbwl(period=jin,屬suitang道)之description欄誤為裸字串而非{text,sources}物件，致scan.py全庫掃描AttributeError崩潰擋住所有道，僅作格式修復(字串包入text欄)未動內容判斷。另核出G類'貞居詞一卷補遺'撰人張冠李戴——著錄僅稱'張先'(清)，經WebSearch確認實為元代張雨(貞居子)之作(收於知不足齋叢書，與著錄叢書來源相合)，同撞題組另一書'張子野詞'之真撰人張先(北宋)被誤植於此。已正撰人、entity、period(qing→liao-jin-yuan)，本條逾本道範圍改交liaojinyuan道。G 51→50。"
+  },
+  {
+   "at": "2026-09-06T20:39:02+00:00",
+   "batch": 22,
+   "note": "批22：修販書偶記(modern)分片路徑坑50；Y類1條(燕丹子孫星衍輯本)——2026-08-26雙向鏈回補復發舊病，古志七節再度誤入清人輯校本，再摘除，Y 1→0；C類系統性覆核17個「明確」型entity（黃謙/張燮/王賓/沈淮/李昱/周廣/劉均/楊儀/張大復/沈麟/胡應麟/楊廉/李昌祺/韓邦靖/梅鼎祚/劉濬/楊慎）——皆2026-08-24「代相鄰者」誤判：entity生卒明確早於1644逾百年（非鼎革之際可跨），而work著錄自身逕稱清，同名而誤繫，逐條解之，entity.works同步。多屬縣志（一地方志歷代重修，前代人名巧合）。C 201→184，連帶解L類多條磁鐵重出（33→19）。另報pushmain.sh之resolve_conflicts漏git add恆誤報未解衝突之坑，及雙向鏈回補復發舊病之根因。"
   }
  ],
- "updated_at": "2026-09-06T20:05:26+00:00"
+ "updated_at": "2026-09-06T20:39:02+00:00"
 }
