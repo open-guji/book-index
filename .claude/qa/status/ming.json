@@ -5,9 +5,9 @@
  ],
  "works": 14310,
  "state": "running",
- "batch": 6,
- "focus": "C 類 193 條逐條裁",
- "commit": "22475e0817",
+ "batch": 15,
+ "focus": "Y 類 21 條 misattached 清訖",
+ "commit": "fa0e9db4ed",
  "counts": {
   "A": {
    "found": 36,
@@ -19,31 +19,35 @@
    "found": 215,
    "fixed": 21,
    "researched": 0,
-   "recorded": 6
+   "recorded": 6,
+   "normal": 168
   },
   "F": {
    "found": 96,
-   "fixed": 0,
+   "fixed": 1,
    "researched": 0,
-   "recorded": 0
+   "recorded": 91
   },
   "G": {
    "found": 49,
-   "fixed": 0,
+   "fixed": 29,
    "researched": 0,
-   "recorded": 0
+   "recorded": 4,
+   "normal": 15
   },
   "H": {
    "found": 267,
-   "fixed": 12,
+   "fixed": 25,
    "researched": 0,
-   "recorded": 14
+   "recorded": 16,
+   "normal": 16
   },
   "I": {
    "found": 11,
-   "fixed": 0,
+   "fixed": 7,
    "researched": 0,
-   "recorded": 0
+   "recorded": 6,
+   "normal": 8
   },
   "L": {
    "found": 57,
@@ -59,13 +63,13 @@
   },
   "E": {
    "found": 1,
-   "fixed": 0,
+   "fixed": 1,
    "researched": 0,
    "recorded": 0
   },
   "D": {
    "found": 1,
-   "fixed": 0,
+   "fixed": 1,
    "researched": 0,
    "recorded": 0
   },
@@ -80,6 +84,41 @@
    "fixed": 2,
    "researched": 0,
    "recorded": 7
+  },
+  "X": {
+   "found": 0,
+   "fixed": 0,
+   "researched": 0,
+   "recorded": 1,
+   "normal": 25
+  },
+  "U": {
+   "found": 0,
+   "fixed": 11,
+   "researched": 0,
+   "recorded": 3,
+   "normal": 5
+  },
+  "W": {
+   "found": 0,
+   "fixed": 2,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
+  },
+  "Y": {
+   "found": 0,
+   "fixed": 21,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
+  },
+  "T": {
+   "found": 0,
+   "fixed": 0,
+   "researched": 0,
+   "recorded": 7,
+   "normal": 0
   }
  },
  "log": [
@@ -112,7 +151,57 @@
    "at": "2026-09-06T12:20:53+00:00",
    "batch": 6,
    "note": "批6／C：193 條逐條讀（以 entity 生卒與著錄小注相驗）——常態 168（明清之際、元明之際跨代人，與後人注評前代書）、誤繫 16 已解、斷代誤 4 已改（王荊公詩注等三條 ming→song、皇清詩選 ming→qing）、entity 正代 1（朱朴 唐→明）、餘 6 記 known-issues。另建議把 O 類推廣為「dynasty 與自載生卒相斥」之通則。"
+  },
+  {
+   "at": "2026-09-06T16:28:41+00:00",
+   "batch": 7,
+   "note": "批7／F：92 條逐條讀著錄——真誤繫僅 1（三藏法數✕姚令儀，已改繫釋一如），餘 91 皆同一人異名/黏連而 entity 側 alt_names 未收（甲異體形近 61、乙前綴黏連 15、丙尾役字殘語 7、丁姓+字 1、戊entity側黏連反例 1），依簡報勿自改 entity，記 known-issues 交 entity-cbdb 道。"
+  },
+  {
+   "at": "2026-09-06T16:41:54+00:00",
+   "batch": 8,
+   "note": "批8／G：clash=true 26 條（24 組），逐組核著錄與撰人字里——24 組確認同書異源/異本重出已併（keeper 記 merged_in，被併者降墓碑，entity 反邊同步解繫），其中 3 條之撰人係誤植/形訛（黃孔昭✕方孝孺、袁褧✕袁袠、張諤✕張鶚）順手正名；2 條（使琉球錄、三關志）撰人各異確認非重出，未動。併後空目 entity 二枚記 known-issues。clash=false 23 條下批續辦。"
+  },
+  {
+   "at": "2026-09-06T16:50:47+00:00",
+   "batch": 9,
+   "note": "批9／G收尾：另核出止山集/南行集、顧華玉集/浮湘集二組（四庫同節被兩處各掛一名）併入既有 keeper；題名淨化 5 條——張孟兼案（題名夾撰人考釋語「名丁，以字行」，剝出補撰人）、四條中華再造善本掃入時尾綴之「題」字（目錄頁題跋鏈結殘留）剝去。餘 15 條（juan/存卷/附錄型長題）依既有先例（三關志/本草綱目案）判為著錄體例常態，非缺陷。南陽書畫表著錄疑掛錯書、文集(張孟兼)卷數與既有三書不合，記 known-issues。scan G 之 clash 12 條皆本批已併之組因墓碑 title 留存索引而重報，非新缺陷，已報協調者改 scan（inbox check 20260906-1900）。"
+  },
+  {
+   "at": "2026-09-06T16:57:08+00:00",
+   "batch": 10,
+   "note": "批10／I：16 條（分約 10 組）逐組核著錄與 entity——7 組確認同書異源重出已併（顏鯨×2、饒秉鑑、靳學顏、顏廷榘、李材、陳錫；後二組原無 entity_id 係先前拆分磁鐵後未認親，補繫後併）；4 組（胡廣集/天文考異/平蜀記/詩集傳解）核實為同名異書或已審慎拆分之磁鐵，非重出；2 事（趙宦光/趙宧光一人二目大宗磁鐵、竹巖集與竹岩詩集著錄重複）逾本道獨力所能安然處置，記 known-issues。"
+  },
+  {
+   "at": "2026-09-06T17:02:12+00:00",
+   "batch": 11,
+   "note": "批11／X：撰人/書名切分 26 條逐條以千頃堂小注核義——25 條之題義與小注所載仕履/籍貫/際遇高度吻合（胄監長編對應國子監助教、好生録對應平反刑獄、暨陽遺稿對應籍貫江陰古稱等），確認現狀已正，score 3-5 皆假陽性；1 條（章太倉志/蔣奎）題首贅字疑為三字撰人「蔣奎章」之誤切，無他志可校，記 known-issues 候查。建議協調者將「小注職銜/籍貫與淨題語義相合」列入坑30豁免規則。"
+  },
+  {
+   "at": "2026-09-06T17:08:02+00:00",
+   "batch": 12,
+   "note": "批12／U：19條逐條核——8條(王豫3/周京1/李果3/王原1)撰人實為清人而經義考單源無朝代字樣致誤留ming，已改qing；3條(春秋異義解/春秋通義/皇綱論)撤回批六之誤判——查證維基「王皙」條確認為北宋王晢(1011-1093)之作，改period為song(entity dynasty本已正確為北宋，birth/death殘值未清)；3條(俞安期/尹淳/孫炎)entity生卒與著錄/他書所指之代相斥，work側period本身無誤，entity生卒錯配非本道之權，記known-issues；5條為明清之際常態。"
+  },
+  {
+   "at": "2026-09-06T17:11:34+00:00",
+   "batch": 13,
+   "note": "批13／D-E-W：D類（宋史全文續資治通鑑）period_upper早於period——本條實有元刊本/元刻本傳世（988g0dgm4x/988lj2y2vn），撰人游明role僅「校正」不足定代，period ming→liao-jin-yuan。E類（孝經列傳）loss_status=lost而有Book——本條實有明萬曆刻本傳世（中華再造善本ZHSY100002，有實際掃描頁），loss_status lost→extant，經義考朱彝尊之「佚」判乃十七世紀見聞不敵今存實物。W類2條（宣稱已清而未清）——江左entity卸cbdb_id 572231（2026-09-05按語已判誤配而未卸）、謝顯entity撤birth_year 1445（2026-08-18已判CBDB誤配清除，2026-09-06 enrich又據同一已判誤配之cbdb_id補回，今再清並記流程漏洞）。"
+  },
+  {
+   "at": "2026-09-06T17:19:03+00:00",
+   "batch": 14,
+   "note": "批14／H：48條清理——剝離西洋人前綴2(湯若望/艾儒略,entity已正確)、正名3個幽靈entity(畢方濟/浦汛際/龐迪我,規程2b)、併2個幽靈entity(明太祖1書/世宗肅皇帝御3書)入既有正主(朱元璋/朱厚熜)、宗室缺字考回2(秦康王朱志𡐤/德平榮順王朱胤梃，維基百科+網搜確認)、解一錯誤entity繫連(三江✕毛澄，本條自身早有作者衝突之記)。餘16條為道人/居士/舊題撰之習見慣例(非黏連)判常態，2條(三江真撰人、都應辰楊一疑鄰條殘留)記known-issues候查。"
+  },
+  {
+   "at": "2026-09-06T17:22:34+00:00",
+   "batch": 15,
+   "note": "批15／Y（新檢：一節著錄分居二條）：21條逐條依報告owner欄去誤繫之一側——16條在ming道本身，5條(qing×4/song×1)恰落他道之record但屬同型機械操作(去一條與撰人不符之indexed_by節)，風險低，逕代清並報備cross。"
+  },
+  {
+   "at": "2026-09-06T17:24:13+00:00",
+   "batch": 15,
+   "note": "收尾整理：補記 C 類常態 168 條（批六已讀核，未單列 normal 計數）；T 類 7 條（entity 生卒/繫連問題）已全數記入 known-issues，候 entity-cbdb／協調者裁。"
   }
  ],
- "updated_at": "2026-09-06T12:20:53+00:00"
+ "updated_at": "2026-09-06T17:24:13+00:00"
 }

@@ -7,7 +7,7 @@
       "name": "時榮",
       "role": "撰",
       "dynasty": "元",
-      "entity_id": "hixhd2h9bmq6"
+      "name_basis": "2026-09-06 qa-sweep/liaojinyuan：本條原繫 entity hixhd2h9bmq6（primary_name「謝顯」，明，birth_year 1445），今解其繫。本條撰人之名「時榮」出著錄原文，不改。其據見 ai_note。"
     }
   ],
   "indexed_by": [
@@ -47,7 +47,7 @@
       "欽定四庫全書總目"
     ]
   },
-  "ai_note": "同名異書：已有 Work 作者為 [('', '')]，本條作者 時榮（元），另建 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-22 B3 併池（異志・卷數異或缺）：1ev3bajkz943k 併入本條。二者同題而分見二志，其一省撰人。跨志之卷數本多歧（各志所據之本不同），故卷數異於此不作二書之證；已驗二者時代不相斥、著錄語所題之書名一致、非連書涵蓋數書。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "同名異書：已有 Work 作者為 [('', '')]，本條作者 時榮（元），另建 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-22 B3 併池（異志・卷數異或缺）：1ev3bajkz943k 併入本條。二者同題而分見二志，其一省撰人。跨志之卷數本多歧（各志所據之本不同），故卷數異於此不作二書之證；已驗二者時代不相斥、著錄語所題之書名一致、非連書涵蓋數書。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/liaojinyuan C 類＋撰人誤繫：解 authors[0].entity_id「hixhd2h9bmq6」之繫，period 不改，period_basis 改依著錄立據。\n據：《補遼金元藝文志》「元時榮（**至元間金華人**）洙泗源流八卷」、《元史藝文志》「元時榮（金華人）洙泗源流八卷」——二志皆明著「元時榮」，且繫其年號與籍貫（至元間、金華人），本書屬元無疑，period 不動。\n而所繫 entity `hixhd2h9bmq6` 之 primary_name 作「謝顯」，dynasty「明」，birth_year 1445——生於元亡之後七十七年。該 entity 之 ai_note 自載其繫之由：「[2026-08-18 ljy-round2] entity 主名「謝顯」，然 citation（補遼金元藝文志／元史藝文志）撰者實作「時榮」（金華人），**推測**「時榮」為 entity 之字號……逕正」——「推測」二字即其據之全部，是以名之相繫而無佐證（SKILL〈繫連寧缺毋濫〉「名之一部相合不是據」；「時榮」今在該 entity 之 alt_names，然其入 alt_names 本身即出此推測，不能反過來作據）。其後 2026-08-25 J20 又據該 entity 名下**另一書**之引文把 dynasty 由「元」改「明」，於是元之時榮遂全然沒入明之謝顯——正是 PITFALLS 坑 4「同名二人共一 entity，回正之際一人隨另一人而移」。\n元之時榮庫中無正主，依〈繫連寧缺毋濫〉不硬配，空之而記其據。\n原值：authors[0].entity_id「hixhd2h9bmq6」、period_basis「據 authors[0].dynasty「元」」。",
   "id": "d59f2gfax5og",
   "measures": [
     {
@@ -58,7 +58,7 @@
   "measure_info": "八卷",
   "updated_at": "2026-08-23T06:46:46.606177+00:00",
   "period": "liao-jin-yuan",
-  "period_basis": "據 authors[0].dynasty「元」",
+  "period_basis": "據《補遼金元藝文志》「元時榮（至元間金華人）洙泗源流八卷」、《元史藝文志》「元時榮（金華人）洙泗源流八卷」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
   "period_upper": "qing",

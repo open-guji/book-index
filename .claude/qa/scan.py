@@ -15,7 +15,7 @@
   D upper_conflict   period_upper 早於 period
   E lost_but_text    loss_status=lost 而有 Book／_has_text／_has_image
   F name_mismatch    撰人名不在所繫 entity 之 primary_name／alt_names（容「X等」「X氏」）
-  G title_catalog    題名夾雜卷數／撰人／殘語（「二卷」「(存卷上)」「 題」…）
+  G title_catalog    題名夾雜卷數／撰人／殘語；附 clash＝剝殘語所得之淨題撞庫者（撞庫型信度遠高於孤例，優先處置）
   H author_odd       撰人名可疑：單字、含數字／標點／「等」「撰」「注」
   I dup_title        同題且撰人集合相同（或俱無撰人）之組
   J desc_gap         著錄 ≥4 源而 description 全缺
@@ -24,7 +24,19 @@
   M index_drift      索引 period/loss_status/title/subtype/author/dynasty/role 與記錄檔不符（dynasty 取頂層，無則 authors[0]）
   N source_no_bid    indexed_by 有 source 而無 source_bid（來源為 Collection 者豁免：其本無 work-space 之 bid）
   O dyn_transitional 撰人 entity 之 dynasty 作「元末明初」類跨代標籤而生卒與之相斥（L5 循環論據之遺）
-  P bogus_alias      ai_note 載「撰人異稱——本志作「X」而庫中作「Y」，同指一人」而 X、Y 全無共字（補南北史志「深覈」偽註；有共字者附 info）
+  P bogus_alias      ai_note 載「撰人異稱……同指一人」而 X、Y 全無共字（補南北史志「深覈」偽註）
+  Q propagate_conflict period_basis 自稱「據 entity 之 period 傳播」而所繫 entity 之 period 與本條不同（C 之高精子集）
+  R upper_selfcontra  period_basis 自稱「上限 X 覆驗不相斥」而 X 實早於 period（覆驗方向反了）
+  S upper_ghost      period_upper_basis 之 catalog_bound 所引之志不在本條 indexed_by（引不存在之著錄為據）
+  T l5_circular      entity 之 dynasty_basis 以「L5 斷代歸一」起首而其「確證」（名下 work 分居諸桶）不成立
+  U dyn_vs_life      entity 之 dynasty 與其自載生卒相斥（O 之推廣，不限跨代標籤）
+  W claimed_not_done ai_note 稱某欄已「清除／卸除／已刪」而該欄仍在
+
+H 之 kind 另有 residue：頂真格斷鏈之殘語與括注注記被取作撰人（「十集」「，一名」「二譯」
+「廣卷帙」），及罕用部件字致脫姓（「𰖍拙」實「陳拙」）——suitang 道所報，H 收窄後方現形。
+
+H 之 kind：num 數字（明人排行字常態，已收窄）／split 拆字缺字描述式／role 役字結尾／
+prefix 身分官銜前綴／bracket 括號按語／single 單字／punct 其他標點。
 
 判準與踩坑見 PROTOCOL.md、PITFALLS.md。本檔只掃不改。
 """
@@ -54,10 +66,84 @@ def period_key(p):
 # ---------------------------------------------------------------- checks
 BASIS_RE = re.compile(r'^據 authors\[(\d+)\]\.dynasty[「『"]([^」』"]+)[」』"]')
 TITLE_RE = re.compile(r'[一二三四五六七八九十百]+卷|\d+卷|\(存|（存|原目|[，,：:]| 題$|卷首$| 著$')
-ODD_RE = re.compile(r'[0-9〇一二三四五六七八九十百千]|卷|篇|撰$|注$|等$|、|，|。|\?|？|\[|\]|（|）|\(|\)')
+# G 之淨題：剝去題末之卷數／存卷／撰人括注／殘綴
+CLEAN_RE = [re.compile(x) for x in (
+    r'[（(](存[^）)]*|[一二三四五六七八九十百]+卷[^）)]*)[）)]\s*$',
+    r'[（(][^）)]{0,8}[）)]\s*(著|撰|注|傳|題|編)?\s*$',
+    r'\s*(著|撰|注|傳|題|編)\s*$',
+    r'[一二三四五六七八九十百]+卷.*$', r'\d+卷.*$', r'\s*卷首\s*$', r'\s*原目\s*$')]
+def clean_title(t):
+    prev = None
+    while prev != t:
+        prev = t
+        for r in CLEAN_RE:
+            t = r.sub('', t).strip()
+    return t
+NUM_CH = '〇一二三四五六七八九十百千'
+SPLIT_RE = re.compile(r'\[[^\]]*\+[^\]]*\]|《[^》]{1,3}》|[?？□]')
+# 只取名末幾乎不可能是人名用字者：修（歐陽修）、述、校、疏、傳、解皆常見於名，故不列
+ROLE_SUF = re.compile(r'(撰|注|編|輯|纂|等)$|(上人|居士|道人)$')
+# 釋／僧／道士是本庫僧道之常例（非缺陷），不列；只取著錄語黏連之身分與帝號
+PREFIX_RE = re.compile(r'^(西洋人|泰西|西洋|大學士|太監|尚書|侍郎|禦史|御史|翰林|明太祖|太祖高皇帝|世宗|神宗|熹宗|思宗)')
+PUNCT_RE = re.compile(r'[卷篇、，。\[\]（）()]')
+# 頂真格斷鏈之殘語、注記誤作人名、罕用部件字脫姓（suitang 所報，坑 26）
+# 收窄記：初稿之 ^廣.{1,3}$ 誤收廣成子、廣德先生、廣治、廣學、廣化、廣衍、廣夷等真名（假陽性
+# 七成八），依坑 21 之訓改為「決不入人名之書志語／校勘語」白名單，現全庫零假陽性。
+RESIDUE_RE = re.compile(
+    r'^[，。、；]'                                    # 一、標點起首者為斷鏈殘語
+    r'|^(一名|又名|原名|亦名)$'                        # 二、異名引導語單獨成名
+    r'|^[一二三四五六七八九十百千]+(卷|篇|集|冊|譯)$'    # 三、「二譯」「十集」之數量殘語
+    r'|(卷帙|卷首|原目|存卷|闕卷)'                      # 四、書志用語，不入人名
+)
+# 校勘語殘留（「廣作中作」）。名中已有括注者另有 punct 型收之，此處不重報。
+COLLATE_RE = re.compile(r'(一作|或作|題作|中作|作中|原作)')
+RADICAL_RE = re.compile(r'^[\u2e80-\u2fff\u31c0-\u31ef]')
+# X 檢（撰人／書名切分之誤）之字表，移植自 entity-cbdb 道之 scan_author_title_split.py
+# 回溯重建之志：補X書藝文志／經籍志之屬，成書在清末民初而非其所補之代
+RETRO_RE = re.compile(r'補[^》，,。\s]{1,4}(書)?(藝文志|经籍志|經籍志)')
+BOUND_RE = re.compile(r'最緊者為[^，,。]{0,30}')
+Y_NORM = re.compile(r'[《》〈〉「」『』（）()⟨⟩\s、，。]')
+SPLIT_NOTE_RE = re.compile(r'[⟨（(【\[].*?[⟩）)】\]]')
+ZHAI = set('齋斋軒轩堂山谷溪雲云亭樓楼園园庵菴洲峯峰石竹松梅居舍館馆廬庐窩窝村塘湖江河潭')
+BAD_HEAD = set('論论門门經经傳传注疏解義义記记志史書书子語语詩诗文集稿編编錄录鈔钞')
+TITLE_TAIL = ('集','志','録','錄','稿','編','傳','考','記','譜','論','解','注','圖','說','説',
+              '書','鑑','鑒','略','畧','要','鈔','钞','草','詩','文','卷','篇','典','經','史','談','話')
+def odd_kinds(nm):
+    """撰人名之可疑型。數字一則已收窄：明人排行字（數字在名之中段）是常態，不報。"""
+    ks = []
+    if SPLIT_RE.search(nm): ks.append('split')
+    if ROLE_SUF.search(nm) and len(nm) >= 2: ks.append('role')
+    if PREFIX_RE.match(nm): ks.append('prefix')
+    if PUNCT_RE.search(nm): ks.append('punct')
+    if len(nm) == 1: ks.append('single')
+    if (RESIDUE_RE.search(nm) or RADICAL_RE.match(nm)
+            or (COLLATE_RE.search(nm) and not PUNCT_RE.search(nm))): ks.append('residue')
+    if any(c in NUM_CH for c in nm):
+        # 排行字（楊一清、劉三吾）與名末之數（黃式三、尹會一）皆明清常態，不報。
+        # 只報：名以數字起（多為僧號／殘名）、或長逾四字者。
+        if nm[0] in NUM_CH or len(nm) >= 5:
+            ks.append('num')
+    return ks
 ALIAS_RE = re.compile(r'撰人異稱——本志作[「『]([^」』]+)[」』]而庫中作[「『]([^」』]+)[」』]，同指一人')
 # F 之正俗異體歸一（只作比對，禁止寫盤；nanbeichao 道所列，坑 19）
-VARIANTS = str.maketrans('温云舍冲吴隠禇', '溫雲捨沖吳隱褚')
+VARIANTS = str.maketrans('温云舍冲吴隠禇衞鈃隂邱楊煜檝𣶬', '溫雲捨沖吳隱褚衛銒陰丘揚曄楫沈')
+# 朝代→年代區間（U 檢用；粗界，只作「相斥」之判，不作定代）
+DYN_SPAN = {
+ '先秦': (-1100, -221), '春秋': (-770, -476), '戰國': (-475, -221), '秦': (-221, -206),
+ '西漢': (-206, 8), '東漢': (25, 220), '漢': (-206, 220), '三國魏': (220, 265), '三國吳': (222, 280),
+ '三國蜀': (221, 263), '魏': (220, 265), '西晉': (265, 317), '東晉': (317, 420), '晉': (265, 420),
+ '南朝宋': (420, 479), '南朝齊': (479, 502), '南朝梁': (502, 557), '南朝陳': (557, 589),
+ '北魏': (386, 534), '後魏': (386, 534), '東魏': (534, 550), '西魏': (535, 556),
+ '北齊': (550, 577), '北周': (557, 581), '隋': (581, 618), '唐': (618, 907),
+ '五代': (907, 960), '後梁': (907, 923), '後唐': (923, 936), '後晉': (936, 947),
+ '後漢': (947, 951), '後周': (951, 960), '北宋': (960, 1127), '南宋': (1127, 1279), '宋': (960, 1279),
+ '遼': (916, 1125), '金': (1115, 1234),
+ # 元：下限用蒙古建國之 1206 而非忽必烈建元之 1271。《元史》為耶律楚材、劉祁諸人立傳，
+ # 本庫與一般典籍皆稱蒙古國時期（1206–1271）人物為「元人」，以 1271 為界則逢卒必報。
+ # liaojinyuan 道 18 個 U 類 entity 有 14 個由此而來（坑 27）。
+ '元': (1206, 1368), '明': (1368, 1644), '清': (1644, 1912),
+ '民國': (1912, 1949), '中華民國': (1912, 1949),
+}
 LATE_ROLE = {'注','疏','箋','訓詁','音','音義','集解','集注','校','校注','輯','輯佚','輯錄','補','補注','釋','正義','章句','解','箋注','纂','編','刊','訂','評','批','校刊','校訂','增補','續'}
 
 def run_checks(works, IW, IB, IE, IC, ents):
@@ -126,13 +212,33 @@ def run_checks(works, IW, IB, IE, IC, ents):
         # E
         if w.get('loss_status') == 'lost' and (w.get('books') or w.get('_has_text') or w.get('_has_image')):
             R['E'].append(row(w, books=len(w.get('books') or []), has_text=bool(w.get('_has_text')), has_image=bool(w.get('_has_image'))))
-        # G
-        if TITLE_RE.search(w.get('title') or ''): R['G'].append(row(w))
+        # G（clash 於迴圈後補）
+        if TITLE_RE.search(w.get('title') or ''): R['G'].append(row(w, clean=clean_title(w.get('title') or '')))
         # H
         for a in a_list:
             nm = a.get('name') or ''
-            if nm and (len(nm) == 1 or ODD_RE.search(nm)):
-                R['H'].append(row(w, author=nm, dynasty=a.get('dynasty'), entity=a.get('entity_id'), note=(a.get('note') or '')[:60]))
+            ks = odd_kinds(nm) if nm else []
+            if ks:
+                R['H'].append(row(w, author=nm, kind='+'.join(ks), dynasty=a.get('dynasty'), entity=a.get('entity_id'), note=(a.get('note') or '')[:60]))
+        # Q / R / S
+        pb = w.get('period_basis') or ''
+        if 'period 傳播' in pb or 'entity_propagation' in pb:
+            for a in a_list:
+                e2 = IE.get(a.get('entity_id') or '')
+                if e2 and e2.get('period') and w.get('period') and e2['period'] != w['period']:
+                    R['Q'].append(row(w, entity=a.get('entity_id'), entity_name=e2.get('primary_name'),
+                                      entity_period=e2['period'], role=a.get('role'), annot=(a.get('role') in LATE_ROLE)))
+        mu = re.search(r'上限\s*([a-z\-]+)\s*覆驗不相斥', pb)
+        if mu and w.get('period') in ORD and mu.group(1) in ORD and ORD.index(mu.group(1)) < ORD.index(w['period']):
+            R['R'].append(row(w, claimed_upper=mu.group(1)))
+        pub = w.get('period_upper_basis') or ''
+        if pub.startswith('catalog_bound'):
+            ms = re.search(r'最緊者為《(.+?)》', pub)
+            if ms and not any((x.get('source') or '') == ms.group(1) for x in (w.get('indexed_by') or [])):
+                R['S'].append(row(w, cited=ms.group(1), sources=[x.get('source') for x in (w.get('indexed_by') or [])]))
+        # W：宣稱已清而該欄仍在
+        for fld, verb in (('birth_year', '生卒'), ('death_year', '生卒'), ('cbdb_id', 'cbdb')):
+            pass
         # P
         for m in ALIAS_RE.finditer(w.get('ai_note') or ''):
             x, y = m.group(1), m.group(2)
@@ -151,6 +257,19 @@ def run_checks(works, IW, IB, IE, IC, ents):
         for f, b_ in want.items():
             a_ = nz(ie.get(f))
             if a_ != b_: R['M'].append(row(w, field=f, index=a_, record=b_))
+
+    # G clash：以淨題撞全庫之題（排除自身與墓碑）
+    # 墓碑（merged_into 不空之被併條）之索引項依先例仍留 title 欄（供人知其去向），
+    # 若不排除，已併之組每次重掃都再報一次 clash（ming 道所報，坑 37）。
+    by_title = collections.defaultdict(list)
+    for w in works.values():
+        if w.get('merged_into'): continue
+        by_title[(w.get('title') or '').strip()].append(w['id'])
+    for r in R['G']:
+        c = r.get('clean') or ''
+        hits = [x for x in by_title.get(c, []) if x != r['id']]
+        r['clash'] = bool(hits)
+        if hits: r['clash_ids'] = hits[:5]
 
     # I 同題同撰人
     groups = collections.defaultdict(list)
@@ -176,6 +295,34 @@ def run_checks(works, IW, IB, IE, IC, ents):
                 R['K'].append(row(works[wid], kind='entity->work 無回指（人指書而書不指人）', entity=eid, entity_name=e.get('primary_name'),
                                   work_authors=[a.get('name') for a in (works[wid].get('authors') or [])]))
             per[period_key(IW[wid].get('period'))] += 1
+        # T：L5 斷代歸一之循環確證
+        if (e.get('dynasty_basis') or '').startswith('L5 斷代歸一'):
+            pp = {period_key(IW[x['work_id']].get('period')) for x in (e.get('works') or [])
+                  if x.get('work_id') in IW and IW[x['work_id']].get('period')}
+            if len(pp) <= 1:
+                for x in (e.get('works') or []):
+                    if x.get('work_id') in works:
+                        R['T'].append(row(works[x['work_id']], entity=eid, entity_name=e.get('primary_name'),
+                                          entity_dynasty=e.get('dynasty'), buckets=sorted(pp)))
+        # U：entity 之 dynasty 與自載生卒相斥（O 之推廣）
+        by_, dy_ = e.get('birth_year'), e.get('death_year')
+        span = DYN_SPAN.get((e.get('dynasty') or '').strip())
+        if span and (by_ or dy_):
+            lo, hi = span
+            bad = (by_ and by_ > hi) or (dy_ and dy_ < lo) or (by_ and by_ < lo - 120) or (dy_ and dy_ > hi + 120)
+            if bad:
+                for x in (e.get('works') or []):
+                    if x.get('work_id') in works:
+                        R['U'].append(row(works[x['work_id']], entity=eid, entity_name=e.get('primary_name'),
+                                          entity_dynasty=e.get('dynasty'), span=list(span), birth=by_, death=dy_))
+        # W：ai_note 稱已清除而欄仍在
+        an = e.get('ai_note') or ''
+        for fld, pat in (('birth_year', r'birth_year[^。]{0,20}(清除|卸除|已刪)'),
+                         ('cbdb_id', r'cbdb_id[^。]{0,20}(清除|卸除|已刪)')):
+            if e.get(fld) is not None or (fld == 'cbdb_id' and (e.get('external_ids') or {}).get('cbdb_id') is not None):
+                if re.search(pat, an):
+                    R['W'].append({'id': eid, 'title': e.get('primary_name'), 'period': period_key(e.get('period')),
+                                   'field': fld, 'still': e.get(fld) or (e.get('external_ids') or {}).get('cbdb_id')})
         dy = e.get('dynasty') or ''
         if ('末' in dy and '初' in dy) or dy in ('宋元', '元明', '明清', '金元'):
             by, dyr = e.get('birth_year'), e.get('death_year')
@@ -201,6 +348,152 @@ def run_checks(works, IW, IB, IE, IC, ents):
                                    'entity_name': e.get('primary_name'), 'entity_dynasty': e.get('dynasty'),
                                    'majority_period': top, 'majority_n': n,
                                    'role': next((a.get('role') for a in ((wrec or {}).get('authors') or []) if a.get('entity_id') == eid), None)})
+
+    # ── X：撰人／書名切分之誤（entity-cbdb 道所發，坑 30）──────────────────
+    # 志書著錄之體例是「撰人＋書名⟨小注⟩」，匯入時要在二者之間切一刀。切錯一格就
+    # 憑空造出一個人，而拼起來與原文一字不差——字串比對查不出，CBDB 也驗不出
+    # （這輩多是方志別集之作者，無官無科第，本不在 CBDB）。判準移植自該道
+    # overview/scripts/cbdb-sync/scan_author_title_split.py（已經三輪抽核打磨）。
+    in_name, head_title, name_all, title_all = (collections.Counter() for _ in range(4))
+    bg_name, bg_title = collections.Counter(), collections.Counter()
+    for w in works.values():
+        t = (w.get('title') or '').strip()
+        if t:
+            head_title[t[0]] += 1; title_all[t] += 1
+            for i in range(len(t)-1): bg_title[t[i:i+2]] += 1
+        for x in (w.get('authors') or []):
+            nm = (x.get('name') or '').strip()
+            name_all[nm] += 1
+            for ch in nm[1:]: in_name[ch] += 1
+            for i in range(len(nm)-1): bg_name[nm[i:i+2]] += 1
+    nworks = {eid: len(d.get('works') or []) for eid, d in ents.items()}
+    for wid, w in works.items():
+        title = (w.get('title') or '').strip()
+        if len(title) < 3: continue
+        c, rest = title[0], title[1:]
+        for a_ in (w.get('authors') or []):
+            nm, eid = (a_.get('name') or '').strip(), a_.get('entity_id')
+            if len(nm) != 2: continue
+            hits = [ib for ib in (w.get('indexed_by') or [])
+                    if SPLIT_NOTE_RE.sub('', (ib.get('title_info') or ib.get('summary') or '')).strip().startswith(nm + c)]
+            if not hits: continue
+            ratio = in_name[c] / (head_title[c] + 1)
+            if ratio < 1.0: continue
+            ib0 = hits[0]
+            note0 = ' '.join(SPLIT_NOTE_RE.findall(ib0.get('summary') or ib0.get('title_info') or ''))
+            sc = 2 if ratio >= 4 else (1 if ratio >= 2 else 0.5)
+            sc += 1 if rest[-1] in TITLE_TAIL else 0
+            sc += 1 if (eid and nworks.get(eid, 0) <= 1) else 0
+            if note0 and re.search(r'[字號号]\s*[^人\s]{0,3}' + re.escape(c), note0): sc -= 3   # 以字名集
+            if set(title[1:4]) & ZHAI: sc -= 2                                                  # 齋號切進書名
+            if rest and rest[0] in BAD_HEAD: sc -= 2                                            # 去首字不成詞
+            if note0 and re.search(r'[字號号]', note0) and c not in note0: sc += 1
+            strong = ''
+            if rest.startswith(nm[0]) and len(rest) > 2:                                        # 書名以姓＋字／諡／官起
+                mid = rest[1:]
+                for key in re.findall(r'[字號号諡谥]\s*([^\s，,。]{2})', note0):
+                    if mid.startswith(key): strong = f'書名以姓＋{key}起'; break
+                if not strong and re.match(r'^(文|忠|孝|莊|庄|端|恭|簡|简|靖|貞|贞|定|懿|襄|節|节|毅|裕|憲|宪|清|敏|肅|肃|安)', mid):
+                    strong = '書名以姓＋諡字起'
+                if not strong and re.search(r'(公|先生|府君)', rest[:5]): strong = '書名以姓＋尊稱起'
+            if strong: sc += 3
+            left, right = nm[1] + c, (c + rest[0] if rest else '')
+            ln, lt, rn, rt = bg_name[left], bg_title[left], bg_name[right], bg_title[right]
+            bg = ''
+            if ln >= 3 and ln > lt * 2: sc += 1.5; bg = f'「{left}」入人名{ln}次'
+            if rt >= 3 and rt > rn * 2: sc -= 2; bg = (bg + '；' if bg else '') + f'「{right}」入書名{rt}次'
+            if lt >= 3 and lt > ln * 2: sc -= 1.5; bg = (bg + '；' if bg else '') + f'「{left}」入書名{lt}次'
+            sc += 1 if name_all.get(nm + c, 0) > 0 else 0
+            # 論體之三字書名（氏姓論、昕天論、才性論、聲類論）易被誤縮為二字。凡剝後只剩
+            # 二字、而猜出之三字名全庫無徵、原二字名卻另有其書者，偏向原分法（weijin 所報，坑 38）
+            if len(rest) <= 2 and name_all.get(nm + c, 0) == 0:
+                sc -= 2
+                if name_all.get(nm, 0) > 1: sc -= 1
+            if title_all.get(title, 0) > 1: sc -= 2                                             # 同題他處亦見
+            if re.match(r'^[鄉縣州府都里]?(縣志|州志|府志|志)$', rest): sc -= 2                    # 通名成詞
+            if sc < 3.0: continue
+            bare = SPLIT_NOTE_RE.sub('', (ib0.get('title_info') or ib0.get('summary') or '')).strip()
+            R['X'].append(row(w, score=round(sc, 1), kind=strong or '撰人切短', author=nm,
+                              guess_name=nm + c, guess_title=rest, entity=eid,
+                              source=ib0.get('source', ''), raw=bare[:50], note=note0[:36], bigram=bg))
+
+    # ── Y：一節著錄分居二條（shanggu 道所發之疑，坑 35）──────────────────────
+    # 一部志之一節著錄，若原文（source_bid＋title_info＋summary 全同）同時掛在二條
+    # 同題之 work 上，非重出即誤繫。三道收窄以除假陽性：
+    #   (a) 諸條之題須同——合刊條拆分者（「東夷圖說二卷嶺海異聞一卷」）題必異，是正辦；
+    #   (b) summary 須非裸題——「孝經注一卷」不足以辨條，志中五家孝經注文字全同；
+    #   (c) 撰人各異而著錄文不點名者抑制——同上，是志書同文著錄之常，非缺陷。
+    # 分二型：著錄文點名某條之撰人而他條亦掛之 → misattached（著錄誤繫，該條不當有此志）；
+    #         諸條撰人全同（或皆空）→ dup（重出待併）。
+    ykey = collections.defaultdict(set)
+    for wid, w in works.items():
+        nt = Y_NORM.sub('', (w.get('title') or ''))
+        for ib in (w.get('indexed_by') or []):
+            sb, ti, su = ib.get('source_bid'), ib.get('title_info') or '', ib.get('summary') or ''
+            if not (sb and ti and su): continue
+            nsu = Y_NORM.sub('', su)
+            if nsu == nt or len(nsu) <= len(nt) + 1: continue          # (b)
+            ykey[(sb, Y_NORM.sub('', ti), nsu)].add(wid)
+    for k, v in ykey.items():
+        if len(v) < 2: continue
+        v = sorted(v)
+        if len({(works[x].get('title') or '') for x in v}) != 1: continue   # (a)
+        su = k[2]
+        aus = {x: [(a.get('name') or '').strip() for a in (works[x].get('authors') or [])] for x in v}
+        owners = [x for x in v if any(a and a in su for a in aus[x])]
+        if owners and len(owners) < len(v):
+            kind, extra = 'misattached', {'owner': owners}
+        elif len({frozenset(a for a in aus[x] if a) for x in v}) == 1:
+            kind, extra = 'dup', {}
+        else:
+            continue                                                   # (c)
+        for x in v:
+            R['Y'].append(row(works[x], kind=kind, source_bid=k[0], entry=su[:44],
+                              group=v, authors=aus[x], **extra))
+
+    # ── Y 之三型 twin_edition：同撰人同題而分繫同名異本之志（weijin 所報，坑 39）──
+    # 《補晉書藝文志》有丁國鈞本與文廷式本二整理本，source_bid 各異、著錄文字亦各異，
+    # 故上兩型（須 summary 全同）掃不出。判準用 weijin 道所定：撰人全同＋正規化題全同
+    # ＋各自 indexed_by 恰一節＋二節出自同名而異本之志。
+    solo = collections.defaultdict(list)
+    for wid, w in works.items():
+        ib = w.get('indexed_by') or []
+        if len(ib) != 1: continue
+        src = (ib[0].get('source') or '').strip()
+        if not src: continue
+        nsrc = src.replace('晋', '晉').replace('経', '經')
+        au = tuple(sorted((a.get('name') or '').strip() for a in (w.get('authors') or [])))
+        nt = Y_NORM.sub('', (w.get('title') or ''))
+        if not nt: continue
+        solo[(nsrc, au, nt)].append((wid, ib[0].get('source_bid')))
+    for (nsrc, au, nt), lst in solo.items():
+        if len(lst) < 2: continue
+        if len({b for _, b in lst}) < 2: continue          # 須真出自異本，同本之重出上型已收
+        ids = sorted(w for w, _ in lst)
+        for wid in ids:
+            R['Y'].append(row(works[wid], kind='twin_edition', source=nsrc,
+                              group=ids, authors=list(au)))
+
+    # ── Z：catalog_bound 誤取志名裡的朝代為界（nanbeichao 所報，坑 40）────────
+    # 「補X書藝文志」是清末民初人對 X 代書目之回溯重建，**成書在清而非 X 代**。
+    # catalog_bound 的原意是以志書自身之成書年代為界（《隋志》唐人成，故所著錄不晚於隋唐），
+    # 取志名裡的「晉」作界，等於說「凡補晉志著錄之書必不晚於晉」——對整類回溯重建之志皆誤。
+    # 此類之界對本庫斷代幾無收窄之用，當自 basis 中剔除，另尋實有之志立界。
+    for wid, w in works.items():
+        b = w.get('period_upper_basis') or ''
+        if 'catalog_bound' not in b: continue
+        # 只報「該回溯志正是所取之界」者。basis 中順帶提及而非取以為界者不算——
+        # 邏輯之誤只在它被當作 catalog_bound 之界時才傷人（455 → 72）。
+        m = BOUND_RE.search(b)
+        if not m: continue
+        m = RETRO_RE.search(m.group(0))
+        if not m: continue
+        others = sorted({(ib.get('source') or '') for ib in (w.get('indexed_by') or [])
+                         if ib.get('source') and not RETRO_RE.search(ib.get('source') or '')})
+        R['Z'].append(row(w, retro=m.group(0), period_upper=w.get('period_upper'),
+                          contradict=bool(w.get('period') and w.get('period_upper')
+                                          and w.get('period') != w.get('period_upper')),
+                          other_sources=others[:4], basis=b[:90]))
     return R
 
 def main():
