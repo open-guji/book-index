@@ -15,7 +15,7 @@
   D upper_conflict   period_upper 早於 period
   E lost_but_text    loss_status=lost 而有 Book／_has_text／_has_image
   F name_mismatch    撰人名不在所繫 entity 之 primary_name／alt_names（容「X等」「X氏」）
-  G title_catalog    題名夾雜卷數／撰人／殘語（「二卷」「(存卷上)」「 題」…）
+  G title_catalog    題名夾雜卷數／撰人／殘語；附 clash＝剝殘語所得之淨題撞庫者（撞庫型信度遠高於孤例，優先處置）
   H author_odd       撰人名可疑：單字、含數字／標點／「等」「撰」「注」
   I dup_title        同題且撰人集合相同（或俱無撰人）之組
   J desc_gap         著錄 ≥4 源而 description 全缺
@@ -31,6 +31,9 @@
   T l5_circular      entity 之 dynasty_basis 以「L5 斷代歸一」起首而其「確證」（名下 work 分居諸桶）不成立
   U dyn_vs_life      entity 之 dynasty 與其自載生卒相斥（O 之推廣，不限跨代標籤）
   W claimed_not_done ai_note 稱某欄已「清除／卸除／已刪」而該欄仍在
+
+H 之 kind 另有 residue：頂真格斷鏈之殘語與括注注記被取作撰人（「十集」「，一名」「二譯」
+「廣卷帙」），及罕用部件字致脫姓（「𰖍拙」實「陳拙」）——suitang 道所報，H 收窄後方現形。
 
 H 之 kind：num 數字（明人排行字常態，已收窄）／split 拆字缺字描述式／role 役字結尾／
 prefix 身分官銜前綴／bracket 括號按語／single 單字／punct 其他標點。
@@ -63,6 +66,19 @@ def period_key(p):
 # ---------------------------------------------------------------- checks
 BASIS_RE = re.compile(r'^據 authors\[(\d+)\]\.dynasty[「『"]([^」』"]+)[」』"]')
 TITLE_RE = re.compile(r'[一二三四五六七八九十百]+卷|\d+卷|\(存|（存|原目|[，,：:]| 題$|卷首$| 著$')
+# G 之淨題：剝去題末之卷數／存卷／撰人括注／殘綴
+CLEAN_RE = [re.compile(x) for x in (
+    r'[（(](存[^）)]*|[一二三四五六七八九十百]+卷[^）)]*)[）)]\s*$',
+    r'[（(][^）)]{0,8}[）)]\s*(著|撰|注|傳|題|編)?\s*$',
+    r'\s*(著|撰|注|傳|題|編)\s*$',
+    r'[一二三四五六七八九十百]+卷.*$', r'\d+卷.*$', r'\s*卷首\s*$', r'\s*原目\s*$')]
+def clean_title(t):
+    prev = None
+    while prev != t:
+        prev = t
+        for r in CLEAN_RE:
+            t = r.sub('', t).strip()
+    return t
 NUM_CH = '〇一二三四五六七八九十百千'
 SPLIT_RE = re.compile(r'\[[^\]]*\+[^\]]*\]|《[^》]{1,3}》|[?？□]')
 # 只取名末幾乎不可能是人名用字者：修（歐陽修）、述、校、疏、傳、解皆常見於名，故不列
@@ -70,6 +86,18 @@ ROLE_SUF = re.compile(r'(撰|注|編|輯|纂|等)$|(上人|居士|道人)$')
 # 釋／僧／道士是本庫僧道之常例（非缺陷），不列；只取著錄語黏連之身分與帝號
 PREFIX_RE = re.compile(r'^(西洋人|泰西|西洋|大學士|太監|尚書|侍郎|禦史|御史|翰林|明太祖|太祖高皇帝|世宗|神宗|熹宗|思宗)')
 PUNCT_RE = re.compile(r'[卷篇、，。\[\]（）()]')
+# 頂真格斷鏈之殘語、注記誤作人名、罕用部件字脫姓（suitang 所報，坑 26）
+# 收窄記：初稿之 ^廣.{1,3}$ 誤收廣成子、廣德先生、廣治、廣學、廣化、廣衍、廣夷等真名（假陽性
+# 七成八），依坑 21 之訓改為「決不入人名之書志語／校勘語」白名單，現全庫零假陽性。
+RESIDUE_RE = re.compile(
+    r'^[，。、；]'                                    # 一、標點起首者為斷鏈殘語
+    r'|^(一名|又名|原名|亦名)$'                        # 二、異名引導語單獨成名
+    r'|^[一二三四五六七八九十百千]+(卷|篇|集|冊|譯)$'    # 三、「二譯」「十集」之數量殘語
+    r'|(卷帙|卷首|原目|存卷|闕卷)'                      # 四、書志用語，不入人名
+)
+# 校勘語殘留（「廣作中作」）。名中已有括注者另有 punct 型收之，此處不重報。
+COLLATE_RE = re.compile(r'(一作|或作|題作|中作|作中|原作)')
+RADICAL_RE = re.compile(r'^[\u2e80-\u2fff\u31c0-\u31ef]')
 def odd_kinds(nm):
     """撰人名之可疑型。數字一則已收窄：明人排行字（數字在名之中段）是常態，不報。"""
     ks = []
@@ -78,6 +106,8 @@ def odd_kinds(nm):
     if PREFIX_RE.match(nm): ks.append('prefix')
     if PUNCT_RE.search(nm): ks.append('punct')
     if len(nm) == 1: ks.append('single')
+    if (RESIDUE_RE.search(nm) or RADICAL_RE.match(nm)
+            or (COLLATE_RE.search(nm) and not PUNCT_RE.search(nm))): ks.append('residue')
     if any(c in NUM_CH for c in nm):
         # 排行字（楊一清、劉三吾）與名末之數（黃式三、尹會一）皆明清常態，不報。
         # 只報：名以數字起（多為僧號／殘名）、或長逾四字者。
@@ -97,7 +127,11 @@ DYN_SPAN = {
  '北齊': (550, 577), '北周': (557, 581), '隋': (581, 618), '唐': (618, 907),
  '五代': (907, 960), '後梁': (907, 923), '後唐': (923, 936), '後晉': (936, 947),
  '後漢': (947, 951), '後周': (951, 960), '北宋': (960, 1127), '南宋': (1127, 1279), '宋': (960, 1279),
- '遼': (916, 1125), '金': (1115, 1234), '元': (1271, 1368), '明': (1368, 1644), '清': (1644, 1912),
+ '遼': (916, 1125), '金': (1115, 1234),
+ # 元：下限用蒙古建國之 1206 而非忽必烈建元之 1271。《元史》為耶律楚材、劉祁諸人立傳，
+ # 本庫與一般典籍皆稱蒙古國時期（1206–1271）人物為「元人」，以 1271 為界則逢卒必報。
+ # liaojinyuan 道 18 個 U 類 entity 有 14 個由此而來（坑 27）。
+ '元': (1206, 1368), '明': (1368, 1644), '清': (1644, 1912),
  '民國': (1912, 1949), '中華民國': (1912, 1949),
 }
 LATE_ROLE = {'注','疏','箋','訓詁','音','音義','集解','集注','校','校注','輯','輯佚','輯錄','補','補注','釋','正義','章句','解','箋注','纂','編','刊','訂','評','批','校刊','校訂','增補','續'}
@@ -168,8 +202,8 @@ def run_checks(works, IW, IB, IE, IC, ents):
         # E
         if w.get('loss_status') == 'lost' and (w.get('books') or w.get('_has_text') or w.get('_has_image')):
             R['E'].append(row(w, books=len(w.get('books') or []), has_text=bool(w.get('_has_text')), has_image=bool(w.get('_has_image'))))
-        # G
-        if TITLE_RE.search(w.get('title') or ''): R['G'].append(row(w))
+        # G（clash 於迴圈後補）
+        if TITLE_RE.search(w.get('title') or ''): R['G'].append(row(w, clean=clean_title(w.get('title') or '')))
         # H
         for a in a_list:
             nm = a.get('name') or ''
@@ -213,6 +247,16 @@ def run_checks(works, IW, IB, IE, IC, ents):
         for f, b_ in want.items():
             a_ = nz(ie.get(f))
             if a_ != b_: R['M'].append(row(w, field=f, index=a_, record=b_))
+
+    # G clash：以淨題撞全庫之題（排除自身）
+    by_title = collections.defaultdict(list)
+    for w in works.values():
+        by_title[(w.get('title') or '').strip()].append(w['id'])
+    for r in R['G']:
+        c = r.get('clean') or ''
+        hits = [x for x in by_title.get(c, []) if x != r['id']]
+        r['clash'] = bool(hits)
+        if hits: r['clash_ids'] = hits[:5]
 
     # I 同題同撰人
     groups = collections.defaultdict(list)
