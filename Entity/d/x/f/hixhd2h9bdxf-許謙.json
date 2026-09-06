@@ -1,30 +1,19 @@
 {
-  "schema_version": 1,
-  "id": "hixhd2h9bdxf",
   "type": "entity",
-  "subtype": "people",
-  "primary_name": "許謙",
-  "alt_names": [
-    {
-      "name": "文懿",
-      "type": "諡號"
-    },
-    {
-      "name": "白雲",
-      "type": "號"
-    },
-    {
-      "name": "白雲先生",
-      "type": "號"
-    },
-    {
-      "name": "益之",
-      "type": "字"
-    }
-  ],
-  "dynasty": "元",
-  "birth_year": 1270,
+  "external_ids": {
+    "cbdb_id": 10733,
+    "cbdb_match": "auto",
+    "cbdb_source": "name_exact+dy_match+work_recall_0.55+unique"
+  },
+  "native_place": "金華",
+  "id": "hixhd2h9bdxf",
   "death_year": 1337,
+  "primary_name": "許謙",
+  "dynasty": "元",
+  "native_place_basis": "CBDB 10733 index_addr（2026-09-06 CBDB enrich）",
+  "period_basis": "據 dynasty「元」自動歸併",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 5 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10733 補入空槽——籍貫「金華」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6enwrrpd、d59f6es1nyth、d59f6env7kzm、d59f6eggbojq、d59f6ekrrv2b。",
+  "updated_at": "2026-09-06T00:00:00+00:00",
   "works": [
     {
       "work_id": "d59f2go9ojcw",
@@ -103,14 +92,6 @@
       "role": "撰"
     },
     {
-      "work_id": "d59f6enwrrpd",
-      "role": "撰"
-    },
-    {
-      "work_id": "d59f6es1nyth",
-      "role": "撰"
-    },
-    {
       "work_id": "d59f6env7kzm",
       "role": "撰"
     },
@@ -119,17 +100,38 @@
       "role": "撰"
     },
     {
+      "work_id": "d59f6enwrrpd",
+      "role": "撰"
+    },
+    {
       "work_id": "d59f6ekrrv2b",
+      "role": "撰"
+    },
+    {
+      "work_id": "d59f6es1nyth",
       "role": "撰"
     }
   ],
-  "external_ids": {
-    "cbdb_id": 10733,
-    "cbdb_match": "auto",
-    "cbdb_source": "name_exact+dy_match+work_recall_0.55+unique"
-  },
-  "updated_at": "2026-09-06T00:00:00+00:00",
   "period": "liao-jin-yuan",
-  "period_basis": "據 dynasty「元」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6enwrrpd、d59f6es1nyth、d59f6env7kzm、d59f6eggbojq、d59f6ekrrv2b。"
+  "birth_year": 1270,
+  "alt_names": [
+    {
+      "name": "文懿",
+      "type": "諡號"
+    },
+    {
+      "name": "白雲",
+      "type": "號"
+    },
+    {
+      "name": "白雲先生",
+      "type": "號"
+    },
+    {
+      "name": "益之",
+      "type": "字"
+    }
+  ],
+  "subtype": "people",
+  "schema_version": 1
 }

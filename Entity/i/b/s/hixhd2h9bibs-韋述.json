@@ -64,5 +64,7 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "sui-tang",
   "period_basis": "據 dynasty「唐」自動歸併",
-  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 3 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 斷代收窄：本 entity 新收 6 部 work 之繫（撰人自著錄語／宋志頂真格抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。"
+  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 3 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 斷代收窄：本 entity 新收 6 部 work 之繫（撰人自著錄語／宋志頂真格抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=32085 補入空槽——籍貫「長安」。既有之值一概未動。\n\n2026-09-06 併書後反向鏈清理：main「C 層清賬（一）：併同書異條」刪 source work 而未同步 Entity.works，本條遺 1 條指向已刪 id 之邊。逐條依 target 之 merge_history 查去向後處置：d59f28krwlq8→d59f28jokpa9《集賢書目》（本條已有其繫，去重）。",
+  "native_place": "長安",
+  "native_place_basis": "CBDB 32085 index_addr（2026-09-06 CBDB enrich）"
 }

@@ -1,22 +1,20 @@
 {
-  "schema_version": 1,
-  "id": "hixhd2h9bedk",
   "type": "entity",
-  "subtype": "people",
-  "primary_name": "危素",
-  "alt_names": [
-    {
-      "name": "太樸",
-      "type": "字"
-    },
-    {
-      "name": "雲林",
-      "type": "字"
-    }
-  ],
-  "dynasty": "元末明初",
-  "birth_year": 1303,
+  "external_ids": {
+    "cbdb_id": 28022,
+    "cbdb_match": "auto",
+    "cbdb_source": "name_exact+dy_match+work_recall_0.60+unique"
+  },
+  "native_place": "金谿",
+  "dynasty_basis": "L5 斷代歸一（2026-08-25 遼金元輪）：本欄舊作「明」，而其書之著錄源《元史藝文志》作「元某某」。二說皆非全誤——其人是**過渡期人物**，生於前朝而書成於後朝（或反之）。庫中本有「元末明初」一值正為此設，今歸之。確證：其人名下之 work 同時分居 liao-jin-yuan×10／ming×7 諸桶。",
+  "id": "hixhd2h9bedk",
   "death_year": 1372,
+  "primary_name": "危素",
+  "dynasty": "元末明初",
+  "native_place_basis": "CBDB 28022 index_addr（2026-09-06 CBDB enrich）",
+  "period_basis": "據 dynasty「明」自動歸併",
+  "ai_note": "2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-08-25 遼金元 L5：dynasty 由「明」歸一為「元末明初」。判據見 dynasty_basis。其名下 work 之 authors[].dynasty 同步。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 5 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=28022 補入空槽——籍貫「金谿」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eh8q9z5、d59f6en3483q、d59f6erok006、d59f6en6v2md、d59f6erov8jm。",
+  "updated_at": "2026-09-06T00:00:00+00:00",
   "works": [
     {
       "work_id": "d59f2nfizf9f",
@@ -24,7 +22,7 @@
     },
     {
       "work_id": "d59f2ng7yeio",
-      "role": "撰"
+      "role": "舊題撰"
     },
     {
       "work_id": "d59f2nkla0oz",
@@ -87,14 +85,6 @@
       "role": "撰"
     },
     {
-      "work_id": "d59f6eh8q9z5",
-      "role": "撰"
-    },
-    {
-      "work_id": "d59f6en3483q",
-      "role": "撰"
-    },
-    {
       "work_id": "d59f6erok006",
       "role": "撰"
     },
@@ -103,18 +93,30 @@
       "role": "撰"
     },
     {
+      "work_id": "d59f6en3483q",
+      "role": "撰"
+    },
+    {
       "work_id": "d59f6erov8jm",
+      "role": "撰"
+    },
+    {
+      "work_id": "d59f6eh8q9z5",
       "role": "撰"
     }
   ],
-  "external_ids": {
-    "cbdb_id": 28022,
-    "cbdb_match": "auto",
-    "cbdb_source": "name_exact+dy_match+work_recall_0.60+unique"
-  },
-  "updated_at": "2026-09-06T00:00:00+00:00",
   "period": "ming",
-  "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-08-25 遼金元 L5：dynasty 由「明」歸一為「元末明初」。判據見 dynasty_basis。其名下 work 之 authors[].dynasty 同步。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eh8q9z5、d59f6en3483q、d59f6erok006、d59f6en6v2md、d59f6erov8jm。",
-  "dynasty_basis": "L5 斷代歸一（2026-08-25 遼金元輪）：本欄舊作「明」，而其書之著錄源《元史藝文志》作「元某某」。二說皆非全誤——其人是**過渡期人物**，生於前朝而書成於後朝（或反之）。庫中本有「元末明初」一值正為此設，今歸之。確證：其人名下之 work 同時分居 liao-jin-yuan×10／ming×7 諸桶。"
+  "birth_year": 1303,
+  "alt_names": [
+    {
+      "name": "太樸",
+      "type": "字"
+    },
+    {
+      "name": "雲林",
+      "type": "字"
+    }
+  ],
+  "subtype": "people",
+  "schema_version": 1
 }

@@ -1,24 +1,19 @@
 {
-  "schema_version": 1,
-  "id": "hixhd2h9be42",
   "type": "entity",
-  "subtype": "people",
+  "external_ids": {
+    "cbdb_id": 50974,
+    "cbdb_match": "manual",
+    "cbdb_source": "manual+pid_50974_趙順孫_dy15"
+  },
+  "native_place": "縉雲",
+  "dynasty_basis": "L5 斷代歸一（2026-08-25 遼金元輪）：本欄舊作「元」，而其書之著錄源《欽定四庫全書總目》作「宋某某」。二說皆非全誤——其人是**過渡期人物**，生於前朝而書成於後朝（或反之）。庫中本有「宋末元初」一值正為此設，今歸之。確證：其人名下之 work 同時分居 liao-jin-yuan×5 諸桶。",
+  "id": "hixhd2h9be42",
   "primary_name": "趙順孫",
-  "alt_names": [
-    {
-      "name": "和仲",
-      "type": "字"
-    },
-    {
-      "name": "格菴先生",
-      "type": "號"
-    },
-    {
-      "name": "格齋先生",
-      "type": "號"
-    }
-  ],
   "dynasty": "宋末元初",
+  "native_place_basis": "CBDB 50974 index_addr（2026-09-06 CBDB enrich）",
+  "period_basis": "synonym",
+  "ai_note": "[ljy-round1: period null→liao-jin-yuan; 據 dynasty=元 派生]\n\n2026-08-25 遼金元 L5：dynasty 由「元」歸一為「宋末元初」。判據見 dynasty_basis。其名下 work 之 authors[].dynasty 同步。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 3 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=50974 補入空槽——籍貫「縉雲」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6egj4tfo、d59f6erpsy6e、d59f6eih1z47。",
+  "updated_at": "2026-09-06T00:00:00+00:00",
   "works": [
     {
       "work_id": "d59f2gomh9mo",
@@ -53,14 +48,21 @@
       "role": "撰"
     }
   ],
-  "external_ids": {
-    "cbdb_id": 50974,
-    "cbdb_match": "manual",
-    "cbdb_source": "manual+pid_50974_趙順孫_dy15"
-  },
-  "updated_at": "2026-09-06T00:00:00+00:00",
-  "dynasty_basis": "L5 斷代歸一（2026-08-25 遼金元輪）：本欄舊作「元」，而其書之著錄源《欽定四庫全書總目》作「宋某某」。二說皆非全誤——其人是**過渡期人物**，生於前朝而書成於後朝（或反之）。庫中本有「宋末元初」一值正為此設，今歸之。確證：其人名下之 work 同時分居 liao-jin-yuan×5 諸桶。",
   "period": "liao-jin-yuan",
-  "period_basis": "synonym",
-  "ai_note": "[ljy-round1: period null→liao-jin-yuan; 據 dynasty=元 派生]\n\n2026-08-25 遼金元 L5：dynasty 由「元」歸一為「宋末元初」。判據見 dynasty_basis。其名下 work 之 authors[].dynasty 同步。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6egj4tfo、d59f6erpsy6e、d59f6eih1z47。"
+  "alt_names": [
+    {
+      "name": "和仲",
+      "type": "字"
+    },
+    {
+      "name": "格菴先生",
+      "type": "號"
+    },
+    {
+      "name": "格齋先生",
+      "type": "號"
+    }
+  ],
+  "subtype": "people",
+  "schema_version": 1
 }
