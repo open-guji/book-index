@@ -565,24 +565,27 @@ def run_checks(works, IW, IB, IE, IC, ents):
     # 《補晉書藝文志》有丁國鈞本與文廷式本二整理本，source_bid 各異、著錄文字亦各異，
     # 故上兩型（須 summary 全同）掃不出。判準用 weijin 道所定：撰人全同＋正規化題全同
     # ＋各自 indexed_by 恰一節＋二節出自同名而異本之志。
+    # 初版要求「兩造各只一節著錄」，故只掃得同題之志二本各自建條者。
+    # 而第五部《補晉書經籍志（吳士鑑）》入庫後見另一形：**新入之條只一節（本志），
+    # 而既有之條已有數節**——併時本當把那一節移入既有條，卻另建了新條。
+    # 489 條新入者有 65 條屬此（13%）。故改為「**至少一造只一節**」（坑 59）。
     solo = collections.defaultdict(list)
     for wid, w in works.items():
-        ib = w.get('indexed_by') or []
-        if len(ib) != 1: continue
-        src = (ib[0].get('source') or '').strip()
-        if not src: continue
-        nsrc = src.replace('晋', '晉').replace('経', '經')
         au = tuple(sorted((a.get('name') or '').strip() for a in (w.get('authors') or [])))
         nt = Y_NORM.sub('', (w.get('title') or ''))
-        if not nt: continue
-        solo[(nsrc, au, nt)].append((wid, ib[0].get('source_bid')))
-    for (nsrc, au, nt), lst in solo.items():
+        if not nt or not au or not any(au): continue        # 無撰人者不判（同題太易撞）
+        ib = w.get('indexed_by') or []
+        solo[(au, nt)].append((wid, len(ib), {x.get('source_bid') for x in ib}))
+    for (au, nt), lst in solo.items():
         if len(lst) < 2: continue
-        if len({b for _, b in lst}) < 2: continue          # 須真出自異本，同本之重出上型已收
-        ids = sorted(w for w, _ in lst)
+        if not any(n == 1 for _, n, _ in lst): continue     # 須有一造只一節
+        bids = [b for _, _, b in lst]
+        if set.intersection(*bids): continue                # 已共一志者非此型（另有他檢）
+        ids = sorted(w for w, _, _ in lst)
         for wid in ids:
-            R['Y'].append(row(works[wid], kind='twin_edition', source=nsrc,
-                              group=ids, authors=list(au)))
+            R['Y'].append(row(works[wid], kind='twin_edition',
+                              group=ids, authors=list(au),
+                              n_sources=len(works[wid].get('indexed_by') or [])))
 
     # ── Z：catalog_bound 誤取志名裡的朝代為界（nanbeichao 所報，坑 40）────────
     # 「補X書藝文志」是清末民初人對 X 代書目之回溯重建，**成書在清而非 X 代**。
