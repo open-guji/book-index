@@ -57,7 +57,9 @@
   "period_upper_basis": "catalog_bound：《中國通俗小說書目》明清小說部自標所收之代，故不晚於 qing",
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
-  "ai_note": "2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzkq2w0`.dynasty「明」propagate 補齊；work.dynasty 同步。",
+  "ai_note": "2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzkq2w0`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-09-06 qa-sweep/ming M 類（loss_status 空白而 description 稱今存）：loss_status（原空白）→「partially_extant」。據見 loss_status_basis。",
   "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revised_at": "2026-08-25",
+  "loss_status": "partially_extant",
+  "loss_status_basis": "2026-09-06 qa-sweep/ming M 類（loss_status 空白而 description 稱今存）：description 自陳「今存衍慶堂本二十四卷二十四篇……馬隅卿藏殘本存第四至第六卷三卷……四十卷本喻世明言……今未見傳本」——原四十卷本未見傳本，今存者為殘本／後出之重刻拼湊本，非足本傳世。原值：loss_status=None（空白）。"
 }
