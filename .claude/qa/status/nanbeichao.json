@@ -5,9 +5,9 @@
  ],
  "works": 4121,
  "state": "running",
- "batch": 14,
- "focus": "D/L 收尾——weijin交來之併、串條隔行誤配",
- "commit": "b549b8114e",
+ "batch": 15,
+ "focus": "J 類 description 補全（N9）；Y 類跨記錄著錄污染",
+ "commit": "decee0aea3",
  "counts": {
   "A": {
    "found": 205,
@@ -60,8 +60,8 @@
    "normal": 2
   },
   "J": {
-   "found": 192,
-   "fixed": 0,
+   "found": 198,
+   "fixed": 198,
    "researched": 0,
    "recorded": 0
   },
@@ -103,6 +103,13 @@
    "fixed": 0,
    "researched": 0,
    "recorded": 17,
+   "normal": 0
+  },
+  "Y": {
+   "found": 11,
+   "fixed": 2,
+   "researched": 0,
+   "recorded": 5,
    "normal": 0
   }
  },
@@ -171,7 +178,12 @@
    "at": "2026-09-06T17:16:38+00:00",
    "batch": 14,
    "note": "批十四：D 2條修——廬山唱和詩完成weijin道複查十九已標記之併（張野entity統一nanbeichao），九州名山圖撤period_upper（同批九/批十之catalog_bound誤把補晉書志所補朝代當成書代）。L 1條修——二晉雜詩誤植撰人「荀綽」，實為隋志同句「古今五言詩美文五卷，荀綽撰」隔行誤配（既有記錄d59f27w6143l本傳考定該書撰人當是孫綽，互證荀綽確屬誤植），刪之復為無撰人。餘L 9條皆常態（跨代注疏/人物）。C 24→23（隨I批合併entity減一）。"
+  },
+  {
+   "at": "2026-09-06T17:28:51+00:00",
+   "batch": 15,
+   "note": "批十五：J 198→0。仿既有N6之法寫生成腳本，機械撮述indexed_by（撰人代／measure_info／諸志卷數異同／N家著錄清單），不出indexed_by之外不臆造，198條全補，ai_note載「N9 description 補全」。過程中發現新增scan Y類（同一source_bid citation誤植於兩記錄），本道桶11條：2條為本道自身記錄互污染已修（述異記任昉條誤有祖沖之條之著錄二則、清溪集齊武帝條誤有宋人汪革之著錄一則）——過程中一度誤刪四庫提要一則辨異文字（非污染，是澄清任昉/祖沖之二書不同之考證），即時查覺復原並補全遺漏欄位；餘5條污染落在liao-jin-yuan/song/sui-tang/qing四道之記錄，逐條核非辨異文字（純短著錄語重出）後轉報inbox cross。"
   }
  ],
- "updated_at": "2026-09-06T17:16:38+00:00"
+ "updated_at": "2026-09-06T17:28:51+00:00"
 }
