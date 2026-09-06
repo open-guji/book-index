@@ -24,7 +24,7 @@
     "cbdb_match": "auto",
     "cbdb_source": "name_exact+dy_match+unique (batch2 2026-08-16)"
   },
-  "ai_note": "姓名訂正：原作「餘曰德」，係簡繁轉換工具將姓氏過度轉換所致（此姓繁體正作今形，轉之則非姓）。\n\n2026-08-16 CBDB 繫連批二：繫 cbdb 128346。判準為同期同名唯一（name_exact+dy_match+unique，與本庫既有三千餘條同一判準）——CBDB 中朝代與本條相容之同名者僅此一人。該號記：明，生1514，卒1583，籍貫南昌。\n2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=128346 補入空槽——別名 2 條（一、德甫）；生年 1514；卒年 1583。既有之值一概未動。",
+  "ai_note": "姓名訂正：原作「餘曰德」，係簡繁轉換工具將姓氏過度轉換所致（此姓繁體正作今形，轉之則非姓）。\n\n2026-08-16 CBDB 繫連批二：繫 cbdb 128346。判準為同期同名唯一（name_exact+dy_match+unique，與本庫既有三千餘條同一判準）——CBDB 中朝代與本條相容之同名者僅此一人。該號記：明，生1514，卒1583，籍貫南昌。\n2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=128346 補入空槽——別名 2 條（一、德甫）；生年 1514；卒年 1583。既有之值一概未動。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=128346 補入空槽——籍貫「南昌」。既有之值一概未動。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "ming",
   "period_basis": "據 dynasty「明」自動歸併",
@@ -39,5 +39,7 @@
     }
   ],
   "birth_year": 1514,
-  "death_year": 1583
+  "death_year": 1583,
+  "native_place": "南昌",
+  "native_place_basis": "CBDB 128346 index_addr（2026-09-06 CBDB enrich）"
 }
