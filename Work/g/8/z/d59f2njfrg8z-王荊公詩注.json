@@ -6,9 +6,9 @@
     {
       "name": "李璧",
       "role": "撰",
-      "dynasty": "明",
+      "dynasty": "宋",
       "entity_id": "hixhd2h9bnlf",
-      "dynasty_basis": "entity_propagation_r2:1j96keljsyadc"
+      "dynasty_basis": "2026-09-06 qa-sweep/ming C 類·斷代訂正：本欄舊作「明」，其據為 entity_propagation（所指之 draft entity 代作明，而 production 之同一 entity 代作「宋」）。今隨本條之代改依著錄。原值：dynasty=「明」。"
     }
   ],
   "description": {
@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故庫025308-025323）。阶段 5 兜底建立。\n\n2026-08-19 同題異撰人專項（二）：本條與 `1ev3bcwzw4um8` 同題《王荊公詩注》、同卷數 50，撰人分作「李璧」「李壁」，僅一字之差（或一名含於另一名、或冠以朝代），乃一名之異寫或形訛，非二人二書。今併，正名取「李璧」，異名之著錄並存於 indexed_by。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx9qu55hc 與 11q37supjzcao 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-25 J19：work.dynasty 缺值，據 authors[0].dynasty「明」補齊。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故庫025308-025323）。阶段 5 兜底建立。\n\n2026-08-19 同題異撰人專項（二）：本條與 `1ev3bcwzw4um8` 同題《王荊公詩注》、同卷數 50，撰人分作「李璧」「李壁」，僅一字之差（或一名含於另一名、或冠以朝代），乃一名之異寫或形訛，非二人二書。今併，正名取「李璧」，異名之著錄並存於 indexed_by。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx9qu55hc 與 11q37supjzcao 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-25 J19：work.dynasty 缺值，據 authors[0].dynasty「明」補齊。\n\n2026-09-06 qa-sweep/ming C 類·斷代訂正：period「ming」→「song」。據見 period_basis。",
   "juan_count": {
     "number": 50
   },
@@ -66,10 +66,10 @@
   ],
   "_has_text": true,
   "_has_image": true,
-  "period": "ming",
-  "period_basis": "據 authors[0].dynasty「明」（規則1 粗粒度自消歧；2026-08-21 補派生專項）",
-  "dynasty": "明",
-  "dynasty_basis": "據 authors[0].dynasty「明」（S5 缺值補齊，J19）",
+  "period": "song",
+  "period_basis": "2026-09-06 qa-sweep/ming C 類·斷代訂正：《欽定四庫全書總目》著錄之文作「宋李壁撰」——撰人與書皆宋。本條舊 period=ming，其 period_basis 自書「據 authors[0].dynasty「明」（規則1 粗粒度自消歧；2026-08-21 補派生專項）」，而該「明」出 authors[].dynasty_basis「entity_propagation_r2:1j96keljsyadc」——即自 draft 之 entity 派生，而今 production 之同一 entity hixhd2h9bnlf 代作「宋」（period song），是所據之值已不存。今改依著錄。原值：period=「ming」、dynasty=「明」。",
+  "dynasty": "宋",
+  "dynasty_basis": "2026-09-06 qa-sweep/ming C 類·斷代訂正：隨 period 改依著錄（原值「明」，其據為 author/entity propagation，見 period_basis）。",
   "revision": "1.0.0",
   "revised_at": "2026-08-25"
 }

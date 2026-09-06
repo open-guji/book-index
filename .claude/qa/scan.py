@@ -24,6 +24,7 @@
   M index_drift      索引 period/loss_status/title/subtype/author/dynasty/role 與記錄檔不符（dynasty 取頂層，無則 authors[0]）
   N source_no_bid    indexed_by 有 source 而無 source_bid（來源為 Collection 者豁免：其本無 work-space 之 bid）
   O dyn_transitional 撰人 entity 之 dynasty 作「元末明初」類跨代標籤而生卒與之相斥（L5 循環論據之遺）
+  P bogus_alias      ai_note 載「撰人異稱——本志作「X」而庫中作「Y」，同指一人」而 X、Y 全無共字（補南北史志「深覈」偽註；有共字者附 info）
 
 判準與踩坑見 PROTOCOL.md、PITFALLS.md。本檔只掃不改。
 """
@@ -54,6 +55,9 @@ def period_key(p):
 BASIS_RE = re.compile(r'^據 authors\[(\d+)\]\.dynasty[「『"]([^」』"]+)[」』"]')
 TITLE_RE = re.compile(r'[一二三四五六七八九十百]+卷|\d+卷|\(存|（存|原目|[，,：:]| 題$|卷首$| 著$')
 ODD_RE = re.compile(r'[0-9〇一二三四五六七八九十百千]|卷|篇|撰$|注$|等$|、|，|。|\?|？|\[|\]|（|）|\(|\)')
+ALIAS_RE = re.compile(r'撰人異稱——本志作[「『]([^」』]+)[」』]而庫中作[「『]([^」』]+)[」』]，同指一人')
+# F 之正俗異體歸一（只作比對，禁止寫盤；nanbeichao 道所列，坑 19）
+VARIANTS = str.maketrans('温云舍冲吴隠禇', '溫雲捨沖吳隱褚')
 LATE_ROLE = {'注','疏','箋','訓詁','音','音義','集解','集注','校','校注','輯','輯佚','輯錄','補','補注','釋','正義','章句','解','箋注','纂','編','刊','訂','評','批','校刊','校訂','增補','續'}
 
 def run_checks(works, IW, IB, IE, IC, ents):
@@ -108,7 +112,8 @@ def run_checks(works, IW, IB, IE, IC, ents):
             nm = a.get('name') or ''
             if e is not None:
                 names = {e.get('primary_name')} | {x.get('name') for x in (e.get('alt_names') or []) if isinstance(x, dict)}
-                ok = nm in names or (nm.endswith('等') and nm[:-1] in names) or (nm.endswith('氏') and any((n or '').startswith(nm[:-1]) for n in names))
+                vn = {(n or '').translate(VARIANTS) for n in names}; nmv = nm.translate(VARIANTS)
+                ok = nmv in vn or (nmv.endswith('等') and nmv[:-1] in vn) or (nmv.endswith('氏') and any(n.startswith(nmv[:-1]) for n in vn))
                 if not ok:
                     R['F'].append(row(w, author=nm, entity=eid, entity_name=e.get('primary_name'),
                                       alt=[x.get('name') for x in (e.get('alt_names') or []) if isinstance(x, dict)], entity_dynasty=e.get('dynasty')))
@@ -128,6 +133,10 @@ def run_checks(works, IW, IB, IE, IC, ents):
             nm = a.get('name') or ''
             if nm and (len(nm) == 1 or ODD_RE.search(nm)):
                 R['H'].append(row(w, author=nm, dynasty=a.get('dynasty'), entity=a.get('entity_id'), note=(a.get('note') or '')[:60]))
+        # P
+        for m in ALIAS_RE.finditer(w.get('ai_note') or ''):
+            x, y = m.group(1), m.group(2)
+            R['P'].append(row(w, x=x, y=y, no_common=not (set(x) & set(y))))
         # J
         d = w.get('description'); dt = (d.get('text') if isinstance(d, dict) else d) or ''
         if not dt and len(w.get('indexed_by') or []) >= 4:
