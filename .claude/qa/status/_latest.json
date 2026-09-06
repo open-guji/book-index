@@ -1,29 +1,29 @@
 {
  "round": 4,
- "at": "2026-09-06T16:54:17+00:00",
+ "at": "2026-09-06T17:10:29+00:00",
  "matrix": {
   "C": {
    "pre-qin": 7,
    "qin-han": 49,
    "three-kingdoms": 34,
-   "jin": 54,
+   "jin": 53,
    "nanbeichao": 24,
    "sui-tang": 34,
    "five-dynasties": 3,
    "song": 217,
    "liao-jin-yuan": 144,
-   "ming": 170,
+   "ming": 167,
    "qing": 263,
    "modern": 15,
    "none": 0,
-   "total": 1014
+   "total": 1010
   },
   "D": {
    "pre-qin": 0,
    "qin-han": 0,
    "three-kingdoms": 0,
    "jin": 0,
-   "nanbeichao": 2,
+   "nanbeichao": 0,
    "sui-tang": 0,
    "five-dynasties": 0,
    "song": 0,
@@ -32,14 +32,14 @@
    "qing": 0,
    "modern": 0,
    "none": 0,
-   "total": 3
+   "total": 1
   },
   "E": {
    "pre-qin": 0,
    "qin-han": 1,
-   "three-kingdoms": 2,
-   "jin": 9,
-   "nanbeichao": 2,
+   "three-kingdoms": 0,
+   "jin": 0,
+   "nanbeichao": 1,
    "sui-tang": 0,
    "five-dynasties": 0,
    "song": 14,
@@ -48,7 +48,7 @@
    "qing": 0,
    "modern": 0,
    "none": 0,
-   "total": 29
+   "total": 17
   },
   "F": {
    "pre-qin": 1,
@@ -68,19 +68,19 @@
   },
   "G": {
    "pre-qin": 3,
-   "qin-han": 12,
+   "qin-han": 11,
    "three-kingdoms": 4,
-   "jin": 11,
+   "jin": 10,
    "nanbeichao": 5,
    "sui-tang": 10,
    "five-dynasties": 0,
    "song": 82,
    "liao-jin-yuan": 0,
-   "ming": 49,
+   "ming": 28,
    "qing": 79,
    "modern": 0,
-   "none": 186,
-   "total": 441
+   "none": 203,
+   "total": 435
   },
   "H": {
    "pre-qin": 0,
@@ -108,17 +108,17 @@
    "five-dynasties": 2,
    "song": 49,
    "liao-jin-yuan": 11,
-   "ming": 16,
+   "ming": 6,
    "qing": 10,
    "modern": 0,
-   "none": 256,
-   "total": 662
+   "none": 252,
+   "total": 648
   },
   "J": {
    "pre-qin": 0,
    "qin-han": 0,
-   "three-kingdoms": 3,
-   "jin": 33,
+   "three-kingdoms": 0,
+   "jin": 0,
    "nanbeichao": 196,
    "sui-tang": 0,
    "five-dynasties": 0,
@@ -128,7 +128,7 @@
    "qing": 0,
    "modern": 0,
    "none": 138,
-   "total": 374
+   "total": 338
   },
   "L": {
    "pre-qin": 5,
@@ -141,10 +141,10 @@
    "song": 36,
    "liao-jin-yuan": 25,
    "ming": 25,
-   "qing": 47,
+   "qing": 46,
    "modern": 9,
    "none": 0,
-   "total": 184
+   "total": 183
   },
   "O": {
    "pre-qin": 0,
@@ -289,6 +289,22 @@
    "modern": 0,
    "none": 199,
    "total": 261
+  },
+  "Y": {
+   "pre-qin": 5,
+   "qin-han": 3,
+   "three-kingdoms": 1,
+   "jin": 43,
+   "nanbeichao": 15,
+   "sui-tang": 10,
+   "five-dynasties": 1,
+   "song": 72,
+   "liao-jin-yuan": 6,
+   "ming": 21,
+   "qing": 15,
+   "modern": 0,
+   "none": 14,
+   "total": 206
   }
  },
  "g_clash": {
@@ -306,6 +322,35 @@
    "nanbeichao": 2
   }
  },
- "pitfalls": 34,
- "note": "第四輪：新增 X 類（撰人／書名切分之誤，全庫 261）、宋志滑窗偽影九部裁畢（四廢二刪一不動二轉併）、三輔黃圖授權併條、jio.drop_index"
+ "pitfalls": 35,
+ "note": "第四輪補：新增 Y 類（一節著錄分居二條，206 條＝dup 52＋misattached 154），坑 35",
+ "y_breakdown": {
+  "kind": {
+   "misattached": 154,
+   "dup": 52
+  },
+  "by_period": {
+   "misattached": {
+    "jin": 10,
+    "pre-qin": 5,
+    "nanbeichao": 11,
+    "liao-jin-yuan": 6,
+    "song": 64,
+    "none": 8,
+    "sui-tang": 9,
+    "ming": 21,
+    "qing": 15,
+    "qin-han": 3,
+    "three-kingdoms": 1,
+    "five-dynasties": 1
+   },
+   "dup": {
+    "jin": 33,
+    "song": 8,
+    "none": 6,
+    "nanbeichao": 4,
+    "sui-tang": 1
+   }
+  }
+ }
 }

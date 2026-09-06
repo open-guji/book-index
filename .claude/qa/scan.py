@@ -99,6 +99,7 @@ RESIDUE_RE = re.compile(
 COLLATE_RE = re.compile(r'(一作|或作|題作|中作|作中|原作)')
 RADICAL_RE = re.compile(r'^[\u2e80-\u2fff\u31c0-\u31ef]')
 # X 檢（撰人／書名切分之誤）之字表，移植自 entity-cbdb 道之 scan_author_title_split.py
+Y_NORM = re.compile(r'[《》〈〉「」『』（）()⟨⟩\s、，。]')
 SPLIT_NOTE_RE = re.compile(r'[⟨（(【\[].*?[⟩）)】\]]')
 ZHAI = set('齋斋軒轩堂山谷溪雲云亭樓楼園园庵菴洲峯峰石竹松梅居舍館馆廬庐窩窝村塘湖江河潭')
 BAD_HEAD = set('論论門门經经傳传注疏解義义記记志史書书子語语詩诗文集稿編编錄录鈔钞')
@@ -404,6 +405,40 @@ def run_checks(works, IW, IB, IE, IC, ents):
             R['X'].append(row(w, score=round(sc, 1), kind=strong or '撰人切短', author=nm,
                               guess_name=nm + c, guess_title=rest, entity=eid,
                               source=ib0.get('source', ''), raw=bare[:50], note=note0[:36], bigram=bg))
+
+    # ── Y：一節著錄分居二條（shanggu 道所發之疑，坑 35）──────────────────────
+    # 一部志之一節著錄，若原文（source_bid＋title_info＋summary 全同）同時掛在二條
+    # 同題之 work 上，非重出即誤繫。三道收窄以除假陽性：
+    #   (a) 諸條之題須同——合刊條拆分者（「東夷圖說二卷嶺海異聞一卷」）題必異，是正辦；
+    #   (b) summary 須非裸題——「孝經注一卷」不足以辨條，志中五家孝經注文字全同；
+    #   (c) 撰人各異而著錄文不點名者抑制——同上，是志書同文著錄之常，非缺陷。
+    # 分二型：著錄文點名某條之撰人而他條亦掛之 → misattached（著錄誤繫，該條不當有此志）；
+    #         諸條撰人全同（或皆空）→ dup（重出待併）。
+    ykey = collections.defaultdict(set)
+    for wid, w in works.items():
+        nt = Y_NORM.sub('', (w.get('title') or ''))
+        for ib in (w.get('indexed_by') or []):
+            sb, ti, su = ib.get('source_bid'), ib.get('title_info') or '', ib.get('summary') or ''
+            if not (sb and ti and su): continue
+            nsu = Y_NORM.sub('', su)
+            if nsu == nt or len(nsu) <= len(nt) + 1: continue          # (b)
+            ykey[(sb, Y_NORM.sub('', ti), nsu)].add(wid)
+    for k, v in ykey.items():
+        if len(v) < 2: continue
+        v = sorted(v)
+        if len({(works[x].get('title') or '') for x in v}) != 1: continue   # (a)
+        su = k[2]
+        aus = {x: [(a.get('name') or '').strip() for a in (works[x].get('authors') or [])] for x in v}
+        owners = [x for x in v if any(a and a in su for a in aus[x])]
+        if owners and len(owners) < len(v):
+            kind, extra = 'misattached', {'owner': owners}
+        elif len({frozenset(a for a in aus[x] if a) for x in v}) == 1:
+            kind, extra = 'dup', {}
+        else:
+            continue                                                   # (c)
+        for x in v:
+            R['Y'].append(row(works[x], kind=kind, source_bid=k[0], entry=su[:44],
+                              group=v, authors=aus[x], **extra))
     return R
 
 def main():
