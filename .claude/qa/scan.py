@@ -123,6 +123,13 @@ def _cn2int(x):
         elif c == '千': unit = 1000; n = 0 if n else 1; tot += n * unit; n = 0
         elif c in _NUM: tot += _NUM[c] * (unit if unit > 1 and n == 0 else 1); n = 1; unit = 1
     return tot or None
+def desc_text(w):
+    """取 description 之正文，容其為 dict／str／None 三型。"""
+    d = w.get('description')
+    if isinstance(d, dict): return d.get('text') or ''
+    if isinstance(d, str): return d
+    return ''
+
 def juan_of(w):
     """自本條諸著錄之引文抽卷數（可多，諸志所記本有異同）。無者回空集。"""
     out = set()
@@ -587,7 +594,10 @@ def run_checks(works, IW, IB, IE, IC, ents):
     for wid, w in works.items():
         ls = w.get('loss_status')
         if ls in ('extant', 'partially_extant'): continue
-        t = ((w.get('description') or {}).get('text') or '')
+        # description 之型不一：多數是 {"text":…} 物件，而庫中確有存純字串者
+        # （`d59f28k3vbwl`，weijin 桶）。`.get` 施於 str 即 AttributeError，
+        # 全庫任何 --period 皆崩，九道盡廢。**掃描器讀資料一律要容型**（坑 54）。
+        t = desc_text(w)
         if not t: continue
         m = M_POS.search(t)
         if not m:
