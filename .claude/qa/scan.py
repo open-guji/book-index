@@ -99,6 +99,9 @@ RESIDUE_RE = re.compile(
 COLLATE_RE = re.compile(r'(一作|或作|題作|中作|作中|原作)')
 RADICAL_RE = re.compile(r'^[\u2e80-\u2fff\u31c0-\u31ef]')
 # X 檢（撰人／書名切分之誤）之字表，移植自 entity-cbdb 道之 scan_author_title_split.py
+# 回溯重建之志：補X書藝文志／經籍志之屬，成書在清末民初而非其所補之代
+RETRO_RE = re.compile(r'補[^》，,。\s]{1,4}(書)?(藝文志|经籍志|經籍志)')
+BOUND_RE = re.compile(r'最緊者為[^，,。]{0,30}')
 Y_NORM = re.compile(r'[《》〈〉「」『』（）()⟨⟩\s、，。]')
 SPLIT_NOTE_RE = re.compile(r'[⟨（(【\[].*?[⟩）)】\]]')
 ZHAI = set('齋斋軒轩堂山谷溪雲云亭樓楼園园庵菴洲峯峰石竹松梅居舍館馆廬庐窩窝村塘湖江河潭')
@@ -255,9 +258,12 @@ def run_checks(works, IW, IB, IE, IC, ents):
             a_ = nz(ie.get(f))
             if a_ != b_: R['M'].append(row(w, field=f, index=a_, record=b_))
 
-    # G clash：以淨題撞全庫之題（排除自身）
+    # G clash：以淨題撞全庫之題（排除自身與墓碑）
+    # 墓碑（merged_into 不空之被併條）之索引項依先例仍留 title 欄（供人知其去向），
+    # 若不排除，已併之組每次重掃都再報一次 clash（ming 道所報，坑 37）。
     by_title = collections.defaultdict(list)
     for w in works.values():
+        if w.get('merged_into'): continue
         by_title[(w.get('title') or '').strip()].append(w['id'])
     for r in R['G']:
         c = r.get('clean') or ''
@@ -398,6 +404,11 @@ def run_checks(works, IW, IB, IE, IC, ents):
             if rt >= 3 and rt > rn * 2: sc -= 2; bg = (bg + '；' if bg else '') + f'「{right}」入書名{rt}次'
             if lt >= 3 and lt > ln * 2: sc -= 1.5; bg = (bg + '；' if bg else '') + f'「{left}」入書名{lt}次'
             sc += 1 if name_all.get(nm + c, 0) > 0 else 0
+            # 論體之三字書名（氏姓論、昕天論、才性論、聲類論）易被誤縮為二字。凡剝後只剩
+            # 二字、而猜出之三字名全庫無徵、原二字名卻另有其書者，偏向原分法（weijin 所報，坑 38）
+            if len(rest) <= 2 and name_all.get(nm + c, 0) == 0:
+                sc -= 2
+                if name_all.get(nm, 0) > 1: sc -= 1
             if title_all.get(title, 0) > 1: sc -= 2                                             # 同題他處亦見
             if re.match(r'^[鄉縣州府都里]?(縣志|州志|府志|志)$', rest): sc -= 2                    # 通名成詞
             if sc < 3.0: continue
@@ -439,6 +450,50 @@ def run_checks(works, IW, IB, IE, IC, ents):
         for x in v:
             R['Y'].append(row(works[x], kind=kind, source_bid=k[0], entry=su[:44],
                               group=v, authors=aus[x], **extra))
+
+    # ── Y 之三型 twin_edition：同撰人同題而分繫同名異本之志（weijin 所報，坑 39）──
+    # 《補晉書藝文志》有丁國鈞本與文廷式本二整理本，source_bid 各異、著錄文字亦各異，
+    # 故上兩型（須 summary 全同）掃不出。判準用 weijin 道所定：撰人全同＋正規化題全同
+    # ＋各自 indexed_by 恰一節＋二節出自同名而異本之志。
+    solo = collections.defaultdict(list)
+    for wid, w in works.items():
+        ib = w.get('indexed_by') or []
+        if len(ib) != 1: continue
+        src = (ib[0].get('source') or '').strip()
+        if not src: continue
+        nsrc = src.replace('晋', '晉').replace('経', '經')
+        au = tuple(sorted((a.get('name') or '').strip() for a in (w.get('authors') or [])))
+        nt = Y_NORM.sub('', (w.get('title') or ''))
+        if not nt: continue
+        solo[(nsrc, au, nt)].append((wid, ib[0].get('source_bid')))
+    for (nsrc, au, nt), lst in solo.items():
+        if len(lst) < 2: continue
+        if len({b for _, b in lst}) < 2: continue          # 須真出自異本，同本之重出上型已收
+        ids = sorted(w for w, _ in lst)
+        for wid in ids:
+            R['Y'].append(row(works[wid], kind='twin_edition', source=nsrc,
+                              group=ids, authors=list(au)))
+
+    # ── Z：catalog_bound 誤取志名裡的朝代為界（nanbeichao 所報，坑 40）────────
+    # 「補X書藝文志」是清末民初人對 X 代書目之回溯重建，**成書在清而非 X 代**。
+    # catalog_bound 的原意是以志書自身之成書年代為界（《隋志》唐人成，故所著錄不晚於隋唐），
+    # 取志名裡的「晉」作界，等於說「凡補晉志著錄之書必不晚於晉」——對整類回溯重建之志皆誤。
+    # 此類之界對本庫斷代幾無收窄之用，當自 basis 中剔除，另尋實有之志立界。
+    for wid, w in works.items():
+        b = w.get('period_upper_basis') or ''
+        if 'catalog_bound' not in b: continue
+        # 只報「該回溯志正是所取之界」者。basis 中順帶提及而非取以為界者不算——
+        # 邏輯之誤只在它被當作 catalog_bound 之界時才傷人（455 → 72）。
+        m = BOUND_RE.search(b)
+        if not m: continue
+        m = RETRO_RE.search(m.group(0))
+        if not m: continue
+        others = sorted({(ib.get('source') or '') for ib in (w.get('indexed_by') or [])
+                         if ib.get('source') and not RETRO_RE.search(ib.get('source') or '')})
+        R['Z'].append(row(w, retro=m.group(0), period_upper=w.get('period_upper'),
+                          contradict=bool(w.get('period') and w.get('period_upper')
+                                          and w.get('period') != w.get('period_upper')),
+                          other_sources=others[:4], basis=b[:90]))
     return R
 
 def main():
