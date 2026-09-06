@@ -155,7 +155,7 @@
       ]
     }
   ],
-  "ai_note": "合併：題名「趙元一奉天錄」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「趙元一」已見本條 authors[]），裸題「奉天錄」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（四卷），今據以補。\n\n2026-08-23 B1 同名異書併池：併入 `1evr5e3mfay1f`（奉天錄）。2026-08-23 B4 異體字重出併池：併入 `1evr5e3mfay1f`（崇文總目，題作《奉天録》，4卷）。二題之別僅在異體字，歸一後全同，卷數全同（4卷）；彼條無撰人而本條作「趙元一」。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ev794a6qcwe8` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-09-06 qa-sweep/suitang·J description 機械撮述（著錄 ≥4 源批）：本欄之文由撰人、卷數、著錄諸志、諸志所引之敘錄五節（依材料有無取捨）綴成，每節皆據本條 indexed_by 之引文機械組織，不出其外，亦不臆造一字；敘錄之引文逾一百五十字者截取前段（於就近之句讀處斷）。未覆核原書。",
+  "ai_note": "合併：題名「趙元一奉天錄」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「趙元一」已見本條 authors[]），裸題「奉天錄」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（四卷），今據以補。\n\n2026-08-23 B1 同名異書併池：併入 `1evr5e3mfay1f`（奉天錄）。2026-08-23 B4 異體字重出併池：併入 `1evr5e3mfay1f`（崇文總目，題作《奉天録》，4卷）。二題之別僅在異體字，歸一後全同，卷數全同（4卷）；彼條無撰人而本條作「趙元一」。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ev794a6qcwe8` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-09-06 qa-sweep/suitang·J description 機械撮述（著錄 ≥4 源批）：本欄之文由撰人、卷數、著錄諸志、諸志所引之敘錄五節（依材料有無取捨）綴成，每節皆據本條 indexed_by 之引文機械組織，不出其外，亦不臆造一字；敘錄之引文逾一百五十字者截取前段（於就近之句讀處斷）。未覆核原書。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…崇文總目》所著卷數一致（四卷）。今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
   "juan_count": {
@@ -183,5 +183,6 @@
       "新唐書藝文志",
       "崇文總目"
     ]
-  }
+  },
+  "loss_status": "extant"
 }
