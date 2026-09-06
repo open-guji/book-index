@@ -100,7 +100,12 @@ COLLATE_RE = re.compile(r'(一作|或作|題作|中作|作中|原作)')
 RADICAL_RE = re.compile(r'^[\u2e80-\u2fff\u31c0-\u31ef]')
 # X 檢（撰人／書名切分之誤）之字表，移植自 entity-cbdb 道之 scan_author_title_split.py
 # 回溯重建之志：補X書藝文志／經籍志之屬，成書在清末民初而非其所補之代
-RETRO_RE = re.compile(r'補[^》，,。\s]{1,4}(書)?(藝文志|经籍志|經籍志)')
+# 回溯重建之志：成書在清末民初而非其所補之代。名目不止「補X書藝文志」一種——
+# 《元史藝文志》（錢大昕補元）《三國藝文志》《後漢藝文志》（姚振宗）《宋史藝文志補》
+# 皆是，其 basis 之括注每每自陳「清人補」「清某某補X，斷代」。故兼認名目與自陳（坑 55）。
+RETRO_RE = re.compile(r'補[^》，,。\s]{1,4}(書)?(藝文志|经籍志|經籍志)|(藝文志|經籍志)補|元史藝文志|三國藝文志|後漢藝文志')
+# basis 之括注自陳為清人所補者（「清人補」「清錢大昕補元，斷代」「清姚振宗考證隋志」）
+RETRO_NOTE_RE = re.compile(r'清人補|清[^）]{0,6}補[^）]{0,4}[，,]?\s*斷代|補[^）]{0,4}[，,]\s*斷代')
 M_POS = re.compile(r'(今存|今尚存|原文賴[^，。]{0,12}以存|全文見於|全文賴|完帙尚存|今有傳本)')
 M_BARE = re.compile(r'尚存')
 M_PAST = re.compile(r'(時|代|志|世|初|末|間|前|後)$')   # 「梁時尚存」是存至某代而後亡
@@ -110,7 +115,7 @@ BIO_RE = re.compile(r'[字號号諡谥]\s*[^\s，,。]|[縣县州府郡]人|進�
 # 帝號／諡號式之異稱（元帝＝蕭繹、武帝＝梁武帝）本無共字，非偽稱
 # 「王」「公」單字結尾在人名中太常見（顧野王、王儉），不可作帝號之徵；
 # 只收帝／后／太子／世子之結尾與明確之廟號年號式起首。
-TITLE_RE = re.compile(r'(帝|后|太子|世子|皇后)$|^(梁|陳|齊|周|隋|魏|宋|晉|漢|唐|後梁)?(高祖|太祖|世祖|太宗|文帝|武帝|明帝|元帝|宣帝|簡文帝|孝武帝|後主|煬帝|昭明)')
+TITLE_RE_IMPERIAL = re.compile(r'(帝|后|太子|世子|皇后)$|^(梁|陳|齊|周|隋|魏|宋|晉|漢|唐|後梁)?(高祖|太祖|世祖|太宗|文帝|武帝|明帝|元帝|宣帝|簡文帝|孝武帝|後主|煬帝|昭明)')
 JUAN_RE = re.compile(r'([〇一二三四五六七八九十百千]+|\d+)\s*卷')
 _NUM = {c: i for i, c in enumerate('〇一二三四五六七八九')}
 def _cn2int(x):
@@ -123,6 +128,13 @@ def _cn2int(x):
         elif c == '千': unit = 1000; n = 0 if n else 1; tot += n * unit; n = 0
         elif c in _NUM: tot += _NUM[c] * (unit if unit > 1 and n == 0 else 1); n = 1; unit = 1
     return tot or None
+def desc_text(w):
+    """取 description 之正文，容其為 dict／str／None 三型。"""
+    d = w.get('description')
+    if isinstance(d, dict): return d.get('text') or ''
+    if isinstance(d, str): return d
+    return ''
+
 def juan_of(w):
     """自本條諸著錄之引文抽卷數（可多，諸志所記本有異同）。無者回空集。"""
     out = set()
@@ -287,7 +299,7 @@ def run_checks(works, IW, IB, IE, IC, ents):
         # P
         # P 之分型（坑 52）：ai_note 自稱「本志作 X 而庫中作 Y，同指一人」，其可信度分四等。
         # 全無共字者未必皆偽——帝號／諡號式之異稱（元帝＝蕭繹、武帝＝梁武帝）本就無共字，
-        # 故先以 TITLE_RE 別之；扣去帝號一路，餘下之「全無共字」才是偽稱之大宗。
+        # 故先以 TITLE_RE_IMPERIAL 別之；扣去帝號一路，餘下之「全無共字」才是偽稱之大宗。
         for m in ALIAS_RE.finditer(w.get('ai_note') or ''):
             x, y = m.group(1), m.group(2)
             sx, sy = set(x), set(y)
@@ -300,7 +312,7 @@ def run_checks(works, IW, IB, IE, IC, ents):
             elif x == y: k = 'same'
             elif len(sx & sy) >= min(len(sx), len(sy)): k = 'variant_char'
             elif sx & sy: k = 'partial'
-            elif TITLE_RE.search(x) or TITLE_RE.search(y): k = 'imperial'
+            elif TITLE_RE_IMPERIAL.search(x) or TITLE_RE_IMPERIAL.search(y): k = 'imperial'
             else: k = 'no_common'
             R['P'].append(row(w, kind=k, x=x, y=y, no_common=not (sx & sy)))
         # J
@@ -571,8 +583,10 @@ def run_checks(works, IW, IB, IE, IC, ents):
         # 邏輯之誤只在它被當作 catalog_bound 之界時才傷人（455 → 72）。
         m = BOUND_RE.search(b)
         if not m: continue
-        m = RETRO_RE.search(m.group(0))
-        if not m: continue
+        seg = m.group(0)
+        mm = RETRO_RE.search(seg) or RETRO_NOTE_RE.search(b)
+        if not mm: continue
+        m = mm
         others = sorted({(ib.get('source') or '') for ib in (w.get('indexed_by') or [])
                          if ib.get('source') and not RETRO_RE.search(ib.get('source') or '')})
         R['Z'].append(row(w, retro=m.group(0), period_upper=w.get('period_upper'),
@@ -587,7 +601,10 @@ def run_checks(works, IW, IB, IE, IC, ents):
     for wid, w in works.items():
         ls = w.get('loss_status')
         if ls in ('extant', 'partially_extant'): continue
-        t = ((w.get('description') or {}).get('text') or '')
+        # description 之型不一：多數是 {"text":…} 物件，而庫中確有存純字串者
+        # （`d59f28k3vbwl`，weijin 桶）。`.get` 施於 str 即 AttributeError，
+        # 全庫任何 --period 皆崩，九道盡廢。**掃描器讀資料一律要容型**（坑 54）。
+        t = desc_text(w)
         if not t: continue
         m = M_POS.search(t)
         if not m:

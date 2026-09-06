@@ -4,10 +4,10 @@
   "song"
  ],
  "works": 9083,
- "state": "running",
- "batch": 10,
- "focus": "V 類——維基文庫題名孤證，逐條 WebFetch 覆核",
- "commit": "b9a6bebf59",
+ "state": "done",
+ "batch": 11,
+ "focus": "E/J 收尾",
+ "commit": "64e2628240",
  "counts": {
   "A": {
    "found": 35,
@@ -29,7 +29,7 @@
   },
   "E": {
    "found": 14,
-   "fixed": 0,
+   "fixed": 14,
    "researched": 0,
    "recorded": 0
   },
@@ -59,9 +59,9 @@
   },
   "J": {
    "found": 4,
-   "fixed": 0,
+   "fixed": 2,
    "researched": 0,
-   "recorded": 0
+   "recorded": 2
   },
   "L": {
    "found": 33,
@@ -179,7 +179,17 @@
    "at": "2026-09-06T19:43:42+00:00",
    "batch": 10,
    "note": "批十：V 類（坑44）42 條逐一 WebFetch 覆核真實頁面：24 條確係誤連，摘除；15 條核實無誤，不動；3 條消歧義頁存疑記 known-issues。"
+  },
+  {
+   "at": "2026-09-06T19:52:54+00:00",
+   "batch": 11,
+   "note": "批十一：E 類 14 條——loss_status=lost 而 Book 具在（皆四庫全書寫本／武英殿聚珍版等有年代可考之整本），坑7之推廣，逕補 extant 並訂正 description 尾句「書佚」。J 類 4 條——高宗聖政/縱橫集撮寫完成；渭南集補撰人陸游並記疑（另混唐趙嘏渭南尉一節，早於陸游生年，跨道存疑）；春秋地名譜撰人三說（周彥熠/杜預/鄭樵）皆不確，撮寫存疑不定作者。至此 A/B/D/E/H/I/J/K/M/N/S/T/U/V/Y/Z 皆已清零或近清零，C/F/G/L 之殘餘皆逐條核為常態或轉交跨道，song 道 qa-sweep 主體工作告一段落。"
+  },
+  {
+   "at": "2026-09-06T19:54:52+00:00",
+   "batch": 11,
+   "note": "收工：11 批。A/B/D/E/H/I/J/K/M/N/S/T/U(除跨道王哲)/V/Y/Z 皆清零；C(215,168宋元之際常態+其餘前代注家附役常態+王哲跨道)、F(41,異體尊稱偽陽性,已發check)、G(22,帝號重出常態)、L(32,同上常態)之殘餘皆逐條核明非缺陷。共修：斷代訂正約10條、誤繫/改繫約30條、名+字連書剝除19條、entity正名/relink約15條、G類淨題撞庫併47條、Y類misattached27條+dup3組、M類loss_status逕補1310條、V類維基連結摘除24條、E類loss_status逕補14條、J類description撮寫2條。known-issues 16則交協調者與entity-cbdb/suitang/undated/ming/liaojinyuan/qing諸道續辦。另修共用腳本pushmain.sh之坑（已由協調者採納修復）。"
   }
  ],
- "updated_at": "2026-09-06T19:43:42+00:00"
+ "updated_at": "2026-09-06T19:54:52+00:00"
 }
