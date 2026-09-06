@@ -5,7 +5,9 @@
   "authors": [
     {
       "name": "趙氏",
-      "role": "撰"
+      "role": "撰",
+      "dynasty": "元",
+      "dynasty_basis": "2026-09-06 qa-sweep/liaojinyuan：本欄原闕，今據《元史藝文志》「元趙氏讀易記（無名氏）」補。"
     }
   ],
   "indexed_by": [
@@ -37,11 +39,11 @@
       "經義考"
     ]
   },
-  "ai_note": "同名異書：已有 Work 作者為 [('李賢', '')]，本條作者 趙氏（元），另建 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-05 泛稱 entity 解繫：撰人「趙氏」係泛稱（有姓無名），解去所繫之 entity hixhd2h9bifh 並撤其代——志書書「某氏」正因不知其名，泛稱不當立為一具體之人，其代亦無所據。（撰人之名仍存，志書原文如此。）",
+  "ai_note": "同名異書：已有 Work 作者為 [('李賢', '')]，本條作者 趙氏（元），另建 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-05 泛稱 entity 解繫：撰人「趙氏」係泛稱（有姓無名），解去所繫之 entity hixhd2h9bifh 並撤其代——志書書「某氏」正因不知其名，泛稱不當立為一具體之人，其代亦無所據。（撰人之名仍存，志書原文如此。）\n\n2026-09-06 qa-sweep/liaojinyuan A 類「引不存在之值為據」：period_basis 舊句作「據 authors[0].dynasty「元」」，而 authors[0]（趙氏）本無 dynasty 一欄（PITFALLS 坑 1 第三型）。今改依著錄立據——《元史藝文志》「元趙氏讀易記（無名氏）」，著錄語自帶朝代字「元」，period 不改。同時據此補 authors[0].dynasty「元」。原值：period_basis「據 authors[0].dynasty「元」」、authors[0].dynasty 闕。",
   "id": "d59f2geste68",
   "updated_at": "2026-08-09T09:33:12+00:00",
   "period": "liao-jin-yuan",
-  "period_basis": "據 authors[0].dynasty「元」",
+  "period_basis": "據著錄：《元史藝文志》「元趙氏讀易記（無名氏）」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
   "revision": "1.0.0",

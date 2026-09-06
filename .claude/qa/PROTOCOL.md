@@ -46,6 +46,9 @@ python3 .claude/qa/status.py --lane <lane> --periods <p1,p2> --works <N> --set b
    (a) 改本道 work 之 `authors[].entity_id` 時，同步該 entity 之 `works[]`（雙向）；
    (b) 該 entity 名下**所有** work 皆屬本道，且其代（dynasty/period）明顯錯；
    (c) 該 entity 之名為 CBDB 卸除所遺之錯名（PITFALLS 坑 2），且名下唯本道之書。
+   (d) **只增 `alt_names`**（號、字、諡號、帝號、正俗異體），條件三：該 entity 名下 work 皆屬本道；
+       著錄原文明載此名；此名撞庫（全庫 entity 之 primary_name／alt_names）無他人。
+       不動 primary_name、不動任何繫連；type 依 SCHEMA 枚舉；ai_note 記所據之著錄。
    其餘 entity 之改（跨期之 entity、primary_name 之併、CBDB 之配）→ 記 known-issues 並報協調者。
 3. **Book**：只經本道 work 之 `books[]`；Book 記錄本身除 `ai_note` 記疑外不動。
 4. **索引**：只回寫自己改過之記錄之索引項，用 `jio.update_index`（保留分片原格式，diff 最小）。

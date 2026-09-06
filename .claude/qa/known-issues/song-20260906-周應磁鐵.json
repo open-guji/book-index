@@ -1,0 +1,10 @@
+{"lane":"song","date":"2026-09-06","title":"entity「周應」hixhd2h9bim0 之 period 欄與 dynasty 相牴，且疑二人共一條",
+ "kind":"其他",
+ "records":[{"id":"d59f2hsq5tz6","title":"簡要濟眾方","period":"song"},
+            {"id":"d59f6egq01dw","title":"璧荆南書社倡和集","period":null},
+            {"id":"d59f6epcwef4","title":"治廣","period":null},
+            {"id":"d59f6elixibk","title":"儀南北遊草","period":null}],
+ "evidence":"entity hixhd2h9bim0「周應」：2026-09-06 CBDB 同步 L1 卸除 cbdb_id=182063（時代閘門判為同名異代誤配，CBDB 卒 815、籍貫成都府），朝代改依著錄作「宋」——而其 `period` 欄仍是卸除前所留之 `sui-tang`，與 dynasty「宋」相牴。scan.py 之 C 類讀 index 之 entity period，本條遂報衝突。又其名下四書：本道之《簡要濟眾方》（宋志「周應《簡要濟眾方》五卷」，北宋仁宗朝醫官奉詔編）與三部 period=None 之書（《璧荆南書社倡和集》《治廣》《儀南北遊草》，題名體例不類宋人醫書），疑非一人（磁鐵徵候）。",
+ "options":["甲：先正 entity 之 period 為 song（與 dynasty「宋」相合），再逐條驗那三書之代","乙：先驗三書之代；若確為明人之書，則此 entity 是二人共條，當分立"],
+ "recommend":"乙",
+ "why":"本道不能動此 entity——其名下四書非皆屬本道（三書 period=None 屬 undated 道），不合 PROTOCOL 三之 2(b)。且若逕正 period 而其實是二人，只是把錯誤搬了個地方。宜由 undated 道先定那三書之代。"}
