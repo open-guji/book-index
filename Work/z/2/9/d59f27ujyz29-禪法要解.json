@@ -5,10 +5,12 @@
   "title": "禪法要解",
   "authors": [
     {
-      "name": "沮渠京聲",
-      "role": "撰",
-      "dynasty": "晉",
-      "entity_id": "hixhd2h9bkur"
+      "name": "鳩摩羅什",
+      "role": "譯",
+      "dynasty": "後秦",
+      "entity_id": "hixhd2h9bhw7",
+      "dynasty_basis": "2026-09-06 qa-sweep/weijin：《大正新脩大藏經》第十五冊 T15n0616《禪法要解》二卷，題「姚秦三藏鳩摩羅什譯」，譯於長安逍遙園；鳩摩羅什 344–413，後秦弘始間譯經。",
+      "name_basis": "2026-09-06 qa-sweep/weijin：本欄舊作「沮渠京聲」（繫 hixhd2h9bkur，南朝宋，名下十八書皆 nanbeichao，本書為其唯一之 jin——孤雁）。沮渠京聲所譯乃《治禪病祕要法》（一名《禪要祕密治病經》，劉宋孝建二年於竹園寺出），非《禪法要解》。《禪法要解》二卷，大正藏 T15n0616 題「姚秦三藏鳩摩羅什譯」，出三藏記集亦入羅什譯經之目。本條所繫唯一之著錄《補晉書藝文志》「禪法要解二卷」不著譯人，其名當出他處之傳播。今改繫鳩摩羅什 hixhd2h9bhw7（後秦，period=jin）。原值：authors[0]「沮渠京聲／撰／晉／entity hixhd2h9bkur」。"
     }
   ],
   "indexed_by": [
@@ -38,13 +40,13 @@
   ],
   "measure_info": "二卷",
   "loss_status": "lost",
-  "ai_note": "loss_status 判為 lost，據本記錄之描述／著錄語：「已亡佚」。此值為機讀所生（scripts/loss_status.py），非逐條精校，覆核時以本欄之據為準。\n\n2026-08-24 J6 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "loss_status 判為 lost，據本記錄之描述／著錄語：「已亡佚」。此值為機讀所生（scripts/loss_status.py），非逐條精校，覆核時以本欄之據為準。\n\n2026-08-24 J6 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/weijin·L 類逐條裁：譯人改繫——舊作沮渠京聲（劉宋，所譯實為《治禪病祕要法》），今正為鳩摩羅什（後秦），據大正藏 T15n0616 題署與出三藏記集。period=jin 不動而其據改立。原值見 authors[0].name_basis。",
   "updated_at": "2026-08-08T13:35:31+00:00",
   "period": "jin",
-  "period_basis": "據 authors[0].dynasty「晉」",
-  "dynasty": "晉",
-  "dynasty_basis": "author_propagation:唯一作者朝代",
+  "period_basis": "2026-09-06 qa-sweep/weijin·L 類逐條裁：period=jin 不動，惟其據改立。本欄原作「據 authors[0].dynasty「晉」」，而該 dynasty 乃自誤繫之沮渠京聲（劉宋）傳來而又被粗化為「晉」。今譯人正為鳩摩羅什（344–413，後秦弘始間於長安逍遙園譯，大正藏 T15n0616 題「姚秦三藏鳩摩羅什譯」）——後秦在本庫 jin 桶之內，period 遂合。所繫之《補晉書藝文志》（晉之斷代志）著「禪法要解二卷」，亦與之相印。",
+  "dynasty": "後秦",
+  "dynasty_basis": "2026-09-06 qa-sweep/weijin：隨 authors[0].dynasty 同正（頂層 dynasty 與 authors 相牴，索引取頂層，見 PITFALLS 坑 10）。原值：「晉」。",
   "loss_status_basis": "2026-08-24 J7 存佚基準登記：本欄之值出自 2026-08 之機讀（scripts/loss_status.py），據本條之描述或著錄語中之亡佚語而定，其 ai_note 自陳「非逐條精校」。J7 曾以結構化之證（著錄源含《玉函山房輯佚書》、有輯佚檔、按語有「引是書／輯存／輯得／某某輯本序」之明文）覆核全桶，**本條無此三證**，故仍其舊。欲進一步覈之，須逐條讀《三國藝文志》《補晉書藝文志》之散文體按語（S4 第三路），是本時段所餘之最大一項人工。",
   "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "revised_at": "2026-09-06"
 }
