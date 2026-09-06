@@ -6,9 +6,9 @@
  ],
  "works": 16259,
  "state": "running",
- "batch": 3,
- "focus": "D 類·collection_bound 之偽上界",
- "commit": "870117ba81",
+ "batch": 4,
+ "focus": "D 類·CBDB 誤配所生之偽清代",
+ "commit": "3f8ab0d34d",
  "counts": {
   "A": {
    "found": 0,
@@ -24,8 +24,8 @@
   },
   "D": {
    "found": 50,
-   "fixed": 6,
-   "researched": 0,
+   "fixed": 23,
+   "researched": 17,
    "recorded": 0
   },
   "F": {
@@ -92,7 +92,17 @@
    "at": "2026-09-06T11:55:27+00:00",
    "batch": 3,
    "note": "批3：D 類 6 條刪 period_upper——5 條 modern 之 upper=qing 出於「續修四庫全書收錄止於辛亥以前」，而其自身著錄之版本正題民國印本（全庫 312 條用此句，63 條自證其例有出入，已具 inbox pit）；1 條艇齋詩話校訛續校之 upper=song 與今日已正之 period 同源而未隨。period 一條未動。"
+  },
+  {
+   "at": "2026-09-06T12:08:06+00:00",
+   "batch": 4,
+   "note": "批4：D 類 17 條改代並理繫連。皆《國史經籍志》(1590)著錄之書被 CBDB 姓名配對繫到同名清人。sui-tang 7（唐宰相表·唐玉牒·直禮·廣黃帝本行記·周易啓玄·佛本行集經·唐五僧詩·唐十哲僧詩）、song 4、ming 3、jin 1。改繫庫中既有之正主 7 人（柳芳唐·李衢唐·王栐宋·高承北宋·馬理明·劉昌明·王瓊明），解誤繫 7，刪行錯位／循環立據之偽撰人 3。entity.works 雙向同步 20 處，索引 period/author/dynasty 回寫 17。"
+  },
+  {
+   "at": "2026-09-06T12:12:20+00:00",
+   "batch": 4,
+   "note": "批4 補：entity.works 同步之 13 條因腳本輸出接 head 被 SIGPIPE 中斷而未落盤，今補齊（單向邊 16→2，餘 2 非本道，已具 inbox cross）；並刪朝鮮史略頂層 dynasty「清」（誤落撰人所遺，索引取頂層故必刪）。"
   }
  ],
- "updated_at": "2026-09-06T11:55:27+00:00"
+ "updated_at": "2026-09-06T12:12:20+00:00"
 }
