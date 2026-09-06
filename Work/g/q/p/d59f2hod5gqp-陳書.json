@@ -13,16 +13,7 @@
       "dynasty_basis": "entity_propagation:1j967avzlck12"
     }
   ],
-  "resources": [
-    {
-      "id": "wikisource",
-      "name": "維基文庫",
-      "url": "https://zh.wikisource.org/wiki/%E9%99%B3%E6%9B%B8",
-      "types": [
-        "text"
-      ]
-    }
-  ],
+  "resources": [],
   "related_works": [
     {
       "id": "d59f2njl2hoi",
@@ -36,11 +27,12 @@
     }
   ],
   "updated_at": "2026-08-09T08:58:29+00:00",
-  "_has_text": true,
+  "_has_text": false,
   "dynasty": "北宋",
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
   "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revised_at": "2026-09-06",
+  "ai_note": "2026-09-06 qa-sweep/song·摘除誤連之維基文庫連結（坑 44 V 類，題名孤證繫「明星同名書」）：resources 中之維基文庫連結（https://zh.wikisource.org/wiki/%E9%99%B3%E6%9B%B8）以題名字面唯一匹配而得，經 WebFetch 覆核，該頁實為姚思廉《陳書》（正史二十四史之一，唐人所修），非本條撰人「曾鞏」之作，今摘除，並視其餘 resources／books 之有無重算 `_has_text`。"
 }
