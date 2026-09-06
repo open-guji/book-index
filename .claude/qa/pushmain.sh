@@ -10,9 +10,11 @@ for i in 1 2 3; do
     for f in $(git diff --name-only --diff-filter=U); do
       case "$f" in index/*) git checkout --theirs -- "$f";; *) echo "非索引衝突，取己方：$f"; git checkout --ours -- "$f";; esac
     done
-    python3 .claude/qa/reindex.py --run | tail -1
     git add -A && git -c core.editor=true commit -q --no-edit
   fi
+  # 合流後一律以記錄為真回寫索引（上游若改記錄未回寫，在此補上），有改則另提交
+  python3 .claude/qa/reindex.py --run | tail -1
+  if ! git diff --quiet; then git add -A && git commit -q -m "合流後索引回寫（reindex.py）"; fi
   if ! python3 .claude/qa/verify.py | tail -1 | grep -q OK; then echo "VERIFY FAIL — 未推"; python3 .claude/qa/verify.py | head -12; exit 1; fi
   if git push -q origin HEAD:main 2>/dev/null; then git push -q origin "HEAD:$BR" 2>/dev/null; echo "已推 main（第 $i 輪）"; exit 0; fi
   echo "推 main 被拒，重合流（第 $i 輪）"
