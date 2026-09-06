@@ -6,9 +6,9 @@
  ],
  "works": 16259,
  "state": "running",
- "batch": 4,
- "focus": "D 類·CBDB 誤配所生之偽清代",
- "commit": "3f8ab0d34d",
+ "batch": 5,
+ "focus": "D 類·孤證之書撤代、磁鐵記疑",
+ "commit": "1deb906d4f",
  "counts": {
   "A": {
    "found": 0,
@@ -23,10 +23,10 @@
    "recorded": 0
   },
   "D": {
-   "found": 50,
-   "fixed": 23,
+   "found": 0,
+   "fixed": 50,
    "researched": 17,
-   "recorded": 0
+   "recorded": 3
   },
   "F": {
    "found": 154,
@@ -59,7 +59,7 @@
    "recorded": 0
   },
   "N": {
-   "found": 92,
+   "found": 0,
    "fixed": 0,
    "researched": 0,
    "recorded": 0
@@ -97,7 +97,17 @@
    "at": "2026-09-06T12:08:06+00:00",
    "batch": 4,
    "note": "批4：D 類 17 條改代並理繫連。皆《國史經籍志》(1590)著錄之書被 CBDB 姓名配對繫到同名清人。sui-tang 7（唐宰相表·唐玉牒·直禮·廣黃帝本行記·周易啓玄·佛本行集經·唐五僧詩·唐十哲僧詩）、song 4、ming 3、jin 1。改繫庫中既有之正主 7 人（柳芳唐·李衢唐·王栐宋·高承北宋·馬理明·劉昌明·王瓊明），解誤繫 7，刪行錯位／循環立據之偽撰人 3。entity.works 雙向同步 20 處，索引 period/author/dynasty 回寫 17。"
+  },
+  {
+   "at": "2026-09-06T12:12:20+00:00",
+   "batch": 4,
+   "note": "批4 補：entity.works 同步之 13 條因腳本輸出接 head 被 SIGPIPE 中斷而未落盤，今補齊（單向邊 16→2，餘 2 非本道，已具 inbox cross）；並刪朝鮮史略頂層 dynasty「清」（誤落撰人所遺，索引取頂層故必刪）。"
+  },
+  {
+   "at": "2026-09-06T12:21:24+00:00",
+   "batch": 5,
+   "note": "批5：D 類餘 27 條盡，D 50→0。24 條撤 period（惟《國史經籍志》一志著錄、撰人僻不可考、網查無獲，其代無據可定；不逕改 ming——那是上界非其代），並解 CBDB 誤配之繫 23；3 條（春秋新義·攝山志·滎陽縣志）period 有硬據而各掛一條明代同題異書之著錄／藏本，刪其偽上界並記 known-issues 待拆。"
   }
  ],
- "updated_at": "2026-09-06T12:08:06+00:00"
+ "updated_at": "2026-09-06T12:21:24+00:00"
 }
