@@ -35,7 +35,7 @@
 H 之 kind 另有 residue：頂真格斷鏈之殘語與括注注記被取作撰人（「十集」「，一名」「二譯」
 「廣卷帙」），及罕用部件字致脫姓（「𰖍拙」實「陳拙」）——suitang 道所報，H 收窄後方現形。
 
-H 之 kind：num 數字（明人排行字常態，已收窄）／split 拆字缺字描述式／role 役字結尾／
+H 之 kind：num 數字（排行字、道號、機構、日名皆已排除）／split 拆字（著錄自身之闕字已排除）／office 官職地望前綴／
 prefix 身分官銜前綴／bracket 括號按語／single 單字／punct 其他標點。
 
 判準與踩坑見 PROTOCOL.md、PITFALLS.md。本檔只掃不改。
@@ -83,6 +83,22 @@ NUM_CH = '〇一二三四五六七八九十百千'
 SPLIT_RE = re.compile(r'\[[^\]]*\+[^\]]*\]|《[^》]{1,3}》|[?？□]')
 # 只取名末幾乎不可能是人名用字者：修（歐陽修）、述、校、疏、傳、解皆常見於名，故不列
 ROLE_SUF = re.compile(r'(撰|注|編|輯|纂|等)$|(上人|居士|道人)$')
+# —— H 之收窄（2026-09-06，坑 65）——qing 道逐條核 68 條只 2 條真缺陷（97% 假陽性），
+# 本座另抽非 qing 之 30 條覆驗，率同。以下四表即其所以然：
+# 一、真型只一種：官職／地望綴於姓名之前（「隴西太守閻纂」「建安太守丁纂」）。
+#     官職詞不得在首位——否則「司馬彪」之「司馬」是姓不是官。
+OFFICE_RE = re.compile(r'.(太守|刺史|都尉|將軍|散騎|侍中|祭酒|長史|參軍|縣令|國相|太僕|光祿|廷尉|少府|尚書郎|中書郎)')
+# 二、道號齋號（num／role 之大宗假陽性：東軒居士、皆春居士、昇元真一法師、六亭山人）
+HAO_RE = re.compile(r'(山人|居士|道人|真人|法師|上人|主人|散人|老人|逸士|先生|漁隱|山樵|野人)$')
+# 三、機構名（續修四庫全書編纂委員會、中國第一歷史檔案館）
+ORG_RE = re.compile(r'(委員會|委员会|檔案館|档案馆|研究所|出版社|書局|书局|圖書館|图书馆|編輯部|编辑部|大學|大学|學會|学会)$')
+# 四、日本人名（千賀鶴太郎、倉石武四郎、下中彌三郎）
+JP_RE = re.compile(r'(郎|助|衛門|之丞|太夫|齋藤|藤原)$')
+# 五、廟號孤名本是常態（明太祖、世宗、高宗）——只有其後綴殘字（御／敕／撰）者方可疑
+MIAO_RE = re.compile(r'^(明太祖|太祖高皇帝|世宗|神宗|熹宗|思宗|高宗|聖祖|仁宗|宣宗)')
+MIAO_TAIL_RE = re.compile(r'^(明太祖|太祖高皇帝|世宗|神宗|熹宗|思宗|高宗|聖祖|仁宗|宣宗)[^\s]*(御|敕|勅|撰|著|輯)$')
+# 六、著錄原文自身之闕字（《經義考》之「錢受□」）是史料之殘，非本庫之病（qing 道所核）
+LACUNA_RE = re.compile(r'^[^\[\]]*[?？□][^\[\]]*$')
 # 釋／僧／道士是本庫僧道之常例（非缺陷），不列；只取著錄語黏連之身分與帝號
 PREFIX_RE = re.compile(r'^(西洋人|泰西|西洋|大學士|太監|尚書|侍郎|禦史|御史|翰林|明太祖|太祖高皇帝|世宗|神宗|熹宗|思宗)')
 PUNCT_RE = re.compile(r'[卷篇、，。\[\]（）()]')
@@ -158,14 +174,17 @@ TITLE_TAIL = ('集','志','録','錄','稿','編','傳','考','記','譜','論',
 def odd_kinds(nm):
     """撰人名之可疑型。數字一則已收窄：明人排行字（數字在名之中段）是常態，不報。"""
     ks = []
-    if SPLIT_RE.search(nm): ks.append('split')
-    if ROLE_SUF.search(nm) and len(nm) >= 2: ks.append('role')
-    if PREFIX_RE.match(nm): ks.append('prefix')
+    hao = HAO_RE.search(nm) or ORG_RE.search(nm) or JP_RE.search(nm)   # 道號／機構／日名，一概不報
+    if SPLIT_RE.search(nm) and not LACUNA_RE.match(nm): ks.append('split')
+    # role 舊型（凡以撰／注／纂／等結尾者皆報）實測 120 條中真缺陷 2 條（1.7%），已廢；
+    # 代之以 office：官職或地望綴於姓名之前，此即那 2 條之型。
+    if OFFICE_RE.search(nm) and len(nm) >= 5: ks.append('office')
+    if PREFIX_RE.match(nm) and (not MIAO_RE.match(nm) or MIAO_TAIL_RE.match(nm)): ks.append('prefix')
     if PUNCT_RE.search(nm): ks.append('punct')
     if len(nm) == 1: ks.append('single')
     if (RESIDUE_RE.search(nm) or RADICAL_RE.match(nm)
             or (COLLATE_RE.search(nm) and not PUNCT_RE.search(nm))): ks.append('residue')
-    if any(c in NUM_CH for c in nm):
+    if any(c in NUM_CH for c in nm) and not hao:
         # 排行字（楊一清、劉三吾）與名末之數（黃式三、尹會一）皆明清常態，不報。
         # 只報：名以數字起（多為僧號／殘名）、或長逾四字者。
         if nm[0] in NUM_CH or len(nm) >= 5:
