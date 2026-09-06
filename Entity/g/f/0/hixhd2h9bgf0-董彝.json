@@ -38,10 +38,9 @@
     "cbdb_match": "manual",
     "cbdb_source": "manual+pid_199617_董彝_dy19"
   },
-  "ai_note": "2026-07-26：合併重複人物 Entity 1j967cp21vned。。 被合併方的 CBDB 對應（1j967cp21vned:cbdb=109855）與本條不同，疑為自動匹配誤配到同名異代人物，未併入 external_ids，僅此記錄備查。 [2026-08-18 ljy-round2] citation（補遼金元藝文志）明白寫出「吳槎客云：『此至正辛卯建安同文堂刊本...《經義考》以為明常熟之董彝，非也』」——史源自身已明確否定此為明代常熟董彝，確證為元人。birth_year=1429（早於至正辛卯即1351年刊本問世前，然1429年方出生，年代矛盾）顯係CBDB誤配之另一（明代常熟）董彝，清除。\n2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=199617 補入空槽——生年 1429。既有之值一概未動。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=199617 補入空槽——籍貫「常熟」。既有之值一概未動。",
+  "ai_note": "2026-07-26：合併重複人物 Entity 1j967cp21vned。。 被合併方的 CBDB 對應（1j967cp21vned:cbdb=109855）與本條不同，疑為自動匹配誤配到同名異代人物，未併入 external_ids，僅此記錄備查。 [2026-08-18 ljy-round2] citation（補遼金元藝文志）明白寫出「吳槎客云：『此至正辛卯建安同文堂刊本...《經義考》以為明常熟之董彝，非也』」——史源自身已明確否定此為明代常熟董彝，確證為元人。birth_year=1429（早於至正辛卯即1351年刊本問世前，然1429年方出生，年代矛盾）顯係CBDB誤配之另一（明代常熟）董彝，清除。\n2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=199617 補入空槽——生年 1429。既有之值一概未動。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=199617 補入空槽——籍貫「常熟」。既有之值一概未動。\n\n2026-09-06 qa-sweep/liaojinyuan U 類（坑 24 之再犯）：清除 CBDB 誤配二度灌回之值——birth_year 1429→null, native_place 常熟→null。\n2026-08-18 ljy-round2 已判「birth_year=1429……顯係 CBDB 誤配之另一（明代常熟）董彝，清除」，其判據尤堅——本條 indexed_by 之《補遼金元藝文志》按語自引吳槎客案語：「此至正辛卯建安同文堂刊本……《經義考》以為明常熟之董彝，非也」，是清代藏書家吳騫（槎客）已明文辨正此書之董彝非明常熟董彝，史源自證。而該值從未真除去；2026-09-06「CBDB enrich」見空槽逕以同一cbdb_id=199617 回填生年與籍貫「常熟」——正是史源已否定之「明常熟董彝」原樣灌回。\nexternal_ids.cbdb_id（199617）本身未動——本道依規程不得自斷 CBDB 配對之當廢（交 entity-cbdb 道），止清除已經二次確認為誤之衍生值；已記 known-issues 並報協調者，請 entity-cbdb 道核可後移除或標記此配對，否則下一輪 CBDB enrich 恐三度灌回。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "liao-jin-yuan",
-  "birth_year": 1429,
-  "native_place": "常熟",
-  "native_place_basis": "CBDB 199617 index_addr（2026-09-06 CBDB enrich）"
+  "birth_year": null,
+  "native_place": null
 }

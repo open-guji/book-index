@@ -1,0 +1,11 @@
+{"lane":"liaojinyuan","date":"2026-09-06","title":"CBDB enrich 自動化就着已判誤之 cbdb_id 二度灌回錯值——三例，請 entity-cbdb 道核可移除配對","kind":"其他",
+ "records":[{"id":"hixhd2h9bgl5","title":"張橋（entity）","period":"liao-jin-yuan"},
+            {"id":"hixhd2h9bmql","title":"吳黼（entity）","period":"liao-jin-yuan"},
+            {"id":"hixhd2h9bgf0","title":"董彝（entity）","period":"liao-jin-yuan"}],
+ "evidence":"三個 entity 皆同一病理鏈：2026-08-18 ljy-round2 明判其 CBDB 配對（cbdb_id 204738／199183／199617）之生年屬另一同名明代人，寫「清除」——但只在敘述中宣稱，birth_year／native_place 欄本身從未真的清空（PITFALLS 坑 24「宣稱已清而未清」）。2026-09-06「CBDB enrich」批次見這些欄位（其實仍帶著舊誤值，但腳本大概判定為『既有值與 CBDB 不符即视为空槽』或類似邏輯）又照樣用同一 cbdb_id 回填了一次 birth_year 與 native_place，等於把已經被否定的配對結果重新蓋章。\n董彝一例證據尤其堅實：本條 indexed_by 之《補遼金元藝文志》按語自引清代藏書家吳騫（槎客）案語「此至正辛卯建安同文堂刊本……《經義考》以為明常熟之董彝，非也」——史源本身已白紙黑字否定「明常熟董彝」之說，而 cbdb_id=199617 那筆配對指向的正是這位被否定的明常熟董彝。\n三例之著錄（補遼金元藝文志、元史藝文志）皆明載「元張橋」「元吳黼」，與各自所配之明代生年直接矛盾（scan U 類）。",
+ "options":["甲：entity-cbdb 道核實後將三筆 cbdb_id 自 external_ids 移除（或改標 rejected/superseded），使 enrich 腳本未來不再讀取",
+            "乙：只在 cbdb_source 加一段「已否決」註記，cbdb_id 留供追溯，但 enrich 腳本須先檢查該註記再決定是否回填",
+            "丙：不動 external_ids，只請 enrich 腳本改用『ai_note 含「清除」』作為跳過條件（即 scan.py 坑 24 之 W 類判準，可直接複用於 enrich 腳本本身）"],
+ "recommend":"丙，其次乙",
+ "why":"丙成本最低——W 類（宣稱已清而未清）之判準（`ai_note` 含「清除」／「已刪」／「卸除」）已由協調者寫入 scan.py，若 enrich 腳本本身也採同一判準作跳過條件，可一次性防住全庫同型之再犯，不需逐條動 external_ids。惟 enrich 腳本不在本道所有權（規程三·1／3·2 皆未含腳本），故只記疑候 entity-cbdb 道或協調者定奪，不逕改。",
+ "note":"本道已做（批十）：三 entity 之 birth_year、native_place（含對應 basis 欄）已清空，ai_note 記其病理鏈與原值（可逆）；external_ids.cbdb_id 一字未動。"}
