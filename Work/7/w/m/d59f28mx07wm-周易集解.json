@@ -55,14 +55,6 @@
   ],
   "resources": [
     {
-      "id": "wikisource",
-      "name": "维基文库",
-      "url": "https://zh.wikisource.org/wiki/周易集解",
-      "types": [
-        "text"
-      ]
-    },
-    {
       "id": "wikisource-siku",
       "name": "维基文库（四庫全書本）",
       "url": "https://zh.wikisource.org/wiki/周易集解_(四庫全書本)",
@@ -158,7 +150,7 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 新唐志四簇磁鐵拆解：「李鼎祚集注周易」節原繫主經之條，今歸本條。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvfqb6nsw 與 11q33j0wg56gw 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…書《新唐書·藝文志》作十七卷。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。",
+  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 新唐志四簇磁鐵拆解：「李鼎祚集注周易」節原繫主經之條，今歸本條。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvfqb6nsw 與 11q33j0wg56gw 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…書《新唐書·藝文志》作十七卷。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-09-06 qa-sweep/suitang·V 類維基文庫孤證連結核實（坑44）：實地核對，維基文庫頁「周易集解」實為他書（頁「國朝張仁浹撰…乾隆戊辰自序」，乃清人張仁浹申述朱子之作，非唐李鼎祚彙輯漢唐舊注之本），非本條所繫之李鼎祚 唐本，逕刪誤連。",
   "description": {
     "text": "《周易集解》十七卷，唐李鼎祚撰。《欽定四庫全書總目》、《書目答問》、《新唐書藝文志》、《經義考》所著卷數一致（十七卷）。《欽定四庫全書總目》敘曰：「唐李鼎祚撰。鼎祚《唐書》無傳，始末未詳，惟據序末結銜，知其官爲祕書省著作郎。據袁桷《清容居士集》載“資州有鼎祚讀書臺”，知爲資州人耳。朱睦㮮《序》稱爲祕閣學士，不知何據也。其時代亦不可考。《舊唐書·經籍志》稱錄“開元盛時四部諸書”，而不載是編。知爲天寶以後人矣。其書《新唐書·藝文志》作十七卷。」今存。",
     "sources": [
