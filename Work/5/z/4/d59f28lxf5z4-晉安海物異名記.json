@@ -28,7 +28,7 @@
     }
   ],
   "measure_info": "二卷",
-  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（二卷），今據以補。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 1–3 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字。未覆核原書。使用者本輪之裁定是「只補頭部約 766 條」，而機械撮述之法成本極低（不費人力，且所組織者皆本條已有之信息），故不止於頭部——凡材料足以成文者（有敘錄，或諸志卷數有異同）皆補之；材料不足者（無敘錄而諸志卷數又一致）仍不生成——其 desc 止是覆述著錄，讀者從 indexed_by 一望即知，寫與不寫同。\n\n2026-09-06 qa-sweep/suitang·L 孤雁·斷代訂正（sui-tang → five-dynasties）：從撰人陳致雍之代改正——見 entity `hixhd2h9bhh8` 之 ai_note：《直齋書錄解題》「致雍仕偽閩，南唐後歸朝」「致雍，晉江人，及仕本朝」，非李唐之人；《國史經籍志》「（唐陳致雍）」之「唐」乃南唐之省（坑 5），且焦竑之代不足據。今正 period 為 five-dynasties、authors[0].dynasty 為「南唐」。原值可逆：period=sui-tang、authors[0].dynasty=「唐」。（本條《晉安海物異名記》，宋志作三卷、崇文總目作二卷；與 `d59f28m8yy2u`《晉江海物異名記》疑一書二題，見 known-issues。）",
+  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（二卷），今據以補。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 1–3 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字。未覆核原書。使用者本輪之裁定是「只補頭部約 766 條」，而機械撮述之法成本極低（不費人力，且所組織者皆本條已有之信息），故不止於頭部——凡材料足以成文者（有敘錄，或諸志卷數有異同）皆補之；材料不足者（無敘錄而諸志卷數又一致）仍不生成——其 desc 止是覆述著錄，讀者從 indexed_by 一望即知，寫與不寫同。\n\n2026-09-06 qa-sweep/suitang·L 孤雁·斷代訂正（sui-tang → five-dynasties）：從撰人陳致雍之代改正——見 entity `hixhd2h9bhh8` 之 ai_note：《直齋書錄解題》「致雍仕偽閩，南唐後歸朝」「致雍，晉江人，及仕本朝」，非李唐之人；《國史經籍志》「（唐陳致雍）」之「唐」乃南唐之省（坑 5），且焦竑之代不足據。今正 period 為 five-dynasties、authors[0].dynasty 為「南唐」。原值可逆：period=sui-tang、authors[0].dynasty=「唐」。（本條《晉安海物異名記》，宋志作三卷、崇文總目作二卷；與 `d59f28m8yy2u`《晉江海物異名記》疑一書二題，見 known-issues。）\n\n2026-09-06 qa-sweep/suitang·L 孤雁·頂層 dynasty 隨 authors 歸一（坑 10）：本條頂層 dynasty 舊作「唐」，而 authors[0].dynasty 本輪已正為「南唐」，二者相牴而索引取頂層。今隨之正為「南唐」，據同本條 authors[0].dynasty_basis。原值可逆：dynasty=「唐」。",
   "authors": [
     {
       "name": "陳致雍",
@@ -39,7 +39,7 @@
       "dynasty_basis": "2026-09-06 qa-sweep/suitang·L 孤雁·斷代訂正（sui-tang → five-dynasties）：從撰人陳致雍之代改正——見 entity `hixhd2h9bhh8` 之 ai_note：《直齋書錄解題》「致雍仕偽閩，南唐後歸朝」「致雍，晉江人，及仕本朝」，非李唐之人；《國史經籍志》「（唐陳致雍）」之「唐」乃南唐之省（坑 5），且焦竑之代不足據。今正 period 為 five-dynasties、authors[0].dynasty 為「南唐」。原值可逆：period=sui-tang、authors[0].dynasty=「唐」。（本條《晉安海物異名記》，宋志作三卷、崇文總目作二卷；與 `d59f28m8yy2u`《晉江海物異名記》疑一書二題，見 known-issues。）"
     }
   ],
-  "dynasty": "唐",
+  "dynasty": "南唐",
   "dynasty_basis": "author_propagation:唯一作者朝代",
   "period": "five-dynasties",
   "period_basis": "2026-09-06 qa-sweep/suitang·L 孤雁·斷代訂正（sui-tang → five-dynasties）：從撰人陳致雍之代改正——見 entity `hixhd2h9bhh8` 之 ai_note：《直齋書錄解題》「致雍仕偽閩，南唐後歸朝」「致雍，晉江人，及仕本朝」，非李唐之人；《國史經籍志》「（唐陳致雍）」之「唐」乃南唐之省（坑 5），且焦竑之代不足據。今正 period 為 five-dynasties、authors[0].dynasty 為「南唐」。原值可逆：period=sui-tang、authors[0].dynasty=「唐」。（本條《晉安海物異名記》，宋志作三卷、崇文總目作二卷；與 `d59f28m8yy2u`《晉江海物異名記》疑一書二題，見 known-issues。）",
