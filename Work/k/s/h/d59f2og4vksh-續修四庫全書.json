@@ -84,14 +84,14 @@
       "note": "本叢編（1995-2002 上古社影印）係《續修四庫全書總目提要》（1929-1942 編纂）精神延續；二者書目並非一一對應，但同屬「續修四庫」學術脈絡"
     }
   ],
-  "ai_note": "2026-05-18 ia-xuxiu-zongmu resource 已拆到獨立 Work 1evsx080vs3r4 續修四庫全書總目提要（民國稿本）。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evjr1ny7fmyo` 已併入 `d59f2my7mebk`（《欽定清涼山志》：二條同為武英殿本欽定之書，draft 條不著撰人而 production 繫高宗乾隆敕輯；「欽定」即敕），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-09-03 (1) 新建 Collection `8rlcxphotse8`（續修四庫全書）並繫 contained_in；(2) 資源訂正：原主資源 xuxiu-siku-quanshu 實測僅 1315/1800 冊、缺整個集部，且為 siku-quanshu-archive-collection-2（1759 冊）的完全子集，故補入後者並降前者次序。",
+  "ai_note": "2026-05-18 ia-xuxiu-zongmu resource 已拆到獨立 Work 1evsx080vs3r4 續修四庫全書總目提要（民國稿本）。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evjr1ny7fmyo` 已併入 `d59f2my7mebk`（《欽定清涼山志》：二條同為武英殿本欽定之書，draft 條不著撰人而 production 繫高宗乾隆敕輯；「欽定」即敕），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-09-03 (1) 新建 Collection `8rlcxphotse8`（續修四庫全書）並繫 contained_in；(2) 資源訂正：原主資源 xuxiu-siku-quanshu 實測僅 1315/1800 冊、缺整個集部，且為 siku-quanshu-archive-collection-2（1759 冊）的完全子集，故補入後者並降前者次序。\n\n2026-09-06 qa-sweep/qing·A 類（基準句與實錄相牴）：period_basis 所引之值與 authors[0].dynasty 之實錄不符，今隨實錄改，period 不動。據：本條 authors[0].dynasty_basis 自書「synonym:近代->中華人民共和國」——朝代名同義正規化改了 dynasty 而未回改 period_basis；「近代」與「中華人民共和國」所指同一代，斷代（period=modern）不因之而異。原值：period_basis=「據 authors[0].dynasty「近代」」。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "_has_image": true,
   "_has_collated": true,
   "period": "modern",
-  "period_basis": "據 authors[0].dynasty「近代」",
+  "period_basis": "據 authors[0].dynasty「中華人民共和國」",
   "revision": "1.1.0",
-  "revised_at": "2026-09-03",
+  "revised_at": "2026-09-06",
   "contained_in": [
     {
       "id": "8rlcxphotse8",
