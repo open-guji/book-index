@@ -5,9 +5,9 @@
  ],
  "works": 9083,
  "state": "running",
- "batch": 5,
- "focus": "I 重出逐條裁併",
- "commit": "6d9ad152b3",
+ "batch": 6,
+ "focus": "U/S 逐條裁決，H 復驗全為常態",
+ "commit": "688f4ee125",
  "counts": {
   "A": {
    "found": 35,
@@ -46,10 +46,10 @@
    "recorded": 0
   },
   "H": {
-   "found": 101,
+   "found": 14,
    "fixed": 9,
    "researched": 0,
-   "recorded": 3
+   "recorded": 14
   },
   "I": {
    "found": 50,
@@ -80,6 +80,20 @@
    "fixed": 5,
    "researched": 0,
    "recorded": 0
+  },
+  "U": {
+   "found": 6,
+   "fixed": 2,
+   "researched": 0,
+   "recorded": 1,
+   "normal": 0
+  },
+  "S": {
+   "found": 1,
+   "fixed": 1,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
   }
  },
  "log": [
@@ -112,7 +126,12 @@
    "at": "2026-09-06T12:24:54+00:00",
    "batch": 5,
    "note": "批五：I 之 31 組逐條裁——併 13 組（容齋隨筆／四書集編／玉海／春秋集傳／周易象義／東齋小集／唐史名賢論斷／蒙隱集／隨隱漫錄／吳園易解／經說／浩然齋雅談／易傳），皆同撰人且卷數同或其異有著錄自證（吳園易解之經義考自注「宋志九卷（通考十卷）」、容齋隨筆之五集合為七十四卷）；每條併入之 indexed_by 記 merged_from，keeper 記 merge_history，entity/Book/Work 之引用一併改指。不併 18 組（宋志同題異書之卷數互異者 11、尾名未決而棄權者 2、有撰人而卷數不相容者 3、二人二書者詩集傳解），記 known-issues。另撤單向邊 4 條（qing 道已正 work 側而 entity 回指未撤），verify 單向邊 14→10。"
+  },
+  {
+   "at": "2026-09-06T17:32:04+00:00",
+   "batch": 6,
+   "note": "批六：H 收窄後 14 條逐條讀畢，皆真名或已有正解（翁卷/關注/張輯 之卷/注/輯 觸發、李撰/居士/曾文等 已知），無一缺陷，記 check 建議擴白名單。U 類 6 條：楊冠卿 dynasty 北宋→南宋（生年1139晚於北宋亡，維基印證）；百將傳改繫既有之北宋張預 entity（entity-cbdb 道已分立而漏此一書之改繫）；王哲一例（4書真、好齋集非本道）記 known-issues 交 ming/entity-cbdb。S 類 1 條：論語解 period_upper 引不存在之宋史藝文志，撤之（period 不受影響，撰人尹焞 1071-1142 已定）。"
   }
  ],
- "updated_at": "2026-09-06T12:24:54+00:00"
+ "updated_at": "2026-09-06T17:32:04+00:00"
 }
