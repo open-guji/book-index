@@ -106,6 +106,8 @@ M_BARE = re.compile(r'尚存')
 M_PAST = re.compile(r'(時|代|志|世|初|末|間|前|後)$')   # 「梁時尚存」是存至某代而後亡
 M_NEG = re.compile(r'(之目賴|目錄賴|其目賴|原書已佚|已佚|佚文|輯本|殘卷|亡佚|不存|未見傳本|而亡|已亡|全亡)')
 BOUND_RE = re.compile(r'最緊者為[^，,。]{0,30}')
+# 異譯之明證（Y 之 variant 型；坑 45）
+TRANSL_RE = re.compile(r'(第[二三四五]出|所譯之本|所出[一二三四五六七八九十百]+部|出者[大小]同|小異|異譯|重譯|別譯)')
 Y_NORM = re.compile(r'[《》〈〉「」『』（）()⟨⟩\s、，。]')
 SPLIT_NOTE_RE = re.compile(r'[⟨（(【\[].*?[⟩）)】\]]')
 ZHAI = set('齋斋軒轩堂山谷溪雲云亭樓楼園园庵菴洲峯峰石竹松梅居舍館馆廬庐窩窝村塘湖江河潭')
@@ -445,8 +447,18 @@ def run_checks(works, IW, IB, IE, IC, ents):
         su = k[2]
         aus = {x: [(a.get('name') or '').strip() for a in (works[x].get('authors') or [])] for x in v}
         owners = [x for x in v if any(a and a in su for a in aus[x])]
+        # (d) 同經異譯之防（坑 45）：佛典之譯人多不著錄，兩造 authors 皆空，只憑撰人判不出。
+        # 其別載在 author_info——「第二出」「與某某出者小異」「此為某某所譯之本」
+        # 「某某所出十部之一」皆是異譯之明證。故 author_info 相異者一律不判 dup。
+        ai = {x: Y_NORM.sub('', ' '.join(
+            (ib.get('author_info') or '') for ib in (works[x].get('indexed_by') or [])
+            if (ib.get('source_bid') == k[0]))) for x in v}
+        transl = any(TRANSL_RE.search(t) for t in ai.values())
         if owners and len(owners) < len(v):
             kind, extra = 'misattached', {'owner': owners}
+        elif len(set(ai.values())) > 1 or transl:
+            # 著錄之 author_info 有別（或明言異譯）：非重出，報作 variant——**不可併**
+            kind, extra = 'variant', {'author_info': {x: ai[x][:40] for x in v}}
         elif len({frozenset(a for a in aus[x] if a) for x in v}) == 1:
             kind, extra = 'dup', {}
         else:
