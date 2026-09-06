@@ -115,6 +115,8 @@ BIO_RE = re.compile(r'[字號号諡谥]\s*[^\s，,。]|[縣县州府郡]人|進�
 # 帝號／諡號式之異稱（元帝＝蕭繹、武帝＝梁武帝）本無共字，非偽稱
 # 「王」「公」單字結尾在人名中太常見（顧野王、王儉），不可作帝號之徵；
 # 只收帝／后／太子／世子之結尾與明確之廟號年號式起首。
+# 註記已標廢之語（其後 700 字內出現即算已裁）
+RETRACT_RE = re.compile(r'判偽[，,]?\s*作廢|標廢|作廢|已廢|判為偽稱')
 TITLE_RE_IMPERIAL = re.compile(r'(帝|后|太子|世子|皇后)$|^(梁|陳|齊|周|隋|魏|宋|晉|漢|唐|後梁)?(高祖|太祖|世祖|太宗|文帝|武帝|明帝|元帝|宣帝|簡文帝|孝武帝|後主|煬帝|昭明)')
 JUAN_RE = re.compile(r'([〇一二三四五六七八九十百千]+|\d+)\s*卷')
 _NUM = {c: i for i, c in enumerate('〇一二三四五六七八九')}
@@ -300,7 +302,12 @@ def run_checks(works, IW, IB, IE, IC, ents):
         # P 之分型（坑 52）：ai_note 自稱「本志作 X 而庫中作 Y，同指一人」，其可信度分四等。
         # 全無共字者未必皆偽——帝號／諡號式之異稱（元帝＝蕭繹、武帝＝梁武帝）本就無共字，
         # 故先以 TITLE_RE_IMPERIAL 別之；扣去帝號一路，餘下之「全無共字」才是偽稱之大宗。
-        for m in ALIAS_RE.finditer(w.get('ai_note') or ''):
+        _an = w.get('ai_note') or ''
+        for m in ALIAS_RE.finditer(_an):
+            # 該註記其後若已有標廢之語（「判偽，作廢」「標廢」），即是已裁過之案，不再報。
+            # 上游提交 `9ce46a4407` 與 nanbeichao 道已聯手廢去 104 條，若不排除，
+            # P 每輪重報已辦之案——與坑 37（G 未排除墓碑）同型（坑 56）。
+            if RETRACT_RE.search(_an[m.end():m.end() + 700]): continue
             x, y = m.group(1), m.group(2)
             sx, sy = set(x), set(y)
             # **先問庫**：二名若同屬一個 entity（primary_name／alt_names 相通），
