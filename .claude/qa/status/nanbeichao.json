@@ -5,9 +5,9 @@
  ],
  "works": 4121,
  "state": "running",
- "batch": 16,
- "focus": "F 收尾——顔延之異體字",
- "commit": "acc76844de",
+ "batch": 17,
+ "focus": "M/V 類收尾——存佚與維基文庫誤連",
+ "commit": "dd3ab0a201",
  "counts": {
   "A": {
    "found": 205,
@@ -112,6 +112,20 @@
    "researched": 0,
    "recorded": 5,
    "normal": 0
+  },
+  "M": {
+   "found": 3,
+   "fixed": 3,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
+  },
+  "V": {
+   "found": 14,
+   "fixed": 7,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 7
   }
  },
  "log": [
@@ -189,7 +203,12 @@
    "at": "2026-09-06T17:31:54+00:00",
    "batch": 16,
    "note": "批十六：F 顔延之(異體)→顏延之 2條，entity本已正確連結，僅work層字形不合，直接正之。全面覆核C(23)L(9)確認皆既有之常態案（跨代人物/注疏），無新增。至此本輪 nanbeichao 桶：A0 B0 C23(常態) D0 E1(known-issue) F29(known-issue待entity-cbdb) G5(known-issue待id-gen工具) H10(常態) I10(2王褒集常態+8known-issue) J0 L9(常態) N0 P148(47真+9同文未動,13待覈+82偽已標廢) R0 S1(known-issue) U16(轉entity-cbdb) Y6(5轉他道) Q0 T0 W0 X0。"
+  },
+  {
+   "at": "2026-09-06T19:07:54+00:00",
+   "batch": 17,
+   "note": "批十七：M 3條修——元包/孫子算經/水經注 description皆自陳今存而loss_status空缺，補extant。V 14條逐一WebFetch覆核wikisource連結：7條確為誤連題名孤證撞頁——評書x2(王僧虔/蕭衍,實頁為明祝允明評書)、易傳(關朗,實頁為周易十翼傳統匯編,全庫同題48見全庫最危)、雜詩(王僧孺,實頁為消歧義頁列24家不含王僧孺)、晉陽秋(檀道鸞注本,實頁為孫盛原書)、後漢書(劉熙/劉昭注本,實頁為范曄本通行合刊)、詠史(鮑照,實頁為消歧義頁不含鮑照)——皆撤誤連之resources並連帶撤循之而設之_has_text。7條核實無誤（荊州記/比丘尼傳/哀江南賦/述異記/宋書/魏書/後漢書范曄本），resources正確保留，不動。"
   }
  ],
- "updated_at": "2026-09-06T17:31:54+00:00"
+ "updated_at": "2026-09-06T19:07:54+00:00"
 }
