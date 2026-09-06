@@ -15,11 +15,6 @@
       "role": "撰"
     }
   ],
-  "external_ids": {
-    "cbdb_id": 17159,
-    "cbdb_match": "auto",
-    "cbdb_source": "name_exact+dy_match+unique"
-  },
   "updated_at": "2026-08-24T00:00:00+00:00",
   "alt_names": [
     {
@@ -27,8 +22,13 @@
       "type": "殘名"
     }
   ],
-  "ai_note": "2026-08-08 修：primary_name「宇文」補全為「宇文紹奕」。涉及 Work：1evr5e3mc6kha。依據見各 Work 之 ai_note。\n\n2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。",
+  "ai_note": "2026-08-08 修：primary_name「宇文」補全為「宇文紹奕」。涉及 Work：1evr5e3mc6kha。依據見各 Work 之 ai_note。\n\n2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB 同步 L1 落盘：卸除 cbdb_id=17159。原繫 17159 為同名異代之誤配（现挂「宇文」；CBDB 17173「宇文紹奕」宋 正名精确相符，著作3部）。今卸除該 pid 帶入之斷言（無）。原值悉錄於此，可逆：{\"cbdb_id\": 17159, \"cbdb_match\": \"auto\", \"cbdb_source\": \"name_exact+dy_match+unique\"}\n\n2026-09-06 CBDB 同步 L1 落盘：cbdb_id 由 17159 改繫 17173（「宇文紹奕」宋，?–?）。新號之生卒／別名等未逕填，留待 enrich 補。",
   "dynasty_basis": "cbdb:index_year=1027→北宋",
   "period": "song",
-  "period_basis": "据 dynasty「北宋」自动归并"
+  "period_basis": "据 dynasty「北宋」自动归并",
+  "external_ids": {
+    "cbdb_id": 17173,
+    "cbdb_match": "manual_remap",
+    "cbdb_source": "2026-09-06 改繫：现挂「宇文」；CBDB 17173「宇文紹奕」宋 正名精确相符，著作3部"
+  }
 }
