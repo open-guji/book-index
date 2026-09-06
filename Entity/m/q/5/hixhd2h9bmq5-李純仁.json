@@ -4,23 +4,6 @@
   "type": "entity",
   "subtype": "people",
   "primary_name": "李純仁",
-  "alt_names": [
-    {
-      "name": "伯玉",
-      "type": "字"
-    },
-    {
-      "name": "伯生",
-      "type": "字"
-    },
-    {
-      "name": "孤潭",
-      "type": "號"
-    }
-  ],
-  "dynasty": "朝鮮",
-  "birth_year": 1533,
-  "death_year": 1592,
   "works": [
     {
       "work_id": "d59f2glmh5og",
@@ -31,11 +14,8 @@
       "role": "輯"
     }
   ],
-  "external_ids": {
-    "cbdb_id": 553105,
-    "cbdb_match": "manual",
-    "cbdb_source": "pending_accept: relaxed_ambig cbdb_dy=84 (1533-1592)"
-  },
   "updated_at": "2026-08-24T00:00:00+00:00",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。"
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB 同步 L1 落盘：卸除 cbdb_id=553105。時代閘門判為同名異代之誤配：CBDB生卒[1533, 1592]落在著录时代['liao-jin-yuan']之外（CBDB籍贯 —，与著录不合）。今卸除該 pid 帶入之斷言（birth_year、death_year、dynasty、alt_names(3)），朝代改依著錄作「元」。原值悉錄於此，可逆：{\"cbdb_id\": 553105, \"cbdb_match\": \"manual\", \"cbdb_source\": \"pending_accept: relaxed_ambig cbdb_dy=84 (1533-1592)\", \"birth_year\": 1533, \"death_year\": 1592, \"dynasty\": \"朝鮮\", \"alt_names\": [\"伯玉\", \"伯生\", \"孤潭\"]}",
+  "dynasty": "元",
+  "dynasty_basis": "catalog：卸除 CBDB 誤配後改依著錄（2026-09-06 CBDB 同步 L1 落盘）"
 }
