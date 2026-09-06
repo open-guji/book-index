@@ -40,7 +40,7 @@ prefix 身分官銜前綴／bracket 括號按語／single 單字／punct 其他�
 
 判準與踩坑見 PROTOCOL.md、PITFALLS.md。本檔只掃不改。
 """
-import argparse, collections, glob, json, os, re, sys
+import argparse, collections, glob, json, os, re, sys, urllib.parse
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 ORD = ['pre-qin','qin-han','three-kingdoms','jin','nanbeichao','sui-tang','five-dynasties',
@@ -101,6 +101,10 @@ RADICAL_RE = re.compile(r'^[\u2e80-\u2fff\u31c0-\u31ef]')
 # X 檢（撰人／書名切分之誤）之字表，移植自 entity-cbdb 道之 scan_author_title_split.py
 # 回溯重建之志：補X書藝文志／經籍志之屬，成書在清末民初而非其所補之代
 RETRO_RE = re.compile(r'補[^》，,。\s]{1,4}(書)?(藝文志|经籍志|經籍志)')
+M_POS = re.compile(r'(今存|今尚存|原文賴[^，。]{0,12}以存|全文見於|全文賴|完帙尚存|今有傳本)')
+M_BARE = re.compile(r'尚存')
+M_PAST = re.compile(r'(時|代|志|世|初|末|間|前|後)$')   # 「梁時尚存」是存至某代而後亡
+M_NEG = re.compile(r'(之目賴|目錄賴|其目賴|原書已佚|已佚|佚文|輯本|殘卷|亡佚|不存|未見傳本|而亡|已亡|全亡)')
 BOUND_RE = re.compile(r'最緊者為[^，,。]{0,30}')
 Y_NORM = re.compile(r'[《》〈〉「」『』（）()⟨⟩\s、，。]')
 SPLIT_NOTE_RE = re.compile(r'[⟨（(【\[].*?[⟩）)】\]]')
@@ -494,6 +498,44 @@ def run_checks(works, IW, IB, IE, IC, ents):
                           contradict=bool(w.get('period') and w.get('period_upper')
                                           and w.get('period') != w.get('period_upper')),
                           other_sources=others[:4], basis=b[:90]))
+
+    # ── M：loss_status 與 description 不相覆核（weijin 所報，坑 43）──────────
+    # 二型：contra＝loss 明作 lost 之屬而 desc 稱今存（真矛盾）；blank＝loss 未填而 desc 稱今存。
+    # 「尚存」前若有時間限定（梁時尚存、唐志尚存、校書時尚存）是「存至某代而後亡」，非今存——
+    # 初稿不辨此，11 條裡 10 條假陽性（坑 21 之訓），今以 M_PAST 排除。
+    for wid, w in works.items():
+        ls = w.get('loss_status')
+        if ls in ('extant', 'partially_extant'): continue
+        t = ((w.get('description') or {}).get('text') or '')
+        if not t: continue
+        m = M_POS.search(t)
+        if not m:
+            for b in M_BARE.finditer(t):
+                if not M_PAST.search(t[max(0, b.start()-1):b.start()]): m = b; break
+        if not m: continue
+        seg = t[max(0, m.start()-16):m.end()+16]
+        if M_NEG.search(seg): continue
+        R['M'].append(row(w, kind='contra' if ls else 'blank', loss_status=ls, evidence=seg.strip()[:52]))
+
+    # ── V：維基文庫之題名孤證連結（weijin 所報，坑 44）──────────────────────
+    # resources 之 url 形如 zh.wikisource.org/wiki/<題名>（頁名恰等題名、無消歧義後綴），
+    # 而題僅二至四字者，最易撞上「明星同名書」——謝沈《晉書》連到房玄齡官修正史、
+    # 阮籍《樂論》連到蘇洵、陸機《晉紀》連到干寶輯本，皆此。
+    # 只報候選，須逐一 WebFetch 覆核頁面之撰人／朝代；以「庫中同題之數」為危度。
+    same_title = collections.Counter((w.get('title') or '').strip() for w in works.values())
+    for wid, w in works.items():
+        t = (w.get('title') or '').strip()
+        if not (2 <= len(t) <= 4): continue
+        for r_ in (w.get('resources') or []):
+            u = r_.get('url') or ''
+            if 'zh.wikisource.org/wiki/' not in u: continue
+            page = urllib.parse.unquote(u.split('/wiki/', 1)[1])
+            if '(' in page or '（' in page or '/' in page: continue   # 帶消歧義後綴或子頁者不報
+            if page.strip() != t: continue
+            n = same_title[t]
+            if n < 3: continue                                        # 庫中同題不足三見者危度低
+            R['V'].append(row(w, page=page, same_title=n, url=u[:90]))
+            break
     return R
 
 def main():
