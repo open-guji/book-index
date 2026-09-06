@@ -105,6 +105,8 @@ M_POS = re.compile(r'(今存|今尚存|原文賴[^，。]{0,12}以存|全文見�
 M_BARE = re.compile(r'尚存')
 M_PAST = re.compile(r'(時|代|志|世|初|末|間|前|後)$')   # 「梁時尚存」是存至某代而後亡
 M_NEG = re.compile(r'(之目賴|目錄賴|其目賴|原書已佚|已佚|佚文|輯本|殘卷|亡佚|不存|未見傳本|而亡|已亡|全亡)')
+# 撰人小傳式之小注：字／號／諡／籍貫／科第／官職——編目者確知有此人，是原分法之正證
+BIO_RE = re.compile(r'[字號号諡谥]\s*[^\s，,。]|[縣县州府郡]人|進士|舉人|貢生|生員|知[縣県府州]|訓導|教諭|通判|同知|按察|布政|御史|翰林')
 JUAN_RE = re.compile(r'([〇一二三四五六七八九十百千]+|\d+)\s*卷')
 _NUM = {c: i for i, c in enumerate('〇一二三四五六七八九')}
 def _cn2int(x):
@@ -424,7 +426,12 @@ def run_checks(works, IW, IB, IE, IC, ents):
             if note0 and re.search(r'[字號号]\s*[^人\s]{0,3}' + re.escape(c), note0): sc -= 3   # 以字名集
             if set(title[1:4]) & ZHAI: sc -= 2                                                  # 齋號切進書名
             if rest and rest[0] in BAD_HEAD: sc -= 2                                            # 去首字不成詞
-            if note0 and re.search(r'[字號号]', note0) and c not in note0: sc += 1
+            # 小注若為現撰人之小傳（「字某某，號某某，某地人」「某年進士」），
+            # 即是編目者確知有此二字之人——**是原分法之正證，非猜法之正證**。
+            # 原判準在此加分，方向反了：抽驗 undated 桶 12 條，僅 1 條真缺陷（八分之一），
+            # 九條皆帶此型小注而現撰人無誤（呉䎖《升恒堂集》、潘章《力田餘稿》、
+            # 傅梅《簡翁詩集》、鄭渭《望川存稿》、呉沉《應酬稿》……）。今改為減分（坑 48）。
+            if note0 and BIO_RE.search(note0): sc -= 2
             strong = ''
             if rest.startswith(nm[0]) and len(rest) > 2:                                        # 書名以姓＋字／諡／官起
                 mid = rest[1:]
