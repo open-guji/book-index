@@ -107,6 +107,10 @@ M_PAST = re.compile(r'(時|代|志|世|初|末|間|前|後)$')   # 「梁時尚�
 M_NEG = re.compile(r'(之目賴|目錄賴|其目賴|原書已佚|已佚|佚文|輯本|殘卷|亡佚|不存|未見傳本|而亡|已亡|全亡)')
 # 撰人小傳式之小注：字／號／諡／籍貫／科第／官職——編目者確知有此人，是原分法之正證
 BIO_RE = re.compile(r'[字號号諡谥]\s*[^\s，,。]|[縣县州府郡]人|進士|舉人|貢生|生員|知[縣県府州]|訓導|教諭|通判|同知|按察|布政|御史|翰林')
+# 帝號／諡號式之異稱（元帝＝蕭繹、武帝＝梁武帝）本無共字，非偽稱
+# 「王」「公」單字結尾在人名中太常見（顧野王、王儉），不可作帝號之徵；
+# 只收帝／后／太子／世子之結尾與明確之廟號年號式起首。
+TITLE_RE = re.compile(r'(帝|后|太子|世子|皇后)$|^(梁|陳|齊|周|隋|魏|宋|晉|漢|唐|後梁)?(高祖|太祖|世祖|太宗|文帝|武帝|明帝|元帝|宣帝|簡文帝|孝武帝|後主|煬帝|昭明)')
 JUAN_RE = re.compile(r'([〇一二三四五六七八九十百千]+|\d+)\s*卷')
 _NUM = {c: i for i, c in enumerate('〇一二三四五六七八九')}
 def _cn2int(x):
@@ -180,6 +184,18 @@ def run_checks(works, IW, IB, IE, IC, ents):
     ALL = set(IW) | set(IB) | set(IE) | set(IC)
     COLL_TITLES = {v.get('title') for v in IC.values()}
     R = collections.defaultdict(list)
+    # P 之「先問庫」用表：名 → 同一 entity 之全部名（primary_name ＋ alt_names）。
+    # 二名若同屬一個 entity，其「同指一人」之說即有本庫自身之證。此法把帝號式異稱
+    # （元帝＝蕭繹、簡文帝＝蕭綱、梁武帝＝蕭衍）與偽稱（武帝／熊安生、范岫／文帝）
+    # 一刀分開，勝過任何字面之判（坑 52）。
+    alias_of = collections.defaultdict(set)
+    for _e in ents.values():
+        _ns = {(_e.get('primary_name') or '').strip()}
+        for _a in (_e.get('alt_names') or []):
+            _n = _a.get('name') if isinstance(_a, dict) else _a
+            if _n: _ns.add(str(_n).strip())
+        _ns = {n for n in _ns if n}
+        for _n in _ns: alias_of[_n] |= _ns
     def row(w, **kw):
         d = {'id': w['id'], 'title': w.get('title'), 'period': period_key(w.get('period'))}
         d.update(kw); return d
@@ -269,9 +285,24 @@ def run_checks(works, IW, IB, IE, IC, ents):
         for fld, verb in (('birth_year', '生卒'), ('death_year', '生卒'), ('cbdb_id', 'cbdb')):
             pass
         # P
+        # P 之分型（坑 52）：ai_note 自稱「本志作 X 而庫中作 Y，同指一人」，其可信度分四等。
+        # 全無共字者未必皆偽——帝號／諡號式之異稱（元帝＝蕭繹、武帝＝梁武帝）本就無共字，
+        # 故先以 TITLE_RE 別之；扣去帝號一路，餘下之「全無共字」才是偽稱之大宗。
         for m in ALIAS_RE.finditer(w.get('ai_note') or ''):
             x, y = m.group(1), m.group(2)
-            R['P'].append(row(w, x=x, y=y, no_common=not (set(x) & set(y))))
+            sx, sy = set(x), set(y)
+            # **先問庫**：二名若同屬一個 entity（primary_name／alt_names 相通），
+            # 其「同指一人」之說即有本庫自身之證，不必再疑。此法把帝號式異稱
+            # （元帝＝蕭繹、簡文帝＝蕭綱、梁武帝＝蕭衍）與偽稱（武帝／熊安生、
+            # 范岫／文帝）一刀分開，勝過任何字面之判（坑 52）。
+            if y in alias_of.get(x, ()) or x in alias_of.get(y, ()):
+                k = 'confirmed'
+            elif x == y: k = 'same'
+            elif len(sx & sy) >= min(len(sx), len(sy)): k = 'variant_char'
+            elif sx & sy: k = 'partial'
+            elif TITLE_RE.search(x) or TITLE_RE.search(y): k = 'imperial'
+            else: k = 'no_common'
+            R['P'].append(row(w, kind=k, x=x, y=y, no_common=not (sx & sy)))
         # J
         d = w.get('description'); dt = (d.get('text') if isinstance(d, dict) else d) or ''
         if not dt and len(w.get('indexed_by') or []) >= 4:
