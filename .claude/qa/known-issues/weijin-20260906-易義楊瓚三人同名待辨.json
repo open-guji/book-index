@@ -1,0 +1,34 @@
+{
+  "lane": "weijin",
+  "date": "2026-09-06",
+  "title": "《易義》撰人「楊瓚」——晉司徒右長史楊瓚（entity 已立）與吳士鑑本所繫之北周楊瓚，是否同一人",
+  "kind": "斷代兩可",
+  "records": [
+    {
+      "id": "d59f27tfpczm",
+      "title": "易義（經義考／文廷式本／黃逢元本，三節）",
+      "period": "jin"
+    },
+    {
+      "id": "d59f9s1980ec",
+      "title": "易義（吳士鑑本，一節）",
+      "period": "jin"
+    },
+    {
+      "id": "hixhd2h9bv7v",
+      "title": "楊瓚（entity，無代，2026-08-24已考出「晉司徒右長史」，與明代同名者分立）"
+    },
+    {
+      "id": "hixhjhtm5atg",
+      "title": "楊瓚（entity，dynasty 北周，吳士鑑本新建）"
+    }
+  ],
+  "evidence": "d59f27tfpczm 之 name_basis 已載：「庫中舊有同名之『楊瓚』（代 ming），與本書之代（jin）懸隔。本書之斷代出於其人本身之行實（明確朝代表述：晉司徒右長史），非泛推，故知同名而實二人」——已另立 entity hixhd2h9bv7v 以別於明代楊瓚。新入之 d59f9s1980ec（吳士鑑本《補晉書經籍志》）之撰人另繫 entity hixhjhtm5atg，代作「北周」——與「晉司徒右長史」之代（西晉／東晉）不合，去晉二百年上下。庫中「楊瓚」凡三 entity：晉司徒右長史（hixhd2h9bv7v）、明（hixhd2h9bibb）、北周（hixhjhtm5atg）。協調者坑 60 抽驗此組列為 `same_name` 型「待辨」，未定。",
+  "options": [
+    "甲：北周楊瓚（hixhjhtm5atg）之代係新批誤配，實亦指晉司徒右長史楊瓚——併入 d59f27tfpczm，entity 一併歸 hixhd2h9bv7v",
+    "乙：確有北周楊瓚別撰一部同題《易義》——兩存，entity 各自獨立",
+    "丙：北周之代本身有誤（如仿他人「楊瓚」CBDB 誤配），需先正其代"
+  ],
+  "recommend": "丙（先查北周楊瓚entity之dynasty_basis）",
+  "why": "『易義』是通用之經注題，三代皆有人以此名撰《易》學短論，同名而異代者所在多有；本道無法徒憑書名定其是否同人，須先查 hixhjhtm5atg 之 dynasty_basis 出處（CBDB 配對或機讀）以判其代是否可靠，再論是否當併。"
+}
