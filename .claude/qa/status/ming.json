@@ -5,9 +5,9 @@
  ],
  "works": 14310,
  "state": "running",
- "batch": 13,
- "focus": "D/E/W 類收尾",
- "commit": "4eb52f611c",
+ "batch": 15,
+ "focus": "Y 類 21 條 misattached 清訖",
+ "commit": "fa0e9db4ed",
  "counts": {
   "A": {
    "found": 36,
@@ -19,7 +19,8 @@
    "found": 215,
    "fixed": 21,
    "researched": 0,
-   "recorded": 6
+   "recorded": 6,
+   "normal": 168
   },
   "F": {
    "found": 96,
@@ -36,9 +37,10 @@
   },
   "H": {
    "found": 267,
-   "fixed": 12,
+   "fixed": 25,
    "researched": 0,
-   "recorded": 14
+   "recorded": 16,
+   "normal": 16
   },
   "I": {
    "found": 11,
@@ -102,6 +104,20 @@
    "fixed": 2,
    "researched": 0,
    "recorded": 0,
+   "normal": 0
+  },
+  "Y": {
+   "found": 0,
+   "fixed": 21,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
+  },
+  "T": {
+   "found": 0,
+   "fixed": 0,
+   "researched": 0,
+   "recorded": 7,
    "normal": 0
   }
  },
@@ -170,7 +186,22 @@
    "at": "2026-09-06T17:11:34+00:00",
    "batch": 13,
    "note": "批13／D-E-W：D類（宋史全文續資治通鑑）period_upper早於period——本條實有元刊本/元刻本傳世（988g0dgm4x/988lj2y2vn），撰人游明role僅「校正」不足定代，period ming→liao-jin-yuan。E類（孝經列傳）loss_status=lost而有Book——本條實有明萬曆刻本傳世（中華再造善本ZHSY100002，有實際掃描頁），loss_status lost→extant，經義考朱彝尊之「佚」判乃十七世紀見聞不敵今存實物。W類2條（宣稱已清而未清）——江左entity卸cbdb_id 572231（2026-09-05按語已判誤配而未卸）、謝顯entity撤birth_year 1445（2026-08-18已判CBDB誤配清除，2026-09-06 enrich又據同一已判誤配之cbdb_id補回，今再清並記流程漏洞）。"
+  },
+  {
+   "at": "2026-09-06T17:19:03+00:00",
+   "batch": 14,
+   "note": "批14／H：48條清理——剝離西洋人前綴2(湯若望/艾儒略,entity已正確)、正名3個幽靈entity(畢方濟/浦汛際/龐迪我,規程2b)、併2個幽靈entity(明太祖1書/世宗肅皇帝御3書)入既有正主(朱元璋/朱厚熜)、宗室缺字考回2(秦康王朱志𡐤/德平榮順王朱胤梃，維基百科+網搜確認)、解一錯誤entity繫連(三江✕毛澄，本條自身早有作者衝突之記)。餘16條為道人/居士/舊題撰之習見慣例(非黏連)判常態，2條(三江真撰人、都應辰楊一疑鄰條殘留)記known-issues候查。"
+  },
+  {
+   "at": "2026-09-06T17:22:34+00:00",
+   "batch": 15,
+   "note": "批15／Y（新檢：一節著錄分居二條）：21條逐條依報告owner欄去誤繫之一側——16條在ming道本身，5條(qing×4/song×1)恰落他道之record但屬同型機械操作(去一條與撰人不符之indexed_by節)，風險低，逕代清並報備cross。"
+  },
+  {
+   "at": "2026-09-06T17:24:13+00:00",
+   "batch": 15,
+   "note": "收尾整理：補記 C 類常態 168 條（批六已讀核，未單列 normal 計數）；T 類 7 條（entity 生卒/繫連問題）已全數記入 known-issues，候 entity-cbdb／協調者裁。"
   }
  ],
- "updated_at": "2026-09-06T17:11:34+00:00"
+ "updated_at": "2026-09-06T17:24:13+00:00"
 }
