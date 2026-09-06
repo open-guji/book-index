@@ -5,9 +5,9 @@
  ],
  "works": 4121,
  "state": "running",
- "batch": 9,
- "focus": "R/S/U 三類小批",
- "commit": "4fb275f226",
+ "batch": 10,
+ "focus": "D 類斷代（catalog_bound 同病）＋E 類存佚訂正",
+ "commit": "cb669b2a19",
  "counts": {
   "A": {
    "found": 205,
@@ -23,15 +23,15 @@
   },
   "D": {
    "found": 2,
-   "fixed": 0,
-   "researched": 0,
+   "fixed": 1,
+   "researched": 1,
    "recorded": 0
   },
   "E": {
    "found": 2,
-   "fixed": 0,
+   "fixed": 1,
    "researched": 0,
-   "recorded": 0
+   "recorded": 1
   },
   "F": {
    "found": 33,
@@ -148,7 +148,12 @@
    "at": "2026-09-06T16:41:35+00:00",
    "batch": 9,
    "note": "批九：R 1 條修——春秋三傳評 period_upper 誤取《補晉書藝文志》（清人回溯重建，非成書於晉）為界，改依本條 indexed_by 實有之《隋書經籍志》立界（jin→sui-tang），已報同型病灶全庫 50 例大半屬 weijin 道（inbox pit）。S 1 條（論語疏十卷，複查四已記known-issue，本批確認無新動作）。U 17 條全出四個 entity（李繪/李渾/崔肇師/姚最），2026-09-06 CBDB enrich 填之卒年皆早於其 dynasty 開國（甚至早於姚最本人生年），WebSearch 核實四人史實皆晚於卒年之值，已轉 entity-cbdb（inbox cross），本道未動 entity。"
+  },
+  {
+   "at": "2026-09-06T16:46:18+00:00",
+   "batch": 10,
+   "note": "批十：D 1 條（脈訣）出桶——撰人崔嘉彥實南宋醫家（1189成書《脈訣》），WebSearch核實，period nanbeichao→song，period_upper「jin」之誤（同R類病灶）連帶撤銷。E 2 條：徐孝穆集箋注 loss lost→extant（四庫提要之「久佚」講的是徐陵原集，非吳兆宜箋注輯本本身，WebSearch核實六卷本收四庫全書、多處全文可查，坑\"存佚判別\"之\"輯本非原書\"反例——此處恰是輯本尚存而誤把原書之佚計上）；錢譜 Book孤證繫存疑，歸既有\"再造善本繫Work存疑\"案，兩造記疑不逕解。"
   }
  ],
- "updated_at": "2026-09-06T16:41:35+00:00"
+ "updated_at": "2026-09-06T16:46:18+00:00"
 }
