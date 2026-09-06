@@ -1,0 +1,18 @@
+{
+  "lane": "qing",
+  "date": "2026-09-06",
+  "title": "清高宗（乾隆帝）二 entity 並存重出——`hixhd2h9bhwp`「清高宗」47 部與 `hixhd2h9buoc`「高宗乾隆」19 部",
+  "kind": "重出待併",
+  "records": [
+    {"id": "hixhd2h9bhwp", "title": "entity:清高宗", "period": "qing"},
+    {"id": "hixhd2h9buoc", "title": "entity:高宗乾隆", "period": "qing"}
+  ],
+  "evidence": "`hixhd2h9bhwp`（primary_name「清高宗」，alt_names=[{name:弘曆,type:本名},{name:乾隆,type:年號}]，47 部 work）與 `hixhd2h9buoc`（primary_name「高宗乾隆」，無 alt_names，19 部 work）明顯為同一人（乾隆帝弘曆）之重出 entity。二者所繫 work 之著錄語多逕稱「清高宗弘曆」「清高宗乾隆」「高宗弘曆敕」等，本道已將其中 9 條之 authors[].name 剝去飾語（分別正為「弘曆」「高宗乾隆」，各自匹配其所繫 entity 之名，見批15），然併二 entity 為一，逾本道權限（primary_name 之併屬 entity-cbdb 道，PROTOCOL 3之2）。",
+  "options": [
+    "甲：以 hixhd2h9bhwp（有完整 alt_names、works 較多）為 keeper，併入 hixhd2h9buoc 之 19 部 work，entity.works 雙向同步，hixhd2h9buoc 記 merged_in 或逕廢",
+    "乙：不動，兩造並存"
+  ],
+  "recommend": "甲",
+  "why": "二者確係一人（乾隆帝），無取捨疑義，keeper 之選亦無爭（hixhd2h9bhwp 資料較全），純屬併條之機械操作，宜由 entity-cbdb 道逕辦。",
+  "action_needed": "entity-cbdb 道核實後合併：19 部 work 之 authors[].entity_id 改指 hixhd2h9bhwp，hixhd2h9buoc 之 works[] 清空後視情況廢止或保留供索引追溯。"
+}
