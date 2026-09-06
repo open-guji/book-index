@@ -44,8 +44,10 @@ for i in 1 2 3; do
     resolve_conflicts || { echo "VERIFY FAIL — 解衝突未竟，未推"; exit 1; }
     git add -A && git -c core.editor=true commit -q --no-edit
   fi
-  # 合流後一律以記錄為真回寫索引（上游若改記錄未回寫，在此補上），有改則另提交
-  python3 .claude/qa/reindex.py --run | tail -1
+  # 合流後一律以記錄為真回寫索引（上游若改記錄未回寫，在此補上），有改則另提交。
+  # --membership 併治「有檔而索引無鍵／有鍵而無檔／path 過時」三型（坑 41）——
+  # 大宗入庫與批次併條屢屢漏此善後，一漏則全庫閘紅，九道齊卡。
+  python3 .claude/qa/reindex.py --run --membership | tail -2
   if ! git diff --quiet; then git add -A && git commit -q -m "合流後索引回寫（reindex.py）"; fi
   if ! python3 .claude/qa/verify.py | tail -1 | grep -q OK; then echo "VERIFY FAIL — 未推"; python3 .claude/qa/verify.py | head -12; exit 1; fi
   if git push -q origin HEAD:main 2>/dev/null; then git push -q origin "HEAD:$BR" 2>/dev/null; echo "已推 main（第 $i 輪）"; exit 0; fi

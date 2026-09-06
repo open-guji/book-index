@@ -17,7 +17,8 @@ def idx(fam):
     return out
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument('--strict', action='store_true'); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument('--why', action='store_true', help='「索引缺記錄檔」時印出各 id 之最後刪除提交（坑 41）')
+    ap.add_argument('--strict', action='store_true'); a = ap.parse_args()
     IW, IB, IE = idx('works'), idx('books'), idx('entities')
     IC = json.load(open(os.path.join(ROOT, 'index', 'collections.json')))
     ALL = set(IW) | set(IB) | set(IE) | set(IC)
@@ -64,6 +65,18 @@ def main():
     print(f'entity.works 懸空     {len(dangle_e)}')
     print(f'單向邊 人指書書不指人 {len(oneway)}')
     for r in (drift_w[:10] + drift_e[:10]): print('  漂移', r)
+    if missing and a.why:
+        # 「索引缺記錄檔」多半是併條刪檔而未清索引（坑 41）。逕查該 id 之最後刪除提交，
+        # 各道遂能自判「是我的批次沒清乾淨」抑或「別人的病，該報協調者」。
+        import subprocess
+        print('  ── 缺檔之由（--why）──')
+        for wid in missing[:20]:
+            c = subprocess.run(['git', '-c', 'core.quotePath=false', 'log', '--all',
+                                '--diff-filter=D', '--format=%h %an %s', '-1',
+                                '--', f'Work/*/*/*/{wid}-*.json'],
+                               capture_output=True, text=True).stdout.strip()
+            print(f'  {wid}  {c or "（未見刪除提交——檔名或曾改，先查索引 path 是否過時）"}')
+        if len(missing) > 20: print(f'  …另有 {len(missing)-20} 條')
     if a.strict:
         for r in dangle_w[:10] + dangle_e[:10]: print('  懸空', r)
         for r in oneway[:10]: print('  單向', r)
