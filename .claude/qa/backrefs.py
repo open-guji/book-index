@@ -85,11 +85,29 @@ def main():
     ap = argparse.ArgumentParser(description='誰指著我')
     ap.add_argument('ids', nargs='*')
     ap.add_argument('--audit', action='store_true', help='全庫懸空稽核（指向不存在之 id 者）')
+    ap.add_argument('--zombies', action='store_true', help=
+        '稽核「殭屍」：一條**既有 `merged_into`（自稱已被併走）又載著內容**（authors／indexed_by／description）。'
+        '成因是併條所留之墓碑（恰五欄、無 authors 無 indexed_by）被後來之入庫誤認作「同題而無撰人」之'
+        '待補活條而回填復活。**留著它是危險的**——凡循 merged_into 改指之工具，都會把該書之引用'
+        '轉到那個不相干的條上去。處分視所填者而定：仍是同書則併（併之即並去其殭屍），已是別書則'
+        '去其 merged_into 令各自獨立。')
     ap.add_argument('--unexecuted', action='store_true', help=
         '稽核「宣告了而未執行的併」：keeper 之 merged_from／merged_in 指著一條**仍是完整記錄**者。'
         '**墓碑不算**——庫例許被併之條留一枚墓碑（僅 id／title／merged_into 數欄、無著錄）以示去向。'
         '此檢與坑 64 之賬病互補：坑 64 是「做了而沒記」，此是「記了而沒做」。')
     a = ap.parse_args()
+    if a.zombies:
+        z = []
+        for p in glob.glob(os.path.join(ROOT, 'Work/*/*/*/*.json')):
+            d = json.load(open(p))
+            if d.get('merged_into') and (d.get('indexed_by') or d.get('authors') or d.get('description')):
+                z.append((d.get('id'), d.get('title'), d.get('merged_into'),
+                          len(d.get('indexed_by') or [])))
+        print('殭屍（有 merged_into 而又載著內容）：%d' % len(z))
+        for i, t, m, n in sorted(z, key=lambda x: x[1] or ''):
+            print('   %s %-16s -> %s（著錄 %d 節）' % (i, t, m, n))
+        return
+
     if a.unexecuted:
         recs = {}
         for p in glob.glob(os.path.join(ROOT, 'Work/*/*/*/*.json')):
