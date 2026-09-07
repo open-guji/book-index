@@ -11,18 +11,9 @@
     }
   ],
   "id": "d59f2hlgw7b6",
-  "resources": [
-    {
-      "name": "维基文库",
-      "id": "wikisource",
-      "url": "https://zh.wikisource.org/wiki/%E5%8D%97%E5%BA%B7%E8%A8%98",
-      "types": [
-        "text"
-      ]
-    }
-  ],
+  "resources": [],
   "updated_at": "2026-08-24T17:09:33.463866+00:00",
-  "_has_text": true,
+  "_has_text": false,
   "period_upper": "song",
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《宋史藝文志》（元脫脫等（1345），著錄宋代藏書），故不晚於 song",
   "authors": [
@@ -43,7 +34,7 @@
       "宋史藝文志"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 qa2-D·V 維基文庫題名孤證連結覆核（rule V-連結誤繫）：本條之 `wikisource` 一項係以**書名字面唯一匹配**而得（url 作 zh.wikisource.org/wiki/<題名>，頁名恰等題名、無消歧義後綴），不問撰人朝代，故易撞「明星同名書」（坑 44）。今取該頁原始 wikitext 覆核：頁 header author=鄧德明 times=劉宋。本條為朱端章《南康記》，而維基文庫「南康記」頁之 header 明書 author=鄧德明、times=劉宋——鄧記與朱記各為一書，非一書之異本。 今摘除該項。**只摘 `wikisource` 一項，其餘 resources 不動。**_has_text 隨之由 True 改為 False（依 resources 中尚有無 types 含 text 者重算）。原值可逆，所摘之項具此：[{\"name\": \"维基文库\", \"id\": \"wikisource\", \"url\": \"https://zh.wikisource.org/wiki/%E5%8D%97%E5%BA%B7%E8%A8%98\", \"types\": [\"text\"]}]",
   "revision": "1.0.0",
   "revised_at": "2026-08-25"
 }
