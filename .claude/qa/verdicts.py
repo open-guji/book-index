@@ -82,6 +82,30 @@ def revoke(rule, by, why, path=PATH):
                  'revokes_round': v.get('round')} for v in hit], path)
 
 
+HWM = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'verdicts.hwm')
+
+
+def highwater(path=PATH, hwm=HWM):
+    """賬只增不減之守門。回 (今之相異鍵數, 曾見之最高, 是否退步)。
+
+    **所以立此**（lane-E 2026-09-07 02:45 所報）：`pushmain.sh` 之 `--ours` 解衝突
+    曾三度吞掉他道之賬，最後一次清點才發現**共遺落 492 筆**（lane-C 203、lane-D 289）
+    ——而那兩道之 status 自書「已落賬 288」，main 上掃出卻仍是原數，**兩邊對不上而無人對**，
+    因為各道看的是自己的分支。若無人補，下一輪重開時 scan 照原數再報一遍，兩道之工全部重做。
+
+    **這件事不能靠各道自覺：被吞者無聲，吞人者亦無聲，只有第三方比對才看得見。**
+    故以水位線記之——今之數若低於曾見之最高，即中止。
+    """
+    n = len(load(path))
+    try:
+        prev = int(open(hwm).read().strip())
+    except Exception:
+        prev = 0
+    if n >= prev:
+        open(hwm, 'w').write(str(n) + '\n')
+    return n, prev, n < prev
+
+
 def stats(path=PATH):
     cur = load(path)
     by_verdict = collections.Counter(v.get('verdict') for v in cur.values())
@@ -93,11 +117,16 @@ def stats(path=PATH):
 def main():
     ap = argparse.ArgumentParser(description='裁決之賬')
     ap.add_argument('--stats', action='store_true')
+    ap.add_argument('--hwm', action='store_true', help='賬只增不減之守門（水位線）')
     ap.add_argument('--rule', help='列某一 rule 之所有裁')
     ap.add_argument('--revoke', metavar='RULE', help='整批翻案某一 rule')
     ap.add_argument('--by', default='coordinator')
     ap.add_argument('--why', default='')
     a = ap.parse_args()
+    if a.hwm:
+        n, prev, bad = highwater()
+        print('賬今 %d 筆，曾見最高 %d 筆%s' % (n, prev, '　**退步了**' if bad else ''))
+        raise SystemExit(1 if bad else 0)
     if a.revoke:
         if not a.why:
             raise SystemExit('翻案須說明所以然（--why）')
