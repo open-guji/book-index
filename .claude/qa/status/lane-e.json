@@ -1,11 +1,11 @@
-{"lane":"lane-E","updated_at":"2026-09-07T16:25:00Z","round":25,"batch":5,
+{"lane":"lane-E","updated_at":"2026-09-07T17:50:00Z","round":25,"batch":6,
  "checks":["J","P","O","E","R","S","N","K","W"],
  "now":{"J":0,"P":0,"O":0,"E":2,"R":0,"S":0,"N":0,"K":0,"W":0},
- "state":"本轄九檢全清；E 之 2 條落 open（題名孤證繫 Book，須覆核實物影像，非車道之力），刻意不消音。",
- "batch5":"J 新生 2 條已補（晉雜議、春秋左氏傳音）——併條會製造新的 J（lane-B 今日併條使著錄節增至四節以上而 description 仍缺）。順帶修生成器四處，皆「同一志繫二節以上」才現形者。",
- "verdicts_by_lane_E":240,
- "watch":"併條之後 J 可能再生，本道續守；賬之全分支聯集比對本巡遺落 0。",
+ "state":"本轄九檢全清；E 之 2 條落 open（題名孤證繫 Book，須覆核實物影像，非車道之力）。",
+ "batch6":"自查所補之 160 條 description：引文全數逐字有據，無捏造。由此發現一個無人看得見的類——description 是著錄之快照，著錄一動即過時，而 J 只檢「全缺」不檢「陳舊」。試掃全庫：寬檢 14,258 條而九成以上假陽性（不立，記其所以然）；收窄限機械撮述體得 161 條真過時，已無損修訖（只正著錄清單一句，餘文未動；重生反而失真，比對後棄之）。",
+ "verdicts_by_lane_E":402,
  "asks_pending":[
-  {"file":"inbox/lane-e/20260907-1600-ask.md","what":"水位線之閘二漏：verify.py 之 except 把「查不成」設為放行；verdicts.hwm 入 git 而 pushmain 取 --ours 可悄悄下修水位"},
-  {"file":"inbox/_coordinator/20260907-1620-lane-e-offer2.md","what":"請派無主之檢 A（22 條，與本道 R 同型：訂正欄位而未改覆述該值之敘述語）"}],
- "blocked_on":"依第四巡之二規（跨界先出聲並等回覆），offer2 已推，候協調者一句。"}
+  {"file":"inbox/lane-e/20260907-1600-ask.md","what":"水位線之閘二漏（except 失敗即放行；verdicts.hwm 入 git 而 pushmain 取 --ours 可下修水位）＋ J2 之規格（已試掃並收窄，今掃出 0，立之為守）"},
+  {"file":"inbox/_coordinator/20260907-1620-lane-e-offer2.md","what":"請派無主之檢 A——**惟今掃 A 已為 0，似已有人辦訖，此件可作廢**"},
+  {"file":"inbox/_coordinator/20260907-1640-lane-e-note-單分支clone使跨分支比對失準.md","what":"各道 clone 是單分支的，跨分支賬比對須先補 fetch refspec"}],
+ "note":"合流後曾見閘紅（索引檔缺記錄檔 13）——非刪檔，是他道異體歸正改了檔名而索引 path 過時，reindex --membership 即治，已推。"}
