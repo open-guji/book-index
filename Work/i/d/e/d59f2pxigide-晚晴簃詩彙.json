@@ -1,8 +1,16 @@
 {
   "schema_version": 1,
   "type": "work",
-  "title": "晚晴簃詩彙二百卷徐世昌輯",
-  "authors": [],
+  "title": "晚晴簃詩彙",
+  "authors": [
+    {
+      "name": "徐世昌",
+      "role": "輯",
+      "dynasty": "中華民國",
+      "entity_id": "hixhd2h9bo3c",
+      "name_basis": "2026-09-07 qa2-D·G 題名：原題「晚晴簃詩彙二百卷徐世昌輯」，撰人黏於題末而 authors 空。《續修四庫全書》著錄原文即作「《晚晴簃詩彚二百卷徐世昌輯》」，「輯」為職名，輯者徐世昌。今自題名析出，role 記其職，繫庫中既有之 entity hixhd2h9bo3c（中華民國，名下已六書）。"
+    }
+  ],
   "indexed_by": [
     {
       "source": "續修四庫全書",
@@ -61,7 +69,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-09-07 qa2-D·G 題名（rule G-撰人黏題）：原題「晚晴簃詩彙二百卷徐世昌輯」，一題而兼卷數與撰人，且 authors 空——**卷數與撰人皆只存於題名字面，未入其欄**，故非「著錄行之附載」（彼類 authors、juan_count 具在，所綴者為同一版本行之附載），是真缺陷。今正題為「晚晴簃詩彙」，析出 juan_count=200／measure_info「二百卷」，撰人徐世昌（輯）入 authors 並補 entity 反邊。題用「彙」不用著錄之「彚」——二字互為異體，本條原已作「彙」，不為此更動。**未覆核原書**，所據止《續修四庫全書》著錄之 title_info。又：本條 indexed_by 有五節全同（皆《續修四庫全書》同一行），係匯入重出，不屬本道，已記 inbox/lane-d。",
   "id": "d59f2pxigide",
   "resources": [
     {
@@ -133,5 +141,15 @@
   "period_upper": "qing",
   "period_upper_basis": "collection_bound：本書收入《續修四庫全書》——其書收錄止於辛亥（1911）以前之著作，故不晚於 qing",
   "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revised_at": "2026-08-25",
+  "juan_count": {
+    "number": 200
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 200
+    }
+  ],
+  "measure_info": "二百卷"
 }
