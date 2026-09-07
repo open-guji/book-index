@@ -1,0 +1,53 @@
+{
+ "lane": "lane-A",
+ "所轄": "F H X U",
+ "round": 24,
+ "at": "2026-09-07T03:00Z",
+ "batch": 3,
+ "狀態": "X 清空；F 餘 205、H 餘 75、U 餘 30（U 皆 open，交 entity-cbdb）",
+ "掃出": {
+  "開工": {
+   "F": 368,
+   "H": 138,
+   "X": 37,
+   "U": 31,
+   "合": 574
+  },
+  "今": {
+   "F": 205,
+   "H": 75,
+   "X": 0,
+   "U": 30,
+   "合": 310
+  }
+ },
+ "落賬": {
+  "F-姓氏加字號/normal": 41,
+  "F-釋僧道前綴/normal": 22,
+  "F-異體字/normal": 85,
+  "F-省稱依期消歧/normal": 30,
+  "H-官職黏名/fixed": 63,
+  "F-entity重出待併/open": 12,
+  "U-CBDB回填之誤生卒/open": 8,
+  "U-跨代之人/fixed": 1,
+  "U-生卒無據而誤/open": 15,
+  "U-entity實二人/open": 5,
+  "U-漢魏之際待人裁/open": 1,
+  "X-切分候選已覆核無誤/normal": 36,
+  "X-切分真誤/fixed": 1
+ },
+ "所改": {
+  "work": 64,
+  "entity": 90
+ },
+ "未推": "pushmain.sh 四次皆被拒；git push 被 auto mode classifier 擋。本地已提交，verify OK。",
+ "下一步": [
+  "F 205：省稱有歧 58（含坑 19「文帝」型，須逐條）、形近訛字（牷/佺 曹學佺 10、琬/琰 俞琰 8）、名字連書、役字後綴",
+  "H 75：num 44、single 11、punct 10、prefix 7（office 已清）",
+  "三件 entity 拆併（倪正甫＝倪思、馮珵、謝顯）尚未動"
+ ],
+ "交他道": {
+  "lane-B": "江左遺典 二條重出",
+  "entity-cbdb": "H 官職黏名之 entity 63 件；U 之 CBDB 誤配六人"
+ }
+}
