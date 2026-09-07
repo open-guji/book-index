@@ -22,3 +22,25 @@
 - [ ] 2026-09-06 [coordinator] **模型設定**：v1 九道 `configured_model` 皆 `claude-opus-5`，
       而 `session_context.model`／`last_served_model`／`user_switched_model` 皆 `claude-sonnet-5`
       ——似帳號層之切換，協調者改不動。
+
+---
+
+## lane-E（2026-09-07）三件待裁
+
+**一、《竈經》之撰人是一個由形訛所生之幽靈 entity（建議併）**
+`d59f285udybk`《竈經》繫 entity `hixhd2h9blvm`，其 `primary_name` 作 **「簡文市」**，
+dynasty 空、alt_names 空、名下只此一書。「市」是《國史經籍志》「簡文帝」之形訛
+（同條之《隋志》正作「梁簡文帝撰」）。庫中另有正主蕭綱（`d59f99go5edo`《光明符》所繫）。
+**建議**：《竈經》改繫蕭綱，「簡文市」entity 廢。屬 entity 之事，非 lane-E 六檢所轄，故未自行動手。
+
+**二、`alt_names` 中之「X等」雜訊會使 P 類之「先問庫」失真**
+`hixhd2h9bi94` 虞綽之 alt_names 有一項 `{"name":"虞綽等","type":"廟號"}`——
+「虞綽等」是志文連書之省文，非別名，尤非廟號。P 類 `confirmed` 一路正以 alt_names 為據
+（坑 52「先問庫勝過字面之判」），此類雜訊一多，該路即不可恃。
+**建議**：全庫掃 alt_names 中以「等」結尾者與 type 明顯錯置者，一次清理。量未估，非本道所轄。
+
+**三、本道翻了 nanbeichao 道一條「覆核為真」，請覆核**
+`d59f2862i4g1`《淮海亂離志》，「蕭圓肅／蕭世怡 同指一人」一註，nanbeichao 道 2026-09-06 判真，
+本道 2026-09-07 判偽並標廢。據是本條 `indexed_by` 之《補南北史藝文志》按語全文
+「《隋志》作蕭世怡，恐誤。**世怡，蕭泰字**」——該道所引止於「恐誤」，未及下句。
+若本道讀錯，請翻回（`verdicts.py --revoke P-偽稱標廢`）；標廢段存原文未刪，可覆按。
