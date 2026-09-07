@@ -686,6 +686,10 @@ def main():
     ap.add_argument('--limit', type=int, default=40)
     ap.add_argument('--out', help='明細落檔（JSON）', default=None)
     ap.add_argument('--summary-out', help='計數落檔（JSON）', default=None)
+    ap.add_argument('--exclude-adjudicated', action='store_true',
+                    help='把 .claude/qa/verdicts.jsonl 中已判 normal 者排除（v2 之地基）')
+    ap.add_argument('--only-adjudicated', action='store_true',
+                    help='反過來只印已判 normal 者——覆核判準用')
     a = ap.parse_args()
     want = set(a.period.split(',')) if a.period else None
 
@@ -701,6 +705,19 @@ def main():
     print(f'宇宙：works {len(works)} books {len(IB)} entities {len(ents)} collections {len(IC)}', file=sys.stderr)
 
     R = run_checks(works, IW, IB, IE, IC, ents)
+    if a.exclude_adjudicated or a.only_adjudicated:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import verdicts as _v
+        done = _v.normal_keys()
+        before = sum(len(x) for x in R.values())
+        keep = (lambda k, r: (r.get('id'), k) in done) if a.only_adjudicated \
+               else (lambda k, r: (r.get('id'), k) not in done)
+        R = {k: [r for r in v if keep(k, r)] for k, v in R.items()}
+        after = sum(len(x) for x in R.values())
+        print('賬中已判 normal %d 筆；本次%s %d 條（%d → %d）'
+              % (len(done), '只留' if a.only_adjudicated else '排除',
+                 abs(before - after) if a.exclude_adjudicated else after, before, after),
+              file=sys.stderr)
     if want:
         R = {k: [r for r in v if r.get('period') in want] for k, v in R.items()}
 
