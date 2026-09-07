@@ -13,7 +13,7 @@
   "dynasty": "明",
   "native_place_basis": "CBDB 33841 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-04 「坑32」批次逐條核查：新收 1 部 work 之繫（據別集類「人名＋集」書名體例補其撰人而回填反向）。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 13 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=33841 補入空槽——籍貫「上海」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ehn36yq、d59f6el14zd3、d59f6epiio7a、d59f6ej538xv、d59f6eo9khza、d59f6etr5pty、d59f6en1k1e0、d59f6eqqudc8、d59f6eqzw934、d59f6esv09vm、d59f6ehmryfa、d59f6epgn8xy、d59f6ettnm69。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-04 「坑32」批次逐條核查：新收 1 部 work 之繫（據別集類「人名＋集」書名體例補其撰人而回填反向）。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 13 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=33841 補入空槽——籍貫「上海」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ehn36yq、d59f6el14zd3、d59f6epiio7a、d59f6ej538xv、d59f6eo9khza、d59f6etr5pty、d59f6en1k1e0、d59f6eqqudc8、d59f6eqzw934、d59f6esv09vm、d59f6ehmryfa、d59f6epgn8xy、d59f6ettnm69。\n\n2026-09-07 lane-B 併條善後：所繫 d59f2nf2fugx 已併入 d59f2ne6aebk，反邊改指。",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "revised_at": "2026-09-04",
   "works": [
@@ -135,10 +135,6 @@
     },
     {
       "work_id": "d59f2nf8dczn",
-      "role": "撰"
-    },
-    {
-      "work_id": "d59f2nf2fugx",
       "role": "撰"
     },
     {
