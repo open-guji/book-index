@@ -1,0 +1,14 @@
+{
+ "lane": "C 斷代",
+ "checks": ["C", "L", "M", "T", "D"],
+ "round": 25,
+ "at": "2026-09-07",
+ "start": {"C": 894, "L": 151, "M": 67, "T": 41, "D": 1, "total": 1154},
+ "now": {"C": 681, "L": 151, "M": 67, "T": 41, "D": 1, "total": 941},
+ "rules_landed": [
+  {"rule": "C-跨代之人所著繫其所跨之一代", "n": 164, "sampled": 30, "false_positive": 0},
+  {"rule": "C-層累之本諸代撰注並列", "n": 27, "sampled": "全讀 27", "false_positive": 0},
+  {"rule": "C-託名舊題之書繫所託之古人", "n": 12, "sampled": "全讀 12", "false_positive": 0}
+ ],
+ "note": "C 894→681。三條 rule 皆為「檢之結構性假陽」——entity.period 是單值，遇跨代之人、層累之本、託名之書時結構上不可能相符。"
+}
