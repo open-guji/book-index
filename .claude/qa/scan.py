@@ -132,7 +132,11 @@ BIO_RE = re.compile(r'[字號号諡谥]\s*[^\s，,。]|[縣县州府郡]人|進�
 # 「王」「公」單字結尾在人名中太常見（顧野王、王儉），不可作帝號之徵；
 # 只收帝／后／太子／世子之結尾與明確之廟號年號式起首。
 # 註記已標廢之語（其後 700 字內出現即算已裁）
-RETRACT_RE = re.compile(r'判偽[，,]?\s*作廢|標廢|作廢|已廢|判為偽稱')
+# 2026-09-07 lane-E 所報：nanbeichao 道實際寫下的判語是「覆核為偽」「判為空言」，一個都不在式內。
+# **切勿收「覆核為真」**——那是**留**其判，不是廢其判；收了反把有效之判當成已廢而漏掃（一字之差而向相反）。
+# 坑 56 之訓是「窗不可定長」，此則補其另一半：**語亦不可定式**。換個作業者換種說法，同一個漏就復發一次
+# ——故 v2 之後各道之判一律落 verdicts.jsonl，此式只作舊帳之相容，不再擴充。
+RETRACT_RE = re.compile(r'判偽[，,]?\s*作廢|標廢|作廢|已廢|判為偽稱|覆核為偽|判為空言')
 TITLE_RE_IMPERIAL = re.compile(r'(帝|后|太子|世子|皇后)$|^(梁|陳|齊|周|隋|魏|宋|晉|漢|唐|後梁)?(高祖|太祖|世祖|太宗|文帝|武帝|明帝|元帝|宣帝|簡文帝|孝武帝|後主|煬帝|昭明)')
 JUAN_RE = re.compile(r'([〇一二三四五六七八九十百千]+|\d+)\s*卷')
 _NUM = {c: i for i, c in enumerate('〇一二三四五六七八九')}
@@ -291,7 +295,11 @@ def run_checks(works, IW, IB, IE, IC, ents):
         if w.get('loss_status') == 'lost' and (w.get('books') or w.get('_has_text') or w.get('_has_image')):
             R['E'].append(row(w, books=len(w.get('books') or []), has_text=bool(w.get('_has_text')), has_image=bool(w.get('_has_image'))))
         # G（clash 於迴圈後補）
-        if TITLE_RE.search(w.get('title') or ''): R['G'].append(row(w, clean=clean_title(w.get('title') or '')))
+        # 2026-09-07 lane-D 所報：本迴圈原不跳墓碑，而其後補 clash 之候選池跳（坑 37 只修了被撞的一方）。
+        # 一頭已修一頭未修，比兩頭都不做更難查（坑 42）——G 357 條中 52 條是墓碑，其 44 條落 clash=true，
+        # 且 41 條之 clash_ids 恰是其自身之 merged_into：「已併之條撞上自己併進去的那一條」，每輪重報。
+        if not w.get('merged_into') and TITLE_RE.search(w.get('title') or ''):
+            R['G'].append(row(w, clean=clean_title(w.get('title') or '')))
         # H
         for a in a_list:
             nm = a.get('name') or ''
