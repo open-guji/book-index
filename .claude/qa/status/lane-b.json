@@ -1,0 +1,15 @@
+{
+ "lane": "lane-B",
+ "checks": ["I", "Y"],
+ "state": "running",
+ "batch": 3,
+ "focus": "秦志重出三十二組已裁畢；次辦 I same_juan 200 條與協調者所留 juan_differ 14 條",
+ "commit": "7ba9749ac6",
+ "scan": {"I": {"start": 267, "now": 214, "same_juan": 200, "juan_differ": 14},
+          "Y": {"start": 40, "now": 23, "misattached": 14, "twin_edition": 5, "dup": 4}},
+ "verdicts_by_lane_b": {"fixed": 26, "normal": 20, "open": 14},
+ "merges": {"groups": 17, "records_merged_away": 20},
+ "tools_added": [".claude/qa/backrefs.py", ".claude/qa/mergework.py"],
+ "verify": "全綠（五項皆 0）；backrefs --audit 懸空 0",
+ "notes": "scan.py 未動。新器二件已提協調者（inbox/lane-b/20260907T0049-ask.md）。"
+}
