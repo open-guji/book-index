@@ -1,10 +1,35 @@
-{"lane":"lane-E","updated_at":"2026-09-07T02:10:00Z","round":25,"batch":2,
- "scope":"P 54、O 9、E 2、R 1、S 1、J 158（共 225）",
- "done":{"P":54,"O":9,"R":1,"S":1,"J":158,"E":"2（落 open，待人裁）"},
- "open":{},
- "scan_after":{"P":0,"O":0,"R":0,"S":0,"J":0,"E":2},
- "verdicts_added":225,
- "side_effects":{"T":"41→32（O 之九條與 T 重疊，隨 O 之修而消）",
-                 "M":"jin 0→2（本道所補之 description 引出諸志「今存」之語，而 loss_status 未填——屬 C 道之 M 類，已具列）"},
- "lane_status":"本轄辦訖。已寫 offer 予協調者候接他道。",
- "note":"派工單對 P 與 J 之描述皆與實測有出入，已具列於 inbox/lane-e 之二 check.md。"}
+{
+ "lane": "lane-E",
+ "updated_at": "2026-09-07T03:35:00Z",
+ "round": 25,
+ "batch": 4,
+ "scope": "本轄 P 54、O 9、E 2、R 1、S 1、J 158（共 225）——全清",
+ "done": {
+  "P": 54,
+  "O": 9,
+  "R": 1,
+  "S": 1,
+  "J": 158,
+  "E": "2（open，待人裁）"
+ },
+ "scan_after": {
+  "P": 0,
+  "O": 0,
+  "R": 0,
+  "S": 0,
+  "J": 0,
+  "E": 2
+ },
+ "verdicts_added": 237,
+ "extra": {
+  "接手": "H 之 12 條——**事後查明與 lane-A 重工**（該道 00:38 已落賬 63 筆，而其時 main 上無其分支、無 status、無 inbox、賬中 0 筆，四項齊缺，本道誤判其未開工）",
+  "H": "138→75（lane-A 之 63 筆落賬後）。二道所改互不衝突，verify 全綠，authors 名與 entity 名 12/12 相符，無重出 entity。無損害，代價止於重工。",
+  "後續": "H 全歸 lane-A，本道不再碰。"
+ },
+ "ledger_recovery": {
+  "補回": 559,
+  "明細": "lane-B 4＋lane-E 67＋lane-C 203＋lane-D 289",
+  "根因": "pushmain.sh 對非索引衝突取 --ours，吞掉他道 append 之行；已加 .gitattributes merge=union 止血，並二度急報協調者"
+ },
+ "lane_status": "本轄 225 條全清；接手之 H 已交還 lane-A。"
+}
