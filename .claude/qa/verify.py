@@ -83,6 +83,18 @@ def main():
     print(f'entity.works 懸空     {len(dangle_e)}')
     print(f'entity.works 重複項  {len(dup_e)}')
     print(f'單向邊 人指書書不指人 {len(oneway)}')
+    # 2026-09-07 lane-E 所報：賬曾三度被 pushmain 之 --ours 吞掉，共遺落 492 筆而無人察覺
+    # ——被吞者無聲、吞人者亦無聲，**只有第三方比對才看得見**。故以水位線守之。
+    _ledger_bad = False
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import verdicts as _vd
+        _n, _prev, _bad = _vd.highwater()
+        print(f'裁決賬（只增不減）  {_n}' + (f'  **退步！曾見 {_prev}**' if _bad else ''))
+        _ledger_bad = _bad
+    except Exception as _e:
+        _ledger_bad = False
+        print(f'裁決賬（只增不減）  查不成：{_e}')
     for r in (drift_w[:10] + drift_e[:10]): print('  漂移', r)
     if missing and a.why:
         # 「索引缺記錄檔」多半是併條刪檔而未清索引（坑 41）。逕查該 id 之最後刪除提交，
@@ -99,7 +111,8 @@ def main():
     if a.strict:
         for r in dangle_w[:10] + dangle_e[:10]: print('  懸空', r)
         for r in oneway[:10]: print('  單向', r)
-    bad = missing or drift_w or drift_e or (a.strict and (dangle_w or dangle_e or oneway))
+    # 賬之退步一律算敗（不分 strict）——這正是無人會自己發現的那一類（坑 68、坑 70）
+    bad = _ledger_bad or missing or drift_w or drift_e or (a.strict and (dangle_w or dangle_e or oneway))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)
 
