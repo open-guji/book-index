@@ -1,87 +1,26 @@
 {
- "lane": "C 斷代",
- "checks": [
-  "C",
-  "L",
-  "M",
-  "T",
-  "D"
- ],
- "round": 25,
- "at": "2026-09-07",
- "start": {
-  "C": 894,
-  "L": 151,
-  "M": 67,
-  "T": 41,
-  "D": 1,
-  "total": 1154
- },
- "now": {
-  "C": 72,
-  "L": 75,
-  "M": 2,
-  "T": 0,
-  "D": 0,
-  "total": 149
- },
+ "lane": "C 斷代", "checks": ["C","L","M","T","D"], "round": 25, "at": "2026-09-07",
+ "state": "第一段畢——rule 能決者已決盡，所餘皆須人裁",
+ "start": {"C": 894, "L": 151, "M": 67, "T": 41, "D": 1, "total": 1154},
+ "now":   {"C": 25, "L": 2, "M": 0, "T": 0, "D": 0, "total": 27},
+ "now_all_open": true,
  "rules_landed": [
-  {
-   "rule": "C-跨代之人所著繫其所跨之一代",
-   "n": 164,
-   "verified": "抽 30，假陽 0"
-  },
-  {
-   "rule": "C-其人生卒跨書期之代而entity壓為單代",
-   "n": 220,
-   "verified": "抽 30，假陽 0；自核後撤回 3 筆並收窄"
-  },
-  {
-   "rule": "C-層累之本諸代撰注並列",
-   "n": 27,
-   "verified": "全讀 27，假陽 0"
-  },
-  {
-   "rule": "C-託名舊題之書繫所託之古人",
-   "n": 12,
-   "verified": "全讀 12，假陽 0"
-  },
-  {
-   "rule": "L-跨代之人或後出之本致一書獨居鄰代",
-   "n": 76,
-   "verified": "抽 30，假陽 0"
-  },
-  {
-   "rule": "M-據description自陳補loss_status",
-   "n": 66,
-   "kind": "fixed",
-   "verified": "全讀 67"
-  },
-  {
-   "rule": "T-訂正L5斷代歸一之不實確證語",
-   "n": 32,
-   "kind": "fixed",
-   "verified": "全讀 7 個 entity"
-  },
-  {
-   "rule": "D-補志收錄非成書之代",
-   "n": 1,
-   "kind": "fixed"
-  },
-  {
-   "rule": "C-其人之代與書期相接而entity壓為單代",
-   "n": 315,
-   "verified": "兩片各抽 30，假陽 0"
-  },
-  {
-   "rule": "C-後出編纂之本繫前代撰注",
-   "n": 33,
-   "verified": "全讀 32，假陽 0"
-  }
+  {"rule": "C-其人之代與書期相接而entity壓為單代", "n": 315, "verdict": "normal", "verified": "兩片各抽 30，假陽 0"},
+  {"rule": "C-其人生卒跨書期之代而entity壓為單代", "n": 220, "verdict": "normal", "verified": "抽 30 假陽 0；自核後撤 3 筆並收窄"},
+  {"rule": "C-跨代之人所著繫其所跨之一代", "n": 164, "verdict": "normal", "verified": "抽 30，假陽 0"},
+  {"rule": "C-後出編纂之本繫前代撰注", "n": 33, "verdict": "normal", "verified": "全讀 32，假陽 0"},
+  {"rule": "C-層累之本諸代撰注並列", "n": 27, "verdict": "normal", "verified": "全讀 27，假陽 0"},
+  {"rule": "C-魏晉之際諸子從補晉志（晉書為之立傳）", "n": 20, "verdict": "normal", "verified": "全讀 20", "caveat": "此判可商，已入 for-user 待覆定；翻案按此 rule 整批撈回"},
+  {"rule": "C-託名舊題之書繫所託之古人", "n": 12, "verdict": "normal", "verified": "全讀 12，假陽 0"},
+  {"rule": "L-跨代之人或後出之本致一書獨居鄰代", "n": 149, "verdict": "normal", "verified": "兩片各抽 30，假陽 0"},
+  {"rule": "M-據description自陳補loss_status", "n": 67, "verdict": "fixed", "verified": "全讀 69"},
+  {"rule": "M-今存之語指他書非本書", "n": 2, "verdict": "normal", "verified": "全讀"},
+  {"rule": "T-訂正L5斷代歸一之不實確證語", "n": 32, "verdict": "fixed", "verified": "全讀 7 個 entity"},
+  {"rule": "D-補志收錄非成書之代", "n": 1, "verdict": "fixed"},
+  {"rule": "C-真疑待裁", "n": 25, "verdict": "open"}
  ],
- "self_revoked": 3,
- "open_for_user": [
-  "楊齊賢之代（四庫作宋、補遼金元志作元）已由 T 之訂正記其兩歧，未改結論"
- ],
- "next": "C 餘 72（大宗為曹魏諸人之書繫 jin，須讀補晉志之類目——坑 55）、L 餘 75"
+ "self_revoked": 4,
+ "known_issues": ["lane-c-20260907-C類真疑二十五條.json"],
+ "asks_filed": ["20260907T0140-ask.md（M_NEG 漏久佚／所輯——協調者第四巡已辦，本道已如約撤回權宜之 normal）"],
+ "single_largest_cause": "跨代之人被壓成單代——逾七百條，佔本道 1,154 之六成以上"
 }
