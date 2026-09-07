@@ -6,9 +6,9 @@
  ],
  "works": 3845,
  "state": "running",
- "batch": 11,
- "focus": "I 類同題組",
- "commit": "58223bc176",
+ "batch": 34,
+ "focus": "L類孤雁核實；3-way異題同併；跨代人物period報疑",
+ "commit": "ab94e2f429",
  "counts": {
   "A": {
    "found": 792,
@@ -24,13 +24,13 @@
   },
   "D": {
    "found": 1,
-   "fixed": 0,
+   "fixed": 1,
    "researched": 0,
    "recorded": 0
   },
   "E": {
    "found": 11,
-   "fixed": 0,
+   "fixed": 11,
    "researched": 0,
    "recorded": 0
   },
@@ -42,33 +42,82 @@
   },
   "G": {
    "found": 15,
-   "fixed": 0,
+   "fixed": 4,
    "researched": 0,
    "recorded": 0
   },
   "H": {
    "found": 16,
-   "fixed": 3,
+   "fixed": 5,
    "researched": 0,
    "recorded": 1
   },
   "I": {
    "found": 35,
-   "fixed": 1,
+   "fixed": 5,
    "researched": 23,
-   "recorded": 1
+   "recorded": 4
   },
   "J": {
    "found": 15,
-   "fixed": 0,
+   "fixed": 115,
    "researched": 0,
    "recorded": 0
   },
   "L": {
    "found": 17,
-   "fixed": 4,
+   "fixed": 11,
    "researched": 5,
-   "recorded": 3
+   "recorded": 5
+  },
+  "K": {
+   "found": 0,
+   "fixed": 24,
+   "researched": 0,
+   "recorded": 1,
+   "normal": 0
+  },
+  "Q": {
+   "found": 0,
+   "fixed": 9,
+   "researched": 0,
+   "recorded": 3,
+   "normal": 0
+  },
+  "Y": {
+   "found": 0,
+   "fixed": 70,
+   "researched": 0,
+   "recorded": 2,
+   "normal": 0
+  },
+  "M": {
+   "found": 0,
+   "fixed": 9,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
+  },
+  "V": {
+   "found": 0,
+   "fixed": 15,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
+  },
+  "merged_in_backfill": {
+   "found": 0,
+   "fixed": 6,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
+  },
+  "merge3way": {
+   "found": 0,
+   "fixed": 1,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
   }
  },
  "log": [
@@ -131,7 +180,97 @@
    "at": "2026-09-06T12:27:20+00:00",
    "batch": 11,
    "note": "批十一：I 35 條（23 組）逐組覆核——真重出 5 組、異書 16 組（承前省題／官銜異／同志二條／異代同名）、待覈 3 組，皆記 ruling；本道逕改 1（宋儀注 jin→nanbeichao，鄰次法之誤）"
+  },
+  {
+   "at": "2026-09-06T16:25:39+00:00",
+   "batch": 12,
+   "note": "批十二：G 14 條中 3 條題末脫 N卷（與所繫 Book 之全題比對而見），已補並撞庫；餘 11 條為故宮善本／中華再造善本目錄之著錄原題（與所繫 Book 之題全合），非缺陷，不做"
+  },
+  {
+   "at": "2026-09-06T16:30:00+00:00",
+   "batch": 13,
+   "note": "批十三：合流帶入之補晉志(文廷式)整理批十條單向邊——2 條為撰人正名(孫綽→荀綽、程實→干寶)之後 entity_id 未同步，已補繫並修正 dynasty/description；8 條為某某等/賈充妻李婉之 entity 回指未同步，已補回 entity_id；另修正一條合流遺失之 entity_id 與一條頂層 dynasty 漂移；記疑 1"
+  },
+  {
+   "at": "2026-09-06T16:36:33+00:00",
+   "batch": 14,
+   "note": "批十四：D/R 益部耆舊傳 period_upper 誤據（引異書之志條）已去；陳長壽（衍字誤人）3 條改繫陳壽；賈充 entity 代三國魏→西晉；Q 類 6 條傳播陳舊（撰人 entity 已正南朝宋而 work 未隨改）jin→nanbeichao；記疑 3（春秋前傳系、益部耆舊傳系、魏名臣奏）"
+  },
+  {
+   "at": "2026-09-06T16:39:40+00:00",
+   "batch": 15,
+   "note": "批十五：自檢批十四二處遺漏——賈充 entity.period 欄未隨 dynasty 同步（仍 three-kingdoms）已補正；益部耆舊傳 period_basis 殘留「上限 three-kingdoms 覆驗不相斥」舊句（period_upper 已撤而句未隨改，R 類復報）已改寫"
+  },
+  {
+   "at": "2026-09-06T16:47:18+00:00",
+   "batch": 16,
+   "note": "批十六：J 類 36 條 description 全缺者，撮自 indexed_by 立 desc（curate-dynasty S3 借力志書之法），每節不出著錄之外；連帶查出並修二處：仙人馬君陰君內傳之趙升(南宋)誤繫復連（坑24宣稱已清而未清）、海內先賢傳撰人「魏明帝」係舊唐志脫「時」字之殘語（H類）"
+  },
+  {
+   "at": "2026-09-06T16:53:58+00:00",
+   "batch": 17,
+   "note": "批十七：E 11 條全裁——5 條確係全文尚存（周詩/提婆菩薩傳/馬鳴菩薩傳/寶藏論/聲無哀樂論）loss_status→extant；2 條輯本殘文（甄異傳/晉陽秋）→partially_extant；1 條疑似輯本（魏晉世語）從寬→partially_extant並記疑；3 條為題名孤證誤連他書（晉書/樂論/晉紀）撤去偽連結，loss_status不動。weijin 桶 E 類歸零"
+  },
+  {
+   "at": "2026-09-06T16:59:11+00:00",
+   "batch": 18,
+   "note": "批十八：G 類新入之一題兩書合成物（碑誄詩賦/移檄章表）拆正；H 類單道開傳題吞撰人已正；新查出四組同型重出（丁纂/閻纂/武帝左九嬪/晉雜議，皆文廷式批未撞題所致）記疑；F/C 類覆核確認皆已處置或屬常態，無新增"
+  },
+  {
+   "at": "2026-09-06T17:03:34+00:00",
+   "batch": 19,
+   "note": "批十九：L 類文廷式整理批新見 4 條 period 從其人歸正（three-kingdoms×1、nanbeichao×3），其中 3 條與既有同人之書疑重出（記疑）；易義撰人張軌代待考（記疑）；X 類新檢二例覆核皆假陽性（記 inbox）"
+  },
+  {
+   "at": "2026-09-06T17:07:12+00:00",
+   "batch": 20,
+   "note": "批二十：以「撰人全同+題全同+indexed_by僅一節+source為補晉書藝文志」判準系統性掃出老子注三組（鄧粲/劉黃老/張嗣）；並確認若干疑似跨代重出（永平故事/雜賦/會稽貢舉簿/荀采傳/瑞應圖）實為不同志書各自獨立著錄之異書，非重出，不做；累計已記逾二十條同型 known-issues，發 inbox 建議升級為全庫性零判斷去重規則"
+  },
+  {
+   "at": "2026-09-06T20:37:05+00:00",
+   "batch": 21,
+   "note": "批廿一：Y 類 misattached 3 條撤誤繫之著錄、廣志 dup 合併 1 對；外傳一對經覆核為假陽性不併（各承新唐志正史類不同上條，2026-08-19 已考）。批廿二：M 類 9 條 loss_status 空白而 desc 已書「今存」補為 extant。V 類 22 條逐一 WebFetch 覆核——15 條維基連結誤連（雜詩/詠史消歧義頁、易傳/漢書音義/洛陽記/晉紀同題異書）已撤，7 條確認無誤。累計 E+V 誤連 18 條"
+  },
+  {
+   "at": "2026-09-06T20:43:32+00:00",
+   "batch": 23,
+   "note": "批廿三：合流 47d4a0ae60（補晉書經籍志·吳士鑑入庫 2289 條）撞我批廿一/廿二之 6 檔——pushmain.sh 之 resolve_conflicts 缺 git add，取己方後仍判未解，已回報並手工重合（取彼方為底，逐一補回我方之編輯，未失落任一方資料）；另因大宗入庫帶出單向邊 7、索引缺鍵 858（reindex --membership 已清）"
+  },
+  {
+   "at": "2026-09-06T20:48:15+00:00",
+   "batch": 24,
+   "note": "批廿四：K 類 13 條（work→entity 無回指，主要葛洪12+薛瑩1）補回；移檄章表(d59f9s1oin0j) 確認已由吳士鑑批新建，撤銷之前之待建known-issue。J 類新增 78 條 description 全缺，撮自著錄補全，撰寫過程中連帶查出並修一則坑24（太元真人內傳撰人李遵，nanbeichao道稱已解繫而entity_id實仍留）"
+  },
+  {
+   "at": "2026-09-06T20:50:20+00:00",
+   "batch": 25,
+   "note": "批廿五：收尾核對——重掃 Y/V 類確認僅剩前批已判定之常態（蘇子/孫子/外傳三例owner非我道、七例維基連結皆已核實無誤），C/F/H/L 類經抽核均為前批已處置或本時期常態；I 類 215 條大宗仍待處置（吳士鑑批同型重出，已於 inbox 累計報告judgment，交後續批次或協調者全庫掃）"
+  },
+  {
+   "at": "2026-09-06T21:20:48+00:00",
+   "batch": 26,
+   "note": "批廿六：協調者坑59/60已將此病灶（五部補晉志互撞未去重）之判準系統化為Y twin_edition（同撰人+同題+source_bid無交集，至少一造僅一節著錄）。本道57組逐一核對後56組併（keeper取著錄較全者，被併者indexed_by移入、entity反邊改指、檔案與索引刪），1組（九章算經/劉徽，二冊/九卷）批十一已判為版本各異不併，跳過"
+  },
+  {
+   "at": "2026-09-06T21:23:03+00:00",
+   "batch": 27,
+   "note": "批廿七：same_name 類 3 組——明帝集/文帝集確認為協調者已判定之真異人（宋vs晉）；易義/楊瓚三人同名待辨記疑（另有北周楊瓚entity，代待查）。J 類合併帶出之1條（孝經注/孔光）補description"
+  },
+  {
+   "at": "2026-09-06T21:46:20+00:00",
+   "batch": 29,
+   "note": "batch27-29：I類殘餘8組個案（注師曠禽經/禮論答問/太清神仙服食經/列女後傳合併，徐邈音/韋昭注查證非重出）；Y misattached 2組4節跨道刪節；同名待辨易義楊瓚解疑；報告全庫143條collated_edition孤懸id（批入漏建，60條屬weijin待協調者裁）"
+  },
+  {
+   "at": "2026-09-06T21:56:05+00:00",
+   "batch": 32,
+   "note": "batch30-32：R類自我復發修正（period_basis避免逐字引舊句）；Q類四聲韻林/四聲部撰人誤繫唐人張諒（829生）予656年前已著錄之書，同名異人，新建晉entity並二書異題同併；坑64補6條merged_in欄；G/X類殘餘核為現狀已正確非缺陷"
+  },
+  {
+   "at": "2026-09-06T22:12:57+00:00",
+   "batch": 34,
+   "note": "batch33-34：I類same_juan文廷式類/補成對報疑（未定判準前不逕併）；L類孤雁3例核實（聖賢高士傳讚三題同併+period回正three-kingdoms、集議孝經period回正nanbeichao、易義張軌entity誤繫改正）；報known-issues共12條跨代人物period待協調者統一定準"
   }
  ],
- "updated_at": "2026-09-06T12:27:20+00:00"
+ "updated_at": "2026-09-06T22:12:57+00:00"
 }

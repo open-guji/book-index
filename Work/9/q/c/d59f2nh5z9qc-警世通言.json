@@ -70,7 +70,9 @@
   "period_upper_basis": "catalog_bound：《中國通俗小說書目》明清小說部自標所收之代，故不晚於 qing",
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
-  "ai_note": "2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzkq2w0`.dynasty「明」propagate 補齊；work.dynasty 同步。",
+  "ai_note": "2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzkq2w0`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-09-06 qa-sweep/ming M 類（loss_status 空白而 description 稱今存）：loss_status（原空白）→「extant」。據見 loss_status_basis。",
   "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revised_at": "2026-08-25",
+  "loss_status": "extant",
+  "loss_status_basis": "2026-09-06 qa-sweep/ming M 類（loss_status 空白而 description 稱今存）：description 自陳「今存三本」（金陵兼善堂本、衍慶堂二刻本、三桂堂王振華刊本），現存且不止一本。原值：loss_status=None（空白）。"
 }

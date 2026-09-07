@@ -11,18 +11,9 @@
     }
   ],
   "id": "d59f2hla0zcw",
-  "resources": [
-    {
-      "name": "维基文库",
-      "id": "wikisource",
-      "url": "https://zh.wikisource.org/wiki/%E7%B6%AD%E6%91%A9%E8%A9%B0%E7%B6%93",
-      "types": [
-        "text"
-      ]
-    }
-  ],
+  "resources": [],
   "updated_at": "2026-08-24T17:09:33.463196+00:00",
-  "_has_text": true,
+  "_has_text": false,
   "period_upper": "song",
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《宋史藝文志》（元脫脫等（1345），著錄宋代藏書），故不晚於 song",
   "authors": [
@@ -43,7 +34,7 @@
       "宋史藝文志"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/song·摘除誤連之維基文庫連結（坑 44 V 類，題名孤證繫「明星同名書」）：resources 中之維基文庫連結（https://zh.wikisource.org/wiki/%E7%B6%AD%E6%91%A9%E8%A9%B0%E7%B6%93）以題名字面唯一匹配而得，經 WebFetch 覆核，該頁實為《維摩詰經》三譯本之消歧義頁（支謙／鳩摩羅什／玄奘），未及王安石，非本條撰人「王安石」之作，今摘除，並視其餘 resources／books 之有無重算 `_has_text`。",
   "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revised_at": "2026-09-06"
 }

@@ -8,7 +8,7 @@
       "role": "校正",
       "dynasty": "明",
       "entity_id": "hixhd2h9bryc",
-      "name_basis": "2026-08-24 新建 entity `1jcf515129762` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。"
+      "name_basis": "2026-08-24 新建 entity `1jcf515129762` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。\n2026-09-06 qa-sweep/ming·D 類訂正：role「校正」非原書撰人，不足定其代，見 period_basis。"
     }
   ],
   "description": {
@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-22 B3 併池（藏本條重出）：1evkq3pqnyigw 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 1→3）併入本條。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-22 B3 併池（藏本條重出）：1evkq3pqnyigw 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 1→3）併入本條。\n\n2026-09-06 qa-sweep/ming·D 類（period_upper 早於 period）：period「ming」→「liao-jin-yuan」，dynasty「明」→「元」。據見 period_basis。原值：period=\"ming\"，dynasty=\"明\"。",
   "juan_count": {
     "number": 35
   },
@@ -43,10 +43,10 @@
     }
   ],
   "updated_at": "2026-08-24T00:00:00+00:00",
-  "period": "ming",
-  "period_basis": "據 authors[0].dynasty「明」",
-  "dynasty": "明",
-  "dynasty_basis": "author_propagation",
+  "period": "liao-jin-yuan",
+  "period_basis": "2026-09-06 qa-sweep/ming·D 類訂正：本條所繫之 Book 中，988g0dgm4x 題「元刊本」、988lj2y2vn 題「元刻本」——是真有元代刊本流傳，非「明初復元黑口十六行刊本」（此語謂明初仿元代黑口版式覆刻，非元刊）之誤讀。既有元刊本傳世，其書之成必不晚於元，而本條之撰人「游明」（2026-08-24 新建 entity，僅此一書）之 role 作「校正」——校正者是後出版本之編校者，非原書之著者，不足據以定其成書之代。今依 period_upper（edition_bound：元刊本）改 period 為 liao-jin-yuan。原值：period=\"ming\"。",
+  "dynasty": "元",
+  "dynasty_basis": "edition_bound",
   "indexed_by": [],
   "period_upper": "liao-jin-yuan",
   "period_upper_basis": "edition_bound：所掛版本中最早者為「元刊本」——版本之年不早於成書之年，故不晚於 liao-jin-yuan",

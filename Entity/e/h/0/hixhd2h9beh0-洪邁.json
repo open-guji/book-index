@@ -13,7 +13,7 @@
   "dynasty": "南宋",
   "native_place_basis": "CBDB 10157 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "据 dynasty「南宋」自动归并",
-  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 7 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n2026-08-24 新收 1 部 work 之繫（其 authors 之名逾常格，逐條裁定後歸此）。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10157 補入空槽——籍貫「鄱陽」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6el807b9。\n\n2026-09-06 qa-sweep/song·收一 work 之繫：`d59f2hlc7n5t`（容齋隨筆）原以訛名「三趙」繫 `hixhd2h9blow`，今正名改繫本條，說見該 work。",
+  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 7 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n2026-08-24 新收 1 部 work 之繫（其 authors 之名逾常格，逐條裁定後歸此）。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10157 補入空槽——籍貫「鄱陽」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6el807b9。\n\n2026-09-06 qa-sweep/song·收一 work 之繫：`d59f2hlc7n5t`（容齋隨筆）原以訛名「三趙」繫 `hixhd2h9blow`，今正名改繫本條，說見該 work。\n\n2026-09-06 qa-sweep/song·所繫之 `d59f2hlc7n5t`《容齋隨筆》併入 `d59f2hpn1cle`，回指隨之改繫（重複者去之）。\n\n2026-09-06 qa-sweep/song·所繫之 `d59f2hhfqupu`《夷堅志一百八十卷(甲志二十卷乙志二十卷丙志二十卷丁志二十卷支甲十卷支乙十卷支景十卷支丁十卷支戊十卷支庚十卷支癸十卷三志己十卷三志辛十卷三志壬十卷)》併入 `d59f2hrt2oe8`，回指隨之改繫（重複者去之）。",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "works": [
     {
@@ -54,10 +54,6 @@
     },
     {
       "work_id": "d59f2hrt2oe8",
-      "role": "撰"
-    },
-    {
-      "work_id": "d59f2hhfqupu",
       "role": "撰"
     },
     {
@@ -126,10 +122,6 @@
     },
     {
       "work_id": "d59f6el807b9",
-      "role": "撰"
-    },
-    {
-      "work_id": "d59f2hlc7n5t",
       "role": "撰"
     }
   ],

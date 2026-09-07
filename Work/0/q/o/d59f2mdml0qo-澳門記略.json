@@ -8,15 +8,14 @@
       "name": "印光任",
       "role": "撰",
       "dynasty": "清",
-      "entity_id": "hixhd2h9bnxs",
-      "name_basis": "2026-08-24 新建 entity `1jcf51512934b` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。"
+      "name_basis": "2026-08-24 新建 entity `1jcf51512934b` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。",
+      "entity_id": "hixhd2h9bnxs"
     },
     {
       "name": "張汝霖",
       "role": "撰",
       "dynasty": "清",
-      "entity_id": "hixhd2h9bnuk",
-      "name_basis": "2026-08-24 補繫 entity（代相鄰者）：本條 authors 有名「張汝霖」而無 entity_id，庫中同名唯一（`1j990680ca4ce`）。entity 代 ming 與本書 qing 相鄰，一人歷易代——兩代首尾相接，一人之壽足以跨之（如宋元之際、元明之際、明清之際），非同名異人，故繫之。二者之代並不改，各存其舊。"
+      "name_basis": "2026-08-24 補繫 entity（代相鄰者）：本條 authors 有名「張汝霖」而無 entity_id，庫中同名唯一（`1j990680ca4ce`）。entity 代 ming 與本書 qing 相鄰，一人歷易代——兩代首尾相接，一人之壽足以跨之（如宋元之際、元明之際、明清之際），非同名異人，故繫之。二者之代並不改，各存其舊。\n\n2026-09-06 qa-sweep/qing·L 類（entity 名下磁鐵徵候）：解繫 `hixhd2h9bnuk`（「張汝霖」／明）——本條著錄《欽定四庫全書總目》「國朝印光任、張汝霖同撰……汝霖字芸墅，宣城人，由拔貢生官至澳門同知」——逕稱「國朝」（清），且官澳門同知，考濠鏡澳事，必為清人。所繫 entity 名下另有明代易學之作（易經澹窩因指、周易因指），dynasty=明，二者不相涉，乃同名而誤繫。庫中無可確繫之正主，依〈繫連寧缺毋濫〉留空。"
     }
   ],
   "indexed_by": [
@@ -91,7 +90,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "從 1evjxkrj72g3k 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3baveq0c8w(印光任、張汝霖同)（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjxkrj72g3k 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3baveq0c8w(印光任、張汝霖同)（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/qing·L 類（承前，訂正誤操作）：本批原欲解繫「張汝霖」（entity `hixhd2h9bnuk`，明代易學家，與本條「國朝……官至澳門同知」之張汝霖絕不相涉），然腳本失於一時，誤取 authors[0]（印光任）而非 authors[1]（張汝霖），致印光任之 entity_id 遭誤刪。今兩事並正：印光任之 entity_id 已復原（`hixhd2h9bnxs`），張汝霖之誤繫已正解（原值：authors[1].entity_id=「hixhd2h9bnuk」，可逆）。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "_has_text": true,
   "_has_image": true,
@@ -100,5 +99,5 @@
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
   "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revised_at": "2026-09-06"
 }
