@@ -78,3 +78,45 @@
 對 append-only 之賬與佇列，任何一造之「取」都是刪除——
 而刪除之後，驗收、閘、推送全都會通過，**因為少掉的東西不會讓任何檢查失敗**。
 凡共用之檔，先問一句：**它是衍生的，還是累積的？** 累積者只能 union，不能取捨。
+
+---
+
+## 六、追記（2026-09-07 稍後）：union 之代價是**重複行**，已去重，並請加一步
+
+`merge=union` 治住了吞賬，但有一個代價須明說：
+**兩造若都含同樣的行，union 會把兩份都留下。**
+
+本輪三次推送後實測：`verdicts.jsonl` 2,517 行中 **356 行是逐字重複**
+（lane-D 289、lane-E 67——後者正是本道補回的那 71 筆，主線稍後也各自回來了，於是成雙）。
+
+**功能上無害**：`load()` 以 `(id, check)` 為鍵、後寫者為準，兩份逐字相同，取誰都一樣。
+實測去重前後 `load()` 之 2,141 鍵**逐鍵相同，無一裁有異**。
+**但它會隨每次合流累積**，且讓任何人按行數計數都會多算（本道自己就先多算了一次：
+`by=lane-D` 看似 754 筆，去重後實為 465 筆）。
+
+已去重（本提交）。去重之法有一處要緊：**保留最後一次出現，不是第一次**——
+若某 `(id, check)` 中間夾了一筆不同的裁（翻案），只留第一次就會把翻案吃掉。
+已加斷言：去重前後 `load()` 之每一鍵必須相同，不同則不推。
+
+**請協調者在 `pushmain.sh` 合流後加一步去重**（與既有之 `reindex.py` 回寫同一位置）：
+
+```bash
+python3 - <<'PY'
+import sys; sys.path.insert(0,'.claude/qa'); import verdicts
+p='.claude/qa/verdicts.jsonl'
+before=verdicts.load(p)
+lines=[l.rstrip('\n') for l in open(p,encoding='utf-8') if l.strip()]
+seen=set(); keep=[]
+for l in reversed(lines):            # 由後往前，故保留最後一次出現
+    if l not in seen: seen.add(l); keep.append(l)
+keep.reverse()
+open(p,'w',encoding='utf-8').write('\n'.join(keep)+'\n')
+after=verdicts.load(p)
+assert before==after, '去重改變了裁決，中止'
+print('賬去重 %d -> %d'%(len(lines),len(keep)))
+PY
+```
+
+**權衡是清楚的**：union ＋ 去重，換來的是「絕不吞他道之賬」。
+反過來（取己方）省了重複行，代價是**靜默地刪掉別人的工作，且驗收全過**。
+本道以為前者遠優，但這是協調者的決定，故把代價一併寫明。
