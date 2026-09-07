@@ -11,8 +11,10 @@ import json, os, argparse, datetime, collections
 
 KI = ".claude/qa/known-issues"
 ST = ".claude/qa/status"
-DEFAULT_OUT = ("../overview/项目进展/古籍索引网站/版本梳理/先秦/"
-               "24-全库质量复查-待裁清单.md")
+# 2026-09-07 使用者定：待審之物一律出到 overview 之「待审元数据」資料夾。
+# 舊路 版本梳理/先秦/24-全库质量复查-待裁清单.md 已 git mv 過去，勿再寫回。
+DEFAULT_OUT = ("../overview/项目进展/古籍索引网站/待审元数据/"
+               "01-全库质量复查-待裁清单.md")
 
 # kind → （甲乙丙丁戊之序號、標題、說明）
 GROUPS = [
