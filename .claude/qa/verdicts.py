@@ -82,27 +82,46 @@ def revoke(rule, by, why, path=PATH):
                  'revokes_round': v.get('round')} for v in hit], path)
 
 
-HWM = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'verdicts.hwm')
+def _count(text):
+    seen = set()
+    for line in (text or '').splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            r = json.loads(line)
+        except Exception:
+            continue
+        if r.get('id') and r.get('check'):
+            seen.add((r['id'], r['check']))
+    return len(seen)
 
 
-def highwater(path=PATH, hwm=HWM):
-    """賬只增不減之守門。回 (今之相異鍵數, 曾見之最高, 是否退步)。
+def highwater(path=PATH):
+    """賬只增不減之守門。回 (今之相異鍵數, main 上之數, 是否退步)。
 
-    **所以立此**（lane-E 2026-09-07 02:45 所報）：`pushmain.sh` 之 `--ours` 解衝突
-    曾三度吞掉他道之賬，最後一次清點才發現**共遺落 492 筆**（lane-C 203、lane-D 289）
-    ——而那兩道之 status 自書「已落賬 288」，main 上掃出卻仍是原數，**兩邊對不上而無人對**，
-    因為各道看的是自己的分支。若無人補，下一輪重開時 scan 照原數再報一遍，兩道之工全部重做。
-
+    **所以立此**（lane-E 2026-09-07 02:45 所報）：`pushmain.sh` 之 `--ours` 解衝突曾三度
+    吞掉他道之賬，最後一次清點才發現**共遺落 492 筆**（lane-C 203、lane-D 289）——
+    而那兩道之 status 自書「已落賬 288」，main 上掃出卻仍是原數，**兩邊對不上而無人對**。
     **這件事不能靠各道自覺：被吞者無聲，吞人者亦無聲，只有第三方比對才看得見。**
-    故以水位線記之——今之數若低於曾見之最高，即中止。
+
+    **水位不存檔**（2026-09-07 lane-E 覆驗本函式所報之漏二，採其乙案）：
+    原以 `verdicts.hwm` 記之，而該檔入了 git，`pushmain.sh` 對非索引檔一律 `--ours`
+    ——取己方之數可能低於 main 上之數，**水位遂被悄悄下修，而那一次正是最需要它響的那一次**。
+    今 `prev` 逕自 `origin/main` 之賬即時算出：**水位之真身本來就是「main 上已有多少」，
+    存檔只是它的影子，而影子會被合流規則弄髒。**
+
+    讀不到 main 之賬時**算敗不算過**——守門者查不成即應中止（同 lane-E 所報之漏一）。
     """
+    import subprocess
     n = len(load(path))
-    try:
-        prev = int(open(hwm).read().strip())
-    except Exception:
-        prev = 0
-    if n >= prev:
-        open(hwm, 'w').write(str(n) + '\n')
+    r = subprocess.run(['git', 'show', 'origin/main:.claude/qa/verdicts.jsonl'],
+                       capture_output=True, text=True,
+                       cwd=os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+    if r.returncode != 0:
+        raise RuntimeError('讀不到 origin/main 之賬（先 git fetch origin main）：%s'
+                           % (r.stderr or '').strip()[:120])
+    prev = _count(r.stdout)
     return n, prev, n < prev
 
 
@@ -125,7 +144,7 @@ def main():
     a = ap.parse_args()
     if a.hwm:
         n, prev, bad = highwater()
-        print('賬今 %d 筆，曾見最高 %d 筆%s' % (n, prev, '　**退步了**' if bad else ''))
+        print('賬今 %d 筆，origin/main 上 %d 筆%s' % (n, prev, '　**退步了**' if bad else ''))
         raise SystemExit(1 if bad else 0)
     if a.revoke:
         if not a.why:
