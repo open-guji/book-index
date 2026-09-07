@@ -85,7 +85,35 @@ def main():
     ap = argparse.ArgumentParser(description='誰指著我')
     ap.add_argument('ids', nargs='*')
     ap.add_argument('--audit', action='store_true', help='全庫懸空稽核（指向不存在之 id 者）')
+    ap.add_argument('--unexecuted', action='store_true', help=
+        '稽核「宣告了而未執行的併」：keeper 之 merged_from／merged_in 指著一條**仍是完整記錄**者。'
+        '**墓碑不算**——庫例許被併之條留一枚墓碑（僅 id／title／merged_into 數欄、無著錄）以示去向。'
+        '此檢與坑 64 之賬病互補：坑 64 是「做了而沒記」，此是「記了而沒做」。')
     a = ap.parse_args()
+    if a.unexecuted:
+        recs = {}
+        for p in glob.glob(os.path.join(ROOT, 'Work/*/*/*/*.json')):
+            d = json.load(open(p)); recs[d.get('id')] = d
+        def is_tomb(d):
+            return bool(d.get('merged_into')) and len(d.keys()) <= 8 and not d.get('indexed_by')
+        real, tombs = [], 0
+        for me, d in recs.items():
+            for key in ('merged_from', 'merged_in'):
+                for m in (d.get(key) or []):
+                    t = m.get('id') if isinstance(m, dict) else m
+                    if not t or t not in recs or t == me:
+                        continue
+                    if is_tomb(recs[t]):
+                        tombs += 1
+                    else:
+                        real.append((me, d.get('title'), key, t,
+                                     len(recs[t].get('indexed_by') or [])))
+        print('宣告已併而所併之條仍是完整記錄：%d 處（另有 %d 處所併者是墓碑，合乎庫例）'
+              % (len(real), tombs))
+        for me, ti, key, t, n in sorted(real, key=lambda x: x[1] or ''):
+            print('   keeper=%s %-16s %s -> %s（尚有著錄 %d 節）' % (me, ti, key, t, n))
+        return
+
     back = scan()
     if a.audit:
         u = universe()
