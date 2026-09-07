@@ -65,7 +65,16 @@ for i in 1 2 3; do
     echo "    治本：git commit -m \"\$(cat <<'EOF' … EOF)\"，界詞必加單引號" >&2
   fi
   if ! python3 .claude/qa/verify.py | tail -1 | grep -q OK; then echo "VERIFY FAIL — 未推"; python3 .claude/qa/verify.py | head -12; exit 1; fi
-  if git push -q origin HEAD:main 2>/dev/null; then git push -q origin "HEAD:$BR" 2>/dev/null; echo "已推 main（第 $i 輪）"; exit 0; fi
+  if git push -q origin HEAD:main 2>/dev/null; then
+    # 2026-09-07：推自己的分支原作 `git push -q … 2>/dev/null`——**失敗即被吞**，
+    # 於是 main 推成了、分支落在後面，而腳本照印「已推 main」。停止鉤子隔了幾輪才報
+    # 「有 8 筆未推」，查證方知是這一行。與 lane-E 所歸納之「都不報錯、都朝著看起來沒事的
+    # 方向失效」同族——凡以 2>/dev/null 掩其口者，都該問一句「它閉嘴的時候發生了什麼」。
+    if ! git push -q origin "HEAD:$BR"; then
+      echo "警：main 已推，但推自己的分支 $BR 失敗（見上之錯誤）——本地與該分支自此分歧" >&2
+    fi
+    echo "已推 main（第 $i 輪）"; exit 0
+  fi
   echo "推 main 被拒，重合流（第 $i 輪）"
 done
 echo "三輪未成"; exit 1
