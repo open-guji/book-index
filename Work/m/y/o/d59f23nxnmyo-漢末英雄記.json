@@ -97,7 +97,8 @@
       "姚振宗《後漢藝文志》"
     ]
   },
-  "ai_note": "2026-08-21 秦漢段補描述：據本條所繫著錄之考證文撮述，所出之志已記於 description.sources。\n\n2026-08-21 舊題撰人專項：著錄語作「八卷王粲撰，殘缺。梁有十卷。《漢末英雄記》十卷王粲等撰。舊本題魏王粲撰。粲字仲宣」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。",
+  "ai_note": "2026-08-21 秦漢段補描述：據本條所繫著錄之考證文撮述，所出之志已記於 description.sources。\n\n2026-08-21 舊題撰人專項：著錄語作「八卷王粲撰，殘缺。梁有十卷。《漢末英雄記》十卷王粲等撰。舊本題魏王粲撰。粲字仲宣」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-09-07 lane-C M 類：loss_status None→lost，據本條 description 自陳：「描述明言「原書久佚，今存者為後人自類書、注文所輯」——是輯本，非原書今存」\n\n2026-09-07 qa2/lane-e（scan E 類：loss=lost 而有存文）：loss_status 由 lost 改 partially_extant。\n**非翻 lane-C 之考證，是改其所落之枚舉值。** 該道同日據本條 description「原書久佚，今存者為後人自類書、注文所輯」把 loss_status 由 None 定為 lost——**其考證無誤，本條之原書確不存**；然本庫之 `lost` 不是「原書不存」之謂，而是「**一字不存**」（SCHEMA〈loss_status 枚舉〉2026-08-21 訂正，《春秋三傳評》d59f286jzev7 之 N7 段引其文甚明）。本條 `_has_text` 為真，庫中實存其輯文，故當作 `partially_extant`。\n庫例為證：全庫有 `_has_text` 之 work 10,686 條，其 loss_status 作 partially_extant 者 150、extant 1,414、未填 9,121，而**作 lost 者僅本條一件**（即該道同日所落者）。同型之《魏略》d59f27syjb40、《華陽國志》d59f27x6jvnn——皆原書久佚而賴注文類書存其文——庫中正作 partially_extant。\n**「原書不存」與「一字不存」之別，正是 E 類所以立此檢之由**：輯本之有無，在本庫是靠 `_has_text` 說話，不靠描述裡的「久佚」二字。",
   "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "revised_at": "2026-08-24",
+  "loss_status": "partially_extant"
 }

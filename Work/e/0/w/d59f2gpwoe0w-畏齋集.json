@@ -43,13 +43,6 @@
       "source_bid": "d59f2nl40936",
       "title_info": "《程端禮畏齋集》十卷",
       "summary": "《程端禮畏齋集》十卷"
-    },
-    {
-      "source": "宋史藝文志",
-      "source_bid": "d59f2gdp696q",
-      "title_info": "《畏齋集》",
-      "summary": "遊桂《畏齋集》二十二卷",
-      "note": "2026-08-26 雙向鏈回補：本志整理本繫本條而 work 側未記，今補。"
     }
   ],
   "books": [
@@ -132,7 +125,7 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-10 撰人字首式重出候選覆核：1evr5e3mdqr7o（撰人折入題名之異寫）併入本條（同題同撰人）。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxkqcfvgg 與 11q37tkl9hedc 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/liaojinyuan E 類（loss_status=lost 而有 Book／_has_text／_has_image）：loss_status 由「lost」正為「partially_extant」。據：四庫總目自陳「其詩文名《畏齋集》……諸家書目亦多不載，故世久無傳。惟散見《永樂大典》中者尚得詩文百餘篇。謹依類編次，厘為六卷」——四庫館臣自永樂大典輯出重編，非全本原貌，然確有實文傳世；本條 books 掛《欽定四庫全書·文淵閣本》（988g5lzy88，清乾隆間，has_image=True），_has_text／_has_image 皆真——確有可讀之文本傳世（或全本、或四庫館臣自《永樂大典》輯出重編），非「全佚無一字存」之 lost，依 SCHEMA 之三態（lost／partially_extant／extant）當歸 partially_extant（坑 7 之推廣：不僅「再造善本孤證繫錯書」會致此病，「輯佚重編本仍標 lost」亦是同型之三態誤判）。原值：loss_status「{old}」。",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-10 撰人字首式重出候選覆核：1evr5e3mdqr7o（撰人折入題名之異寫）併入本條（同題同撰人）。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxkqcfvgg 與 11q37tkl9hedc 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/liaojinyuan E 類（loss_status=lost 而有 Book／_has_text／_has_image）：loss_status 由「lost」正為「partially_extant」。據：四庫總目自陳「其詩文名《畏齋集》……諸家書目亦多不載，故世久無傳。惟散見《永樂大典》中者尚得詩文百餘篇。謹依類編次，厘為六卷」——四庫館臣自永樂大典輯出重編，非全本原貌，然確有實文傳世；本條 books 掛《欽定四庫全書·文淵閣本》（988g5lzy88，清乾隆間，has_image=True），_has_text／_has_image 皆真——確有可讀之文本傳世（或全本、或四庫館臣自《永樂大典》輯出重編），非「全佚無一字存」之 lost，依 SCHEMA 之三態（lost／partially_extant／extant）當歸 partially_extant（坑 7 之推廣：不僅「再造善本孤證繫錯書」會致此病，「輯佚重編本仍標 lost」亦是同型之三態誤判）。原值：loss_status「{old}」。\n\n2026-09-07 lane-B Y misattached 處分：撤去誤掛之著錄節（source_bid=d59f2gdp696q，題「《畏齋集》」）。宋志之節作「遊桂《畏齋集》二十二卷」——名在題前即本條撰人，其書屬遊桂。本條是元程端禮之《畏齋集》（四庫提要：「元程端禮撰。端禮有《讀書分年日程》，已著錄。其詩文名《畏齋集》，見於黃溍所作《墓誌》」），其餘五節（補遼金元志、元史志、清史稿、國史經籍志、四庫總目）皆明繫程端禮，作六卷或十卷，與遊桂之二十二卷判然。該節在正主 d59f2hhnv0ua 已有。",
   "emendated_by": [],
   "related_works": [],
   "loss_status": "partially_extant",
