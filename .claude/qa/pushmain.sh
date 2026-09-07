@@ -53,6 +53,17 @@ for i in 1 2 3; do
   # 大宗入庫與批次併條屢屢漏此善後，一漏則全庫閘紅，九道齊卡。
   python3 .claude/qa/reindex.py --run --membership | tail -2
   if ! git diff --quiet; then git add -A && git commit -q -m "合流後索引回寫（reindex.py）"; fi
+  # 2026-09-07 lane-B 所報：`git commit -m "…`x`…"` 之中，雙引號裡的反引號是**命令替換**
+  # ——shell 先去執行它、得 command not found、replace 成空字串，再把空字串交給 git。
+  # git 不報錯、提交成功、推送成功、verify 全綠，**只有字沒了**。而我們的提交訊息是 markdown，
+  # 標記檔名／id／欄位名的正規寫法正是反引號——**這個坑正對著我們的寫作習慣**。
+  # 治本是一律用 `-m "$(cat <<'EOF' … EOF)"`（界詞必加單引號）或 `-F <檔>`；
+  # 此處只加一道極輕之警（反引號數為奇即疑有被吃掉者，不完備而夠用），不中止。
+  if [ "$(git log -1 --format=%B | tr -cd '`' | wc -c)" -gt 0 ] && \
+     [ $(( $(git log -1 --format=%B | tr -cd '`' | wc -c) % 2 )) -ne 0 ]; then
+    echo "警：本次提交訊息之反引號為奇數個，疑有整段被 shell 之命令替換吃掉（lane-B 所報）" >&2
+    echo "    治本：git commit -m \"\$(cat <<'EOF' … EOF)\"，界詞必加單引號" >&2
+  fi
   if ! python3 .claude/qa/verify.py | tail -1 | grep -q OK; then echo "VERIFY FAIL — 未推"; python3 .claude/qa/verify.py | head -12; exit 1; fi
   if git push -q origin HEAD:main 2>/dev/null; then git push -q origin "HEAD:$BR" 2>/dev/null; echo "已推 main（第 $i 輪）"; exit 0; fi
   echo "推 main 被拒，重合流（第 $i 輪）"
