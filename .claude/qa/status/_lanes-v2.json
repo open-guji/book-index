@@ -1,0 +1,28 @@
+{
+ "version": "v2",
+ "coordinator": "session_01Ur7rbSHMigeHT1nXguq1z2",
+ "started_at": "2026-09-07T00:22:00Z",
+ "partition": "按判準分道，不按期分道（實測 2,728 條相異記錄中 92% 只被一個檢命中；重疊之檢配同一道）",
+ "lanes": {
+  "lane-a": {"name": "撰人", "checks": ["F","H","X","U"], "n": 574,
+             "session": "session_01FsuiM2AHTkB51sgNbyXjLF", "trigger": "trig_01C52hXcPyy6JMRrQEe73X9q",
+             "branch": "claude/qa2-a", "machine_id": 2010},
+  "lane-b": {"name": "重出", "checks": ["I","Y"], "n": 307,
+             "session": "session_01EbcR9cU82wSAwXd2eqAS67", "trigger": "trig_01MGUiqLnwjZP1pgKW7abnVu",
+             "branch": "claude/qa2-b", "machine_id": 2012},
+  "lane-c": {"name": "斷代", "checks": ["C","L","M","T","D","Q"], "n": 1154,
+             "session": "session_01Tiab7TuTAfCJjEmzNYYpLp", "trigger": "trig_01WYAmqWNdtS7oJ8nt4EY3bc",
+             "branch": "claude/qa2-c", "machine_id": 2013},
+  "lane-d": {"name": "題名", "checks": ["G","V"], "n": 466,
+             "session": "session_0167DUuE6CQZkmGWt1Hwp8ZW", "trigger": "trig_01EvDaLARUKrz7v3zuLSKVfZ",
+             "branch": "claude/qa2-d", "machine_id": 2011},
+  "lane-e": {"name": "著錄", "checks": ["J","P","O","E","R","S","N","K","W"], "n": 225,
+             "session": "session_01VdsQWhuAXBZsozsEf9nsJ5", "trigger": "trig_0168aryBnjoabzhoigzDQcUx",
+             "branch": "claude/qa2-e", "machine_id": 2014}
+ },
+ "coordinator_scope": ["守賬（verdicts.jsonl 之格式與去重、scan 之排除邏輯、verify 閘）",
+                       "守工具（scan.py 唯一可改者；車道提規格）",
+                       "守 for-user.md 佇列（不代辦積壓——車道停擺就補一道新的接手）"],
+ "model_note": "v2 五道皆 configured_model=claude-opus-5 且 session_context.model=claude-opus-5（v1 九道實跑 sonnet-5）",
+ "v1_archived": "九道已歸檔，合計 471 美元"
+}
