@@ -1,35 +1,11 @@
-{
- "lane": "lane-E",
- "updated_at": "2026-09-07T03:35:00Z",
- "round": 25,
- "batch": 4,
- "scope": "本轄 P 54、O 9、E 2、R 1、S 1、J 158（共 225）——全清",
- "done": {
-  "P": 54,
-  "O": 9,
-  "R": 1,
-  "S": 1,
-  "J": 158,
-  "E": "2（open，待人裁）"
- },
- "scan_after": {
-  "P": 0,
-  "O": 0,
-  "R": 0,
-  "S": 0,
-  "J": 0,
-  "E": 2
- },
- "verdicts_added": 237,
- "extra": {
-  "接手": "H 之 12 條——**事後查明與 lane-A 重工**（該道 00:38 已落賬 63 筆，而其時 main 上無其分支、無 status、無 inbox、賬中 0 筆，四項齊缺，本道誤判其未開工）",
-  "H": "138→75（lane-A 之 63 筆落賬後）。二道所改互不衝突，verify 全綠，authors 名與 entity 名 12/12 相符，無重出 entity。無損害，代價止於重工。",
-  "後續": "H 全歸 lane-A，本道不再碰。"
- },
- "ledger_recovery": {
-  "補回": 559,
-  "明細": "lane-B 4＋lane-E 67＋lane-C 203＋lane-D 289",
-  "根因": "pushmain.sh 對非索引衝突取 --ours，吞掉他道 append 之行；已加 .gitattributes merge=union 止血，並二度急報協調者"
- },
- "lane_status": "本轄 225 條全清；接手之 H 已交還 lane-A。"
-}
+{"lane":"lane-E","updated_at":"2026-09-07T16:25:00Z","round":25,"batch":5,
+ "checks":["J","P","O","E","R","S","N","K","W"],
+ "now":{"J":0,"P":0,"O":0,"E":2,"R":0,"S":0,"N":0,"K":0,"W":0},
+ "state":"本轄九檢全清；E 之 2 條落 open（題名孤證繫 Book，須覆核實物影像，非車道之力），刻意不消音。",
+ "batch5":"J 新生 2 條已補（晉雜議、春秋左氏傳音）——併條會製造新的 J（lane-B 今日併條使著錄節增至四節以上而 description 仍缺）。順帶修生成器四處，皆「同一志繫二節以上」才現形者。",
+ "verdicts_by_lane_E":240,
+ "watch":"併條之後 J 可能再生，本道續守；賬之全分支聯集比對本巡遺落 0。",
+ "asks_pending":[
+  {"file":"inbox/lane-e/20260907-1600-ask.md","what":"水位線之閘二漏：verify.py 之 except 把「查不成」設為放行；verdicts.hwm 入 git 而 pushmain 取 --ours 可悄悄下修水位"},
+  {"file":"inbox/_coordinator/20260907-1620-lane-e-offer2.md","what":"請派無主之檢 A（22 條，與本道 R 同型：訂正欄位而未改覆述該值之敘述語）"}],
+ "blocked_on":"依第四巡之二規（跨界先出聲並等回覆），offer2 已推，候協調者一句。"}
