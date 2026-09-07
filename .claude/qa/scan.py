@@ -15,6 +15,7 @@
   D upper_conflict   period_upper 早於 period
   E lost_but_text    loss_status=lost 而有 Book／_has_text／_has_image
   F name_mismatch    撰人名不在所繫 entity 之 primary_name／alt_names（容「X等」「X氏」）
+  G2 title_head       題首之病：承前之「又」、題全空、網頁模板殘餘、卷數在前（與 G 量題末者互補）
   G title_catalog    題名夾雜卷數／撰人／殘語；附 clash＝剝殘語所得之淨題撞庫者（撞庫型信度遠高於孤例，優先處置）
   H author_odd       撰人名可疑：單字、含數字／標點／「等」「撰」「注」
   I dup_title        同題且撰人集合相同（或俱無撰人）之組
@@ -125,7 +126,9 @@ RETRO_NOTE_RE = re.compile(r'清人補|清[^）]{0,6}補[^）]{0,4}[，,]?\s*斷
 M_POS = re.compile(r'(今存|今尚存|原文賴[^，。]{0,12}以存|全文見於|全文賴|完帙尚存|今有傳本)')
 M_BARE = re.compile(r'尚存')
 M_PAST = re.compile(r'(時|代|志|世|初|末|間|前|後)$')   # 「梁時尚存」是存至某代而後亡
-M_NEG = re.compile(r'(之目賴|目錄賴|其目賴|原書已佚|已佚|佚文|輯本|殘卷|亡佚|不存|未見傳本|而亡|已亡|全亡)')
+# 2026-09-07 lane-C 所報：《漢末英雄記》desc 作「原書**久**佚，今存者為後人自類書、注文所**輯**」，
+# 而本式認的是「原書**已**佚」與「**輯本**」——一字之差，兩個都沒接上，遂判為「desc 稱今存」而假陽。
+M_NEG = re.compile(r'(之目賴|目錄賴|其目賴|原書[已久]佚|[已久]佚|佚文|輯本|所輯|輯錄|輯得|殘卷|亡佚|不存|未見傳本|而亡|已亡|全亡)')
 # 撰人小傳式之小注：字／號／諡／籍貫／科第／官職——編目者確知有此人，是原分法之正證
 BIO_RE = re.compile(r'[字號号諡谥]\s*[^\s，,。]|[縣县州府郡]人|進士|舉人|貢生|生員|知[縣県府州]|訓導|教諭|通判|同知|按察|布政|御史|翰林')
 # 帝號／諡號式之異稱（元帝＝蕭繹、武帝＝梁武帝）本無共字，非偽稱
@@ -138,7 +141,12 @@ BIO_RE = re.compile(r'[字號号諡谥]\s*[^\s，,。]|[縣县州府郡]人|進�
 # ——故 v2 之後各道之判一律落 verdicts.jsonl，此式只作舊帳之相容，不再擴充。
 RETRACT_RE = re.compile(r'判偽[，,]?\s*作廢|標廢|作廢|已廢|判為偽稱|覆核為偽|判為空言')
 TITLE_RE_IMPERIAL = re.compile(r'(帝|后|太子|世子|皇后)$|^(梁|陳|齊|周|隋|魏|宋|晉|漢|唐|後梁)?(高祖|太祖|世祖|太宗|文帝|武帝|明帝|元帝|宣帝|簡文帝|孝武帝|後主|煬帝|昭明)')
-JUAN_RE = re.compile(r'([〇一二三四五六七八九十百千]+|\d+)\s*卷')
+# 2026-09-07 lane-B 所報：漢志著錄先秦諸子多以**篇**計，而本式只認「卷」，
+# 於是篇數互異之組抽不出數，一律降為 same_juan——《力牧》（諸子略二十二篇／兵書略十五篇）
+# 正是 skill〈同名異書識別判準〉所舉之的例，卻因單位之故繞到另一路。今兼認二者並回傳單位，
+# **同單位方可比**（八卷與八篇不是同一個八）。「冊」不入此比較——冊是裝幀之數非著述之數
+# （《九章算經》「九卷」對「二冊」，以數相較即成假異）。
+JUAN_RE = re.compile(r'([〇一二三四五六七八九十百千]+|\d+)\s*([卷篇])')
 _NUM = {c: i for i, c in enumerate('〇一二三四五六七八九')}
 def _cn2int(x):
     if x.isdigit(): return int(x)
@@ -157,6 +165,26 @@ def desc_text(w):
     if isinstance(d, str): return d
     return ''
 
+# ── G2：題首之病（2026-09-07 lane-D 立）─────────────────────────────
+# G 之 TITLE_RE 量的全是**題末**之附贅（卷數、存卷、原目、卷首、尾綴之「題」「著」），
+# 故有一整族病結構上看不見：題首作「又」（志書承前之謂，非書名）全庫 23 條而 G 只看得見 2 條
+# ——且是碰巧（該二條之題恰含「卷」與「，」而觸了量尾之尺）。**坑 65 之形：真陽性靠碰巧被抓到，
+# 就不是收窄的問題，是換尺的問題。**
+TITLE_HEAD_RE = re.compile(r'^又(?![玄庵尚紅])')
+TITLE_JUNK_RE = re.compile(r'</?(poem|div|span|p|br|ref|nowiki)\b[^>]*>|\{\{|\}\}|\[\[|\]\]|[\ue000-\uf8ff]')
+TITLE_JUAN_FIRST_RE = re.compile(r'^([一二三四五六七八九十百]+|\d+)卷')
+# `(?![玄庵尚紅])` 只是權宜——以「又」起首而「又」是題之一部者實有四條：又玄集（韋莊編唐人選唐詩，
+# 「又玄」出《老子》「玄之又玄」）、又庵稿、又紅堂詩集、又尚集。**更可靠之判別是著錄之標點**：
+# 志書於承前之「又」不加《》（「又漢書鈔」），於書名則加（「《又玄集》」）。`title_info` 存著這個信息，
+# 惟各志格式不一，須先驗過再定，故 lane-D 未寫進正則，此處從其擬。
+def title_head_kind(t):
+    t = (t or '').strip()
+    if t == '': return 'empty'
+    if TITLE_JUNK_RE.search(t): return 'junk'
+    if TITLE_HEAD_RE.match(t): return 'ditto'
+    if TITLE_JUAN_FIRST_RE.match(t): return 'juan_first'
+    return None
+
 def juan_of(w):
     """自本條諸著錄之引文抽卷數（可多，諸志所記本有異同）。無者回空集。"""
     out = set()
@@ -164,7 +192,7 @@ def juan_of(w):
         for fld in ('title_info', 'summary'):
             for m in JUAN_RE.finditer(ib.get(fld) or ''):
                 v = _cn2int(m.group(1))
-                if v: out.add(v)
+                if v: out.add((m.group(2), v))     # (單位, 數)——同單位方可比
     return out
 BOUND_RE = re.compile(r'最緊者為[^，,。]{0,30}')
 # 異譯之明證（Y 之 variant 型；坑 45）
@@ -196,7 +224,13 @@ def odd_kinds(nm):
     return ks
 ALIAS_RE = re.compile(r'撰人異稱——本志作[「『]([^」』]+)[」』]而庫中作[「『]([^」』]+)[」』]，同指一人')
 # F 之正俗異體歸一（只作比對，禁止寫盤；nanbeichao 道所列，坑 19）
-VARIANTS = str.maketrans('温云舍冲吴隠禇衞鈃隂邱楊煜檝𣶬', '溫雲捨沖吳隱褚衛銒陰丘揚曄楫沈')
+# 2026-09-07 lane-A 逐型裁定後增 28 型（本表**只作比對，禁止寫盤**——坑 15：繁簡異體不可用 opencc 自動轉）。
+# 甲·正俗異體 23 型；乙·繁簡過度轉換 5 型（簡體一字對二繁體而選錯者），
+#   如明史藝文志逕作「樑鬥輝《聖學正宗》」而其人實作梁斗輝。併入後 F 減 85 條，且日後新入庫者不再累積。
+# **不可入表者**（lane-A 記下以免後人再試）：朱子/朱熹 14 條、牷/佺（曹學佺）10 條、琬/琰（俞琰）8 條、
+#   議/謐、輯/揖、格/輅、賣/賈、甄/碌——字面上與異體毫無分別，而其實一為尊稱、一為形近訛字。
+#   **「一字之差」不是判準，逐對裁定的字表才是。**
+VARIANTS = str.maketrans('温云舍冲吴隠禇衞鈃隂邱楊煜檝𣶬徳杰巖淸鑒竒榖臯顔説嶽恒淩麐鳯翶濓槃甯寗祗鐘𠠎鬥台薑鹹樑', '溫雲捨沖吳隱褚衛銒陰丘揚曄楫沈德傑岩清鑑奇穀皋顏說岳恆凌麟鳳翱濂盤寧寧祇鍾劇斗臺姜咸梁')
 # 朝代→年代區間（U 檢用；粗界，只作「相斥」之判，不作定代）
 DYN_SPAN = {
  '先秦': (-1100, -221), '春秋': (-770, -476), '戰國': (-475, -221), '秦': (-221, -206),
@@ -294,6 +328,9 @@ def run_checks(works, IW, IB, IE, IC, ents):
         # E
         if w.get('loss_status') == 'lost' and (w.get('books') or w.get('_has_text') or w.get('_has_image')):
             R['E'].append(row(w, books=len(w.get('books') or []), has_text=bool(w.get('_has_text')), has_image=bool(w.get('_has_image'))))
+        # G2（題首之病，與 G 互補；同樣須跳墓碑）
+        _g2 = None if w.get('merged_into') else title_head_kind(w.get('title'))
+        if _g2: R['G2'].append(row(w, kind=_g2))
         # G（clash 於迴圈後補）
         # 2026-09-07 lane-D 所報：本迴圈原不跳墓碑，而其後補 clash 之候選池跳（坑 37 只修了被撞的一方）。
         # 一頭已修一頭未修，比兩頭都不做更難查（坑 42）——G 357 條中 52 條是墓碑，其 44 條落 clash=true，
@@ -401,7 +438,7 @@ def run_checks(works, IW, IB, IE, IC, ents):
         kind = 'juan_differ' if differ else 'same_juan'
         for w in ws:
             R['I'].append(row(w, kind=kind, group_title=t, authors=list(au),
-                              group_ids=[x['id'] for x in ws], juan=sorted(juan_of(w)),
+                              group_ids=[x['id'] for x in ws], juan=[u+str(n) for u, n in sorted(juan_of(w))],
                               sources=[i.get('source') for i in (w.get('indexed_by') or [])]))
 
     # K(entity side) / L / O

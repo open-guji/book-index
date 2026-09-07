@@ -44,7 +44,7 @@ def main():
         back[wid] = {x.get('entity_id') for x in au if x.get('entity_id')}
         for x in au:
             if x.get('entity_id') and x['entity_id'] not in IE: dangle_w.append((wid, 'authors.entity_id', x['entity_id']))
-    drift_e, dangle_e, fwd = [], [], {}
+    drift_e, dangle_e, fwd, dup_e = [], [], {}, []
     for eid, ie in IE.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(eid); continue
@@ -54,15 +54,34 @@ def main():
             if x is None and y is None: continue
             if x != y: drift_e.append((eid, f, x, y))
         if ie.get('path') != d.get('path', ie.get('path')): pass
+        # 2026-09-07 lane-B 所報：本迴圈原以 set 收 works，**同一 work_id 列兩次者一入集合即消失**
+        # ——檢查所用之資料結構本身把一類缺陷吃掉了（全庫十一個 entity 有此病，清聖祖十二處）。
+        # 今先以 list 收，數過重複再入集合。**凡以 set／dict 收待驗之物者，須先問
+        # 「這個容器會不會把我要驗的那種病吃掉」**——坑 61「不在 A 之索引裡不等於不存在」之另一面。
+        seen_e = []
         for w in (d.get('works') or []):
             if w.get('work_id') and w['work_id'] not in IW: dangle_e.append((eid, w['work_id']))
-            elif w.get('work_id'): fwd.setdefault(eid, set()).add(w['work_id'])
+            elif w.get('work_id'):
+                seen_e.append(w['work_id']); fwd.setdefault(eid, set()).add(w['work_id'])
+        for wid, c in collections.Counter(seen_e).items():
+            if c > 1: dup_e.append((eid, wid, c))
+    # 2026-09-07 lane-B 所報之二：Collection.contained_works[].id 從來無人驗——
+    # 併條而漏改此處，斷了無人知。今併入「work 側懸空引用」一項。
+    for cid, ie in IC.items():
+        p2 = ie.get('path')
+        if not p2 or not os.path.exists(p2): continue
+        try: dc = json.load(open(p2))
+        except Exception: continue
+        for cw in (dc.get('contained_works') or []):
+            x = cw.get('id') or cw.get('work_id') if isinstance(cw, dict) else cw
+            if isinstance(x, str) and x not in IW and x not in IC: dangle_w.append((cid, 'contained_works', x))
     oneway = [(e, w) for e, ws in fwd.items() for w in ws if e not in back.get(w, set())]
     print(f'索引檔缺記錄檔        {len(missing)}')
     print(f'works 索引漂移        {len(drift_w)}')
     print(f'entities 索引漂移     {len(drift_e)}')
     print(f'work 側懸空引用       {len(dangle_w)}')
     print(f'entity.works 懸空     {len(dangle_e)}')
+    print(f'entity.works 重複項  {len(dup_e)}')
     print(f'單向邊 人指書書不指人 {len(oneway)}')
     for r in (drift_w[:10] + drift_e[:10]): print('  漂移', r)
     if missing and a.why:
