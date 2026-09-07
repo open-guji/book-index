@@ -102,7 +102,11 @@ MIAO_TAIL_RE = re.compile(r'^(明太祖|太祖高皇帝|世宗|神宗|熹宗|思
 LACUNA_RE = re.compile(r'^[^\[\]]*[?？□][^\[\]]*$')
 # 釋／僧／道士是本庫僧道之常例（非缺陷），不列；只取著錄語黏連之身分與帝號
 PREFIX_RE = re.compile(r'^(西洋人|泰西|西洋|大學士|太監|尚書|侍郎|禦史|御史|翰林|明太祖|太祖高皇帝|世宗|神宗|熹宗|思宗)')
-PUNCT_RE = re.compile(r'[卷篇、，。\[\]（）()]')
+# 2026-09-07 lane-A 所報：「卷」「篇」本為收「廣卷帙」「，一名」之類殘語而入，然二字是尋常漢字，
+# **凡名中有之者一概誤報**——南宋永嘉四靈之翁卷（四庫總目「宋翁卷撰」、直齋《翁卷集》一卷）
+# 因此被報三次。今二字自標點類移出，改以 JUAN_PUNCT_RE 只在與數字或殘語連用時報。
+PUNCT_RE = re.compile(r'[、，。\[\]（）()]')
+JUAN_PUNCT_RE = re.compile(r'[一二三四五六七八九十百千\d]\s*[卷篇]|卷帙|^又[卷篇]')
 # 頂真格斷鏈之殘語、注記誤作人名、罕用部件字脫姓（suitang 所報，坑 26）
 # 收窄記：初稿之 ^廣.{1,3}$ 誤收廣成子、廣德先生、廣治、廣學、廣化、廣衍、廣夷等真名（假陽性
 # 七成八），依坑 21 之訓改為「決不入人名之書志語／校勘語」白名單，現全庫零假陽性。
@@ -219,7 +223,7 @@ def odd_kinds(nm):
     # 代之以 office：官職或地望綴於姓名之前，此即那 2 條之型。
     if OFFICE_RE.search(nm) and len(nm) >= 5: ks.append('office')
     if PREFIX_RE.match(nm) and (not MIAO_RE.match(nm) or MIAO_TAIL_RE.match(nm)): ks.append('prefix')
-    if PUNCT_RE.search(nm): ks.append('punct')
+    if PUNCT_RE.search(nm) or JUAN_PUNCT_RE.search(nm): ks.append('punct')
     if len(nm) == 1: ks.append('single')
     if (RESIDUE_RE.search(nm) or RADICAL_RE.match(nm)
             or (COLLATE_RE.search(nm) and not PUNCT_RE.search(nm))): ks.append('residue')

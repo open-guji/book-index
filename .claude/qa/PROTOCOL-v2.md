@@ -165,3 +165,47 @@ v1 的協調者既管工具、又管裁決、又代辦積壓，成了瓶頸。v2
    （F 594→404 並留下可覆核的 verdicts.tsv）。**v2 開道前請先確認這個設定。**
 2. **規模與花費**：v1 九道十一小時 471 美元。v2 五道、活少一半、第一段以規則為主，
    預估低於此，但仍是數百美元量級。
+
+---
+
+## 附：三個「都不報錯，都朝著看起來沒事的方向失效」的坑（lane-E 歸納）
+
+v2 開跑一日之內，同一族的病現了三次。lane-E 把它們並在一起看：
+
+| 病 | 徵候 |
+|---|---|
+| `pushmain.sh` 之 `--ours` 靜默刪行（坑 68、70） | 驗收全過、`verify` 全 0、推送成功，**唯獨資料少了** |
+| 水位線之閘 `except` 靜默放行（坑 72） | 印一行字然後放行，而那行字混在七行正常輸出裡，`grep -q OK` 看不見 |
+| 單分支 clone 靜默不更新分支 ref | `git fetch origin` 只更新 `origin/main`，跨分支比對讀到的是上次抓的快照 |
+
+lane-E 的一句話值得抄在最前面：
+
+> **查一個數對不對，得先問「我讀的這個數是什麼時候的」。**
+
+### 各道之工作區是 `--depth 1` 的 clone，隱含 `--single-branch`
+
+`remote.origin.fetch` 只有 `+refs/heads/main:refs/remotes/origin/main` 一條，
+故 `git fetch origin` **永遠不更新 `origin/claude/qa2-*`**。兩個後果：
+跨分支之賬比對讀到過期分支；stop-hook 拿 HEAD 比 `origin/<自己的分支>` 而報假的「有 N 筆未推」。
+
+**凡要跑跨分支比對者，先補這一條再跑**：
+
+```bash
+git config --add remote.origin.fetch '+refs/heads/claude/qa2-*:refs/remotes/origin/claude/qa2-*'
+git fetch origin
+```
+
+（水位線之閘不受此影響——它比的是本地賬與 `origin/main`，而 `origin/main` 正是單分支 clone
+唯一會更新的那條 ref。）
+
+### 提交訊息裡的反引號會被 shell 吃掉（lane-B 所報）
+
+`git commit -m "…`backrefs.py --zombies`…"` —— 雙引號裡的反引號是**命令替換**，
+shell 先去執行它、得 `command not found`、replace 成空字串，再把空字串交給 git。
+**git 不報錯、提交成功、推送成功、`verify` 全綠，只有字沒了。**
+
+而我們的提交訊息是 markdown，標記檔名／id／欄位名的正規寫法正是反引號
+——**這個坑正對著我們的寫作習慣：愈是把訊息寫得規矩，愈容易踩。**
+
+**一律用** `git commit -m "$(cat <<'EOF' … EOF)"`（**界詞必加單引號**）**或** `git commit -F <檔>`。
+`pushmain.sh` 已加一道極輕之警（反引號數為奇即疑），不中止。
