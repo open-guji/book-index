@@ -11,8 +11,10 @@ import json, os, argparse, datetime, collections
 
 KI = ".claude/qa/known-issues"
 ST = ".claude/qa/status"
-DEFAULT_OUT = ("../overview/项目进展/古籍索引网站/版本梳理/先秦/"
-               "24-全库质量复查-待裁清单.md")
+# 2026-09-07 使用者定：待審之物一律出到 overview 之「待审元数据」資料夾。
+# 舊路 版本梳理/先秦/24-全库质量复查-待裁清单.md 已 git mv 過去，勿再寫回。
+DEFAULT_OUT = ("../overview/项目进展/古籍索引网站/待审元数据/"
+               "01-全库质量复查-待裁清单.md")
 
 # kind → （甲乙丙丁戊之序號、標題、說明）
 GROUPS = [
@@ -59,6 +61,71 @@ def brief(j, n=260):
     return ""
 
 
+# 待人裁之分類：**按「要你決定什麼」分，不按「哪個檢報的」分**（2026-09-07）
+# 使用者要的是可以逐條下判斷的清單，而檢之代號對他毫無意義。
+OPEN_GROUPS = [
+    ("甲", "須覆核志書原文", "庫中無該志之整理本，或原文兩解，非讀原書不能定",
+     ("G2-題首之病待覆原文", "G2-承前之又致重出", "G-志書承前之題失落", "G-志書按語誤建為書",
+      "G-譯業總計語誤建為書", "G-撰人黏題待人定", "I-秦志入庫題名承上之詞（資料缺陷非重出）",
+      "I-秦榮光補晉志入庫重出")),
+    ("乙", "二說皆通，須擇一", "兩造之說各有據，機械判不出，須人取捨",
+     ("C-真疑待裁", "U-漢魏之際待人裁", "I-同題而證據不足以定其為一書，不併",
+      "I-孝經原典與補晉志一條是否同書", "I-秦志同題而兩造皆不著撰人待裁")),
+    ("丙", "entity 之分合", "併人或拆人，牽動人物庫之骨架，錯了難回頭",
+     ("F-entity重出待併", "U-entity實二人", "F-蔡超與蔡超宗是否一人")),
+    ("丁", "須外求：查書、查實物、查外部庫", "庫內證據已窮盡",
+     ("U-生卒無據而誤", "U-CBDB回填之誤生卒", "E-題名孤證繫Book待裁", "V-連結待人定",
+      "H-故宮善本目撰人可疑", "H-千頃堂撰人可疑", "H-故宮善本目撰人為藏文譯語", "G-巴利函題尾殘")),
+    ("戊", "著錄本身壞形", "志書之撰人欄或題名欄本身殘壞，須定一個處置通則",
+     ("H-國史經籍志撰人欄壞形",)),
+]
+
+
+def open_section(w):
+    """把賬上 verdict=open 者按「要你決定什麼」列出。"""
+    import sys as _s
+    _s.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import verdicts as _v
+    op = [x for x in _v.load().values() if x.get('verdict') == 'open']
+    if not op:
+        return
+    by_rule = collections.defaultdict(list)
+    for x in op:
+        by_rule[x.get('rule') or '（未具 rule）'].append(x)
+    placed = set()
+    w("## 四、待人裁之 %d 條——**按「要你決定什麼」分**" % len(op))
+    w("")
+    w("賬上 `verdict=open` 者。**分類依「為什麼機械判不了」，不依哪個檢報的**"
+      "——檢之代號對讀者無意義，要決定什麼才有。每條之逐條理由具 `.claude/qa/verdicts.jsonl`"
+      "（`python3 .claude/qa/verdicts.py --rule <判準名>` 可列全）。")
+    w("")
+    for num, name, why, rules in OPEN_GROUPS:
+        rows = [x for r in rules for x in by_rule.get(r, [])]
+        if not rows:
+            continue
+        placed.update(rules)
+        w("### %s・%s（%d 條）" % (num, name, len(rows)))
+        w("")
+        w("> %s" % why)
+        w("")
+        for r in rules:
+            lst = by_rule.get(r, [])
+            if not lst:
+                continue
+            w("- **%s**（%d 條）" % (r, len(lst)))
+            ex = lst[0]
+            if ex.get('why'):
+                w("  <br>　　例：`%s` —— %s" % (ex.get('id'), " ".join(str(ex['why']).split())[:200]))
+        w("")
+    rest = {k: v for k, v in by_rule.items() if k not in placed}
+    if rest:
+        w("### 己・未歸類（%d 條）" % sum(len(v) for v in rest.values()))
+        w("")
+        for k, v in sorted(rest.items(), key=lambda kv: -len(kv[1])):
+            w("- **%s**（%d 條）" % (k, len(v)))
+        w("")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=DEFAULT_OUT)
@@ -98,8 +165,18 @@ def main():
     w("")
     w("## 一、全庫掃描今數")
     w("")
-    w("**%s**（首掃約 12,800，降 %d%%）。坑本 %d 條（`.claude/qa/PITFALLS.md`）。"
-      % ("{:,}".format(total), round((12800 - total) / 12800 * 100), latest.get("pitfalls", 0)))
+    # **不要拿「排除已裁後之數」去跟「首掃之數」相減**——那是兩把不同的尺，相減即誇大。
+    # v2 之後 total 是排除已裁者之後的數，故並列三個數，讓讀者自己看得出差在哪。
+    _led = latest.get("ledger")
+    if _led:
+        w("**尚待處置 %s 條**。此數已**排除賬上判為 `normal` 者**（賬 %s 筆），"
+          "非與首掃之約 12,800 同尺——那 12,800 是「掃出多少」，此處是「掃出而尚未有裁決者」。"
+          % ("{:,}".format(total), "{:,}".format(_led)))
+    else:
+        w("**%s**（首掃約 12,800，降 %d%%）。"
+          % ("{:,}".format(total), round((12800 - total) / 12800 * 100)))
+    w("")
+    w("坑本 %d 條（`.claude/qa/PITFALLS.md`）。" % latest.get("pitfalls", 0))
     w("")
     w("| 檢 | 數 | 檢 | 數 | 檢 | 數 |")
     w("|---|---:|---|---:|---|---:|")
@@ -167,6 +244,8 @@ def main():
                 w("  <br>　　**建議**：%s" % " ".join(rec.split())[:180])
             w("  <br>　　`%s`" % j["_file"])
         w("")
+
+    open_section(w)
 
     os.makedirs(os.path.dirname(a.out), exist_ok=True)
     open(a.out, "w", encoding="utf-8").write("\n".join(L) + "\n")

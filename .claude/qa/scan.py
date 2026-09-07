@@ -102,7 +102,11 @@ MIAO_TAIL_RE = re.compile(r'^(明太祖|太祖高皇帝|世宗|神宗|熹宗|思
 LACUNA_RE = re.compile(r'^[^\[\]]*[?？□][^\[\]]*$')
 # 釋／僧／道士是本庫僧道之常例（非缺陷），不列；只取著錄語黏連之身分與帝號
 PREFIX_RE = re.compile(r'^(西洋人|泰西|西洋|大學士|太監|尚書|侍郎|禦史|御史|翰林|明太祖|太祖高皇帝|世宗|神宗|熹宗|思宗)')
-PUNCT_RE = re.compile(r'[卷篇、，。\[\]（）()]')
+# 2026-09-07 lane-A 所報：「卷」「篇」本為收「廣卷帙」「，一名」之類殘語而入，然二字是尋常漢字，
+# **凡名中有之者一概誤報**——南宋永嘉四靈之翁卷（四庫總目「宋翁卷撰」、直齋《翁卷集》一卷）
+# 因此被報三次。今二字自標點類移出，改以 JUAN_PUNCT_RE 只在與數字或殘語連用時報。
+PUNCT_RE = re.compile(r'[、，。\[\]（）()]')
+JUAN_PUNCT_RE = re.compile(r'[一二三四五六七八九十百千\d]\s*[卷篇]|卷帙|^又[卷篇]')
 # 頂真格斷鏈之殘語、注記誤作人名、罕用部件字脫姓（suitang 所報，坑 26）
 # 收窄記：初稿之 ^廣.{1,3}$ 誤收廣成子、廣德先生、廣治、廣學、廣化、廣衍、廣夷等真名（假陽性
 # 七成八），依坑 21 之訓改為「決不入人名之書志語／校勘語」白名單，現全庫零假陽性。
@@ -185,6 +189,13 @@ def title_head_kind(t):
     if TITLE_JUAN_FIRST_RE.match(t): return 'juan_first'
     return None
 
+# 跨代之稱：本庫既有 元末明初 57／宋末元初 43／明末清初 11／清末民初 1／隋末唐初 1，
+# 2026-09-07 依 lane-C 之請增 漢末三國、魏晉之際、梁末隋初（其所報：跨代之人被壓成單代
+# 是 C 類 1,154 條裡最大的單一成因，逾七百條，而愈往上古愈無值可用，故 jin／nanbeichao 兩桶特別多）。
+CROSS_DYN_EXTRA = ('宋元', '元明', '明清', '金元', '漢末三國', '魏晉之際')
+CROSS_DYN_START = {'明': 1368, '元': 1279, '清': 1644, '唐': 618, '隋': 581,
+                   '晉': 265, '宋': 420, '梁': 502, '陳': 557, '周': 557, '金': 1115, '民': 1912}
+
 def juan_of(w):
     """自本條諸著錄之引文抽卷數（可多，諸志所記本有異同）。無者回空集。"""
     out = set()
@@ -212,7 +223,7 @@ def odd_kinds(nm):
     # 代之以 office：官職或地望綴於姓名之前，此即那 2 條之型。
     if OFFICE_RE.search(nm) and len(nm) >= 5: ks.append('office')
     if PREFIX_RE.match(nm) and (not MIAO_RE.match(nm) or MIAO_TAIL_RE.match(nm)): ks.append('prefix')
-    if PUNCT_RE.search(nm): ks.append('punct')
+    if PUNCT_RE.search(nm) or JUAN_PUNCT_RE.search(nm): ks.append('punct')
     if len(nm) == 1: ks.append('single')
     if (RESIDUE_RE.search(nm) or RADICAL_RE.match(nm)
             or (COLLATE_RE.search(nm) and not PUNCT_RE.search(nm))): ks.append('residue')
@@ -232,7 +243,14 @@ ALIAS_RE = re.compile(r'撰人異稱——本志作[「『]([^」』]+)[」』]�
 #   **「一字之差」不是判準，逐對裁定的字表才是。**
 VARIANTS = str.maketrans('温云舍冲吴隠禇衞鈃隂邱楊煜檝𣶬徳杰巖淸鑒竒榖臯顔説嶽恒淩麐鳯翶濓槃甯寗祗鐘𠠎鬥台薑鹹樑', '溫雲捨沖吳隱褚衛銒陰丘揚曄楫沈德傑岩清鑑奇穀皋顏說岳恆凌麟鳳翱濂盤寧寧祇鍾劇斗臺姜咸梁')
 # 朝代→年代區間（U 檢用；粗界，只作「相斥」之判，不作定代）
+# 2026-09-07：跨代之稱原不在本表，故 U（dynasty 與自載生卒相斥）遇之即靜默略過
+# ——lane-C 報葉景葵作「中華人民共和國」而卒於 1949，正因表中無此值而無人攔下。今補。
 DYN_SPAN = {
+ '漢末三國': (184, 280), '魏晉之際': (220, 317), '梁末隋初': (548, 618),
+ '隋末唐初': (581, 650), '宋末元初': (1260, 1300), '元末明初': (1340, 1400),
+ '明末清初': (1600, 1690), '清末民初': (1860, 1940), '金元': (1115, 1368),
+ '宋元': (960, 1368), '元明': (1206, 1644), '明清': (1368, 1912),
+ '中華人民共和國': (1949, 2100),
  '先秦': (-1100, -221), '春秋': (-770, -476), '戰國': (-475, -221), '秦': (-221, -206),
  '西漢': (-206, 8), '東漢': (25, 220), '漢': (-206, 220), '三國魏': (220, 265), '三國吳': (222, 280),
  '三國蜀': (221, 263), '魏': (220, 265), '西晉': (265, 317), '東晉': (317, 420), '晉': (265, 420),
@@ -483,10 +501,21 @@ def run_checks(works, IW, IB, IE, IC, ents):
                     R['W'].append({'id': eid, 'title': e.get('primary_name'), 'period': period_key(e.get('period')),
                                    'field': fld, 'still': e.get(fld) or (e.get('external_ids') or {}).get('cbdb_id')})
         dy = e.get('dynasty') or ''
-        if ('末' in dy and '初' in dy) or dy in ('宋元', '元明', '明清', '金元'):
+        if ('末' in dy and '初' in dy) or dy in CROSS_DYN_EXTRA:
             by, dyr = e.get('birth_year'), e.get('death_year')
-            # 跨代標籤所跨之後一代起年：元末明初→1368；宋末元初→1279；明末清初→1644；金元→1234
-            start = {'明': 1368, '元': 1279, '清': 1644}.get(dy[dy.index('初')-1] if '初' in dy else dy[-1], None)
+            # 跨代標籤所跨之「後一代」起年。2026-09-07 lane-C 請補 漢末三國／魏晉之際／梁末隋初 三值，
+            # 補之前先查了本處——**原表只認 明/元/清 三字，其餘一概 start=None，而 start 為 None 時
+            # bogus 恆為 False，於是這個檢對它們靜悄悄地整個失效**（隋末唐初、清末民初早已在庫中而從未被驗過）。
+            # 這是坑 69 那一家：不是判準訂得不好，是**檢根本看不到那一格**，而看不到的那一格永遠安安靜靜。
+            # 今補齊後一代之起年，並且**認不得的標籤一律報出**（kind='unknown_label'），不再默默放過。
+            start = CROSS_DYN_START.get(dy[dy.index('初') - 1] if '初' in dy else dy[-1])
+            if start is None and dy not in CROSS_DYN_EXTRA:
+                for x in (e.get('works') or []):
+                    if x.get('work_id') in works:
+                        R['O'].append(row(works[x['work_id']], entity=eid, kind='unknown_label',
+                                          entity_name=e.get('primary_name'), entity_dynasty=dy,
+                                          birth=by, death=dyr, basis=(e.get('dynasty_basis') or '')[:80]))
+                continue
             bogus = bool(start and ((by and by >= start + 2) or (dyr and dyr >= start + 82)))
             if bogus:
                 for x in (e.get('works') or []):

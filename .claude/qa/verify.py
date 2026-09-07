@@ -93,8 +93,12 @@ def main():
         print(f'裁決賬（只增不減）  {_n}' + (f'  **退步！曾見 {_prev}**' if _bad else ''))
         _ledger_bad = _bad
     except Exception as _e:
-        _ledger_bad = False
-        print(f'裁決賬（只增不減）  查不成：{_e}')
+        # 2026-09-07 lane-E 覆驗本閘所報之漏一：原作 _ledger_bad = False，**查不成就算過**。
+        # 而這個閘所守的正是「無人會自己發現」的那一類——匯入失敗、賬檔權限出錯，
+        # 任一情形都會讓它印一行字然後放行，且那行字混在七行正常輸出裡，
+        # pushmain.sh 只 grep -q OK，看不見。**守門者查不成即應算敗。**
+        _ledger_bad = True
+        print(f'裁決賬（只增不減）  **查不成，算敗**：{_e}')
     for r in (drift_w[:10] + drift_e[:10]): print('  漂移', r)
     if missing and a.why:
         # 「索引缺記錄檔」多半是併條刪檔而未清索引（坑 41）。逕查該 id 之最後刪除提交，
@@ -112,7 +116,10 @@ def main():
         for r in dangle_w[:10] + dangle_e[:10]: print('  懸空', r)
         for r in oneway[:10]: print('  單向', r)
     # 賬之退步一律算敗（不分 strict）——這正是無人會自己發現的那一類（坑 68、坑 70）
-    bad = _ledger_bad or missing or drift_w or drift_e or (a.strict and (dangle_w or dangle_e or oneway))
+    # 2026-09-07：`entity.works 重複項` 自即日納入 --strict 之成敗（清零後方納，免得未清前卡住各道）。
+    # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
+    # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
+    bad = _ledger_bad or missing or drift_w or drift_e or (a.strict and (dangle_w or dangle_e or oneway or dup_e))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)
 
