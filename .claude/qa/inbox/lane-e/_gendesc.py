@@ -84,6 +84,7 @@ def _quote(s):
     逾 QUOTE_CAP 者截之並明言其截（全文本在 indexed_by，可覆按）——
     《四庫總目》之提要動輒數百字，全錄則描述失其為描述。"""
     s = s.strip().replace('「', '『').replace('」', '』')
+    s = re.sub(r'\s+', ' ', s)          # 《經義考》之節多分行，折為單空格
     s = re.sub(r'[。．]+$', '', s)
     if len(s) > QUOTE_CAP:
         s = s[:QUOTE_CAP] + '……（節錄，全文見本條 indexed_by）'
@@ -130,16 +131,19 @@ def build(w):
         out.append(MIXED[w['id']])
 
     # 一、撰人
-    au = w.get('authors') or []
+    au = [a for a in (w.get('authors') or []) if (a.get('name') or '').strip()]
     if au:
-        seg = []
-        for a in au:
-            nm = (a.get('name') or '').strip()
-            if not nm: continue
-            dy = (a.get('dynasty') or w.get('dynasty') or '').strip()
-            role = (a.get('role') or '撰').strip()
-            seg.append((dy + nm + role) if dy else (nm + role))
-        if seg: out.append('、'.join(seg) + '。')
+        # 一書數撰人者（庫中有二人同撰而舊分作二條，今併者），代與役若一，
+        # 不逐人重書——「荀訥撰、晉曹𨚚撰」讀不成話。
+        dys = {(a.get('dynasty') or '').strip() for a in au}
+        dys.discard('')
+        roles = {(a.get('role') or '撰').strip() for a in au}
+        names = '、'.join((a.get('name') or '').strip() for a in au)
+        dy = (dys.pop() if len(dys) == 1 else '') or (w.get('dynasty') or '').strip() if len(dys) <= 1 else ''
+        role = roles.pop() if len(roles) == 1 else '撰'
+        if len(au) > 1 and len(roles) == 0: role = '同撰'
+        if len(au) > 1 and role == '撰': role = '同撰'
+        out.append((dy + names + role if dy else names + role) + '。')
     else:
         out.append('諸志之著錄不著撰人。')
 
@@ -158,18 +162,29 @@ def build(w):
             out.append('諸志所著卷數不一：' + '；'.join(parts) + '。')
 
     # 三、著錄諸志
-    out.append('本條見於%d家著錄：%s。' % (len(srcs), '、'.join('《%s》' % s for s in srcs)))
+    if len(ibs) != len(srcs):
+        multi = [s for s in srcs if sum(1 for x in ibs if x['source'] == s) > 1]
+        out.append('本條繫著錄%d節，出於%d家：%s（其中%s%s繫二節以上）。'
+                   % (len(ibs), len(srcs), '、'.join('《%s》' % s for s in srcs),
+                      '、'.join('《%s》' % s for s in multi),
+                      '各' if len(multi) > 1 else ''))
+    else:
+        out.append('本條見於%d家著錄：%s。' % (len(srcs), '、'.join('《%s》' % s for s in srcs)))
     secs = []
     for ib in ibs:
         s = _sec(ib)
-        if s: secs.append('《%s》列於%s' % (ib['source'], s))
+        if s:
+            t = '《%s》列於%s' % (ib['source'], s)
+            if t not in secs: secs.append(t)      # 併條後同志數節，部類每重複
     if secs: out.append('；'.join(secs) + '。')
 
     # 四、諸志案語（佚文出處與輯家皆在其中，逐字引之，不代為判斷）
     notes = []
     for ib in ibs:
         s = informative(ib, title)
-        if s: notes.append('《%s》：「%s」' % (ib['source'], _quote(s)))
+        if s:
+            t = '《%s》：「%s」' % (ib['source'], _quote(s))
+            if t not in notes: notes.append(t)
     if notes: out.append('諸志之著錄語：' + '；'.join(notes) + '。')
 
     # 五、存佚
