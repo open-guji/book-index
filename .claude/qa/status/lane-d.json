@@ -1,0 +1,46 @@
+{
+ "lane": "lane-D",
+ "protocol": "v2",
+ "checks": ["G", "V"],
+ "state": "in_progress",
+ "batch": 1,
+ "focus": "G clash=false 畢；次批 G clash=true 68，三批 V 109",
+ "machine_id": 2011,
+ "scanned": {"G": 357, "V": 109},
+ "counts": {
+  "G": {
+   "found": 357,
+   "adjudicated": 288,
+   "normal": 276,
+   "fixed": 5,
+   "open": 7,
+   "remaining": 69,
+   "records_changed": 9,
+   "rules": {
+    "G-著錄行之附載": 175,
+    "G-墓碑": 52,
+    "G-故宮巴利函題": 46,
+    "G-律賦韻腳": 3,
+    "G-再造善本尾題殘": 4,
+    "G-撰人黏題": 1,
+    "G-志書按語誤建為書": 3,
+    "G-巴利函題尾殘": 3,
+    "G-譯業總計語誤建為書": 1
+   }
+  },
+  "V": {"found": 109, "adjudicated": 0, "remaining": 109}
+ },
+ "notes": [
+  "G 357 中 52 條為墓碑（15%），其中 44 條落在 clash=true（佔該類 39%）——坑 37 只修了撞庫候選一頭，未修 G 之成員迴圈（scan.py:294）。已提 inbox/lane-d/20260907-0100-ask.md，本道不改 scan.py。",
+  "交底所擬四型實測對上兩型半：clash=false 中「串條」一條也無，看似連書數書者皆為一版本行之附載（要害 3）；「撰人黏題」全 G 僅 1 條。",
+  "判準所據為可查之尺，非字面臆斷：繫志書者 100 條比對 indexed_by 原文，93 條逐字相符；繫實物目錄者 45 條逐條讀畢（非抽驗），假陽性 0/43。",
+  "juan_count 於合刻著錄行一族系統性取末一種之卷數（81 條），已查與已落賬之 I「卷數異即異書」242 條交集為 0，未污染。屬欄位正規化，本道不動。",
+  "改資料 9 條（尾題殘 8、撰人黏題 1），reindex --run --membership 與 verify.py 皆全 0。"
+ ],
+ "known_issues": [
+  "lane-d-20260907-補晉志按語誤建為書三條.json",
+  "lane-d-20260907-譯業總計語誤建為書.json",
+  "lane-d-20260907-故宮巴利函題尾殘三條.json"
+ ],
+ "at": "2026-09-07"
+}
