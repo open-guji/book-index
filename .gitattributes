@@ -1,0 +1,10 @@
+# 2026-09-07 lane-D：`pushmain.sh` 之解衝突迴圈對非索引檔一律 `git checkout --ours`，
+# 而 `.claude/qa/verdicts.jsonl` 與 `for-user.md` **是 append-only 之賬與佇列**
+# ——「取己方」即把他道本輪追加的整段悄悄刪掉。此病已三見（坑 36、提交 254023de39
+# 補回 lane-B 四筆、本次吞 lane-E 67 筆＋lane-B 4 筆及 lane-B 之 for-user 整段）。
+# 治本：兩檔改用 git 內建之 union 合流驅動，兩造之行皆留，故根本不再產生衝突，
+# 解衝突迴圈也就碰不到它們。verdicts.jsonl 為一行一裁且 load() 以後寫者為準，
+# union 正合其語意；for-user.md 為條列之佇列，union 之果或有重複而不失內容
+# ——**重複可刪，刪掉的找不回來**。
+.claude/qa/verdicts.jsonl merge=union
+.claude/qa/for-user.md    merge=union
