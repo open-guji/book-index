@@ -262,3 +262,9 @@ dynasty 空、alt_names 空、名下只此一書。「市」是《國史經籍�
       ——**倉不在本 session 之 sources 裡**（本道之容器開工時連 clone 都沒有，是自己 clone 的）。
       以 `add_repo(owner=open-guji, repo=book-index, access=push)` 掛上之後一次即推成。
       非 classifier、非 `allowed_push_branches`。**若 lane-A 當時亦是此因，則新開之道都該先驗這一步。**
+- [ ] 2026-09-07 [lane-B] **提交訊息裡的反引號會被 shell 靜默吃掉**（各道皆有此險，非資料問題但會蝕掉記錄）。
+      `git commit -m "…\`foo\`…"` 之中，雙引號裡的反引號是命令替換，shell 執行之、得
+      command not found、replace 成空字串再交給 git；git 不報錯、提交成功、推送成功。
+      **而我們的提交訊息是 markdown，標記檔名與欄位名的正規寫法正是反引號**——愈寫得規矩愈容易踩。
+      本道 `1a184a13a3` 已中一次（「新增機檢 `backrefs.py --zombies`」成了「新增機檢 。」）。
+      **解**：一律用 `git commit -m "$(cat <<'EOF' … EOF)"`（界詞必加單引號）或 `git commit -F <檔>`。
