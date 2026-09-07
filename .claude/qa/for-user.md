@@ -234,3 +234,9 @@ dynasty 空、alt_names 空、名下只此一書。「市」是《國史經籍�
       改 work 64、entity 90——**且容器閒置久了會回收，屆時全部消失**。
       已請其改推自己的分支、或把 `git format-patch` 之內容貼進 `-check.md` 帶出來。
       **若這是權限設定（該 session 之 `allowed_push_branches` 為空），只有使用者改得了。**
+- [ ] 2026-09-07 [lane-B] **提交訊息裡的反引號會被 shell 靜默吃掉**（各道皆有此險，非資料問題但會蝕掉記錄）。
+      `git commit -m "…\`foo\`…"` 之中，雙引號裡的反引號是命令替換，shell 執行之、得
+      command not found、replace 成空字串再交給 git；git 不報錯、提交成功、推送成功。
+      **而我們的提交訊息是 markdown，標記檔名與欄位名的正規寫法正是反引號**——愈寫得規矩愈容易踩。
+      本道 `1a184a13a3` 已中一次（「新增機檢 `backrefs.py --zombies`」成了「新增機檢 。」）。
+      **解**：一律用 `git commit -m "$(cat <<'EOF' … EOF)"`（界詞必加單引號）或 `git commit -F <檔>`。
