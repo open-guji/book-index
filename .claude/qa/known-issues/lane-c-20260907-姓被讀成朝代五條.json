@@ -1,0 +1,80 @@
+{
+ "lane": "lane-C",
+ "at": "2026-09-07",
+ "kind": "姓被讀成朝代——撰人切分之誤（X 類，坑 30）連帶斷代之誤",
+ "n": 5,
+ "summary": "著錄原文作「《太丹記》一卷（**魏伯陽**）」，入庫時把「魏」切成**朝代**、「伯陽」切成**名**，於是憑空造出一位「魏代之伯陽」，並據以把書定為 three-kingdoms。**魏伯陽是東漢丹家**，《周易參同契》之作者；本組三部（太丹記、參同契五相類、蓬萊東西竈還丹歌）皆參同契一系之丹書。同型者「吳希言」「吳可幾」。",
+ "how_found": "自 lane-A 所提「period_basis 以 period_upper 相容為唯一之據者宜回掃」一議。全庫此型 673 部，收窄至「period 較 upper 早二桶以上且 basis 無任何正面之證」得 256 部，再以「其字既是朝代又是常見姓、且著錄原文中該字與名緊連」濾之，得此 5 部。",
+ "second_signal": "**這 5 部之 `period_basis` 還各自點名了一個記錄裡根本沒有的人**——基作「撰人「劉光昱」已定代「魏」」而 authors 作「伯陽」；「章得象」對「希言」；「何維復」對「可幾」。章得象是北宋宰相（978–1048），基卻稱其「已定代『吳』」。**是該批次之 entity 查表整批錯位**，不只是切分之誤。",
+ "why_undetectable": "`period_upper` 皆作 ming，而 three-kingdoms 早於 ming，**「不相斥」故放行**——正是 lane-A 急報所指「把不相斥當成有據」。上限只排除更晚，不排除更早。",
+ "not_defects": [
+  {
+   "id": "d59f2evmb56p",
+   "title": "周易子夏傳",
+   "why": "著錄作「周卜商撰」，而其 basis 已考定「AMB「周」當為姬周：卜商即子夏，孔子弟子，春秋末人，非北周／後周／武周」——**已辦，判斷正確**，不必再動。"
+  },
+  {
+   "id": "d59f2pt8kikg",
+   "title": "增入名儒講義皇宋中興兩朝",
+   "why": "著錄作「宋留正等撰」——留正是南宋人，姓「留」，此處「宋」確是朝代。**非本型**。（惟其 period 為空，屬他道之事。）"
+  }
+ ],
+ "scope": "**撰人之切分與 entity 之立廢屬 X 類（坑 30，entity-cbdb／lane-A 之界），本道只讀不動。**work 之 `period` 雖屬本道，然**撰人未定則書代無從定**（是東漢魏伯陽之作，抑或後世託名之丹書，須先定其人），故本道亦未逕改，一併請派。",
+ "items": [
+  {
+   "id": "d59f2ofpw6ip",
+   "title": "太丹記",
+   "period": "three-kingdoms",
+   "upper": "ming",
+   "catalog": "《太丹記》一卷（魏伯陽）",
+   "entity": "hixhd2h9bmcc",
+   "entity_name": "伯陽",
+   "entity_dynasty": "魏",
+   "basis_names": "劉光昱"
+  },
+  {
+   "id": "d59f2oftbsaq",
+   "title": "參同契五相類",
+   "period": "three-kingdoms",
+   "upper": "ming",
+   "catalog": "《參同契五相類》一卷（魏伯陽）",
+   "entity": "hixhd2h9bmcc",
+   "entity_name": "伯陽",
+   "entity_dynasty": "魏",
+   "basis_names": "劉光昱"
+  },
+  {
+   "id": "d59f2ofobzsw",
+   "title": "蓬萊東西竈還丹歌",
+   "period": "three-kingdoms",
+   "upper": "ming",
+   "catalog": "《蓬萊東西竈還丹歌》一卷（魏伯陽）",
+   "entity": "hixhd2h9bmcc",
+   "entity_name": "伯陽",
+   "entity_dynasty": "魏",
+   "basis_names": "劉光昱"
+  },
+  {
+   "id": "d59f2og22fpe",
+   "title": "風論山兆經",
+   "period": "three-kingdoms",
+   "upper": "ming",
+   "catalog": "《風論山兆經》二卷（吳希言）",
+   "entity": null,
+   "entity_name": "希言",
+   "entity_dynasty": "吳",
+   "basis_names": "章得象"
+  },
+  {
+   "id": "d59f2og9k4jk",
+   "title": "千姓編",
+   "period": "three-kingdoms",
+   "upper": "ming",
+   "catalog": "《千姓編》一卷（吳可幾）",
+   "entity": "hixhd2h9bmtr",
+   "entity_name": "可幾",
+   "entity_dynasty": "吳",
+   "basis_names": "何維復"
+  }
+ ]
+}
