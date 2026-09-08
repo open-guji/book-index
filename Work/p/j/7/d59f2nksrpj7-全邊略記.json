@@ -30,12 +30,6 @@
       "edition": "影印北京大學圖書館藏明崇禎刻本",
       "volume": "第738冊",
       "section": "史部 史部"
-    },
-    {
-      "source": "千頃堂書目",
-      "source_bid": "d59f2mel8d1c",
-      "title_info": "方孔炤全邊畧記",
-      "summary": "方孔炤全邊畧記"
     }
   ],
   "description": {
@@ -72,6 +66,12 @@
       "types": [
         "image"
       ]
+    },
+    {
+      "name": "维基共享资源",
+      "type": "image",
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:%E5%85%A8%E9%82%8A%E7%95%A5%E8%A8%98%28%E4%B8%80%29.djvu"
     }
   ],
   "books": [
@@ -83,20 +83,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 lane-B 併條（rule=I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一））：併 d59f6ehzkoow《全邊畧記》 入本條。同題同撰人而**題止異體字之異**：「全邊略記」對「全邊畧記」。keeper 繫 明史藝文志／續修四庫全書；被併者繫 千頃堂書目。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
-  "additional_titles": [
-    "全邊畧記"
-  ],
-  "merged_in": [
-    {
-      "id": "d59f6ehzkoow",
-      "title": "全邊畧記",
-      "at": "2026-09-07T21:00:17Z",
-      "by": "lane-B",
-      "rule": "I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一）",
-      "why": "同題同撰人而**題止異體字之異**：「全邊略記」對「全邊畧記」。keeper 繫 明史藝文志／續修四庫全書；被併者繫 千頃堂書目。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。"
-    }
-  ]
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "revision": "1.0.1",
+  "revised_at": "2026-09-07"
 }
