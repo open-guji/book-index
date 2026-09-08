@@ -125,6 +125,36 @@ def highwater(path=PATH):
     return n, prev, n < prev
 
 
+def clashes(path=PATH):
+    """撞判之檢（lane-A 2026-09-07 22:00 所請）。
+
+    賬之 load() 取 (id, check) 之**最後一筆**，故兩道同時判同一條時，
+    後寫者**默默**蓋掉先寫者，兩造都不會收到任何提示——坑 70 是「行被刪」，
+    此是「行還在而效力被蓋」，是同一類病的另一面。
+
+    報之準：同一 (id, check) 由**相異之 `by`** 落過，且**判不同**。
+    別出「後手」與「撞判」：lane-A 所指——後筆之 `why` 若**援引了前一位落判者之名**，
+    是有意的接續（坑 74 那種），不算撞；否則是撞。
+    回 (clashes, followups)，各為 dict：(id, check) -> 該鍵之全部筆（依序）。
+    """
+    seq = collections.defaultdict(list)
+    for r in _iter(path):
+        i, c = r.get('id'), r.get('check')
+        if i and c:
+            seq[(i, c)].append(r)
+    clash, follow = {}, {}
+    for k, rows in seq.items():
+        bys = {r.get('by') for r in rows}
+        if len(bys) < 2:
+            continue
+        if len({r.get('verdict') for r in rows}) < 2:
+            continue                      # 判同者不報——重工是有的，錯沒有
+        prior = {r.get('by') for r in rows[:-1]} - {rows[-1].get('by')}
+        why = rows[-1].get('why') or ''
+        (follow if any(b and b in why for b in prior) else clash)[k] = rows
+    return clash, follow
+
+
 def stats(path=PATH):
     cur = load(path)
     by_verdict = collections.Counter(v.get('verdict') for v in cur.values())
@@ -141,11 +171,23 @@ def main():
     ap.add_argument('--revoke', metavar='RULE', help='整批翻案某一 rule')
     ap.add_argument('--by', default='coordinator')
     ap.add_argument('--why', default='')
+    ap.add_argument('--clash', action='store_true',
+                    help='撞判之檢：同一 (id, check) 由二道以上落過而判不同')
+    ap.add_argument('--strict', action='store_true', help='與 --clash 併用：有撞則回非零')
     a = ap.parse_args()
     if a.hwm:
         n, prev, bad = highwater()
         print('賬今 %d 筆，origin/main 上 %d 筆%s' % (n, prev, '　**退步了**' if bad else ''))
         raise SystemExit(1 if bad else 0)
+    if a.clash:
+        clash, follow = clashes()
+        print('撞判 %d 組；有意之後手 %d 組（後筆 why 援引前一位落判者）' % (len(clash), len(follow)))
+        for (i, c), rows in sorted(clash.items()):
+            print('  %s / %s' % (i, c))
+            for r in rows:
+                print('     %-11s %-7s %s  %s' % (r.get('by'), r.get('verdict'),
+                      (r.get('at') or '')[:19], (r.get('rule') or '')[:44]))
+        raise SystemExit(1 if (a.strict and clash) else 0)
     if a.revoke:
         if not a.why:
             raise SystemExit('翻案須說明所以然（--why）')
