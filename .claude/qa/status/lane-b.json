@@ -1,15 +1,13 @@
 {
- "lane": "lane-B", "checks": ["I", "Y"], "state": "done", "batch": 15,
- "focus": "I、Y 掃出裁畢；併條三種賬病掃盡；題名異體字重出 254 組亦併訖",
- "commit": "b01053e1da",
+ "lane": "lane-B", "checks": ["I", "Y"], "state": "done", "batch": 16,
+ "focus": "I、Y 掃出裁畢；併條三種賬病掃盡；異體字重出（題名 254 ＋ 撰人 51）亦併訖",
+ "commit": "5d8bcec61c",
  "scan": {"I": {"start": 267, "now": 16, "note": "餘 16 皆本道已判 open，待人裁"}, "Y": {"start": 40, "now": 0}},
- "variant_sweep": {"開工": 254, "今": 4, "四者皆本道明判不併":
-   ["棋勢（志書自著數本）", "東皋先生詩集（實物藏本 vs 書目）", "周易講疏（何妥 vs 南齊永明國學講）", "鳳髓脈經機要（卷數互斥且兩造無撰人）"]},
- "audits": {"backrefs --audit 懸空": 0, "backrefs --zombies 殭屍": 0, "verify entity.works 重複項": 0},
- "verify": "全綠",
- "tools_added": [".claude/qa/backrefs.py（--audit／--unexecuted／--zombies）", ".claude/qa/mergework.py", ".claude/qa/dropnode.py"],
- "reported_upstream": ["scan.py 之 I／G／Y 組鍵須過異體歸一（表已在檔中，只用在 F 之人名一側）",
-                       "scan.py juan_of 不認「篇」", "juan_of 誤讀叢書子目之卷次為書之卷數",
-                       "入庫撞庫須跳過有 merged_into 之墓碑", "凡新入之目錄整理本先驗其用字體系",
-                       "提交訊息中反引號遭 shell 命令替換"]
+ "variant_sweep": {"開工": "254（題名）＋ 51（撰人）＝ 305", "今": 4,
+   "四者皆本道明判不併": ["棋勢（志書自著數本）", "東皋先生詩集（實物藏本 vs 書目）",
+                        "周易講疏（何妥 vs 南齊永明國學講）", "鳳髓脈經機要（卷數互斥且兩造無撰人）"]},
+ "merges_total": {"records": 383, "keepers": 375},
+ "entity_fallout": {"一人二目待 A 道": 54},
+ "audits": {"backrefs --audit": 0, "backrefs --zombies": 0, "verify": "全綠"},
+ "tools_added": [".claude/qa/backrefs.py（--audit／--unexecuted／--zombies）", ".claude/qa/mergework.py", ".claude/qa/dropnode.py"]
 }
