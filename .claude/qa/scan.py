@@ -443,11 +443,19 @@ def run_checks(works, IW, IB, IE, IC, ents):
     # 皆繫隋志，正是隋志所著錄之五家義疏，斷不可併）。志書裸條之題又多是截斷之形
     # （《雜傳》《義疏》《詩》《書》《經》），同題本不足為據。故卷數互異者降為
     # kind='juan_differ' 而不作重出候選（坑 47）。墓碑不入組（坑 37 同理）。
+    # 2026-09-08：**組鍵過異體歸一**。此前取 (title, authors) 之生值，故「范甯集」與「范寧集」
+    # 同書而不同組，此類重出從未被本檢報出——lane-B 以 VARIANTS 表重掃全庫方見，
+    # 批十四併 234 組、批十五掃盡 254→4。**VARIANTS 本已在庫（43 對，lane-A 逐對裁定），
+    # 卻只用在 F 檢之人名一側**，是尺有而未用，非無尺。
+    # 只用這 43 對（不含 dedup_check 之題名補表：記/紀、曆/歷 之屬義各有屬，
+    # 用於組鍵會把異書併成一組）；另去空白與常見標點，此外不動。
+    def _gk(x):
+        return re.sub(r'[\s·・、，,。．.：:；;「」『』《》〈〉()（）]', '', (x or '').translate(VARIANTS))
     groups = collections.defaultdict(list)
     for w in works.values():
         if w.get('merged_into'): continue
-        au = tuple(sorted((a.get('name') or '') for a in (w.get('authors') or [])))
-        groups[(w.get('title'), au)].append(w)
+        au = tuple(sorted(_gk(a.get('name')) for a in (w.get('authors') or [])))
+        groups[(_gk(w.get('title')), au)].append(w)
     for (t, au), ws in groups.items():
         if len(ws) < 2: continue
         juans = {frozenset(juan_of(w)) for w in ws}
