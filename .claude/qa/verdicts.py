@@ -19,7 +19,14 @@
 **`rule` 是第一等公民**：同一條 rule 可一次落幾百條，日後要翻案只須按 rule 撈回來，
 不必重掃全庫。翻案用 `revoke`——**不刪行，是再追加一行 `revoked`**，賬永遠可回溯。
 """
-import json, os, sys, datetime, argparse, collections
+import json, os, sys, datetime, argparse, collections, signal
+
+# 坑 79：`... | head` 一關管子即 BrokenPipeError，而那看起來像程式壞了。
+# 本檔是給人讀的報告，天生就會被 head／less 截，故明寫預設之 SIGPIPE。
+try:
+    signal.signal(signal.SIGPIPE, signal.SIG_DFL)
+except (AttributeError, ValueError):
+    pass                      # 非 POSIX 或非主執行緒
 
 PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'verdicts.jsonl')
 VALID = ('normal', 'fixed', 'open', 'revoked')
