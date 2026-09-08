@@ -1838,3 +1838,13 @@ lane-D 批一寫「取不到原文」，本批自己推翻了（原文一直在 
 **本族同樣無檢可報**——`juan_count` 有值即算已填，**沒有任何一個檢會問它的值打哪來**。
 
 **一句話**：**檢只問欄填了沒有，不問值是打哪來的；而錯的值，比空的欄更像對的。**
+
+## 85. 協調者之 `configured_model` 與 `session_context.model` 不一致——非數據問題，記此存查 [coordinator]
+
+2026-09-06 協調者按：v1 九道 `configured_model` 皆記 `claude-opus-5`，
+而各道 `session_context.model`／`last_served_model`／`user_switched_model` 皆為 `claude-sonnet-5`
+——似帳號層之模型切換未回寫任務設定，協調者職權改不動。
+**這不是一條資料待裁項**（不涉 Work/Book/Entity 之取捨），是流程／工具層的觀察，故移此存查，
+不進 `待审元数据/00-待裁总清单.md`。
+來源：2026-09-08 從 `overview/项目进展/古籍索引网站/待审元数据/00-待裁总清单.md`
+「開工時已在佇列者」一節移出（原文見該檔 git 歷史）。
