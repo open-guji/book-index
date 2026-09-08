@@ -1,18 +1,15 @@
 {
- "lane": "lane-B", "checks": ["I", "Y"], "state": "done", "batch": 14,
- "focus": "I、Y 掃出裁畢；併條之三種賬病（未執行之併／墓碑被回填／殭屍）亦掃盡",
- "commit": "c2b6300860",
- "scan": {"I": {"start": 267, "now": 16, "note": "餘 16 皆本道已判 open，待人裁"},
-          "Y": {"start": 40, "now": 0}},
- "audits": {"backrefs --audit 懸空": 0, "backrefs --zombies 殭屍": 0,
-            "backrefs --unexecuted": "3（皆已具文註記之『墓碑被回填後 keeper 側殘留之史跡』，非待辦）",
-            "純墓碑（合乎庫例）": 361},
+ "lane": "lane-B", "checks": ["I", "Y"], "state": "done", "batch": 15,
+ "focus": "I、Y 掃出裁畢；併條三種賬病掃盡；題名異體字重出 254 組亦併訖",
+ "commit": "b01053e1da",
+ "scan": {"I": {"start": 267, "now": 16, "note": "餘 16 皆本道已判 open，待人裁"}, "Y": {"start": 40, "now": 0}},
+ "variant_sweep": {"開工": 254, "今": 4, "四者皆本道明判不併":
+   ["棋勢（志書自著數本）", "東皋先生詩集（實物藏本 vs 書目）", "周易講疏（何妥 vs 南齊永明國學講）", "鳳髓脈經機要（卷數互斥且兩造無撰人）"]},
+ "audits": {"backrefs --audit 懸空": 0, "backrefs --zombies 殭屍": 0, "verify entity.works 重複項": 0},
  "verify": "全綠",
- "tools_added": [".claude/qa/backrefs.py（--audit／--unexecuted／--zombies）",
-                 ".claude/qa/mergework.py", ".claude/qa/dropnode.py"],
- "open_queue": ["秦志孝經一卷穆帝時", "秦志五條題名承上之詞", "秦志四組兩造皆不著撰人",
-                "楊子太玄經一條誤植兩書", "任奉古孝經傳頂真格之疑"],
- "reported_upstream": ["scan.py juan_of 不認「篇」", "verify.py 以 set 收 entity.works（已收，今報 24）",
-                       "Collection.contained_works 無人驗", "入庫撞庫須跳過有 merged_into 之墓碑",
-                       "提交訊息中反引號遭 shell 命令替換（各道皆有此險）"]
+ "tools_added": [".claude/qa/backrefs.py（--audit／--unexecuted／--zombies）", ".claude/qa/mergework.py", ".claude/qa/dropnode.py"],
+ "reported_upstream": ["scan.py 之 I／G／Y 組鍵須過異體歸一（表已在檔中，只用在 F 之人名一側）",
+                       "scan.py juan_of 不認「篇」", "juan_of 誤讀叢書子目之卷次為書之卷數",
+                       "入庫撞庫須跳過有 merged_into 之墓碑", "凡新入之目錄整理本先驗其用字體系",
+                       "提交訊息中反引號遭 shell 命令替換"]
 }
