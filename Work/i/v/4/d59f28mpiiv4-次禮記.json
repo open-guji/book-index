@@ -8,6 +8,18 @@
       "source_bid": "d59f2gcburcx",
       "title_info": "《次禮記》二十卷",
       "summary": "《次禮記》二十卷魏徵撰。"
+    },
+    {
+      "source": "國史經籍志",
+      "source_bid": "d59f2nl40936",
+      "title_info": "《魏徵次禮記》二十卷",
+      "summary": "《魏徵次禮記》二十卷"
+    },
+    {
+      "source": "新唐書藝文志",
+      "source_bid": "d59f2hl0cmio",
+      "title_info": "魏徵次禮記",
+      "summary": "魏徵次禮記二十卷"
     }
   ],
   "id": "d59f28mpiiv4",
@@ -29,7 +41,7 @@
     }
   ],
   "measure_info": "二十卷",
-  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（二十卷），今據以補。",
+  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（二十卷），今據以補。\n\n2026-09-09 A-并条 併條（rule=A-撰人黏題首致撞庫失效）：併 d59f2qaeb5s1《魏徵次禮記》 入本條。被并方繫於國史經籍志、新唐書藝文志，正条繫於舊唐書經籍志；两侧所繫之志互不相交（ev1_disjoint），卷数集合相容（ev2_state=同），撰人「魏徵」与正条撰人相合，判为撰人黏题首致同书重出，逕并。 另搬入 keeper 原缺之：description。",
   "authors": [
     {
       "name": "魏徵",
@@ -44,5 +56,24 @@
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「唐」——撰人自《舊唐書經籍志》著錄語尾名抽出（見 authors[].name_basis）。本條原上限 sui-tang，今得撰人，定作 sui-tang。",
   "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "revised_at": "2026-08-24",
+  "description": {
+    "text": "《國史經籍志》收錄。",
+    "sources": [
+      "國史經籍志"
+    ]
+  },
+  "additional_titles": [
+    "魏徵次禮記"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2qaeb5s1",
+      "title": "魏徵次禮記",
+      "at": "2026-09-09T20:40:10Z",
+      "by": "A-并条",
+      "rule": "A-撰人黏題首致撞庫失效",
+      "why": "被并方繫於國史經籍志、新唐書藝文志，正条繫於舊唐書經籍志；两侧所繫之志互不相交（ev1_disjoint），卷数集合相容（ev2_state=同），撰人「魏徵」与正条撰人相合，判为撰人黏题首致同书重出，逕并。 另搬入 keeper 原缺之：description。"
+    }
+  ]
 }
