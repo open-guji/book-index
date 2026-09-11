@@ -54,7 +54,8 @@ Represents the abstract intellectual content.
   ],
   "measure_info": "string (optional, UI 直接展示文本，應與 measures 一致，例：「四集（每集五回）二十回」)",
   "juan_count": {
-    "number": "integer (卷數)",
+    "number": "integer (計量之數——不一定是卷數，見 unit)",
+    "unit": "string (optional, 這個數的單位，枚舉：卷|冊|篇|回|集|編|種|則|部|章|函|首|筆|期|節|帙|弄|件。全庫回填前可以沒有這個鍵，缺鍵時渲染層不應再預設「卷」)",
     "description": "string (optional, 如「存三卷」「原十卷今殘」)"
   },
   "original_title": "string (optional, 條目原題與規範題不同時記原題，如《毛詩義問劉楨撰》→「毛詩義問」)",
@@ -687,9 +688,33 @@ Book 的 `indexed_by` 與 Work 的 `indexed_by` 同結構，記錄該具體版�
 實際錄入未走這條臨時通道：叢編收錄一律直接記在 `Work.contained_in`（作品層，指向 Collection ID），或升格為獨立 Book 後記 `Book.contained_in`。新資料請沿用 `contained_in`，勿再啟用 `book_contained_in`。
 
 `measures` 用於補充 `juan_count`，適合通俗小說等需要多維計量（卷+回+集+篇）的作品。
-- `juan_count` 側重傳統「卷」維度，前端已使用。
-- `measures` 數組按原書順序排列，每項一個單位。
+
+- **`juan_count.number` 是「這個數」，`juan_count.unit` 是「這個數的單位」，兩者同層**
+  （2026-09-09 juan-unit 道改；此前這句話寫的是「`juan_count` 側重傳統「卷」維度，
+  前端已使用」——**這句話本身就是《羋子》「十八篇」被渲染成「十八卷」那個 bug 的
+  根源之一**：文檔一直承諾 `juan_count` 只裝「卷」，但實際錄入從未照這句話做過，
+  漢志一類志書著錄的「篇」也一直被塞進同一個 `juan_count.number`。**渲染層讀
+  `juan_count.number` 時必須同時讀 `juan_count.unit`，不可再預設「卷」**；
+  `unit` 缺鍵時（全庫回填前的過渡狀態）寧可不顯示單位字樣，也不要顯示錯的。
+- **枚舉是 18 個真量詞的閉集，不設「其他」桶**：卷｜冊｜篇｜回｜集｜編｜種｜則｜
+  部｜章｜函｜首｜筆｜期｜節｜帙｜弄｜件——從全庫 `measure_info` 的「數字＋量詞」
+  全量頻次表裡人工篩出（2026-09-09 juan-unit 道；統計見
+  `overview/scripts/qa/reports/20260909-juan-unit/report.md` 表二），長尾也各自
+  精確、量還很小，並入「其他」等於抹掉信息。
+- **「不分卷」類為什麼不填 `unit`**：這批 `measure_info` 原文就是「不分卷」，
+  `juan_count.number` 本來就是 `0`——不是「這個數的單位不知道」，是「這部書沒有
+  卷這個維度」，填任何 `unit` 都是無的放矢，所以直接不填，也不必另設特殊值。
+- `measures` 數組按原書順序排列，每項一個單位，用於**同一部書同時有不止一個計量
+  維度**的情形（如通俗小說「六卷十六回」，卷是文本分卷、回是章節結構，兩維度都真）；
+  `juan_count` 裝的是其中作為主計量的那一個數，不是另立一套。
 - `measure_info` 是人類可讀的拼接展示（供 UI 直接渲染），例如「四卷二十回」、「八集四十回（每集五回）」。
+- **已知：`measures[0].unit` 不能盲信為權威源**——2026-09-09 核驗發現 995 條
+  `measures[0].unit` 與 `measure_info` 原文不一致（984 條集中在「國立故宮博物院
+  善本舊籍」批次，該批 `measures.unit` 被整批錯填成「冊」）。回填 `juan_count.unit`
+  一律以 `measure_info` 原文重新抽取為準，`measures` 只當交叉驗證參考。這批批次性
+  錯誤本身未修，另行立案。
+- `additional_works[].n_juan`（見上文）字面即「卷」，是「主體+附錄各自計卷」的
+  另一個既有機制，與這裡的 `juan_count.unit` 不是同一件事，不要混用。
 
 `additional_titles` 用於記錄同書的其他常用書名（別名/異稱）：
 - 適用於有多個傳統名稱的經典：如《左傳》=《春秋左氏傳》=《左氏傳》=《春秋左傳》
@@ -1051,7 +1076,7 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
 
   "external_ids": {
     "cbdb_id": "integer | null",
-    "cbdb_match": "string (auto | manual | none, optional)",
+    "cbdb_match": "string (自由格式凭据备注，非枚举；如 auto/manual/none/auto_create/manual_remap/auto_dy_unique 等，optional)",
     "cbdb_source": "string (匹配凭据, optional)"
   },
 
@@ -1070,8 +1095,14 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
 | `people` | 人物（作者、注家、编者等） | 蘇軾、王應麟、焦竑 |
 | `place` | 地名（保留） | — |
 | `dynasty` | 朝代（保留） | — |
+| `collective` | 机构/官署/局所等非个人主体 | 郵傳部（hixhd2h9bv4m，`ai_note`："此非個人，乃官署、局所、書院、編…"） |
+
+> 2026-09-09 C-entity 道核实补：production 实测 42 条 `collective`，此前未列入本表。
 
 #### alt_names.type 枚举
+
+活字典，持续扩——机械质检（`scripts/qa/qa_entity.py`）按此表判 WARN，
+新增合法值就补进来，长尾罕见值先留 WARN 供人工按需并入，不强求一次穷举。
 
 | type | 含义 | 对应 CBDB ALTNAME_CODES |
 |---|---|---|
@@ -1082,6 +1113,16 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
 | `別名` | 其他别名 | 3 |
 | `常用名` | 常用称谓（如「陽明先生」） | — |
 | `簡體` | 简体写法 | — |
+| `行第` | 排行称谓（如「李十二」） | — |
+| `廟號` | 庙号 | — |
+| `訛名` | 著录讹误而流传的名 | — |
+| `異體` | 异体字写法 | — |
+| `封爵` | 封爵称谓 | — |
+| `俗姓` | 出家前本姓（僧道人物常见） | — |
+
+> 2026-09-09 C-entity 道核实补以上 6 种：production 全库按出现频次为
+> 著錄形(121)／小字(40)／小名(26)／著錄原形(21)／法號(20)／本名(16)／舊著錄形(15)／
+> 殘名(13)／異寫(11) 等，长尾还有 20 余种个位数值，未逐一收表，留 WARN 供人工按需并入。
 
 #### Work.authors.entity_id
 
