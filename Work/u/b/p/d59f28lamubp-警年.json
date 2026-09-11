@@ -14,6 +14,18 @@
       "source_bid": "d59f2hqc0c1t",
       "title_info": "警年十卷",
       "summary": "警年十卷"
+    },
+    {
+      "source": "新唐書藝文志",
+      "source_bid": "d59f2hl0cmio",
+      "title_info": "陸羽警年",
+      "summary": "陸羽警年十卷"
+    },
+    {
+      "source": "國史經籍志",
+      "source_bid": "d59f2nl40936",
+      "title_info": "《陸羽警年》十卷",
+      "summary": "《陸羽警年》十卷"
     }
   ],
   "id": "d59f28lamubp",
@@ -28,7 +40,7 @@
     }
   ],
   "measure_info": "十卷",
-  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（十卷），今據以補。",
+  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（十卷），今據以補。\n\n2026-09-09 A-并条 併條（rule=A-撰人黏題首致撞庫失效）：併 d59f2ps8zh8g《陸羽警年》 入本條。被并方繫於國史經籍志、新唐書藝文志，正条繫於宋史藝文志、崇文總目；两侧所繫之志互不相交（ev1_disjoint），卷数集合相容（ev2_state=同），撰人「陸羽」与正条撰人相合，判为撰人黏题首致同书重出，逕并。",
   "authors": [
     {
       "name": "陸羽",
@@ -43,5 +55,18 @@
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「唐」——撰人自《宋史藝文志》頂真格之首名抽出（見 authors[].name_basis），繫庫中同名唯一之 entity 而得其代。",
   "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "revised_at": "2026-08-24",
+  "additional_titles": [
+    "陸羽警年"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2ps8zh8g",
+      "title": "陸羽警年",
+      "at": "2026-09-09T20:42:02Z",
+      "by": "A-并条",
+      "rule": "A-撰人黏題首致撞庫失效",
+      "why": "被并方繫於國史經籍志、新唐書藝文志，正条繫於宋史藝文志、崇文總目；两侧所繫之志互不相交（ev1_disjoint），卷数集合相容（ev2_state=同），撰人「陸羽」与正条撰人相合，判为撰人黏题首致同书重出，逕并。"
+    }
+  ]
 }
