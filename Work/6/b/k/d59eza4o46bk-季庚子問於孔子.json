@@ -12,11 +12,11 @@
   "books": [
     "988g978744"
   ],
-  "ai_note": "據網路檢索資料建檔，未核原書。\n\n2026-08-17 撰人闕載：原作者欄作「佚名」——此為著錄語而非人名。本書無志書著錄（多為出土簡帛，本無撰人可言）。撰人不可考，故 authors 留空；空欄即「未著撰人」之正解。（本欄未繫任何 entity，故無假連結之弊。）\n\n2026-09-06 qa-sweep/shanggu：period_basis 原作「據 authors[0].dynasty「戰國」」，而本記錄 authors 為空（2026-08-17〈撰人闕載〉清理所遺之陳舊基準句），是引不存在之值為據。period 不動（pre-qin 本正），改依記錄自身之 dynasty 與著錄之整理報告立據。據：description.sources「馬承源主編《上海博物館藏戰國楚竹書》（上海古籍出版社，2001–2012）」；本篇繫〈先秦出土單篇〉(8rld0tom9ssg)。原值：period_basis=「據 authors[0].dynasty「戰國」」。",
+  "ai_note": "據網路檢索資料建檔，未核原書。\n\n2026-08-17 撰人闕載：原作者欄作「佚名」——此為著錄語而非人名。本書無志書著錄（多為出土簡帛，本無撰人可言）。撰人不可考，故 authors 留空；空欄即「未著撰人」之正解。（本欄未繫任何 entity，故無假連結之弊。）\n\n2026-09-06 qa-sweep/shanggu：period_basis 原作「據 authors[0].dynasty「戰國」」，而本記錄 authors 為空（2026-08-17〈撰人闕載〉清理所遺之陳舊基準句），是引不存在之值為據。period 不動（pre-qin 本正），改依記錄自身之 dynasty 與著錄之整理報告立據。據：description.sources「馬承源主編《上海博物館藏戰國楚竹書》（上海古籍出版社，2001–2012）」；本篇繫〈先秦出土單篇〉(8rld0tom9ssg)。原值：period_basis=「據 authors[0].dynasty「戰國」」。\n\n2026-09-13 補標 subtype=chapter：本條為出土簡冊之單篇（清華簡、上博簡、郭店簡之屬），非獨立成書之作。判據：period=pre-qin 而 measure_info、indexed_by、authors 三者皆空——傳世典籍不可能三者皆無。與既有 29 條已標 chapter 者（四告、耆夜、保訓之屬）性質同。",
   "id": "d59eza4o46bk",
   "authors": [],
   "dynasty": "戰國",
-  "updated_at": "2026-09-06T00:00:00+00:00",
+  "updated_at": "2026-09-13T00:00:00+00:00",
   "period": "pre-qin",
   "period_basis": "據記錄 dynasty「戰國」——本篇為出土戰國竹簡，本無撰人（authors 空）；斷代據著錄之整理報告：馬承源主編《上海博物館藏戰國楚竹書》（上海古籍出版社，2001–2012）。",
   "revision": "1.1.0",
@@ -26,5 +26,6 @@
       "id": "8rld0tom9ssg",
       "volume_index": ""
     }
-  ]
+  ],
+  "subtype": "chapter"
 }
