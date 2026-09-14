@@ -3,7 +3,7 @@
   "type": "work",
   "title": "別卦",
   "description": {
-    "text": "殘存四支簡，每簡書一宮八卦之名，可復原為六十四卦卦名表。所存卦名與今本《周易》多異，而與帛書本、《歸藏》多有相合，為卦名流傳研究之要證。",
+    "text": "殘存四支簡，每簡書一宮八卦之名，可復原為六十四卦卦名表。所存卦名與今本《周易》多異，而與帛書本、《歸藏》多有相合，為卦名流傳研究之要證。清華大學出土文獻研究與保護中心編《清華大學藏戰國竹簡（肆）》（中西書局，2013）。",
     "sources": [
       "清華大學出土文獻研究與保護中心編《清華大學藏戰國竹簡》整理報告（中西書局）"
     ]
@@ -18,11 +18,11 @@
   "books": [
     "988g99euwz"
   ],
-  "ai_note": "據網路檢索資料建檔，未核原書。\n\n2026-08-17 撰人闕載：原作者欄作「佚名」——此為著錄語而非人名。本書無志書著錄（多為出土簡帛，本無撰人可言）。撰人不可考，故 authors 留空；空欄即「未著撰人」之正解。（本欄未繫任何 entity，故無假連結之弊。）\n\n2026-09-06 qa-sweep/shanggu：period_basis 原作「據 authors[0].dynasty「戰國」」，而本記錄 authors 為空（2026-08-17〈撰人闕載〉清理所遺之陳舊基準句），是引不存在之值為據。period 不動（pre-qin 本正），改依記錄自身之 dynasty 與著錄之整理報告立據。據：description.sources「清華大學出土文獻研究與保護中心編《清華大學藏戰國竹簡》整理報告（中西書局）」；本篇繫〈先秦出土單篇〉(8rld0tom9ssg)。原值：period_basis=「據 authors[0].dynasty「戰國」」。\n\n2026-09-13 補標 subtype=chapter：本條為出土簡冊之單篇（清華簡、上博簡、郭店簡之屬），非獨立成書之作。判據：period=pre-qin 而 measure_info、indexed_by、authors 三者皆空——傳世典籍不可能三者皆無。與既有 29 條已標 chapter 者（四告、耆夜、保訓之屬）性質同。",
+  "ai_note": "據網路檢索資料建檔，未核原書。\n\n2026-08-17 撰人闕載：原作者欄作「佚名」——此為著錄語而非人名。本書無志書著錄（多為出土簡帛，本無撰人可言）。撰人不可考，故 authors 留空；空欄即「未著撰人」之正解。（本欄未繫任何 entity，故無假連結之弊。）\n\n2026-09-06 qa-sweep/shanggu：period_basis 原作「據 authors[0].dynasty「戰國」」，而本記錄 authors 為空（2026-08-17〈撰人闕載〉清理所遺之陳舊基準句），是引不存在之值為據。period 不動（pre-qin 本正），改依記錄自身之 dynasty 與著錄之整理報告立據。據：description.sources「清華大學出土文獻研究與保護中心編《清華大學藏戰國竹簡》整理報告（中西書局）」；本篇繫〈先秦出土單篇〉(8rld0tom9ssg)。原值：period_basis=「據 authors[0].dynasty「戰國」」。\n\n2026-09-14 先秦-出土單篇道：description 補整理報告出處一句（第肆輯，2013年，中西書局）。related_works 已有關係逐條覆核仍確，保留。\n\n2026-09-14 先秦-出土單篇道：resources 加本輯成果發佈報導一則。",
   "id": "d59eza32d9ts",
   "authors": [],
   "dynasty": "戰國",
-  "updated_at": "2026-09-13T00:00:00+00:00",
+  "updated_at": "2026-09-06T00:00:00+00:00",
   "period": "pre-qin",
   "period_basis": "據記錄 dynasty「戰國」——本篇為出土戰國竹簡，本無撰人（authors 空）；斷代據著錄之整理報告：清華大學出土文獻研究與保護中心編《清華大學藏戰國竹簡》整理報告（中西書局）。",
   "revision": "1.1.0",
@@ -33,5 +33,13 @@
       "volume_index": ""
     }
   ],
-  "subtype": "chapter"
+  "resources": [
+    {
+      "id": "tsinghua-announcement",
+      "name": "清華大學/媒體報導·清華大學藏戰國竹簡（肆）出版",
+      "type": "text",
+      "url": "https://www.chugoku-shoten.com/mokuji/cmokuji/71402/71402.pdf",
+      "details": "整理成果發佈報導，非全文整理本"
+    }
+  ]
 }
