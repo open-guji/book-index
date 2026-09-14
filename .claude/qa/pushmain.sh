@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # 合流 origin/main 並推 main；索引分片撞衝突則取彼方後以記錄為真回寫（reindex.py）。最多三輪。
+# **非索引（條目檔）衝突一律中止交人**，不自動取捨——見 resolve_conflicts() 內 2026-09-14 那段。
 # 用法：bash .claude/qa/pushmain.sh [自己的分支名]
 #
 # 2026-09-06 修（song 道所報，坑 36）：解衝突迴圈原作 `for f in $(git diff --name-only ...)`，
@@ -13,14 +14,44 @@ set -u
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"; cd "$ROOT"
 BR="${1:-$(git rev-parse --abbrev-ref HEAD)}"
 
+# 列出當前未解衝突（NUL 分隔且關閉檔名跳脫，中文檔名方能正確取得），一行一檔
+unresolved() {
+  git -c core.quotePath=false diff -z --name-only --diff-filter=U | tr '\0' '\n' | grep . || true
+}
+
 resolve_conflicts() {
-  # NUL 分隔且關閉檔名跳脫，中文檔名方能正確取得
+  # ── 2026-09-14 改（先秦-傳世版本道所報，用戶當日裁「甲案」）───────────────────
+  # 原作：非 index/ 之衝突一律 `git checkout --ours`，只 echo 一行，不中止、不非零退出。
+  # 那正是[任務書模板]§四鐵律 2 明令禁止的一件：**條目檔衝突不許 --ours**，
+  # 因為 --ours 對條目檔的語義是「丟掉對方對這個檔的全部改動」——
+  # 兩道各改各的字段族本不該衝突，是 git 行級合併把 JSON 相鄰字段判成撞行；
+  # 一 --ours，後推的那道就把先推的那道抹掉，而且**雙方都不會收到任何告警**。
+  #
+  # 2026-09-14 當日四道並行，實測踩中兩次、兩次都真丟了東西（野老 resources、
+  # 周禮題名訂正＋ai_note），皆靠人事後肉眼發現才修回。協調者以三方 blob OID
+  # 掃當日 11 個合流提交覆核，確為此二處、無第三處。
+  #
+  # 今改為：**非索引衝突一律中止，不自動解**。代價只是多推一輪，
+  # 而 --ours 丟數據是不可逆且無聲的。衝突狀態原樣留在工作區，由人做三方合併後再推。
+  local nonidx
+  nonidx="$(unresolved | grep -v '^index/' || true)"
+  if [ -n "$nonidx" ]; then
+    echo "非索引衝突 $(printf '%s\n' "$nonidx" | grep -c .) 檔 — 中止，不自動解：" >&2
+    # 檔名一律整行處理，**不得讓 shell 按空白斷詞**（坑 36 同族：此檔的舊病正在檔名處理）
+    printf '%s\n' "$nonidx" | sed 's/^/  /' >&2
+    cat >&2 <<'EOF'
+  這些是條目檔，不許用 --ours／--theirs 了事（鐵律 2）。請人做三方合併：
+      git show :1:<檔>  # base    :2:<檔>  # ours    :3:<檔>  # theirs
+  逐頂層鍵比對：只有一方改過的鍵取那一方；兩方都改過同一鍵才須人裁。
+  合好後 git add 該檔，再重跑本腳本。衝突狀態已原樣保留，未做任何自動取捨。
+EOF
+    return 1
+  fi
+
+  # 至此只剩 index/* —— 索引分片是派生物，取彼方後由 reindex.py 以記錄為真回寫
   git -c core.quotePath=false diff -z --name-only --diff-filter=U | \
   while IFS= read -r -d '' f; do
-    case "$f" in
-      index/*) git checkout --theirs -- "$f" || echo "取彼方失敗：$f" >&2 ;;
-      *)       echo "非索引衝突，取己方：$f"; git checkout --ours -- "$f" || echo "取己方失敗：$f" >&2 ;;
-    esac
+    git checkout --theirs -- "$f" || echo "取彼方失敗：$f" >&2
     # `git checkout --ours/--theirs` 只還原內容，**不把該路徑自未合併之列除去**——
     # 須 `git add` 方算解決。2026-09-06 加了「提交前驗收未解之衝突為零」一步（坑 36 之乙法）
     # 後，此漏遂現形：內容已取而路徑仍列未合併，驗收即誤判為「解衝突未竟」而中止（坑 58）。
