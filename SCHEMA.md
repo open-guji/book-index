@@ -375,6 +375,15 @@ five-dynasties / song / liao-jin-yuan / ming / qing / modern
 
 判不出者留 null 並出清單（`known-issues/period未決.json`），**不猜**。
 
+##### 以撰人之代定書之代者，須記撰人之代出自何處（2026-09-24 使用者定）
+
+「書之代取自人、人之代又取自書」會成閉環：entity 之 `dynasty` 本是從其名下某書推出來的，
+那書的 `period` 又據「撰人已定代 X」回填，兩邊互為證而其實都沒有證（李淑一案）。
+
+**凡以「撰人已定代 X」為 `period_basis` 者，須同時寫明該 entity 之 `dynasty` 從哪裡來**
+——CBDB／史傳／著錄／推定四者之一，如「撰人已定代明（其 dynasty 據 CBDB）」。
+記了，閉環就自己顯形；不另立機檢。只治此後之新判，已有者不回頭補。
+
 ##### `period_upper`（時代上限，2026-08-21 增）
 
 ```json
@@ -1573,6 +1582,13 @@ open(p, 'w', encoding='utf-8').write(
 
 `authors` 是陣列，索引只取第一位攤平為 `author` / `role` / `dynasty`。
 改動檔案的標題、作者、路徑後，**必須同步更新索引**，否則校驗會報「索引欄位不符」。
+
+**檔名只是 id 之附註，名以記錄內之欄為準**（2026-09-24 使用者定）。
+記錄檔名作 `<id>-<題或名>.json`，題名之後改了，檔名與索引之 `path` 未必跟著改
+（`reindex.py` 不改檔名；Entity 改過 `primary_name` 者全庫至少 58 條如此）。
+這不是缺陷：`path` 指的正是那個檔，`verify.py --membership` 亦過。
+**但凡找記錄，以 id 找，或讀索引之 `title`／`primary_name`，不要以檔名 grep 名字**
+——愈是改對了名的條目，以檔名愈找不到。改名時順手 `git mv` 並回寫 `path` 可以，不強求。
 
 **兩個「朝代」不是一回事**（2026-09-06 起）：
 
