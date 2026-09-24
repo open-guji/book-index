@@ -1,5 +1,5 @@
 import json, os, glob
-ROOT='/home/user/book-index'
+ROOT=os.path.abspath(os.path.join(os.path.dirname(__file__),'..','..'))   # 原寫死 /home/user/book-index，他處之 checkout 皆跑不起
 def _fmt(raw, d):
     for ind in (2,1,4):
         for nl in ('\n',''):
