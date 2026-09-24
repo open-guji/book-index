@@ -455,6 +455,9 @@ def run_checks(works, IW, IB, IE, IC, ents):
     for w in works.values():
         if w.get('merged_into'): continue
         au = tuple(sorted(_gk(a.get('name')) for a in (w.get('authors') or [])))
+        # §二·2 新增规矩：两造撰人都为空，既不能作为同书的证据，也不能作为异书的证据
+        if not au:
+            continue
         groups[(_gk(w.get('title')), au)].append(w)
     for (t, au), ws in groups.items():
         if len(ws) < 2: continue
