@@ -4,7 +4,7 @@
 只扫 Work/Entity；expect_book() 照搬先秦道 `附-reindex_books.py` 时，
 sort_year 只取 dating.year，庫中多記於 dating.year_range，逢之即誤把既有值清空。
 """
-import json, os, sys, pathlib, shutil, tempfile
+import json, os, subprocess, sys, pathlib, shutil, tempfile
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent / ".claude/qa"))
 import reindex
@@ -58,14 +58,12 @@ def test_expect_book_omits_empty_edition_and_zero_juan_count():
 
 
 def test_fix_membership_adds_book_entry_idempotently(monkeypatch):
-    # 坑：reindex.py 的 fix_membership() 掃檔靠 reindex.ROOT，但實際讀寫索引分片
-    # 靠 jio.load/jio.save——jio.py 自己另算一份 ROOT，兩者互不相關。
-    # 只 patch reindex.ROOT 而漏了 jio.ROOT，会让 jio 仍讀寫【真倉】的 index/books/*.json
-    # ——本測試第一次寫就是這樣把生產庫 index/books/9.json 炸成只剩 8 條，須兩處都 patch。
+    # 協調者裁（回 pit-jio與reindex的ROOT不同源）：ROOT 已收單一來源
+    # （reindex.py 全改經 jio.ROOT 直查，不再自存副本），只 patch jio.ROOT 一處
+    # 即可把 scan_files／fix_membership 一併關進沙盒，不會碰到真倉的 index/。
     tmp = tempfile.mkdtemp()
     try:
         p, sh = _make_repo(tmp)
-        monkeypatch.setattr(reindex, "ROOT", tmp)
         monkeypatch.setattr(reindex.jio, "ROOT", tmp)
         add, drop, repath = reindex.fix_membership(run=True)
         assert add == 1 and drop == 0 and repath == 0
@@ -83,6 +81,34 @@ def test_fix_membership_adds_book_entry_idempotently(monkeypatch):
         assert (add2, drop2, repath2) == (0, 0, 0)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
+
+
+def test_patch_jio_root_alone_leaves_real_repo_index_untouched(monkeypatch):
+    """协调者裁（回 pit-jio与reindex的ROOT不同源）之验收测：只 patch jio.ROOT
+    一处到临时目录，真仓库的 index/ 应一个字节都不受影响——用真 git 仓的
+    `git status --porcelain index/` 核验，不能只信任内存里的推断。"""
+    real_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    assert os.path.isdir(os.path.join(real_root, ".git")), "须在真 book-index 仓下跑"
+
+    tmp = tempfile.mkdtemp()
+    try:
+        d0 = os.path.join(tmp, "Book", "z", "z", "z")
+        os.makedirs(d0)
+        os.makedirs(os.path.join(tmp, "index", "books"))
+        json.dump({"id": "zzzzzzzzzz", "type": "book", "title": "占位"},
+                  open(os.path.join(d0, "zzzzzzzzzz-占位.json"), "w", encoding="utf-8"),
+                  ensure_ascii=False)
+        open(os.path.join(tmp, "index", "books", reindex.shard("zzzzzzzzzz") + ".json"),
+             "w", encoding="utf-8").write("{}")
+
+        monkeypatch.setattr(reindex.jio, "ROOT", tmp)
+        reindex.fix_membership(run=True)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+    out = subprocess.run(["git", "status", "--porcelain", "index/"],
+                          cwd=real_root, capture_output=True, text=True, check=True)
+    assert out.stdout == "", f"真倉 index/ 被動了：\n{out.stdout}"
 
 
 if __name__ == "__main__":
