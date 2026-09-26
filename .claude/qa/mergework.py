@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""併條，並把善後七件一次辦完。
+"""併條，並把善後八件一次辦完。
 
 **所以立此**：坑 41 說善後三件、坑 61 補第四、坑 64 第五，「每次以為數全了就又冒出一處」。
 逐次手辦必有遺漏，故把善後寫成一支，由 `backrefs.py` 那張「誰指著我」之表驅動。
@@ -12,7 +12,7 @@
 坑 67 之戒——「做去重之前，先把兩個重複項並排逐欄 diff 一遍」——故乾跑是預設，
 且 diff 印的是**整節所有欄位**，不是我挑的那幾欄。
 
-善後七件：
+善後八件：
   1 著錄併入 keeper（indexed_by，**整節為鍵**去重，不取子集——坑 67）
   2 index/works 刪被併者之項（jio.drop_index）
   3 Entity.works 反邊改指 keeper（並保證 keeper 之 authors 帶該 entity_id，否則 verify 報單向邊）
@@ -20,6 +20,9 @@
   5 Collection.contained_works 改指（verify.py 不驗此處，斷了無人知）
   6 Work.books 併入 keeper
   7 keeper 之 `merged_in` **填欄位**，不只寫散文（坑 64：141 個被併 id 只 61 個填了）
+  8 被併者獨有之其餘欄位（如 contained_in／period／resources）搬入 keeper——原只辦上列
+    七件，被併者若帶著 keeper 沒有的欄，隨刪檔一併靜默丟失（D1 補）；
+    兩邊皆有且值不同者**不搬**，只印出報告，須人斷孰是
 """
 import json, os, sys, glob, argparse, datetime, collections
 
@@ -60,8 +63,52 @@ def node_key(n):
     return json.dumps(n, ensure_ascii=False, sort_keys=True)
 
 
+# 已各有專屬善後步驟或明訂不由本工具自動搬的欄，不進通用字段搬遷：
+#   id/type/title/path/revision 結構性；indexed_by/books/merged_in/additional_titles
+#   已各有步驟 1/6/7/併題；authors 屬 B 字段族，併條不動撰人著錄本身；
+#   description/ai_note 併後語意須人改（見下方「別無他證」偵測），不自動搬；
+#   related_works 是「我指誰」的出邊，該條併掉後這條出邊本身該併或該棄須人斷，
+#   不在此自動搬（他條「指我」的入邊已由反邊步驟 3/4/5 改指）。
+MERGE_SKIP_FIELDS = {
+    'id', 'type', 'title', 'path', 'revision',
+    'indexed_by', 'books', 'merged_in', 'additional_titles',
+    'authors', 'description', 'ai_note', 'related_works',
+}
+
+
+def _empty(v):
+    return v is None or v == '' or v == [] or v == {}
+
+
+def plan_scalar_merge(keeper, dps):
+    """被併者有而 keeper 無之欄位搬過去；兩邊皆有且不同者不搬，只報告。
+    list 型別（如 contained_in／resources）取兩邊並集去重（以整項 json 為鍵，坑 67 同法）；
+    純量型別（如 period）keeper 為空即直接搬，否則不同即報衝突、不動。
+    回傳 (moved, conflicts, new_values)：moved/conflicts 供列印，new_values 是
+    要回寫進 keeper 的 {欄: 新值}——乾跑階段只算不寫，--apply 才真正併入 keeper。
+    冪等：對已含該值（或已報過該衝突）之 keeper 再跑一次，moved/conflicts 均為空。"""
+    moved, conflicts, new_values = [], [], {}
+    for d, _p, dd, _fmt in dps:
+        for k, v in dd.items():
+            if k in MERGE_SKIP_FIELDS or _empty(v):
+                continue
+            kv = new_values.get(k, keeper.get(k))
+            if _empty(kv):
+                new_values[k] = v
+                moved.append((d, k, v))
+            elif isinstance(kv, list) and isinstance(v, list):
+                have = {json.dumps(x, ensure_ascii=False, sort_keys=True) for x in kv}
+                added = [x for x in v if json.dumps(x, ensure_ascii=False, sort_keys=True) not in have]
+                if added:
+                    new_values[k] = kv + added
+                    moved.append((d, k, added))
+            elif kv != v:
+                conflicts.append((d, k, kv, v))
+    return moved, conflicts, new_values
+
+
 def main():
-    ap = argparse.ArgumentParser(description='併條並辦善後七件')
+    ap = argparse.ArgumentParser(description='併條並辦善後八件')
     ap.add_argument('--keeper', required=True)
     ap.add_argument('--drop', required=True, help='逗號分隔')
     ap.add_argument('--rule', required=True, help='判準——第一等公民，無 rule 則日後無從整批翻案')
@@ -140,6 +187,13 @@ def main():
     for e in sorted(need_ent):
         plan['**keeper authors 缺此 entity_id（單向邊）——須人看**'].append((e,))
 
+    # 8 被併者獨有之字段（contained_in/period/resources 等，非上列七件housekeeping所轄者）
+    moved, conflicts, new_values = plan_scalar_merge(keeper, dps)
+    for d, k, v in moved:
+        plan['欄位搬遷（keeper 原無）'].append((d, k, v))
+    for d, k, kv, v in conflicts:
+        plan['**欄位衝突（兩邊皆有且不同，不搬，須人看）**'].append((d, k, kv, v))
+
     # description 之陳述併後可能失實（「本書惟某志著錄，別無他證」）——併入新源即翻該句
     dtxt = ((keeper.get('description') or {}).get('text') or '') if isinstance(keeper.get('description'), dict) else ''
     if any(w in dtxt for w in ('別無他證', '一志著錄', '惟《')):
@@ -162,6 +216,9 @@ def main():
                          '先在 keeper 補 entity_id，或先併 entity。' % sorted(need_ent))
 
     now = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + 'Z'
+    # 8 欄位搬遷（先於其餘七件寫入，皆為單純賦值，無序依賴）
+    for k, v in new_values.items():
+        keeper[k] = v
     # 1 著錄
     keeper.setdefault('indexed_by', []).extend([n for _, n in add_nodes])
     # 6 books

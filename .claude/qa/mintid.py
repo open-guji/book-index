@@ -108,8 +108,11 @@ def mint(kind="Work", lane="coordinator", n=1, status=0):
         raw = (status << 62) | (ty << 59) | ((ts & ((1 << 40) - 1)) << 19) | (machine << 8) | seq
         seq += 1
         i = b36(raw)
-        if len(i) != 12:
-            raise SystemExit("鑄出之 id 非 12 位（%s），時戳或有異，中止" % i)
+        # 坑：曾誤斷「合法 id 必 12 位」——Book（type=0）之 Official raw 不受
+        # type／status 位貢獻，數值天然較小，常編出 10 位；此斷言逢 Book 必中止。
+        # id 長度隨 type／status／時戳漂移，非定長，真正該驗的是編解碼往返一致。
+        if dec(i) != raw:
+            raise SystemExit("鑄出之 id 編解碼往返不一致（%s），中止" % i)
         if i in used:          # 理論上不可能（machine 段獨佔），仍驗
             continue
         used.add(i)
