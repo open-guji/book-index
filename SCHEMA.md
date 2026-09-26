@@ -1091,9 +1091,18 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
 
   "description": "Description (object)",
   "ai_note": "string (optional, 建檔自注)",
-  "sources": []
+  "sources": [],
+
+  "suppressed_fields": ["string, optional（如 [\"dynasty\", \"birth_year\"]）"]
 }
 ```
+
+#### suppressed_fields（2026-09-26 用户裁：甲案）
+
+人工核过、確認 CBDB 該欄之值有誤而清空者，把欄名列進 `suppressed_fields`，
+`cbdb-sync/apply_enrich.py`（補空槽）逢清單裡的欄即繞開，不再拿 CBDB 之值
+回填——原行為只認「欄現在是否空」，人清空一次、下一輪 enrich 就自動填回去，
+俞安期、謝顯两例皆如此每跑一次就再犯一次。**只影响列名的欄**，其余空槽仍照常補。
 
 `sources` 已定義但庫中無資料；Entity 的出處一律記在 `description.sources`。
 
