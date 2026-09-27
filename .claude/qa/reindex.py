@@ -15,6 +15,13 @@
   author ← authors[0].name   role ← authors[0].role
   dynasty ← 頂層 dynasty，無則 authors[0].dynasty（空字串視同無）
 索引 entities 分片：primary_name/dynasty/birth_year/death_year/period ← 同名頂層欄
+索引 collections（單一檔 `index/collections.json`，不比照 works/entities/books 分 16 片）：
+  title/subtype 恆有，逐字面值；work_id/edition/additional_titles/measure_info ← 同名頂層欄；
+  author/dynasty/role ← authors[0]；era ← dating.era；sort_year ← dating.year，
+  無則 dating.year_range[0]；holder ← current_location.name；juan_count ← juan_count.number
+  （0 略去，慣例同 books）；has_image/has_text ← resources 任一 types 含 image／text
+  （字段口徑照 book_index_manager/entry_extractor.py，逆推自既有 84 條索引核對：0 誤差）。
+  type 索引恆大寫 'Collection'，record 自身 type 欄是小寫 'collection'。
 """
 import json, os, sys, glob, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import jio
@@ -65,14 +72,48 @@ def expect_book(d):
     out['juan_count'] = jc.get('number') or None
     out['has_image'] = True if img else None
     return out
+def expect_collection(d):
+    """字段口徑逆推自既有 `index/collections.json` 84 條核對（0 誤差，見任務書）：
+    title/subtype 全庫恆非空，逐字面值；work_id（僅部分 collection 有）與 edition/
+    additional_titles/measure_info 一併走 nz() 過濾。author/dynasty/role←authors[0]，
+    era←dating.era，sort_year 邏輯同 expect_book。holder←current_location.name。
+    juan_count/has_image 邏輯同 expect_book；has_text 同 has_image，改認 'text'。"""
+    au = (d.get('authors') or [{}])[0]; dt = d.get('dating') or {}
+    cl = d.get('current_location') or {}; jc = d.get('juan_count') or {}
+    def types_of(r): return r.get('types') or ([r['type']] if r.get('type') else [])
+    img = any('image' in types_of(r) for r in (d.get('resources') or []))
+    txt = any('text' in types_of(r) for r in (d.get('resources') or []))
+    yr = dt.get('year')
+    if yr is None:
+        yr_range = dt.get('year_range')
+        if isinstance(yr_range, (list, tuple)) and yr_range:
+            yr = yr_range[0]
+    out = {'title': d.get('title'), 'subtype': d.get('subtype')}
+    for k, v in (('work_id', d.get('work_id')), ('edition', d.get('edition')), ('author', au.get('name')),
+                 ('era', dt.get('era')), ('sort_year', yr), ('holder', cl.get('name')),
+                 ('dynasty', au.get('dynasty')), ('role', au.get('role')),
+                 ('additional_titles', d.get('additional_titles')), ('measure_info', d.get('measure_info'))):
+        out[k] = nz(v)
+    out['juan_count'] = jc.get('number') or None
+    out['has_image'] = True if img else None
+    out['has_text'] = True if txt else None
+    return out
 REC_RE = re.compile(r'^[0-9a-z]{10,13}-')
+# 各族 (索引名, 記錄子目錄, 欄位函式, 是否 16 分片)；collections 是單一檔，非分片目錄。
+FAMS = (('works', 'Work', expect_work, True), ('entities', 'Entity', expect_ent, True),
+        ('books', 'Book', expect_book, True), ('collections', 'Collection', expect_collection, False))
+def index_files(fam, sharded):
+    """回傳某族現有之索引檔（分片族為目錄下 *.json 排序表；單一檔族為 [該檔]，
+    即便該檔尚不存在——呼叫端自 jio.load 處自然報錯，不在此吞掉）。"""
+    if sharded: return sorted(glob.glob(os.path.join(jio.ROOT, 'index', fam, '*.json')))
+    return [os.path.join(jio.ROOT, 'index', f'{fam}.json')]
 def scan_files():
     """一次建全庫 id→路徑表（勿逐 id glob，九萬條會慢到不可用）。
     **用遞迴 glob 而非固定四層**：檔名一改，人手誤置深淺一層者有之
     （2026-09-06 `d59f6eq7hnnl`《紫霞洞琴譜》正題改檔名時落在 `Work/n/l/` 而非
     `Work/n/n/l/`），固定層數之 glob 掃不到，membership 遂補不了鍵，全庫閘因之而紅（坑 50）。"""
     byid = {}
-    for sub in ('Work', 'Entity', 'Book'):
+    for sub in ('Work', 'Entity', 'Book', 'Collection'):
         for f in glob.glob(os.path.join(jio.ROOT, sub, '**', '*.json'), recursive=True):
             b = os.path.basename(f)
             if not REC_RE.match(b): continue          # collated_edition 之屬不是記錄檔
@@ -95,11 +136,11 @@ def misplaced():
 def fix_membership(run):
     """對齊索引之成員與 path（坑 41）。回傳 (補建, 刪鍵, 修path) 三數。"""
     byid = scan_files(); add = drop = repath = 0
-    for fam, sub, exp in (('works', 'Work', expect_work), ('entities', 'Entity', expect_ent),
-                           ('books', 'Book', expect_book)):
+    for fam, sub, exp, sharded in FAMS:
         seen = set()
-        shards = sorted(glob.glob(os.path.join(jio.ROOT, 'index', fam, '*.json')))
+        shards = index_files(fam, sharded)
         for f in shards:
+            if not os.path.exists(f): continue        # 單一檔族、庫中尚未建檔（今無此況，留守）
             rel = os.path.relpath(f, jio.ROOT); idx, fmt = jio.load(rel); ch = False
             for k in list(idx):
                 real = byid.get(k)
@@ -111,21 +152,33 @@ def fix_membership(run):
                     print(f'[{fam}] 修 path {k}: {idx[k].get("path")} -> {real}')
                     idx[k]['path'] = real; repath += 1; ch = True
             if ch and run: jio.save(rel, idx, fmt)
-        # 有檔而索引無鍵者，按 id 末字歸片補建
+        # 有檔而索引無鍵者：分片族按 id 末字歸片補建，單一檔族直接併入該檔
         missing = [k for k, p in byid.items() if p.startswith(sub + os.sep) and k not in seen]
         if not missing: continue
-        byshard = {}
-        for k in missing: byshard.setdefault(shard(k), []).append(k)
-        for sh, ks in byshard.items():
-            rel = os.path.join('index', fam, f'{sh}.json')
-            if not os.path.exists(os.path.join(jio.ROOT, rel)):
-                print(f'[{fam}] 無分片 {rel}，{len(ks)} 鍵未補', file=sys.stderr); continue
+        # Book／Collection 索引之 type 恆大寫（附-reindex_books.py 舊例併沿用於 collection），
+        # record 自身 type 欄是小寫，不可直取。
+        def mktype(d): return sub if sub in ('Book', 'Collection') else d.get('type', fam[:-1])
+        if sharded:
+            byshard = {}
+            for k in missing: byshard.setdefault(shard(k), []).append(k)
+            for sh, ks in byshard.items():
+                rel = os.path.join('index', fam, f'{sh}.json')
+                if not os.path.exists(os.path.join(jio.ROOT, rel)):
+                    print(f'[{fam}] 無分片 {rel}，{len(ks)} 鍵未補', file=sys.stderr); continue
+                idx, fmt = jio.load(rel)
+                for k in ks:
+                    d = json.load(open(os.path.join(jio.ROOT, byid[k])))
+                    ie = {'id': k, 'type': mktype(d), 'path': byid[k]}
+                    ie.update({a: b for a, b in exp(d).items() if b is not None})
+                    idx[k] = ie; add += 1
+                    print(f'[{fam}] 補鍵（有檔而索引無）{k} {ie.get("title") or ie.get("primary_name")}')
+                if run: jio.save(rel, idx, fmt)
+        else:
+            rel = os.path.join('index', f'{fam}.json')
             idx, fmt = jio.load(rel)
-            for k in ks:
+            for k in missing:
                 d = json.load(open(os.path.join(jio.ROOT, byid[k])))
-                # Book 索引之 type 恆大寫 'Book'（附-reindex_books.py 舊例），
-                # 與既有 20,894 條一致；record 自身 type 欄是小寫 'book'，不可直取。
-                ie = {'id': k, 'type': sub if sub == 'Book' else d.get('type', fam[:-1]), 'path': byid[k]}
+                ie = {'id': k, 'type': mktype(d), 'path': byid[k]}
                 ie.update({a: b for a, b in exp(d).items() if b is not None})
                 idx[k] = ie; add += 1
                 print(f'[{fam}] 補鍵（有檔而索引無）{k} {ie.get("title") or ie.get("primary_name")}')
@@ -141,8 +194,9 @@ def main():
         if mp:
             print(f'另有 {len(mp)} 檔不坐在其 id 所定之分片路徑上（坑 50，須人手移動）：')
             for f, want in mp[:10]: print(f'  {f}  →應在 {want}/')
-    for fam, exp in (('works', expect_work), ('entities', expect_ent), ('books', expect_book)):
-        for f in sorted(glob.glob(os.path.join(jio.ROOT, 'index', fam, '*.json'))):
+    for fam, _sub, exp, sharded in FAMS:
+        for f in index_files(fam, sharded):
+            if not os.path.exists(f): continue
             rel = os.path.relpath(f, jio.ROOT); idx, fmt = jio.load(rel); ch = False
             for k, ie in idx.items():
                 p = os.path.join(jio.ROOT, ie['path'])
