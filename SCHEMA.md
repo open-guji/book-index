@@ -81,6 +81,7 @@ Represents the abstract intellectual content.
   "_has_text": "boolean (派生：resources[].types 含 text)",
   "_has_image": "boolean (派生：resources[].types 含 image)",
   "_has_collated": "boolean (派生：存在 collated_edition 整理本)",
+  "classification": "object (optional, 四部分類。見下「classification（四部分類）」)",
   "loss_status": "string (optional, 存佚。枚舉見下「loss_status 枚舉」。欄位不存在 = 今存或未考，不必寫)",
   "authenticity": "string (optional, 唯一值 forged。**只在確定是偽書時才寫**，欄位不存在 = 無此疑義。見下「authenticity」)",
   "authenticity_basis": "string (optional, 判偽之據，引提要或解題原文)",
@@ -287,6 +288,50 @@ Work 層的 `parent_works` 已由 `related_works[].relation == "part_of"` 取代
 `period_basis` 須寫明「舊題某某（某代），實某代作，據某某」。
 故《關尹子》：`period: song`、`authenticity: forged`、
 `authors[0]` 尹喜·先秦·舊題撰——三層信息各得其所。
+
+#### `classification`（四部分類，2026-09-27 增）
+
+```json
+"classification": {
+  "l1": "史部", "l2": "正史類", "l3": "", "l4": "",
+  "basis": "S", "source": "欽定四庫全書總目"
+}
+```
+
+- **形狀照 data_new（v2）**：`l1`／`l2`／`l3`／`l4` 四級，字符串，未定之級留空串 `""`
+  （不用 `null`，不省鍵——與全庫既有 `null_rule` 之慣例一致：未知一律空串）。
+- **詞表**：`classific.json`（與本檔同目錄，541 行，4 部、52 類、209 屬、331 個第
+  四級——全部在史部／方誌類下，按省→府州排）。**詞表不改名、不增刪**；寫入的
+  `l1`／`l2`／`l3`／`l4` 組合必須整條或其前綴能在詞表裡查到（校驗見下）。詞表原樣
+  照搬自 overview `項目進展/古籍目錄/新的Schema設計/classific.json`，來歷與設計取
+  捨見 overview [35 卡](../../overview/项目进展/古籍索引网站/进度/G-工具分发与网站/35-data_new详细对比.md) §四·1。
+- **`basis`**：`S`／`A`／`B`／`C`，標本條分類的依據強弱，供覆核優先序：
+  - `S`：《欽定四庫全書總目》整理本（book-text，只讀）的類目標題，按卷內順序帶到
+    其下各書，與本庫 `indexed_by[].source_bid` 指向同一整理本的著錄以書名比對匹配；
+  - `A`：`indexed_by[].section` 與詞表 `l2`／`l3` 同名（已歸一簡繁、異體）；
+  - `B`：`section` 經對照表換算得出（如「雜傳」→傳記類、「醫方」→醫家類）；
+  - `C`：只能判定到 `l1`（部），`l2` 以下留空——多見於來源只泛標「經部」「子部」
+    這類無法再細分的情形，或詞表沒有對應類目（如「宗教類」「西學譯著類」）。
+  - 各源相衝突（不同來源判定的 `l1` 不同）之條目**一律不寫** `classification`，
+    見 `.claude/qa/S1-分类冲突清单.json`。
+- **`source`**：本條分類取自哪部目錄書／哪一條 `indexed_by` 的 `section` 原文
+  （如「欽定四庫全書總目」，或「經義考/易」這類「來源／section」格式），供覆核時
+  回查原文。
+- **歸屬規則（與四庫／各志出入處，2026-09-27 用戶與目錄總管定）**：
+  | 現行／四庫類目 | 詞表歸屬 |
+  |---|---|
+  | 子部 小說家類（四庫、各志） | 集部／小說類（屬留空，不按雜事／異聞／瑣語三屬分，也不進子部說叢類） |
+  | 集部 詩文評類 | 集部／集評類；屬按題名可判才填：詩話／詩評／詩品→詩評之屬，文心／文則／文章／論文→文評之屬，詞話／詞評→詞評之屬，曲話／曲品／曲律→曲讕之屬，其餘留空 |
+  | 史部 詔令奏議類 | 拆兩類：詔／制／誥／敕／諭／冊／訓（依題名）→詔令類；奏／疏／議／章／封事／劄子→奏議類；判不了只填 `l1=史部` |
+  | 經部 五經總義類（及志書「經解／群經／七經／五經」） | 經部／群經總義類 |
+  | 存目＝亡佚只存著錄 | 與本欄位無關，見 `loss_status = lost`（供網站狀態色，語義見 35 卡 §六·3） |
+- **校驗**：`.claude/qa/verify.py` 的 `classification 值不在詞表` 一項——凡有
+  `classification` 的 Work，其 `l1`／`l2`／`l3`／`l4` 組合（或前綴）須能在
+  `classific.json` 中查到，否則算敗。
+- **範圍**：本欄只人工／半自動回填**部分**條目（依上述 S／A／B 三種依據能推出的
+  約 2.7 萬條），**沒有 `classification` 鍵不代表未分類失敗，只代表尚無可靠依據**。
+  任務書：overview `項目進展/總調度/古籍索引三塊/任務書/S1-Work分類吸收.md`；
+  進度報告：overview `項目進展/古籍目錄/進度/S1-Work分類吸收.md`。
 
 #### `period`（時代軸，2026-08-06 增）
 

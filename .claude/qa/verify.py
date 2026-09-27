@@ -16,17 +16,45 @@ def idx(fam):
     for f in glob.glob(os.path.join(ROOT, 'index', fam, '*.json')): out.update(json.load(open(f)))
     return out
 
+def load_classific_vocab():
+    """classific.json：l1s、(l1,l2) 集合、(l1,l2,l3) 集合、(l1,l2,l3,l4) 集合。"""
+    rows = json.load(open(os.path.join(ROOT, 'classific.json'), encoding='utf-8'))
+    l1s, l12, l123, l1234 = set(), set(), set(), set()
+    for r in rows:
+        l1, l2, l3, l4 = r['cata_l1'], r['cata_l2'], r.get('cata_l3'), r.get('cata_l4')
+        l1s.add(l1); l12.add((l1, l2))
+        if l3: l123.add((l1, l2, l3))
+        if l4: l1234.add((l1, l2, l3, l4))
+    return l1s, l12, l123, l1234
+
+def classification_ok(c, vocab):
+    l1s, l12, l123, l1234 = vocab
+    l1, l2, l3, l4 = c.get('l1') or '', c.get('l2') or '', c.get('l3') or '', c.get('l4') or ''
+    if not l1: return l2 == '' and l3 == '' and l4 == ''
+    if l1 not in l1s: return False
+    if not l2: return l3 == '' and l4 == ''
+    if (l1, l2) not in l12: return False
+    if not l3: return l4 == ''
+    if (l1, l2, l3) not in l123: return False
+    if not l4: return True
+    return (l1, l2, l3, l4) in l1234
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--why', action='store_true', help='「索引缺記錄檔」時印出各 id 之最後刪除提交（坑 41）')
     ap.add_argument('--strict', action='store_true'); a = ap.parse_args()
     IW, IB, IE = idx('works'), idx('books'), idx('entities')
     IC = json.load(open(os.path.join(ROOT, 'index', 'collections.json')))
     ALL = set(IW) | set(IB) | set(IE) | set(IC)
+    CVOCAB = load_classific_vocab()
+    bad_cls = []
     drift_w, dangle_w, missing, back = [], [], [], {}
     for wid, ie in IW.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(wid); continue
         d = json.load(open(p))
+        c = d.get('classification')
+        if c and not classification_ok(c, CVOCAB):
+            bad_cls.append((wid, c.get('l1'), c.get('l2'), c.get('l3'), c.get('l4')))
         for f in ('period', 'loss_status', 'title', 'subtype'):
             x, y = ie.get(f), d.get(f)
             if x is None and y is None: continue
@@ -83,6 +111,8 @@ def main():
     print(f'entity.works 懸空     {len(dangle_e)}')
     print(f'entity.works 重複項  {len(dup_e)}')
     print(f'單向邊 人指書書不指人 {len(oneway)}')
+    print(f'classification 不在詞表 {len(bad_cls)}')
+    for r in bad_cls[:10]: print('  詞表外', r)
     # 2026-09-07 lane-E 所報：賬曾三度被 pushmain 之 --ours 吞掉，共遺落 492 筆而無人察覺
     # ——被吞者無聲、吞人者亦無聲，**只有第三方比對才看得見**。故以水位線守之。
     _ledger_bad = False
@@ -119,7 +149,7 @@ def main():
     # 2026-09-07：`entity.works 重複項` 自即日納入 --strict 之成敗（清零後方納，免得未清前卡住各道）。
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
-    bad = _ledger_bad or missing or drift_w or drift_e or (a.strict and (dangle_w or dangle_e or oneway or dup_e))
+    bad = _ledger_bad or missing or drift_w or drift_e or bad_cls or (a.strict and (dangle_w or dangle_e or oneway or dup_e))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)
 
