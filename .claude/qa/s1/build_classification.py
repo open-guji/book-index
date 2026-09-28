@@ -59,18 +59,29 @@ HANZHI_CHUNQIU_OVERRIDE = {
     '春秋奏事': ('史部', '奏議類'),        # 秦時大臣奏事及刻石名山文，非解經
 }
 
+# 协调者复验所报（09-28 01:19Z）：玉函山房輯佚書「子編／五行類」（非「補編·子編」，
+# 该桶其余 4 条地鏡圖／白澤圖／雜五行書／夢雋皆确是術數，只此一条不宜）——
+# 「太史公素王妙論」以孔子為「素王」之谶纬预言，词表无谶纬对应类，只到部
+L2_STRIP_OVERRIDE = {
+    ('玉函山房輯佚書', '子編／五行類', '太史公素王妙論'),
+}
+
 
 # 协调者验收所报（09-28）：補晉書藝文志「丁部集録／總集類」绝大多数确是總集
 # （詩文合集），但混入了「奏事」「詔」一類公文，按書名關鍵詞另判。
-def bujinshu_zongji_override(title_info):
-    # 本桶（丁部集録／總集類）里含「奏」「詔」二字者逐一核过，皆是奏事／詔令
-    # 之属而非詩文總集（如「魏名臣奏」「隆安直詔」），故此桶内可放宽按字判——
-    # 放到其他来源／其他 section 不可作此推廣
-    if '奏' in title_info:
+def bujinshu_zongji_override(title):
+    # 本桶（丁部集録／總集類）90 条题名已逐一核过：含「奏」「啟事」「表」者
+    # 皆是奏議一类公文（如「魏名臣奏」「山公啟事」「移機章表」），含「詔」者
+    # 皆是詔令（如「隆安直詔」），故此桶内可放宽按字判——放到其他来源／其他
+    # section 不可作此推廣。判词看 Work.title，不看 title_info（後者常被
+    # 補晉書志自己的按語截断，如《高氏奏事》title_info 只剩「中丞高」）
+    if re.search(r'奏|啟事', title):
         return '奏議類'
-    if '詔' in title_info:
+    if '表' in title:
+        return '奏議類'
+    if '詔' in title:
         return '詔令類'
-    if '故事' in title_info:
+    if '故事' in title:
         return '政書類'
     return None  # 其余仍归總集類，不改
 
@@ -126,13 +137,18 @@ def build():
                         l2f = ''
                     cands.append((l1, l2f, '', tier, f'{src}/{sec}'))
                 elif l2 == '__BUJINSHU_ZONGJI__':
-                    l2f = bujinshu_zongji_override(e.get('title_info') or title) or '總集類'
+                    # 协调者复验（09-28 01:19Z）：判词该看 Work.title，不能看
+                    # title_info——補晉書志的 title_info 常被截断（如《高氏奏事》
+                    # 一条 title_info 只剩「中丞高」，丢了「奏事」二字）
+                    l2f = bujinshu_zongji_override(title) or '總集類'
                     l1f = '史部' if l2f in ('奏議類', '詔令類', '政書類') else '集部'
                     cands.append((l1f, l2f, '', tier, f'{src}/{sec}'))
                 else:
                     if src == '漢書藝文志' and sec == '六藝略／春秋' and title in HANZHI_CHUNQIU_OVERRIDE:
                         l1, l2 = HANZHI_CHUNQIU_OVERRIDE[title]
                         l3 = ''
+                    if (src, sec, title) in L2_STRIP_OVERRIDE:
+                        l2, l3 = '', ''
                     cands.append((l1, l2 or '', l3 or '', tier, f'{src}/{sec}'))
         if not cands:
             continue
