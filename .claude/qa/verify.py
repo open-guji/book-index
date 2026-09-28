@@ -7,6 +7,11 @@
 輸出五個數：works 索引漂移（period/loss_status/title/subtype/author/dynasty/role；dynasty 取頂層，無則 authors[0]）、
 entities 索引漂移、work 側懸空引用、entity.works 懸空、單向邊（人指書而書不指人）。
 漂移不為 0 即失敗（exit 1）——改了記錄而未回寫索引，或改了索引而未改記錄。
+
+S5（overview#189）另加：通用 `todo`／`review`（審核狀態）形狀校驗、`_edition_count`／
+`_member_count` 派生計數校驗（以上四項 0 基線，計入 FAIL）；以及 `related_works[].title`／
+`Collection.contained_works[].title` 漂移、`provenance[].institution` 簡體字三項 stale_ref
+推廣校驗——這三項是既有欄位之內容問題，非本卡新增，只報數、落 known-issues，不計入 FAIL。
 """
 import argparse, collections, glob, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -137,6 +142,73 @@ def physical_description_ok(pd):
     if not isinstance(pd.get('source'), str) or not pd.get('source').strip(): return False
     return any((pd.get(f) or '').strip() for f in content_fields)
 
+# ---- S5（overview#189）：通用 todo／審核狀態／派生計數／stale_ref 推廣 ----
+
+def todo_ok(v):
+    """通用 `todo`（Work／Book／Collection／Entity 皆可用）：無此欄即過。
+    數組，每項至少 `{what}`，`by`／`date` 選填皆為字符串。只定義形狀，本卡不批量回填。"""
+    if v is None: return True
+    if not isinstance(v, list): return False
+    for item in v:
+        if not isinstance(item, dict): return False
+        what = item.get('what')
+        if not isinstance(what, str) or not what.strip(): return False
+        for f in ('by', 'date'):
+            fv = item.get(f)
+            if fv is not None and not isinstance(fv, str): return False
+    return True
+
+REVIEW_STATUS = {'unreviewed', 'reviewed', 'disputed'}
+
+def review_ok(v):
+    """通用審核狀態 `review`（由 v2 `confirm` 改造）：無此欄即過。
+    物件 `{status, by, date}`，`status` 落於三值域，`by`／`date` 選填皆為字符串。
+    只定義形狀，本卡不批量回填（現行無條目有此欄，基線 0）。"""
+    if v is None: return True
+    if not isinstance(v, dict): return False
+    if v.get('status') not in REVIEW_STATUS: return False
+    for f in ('by', 'date'):
+        fv = v.get(f)
+        if fv is not None and not isinstance(fv, str): return False
+    return True
+
+def derive_edition_count(wid, book_work_ids):
+    """Work.`_edition_count`：掛在該 Work 下的 Book 數，由 Book.work_id 反查而得
+    （不採 Work.`books` 手寫清單——兩者對全庫 95,055 條核有 74 條不一致，見已知問題）。"""
+    return book_work_ids.get(wid, 0)
+
+def edition_count_ok(d, book_work_ids):
+    """`_edition_count` 若寫了：須為正整數且等於重新推導之值（派生欄位，手寫無用）。
+    ＝0 者不寫本欄（沿用 `_has_text` 等「只標異常，不標正常」之例）。"""
+    v = d.get('_edition_count')
+    if v is None: return True
+    if not isinstance(v, int) or isinstance(v, bool) or v <= 0: return False
+    return v == derive_edition_count(d.get('id'), book_work_ids)
+
+def derive_member_count(d):
+    """Collection.`_member_count`：`books`＋`contained_works` 兩份平列成員清單之長度和
+    （`contains` 是結構組成部分，不計入，與 `_member_type` 同一口徑）。"""
+    return len(d.get('books') or []) + len(d.get('contained_works') or [])
+
+def member_count_ok(d):
+    """`_member_count` 若寫了：須為正整數且等於重新推導之值。＝0 者不寫本欄。"""
+    v = d.get('_member_count')
+    if v is None: return True
+    if not isinstance(v, int) or isinstance(v, bool) or v <= 0: return False
+    return v == derive_member_count(d)
+
+SIMP_HINT_CHARS = set('国学图书馆')  # 本庫以繁體為主，這批字一見即是簡體（機構名 stale_ref 推廣用）
+
+def institution_simplified(inst):
+    """Book.provenance[].institution 是否含簡體字（與全庫繁體慣例不一，如
+    「中国国家图书馆」對「中國國家圖書館」）。只報不改——本卡不動既有欄位之值。"""
+    return any(ch in SIMP_HINT_CHARS for ch in (inst or ''))
+
+def title_of(rid, IW, IC):
+    if rid in IW: return IW[rid]['title']
+    if rid in IC: return IC[rid]['title']
+    return None
+
 BASE_EDITION_ROLES = {'底本', '配補', '參校'}
 
 def base_edition_ok(be, self_id, book_ids, work_ids):
@@ -163,12 +235,15 @@ def main():
     IC = json.load(open(os.path.join(ROOT, 'index', 'collections.json')))
     ALL = set(IW) | set(IB) | set(IE) | set(IC)
     CVOCAB = load_classific_vocab()
+    book_work_ids = collections.Counter(ie.get('work_id') for ie in IB.values() if ie.get('work_id'))
     bad_cls = []
     drift_w, dangle_w, missing, back = [], [], [], {}
     bad_prov = []
     bad_et, bad_pd = [], []
     # S3c/#191：Collection id -> 反掛計數，供 _member_type 反掛判定與回補腳本之前後對比報告
     rev_book_members, rev_work_members = collections.Counter(), collections.Counter()
+    bad_todo, bad_review = [], []
+    bad_inst = []
     bad_be = []
     for bid, ie in IB.items():
         p = os.path.join(ROOT, ie['path'])
@@ -177,6 +252,11 @@ def main():
         prov = d.get('provenance')
         if prov is not None and not provenance_ok(prov):
             bad_prov.append(bid)
+        if prov:
+            for item in prov:
+                inst = item.get('institution') if isinstance(item, dict) else None
+                if inst and institution_simplified(inst):
+                    bad_inst.append((bid, inst))
         et = d.get('edition_type')
         if et is not None and not edition_type_ok(et):
             bad_et.append((bid, et))
@@ -186,9 +266,13 @@ def main():
         for ci in (d.get('contained_in') or []):
             cid_ = ci.get('id') if isinstance(ci, dict) else ci
             if cid_: rev_book_members[cid_] += 1
+        if not todo_ok(d.get('todo')): bad_todo.append((bid, 'Book'))
+        if not review_ok(d.get('review')): bad_review.append((bid, 'Book'))
         be = d.get('base_edition')
         if be is not None and not base_edition_ok(be, bid, IB, IW):
             bad_be.append(bid)
+    bad_edcount = []
+    stale_related = []
     for wid, ie in IW.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(wid); continue
@@ -211,11 +295,18 @@ def main():
             if nz(ie.get(f)) != y: drift_w.append((wid, f, ie.get(f), y))
         for r in (d.get('related_works') or []):
             if r.get('id') and r['id'] not in ALL: dangle_w.append((wid, 'related_works', r['id']))
+            if r.get('id') and r.get('title') is not None:
+                actual = title_of(r['id'], IW, IC)
+                if actual is not None and actual != r['title']:
+                    stale_related.append((wid, r['id'], r['title'], actual))
         for b in (d.get('books') or []):
             if b not in ALL: dangle_w.append((wid, 'books', b))
         back[wid] = {x.get('entity_id') for x in au if x.get('entity_id')}
         for x in au:
             if x.get('entity_id') and x['entity_id'] not in IE: dangle_w.append((wid, 'authors.entity_id', x['entity_id']))
+        if not todo_ok(d.get('todo')): bad_todo.append((wid, 'Work'))
+        if not review_ok(d.get('review')): bad_review.append((wid, 'Work'))
+        if not edition_count_ok(d, book_work_ids): bad_edcount.append((wid, d.get('_edition_count'), derive_edition_count(wid, book_work_ids)))
     drift_e, dangle_e, fwd, dup_e, bad_dates, bad_extids = [], [], {}, [], [], []
     for eid, ie in IE.items():
         p = os.path.join(ROOT, ie['path'])
@@ -241,11 +332,15 @@ def main():
                 seen_e.append(w['work_id']); fwd.setdefault(eid, set()).add(w['work_id'])
         for wid, c in collections.Counter(seen_e).items():
             if c > 1: dup_e.append((eid, wid, c))
+        if not todo_ok(d.get('todo')): bad_todo.append((eid, 'Entity'))
+        if not review_ok(d.get('review')): bad_review.append((eid, 'Entity'))
     # 2026-09-07 lane-B 所報之二：Collection.contained_works[].id 從來無人驗——
     # 併條而漏改此處，斷了無人知。今併入「work 側懸空引用」一項。
     # S3（Collection.count 吸收，overview#140）：count 若寫了就必須形狀對、有依據、非全空。
     bad_count = []
     bad_member_type = []
+    bad_memcount = []
+    stale_contained = []
     for cid, ie in IC.items():
         p2 = ie.get('path')
         if not p2 or not os.path.exists(p2): continue
@@ -254,11 +349,23 @@ def main():
         for cw in (dc.get('contained_works') or []):
             x = cw.get('id') or cw.get('work_id') if isinstance(cw, dict) else cw
             if isinstance(x, str) and x not in IW and x not in IC: dangle_w.append((cid, 'contained_works', x))
+            if isinstance(cw, dict) and x and cw.get('title') is not None:
+                actual = title_of(x, IW, IC)
+                if actual is not None and actual != cw['title']:
+                    stale_contained.append((cid, x, cw['title'], actual))
         cnt = dc.get('count')
         if cnt is not None and not count_ok(cnt): bad_count.append(cid)
         rhb, rhw = bool(rev_book_members.get(cid)), bool(rev_work_members.get(cid))
         if not member_type_ok(dc, rhb, rhw):
             bad_member_type.append((cid, dc.get('_member_type'), derive_member_type(dc, rhb, rhw)))
+        # S5/#189 _member_count：目前只算 books/contained_works 兩份「正向」清單之長度和，
+        # 未併入 S3c/#191 這裡新引入的反掛計數（rev_book_members/rev_work_members）——
+        # 二者若直接相加會與已見於正向清單者重複計數，需要成員級去重才能安全合流，
+        # 本卡未做，故對只靠反掛成員（如故宮善本舊籍一類正向清單本就是空的 Collection）
+        # 暫不寫 _member_count，留待後道視需要再併（記一筆，見 issue #189 卡評論）。
+        if not member_count_ok(dc): bad_memcount.append((cid, dc.get('_member_count'), derive_member_count(dc)))
+        if not todo_ok(dc.get('todo')): bad_todo.append((cid, 'Collection'))
+        if not review_ok(dc.get('review')): bad_review.append((cid, 'Collection'))
     oneway = [(e, w) for e, ws in fwd.items() for w in ws if e not in back.get(w, set())]
     print(f'索引檔缺記錄檔        {len(missing)}')
     print(f'works 索引漂移        {len(drift_w)}')
@@ -285,6 +392,20 @@ def main():
     for r in bad_count[:10]: print('  count 壞', r)
     print(f'_member_type 不合／過期 {len(bad_member_type)}')
     for r in bad_member_type[:10]: print('  _member_type 壞', r)
+    print(f'todo 形狀不合           {len(bad_todo)}')
+    for r in bad_todo[:10]: print('  todo 壞', r)
+    print(f'review 形狀不合         {len(bad_review)}')
+    for r in bad_review[:10]: print('  review 壞', r)
+    print(f'_edition_count 不合／過期 {len(bad_edcount)}')
+    for r in bad_edcount[:10]: print('  _edition_count 壞', r)
+    print(f'_member_count 不合／過期  {len(bad_memcount)}')
+    for r in bad_memcount[:10]: print('  _member_count 壞', r)
+    # S5（overview#189）stale_ref 推廣：下三項是既有欄位之內容漂移／機構名簡繁不一，
+    # 屬歷史遺留（本卡「不改任何已有字段的值」），故只報數、落 known-issues，不入 FAIL 之列，
+    # 亦不隨 --strict 升級——否則本閘會為與本卡無關的既有數據把全庫判死。
+    print(f'related_works[].title 漂移（僅報，不入 FAIL） {len(stale_related)}')
+    print(f'Collection.contained_works[].title 漂移（僅報，不入 FAIL） {len(stale_contained)}')
+    print(f'provenance[].institution 簡體字（僅報，不入 FAIL） {len(bad_inst)}')
     # 2026-09-07 lane-E 所報：賬曾三度被 pushmain 之 --ours 吞掉，共遺落 492 筆而無人察覺
     # ——被吞者無聲、吞人者亦無聲，**只有第三方比對才看得見**。故以水位線守之。
     _ledger_bad = False
@@ -322,7 +443,7 @@ def main():
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
     bad = (_ledger_bad or missing or drift_w or drift_e or bad_cls or bad_prov or bad_dates or bad_extids or bad_count
-           or bad_et or bad_pd or bad_be or bad_member_type
+           or bad_et or bad_pd or bad_be or bad_member_type or bad_todo or bad_review or bad_edcount or bad_memcount
            or (a.strict and (dangle_w or dangle_e or oneway or dup_e)))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)

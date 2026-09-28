@@ -1,0 +1,550 @@
+{
+ "lane": "S5",
+ "date": "2026-09-28",
+ "kind": "stale_ref 推广（现行既有欄位内容漂移，不改值，只报）",
+ "title": "Work.related_works[].title 与目标记录现行 title 不一致",
+ "checked": 14980,
+ "hit": 77,
+ "note": "SCHEMA.md 原称此项「在校验中报漂移，基线0」，但全库并无此校验落地——本卡在 verify.py 补上该检查（related_works_title 相关代码），本清单即其首次全量命中结果。本卡「不改任何已有字段的值」，故只报不修，留待另开道处理。",
+ "examples": [
+  {
+   "work_id": "d59f283vj30i",
+   "related_id": "d59f28npq1vm",
+   "recorded_title": "黃帝素問王冰注",
+   "actual_title": "黃帝素問",
+   "relation": "related"
+  },
+  {
+   "work_id": "d59ezak6jq4g",
+   "related_id": "d59f24mgxukr",
+   "recorded_title": "春秋左氏解詁賈逵撰",
+   "actual_title": "春秋左氏解詁",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezak6jq4g",
+   "related_id": "d59f27y5tp1e",
+   "recorded_title": "春秋左氏傳音李軌撰",
+   "actual_title": "春秋左氏傳音",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezak6jq4g",
+   "related_id": "d59f27xplcsg",
+   "recorded_title": "春秋左氏傳評杜預撰",
+   "actual_title": "春秋左氏傳評",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezak6jq4g",
+   "related_id": "d59f27yekc8y",
+   "recorded_title": "春秋左氏傳賈、服異同略孫毓撰",
+   "actual_title": "春秋左氏傳賈服異同略",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezak6jq4g",
+   "related_id": "d59f24mh9342",
+   "recorded_title": "春秋左氏經傳朱墨列賈逵撰",
+   "actual_title": "春秋左氏經傳朱墨列",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezak6jq4g",
+   "related_id": "d59f28j6s6bk",
+   "recorded_title": "第五泰左傳事類",
+   "actual_title": "左傳事類",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iofm800",
+   "related_id": "d59f284brf9d",
+   "recorded_title": "禮記義何氏撰",
+   "actual_title": "禮記義",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iofm800",
+   "related_id": "d59f284232f5",
+   "recorded_title": "禮記義疏皇侃撰",
+   "actual_title": "禮記義疏",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iofm800",
+   "related_id": "d59f284232f7",
+   "recorded_title": "禮記義疏沈重撰",
+   "actual_title": "禮記義疏",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iofm800",
+   "related_id": "d59f2pv7fe9s",
+   "recorded_title": "禮記略解庚氏撰",
+   "actual_title": "禮記略解",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f24mkzxms",
+   "related_id": "d59f23nxnmyp",
+   "recorded_title": "老子想爾注二卷(存卷上)",
+   "actual_title": "老子想爾注",
+   "relation": "related"
+  },
+  {
+   "work_id": "d59f1ioc6m0w",
+   "related_id": "d59f24mm8vsx",
+   "recorded_title": "纂圖互注周禮十二卷圖說",
+   "actual_title": "纂圖互注周禮",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iosq6tc",
+   "related_id": "d59f27ycowzl",
+   "recorded_title": "集議孝經袁宏撰",
+   "actual_title": "集議孝經",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iosq6tc",
+   "related_id": "d59f27y3bsow",
+   "recorded_title": "集議孝經荀昶撰",
+   "actual_title": "集議孝經",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iosq6tc",
+   "related_id": "d59f284b4y69",
+   "recorded_title": "孝經義疏皇侃撰",
+   "actual_title": "孝經義疏",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iosq6tc",
+   "related_id": "d59f2nddkkcg",
+   "recorded_title": "孝經私鈔",
+   "actual_title": "孝經私抄",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iosq6tc",
+   "related_id": "d59f2he3vq4g",
+   "recorded_title": "趙克孝孝經傳",
+   "actual_title": "孝經傳",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iosq6tc",
+   "related_id": "d59f2hed8uf7",
+   "recorded_title": "王文獻孝經詳解",
+   "actual_title": "孝經詳解",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iosq6tc",
+   "related_id": "d59f2he3991f",
+   "recorded_title": "沈處厚孝經解",
+   "actual_title": "孝經解",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iosq6tc",
+   "related_id": "d59f2heraiv6",
+   "recorded_title": "袁甫孝經說",
+   "actual_title": "孝經說",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f287ki6f4",
+   "related_id": "d59f8ii71blu",
+   "recorded_title": "王智深宋書",
+   "actual_title": "宋書",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezkx8dt6o",
+   "related_id": "d59f2ptwlse9",
+   "recorded_title": "玄景先生老子道德簡要義",
+   "actual_title": "老子道德簡要義",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1ioj1tz4",
+   "related_id": "d59f2q0j33sy",
+   "recorded_title": "春秋公羊例序刁氏撰",
+   "actual_title": "春秋公羊例序",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1ioj1tz4",
+   "related_id": "d59f23nrq4n6",
+   "recorded_title": "春秋公羊謚例何休撰",
+   "actual_title": "春秋公羊謚例",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f2e2vuozm",
+   "related_id": "d59f27x68n41",
+   "recorded_title": "抱朴子內篇二十卷外篇",
+   "actual_title": "抱朴子內篇二十卷外篇五十卷",
+   "relation": "related"
+  },
+  {
+   "work_id": "d59f1iopaku8",
+   "related_id": "d59f27y30k5d",
+   "recorded_title": "論語體略郭象撰",
+   "actual_title": "論語體略",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iopaku8",
+   "related_id": "d59f27xr5ji9",
+   "recorded_title": "論語釋張憑撰",
+   "actual_title": "論語釋",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iopaku8",
+   "related_id": "d59f27y07f9c",
+   "recorded_title": "論語釋疑欒肇撰",
+   "actual_title": "論語釋疑",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iopaku8",
+   "related_id": "d59f284r21vn",
+   "recorded_title": "論語義疏皇侃撰",
+   "actual_title": "論語義疏",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f1iopaku8",
+   "related_id": "d59f2q3z0bnk",
+   "recorded_title": "論語疏",
+   "actual_title": "論語䟽",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezak9zc3k",
+   "related_id": "d59f2841glc3",
+   "recorded_title": "毛詩箋音證劉芳撰",
+   "actual_title": "毛詩箋音證",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezak9zc3k",
+   "related_id": "d59f27yg4iyq",
+   "recorded_title": "毛詩辨異楊乂撰",
+   "actual_title": "毛詩辨異",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezak9zc3k",
+   "related_id": "d59f24mlxn9k",
+   "recorded_title": "監本纂圖重言重意互注點校毛詩二十卷圖譜",
+   "actual_title": "監本纂圖重言重意互注點校毛詩",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f28715gqo",
+   "related_id": "d59f27xs394y",
+   "recorded_title": "後漢書抄",
+   "actual_title": "後漢書鈔",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f28715gqo",
+   "related_id": "d59f283zl62o",
+   "recorded_title": "後漢書九十卷志",
+   "actual_title": "後漢書",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f20arpg5c",
+   "related_id": "d59f27xfwzyb",
+   "recorded_title": "尚書駁議王肅撰",
+   "actual_title": "尚書駁議",
+   "relation": "studied_by"
+  },
+  {
+   "work_id": "d59f20arpg5c",
+   "related_id": "d59f28n38yro",
+   "recorded_title": "尚書疏顧彪撰",
+   "actual_title": "尚書疏",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f20arpg5c",
+   "related_id": "d59f2842eayo",
+   "recorded_title": "尚書義巢猗撰",
+   "actual_title": "尚書義",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f20arpg5c",
+   "related_id": "d59f28mptres",
+   "recorded_title": "尚書釋問虞氏撰",
+   "actual_title": "尚書釋問",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f2pvztzpc",
+   "related_id": "d59f6elsx3pi",
+   "recorded_title": "素問糾略",
+   "actual_title": "素問糾畧",
+   "relation": "related"
+  },
+  {
+   "work_id": "d59f2870iznk",
+   "related_id": "d59f283xei9t",
+   "recorded_title": "魏收後魏書",
+   "actual_title": "後魏書",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f2pwdvo5d",
+   "recorded_title": "周易音范氏撰",
+   "actual_title": "周易音",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f27xiewaq",
+   "recorded_title": "周易盡神論鍾會撰",
+   "actual_title": "周易盡神論",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f27y49ibk",
+   "recorded_title": "周易象論欒肇撰",
+   "actual_title": "周易象論",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f27xxpiww",
+   "recorded_title": "周易統略鄒湛撰",
+   "actual_title": "周易統略",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f27yf6tc2",
+   "recorded_title": "周易論阮常撰",
+   "actual_title": "周易論",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f27xzky6b",
+   "recorded_title": "周易論范氏撰",
+   "actual_title": "周易論",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f27yc2fwg",
+   "recorded_title": "周易論宋岱撰",
+   "actual_title": "周易論",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f28me9zba",
+   "recorded_title": "周易統例崔覲撰",
+   "actual_title": "周易統例",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f2848n1ts",
+   "recorded_title": "周易乾坤義劉瓛撰",
+   "actual_title": "周易乾坤義",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f2q6qw9a9",
+   "recorded_title": "周易大義馬揩撰",
+   "actual_title": "周易大義",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f28499iww",
+   "recorded_title": "周易開題義梁蕃撰",
+   "actual_title": "周易開題義",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f2848n1tt",
+   "recorded_title": "周易義疏沈林撰",
+   "actual_title": "周易義疏",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f28n200ld",
+   "recorded_title": "周易講疏何妥撰",
+   "actual_title": "周易講疏",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f28449q81",
+   "recorded_title": "周易義范歆撰",
+   "actual_title": "周易義",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f27xw5c76",
+   "recorded_title": "周易象論樂肇撰",
+   "actual_title": "周易象論",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f27xsehoh",
+   "recorded_title": "周易卦序論楊又撰",
+   "actual_title": "周易卦序論",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f27y80cub",
+   "recorded_title": "周易論阮渾撰",
+   "actual_title": "周易論",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f2849w003",
+   "recorded_title": "周易論周顯撰",
+   "actual_title": "周易論",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f283wgsn4",
+   "recorded_title": "周易統例崔觀撰",
+   "actual_title": "周易統例",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f2840u490",
+   "recorded_title": "周易乾坤義劉琳撰",
+   "actual_title": "周易乾坤義",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f2841rtvo",
+   "recorded_title": "周易講疏張識撰",
+   "actual_title": "周易講疏",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezakdey2o",
+   "related_id": "d59f2843yhoj",
+   "recorded_title": "周易繫辭義疏劉琳撰",
+   "actual_title": "周易繫辭義疏",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f2pr4purl",
+   "related_id": "d59f283vj30i",
+   "recorded_title": "黃帝素問全元起注",
+   "actual_title": "黃帝素問",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f2pr4purl",
+   "related_id": "d59f28npq1vm",
+   "recorded_title": "黃帝素問王冰注",
+   "actual_title": "黃帝素問",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezajtfrb4",
+   "related_id": "d59f27xxeadd",
+   "recorded_title": "春秋穀梁傳例范寧撰",
+   "actual_title": "春秋穀梁傳例",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezajtfrb4",
+   "related_id": "d59f2pyta41u",
+   "recorded_title": "春秋穀梁傳程闡撰",
+   "actual_title": "春秋穀梁傳",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezajtfrb4",
+   "related_id": "d59f27y5ighu",
+   "recorded_title": "春秋穀梁傳孔衍撰",
+   "actual_title": "春秋穀梁傳",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezajtfrb4",
+   "related_id": "d59f2q343ta9",
+   "recorded_title": "春秋穀梁傳魏人撰",
+   "actual_title": "春秋穀梁傳",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59ezajtfrb4",
+   "related_id": "d59f24mh9341",
+   "recorded_title": "春秋穀梁廢疾何休撰",
+   "actual_title": "春秋穀梁廢疾",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59f7sccirex",
+   "related_id": "d59f2q20gow2",
+   "recorded_title": "漢元殷周諜歷",
+   "actual_title": "漢元殷周諜曆",
+   "relation": "related"
+  },
+  {
+   "work_id": "d59f208lo4cg",
+   "related_id": "d59f9uwug5xh",
+   "recorded_title": "靈棋經注",
+   "actual_title": "靈棊經注",
+   "relation": "text_carried_by"
+  },
+  {
+   "work_id": "d59fyong6dur",
+   "related_id": "d59f2q20gow2",
+   "recorded_title": "漢元殷周諜歷",
+   "actual_title": "漢元殷周諜曆",
+   "relation": "related"
+  },
+  {
+   "work_id": "d59f28npq1vm",
+   "related_id": "d59f6elsx3pi",
+   "recorded_title": "素問糾略",
+   "actual_title": "素問糾畧",
+   "relation": "studied_by"
+  },
+  {
+   "work_id": "d59f28npq1vm",
+   "related_id": "d59f283vj30i",
+   "recorded_title": "黃帝素問全元起注",
+   "actual_title": "黃帝素問",
+   "relation": "related"
+  },
+  {
+   "work_id": "d59f28npq1vl",
+   "related_id": "d59f28mw2i9w",
+   "recorded_title": "何超晉書音義",
+   "actual_title": "晉書音義",
+   "relation": "studied_by"
+  }
+ ]
+}

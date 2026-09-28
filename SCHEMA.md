@@ -81,6 +81,7 @@ Represents the abstract intellectual content.
   "_has_text": "boolean (派生：resources[].types 含 text)",
   "_has_image": "boolean (派生：resources[].types 含 image)",
   "_has_collated": "boolean (派生：存在 collated_edition 整理本)",
+  "_edition_count": "integer (optional, 派生：掛在本 Work 下的 Book 數，由 Book.work_id 反查；=0 不寫。見下「_edition_count（Work）」)",
   "classification": "object (optional, 四部分類。見下「classification（四部分類）」)",
   "loss_status": "string (optional, 存佚。枚舉見下「loss_status 枚舉」。欄位不存在 = 今存或未考，不必寫)",
   "authenticity": "string (optional, 唯一值 forged。**只在確定是偽書時才寫**，欄位不存在 = 無此疑義。見下「authenticity」)",
@@ -88,6 +89,8 @@ Represents the abstract intellectual content.
   "promoted_to": "string (Production ID，本草稿記錄已升格；權威來源為 promotions.json)",
   "promoted_at": "string (ISO 8601 時間戳)",
   "ai_note": "string (optional, 建檔／整理過程的自注：資料來源、存疑、待辦。非面向讀者的正文)",
+  "todo": [] // optional, 見〈記錄之共通欄位〉「todo」
+  "review": "object (optional, 見〈記錄之共通欄位〉「review」)",
   "sources": [] // type: Source
 }
 ```
@@ -935,12 +938,14 @@ Represents a collection or series that contains multiple books or other collecti
     "source": "string (依据，写明数据取自何处、有无估算或订正)"
   },
   "_member_type": "string (Work | Book | Collection | mixed，派生，见下)",
+  "_member_count": "integer (optional, 派生：books+contained_works 长度和，=0 不写，见下「_member_count（Collection）」)",
   "indexed_by": [] // type: IndexEntry
   "related_books": ["string (Book IDs)"],
   "related_collections": ["string (Collection IDs)"],
   "resources": [] // 與 Book.resources 同結構
   "promoted_to": "string", "promoted_at": "string",
   "ai_note": "string",
+  "todo": [], "review": {},  // optional，見〈記錄之共通欄位〉
   "sources": [] // type: Source
 }
 ```
@@ -1057,6 +1062,7 @@ Represents a physical or specific digital edition/copy of a work.
   "metadata": { "...": "來源系統原始欄位的透傳，不作規範化" },
   "promoted_to": "string", "promoted_at": "string",
   "ai_note": "string",
+  "todo": [], "review": {},  // optional，見〈記錄之共通欄位〉
   "sources": [] // type: Source
 }
 ```
@@ -1258,6 +1264,7 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
 
   "description": "Description (object)",
   "ai_note": "string (optional, 建檔自注)",
+  "todo": [], "review": {},  // optional，見〈記錄之共通欄位〉
   "sources": [],
 
   "suppressed_fields": ["string, optional（如 [\"dynasty\", \"birth_year\"]）"]
@@ -1391,29 +1398,81 @@ ID 用 64-bit snowflake 结构，3 bits 标识 type：
 
 ## 記錄之共通欄位（issue #10）
 
-以下五欄凡 Work／Book／Collection／Entity 皆有，2026-08 立。
+以下欄凡 Work／Book／Collection／Entity 皆有，2026-08 立；`todo`／`review` 為 2026-09-28
+（S5，overview#189）新增。
 
 | 欄位 | 義 |
 |---|---|
 | `schema_version` | 主記錄自 `1` 起。**輯佚檔（`fragments`）別為一族，已在 `2`，二者不同源，勿混。**<br>無此欄則將來任一次結構調整都成考古。 |
 | `updated_at` | 這條最後一次被人碰的時間（ISO 8601）。<br>現值自 git 該檔最後一次提交回填——**不一律填「現在」**，假時間比沒有更壞。<br>檔在 git 裡，diff 自有時間戳，然「這條何時被碰」須能直接查，不必翻歷史。 |
-| `_` 起首者 | **派生欄位**：`_has_text`、`_has_image`、`_has_collated`、`_promoted_to`、`_promoted_at`。<br>校驗一律「重新生成後比對，不一致以生成值為準」，故**手寫無用**。 |
+| `_` 起首者 | **派生欄位**：`_has_text`、`_has_image`、`_has_collated`、`_promoted_to`、`_promoted_at`、`_member_type`（Collection）、`_edition_count`（Work）、`_member_count`（Collection）。<br>校驗一律「重新生成後比對，不一致以生成值為準」，故**手寫無用**。 |
 | `zhsy_retrieved_at` / `authors[].cbdb_retrieved_at` | 外部對齊之取得時間。現存皆 `null`——一千三百餘條 `zhsy_id` 是 v0.2／v0.3（2026-04-29、2026-05-14）批次匯入時帶入，其取得之時無記錄，填一個推導的時間即是假造。**新增對齊必填。**<br>`cbdb_id` 為 `null` 而 `cbdb_match: none` 者是**查而否決**，非未查，故亦有此欄——對方日後改指向，否決同樣會過期。 |
+| `todo`（2026-09-28 增，S5） | 條目級待核清單，數組，每項 `{what, by?, date?}`：`what` 是待辦事項本身（非空字串，必填）；`by` 選填，記何人／何道應來填（人名、道名，如「目錄總管」「S6 道」）；`date` 選填，記何時該清（或記錄提出待辦的日期）。清項之法：待辦完成後**移除該項**，不留「已辦」之類的標記——`todo` 只裝尚待辦者，做完的事無須佔位（與 `authenticity`「只標異常」同一節儉之旨）。<br>吸收自 data_new v2（overview `35-data_new詳細對比.md` §四·9、§七·2·5）。**本卡只定義形狀，不批量回填**——現行待辦散見於 `ai_note` 自由文本與 `.claude/qa/known-issues/` 各清單，遷移是另一件事（逐條讀 `ai_note` 判斷是否真是「待辦」而非「整理決策記錄」），留待後道視需要逐步做。 |
+| `review`（2026-09-28 增，S5） | 條目級人工審核狀態，物件 `{status, by?, date?}`：`status` 三值 `unreviewed`（未審）／`reviewed`（已審）／`disputed`（有爭議，審過而未定案）；`by`／`date` 選填，記審核人與審核時間。改造自 data_new v2 的 `confirm`（v2 只有一個「未確認」值，且 Work/Book/Entity 簡體、Collection 繁體，見 35 卡 §一·4 註 12 之簡繁不一）。**本卡只定義列舉與形狀，不批量回填**——現行沒有任何條目經過本欄意義上的人工審核，逕自全部標 `unreviewed` 是假審核，等於白填；欄位不存在即等同 `unreviewed`，不必補。是網站狀態色（35 卡 §六·3 方案二「綠·考定」）未來的審核依據之一。 |
 
 ### 派生欄位為何要加底線
 
 `has_text` 之現狀曾是「有的對、有的錯、大半沒有」：已有者五千九百八十七條中二條與重算不符，
 而一萬零十八個 Work、七千七百四十九個 Book 有 `resources` 卻無此欄。
 病根在於**它與手寫欄長得一模一樣**，遂無人知其該不該在、值對不對。
-加底線之後，`chk.py` 對所有 `_` 起首之欄一律重算比對，基線 0。
+加底線之後，`.claude/qa/verify.py` 對所有 `_` 起首之欄一律重算比對，基線 0。
 
 **`index/` 之欄不加底線**——整個檔都是派生產物，檔級已說明此事，欄再加底線是重複。
-但其值同須與記錄相符（`chk.py` 已驗）。
+但其值同須與記錄相符（`verify.py` 已驗）。
 
-`related_works[].title` 未改名亦未刪：刪之則 git diff 與人工閱讀時看不出關聯的是什麼書，
-排查要多查一步。改為每次重生成則與「保留可讀性」相衝。
-今**保留原名而在校驗中報漂移**，基線 0。
-（曾漂移九處，皆同一成因：work 之題名清掉了誤切進去的案語，而此處還留著舊題。）
+#### `_edition_count`（Work，2026-09-28 增，S5）
+
+挂在該 Work 下的 Book 數。派生規則見 `.claude/qa/verify.py:derive_edition_count`——**由
+`Book.work_id` 反查而得，不採 Work.`books` 手寫清單**：全庫核對兩者，95,055 條 Work 裡有
+74 條不一致（`books` 手寫清單漏改或多改），`Book.work_id` 是每部 Book 自己聲明的歸屬，
+更可靠。與 `_has_text` 等同例，**＝0 者不寫本欄**（現行 13,863 條 Work 因此得欄，其餘
+81,192 條無 Book、不寫）。腳本：`.claude/qa/s5/backfill_derived_counts.py`（乾跑為預設，
+`--apply` 才寫，可複跑冪等）。
+
+吸收自 data_new v2 之 `derived.edition_count`（overview `35-data_new詳細對比.md` §一·1、
+§七·2·5）——沿用現行 `_` 前綴，不另立 `derived` 物件。
+
+#### `_member_count`（Collection，2026-09-28 增，S5）
+
+`books`＋`contained_works` 兩份平列成員清單之長度和（`contains` 是結構組成部分，不計入，
+與既有 `_member_type` 同一口徑，見上「Collection 的三種成員列表」）。與 `_member_type` 一樣，
+**由 Collection 自身的 `books`／`contained_works` 手寫清單算出**（不像 `_edition_count`
+反查對面記錄——Collection 成員關係現行只單向記在 Collection 自己身上，`Work.contained_in`
+覆蓋僅 15 個 Collection，反查會漏算另外六十餘個），**＝0 者不寫本欄**（現行 84 條 Collection
+中 57 條因此得欄）。腳本同上（`.claude/qa/s5/backfill_derived_counts.py`）。
+
+吸收自 data_new v2 之 `derived.member_count`（overview `35-data_new詳細對比.md` §一·3、
+§七·2·5）。
+
+### `related_works[].title` 未改名亦未刪，但校驗此前並未真正落地（2026-09-28 訂正，S5）
+
+刪之則 git diff 與人工閱讀時看不出關聯的是什麼書，排查要多查一步。改為每次重生成則與
+「保留可讀性」相衝。**保留原名而在校驗中報漂移**——此意雖早定，然覆核（S5，overview#189）
+發現全庫並無對應校驗程式碼落地，`.claude/qa/verify.py` 這才**首次**把它做實
+（`title_of()` 反查 `related_works[].id` 之目標記錄現行 `title`，不符即報）。
+
+首次全量跑出**77 處**漂移（此前文檔誤記「曾漂移九處，基線 0」——那是更早一次人工核對的
+殘存記憶，並非本校驗跑出的數，本節訂正之）。多為題名清理時把誤切進去的撰人案語去掉
+（如「春秋左氏解詁賈逵撰」→「春秋左氏解詁」），而 `related_works[].title` 未隨之同步。
+**本卡「不改任何已有字段的值」，故只報不改**，清單見
+`.claude/qa/known-issues/s5-20260928-related_works标题漂移.json`，訂正留待另開道。
+
+**推廣至 `Collection.contained_works[].title`**（同卡，issue #189 §一 舉例之「Collection
+成員名」）：同一漂移校驗現已覆蓋 `contained_works[].id` 對目標 Work／Collection 現行
+`title`，首次跑出 **47 處**，多見於書目叢編（如《二十五史藝文經籍志考補萃編》）以括注
+撰人消歧的展示題（「補後漢書藝文志（顧懷三）」）與 Work 自身題名不同——是否應算「合法
+消歧展示」而非漂移，留待目錄總管定奪。清單見
+`.claude/qa/known-issues/s5-20260928-Collection成员名标题漂移.json`。
+
+**推廣至 `Book.provenance[].institution`**（S2b 新增欄位）：`institution` 是自由文本，無
+id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.py:institution_simplified`
+偵得全庫 8 種機構名寫法中有 3 條含簡體字（「中国国家图书馆」對「中國國家圖書館」、
+「北京大学图书馆」對「北京大學圖書館」，皆為同一機構之簡繁兩寫）。同樣只報不改，清單見
+`.claude/qa/known-issues/s5-20260928-provenance机构名简繁不一.json`。
+
+以上三項 stale_ref 校驗現於 `verify.py` 執行時列印命中數，但**不計入 FAIL、不隨
+`--strict` 升級**——它們驗的是既有欄位之歷史內容，非本卡新增之結構，若計入會使全庫既有
+77＋47＋3 處問題把硬門禁判死，波及本卡以外所有正在跑的道。
 
 ### 已刪之欄位
 
