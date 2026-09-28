@@ -73,6 +73,38 @@ def dates_ok(d):
         return f'dates.death={death} 与 death_year={dy} 不一致'
     return None
 
+# overview#217（据 #214 Q4 体检 check5）：朝代大致纪年區間（公歷），僅用於「dynasty 與生卒
+# 世纪明顯不合」的粗篩監控，留足餘量（±40年）不作精判——史學慣例常以人物主要活動／卒年所屬
+# 朝代標注而非生年所屬朝代（如金末元初文人多繫元），此表對此類情況亦會命中，故只報數不入 FAIL。
+DYNASTY_RANGE = {
+    '夏': (-2070, -1600), '商': (-1600, -1046), '西周': (-1046, -771), '周': (-1046, -256),
+    '春秋': (-770, -476), '戰國': (-475, -221), '秦': (-221, -206),
+    '西漢': (-206, 8), '漢': (-206, 220), '新': (8, 23), '東漢': (25, 220),
+    '三國': (220, 280), '魏': (220, 265), '蜀': (221, 263), '吳': (222, 280),
+    '西晉': (265, 316), '東晉': (317, 420), '晉': (265, 420),
+    '南北朝': (420, 589), '宋(南朝)': (420, 479), '齊': (479, 502), '梁': (502, 557), '陳': (557, 589),
+    '北魏': (386, 534), '北齊': (550, 577), '北周': (557, 581),
+    '隋': (581, 618), '唐': (618, 907), '五代': (907, 960), '十國': (907, 979),
+    '宋': (960, 1279), '北宋': (960, 1127), '南宋': (1127, 1279),
+    '遼': (916, 1125), '金': (1115, 1234), '西夏': (1038, 1227), '元': (1271, 1368),
+    '明': (1368, 1644), '清': (1616, 1912), '民國': (1912, 1949),
+}
+_DYNASTY_MARGIN = 40
+
+def dynasty_century_mismatch(d):
+    """d 之 dynasty 與 birth_year／death_year／dates.birth／dates.death 是否明顯對不上
+    （詞表外朝代、無年份、或在寬容範圍內皆不算）。回傳 True／False，只報不改。"""
+    dynasty = d.get('dynasty')
+    rng = DYNASTY_RANGE.get(dynasty)
+    if not rng:
+        return False
+    lo, hi = rng[0] - _DYNASTY_MARGIN, rng[1] + _DYNASTY_MARGIN
+    dates = d.get('dates') or {}
+    for y in (d.get('birth_year'), d.get('death_year'), dates.get('birth'), dates.get('death')):
+        if isinstance(y, int) and not (lo <= y <= hi):
+            return True
+    return False
+
 _QID_RE = re.compile(r'^Q\d+$')
 
 def external_ids_ok(d):
@@ -352,6 +384,7 @@ def main():
         if not review_ok(d.get('review')): bad_review.append((wid, 'Work'))
         if not edition_count_ok(d, book_work_ids): bad_edcount.append((wid, d.get('_edition_count'), derive_edition_count(wid, book_work_ids)))
     drift_e, dangle_e, fwd, dup_e, bad_dates, bad_extids = [], [], {}, [], [], []
+    bad_dynasty_century = []
     for eid, ie in IE.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(eid); continue
@@ -364,6 +397,8 @@ def main():
         if err: bad_dates.append((eid, err))
         err = external_ids_ok(d)
         if err: bad_extids.append((eid, err))
+        if dynasty_century_mismatch(d):
+            bad_dynasty_century.append((eid, d.get('dynasty'), d.get('birth_year'), d.get('death_year')))
         if ie.get('path') != d.get('path', ie.get('path')): pass
         # 2026-09-07 lane-B 所報：本迴圈原以 set 收 works，**同一 work_id 列兩次者一入集合即消失**
         # ——檢查所用之資料結構本身把一類缺陷吃掉了（全庫十一個 entity 有此病，清聖祖十二處）。
@@ -449,6 +484,9 @@ def main():
     print(f'related_works[].title 漂移（僅報，不入 FAIL） {len(stale_related)}')
     print(f'Collection.contained_works[].title 漂移（僅報，不入 FAIL） {len(stale_contained)}')
     print(f'provenance[].institution 簡體字（僅報，不入 FAIL） {len(bad_inst)}')
+    # overview#217（据 #214 check5）：dynasty 與生卒世纪粗篩，史學慣例假陽性率高（實測約 355/360），
+    # 只作監控用之報告項，不入 FAIL，亦不隨 --strict 升級。
+    print(f'dynasty 與生卒世纪不合（僅報，不入 FAIL） {len(bad_dynasty_century)}')
     # 2026-09-07 lane-E 所報：賬曾三度被 pushmain 之 --ours 吞掉，共遺落 492 筆而無人察覺
     # ——被吞者無聲、吞人者亦無聲，**只有第三方比對才看得見**。故以水位線守之。
     _ledger_bad = False

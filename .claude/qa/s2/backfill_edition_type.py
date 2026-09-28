@@ -35,10 +35,17 @@ def classify(text):
         return '鉛印本'
     if re.search('影印|景印|摹印', t):
         return '影印本'
-    if re.search('套印|朱墨|三色套|五色套', t):
+    if re.search('套印|三色套|五色套', t):
+        # 裸「朱墨」不足判套印：「朱墨鈔本／朱墨寫本」是雙色手抄（形容墨色，非刷印技法），
+        # 全庫核對 84 條「朱墨」+明確套印字樣者與 18 條「朱墨」無套印字樣者，後者本體皆是
+        # 鈔／寫／石印／鉛印，無一例外真是套印本（overview#214 體檢確認 7 條同類誤判）。
         return '套印本'
     if re.search('稿本', t):
         return '稿本'
+    if re.search('寫刻|寫刊', t):
+        # 版本學術語「寫刻本／寫刊本」＝依名家手跡上板精刻之刻本，仍屬刻本，非手寫抄本；
+        # 須先於裸「寫」判准攔截，否則被誤判抄本（overview#214 體檢新發現之 pipeline bug）。
+        return '刻本'
     if re.search('鈔本|抄本|寫本|寫', t):
         return '抄本'
     if '四庫全書' in t and re.search('文淵閣|文溯閣|文津閣|文瀾閣|摛藻堂|薈要', t):
