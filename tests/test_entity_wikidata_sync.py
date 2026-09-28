@@ -306,6 +306,56 @@ def test_fetch_wikidata_paginates_until_short_page(monkeypatch):
     assert len(raw['results']['bindings']) == 3
 
 
+def test_build_values_query_quotes_and_stringifies_ids():
+    q = sw.build_values_query([42, '7'])
+    assert 'VALUES ?cbdb { "42" "7" }' in q
+    assert 'wdt:P497' in q and 'wdt:P214' in q
+
+
+def test_fetch_wikidata_by_cbdb_ids_paces_between_batches_not_before_first(monkeypatch):
+    """批间主动等待 pace_seconds，且第一批前不等待（2026-09-28 实测：故障期强制 1 req/min）。"""
+    import io
+
+    calls = {'n': 0}
+    sleeps = []
+
+    class _Resp(io.BytesIO):
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+
+    def _ok(*a, **k):
+        calls['n'] += 1
+        return _Resp(json.dumps({'results': {'bindings': []}}).encode('utf-8'))
+
+    monkeypatch.setattr(sw.urllib.request, 'urlopen', _ok)
+    monkeypatch.setattr(sw.time, 'sleep', lambda s: sleeps.append(s))
+
+    sw.fetch_wikidata_by_cbdb_ids([str(i) for i in range(5)], batch_size=2, pace_seconds=61)
+
+    assert calls['n'] == 3  # 5 个 id，批大小 2 -> 3 批
+    assert sleeps == [61, 61]  # 批间等待，第一批前不等
+
+
+def test_fetch_wikidata_by_cbdb_ids_dedupes_ids(monkeypatch):
+    import io
+
+    seen_queries = []
+
+    class _Resp(io.BytesIO):
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+
+    def _ok(req, *a, **k):
+        seen_queries.append(req.data.decode('utf-8'))
+        return _Resp(json.dumps({'results': {'bindings': []}}).encode('utf-8'))
+
+    monkeypatch.setattr(sw.urllib.request, 'urlopen', _ok)
+    sw.fetch_wikidata_by_cbdb_ids([1, 1, 2, '2'], batch_size=10, pace_seconds=61)
+
+    assert len(seen_queries) == 1
+    assert seen_queries[0].count('%221%22') == 1  # urlencode 后的 "1"，去重只出现一次
+
+
 def test_fetch_wikidata_reraises_other_http_errors(monkeypatch):
     import urllib.error
     import io

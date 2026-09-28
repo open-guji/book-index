@@ -2,9 +2,14 @@
 """S4b：Entity external_ids 补 wikidata_id/viaf_id（经 CBDB ID 对 Wikidata，overview#159）。
 
 跑法：
-    # 1. 批量抓取 Wikidata（官方 SPARQL 端点，按 P497 分页＋限流重试；2026-09-28 协调者
-    #    答复 overview#159：分页 ≤5,000/页，429 时等 ≥60 秒重试、单页最多 3 次，
-    #    仍不通才停手——不是遇 429 立即停手，是重试用尽才停手）
+    # 1. 批量抓取 Wikidata（官方 SPARQL 端点，按本库已知 cbdb_id 分批 VALUES 查询＋
+    #    限流重试；2026-09-28 协调者答复 overview#159：429 时等 ≥60 秒重试、最多 3 次，
+    #    仍不通才停手——不是遇 429 立即停手，是重试用尽才停手。
+    #    2026-09-28 实测两坑：① 全量 dump（`?item wdt:P497 ?cbdb` 不加 VALUES 过滤）
+    #    ORDER BY 排序 41.8 万行撞 504 Gateway Timeout，非 429/403，重试逻辑接不住；
+    #    ② 当前 WDQS 处于故障期，强制 1 请求/分钟，两次请求间隔不足一分钟即 429——
+    #    故改按本库已知 cbdb_id 分批（VALUES 子句，命中式查询，无需排序全库），
+    #    且批间主动等待 ≥61 秒，不能只在撞 429 后才补等待。）
     python3 .claude/qa/s4/sync_wikidata_ids.py --fetch --out /tmp/wd_p497.json
 
     # 2. 用抓到的缓存比对本库 cbdb_id，只出报告，不写档
@@ -47,8 +52,10 @@ USER_AGENT = 'book-index-sync/1.0 (open-guji project; contact: sheldonli.dev@gma
 QID_RE = re.compile(r'Q(\d+)$')
 
 DEFAULT_PAGE_SIZE = 5000
+DEFAULT_BATCH_SIZE = 2000  # 按 cbdb_id 分批之批大小（VALUES 子句，POST，无 URL 长度顾虑）
 DEFAULT_MAX_RETRIES = 3
 DEFAULT_RETRY_WAIT = 65  # 秒，≥60（协调者 2026-09-28 答复 overview#159 之令）
+DEFAULT_PACE_SECONDS = 61  # 批间主动等待，≥60（2026-09-28 实测：故障期强制 1 请求/分钟）
 
 
 class FetchBlocked(Exception):
@@ -67,13 +74,25 @@ def _page_query(page_size, offset):
 }} ORDER BY ?item LIMIT {page_size} OFFSET {offset}'''
 
 
-def _fetch_page(query, max_retries, retry_wait, timeout):
-    """取一页，429/403 时等 retry_wait 秒重试，最多 max_retries 次仍失败才抛 FetchBlocked。"""
-    url = SPARQL_ENDPOINT + '?' + urllib.parse.urlencode({'query': query})
-    headers = {'Accept': 'application/sparql-results+json', 'User-Agent': USER_AGENT}
+def build_values_query(cbdb_ids):
+    """按一批 cbdb_id 构造 VALUES 命中式查询——只查这些值，不必排序／扫描全库 P497。"""
+    vals = ' '.join(json.dumps(str(c)) for c in cbdb_ids)
+    return f'''SELECT ?item ?cbdb ?viaf WHERE {{
+  VALUES ?cbdb {{ {vals} }}
+  ?item wdt:P497 ?cbdb .
+  OPTIONAL {{ ?item wdt:P214 ?viaf }}
+}}'''
+
+
+def _run_query(query, max_retries, retry_wait, timeout):
+    """POST 一次查询（避免大 VALUES 子句撑爆 GET 之 URL 长度上限），429/403 时等
+    retry_wait 秒重试，最多 max_retries 次仍失败才抛 FetchBlocked。"""
+    data = urllib.parse.urlencode({'query': query}).encode('utf-8')
+    headers = {'Accept': 'application/sparql-results+json', 'User-Agent': USER_AGENT,
+               'Content-Type': 'application/x-www-form-urlencoded'}
     last_blocked = None
     for attempt in range(1, max_retries + 1):
-        req = urllib.request.Request(url, headers=headers)
+        req = urllib.request.Request(SPARQL_ENDPOINT, data=data, headers=headers, method='POST')
         try:
             with urllib.request.urlopen(req, timeout=timeout) as resp:
                 return json.load(resp)
@@ -93,17 +112,51 @@ def fetch_wikidata(page_size=DEFAULT_PAGE_SIZE, max_retries=DEFAULT_MAX_RETRIES,
     按 `?item` 排序保证跨页稳定；每页 ≤`page_size` 行，单页 429/403 重试
     `max_retries` 次（间隔 `retry_wait` 秒）仍失败才抛 FetchBlocked——由调用方
     决定是否就此停手（overview#159 之令：重试用尽仍不通即停，不改走镜像／第三方端点）。
+
+    2026-09-28 实测：全库 41.8 万行排序在当前端点撞 504 Gateway Timeout（非
+    403/429，本函数不接此错），故 `--fetch` 默认改用 `fetch_wikidata_by_cbdb_ids()`；
+    本函数留作全量场景可用的备选。
     """
     all_bindings = []
     offset = 0
     while True:
-        page = _fetch_page(_page_query(page_size, offset), max_retries, retry_wait, timeout)
+        page = _run_query(_page_query(page_size, offset), max_retries, retry_wait, timeout)
         bindings = page['results']['bindings']
         all_bindings.extend(bindings)
         if len(bindings) < page_size:
             break
         offset += page_size
     return {'head': {'vars': ['item', 'cbdb', 'viaf']}, 'results': {'bindings': all_bindings}}
+
+
+def fetch_wikidata_by_cbdb_ids(cbdb_ids, batch_size=DEFAULT_BATCH_SIZE, pace_seconds=DEFAULT_PACE_SECONDS,
+                                max_retries=DEFAULT_MAX_RETRIES, retry_wait=DEFAULT_RETRY_WAIT, timeout=120):
+    """按本库已知 cbdb_id 分批查（VALUES 子句命中式查询），不逐条请求、不扫描全库 P497。
+
+    批间主动等待 `pace_seconds` 秒（非撞 429 才等）——2026-09-28 实测：当前 WDQS
+    处于故障期，强制 1 请求/分钟，间隔不足一分钟的下一请求必 429；单批 429/403
+    另按 `max_retries`／`retry_wait` 重试，重试用尽才抛 FetchBlocked。
+    """
+    ids = sorted({str(c) for c in cbdb_ids})
+    all_bindings = []
+    for i in range(0, len(ids), batch_size):
+        if i > 0:
+            time.sleep(pace_seconds)
+        batch = ids[i:i + batch_size]
+        page = _run_query(build_values_query(batch), max_retries, retry_wait, timeout)
+        all_bindings.extend(page['results']['bindings'])
+    return {'head': {'vars': ['item', 'cbdb', 'viaf']}, 'results': {'bindings': all_bindings}}
+
+
+def local_cbdb_ids():
+    """从本库 Entity 活条读取全部 cbdb_id（`--fetch` 之输入，只用来分批查，不逐条请求）。"""
+    ids = set()
+    for _eid, rel in iter_entity_rels():
+        d, _fmt = jio.load(rel)
+        cb = (d.get('external_ids') or {}).get('cbdb_id')
+        if cb is not None:
+            ids.add(cb)
+    return ids
 
 
 def parse_bindings(raw):
@@ -205,10 +258,13 @@ def run(by_cbdb, shard_start=None, shard_end=None, limit=None, dry_run=False):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--fetch', action='store_true', help='只做批量抓取并落盘缓存，不比对不写档')
+    ap.add_argument('--fetch', action='store_true', help='按本库已知 cbdb_id 分批抓取并落盘缓存，不比对不写档')
+    ap.add_argument('--fetch-full-dump', action='store_true', help='改用全量分页 dump（fetch_wikidata()，慢且已知会 504，非默认）')
     ap.add_argument('--out', default=None, help='--fetch 时缓存写入路径')
-    ap.add_argument('--page-size', type=int, default=DEFAULT_PAGE_SIZE, help='--fetch 分页大小')
-    ap.add_argument('--max-retries', type=int, default=DEFAULT_MAX_RETRIES, help='--fetch 单页 429/403 重试次数上限')
+    ap.add_argument('--page-size', type=int, default=DEFAULT_PAGE_SIZE, help='--fetch-full-dump 分页大小')
+    ap.add_argument('--batch-size', type=int, default=DEFAULT_BATCH_SIZE, help='--fetch 按 cbdb_id 分批之批大小')
+    ap.add_argument('--pace-seconds', type=float, default=DEFAULT_PACE_SECONDS, help='--fetch 批间主动等待秒数（≥60）')
+    ap.add_argument('--max-retries', type=int, default=DEFAULT_MAX_RETRIES, help='单批 429/403 重试次数上限')
     ap.add_argument('--retry-wait', type=float, default=DEFAULT_RETRY_WAIT, help='--fetch 重试前等待秒数（≥60）')
     ap.add_argument('--cache', default=None, help='已抓到的 SPARQL 结果 JSON 路径')
     ap.add_argument('--dry-run', action='store_true', help='只统计，不写档')
@@ -219,7 +275,13 @@ def main():
 
     if a.fetch:
         try:
-            raw = fetch_wikidata(page_size=a.page_size, max_retries=a.max_retries, retry_wait=a.retry_wait)
+            if a.fetch_full_dump:
+                raw = fetch_wikidata(page_size=a.page_size, max_retries=a.max_retries, retry_wait=a.retry_wait)
+            else:
+                ids = local_cbdb_ids()
+                print(f'本库已知 cbdb_id 共 {len(ids)} 条，分批（{a.batch_size}/批）查询…', file=sys.stderr)
+                raw = fetch_wikidata_by_cbdb_ids(ids, batch_size=a.batch_size, pace_seconds=a.pace_seconds,
+                                                  max_retries=a.max_retries, retry_wait=a.retry_wait)
         except FetchBlocked as e:
             print(f'FETCH BLOCKED：HTTP {e.code}——重试 {a.max_retries} 次（间隔 {a.retry_wait}s）仍不通，按令停手。响应节选：', file=sys.stderr)
             print(e.body, file=sys.stderr)
