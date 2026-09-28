@@ -39,6 +39,16 @@ def classification_ok(c, vocab):
     if not l4: return True
     return (l1, l2, l3, l4) in l1234
 
+def provenance_ok(prov):
+    """Book.provenance：數組，每項 institution 非空字符串、call_number 為字符串。"""
+    if not isinstance(prov, list): return False
+    for item in prov:
+        if not isinstance(item, dict): return False
+        inst = item.get('institution')
+        if not isinstance(inst, str) or not inst.strip(): return False
+        if not isinstance(item.get('call_number', ''), str): return False
+    return True
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--why', action='store_true', help='「索引缺記錄檔」時印出各 id 之最後刪除提交（坑 41）')
     ap.add_argument('--strict', action='store_true'); a = ap.parse_args()
@@ -48,6 +58,14 @@ def main():
     CVOCAB = load_classific_vocab()
     bad_cls = []
     drift_w, dangle_w, missing, back = [], [], [], {}
+    bad_prov = []
+    for bid, ie in IB.items():
+        p = os.path.join(ROOT, ie['path'])
+        if not os.path.exists(p): missing.append(bid); continue
+        d = json.load(open(p))
+        prov = d.get('provenance')
+        if prov is not None and not provenance_ok(prov):
+            bad_prov.append(bid)
     for wid, ie in IW.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(wid); continue
@@ -113,6 +131,8 @@ def main():
     print(f'單向邊 人指書書不指人 {len(oneway)}')
     print(f'classification 不在詞表 {len(bad_cls)}')
     for r in bad_cls[:10]: print('  詞表外', r)
+    print(f'provenance 形狀不合    {len(bad_prov)}')
+    for r in bad_prov[:10]: print('  provenance', r)
     # 2026-09-07 lane-E 所報：賬曾三度被 pushmain 之 --ours 吞掉，共遺落 492 筆而無人察覺
     # ——被吞者無聲、吞人者亦無聲，**只有第三方比對才看得見**。故以水位線守之。
     _ledger_bad = False
@@ -149,7 +169,7 @@ def main():
     # 2026-09-07：`entity.works 重複項` 自即日納入 --strict 之成敗（清零後方納，免得未清前卡住各道）。
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
-    bad = _ledger_bad or missing or drift_w or drift_e or bad_cls or (a.strict and (dangle_w or dangle_e or oneway or dup_e))
+    bad = _ledger_bad or missing or drift_w or drift_e or bad_cls or bad_prov or (a.strict and (dangle_w or dangle_e or oneway or dup_e))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)
 
