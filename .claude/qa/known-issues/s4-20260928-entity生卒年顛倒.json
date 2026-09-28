@@ -1,0 +1,9 @@
+{"lane":"s4","date":"2026-09-28","title":"劉俊（hixhd2h9bib6）birth_year(1425) > death_year(1408)——生年晚於卒年，既存壞資料，本道未修","kind":"斷代",
+ "records":[{"id":"hixhd2h9bib6","title":"劉俊（entity）","period":"ming"}],
+ "evidence":"本条 ai_note 记 2026-08-22 E1 人物併池：hixhd2h9bmk9 疑似同名两人合并进 1j96h8rw86pzp 一段无关，实际是 `1j96h8rw86pzp` 併入本條之判语「二者之名僅異體之別（劉俊／劉儁），朝代同，生卒年不相斥」——但落盘后 birth_year=1425、death_year=1408，生年反晚於卒年，不合常理，两造之生卒本不该「相斥」判过就直接互相覆盖用了不同来源的年份。cbdb_source 记 `pending_accept: auto_ambig cbdb_dy=19 (1425-None)`，即 cbdb 侧本只提供了 1425 一个（生年），死亡年 1408 的来源不明，怀疑是并入的另一条（劉儁／1j96h8rw86pzp）遗留。S4 新 schema 吸收④（overview#143）迁移 Entity.dates 时新增 verify.py 校验 `birth<=death`，扫到本条即失败，故本道跳过（未写 dates，也未动 birth_year/death_year，出维持原样）。",
+ "options":["甲：查 1j96h8rw86pzp（劉儁）併入前的原始 death_year，确认 1408 是否属于它、还是另有著录出处，核实后改正 birth_year 或 death_year",
+            "乙：两年份都存疑时，索性清空 birth_year/death_year（依 native_place 等既有先例，原值记入 ai_note，可逆）",
+            "丙：暂不动，只在 ai_note 补一句「生卒顛倒待覆核」，留给断代/entity-cbdb 道处理"],
+ "recommend":"甲，其次乙",
+ "why":"本道写域只限 Entity.dates（本步不碰 birth_year／death_year 本身），矛盾数据的取舍需要查 CBDB 原始记录或著录原文才能判定哪个年份对，不在本道能力范围内；乙丙风险是可能把本可救的数据抹掉或放着不管。",
+ "note":"本道（S4 dates 迁移）已做：跳过本条不写 dates，birth_year/death_year 一字未动；migrate_dates.py 的 plan_dates() 已加 `birth_year>death_year` 一律跳过之判準，防止把矛盾数据机械复制进 dates。全库同型的其余条目由 verify.py 的 dates_ok() 兜底——凡 dates.birth>dates.death 即报错，不会被静默放过。"}
