@@ -22,12 +22,20 @@
 之列，故不会被碰到）的 `external_ids.wikidata_id` / `external_ids.viaf_id` 两个子键。
 不动 Entity 其他字段（含 S4 刚加的 `dates`），不碰 Work／Book／Collection。
 
-匹配规则（overview#159 §方法）：
-  - 按 `cbdb_id` 精确对 Wikidata P497（CBDB ID）；
+匹配规则（overview#159 §方法，2026-09-28 协调者验收后订正）：
+  - 按 `cbdb_id` 精确对 Wikidata P497（CBDB ID）——**两边都规范成不带前导零的整数
+    字符串再比**；查询时原值与补零 7 位两种写法都带上（Wikidata 侧两种写法并存，
+    如苏轼 Q36020 记 `"0003767"`、劉向 Q465282 记 `"450753"`，只查原值会漏掉补零者）。
   - 一个 cbdb_id 对应多个 Wikidata Q 的**不写**，归入 conflict_multi_qid，列清单；
+  - **标签核验**：取 Wikidata 条目的中文（繁先简后）／英文标签，须与 Entity 的
+    `primary_name` 或某个 `alt_names[].name` 精确相等，否则归入 label_mismatch，
+    **不写**、列清单（回归：cbdb_id=126598 王恂被系统性漏配到标签为「王振」的
+    Q18654598——该条目同时挂了两个 cbdb_id，系 Wikidata／CBDB 一侧的既存错配）。
   - Entity 已有 `external_ids.wikidata_id` 的**不覆盖**；与新取值不一致者归入
     conflict_existing_mismatch，列清单；
-  - 能同时取到唯一 VIAF（P214）值、且为纯数字者顺带补 `viaf_id`；VIAF 不唯一或非纯数字则不补。
+  - VIAF（P214）：优先取 preferred rank 之值；无 preferred 而所有 rank 的值只有
+    一种时取之；仍不唯一（无 preferred 且多值）则**不补**，拿不准不写；纯数字
+    且位数 1～10 方视为合理值（挡 Wikidata 侧混入的畸形长数字）。
 
 用 `jio.py` 读写，保留原档缩进／换行风格，不动索引（external_ids 不在 verify.py 所比对的
 索引栏位之列，机械写入不必回写索引）。
@@ -50,6 +58,8 @@ import jio
 SPARQL_ENDPOINT = 'https://query.wikidata.org/sparql'
 USER_AGENT = 'book-index-sync/1.0 (open-guji project; contact: sheldonli.dev@gmail.com)'
 QID_RE = re.compile(r'Q(\d+)$')
+LABEL_LANGUAGES = 'zh-hant,zh,zh-hans,en'
+PREFERRED_RANK = 'http://wikiba.se/ontology#PreferredRank'
 
 DEFAULT_PAGE_SIZE = 5000
 DEFAULT_BATCH_SIZE = 2000  # 按 cbdb_id 分批之批大小（VALUES 子句，POST，无 URL 长度顾虑）
@@ -74,13 +84,33 @@ def _page_query(page_size, offset):
 }} ORDER BY ?item LIMIT {page_size} OFFSET {offset}'''
 
 
+def cbdb_variants(cbdb_ids):
+    """给一批 cbdb_id，回传去重后须查询之全部字面量（原值＋补零 7 位两种写法）。
+
+    2026-09-28 协调者验收 overview#159 所报：Wikidata 侧 P497 两种写法并存
+    （苏轼 Q36020 记 `"0003767"`，劉向 Q465282 记 `"450753"`），只查原值会
+    系统性漏配补零者，两种写法都须带入 VALUES。"""
+    variants = set()
+    for c in cbdb_ids:
+        s = str(int(c))
+        variants.add(s)
+        variants.add(s.zfill(7))
+    return sorted(variants)
+
+
 def build_values_query(cbdb_ids):
-    """按一批 cbdb_id 构造 VALUES 命中式查询——只查这些值，不必排序／扫描全库 P497。"""
-    vals = ' '.join(json.dumps(str(c)) for c in cbdb_ids)
-    return f'''SELECT ?item ?cbdb ?viaf WHERE {{
+    """按一批 cbdb_id（含原值与补零写法）构造 VALUES 命中式查询——只查这些值，
+    不必排序／扫描全库 P497；顺带取中文／英文标签（核验用）与 VIAF 及其 rank。"""
+    vals = ' '.join(json.dumps(str(c)) for c in cbdb_variants(cbdb_ids))
+    return f'''SELECT ?item ?cbdb ?itemLabel ?viaf ?viafRank WHERE {{
   VALUES ?cbdb {{ {vals} }}
   ?item wdt:P497 ?cbdb .
-  OPTIONAL {{ ?item wdt:P214 ?viaf }}
+  OPTIONAL {{
+    ?item p:P214 ?viafStmt .
+    ?viafStmt ps:P214 ?viaf ;
+              wikibase:rank ?viafRank .
+  }}
+  SERVICE wikibase:label {{ bd:serviceParam wikibase:language "{LABEL_LANGUAGES}". }}
 }}'''
 
 
@@ -145,7 +175,7 @@ def fetch_wikidata_by_cbdb_ids(cbdb_ids, batch_size=DEFAULT_BATCH_SIZE, pace_sec
         batch = ids[i:i + batch_size]
         page = _run_query(build_values_query(batch), max_retries, retry_wait, timeout)
         all_bindings.extend(page['results']['bindings'])
-    return {'head': {'vars': ['item', 'cbdb', 'viaf']}, 'results': {'bindings': all_bindings}}
+    return {'head': {'vars': ['item', 'cbdb', 'itemLabel', 'viaf', 'viafRank']}, 'results': {'bindings': all_bindings}}
 
 
 def local_cbdb_ids():
@@ -160,53 +190,89 @@ def local_cbdb_ids():
 
 
 def parse_bindings(raw):
-    """把 SPARQL JSON 结果按 cbdb 值分组：{cbdb_str: {'qids': set(), 'viafs': set()}}。"""
+    """把 SPARQL JSON 结果按**规范化**（去前导零）后的 cbdb 值分组：
+    {cbdb_str: {'qids': set(), 'labels': {qid: {label,...}}, 'viafs': {qid: {(viaf,rank),...}}}}。
+
+    cbdb 值规范化为不带前导零的整数字符串——查询时原值与补零写法都问了
+    （见 `cbdb_variants()`），分组前先统一，`plan_write()` 才能用同一把钥匙
+    （Entity 自己的 `cbdb_id`，本就不带前导零）查到。"""
     by_cbdb = {}
     for b in raw['results']['bindings']:
-        cbdb = b['cbdb']['value'].strip()
+        cbdb_raw = b['cbdb']['value'].strip()
+        try:
+            cbdb = str(int(cbdb_raw))
+        except ValueError:
+            continue
         m = QID_RE.search(b['item']['value'])
         if not m:
             continue
         qid = 'Q' + m.group(1)
+        label = (b.get('itemLabel') or {}).get('value')
         viaf = (b.get('viaf') or {}).get('value')
-        slot = by_cbdb.setdefault(cbdb, {'qids': set(), 'viafs': set()})
+        rank = (b.get('viafRank') or {}).get('value')
+        slot = by_cbdb.setdefault(cbdb, {'qids': set(), 'labels': {}, 'viafs': {}})
         slot['qids'].add(qid)
+        if label:
+            slot['labels'].setdefault(qid, set()).add(label)
         if viaf:
-            slot['viafs'].add(viaf)
+            slot['viafs'].setdefault(qid, set()).add((viaf, rank))
     return by_cbdb
+
+
+def _label_matches(label, d):
+    """Wikidata 标签须与 Entity 的 primary_name 或某个 alt_names[].name 精确相等。"""
+    if not label:
+        return False
+    names = {d.get('primary_name')}
+    names |= {a.get('name') for a in (d.get('alt_names') or [])}
+    return label in {n for n in names if n}
+
+
+def _pick_viaf(viaf_entries):
+    """viaf_entries：{(viaf值, rank), ...}。优先取 preferred rank 之值（唯一时）；
+    无 preferred 而所有值只有一种时取之；仍多值（无 preferred 且 ≥2 种）不补，
+    拿不准不写。纯数字且位数 1～10 方视为合理值（回归：Q465282 混入 22 位畸形值）。"""
+    if not viaf_entries:
+        return None
+    preferred = {v for v, r in viaf_entries if r == PREFERRED_RANK}
+    candidates = preferred if preferred else {v for v, _r in viaf_entries}
+    if len(candidates) != 1:
+        return None
+    v = next(iter(candidates))
+    if v.isdigit() and 1 <= len(v) <= 10:
+        return v
+    return None
 
 
 def plan_write(d, by_cbdb):
     """给一条 Entity 记录，回传 (action, detail)。
 
     action ∈ {'skip_no_cbdb', 'skip_no_match', 'skip_has_wikidata_id',
-               'conflict_multi_qid', 'conflict_existing_mismatch', 'write'}
+               'conflict_multi_qid', 'label_mismatch', 'conflict_existing_mismatch', 'write'}
     """
     ext = d.get('external_ids') or {}
     cbdb_id = ext.get('cbdb_id')
     if cbdb_id is None:
         return 'skip_no_cbdb', None
-    slot = by_cbdb.get(str(cbdb_id))
+    slot = by_cbdb.get(str(int(cbdb_id)))
     if slot is None:
         return 'skip_no_match', None
     qids = slot['qids']
     if len(qids) > 1:
         return 'conflict_multi_qid', sorted(qids)
     qid = next(iter(qids))
+    labels = slot['labels'].get(qid) or set()
+    # 2026-09-28 协调者验收所报：cbdb_id=126598 王恂系统性漏配到标签「王振」的
+    # Q18654598（该条目同时挂了两个 cbdb_id，Wikidata／CBDB 一侧既存错配）——
+    # 标签核验是防这类张冠李戴的唯一闸，宁可漏写不可错写。
+    if not any(_label_matches(l, d) for l in labels):
+        return 'label_mismatch', (sorted(labels), d.get('primary_name'))
     existing = ext.get('wikidata_id')
     if existing is not None:
         if existing != qid:
             return 'conflict_existing_mismatch', (existing, qid)
         return 'skip_has_wikidata_id', None
-    viaf = None
-    viafs = slot['viafs']
-    if len(viafs) == 1:
-        v = next(iter(viafs))
-        # 2026-09-28 实测（Q465282／劉向）：Wikidata 侧 P214 有畸形值混入真实 VIAF
-        # 之中（"7682148997701659870000"，22 位——现行 VIAF 编号至多 9～10 位），
-        # 单靠 isdigit() 挡不住，故加位数上限（宽松取 10 位）过滤明显不合理之值。
-        if v.isdigit() and 1 <= len(v) <= 10:
-            viaf = v
+    viaf = _pick_viaf(slot['viafs'].get(qid) or set())
     return 'write', {'wikidata_id': qid, 'viaf_id': viaf}
 
 
@@ -226,9 +292,10 @@ def iter_entity_rels(shard_start=None, shard_end=None):
 def run(by_cbdb, shard_start=None, shard_end=None, limit=None, dry_run=False):
     counts = {
         'skip_no_cbdb': 0, 'skip_no_match': 0, 'skip_has_wikidata_id': 0,
-        'conflict_multi_qid': 0, 'conflict_existing_mismatch': 0, 'write': 0, 'write_with_viaf': 0,
+        'conflict_multi_qid': 0, 'label_mismatch': 0, 'conflict_existing_mismatch': 0,
+        'write': 0, 'write_with_viaf': 0,
     }
-    conflicts_multi, conflicts_mismatch, written = [], [], []
+    conflicts_multi, label_mismatches, conflicts_mismatch, written = [], [], [], []
     n_touched = 0
     for eid, rel in iter_entity_rels(shard_start, shard_end):
         d, fmt = jio.load(rel)
@@ -236,6 +303,10 @@ def run(by_cbdb, shard_start=None, shard_end=None, limit=None, dry_run=False):
         if action == 'conflict_multi_qid':
             counts[action] += 1
             conflicts_multi.append((eid, d.get('external_ids', {}).get('cbdb_id'), detail))
+            continue
+        if action == 'label_mismatch':
+            counts[action] += 1
+            label_mismatches.append((eid, d.get('external_ids', {}).get('cbdb_id'), d.get('primary_name'), detail[0]))
             continue
         if action == 'conflict_existing_mismatch':
             counts[action] += 1
@@ -256,7 +327,7 @@ def run(by_cbdb, shard_start=None, shard_end=None, limit=None, dry_run=False):
                 d['external_ids']['viaf_id'] = detail['viaf_id']
             jio.save(rel, d, fmt)
         n_touched += 1
-    return counts, conflicts_multi, conflicts_mismatch, written
+    return counts, conflicts_multi, label_mismatches, conflicts_mismatch, written
 
 
 def main():
@@ -301,13 +372,14 @@ def main():
     raw = json.load(open(a.cache, encoding='utf-8'))
     by_cbdb = parse_bindings(raw)
 
-    counts, conflicts_multi, conflicts_mismatch, written = run(
+    counts, conflicts_multi, label_mismatches, conflicts_mismatch, written = run(
         by_cbdb, a.shard_start, a.shard_end, a.limit, a.dry_run)
 
     print(f'无 cbdb_id，跳过                     {counts["skip_no_cbdb"]}')
     print(f'cbdb_id 无 Wikidata 匹配              {counts["skip_no_match"]}')
     print(f'已有 wikidata_id 且一致，跳过         {counts["skip_has_wikidata_id"]}')
     print(f'一对多（cbdb_id 对多个 Q），不写      {counts["conflict_multi_qid"]}')
+    print(f'标签与本库姓名不符，不写              {counts["label_mismatch"]}')
     print(f'既有值与新取值冲突，不写              {counts["conflict_existing_mismatch"]}')
     print(f'写入 wikidata_id                      {counts["write"]}')
     print(f'其中顺带补 viaf_id                    {counts["write_with_viaf"]}')
@@ -316,6 +388,10 @@ def main():
         print('\n一对多清单（前 20）：')
         for eid, cbdb_id, qids in conflicts_multi[:20]:
             print(f'  {eid}  cbdb_id={cbdb_id}  ->  {qids}')
+    if label_mismatches:
+        print('\n标签不符清单（前 20）：')
+        for eid, cbdb_id, name, labels in label_mismatches[:20]:
+            print(f'  {eid}  cbdb_id={cbdb_id}  本库名={name!r}  Wikidata标签={labels!r}')
     if conflicts_mismatch:
         print('\n既有值冲突清单（前 20）：')
         for eid, old, new in conflicts_mismatch[:20]:

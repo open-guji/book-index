@@ -1,10 +1,17 @@
 """S4b：Entity external_ids 补 wikidata_id/viaf_id 的回归（overview#159）。
 
-覆盖三件：
-  1. sync_wikidata_ids.parse_bindings() 把 SPARQL JSON 结果按 cbdb 值分组。
-  2. sync_wikidata_ids.plan_write() 的判断逻辑（写入／一对多不写／既有值冲突不写／无匹配跳过）。
-  3. sync_wikidata_ids.run() 对临时假仓的真实读写（jio.ROOT monkeypatch，仿 test_entity_dates.py）。
-  4. verify.py 的 external_ids_ok() 校验（wikidata_id 形状、viaf_id 纯数字）。
+覆盖：
+  1. sync_wikidata_ids.cbdb_variants() 按 cbdb_id 生成原值＋补零 7 位两种查询字面量。
+  2. sync_wikidata_ids.parse_bindings() 把 SPARQL JSON 结果按规范化后的 cbdb 值分组。
+  3. sync_wikidata_ids.plan_write() 的判断逻辑（写入／一对多／标签不符／既有值冲突／无匹配）。
+  4. sync_wikidata_ids.run() 对临时假仓的真实读写（jio.ROOT monkeypatch，仿 test_entity_dates.py）。
+  5. 分页／分批抓取、限流重试、429 停手。
+  6. verify.py 的 external_ids_ok() 校验（wikidata_id 形状、viaf_id 纯数字）。
+
+2026-09-28 协调者验收 overview#159 不通过后订正：Wikidata 侧 P497 原值／补零 7 位
+两种写法并存（苏轼 Q36020 记 "0003767"），原按 str(cbdb_id) 直接比对系统性漏配；
+另发现按 cbdb_id 匹配可能撞见 Wikidata／CBDB 一侧既存错配（cbdb_id=126598 王恂
+被同时挂着两个 cbdb_id 的 Q18654598／王振 认领），故加标签核验闸。
 """
 import json
 import os
@@ -21,24 +28,68 @@ import sync_wikidata_ids as sw
 import verify
 
 
+# ---------- cbdb_variants() ----------
+
+def test_cbdb_variants_adds_zero_padded_form():
+    assert sw.cbdb_variants([3767]) == ['0003767', '3767']
+
+
+def test_cbdb_variants_no_change_when_already_seven_digits_or_longer():
+    """7 位及以上的数字补零后与原值相同，去重后只剩一个。"""
+    assert sw.cbdb_variants([1234567]) == ['1234567']
+    assert sw.cbdb_variants([12345678]) == ['12345678']
+
+
+def test_cbdb_variants_dedupes_across_inputs():
+    assert sw.cbdb_variants([3767, '3767', 3767]) == ['0003767', '3767']
+
+
+# ---------- build_values_query() ----------
+
+def test_build_values_query_includes_both_padded_and_raw_forms():
+    q = sw.build_values_query([3767])
+    assert '"3767"' in q and '"0003767"' in q
+
+
+def test_build_values_query_has_label_service_and_viaf_rank():
+    q = sw.build_values_query([1])
+    assert 'wdt:P497' in q
+    assert 'SERVICE wikibase:label' in q
+    assert 'p:P214' in q and 'ps:P214' in q and 'wikibase:rank' in q
+
+
 # ---------- parse_bindings() ----------
 
-def _binding(qid, cbdb, viaf=None):
+def _binding(qid, cbdb, viaf=None, viaf_rank=None, label=None):
     b = {'item': {'value': f'http://www.wikidata.org/entity/{qid}'},
          'cbdb': {'value': cbdb}}
+    if label is not None:
+        b['itemLabel'] = {'value': label}
     if viaf is not None:
         b['viaf'] = {'value': viaf}
+    if viaf_rank is not None:
+        b['viafRank'] = {'value': viaf_rank}
     return b
 
 
 def test_parse_bindings_groups_by_cbdb():
     raw = {'results': {'bindings': [
-        _binding('Q123', '456', '1234567'),
-        _binding('Q999', '789'),
+        _binding('Q123', '456', viaf='1234567', viaf_rank=sw.PREFERRED_RANK, label='张三'),
+        _binding('Q999', '789', label='李四'),
     ]}}
     by_cbdb = sw.parse_bindings(raw)
-    assert by_cbdb['456'] == {'qids': {'Q123'}, 'viafs': {'1234567'}}
-    assert by_cbdb['789'] == {'qids': {'Q999'}, 'viafs': set()}
+    assert by_cbdb['456'] == {
+        'qids': {'Q123'}, 'labels': {'Q123': {'张三'}}, 'viafs': {'Q123': {('1234567', sw.PREFERRED_RANK)}},
+    }
+    assert by_cbdb['789'] == {'qids': {'Q999'}, 'labels': {'Q999': {'李四'}}, 'viafs': {}}
+
+
+def test_parse_bindings_normalizes_zero_padded_cbdb():
+    """回归：苏轼 Q36020 的 P497 是 "0003767"，须与本库无前导零的 3767 归并同一组。"""
+    raw = {'results': {'bindings': [_binding('Q36020', '0003767', label='蘇軾')]}}
+    by_cbdb = sw.parse_bindings(raw)
+    assert '3767' in by_cbdb and '0003767' not in by_cbdb
+    assert by_cbdb['3767']['qids'] == {'Q36020'}
 
 
 def test_parse_bindings_multi_qid_for_same_cbdb():
@@ -48,6 +99,35 @@ def test_parse_bindings_multi_qid_for_same_cbdb():
     ]}}
     by_cbdb = sw.parse_bindings(raw)
     assert by_cbdb['111']['qids'] == {'Q1', 'Q2'}
+
+
+# ---------- _pick_viaf() ----------
+
+def test_pick_viaf_empty():
+    assert sw._pick_viaf(set()) is None
+
+
+def test_pick_viaf_single_value_no_rank_info():
+    assert sw._pick_viaf({('12345', None)}) == '12345'
+
+
+def test_pick_viaf_prefers_preferred_rank():
+    entries = {('11111111', 'http://wikiba.se/ontology#NormalRank'),
+               ('22222222', sw.PREFERRED_RANK)}
+    assert sw._pick_viaf(entries) == '22222222'
+
+
+def test_pick_viaf_ambiguous_without_preferred_not_picked():
+    """回归：Q465282 两条 P214，wdt: 只吐出畸形值那条；本函数在拿到两条 normal-rank
+    分歧值时也不该瞎猜，宁可不补。"""
+    entries = {('11111111', 'http://wikiba.se/ontology#NormalRank'),
+               ('22222222', 'http://wikiba.se/ontology#NormalRank')}
+    assert sw._pick_viaf(entries) is None
+
+
+def test_pick_viaf_rejects_implausibly_long_value():
+    """回归：Q465282（劉向，cbdb_id=450753）实测畸形值 22 位，现行 VIAF 至多 9～10 位。"""
+    assert sw._pick_viaf({('7682148997701659870000', sw.PREFERRED_RANK)}) is None
 
 
 # ---------- plan_write() ----------
@@ -61,80 +141,77 @@ def test_plan_write_no_match():
     assert sw.plan_write(d, {}) == ('skip_no_match', None)
 
 
-def test_plan_write_writes_unique_match():
-    d = {'external_ids': {'cbdb_id': 42}}
-    by_cbdb = {'42': {'qids': {'Q7'}, 'viafs': set()}}
+def test_plan_write_writes_unique_match_with_matching_label():
+    d = {'primary_name': '張三', 'external_ids': {'cbdb_id': 42}}
+    by_cbdb = {'42': {'qids': {'Q7'}, 'labels': {'Q7': {'張三'}}, 'viafs': {}}}
     action, detail = sw.plan_write(d, by_cbdb)
     assert action == 'write'
     assert detail == {'wikidata_id': 'Q7', 'viaf_id': None}
 
 
+def test_plan_write_matches_via_alt_name():
+    d = {'primary_name': '張三', 'alt_names': [{'name': '子明'}], 'external_ids': {'cbdb_id': 42}}
+    by_cbdb = {'42': {'qids': {'Q7'}, 'labels': {'Q7': {'子明'}}, 'viafs': {}}}
+    action, detail = sw.plan_write(d, by_cbdb)
+    assert action == 'write'
+
+
 def test_plan_write_writes_with_unique_viaf():
-    d = {'external_ids': {'cbdb_id': 42}}
-    by_cbdb = {'42': {'qids': {'Q7'}, 'viafs': {'99887766'}}}
+    d = {'primary_name': '張三', 'external_ids': {'cbdb_id': 42}}
+    by_cbdb = {'42': {'qids': {'Q7'}, 'labels': {'Q7': {'張三'}}, 'viafs': {'Q7': {('99887766', None)}}}}
     action, detail = sw.plan_write(d, by_cbdb)
     assert action == 'write'
     assert detail == {'wikidata_id': 'Q7', 'viaf_id': '99887766'}
 
 
-def test_plan_write_skips_non_numeric_viaf():
-    """VIAF 取到非纯数字值（脏数据）时不补，仍写 wikidata_id。"""
-    d = {'external_ids': {'cbdb_id': 42}}
-    by_cbdb = {'42': {'qids': {'Q7'}, 'viafs': {'abc123'}}}
+def test_plan_write_label_mismatch_not_written():
+    """回归：cbdb_id=126598 王恂被系统性漏配到标签「王振」的 Q18654598
+    （该条目同时挂了两个 cbdb_id，overview#159 协调者验收所报）。"""
+    d = {'primary_name': '王恂', 'alt_names': [{'name': '振'}], 'external_ids': {'cbdb_id': 126598}}
+    by_cbdb = {'126598': {'qids': {'Q18654598'}, 'labels': {'Q18654598': {'王振'}}, 'viafs': {}}}
     action, detail = sw.plan_write(d, by_cbdb)
-    assert action == 'write'
-    assert detail['viaf_id'] is None
+    assert action == 'label_mismatch'
+    assert detail == (['王振'], '王恂')
 
 
-def test_plan_write_skips_implausibly_long_viaf():
-    """回归：Q465282（劉向，cbdb_id=450753）实测 Wikidata 侧 P214 混入畸形值
-    "7682148997701659870000"（22 位，现行 VIAF 至多 9～10 位）——纯数字但位数
-    不合理，不该当真 VIAF 写入。"""
-    d = {'external_ids': {'cbdb_id': 450753}}
-    by_cbdb = {'450753': {'qids': {'Q465282'}, 'viafs': {'7682148997701659870000'}}}
-    action, detail = sw.plan_write(d, by_cbdb)
-    assert action == 'write'
-    assert detail['viaf_id'] is None
-
-
-def test_plan_write_accepts_plausible_length_viaf():
-    d = {'external_ids': {'cbdb_id': 450753}}
-    by_cbdb = {'450753': {'qids': {'Q465282'}, 'viafs': {'70418161'}}}
-    action, detail = sw.plan_write(d, by_cbdb)
-    assert action == 'write'
-    assert detail['viaf_id'] == '70418161'
-
-
-def test_plan_write_ambiguous_viaf_not_written():
-    """VIAF 不唯一时不补（宁缺不错）。"""
-    d = {'external_ids': {'cbdb_id': 42}}
-    by_cbdb = {'42': {'qids': {'Q7'}, 'viafs': {'111', '222'}}}
-    action, detail = sw.plan_write(d, by_cbdb)
-    assert action == 'write'
-    assert detail['viaf_id'] is None
+def test_plan_write_label_missing_treated_as_mismatch():
+    """取不到标签时也不写（拿不准不写，不因为"没有反证"就当作过）。"""
+    d = {'primary_name': '張三', 'external_ids': {'cbdb_id': 42}}
+    by_cbdb = {'42': {'qids': {'Q7'}, 'labels': {}, 'viafs': {}}}
+    action, _detail = sw.plan_write(d, by_cbdb)
+    assert action == 'label_mismatch'
 
 
 def test_plan_write_multi_qid_not_written():
-    d = {'external_ids': {'cbdb_id': 42}}
-    by_cbdb = {'42': {'qids': {'Q1', 'Q2'}, 'viafs': set()}}
+    d = {'primary_name': '張三', 'external_ids': {'cbdb_id': 42}}
+    by_cbdb = {'42': {'qids': {'Q1', 'Q2'}, 'labels': {}, 'viafs': {}}}
     action, detail = sw.plan_write(d, by_cbdb)
     assert action == 'conflict_multi_qid'
     assert detail == ['Q1', 'Q2']
 
 
 def test_plan_write_existing_matches_new_skips():
-    d = {'external_ids': {'cbdb_id': 42, 'wikidata_id': 'Q7'}}
-    by_cbdb = {'42': {'qids': {'Q7'}, 'viafs': set()}}
+    d = {'primary_name': '張三', 'external_ids': {'cbdb_id': 42, 'wikidata_id': 'Q7'}}
+    by_cbdb = {'42': {'qids': {'Q7'}, 'labels': {'Q7': {'張三'}}, 'viafs': {}}}
     assert sw.plan_write(d, by_cbdb) == ('skip_has_wikidata_id', None)
 
 
 def test_plan_write_existing_mismatch_not_overwritten():
     """已有 wikidata_id 且与新取值不同：不覆盖，归入冲突清单。"""
-    d = {'external_ids': {'cbdb_id': 42, 'wikidata_id': 'Q999'}}
-    by_cbdb = {'42': {'qids': {'Q7'}, 'viafs': set()}}
+    d = {'primary_name': '張三', 'external_ids': {'cbdb_id': 42, 'wikidata_id': 'Q999'}}
+    by_cbdb = {'42': {'qids': {'Q7'}, 'labels': {'Q7': {'張三'}}, 'viafs': {}}}
     action, detail = sw.plan_write(d, by_cbdb)
     assert action == 'conflict_existing_mismatch'
     assert detail == ('Q999', 'Q7')
+
+
+def test_plan_write_normalizes_zero_padded_lookup_key():
+    """本库 cbdb_id 本就不带前导零；by_cbdb 的键（parse_bindings 输出）同样规范化过，
+    plan_write 须用同一把钥匙查——这里直接构造已规范化的 by_cbdb 验证查找不出错。"""
+    d = {'primary_name': '張三', 'external_ids': {'cbdb_id': '0042'}}  # 极端情况：cbdb_id 本身含前导零
+    by_cbdb = {'42': {'qids': {'Q7'}, 'labels': {'Q7': {'張三'}}, 'viafs': {}}}
+    action, _detail = sw.plan_write(d, by_cbdb)
+    assert action == 'write'
 
 
 # ---------- run() on a temp fake repo ----------
@@ -149,12 +226,13 @@ def _write(root, rel, data):
 def _fake_repo():
     tmp = tempfile.mkdtemp(prefix='sync_wikidata_test_')
     entities = {
-        'zzzwd0001aaa': {'external_ids': {'cbdb_id': 1}},                       # 唯一匹配 -> 写
-        'zzzwd0002bbb': {'external_ids': {'cbdb_id': 2}},                       # 一对多 -> 不写
-        'zzzwd0003ccc': {'external_ids': {'cbdb_id': 3, 'wikidata_id': 'Q3'}},  # 已有且一致 -> 跳过
-        'zzzwd0004ddd': {'external_ids': {'cbdb_id': 4, 'wikidata_id': 'Q999'}},  # 已有但冲突 -> 不写
-        'zzzwd0005eee': {},                                                      # 无 cbdb_id -> 跳过
-        'zzzwd0006fff': {'external_ids': {'cbdb_id': 99}},                      # 无匹配 -> 跳过
+        'zzzwd0001aaa': {'primary_name': '甲', 'external_ids': {'cbdb_id': 1}},       # 唯一匹配、标签对上 -> 写
+        'zzzwd0002bbb': {'primary_name': '乙', 'external_ids': {'cbdb_id': 2}},       # 一对多 -> 不写
+        'zzzwd0003ccc': {'primary_name': '丙', 'external_ids': {'cbdb_id': 3, 'wikidata_id': 'Q3'}},  # 已有且一致 -> 跳过
+        'zzzwd0004ddd': {'primary_name': '丁', 'external_ids': {'cbdb_id': 4, 'wikidata_id': 'Q999'}},  # 已有但冲突 -> 不写
+        'zzzwd0005eee': {'primary_name': '戊'},                                        # 无 cbdb_id -> 跳过
+        'zzzwd0006fff': {'primary_name': '己', 'external_ids': {'cbdb_id': 99}},      # 无匹配 -> 跳过
+        'zzzwd0007ggg': {'primary_name': '庚', 'external_ids': {'cbdb_id': 7}},       # 唯一匹配但标签不符 -> 不写
     }
     idx = {}
     for eid, base in entities.items():
@@ -168,34 +246,42 @@ def _fake_repo():
 
 def _by_cbdb():
     return {
-        '1': {'qids': {'Q1'}, 'viafs': {'10001'}},
-        '2': {'qids': {'Q2a', 'Q2b'}, 'viafs': set()},
-        '3': {'qids': {'Q3'}, 'viafs': set()},
-        '4': {'qids': {'Q4'}, 'viafs': set()},
+        '1': {'qids': {'Q1'}, 'labels': {'Q1': {'甲'}}, 'viafs': {'Q1': {('10001', None)}}},
+        '2': {'qids': {'Q2a', 'Q2b'}, 'labels': {}, 'viafs': {}},
+        '3': {'qids': {'Q3'}, 'labels': {'Q3': {'丙'}}, 'viafs': {}},
+        '4': {'qids': {'Q4'}, 'labels': {'Q4': {'丁'}}, 'viafs': {}},
+        '7': {'qids': {'Q7'}, 'labels': {'Q7': {'不是庚'}}, 'viafs': {}},
     }
 
 
-def test_run_writes_only_unique_unconflicted(monkeypatch):
+def test_run_writes_only_unique_unconflicted_and_label_matched(monkeypatch):
     tmp = _fake_repo()
     monkeypatch.setattr(jio, 'ROOT', tmp)
 
-    counts, conflicts_multi, conflicts_mismatch, written = sw.run(_by_cbdb())
+    counts, conflicts_multi, label_mismatches, conflicts_mismatch, written = sw.run(_by_cbdb())
 
     assert counts['write'] == 1
     assert counts['write_with_viaf'] == 1
     assert counts['conflict_multi_qid'] == 1
+    assert counts['label_mismatch'] == 1
     assert counts['conflict_existing_mismatch'] == 1
     assert counts['skip_has_wikidata_id'] == 1
     assert counts['skip_no_cbdb'] == 1
     assert counts['skip_no_match'] == 1
     assert [w[0] for w in written] == ['zzzwd0001aaa']
     assert [c[0] for c in conflicts_multi] == ['zzzwd0002bbb']
+    assert [c[0] for c in label_mismatches] == ['zzzwd0007ggg']
     assert [c[0] for c in conflicts_mismatch] == ['zzzwd0004ddd']
 
     d = json.load(open(os.path.join(
         tmp, 'Entity/a/a/a/zzzwd0001aaa-測試.json'), encoding='utf-8'))
     assert d['external_ids']['wikidata_id'] == 'Q1'
     assert d['external_ids']['viaf_id'] == '10001'
+
+    # 标签不符者原样不动
+    d7 = json.load(open(os.path.join(
+        tmp, 'Entity/g/g/g/zzzwd0007ggg-測試.json'), encoding='utf-8'))
+    assert 'wikidata_id' not in d7.get('external_ids', {})
 
     # 未写入者原样不动
     d4 = json.load(open(os.path.join(
@@ -207,7 +293,7 @@ def test_run_dry_run_does_not_write(monkeypatch):
     tmp = _fake_repo()
     monkeypatch.setattr(jio, 'ROOT', tmp)
 
-    counts, _, _, written = sw.run(_by_cbdb(), dry_run=True)
+    counts, _, _, _, written = sw.run(_by_cbdb(), dry_run=True)
     assert counts['write'] == 1
 
     d = json.load(open(os.path.join(
@@ -223,7 +309,7 @@ def test_run_is_idempotent(monkeypatch):
     sw.run(_by_cbdb())
     before = open(os.path.join(
         tmp, 'Entity/a/a/a/zzzwd0001aaa-測試.json'), encoding='utf-8').read()
-    counts, _, _, written = sw.run(_by_cbdb())
+    counts, _, _, _, written = sw.run(_by_cbdb())
     after = open(os.path.join(
         tmp, 'Entity/a/a/a/zzzwd0001aaa-測試.json'), encoding='utf-8').read()
 
@@ -248,7 +334,7 @@ def test_run_leaves_real_repo_untouched(monkeypatch):
     assert 'zzzwd0001aaa' not in out.stdout
 
 
-# ---------- FetchBlocked ----------
+# ---------- FetchBlocked / 分页 / 分批 ----------
 
 def test_fetch_wikidata_retries_then_raises_after_exhausted(monkeypatch):
     """协调者 2026-09-28 答复 overview#159：429 时重试（间隔 ≥60s），重试用尽仍不通才停手。"""
@@ -325,14 +411,10 @@ def test_fetch_wikidata_paginates_until_short_page(monkeypatch):
     assert len(raw['results']['bindings']) == 3
 
 
-def test_build_values_query_quotes_and_stringifies_ids():
-    q = sw.build_values_query([42, '7'])
-    assert 'VALUES ?cbdb { "42" "7" }' in q
-    assert 'wdt:P497' in q and 'wdt:P214' in q
-
-
 def test_fetch_wikidata_by_cbdb_ids_paces_between_batches_not_before_first(monkeypatch):
-    """批间主动等待 pace_seconds，且第一批前不等待（2026-09-28 实测：故障期强制 1 req/min）。"""
+    """批间主动等待 pace_seconds，且第一批前不等待（2026-09-28 实测：故障期强制 1 req/min）。
+    分批以本库 cbdb_id（原值，未展开变体）为单位——5 个 id、批大小 4 -> 2 批（4+1）；
+    补零变体的展开在 build_values_query() 内，不影响分批数。"""
     import io
 
     calls = {'n': 0}
@@ -349,10 +431,10 @@ def test_fetch_wikidata_by_cbdb_ids_paces_between_batches_not_before_first(monke
     monkeypatch.setattr(sw.urllib.request, 'urlopen', _ok)
     monkeypatch.setattr(sw.time, 'sleep', lambda s: sleeps.append(s))
 
-    sw.fetch_wikidata_by_cbdb_ids([str(i) for i in range(5)], batch_size=2, pace_seconds=61)
+    sw.fetch_wikidata_by_cbdb_ids([str(i) for i in range(1, 6)], batch_size=4, pace_seconds=61)
 
-    assert calls['n'] == 3  # 5 个 id，批大小 2 -> 3 批
-    assert sleeps == [61, 61]  # 批间等待，第一批前不等
+    assert calls['n'] == 2  # 5 个 id，批大小 4 -> 2 批（4+1）
+    assert sleeps == [61]  # 批间等待一次，第一批前不等
 
 
 def test_fetch_wikidata_by_cbdb_ids_dedupes_ids(monkeypatch):
