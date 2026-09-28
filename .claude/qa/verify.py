@@ -8,7 +8,7 @@
 entities 索引漂移、work 側懸空引用、entity.works 懸空、單向邊（人指書而書不指人）。
 漂移不為 0 即失敗（exit 1）——改了記錄而未回寫索引，或改了索引而未改記錄。
 """
-import argparse, collections, glob, json, os, sys
+import argparse, collections, glob, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 def idx(fam):
@@ -47,6 +47,21 @@ def dates_ok(d):
         return f'dates.birth={birth} 与 birth_year={by} 不一致'
     if death is not None and dy is not None and death != dy:
         return f'dates.death={death} 与 death_year={dy} 不一致'
+    return None
+
+_QID_RE = re.compile(r'^Q\d+$')
+
+def external_ids_ok(d):
+    """Entity.external_ids.wikidata_id／viaf_id 校验（S4b，overview#159）：無此二欄即過。
+    wikidata_id 須形如 Q\\d+；viaf_id 須為純數字字串。回傳 None 表示過，否則回傳錯誤說明。"""
+    ext = d.get('external_ids')
+    if not ext: return None
+    wd = ext.get('wikidata_id')
+    if wd is not None and not (isinstance(wd, str) and _QID_RE.match(wd)):
+        return f'wikidata_id 形狀不合：{wd!r}'
+    viaf = ext.get('viaf_id')
+    if viaf is not None and not (isinstance(viaf, str) and viaf.isdigit()):
+        return f'viaf_id 非純數字字串：{viaf!r}'
     return None
 
 def count_ok(c):
@@ -146,7 +161,7 @@ def main():
         back[wid] = {x.get('entity_id') for x in au if x.get('entity_id')}
         for x in au:
             if x.get('entity_id') and x['entity_id'] not in IE: dangle_w.append((wid, 'authors.entity_id', x['entity_id']))
-    drift_e, dangle_e, fwd, dup_e, bad_dates = [], [], {}, [], []
+    drift_e, dangle_e, fwd, dup_e, bad_dates, bad_extids = [], [], {}, [], [], []
     for eid, ie in IE.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(eid); continue
@@ -157,6 +172,8 @@ def main():
             if x != y: drift_e.append((eid, f, x, y))
         err = dates_ok(d)
         if err: bad_dates.append((eid, err))
+        err = external_ids_ok(d)
+        if err: bad_extids.append((eid, err))
         if ie.get('path') != d.get('path', ie.get('path')): pass
         # 2026-09-07 lane-B 所報：本迴圈原以 set 收 works，**同一 work_id 列兩次者一入集合即消失**
         # ——檢查所用之資料結構本身把一類缺陷吃掉了（全庫十一個 entity 有此病，清聖祖十二處）。
@@ -201,6 +218,8 @@ def main():
     for r in bad_pd[:10]: print('  physical_description', r)
     print(f'entity.dates 不合法 {len(bad_dates)}')
     for r in bad_dates[:10]: print('  dates', r)
+    print(f'entity.external_ids 不合法 {len(bad_extids)}')
+    for r in bad_extids[:10]: print('  external_ids', r)
     print(f'count 形狀不對          {len(bad_count)}')
     for r in bad_count[:10]: print('  count 壞', r)
     # 2026-09-07 lane-E 所報：賬曾三度被 pushmain 之 --ours 吞掉，共遺落 492 筆而無人察覺
@@ -239,7 +258,7 @@ def main():
     # 2026-09-07：`entity.works 重複項` 自即日納入 --strict 之成敗（清零後方納，免得未清前卡住各道）。
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
-    bad = (_ledger_bad or missing or drift_w or drift_e or bad_cls or bad_prov or bad_dates or bad_count
+    bad = (_ledger_bad or missing or drift_w or drift_e or bad_cls or bad_prov or bad_dates or bad_extids or bad_count
            or bad_et or bad_pd
            or (a.strict and (dangle_w or dangle_e or oneway or dup_e)))
     print('FAIL' if bad else 'OK')

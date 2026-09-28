@@ -1,0 +1,223 @@
+#!/usr/bin/env python3
+"""S4b：Entity external_ids 补 wikidata_id/viaf_id（经 CBDB ID 对 Wikidata，overview#159）。
+
+跑法：
+    # 1. 批量抓取 Wikidata（一次性，官方 SPARQL 端点；403/429 即停，不重试、不降速重试）
+    python3 .claude/qa/s4/sync_wikidata_ids.py --fetch --out /tmp/wd_p497.json
+
+    # 2. 用抓到的缓存比对本库 cbdb_id，只出报告，不写档
+    python3 .claude/qa/s4/sync_wikidata_ids.py --cache /tmp/wd_p497.json --dry-run
+
+    # 3. 真写（可分片，分批提交用）
+    python3 .claude/qa/s4/sync_wikidata_ids.py --cache /tmp/wd_p497.json --shard-start i --shard-end k
+
+只写 Entity 活条（按 `index/entities/*.json` 为准——tombstone〔`retired: true`〕不在此索引
+之列，故不会被碰到）的 `external_ids.wikidata_id` / `external_ids.viaf_id` 两个子键。
+不动 Entity 其他字段（含 S4 刚加的 `dates`），不碰 Work／Book／Collection。
+
+匹配规则（overview#159 §方法）：
+  - 按 `cbdb_id` 精确对 Wikidata P497（CBDB ID）；
+  - 一个 cbdb_id 对应多个 Wikidata Q 的**不写**，归入 conflict_multi_qid，列清单；
+  - Entity 已有 `external_ids.wikidata_id` 的**不覆盖**；与新取值不一致者归入
+    conflict_existing_mismatch，列清单；
+  - 能同时取到唯一 VIAF（P214）值、且为纯数字者顺带补 `viaf_id`；VIAF 不唯一或非纯数字则不补。
+
+用 `jio.py` 读写，保留原档缩进／换行风格，不动索引（external_ids 不在 verify.py 所比对的
+索引栏位之列，机械写入不必回写索引）。
+"""
+import argparse
+import glob
+import json
+import os
+import re
+import sys
+import urllib.error
+import urllib.parse
+import urllib.request
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.dirname(HERE))  # .claude/qa/，jio.py 所在
+import jio
+
+SPARQL_ENDPOINT = 'https://query.wikidata.org/sparql'
+SPARQL_QUERY = '''SELECT ?item ?cbdb ?viaf WHERE {
+  ?item wdt:P497 ?cbdb .
+  OPTIONAL { ?item wdt:P214 ?viaf }
+}'''
+USER_AGENT = 'book-index-sync/1.0 (open-guji project; contact: sheldonli.dev@gmail.com)'
+QID_RE = re.compile(r'Q(\d+)$')
+
+
+class FetchBlocked(Exception):
+    """403／429：按 overview#159 之令，调用方须停手、不得重试或降速重试。"""
+
+    def __init__(self, code, body):
+        super().__init__(f'HTTP {code}')
+        self.code = code
+        self.body = body
+
+
+def fetch_wikidata(timeout=300):
+    """一次性批量取 Wikidata 全部 P497（CBDB ID，可选 P214 VIAF），不逐条请求。"""
+    url = SPARQL_ENDPOINT + '?' + urllib.parse.urlencode({'query': SPARQL_QUERY})
+    req = urllib.request.Request(
+        url, headers={'Accept': 'application/sparql-results+json', 'User-Agent': USER_AGENT})
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return json.load(resp)
+    except urllib.error.HTTPError as e:
+        if e.code in (403, 429):
+            raise FetchBlocked(e.code, e.read().decode('utf-8', 'replace')[:2000]) from e
+        raise
+
+
+def parse_bindings(raw):
+    """把 SPARQL JSON 结果按 cbdb 值分组：{cbdb_str: {'qids': set(), 'viafs': set()}}。"""
+    by_cbdb = {}
+    for b in raw['results']['bindings']:
+        cbdb = b['cbdb']['value'].strip()
+        m = QID_RE.search(b['item']['value'])
+        if not m:
+            continue
+        qid = 'Q' + m.group(1)
+        viaf = (b.get('viaf') or {}).get('value')
+        slot = by_cbdb.setdefault(cbdb, {'qids': set(), 'viafs': set()})
+        slot['qids'].add(qid)
+        if viaf:
+            slot['viafs'].add(viaf)
+    return by_cbdb
+
+
+def plan_write(d, by_cbdb):
+    """给一条 Entity 记录，回传 (action, detail)。
+
+    action ∈ {'skip_no_cbdb', 'skip_no_match', 'skip_has_wikidata_id',
+               'conflict_multi_qid', 'conflict_existing_mismatch', 'write'}
+    """
+    ext = d.get('external_ids') or {}
+    cbdb_id = ext.get('cbdb_id')
+    if cbdb_id is None:
+        return 'skip_no_cbdb', None
+    slot = by_cbdb.get(str(cbdb_id))
+    if slot is None:
+        return 'skip_no_match', None
+    qids = slot['qids']
+    if len(qids) > 1:
+        return 'conflict_multi_qid', sorted(qids)
+    qid = next(iter(qids))
+    existing = ext.get('wikidata_id')
+    if existing is not None:
+        if existing != qid:
+            return 'conflict_existing_mismatch', (existing, qid)
+        return 'skip_has_wikidata_id', None
+    viaf = None
+    viafs = slot['viafs']
+    if len(viafs) == 1:
+        v = next(iter(viafs))
+        if v.isdigit():
+            viaf = v
+    return 'write', {'wikidata_id': qid, 'viaf_id': viaf}
+
+
+def iter_entity_rels(shard_start=None, shard_end=None):
+    """按 `index/entities/*.json` 枚举活条的相对路径，可选按分片碼取一段区间。"""
+    for f in sorted(glob.glob(os.path.join(jio.ROOT, 'index', 'entities', '*.json'))):
+        shard = os.path.splitext(os.path.basename(f))[0]
+        if shard_start and shard < shard_start:
+            continue
+        if shard_end and shard > shard_end:
+            continue
+        idx = json.load(open(f, encoding='utf-8'))
+        for eid, ie in idx.items():
+            yield eid, ie['path']
+
+
+def run(by_cbdb, shard_start=None, shard_end=None, limit=None, dry_run=False):
+    counts = {
+        'skip_no_cbdb': 0, 'skip_no_match': 0, 'skip_has_wikidata_id': 0,
+        'conflict_multi_qid': 0, 'conflict_existing_mismatch': 0, 'write': 0, 'write_with_viaf': 0,
+    }
+    conflicts_multi, conflicts_mismatch, written = [], [], []
+    n_touched = 0
+    for eid, rel in iter_entity_rels(shard_start, shard_end):
+        d, fmt = jio.load(rel)
+        action, detail = plan_write(d, by_cbdb)
+        if action == 'conflict_multi_qid':
+            counts[action] += 1
+            conflicts_multi.append((eid, d.get('external_ids', {}).get('cbdb_id'), detail))
+            continue
+        if action == 'conflict_existing_mismatch':
+            counts[action] += 1
+            conflicts_mismatch.append((eid, detail[0], detail[1]))
+            continue
+        if action != 'write':
+            counts[action] += 1
+            continue
+        if limit is not None and n_touched >= limit:
+            continue
+        counts['write'] += 1
+        if detail.get('viaf_id'):
+            counts['write_with_viaf'] += 1
+        written.append((eid, detail['wikidata_id'], detail.get('viaf_id')))
+        if not dry_run:
+            d.setdefault('external_ids', {})['wikidata_id'] = detail['wikidata_id']
+            if detail.get('viaf_id'):
+                d['external_ids']['viaf_id'] = detail['viaf_id']
+            jio.save(rel, d, fmt)
+        n_touched += 1
+    return counts, conflicts_multi, conflicts_mismatch, written
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--fetch', action='store_true', help='只做批量抓取并落盘缓存，不比对不写档')
+    ap.add_argument('--out', default=None, help='--fetch 时缓存写入路径')
+    ap.add_argument('--cache', default=None, help='已抓到的 SPARQL 结果 JSON 路径')
+    ap.add_argument('--dry-run', action='store_true', help='只统计，不写档')
+    ap.add_argument('--limit', type=int, default=None, help='只处理前 N 条待写者（试跑用）')
+    ap.add_argument('--shard-start', default=None, help='只跑 index/entities/ 分片码 >= 此值')
+    ap.add_argument('--shard-end', default=None, help='只跑 index/entities/ 分片码 <= 此值')
+    a = ap.parse_args()
+
+    if a.fetch:
+        try:
+            raw = fetch_wikidata()
+        except FetchBlocked as e:
+            print(f'FETCH BLOCKED：HTTP {e.code}——按令即停，不重试。响应节选：', file=sys.stderr)
+            print(e.body, file=sys.stderr)
+            sys.exit(2)
+        if a.out:
+            json.dump(raw, open(a.out, 'w', encoding='utf-8'), ensure_ascii=False)
+            print(f'已存至 {a.out}，共 {len(raw["results"]["bindings"])} 条 binding')
+        else:
+            json.dump(raw, sys.stdout, ensure_ascii=False)
+        return
+
+    if not a.cache:
+        ap.error('须给 --fetch 或 --cache 之一')
+    raw = json.load(open(a.cache, encoding='utf-8'))
+    by_cbdb = parse_bindings(raw)
+
+    counts, conflicts_multi, conflicts_mismatch, written = run(
+        by_cbdb, a.shard_start, a.shard_end, a.limit, a.dry_run)
+
+    print(f'无 cbdb_id，跳过                     {counts["skip_no_cbdb"]}')
+    print(f'cbdb_id 无 Wikidata 匹配              {counts["skip_no_match"]}')
+    print(f'已有 wikidata_id 且一致，跳过         {counts["skip_has_wikidata_id"]}')
+    print(f'一对多（cbdb_id 对多个 Q），不写      {counts["conflict_multi_qid"]}')
+    print(f'既有值与新取值冲突，不写              {counts["conflict_existing_mismatch"]}')
+    print(f'写入 wikidata_id                      {counts["write"]}')
+    print(f'其中顺带补 viaf_id                    {counts["write_with_viaf"]}')
+    print(f'{"（--dry-run 未写档）" if a.dry_run else "已写入"}  共 {len(written)} 条')
+    if conflicts_multi:
+        print('\n一对多清单（前 20）：')
+        for eid, cbdb_id, qids in conflicts_multi[:20]:
+            print(f'  {eid}  cbdb_id={cbdb_id}  ->  {qids}')
+    if conflicts_mismatch:
+        print('\n既有值冲突清单（前 20）：')
+        for eid, old, new in conflicts_mismatch[:20]:
+            print(f'  {eid}  现有={old}  新取={new}')
+
+
+if __name__ == '__main__':
+    main()

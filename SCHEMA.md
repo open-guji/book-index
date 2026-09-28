@@ -1210,8 +1210,8 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
     "cbdb_id": "integer | null",
     "cbdb_match": "string (自由格式凭据备注，非枚举；如 auto/manual/none/auto_create/manual_remap/auto_dy_unique 等，optional)",
     "cbdb_source": "string (匹配凭据, optional)",
-    "wikidata_id": "string, optional（如 \"Q123456\"，本步只定位置，不回填）",
-    "viaf_id": "string, optional（本步只定位置，不回填）"
+    "wikidata_id": "string, optional（如 \"Q123456\"，见下 Entity.external_ids.wikidata_id/viaf_id）",
+    "viaf_id": "string, optional（纯数字，见下）"
   },
 
   "description": "Description (object)",
@@ -1230,6 +1230,18 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
 俞安期、謝顯两例皆如此每跑一次就再犯一次。**只影响列名的欄**，其余空槽仍照常補。
 
 `sources` 已定義但庫中無資料；Entity 的出處一律記在 `description.sources`。
+
+#### Entity.external_ids.wikidata_id／viaf_id（2026-09-28 S4b，overview#159）
+
+給有 `cbdb_id` 的 Entity 補 Wikidata 對齊，經 Wikidata 屬性 **P497**（CBDB ID）反查：
+
+- 用 Wikidata 官方 SPARQL 端點一次性批量取全部 `?item wdt:P497 ?cbdb`
+  （及 `wdt:P214` VIAF），不逐條請求；腳本見 `.claude/qa/s4/sync_wikidata_ids.py`。
+- 按 `cbdb_id` 精確對；**一個 `cbdb_id` 對多個 Wikidata Q 的不寫**（列入衝突清單，
+  人工另核）；已有 `wikidata_id` 者**不覆蓋**，與新取值不一致者列入衝突清單。
+- `wikidata_id` 形如 `Q\d+`（如 `"Q123456"`）；`viaf_id` 為純數字字串；
+  兩者皆 `optional`，缺省表示未取得或未對上，非零值。
+- 校驗（`verify.py`）：`wikidata_id` 須匹配 `^Q\d+$`；`viaf_id` 須為純數字字串。
 
 #### Entity.dates（2026-09-28 S4 新 schema 吸收④）
 
