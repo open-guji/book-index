@@ -76,23 +76,27 @@ def count_ok(c):
 
 MEMBER_TYPES = {'Work', 'Book', 'Collection', 'mixed'}
 
-def derive_member_type(d):
-    """Collection._member_type：由 `books`／`contained_works` 是否非空機械推出（S3b，overview#171）。
+def derive_member_type(d, reverse_has_book=False, reverse_has_work=False):
+    """Collection._member_type：由正向清單（`books`／`contained_works`）∪反掛清單
+    （Book／Work 之 `contained_in[].id` 指向本 Collection）機械推出（S3c，overview#191，
+    修正 S3b／overview#171 只看正向清單、漏了反掛成員之病——最大的幾部叢編〔如故宮善本舊籍〕
+    正是全靠反掛，正向清單原就是空的，S3b 因此漏推了它們）。
     `contains`（結構組成部分，非平列成員，見 SCHEMA collection 一節）不計入。
-    只 books 非空→'Book'；只 contained_works 非空→'Work'；兩者皆非空→'mixed'；兩者皆空→None（無可推之依據）。"""
-    has_b = bool(d.get('books'))
-    has_w = bool(d.get('contained_works'))
+    只 Book 側（正向或反掛）非空→'Book'；只 Work 側非空→'Work'；兩側皆非空→'mixed'；
+    兩側皆空→None（無可推之依據）。"""
+    has_b = bool(d.get('books')) or reverse_has_book
+    has_w = bool(d.get('contained_works')) or reverse_has_work
     if has_b and has_w: return 'mixed'
     if has_b: return 'Book'
     if has_w: return 'Work'
     return None
 
-def member_type_ok(d):
+def member_type_ok(d, reverse_has_book=False, reverse_has_work=False):
     """_member_type 若寫了：須落在值域內，且須等於重新推導之值（派生欄位，手寫無用）。"""
     v = d.get('_member_type')
     if v is None: return True
     if v not in MEMBER_TYPES: return False
-    return v == derive_member_type(d)
+    return v == derive_member_type(d, reverse_has_book, reverse_has_work)
 
 def classification_ok(c, vocab):
     l1s, l12, l123, l1234 = vocab
@@ -144,6 +148,8 @@ def main():
     drift_w, dangle_w, missing, back = [], [], [], {}
     bad_prov = []
     bad_et, bad_pd = [], []
+    # S3c/#191：Collection id -> 反掛計數，供 _member_type 反掛判定與回補腳本之前後對比報告
+    rev_book_members, rev_work_members = collections.Counter(), collections.Counter()
     for bid, ie in IB.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(bid); continue
@@ -157,10 +163,16 @@ def main():
         pd_ = d.get('physical_description')
         if pd_ is not None and not physical_description_ok(pd_):
             bad_pd.append(bid)
+        for ci in (d.get('contained_in') or []):
+            cid_ = ci.get('id') if isinstance(ci, dict) else ci
+            if cid_: rev_book_members[cid_] += 1
     for wid, ie in IW.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(wid); continue
         d = json.load(open(p))
+        for ci in (d.get('contained_in') or []):
+            cid_ = ci.get('id') if isinstance(ci, dict) else ci
+            if cid_: rev_work_members[cid_] += 1
         c = d.get('classification')
         if c and not classification_ok(c, CVOCAB):
             bad_cls.append((wid, c.get('l1'), c.get('l2'), c.get('l3'), c.get('l4')))
@@ -221,7 +233,9 @@ def main():
             if isinstance(x, str) and x not in IW and x not in IC: dangle_w.append((cid, 'contained_works', x))
         cnt = dc.get('count')
         if cnt is not None and not count_ok(cnt): bad_count.append(cid)
-        if not member_type_ok(dc): bad_member_type.append((cid, dc.get('_member_type'), derive_member_type(dc)))
+        rhb, rhw = bool(rev_book_members.get(cid)), bool(rev_work_members.get(cid))
+        if not member_type_ok(dc, rhb, rhw):
+            bad_member_type.append((cid, dc.get('_member_type'), derive_member_type(dc, rhb, rhw)))
     oneway = [(e, w) for e, ws in fwd.items() for w in ws if e not in back.get(w, set())]
     print(f'索引檔缺記錄檔        {len(missing)}')
     print(f'works 索引漂移        {len(drift_w)}')

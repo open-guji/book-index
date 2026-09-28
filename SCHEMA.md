@@ -956,8 +956,11 @@ Represents a collection or series that contains multiple books or other collecti
 - 與既有欄位不是同一件事，不互相取代：`juan_count`（頂層）曾被拿來塞冊數（如百衲本「820」實為 820 冊而非 820 卷），是歷史誤記，發現後訂正為 `null`，正確的冊數改記到 `count.ce`；`total_works`／`total_volumes` 若與 `description` 明文的卷冊數矛盾（如某條 `total_volumes` 實際存的是卷數），本欄位一律以 `description` 原文為準，不因與既有欄位同名而照抄。
 
 **`_member_type`（成員型別，派生）**：吸收自 data_new v2 設計（overview `35-data_new詳細對比.md` §四·8），值域 `Work`／`Book`／`Collection`／`mixed`。
-- 派生規則：只看 `books`、`contained_works` 兩個真正的「平列成員」清單（`contains` 是結構組成部分，語義不同，見上）是否非空——只有 `books` 非空 → `Book`；只有 `contained_works` 非空 → `Work`；兩者皆非空 → `mixed`；兩者皆空 → 無可推之依據，本欄位不寫（不臆定，不用 `subtype` 頂替：`subtype` 只分兩類、粒度較粗，且統計顯示 84 條裡有 3 條 `book_collection` 其實兩份清單同時非空，若拿 `subtype` 推會把這 3 條的 `mixed` 吃掉）。`Collection`（成員本身是別的 Collection）目前無實際成員清單可據，值域裡留著但現庫 0 條命中。
+- 派生規則：**正向清單∪反掛清單**是否非空——正向清單即 `books`、`contained_works` 兩個真正的「平列成員」清單（`contains` 是結構組成部分，語義不同，見上）；反掛清單即全庫 Book／Work 之 `contained_in[].id` 指向本 Collection 者（Book／Work 反過來認領自己屬於哪個叢編，語義上同屬「成員」，只是掛載方向相反）。只 Book 側（正向或反掛任一）非空 → `Book`；只 Work 側非空 → `Work`；兩側皆非空 → `mixed`；兩側皆空 → 無可推之依據，本欄位不寫。
+  不用 `subtype` 頂替：`subtype` 只分兩類、粒度較粗，且統計顯示 84 條裡有 5 條 `book_collection` 其實兩側同時非空，若拿 `subtype` 推會把這幾條的 `mixed` 吃掉。`Collection`（成員本身是別的 Collection）目前無實際成員清單可據，值域裡留著但現庫 0 條命中。
+- **只看正向清單會漏掉全庫最大的幾部叢編**（S3b／overview#171 的教訓，S3c／overview#191 訂正）：像「國立故宮博物院善本舊籍」「欽定四庫全書·文淵閣本」這類巨型容器，本身的 `books`／`contained_works` 從來是空的，全靠上萬條 Book 各自的 `contained_in` 反過來認領，只看正向清單會誤判成「無可推之依據」。
 - 沿用現行 `_` 前綴派生約定（見〈記錄之共通欄位〉），不做成正式欄位：手寫此欄無意義，校驗一律「重新生成後比對，不一致以生成值為準」。
+- `subtype=book_collection` 但派生出 `_member_type=Work`（僅有 `contained_works`／反掛 Work、無 `books`／反掛 Book）不代表 `subtype` 標錯：不少舊時合刻本、影印彙編是具體版本（有年代、出版details），但其收錄的各部書尚未逐一升格為獨立 Book 記錄，仍記在 `contained_works`——這是「成員尚未掛到 Book 顆粒度」，不是「這個 Collection 其實是抽象作品層」，兩者須分清楚，不可見 `Work` 就反推改 `subtype`。
 
 **已刪之欄位**：`history`、`volume_count`（Collection 層）。叢編的實體規模記 `total_volumes`；沿革敘述併入 `description.text`。
 
