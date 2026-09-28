@@ -86,6 +86,25 @@ def test_plan_write_skips_non_numeric_viaf():
     assert detail['viaf_id'] is None
 
 
+def test_plan_write_skips_implausibly_long_viaf():
+    """回归：Q465282（劉向，cbdb_id=450753）实测 Wikidata 侧 P214 混入畸形值
+    "7682148997701659870000"（22 位，现行 VIAF 至多 9～10 位）——纯数字但位数
+    不合理，不该当真 VIAF 写入。"""
+    d = {'external_ids': {'cbdb_id': 450753}}
+    by_cbdb = {'450753': {'qids': {'Q465282'}, 'viafs': {'7682148997701659870000'}}}
+    action, detail = sw.plan_write(d, by_cbdb)
+    assert action == 'write'
+    assert detail['viaf_id'] is None
+
+
+def test_plan_write_accepts_plausible_length_viaf():
+    d = {'external_ids': {'cbdb_id': 450753}}
+    by_cbdb = {'450753': {'qids': {'Q465282'}, 'viafs': {'70418161'}}}
+    action, detail = sw.plan_write(d, by_cbdb)
+    assert action == 'write'
+    assert detail['viaf_id'] == '70418161'
+
+
 def test_plan_write_ambiguous_viaf_not_written():
     """VIAF 不唯一时不补（宁缺不错）。"""
     d = {'external_ids': {'cbdb_id': 42}}

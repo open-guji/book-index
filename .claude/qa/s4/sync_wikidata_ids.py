@@ -202,7 +202,10 @@ def plan_write(d, by_cbdb):
     viafs = slot['viafs']
     if len(viafs) == 1:
         v = next(iter(viafs))
-        if v.isdigit():
+        # 2026-09-28 实测（Q465282／劉向）：Wikidata 侧 P214 有畸形值混入真实 VIAF
+        # 之中（"7682148997701659870000"，22 位——现行 VIAF 编号至多 9～10 位），
+        # 单靠 isdigit() 挡不住，故加位数上限（宽松取 10 位）过滤明显不合理之值。
+        if v.isdigit() and 1 <= len(v) <= 10:
             viaf = v
     return 'write', {'wikidata_id': qid, 'viaf_id': viaf}
 
