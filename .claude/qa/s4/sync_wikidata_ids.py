@@ -219,12 +219,18 @@ def parse_bindings(raw):
     return by_cbdb
 
 
+def _alt_name(a):
+    """alt_names[] 之一项：正规形是 {"name": ..., "type": ...}，但库中有遗留的
+    纯字符串写法（如 hixhd2h9bixi-僧肇.json 的 "僧"），两者都要认。"""
+    return a.get('name') if isinstance(a, dict) else a
+
+
 def _label_matches(label, d):
     """Wikidata 标签须与 Entity 的 primary_name 或某个 alt_names[].name 精确相等。"""
     if not label:
         return False
     names = {d.get('primary_name')}
-    names |= {a.get('name') for a in (d.get('alt_names') or [])}
+    names |= {_alt_name(a) for a in (d.get('alt_names') or [])}
     return label in {n for n in names if n}
 
 

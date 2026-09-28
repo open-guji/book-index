@@ -149,6 +149,15 @@ def test_plan_write_writes_unique_match_with_matching_label():
     assert detail == {'wikidata_id': 'Q7', 'viaf_id': None}
 
 
+def test_plan_write_matches_via_legacy_string_alt_name():
+    """回归：库中有遗留的 alt_names 纯字符串写法（如 hixhd2h9bixi-僧肇.json 的
+    "僧"），非 {"name":...} 字典形，_label_matches 须两者都认，不得因此崩掉。"""
+    d = {'primary_name': '僧肇', 'alt_names': ['僧'], 'external_ids': {'cbdb_id': 42}}
+    by_cbdb = {'42': {'qids': {'Q7'}, 'labels': {'Q7': {'僧'}}, 'viafs': {}}}
+    action, _detail = sw.plan_write(d, by_cbdb)
+    assert action == 'write'
+
+
 def test_plan_write_matches_via_alt_name():
     d = {'primary_name': '張三', 'alt_names': [{'name': '子明'}], 'external_ids': {'cbdb_id': 42}}
     by_cbdb = {'42': {'qids': {'Q7'}, 'labels': {'Q7': {'子明'}}, 'viafs': {}}}
