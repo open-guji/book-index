@@ -975,6 +975,15 @@ Represents a physical or specific digital edition/copy of a work.
     "source": "Source"
   },
   "current_location": "Location (object)",
+  "provenance": [
+    {
+      "institution": "string (館藏機構名，非空)",
+      "call_number": "string (索書號／統一編號)",
+      "seals": ["string (藏印)"],
+      "notes": "string",
+      "source": "string (據何現行字段回填，如 metadata.npm_item_id)"
+    }
+  ],
   "volume_count": {
     "number": "integer",
     "description": "string",
@@ -1037,6 +1046,31 @@ Represents a physical or specific digital edition/copy of a work.
 - `sources[].version` / `sources[].processor_version`＝**處理程序版本號**（如 `"1.0"`），與書無關。
 
 Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整理中歸併。
+
+#### `provenance`（館藏，2026-09-28 增）
+
+```json
+"provenance": [
+  {"institution": "國立故宮博物院", "call_number": "故善012603", "seals": [], "notes": "", "source": "metadata.npm_item_id"}
+]
+```
+
+- **形狀照 data_new（v2）精簡**：數組，一書多藏本各一項；`institution` 非空字符串，
+  `call_number` 為字符串（可空串）；`seals`／`notes` 可空；`source` 記本項據現行哪個
+  欄位機械回填（如 `metadata.npm_item_id`／`current_location`），供覆核時回查。
+  來歷與設計取捨見 overview [35 卡](../../overview/项目进展/古籍索引网站/进度/G-工具分发与网站/35-data_new详细对比.md) §四·5、§七·2。
+- **與現行欄位的關係**：`provenance` 是新增之現藏機構＋索書號＋藏印之結構化記錄，
+  **不取代** `current_location`（現藏地，113 條）與 `location_history`（遞藏史，77 條）——
+  三者並存，`current_location`／`location_history` 原樣保留。
+- **第一步只機械回填故宮**：`metadata.npm_item_id`（17,540 條，故宮統一編號即索書號）
+  → 一項 `{institution:"國立故宮博物院", call_number:<npm_item_id>, source:"metadata.npm_item_id"}`；
+  `seals` 按典藏號與資料倉 `open-guji-core/book_index_json`
+  `library_data/臺灣故宮博物院善本古籍/`（`holding_id`＝典藏號）對照，對上的把該檔
+  「藏印」類鍵填入，對不上的留空數組。`current_location`（約 113 條）裡能機械拆出
+  機構＋索書號的一併轉入，拆不了的（多機構混列、無索書號等）不動，另列清單。
+  行款（`physical_description`）、`edition_type`、`base_edition` 見 35 卡 §四·6、§四·4，另開卡。
+- **校驗**：`.claude/qa/verify.py` 檢查有 `provenance` 的 Book——須為數組，每項
+  `institution` 非空字符串、`call_number` 為字符串，否則算敗。
 
 ### Source object type:
 ```json
