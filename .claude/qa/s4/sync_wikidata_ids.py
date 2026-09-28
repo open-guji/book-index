@@ -2,7 +2,9 @@
 """S4b：Entity external_ids 补 wikidata_id/viaf_id（经 CBDB ID 对 Wikidata，overview#159）。
 
 跑法：
-    # 1. 批量抓取 Wikidata（一次性，官方 SPARQL 端点；403/429 即停，不重试、不降速重试）
+    # 1. 批量抓取 Wikidata（官方 SPARQL 端点，按 P497 分页＋限流重试；2026-09-28 协调者
+    #    答复 overview#159：分页 ≤5,000/页，429 时等 ≥60 秒重试、单页最多 3 次，
+    #    仍不通才停手——不是遇 429 立即停手，是重试用尽才停手）
     python3 .claude/qa/s4/sync_wikidata_ids.py --fetch --out /tmp/wd_p497.json
 
     # 2. 用抓到的缓存比对本库 cbdb_id，只出报告，不写档
@@ -31,6 +33,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -40,16 +43,16 @@ sys.path.insert(0, os.path.dirname(HERE))  # .claude/qa/，jio.py 所在
 import jio
 
 SPARQL_ENDPOINT = 'https://query.wikidata.org/sparql'
-SPARQL_QUERY = '''SELECT ?item ?cbdb ?viaf WHERE {
-  ?item wdt:P497 ?cbdb .
-  OPTIONAL { ?item wdt:P214 ?viaf }
-}'''
 USER_AGENT = 'book-index-sync/1.0 (open-guji project; contact: sheldonli.dev@gmail.com)'
 QID_RE = re.compile(r'Q(\d+)$')
 
+DEFAULT_PAGE_SIZE = 5000
+DEFAULT_MAX_RETRIES = 3
+DEFAULT_RETRY_WAIT = 65  # 秒，≥60（协调者 2026-09-28 答复 overview#159 之令）
+
 
 class FetchBlocked(Exception):
-    """403／429：按 overview#159 之令，调用方须停手、不得重试或降速重试。"""
+    """403／429 且重试用尽：调用方须停手，不再重试或改走镜像／第三方端点。"""
 
     def __init__(self, code, body):
         super().__init__(f'HTTP {code}')
@@ -57,18 +60,50 @@ class FetchBlocked(Exception):
         self.body = body
 
 
-def fetch_wikidata(timeout=300):
-    """一次性批量取 Wikidata 全部 P497（CBDB ID，可选 P214 VIAF），不逐条请求。"""
-    url = SPARQL_ENDPOINT + '?' + urllib.parse.urlencode({'query': SPARQL_QUERY})
-    req = urllib.request.Request(
-        url, headers={'Accept': 'application/sparql-results+json', 'User-Agent': USER_AGENT})
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            return json.load(resp)
-    except urllib.error.HTTPError as e:
-        if e.code in (403, 429):
-            raise FetchBlocked(e.code, e.read().decode('utf-8', 'replace')[:2000]) from e
-        raise
+def _page_query(page_size, offset):
+    return f'''SELECT ?item ?cbdb ?viaf WHERE {{
+  ?item wdt:P497 ?cbdb .
+  OPTIONAL {{ ?item wdt:P214 ?viaf }}
+}} ORDER BY ?item LIMIT {page_size} OFFSET {offset}'''
+
+
+def _fetch_page(query, max_retries, retry_wait, timeout):
+    """取一页，429/403 时等 retry_wait 秒重试，最多 max_retries 次仍失败才抛 FetchBlocked。"""
+    url = SPARQL_ENDPOINT + '?' + urllib.parse.urlencode({'query': query})
+    headers = {'Accept': 'application/sparql-results+json', 'User-Agent': USER_AGENT}
+    last_blocked = None
+    for attempt in range(1, max_retries + 1):
+        req = urllib.request.Request(url, headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                return json.load(resp)
+        except urllib.error.HTTPError as e:
+            if e.code not in (403, 429):
+                raise
+            last_blocked = FetchBlocked(e.code, e.read().decode('utf-8', 'replace')[:2000])
+            if attempt < max_retries:
+                time.sleep(retry_wait)
+    raise last_blocked
+
+
+def fetch_wikidata(page_size=DEFAULT_PAGE_SIZE, max_retries=DEFAULT_MAX_RETRIES,
+                    retry_wait=DEFAULT_RETRY_WAIT, timeout=300):
+    """分页批量取 Wikidata 全部 P497（CBDB ID，可选 P214 VIAF），不逐条请求。
+
+    按 `?item` 排序保证跨页稳定；每页 ≤`page_size` 行，单页 429/403 重试
+    `max_retries` 次（间隔 `retry_wait` 秒）仍失败才抛 FetchBlocked——由调用方
+    决定是否就此停手（overview#159 之令：重试用尽仍不通即停，不改走镜像／第三方端点）。
+    """
+    all_bindings = []
+    offset = 0
+    while True:
+        page = _fetch_page(_page_query(page_size, offset), max_retries, retry_wait, timeout)
+        bindings = page['results']['bindings']
+        all_bindings.extend(bindings)
+        if len(bindings) < page_size:
+            break
+        offset += page_size
+    return {'head': {'vars': ['item', 'cbdb', 'viaf']}, 'results': {'bindings': all_bindings}}
 
 
 def parse_bindings(raw):
@@ -172,6 +207,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--fetch', action='store_true', help='只做批量抓取并落盘缓存，不比对不写档')
     ap.add_argument('--out', default=None, help='--fetch 时缓存写入路径')
+    ap.add_argument('--page-size', type=int, default=DEFAULT_PAGE_SIZE, help='--fetch 分页大小')
+    ap.add_argument('--max-retries', type=int, default=DEFAULT_MAX_RETRIES, help='--fetch 单页 429/403 重试次数上限')
+    ap.add_argument('--retry-wait', type=float, default=DEFAULT_RETRY_WAIT, help='--fetch 重试前等待秒数（≥60）')
     ap.add_argument('--cache', default=None, help='已抓到的 SPARQL 结果 JSON 路径')
     ap.add_argument('--dry-run', action='store_true', help='只统计，不写档')
     ap.add_argument('--limit', type=int, default=None, help='只处理前 N 条待写者（试跑用）')
@@ -181,9 +219,9 @@ def main():
 
     if a.fetch:
         try:
-            raw = fetch_wikidata()
+            raw = fetch_wikidata(page_size=a.page_size, max_retries=a.max_retries, retry_wait=a.retry_wait)
         except FetchBlocked as e:
-            print(f'FETCH BLOCKED：HTTP {e.code}——按令即停，不重试。响应节选：', file=sys.stderr)
+            print(f'FETCH BLOCKED：HTTP {e.code}——重试 {a.max_retries} 次（间隔 {a.retry_wait}s）仍不通，按令停手。响应节选：', file=sys.stderr)
             print(e.body, file=sys.stderr)
             sys.exit(2)
         if a.out:

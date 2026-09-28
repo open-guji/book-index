@@ -231,19 +231,79 @@ def test_run_leaves_real_repo_untouched(monkeypatch):
 
 # ---------- FetchBlocked ----------
 
-def test_fetch_wikidata_raises_on_429(monkeypatch):
+def test_fetch_wikidata_retries_then_raises_after_exhausted(monkeypatch):
+    """协调者 2026-09-28 答复 overview#159：429 时重试（间隔 ≥60s），重试用尽仍不通才停手。"""
+    import io
     import urllib.error
 
-    def _boom(*a, **k):
-        raise urllib.error.HTTPError(
-            sw.SPARQL_ENDPOINT, 429, 'Too Many Requests', {}, None)
+    calls = {'n': 0}
 
+    def _boom(*a, **k):
+        calls['n'] += 1
+        raise urllib.error.HTTPError(
+            sw.SPARQL_ENDPOINT, 429, 'Too Many Requests', {}, io.BytesIO(b'rate limited'))
+
+    sleeps = []
     monkeypatch.setattr(sw.urllib.request, 'urlopen', _boom)
+    monkeypatch.setattr(sw.time, 'sleep', lambda s: sleeps.append(s))
     try:
-        sw.fetch_wikidata()
-        assert False, '应抛出 FetchBlocked'
+        sw.fetch_wikidata(max_retries=3, retry_wait=65)
+        assert False, '重试用尽仍应抛出 FetchBlocked'
     except sw.FetchBlocked as e:
         assert e.code == 429
+    assert calls['n'] == 3, '应恰好试满 max_retries 次'
+    assert sleeps == [65, 65], '两次重试之间各等待一次，共 max_retries-1 次'
+
+
+def test_fetch_wikidata_succeeds_after_one_retry(monkeypatch):
+    """第一次 429、第二次成功：不应把中途的失败误判为最终停手。"""
+    import io
+    import urllib.error
+
+    calls = {'n': 0}
+    ok_body = json.dumps({'results': {'bindings': []}}).encode('utf-8')
+
+    class _Resp(io.BytesIO):
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+
+    def _flaky(*a, **k):
+        calls['n'] += 1
+        if calls['n'] == 1:
+            raise urllib.error.HTTPError(
+                sw.SPARQL_ENDPOINT, 429, 'Too Many Requests', {}, io.BytesIO(b'rate limited'))
+        return _Resp(ok_body)
+
+    monkeypatch.setattr(sw.urllib.request, 'urlopen', _flaky)
+    monkeypatch.setattr(sw.time, 'sleep', lambda s: None)
+    raw = sw.fetch_wikidata(max_retries=3, retry_wait=65)
+    assert raw == {'head': {'vars': ['item', 'cbdb', 'viaf']}, 'results': {'bindings': []}}
+    assert calls['n'] == 2
+
+
+def test_fetch_wikidata_paginates_until_short_page(monkeypatch):
+    """每页 page_size 条，取到不足一页即停止翻页。"""
+    import io
+
+    pages = [
+        {'results': {'bindings': [_binding('Q1', '1'), _binding('Q2', '2')]}},
+        {'results': {'bindings': [_binding('Q3', '3')]}},  # 不足 page_size，最后一页
+    ]
+    calls = {'n': 0}
+
+    class _Resp(io.BytesIO):
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+
+    def _paged(*a, **k):
+        body = json.dumps(pages[calls['n']]).encode('utf-8')
+        calls['n'] += 1
+        return _Resp(body)
+
+    monkeypatch.setattr(sw.urllib.request, 'urlopen', _paged)
+    raw = sw.fetch_wikidata(page_size=2)
+    assert calls['n'] == 2
+    assert len(raw['results']['bindings']) == 3
 
 
 def test_fetch_wikidata_reraises_other_http_errors(monkeypatch):
