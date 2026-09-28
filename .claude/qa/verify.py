@@ -49,6 +49,16 @@ def dates_ok(d):
         return f'dates.death={death} 与 death_year={dy} 不一致'
     return None
 
+def count_ok(c):
+    """Collection.count：四項（juan/ce/zhong/han）須為 int 或 None，source 非空字串，
+    且至少一項非空（全空即不該寫這個物件，該整欄位留 None）。"""
+    if not isinstance(c, dict): return False
+    for f in ('juan', 'ce', 'zhong', 'han'):
+        v = c.get(f)
+        if v is not None and not (isinstance(v, int) and not isinstance(v, bool)): return False
+    if not isinstance(c.get('source'), str) or not c.get('source').strip(): return False
+    return any(c.get(f) is not None for f in ('juan', 'ce', 'zhong', 'han'))
+
 def classification_ok(c, vocab):
     l1s, l12, l123, l1234 = vocab
     l1, l2, l3, l4 = c.get('l1') or '', c.get('l2') or '', c.get('l3') or '', c.get('l4') or ''
@@ -137,6 +147,8 @@ def main():
             if c > 1: dup_e.append((eid, wid, c))
     # 2026-09-07 lane-B 所報之二：Collection.contained_works[].id 從來無人驗——
     # 併條而漏改此處，斷了無人知。今併入「work 側懸空引用」一項。
+    # S3（Collection.count 吸收，overview#140）：count 若寫了就必須形狀對、有依據、非全空。
+    bad_count = []
     for cid, ie in IC.items():
         p2 = ie.get('path')
         if not p2 or not os.path.exists(p2): continue
@@ -145,6 +157,8 @@ def main():
         for cw in (dc.get('contained_works') or []):
             x = cw.get('id') or cw.get('work_id') if isinstance(cw, dict) else cw
             if isinstance(x, str) and x not in IW and x not in IC: dangle_w.append((cid, 'contained_works', x))
+        cnt = dc.get('count')
+        if cnt is not None and not count_ok(cnt): bad_count.append(cid)
     oneway = [(e, w) for e, ws in fwd.items() for w in ws if e not in back.get(w, set())]
     print(f'索引檔缺記錄檔        {len(missing)}')
     print(f'works 索引漂移        {len(drift_w)}')
@@ -159,6 +173,8 @@ def main():
     for r in bad_prov[:10]: print('  provenance', r)
     print(f'entity.dates 不合法 {len(bad_dates)}')
     for r in bad_dates[:10]: print('  dates', r)
+    print(f'count 形狀不對          {len(bad_count)}')
+    for r in bad_count[:10]: print('  count 壞', r)
     # 2026-09-07 lane-E 所報：賬曾三度被 pushmain 之 --ours 吞掉，共遺落 492 筆而無人察覺
     # ——被吞者無聲、吞人者亦無聲，**只有第三方比對才看得見**。故以水位線守之。
     _ledger_bad = False
@@ -195,7 +211,8 @@ def main():
     # 2026-09-07：`entity.works 重複項` 自即日納入 --strict 之成敗（清零後方納，免得未清前卡住各道）。
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
-    bad = _ledger_bad or missing or drift_w or drift_e or bad_cls or bad_prov or bad_dates or (a.strict and (dangle_w or dangle_e or oneway or dup_e))
+    bad = (_ledger_bad or missing or drift_w or drift_e or bad_cls or bad_prov or bad_dates or bad_count
+           or (a.strict and (dangle_w or dangle_e or oneway or dup_e)))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)
 

@@ -927,6 +927,13 @@ Represents a collection or series that contains multiple books or other collecti
   "edition": "string (版本名)",
   "juan_count": { "number": "integer", "description": "string" },
   "page_count": { "number": "integer", "description": "string" },
+  "count": {
+    "juan": "integer | null (卷数)",
+    "ce": "integer | null (册数)",
+    "zhong": "integer | null (种数，收书种数)",
+    "han": "integer | null (函数)",
+    "source": "string (依据，写明数据取自何处、有无估算或订正)"
+  },
   "indexed_by": [] // type: IndexEntry
   "related_books": ["string (Book IDs)"],
   "related_collections": ["string (Collection IDs)"],
@@ -941,6 +948,11 @@ Represents a collection or series that contains multiple books or other collecti
 - `books`：成員是具體版本（Book ID 陣列）。
 - `contained_works`：成員是作品（影印／彙編叢書按作品收錄時用，帶冊次）。
 - `contains`：本叢編的**結構組成部分**（聖諭、進表、總目、選印來源等），不是平列成員。
+
+**`count`（卷／册／种／函分列）**：吸收自 data_new v2 設計（overview `35-data_new詳細對比.md` §四·8、§七·2·3），是網站「收錄進度」狀態色要用的「應收總數」。
+- 四項互不隱含、各自可空：`juan`＝卷數、`ce`＝冊數、`zhong`＝收書種數、`han`＝函數（多見於《四庫全書》寫本按函裝箱）。整數或 `null`，**至少一項非空才寫本欄位**，未知一律 `null`，不可用 0 佔位（0 隱含「不分卷」等實際語義，與「未知」不同）。
+- `source` 必寫，說明數據取自何處（哪個既有欄位、`description` 原文的哪句話、是否為約數、是否經過訂正）。約數（原文帶「約」「餘」）可以照填，在 `source` 註明是約數；多說並存或量小而相對不確定（如「十餘種」）則本欄位留空，另在校驗腳本的拿不准清單中列出，不臆定。
+- 與既有欄位不是同一件事，不互相取代：`juan_count`（頂層）曾被拿來塞冊數（如百衲本「820」實為 820 冊而非 820 卷），是歷史誤記，發現後訂正為 `null`，正確的冊數改記到 `count.ce`；`total_works`／`total_volumes` 若與 `description` 明文的卷冊數矛盾（如某條 `total_volumes` 實際存的是卷數），本欄位一律以 `description` 原文為準，不因與既有欄位同名而照抄。
 
 **已刪之欄位**：`history`、`volume_count`（Collection 層）。叢編的實體規模記 `total_volumes`；沿革敘述併入 `description.text`。
 
