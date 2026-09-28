@@ -74,6 +74,26 @@ def count_ok(c):
     if not isinstance(c.get('source'), str) or not c.get('source').strip(): return False
     return any(c.get(f) is not None for f in ('juan', 'ce', 'zhong', 'han'))
 
+MEMBER_TYPES = {'Work', 'Book', 'Collection', 'mixed'}
+
+def derive_member_type(d):
+    """Collection._member_type：由 `books`／`contained_works` 是否非空機械推出（S3b，overview#171）。
+    `contains`（結構組成部分，非平列成員，見 SCHEMA collection 一節）不計入。
+    只 books 非空→'Book'；只 contained_works 非空→'Work'；兩者皆非空→'mixed'；兩者皆空→None（無可推之依據）。"""
+    has_b = bool(d.get('books'))
+    has_w = bool(d.get('contained_works'))
+    if has_b and has_w: return 'mixed'
+    if has_b: return 'Book'
+    if has_w: return 'Work'
+    return None
+
+def member_type_ok(d):
+    """_member_type 若寫了：須落在值域內，且須等於重新推導之值（派生欄位，手寫無用）。"""
+    v = d.get('_member_type')
+    if v is None: return True
+    if v not in MEMBER_TYPES: return False
+    return v == derive_member_type(d)
+
 def classification_ok(c, vocab):
     l1s, l12, l123, l1234 = vocab
     l1, l2, l3, l4 = c.get('l1') or '', c.get('l2') or '', c.get('l3') or '', c.get('l4') or ''
@@ -190,6 +210,7 @@ def main():
     # 併條而漏改此處，斷了無人知。今併入「work 側懸空引用」一項。
     # S3（Collection.count 吸收，overview#140）：count 若寫了就必須形狀對、有依據、非全空。
     bad_count = []
+    bad_member_type = []
     for cid, ie in IC.items():
         p2 = ie.get('path')
         if not p2 or not os.path.exists(p2): continue
@@ -200,6 +221,7 @@ def main():
             if isinstance(x, str) and x not in IW and x not in IC: dangle_w.append((cid, 'contained_works', x))
         cnt = dc.get('count')
         if cnt is not None and not count_ok(cnt): bad_count.append(cid)
+        if not member_type_ok(dc): bad_member_type.append((cid, dc.get('_member_type'), derive_member_type(dc)))
     oneway = [(e, w) for e, ws in fwd.items() for w in ws if e not in back.get(w, set())]
     print(f'索引檔缺記錄檔        {len(missing)}')
     print(f'works 索引漂移        {len(drift_w)}')
@@ -222,6 +244,8 @@ def main():
     for r in bad_extids[:10]: print('  external_ids', r)
     print(f'count 形狀不對          {len(bad_count)}')
     for r in bad_count[:10]: print('  count 壞', r)
+    print(f'_member_type 不合／過期 {len(bad_member_type)}')
+    for r in bad_member_type[:10]: print('  _member_type 壞', r)
     # 2026-09-07 lane-E 所報：賬曾三度被 pushmain 之 --ours 吞掉，共遺落 492 筆而無人察覺
     # ——被吞者無聲、吞人者亦無聲，**只有第三方比對才看得見**。故以水位線守之。
     _ledger_bad = False
@@ -259,7 +283,7 @@ def main():
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
     bad = (_ledger_bad or missing or drift_w or drift_e or bad_cls or bad_prov or bad_dates or bad_extids or bad_count
-           or bad_et or bad_pd
+           or bad_et or bad_pd or bad_member_type
            or (a.strict and (dangle_w or dangle_e or oneway or dup_e)))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)
