@@ -956,8 +956,11 @@ Represents a collection or series that contains multiple books or other collecti
 - 與既有欄位不是同一件事，不互相取代：`juan_count`（頂層）曾被拿來塞冊數（如百衲本「820」實為 820 冊而非 820 卷），是歷史誤記，發現後訂正為 `null`，正確的冊數改記到 `count.ce`；`total_works`／`total_volumes` 若與 `description` 明文的卷冊數矛盾（如某條 `total_volumes` 實際存的是卷數），本欄位一律以 `description` 原文為準，不因與既有欄位同名而照抄。
 
 **`_member_type`（成員型別，派生）**：吸收自 data_new v2 設計（overview `35-data_new詳細對比.md` §四·8），值域 `Work`／`Book`／`Collection`／`mixed`。
-- 派生規則：只看 `books`、`contained_works` 兩個真正的「平列成員」清單（`contains` 是結構組成部分，語義不同，見上）是否非空——只有 `books` 非空 → `Book`；只有 `contained_works` 非空 → `Work`；兩者皆非空 → `mixed`；兩者皆空 → 無可推之依據，本欄位不寫（不臆定，不用 `subtype` 頂替：`subtype` 只分兩類、粒度較粗，且統計顯示 84 條裡有 3 條 `book_collection` 其實兩份清單同時非空，若拿 `subtype` 推會把這 3 條的 `mixed` 吃掉）。`Collection`（成員本身是別的 Collection）目前無實際成員清單可據，值域裡留著但現庫 0 條命中。
+- 派生規則：**正向清單∪反掛清單**是否非空——正向清單即 `books`、`contained_works` 兩個真正的「平列成員」清單（`contains` 是結構組成部分，語義不同，見上）；反掛清單即全庫 Book／Work 之 `contained_in[].id` 指向本 Collection 者（Book／Work 反過來認領自己屬於哪個叢編，語義上同屬「成員」，只是掛載方向相反）。只 Book 側（正向或反掛任一）非空 → `Book`；只 Work 側非空 → `Work`；兩側皆非空 → `mixed`；兩側皆空 → 無可推之依據，本欄位不寫。
+  不用 `subtype` 頂替：`subtype` 只分兩類、粒度較粗，且統計顯示 84 條裡有 5 條 `book_collection` 其實兩側同時非空，若拿 `subtype` 推會把這幾條的 `mixed` 吃掉。`Collection`（成員本身是別的 Collection）目前無實際成員清單可據，值域裡留著但現庫 0 條命中。
+- **只看正向清單會漏掉全庫最大的幾部叢編**（S3b／overview#171 的教訓，S3c／overview#191 訂正）：像「國立故宮博物院善本舊籍」「欽定四庫全書·文淵閣本」這類巨型容器，本身的 `books`／`contained_works` 從來是空的，全靠上萬條 Book 各自的 `contained_in` 反過來認領，只看正向清單會誤判成「無可推之依據」。
 - 沿用現行 `_` 前綴派生約定（見〈記錄之共通欄位〉），不做成正式欄位：手寫此欄無意義，校驗一律「重新生成後比對，不一致以生成值為準」。
+- `subtype=book_collection` 但派生出 `_member_type=Work`（僅有 `contained_works`／反掛 Work、無 `books`／反掛 Book）不代表 `subtype` 標錯：不少舊時合刻本、影印彙編是具體版本（有年代、出版details），但其收錄的各部書尚未逐一升格為獨立 Book 記錄，仍記在 `contained_works`——這是「成員尚未掛到 Book 顆粒度」，不是「這個 Collection 其實是抽象作品層」，兩者須分清楚，不可見 `Work` 就反推改 `subtype`。
 
 **已刪之欄位**：`history`、`volume_count`（Collection 層）。叢編的實體規模記 `total_volumes`；沿革敘述併入 `description.text`。
 
@@ -1127,6 +1130,31 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
   或拿不准者不寫，見 `.claude/qa/s2/backfill_physical_description_desc.py`。
 - **校驗**：`.claude/qa/verify.py` 檢查——有 `physical_description` 的 Book 須為物件，四內容子欄與 `source`
   皆須為字符串，且四內容子欄至少一項非空；有 `edition_type` 的 Book 須落在上述十詞表內，否則算敗。
+
+#### `base_edition`（底本／配補／參校，2026-09-28 增）
+
+```json
+"base_edition": [
+  {"role": "底本", "name": "宋淳熙三年閩山阮氏種德堂巾箱本", "source": "dating.based_on+edition切分"},
+  {"role": "配補", "book_id": "9897xxxxxxxx", "name": "…", "note": "…", "source": "lineage.derived_from"}
+]
+```
+
+接 S2c（#190）。承 overview [35 卡](../../overview/项目进展/古籍索引网站/进度/G-工具分发与网站/35-data_new详细对比.md) §四·4、§七·2·2：v2 之 `base_edition[]` 承接現行 `dating.based_on`（273 條）與 `lineage.derived_from`（155 條）。
+
+- **形狀**：陣列，每項 `role`（`底本`／`配補`／`參校`，閉集）、`book_id`（可選，指向本庫已有 Book）、`work_id`（可選，指向本庫已有 Work，用於只知其書未知其本者）、`name`（非空字符串，底本之名，如「宋淳熙三年閩山阮氏種德堂巾箱本」）、`note`（可選，佐證或按語）、`source`（非空字符串，記本項據何而來，供覆核回查）。`book_id`／`work_id` 至多填一項——本次回填兩者皆未用到，因所據底本多係本庫未另建檔之古本。
+- **回填來源一**（`dating.based_on`，273 條）：`relation` 為 `翻刻`／`影印`／`傳鈔` 者→`底本`，`配補`者→`配補`；`name` 由 `Book.edition` 原文機械切分——搜該關係對應之動詞（翻刻類：覆刻／覆刊／翻刻／翻刊／重刊／重刻／重雕／翻雕／重摹；影印類：影鈔／影印／景印／影刊／景鈔／摹印；傳鈔類：傳鈔／傳抄；配補：配補），動詞在全文恰一見者取其後之文字為 `name`；「百衲本二十四史」一類（`edition` 作「百衲本·某本」，`dating.based_on` 雖標 `配補`而文中未必有「配補」字樣）另按「百衲本·(底本)(闕卷／原闕…以(配補本)配補)?」切分，可同時得底本、配補兩項。動詞不唯一、切不出、或切得結果過短（僅剩「本」字或標點等無實質內容）者不寫，入候選清單（22 條，多屬「關係動詞置於自身描述之後、未具名底本」，如「…修…重刊本」「…影印本」）。見 `.claude/qa/s2/backfill_base_edition_dating.py`。
+- **回填來源二**（`lineage.derived_from`，`ref_type=="book"` 者，107 項）：`ref` 即本庫 Book ID，逐項驗其存在且非自指；按 `relation` 分三類機械對映：
+  - →`底本`：翻刻／同系翻刻／翻刻補修／翻刻+改批／影印／石印／拓自／過錄／底本／據以抄錄／據以評／節選／刪節／刪節（學界主流說）／刪改／修訂／增補／截斷（同板印至第百回止）——共 85 項；
+  - →`參校`：校改／參校／校改後印／校改加評／批校——共 13 項；
+  - →`配補`：配補——1 項；
+  - 其餘不寫：`合刊`／`混裝本`（非版本源流關係，語義與本欄無涉，不計入候選）共 4 項；`綜合`／`同系延伸`／`派生（剔田虎王慶+多本配補）`（關係含混，判不出唯一角色）共 4 項入候選清單。
+  `ref_type=="hypothetical"`（57 項，`ref` 為內部假設底本代號如 `h_zhi_sisi_dingben`，非本庫 ID，`evidence` 亦無足以機械摘取之底本名）**全部不寫**，入候選清單。
+  寫入者 `name` 取目標 Book 之 `edition`（無則退 `title`）；`note` 取原 `evidence`。見 `.claude/qa/s2/backfill_base_edition_lineage.py`。
+- **另查**全庫 `description.text` 之「據某本影印」一類説明（影印叢編如四庫、再造善本、續修四庫全書等）：扣除已含於上二源者，只餘 2 條——1 條是他書引本條目為其底本（非本條目自身之底本關係，不算）、1 條原文自注「具體底本待考」（入候選清單）；未見另開回填來源之必要。
+- `book_id` 掛連：因所據底本多為本庫未另建檔之古本，本輪以同 `work_id` 之 Book 逐一比對 `edition` 全文是否恰相同試掛，命中稀少（詳見 overview issue #190 驗收評論之統計）。
+- 拿不准者（動詞切分失敗、`lineage` 關係含混、假設性底本無名可依、原文自注待考）寫入 overview 倉 `项目进展/古籍目录/进度/S2c-底本候选/candidates.csv`，**不寫本庫**。
+- **校驗**：`.claude/qa/verify.py` 檢查——有 `base_edition` 的 Book 須為陣列，每項 `role` 須落在三詞表內、`name` 須為非空字符串、`source` 須為非空字符串；`book_id` 若填須存在於本庫且不得指向本書自身，`work_id` 若填須存在於本庫，否則算敗。
 
 ### Source object type:
 ```json
