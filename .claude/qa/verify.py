@@ -27,6 +27,28 @@ def load_classific_vocab():
         if l4: l1234.add((l1, l2, l3, l4))
     return l1s, l12, l123, l1234
 
+def dates_ok(d):
+    """Entity.dates 校验（S4 新 schema 吸收④）：無此欄即過。
+    回傳 None 表示過；否則回傳一句話講哪裡錯。"""
+    dt = d.get('dates')
+    if dt is None: return None
+    birth, death, floruit = dt.get('birth'), dt.get('death'), dt.get('floruit')
+    for name, v in (('birth', birth), ('death', death)):
+        if v is not None and not isinstance(v, int): return f'{name} 非整数：{v!r}'
+    if floruit is not None:
+        if not (isinstance(floruit, list) and len(floruit) == 2): return f'floruit 非二元数组：{floruit!r}'
+        for v in floruit:
+            if not isinstance(v, int): return f'floruit 含非整数：{floruit!r}'
+        if floruit[0] > floruit[1]: return f'floruit 起 > 止：{floruit!r}'
+    if birth is not None and death is not None and birth > death:
+        return f'birth > death：{birth} > {death}'
+    by, dy = d.get('birth_year'), d.get('death_year')
+    if birth is not None and by is not None and birth != by:
+        return f'dates.birth={birth} 与 birth_year={by} 不一致'
+    if death is not None and dy is not None and death != dy:
+        return f'dates.death={death} 与 death_year={dy} 不一致'
+    return None
+
 def classification_ok(c, vocab):
     l1s, l12, l123, l1234 = vocab
     l1, l2, l3, l4 = c.get('l1') or '', c.get('l2') or '', c.get('l3') or '', c.get('l4') or ''
@@ -90,7 +112,7 @@ def main():
         back[wid] = {x.get('entity_id') for x in au if x.get('entity_id')}
         for x in au:
             if x.get('entity_id') and x['entity_id'] not in IE: dangle_w.append((wid, 'authors.entity_id', x['entity_id']))
-    drift_e, dangle_e, fwd, dup_e = [], [], {}, []
+    drift_e, dangle_e, fwd, dup_e, bad_dates = [], [], {}, [], []
     for eid, ie in IE.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(eid); continue
@@ -99,6 +121,8 @@ def main():
             x, y = ie.get(f), d.get(f)
             if x is None and y is None: continue
             if x != y: drift_e.append((eid, f, x, y))
+        err = dates_ok(d)
+        if err: bad_dates.append((eid, err))
         if ie.get('path') != d.get('path', ie.get('path')): pass
         # 2026-09-07 lane-B 所報：本迴圈原以 set 收 works，**同一 work_id 列兩次者一入集合即消失**
         # ——檢查所用之資料結構本身把一類缺陷吃掉了（全庫十一個 entity 有此病，清聖祖十二處）。
@@ -133,6 +157,8 @@ def main():
     for r in bad_cls[:10]: print('  詞表外', r)
     print(f'provenance 形狀不合    {len(bad_prov)}')
     for r in bad_prov[:10]: print('  provenance', r)
+    print(f'entity.dates 不合法 {len(bad_dates)}')
+    for r in bad_dates[:10]: print('  dates', r)
     # 2026-09-07 lane-E 所報：賬曾三度被 pushmain 之 --ours 吞掉，共遺落 492 筆而無人察覺
     # ——被吞者無聲、吞人者亦無聲，**只有第三方比對才看得見**。故以水位線守之。
     _ledger_bad = False
@@ -169,7 +195,7 @@ def main():
     # 2026-09-07：`entity.works 重複項` 自即日納入 --strict 之成敗（清零後方納，免得未清前卡住各道）。
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
-    bad = _ledger_bad or missing or drift_w or drift_e or bad_cls or bad_prov or (a.strict and (dangle_w or dangle_e or oneway or dup_e))
+    bad = _ledger_bad or missing or drift_w or drift_e or bad_cls or bad_prov or bad_dates or (a.strict and (dangle_w or dangle_e or oneway or dup_e))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)
 

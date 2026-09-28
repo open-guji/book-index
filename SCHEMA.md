@@ -1156,8 +1156,9 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
   ],
 
   "dynasty": "string (朝代标签，与 Work.authors.dynasty 对齐)",
-  "birth_year": "integer | null (公历年)",
+  "birth_year": "integer | null (公历年，与 dates.birth 并存，见下)",
   "death_year": "integer | null",
+  "dates": "Dates (object, optional, 见下)",
 
   "works": [
     { "work_id": "string (Work ID)", "role": "string (撰|注|編|評...)" }
@@ -1166,7 +1167,9 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
   "external_ids": {
     "cbdb_id": "integer | null",
     "cbdb_match": "string (自由格式凭据备注，非枚举；如 auto/manual/none/auto_create/manual_remap/auto_dy_unique 等，optional)",
-    "cbdb_source": "string (匹配凭据, optional)"
+    "cbdb_source": "string (匹配凭据, optional)",
+    "wikidata_id": "string, optional（如 \"Q123456\"，本步只定位置，不回填）",
+    "viaf_id": "string, optional（本步只定位置，不回填）"
   },
 
   "description": "Description (object)",
@@ -1185,6 +1188,31 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
 俞安期、謝顯两例皆如此每跑一次就再犯一次。**只影响列名的欄**，其余空槽仍照常補。
 
 `sources` 已定義但庫中無資料；Entity 的出處一律記在 `description.sources`。
+
+#### Entity.dates（2026-09-28 S4 新 schema 吸收④）
+
+结构化生卒／活动年，逐步取代 `birth_year`／`death_year` 的展示用途——**本步只增不删**，
+`birth_year`／`death_year` 原样保留并存，待网站改完展示后另开卡再删。
+
+```json
+"dates": {
+  "birth": "integer | null（公历年，公元前用负数）",
+  "death": "integer | null",
+  "floruit": "[起, 止] | null（活动年区间，生卒不详时补）",
+  "chinese": "string, optional（原文，如「嘉靖二年—萬曆元年」，无原文材料时省略）",
+  "basis": "string（cbdb｜index_year｜現行字段｜…，自由格式凭据备注，非枚举）"
+}
+```
+
+- `birth`／`death` 与 `floruit` 不共存于同一条：生卒已知就不必补活动年。
+- `birth`／`death` 有值时，`basis` 记来源；机械迁移自 `birth_year`／`death_year` 者，
+  `basis` 一律 `"現行字段"`。
+- `floruit` 只在 `birth`／`death` 双缺、且能从 CBDB 侧另有旁证（如 `index_year`，
+  即 `BIOG_MAIN` 的活动年代参考值）时补入，`basis` 记 `"cbdb:index_year"`；
+  取不到旁证的不补、留 `dates` 缺省。
+- 校验（`verify.py`）：`birth`／`death`／`floruit[0]`／`floruit[1]` 须为整数；
+  `birth <= death`（两者皆有时）；`floruit[0] <= floruit[1]`；
+  `dates.birth`/`dates.death` 若有值须与 `birth_year`/`death_year` 一致（两者皆有时）。
 
 #### Entity.subtype
 
