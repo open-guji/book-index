@@ -137,6 +137,25 @@ def physical_description_ok(pd):
     if not isinstance(pd.get('source'), str) or not pd.get('source').strip(): return False
     return any((pd.get(f) or '').strip() for f in content_fields)
 
+BASE_EDITION_ROLES = {'底本', '配補', '參校'}
+
+def base_edition_ok(be, self_id, book_ids, work_ids):
+    """Book.base_edition：陣列，每項 role 落三詞表、name／source 非空字符串，
+    book_id／work_id 若填須存在且 book_id 不得指向本書自身（S2c，overview#190）。"""
+    if not isinstance(be, list): return False
+    for item in be:
+        if not isinstance(item, dict): return False
+        if item.get('role') not in BASE_EDITION_ROLES: return False
+        if not isinstance(item.get('name'), str) or not item.get('name').strip(): return False
+        if not isinstance(item.get('source'), str) or not item.get('source').strip(): return False
+        bid = item.get('book_id')
+        if bid is not None:
+            if not isinstance(bid, str) or bid == self_id or bid not in book_ids: return False
+        wid = item.get('work_id')
+        if wid is not None:
+            if not isinstance(wid, str) or wid not in work_ids: return False
+    return True
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--why', action='store_true', help='「索引缺記錄檔」時印出各 id 之最後刪除提交（坑 41）')
     ap.add_argument('--strict', action='store_true'); a = ap.parse_args()
@@ -150,6 +169,7 @@ def main():
     bad_et, bad_pd = [], []
     # S3c/#191：Collection id -> 反掛計數，供 _member_type 反掛判定與回補腳本之前後對比報告
     rev_book_members, rev_work_members = collections.Counter(), collections.Counter()
+    bad_be = []
     for bid, ie in IB.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(bid); continue
@@ -166,6 +186,9 @@ def main():
         for ci in (d.get('contained_in') or []):
             cid_ = ci.get('id') if isinstance(ci, dict) else ci
             if cid_: rev_book_members[cid_] += 1
+        be = d.get('base_edition')
+        if be is not None and not base_edition_ok(be, bid, IB, IW):
+            bad_be.append(bid)
     for wid, ie in IW.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(wid); continue
@@ -252,6 +275,8 @@ def main():
     for r in bad_et[:10]: print('  edition_type', r)
     print(f'physical_description 形狀不合 {len(bad_pd)}')
     for r in bad_pd[:10]: print('  physical_description', r)
+    print(f'base_edition 形狀不合  {len(bad_be)}')
+    for r in bad_be[:10]: print('  base_edition', r)
     print(f'entity.dates 不合法 {len(bad_dates)}')
     for r in bad_dates[:10]: print('  dates', r)
     print(f'entity.external_ids 不合法 {len(bad_extids)}')
@@ -297,7 +322,7 @@ def main():
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
     bad = (_ledger_bad or missing or drift_w or drift_e or bad_cls or bad_prov or bad_dates or bad_extids or bad_count
-           or bad_et or bad_pd or bad_member_type
+           or bad_et or bad_pd or bad_be or bad_member_type
            or (a.strict and (dangle_w or dangle_e or oneway or dup_e)))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)
