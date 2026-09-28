@@ -238,6 +238,20 @@ def title_of(rid, IW, IC):
     if rid in IC: return IC[rid]['title']
     return None
 
+_PAREN_SUFFIX_RE = re.compile(r'^(.+)（[^（）]+）$')
+
+def strip_paren_suffix(title):
+    """去現名後綴之括注（如「補晉書藝文志（丁國鈞）」→「補晉書藝文志」），供
+    Collection.contained_works[].title 漂移比較剝括注撰人用（overview#198，目錄總管裁定：
+    只在現名後加括注撰人消歧之展示題算正常，只有括注以外之部分跟目標現名對不上才是漂移）。"""
+    m = _PAREN_SUFFIX_RE.match(title or '')
+    return m.group(1) if m else title
+
+def contained_title_stale(recorded, actual):
+    """recorded 與 actual 不同，但剝去 recorded 末尾括注後與 actual 相同者，判為括注撰人
+    消歧之展示題，不算漂移。"""
+    return recorded != actual and strip_paren_suffix(recorded) != actual
+
 BASE_EDITION_ROLES = {'底本', '配補', '參校'}
 
 def base_edition_ok(be, self_id, book_ids, work_ids):
@@ -381,7 +395,7 @@ def main():
             if isinstance(x, str) and x not in IW and x not in IC: dangle_w.append((cid, 'contained_works', x))
             if isinstance(cw, dict) and x and cw.get('title') is not None:
                 actual = title_of(x, IW, IC)
-                if actual is not None and actual != cw['title']:
+                if actual is not None and contained_title_stale(cw['title'], actual):
                     stale_contained.append((cid, x, cw['title'], actual))
         cnt = dc.get('count')
         if cnt is not None and not count_ok(cnt): bad_count.append(cid)

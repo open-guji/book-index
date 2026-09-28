@@ -74,8 +74,15 @@ CONTAINED_VERDICTS = {
     ('8rlcsybg2hhx', 'd59f28m9wnpg'): 'normal', # 遊仙窟（唐張鷟）
     ('8rlcsybg2hhx', 'd59f2mp9hhq8'): 'normal', # 照世杯（酌元亭主人）
     ('8rlcsybg2hhy', 'd59f2nhf15oi'): 'normal', # 古今小說（馮夢龍）
-    ('8rld0ts2thj4', 'd59fazdcd98g'): 'sync',   # 八千卷樓書目 -> 八千卷樓書目二十卷
+    ('8rld0ts2thj4', 'd59fazdcd98g'): 'list',   # 八千卷樓書目——目标带卷数细节，协调者验收订正（原判 sync 有误，见known-issues）
     ('8rld0ts2thj4', 'd59f2msw9xc1'): 'sync',   # 述古堂藏書目 -> 錢遵王述古堂藏書目錄
+}
+
+# 'list' 之项各自的理由（协调者验收订正后，两项同属「目标现名带瑕疵，同步是倒退」一类）
+CONTAINED_LIST_WHY = {
+    ('8rlcsybg2hhw', 'd59f2ngcy7er'): '目标 title 字段把撰人名与题名未加分隔地粘连，疑有历史遗留缺陷。',
+    ('8rld0ts2thj4', 'd59fazdcd98g'): '目标 title 字段带了卷数细节，不适合带入丛编内的短展示题；'
+                                       '协调者验收指出此前误同步，已改回不带卷数的原名。',
 }
 
 INSTITUTION_MAP = {
@@ -159,7 +166,7 @@ def fix_contained_works(apply):
                 continue
             if verdict == 'list':
                 n_list += 1
-                listed.append(e)
+                listed.append(dict(e, why=CONTAINED_LIST_WHY.get((cid, e['member_id']), '')))
                 continue
             found = False
             for cw in (dd.get('contained_works') or []):
@@ -193,11 +200,12 @@ def fix_contained_works(apply):
         with open(outp, 'w', encoding='utf-8') as f:
             json.dump({
                 'lane': 'S5b', 'date': NOTE_DATE,
-                'kind': 'Collection.contained_works[].title 漂移之目标自身缺陷型（不同步）',
-                'note': '该项 recorded_title 已是「现名+括注撰人」之规范展示题，而目标记录自身的 title '
-                         '字段反而是撰人名与题名未加分隔地粘连（如「水滸後傳陳忱」）——目标 title 字段本身'
-                         '疑有历史遗留缺陷，但 Work.title／Collection.title 不在本卡写域，不可碰。'
-                         '同步只会把粘连写法带进 contained_works，是倒退，故不动，留待目录总管另裁是否修 Work.title。',
+                'kind': 'Collection.contained_works[].title 漂移之目标现名带瑕疵型（不同步）',
+                'note': '该项 recorded_title 本身已是合规的展示题，而目标记录（Work/Collection）自身的 '
+                         'title 字段带着不宜带入 contained_works 短展示题的瑕疵——同步只会把瑕疵写法带进 '
+                         'contained_works，是倒退。Work.title／Collection.title 不在本卡写域，不可碰，'
+                         '故不动，留待目录总管另裁是否修目标自身的 title。协调者验收意见'
+                         '（overview#198 第三条评论）：八千卷樓書目一项与水滸後傳同属此类，理由一致。',
                 'examples': listed,
             }, f, ensure_ascii=False, indent=1)
             f.write('\n')
