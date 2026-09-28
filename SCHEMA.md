@@ -89,7 +89,7 @@ Represents the abstract intellectual content.
   "promoted_to": "string (Production ID，本草稿記錄已升格；權威來源為 promotions.json)",
   "promoted_at": "string (ISO 8601 時間戳)",
   "ai_note": "string (optional, 建檔／整理過程的自注：資料來源、存疑、待辦。非面向讀者的正文)",
-  "todo": [] // optional, 見〈記錄之共通欄位〉「todo」
+  "todo": [], // optional, 見〈記錄之共通欄位〉「todo」
   "review": "object (optional, 見〈記錄之共通欄位〉「review」)",
   "sources": [] // type: Source
 }
@@ -1427,19 +1427,24 @@ ID 用 64-bit snowflake 结构，3 bits 标识 type：
 74 條不一致（`books` 手寫清單漏改或多改），`Book.work_id` 是每部 Book 自己聲明的歸屬，
 更可靠。與 `_has_text` 等同例，**＝0 者不寫本欄**（現行 13,863 條 Work 因此得欄，其餘
 81,192 條無 Book、不寫）。腳本：`.claude/qa/s5/backfill_derived_counts.py`（乾跑為預設，
-`--apply` 才寫，可複跑冪等）。
+`--apply` 才寫，可複跑冪等）。**該 74 條不一致已於 2026-09-28 S5b（overview#198）逐條清賬並
+對齊 `books` 手寫清單**（49 條補漏列、44 條刪已改挂之過時項），此後全庫兩者應恆一致，
+本欄之算法仍留反查（防未來再度漂移）。
 
 吸收自 data_new v2 之 `derived.edition_count`（overview `35-data_new詳細對比.md` §一·1、
 §七·2·5）——沿用現行 `_` 前綴，不另立 `derived` 物件。
 
-#### `_member_count`（Collection，2026-09-28 增，S5）
+#### `_member_count`（Collection，2026-09-28 增，S5；2026-09-28 訂正併入反掛，S5b/overview#198）
 
-`books`＋`contained_works` 兩份平列成員清單之長度和（`contains` 是結構組成部分，不計入，
-與既有 `_member_type` 同一口徑，見上「Collection 的三種成員列表」）。與 `_member_type` 一樣，
-**由 Collection 自身的 `books`／`contained_works` 手寫清單算出**（不像 `_edition_count`
-反查對面記錄——Collection 成員關係現行只單向記在 Collection 自己身上，`Work.contained_in`
-覆蓋僅 15 個 Collection，反查會漏算另外六十餘個），**＝0 者不寫本欄**（現行 84 條 Collection
-中 57 條因此得欄）。腳本同上（`.claude/qa/s5/backfill_derived_counts.py`）。
+`books`／`contained_works` 兩份正向清單 **∪** `contained_in`（Book／Work 反過來認領本
+Collection）反掛清單，Book 側、Work 側各自去重後之相異 id 數相加（`contains` 是結構組成
+部分，不計入，與 `_member_type` 同一口徑，見上「Collection 的三種成員列表」）。
+
+S5 首版只算正向清單長度和，未併反掛——**「國立故宮博物院善本舊籍」一類巨型叢編，正向清單
+本就是空、全靠上萬條 Book 各自 `contained_in` 反過來認領**，S5 版因此完全算漏（該條由
+`None` 訂正為 17,540）。訂正後以 id 集合聯集去重，避免「正向亦列、反掛亦掛」者算兩次。
+派生規則見 `.claude/qa/verify.py:derive_member_count`。**＝0 者不寫本欄**。
+腳本：`.claude/qa/s5/backfill_derived_counts.py`（乾跑為預設，`--apply` 才寫，可複跑冪等）。
 
 吸收自 data_new v2 之 `derived.member_count`（overview `35-data_new詳細對比.md` §一·3、
 §七·2·5）。

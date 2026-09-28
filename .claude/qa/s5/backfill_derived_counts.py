@@ -55,13 +55,16 @@ def backfill_works(apply):
 
 
 def backfill_collections(apply):
+    # S5b/#198：_member_count 併入反掛成員，與 verify.py 之 _member_type 同一算法（共用函式）。
+    rev_book_members, rev_work_members = verify.build_reverse_members()
+
     n = 0
     for f in glob.glob(os.path.join(ROOT, 'Collection/*/*/*/*.json')):
         if f.endswith('volume_book_mapping.json'):
             continue
         d = json.load(open(f, encoding='utf-8'))
         cid = d.get('id')
-        derived = verify.derive_member_count(d)
+        derived = verify.derive_member_count(d, rev_book_members.get(cid, set()), rev_work_members.get(cid, set()))
         cur = d.get('_member_count')
         want = derived if derived > 0 else None
         if cur == want:

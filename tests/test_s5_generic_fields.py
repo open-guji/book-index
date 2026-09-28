@@ -111,6 +111,20 @@ def test_derive_member_count_excludes_contains():
     assert verify.derive_member_count(d) == 0
 
 
+def test_derive_member_count_includes_reverse_members():
+    # overview#198 订正：正向清单本就是空、全靠反挂（如「國立故宮博物院善本舊籍」一类）者，
+    # S5 首版会漏算为 0；今须并入反挂集合。
+    d = {}
+    assert verify.derive_member_count(d, reverse_book_ids={"988a", "988b"}) == 2
+    assert verify.derive_member_count(d, reverse_work_ids={"d59a"}) == 1
+
+
+def test_derive_member_count_dedups_forward_and_reverse():
+    # 正向亦列、反挂亦掛者只算一次，不重複计数。
+    d = {"books": ["988a"], "contained_works": [{"id": "d59a"}]}
+    assert verify.derive_member_count(d, reverse_book_ids={"988a"}, reverse_work_ids={"d59a"}) == 2
+
+
 def test_member_count_ok_accepts_matching_value():
     d = {"books": ["988a"], "_member_count": 1}
     assert verify.member_count_ok(d)
@@ -171,8 +185,11 @@ def test_all_works_edition_count_up_to_date():
 
 
 def test_all_collections_member_count_up_to_date():
+    rev_book_members, rev_work_members = verify.build_reverse_members()
     rows = _all_collections()
-    bad = [f for f, d in rows if not verify.member_count_ok(d)]
+    bad = [f for f, d in rows
+           if not verify.member_count_ok(d, rev_book_members.get(d.get("id"), set()),
+                                          rev_work_members.get(d.get("id"), set()))]
     assert bad == [], f"_member_count 不合或過期：{bad[:5]}（共 {len(bad)} 條）"
 
 

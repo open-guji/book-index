@@ -16,6 +16,25 @@ S5（overview#189）另加：通用 `todo`／`review`（審核狀態）形狀校
 import argparse, collections, glob, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 
+def build_reverse_members():
+    """S3c/#191、S5b/#198：掃全庫 Book／Work 之 `contained_in[].id`，回傳
+    (cid -> 反掛 book_id 集合, cid -> 反掛 work_id 集合)。`_member_type`／`_member_count`
+    之反掛判定、回補腳本、回歸測試共用同一份，避免各自各寫一遍而算法漂開。"""
+    rev_book_members, rev_work_members = collections.defaultdict(set), collections.defaultdict(set)
+    for f in glob.glob(os.path.join(ROOT, 'Book/*/*/*/*.json')):
+        bd = json.load(open(f))
+        bid = bd.get('id')
+        for ci in (bd.get('contained_in') or []):
+            cid_ = ci.get('id') if isinstance(ci, dict) else ci
+            if cid_: rev_book_members[cid_].add(bid)
+    for f in glob.glob(os.path.join(ROOT, 'Work/*/*/*/*.json')):
+        wd = json.load(open(f))
+        wid = wd.get('id')
+        for ci in (wd.get('contained_in') or []):
+            cid_ = ci.get('id') if isinstance(ci, dict) else ci
+            if cid_: rev_work_members[cid_].add(wid)
+    return rev_book_members, rev_work_members
+
 def idx(fam):
     out = {}
     for f in glob.glob(os.path.join(ROOT, 'index', fam, '*.json')): out.update(json.load(open(f)))
@@ -185,17 +204,27 @@ def edition_count_ok(d, book_work_ids):
     if not isinstance(v, int) or isinstance(v, bool) or v <= 0: return False
     return v == derive_edition_count(d.get('id'), book_work_ids)
 
-def derive_member_count(d):
-    """Collection.`_member_count`：`books`＋`contained_works` 兩份平列成員清單之長度和
-    （`contains` 是結構組成部分，不計入，與 `_member_type` 同一口徑）。"""
-    return len(d.get('books') or []) + len(d.get('contained_works') or [])
+def derive_member_count(d, reverse_book_ids=frozenset(), reverse_work_ids=frozenset()):
+    """Collection.`_member_count`：Book 側『`books` 正向清單 ∪ `contained_in` 反掛』相異 id 數，
+    加 Work 側『`contained_works` 正向清單 ∪ `contained_in` 反掛』相異 id 數
+    （`contains` 是結構組成部分，不計入，與 `_member_type` 同一口徑）。
+    overview#198 訂正：原僅算正向清單長度和，反掛成員（如「國立故宮博物院善本舊籍」一類
+    正向清單本就是空、全靠反掛）完全算漏；今以 id 集合聯集去重，避免「正向亦列、反掛亦掛」
+    者算兩次。"""
+    book_ids = set(d.get('books') or []) | set(reverse_book_ids)
+    work_ids = set()
+    for cw in (d.get('contained_works') or []):
+        x = (cw.get('id') or cw.get('work_id')) if isinstance(cw, dict) else cw
+        if x: work_ids.add(x)
+    work_ids |= set(reverse_work_ids)
+    return len(book_ids) + len(work_ids)
 
-def member_count_ok(d):
+def member_count_ok(d, reverse_book_ids=frozenset(), reverse_work_ids=frozenset()):
     """`_member_count` 若寫了：須為正整數且等於重新推導之值。＝0 者不寫本欄。"""
     v = d.get('_member_count')
     if v is None: return True
     if not isinstance(v, int) or isinstance(v, bool) or v <= 0: return False
-    return v == derive_member_count(d)
+    return v == derive_member_count(d, reverse_book_ids, reverse_work_ids)
 
 SIMP_HINT_CHARS = set('国学图书馆')  # 本庫以繁體為主，這批字一見即是簡體（機構名 stale_ref 推廣用）
 
@@ -240,8 +269,9 @@ def main():
     drift_w, dangle_w, missing, back = [], [], [], {}
     bad_prov = []
     bad_et, bad_pd = [], []
-    # S3c/#191：Collection id -> 反掛計數，供 _member_type 反掛判定與回補腳本之前後對比報告
-    rev_book_members, rev_work_members = collections.Counter(), collections.Counter()
+    # S3c/#191：Collection id -> 反掛成員 id 集合，供 _member_type 反掛判定、
+    # _member_count（S5b/#198）聯集去重與回補腳本之前後對比報告
+    rev_book_members, rev_work_members = collections.defaultdict(set), collections.defaultdict(set)
     bad_todo, bad_review = [], []
     bad_inst = []
     bad_be = []
@@ -265,7 +295,7 @@ def main():
             bad_pd.append(bid)
         for ci in (d.get('contained_in') or []):
             cid_ = ci.get('id') if isinstance(ci, dict) else ci
-            if cid_: rev_book_members[cid_] += 1
+            if cid_: rev_book_members[cid_].add(bid)
         if not todo_ok(d.get('todo')): bad_todo.append((bid, 'Book'))
         if not review_ok(d.get('review')): bad_review.append((bid, 'Book'))
         be = d.get('base_edition')
@@ -279,7 +309,7 @@ def main():
         d = json.load(open(p))
         for ci in (d.get('contained_in') or []):
             cid_ = ci.get('id') if isinstance(ci, dict) else ci
-            if cid_: rev_work_members[cid_] += 1
+            if cid_: rev_work_members[cid_].add(wid)
         c = d.get('classification')
         if c and not classification_ok(c, CVOCAB):
             bad_cls.append((wid, c.get('l1'), c.get('l2'), c.get('l3'), c.get('l4')))
@@ -355,15 +385,14 @@ def main():
                     stale_contained.append((cid, x, cw['title'], actual))
         cnt = dc.get('count')
         if cnt is not None and not count_ok(cnt): bad_count.append(cid)
-        rhb, rhw = bool(rev_book_members.get(cid)), bool(rev_work_members.get(cid))
+        rbm, rwm = rev_book_members.get(cid, set()), rev_work_members.get(cid, set())
+        rhb, rhw = bool(rbm), bool(rwm)
         if not member_type_ok(dc, rhb, rhw):
             bad_member_type.append((cid, dc.get('_member_type'), derive_member_type(dc, rhb, rhw)))
-        # S5/#189 _member_count：目前只算 books/contained_works 兩份「正向」清單之長度和，
-        # 未併入 S3c/#191 這裡新引入的反掛計數（rev_book_members/rev_work_members）——
-        # 二者若直接相加會與已見於正向清單者重複計數，需要成員級去重才能安全合流，
-        # 本卡未做，故對只靠反掛成員（如故宮善本舊籍一類正向清單本就是空的 Collection）
-        # 暫不寫 _member_count，留待後道視需要再併（記一筆，見 issue #189 卡評論）。
-        if not member_count_ok(dc): bad_memcount.append((cid, dc.get('_member_count'), derive_member_count(dc)))
+        # S5b/#198 訂正：_member_count 今併入反掛成員（rev_book_members/rev_work_members），
+        # 以 id 集合聯集去重，不再遺漏「正向清單本就是空、全靠反掛」之巨型叢編（見 S3c/#191）。
+        if not member_count_ok(dc, rbm, rwm):
+            bad_memcount.append((cid, dc.get('_member_count'), derive_member_count(dc, rbm, rwm)))
         if not todo_ok(dc.get('todo')): bad_todo.append((cid, 'Collection'))
         if not review_ok(dc.get('review')): bad_review.append((cid, 'Collection'))
     oneway = [(e, w) for e, ws in fwd.items() for w in ws if e not in back.get(w, set())]
