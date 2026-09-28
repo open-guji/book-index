@@ -934,6 +934,7 @@ Represents a collection or series that contains multiple books or other collecti
     "han": "integer | null (函数)",
     "source": "string (依据，写明数据取自何处、有无估算或订正)"
   },
+  "_member_type": "string (Work | Book | Collection | mixed，派生，见下)",
   "indexed_by": [] // type: IndexEntry
   "related_books": ["string (Book IDs)"],
   "related_collections": ["string (Collection IDs)"],
@@ -953,6 +954,10 @@ Represents a collection or series that contains multiple books or other collecti
 - 四項互不隱含、各自可空：`juan`＝卷數、`ce`＝冊數、`zhong`＝收書種數、`han`＝函數（多見於《四庫全書》寫本按函裝箱）。整數或 `null`，**至少一項非空才寫本欄位**，未知一律 `null`，不可用 0 佔位（0 隱含「不分卷」等實際語義，與「未知」不同）。
 - `source` 必寫，說明數據取自何處（哪個既有欄位、`description` 原文的哪句話、是否為約數、是否經過訂正）。約數（原文帶「約」「餘」）可以照填，在 `source` 註明是約數；多說並存或量小而相對不確定（如「十餘種」）則本欄位留空，另在校驗腳本的拿不准清單中列出，不臆定。
 - 與既有欄位不是同一件事，不互相取代：`juan_count`（頂層）曾被拿來塞冊數（如百衲本「820」實為 820 冊而非 820 卷），是歷史誤記，發現後訂正為 `null`，正確的冊數改記到 `count.ce`；`total_works`／`total_volumes` 若與 `description` 明文的卷冊數矛盾（如某條 `total_volumes` 實際存的是卷數），本欄位一律以 `description` 原文為準，不因與既有欄位同名而照抄。
+
+**`_member_type`（成員型別，派生）**：吸收自 data_new v2 設計（overview `35-data_new詳細對比.md` §四·8），值域 `Work`／`Book`／`Collection`／`mixed`。
+- 派生規則：只看 `books`、`contained_works` 兩個真正的「平列成員」清單（`contains` 是結構組成部分，語義不同，見上）是否非空——只有 `books` 非空 → `Book`；只有 `contained_works` 非空 → `Work`；兩者皆非空 → `mixed`；兩者皆空 → 無可推之依據，本欄位不寫（不臆定，不用 `subtype` 頂替：`subtype` 只分兩類、粒度較粗，且統計顯示 84 條裡有 3 條 `book_collection` 其實兩份清單同時非空，若拿 `subtype` 推會把這 3 條的 `mixed` 吃掉）。`Collection`（成員本身是別的 Collection）目前無實際成員清單可據，值域裡留著但現庫 0 條命中。
+- 沿用現行 `_` 前綴派生約定（見〈記錄之共通欄位〉），不做成正式欄位：手寫此欄無意義，校驗一律「重新生成後比對，不一致以生成值為準」。
 
 **已刪之欄位**：`history`、`volume_count`（Collection 層）。叢編的實體規模記 `total_volumes`；沿革敘述併入 `description.text`。
 
