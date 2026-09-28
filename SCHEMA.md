@@ -1099,10 +1099,19 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
   推不出者**留空不寫**（欄位不存在＝未考，與全庫「只標異常，不標正常」「判不出者不猜」的慣例一致），不設「不詳」佔位值。
 - **回填來源一**（台北故宮 17,540 條，`provenance[].source == "metadata.npm_item_id"` 者）：按 S2 已寫的 `provenance[].call_number`（＝典藏號）與資料倉 `open-guji-core/book_index_json`
   `library_data/臺灣故宮博物院善本古籍/`（`holding_id`＝典藏號）對照，對上的把該檔 `extra` 的
-  `行格`＋`版式` 併入 `leaf_style`（原樣接續，保留站方措辭，不重排）、`裝訂形式`（無則退 `裝訂`）→ `binding`、
+  `行格`＋「；」＋`版式` 併入 `leaf_style`（原樣接續，保留站方措辭，**不挑詞、不重排**——
+  只挑邊欄／口／魚尾三類詞會把線口、花口、粗黑口、細黑口與中縫等站方原文丟掉，2026-09-28
+  協調者驗收①訂正）、`裝訂形式`（無則退 `裝訂`）→ `binding`、
   `版框高廣`（形如「23.5x14.5公分」，`版框高廣`四字本身即定「先高後廣」之序，故拆列為「版框高23.5公分，廣14.5公分」，不臆測改序）→ `dimensions`、
-  `保存現況` → `condition`；`edition_type` 先取該檔 `extra.版本類型`，機械推不出時退用該檔 `edition`／`version`。
+  `保存現況` → `condition`；`edition_type` 先取該檔 `extra.版本類型`，機械推不出時依次退用該檔 `edition`／`version`／本書自己的 `Book.edition`。
   對不上典藏號、或四個子欄全空者，`physical_description` 不寫。
+  **同一 `holding_id` 可能是一函/一冊裝訂多部書之合訂號**（如《船山遺書》《古今說海》各書
+  共用一個典藏號，241 部書撞號，2026-09-28 協調者驗收②所指）：須按書名（正規化去書名號、
+  尾綴卷數，並歸併脈/脉、岩/巖、弦/絃、閒/閑、注/註等傳統異體字）與候選之 `bookName` 比對
+  唯一命中方取用（`backfill_physical_description_npm.py` 的 `pick_record()`），仍二義（多為
+  資料倉本身同名重出）或撞不上者**不寫** `physical_description`，列
+  `.claude/qa/s2/physical_description-同號多書挑不出清單.json`——**不可依檔案讀入順序
+  「後到蓋前到」取最後一條**，那會把甲書的行款／尺寸誤記到乙書名下。
 - **回填來源二**（其餘 Book，`edition_type`）：由 `Book.edition` 文字機械推，規則見
   `.claude/qa/s2/backfill_edition_type.py` 的 `classify()`（如「刊本／刻本」→刻本、「鈔本／抄本／寫本」→抄本、
   「聚珍／活字」→活字本、「影印／景印」→影印本 等）；出土簡帛整理本、碑刻殘石、單一「清」字之類無法判別者**留空**，
