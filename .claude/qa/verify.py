@@ -176,7 +176,7 @@ def provenance_ok(prov):
         if not isinstance(item.get('call_number', ''), str): return False
     return True
 
-EDITION_TYPES = {'刻本', '抄本', '稿本', '活字本', '石印本', '鉛印本', '影印本', '套印本', '拓本', '其他'}
+EDITION_TYPES = {'刻本', '抄本', '稿本', '活字本', '石印本', '鉛印本', '影印本', '套印本', '拓本', '印刷本', '其他'}
 
 def edition_type_ok(v):
     """Book.edition_type：須落在受控十詞表內（S2b，overview#157）。"""

@@ -16,7 +16,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')
 sys.path.insert(0, os.path.join(ROOT, '.claude', 'qa'))
 import jio
 
-EDITION_TYPES = ('刻本', '抄本', '稿本', '活字本', '石印本', '鉛印本', '影印本', '套印本', '拓本', '其他')
+EDITION_TYPES = ('刻本', '抄本', '稿本', '活字本', '石印本', '鉛印本', '影印本', '套印本', '拓本', '印刷本', '其他')
 
 
 def classify(text):
@@ -31,7 +31,12 @@ def classify(text):
         return '拓本'
     if re.search('石印', t):
         return '石印本'
-    if re.search('鉛印|鉛字|排印', t):
+    if re.search('鉛印|鉛字', t):
+        return '鉛印本'
+    if '排印' in t and re.search('光緒|宣統|民國', t):
+        # overview#233（据 #230 用戶答復）：「排印」本身技法兩可（可為鉛字亦可為他法），
+        # 須靠紀年助判——清末（光緒／宣統）以後、或紀年不詳但明寫「民國」者，方歸鉛印本；
+        # 光緒之前紀年（或無朝代紀年線索）之「排印」不判，留待人核。
         return '鉛印本'
     if re.search('影印|景印|摹印', t):
         return '影印本'

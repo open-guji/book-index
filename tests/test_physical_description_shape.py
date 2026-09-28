@@ -45,7 +45,7 @@ def test_non_string_field_fails():
 
 
 def test_valid_edition_type_values_pass():
-    for v in ('刻本', '抄本', '稿本', '活字本', '石印本', '鉛印本', '影印本', '套印本', '拓本', '其他'):
+    for v in ('刻本', '抄本', '稿本', '活字本', '石印本', '鉛印本', '影印本', '套印本', '拓本', '印刷本', '其他'):
         assert verify.edition_type_ok(v)
 
 
