@@ -74,6 +74,12 @@ def test_plan_dates_skips_when_dates_already_present():
     assert migrate_dates.plan_dates(d) is None
 
 
+def test_plan_dates_skips_when_birth_after_death_in_legacy_fields():
+    """既存壞資料（生年晚於卒年）不该被机械复制进 dates（回归：hixhd2h9bib6／劉俊）。"""
+    d = {'birth_year': 1425, 'death_year': 1408}
+    assert migrate_dates.plan_dates(d) is None
+
+
 def test_plan_dates_birth_death_take_priority_over_floruit():
     """生卒与 cbdb_id 同时存在时走机械迁移，不补 floruit（birth/death 与 floruit 不共存）。"""
     d = {

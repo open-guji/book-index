@@ -40,10 +40,17 @@ INDEX_YEAR_RE = re.compile(r'index_year=(-?\d+)')
 
 
 def plan_dates(d):
-    """給一條 Entity 記錄，回傳該寫入的 `dates` 值；已有 `dates` 或無可迁移之資料則回傳 None。"""
+    """給一條 Entity 記錄，回傳該寫入的 `dates` 值；已有 `dates` 或無可迁移之資料則回傳 None。
+
+    `birth_year > death_year`（生年晚於卒年）者是既存之壞資料（見
+    `.claude/qa/known-issues/`），機械迁移不該把矛盾原樣複製進新欄——
+    這種記錄回傳 None，不寫 `dates`，留給裁 `birth_year`／`death_year`
+    本身的道處理（不在本步寫域內）。"""
     if 'dates' in d:
         return None
     by, dy = d.get('birth_year'), d.get('death_year')
+    if by is not None and dy is not None and by > dy:
+        return None
     if by is not None or dy is not None:
         return {'birth': by, 'death': dy, 'floruit': None, 'basis': '現行字段'}
     cbdb_id = (d.get('external_ids') or {}).get('cbdb_id')
@@ -77,12 +84,17 @@ def main():
     ap.add_argument('--shard-end', default=None, help='只跑 index/entities/ 分片碼 <= 此值')
     a = ap.parse_args()
 
-    n_mech, n_floruit, n_skip_has, n_none, n_touched = 0, 0, 0, 0, 0
-    touched = []
+    n_mech, n_floruit, n_skip_has, n_none, n_touched, n_bad = 0, 0, 0, 0, 0, 0
+    touched, bad = [], []
     for eid, rel in iter_entity_rels(a.shard_start, a.shard_end):
         d, fmt = jio.load(rel)
         if 'dates' in d:
             n_skip_has += 1
+            continue
+        by, dy = d.get('birth_year'), d.get('death_year')
+        if by is not None and dy is not None and by > dy:
+            n_bad += 1
+            bad.append((eid, by, dy))
             continue
         dates = plan_dates(d)
         if dates is None:
@@ -104,10 +116,13 @@ def main():
     print(f'補 floruit（cbdb:index_year）                {n_floruit}')
     print(f'已有 dates，略過                             {n_skip_has}')
     print(f'無可迁移之資料                               {n_none}')
+    print(f'既存壞資料跳過（birth_year > death_year）    {n_bad}')
     print(f'{"（--dry-run 未寫檔）" if a.dry_run else "已寫入"}  共 {n_touched} 條')
     if a.dry_run or a.limit:
         for eid, dates in touched[:30]:
             print('  ', eid, dates)
+    for eid, by, dy in bad:
+        print('  壞資料', eid, 'birth_year', by, '>', 'death_year', dy)
 
 
 if __name__ == '__main__':
