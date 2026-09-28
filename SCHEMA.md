@@ -1084,6 +1084,36 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
 - **校驗**：`.claude/qa/verify.py` 檢查有 `provenance` 的 Book——須為數組，每項
   `institution` 非空字符串、`call_number` 為字符串，否則算敗。
 
+#### `physical_description`、`edition_type`（版本學著錄，2026-09-28 增）
+
+```json
+"physical_description": {"leaf_style": "半葉十行行二十字，白口，四周雙邊，單黑魚尾", "binding": "線裝", "dimensions": "框高21.5公分，寬15公分", "condition": "", "source": "…"},
+"edition_type": "刻本"
+```
+
+接 S2（#129，`provenance` 已落）。承 overview [35 卡](../../overview/项目进展/古籍索引网站/进度/G-工具分发与网站/35-data_new详细对比.md) §四·6、§七·2·2。
+
+- **`physical_description` 形狀照 data_new（v2）精簡**：物件，`leaf_style`（行款：半葉行數、每行字數、版心黑白口、邊欄、魚尾）／`binding`（裝幀：線裝、蝴蝶裝、包背裝、經摺裝…）／`dimensions`（尺寸，多為版框高廣）／`condition`（品相，缺葉、蟲蛀等）皆字符串；`source` 記本項據何而來（哪個現行欄位、哪批資料倉、或「description 原文抽取」），供覆核回查。**全是字符串，未知留空串**；四個內容子欄（`leaf_style`／`binding`／`dimensions`／`condition`）**至少一項非空才寫本物件**，否則整欄位不寫（與 `Collection.count` 同一慣例）。
+- **`edition_type` 用受控小詞表**（十值閉集，不設「其他」以外的兜底）：
+  `刻本`／`抄本`／`稿本`／`活字本`／`石印本`／`鉛印本`／`影印本`／`套印本`／`拓本`／`其他`。
+  推不出者**留空不寫**（欄位不存在＝未考，與全庫「只標異常，不標正常」「判不出者不猜」的慣例一致），不設「不詳」佔位值。
+- **回填來源一**（台北故宮 17,540 條，`provenance[].source == "metadata.npm_item_id"` 者）：按 S2 已寫的 `provenance[].call_number`（＝典藏號）與資料倉 `open-guji-core/book_index_json`
+  `library_data/臺灣故宮博物院善本古籍/`（`holding_id`＝典藏號）對照，對上的把該檔 `extra` 的
+  `行格`＋`版式` 併入 `leaf_style`（原樣接續，保留站方措辭，不重排）、`裝訂形式`（無則退 `裝訂`）→ `binding`、
+  `版框高廣`（形如「23.5x14.5公分」，`版框高廣`四字本身即定「先高後廣」之序，故拆列為「版框高23.5公分，廣14.5公分」，不臆測改序）→ `dimensions`、
+  `保存現況` → `condition`；`edition_type` 先取該檔 `extra.版本類型`，機械推不出時退用該檔 `edition`／`version`。
+  對不上典藏號、或四個子欄全空者，`physical_description` 不寫。
+- **回填來源二**（其餘 Book，`edition_type`）：由 `Book.edition` 文字機械推，規則見
+  `.claude/qa/s2/backfill_edition_type.py` 的 `classify()`（如「刊本／刻本」→刻本、「鈔本／抄本／寫本」→抄本、
+  「聚珍／活字」→活字本、「影印／景印」→影印本 等）；出土簡帛整理本、碑刻殘石、單一「清」字之類無法判別者**留空**，
+  不強塞入某一類——這批本不是傳統刻抄印本的版本學意義上的「版」，塞入十詞表反而失真。
+- **回填來源三**（其餘 Book，`physical_description`，約 46～75 條）：只在 `description.text` 明寫行款原文
+  （如「每半葉十行行二十二字，白口，四周單邊，無魚尾」）時抽取 `leaf_style`（偶帶 `dimensions`，如原文明寫
+  「板框高19.9公分，寬14.5公分」），抽不全（如行款隨圖文分佈而每行字數不一者，只取半葉行數，不臆補字數）
+  或拿不准者不寫，見 `.claude/qa/s2/backfill_physical_description_desc.py`。
+- **校驗**：`.claude/qa/verify.py` 檢查——有 `physical_description` 的 Book 須為物件，四內容子欄與 `source`
+  皆須為字符串，且四內容子欄至少一項非空；有 `edition_type` 的 Book 須落在上述十詞表內，否則算敗。
+
 ### Source object type:
 ```json
 {

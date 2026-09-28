@@ -81,6 +81,23 @@ def provenance_ok(prov):
         if not isinstance(item.get('call_number', ''), str): return False
     return True
 
+EDITION_TYPES = {'刻本', '抄本', '稿本', '活字本', '石印本', '鉛印本', '影印本', '套印本', '拓本', '其他'}
+
+def edition_type_ok(v):
+    """Book.edition_type：須落在受控十詞表內（S2b，overview#157）。"""
+    return v in EDITION_TYPES
+
+def physical_description_ok(pd):
+    """Book.physical_description：物件，leaf_style/binding/dimensions/condition/source 皆字符串，
+    四內容子欄（不含 source）至少一項非空（S2b，overview#157）。"""
+    if not isinstance(pd, dict): return False
+    content_fields = ('leaf_style', 'binding', 'dimensions', 'condition')
+    for f in content_fields + ('source',):
+        v = pd.get(f)
+        if v is not None and not isinstance(v, str): return False
+    if not isinstance(pd.get('source'), str) or not pd.get('source').strip(): return False
+    return any((pd.get(f) or '').strip() for f in content_fields)
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--why', action='store_true', help='「索引缺記錄檔」時印出各 id 之最後刪除提交（坑 41）')
     ap.add_argument('--strict', action='store_true'); a = ap.parse_args()
@@ -91,6 +108,7 @@ def main():
     bad_cls = []
     drift_w, dangle_w, missing, back = [], [], [], {}
     bad_prov = []
+    bad_et, bad_pd = [], []
     for bid, ie in IB.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(bid); continue
@@ -98,6 +116,12 @@ def main():
         prov = d.get('provenance')
         if prov is not None and not provenance_ok(prov):
             bad_prov.append(bid)
+        et = d.get('edition_type')
+        if et is not None and not edition_type_ok(et):
+            bad_et.append((bid, et))
+        pd_ = d.get('physical_description')
+        if pd_ is not None and not physical_description_ok(pd_):
+            bad_pd.append(bid)
     for wid, ie in IW.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(wid); continue
@@ -171,6 +195,10 @@ def main():
     for r in bad_cls[:10]: print('  詞表外', r)
     print(f'provenance 形狀不合    {len(bad_prov)}')
     for r in bad_prov[:10]: print('  provenance', r)
+    print(f'edition_type 不在詞表  {len(bad_et)}')
+    for r in bad_et[:10]: print('  edition_type', r)
+    print(f'physical_description 形狀不合 {len(bad_pd)}')
+    for r in bad_pd[:10]: print('  physical_description', r)
     print(f'entity.dates 不合法 {len(bad_dates)}')
     for r in bad_dates[:10]: print('  dates', r)
     print(f'count 形狀不對          {len(bad_count)}')
@@ -212,6 +240,7 @@ def main():
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
     bad = (_ledger_bad or missing or drift_w or drift_e or bad_cls or bad_prov or bad_dates or bad_count
+           or bad_et or bad_pd
            or (a.strict and (dangle_w or dangle_e or oneway or dup_e)))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)
