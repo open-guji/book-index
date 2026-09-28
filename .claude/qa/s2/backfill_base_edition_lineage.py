@@ -5,9 +5,16 @@
 `{ref, ref_type, relation, confidence, evidence}`。`ref_type=="book"`（107 項）之 `ref`
 即本庫 Book ID，可逕驗其存在且非自指；按 `relation` 機械對映 `role`（見 ROLE_MAP，
 三類之外——`合刊`／`混裝本`——非版本源流關係不算候選，`綜合`／`同系延伸`／
-`派生（剔田虎王慶+多本配補）`——關係含混判不出角色，入候選）。`ref_type=="hypothetical"`
-（57 項，`ref` 為內部假設底本代號，非本庫 ID，`evidence` 無足以機械摘取之底本名）
-一律不寫，入候選（`--dry-run` 時寫 `.claude/qa/s2/base_edition-lineage候选.json`，
+`派生（剔田虎王慶+多本配補）`——關係含混判不出角色，入候選）。
+
+`relation` 為「校改／校改後印／校改加評／批校」四種者（13 項），不逕定角色（2026-09-28
+協調者驗收①訂正：原一律映成參校，13 項裡約 10 項 `evidence` 明寫是底本，如「以崇禎本…為
+底本加評」「在程乙本基礎上」）——改按 `classify_editorial()` 讀 `evidence` 原文之措辭判：
+明講「以此為據」（為底本／基礎上／上承／承…而／派生／下啟等）→底本；明講「取來比對」
+（參校／參考／對校）→參校；兩者皆未見→判不出，入候選。
+
+`ref_type=="hypothetical"`（57 項，`ref` 為內部假設底本代號，非本庫 ID，`evidence` 無足以
+機械摘取之底本名）一律不寫，入候選（`--dry-run` 時寫 `.claude/qa/s2/base_edition-lineage候选.json`，
 供另行併入 overview 候選 CSV，不寫本庫）。
 
 用法：
@@ -16,7 +23,7 @@
 冪等：已有 `base_edition` 者跳過（含前一腳本 backfill_base_edition_dating.py 已寫入者），
 可在合流後重跑。
 """
-import argparse, collections, glob, json, os, sys
+import argparse, collections, glob, json, os, re, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 sys.path.insert(0, os.path.join(ROOT, '.claude', 'qa'))
@@ -27,10 +34,29 @@ for rel in ('翻刻', '同系翻刻', '翻刻補修', '翻刻+改批', '影印',
             '據以抄錄', '據以評', '節選', '刪節', '刪節（學界主流說）', '刪改', '修訂', '增補',
             '截斷（同板印至第百回止）'):
     ROLE_MAP[rel] = '底本'
-for rel in ('校改', '參校', '校改後印', '校改加評', '批校'):
-    ROLE_MAP[rel] = '參校'
+ROLE_MAP['參校'] = '參校'  # 原始 relation 即明寫「參校」者，直接信之
 ROLE_MAP['配補'] = '配補'
 NOT_APPLICABLE = {'合刊', '混裝本'}  # 非版本源流關係，不算候選
+
+# 「校改／校改後印／校改加評／批校」四種不逕定角色（協調者驗收①所指：原腳本一律映成參校，
+# 十三項有評語（note）明寫底本者）——改按 evidence 原文之措辭逐項判：
+# 「以X為底(本)／在X基礎上／上承X／承X而……／X下啟……／X派生……」一類明講「以此為據」者→底本；
+# 只有「參校／參考／参照／對校」一類明講「取來比對」者→參校；兩者皆未見→判不出，入候選。
+AMBIGUOUS_EDITORIAL_RELATIONS = {'校改', '校改後印', '校改加評', '批校'}
+BASE_EVIDENCE_RE = [re.compile(p) for p in
+                     (r'為底本', r'為底(?!本)', r'基礎上', r'上承', r'承[^，。]*而', r'翻自', r'祖於',
+                      r'經由[^，。]*過渡', r'派生', r'下啟')]
+CANJIAO_EVIDENCE_RE = [re.compile(p) for p in (r'參校', r'參考', r'参照', r'對校', r'对校')]
+
+
+def classify_editorial(evidence):
+    """校改類 evidence 原文判角色：回傳 '底本'／'參校'／None（判不出）。"""
+    ev = evidence or ''
+    if any(p.search(ev) for p in BASE_EVIDENCE_RE):
+        return '底本'
+    if any(p.search(ev) for p in CANJIAO_EVIDENCE_RE):
+        return '參校'
+    return None
 
 
 def main():
@@ -75,7 +101,16 @@ def main():
             if relation in NOT_APPLICABLE:
                 n_not_applicable += 1
                 continue
-            role = ROLE_MAP.get(relation)
+            if relation in AMBIGUOUS_EDITORIAL_RELATIONS:
+                role = classify_editorial(it.get('evidence'))
+                if role is None:
+                    n_ambiguous += 1
+                    candidates.append({'id': d['id'], 'title': d.get('title'), 'ref': ref, 'ref_type': ref_type,
+                                        'relation': relation, 'evidence': it.get('evidence'),
+                                        'reason': 'evidence未明寫底本或參校，判不出角色'})
+                    continue
+            else:
+                role = ROLE_MAP.get(relation)
             if role is None:
                 n_ambiguous += 1
                 candidates.append({'id': d['id'], 'title': d.get('title'), 'ref': ref, 'ref_type': ref_type,
