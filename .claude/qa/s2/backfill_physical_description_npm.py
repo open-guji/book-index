@@ -30,7 +30,7 @@ SOURCE_NOTE = 'library_data/臺灣故宮博物院善本古籍（依 provenance.c
 BORDER_RE = re.compile(r'(?:左右|四周|上下)(?:雙邊|單邊|雙欄|單欄)')
 MOUTH_RE = re.compile(r'[白黑]口')
 FISHTAIL_RE = re.compile(r'(?:無|單|雙)(?:黑)?魚尾')
-DIM_RE = re.compile(r'([\d.]+)\s*[x×*]\s*([\d.]+)\s*公分')
+DIM_RE = re.compile(r'([\d.]+)\s*[x×*ｘＸ]\s*([\d.]+)\s*(?:公分|cm)', re.IGNORECASE)
 
 
 def load_warehouse_holdings(warehouse_root):
@@ -63,7 +63,11 @@ def build_dimensions(raw):
     if m:
         h, w = m.group(1), m.group(2)
         return f'版框高{h}公分，廣{w}公分'
-    return raw.strip()
+    raw = raw.strip()
+    # 「公分」「不等」「x公分」「每半葉框x公分」之類無實際數字的佔位文字，不當尺寸資料寫入
+    if not re.search(r'\d', raw):
+        return ''
+    return raw
 
 
 def npm_call_number(book):
