@@ -55,3 +55,25 @@ def test_l3_not_under_l2_fails():
 def test_valid_l2_only_passes():
     V = _vocab()
     assert verify.classification_ok({"l1": "經部", "l2": "易類", "l3": "", "l4": ""}, V)
+
+
+# ---- C1b（2026-09-30）：詞表改用《中國古籍總目》 ----
+def test_zongmu_new_classes_pass():
+    V = _vocab()
+    assert verify.classification_ok({"l1": "史部", "l2": "詔令奏議類", "l3": "奏議之屬", "l4": ""}, V)
+    assert verify.classification_ok({"l1": "子部", "l2": "小說類", "l3": "文言之屬", "l4": ""}, V)
+    assert verify.classification_ok({"l1": "叢書部", "l2": "雜纂類", "l3": "", "l4": ""}, V)
+    assert verify.classification_ok({"l1": "集部", "l2": "詞類", "l3": "詞話之屬", "l4": ""}, V)
+
+
+def test_unclassified_nodes_pass():
+    V = _vocab()
+    assert verify.classification_ok({"l1": "集部", "l2": "未分類", "l3": "", "l4": ""}, V)
+    assert verify.classification_ok({"l1": "史部", "l2": "傳記類", "l3": "未分類", "l4": ""}, V)
+
+
+def test_old_vocab_names_are_gone():
+    V = _vocab()
+    for l1, l2 in (("集部", "詞曲類"), ("集部", "集評類"), ("史部", "正史類"), ("史部", "奏議類"),
+                   ("史部", "別史類"), ("史部", "職官類"), ("子部", "說叢類"), ("集部", "小說類")):
+        assert not verify.classification_ok({"l1": l1, "l2": l2, "l3": "", "l4": ""}, V), (l1, l2)
