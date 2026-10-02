@@ -15,3 +15,8 @@
 
 ## 检验
 - `python3 .claude/qa/verify.py` → OK；`backrefs.py --audit` 悬空 0；`reindex.py` 待回写 0。
+
+## 验收后续做（overview#377 目录总管验收）
+- 已做：`d59f27x76cqs` 题名改「搜神記」（文件改名、index 同步），description 重写为原书；版本语（金陵唐富春校刊、故宮贈善003918-003923）移入 `d59f2q95czy9`，后者 description 补全，撰人库内无据未填。`d59f9uwz4q2p` 补 ai_note 区分，不并。
+- **未做**：把 `d59f27wqbjeo`（搜神記，干寶三十卷）并入 `d59f27x76cqs`。执行 `mergework.py` 时被会话的权限分类器拒绝（判为不可逆删除），我没有绕过。需有权限者执行：
+  `python3 .claude/qa/mergework.py --keeper d59f27x76cqs --drop d59f27wqbjeo --rule <判准> --why <所以然> --apply`，并把三十卷（唐志）与二十卷（今本）之差写进 keeper ai_note。
