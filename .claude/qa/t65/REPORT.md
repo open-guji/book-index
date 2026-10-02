@@ -1,0 +1,17 @@
+# T65（overview#377，接 #367 T64）报告
+
+## 1. 搜神記混装拆分
+- Book `988fz6dv68`（明金陵唐富春校刊《新刻出像增補搜神記》，故宮 6 冊）`work_id`：`d59f27x76cqs` → `d59f2q95czy9`；`index/books` 同改。
+- 两 Work `books` 反向引用同步：`d59f27x76cqs` 只留 `988g0k0ljm`（文淵閣四庫本二十卷），`d59f2q95czy9` 新增 `988fz6dv68`；两条 `_edition_count` 均为 1。
+- **不并**：拆后 `d59f27x76cqs` 只系四庫本二十卷原书（干寶舊題），`d59f2q95czy9` 为六卷增補本（續修四庫影印國圖藏明萬曆富春堂刻本；唐富春即富春堂），非一书。两条各补 ai_note 区分；`d59f2q95czy9` 原 B3 注「本條自身即混裝」有误，已更正。
+- **未动（遗留）**：`d59f27x76cqs` 的题名「新刻出像增補搜神記」与 description（述增補繡像本）仍是混装期遗留，已不合其所系之书；已在其 ai_note 标明。改题名／重写 description 属另一事（牵动索引、related_works.title），本次不动，建议另立小卡：该条应正名《搜神記》，并考虑与 `d59f27wqbjeo`（搜神記，三十卷，补晉志，lost）的关系——二者卷数、存佚说法不同，现无证可并。
+- Book `988fz6dv68` 补 ai_note 记改挂。
+
+## 2. 西廂會真傳
+`d59f2j4mgqo1`（王實甫）与 `d59f28m0uryb`（元稹）各补 ai_note 区分。附记：二条 description 皆引故宮编号「平圖019553-019556」，同一实物被著录两次而撰人不同，孰是库内无证，未并、未改 authors。
+
+## 3. 後漢書新唐志節
+核实：`d59f28715gqo` indexed_by 那节（source_bid `d59f2hl0cmio`，「章懷太子賢注後漢書一百卷」）与 `d59f28mh3478` 已有的一节同源同文，后者还多一条 `note`（说明归属）。故**不是移过去，而是撤掉重复**，无信息丢失；`d59f28715gqo` ai_note 记之。
+
+## 检验
+- `python3 .claude/qa/verify.py` → OK；`backrefs.py --audit` 悬空 0；`reindex.py` 待回写 0。
