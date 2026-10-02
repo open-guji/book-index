@@ -12,7 +12,7 @@
 坑 67 之戒——「做去重之前，先把兩個重複項並排逐欄 diff 一遍」——故乾跑是預設，
 且 diff 印的是**整節所有欄位**，不是我挑的那幾欄。
 
-善後八件：
+善後十一件（前八件原有，後三件 T64 補，overview#367）：
   1 著錄併入 keeper（indexed_by，**整節為鍵**去重，不取子集——坑 67）
   2 index/works 刪被併者之項（jio.drop_index）
   3 Entity.works 反邊改指 keeper（並保證 keeper 之 authors 帶該 entity_id，否則 verify 報單向邊）
@@ -23,6 +23,12 @@
   8 被併者獨有之其餘欄位（如 contained_in／period／resources）搬入 keeper——原只辦上列
     七件，被併者若帶著 keeper 沒有的欄，隨刪檔一併靜默丟失（D1 補）；
     兩邊皆有且值不同者**不搬**，只印出報告，須人斷孰是
+  9 Book／Collection 之 `work_id` 由被併者改指 keeper（及其索引項）——原漏此件，
+    併後 Book.work_id 懸空（指著已刪之 Work），`_edition_count` 亦隨之失真
+ 10 keeper 之 `related_works` 刪自指項（keeper 指被併者，改指後即指自己；
+    及原有之自指項）
+ 11 重算 keeper 之 `_edition_count`（＝Book.work_id 指向 keeper 之 Book 數，
+    與 verify.py 同口徑；＝0 則不寫本欄）
 """
 import json, os, sys, glob, argparse, datetime, collections
 
@@ -55,6 +61,37 @@ def diff_fields(keeper, drops):
         out.append('%s %-18s %s' % (mark, k, ' | '.join(
             json.dumps(v, ensure_ascii=False)[:150] for v in vals)))
     return '\n'.join(out)
+
+
+def clean_self_related(related, keeper_id, drop_ids):
+    """步驟 10：去掉 keeper.related_works 中指向自己（或指向即將併入自己之被併者）之項。
+    回 (新清單, 被去之項)。項之 id 有 id／work_id 二形（坑 54）。"""
+    gone = set(drop_ids) | {keeper_id}
+    out, removed = [], []
+    for r in (related or []):
+        t = r.get('id') or r.get('work_id')
+        (removed if t in gone else out).append(r)
+    return out, removed
+
+
+def find_work_id_refs(ids):
+    """步驟 9：回 [(家族, 路徑)]——Book／Collection 記錄之 work_id 在 ids 中者。
+    先以子串粗篩再解析，免對全庫逐檔 json.load。"""
+    hits = []
+    for fam in ('Book', 'Collection'):
+        for p in glob.glob(os.path.join(ROOT, fam, '*/*/*/*.json')):
+            raw = open(p, encoding='utf-8').read()
+            if not any(i in raw for i in ids):
+                continue
+            if json.loads(raw).get('work_id') in ids:
+                hits.append((fam, p))
+    return hits
+
+
+def count_editions(keeper_id, drop_ids):
+    """步驟 11：併後掛在 keeper 下之 Book 數（Book.work_id 為 keeper 或將改指之被併者）。"""
+    ids = {keeper_id} | set(drop_ids)
+    return sum(1 for fam, p in find_work_id_refs(ids) if fam == 'Book')
 
 
 def node_key(n):
@@ -105,6 +142,14 @@ def plan_scalar_merge(keeper, dps):
             elif kv != v:
                 conflicts.append((d, k, kv, v))
     return moved, conflicts, new_values
+
+
+def _set_collection_index_work_id(cid, wid):
+    rel_ = 'index/collections.json'
+    d, fmt = jio.load(rel_)
+    if cid in d:
+        d[cid]['work_id'] = wid
+        jio.save(rel_, d, fmt)
 
 
 def main():
@@ -194,6 +239,18 @@ def main():
     for d, k, kv, v in conflicts:
         plan['**欄位衝突（兩邊皆有且不同，不搬，須人看）**'].append((d, k, kv, v))
 
+    # 9 Book／Collection.work_id；11 _edition_count
+    wid_refs = find_work_id_refs(set(drops))
+    for fam, p in wid_refs:
+        plan['%s.work_id 改指 keeper' % fam].append((rel(p),))
+    n_ed = count_editions(a.keeper, drops)
+    if n_ed != keeper.get('_edition_count', 0):
+        plan['keeper _edition_count 重算'].append((keeper.get('_edition_count'), n_ed))
+    # 10 keeper 自指
+    _, self_rel = clean_self_related(keeper.get('related_works'), a.keeper, drops)
+    for r in self_rel:
+        plan['keeper related_works 刪自指項'].append((r,))
+
     # description 之陳述併後可能失實（「本書惟某志著錄，別無他證」）——併入新源即翻該句
     dtxt = ((keeper.get('description') or {}).get('text') or '') if isinstance(keeper.get('description'), dict) else ''
     if any(w in dtxt for w in ('別無他證', '一志著錄', '惟《')):
@@ -233,6 +290,16 @@ def main():
     if at:
         keeper['additional_titles'] = at
     # 7 merged_in（欄位，非散文）
+    # 10 自指項
+    if keeper.get('related_works'):
+        keeper['related_works'], _ = clean_self_related(keeper['related_works'], a.keeper, drops)
+        if not keeper['related_works']:
+            del keeper['related_works']
+    # 11 _edition_count（改指前後 Book 總數不變，故此處先算）
+    if n_ed > 0:
+        keeper['_edition_count'] = n_ed
+    else:
+        keeper.pop('_edition_count', None)
     mi = list(keeper.get('merged_in') or [])
     for d, p, dd, _ in dps:
         mi.append({'id': d, 'title': dd.get('title'), 'at': now,
@@ -269,6 +336,8 @@ def main():
             jio.save(rel(p), ed, efmt)
     # 4 Work.related_works
     for src, d in rw_fix:
+        if src == a.keeper:      # keeper 自己之 related_works 已於上存 keeper 時辦（含刪自指）
+            continue
         p = wpath(src)
         sd, sfmt = jio.load(rel(p))
         seen, out = set(), []
@@ -276,6 +345,8 @@ def main():
             k = 'id' if 'id' in r else 'work_id'
             if r.get(k) == d:
                 r = dict(r, **{k: a.keeper})
+                if 'title' in r:      # 題名隨 keeper，免 verify 報 related_works[].title 漂移
+                    r['title'] = keeper.get('title')
             sig = (r.get(k), r.get('relation'))
             if sig in seen:
                 continue
@@ -292,19 +363,33 @@ def main():
                 k = 'id' if 'id' in c else 'work_id'
                 if c.get(k) == d:
                     c = dict(c, **{k: a.keeper})
+                    if 'title' in c:
+                        c['title'] = keeper.get('title')
                 if c.get(k) in seen:
                     continue
                 seen.add(c.get(k)); out.append(c)
             cd['contained_works'] = out
             jio.addnote(cd, '%s %s 併條善後：子目 %s 已併入 %s，改指。' % (now[:10], a.by, d, a.keeper))
             jio.save(rel(p), cd, cfmt)
+    # 9 Book／Collection.work_id 改指 keeper（記錄與索引項）
+    for fam, p in wid_refs:
+        bd, bfmt = jio.load(rel(p))
+        bd['work_id'] = a.keeper
+        jio.save(rel(p), bd, bfmt)
+        try:
+            if fam == 'Book':
+                jio.update_index('books', bd['id'], lambda v: v.__setitem__('work_id', a.keeper))
+            else:
+                _set_collection_index_work_id(bd['id'], a.keeper)
+        except KeyError:
+            pass   # 索引無此鍵者留給 reindex --membership
     # 2 索引項＋刪檔
     for d, p, dd, _ in dps:
         jio.drop_index('works', d)
         os.remove(p)
     print('\n已併：%s <- %s' % (a.keeper, ','.join(drops)))
-    print('善後：著錄 %d 節、Entity 反邊 %d、related_works %d、contained_works %d、索引項 %d、刪檔 %d'
-          % (len(add_nodes), len(ent_fix), len(rw_fix), len(cw_fix), len(dps), len(dps)))
+    print('善後：Book/Collection.work_id 改指 %d、_edition_count=%d；著錄 %d 節、Entity 反邊 %d、related_works %d、contained_works %d、索引項 %d、刪檔 %d'
+          % (len(wid_refs), n_ed, len(add_nodes), len(ent_fix), len(rw_fix), len(cw_fix), len(dps), len(dps)))
 
 
 if __name__ == '__main__':
