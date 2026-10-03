@@ -21,6 +21,24 @@
   ],
   "section": "史部",
   "edition": "清乾隆道光間長塘鮑氏刊知不足齋叢書之一",
+  "description": {
+    "text": "樓鑰《北行日錄》二卷，清乾隆道光間長塘鮑廷博刊《知不足齋叢書》本。半葉十行，行二十一字，版心下鐫「知不足齋叢書」。現知兩處藏本：故宮（故觀001805，隨《知不足齋叢書》全帙）與國圖（地800/584，與《放翁家訓》合函，國圖已數字化並轉存 Wikimedia Commons）。",
+    "sources": [
+      "國立故宮博物院善本舊籍",
+      "中華古籍資源庫（國家圖書館）",
+      "Wikimedia Commons"
+    ]
+  },
+  "resource_groups": {
+    "nlc-312001066864": {
+      "label": "中國國家圖書館藏本（索取號 地800/584）",
+      "description": "國圖中華古籍資源庫掃描，一冊，與陸游《放翁家訓》一卷合函（NLC bookid 312001066864，共三分卷：卷一 15647、卷二 15646、放翁家訓 5239）。Wikimedia Commons 上 PencakeBot 2022-11-13 自國圖批量轉存的 PDF 與國圖原件同源，共 56 面（卷一 38、卷二 18），2801×2343 彩色。open-guji-cv 的 beixing-guben-workspace 即以此二 PDF 為底本。"
+    },
+    "duxiu-ssid-12339317": {
+      "label": "超星／讀秀掃描（冊 181，與放翁家訓合冊）",
+      "description": "Wikimedia Commons「Scans with a SSID」批次（Bot for Freedom 2022-12-29 上傳），SSID-12339317，題「北行日錄 放翁家訓 181」，22 MB。底本館藏未著錄，與國圖本是否同一部尚待覈。"
+    }
+  },
   "resources": [
     {
       "id": "npm-rarebooks",
@@ -34,16 +52,88 @@
         "item_id": "故觀001805",
         "acckey": "62f8cdeb718d158c6f3072a208e9e929"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001066864",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/OutOpenBook/OpenObjectBook?aid=403&bid=312001066864",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_aid": "403",
+        "nlc_bid": "312001066864",
+        "call_number": "地800/584",
+        "image_source": "彩色影印",
+        "completeness": "complete"
+      }
+    },
+    {
+      "id": "wikimedia",
+      "group": "nlc-312001066864",
+      "group_role": "mirror",
+      "name": "Wikimedia Commons",
+      "short_name": "Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC403-312001066864-15647_北行日錄_卷一.pdf",
+      "types": [
+        "image"
+      ],
+      "details": "卷一，38 面，PDF 5,004,028 bytes（sha1 15cbc9b5…）",
+      "metadata": {
+        "format": "PDF",
+        "volume": "卷一",
+        "nlc_volume_id": "15647",
+        "completeness": "partial"
+      }
+    },
+    {
+      "id": "wikimedia",
+      "group": "nlc-312001066864",
+      "group_role": "mirror",
+      "name": "Wikimedia Commons",
+      "short_name": "Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC403-312001066864-15646_北行日錄_卷二.pdf",
+      "types": [
+        "image"
+      ],
+      "details": "卷二，18 面，PDF 2,370,989 bytes（sha1 de53b1ff…）",
+      "metadata": {
+        "format": "PDF",
+        "volume": "卷二",
+        "nlc_volume_id": "15646",
+        "completeness": "partial"
+      }
+    },
+    {
+      "id": "wikimedia",
+      "group": "duxiu-ssid-12339317",
+      "group_role": "origin",
+      "name": "Wikimedia Commons",
+      "short_name": "Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:SSID-12339317_北行日錄_放翁家訓_181.pdf",
+      "types": [
+        "image"
+      ],
+      "details": "超星／讀秀 SSID-12339317，與放翁家訓合冊，22,302,687 bytes",
+      "metadata": {
+        "format": "PDF",
+        "ssid": "12339317"
+      }
     }
   ],
   "metadata": {
     "npm_item_id": "故觀001805",
-    "npm_acckey": "62f8cdeb718d158c6f3072a208e9e929"
+    "npm_acckey": "62f8cdeb718d158c6f3072a208e9e929",
+    "nlc_bid": "312001066864",
+    "nlc_call_number": "地800/584"
   },
   "work_id": "d59f2hr8h0jm",
-  "updated_at": "2026-05-14T02:04:40-07:00",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "updated_at": "2026-09-21T11:52:26+08:00",
+  "revision": "1.1.0",
+  "revised_at": "2026-09-20",
   "provenance": [
     {
       "institution": "國立故宮博物院",
