@@ -1,0 +1,10 @@
+{"lane":"liaojinyuan","date":"2026-09-06","title":"L4 機械回填把元人 entity 之代灌進唐以前之書，書已改期而繫連未裁","kind":"誤繫待裁",
+ "records":[{"id":"d59f2gfpwjr5","title":"博異志","period":"sui-tang"},
+            {"id":"d59f2gf91qf4","title":"漢書音義","period":"sui-tang"}],
+ "evidence":"二條之舊 period_basis 皆作「撰人朝代闕，據其 Entity「X」之 period 傳播」，出 2026-08-25「L4 機械回填（遼金元斷代收尾）」——該批取 work 所繫 entity 之 dynasty 回填 authors[].dynasty，自陳其法為「核人不核書」。書之著錄與所繫之人相斥時，此法必錯：\n《博異志》——新唐書藝文志「谷神子博異志三卷」、崇文總目（1041）「博異志三卷」、直齋書錄解題「稱谷神子，不知何人。所記初唐及中世事」。谷神子乃唐人之號（唐鄭還古），而本條所繫 entity hixhd2h9biif 之回填取自「1j96h8rw8hyjc（張志素）」之元代。\n《漢書音義》——舊唐書經籍志「《漢書音義》二十六卷劉嗣等撰」（該志本唐開元《群書四部錄》），所指之劉嗣是唐以前之漢書注家；而所繫 entity hixhd2h9big6 之回填取自「1j96h8rw86q1a（劉嗣）」之元代。二劉嗣同名而非一人。\n又：回填所引之 entity id 作 draft 形式（1j9…）而 production 側之 entity_id 另是 hixhd… ——PITFALLS 坑 6 之型。",
+ "options":["甲：解二條 authors[0].entity_id 之繫（庫中無唐谷神子／唐劉嗣之正主，依〈繫連寧缺毋濫〉空之）",
+            "乙：為唐谷神子（鄭還古）、唐劉嗣新建 entity 並改繫",
+            "丙：留繫不動，僅以 ai_note 記疑"],
+ "recommend":"甲",
+ "why":"二條之 entity 皆是元人（其代由 L4 之來源可證），與書之唐代著錄相斥，留繫則 C 類與 L 類必再報，且日後機械回填會再據之改回。惟解繫之後二書已出本道桶（皆改 sui-tang），其 entity 名下尚有他期之書與否須併看，非本道所能盡（規程三·2）。",
+ "note":"本道已做：二條 period 由 liao-jin-yuan 改 sui-tang（據新唐志／舊唐志之著錄，見各條 ai_note），authors[0].dynasty 改「唐」並記 dynasty_basis。entity_id 一字未動，雙向鏈未動。"}

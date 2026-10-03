@@ -1,0 +1,14 @@
+{"lane":"song","date":"2026-09-06","title":"2026-09-05「誤建 entity 併治」使北朝諸補志新建之 entity 併吞同名之宋人，四人六書",
+ "kind":"誤繫待裁",
+ "records":[
+  {"id":"d59f2hel1s00","title":"西河圖傳","period":"song","entity_was":"hixhjhatq1oj","entity_name":"李平（北魏）"},
+  {"id":"d59f2hcqvgu9","title":"論語訓解","period":"song","entity_was":"hixhd2h9bv79","entity_name":"劉懋（北魏）"},
+  {"id":"d59f2he891qd","title":"禮記集說","period":"song","entity_was":"hixhd2h9bv79","entity_name":"劉懋（北魏）"},
+  {"id":"d59f2hg2fcw2","title":"周易異議論","period":"song","entity_was":"hixhd2h9bn8v","entity_name":"劉遵（南朝梁）"},
+  {"id":"d59f2hs094w1","title":"朱子讀書法","period":"song","entity_was":"hixhjhauyzup","entity_name":"張洪（北魏）"}],
+ "evidence":"四 entity 之 ai_note 皆載同一句：「2026-09-05 誤建 entity 併治：併入誤建之同名 entity `X`。前輪整理腳本遇庫中同名而 dynasty 為 None 者，誤判『代不相容，別是一人』而別建；然 dynasty=None 乃**未考定**，非『不相容』，不可據以斷為二人。今併之，移入 works N 部。」——此理不誤（dynasty=None 確非不相容），然併之前未驗**其書之代**（skill 坑 4：同名二人共一 entity）。所併之 dynasty=None 者，其名下正是宋人之書。各書之宋代行實（皆見所繫著錄原文）：《西河圖傳》李平——經義考引胡一桂「政和中撰」、元符黨籍「李平與焉」；《論語訓解》《禮記集說》劉懋——經義考引陸元輔「從劉子翬、胡憲學……文簡公爚其子也」（劉子翬1101–1147、胡憲1086–1162、劉爚1144–1216）；《周易異議論》劉遵——經義考引朱震「王昭素暢其説，胡旦難之，劉遵謂……胡旦復難」（王昭素894–982、胡旦955–1034）；《朱子讀書法》張洪——四庫提要「宋張洪、齊⿱臣灬同編……據洪自序，咸淳中分教四明」。又劉懋、張洪二 entity 本是 2026-08-24「同名異人分立」專為**宋人**所立之條，2026-09-05 之併治與《補南北史／補魏書藝文志》之收書反把它們變成北朝人，分立時所據之宋代行實遂被覆蓋。",
+ "options":["甲：本道已將五書自誤 entity 解繫（work 側清 entity_id、entity.works 撤回指，皆錄於兩造 ai_note 可逆），請協調者為北宋李平、南宋劉懋、北宋劉遵、南宋張洪各立 entity 並回繫",
+            "乙：撤銷 2026-09-05『誤建 entity 併治』於此四例之併（還其被併之 entity），再回繫",
+            "丙：不立新 entity，五書永留無繫（撰人之名仍在 authors[].name）"],
+ "recommend":"甲",
+ "why":"解繫已畢（寧缺毋濫），餘下之立人屬跨期 entity 之事，非本道所能動（PROTOCOL 三之 2）。乙案須知被併者之原貌，其記錄已不存，代價高於甲。丙案失其人而存其名，可用而不佳。另請一併查：此『併治』一輪共動幾條，同型者恐不止此四人——判準是 entity 之 ai_note 含『誤建 entity 併治』且名下 work 之 period 跨兩代以上。"}

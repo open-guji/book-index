@@ -1,0 +1,14 @@
+{"lane":"shanggu","date":"2026-09-06","title":"漢魏之際人物（建安七子之屬）之 entity 代：庫中作「三國魏／吳」而其書皆繫 qin-han，scan C 恆報，需全庫一致之裁",
+ "kind":"誤繫待裁",
+ "records":[
+  {"id":"hixhd2h9bmoa","title":"應瑒（entity，三國魏）","period":"three-kingdoms"},
+  {"id":"hixhd2h9bmo9","title":"阮瑀（entity，三國魏，death_year=212）","period":"three-kingdoms"},
+  {"id":"hixhd2h9bmoc","title":"丁廙（entity，三國魏）","period":"three-kingdoms"},
+  {"id":"hixhd2h9bmmt","title":"蔡琰（entity，三國魏）","period":"three-kingdoms"},
+  {"id":"hixhd2h9bmv4","title":"劉楨（entity，三國魏；名下 work 跨 qin-han／three-kingdoms 二期）","period":"three-kingdoms"},
+  {"id":"hixhd2h9bnkb","title":"徐岳（entity，三國魏；名下 6 書 three-kingdoms、1 書 qin-han）","period":"three-kingdoms"},
+  {"id":"hixhd2h9bkoo","title":"士燮（entity，三國吳；名下 2 書 three-kingdoms、1 書 qin-han）","period":"three-kingdoms"}],
+ "evidence":"scan C 類本道 60 條中，除 36 條宋均注緯書（已裁為常態）外，有七枚 entity 屬此型：其 work 繫 qin-han 而 entity 之代作三國魏／吳。所涉之 work：應瑒集 d59f23kd1v5s、侍五官中郎將建章臺集詩 d59f23o20yki、阮瑀集 d59f23kxyrk0、丁廙集 d59f24m4gcub、胡笳十八拍 d59f24lqpwxt、毛詩義問 d59f23nxyvi9（劉楨）、數術記遺 d59f209drh8g（徐岳，舊題撰）、春秋傳注 d59f24mgmm0x（士燮）。work 側之據：此八條中六條著錄於姚振宗《後漢藝文志》（一部斷代志，明以其人其書屬後漢），其餘出隋志、新唐志。entity 側之據：四枚（應瑒、阮瑀、丁廙、蔡琰）之 dynasty 皆無 dynasty_basis，唯 external_ids.cbdb_source 自書為「pending_accept: relaxed_unique cbdb_dy=26」之類——即自動比對而**未接受**之配（PITFALLS 坑 2 同型）；蔡琰別有 dynasty_basis「historical_dict:round2(蔡琰(177-?)……三國魏初)」。內部相牴之顯者：阮瑀 entity 自載 death_year=212 而 dynasty 作「三國魏」——魏立於 220，其人先八年而卒。",
+ "options":["甲：凡卒於黃初元年（220）以前、且其書著錄於《後漢藝文志》者，entity 之代改「東漢」、period 改 qin-han（應瑒 217 卒、阮瑀 212 卒、丁廙 220 卒、蔡琰）。劉楨、徐岳、士燮名下兼有 three-kingdoms 之書，不在此列，其 C 為跨代之常態","乙：一律不動，於 scan C 立「漢魏之際」白名單，視同注疏跨代之常態","丙：反之——以建安文人統歸曹魏（沿 CBDB dy=26 之說），改其 work 之 period 為 three-kingdoms"],
+ "recommend":"甲",
+ "why":"甲有二重獨立之證：其一，work 側之《後漢藝文志》是斷代志，明繫其人於後漢（PROTOCOL 二所謂「斷代志」之佐證欄）；其二，entity 側之「三國魏」出未接受之 CBDB 配（pending_accept），非讀著錄而得，且阮瑀之 death_year=212 與之自相牴。丙則須改八條 work 之 period 並與《後漢藝文志》相牴，代價大而據薄。惟此事跨道——劉楨、徐岳、士燮之 entity 名下尚有 weijin 道之書，且建安七子之類全庫不止此七枚，宜由協調者定一全庫之準再各道施工，本道不逕改（規程第三節：跨期之 entity 之改記 known-issues 並報）。"}

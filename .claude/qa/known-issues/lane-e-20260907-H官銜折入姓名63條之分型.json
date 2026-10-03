@@ -1,0 +1,812 @@
+{
+ "lane": "lane-E",
+ "date": "2026-09-07",
+ "title": "H 類 `office`（官銜折入 authors[].name）63 條之分型——12 條已逕改名，餘 51 條須併 entity，非改名可了",
+ "kind": "其他",
+ "evidence": "《補晉書藝文志》諸本（及《補梁書藝文志》）之著錄行首本作官銜，如「始安太守卞裕集十五卷」，匯入時把整段折入 authors[].name，遂成「始安太守卞裕」之「人名」。**志家自身是把官銜與名分開的**——《補晉書經籍志》（吳士鑑）之 author_info 屢作「原注：始安太守」「原注：驃騎參軍」「原注：汀州刺史李矩妻衞鑠茂猗撰」，官銜列為原注而非名。故此非釋讀之異，是匯入之失。63 條中 60 條在 jin 桶，3 條在 nanbeichao。**要害在：62/63 條之 entity 亦以同一個帶官銜之名新建（各只繫 1–2 部書），故剝名不是改一個欄，是要決定那個一次性 entity 與庫中既有之同一人如何合。**",
+ "已辦": "12 條（無同名亦無異體同名之 entity 者）已於 2026-09-07 逕改名，entity primary_name 同步，舊形入 alt_names，逐條記一手之據。H 138→126。",
+ "分型": {
+  "代相合可併": [
+   {
+    "work": "d59f9nn15jpo",
+    "title": "鎮北將軍劉隗集",
+    "name": "鎮北將軍劉隗",
+    "bare": "劉隗",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bp8a",
+      "name": "劉隗",
+      "dynasty": "東晉",
+      "works": 2
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn239c0",
+    "title": "豫章太守車灌集",
+    "name": "豫章太守車灌",
+    "bare": "車灌",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bkru",
+      "name": "車灌",
+      "dynasty": "西晉",
+      "works": 5
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn30yyr",
+    "title": "丹陽太守袁豹集",
+    "name": "丹陽太守袁豹",
+    "bare": "袁豹",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9btaf",
+      "name": "袁豹",
+      "dynasty": "東晉",
+      "works": 2
+     }
+    ]
+   },
+   {
+    "work": "d59f27v4vvgi",
+    "title": "撫軍長史蔡系集",
+    "name": "撫軍長史蔡系",
+    "bare": "蔡系",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bgv6",
+      "name": "蔡系",
+      "dynasty": "東晉",
+      "works": 2
+     }
+    ]
+   },
+   {
+    "work": "d59f99gmwg7f",
+    "title": "江左遺典",
+    "name": "司徒左長史江蒨",
+    "bare": "江蒨",
+    "work_dynasty": "南朝梁",
+    "candidates": [
+     {
+      "entity": "hixhjht6uo74",
+      "name": "江蒨",
+      "dynasty": "南朝梁",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn1gs8y",
+    "title": "護軍長史庾堅集",
+    "name": "護軍長史庾堅",
+    "bare": "庾堅",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bq8t",
+      "name": "庾堅",
+      "dynasty": "東晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27ubjkeb",
+    "title": "大將軍王敦集",
+    "name": "大將軍王敦",
+    "bare": "王敦",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bs8p",
+      "name": "王敦",
+      "dynasty": "東晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f9nmzwljc",
+    "title": "馮翊太守孫楚集",
+    "name": "馮翊太守孫楚",
+    "bare": "孫楚",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bhlu",
+      "name": "孫楚",
+      "dynasty": "西晉",
+      "works": 5
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn2pqfe",
+    "title": "右軍參軍孔璠集",
+    "name": "右軍參軍孔璠",
+    "bare": "孔璠",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhihtny9s0",
+      "name": "孔璠",
+      "dynasty": "晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27ub8buq",
+    "title": "吳興太守沈充集",
+    "name": "吳興太守沈充",
+    "bare": "沈充",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhjvgujy0x",
+      "name": "沈充",
+      "dynasty": "晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27v6rapt",
+    "title": "平北將軍牽秀集",
+    "name": "平北將軍牽秀",
+    "bare": "牽秀",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bs2s",
+      "name": "牽秀",
+      "dynasty": "西晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn07u2u",
+    "title": "清河太守陸雲集",
+    "name": "清河太守陸雲",
+    "bare": "陸雲",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bf9j",
+      "name": "陸雲",
+      "dynasty": "西晉",
+      "works": 12
+     }
+    ]
+   },
+   {
+    "work": "d59f27uv7imb",
+    "title": "東陽太守袁宏集",
+    "name": "東陽太守袁宏",
+    "bare": "袁宏",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bmwb",
+      "name": "袁宏",
+      "dynasty": "東晉",
+      "works": 18
+     }
+    ]
+   },
+   {
+    "work": "d59f27u41vcx",
+    "title": "征南將軍杜預集",
+    "name": "征南將軍杜預",
+    "bare": "杜預",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9be1o",
+      "name": "杜預",
+      "dynasty": "西晉",
+      "works": 47
+     }
+    ]
+   },
+   {
+    "work": "d59f9nmzwlja",
+    "title": "漢中太守李虔集",
+    "name": "漢中太守李虔",
+    "bare": "李虔",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhjvgx1udd",
+      "name": "李虔",
+      "dynasty": "晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27uh5u6a",
+    "title": "司徒左長史王濛集",
+    "name": "左長史王濛",
+    "bare": "王濛",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bica",
+      "name": "王濛",
+      "dynasty": "東晉",
+      "works": 3
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn07u2p",
+    "title": "左長史楊乂集",
+    "name": "左長史楊乂",
+    "bare": "楊乂",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bhzy",
+      "name": "楊乂",
+      "dynasty": "西晉",
+      "works": 5
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn0j2ma",
+    "title": "遊擊將軍索靖集",
+    "name": "遊擊將軍索靖",
+    "bare": "索靖",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bhy7",
+      "name": "索靖",
+      "dynasty": "西晉",
+      "works": 8
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn1s0sq",
+    "title": "吳興太守孔嚴集",
+    "name": "吳興太守孔嚴",
+    "bare": "孔嚴",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bpv7",
+      "name": "孔嚴",
+      "dynasty": "東晉",
+      "works": 2
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn239c7",
+    "title": "吳興太守殷康集",
+    "name": "吳興太守殷康",
+    "bare": "殷康",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9brpg",
+      "name": "殷康",
+      "dynasty": "東晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27wsi77l",
+    "title": "高涼太守楊方集",
+    "name": "高涼太守楊方",
+    "bare": "楊方",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bgbo",
+      "name": "楊方",
+      "dynasty": "東晉",
+      "works": 11
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn07u2q",
+    "title": "國子祭酒杜育集",
+    "name": "國子祭酒杜育",
+    "bare": "杜育",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bkq9",
+      "name": "杜育",
+      "dynasty": "西晉",
+      "works": 3
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn0j2mb",
+    "title": "隴西太守閻纂集",
+    "name": "隴西太守閻纂",
+    "bare": "閻纂",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhinen7wn8",
+      "name": "閻纂",
+      "dynasty": "晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f6ssrrvlg",
+    "title": "司徒右長史庾凱集",
+    "name": "右長史庾凱",
+    "bare": "庾凱",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bq8r",
+      "name": "庾凱",
+      "dynasty": "晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn0j2mi",
+    "title": "襄陽太守棗腆集",
+    "name": "襄陽太守棗腆",
+    "bare": "棗腆",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bri9",
+      "name": "棗腆",
+      "dynasty": "西晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27tjrg1s",
+    "title": "安豐太守孫惠集",
+    "name": "安豐太守孫惠",
+    "bare": "孫惠",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bpxr",
+      "name": "孫惠",
+      "dynasty": "西晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27wbymf4",
+    "title": "中軍參軍孫嗣集",
+    "name": "中軍參軍孫嗣",
+    "bare": "孫嗣",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bpx3",
+      "name": "孫嗣",
+      "dynasty": "東晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27wlmz9d",
+    "title": "汝南太守孫毓集",
+    "name": "汝南太守孫毓",
+    "bare": "孫毓",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bmv5",
+      "name": "孫毓",
+      "dynasty": "西晉",
+      "works": 11
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn0ub64",
+    "title": "宏農太守郭璞集",
+    "name": "宏農太守郭璞",
+    "bare": "郭璞",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bhm7",
+      "name": "郭璞",
+      "dynasty": "東晉",
+      "works": 100
+     }
+    ]
+   },
+   {
+    "work": "d59f27ws6yo1",
+    "title": "國子祭酒謝衡集",
+    "name": "國子祭酒謝衡",
+    "bare": "謝衡",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9btfx",
+      "name": "謝衡",
+      "dynasty": "西晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27wxt8g3",
+    "title": "尋陽太守庾統集",
+    "name": "尋陽太守庾統",
+    "bare": "庾統",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhjxs28f0g",
+      "name": "庾統",
+      "dynasty": "晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn0j2md",
+    "title": "交阯太守殷巨集",
+    "name": "交阯太守殷巨",
+    "bare": "殷巨",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9brpf",
+      "name": "殷巨",
+      "dynasty": "西晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn0j2m8",
+    "title": "廣威將軍裴邈集",
+    "name": "廣威將軍裴邈",
+    "bare": "裴邈",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9btbb",
+      "name": "裴邈",
+      "dynasty": "西晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn15jpm",
+    "title": "大將軍溫嶠集",
+    "name": "大將軍溫嶠",
+    "bare": "溫嶠",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9brza",
+      "name": "溫嶠",
+      "dynasty": "東晉",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27ugulmp",
+    "title": "兗州刺史宗岱集",
+    "name": "兗州刺史宗岱",
+    "bare": "宗岱",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bia3",
+      "name": "宗岱",
+      "dynasty": "西晉",
+      "works": 2
+     }
+    ]
+   },
+   {
+    "work": "d59f27vnavi8",
+    "title": "揚州刺史殷浩集",
+    "name": "揚州刺史殷浩",
+    "bare": "殷浩",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9brpi",
+      "name": "殷浩",
+      "dynasty": "東晉",
+      "works": 2
+     }
+    ]
+   }
+  ],
+  "代不合或代闕待考": [
+   {
+    "work": "d59f9nn0j2mc",
+    "title": "秦州刺史張輔集",
+    "name": "秦州刺史張輔",
+    "bare": "張輔",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhinc9ovsw",
+      "name": "張輔",
+      "dynasty": null,
+      "works": 2
+     },
+     {
+      "entity": "hixhgyrw4vs5",
+      "name": "張輔",
+      "dynasty": null,
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27uhh2pw",
+    "title": "廬江太守殷遵集",
+    "name": "廬江太守殷遵",
+    "bare": "殷遵",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhinenudq8",
+      "name": "殷遵",
+      "dynasty": null,
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f6ssrrv8a",
+    "title": "巴西太守郤正集",
+    "name": "巴西太守郤正",
+    "bare": "郤正",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bkon",
+      "name": "郤正",
+      "dynasty": "三國蜀",
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27u1v7k1",
+    "title": "冀州刺史王琛集",
+    "name": "冀州刺史王琛",
+    "bare": "王琛",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bi9o",
+      "name": "王琛",
+      "dynasty": "清",
+      "works": 2
+     },
+     {
+      "entity": "hixhjeq221vn",
+      "name": "王琛",
+      "dynasty": "北周",
+      "works": 8
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn0j2mf",
+    "title": "鄱陽太守虞溥集",
+    "name": "鄱陽太守虞溥",
+    "bare": "虞溥",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bld2",
+      "name": "虞溥",
+      "dynasty": null,
+      "works": 4
+     }
+    ]
+   },
+   {
+    "work": "d59f27v7p0cj",
+    "title": "豫章太守王恪集",
+    "name": "豫章太守王恪",
+    "bare": "王恪",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bs7x",
+      "name": "王恪",
+      "dynasty": "清",
+      "works": 1
+     },
+     {
+      "entity": "hixhincamlfk",
+      "name": "王恪",
+      "dynasty": null,
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27wly7sx",
+    "title": "建安太守丁纂集",
+    "name": "建安太守丁纂",
+    "bare": "丁纂",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bon0",
+      "name": "丁纂",
+      "dynasty": null,
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn2ehvm",
+    "title": "太宰長史庾蒨集",
+    "name": "太宰長史庾蒨",
+    "bare": "庾蒨",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bq8z",
+      "name": "庾蒨",
+      "dynasty": null,
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn239c8",
+    "title": "司徒左長史劉袞集",
+    "name": "左長史劉袞",
+    "bare": "劉袞",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bp7f",
+      "name": "劉袞",
+      "dynasty": null,
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27v0ijup",
+    "title": "殿中將軍傅綽集",
+    "name": "殿中將軍傅綽",
+    "bare": "傅綽",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhincabcwa",
+      "name": "傅綽",
+      "dynasty": null,
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27x1k2yo",
+    "title": "平原太守阮种集",
+    "name": "平原太守阮种",
+    "bare": "阮种",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bu5x",
+      "name": "阮種",
+      "dynasty": null,
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27vevgub",
+    "title": "汝南太守應碩集",
+    "name": "汝南太守應碩",
+    "bare": "應碩",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bqpb",
+      "name": "應碩",
+      "dynasty": null,
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f27w3ugap",
+    "title": "零陵太守陶混集",
+    "name": "零陵太守陶混",
+    "bare": "陶混",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhindwzz0i",
+      "name": "陶混",
+      "dynasty": null,
+      "works": 1
+     }
+    ]
+   },
+   {
+    "work": "d59f9nn2pqfb",
+    "title": "司徒右長史劉甯之集",
+    "name": "右長史劉甯之",
+    "bare": "劉甯之",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bp2x",
+      "name": "劉寧之",
+      "dynasty": null,
+      "works": 1
+     }
+    ]
+   }
+  ],
+  "多候選待擇": [
+   {
+    "work": "d59f9nn2pqf7",
+    "title": "豫章太守范甯集",
+    "name": "豫章太守范甯",
+    "bare": "范甯",
+    "work_dynasty": "晉",
+    "candidates": [
+     {
+      "entity": "hixhd2h9bmv1",
+      "name": "范寧",
+      "dynasty": "東晉",
+      "works": 32
+     },
+     {
+      "entity": "hixhd2h9bn8g",
+      "name": "范寧",
+      "dynasty": "清",
+      "works": 0
+     }
+    ]
+   }
+  ]
+ },
+ "options": [
+  "甲：`代相合可併` 一路逐條併入既有 entity（撤一次性 entity，改 work 之 entity_id，補既有 entity 之 works，並照坑 61 之四件善後）。量最大，須 entity 道之手法。",
+  "乙：全部只改名不併，容庫中一人二 entity，另案再併。**不取**——那等於把 H 之病換成 F／entity 重出之病。",
+  "丙：交還 lane-A／entity·CBDB 道統一處置（該道有 verdicts.tsv 之成法與併人之善後器）。"
+ ],
+ "recommend": "丙；若無人接則甲，但須先定「同名＋代相合」是否足為併人之據",
+ "why": "**「同名且代相合」未必同人**——本批已見反證：剝後之「王琛」庫中有清人與北周人各一，「王恪」有清人一、無代者一，皆與晉之冀州刺史／豫章太守不相值；又「范甯」剝後撞既有之「范寧」（東晉，32 部書，正是豫章太守），是**異體同名而確為一人**，與前者形似而判然相反。故此路必須逐條讀著錄之字里、官歷、父祖（坑 66），不可以名與代二事機械併。此正是坑 45／坑 60 所戒之「同名不是同人」，而併錯之害（二人併為一）比不併之害大得多。"
+}

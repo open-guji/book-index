@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "type": "entity",
+  "subtype": "people",
+  "primary_name": "王實甫",
+  "dynasty": "元",
+  "alt_names": [
+    {
+      "name": "德信"
+    },
+    {
+      "name": "王德信"
+    }
+  ],
+  "works": [
+    {
+      "work_id": "d59f2j4v7dvl",
+      "role": "撰"
+    },
+    {
+      "work_id": "d59f2j4pwcn5",
+      "role": "撰"
+    },
+    {
+      "work_id": "d59f2j4xpa80",
+      "role": "撰"
+    },
+    {
+      "work_id": "d59f2j4mgqo1",
+      "role": "撰"
+    },
+    {
+      "work_id": "d59f2j4qu29u",
+      "role": "撰"
+    },
+    {
+      "work_id": "d59f2j5a6ry8",
+      "role": "撰"
+    },
+    {
+      "work_id": "d59f2j4t0q2o",
+      "role": "撰"
+    },
+    {
+      "work_id": "d59f2gnclds1",
+      "role": "撰"
+    },
+    {
+      "work_id": "d59f2j4u9o8y",
+      "role": "撰"
+    },
+    {
+      "work_id": "d59f2j55tgci",
+      "role": "撰"
+    }
+  ],
+  "external_ids": {
+    "cbdb_id": 690977,
+    "cbdb_match": "auto_create",
+    "cbdb_source": "name+dy_match+unique freq=8"
+  },
+  "death_year": 1324,
+  "id": "hixhd2h9bnq8",
+  "updated_at": "2026-08-24T00:00:00+00:00",
+  "period": "liao-jin-yuan",
+  "period_basis": "據 dynasty「元」自動歸併",
+  "native_place": "大都河間等路",
+  "native_place_basis": "CBDB 690977 index_addr（2026-09-06 CBDB enrich）",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=690977 補入空槽——籍貫「大都河間等路」。既有之值一概未動。\n\n2026-10-02 lane-B 併條善後：所繫 d59f2j522lts 已併入 d59f2j5a6ry8，反邊改指。\n\n2026-10-02 T64：併入 `hixhd2h9bnqy`（王德信，元，同一人——二 entity 互以對方名為 alt_names，且 Work《西廂記》ai_note 稱「元王德信（實甫）撰」）。「王德信」入 alt_names；被併者 external_ids 之 cbdb_id=101416 與本條 cbdb_id=690977 不同（皆 auto_create），庫內無證可定孰為確，未動。",
+  "dates": {
+    "birth": null,
+    "death": 1324,
+    "floruit": null,
+    "basis": "現行字段"
+  },
+  "merged_in": [
+    {
+      "id": "hixhd2h9bnqy",
+      "primary_name": "王德信",
+      "at": "2026-10-02",
+      "by": "D4-Entity清账",
+      "rule": "T64同人異條",
+      "why": "同一人：王實甫＝王德信（元，西廂記作者）。庫內證據：二 entity 互以對方之名為 alt_names（bnq8 alt「德信」、bnqy alt「實甫」）；Work d59f2j5992bl 之 ai_note 稱「元王德信（實甫）撰」。保留 bnq8（繫書 8 部，較備）。被併者 external_ids 之 cbdb_id=101416 與 bnq8 之 cbdb_id=690977 不同，二者皆 auto_create（name+dy_match），庫內無證可定孰為確，未動 bnq8 之值，此處記之。"
+    }
+  ]
+}

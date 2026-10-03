@@ -1,0 +1,17 @@
+{
+ "lane": "lane-B", "date": "2026-09-07", "kind": "資料缺陷（庫級，非本道所轄）",
+ "title": "十一個 entity 之 works 陣列內同一 work_id 列兩次——verify.py 看不見，因其以集合比對",
+ "found_how": "併《春秋穀梁傳注》時，段肅（hixhd2h9bkmu）之 works 三項而相異者二，d59f2pxg9ukg 列兩次。順手掃全庫，得十一個。",
+ "entities": {
+  "hixhd2h9bhwn 清聖祖": "十二個 work_id 各重出一次（最大者）",
+  "hixhd2h9bkln 戴詵": "三個",
+  "hixhd2h9boib 酈道元": 1, "hixhd2h9bf7e 任昉": 1, "hixhd2h9bn8w 王褒": 1,
+  "hixhd2h9bltt 樂產": 1, "hixhd2h9blad 龔穎": 1, "hixhd2h9bgjs 李嵩": 1,
+  "hixhd2h9bgf8 朱綬": 1, "hixhd2h9bgei 王道": 1, "hixhd2h9bric 李椿年": 1
+ },
+ "why_verify_misses_it": "verify.py 之 entity 側作 `fwd.setdefault(eid,set()).add(w['work_id'])`——**以集合收之**，重複項一入集合即消失，故單向邊與懸空二檢皆不報。此與坑 61 之「不在 A 之索引裡不等於不存在」同族：**檢查所用之資料結構本身會抹掉某一類缺陷**。",
+ "impact": "不致 verify 紅，亦不生懸空；但凡以 len(works) 計一人著述之數者皆虛高（清聖祖虛高十二）。",
+ "fix": "各 entity 之 works 按 work_id 去重，保留首見者。本道只改了所併及之段肅一條（併條善後所及），**其餘十條未動**——非本道所轄，且不欲於他道正在讀之檔上動手。",
+ "route": "協調者／entity-cbdb 道",
+ "recommend": "(甲) 十條逕去重；(乙) verify.py 之 entity 側改以 list 收並加一檢「works 內部重複項須為 0」，使此型日後自現。二者宜並行——不加檢則今日掃淨明日復生。"
+}

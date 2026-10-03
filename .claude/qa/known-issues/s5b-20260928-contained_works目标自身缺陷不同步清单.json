@@ -1,0 +1,22 @@
+{
+ "lane": "S5b",
+ "date": "2026-09-28",
+ "kind": "Collection.contained_works[].title 漂移之目标现名带瑕疵型（不同步）",
+ "note": "该项 recorded_title 本身已是合规的展示题，而目标记录（Work/Collection）自身的 title 字段带着不宜带入 contained_works 短展示题的瑕疵——同步只会把瑕疵写法带进 contained_works，是倒退。Work.title／Collection.title 不在本卡写域，不可碰，故不动，留待目录总管另裁是否修目标自身的 title。协调者验收意见（overview#198 第三条评论）：八千卷樓書目一项与水滸後傳同属此类，理由一致。",
+ "examples": [
+  {
+   "collection_id": "8rlcsybg2hhw",
+   "member_id": "d59f2ngcy7er",
+   "recorded_title": "水滸後傳（陳忱）",
+   "actual_title": "水滸後傳陳忱",
+   "why": "目标 title 字段把撰人名与题名未加分隔地粘连，疑有历史遗留缺陷。"
+  },
+  {
+   "collection_id": "8rld0ts2thj4",
+   "member_id": "d59fazdcd98g",
+   "recorded_title": "八千卷樓書目",
+   "actual_title": "八千卷樓書目二十卷",
+   "why": "目标 title 字段带了卷数细节，不适合带入丛编内的短展示题；协调者验收指出此前误同步，已改回不带卷数的原名。"
+  }
+ ]
+}

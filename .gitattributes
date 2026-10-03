@@ -1,0 +1,17 @@
+# 2026-09-07 lane-E 立（並具報協調者，見 inbox/_coordinator/20260907-0230-…）。
+#
+# `verdicts.jsonl` 是五道共寫之 **append-only** 賬，`for-user.md` 是共寫之待裁佇列。
+# 二者之衝突是常態而非例外，而預設之解法（或 pushmain.sh 之 `git checkout --ours`）
+# 對 append-only 檔是**最壞**的一種：它不是取捨，是**單方面刪去對方剛寫的行**，
+# 且推得成功、閘全綠、無告警。
+#
+# 本日已兩次見效（皆已逐行自歷史聯集補回）：
+#   1. lane-E 推 batch1 時吞掉 lane-B 4 筆；
+#   2. lane-B 推 batch2 時吞掉 lane-E 67 筆——**且該刪除成為一次記錄在案的變更，
+#      lane-E 其後之「乾淨自動合流」遂忠實地照做了一遍**，於是同一批又沒了第二次。
+#      這一步最要緊：**被吞之後不會自己好，會沿著後續的合流一路傳下去。**
+#
+# union 之所以是正解：賬 append-only，`verdicts.load()` 之語意是「後寫蓋先寫」，
+# 行序不影響其判讀，故兩方之行**全取**即是正確結果。
+.claude/qa/verdicts.jsonl merge=union
+.claude/qa/for-user.md    merge=union

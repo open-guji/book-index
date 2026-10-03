@@ -1,0 +1,26 @@
+{
+ "lane": "S5",
+ "date": "2026-09-28",
+ "kind": "stale_ref 推广（现行既有欄位内容不一致，不改值，只报）",
+ "title": "Book.provenance[].institution 含简体字，与全库繁体惯例不一",
+ "hit": 3,
+ "note": "全库 provenance[].institution 现有 8 种写法，其中「中国国家图书馆」（简）／「中國國家圖書館」（繁）、「北京大学图书馆」（简）／「北京大學圖書館」（繁）各为同一机构的简繁两写。本卡「不改任何已有字段的值」，故只报，未做归一。",
+ "examples": [
+  {
+   "book_id": "988g9baa68",
+   "institution": "北京大学图书馆"
+  },
+  {
+   "book_id": "988g9az1my",
+   "institution": "中国国家图书馆"
+  },
+  {
+   "book_id": "988g9az1n2",
+   "institution": "中国国家图书馆"
+  }
+ ],
+ "status": "resolved",
+ "resolved_at": "2026-09-28",
+ "resolved_by": "overview#217（据 overview#214 Q4 体检 check3 复核）",
+ "resolution": "复核本条所举三例（988g9baa68／988g9az1my／988g9az1n2），现有数据均已是繁体（\"北京大學圖書館\"／\"中國國家圖書館\"）；全库当前 institution 仅 6 种写法（國立故宮博物院 17,540、中國國家圖書館 3、北京大學圖書館 2、國家圖書館（臺灣） 1、日本東京大學文學部 1、美國加利福尼亞大學伯克利分校東亞圖書館 1），无简繁或全称简称重复，问题不复现（可能已被后续 lane 归一，具体哪个 lane 所修不在本卡查证范围）。verify.py 现有 institution_simplified() 校验（只报不入 FAIL）持续监控，全库现报 0。"
+}

@@ -1,0 +1,21 @@
+{
+ "lane": "lane-B", "date": "2026-09-07", "kind": "entity 待辨（併書之餘）",
+ "title": "併秦志重出十三組之餘：六組同名 entity 待辨，一個孤兒 entity 待刪——皆屬 A 撰人道／entity-cbdb 道",
+ "preamble": "本道所轄是**書之併**，人之併不在本道。凡併書時遇兩造撰人各繫不同 entity 者，一律**撤新繫之項而不改指**（mergework.py --drop-entity-ref），即回到該批入庫前之狀，不把誤繫轉嫁 keeper，亦不代 A 道判人。此處具列所撤者及其所以然，供 A 道接手。",
+ "groups": [
+  {"name":"葛洪","entities":["hixhd2h9bep2 南宋 works=1","hixhd2h9bet2 東晉 works=123"],
+   "verdict":"**真異人，切不可併**。《涉史隨筆》一卷之撰人是南宋葛洪（字容甫，婺州東陽人，淳熙十一年進士，官至參知政事，四庫提要明載），非晉之抱朴子葛洪。丁國鈞、秦榮光二家修補晉志，皆見「葛洪」之名而誤收入晉。此正是坑 60「同名是最弱的一種同一性證據」之的例，且此例之弱不在帝號諡號而在**尋常人名之跨代重出**。已撤 hixhd2h9bet2 之繫。"},
+  {"name":"李充","entities":["hixhd2j3sw76 隋 works=1","hixhd2f8wap7 東晉 works=19"],
+   "verdict":"待辨。《益州記》三卷之撰人，國史經籍志明作「隋李充」，隋志作「李氏撰」，而秦榮光收入補晉志繫晉。晉有李充（字弘度，著《翰林論》，即 hixhd2f8wap7 名下十九種）。**書之同一已由著錄一節定之**（二條同引新唐志「李充益州記三卷」），人之歸屬則諸志異辭，須 A 道裁。已撤 hixhd2f8wap7 之繫。"},
+  {"name":"段肅","entities":["hixhd2h9bkmu 東漢 works=2","hixhd2h9bkue 晉 works=1"],
+   "verdict":"待辨，且**諸家自古聚訟**：《釋文叙錄》「不詳何人」、《隋志》「疑漢人」、惠棟以為即《後漢書》班固所稱之殷肅（漢）、《史通》列其於劉向揚雄之後（兩漢間）、秦榮光據其列范甯後胡訥前定為晉人。書已併（卷數十二／十三／十四是諸志異數，非別本），人待裁。已撤 hixhd2h9bkue 之繫。"},
+  {"name":"王景之","entities":["hixhd2h9bihh 唐 works=1","hixhio716v42 南朝齊 works=1"],
+   "verdict":"待辨。《要典》三十九卷見舊唐志、新唐志、國史經籍志，庫繫唐王景之（CBDB 140255，太原）；南齊王景之見《南齊書》，儀曹令史，與陳淑等同撰《江左以來儀典》。秦志收要典入晉。三代之說並存。已撤 hixhio716v42 之繫。"},
+  {"name":"張緬","entities":["hixhd2h9bi92 南朝梁 works=5","hixhk0lak0zo 晉 works=0 ←此批新鑄"],
+   "verdict":"**非同名異人，是同一人之重出**。張緬見《梁書》（490-531），南朝梁人；秦榮光收其《後漢略》入補晉志，該批遂按「晉·張緬」新鑄一 entity。書已併，新 entity 之 works 已空。**hixhk0lak0zo 是此批所生之孤兒，當刪**（刪之即回入庫前之狀）。刪 entity 非本道之事，故不動，列此請 A 道／entity-cbdb 道辦。"},
+  {"name":"孟氏","entities":["hixhd2h9bngc 東晉 works=2","（keeper d59f285s7aio 之「孟氏」無 entity_id）"],
+   "verdict":"待辨。《七賢傳》五卷孟氏撰，keeper 之考證已定其為孟仲暉（《洛陽伽藍記》：武城人，武定五年為洛州開府長史，東魏時人）。hixhd2h9bngc 之代作東晉，與之不合。已撤其繫；keeper 之「孟氏」當否別繫一 entity，請 A 道定。"}
+ ],
+ "for_user": false,
+ "route": "A 撰人道／entity-cbdb 道"
+}

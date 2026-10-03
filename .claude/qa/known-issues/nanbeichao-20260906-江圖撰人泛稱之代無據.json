@@ -1,0 +1,28 @@
+{
+ "lane": "nanbeichao",
+ "date": "2026-09-06",
+ "title": "《江圖》張氏／劉氏二條之 period 無據——泛稱撰人解繫後遺下的斷代",
+ "kind": "斷代兩可",
+ "records": [
+  {
+   "id": "d59f286rscg2",
+   "title": "江圖",
+   "period": "nanbeichao",
+   "note": "一卷，撰人「張氏」，2026-09-05 泛稱 entity 解繫並撤其代，period_basis 遂空（scan A 類）；本輪已改立實情之據並補 period_upper=sui-tang，period 值未動；另本條頂層 dynasty 仍作「南朝宋」（索引之 dynasty 取頂層，故二者一致），此值與 authors[0] 已撤之代同源，同屬無據，本輪未動"
+  },
+  {
+   "id": "d59f285v0feo",
+   "title": "江圖",
+   "period": "nanbeichao",
+   "note": "二卷，撰人「劉氏」，authors[0].dynasty 仍作「南朝宋」而無 dynasty_basis，隋志未著其代——此值來歷不明，本輪未動"
+  }
+ ],
+ "evidence": "《隋書經籍志》史部地理類連書二條：「《江圖》一卷張氏撰。」「《江圖》二卷劉氏撰。」（覆核 https://zh.wikisource.org/wiki/隋書/卷33 ，前條為《江表行記》一卷）——二條皆只題姓氏而不著其代。《新唐書藝文志》作「江圖二卷」，《國史經籍志》作「《江圖》二卷（劉氏。）」，亦無代。庫中另有《江圖》釋道安撰一條（d59f27tlmvb6，period=jin），與此二條非一書。張氏一條之 nanbeichao 原出所繫 entity『張氏』（代 jin，泛稱，已解繫）——其繫之由自書為「庫中同名唯一……entity 代 jin 與本書 nanbeichao 相鄰」，是先有 nanbeichao 再以之繫人，繫成之後復以其人定代，循環而無外據。劉氏一條之「南朝宋」則全無 basis 可覆按。",
+ "options": [
+  "甲：二條 period 仍作 nanbeichao，只把「無據」之實情寫進 period_basis（張氏條本輪已如此），period_upper 補 sui-tang，俟得外據（如姚振宗《隋書經籍志考證》之考）再定",
+  "乙：二條 period 清為 null，只留 period_upper=sui-tang——隋志著錄可證其成書在隋前，此外一無可據；劉氏條之 authors[0].dynasty「南朝宋」一併撤",
+  "丙：查《隋書經籍志考證》《補南北史藝文志》等有無收此二條，據其所繫之代定之"
+ ],
+ "recommend": "丙，其次甲",
+ "why": "隋志地理類之次第大體以時代為序，本二條夾在江左地記之間，nanbeichao 非無可能，但『可能』不是據；乙雖最潔而丟掉現有之分類信息，且本庫 period 為 null 者另有其累（不入任何車道之桶）。姚振宗《隋志考證》正為此類無代之條立說，本輪未能查得其文（庫中無整理本，網上未檢得可靠全文），故先記疑。劉氏條之「南朝宋」尤當覆按——同一志之連書二條，一條解繫撤代而一條留代，兩不相應。"
+}

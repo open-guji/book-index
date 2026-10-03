@@ -1,0 +1,197 @@
+{
+ "lane": "undated",
+ "periods": [
+  "none"
+ ],
+ "works": 33129,
+ "state": "running",
+ "batch": 16,
+ "focus": "保守斷代",
+ "commit": "efb4970809",
+ "counts": {
+  "A": {
+   "found": 1,
+   "fixed": 1,
+   "researched": 0,
+   "recorded": 0
+  },
+  "E": {
+   "found": 1,
+   "fixed": 1,
+   "researched": 0,
+   "recorded": 0
+  },
+  "F": {
+   "found": 4,
+   "fixed": 86,
+   "researched": 0,
+   "recorded": 4
+  },
+  "G": {
+   "found": 156,
+   "fixed": 6,
+   "researched": 127,
+   "recorded": 38
+  },
+  "H": {
+   "found": 326,
+   "fixed": 28,
+   "researched": 0,
+   "recorded": 24
+  },
+  "I": {
+   "found": 255,
+   "fixed": 0,
+   "researched": 142,
+   "recorded": 15
+  },
+  "J": {
+   "found": 145,
+   "fixed": 132,
+   "researched": 0,
+   "recorded": 3
+  },
+  "N": {
+   "found": 0,
+   "fixed": 0,
+   "researched": 0,
+   "recorded": 9
+  },
+  "O": {
+   "found": 2,
+   "fixed": 0,
+   "researched": 0,
+   "recorded": 2
+  },
+  "M": {
+   "found": 0,
+   "fixed": 12,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
+  },
+  "S": {
+   "found": 0,
+   "fixed": 5,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
+  },
+  "Y": {
+   "found": 0,
+   "fixed": 0,
+   "researched": 11,
+   "recorded": 0,
+   "normal": 0
+  },
+  "V": {
+   "found": 0,
+   "fixed": 8,
+   "researched": 0,
+   "recorded": 4,
+   "normal": 0
+  },
+  "X": {
+   "found": 0,
+   "fixed": 1,
+   "researched": 0,
+   "recorded": 94,
+   "normal": 0
+  },
+  "period": {
+   "found": 0,
+   "fixed": 42,
+   "researched": 0,
+   "recorded": 0,
+   "normal": 0
+  }
+ },
+ "log": [
+  {
+   "at": "2026-09-06T11:36:56+00:00",
+   "batch": 0,
+   "note": "開道基線（2026-09-06，origin/main 58223bc）：本道 period 缺值 33,129 條。C/D/L/M/K 皆 0（無 period 故 C/D/L 不適用，M/K 已由他道清）。協調者首掃基線 A200 F32 之數已隨 main 推進而變：A 200→1、F 32→89。"
+  },
+  {
+   "at": "2026-09-06T11:43:16+00:00",
+   "batch": 1,
+   "note": "批一：A 1 條清孤懸 period_basis、E 1 條 lost→extant（索引同步）；N 9 條判為體例不動，報協調者裁（inbox check）。verify 漂移 1 為 main 既存（ming 道），已報 cross。"
+  },
+  {
+   "at": "2026-09-06T11:51:58+00:00",
+   "batch": 2,
+   "note": "批二：剝黏連 10、正殘名 2（並正 ghost entity 1）、去偽撰人 7、改繫 1、補役 1，共 22 條。F 89→78、H 335→326。宋志頂真格量詞殘尾之坑已報 inbox。"
+  },
+  {
+   "at": "2026-09-06T12:04:55+00:00",
+   "batch": 3,
+   "note": "批三：異體歸正 63、剝黏連補遺 2、去偽撰人 1、改繫正主 6、entity 正名 2，共 74 條。F 89→4（餘四條記 known-issues）。全庫異體重出 entity 110 對已報協調者，本道不自併。"
+  },
+  {
+   "at": "2026-09-06T12:13:37+00:00",
+   "batch": 4,
+   "note": "批四：G 改題 3（皆撞庫），撞出重出三案（楚辭音／分門古今類事／先賢事略）記 ruling；另記 HBCC 幽靈條三則、舊唐志又條一則；O 2 條病在跨道 entity，轉 liao-jin-yuan。G 156 中真缺陷約 10，餘為體例，已報 scan 改法。"
+  },
+  {
+   "at": "2026-09-06T12:22:58+00:00",
+   "batch": 5,
+   "note": "批五：H 326 條逐條讀畢，312 為假陽性（真名含中文數字）。真缺陷 14，處分 12（切分回正 2、去偽撰人 5、剝等 6、正名改繫 1、分拆 1，共 15 處），餘 22 條國史經籍志括注形不可辨記 ruling。"
+  },
+  {
+   "at": "2026-09-06T17:54:58+00:00",
+   "batch": 6,
+   "note": "批六：I 142 組逐組核卷數，119 組異書不動；22 組卷數亦同者分甲(9強重出)/乙(6待校)/丙(7判非重出)，記 known-issues 供協調者裁併（keeper 跨道）。"
+  },
+  {
+   "at": "2026-09-06T18:03:05+00:00",
+   "batch": 7,
+   "note": "批七：合流上游大批（晉志 source 綴撰人 1569+3422 條等），確認 verify 之暫時 FAIL（索引缺記錄檔52、懸空16/94）全屬 jin／nanbeichao 道既存問題，非本道所致；報 inbox pit。協調者隨後已修，再合流後 verify OK。"
+  },
+  {
+   "at": "2026-09-06T18:13:22+00:00",
+   "batch": 8,
+   "note": "批八：G clash 78 條核畢——自併 3（皆 undated 對 undated）、記 26 跨道強重出＋6 組非重出（known-issues）、報 1 坑（墓碑重報 clash）。"
+  },
+  {
+   "at": "2026-09-06T18:20:21+00:00",
+   "batch": 9,
+   "note": "批九：M 12 條存佚訂正（7 extant/4 partial/1 lost 之假陽性訂正）；S/Z 5 條 catalog_bound 訂正（排除回溯志，改依實有他源）。"
+  },
+  {
+   "at": "2026-09-06T18:24:20+00:00",
+   "batch": 10,
+   "note": "批十：Y 11 條核畢，0 條動資料——經/外傳/逸史 dup 皆有既存考訂維持不合併；misattached 6 組轉 song 道。"
+  },
+  {
+   "at": "2026-09-06T18:34:00+00:00",
+   "batch": 11,
+   "note": "批十一：X 92 條抽驗 2 例確證假陽性（以號名集），記 known-issues 轉 entity-cbdb；V 撤 5 條誤繫維基連結、核實 4 條無誤；T 5 條/U 2 條轉 liao-jin-yuan 與 entity-cbdb。"
+  },
+  {
+   "at": "2026-09-06T18:42:16+00:00",
+   "batch": 12,
+   "note": "批十二：J 132 條補 description（撮自著錄，卷數異文並存不擅斷）；另發現 3 條為「一Work誤植兩書」（千金方/外國傳/名山記），記案不動，報全庫性新缺陷類。"
+  },
+  {
+   "at": "2026-09-06T18:45:58+00:00",
+   "batch": 13,
+   "note": "批十三：G clash=false 127 條分類（30巴利藏+28合刊型皆非缺陷、9墓碑、60留後）。"
+  },
+  {
+   "at": "2026-09-06T18:50:05+00:00",
+   "batch": 14,
+   "note": "批十四：坑48訂正後 X 92→21，抽驗3條，確證並修1條（紫霞洞琴譜/楊纘），2條假陽性或未定。"
+  },
+  {
+   "at": "2026-09-06T18:55:23+00:00",
+   "batch": 15,
+   "note": "批十五：V 全18條覆核完畢，再撤3條（評書/十地經論二卷/佛名經二卷），修復known-issues JSON格式錯。"
+  },
+  {
+   "at": "2026-09-06T19:04:52+00:00",
+   "batch": 16,
+   "note": "批十六：保守斷代42條（qing29/nanbeichao10/liao-jin-yuan2/jin1），撰人entity有period且見於真斷代志二證相合。訂正候選池判準：舊唐志/新唐志/宋志非真斷代志（累積式目錄），排除後6099→42。"
+  }
+ ],
+ "updated_at": "2026-09-06T19:04:52+00:00"
+}

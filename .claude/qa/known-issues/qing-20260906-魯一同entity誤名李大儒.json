@@ -1,0 +1,23 @@
+{
+  "lane": "qing",
+  "date": "2026-09-06",
+  "title": "entity `hixhd2h9bcq8` primary_name「李大儒」疑為誤配——名下六書全皆《清史稿藝文志》著錄為「魯一同撰」",
+  "kind": "誤繫待裁",
+  "records": [
+    {"id": "d59f2nd7my2p", "title": "王右軍年譜", "period": "qing"},
+    {"id": "d59f2ndsjugw", "title": "邳州志", "period": "qing"},
+    {"id": "d59f2ndsjugx", "title": "清河縣志", "period": "qing"},
+    {"id": "d59f2np7c5c1", "title": "通甫類稿", "period": "qing"},
+    {"id": "d59f2np7ndvk", "title": "通甫詩存", "period": "qing"},
+    {"id": "d59f2np7ndvl", "title": "詩存之餘", "period": "qing"}
+  ],
+  "evidence": "entity `hixhd2h9bcq8` primary_name=「李大儒」，alt_names=[「愚庵」「魯一」]，dynasty=清，birth_year=1726，native_place=建寧（CBDB cbdb_id=77250, cbdb_source=\"manual+pid_77250_李大儒_dy20\"）。名下六部 work，其 indexed_by 之《清史稿藝文志》原文全數作「魯一同撰」（如：「通甫類稿四卷，續編二卷，詩存四卷，詩存之餘二卷。魯一同撰。」「王右軍年譜一卷。魯一同撰。」「邳州志二十卷，清河縣志二十四卷。魯一同撰。」），無一條著錄涉及「李大儒」三字。真正的魯一同為清道光間文學家，江蘇淮安人（與 CBDB 之「李大儒」生於一七二六、籍建寧（福建）之記載時地皆不合——魯一同生年一般記作一八〇四年前後）。疑此 entity 之 CBDB 配對（manual 手動配對）本身即誤——把福建建寧之「李大儒」（字或號魯一？）誤配為江蘇淮安之「魯一同」，或「魯一」二字被 CBDB 之別名比對誤判為同一人（PITFALLS 坑3「別名單字唯一即繫」之同型：以二字別名「魯一」牽合，而代、籍貫、生年三者皆不合）。本道已將名下五條原截斷為「魯一」之 authors[].name 補全為「魯一同」（與另一條已正確之「魯一同」統一），惟 entity 之 primary_name 未動——其正屬 entity-cbdb 道之權限（coordinator 第1輪裁定：「primary_name 自身有誤者→entity-cbdb 道」）。",
+  "options": [
+    "甲：正 entity 之 primary_name 為「魯一同」，「李大儒」「建寧」「1726」等疑屬誤配之外部資料一併撤除或存疑",
+    "乙：解此 CBDB 配對（manual+pid_77250），另建或另尋魯一同之正主 entity，六書改繫",
+    "丙：不動，只記疑"
+  ],
+  "recommend": "乙",
+  "why": "六書之著錄語一致指向「魯一同」，證據集中且無反證；然 entity 之 cbdb_id=77250／native_place=建寧／birth_year=1726 三項具體外部資料，若正是「李大儒」其人之真實資料而只是本庫錯將其之名下著作全歸給另一同名或形近之人，逕改 primary_name 反而會抹去「李大儒」這個可能真實存在之人的資料完整性；解繫另建更穩妥，但涉及 CBDB 配對之正確性判斷，逾本道所能獨立核實，故記待裁而不逕行。",
+  "action_needed": "entity-cbdb 道覆核 cbdb_id=77250「李大儒」之生平資料是否與六部著作（皆清史稿藝文志歸魯一同）相符；若確係誤配，解繫並另尋或新建魯一同之 entity。"
+}

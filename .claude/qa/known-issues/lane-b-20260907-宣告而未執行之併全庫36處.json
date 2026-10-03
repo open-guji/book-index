@@ -1,0 +1,252 @@
+{
+ "lane": "lane-B",
+ "date": "2026-09-07",
+ "kind": "賬病（庫級，可機檢）",
+ "title": "「宣告了而未執行的併」——keeper 之 merged_from／merged_in 指著一條**仍是完整記錄**者，全庫 36 處",
+ "how_to_reproduce": "python3 .claude/qa/backrefs.py --unexecuted",
+ "what_it_is": "keeper 之結構欄位（merged_from／merged_in）自陳併過某條，而該條至今仍在庫中、仍持其著錄節、仍有索引項。**墓碑不算**——庫例許被併之條留一枚墓碑（僅 id／title／merged_into 數欄、無著錄）以示去向，全庫如此者 106 處，合乎庫例，不在此數。",
+ "count": {
+  "真缺陷": 36,
+  "其中本道已辦": 3,
+  "待辦": 33,
+  "合乎庫例之墓碑": 106
+ },
+ "why_it_matters": "此病與坑 64 之賬病**是一枚硬幣的兩面**：坑 64 是「做了而沒記」（141 個被併 id 只 61 個填了 merged_in，其餘只寫在 ai_note 散文裡），此是「**記了而沒做**」。二者同源於「併條之事實與併條之動作沒有綁在一起」。後果：**散文說併了可能沒併，欄位說併了也可能沒併；沒說併的可能併了**——三個方向都不可信，只有「該 id 之檔還在不在」是真的。",
+ "likely_cause": "多例之 ai_note 自陳同一因。`d59f2giyyjgi`《東垣試效方》：「2026-08-25 同步 draft 之改正：本條升格時（並行會話 2a4d0f5b14，遼金元 4,421 條）**所用之 draft 快照是陳舊之本**，本會話 L1–L7 之改（loss_status、loss_status_basis、indexed_by、merged_from）未入。」《要典》`d59f28jau9dv` 同族：「或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟」。**即：併發生於 draft，升格 production 時 keeper 之改帶過來了而被併條之刪沒帶過來。**",
+ "verified_pattern": "本道所辦之三例，mergework 之乾跑皆報「**著錄·整節全同故不重複移**」——即該節在 keeper 早已存在。**併的內容做完了，只差把空殼刪掉**。故此類之處分甚輕：覈其節確在 keeper，然後刪檔＋清索引＋改反邊即可。",
+ "route": "本道（併條之判皆在 B 道）。已辦三例，餘 33 待辦。",
+ "todo": [
+  {
+   "keeper": "d59f2gi9obgh",
+   "title": "merged_from",
+   "field": "d59f2gjuhibk",
+   "orphan": "素問注抄",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2go2tbeq",
+   "title": "merged_from",
+   "field": "d59f2gidqeip",
+   "orphan": "青崖集",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2hefqqrn",
+   "title": "merged_from",
+   "field": "d59f2ofnpiiq",
+   "orphan": "易解",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2hk2y8e9",
+   "title": "merged_from",
+   "field": "d59f2ogbqsqp",
+   "orphan": "禮記解",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2hifn56r",
+   "title": "merged_from",
+   "field": "d59f2ofoygw0",
+   "orphan": "春秋解",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2ggu65tt",
+   "title": "merged_from",
+   "field": "d59f2gicsow2",
+   "orphan": "浩然翁手抄五色線",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2hsnnxmo",
+   "title": "merged_from",
+   "field": "d59f2ofrrls3",
+   "orphan": "易傳",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f24mofjm3",
+   "title": "merged_in",
+   "field": "d59f27xhh6o0",
+   "orphan": "周易虞翻注",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2hd73t35",
+   "title": "merged_from",
+   "field": "d59f2ofuvz7k",
+   "orphan": "春秋紀詠",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2hdiytqd",
+   "title": "merged_from",
+   "field": "d59f2pukbu9u",
+   "orphan": "易解義",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2hd0jtog",
+   "title": "merged_from",
+   "field": "d59f2og305c1",
+   "orphan": "書解",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2q3ackqo",
+   "title": "merged_from",
+   "field": "d59f2gcez4sg",
+   "orphan": "爾雅疏",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2gm6rkzk",
+   "title": "merged_from",
+   "field": "d59f2ghiio76",
+   "orphan": "浩然齋意抄",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2he6ov0h",
+   "title": "merged_from",
+   "field": "d59f2og7zxtu",
+   "orphan": "易傳",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f27yzsh6q",
+   "title": "merged_from",
+   "field": "d59f27ye93pd",
+   "orphan": "周易王廙注",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f27yzsh6q",
+   "title": "merged_in",
+   "field": "d59f27ye93pd",
+   "orphan": "周易王廙注",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2he3khky",
+   "title": "merged_from",
+   "field": "d59f2ofty9s1",
+   "orphan": "詩解",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2gls3fgh",
+   "title": "merged_from",
+   "field": "d59f2gl5xkw0",
+   "orphan": "虛谷閒抄",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f28m8npj9",
+   "title": "merged_from",
+   "field": "d59f2qadooht",
+   "orphan": "切韻",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f27xz9pmp",
+   "title": "merged_in",
+   "field": "d59f2q205fr5",
+   "orphan": "論語尹毅注",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2hlangg2",
+   "title": "merged_from",
+   "field": "d59f2og56sxs",
+   "orphan": "講義",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2gg22sxt",
+   "title": "merged_from",
+   "field": "d59f2gieo45d",
+   "orphan": "小學纂疏",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f28ml579d",
+   "title": "merged_from",
+   "field": "d59f2ogat2wz",
+   "orphan": "郭翔春秋義鑑",
+   "orphan_nodes": 2
+  },
+  {
+   "keeper": "d59f2gm230u8",
+   "title": "merged_in",
+   "field": "d59f6es53ksm",
+   "orphan": "山中言志前後續集",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2gp30uf5",
+   "title": "merged_from",
+   "field": "d59f2gh1cmbk",
+   "orphan": "韶舞九成樂補",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2hcpba4k",
+   "title": "merged_from",
+   "field": "d59f2og8b6rk",
+   "orphan": "禮記解義",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2gk6nria",
+   "title": "merged_from",
+   "field": "d59f2gjm23nk",
+   "orphan": "浩然齋視聽抄",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2he2mry8",
+   "title": "merged_from",
+   "field": "d59f2oftn18i",
+   "orphan": "論語解",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2hdtw4qr",
+   "title": "merged_from",
+   "field": "d59f2ofl7m68",
+   "orphan": "詩集",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2heiv476",
+   "title": "merged_from",
+   "field": "d59f2ogc20w0",
+   "orphan": "詩義",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f2gpki4u9",
+   "title": "merged_from",
+   "field": "d59f2gjnxiwx",
+   "orphan": "瑟譜",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f28kxu41x",
+   "title": "merged_from",
+   "field": "d59f2gcdey2q",
+   "orphan": "正義",
+   "orphan_nodes": 1
+  },
+  {
+   "keeper": "d59f285w9dkz",
+   "title": "merged_from",
+   "field": "d59f2prqvpj7",
+   "orphan": "老子講疏",
+   "orphan_nodes": 1
+  }
+ ],
+ "verdict": "open"
+}
