@@ -43,13 +43,15 @@
 
 ## 审查文件
 
+`plan.json`（6.7MB）、`work-verdicts.json`（5.1MB）、`deferred-examples.json`（12.4MB）是过程账，为免数据仓膨胀不随合并入 main；原件保留在 PR #7 首个提交 `718b66cc`（`refs/pull/7/head`），下表链接可直接查看，需要时 `git show 718b66cc:<路径>` 取回。
+
 | 文件 | 内容 |
 |---|---|
 | `additions.csv` | 3,054 条新增资源的书名、ID、作者凭据、扫描册次、版本及链接 |
-| `plan.json` | 每条源记录、完整新增 resource、原条目 SHA-256、匹配代码指纹 |
+| [`plan.json`](https://github.com/open-guji/book-index/blob/718b66cc5fd207b14a4ee19f463691728028b214/.claude/qa/reports/commons-rematch-20261003/plan.json)（仓外） | 每条源记录、完整新增 resource、原条目 SHA-256、匹配代码指纹 |
 | `live-check.json` | 每个 pageid 的在线文件名、MIME、扫描 SHA-1 和核验结果 |
-| `work-verdicts.json` | 27,386 个候选 Work 的逐类文件判定计数 |
-| `deferred-examples.json` | 每个 Work／判定类别的代表证据，以及多 Work 歧义记录 |
+| [`work-verdicts.json`](https://github.com/open-guji/book-index/blob/718b66cc5fd207b14a4ee19f463691728028b214/.claude/qa/reports/commons-rematch-20261003/work-verdicts.json)（仓外） | 27,386 个候选 Work 的逐类文件判定计数 |
+| [`deferred-examples.json`](https://github.com/open-guji/book-index/blob/718b66cc5fd207b14a4ee19f463691728028b214/.claude/qa/reports/commons-rematch-20261003/deferred-examples.json)（仓外） | 每个 Work／判定类别的代表证据，以及多 Work 歧义记录 |
 | `stratified-sample.json` | 初稿按来源抽查的 26 条记录及最终去向 |
 | `idempotence.json` | 写入后全量重跑的零新增结果 |
 | `validation-baseline.txt` / `validation-after.txt` | 全库检查前后日志 |
@@ -67,4 +69,4 @@ uv run --with opencc --with pytest python -X utf8 -m pytest tests/test_rematch_c
 uv run python -X utf8 .claude/qa/verify.py
 ```
 
-已提交的数据可直接运行 `--audit` 对照计划基线；重做匹配请将 `--report` 指向新目录，以保留本轮审计账。
+`--audit` 读 `plan.json`，运行前先从 `718b66cc` 取回到本目录，且只在计划基线之上、未合入其它改动的分支上成立；重做匹配请将 `--report` 指向新目录，以保留本轮审计账。
