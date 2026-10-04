@@ -38,7 +38,7 @@ indexed_by 内各志/提要的原文（如四庫「宋俞琬撰」、元史藝�
 - `reindex.py --run --membership`：回写作者名漂移 4、删索引键 2（两个被删 entity）；其后 `reindex.py` 待回写 0
 - Work 数 95043 → 95039
 
-## 五、book-text 中引用被并 id 的文件（未改）
+## 五、book-text 中引用被并 id 的文件（已改，用户许可目录拆分字段可改，原文不动）
 
 | 文件 | 行 | 引用 |
 |---|---|---|
@@ -46,4 +46,4 @@ indexed_by 内各志/提要的原文（如四庫「宋俞琬撰」、元史藝�
 | Work/9/3/6/d59f2nl40936/default/003.json | 6099 | work_id d59f28jl53b7（國史經籍志「《唐通曆》十卷（馬總）」）→ 应改 d59f28jsy0w3 |
 | Work/m/y/o/d59f2msx7myo/default/005.json | 178 | work_ids 含 d59f2hsdzksi（揅經室「玉峯志三卷玉峯續志一卷」）→ 应改 d59f2hifn56o |
 
-未发现 book-text 引用 d59f2hpeapdt、hixhd2h9bq0t、hixhd2h9bl2g。
+三处 work_id/work_ids 已于 book-text main 改指 keeper（仅此三行，目录拆分字段）。改后全仓再无被并 id。未发现 book-text 引用 d59f2hpeapdt、hixhd2h9bq0t、hixhd2h9bl2g。
