@@ -1,6 +1,6 @@
 """B5-3 抽检：从「确定」档随机抽 N 条，回国图详情页取题名/责任者/版本，与馆档记录及本仓 Work 并列，输出人工核对表。
 限速 ≥1.2s/请求；非 200 或页面疑似反爬挑战即停（03-抓取规范 §四）。
-用法：python3 verify_sample.py 匹配表.json 输出.json [N] [seed]
+用法：[EXCLUDE=已抽样.json,...] python3 verify_sample.py 匹配表.json 输出.json [N] [seed]
 """
 import sys, os, json, re, time, random, html, urllib.request
 sys.path.insert(0, os.path.dirname(__file__))
@@ -12,7 +12,11 @@ out = sys.argv[2]
 N = int(sys.argv[3]) if len(sys.argv) > 3 else 50
 seed = int(sys.argv[4]) if len(sys.argv) > 4 else 20261005
 random.seed(seed)
-pick = random.sample([r for r in rows if r['tier'] == '确定'], N)
+excl = set()
+for f in os.environ.get('EXCLUDE', '').split(','):
+    if f:
+        excl |= {x['url'] for x in json.load(open(f))}
+pick = random.sample([r for r in rows if r['tier'] == '确定' and r['url'] not in excl], N)
 W = {}
 need = {r['work_id'] for r in pick}
 for w in iter_works():
