@@ -80,6 +80,36 @@
       "type": "image",
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-15240-0013_%E5%90%B3%E4%B8%AD%E5%BE%80%E5%93%B2%E8%A8%98.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-0476",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0476",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0476",
+        "edition": "清[1644-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999018623",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999018623",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999018623",
+        "edition": "明[1368-1644]"
+      }
     }
   ],
   "ai_note": "明史藝文志匹配：標題精確匹配但未能驗證作者（條目作者：'楊循吉'）。 作者 \"明楊循吉撰\" 補自《四庫全書存目叢書》目錄。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
@@ -118,5 +148,13 @@
     "basis": "S",
     "source": "欽定四庫全書總目"
   },
-  "_edition_count": 1
+  "_edition_count": 1,
+  "resource_groups": {
+    "nlc-0476": {
+      "label": "國圖藏本：清[1644-1911]"
+    },
+    "nlc-411999018623": {
+      "label": "國圖藏本：明[1368-1644]"
+    }
+  }
 }
