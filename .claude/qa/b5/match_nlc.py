@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from common import *
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else '/tmp/claude-0/b5/nlc'
-SRC = '_整理/數字古籍.json'
+SRC = os.environ.get('SRC', '_整理/數字古籍.json')
 
 ERA = [('先秦', 0), ('周', 0), ('秦', 0), ('漢', 1), ('汉', 1), ('魏', 2), ('晉', 2), ('晋', 2), ('南北朝', 2), ('宋', 5), ('齊', 2), ('梁', 2), ('陳', 2), ('隋', 3), ('唐', 4),
        ('五代', 4.5), ('遼', 5), ('辽', 5), ('金', 5), ('元', 6), ('明', 7), ('清', 8), ('民國', 9), ('民国', 9)]
@@ -78,6 +78,11 @@ def split_title(raw):
     parts = SPLIT.split(t, maxsplit=1)
     core = parts[0]
     rest = parts[1] if len(parts) > 1 else ''
+    # 题名后直接粘着卷数（故宮式「元豐類稿五十卷附錄一卷」）：在第一个「N卷」前切开
+    mj = re.search(r'(?<=[\u3400-\u9fff]{2})[〇零一二三四五六七八九十百千廿卅\d]+[卷巻]', core)
+    if mj:
+        rest = (core[mj.start():] + ' ' + rest).strip()
+        core = core[:mj.start()]
     return core, rest, era
 
 
@@ -243,8 +248,8 @@ def main():
         tier, wid, cands, reasons = match_one(r, idx, idx2)
         cnt[tier] += 1
         w = works.get(wid) if wid else None
-        rows.append(dict(source_record_id=r.get('url', '').split('fid=')[-1] if r.get('url') else '', tier=tier, lib_title=r['bookName'], lib_author=r.get('author', ''),
-                         lib_version=r.get('version', ''), url=r.get('url', ''), work_id=wid or '', work_title=w['title'] if w else '',
+        rows.append(dict(source_record_id=r.get('source_record_id') or (r.get('url', '').split('fid=')[-1] if r.get('url') else ''), tier=tier, lib_title=r.get('title') or r.get('bookName', ''), lib_author=r.get('author', ''),
+                         lib_version=r.get('version', ''), digitized=(r.get('extra') or {}).get('數位化狀態', ''), has_image_url=bool(r.get('image_url')), url=r.get('url') or r.get('source_url', ''), work_id=wid or '', work_title=w['title'] if w else '',
                          reasons='；'.join(reasons), candidates=','.join(cands[:8])))
     json.dump(rows, open(os.path.join(OUT, '匹配表.json'), 'w'), ensure_ascii=False)
     with open(os.path.join(OUT, '匹配表.tsv'), 'w', encoding='utf-8', newline='') as f:
