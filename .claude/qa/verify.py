@@ -4,7 +4,7 @@
   python3 .claude/qa/verify.py            # 全庫：索引漂移必須為 0；懸空計數與基線比
   python3 .claude/qa/verify.py --strict   # 懸空亦須為 0（收工前）
 
-輸出五個數：works 索引漂移（period/loss_status/title/subtype/author/dynasty/role；dynasty 取頂層，無則 authors[0]）、
+輸出五個數：works 索引漂移（period/loss_status/title/subtype/author/dynasty/role；dynasty 取 authors[0]，無則頂層——同 build）、
 entities 索引漂移、work 側懸空引用、entity.works 懸空、單向邊（人指書而書不指人）。
 漂移不為 0 即失敗（exit 1）——改了記錄而未回寫索引，或改了索引而未改記錄。
 
@@ -12,6 +12,13 @@ S5（overview#189）另加：通用 `todo`／`review`（審核狀態）形狀校
 `_member_count` 派生計數校驗（以上四項 0 基線，計入 FAIL）；以及 `related_works[].title`／
 `Collection.contained_works[].title` 漂移、`provenance[].institution` 簡體字三項 stale_ref
 推廣校驗——這三項是既有欄位之內容問題，非本卡新增，只報數、落 known-issues，不計入 FAIL。
+
+**schema-v2（2026-10-07，overview#459 F6-3）**：源檔不再有 `Work.books`、`Entity.works`、
+`Collection.books／contained_works`、`Work.classification`、`_` 派生欄（`_has_text`／`_has_collated` 除外）。
+故：① 分類改驗 `classification/<法>/members/` 類檔（`classify check`：節點在樹上且未退役、成員是本倉 Work、
+互斥法一部一類、檔名＝node），計入 FAIL；② `entity.works`／單向邊／`_edition_count`／`_member_*`／
+`contained_works` 諸項只在舊格式殘留時才有數（新格式下恆 0，非「驗過」，派生值改由
+`build/build_derived.py` 自校驗）；③ 另報 `check_v2.py` 舊格式殘留數（`--strict` 時計入 FAIL）。
 """
 import argparse, collections, glob, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -40,9 +47,46 @@ def idx(fam):
     for f in glob.glob(os.path.join(ROOT, 'index', fam, '*.json')): out.update(json.load(open(f)))
     return out
 
+def classification_members_problems(root, work_ids, ref_work_ids=frozenset()):
+    """schema-v2 分類類檔校驗（SCHEMA〈八〉之 `classify check`）。回 [(檔, 問題)]，空即過。
+    work_ids：本倉 Work id；ref_work_ids：草稿庫可指正式庫之 Work。"""
+    out = []
+    base = os.path.join(root, 'classification')
+    sp = os.path.join(base, 'schemes.json')
+    if not os.path.exists(sp):
+        return out
+    for sc in json.load(open(sp, encoding='utf-8')):
+        tree_p = os.path.join(base, sc.get('tree') or (sc['id'] + '/tree.json'))
+        if not os.path.exists(tree_p):
+            out.append((sc['id'], 'tree.json 不存在')); continue
+        nodes = {n['id']: n for n in json.load(open(tree_p, encoding='utf-8')).get('nodes') or []}
+        seen = collections.defaultdict(list)
+        for f in sorted(glob.glob(os.path.join(base, sc['id'], 'members', '*.json'))):
+            rel = os.path.relpath(f, root)
+            d = json.load(open(f, encoding='utf-8'))
+            node = d.get('node')
+            if os.path.basename(f) != '%s.json' % node: out.append((rel, '檔名與 node 不符'))
+            if node not in nodes: out.append((rel, '節點不在樹上：%s' % node))
+            elif nodes[node].get('retired'): out.append((rel, '節點已退役：%s' % node))
+            rows = d.get('members') or []
+            if [r[0] for r in rows] != sorted(r[0] for r in rows): out.append((rel, '成員行未按 work_id 排序'))
+            for r in rows:
+                if not (isinstance(r, list) and r and isinstance(r[0], str)):
+                    out.append((rel, '成員行形狀不對：%r' % (r,))); continue
+                if r[0] not in work_ids and r[0] not in ref_work_ids:
+                    out.append((rel, '成員不是 Work：%s' % r[0]))
+                seen[r[0]].append(node)
+        if sc.get('exclusive', True):
+            for wid, ns in seen.items():
+                if len(ns) > 1: out.append((sc['id'], '互斥法一部多類：%s %s' % (wid, ns)))
+    return out
+
 def load_classific_vocab():
-    """classific.json：l1s、(l1,l2) 集合、(l1,l2,l3) 集合、(l1,l2,l3,l4) 集合。"""
-    rows = json.load(open(os.path.join(ROOT, 'classific.json'), encoding='utf-8'))
+    """classific.json：l1s、(l1,l2) 集合、(l1,l2,l3) 集合、(l1,l2,l3,l4) 集合。
+    schema-v2 起只用來驗舊格式殘留之 `Work.classification`；檔不在即回空集。"""
+    p = os.path.join(ROOT, 'classific.json')
+    if not os.path.exists(p): return set(), set(), set(), set()
+    rows = json.load(open(p, encoding='utf-8'))
     l1s, l12, l123, l1234 = set(), set(), set(), set()
     for r in rows:
         l1, l2, l3, l4 = r['cata_l1'], r['cata_l2'], r.get('cata_l3'), r.get('cata_l4')
@@ -366,7 +410,9 @@ def main():
         au = d.get('authors') or []; a0 = au[0] if au else {}
         nz = lambda v: None if v in ('', None) else v
         want = {'author': nz(a0.get('name')), 'role': nz(a0.get('role')),
-                'dynasty': nz(d.get('dynasty')) if nz(d.get('dynasty')) is not None else nz(a0.get('dynasty'))}
+                # schema-v2：index/ 由 build 生成，口徑照 bim entry_extractor 與 SCHEMA〈十四〉——
+                # 索引之 dynasty＝撰人朝代，authors[0].dynasty 優先，無則頂層（舊 reindex 反之）
+                'dynasty': nz(a0.get('dynasty')) if nz(a0.get('dynasty')) is not None else nz(d.get('dynasty'))}
         for f, y in want.items():
             if nz(ie.get(f)) != y: drift_w.append((wid, f, ie.get(f), y))
         for r in (d.get('related_works') or []):
@@ -445,6 +491,14 @@ def main():
         if not todo_ok(dc.get('todo')): bad_todo.append((cid, 'Collection'))
         if not review_ok(dc.get('review')): bad_review.append((cid, 'Collection'))
     oneway = [(e, w) for e, ws in fwd.items() for w in ws if e not in back.get(w, set())]
+    # schema-v2：分類類檔、舊格式殘留
+    bad_cls_members = classification_members_problems(ROOT, set(IW))
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import check_v2 as _cv2
+        _cv2_rows = [r for rp in _cv2.walk(ROOT) for r in _cv2.check_file(ROOT, rp)]
+    except Exception as _e:   # noqa: BLE001
+        _cv2_rows = [('', '', '', 'ERR', '', str(_e))]
     print(f'索引檔缺記錄檔        {len(missing)}')
     print(f'works 索引漂移        {len(drift_w)}')
     print(f'entities 索引漂移     {len(drift_e)}')
@@ -452,8 +506,13 @@ def main():
     print(f'entity.works 懸空     {len(dangle_e)}')
     print(f'entity.works 重複項  {len(dup_e)}')
     print(f'單向邊 人指書書不指人 {len(oneway)}')
-    print(f'classification 不在詞表 {len(bad_cls)}')
+    print(f'classification 不在詞表（舊格式殘留） {len(bad_cls)}')
     for r in bad_cls[:10]: print('  詞表外', r)
+    print(f'分類類檔不合（classify check） {len(bad_cls_members)}')
+    for r in bad_cls_members[:10]: print('  分類類檔', r)
+    _cv2_cnt = collections.Counter(r[3] for r in _cv2_rows)
+    print(f'舊格式殘留（check_v2；--strict 計入 FAIL） {len(_cv2_rows)}'
+          + ('  ' + ' '.join(f'{k}:{v}' for k, v in sorted(_cv2_cnt.items())) if _cv2_rows else ''))
     print(f'provenance 形狀不合    {len(bad_prov)}')
     for r in bad_prov[:10]: print('  provenance', r)
     print(f'edition_type 不在詞表  {len(bad_et)}')
@@ -523,9 +582,9 @@ def main():
     # 2026-09-07：`entity.works 重複項` 自即日納入 --strict 之成敗（清零後方納，免得未清前卡住各道）。
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
-    bad = (_ledger_bad or missing or drift_w or drift_e or bad_cls or bad_prov or bad_dates or bad_extids or bad_count
+    bad = (_ledger_bad or missing or drift_w or drift_e or bad_cls or bad_cls_members or bad_prov or bad_dates or bad_extids or bad_count
            or bad_et or bad_pd or bad_be or bad_member_type or bad_todo or bad_review or bad_edcount or bad_memcount
-           or (a.strict and (dangle_w or dangle_e or oneway or dup_e)))
+           or (a.strict and (dangle_w or dangle_e or oneway or dup_e or _cv2_rows)))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)
 

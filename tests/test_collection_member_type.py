@@ -156,7 +156,7 @@ def test_ershiwushi_yiwen_jingjizhi_kaobu_cuibian_total_volumes_corrected():
 
 def test_schema_md_documents_member_type_field():
     schema = (ROOT / "SCHEMA.md").read_text(encoding="utf-8")
-    idx = schema.index("### 2. Collection Schema")
-    idx_book = schema.index("### 3. Book Schema")
+    idx = schema.index("## 三、Collection")
+    idx_book = schema.index("## 四、Book")
     section = schema[idx:idx_book]
     assert "_member_type" in section

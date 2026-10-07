@@ -149,3 +149,27 @@ def test_codes_filter_and_bad_args(tmp_path):
     assert check_v2.main(["--root", str(tmp_path), "--summary", "--codes", "V08"]) == 0
     assert check_v2.main(["--root", str(tmp_path), "--summary", "--codes", "V99"]) == 2
     assert check_v2.main(["--root", str(tmp_path / "nope"), "--summary"]) == 2
+
+
+# ---- verify.classification_members_problems（F6-3：分類類檔校驗）----
+def _cls_repo(root, rows_by_node, tree_nodes=None, exclusive=True):
+    import os
+    os.makedirs(root / 'classification/zongmu/members', exist_ok=True)
+    (root / 'classification/schemes.json').write_text(json.dumps(
+        [{'id': 'zongmu', 'name': '總目', 'primary': True, 'exclusive': exclusive, 'tree': 'zongmu/tree.json'}]))
+    nodes = tree_nodes or [{'id': 'zm0001', 'label': '經部', 'parent': None, 'level': 1},
+                           {'id': 'zm0002', 'label': '易類', 'parent': 'zm0001', 'level': 2}]
+    (root / 'classification/zongmu/tree.json').write_text(json.dumps({'scheme': 'zongmu', 'nodes': nodes}))
+    for node, rows in rows_by_node.items():
+        (root / f'classification/zongmu/members/{node}.json').write_text(json.dumps({'node': node, 'members': rows}))
+
+
+def test_verify_classification_members(tmp_path):
+    import verify
+    _cls_repo(tmp_path, {'zm0001': [['w1', 'a'], ['w2', 'b']], 'zm0002': [['w3', 'c']]})
+    assert verify.classification_members_problems(str(tmp_path), {'w1', 'w2', 'w3'}) == []
+    probs = verify.classification_members_problems(str(tmp_path), {'w1', 'w2'})
+    assert probs and '成員不是 Work' in probs[0][1]
+    _cls_repo(tmp_path, {'zm0001': [['w2', 'a'], ['w1', 'b']], 'zm0002': [['w1', 'c']], 'zm0009': [['w3', 'x']]})
+    msgs = ' '.join(m for _, m in verify.classification_members_problems(str(tmp_path), {'w1', 'w2', 'w3'}))
+    assert '未按 work_id 排序' in msgs and '節點不在樹上' in msgs and '互斥法一部多類' in msgs
