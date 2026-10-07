@@ -19,7 +19,7 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
   A1   alt_names：type 在枚舉內、ambiguous 為 bool；帶 ambiguous 之名全庫至少 2 條聲稱
        （否則 WARN）；無 ambiguous 之 dynasty 別名在 dynasty 內全局唯一（ERROR）        ERROR／WARN
   O01–O05、O09–O12  官職，見各函數註；O06（CBDB 碼防重）已刪；O07 併入 V01；O08 併入 E1。
-  P01–P09  地名，見各函數註（第一期無條目，靠單測覆蓋）；P05 併入 V01、P08 coords 單獨出碼。
+  P01–P10  地名，見各函數註；P05 併入 V01、P08 coords 單獨出碼；P10 沿革段之上級於該段年份內須存在（WARN）。
   I01–I12  官署（collective 且 collective_kind=官署，P3c 設計稿 §六／§十二，S 10-07 定）；
        I12 兼管官職條之 institution_ref（O14 第二步：`COL:` 占位一律 ERROR）。
        collective_kind 缺省＝未分，舊 collective 不受約束。
@@ -546,6 +546,27 @@ def _check_institution(rec, reg):
     return out
 
 
+def _uncovered(s, e, parent_hist):
+    """[s, e] 中不被上級任一沿革段覆蓋之區間（端點相接算覆蓋；s／e 缺則不查）。"""
+    if not (is_int(s) and is_int(e)):
+        return []
+    segs = sorted((h.get("start") if is_int(h.get("start")) else float("-inf"),
+                   h.get("end") if is_int(h.get("end")) else float("inf"))
+                  for h in parent_hist if isinstance(h, dict))
+    gaps, cur = [], s
+    for a, b in segs:
+        if b < cur:
+            continue
+        if a > cur:
+            gaps.append((cur, min(a, e)))
+        cur = max(cur, b)
+        if cur >= e:
+            break
+    if cur < e:
+        gaps.append((cur, e))
+    return [(a, b) for a, b in gaps if a < b]
+
+
 def _check_place(rec, reg):
     out = []
     if not nonempty_str(rec.get("primary_name")):
@@ -584,6 +605,11 @@ def _check_place(rec, reg):
                 out.append(("P03", ERROR, f + ".parent_id", "不存在或非 place：%r" % (hp,)))
             if "parent_text" in h:
                 out.append(("P03", WARN, f, "parent_id 與 parent_text 並存，入庫前清掉 parent_text"))
+            if reg.sub.get(hp) == "place" and hp != rec["id"]:
+                gaps = _uncovered(s, e, reg.rec.get(hp, {}).get("history") or [])
+                if gaps:
+                    out.append(("P10", WARN, f + ".parent_id", "上級 %s 於本段年份內不存在：%s（拆段、該段上級留空）" % (
+                        reg.rec[hp].get("primary_name"), "、".join("%s–%s" % g for g in gaps))))
     spans.sort()
     for (s1, e1, i1), (s2, e2, i2) in zip(spans, spans[1:]):
         if s2 < e1:
