@@ -288,6 +288,17 @@ def test_place_codes():
     assert ("P09", "INFO") in only and ("P09", "WARN") not in only      # 同名異地：僅 INFO
 
 
+def test_place_p11_dynasty_must_cover_segment():
+    # P11：沿革段年份須為所掛朝代起訖覆蓋（P5a-3，2026-10-07）
+    yuan, ming = dyn("y", "元", 1271, 1368), dyn("m", "明", 1368, 1644)
+    h = lambda s, e, ds: {"start": s, "end": e, "dynasty_ids": ds, "name": "甲", "level": "縣"}
+    assert has(place("pl", history=[h(1359, 1366, ["m"])]), "P11", es.WARN, yuan, ming)          # 明前數年
+    assert not has(place("pl", history=[h(1359, 1366, ["y", "m"])]), "P11", es.WARN, yuan, ming)  # 補掛元
+    assert has(place("pl", history=[h(1295, 1370, ["y"])]), "P11", es.WARN, yuan, ming)           # 越元末
+    assert not has(place("pl", history=[h(1295, 1370, ["y", "m"])]), "P11", es.WARN, yuan, ming)
+    assert not has(place("pl", history=[h(1300, 1368, ["y"])]), "P11", es.WARN, yuan, ming)       # 端點相接
+
+
 def test_place_p10_parent_must_cover_segment():
     # P10：沿革段之上級於該段年份內須有沿革段覆蓋（P5a 試點，2026-10-07）
     h = lambda s, e, **k: dict({"start": s, "end": e, "dynasty_ids": ["s"], "name": "甲", "level": "縣"}, **k)
