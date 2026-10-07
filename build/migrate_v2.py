@@ -1263,6 +1263,11 @@ def write_manual_md(repo, rep_dir, reps):
     if not any(k in reps for k in ('M1', 'M2', 'M3')):
         return None
     m1r, m2r, m3r = reps.get('M1'), reps.get('M2'), reps.get('M3')
+    m0p = os.path.join(rep_dir, 'M0.json')
+    if 'M0' not in reps and os.path.exists(m0p):
+        reps['M0'] = json.load(open(m0p, encoding='utf-8'))
+    if (reps.get('M0') or {}).get('head'):
+        repo.head0 = reps['M0']['head'][:9]          # 清單的「源」寫遷移前 HEAD，不寫重生當下的 HEAD
     if not (m1r or m2r or m3r):
         return None
     L = ['# 人工核清單（schema-v2 遷移 M1–M3）', '',
