@@ -20,6 +20,9 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
        （否則 WARN）；無 ambiguous 之 dynasty 別名在 dynasty 內全局唯一（ERROR）        ERROR／WARN
   O01–O05、O09–O12  官職，見各函數註；O06（CBDB 碼防重）已刪；O07 併入 V01；O08 併入 E1。
   P01–P09  地名，見各函數註（第一期無條目，靠單測覆蓋）；P05 併入 V01、P08 coords 單獨出碼。
+  I01–I12  官署（collective 且 collective_kind=官署，P3c 設計稿 §六／§十二，S 10-07 定）；
+       I12 兼管官職條之 institution_ref（O14：`COL:` 占位只許凍結名單內，名單外 ERROR）。
+       collective_kind 缺省＝未分，舊 collective 不受約束。
   V01  源檔出現 `_` 起首或 children／reigns／index_in_reign 等派生／反向欄位           ERROR
        （`_` 起首者仍由 check_v2 自身之 V01 報；本模塊只補非底線之派生名，並在新子類型內
        把 `_has_text`／`_has_collated` 之豁免收回。）
@@ -68,6 +71,20 @@ OFFICE_CLASSES = {"職事官", "差遣", "散官", "階官", "加官", "貼職",
                   "本官", "試秩", "憲官", "兼職差遣", "未詳"}
 QUALIFIER_KINDS = {"institution", "place", "mode", "mode+institution"}
 CONCEPT_FORBIDDEN = ("dynasty_ids", "rank", "salary", "office_class", "base_office_id", "parent_id")
+# 官署（collective_kind=官署）
+COLLECTIVE_KINDS = {"官署", "書院學校", "館局", "民間", "未分"}
+INST_LEVELS = {"concept", "concrete", "group"}
+INST_CONCRETE_ONLY = ("dynasty_ids", "function", "superiors", "start", "end", "basis")
+INST_OFFICE_FIELDS = ("office_level", "office_class", "rank", "salary", "base_office_id", "qualifier",
+                      "institution_ref")
+INST_DERIVED = ("subordinates", "members", "offices", "_subordinates", "_members", "_children", "_offices")
+INST_WARN_RANGE = 5
+# O14 第一步：凍結之 `COL:` 占位名單（P3c 設計稿 §5.1，23 個）。替換 PR 合入後清空，`COL:` 一律 ERROR。
+COL_PLACEHOLDERS = frozenset({
+    "六部", "御史臺", "翰林院", "都察院", "國子監", "祕書省", "中書省", "大理寺", "內閣", "門下省",
+    "行人司", "翰林學士院", "六科", "中書科", "開封府", "祕閣", "王府長史司", "東宮", "中書門下",
+    "詹事府", "通政使司", "尚寶司", "太常寺",
+})
 PLACE_LEVELS = {"國", "郡", "州", "府", "軍", "監", "路", "道", "省", "縣", "廳", "都"}
 MODERN_RELATIONS = {"同名同地", "治所今在", "轄域約當", "沿用其名而異地", "無對應"}
 PRED_KINDS = {"析出", "並入"}
@@ -138,8 +155,12 @@ class Registry:
         st = d.get("subtype") or "people"
         self.sub[i] = st
         self.path[i] = relpath
-        if st in NEW_SUBTYPES:
+        if st in NEW_SUBTYPES or st == "collective":
             self.rec[i] = d
+
+    def is_inst(self, i):
+        r = self.rec.get(i) or {}
+        return r.get("subtype") == "collective" and r.get("collective_kind") == "官署"
 
     def of(self, subtype):
         return [(i, r) for i, r in self.rec.items() if r.get("subtype") == subtype]
@@ -369,9 +390,160 @@ def _check_office(rec, reg):
     if q is not None:
         if not isinstance(q, dict) or q.get("kind") not in QUALIFIER_KINDS or not nonempty_str(q.get("name")):
             out.append(("O05", ERROR, "qualifier", "kind 須在枚舉內、name 非空：%r" % (q,)))
+    out += _institution_ref_problems(rec, reg, dids)
     for i, a in enumerate(rec.get("alt_names") or []):
         if isinstance(a, dict) and a.get("type") == "簡稱" and nonempty_str(a.get("name")) and len(a["name"]) <= 2:
             out.append(("O10", WARN, "alt_names[%d]" % i, "簡稱 %r 長度 ≤2，須確認不與他概念重名" % a["name"]))
+    return out
+
+
+def _institution_ref_problems(rec, reg, dids):
+    """I12：官職具體條之 institution_ref。`COL:<名>` 占位只許凍結名單內（O14 第一步，WARN）；
+    真 id 須為官署條；指 concrete 須與官職 dynasty_ids 相交；指 concept 須 ai_note 標「待補」；
+    指 group 而官職名含部名 WARN。id 不在本庫（草稿指正式庫）時只 WARN，由 build 之懸空檢查兜底。"""
+    out = []
+    ref = rec.get("institution_ref")
+    if ref is None:
+        return out
+    if not nonempty_str(ref):
+        return [("I12", ERROR, "institution_ref", "非空字符串：%r" % (ref,))]
+    if ref.startswith("COL:"):
+        name = ref[4:].strip()
+        if name in COL_PLACEHOLDERS:
+            out.append(("I12", WARN, "institution_ref", "占位 %r 待換真 id" % ref))
+        else:
+            out.append(("I12", ERROR, "institution_ref", "占位 %r 不在凍結名單（新官署須先建條）" % ref))
+        return out
+    if ref not in reg.sub:
+        return [("I12", WARN, "institution_ref", "%r 不在本庫（若指正式庫須確認存在）" % ref)]
+    if not reg.is_inst(ref):
+        return [("I12", ERROR, "institution_ref", "須指 collective_kind=官署 之條：%r" % ref)]
+    t = reg.rec[ref]
+    lv = t.get("institution_level")
+    if lv == "concrete":
+        td = t.get("dynasty_ids") or []
+        if dids and td and not (set(dids) & set(td)):
+            out.append(("I12", ERROR, "institution_ref", "所指官署 %s 之朝代與官職不相交" % t.get("primary_name")))
+    elif lv == "concept":
+        if "待補" not in (rec.get("ai_note") or ""):
+            out.append(("I12", WARN, "institution_ref", "指概念條而 ai_note 未標「待補具體條」"))
+    elif lv == "group":
+        pn = rec.get("primary_name") or ""
+        if re.search(r"[吏戶禮兵刑工]部", pn):
+            out.append(("I12", WARN, "institution_ref", "官名含部名而指合稱條，宜指該部同朝具體條"))
+    return out
+
+
+def _check_institution(rec, reg):
+    """I01–I11（局部＋引用）。只對 collective_kind=官署。"""
+    out = []
+    i = rec["id"]
+    lvl = rec.get("institution_level")
+    if lvl not in INST_LEVELS:
+        return [("I01", ERROR, "institution_level", "官署須為 concept／concrete／group：%r" % (lvl,))]
+    # I08：外部 id、官職專有欄；I11：派生欄
+    for c, lv, f, d in _forbidden_problems(rec, "collective"):
+        out.append(("I08" if c == "E1" else ("I11" if c == "V01" else c), lv, f, d))
+    for k in INST_OFFICE_FIELDS:
+        if k in rec:
+            out.append(("I08", ERROR, k, "官署條不得有官職專有欄"))
+    for k in INST_DERIVED:
+        if k in rec and not k.startswith("_"):
+            out.append(("I11", ERROR, k, "派生欄不入源檔"))
+    pid = rec.get("parent_id")
+    if lvl in ("concept", "group"):
+        for k in INST_CONCRETE_ONLY:
+            if k in rec:
+                out.append(("I02", ERROR, k, "%s 條不得有" % ("概念" if lvl == "concept" else "合稱")))
+        if pid is not None:
+            out.append(("I03", ERROR, "parent_id", "概念條、合稱條不得有"))
+        if lvl == "group" and "group_ids" in rec:
+            out.append(("I02", ERROR, "group_ids", "合稱條不得有（合稱不嵌套）"))
+        if not (nonempty_str(rec.get("description")) or
+                (isinstance(rec.get("description"), dict) and nonempty_str(rec["description"].get("text")))):
+            out.append(("I02", ERROR, "description", "概念條、合稱條必填"))
+    dids = []
+    if lvl == "concrete":
+        dids = rec.get("dynasty_ids")
+        if not (isinstance(dids, list) and dids):
+            out.append(("I02", ERROR, "dynasty_ids", "具體條必有非空數組"))
+            dids = []
+        for d in dids:
+            if reg.sub.get(d) != "dynasty":
+                out.append(("I02", ERROR, "dynasty_ids", "不存在或非 dynasty：%r" % (d,)))
+        for k in ("function", "basis"):
+            if not nonempty_str(rec.get(k)):
+                out.append(("I02", ERROR, k, "具體條必填"))
+        if "待核" in (rec.get("basis") or ""):
+            out.append(("I02", ERROR, "basis", "不得含「待核」"))
+        if pid is not None and not (reg.is_inst(pid) and reg.rec[pid].get("institution_level") == "concept"):
+            out.append(("I03", ERROR, "parent_id", "須指向官署概念條：%r" % (pid,)))
+        # I04 superiors
+        sup = rec.get("superiors")
+        if sup is not None:
+            if not isinstance(sup, list):
+                out.append(("I04", ERROR, "superiors", "非數組"))
+                sup = []
+            for k, x in enumerate(sup):
+                f = "superiors[%d]" % k
+                sid = x.get("id") if isinstance(x, dict) else None
+                if sid == i:
+                    out.append(("I04", ERROR, f, "自指"))
+                    continue
+                if not (reg.is_inst(sid) and reg.rec[sid].get("institution_level") == "concrete"):
+                    out.append(("I04", ERROR, f, "須指官署具體條：%r" % (sid,)))
+                    continue
+                sd = reg.rec[sid].get("dynasty_ids") or []
+                if dids and sd and not (set(dids) & set(sd)):
+                    out.append(("I04", WARN, f, "上級 %s 與本條朝代不相交" % reg.rec[sid].get("primary_name")))
+                for kk in ("start", "end"):
+                    if kk in x and not is_int(x[kk]):
+                        out.append(("I04", ERROR, f + "." + kk, "非整數：%r" % (x[kk],)))
+                if is_int(x.get("start")) and is_int(x.get("end")) and x["start"] > x["end"]:
+                    out.append(("I04", ERROR, f, "start > end"))
+            # 環：沿任一 superiors 上溯
+            stack, seen = [x.get("id") for x in sup if isinstance(x, dict)], set()
+            while stack:
+                x = stack.pop()
+                if x == i:
+                    out.append(("I04", ERROR, "superiors", "隸屬成環"))
+                    break
+                if x in seen or x not in reg.rec:
+                    continue
+                seen.add(x)
+                stack.extend(y.get("id") for y in (reg.rec[x].get("superiors") or []) if isinstance(y, dict))
+        # I06 起訖
+        s, e = rec.get("start"), rec.get("end")
+        for k, v in (("start", s), ("end", e)):
+            if v is not None and not is_int(v):
+                out.append(("I06", ERROR, k, "非整數：%r" % (v,)))
+            elif v == 0:
+                out.append(("I06", ERROR, k, "無 0 年"))
+        if is_int(s) and is_int(e) and s > e:
+            out.append(("I06", ERROR, "start/end", "start > end：%s > %s" % (s, e)))
+        spans = [_span(reg.rec[d]) for d in dids if d in reg.rec]
+        lo = [a for a, _ in spans if is_int(a)]
+        hi = [b for _, b in spans if is_int(b)]
+        if is_int(s) and lo and s < min(lo) - INST_WARN_RANGE:
+            out.append(("I06", WARN, "start", "早於所屬朝代（容差 %d 年）" % INST_WARN_RANGE))
+        if is_int(e) and hi and e > max(hi) + INST_WARN_RANGE:
+            out.append(("I06", WARN, "end", "晚於所屬朝代（容差 %d 年）" % INST_WARN_RANGE))
+    # I05 group_ids
+    gids = rec.get("group_ids")
+    if gids is not None and lvl != "group":
+        if not isinstance(gids, list):
+            out.append(("I05", ERROR, "group_ids", "非數組"))
+            gids = []
+        for g in gids:
+            if not (reg.is_inst(g) and reg.rec[g].get("institution_level") == "group"):
+                out.append(("I05", ERROR, "group_ids", "須指合稱條：%r" % (g,)))
+        if lvl == "concrete" and pid and set(gids) & set((reg.rec.get(pid) or {}).get("group_ids") or []):
+            out.append(("I05", WARN, "group_ids", "與其概念條重複掛同一合稱"))
+    # I09
+    if "location_id" in rec:
+        out.append(("I09", ERROR, "location_id", "第一期禁出現（place 無條目）"))
+    if "succeeds" in rec:
+        out.append(("I09", WARN, "succeeds", "第一期只留字段位，不填"))
     return out
 
 
@@ -452,12 +624,25 @@ def _check_place(rec, reg):
     return out
 
 
+def applies(rec):
+    """本模塊是否檢查此條：四新子類型，或帶 collective_kind 之 collective。"""
+    st = rec.get("subtype")
+    return st in NEW_SUBTYPES or (st == "collective" and "collective_kind" in rec)
+
+
 def check_record(rec, reg):
     """單條新子類型記錄之局部＋引用檢查。回 [(code, level, field, detail)]。
-    非新子類型回 []（含 people／collective，不受影響）。"""
+    非新子類型回 []（people、無 collective_kind 之舊 collective 不受影響）。"""
     st = rec.get("subtype")
-    if st not in NEW_SUBTYPES:
+    if not applies(rec):
         return []
+    if st == "collective":
+        k = rec.get("collective_kind")
+        if k not in COLLECTIVE_KINDS:
+            return [("I01", ERROR, "collective_kind", "不在枚舉：%r" % (k,))]
+        if k != "官署":
+            return []
+        return _check_institution(rec, reg) + _alt_problems(rec)
     out = []
     out += _forbidden_problems(rec, st)
     out += _dates_problems(rec, st)
@@ -540,6 +725,28 @@ def check_global(reg, canonical=None):
         if len(ids) > 1 and k[1]:
             for i in ids:
                 out.append((i, "O11", WARN, "dynasty_ids", "同概念下同朝已有 %d 條具體條" % len(ids)))
+    # I07：同概念下同朝（合併條按展開朝代算）只一條具體條；I10：同名＋朝代重疊之具體條疑重複
+    by_concept, by_name = {}, {}
+    for i, r in reg.rec.items():
+        if not (reg.is_inst(i) and r.get("institution_level") == "concrete"):
+            continue
+        for d in r.get("dynasty_ids") or []:
+            if r.get("parent_id"):
+                by_concept.setdefault((r["parent_id"], d), set()).add(i)
+            by_name.setdefault((r.get("primary_name"), d), set()).add(i)
+    flagged = set()
+    for k, ids in by_concept.items():
+        if len(ids) > 1:
+            for i in sorted(ids):
+                if (i, "I07") not in flagged:
+                    flagged.add((i, "I07"))
+                    out.append((i, "I07", WARN, "dynasty_ids", "同概念下同朝已有 %d 條具體條" % len(ids)))
+    for k, ids in by_name.items():
+        if len(ids) > 1:
+            for i in sorted(ids):
+                if (i, "I10") not in flagged:
+                    flagged.add((i, "I10"))
+                    out.append((i, "I10", WARN, "primary_name", "同名 %r 朝代重疊之具體條 %d 條，疑重複" % (k[0], len(ids))))
     # P09：同名異地組（INFO）、同名同上級疑重複（WARN）
     names = {}
     for i, r in reg.of("place"):

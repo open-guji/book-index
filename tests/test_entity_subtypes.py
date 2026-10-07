@@ -338,3 +338,94 @@ def test_people_unaffected(tmp_path):
     _write(tmp_path, "Entity/1/a/1a-p.json", dict(people("1a"), dates={"birth": 1037, "death": 1101},
                                                   external_ids={"cbdb_id": 1}))
     assert check_v2.main(["--root", str(tmp_path), "--summary"]) == 0
+
+
+# ---- 官署（collective_kind=官署，I01–I12；P3c 設計稿 §十二）
+def inst(i, lvl, **kw):
+    r = {"id": i, "type": "entity", "subtype": "collective", "collective_kind": "官署",
+         "primary_name": "吏部", "institution_level": lvl}
+    if lvl in ("concept", "group"):
+        r["description"] = "x"
+    else:
+        r.update(dynasty_ids=["t"], function="掌銓選", basis="《新唐書·百官志》")
+    r.update(kw)
+    return r
+
+
+IC = inst("ic", "concept")
+IG = inst("ig", "group", primary_name="六部")
+
+
+def test_inst_clean_and_legacy():
+    assert codes(IC) == [] and codes(IG) == []
+    assert codes(inst("i1", "concrete", parent_id="ic", group_ids=["ig"]), IC, IG) == []
+    old = {"id": "c0", "type": "entity", "subtype": "collective", "primary_name": "郵傳部"}
+    assert not es.applies(old) and codes(old) == []  # 舊 collective 不受約束
+    assert codes(dict(old, collective_kind="書院學校")) == []
+    assert has(dict(old, collective_kind="衙門"), "I01")
+
+
+def test_i01_i02_i03():
+    assert has(inst("x", "bad"), "I01")
+    assert has(inst("x", "concept", dynasty_ids=["t"]), "I02")
+    assert has(inst("x", "group", function="x"), "I02")
+    assert has(inst("x", "group", group_ids=["ig"]), "I02", es.ERROR, IG)
+    assert has(inst("x", "concept", description=None), "I02")
+    c = inst("x", "concrete")
+    del c["function"]
+    assert has(c, "I02")
+    assert has(inst("x", "concrete", basis="待核"), "I02")
+    assert has(inst("x", "concrete", dynasty_ids=["nope"]), "I02")
+    assert has(inst("x", "concept", parent_id="ic"), "I03", es.ERROR, IC)
+    assert has(inst("x", "concrete", parent_id="ig"), "I03", es.ERROR, IG)
+    assert not has(inst("x", "concrete", parent_id="ic"), "I03", es.ERROR, IC)
+
+
+def test_i04_superiors():
+    up = inst("up", "concrete", primary_name="尚書省")
+    assert codes(inst("x", "concrete", superiors=[{"id": "up", "start": 700}]), up) == []
+    assert has(inst("x", "concrete", superiors=[{"id": "x"}]), "I04")
+    assert has(inst("x", "concrete", superiors=[{"id": "ic"}]), "I04", es.ERROR, IC)
+    assert has(inst("x", "concrete", superiors=[{"id": "up", "start": 800, "end": 700}]), "I04", es.ERROR, up)
+    sup_s = inst("up2", "concrete", dynasty_ids=["s"])
+    assert has(inst("x", "concrete", superiors=[{"id": "up2"}]), "I04", es.WARN, sup_s)
+    a = inst("a", "concrete", superiors=[{"id": "b"}])
+    b = inst("b", "concrete", superiors=[{"id": "a"}])
+    assert has(a, "I04", es.ERROR, b)
+
+
+def test_i05_i06_i08_i09_i11():
+    assert has(inst("x", "concrete", group_ids=["ic"]), "I05", es.ERROR, IC)
+    c2 = inst("c2", "concept", group_ids=["ig"])
+    assert has(inst("x", "concrete", parent_id="c2", group_ids=["ig"]), "I05", es.WARN, c2, IG)
+    assert has(inst("x", "concrete", start=0), "I06")
+    assert has(inst("x", "concrete", start=900, end=800), "I06")
+    assert has(inst("x", "concrete", start=500), "I06", es.WARN)
+    assert not has(inst("x", "concrete", start=618, end=907), "I06", es.WARN)
+    assert has(inst("x", "concrete", external_ids={"cbdb_id": 1}), "I08")
+    assert has(inst("x", "concrete", rank={"text": "正三品"}), "I08")
+    assert has(inst("x", "concrete", location_id="pl"), "I09")
+    assert has(inst("x", "concrete", succeeds=["y"]), "I09", es.WARN)
+    assert has(inst("x", "concrete", members=["y"]), "I11")
+
+
+def test_i07_i10_global():
+    a = inst("a", "concrete", parent_id="ic")
+    b = inst("b", "concrete", parent_id="ic", dynasty_ids=["t", "s"])
+    g = gcodes(IC, a, b, *BASE)
+    assert ("I07", "WARN") in g and ("I10", "WARN") in g
+    assert ("I07", "WARN") not in gcodes(IC, a, inst("c", "concrete", parent_id="ic", dynasty_ids=["s"]), *BASE)
+
+
+def test_i12_institution_ref():
+    sub = inst("sub", "concrete", primary_name="吏部")
+    o = lambda ref, **kw: conc("of", ["t"], institution_ref=ref, **kw)
+    assert has(o("COL:六部"), "I12", es.WARN)
+    assert has(o("COL:不在名單"), "I12")
+    assert not has(o("sub"), "I12", es.ERROR, sub) and not has(o("sub"), "I12", es.WARN, sub)
+    assert has(conc("of", ["s"], institution_ref="sub"), "I12", es.ERROR, sub)  # 朝代不相交
+    assert has(o("ic"), "I12", es.WARN, IC)
+    assert not has(o("ic", ai_note="暫指概念條，待補唐具體條"), "I12", es.WARN, IC)
+    assert has(conc("of", ["t"], institution_ref="ig", primary_name="吏部尚書"), "I12", es.WARN, IG)
+    assert has(o("p1"), "I12")                 # 非官署
+    assert has(o("nowhere"), "I12", es.WARN)   # 不在本庫（指正式庫）

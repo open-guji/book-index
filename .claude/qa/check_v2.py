@@ -23,7 +23,7 @@
 M0（打 tag）、M5（build）、M6（index/ 重生）不產生源檔殘留，故無代碼。
 
 **專名子類型（dynasty／reign／office／place，overview#464 F6-5）另有一組代碼**：
-E1、D1–D3、R1、A1、O01–O05／O09–O12、P01–P09（V01 對新子類型亦加嚴）。實現在
+E1、D1–D3、R1、A1、O01–O05／O09–O12、P01–P09、I01–I12（官署＝collective_kind 為官署之 collective，及官職 institution_ref）（V01 對新子類型亦加嚴）。實現在
 `.claude/qa/entity_subtypes.py`（verify.py 共用同一份，不寫兩份），碼義見該文件頭與 SCHEMA〈專名子類型〉。
 **級別**：V 系列與專名之 ERROR 計入殘留、決定退出碼；**WARN／INFO 只報不計**——明細 CSV 多一列 `level`，
 summary 分「ERROR」「WARN」「INFO」三段列出，退出碼只看 ERROR。`--errors-only` 令明細也不出 WARN／INFO。
@@ -118,6 +118,12 @@ CODES = {
     "P03": ("place parent_id", "專名"), "P04": ("place dynasty_ids", "專名"),
     "P06": ("place modern", "專名"), "P07": ("place predecessors", "專名"),
     "P08": ("place coords", "專名"), "P09": ("place 同名異地／疑重複", "專名"),
+    "I01": ("官署 collective_kind／institution_level", "專名"), "I02": ("官署 必填／分層禁欄", "專名"),
+    "I03": ("官署 parent_id", "專名"), "I04": ("官署 superiors", "專名"),
+    "I05": ("官署 group_ids", "專名"), "I06": ("官署 start／end", "專名"),
+    "I07": ("官署 同概念同朝重複", "專名"), "I08": ("官署 禁外部 id／官職欄", "專名"),
+    "I09": ("官署 location_id／succeeds", "專名"), "I10": ("官署 同名朝代重疊", "專名"),
+    "I11": ("官署 派生欄", "專名"), "I12": ("官職 institution_ref（含 O14 占位）", "專名"),
 }
 
 
@@ -228,7 +234,7 @@ def check_file(root, relpath, registry=None):
             return [(relpath, "", kind, "V12", "", os.path.basename(relpath), es.ERROR)]
         return []
     rows = [(relpath, rec.get("id", ""), kind, c, f, d, es.ERROR) for c, f, d in check_record(kind, rec)]
-    if kind == "Entity" and rec.get("subtype") in es.NEW_SUBTYPES and registry is not None:
+    if kind == "Entity" and es.applies(rec) and registry is not None:
         rows += [(relpath, rec.get("id", ""), kind, c, f, d, lv)
                  for c, lv, f, d in es.check_record(rec, registry)]
     return rows

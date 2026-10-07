@@ -1352,12 +1352,37 @@ IndexEntry（`indexed_by`／`emendated_by` 共用）见〈二、Work〉的〈Ind
 | `office_class` | 具體 | 職事官／差遣／散官／階官／加官／貼職／寄祿官／祠祿官／勳／爵／本官／試秩／憲官／兼職差遣／未詳 | |
 | `rank`、`salary` | 具體 | `{text, basis}`（自寫） | |
 | `start`、`end` | 具體 | 整數公曆年 | |
-| `institution_ref` | 具體 | collective id | |
+| `institution_ref` | 具體 | 官署條 id（`collective_kind=官署`）；官署條未建前暫寫 `COL:<名>` 占位（只許凍結名單內，見 I12） | |
 | `base_office_id`、`qualifier{kind, name, target?, note?}` | 具體（固定複合） | `base_office_id` 指同朝**具體**條；`kind` ∈ `institution`／`place`／`mode`／`mode+institution` | 複合時 ✔ |
 | `succeeds` | 具體 | 前代概念或具體條 id | 只留字段位，第一期不填 |
 | `basis` | 具體 | 本條依據（自由格式） | 具體 ✔ |
 
 概念條不得有 `dynasty_ids`、`rank`、`salary`、`office_class`、`base_office_id`。複合條與其 base 的 `dynasty_ids` 須相交。
+
+##### `collective`·官署（`collective_kind=官署`，兩層＋合稱；2026-10-07 S 定，overview#464 P3c）
+
+官署不另立 subtype，仍是 `collective`，加 `collective_kind` 區分；**只有 `官署` 受下表約束**，其餘取值與缺 `collective_kind` 之舊條（缺省＝`未分`）照舊。設計與裁定見 overview `項目進展/古籍目錄/整體設計/專名建檔/P3c-官署-設計.md`（§十一 N 裁定、§十二 S 定）。
+
+| 字段 | 適用層 | 取值 | 必填 |
+|---|---|---|---|
+| `collective_kind` | 所有 collective | `官署`｜`書院學校`｜`館局`｜`民間`｜`未分` | 官署 ✔ |
+| `institution_level` | 官署 | `concept`（概念）｜`concrete`（每朝具體）｜`group`（合稱，如六部、東宮） | ✔ |
+| `parent_id` | 具體 | 官署概念條 id（與 office 同義：具體→概念；概念只一級） | 有概念時填；概念、合稱不得有 |
+| `dynasty_ids[]` | 具體 | dynasty id 數組；默認一朝一條，**各字段完全一致**才許多值合併（`ai_note` 標【合併條】） | 具體 ✔ |
+| `function` | 具體 | 本朝職掌（自寫，一句即可） | 具體 ✔ |
+| `basis` | 具體 | 依據（不得含「待核」） | 具體 ✔ |
+| `start`、`end` | 具體 | 整數公曆年；有把握才填 | |
+| `superiors[]` | 具體 | `{id, start?, end?, note?}`，`id` 指同朝**具體**官署條；只寫下級→上級（下屬由 build 派生）；隸屬有變用 `start/end` 分段 | |
+| `group_ids[]` | 概念或具體 | 合稱條 id；成員→合稱單向。跨朝不變掛概念條，隨朝而變掛具體條 | |
+| `description` | 概念、合稱 | 同 Entity 通用 | 概念、合稱 ✔ |
+| `succeeds[]`、`location_id` | 具體 | 第一期**只留字段位**：`succeeds` 不填（承繼寫 `description`）；`location_id` 禁出現 | |
+
+- 概念條、合稱條不得有 `dynasty_ids`、`function`、`basis`、`superiors`、`start`、`end`、`parent_id`；合稱條另不得有 `group_ids`（不嵌套），亦不帶朝代。
+- 不設 `rank`、`institution_class`；不得有官職專有欄（`office_level`、`office_class`、`rank`、`salary`、`base_office_id`、`qualifier`、`institution_ref`）；`external_ids` 只許 `wikidata_id`（同 E1）。
+- 新建官署條不寫舊式 `dynasty`／`period` 字符串（朝代名由 build 自 `dynasty_ids` 派生）。
+- `_children`、`_subordinates`、`_members`、`_offices` 由 build 派生，不入源檔（build 實現排在合 main 之後，屬產物契約改動）。
+- 跨概念同名之別名（如都察院(明) 之「御史臺」）照 office 規則標 `ambiguous: true`。
+- 正式庫已有之官署 collective（兵部、禮部、樞密院…）之原地升格以正式庫補丁為之，**正式庫條不得指草稿 id**。
 
 ##### `place`（地名；第一期只立字段，不建條目）
 
@@ -1382,6 +1407,7 @@ ERROR 計殘留，WARN 只報不計（`check_v2.py` 之 summary 分列）。
 | A1 | `alt_names` 之 `name` 非空、`ambiguous` 為 bool；`ambiguous` 之名全庫 ≥2 條聲稱；無 `ambiguous` 之 dynasty 別名在 dynasty 內全局唯一 | ERROR／WARN |
 | O01–O05、O09–O12 | office：O01 `office_level`；O02 具體條 `dynasty_ids`／`function`／`basis` 與概念條禁字段；O03 `office_class`；O04 `parent_id`；O05 `base_office_id`／`qualifier`／dynasty_ids 相交（指向概念條而無 `ai_note` 為 WARN）；O09 `start/end` 整數且 `start ≤ end`；O10 簡稱長度 ≤2（WARN）；O11 同概念下同朝具體條重複（WARN）；O12 `alt_names[].type` 在枚舉內。O06（CBDB 碼防重）已刪；O07 併入 V01；O08 併入 E1 | ERROR／WARN |
 | P01–P09 | place：P01 `primary_name`、非空 `history`、`level`；P02 項時段；P03 `parent_id` 存在且為 place、不自引、無環，`parent_text` 與 `parent_id` 並存 WARN；P04 `dynasty_ids` 存在；P05 併入 V01；P06 `modern`；P07 `predecessors`；P08 `coords` 出現即失敗；P09 同名異地組（INFO）、同名同上級鏈疑重複（WARN） | ERROR／WARN／INFO |
+| I01–I12 | 官署（`collective_kind=官署`）：I01 `collective_kind`／`institution_level` 枚舉；I02 具體條 `dynasty_ids`／`function`／`basis`（不含「待核」）必填、概念與合稱禁欄、概念與合稱 `description` 必填；I03 `parent_id` 指官署概念條；I04 `superiors` 指同朝具體條、不自指、無環、`start/end`（朝代不相交 WARN）；I05 `group_ids` 指合稱條（與概念條重複掛 WARN）；I06 `start/end` 整數、無 0 年、`start ≤ end`（越出朝代 5 年 WARN）；I07 同概念同朝重複（WARN）；I08 外部 id 與官職專有欄；I09 `location_id` 禁、`succeeds` 出現 WARN；I10 同名朝代重疊疑重複（WARN）；I11 派生欄；I12 官職 `institution_ref`：須指官署條、指具體條須朝代相交、指概念條須 `ai_note` 標「待補」（WARN）、官名含部名而指合稱（WARN）、id 不在本庫（WARN）；`COL:<名>` 占位在凍結名單內 WARN、名單外 ERROR（O14 第一步；替換 PR 合入後改為一律 ERROR） | ERROR／WARN |
 | V01 | 源檔出現 `_` 起首或 `children`、`reigns`、`index_in_reign` 等派生／反向字段（新子類型不享 `_has_text`／`_has_collated` 豁免） | ERROR |
 
 > 口徑（S 預審，2026-10-07）：上下級區間不合（如戰國止年晚於東周、北朝起年早於南北朝）、年號越出所屬朝代區間，一律 WARN，不是 ERROR。
