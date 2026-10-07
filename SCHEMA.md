@@ -1,104 +1,130 @@
-# book-index Schema
+# book-index Schema（schema-v2）
 
-本文是 `book-index` / `book-index-draft` / `book-text` 三仓字段级 Schema 的唯一权威。
-概念模型（Work / Book / Collection / Entity 四类实体及其关系）见 overview 仓
-`项目进展/古籍索引网站/整体设计/整体设计.md`；录入约定（related_works 字典、字段填写规则等）
-见 overview 仓 `项目进展/古籍索引网站/整体设计/录入规范.md`。
+本文是 `book-index` / `book-index-draft` / `book-text` 三仓字段级 Schema 的唯一权威（`book-index-draft/SCHEMA.md` 只是指向本文的指针）。
+概念模型见 overview 仓 `项目进展/古籍索引网站/整体设计/整体设计.md`；录入约定见 overview 仓 `项目进展/古籍目录/整体设计/录入规范.md`（两份文档若与本文冲突，以本文为准；它们按 F2-7 §九 C1／C2 另行改写）。
+
+**本版（schema-v2，2026-10-07 起）的设计依据**都在 overview 仓 `项目进展/古籍目录/进度/F-数据结构/`：
+`F2-1-关系清单.md`、`F2-2-谁存哪一边.md`、`F2-3-build与派生字段.md`、`F2-7-迁移方案.md`、`F3-2-设计与备选.md`、`F3-3-revision口径.md`；
+决定过程见 overview#451。本文与这几份设计文档有出入时，**以设计文档为准并回来改本文**。
+迁移期间新旧两套写法并存的对照，见文末〈附一 新旧字段对照表〉；还没有结论的点见〈附三 待定项〉。
 
 ---
 
-## Proposed JSON Schema Design
+## 〇、总则：源数据与构建产物
 
-Each entity (`Work`, `Collection`, `Book`) will have a corresponding JSON structure. 
+| # | 规则 | 一句话 |
+|---|---|---|
+| 1 | **一个事实只写一次** | 源数据里一条关系只存一侧；反向、计数、对方题名等展示副本全部由 build 生成。 |
+| 2 | **成对关系只写规范方向** | `part_of`／`studies`／`contains_text_of`／`preceded_by` 写在本侧；`has_part`／`studied_by`／`text_carried_by`／`followed_by` 只在构建产物里出现。见〈七、关联词表〉。 |
+| 3 | **对称关系存 id 较小的一侧** | `related_works` 的 `related`、`Book.related_books`、`Collection.related_books`／`related_collections`：两条记录 id 按**字符串比较**（Python `a < b`），写在较小者里；另一侧由 build 补。由工具（`bim link`）落笔，人不手选。 |
+| 4 | **源档不写 `_` 起首字段** | `_` 起首的都是派生字段，只出现在构建产物 `_build/entry/<id>.json` 里；源档里出现即校验失败（`check_v2.py` V01）。无下划线的旧派生字段（`has_text`、`promoted_to`…）同样不写（V02）。 |
+| 5 | **不写派生／反向列表** | 不写 `Work.books`、`Collection.books`、`Collection.contained_works`、`Entity.works`、`related_works[].title`。成员关系写在成员一侧（`Book.work_id`、`Book.contained_in`、`Work.contained_in`、`Work.authors[].entity_id`）。 |
+| 6 | **`authors[].role` 必填**（Work） | 不写 role 曾造成 Work 与 Entity 两侧角色不一（F2-1：3,957 条）。 |
+| 7 | **分类不在 Work 里** | 分类归属写在 `classification/<分类法>/members/<节点>.json`，Work 档里不写 `classification`。见〈八、分类〉。 |
+| 8 | **`_build/` 是构建产物，不是源** | `build/build_derived.py` 读源档生成 `_build/`（不进 git）；`_build/entry/<id>.json`＝源记录＋全部 `_` 派生字段，是网站与 bim 读的「页面就绪条目」。`index/` 也由它生成。见〈九、构建产物〉。 |
+| 9 | **读者新旧兼容，先切后拆** | 网站与 bim 读者「新字段（`_x`、类档）优先，没有就回退旧字段」；数据切换之后再删回退分支。build **不产出旧字段别名**（如不再产出 `classification`）。 |
+| 10 | **revision 只管「作品是什么」的陈述** | 派生字段、分类归属、反向链变化不 bump `revision`；迁移脚本一律不改 `revision`／`revised_at`。见〈十、记录之共通字段〉。 |
 
-### 1. Work Schema
-Represents the abstract intellectual content.
+**校验**：
+- `.claude/qa/check_v2.py`：查源档里的旧格式残留（V01–V13，代码表见脚本头注释与〈附一〉），只读、可 `--paths` 只查 PR 改动的文件。审数据 PR 时必跑：`git diff --name-only origin/main... | python3 .claude/qa/check_v2.py --paths -`，退出码非 0 即有残留。迁移（M1–M4）完成前，存量会大量报出，这是预期。
+- `.claude/qa/verify.py`：字段形状、悬空引用、词表等（旧校验，迁移完成后改为调用 build 自校验，F2-7 §九 B8）。
+
+---
+
+## 一、仓里有什么文件
+
+| 路径 | 是什么 | 源／产物 |
+|---|---|---|
+| `Work/{c1}/{c2}/{c3}/{id}-{题}.json` | 作品记录 | 源 |
+| `Work/…/{id}/collated_edition/`、`…/fragments/` | 整理本、辑佚档（不是记录，见〈二·附〉） | 源 |
+| `Book/…/{id}-{题}.json` | 版本记录 | 源 |
+| `Collection/…/{id}-{题}.json` | 丛编记录 | 源 |
+| `Entity/…/{id}-{名}.json` | 人物等实体记录 | 源 |
+| `classification/schemes.json`、`classification/<分类法>/tree.json`、`…/members/<节点>.json` | 分类法登记、分类树、各类成员 | 源（只经 `bim classify` 写） |
+| `promotions.json` | 草稿 id → 正式 id 对照，升格的唯一权威 | 源 |
+| `classific.json` | 旧分类词表；schema-v2 起由 `classification/zongmu/tree.json` 生成，退役中 | 产物 |
+| `index/**` | 检索用扁平摘要 | 产物（build 生成，不手改） |
+| `_build/**` | 页面就绪条目与分页大列表 | 产物（不进 git） |
+| `Collection/**/volume_book_mapping.json`、`zhsy_book_mappings.json` 等 sidecar | 旧的叢编册号对照表 | **废止**：迁移 M1 并入记录、M3 删除（F2-7 §六·附）。`check_v2.py` V12 |
+| `resource*.json`、`recommended.json` | 资源站点目录、首页推荐 | 源（非记录） |
+
+---
+
+## 二、Work（作品）
+
+一部作品的抽象知识内容，不随版本而变。
+
+### 字段表
+
+「谁存」一栏：**本档**＝写在这条 Work 源档里；**他档**＝关系存在对方记录里，本档不写；**build**＝只在 `_build/entry/<id>.json` 里。
+「必填」：✔＝必填；空＝可选（缺省即未考／无，不写占位值）。
+
+| 字段 | 谁存 | 取值 | 必填 | 示例 |
+|---|---|---|---|---|
+| `id` | 本档 | 正式库 12 字符、草稿库 13 字符 base36（见〈十一、ID〉） | ✔ | `"1evl7l48e27ls"` |
+| `type` | 本档 | 恒为 `"work"` | ✔ | `"work"` |
+| `schema_version` | 本档 | 整数，主记录现为 `1` | ✔ | `1` |
+| `title` | 本档 | 规范题名，繁体 | ✔ | `"周易"` |
+| `subtype` | 本档 | `book`（默认，可省）｜`article`｜`poem`｜`chapter`，见〈Subtype〉 | | `"chapter"` |
+| `additional_titles` | 本档 | 同书异名，字符串数组 | | `["春秋左氏傳"]` |
+| `original_title` | 本档 | 条目原题与规范题不同时记原题 | | `"毛詩義問"` |
+| `title_basis`、`title_emendation` | 本档 | 题名订正的依据与说明 | | |
+| `authors[]` | 本档 | `{name, role, dynasty?, entity_id?, source?}`；**`role` 必填**（撰／注／編／舊題撰…）；`entity_id` 指 Entity，Entity 页的作品列表由它反查 | ✔（有撰人时） | `[{"name":"蘇軾","role":"撰","dynasty":"北宋","entity_id":"12x…"}]` |
+| `dynasty`、`dynasty_basis` | 本档 | 作品成书朝代（规范名，见〈`dynasty` 規範化〉）与判断依据 | | `"北宋"` |
+| `period`、`period_basis` | 本档 | 时代轴枚举（见〈`period`〉）与依据 | | `"song"` |
+| `period_upper`、`period_upper_basis` | 本档 | 时代上限 | | |
+| `description` | 本档 | Description 对象 `{text, sources}`，面向读者 | | |
+| `juan_count` | 本档 | `{number, unit?, description?}` | | `{"number":10,"unit":"卷"}` |
+| `measures`、`measure_info` | 本档 | 多维计量数组、展示文本 | | `"四卷二十回"` |
+| `additional_works` | 本档 | 主体之外各自计卷的部分 `{book_title, n_juan}` | | |
+| `publication_info` | 本档 | `{year, details}` | | |
+| `page_count`、`current_location`、`collection_scale`、`appendix` | 本档 | 零星在用（各 ≤4 条），形状同 Collection／Book 同名字段 | | |
+| `loss_status`、`loss_status_basis`、`loss_status_note` | 本档 | 存佚枚举 `lost`｜`partially_extant`｜`extant`｜`undetermined` | | `"lost"` |
+| `authenticity`、`authenticity_basis` | 本档 | 唯一值 `forged`，只在确定是伪书时写 | | |
+| `indexed_by[]` | 本档（被著录一侧） | IndexEntry，见〈IndexEntry〉；`source_bid` 必须指向存在的志书 Work；顺序有意义（同源多条按原序），不可按内容去重 | | |
+| `emendated_by[]` | 本档 | IndexEntry，考证／校勘类著作对本书的订正 | | |
+| `contained_in[]` | 本档（成员一侧） | `{id, volume_index?}`：本作品收入哪个 Collection | | `[{"id":"8rl…","volume_index":3}]` |
+| `related_works[]` | 本档（规范方向一侧） | `{id, relation, note?}`；`relation` 只用〈七〉的「源档可写」词；**不写 `title`**；两侧原各有 note 者迁移时拼成一条 | | `[{"id":"1evl7l48e27ls","relation":"contains_text_of"}]` |
+| `preferred_book` | 本档 | Book ID，单值，「推荐版本」；取代旧 `books` 的手排顺序（`_books` 按年代排） | | `"11q…"` |
+| `version_graph` | 本档 | 手绘版本传承图（人工策展，6 条） | | |
+| `resources[]`、`resource_groups` | 本档 | 同 Book，见〈resources 的 group 字段〉 | | |
+| `sources[]` | 本档 | Source 对象 | | |
+| `merged_in[]` | 本档（keeper 一侧） | 并条事件日志 `{id, title, at, by, rule, why}`，不是关系，不可派生 | | |
+| `merged_from`、`merged_into`、`merge_history` | 本档 | 并条账；`merged_into` 只在墓碑上 | | |
+| `ai_note`、`todo`、`review` | 本档 | 见〈ai_note 的用法〉〈記錄之共通欄位〉 | | |
+| `revision`、`revised_at`、`updated_at` | 本档 | 见〈十、記錄之共通欄位〉 | ✔（`revision`） | `"1.0.0"` |
+| ~~`books`~~ | 他档：`Book.work_id` | build 生成 `_books`、`_edition_count` | 不写 | |
+| ~~`classification`~~ | 他档：`classification/<分类法>/members/` | build 生成 `_classifications` | 不写 | |
+| ~~`related_works[].title`~~、~~反向词~~ | build | `_related`（双向展开、带对方现行题名） | 不写 | |
+| `_` 起首一切 | build | 见〈九〉 | **源档不写** | |
+
+### 示例（新格式）
 
 ```json
 {
-  "id": "string (e.g., GXyzYmA7iJb)",
+  "schema_version": 1,
+  "id": "1evd0000000ab",
   "type": "work",
-  "subtype": "string (book | article | poem | chapter, default: book)",
-  "title": "string (Chinese title)",
-  "additional_titles": ["string (同書異名/別稱，如《左傳》=《春秋左氏傳》=《春秋左傳》)"],
-  "description":  "Description (object)",
-  "authors": [
-    {
-      "name": "string",
-      "role": "string (e.g., author, annotator, editor)",
-      "dynasty": "string (optional)",
-      "source": "Source"
-    }
+  "title": "周易鄭玄注",
+  "authors": [{"name": "鄭玄", "role": "注", "dynasty": "東漢", "entity_id": "1j9…"}],
+  "dynasty": "東漢",
+  "period": "qin-han",
+  "period_basis": "據 authors[0].dynasty「東漢」",
+  "juan_count": {"number": 9, "unit": "卷"},
+  "measure_info": "九卷",
+  "loss_status": "partially_extant",
+  "indexed_by": [
+    {"source": "隋書經籍志", "source_bid": "1ev…", "title_info": "周易九卷後漢大司農鄭玄注", "summary": "…", "section": "經部/易"}
   ],
-  "books": ["string (List of Book IDs)"],
-  "related_works": [
-    {
-      "id": "string (Work ID)",
-      "title": "string (Work title, for display — 應與目標 Work 的 title 一致)",
-      "relation": "string (見下文「關聯詞表」)",
-      "note": "string (optional, 說明此關聯的性質或限度)"
-    }
-  ],
-  "additional_works": [
-    {
-      "book_title": "string (sub-work title within this work)",
-      "n_juan": "integer (number of juan)"
-    }
-  ],
-  "measures": [
-    {
-      "unit": "string (計量單位：卷|回|集|編|篇|則|段|節|部|册 等)",
-      "number": "integer (數量)",
-      "note": "string (optional, 僅存計量相關信息，如「每集五回」)"
-    }
-  ],
-  "measure_info": "string (optional, UI 直接展示文本，應與 measures 一致，例：「四集（每集五回）二十回」)",
-  "juan_count": {
-    "number": "integer (計量之數——不一定是卷數，見 unit)",
-    "unit": "string (optional, 這個數的單位，枚舉：卷|冊|篇|回|集|編|種|則|部|章|函|首|筆|期|節|帙|弄|件。全庫回填前可以沒有這個鍵，缺鍵時渲染層不應再預設「卷」)",
-    "description": "string (optional, 如「存三卷」「原十卷今殘」)"
-  },
-  "original_title": "string (optional, 條目原題與規範題不同時記原題，如《毛詩義問劉楨撰》→「毛詩義問」)",
-  "dynasty": "string (optional, 作品成書朝代；與 authors[].dynasty 不同，後者是作者所屬朝代)",
-  "indexed_by": [] // type: IndexEntry，見下文
-  "emendated_by": [] // type: IndexEntry，考證／校勘類著作對本書的校訂條目
-  "contained_in": [
-    {
-      "id": "string (Collection ID)",
-      "volume_index": "string | integer | array (optional, 在該叢編中的冊次／卷次)"
-    }
-  ],
-  "publication_info": {
-    "year": "string (年份或朝代)",
-    "details": "string"
-  },
-  "version_graph": {
-    "enabled": "boolean",
-    "title": "string",
-    "description": "string",
-    "...": "版本傳承圖資料，供前端渲染"
-  },
-  "_has_text": "boolean (派生：resources[].types 含 text)",
-  "_has_image": "boolean (派生：resources[].types 含 image)",
-  "_has_collated": "boolean (派生：存在 collated_edition 整理本)",
-  "_edition_count": "integer (optional, 派生：掛在本 Work 下的 Book 數，由 Book.work_id 反查；=0 不寫。見下「_edition_count（Work）」)",
-  "classification": "object (optional, 四部分類。見下「classification（四部分類）」)",
-  "loss_status": "string (optional, 存佚。枚舉見下「loss_status 枚舉」。欄位不存在 = 今存或未考，不必寫)",
-  "authenticity": "string (optional, 唯一值 forged。**只在確定是偽書時才寫**，欄位不存在 = 無此疑義。見下「authenticity」)",
-  "authenticity_basis": "string (optional, 判偽之據，引提要或解題原文)",
-  "promoted_to": "string (Production ID，本草稿記錄已升格；權威來源為 promotions.json)",
-  "promoted_at": "string (ISO 8601 時間戳)",
-  "ai_note": "string (optional, 建檔／整理過程的自注：資料來源、存疑、待辦。非面向讀者的正文)",
-  "todo": [], // optional, 見〈記錄之共通欄位〉「todo」
-  "review": "object (optional, 見〈記錄之共通欄位〉「review」)",
-  "sources": [] // type: Source
+  "related_works": [{"id": "1evl7l48e27ls", "relation": "contains_text_of"}],
+  "revision": "1.0.0",
+  "revised_at": "2026-10-07T00:00:00Z"
 }
 ```
 
-**已刪之欄位**：`book_contained_in`、`parent_works`、`resource_groups`（Work 層）——見「記錄之共通欄位」節。
-`book_contained_in` 的設計仍然有效（見下文說明），但實際錄入一律走 `contained_in`；
-Work 層的 `parent_works` 已由 `related_works[].relation == "part_of"` 取代；
-`resource_groups` 目前只在 Book 層使用。
+它在 `_build/entry/1evd0000000ab.json` 里会多出 `_related`（含《周易》题名、方向 `out`）、`_catalogs`（隋志的作者朝代）、`_authors`（鄭玄的 Entity 摘要）、`_classifications`（若在某类档里）等；《周易》的产物里则出现一条方向 `in` 的 `text_carried_by` 指向本条——**《周易》的源档一个字不动**。
+
+### 各字段细则
 
 #### 整理本 section 的四個指涉欄位
 
@@ -291,73 +317,6 @@ Work 層的 `parent_works` 已由 `related_works[].relation == "part_of"` 取代
 `period_basis` 須寫明「舊題某某（某代），實某代作，據某某」。
 故《關尹子》：`period: song`、`authenticity: forged`、
 `authors[0]` 尹喜·先秦·舊題撰——三層信息各得其所。
-
-#### `classification`（分類，2026-09-27 增；**2026-09-30 起改用《中國古籍總目》類表**）
-
-```json
-"classification": {
-  "l1": "史部", "l2": "紀傳類", "l3": "", "l4": "",
-  "basis": "S", "source": "欽定四庫全書總目"
-}
-```
-
-- **形狀照 data_new（v2）**：`l1`／`l2`／`l3`／`l4` 四級，字符串，未定之級留空串 `""`
-  （不用 `null`，不省鍵——與全庫既有 `null_rule` 之慣例一致：未知一律空串）。
-- **詞表**：`classific.json`（與本檔同目錄）。**2026-09-30 起以《中國古籍總目》（中華書局／
-  上海古籍，2009–2013）分類目錄為準**（用戶 09-30 定「就用總目這一套」）：**5 部**（經、史、
-  子、集、**叢書部**）、57 類、732 行叶子路徑。轉錄原文與生成規則見 overview
-  `項目進展/古籍目錄/新的Schema設計/參考/中國古籍總目-分類目錄.md`、`總目詞表/README.md`。
-  寫入的 `l1`／`l2`／`l3`／`l4` 組合必須整條或其前綴能在詞表裡查到（校驗見下）。
-  - `l1`＝部，`l2`＝類，`l3`＝屬（禮、春秋、四書三類的 `l3` 是「經」，如「周禮」，其下 `l4` 為
-    「正文之屬」等），`l4`＝屬下細目。總目更深一層（如總集叢編之屬〔各體／分體〕下的通代、斷代）壓平。
-  - **「未分類」規則（用戶 09-30 定）**：不好分的，放到最近一層，並在其下用「**未分類**」承接：
-    每部有 `l2 = "未分類"`（如 `集部／未分類`），每個有屬的類有 `l3 = "未分類"`，每個有細目的屬有
-    `l4 = "未分類"`。待日後按總目原文再分。
-  - 總目「附錄」（緯書之屬、易占之屬等）的子項提升一層，不保留「附錄」節點。
-  - **增補（總目沒有、本庫保留）**：別集類「民國之屬」。金、元合為「金元之屬」（總目原樣）。
-  - 各部的「總類」（經、史、子）同名，`l2` 不再全庫唯一；按 `(l1,l2)` 對。
-  - **暫缺**：方志類按省、府州兩級（舊 331 個第四級）本輪未帶入，方志類現只有總目的叢編之屬、地志之屬。
-- **`basis`**：`S`／`A`／`B`／`C`，標本條分類的依據強弱，供覆核優先序：
-  - `S`：《欽定四庫全書總目》整理本（book-text，只讀）的類目標題，按卷內順序帶到
-    其下各書，與本庫 `indexed_by[].source_bid` 指向同一整理本的著錄以書名比對匹配；
-  - `A`：`indexed_by[].section` 與詞表 `l2`／`l3` 同名（已歸一簡繁、異體）；
-  - `B`：`section` 經對照表換算得出（如「雜傳」→傳記類、「醫方」→醫家類）；
-  - `C`：只能判定到 `l1`（部），`l2` 以下留空——多見於來源只泛標「經部」「子部」
-    這類無法再細分的情形。
-  - 各源相衝突（不同來源判定的 `l1` 不同）之條目**一律不寫** `classification`，
-    見 `.claude/qa/S1-分类冲突清单.json`。
-  - **09-30 遷移**：舊詞表→總目詞表的 2,439 部只改路徑，**`basis`／`source` 不動**（`source` 裡的
-    類目原文仍是當時來源的原文，不隨詞表改名）。`basis`／`source` 的細化（`source` 記到 juan 文件
-    ＋類目原文、原典結構繼承新增 basis）另案，未定。
-- **`source`**：本條分類取自哪部目錄書／哪一條 `indexed_by` 的 `section` 原文
-  （如「欽定四庫全書總目」，或「經義考/易」這類「來源／section」格式），供覆核時
-  回查原文。
-- **歸屬規則（09-30 起按總目；此前 09-27 的「通俗小說入集部、說叢類、集評類、詔令奏議拆分」作廢）**：
-  | 舊詞表／四庫類目 | 現行歸屬（總目） |
-  |---|---|
-  | 小說（**文言筆記與白話小說皆在子部**） | 子部／小說類：文言之屬（筆記、短篇）、白話之屬（短篇、長篇）。集部**無**小說類 |
-  | 詩文評 | 集部／詩文評類（無屬）。詞話在詞類·詞話之屬，曲話在曲類·曲評曲話之屬 |
-  | 詔令奏議 | 史部／詔令奏議類（詔令之屬、奏議之屬） |
-  | 職官 | 史部／政書類·職官之屬（不是獨立類） |
-  | 正史 | 史部／紀傳類 |
-  | 詞曲 | 集部／詞類、曲類分立；**舊「詞曲類」142 部暫放 `集部／未分類`**，待按總目原文再分 |
-  | 別史、載記、外國史 | 總目**無此三類**；別史 305 部、載記 93 部暫放 `史部／未分類` |
-  | 爾雅 | 總目單立爾雅類；本輪未拆，仍在經部小學類（待按書名拆） |
-  | 家譜 | 總目單立史部／譜牒類；本輪無 `l3=家譜` 的數據可移 |
-  | 石經 | 經部／總類·石經之屬 |
-  | 耶穌教、回回教 | 子部／諸教類·基督教之屬／伊斯蘭教之屬（另有民間宗教之屬） |
-  | 西學譯著 | 子部／新學類（約 30 屬） |
-  | 存目＝亡佚只存著錄 | 與本欄位無關，見 `loss_status = lost`（供網站狀態色，語義見 35 卡 §六·3） |
-  | 丛編（Collection） | 叢書部（雜纂、輯佚、郡邑、氏族、獨撰五類）；**細則搁置，Collection 是否掛 `classification` 未定** |
-- **校驗**：`.claude/qa/verify.py` 的 `classification 值不在詞表` 一項——凡有
-  `classification` 的 Work，其 `l1`／`l2`／`l3`／`l4` 組合（或前綴）須能在
-  `classific.json` 中查到，否則算敗。
-- **範圍**：本欄只人工／半自動回填**部分**條目，**沒有 `classification` 鍵不代表未分類失敗，只代表
-  尚無可靠依據**。
-  任務書：overview `項目進展/總調度/古籍索引三塊/任務書/S1-Work分類吸收.md`；
-  進度報告：overview `項目進展/古籍目錄/進度/S1-Work分類吸收.md`；
-  **09-30 詞表遷移**：overview `項目進展/古籍目錄/新的Schema設計/中國古籍總目與詞表對比.md`、`總目詞表/`；
-  腳本 `.claude/qa/s1/c1b_migrate.py`（可重跑，冪等）。
 
 #### `period`（時代軸，2026-08-06 增）
 
@@ -761,11 +720,6 @@ catalog_bound 之真價值在**驗證**（實測查出 437 條 `period` 逾限�
 
 Book 的 `indexed_by` 與 Work 的 `indexed_by` 同結構，記錄該具體版本被目錄書/志書/考證書著錄的條目。場景：通俗小說書目這類目錄書中按版本著錄的條目（如「乾隆甲戌本脂硯齋重評石頭記」「王希廉評紅樓夢一百二十回」）應掛在對應的 Book 上，而非新建 Work。
 
-`book_contained_in`（**設計保留，庫中未使用**）原擬作 **Work → book_collection 的临时挂载点**，记录"某丛编中收有此作品的某具体本"而尚未拆分成独立 Book 条目。它与 `indexed_by` 的关键区别：
-- `indexed_by`：作品被**目录书/志书/考证书**（也是 Work，描述性著作）著录，记录的是文献学引证。
-- `book_contained_in`：作品被**藏品丛编/影印丛编**（Collection.subtype=book_collection）收录，记录的是某个具体藏本/版本，**应当**最终拆分为独立 Book + Book.contained_in 指向该 Collection。
-
-實際錄入未走這條臨時通道：叢編收錄一律直接記在 `Work.contained_in`（作品層，指向 Collection ID），或升格為獨立 Book 後記 `Book.contained_in`。新資料請沿用 `contained_in`，勿再啟用 `book_contained_in`。
 
 `measures` 用於補充 `juan_count`，適合通俗小說等需要多維計量（卷+回+集+篇）的作品。
 
@@ -896,196 +850,88 @@ Book 的 `indexed_by` 與 Work 的 `indexed_by` 同結構，記錄該具體版�
 
 **向后兼容**：所有不带 `group` 的现有 resource 保持原扁平展示。
 
-### 2. Collection Schema
-Represents a collection or series that contains multiple books or other collections.
+---
 
-```json
-{
-  "id": "string (e.g., FCPFFgib9Pd)",
-  "type": "collection",
-  "subtype": "string (work_collection | book_collection)",
-  "title": "string",
-  "description":  "Description (object)",
-  "contained_in": ["string (Parent Collection IDs)"],
-  "authors": [
-    {
-      "name": "string",
-      "role": "string",
-      "dynasty": "string",
-      "source": "Source"
-    }
-  ],
-  "publication_info": {
-    "year": "string",
-    "details": "string",
-    "source": "Source"
-  },
-  "current_location": "Location (object)",
-  "books": ["string (List of Book IDs)"],
-  "contained_works": [
-    {
-      "id": "string (Work ID)",
-      "title": "string (for display)",
-      "volume_index": "integer | array (optional, 在本叢編中的冊次；跨多冊時用陣列)"
-    }
-  ],
-  "contains": [
-    {
-      "type": "string (preface | subwork | selected_from | ...)",
-      "title": "string",
-      "work_id": "string (optional)",
-      "book_id": "string (optional)",
-      "collection_id": "string (optional)",
-      "scope": "string (該組成部分的範圍說明)",
-      "position": "string (前置 | 後附 | ...)",
-      "note": "string (optional)"
-    }
-  ],
-  "work_id": "string (optional, 本叢編整體對應的傘狀作品，如《武英殿十三經注疏》→《十三經注疏》)",
-  "editors": [],
-  "publisher": "string",
-  "publish_year": "string",
-  "total_volumes": "integer",
-  "total_works": "integer",
-  "sections": [{ "name": "string (叢編分部，如「唐宋編」「經部」)" }],
-  "additional_titles": ["string"],
-  "edition": "string (版本名)",
-  "juan_count": { "number": "integer", "description": "string" },
-  "page_count": { "number": "integer", "description": "string" },
-  "count": {
-    "juan": "integer | null (卷数)",
-    "ce": "integer | null (册数)",
-    "zhong": "integer | null (种数，收书种数)",
-    "han": "integer | null (函数)",
-    "source": "string (依据，写明数据取自何处、有无估算或订正)"
-  },
-  "_member_type": "string (Work | Book | Collection | mixed，派生，见下)",
-  "_member_count": "integer (optional, 派生：books+contained_works 长度和，=0 不写，见下「_member_count（Collection）」)",
-  "indexed_by": [] // type: IndexEntry
-  "related_books": ["string (Book IDs)"],
-  "related_collections": ["string (Collection IDs)"],
-  "resources": [] // 與 Book.resources 同結構
-  "promoted_to": "string", "promoted_at": "string",
-  "ai_note": "string",
-  "todo": [], "review": {},  // optional，見〈記錄之共通欄位〉
-  "sources": [] // type: Source
-}
-```
+## 三、Collection（丛编）
 
-**Collection 的三種成員列表，語義不同，不可互換**：
-- `books`：成員是具體版本（Book ID 陣列）。
-- `contained_works`：成員是作品（影印／彙編叢書按作品收錄時用，帶冊次）。
-- `contains`：本叢編的**結構組成部分**（聖諭、進表、總目、選印來源等），不是平列成員。
+一部丛书、丛编或影印汇编。**成员只有一种来源：成员一侧的 `contained_in`**（`Book.contained_in[].id`、`Work.contained_in[].id`、子丛编的 `Collection.contained_in`）。丛编档里不再列成员。
+
+### 字段表
+
+| 字段 | 谁存 | 取值 | 必填 | 示例 |
+|---|---|---|---|---|
+| `id`、`type`、`schema_version` | 本档 | 同 Work；`type` 恒为 `"collection"` | ✔ | |
+| `subtype` | 本档 | `work_collection`｜`book_collection`，见〈Subtype〉 | ✔ | `"book_collection"` |
+| `title`、`additional_titles` | 本档 | | ✔（`title`） | `"欽定四庫全書·文淵閣本"` |
+| `description` | 本档 | Description 对象 | | |
+| `authors[]`、`editors`、`publisher`、`publish_year` | 本档 | 编者、出版者；`authors[]` 形状同 Work（`role` 建议写，见〈附三〉） | | |
+| `publication_info`、`dating`、`edition` | 本档 | 出版信息；`dating` 形状同 Book | | |
+| `current_location`、`holder` | 本档 | Location 对象；`holder` 现藏机构名 | | |
+| `count` | 本档 | `{juan, ce, zhong, han, source}`，见下；至少一项非空才写 | | `{"juan":null,"ce":820,"zhong":24,"han":null,"source":"…"}` |
+| `juan_count`、`page_count`、`measures`、`measure_info`、`total_works`、`total_volumes`、`sections` | 本档 | 规模与分部；`sections: [{name}]` | | |
+| `contains[]` | 本档 | 本丛编的**结构组成部分**（圣谕、进表、总目、选印来源等）`{type, title, work_id?, book_id?, collection_id?, scope?, position?, note?}`，**不是成员** | | |
+| `work_id` | 本档 | 本丛编整体对应的伞状作品（7 条） | | `"1ev…"`（《十三經注疏》） |
+| `contained_in` | 本档（子丛编一侧） | **Collection ID 字符串数组**（注意：与 Book／Work 的对象数组形状不同） | | `["8rlcsybg2hih"]` |
+| `indexed_by[]` | 本档 | IndexEntry | | |
+| `related_books`、`related_collections` | 本档（id 较小一侧） | 对称关系，ID 字符串数组；只存 id 较小一侧 | | |
+| `resources[]` | 本档 | 同 Book | | |
+| `sources`、`ai_note`、`todo`、`review`、`revision`、`revised_at`、`updated_at` | 本档 | 共通字段 | | |
+| ~~`books`~~、~~`contained_works`~~ | 他档：成员的 `contained_in` | build 生成 `_members`（分页）、`_member_count`、`_member_type` | 不写 | |
+| ~~`classification`~~ | — | **Collection 不分类**（用户 10-07 定） | 不写 | |
+
+**成员关系的数据跟着成员走**：册次（`volume_index`）、该书在本丛编里附带的子目（`sub_items`）写在成员的 `contained_in[]` 项里；部类（`section`）写在 `Book.section`。叢编增减成员**不改**丛编档，也不 bump 丛编的 `revision`。
 
 **`count`（卷／册／种／函分列）**：吸收自 data_new v2 設計（overview `35-data_new詳細對比.md` §四·8、§七·2·3），是網站「收錄進度」狀態色要用的「應收總數」。
 - 四項互不隱含、各自可空：`juan`＝卷數、`ce`＝冊數、`zhong`＝收書種數、`han`＝函數（多見於《四庫全書》寫本按函裝箱）。整數或 `null`，**至少一項非空才寫本欄位**，未知一律 `null`，不可用 0 佔位（0 隱含「不分卷」等實際語義，與「未知」不同）。
 - `source` 必寫，說明數據取自何處（哪個既有欄位、`description` 原文的哪句話、是否為約數、是否經過訂正）。約數（原文帶「約」「餘」）可以照填，在 `source` 註明是約數；多說並存或量小而相對不確定（如「十餘種」）則本欄位留空，另在校驗腳本的拿不准清單中列出，不臆定。
 - 與既有欄位不是同一件事，不互相取代：`juan_count`（頂層）曾被拿來塞冊數（如百衲本「820」實為 820 冊而非 820 卷），是歷史誤記，發現後訂正為 `null`，正確的冊數改記到 `count.ce`；`total_works`／`total_volumes` 若與 `description` 明文的卷冊數矛盾（如某條 `total_volumes` 實際存的是卷數），本欄位一律以 `description` 原文為準，不因與既有欄位同名而照抄。
 
-**`_member_type`（成員型別，派生）**：吸收自 data_new v2 設計（overview `35-data_new詳細對比.md` §四·8），值域 `Work`／`Book`／`Collection`／`mixed`。
-- 派生規則：**正向清單∪反掛清單**是否非空——正向清單即 `books`、`contained_works` 兩個真正的「平列成員」清單（`contains` 是結構組成部分，語義不同，見上）；反掛清單即全庫 Book／Work 之 `contained_in[].id` 指向本 Collection 者（Book／Work 反過來認領自己屬於哪個叢編，語義上同屬「成員」，只是掛載方向相反）。只 Book 側（正向或反掛任一）非空 → `Book`；只 Work 側非空 → `Work`；兩側皆非空 → `mixed`；兩側皆空 → 無可推之依據，本欄位不寫。
-  不用 `subtype` 頂替：`subtype` 只分兩類、粒度較粗，且統計顯示 84 條裡有 5 條 `book_collection` 其實兩側同時非空，若拿 `subtype` 推會把這幾條的 `mixed` 吃掉。`Collection`（成員本身是別的 Collection）目前無實際成員清單可據，值域裡留著但現庫 0 條命中。
-- **只看正向清單會漏掉全庫最大的幾部叢編**（S3b／overview#171 的教訓，S3c／overview#191 訂正）：像「國立故宮博物院善本舊籍」「欽定四庫全書·文淵閣本」這類巨型容器，本身的 `books`／`contained_works` 從來是空的，全靠上萬條 Book 各自的 `contained_in` 反過來認領，只看正向清單會誤判成「無可推之依據」。
-- 沿用現行 `_` 前綴派生約定（見〈記錄之共通欄位〉），不做成正式欄位：手寫此欄無意義，校驗一律「重新生成後比對，不一致以生成值為準」。
-- `subtype=book_collection` 但派生出 `_member_type=Work`（僅有 `contained_works`／反掛 Work、無 `books`／反掛 Book）不代表 `subtype` 標錯：不少舊時合刻本、影印彙編是具體版本（有年代、出版details），但其收錄的各部書尚未逐一升格為獨立 Book 記錄，仍記在 `contained_works`——這是「成員尚未掛到 Book 顆粒度」，不是「這個 Collection 其實是抽象作品層」，兩者須分清楚，不可見 `Work` 就反推改 `subtype`。
+---
 
-**已刪之欄位**：`history`、`volume_count`（Collection 層）。叢編的實體規模記 `total_volumes`；沿革敘述併入 `description.text`。
+## 四、Book（版本）
 
-### 3. Book Schema
-Represents a physical or specific digital edition/copy of a work.
+一部作品的一个具体版本／藏本／数字化本。**Book 是「它属于哪部作品」「它收在哪个丛编」这两条关系的唯一存储侧。**
+
+### 字段表
+
+| 字段 | 谁存 | 取值 | 必填 | 示例 |
+|---|---|---|---|---|
+| `id`、`type`、`schema_version` | 本档 | `type` 恒为 `"book"` | ✔ | |
+| `title` | 本档 | 版本题名 | ✔ | `"周易正義（文淵閣本）"` |
+| `work_id` | 本档（**Work↔Book 的唯一存储侧**） | Work ID；Work 页的版本列表 `_books` 由它反查。草稿 Book 可指向正式 Work | ✔ | `"1evl7l48e27ls"` |
+| `edition` | 本档 | 版本名（文献学意义）；不写成 `version` | | `"清乾隆間寫文淵閣四庫全書本"` |
+| `edition_type` | 本档 | 十一值闭集，见〈`edition_type`〉 | | `"刻本"` |
+| `dating` | 本档 | `{era?, reign?, year?, year_range?, certainty?, source?, basis?, based_on?}`；方案见 overview `项目进展/古籍目录/整体设计/2026-09-年代字段统一方案.md` | | `{"era":"宋","reign":"紹熙","year":1193,"certainty":"inferred","source":"edition","basis":"…"}` |
+| `contained_in[]` | 本档（**Book∈丛编的唯一存储侧**） | `{id, volume_index?, details?, sub_items?}`：`id` 丛编 ID；`volume_index` 册次（整数／数组／字符串）；`details` 自由文本；**`sub_items: [str]`（新增，可选）**＝该书在**这个丛编**里附带的子目（如《周易正義》在文淵閣本附《周易略例》），非空字符串数组 | | `[{"id":"8rl…","volume_index":[1,2],"sub_items":["周易略例"]}]` |
+| `section` | 本档 | 该版本在所属丛编中的部类（是 `contained_in` 的属性，不是分类） | | `"經部/易類"` |
+| `authors[]` | 本档 | 版本层的责任者（刻者、批点者等），形状同 Work | | |
+| `publication_info`、`current_location`、`location_history`、`provenance`、`physical_description`、`base_edition`、`lineage`、`attached_texts` | 本档 | 见下各节；`lineage`／`base_edition` 只在后出者一侧，「谁以我为底本」由 build 生成 `_derived_by` | | |
+| `volume_count`、`page_count`、`juan_count`、`measures`、`measure_info` | 本档 | 本版本自身的计量 | | |
+| `description`、`additional_titles` | 本档 | | | |
+| `indexed_by[]` | 本档 | IndexEntry（按版本著录的书目，如通俗小说书目） | | |
+| `resources[]`、`resource_groups` | 本档 | 见下〈resources〉；`id` 可取 `wikisource`（维基文库页面，`types:["text"]`；sidecar `wiki_title` 并入者，可达性按 `validate-resources` 验，未验者在 `details` 注明「頁名取自舊對照表，未驗證」） | | |
+| `related_books` | 本档（id 较小一侧） | 对称关系，Book ID 数组 | | |
+| `zhsy_id` | 本档 | 中華再造善本编号 | | |
+| `metadata` | 本档 | 来源系统原始字段透传，不规范化 | | `{"npm_item_id":"平圖021465"}` |
+| `sources`、`merged_from`、`appendix`、`ai_note`、`todo`、`review`、`revision`、`revised_at`、`updated_at` | 本档 | 共通字段 | | |
+| `_has_image`、`_has_text`；旧 `has_full_text`、`has_digitalization` | build | 由 `resources` 推出 | **源档不写** | |
+
+### 示例（新格式）
 
 ```json
 {
-  "id": "string (e.g., CX8nkEm1UAB)",
+  "schema_version": 1,
+  "id": "11q0000000abc",
   "type": "book",
-  "title": "string (Specific edition name)",
-  "work_id": "string (ID of the parent Work)",
-  "edition": "string (版本名，如「清乾隆間寫文淵閣四庫全書本」「武英殿聚珍版」)",
-  "contained_in": [
-    {
-      "id": "string (Collection ID)",
-      "volume_index": "integer | array (optional, 在該叢編中的冊次)",
-      "details": "string (optional)"
-    }
-  ],
-  "authors": [
-    {
-      "name": "string",
-      "role": "string",
-      "dynasty": "string",
-      "source": "Source"
-    }
-  ],
-  "publication_info": {
-    "year": "string",
-    "details": "string",
-    "source": "Source"
-  },
-  "current_location": "Location (object)",
-  "provenance": [
-    {
-      "institution": "string (館藏機構名，非空)",
-      "call_number": "string (索書號／統一編號)",
-      "seals": ["string (藏印)"],
-      "notes": "string",
-      "source": "string (據何現行字段回填，如 metadata.npm_item_id)"
-    }
-  ],
-  "volume_count": {
-    "number": "integer",
-    "description": "string",
-    "source": "Source"
-  },
-  "page_count": {
-    "number": "integer",
-    "description": "string",
-    "source": "Source"
-  },
-  "description":  "Description (object)",
-  "indexed_by": [
-    {
-      "source": "string (目錄/志書名稱，如「中國通俗小說書目」)",
-      "source_bid": "string (目錄 Work ID)",
-      "title_info": "string (該目錄中此版本的著錄標題)",
-      "summary": "string (該目錄中對此版本的全文著錄)"
-    }
-  ],
-  "resources": [
-      {
-        "id": "string (short identifier, extracted from url domain or custom)",
-        "name": "string (source name)",
-        "url": "string (resource link, optional for physical)",
-        "type": "string (text | image | text+image | physical)",
-        "root_type": "string (catalog | search, default: catalog)",
-        "structure": ["string (level names, e.g. ['册', '卷'])"],
-        "coverage": { "level": "integer", "ranges": "string (e.g. '2,3,5-8')" },
-        "details": "string (supplementary notes)",
-        "group": "string (optional, 资源组 ID。同一 group 内的 resources 是同一份内容的不同存储位置/镜像)",
-        "group_label": "string (optional, 该组的人类可读描述，如「人民文学出版社1975 黑白影印」。在组内任一 resource 上写一次即可，推荐写在 group_role=origin 上)",
-        "group_role": "string (optional, origin | mirror。origin=原始来源；mirror=我们做的备份镜像)",
-        "metadata": {
-            "access_code": "string (optional, 网盘提取码)",
-            "edition": "string (optional, 版本说明)",
-            "color": "string (optional, color | bw)",
-            "completeness": "string (optional, complete | partial)"
-        }
-      }
-  ],
-  "location_history": [] // type: Location
-  "related_books": ["string (IDs of related editions)"],
-  "section": "string (該版本在所屬叢編中的分類，如「經部/易類」)",
-  "additional_titles": ["string"],
-  "attached_texts": [{ "title": "string", "...": "隨本附刻之序跋、附錄等" }],
-  "lineage": { "...": "版本源流資料（承自何本、據何本翻刻）" },
-  "sections": [{ "...": "本書內部分卷／分部結構" }],
-  "measures": [], "measure_info": "string",  // 與 Work 同結構，記該版本自身的計量
-  "juan_count": { "number": "integer", "description": "string" },
-  "zhsy_id": "string (中華再造善本編號)",
-  "metadata": { "...": "來源系統原始欄位的透傳，不作規範化" },
-  "promoted_to": "string", "promoted_at": "string",
-  "ai_note": "string",
-  "todo": [], "review": {},  // optional，見〈記錄之共通欄位〉
-  "sources": [] // type: Source
+  "title": "周易正義",
+  "work_id": "1evl7l48e27ls",
+  "edition": "清乾隆間寫文淵閣四庫全書本",
+  "edition_type": "抄本",
+  "dating": {"era": "清", "reign": "乾隆", "certainty": "attested", "source": "edition"},
+  "contained_in": [{"id": "8rl…", "volume_index": [7, 8], "sub_items": ["周易略例", "考證"]}],
+  "section": "經部/易類",
+  "resources": [{"id": "wikisource", "name": "維基文庫", "url": "https://zh.wikisource.org/wiki/周易正義_(四庫全書本)", "types": ["text"]}],
+  "revision": "1.0.0"
 }
 ```
 
@@ -1188,6 +1034,10 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
 - 拿不准者（動詞切分失敗、`lineage` 關係含混、假設性底本無名可依、原文自注待考）寫入 overview 倉 `项目进展/古籍目录/进度/S2c-底本候选/candidates.csv`，**不寫本庫**。
 - **校驗**：`.claude/qa/verify.py` 檢查——有 `base_edition` 的 Book 須為陣列，每項 `role` 須落在三詞表內、`name` 須為非空字符串、`source` 須為非空字符串；`book_id` 若填須存在於本庫且不得指向本書自身，`work_id` 若填須存在於本庫，否則算敗。
 
+---
+
+## 五、共用对象类型与 Subtype
+
 ### Source object type:
 ```json
 {
@@ -1219,13 +1069,13 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
   }
 ```
 
----
+IndexEntry（`indexed_by`／`emendated_by` 共用）见〈二、Work〉的〈IndexEntry object type〉。
 
-## Subtype 字段说明
+### Subtype 字段说明
 
 `subtype` 在 `type` 基础上进一步细分实体类别，便于前端展示、筛选与统计。
 
-### Work.subtype
+#### Work.subtype
 
 | subtype | 含义 | 示例 |
 |---|---|---|
@@ -1242,7 +1092,7 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
 
 `chapter` 按需创建：不要把《漢書》的每一篇志都拆成 Work，只有被单独研究或作为目录书索引的才升格（例：《漢書·藝文志》需要被引用为 `source`，所以单独建 Work；《漢書·地理志》未被索引就不建）。
 
-### Collection.subtype
+#### Collection.subtype
 
 | subtype | 含义 | 示例 |
 |---|---|---|
@@ -1256,46 +1106,29 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
 
 ---
 
-### 4. Entity Schema
+## 六、Entity（人物等实体）
 
-抽象概念（作者、地名、朝代等），与具体书目（Book/Work/Collection）平级存在。
+抽象概念（作者、地名、朝代等），与书目平级。**Entity 档只存人物自己的信息；「他写了哪些书」由 `Work.authors[].entity_id` 反查**，build 生成 `_works`（含 `role`，取自 Work 一侧）。
 
-```json
-{
-  "id": "string (e.g., 1j965dvig7c3k)",
-  "type": "entity",
-  "subtype": "string (people | place | dynasty | ...)",
+### 字段表
 
-  "primary_name": "string (最通行的名字，用于显示)",
-  "alt_names": [
-    { "name": "string", "type": "string (字|號|諡號|賜號|別名|常用名|簡體)" }
-  ],
-
-  "dynasty": "string (朝代标签，与 Work.authors.dynasty 对齐)",
-  "birth_year": "integer | null (公历年，与 dates.birth 并存，见下)",
-  "death_year": "integer | null",
-  "dates": "Dates (object, optional, 见下)",
-
-  "works": [
-    { "work_id": "string (Work ID)", "role": "string (撰|注|編|評...)" }
-  ],
-
-  "external_ids": {
-    "cbdb_id": "integer | null",
-    "cbdb_match": "string (自由格式凭据备注，非枚举；如 auto/manual/none/auto_create/manual_remap/auto_dy_unique 等，optional)",
-    "cbdb_source": "string (匹配凭据, optional)",
-    "wikidata_id": "string, optional（如 \"Q123456\"，见下 Entity.external_ids.wikidata_id/viaf_id）",
-    "viaf_id": "string, optional（纯数字，见下）"
-  },
-
-  "description": "Description (object)",
-  "ai_note": "string (optional, 建檔自注)",
-  "todo": [], "review": {},  // optional，見〈記錄之共通欄位〉
-  "sources": [],
-
-  "suppressed_fields": ["string, optional（如 [\"dynasty\", \"birth_year\"]）"]
-}
-```
+| 字段 | 谁存 | 取值 | 必填 | 示例 |
+|---|---|---|---|---|
+| `id`、`type`、`schema_version` | 本档 | `type` 恒为 `"entity"` | ✔ | |
+| `subtype` | 本档 | `people`｜`place`｜`dynasty`｜`collective`，见〈Entity.subtype〉 | ✔ | `"people"` |
+| `primary_name` | 本档 | 最通行的名字 | ✔ | `"蘇軾"` |
+| `alt_names[]` | 本档 | `{name, type}`，type 见〈alt_names.type 枚举〉 | | `[{"name":"子瞻","type":"字"}]` |
+| `aliases` | 本档 | 旧写法（13 条），形状同 `alt_names`，待并入 `alt_names`（〈附三〉） | | |
+| `name_basis` | 本档 | 名字的依据 | | |
+| `dynasty`、`dynasty_basis`、`period`、`period_basis` | 本档 | 同 Work 的规范名与时代轴 | | |
+| `native_place`、`native_place_basis`、`title_or_office` | 本档 | 籍贯、官职 | | `"山陰"` |
+| `birth_year`、`death_year`、`dates` | 本档 | 见〈Entity.dates〉 | | |
+| `external_ids` | 本档 | `{cbdb_id, cbdb_match, cbdb_source, wikidata_id?, viaf_id?}` | | |
+| `description`、`sources` | 本档 | 出处一律记 `description.sources` | | |
+| `merge_history`、`merged_in`、`merged_into`、`retired`、`retired_reason` | 本档 | 并条与退役账 | | |
+| `suppressed_fields` | 本档 | 人工确认 CBDB 值有误而清空的字段名 | | `["dynasty"]` |
+| `ai_note`、`todo`、`review`、`revision`、`revised_at`、`updated_at` | 本档 | 共通字段（Entity 是否套 revision 机制未定，见 F3-3 §三） | | |
+| ~~`works[]`~~ | 他档：`Work.authors[].entity_id` | build 生成 `_works: [{work_id, role, title, …}]` | 不写 | |
 
 #### suppressed_fields（2026-09-26 用户裁：甲案）
 
@@ -1381,25 +1214,157 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
 
 #### Work.authors.entity_id
 
-每个 `Work.authors[i]` 通过 `entity_id` 引用对应的 people Entity：
+每个 `Work.authors[i]` 通过 `entity_id` 引用对应的 people Entity；**这是 Entity↔Work 关系的唯一存储侧**，Entity 档里不再写 `works`。
 
 ```json
 "authors": [
   {
     "name": "蘇軾",
     "role": "撰",
-    "dynasty": "宋",
+    "dynasty": "北宋",
     "entity_id": "12xabc..."
   }
 ]
 ```
 
-- `name` / `dynasty` / `role` 保留不变 —— 便于显示、搜索、兜底（entity_id 为空时仍可用）。
-- CBDB 相关信息（`cbdb_id` / `cbdb_match` / `cbdb_source`）**不**存在 Work 里，而是归到 Entity 的 `external_ids`。Work 只需通过 `entity_id` 间接引用。
+- `name` / `dynasty` / `role` 保留 —— 便于显示、搜索、兜底（entity_id 为空时仍可用）；**`role` 必填**，Entity 页上的角色取自这里。
+- 「舊題撰」与「託名」语义不同（传统归属 vs 伪托），不统一（用户 10-07 同意）。
+- CBDB 相关信息（`cbdb_id` / `cbdb_match` / `cbdb_source`）**不**存在 Work 里，而是归到 Entity 的 `external_ids`。
 
 ---
 
-## ID 类型编码
+## 七、關聯詞表（`related_works[].relation`）
+
+**「存儲方向」一栏决定源档写不写这个词。** 成对关系只在规范方向一侧写一次；反向词只出现在构建产物 `_related` 里（`direction: "in"`）。
+
+| relation | 存儲方向 | 反向（只在 build 产物中） | 含義 |
+|---|---|---|---|
+| `part_of` | **源档写**（部分 → 整体） | `has_part` | 整體 ↔ 部分（**確係同一本書之內**的篇卷，如《繫辭》之於《周易》）。<br>版本附屬部帙（外集、別集、附錄之屬）**不循此路**，見〈版本附屬部帙〉一節。 |
+| `studies` | **源档写**（注本／研究 → 原典） | `studied_by` | 本書研究、注解、考證某書 |
+| `contains_text_of` | **源档写**（承载者 → 被承载的原典） | `text_carried_by` | 本書載有某書之全文（注本載原典之文；一部原典下可有近千承载者，故不存在原典侧） |
+| `preceded_by` | **源档写**（续作 → 前作） | `followed_by` | 續作／前作 |
+| `related` | **源档写，存 id 较小一侧**（字符串比较） | `related`（另一侧由 build 补） | 泛關聯，語義不明確時的兜底；两侧原各有 note 者拼成一条 `note` |
+| `collected_in` | 源档写（单向） | —（build 可生成 `_incoming`） | 收入某彙編（指 Work 或 Collection） |
+| `derived_from` | 源档写（单向） | — | 由某書輯出、改編而成 |
+| `adapted_from` | 源档写（单向；取代成对的 `has_adaptation`） | `has_adaptation` | 改編自 |
+| `pseudepigraph_of` | 源档写（单向；取代成对的 `has_pseudepigraph`） | `has_pseudepigraph` | 偽託於某書 |
+| `excerpted_from` | 源档写（单向） | — | 摘錄自 |
+| `source_of` | 源档写（单向） | — | 為某書之所本 |
+| `suspected_same` | 源档写（单向） | — | 疑與某條同書，待考 |
+| `same_entry` | 源档写（单向） | — | 書目中同一條著錄 |
+
+**已归并、不再使用的词**（迁移 M2 机械改写，`check_v2.py` V05）：`commentary_on` → `studies`；`related_to` → `related`。
+不在上表的词一律不写（`check_v2.py` V13 报「未识别」）；要加新词先在 overview#451 提。
+
+**成对关联只写规范方向，反向由 build 生成**（取代旧规「成對關聯必須雙向寫入」）。
+`collected_in`／`derived_from` 等单向词同样只写一条；需要在对面留痕时**不要**手写反向——build 会在对方产物的 `_related`（`direction:"in"`）或 `_incoming` 里列出。
+**`related_works[].title` 不写**：对方题名由 build 取其现行 `title` 回填（旧规「應與目標 Work 的 title 一致」作废，其漂移校验随之作废）。
+写关系请用 `bim link A B <relation>`（按规范方向与小 id 规则落笔）。
+
+---
+
+## 八、分类（`classification/`，2026-10-07 起；取代 Work.`classification` 字段）
+
+一个分类法一个目录，分类归属不写在 Work 档里。设计见 overview `F3-2-设计与备选.md`（用户 10-07 定稿）。
+
+```
+classification/
+  README.md                 格式、命令、校验规则
+  schemes.json              全部分类法登记
+  zongmu/                   《中國古籍總目》（主分类法）
+    tree.json               分类树
+    members/zm0810.json     集部／別集類 的成员（一类一档）
+  <其他分类法>/ …           结构同上
+```
+
+| 文件 | 形状 | 规则 |
+|---|---|---|
+| `schemes.json` | `[{id, name, primary, exclusive, tree}]`，如 `{"id":"zongmu","name":"中國古籍總目","primary":true,"exclusive":true,"tree":"zongmu/tree.json"}` | `primary:true` 的分类法是 `_classifications[0]`；`exclusive:true`＝一书只能归一类 |
+| `<scheme>/tree.json` | `{scheme, name, nodes:[{id, label, parent, level, retired?}]}` | 节点 id（如 `zm0001`）**永不变、永不复用**；改类名只改 `label`；删类＝标 `retired:true` 并移走成员，不删行；数组顺序＝显示顺序 |
+| `<scheme>/members/<节点id>.json` | `{node, members:[[work_id, source], …]}` | 一行一条，**按 work_id 排序**；`source`＝来源目录书／原文类目（如 `"經義考/易"`），供回查；**不存 `basis`**（用户默认删，见〈附三〉）；行尾预留可选 `status`（`adopted`｜`candidate`｜`revoked`）口子，本轮不用 |
+
+- **任何节点都是合法归属点**：挂在有子类的节点上＝已分到此层、下面未细分。**不再有「未分類」占位节点**（旧 138 个，543 部迁移时上移到父节点）。
+- **Collection 不分类。**
+- **写入口只有 `bim classify`**（`assign`／`move`／`rename`／`check`），任何人不手改成员档；并发由排班管写域，万一两道在同一类档末尾追加撞车，`classify check --fix` 合并（两边都留、按 id 重排）。
+- **校验（`classify check`，并入 verify）**：① 节点存在且未 retired；② `work_id` 存在于本仓（草稿库可指正式库）；③ 互斥分类法下一部 work 只出现一次；④ 互斥时同一 work 不在两个成员档里。
+- **build 回填**：每部 Work 的产物得 `_classifications: [{scheme, node, path, l1, l2, l3, l4, source}]`，**不产出旧字段 `classification`**；读者「`_classifications[0]` 优先、旧 `classification` 兜底」。列表卡片里的分类只写节点 id，不写标签。
+- **不进成员档的东西**：`indexed_by[].section`（目录书原文类目，是引文证据）、`Book.section`（丛编内位置）。
+- **分类变化不 bump Work 的 `revision`**（F3-3：分类是编排，不是对作品的陈述）。
+- 草稿库同构（`book-index-draft/classification/`）；草稿 Work 升格时 `promote` 把它的成员行改 id 搬进正式库类档。
+
+旧字段 `Work.classification` 的形状、`basis` 的 S/A/B/C 含义、09-30 总目词表迁移的归属规则表，见〈附二 已刪之欄位〉；归属规则本身（小说入子部、诗文评入集部…）仍有效，现由 `tree.json` 的节点体现。
+
+---
+
+## 九、构建产物与派生字段（`_build/`、`index/`）
+
+`build/build_derived.py`（Python 标准库；草稿库同一脚本 `--root` 指向）读全部源档＋`classification/`＋`promotions.json`，生成：
+
+| 产物 | 内容 |
+|---|---|
+| `_build/entry/<id>.json` | **页面就绪条目**＝源记录原样＋全部 `_` 派生字段。网站与 bim 打开一条记录只读这一个文件，不再现场 fetch 别的记录 |
+| `_build/members/<cid>/<n>.json` | 丛编成员分页（每页 200） |
+| `_build/catalog/<work_id>/<n>.json` | 志书著录成员分页 |
+| `_build/lineage/<work_id>.json` | 预汇的版本图 |
+| `_hubs.json` | 枢纽条目（被引用超 200 次的丛编／志书／大人物）的名称表；其他产物里对枢纽只写 id |
+| `index/**` | 检索用扁平摘要（原 `reindex.py` 并入 build） |
+
+性质：纯函数、可重跑、确定性（同一份源 → 逐字节相同的产物）；`_build/` 不进 git（`.gitignore`）。由网站 `bundle-data.mjs` 打包前调用，bim 本地用 `bim build`。build 自校验：源档里不存在应派生的字段、条数守恒、派生值自洽（`_edition_count == len(_books)`）、悬空引用清单。
+
+### 派生字段清单（只在 `_build/entry/` 里出现，源档一律不写）
+
+| 记录 | 派生字段 | 内容 | 取代的旧源字段 |
+|---|---|---|---|
+| Work | `_books` | 版本摘要列表，按 `Book.dating` 排，无年代按 id | `Work.books` |
+| Work | `_edition_count` | `len(_books)` | 手写 `_edition_count` |
+| Work | `_catalogs` | 每个 `indexed_by[].source_bid` 一条：志书题名、作者朝代 | — |
+| Work | `_related` | 双向展开的关系 `[{id, title, relation, direction:"out"\|"in", note?}]`，反向词在此出现 | `related_works[].title`、手写反向词 |
+| Work／Book | `_collections` | `contained_in` 解出题名 | — |
+| Work | `_authors` | 与 `authors[]` 同序，内嵌 Entity 摘要 | — |
+| Work | `_classifications` | 见〈八〉 | `Work.classification` |
+| Work／Book／Collection | `_has_text`、`_has_image`、`_has_collated` | 由 `resources`、整理本 manifest 推 | 手写 `_has_*`、旧 `has_text` 等 |
+| Work（志书） | `_member_catalog` | 指向 `_build/catalog/<id>/` | — |
+| Book | `_work`、`_siblings`、`_lineage_refs`、`_derived_by`、`_lineage_graph_ref` | 所属作品摘要、同作品其他版本、源流引用、谁以我为底本、版本图 | — |
+| Collection | `_members`、`_member_pages`、`_member_count`、`_member_type`、`_children` | 成员（来自成员侧 `contained_in`）、计数、型别、子丛编 | `Collection.books`、`contained_works`、手写 `_member_*` |
+| Entity | `_works` | `[{work_id, role, title, …}]`，`role` 取 `Work.authors[].role` | `Entity.works` |
+| 草稿记录 | `promoted_to` | 由 `promotions.json` 回填（index 与产物里） | 手写 `_promoted_to`、`promoted_to` |
+
+字段的精确形状以 overview `F2-3-build与派生字段.md` 与 `F4-2-聚合产物字段表.md` 为准，本表只列名与来源。
+
+---
+
+## 十、記錄之共通欄位
+
+以下欄凡 Work／Book／Collection／Entity 皆有。
+
+| 欄位 | 義 |
+|---|---|
+| `schema_version` | 主記錄自 `1` 起。**輯佚檔（`fragments`）別為一族，已在 `2`，二者不同源，勿混。** |
+| `revision`、`revised_at` | 版本號（`"1.0.0"` 形）與最後改版時間。級別（patch／minor／major）見 overview `项目进展/古籍索引网站/整体设计/2026-05-版本控制与不可变性.md`；**字段口径見下**。缺 `revision` 者（正式庫 1,113 部）是升格漏初始化，另案補。 |
+| `updated_at` | 這條最後一次被人碰的時間（ISO 8601）。現值自 git 該檔最後一次提交回填——**不一律填「現在」**，假時間比沒有更壞。 |
+| `zhsy_retrieved_at` / `authors[].cbdb_retrieved_at` | 外部對齊之取得時間。現存皆 `null`（批次匯入時未記），**新增對齊必填**。`cbdb_match: none` 者是查而否決，亦有此欄。 |
+| `todo` | 條目級待核清單 `[{what, by?, date?}]`；做完即移除該項，不留「已辦」標記。只定義形狀，不批量回填。 |
+| `review` | 人工審核狀態 `{status, by?, date?}`，`status` ∈ `unreviewed`｜`reviewed`｜`disputed`；欄位不存在即 `unreviewed`。 |
+| `ai_note` | 整理者寫給整理者的注，見〈ai_note 的用法〉。 |
+| `_` 起首者 | **源檔一律不寫**。派生欄位只在 `_build/entry/` 裡（清單見〈九〉）。舊規「`_` 欄可寫、校驗重算比對」作廢：源檔出現任何 `_` 欄即 `check_v2.py` V01。 |
+
+### revision 的字段口径（F3-3）
+
+**`revision` 管的是「這部作品『是什麼』的陳述」是否變了**：題名、作者、年代、描述、卷數、存佚、真偽、資源、著錄原文、關係（存儲一側）、並條賬——變了算，按原設計定級別。
+**不算**（變了不 bump、也不刷新 `revised_at`）：分類歸屬（`classification`／類檔）、`books`、一切 `_` 派生欄與舊 `has_*`、管理欄（`updated_at`、`revision`、`revised_at`、`schema_version`、`id`、`type`、`path`）。
+**未登記的新欄位按「算」處理**；要加不算的欄，須登記進 `NO_BUMP_FIELDS`（overview `F-数据结构/试验/F3/revision_fields.py`）並在卡裡說明。
+推論：單向存儲後改一條關係只 bump 存儲一側那一條記錄；Collection 成員增減不 bump 叢編；Book 的 `work_id`、`contained_in`、`lineage`、`base_edition`、`section` 變化算 Book 自身的改版。
+**遷移腳本一律不改 `revision`／`revised_at`**（遷移不是作品變化）。
+
+### 派生欄位為何要加底線（沿革）
+
+`has_text` 之現狀曾是「有的對、有的錯、大半沒有」——它與手寫欄長得一模一樣，遂無人知其該不該在、值對不對。2026-08 起派生欄加底線並由 `verify.py` 重算比對；**schema-v2 更進一步，派生欄整個移出源檔**，只在構建產物裡出現，從根上杜絕手寫。
+
+**`index/` 之欄不加底線**——整個檔都是派生產物，檔級已說明此事，欄再加底線是重複。
+
+---
+
+## 十一、ID 类型编码
 
 ID 用 64-bit snowflake 结构，3 bits 标识 type：
 
@@ -1412,144 +1377,32 @@ ID 用 64-bit snowflake 结构，3 bits 标识 type：
 | 4 | Entity | 抽象实体（人物/地名/朝代...） |
 | 5-7 | Reserved | (保留) |
 
-**0-3 用于实体书目，4-7 用于抽象概念。** 见 `book_index_manager/id_generator.py`。
+**0-3 用于实体书目，4-7 用于抽象概念。** 见 `book_index_manager/id_generator.py`、`.claude/qa/mintid.py`（base36、小写、`< 2^63`）。
 
 草稿庫的 ID 為 13 字元（status=1），升格後的 Production ID 為 12 字元（status=0）。
-一條記錄升格後，草稿檔保留並記 `_promoted_to` / `_promoted_at`（派生欄，故帶底線前綴，
-見〈記錄之共通欄位〉），**權威對照表是根目錄的 `promotions.json`**，欄位只是冗餘副本。
-`index/` 與 `promotions.json` 之欄**不加底線**（`promoted_to`）——整檔皆派生，欄再加底線是重複。
+**升格的權威對照表是根目錄的 `promotions.json`**；草稿記錄裡**不寫** `promoted_to`／`_promoted_to`（schema-v2 起由 build 回填到 `index/` 與產物）。
 校驗關聯是否懸空時，Production ID 不在草稿索引中屬正常，須併入白名單。
+「id 較小一側」（對稱關係的存儲規則）按**字符串比較**：同長度的 base36 小寫 id，字符串序與數值序一致。
 
 ---
 
-## 記錄之共通欄位（issue #10）
+## 十二、录入判准
 
-以下欄凡 Work／Book／Collection／Entity 皆有，2026-08 立；`todo`／`review` 為 2026-09-28
-（S5，overview#189）新增。
-
-| 欄位 | 義 |
-|---|---|
-| `schema_version` | 主記錄自 `1` 起。**輯佚檔（`fragments`）別為一族，已在 `2`，二者不同源，勿混。**<br>無此欄則將來任一次結構調整都成考古。 |
-| `updated_at` | 這條最後一次被人碰的時間（ISO 8601）。<br>現值自 git 該檔最後一次提交回填——**不一律填「現在」**，假時間比沒有更壞。<br>檔在 git 裡，diff 自有時間戳，然「這條何時被碰」須能直接查，不必翻歷史。 |
-| `_` 起首者 | **派生欄位**：`_has_text`、`_has_image`、`_has_collated`、`_promoted_to`、`_promoted_at`、`_member_type`（Collection）、`_edition_count`（Work）、`_member_count`（Collection）。<br>校驗一律「重新生成後比對，不一致以生成值為準」，故**手寫無用**。 |
-| `zhsy_retrieved_at` / `authors[].cbdb_retrieved_at` | 外部對齊之取得時間。現存皆 `null`——一千三百餘條 `zhsy_id` 是 v0.2／v0.3（2026-04-29、2026-05-14）批次匯入時帶入，其取得之時無記錄，填一個推導的時間即是假造。**新增對齊必填。**<br>`cbdb_id` 為 `null` 而 `cbdb_match: none` 者是**查而否決**，非未查，故亦有此欄——對方日後改指向，否決同樣會過期。 |
-| `todo`（2026-09-28 增，S5） | 條目級待核清單，數組，每項 `{what, by?, date?}`：`what` 是待辦事項本身（非空字串，必填）；`by` 選填，記何人／何道應來填（人名、道名，如「目錄總管」「S6 道」）；`date` 選填，記何時該清（或記錄提出待辦的日期）。清項之法：待辦完成後**移除該項**，不留「已辦」之類的標記——`todo` 只裝尚待辦者，做完的事無須佔位（與 `authenticity`「只標異常」同一節儉之旨）。<br>吸收自 data_new v2（overview `35-data_new詳細對比.md` §四·9、§七·2·5）。**本卡只定義形狀，不批量回填**——現行待辦散見於 `ai_note` 自由文本與 `.claude/qa/known-issues/` 各清單，遷移是另一件事（逐條讀 `ai_note` 判斷是否真是「待辦」而非「整理決策記錄」），留待後道視需要逐步做。 |
-| `review`（2026-09-28 增，S5） | 條目級人工審核狀態，物件 `{status, by?, date?}`：`status` 三值 `unreviewed`（未審）／`reviewed`（已審）／`disputed`（有爭議，審過而未定案）；`by`／`date` 選填，記審核人與審核時間。改造自 data_new v2 的 `confirm`（v2 只有一個「未確認」值，且 Work/Book/Entity 簡體、Collection 繁體，見 35 卡 §一·4 註 12 之簡繁不一）。**本卡只定義列舉與形狀，不批量回填**——現行沒有任何條目經過本欄意義上的人工審核，逕自全部標 `unreviewed` 是假審核，等於白填；欄位不存在即等同 `unreviewed`，不必補。是網站狀態色（35 卡 §六·3 方案二「綠·考定」）未來的審核依據之一。 |
-
-### 派生欄位為何要加底線
-
-`has_text` 之現狀曾是「有的對、有的錯、大半沒有」：已有者五千九百八十七條中二條與重算不符，
-而一萬零十八個 Work、七千七百四十九個 Book 有 `resources` 卻無此欄。
-病根在於**它與手寫欄長得一模一樣**，遂無人知其該不該在、值對不對。
-加底線之後，`.claude/qa/verify.py` 對所有 `_` 起首之欄一律重算比對，基線 0。
-
-**`index/` 之欄不加底線**——整個檔都是派生產物，檔級已說明此事，欄再加底線是重複。
-但其值同須與記錄相符（`verify.py` 已驗）。
-
-#### `_edition_count`（Work，2026-09-28 增，S5）
-
-挂在該 Work 下的 Book 數。派生規則見 `.claude/qa/verify.py:derive_edition_count`——**由
-`Book.work_id` 反查而得，不採 Work.`books` 手寫清單**：全庫核對兩者，95,055 條 Work 裡有
-74 條不一致（`books` 手寫清單漏改或多改），`Book.work_id` 是每部 Book 自己聲明的歸屬，
-更可靠。與 `_has_text` 等同例，**＝0 者不寫本欄**（現行 13,863 條 Work 因此得欄，其餘
-81,192 條無 Book、不寫）。腳本：`.claude/qa/s5/backfill_derived_counts.py`（乾跑為預設，
-`--apply` 才寫，可複跑冪等）。**該 74 條不一致已於 2026-09-28 S5b（overview#198）逐條清賬並
-對齊 `books` 手寫清單**（49 條補漏列、44 條刪已改挂之過時項），此後全庫兩者應恆一致，
-本欄之算法仍留反查（防未來再度漂移）。
-
-吸收自 data_new v2 之 `derived.edition_count`（overview `35-data_new詳細對比.md` §一·1、
-§七·2·5）——沿用現行 `_` 前綴，不另立 `derived` 物件。
-
-#### `_member_count`（Collection，2026-09-28 增，S5；2026-09-28 訂正併入反掛，S5b/overview#198）
-
-`books`／`contained_works` 兩份正向清單 **∪** `contained_in`（Book／Work 反過來認領本
-Collection）反掛清單，Book 側、Work 側各自去重後之相異 id 數相加（`contains` 是結構組成
-部分，不計入，與 `_member_type` 同一口徑，見上「Collection 的三種成員列表」）。
-
-S5 首版只算正向清單長度和，未併反掛——**「國立故宮博物院善本舊籍」一類巨型叢編，正向清單
-本就是空、全靠上萬條 Book 各自 `contained_in` 反過來認領**，S5 版因此完全算漏（該條由
-`None` 訂正為 17,540）。訂正後以 id 集合聯集去重，避免「正向亦列、反掛亦掛」者算兩次。
-派生規則見 `.claude/qa/verify.py:derive_member_count`。**＝0 者不寫本欄**。
-腳本：`.claude/qa/s5/backfill_derived_counts.py`（乾跑為預設，`--apply` 才寫，可複跑冪等）。
-
-吸收自 data_new v2 之 `derived.member_count`（overview `35-data_new詳細對比.md` §一·3、
-§七·2·5）。
-
-### `related_works[].title` 未改名亦未刪，但校驗此前並未真正落地（2026-09-28 訂正，S5）
-
-刪之則 git diff 與人工閱讀時看不出關聯的是什麼書，排查要多查一步。改為每次重生成則與
-「保留可讀性」相衝。**保留原名而在校驗中報漂移**——此意雖早定，然覆核（S5，overview#189）
-發現全庫並無對應校驗程式碼落地，`.claude/qa/verify.py` 這才**首次**把它做實
-（`title_of()` 反查 `related_works[].id` 之目標記錄現行 `title`，不符即報）。
-
-首次全量跑出**77 處**漂移（此前文檔誤記「曾漂移九處，基線 0」——那是更早一次人工核對的
-殘存記憶，並非本校驗跑出的數，本節訂正之）。多為題名清理時把誤切進去的撰人案語去掉
-（如「春秋左氏解詁賈逵撰」→「春秋左氏解詁」），而 `related_works[].title` 未隨之同步。
-**本卡「不改任何已有字段的值」，故只報不改**，清單見
-`.claude/qa/known-issues/s5-20260928-related_works标题漂移.json`，訂正留待另開道。
-
-**推廣至 `Collection.contained_works[].title`**（同卡，issue #189 §一 舉例之「Collection
-成員名」）：同一漂移校驗現已覆蓋 `contained_works[].id` 對目標 Work／Collection 現行
-`title`，首次跑出 **47 處**，多見於書目叢編（如《二十五史藝文經籍志考補萃編》）以括注
-撰人消歧的展示題（「補後漢書藝文志（顧懷三）」）與 Work 自身題名不同——是否應算「合法
-消歧展示」而非漂移，留待目錄總管定奪。清單見
-`.claude/qa/known-issues/s5-20260928-Collection成员名标题漂移.json`。
-
-**推廣至 `Book.provenance[].institution`**（S2b 新增欄位）：`institution` 是自由文本，無
-id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.py:institution_simplified`
-偵得全庫 8 種機構名寫法中有 3 條含簡體字（「中国国家图书馆」對「中國國家圖書館」、
-「北京大学图书馆」對「北京大學圖書館」，皆為同一機構之簡繁兩寫）。同樣只報不改，清單見
-`.claude/qa/known-issues/s5-20260928-provenance机构名简繁不一.json`。
-
-以上三項 stale_ref 校驗現於 `verify.py` 執行時列印命中數，但**不計入 FAIL、不隨
-`--strict` 升級**——它們驗的是既有欄位之歷史內容，非本卡新增之結構，若計入會使全庫既有
-77＋47＋3 處問題把硬門禁判死，波及本卡以外所有正在跑的道。
-
-### 已刪之欄位
-
-`book_contained_in`、`parent_works`（Work）、`history`、`volume_count`（Collection）、
-`resource_groups`（Work）——**庫中皆零**，今自本文件刪去。
-留在 spec 裡的死欄位，三年內一定會被某個人重新啟用；需要時自 git 歷史取回。
-
-**按**：`resource_groups` 與 `volume_count` 在 **Book** 各有一條在用
-（`11q411jij5qm8`、`11q6q7v82w7pc`），不在此列，仍為有效欄位。
-
-## 關聯詞表（`related_works[].relation`）
-
-| relation | 反向 | 含義 |
-|---|---|---|
-| `text_carried_by` | `contains_text_of` | 本文承載於某實物／某書 |
-| `studies` | `studied_by` | 本書研究、注解、考證某書 |
-| `has_part` | `part_of` | 整體 ↔ 部分（**確係同一本書之內**的篇卷，如《繫辭》之於《周易》）。<br>版本附屬部帙（外集、別集、附錄之屬）**不循此路**，見〈版本附屬部帙〉一節。 |
-| `followed_by` | `preceded_by` | 續作／前作 |
-| `related` | `related`（自反） | 泛關聯，語義不明確時的兜底 |
-| `collected_in` | —（單向） | 收入某彙編 |
-| `derived_from` | —（單向） | 由某書輯出、改編而成 |
-| `adapted_from` | — | 改編自 |
-
-**成對關聯必須雙向寫入**：在 A 寫 `has_part → B` 的同時，須在 B 寫 `part_of → A`。
-`collected_in` / `derived_from` **沒有反向詞**，只在來源側單寫一條；
-若需要在對面留痕，用 `related`，不要臆造反向詞。
-
-`related_works[].title` 應與目標 Work 的 `title` 保持一致；改題或合併作品後須同步更新所有指向它的 `title`。
-
----
-
-## 原典與注本：分層與繫連（2026-08-21 決）
+### 原典與注本：分層與繫連（2026-08-21 決）
 
 一部經有幾百家注。注本**各自成 Work**，以關聯詞繫於原典，不併入原典條。
 
-### 規則
+#### 規則
 
 > `authors[0].role` 為**注、傳、疏、箋、章句、集解、義疏、音義、注疏、集注、
 > 補注、校注、正義、疏證、集釋**之屬者，該 Work 是**注本**，
-> 必繫 `contains_text_of` 至其原典 Work；原典側繫 `text_carried_by`。
+> 必繫 `contains_text_of` 至其原典 Work（寫在注本一側）；原典側之 `text_carried_by` 由 build 生成，**原典源檔不寫**。
 
 **題名**從其志書原題，**唯與原典之題完全同字時**須冠注者名以別之
 （《古文尚書》鄭玄注 → 題《古文尚書鄭玄注》）。
 題中已有體裁字樣者（《周禮注疏》《春秋穀梁傳集解》）**不必再冠注者名**，冠之反而累贅。
 
-### 何以不併入原典
+#### 何以不併入原典
 
 本庫已有五十五個原典錨，運轉良好：
 
@@ -1563,13 +1416,13 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 
 併入即是把一千零四十一部書壓成一條，磁鐵之極致。
 
-### 一個容易誤判的形態
+#### 一個容易誤判的形態
 
 `authors[0].role` 是「傳」而題名不含其人名者，**未必是注本誤題**——
 《左傳》`1ev7vo50ar94w` 的 `authors[0]` 是「左丘明·傳」，那是原典本身的體裁
 （左丘明傳《春秋》），不是「左丘明注左傳」。**改題之前先看它是不是錨。**
 
-### 坊刻編本（纂圖互注之屬）是獨立 Work，不是原典的版本（2026-08-24 使用者定準）
+#### 坊刻編本（纂圖互注之屬）是獨立 Work，不是原典的版本（2026-08-24 使用者定準）
 
 判準只有一條：**成書之結構與內容與原書不一致者，即是一個新的 Work**——
 加了注釋是新書（周易鄭玄注不是周易），所加之注即使只是抄他經之語（「互注」）也是
@@ -1586,9 +1439,9 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 
 ---
 
-## 一條 Work 記錄代表什麼（2026-08-21 決）
+### 一條 Work 記錄代表什麼（2026-08-21 決）
 
-### 先建 Work、後補 Book 是正常次序
+#### 先建 Work、後補 Book 是正常次序
 
 一部書先有作品記錄、日後再補實物記錄，這是本庫的正常工作次序，不是缺陷。
 
@@ -1597,12 +1450,12 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 實測此類 15,185 條中，**12,272 條（81%）是庫中該書的唯一記錄**——
 若因其來源是版本目錄就視為「版本條」，等於把八成正當的作品記錄判成雜質。
 
-### 一部書、數部藏本 → 一個 Work、數個 Book
+#### 一部書、數部藏本 → 一個 Work、數個 Book
 
 同一部書在同一部版本目錄中有數部藏本者，應為**一個 Work、數個 Book**，
 不是數個 Work。
 
-### 缺字訂正之後必須回頭查同題
+#### 缺字訂正之後必須回頭查同題
 
 匯入時題名帶缺字者，**彼此比對不上，去重會漏**。庫中實例：
 《訒庵集古印存》與《恆軒所見所藏吉金錄》各有二條，同出故宮善本目錄，
@@ -1613,12 +1466,12 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 
 ---
 
-## 同題二條，何時是重出、何時是二書（2026-08-22 定）
+### 同題二條，何時是重出、何時是二書（2026-08-22 定）
 
 同題而疑重出者，判之之法**不在題名，在著錄**。以下各條皆自 size=2 同題組
 七百六十九次合併與千餘次不併之實測所得，逐條可驗。
 
-### 一、卷數之異：同志則疑，異志則不疑
+#### 一、卷數之異：同志則疑，異志則不疑
 
 | 情形 | 判 |
 |---|---|
@@ -1634,17 +1487,17 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 皆同。**此類卷數異反是同一著錄條被切兩次之跡**——且附錄別集依
 〈版本附屬部帙〉本不當另立 Work。
 
-### 二、裸繫一源而無著錄語者，多是重出
+#### 二、裸繫一源而無著錄語者，多是重出
 
 一側僅繫一志而 `indexed_by[].title_info` 為空，而該志之全著錄語另一側已有
 ——是同一著錄條被切兩次。此型於直齋書錄解題尤多。
 
-### 三、志書之「又」例：同題而別是一書
+#### 三、志書之「又」例：同題而別是一書
 
 《舊唐書經籍志》作「《春秋左氏傳例》七卷。**又十五卷，杜預撰。**」
 ——「又」是志書之例，謂同題而別是一書（別本或他家所撰），**非重出**。
 
-### 四、《漢志》一名分列二略者是二書
+#### 四、《漢志》一名分列二略者是二書
 
 《漢志》同一書名分見諸子略與兵書略者，部類異、篇數亦異，是二書：
 
@@ -1656,7 +1509,7 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 | 五子胥 | 雜 八篇 | 兵技巧 十篇 |
 | 李子 | 法家 三十二篇 | 兵權謀 十篇 |
 
-### 五、出土簡帛與後世同名之書，只是題名巧合
+#### 五、出土簡帛與後世同名之書，只是題名巧合
 
 **併之則兩事俱毀。** 馬王堆帛書《易傳》之〈繫辭〉× 元保八《繫辭》二卷；
 阜陽漢簡《大事記》（竹簡編年記事，起西周迄漢初）× 宋呂祖謙《大事記》
@@ -1665,13 +1518,13 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 
 判別之法：其 `description.sources` 或 `ai_note` 載出土整理報告者即是。
 
-### 六、一方無撰人者，先問其 role
+#### 六、一方無撰人者，先問其 role
 
 一方有撰人而一方無者，**存者之 role 若為注／傳／疏／集解，則無撰人之一方
 疑即原典**——《歸藏》(無撰人) 與《歸藏薛貞注》(薛貞) 是原典與注本之別，
 注家有其創作，本為二物，**絕不可併**。role 為撰／編／輯者方可依上列各條續判。
 
-### 七、撰人異名之辨：看兩名在庫中之份量
+#### 七、撰人異名之辨：看兩名在庫中之份量
 
 撰人名一字之差者，混著真異人與形訛，且真異人多是名家——蘇軾／蘇洵／蘇轍、
 陸雲／陸機、曹操／曹丕、阮福／阮元、劉熙／劉珍、毛萇／毛亨、吳鼒／吳鼐。
@@ -1682,7 +1535,7 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 
 **名相含亦未必一人**：《棋品序》陸雲（晉，繫八部）× 陸云公（南朝梁）。
 
-### 八、比對書名之前必先簡繁歸一
+#### 八、比對書名之前必先簡繁歸一
 
 以嚴格相等比對著錄語所題之書名，實測擋下三十九組，逐一看去**三十八組是
 假陽性**——異體（龜鑑／龜鑒、寶／寳、歷／歴、略／畧、鉅／钜、祕／秘、
@@ -1692,7 +1545,7 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 **且不可用子串比對**：《新刻出像增補搜神記》因「搜神記」是其子串而被放行，
 而該條實混裝——題名為明增補本，所繫隋志、舊唐志之著錄語卻作《搜神記》三十卷。
 
-### 九、合併之際：存者可依源數而取，撰人之名須另判
+#### 九、合併之際：存者可依源數而取，撰人之名須另判
 
 存者依 `indexed_by` 源多者而取，是常法。**然訛名那一側之著錄源可能反多**
 ——實測十組形訛中有四組如此，遂使《荊州占》存「劉嚴」而非「劉表」、
@@ -1701,19 +1554,22 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 **故取存者之後，須另判其撰人之名孰正**，訛形入 `alt_names`。
 此誤之跡見於 `chk.py`「人物→作品 單向」上升——正名之 Entity 所 claim 之書落了空。
 
-### 十、合併之後必須同步者
+#### 十、合併之後必須同步者
 
 - `index/works/*.json`（title／path／author／role／dynasty／period／juan_count…）
 - **`index/books/*.json` 之 `work_id`**——Book 改指而此處未同步，
   `chk.py`「索引欄位不符」即現
-- Entity `works[]`：既改指，亦須**撤去不再以本人為撰人之條目**
+- ~~Entity `works[]`~~：schema-v2 起 Entity 不存作品列表，改 `authors[].entity_id` 即足；**但撰人之名孰正須另判**（見上條）
 - 隨遷之 `fragments/*.json`：其**檔內 `work_id` 須隨路徑改**，
   且存者之 `ai_note` 須記其檔位（`chk.py` 以 ai_note 含 `fragments/` 為據）
 - 隨遷之 `collated_edition/*.json`：只做精準字串替換，不整檔重寫
+- **被併者在分類類檔裡的成員行**（`classification/<分類法>/members/`）：改為存者之 id 或刪去（存者已有歸屬時），經 `bim classify`，不手改
+- 他條指向被併者之引用，只改**存儲一側**的欄位：`Book.work_id`、`contained_in[].id`、`authors[].entity_id`、規範方向之 `related_works[].id`、`indexed_by[].source_bid`、`Collection.work_id`／`contained_in`；反向與展示副本由 build 重生，不必改
+- `index/` 由 build 重生（併入前仍跑 `reindex.py`）
 
 ---
 
-## 版本附屬部帙：不新建 Work（2026-08-21 決）
+### 版本附屬部帙：不新建 Work（2026-08-21 決）
 
 書目書（直齋書錄解題、四庫總目之類）著錄一部集子時，往往在同一條解題下
 連記數事：《昌黎集》四十卷、《外集》十卷、《附錄》五卷、《年譜》一卷、
@@ -1721,7 +1577,7 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 不成書名。這些節該不該各建一個 Work？**分兩類，判準是「是不是同一本書」，
 不是看書名。**
 
-### 甲、該版本之附屬部帙 —— 不新建 Work
+#### 甲、該版本之附屬部帙 —— 不新建 Work
 
 **外集、別集、後集、續集、續編、續稿、內外制集、附錄、目錄、序、雜記、
 附益、圖** 之屬，凡與正集**一同刊印、隨本而存**者：
@@ -1739,7 +1595,7 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 「外集」「續編」二字，不等於它是另一本書，也不等於它是本書之一篇——
 **先問是不是同一本書，再定關係詞**。
 
-### 乙、他人所撰之研究著作 —— 新建 Work，走 `studies`
+#### 乙、他人所撰之研究著作 —— 新建 Work，走 `studies`
 
 **年譜、舉正、音義、考異、指要、備要、本義、通例、補注** 之屬，凡**出於
 他人之手、可單行**者：
@@ -1748,11 +1604,10 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
   《音釋》《摭異》是**葛嶠**裒集——皆非韓柳自己的文字。
 - 說它們 `part_of`《昌黎集》語義即錯：它們不是韓愈集子的一部分，
   是**研究韓集的另一部書**，只是恰好與韓集同刻。
-- 故**新建 Work**，以 `studies` / `studied_by` 繫之
-  （庫中既有：《史記音義》`studies`《史記》、《晉書》`studied_by`
-  《何超晉書音義》，音義類 41/42 皆如此）。
+- 故**新建 Work**，在研究著作一側寫 `studies` 繫之（被研究者一側之 `studied_by` 由 build 生成）
+  （庫中既有：《史記音義》`studies`《史記》、《何超晉書音義》`studies`《晉書》，音義類 41/42 皆如此）。
 
-### 判別之問
+#### 判別之問
 
 | 問 | 甲（附屬部帙） | 乙（研究著作） |
 |---|---|---|
@@ -1764,7 +1619,7 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 《政和五禮新儀目錄》隨本而存，是甲）——**以「曾否單行」為斷**，
 不能斷者記 `ai_note` 存疑，不強分。
 
-## 「別本」之節：與正條共繫一 Work（2026-08-24 決）
+### 「別本」之節：與正條共繫一 Work（2026-08-24 決）
 
 《欽定四庫全書總目》著錄一書之後，每別出一條作「**別本某某**」——
 《別本公是集》六卷之於《公是集》五十四卷、《別本農政全書》四十六卷之於
@@ -1775,7 +1630,7 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 （版本之異落在 Book，不落在 Work），別本之節當**與正條共繫同一 Work**，
 不新建。
 
-### 故其節標 `section_kind: "別本"`
+#### 故其節標 `section_kind: "別本"`
 
 共繫既是對的，`chk.py`〈整理本 section 級磁鐵〉便不當計之——
 該驗本為捉「匯入時同名條目未分」而設，別本之共繫是**裁定之果**，非未分之遺。
@@ -1791,7 +1646,7 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 提要言「大同小異」「即前本而多某卷」者是別本，言「別為一時之作」
 「節錄本」者不是（此準同姚振宗《隋書經籍志考證》之例，見 N2 道所立）。
 
-### `一書兩著`：書目自身之重出（2026-08-24 補）
+#### `一書兩著`：書目自身之重出（2026-08-24 補）
 
 原記「不及者二」——同題而卷數異之「一書兩著」、二節之題確異而同指一書者，
 各餘九十、一百八題，皆已逐條裁為正當共繫**而無欄可記**——今補此欄，二者同用之。
@@ -1810,7 +1665,7 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 多是二書非一書（《黃庭內景經》梁丘子注與唐自履忠注即其例，二注本各為一書）。
 標此欄前須讀其著錄語之撰人與案語。
 
-### 附記：書目書所述之版本，庫中未必有 Book
+#### 附記：書目書所述之版本，庫中未必有 Book
 
 直齋著錄之諸本（韓集之李漢序本、方崧卿南安軍本、朱熹校定本；柳集之三本）
 **庫中皆無對應 Book 記錄**（`Book.indexed_by` 現無直齋一源）。
@@ -1819,7 +1674,7 @@ id 可漂移，改查與全庫繁體慣例不一之處——`.claude/qa/verify.p
 
 ---
 
-## JSON 書寫格式（2026-08-21 定，全庫一律）
+## 十三、JSON 書寫格式（2026-08-21 定，全庫一律）
 
 | 項 | 約定 |
 |---|---|
@@ -1850,9 +1705,9 @@ open(p, 'w', encoding='utf-8').write(
 
 ---
 
-## 索引檔（`index/`）
+## 十四、索引檔（`index/`）
 
-檔案本身是唯一真實來源，`index/` 是為檢索而生成的扁平副本。
+檔案本身是唯一真實來源，`index/` 是為檢索而生成的扁平副本。**schema-v2 起由 `build/build_derived.py` 生成**（原 `reindex.py` 併入），不手改；數據 PR 不帶 `index/`。
 
 | 路徑 | 內容 | 分片 |
 |---|---|---|
@@ -1884,7 +1739,7 @@ open(p, 'w', encoding='utf-8').write(
 這是既定約定，兩邊都不要「改齊」。
 
 `authors` 是陣列，索引只取第一位攤平為 `author` / `role` / `dynasty`。
-改動檔案的標題、作者、路徑後，**必須同步更新索引**，否則校驗會報「索引欄位不符」。
+改動檔案的標題、作者、路徑後，由 build 重生索引即可（build 併入前仍跑 `reindex.py`），否則校驗會報「索引欄位不符」。
 
 **檔名只是 id 之附註，名以記錄內之欄為準**（2026-09-24 使用者定）。
 記錄檔名作 `<id>-<題或名>.json`，題名之後改了，檔名與索引之 `path` 未必跟著改
@@ -1905,11 +1760,11 @@ Work 沒有 `era`／`sort_year`（Work 的時代軸是 `period`，成書時代�
 `era` 與 `sort_year` 只是 `dating` 的投影；`reign`／`basis`／`based_on` 留在條目檔，
 索引不放。舊欄 `year`（`publication_info.year` 的自由文本）已刪——
 UI 執行期型別從不讀它，搜尋分片也不帶，寫了六年沒人消費。
-方案：`overview/项目进展/古籍索引网站/整体设计/2026-09-年代字段统一方案.md`。
+方案：`overview/项目进展/古籍目录/整体设计/2026-09-年代字段统一方案.md`。
 
 ---
 
-## ai_note 的用法
+## 十五、ai_note 的用法
 
 `ai_note` 出現在四類記錄的頂層，是**整理者寫給整理者的注**，不面向讀者：
 
@@ -1918,4 +1773,80 @@ UI 執行期型別從不讀它，搜尋分片也不帶，寫了六年沒人消�
 - 記整理決策，例：「原有非 schema 之頂層欄位 part_of，今改記為 related_works 之 part_of 關係」。
 
 面向讀者的正文一律進 `description.text`，其出處進 `description.sources`。
-前端不應渲染 `ai_note`。
+前端不應渲染 `ai_note`。---
+
+## 附一　新旧字段对照表（供 bim／网站双兼容查阅）
+
+读法一栏是读者在「先切后拆」期间的写法：**新的有就用新的，没有再读旧的**（例：`data._books ?? data.books`）。
+「迁移步」对应 overview `F2-7-迁移方案.md` 的 M1–M6；「检查」是 `check_v2.py` 的代码。
+
+| 旧字段（旧位置） | 新位置 | 读者兼容读法 | 迁移步 | 检查 |
+|---|---|---|---|---|
+| `Work.books[]` | 源：`Book.work_id`；产物：`Work._books`（按年代排）、`_edition_count` | `_books ?? books`（旧的只有 id，要再 fetch） | M3 删 | V03 |
+| `Work.books` 的手排顺序 | 丢弃；推荐版本用 `Work.preferred_book` | — | M3 | — |
+| `Work._edition_count`（手写） | 产物 `_edition_count` | `_edition_count`（产物恒有） | M3 删 | V01 |
+| `Work.related_works[].title` | 删；产物 `_related[].title` | `_related ?? related_works` | M2 删 | V06 |
+| `related_works` 反向词 `has_part`／`studied_by`／`text_carried_by`／`followed_by` | 对方源档写规范词 `part_of`／`studies`／`contains_text_of`／`preceded_by`；本侧在产物 `_related`（`direction:"in"`） | 同上 | M2 翻转 | V04 |
+| `has_pseudepigraph`／`has_adaptation` | 对方写 `pseudepigraph_of`／`adapted_from` | 同上 | M2 | V04 |
+| `commentary_on`、`related_to` | `studies`、`related` | 读者两词都认 | M2 | V05 |
+| `related` 写在两侧 | 只存 id 较小一侧，note 拼接；另一侧在产物 `_related` | 同上 | M1⑤ 搬 note、M3 删大 id 侧 | V07 |
+| `Book.related_books`、`Collection.related_*` 写在两侧 | 只存 id 较小一侧 | 读产物 `_related` 或两侧并集 | M3 | V07 |
+| `Work.authors[].role` 缺 | 必填；缺者由 `Entity.works[].role` 回填 | `role ?? "撰"`（仅展示兜底） | M1② | V08 |
+| `Work.classification {l1..l4, basis, source}` | `classification/<scheme>/members/<node>.json` 的 `[work_id, source]`；产物 `_classifications[]` | `_classifications?.[0] ?? classification` | M4 | V09 |
+| `classification.basis` | 删（默认，见〈附三〉） | 不读 | M4 | — |
+| `classific.json` | `classification/zongmu/tree.json`（`classific.json` 改为其生成物） | 读 `tree.json`，没有再读 `classific.json` | M4 | — |
+| 「未分類」占位节点 | 删；挂在父节点即「未细分」 | 读者把「挂中间节点」显示为未细分 | M4 | — |
+| `Collection.books[]` | 源：`Book.contained_in[].id`；产物 `Collection._members` | `_members ?? books` | M1① 并入成员侧、M3 删 | V10 |
+| `Collection.contained_works[]`（含 `title`、`volume_index`、`group`） | 源：`Work.contained_in[]`（`volume_index`）；产物 `_members` | `_members ?? contained_works` | M1①、M3 | V10 |
+| `Collection._member_count`／`_member_type`（手写） | 产物同名字段 | 产物恒有 | M3 | V01 |
+| sidecar `volume_book_mapping.json` 等的 `sub_items` | `Book.contained_in[].sub_items` | 读 `sub_items`，没有就不显示 | M1⓪、M3 删表 | V12 |
+| sidecar 的 `parent_work_id` | 并入该对 `related` 的 `note`（不升级为 `part_of`） | — | M1⓪ | V12 |
+| sidecar 的 `wiki_title` | `Book.resources[]` 一项 `id:"wikisource"` | — | M1⓪ | V12 |
+| sidecar 的册号、部类、再造善本编号 | 已在 `Book.contained_in[].volume_index`、`Book.section`、`Book.zhsy_id` | — | 无需并入 | V12 |
+| `Entity.works[]` | 源：`Work.authors[].entity_id`（含 `role`）；产物 `Entity._works` | `_works ?? works` | M3 | V11 |
+| `Entity.works[].title` | 删；产物 `_works[].title` | 同上 | M2 | V11 |
+| `_has_text`／`_has_image`／`_has_collated`（手写） | 产物同名字段 | 产物恒有 | M3 | V01 |
+| `has_text`／`has_image`／`has_collated`／`has_full_text`／`has_digitalization`（无下划线旧键） | 产物 `_has_*` | `_has_x ?? has_x` | M3 | V02 |
+| `_promoted_to`、`promoted_to`、`promoted_at`（记录内） | `promotions.json`；`index/` 与产物里回填 `promoted_to` | 读 `index/` 或 `promotions.json` | M3 | V01／V02 |
+| `index/**`（`reindex.py` 生成） | `build_derived.py` 生成 | 不变 | M6 | — |
+| `Work.ai_note_fix`／`ai_note2`／`ai_note_periodfix`（各 1 条） | 并入 `ai_note`（F3-3） | — | 未排步（〈附三〉） | — |
+
+**M0（打 tag）、M5（build 全量与 parity 对表）、M6（`index/` 重生）不在源档留下可查的残留**，故无检查代码。
+
+---
+
+## 附二　已刪之欄位
+
+| 欄位 | 刪於 | 去向／原因 |
+|---|---|---|
+| `book_contained_in`、`parent_works`（Work）、`history`、`volume_count`（Collection） | 2026-08 | 庫中皆零。`parent_works` 由 `related_works` 之 `part_of` 取代 |
+| `Work.books` | schema-v2（M3） | 由 `Book.work_id` 反查，見〈附一〉 |
+| `Collection.books`、`Collection.contained_works` | schema-v2（M3） | 成員由成員側 `contained_in` 反查 |
+| `Entity.works` | schema-v2（M3） | 由 `Work.authors[].entity_id` 反查 |
+| `related_works[].title`、`contained_works[].title`、`Entity.works[].title` | schema-v2（M2） | 展示副本必漂（實測 77＋47 處），由 build 取對方現行題名 |
+| 反向關係詞（`has_part`、`studied_by`、`text_carried_by`、`followed_by`、`has_pseudepigraph`、`has_adaptation`）作為源檔值 | schema-v2（M2） | 只在 build 產物出現 |
+| `commentary_on`、`related_to` | schema-v2（M2） | 併入 `studies`、`related` |
+| `Work.classification` | schema-v2（M4） | 移入 `classification/` 類檔；舊形狀 `{l1, l2, l3, l4, basis, source}`，`basis` 曾為 S（四庫總目類目）／A（`indexed_by[].section` 同名）／B（對照表換算）／C（只到部），實測已漂移（S 中四庫總目僅 44%） |
+| 一切源檔內 `_` 起首欄、`has_text` 等無底線舊派生鍵、記錄內 `promoted_to` | schema-v2（M3） | 移入構建產物 |
+| sidecar 對照表（6 份） | schema-v2（M3） | 獨有資訊於 M1 併入記錄 |
+
+**按**：`resource_groups` 與 `volume_count` 在 **Book** 仍為有效欄位；舊版本節曾記「Work 層 `resource_groups` 已刪、庫中零」，實測正式庫 1,770 個 Work 有此欄（2026-10-07），**本版訂正為有效欄位**，形狀同 Book。
+留在 spec 裡的死欄位，三年內一定會被某個人重新啟用；需要時自 git 歷史取回。
+
+---
+
+## 附三　待定项（设计文档或 #451 里还没有结论的点；本文不拍板）
+
+| # | 事项 | 现状／默认 | 谁定 |
+|---|---|---|---|
+| 1 | 分类成员行删不删 `basis` | #451 目录总管两次写「不答按默认删」，用户未明确回复。本文按默认写（成员行只 `[work_id, source]`）；若要保留，行尾加一项枚举即可，格式向后兼容 | 用户 |
+| 2 | 对称关系「id 较小」用字符串比较还是解码后整数比较 | 本文与 `check_v2.py` 用**字符串比较**（与 F2 试验 `trial.py` 的 `min(a,b)` 一致）；同长度 id 两者等价，只在草稿 13 字符 id 与正式 12 字符 id 互指时有别。须与 F6-1 的 `build_derived.py`／`migrate_v2.py` 对齐 | 目录总管（F6-1 对表） |
+| 3 | Book／Collection 的 `authors[].role` 是否也必填 | F2 只对 Work 定了必填；本文对 Book／Collection 写「建议写」，`check_v2.py` V08 只查 Work | 目录总管 |
+| 4 | `Work.collections`（1 条，Collection ID 数组） | 与 `Work.contained_in` 同义而形状不同；建议并入 `contained_in`，未见结论，未排迁移步 | 目录总管 |
+| 5 | `Entity.aliases`（13 条） | 形状同 `alt_names`，建议并入；未排迁移步 | 目录总管 |
+| 6 | `ai_note_fix`／`ai_note2`／`ai_note_periodfix`（各 1 条） | F3-3 说「迁移时并入 `ai_note`」，F2-7 未列入 M 步 | 目录总管 |
+| 7 | `Collection.contained_works[].title` 里 47 处「括注撰人消歧」的展示题（如「補後漢書藝文志（顧懷三）」） | M2 删 title 后这类消歧随之消失；要不要在 `Work.contained_in[]` 项里留一个可选展示名，未定（S5 留给目录总管） | 目录总管 |
+| 8 | 武英殿 sidecar 顶层信息（馆藏、善本号、`sections`、`ai_note`）并入 Collection 哪些字段 | F2-7 §六·附「待核」 | F6-1／目录总管 |
+| 9 | Entity 是否套 `revision` 机制 | F3-3 §三：不在该卡 | 目录总管 |
+| 10 | 志书「本志著录了哪些书」成员页（`_member_catalog`、约 14 MB） | F4：新功能，用户定做不做；不影响其它产物 | 用户 |
+| 11 | S1 留下的候选分类（19 条冲突＋3,785 条撤回）进不进成员行 `status` 候选层 | 本轮只留格式口子，不做 | 用户（默认不做） |
