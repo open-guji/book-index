@@ -29,6 +29,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import v2common as V  # noqa: E402
 
 PROTECTED = ('revision', 'revised_at')
+DEFAULT_ROLE = '撰'
 WIKISOURCE = 'https://zh.wikisource.org/wiki/'
 WIKISOURCE_UNVERIFIED = '頁名取自舊叢編對照表，未驗證'
 PARENT_NOTE = '舊叢編對照表（{coll}）列本書於《{title}》之下'   # parent_work_id 併入 related 之 note
@@ -58,6 +59,7 @@ class Repo:
         self.protected = {i: tuple(copy.deepcopy(r.data.get(k)) for k in PROTECTED) for i, r in self.by_id.items()}
         self.dirty = set()
         self.handformatted = []
+        self.head0 = git(self.root, 'rev-parse', '--short', 'HEAD').stdout.strip() or '（非 git 倉）'
 
     def get(self, typ, i):
         r = self.recs[typ].get(i)
@@ -95,8 +97,18 @@ class Repo:
         return sorted(self.by_id[i].path for i in self.dirty if V.dump(self.by_id[i].data, self.by_id[i].fmt) != self.by_id[i].raw)
 
 
-def git(root, *args):
-    return subprocess.run(['git', '-C', root, *args], capture_output=True, text=True)
+def load_promotions(root):
+    p = os.path.join(root, 'promotions.json')
+    if not os.path.exists(p):
+        return {}
+    out = {}
+    for k, v in (json.load(open(p, encoding='utf-8')).get('promotions') or {}).items():
+        out[k] = v if isinstance(v, str) else (v.get('to') or v.get('official_id') or v.get('id')) if isinstance(v, dict) else None
+    return out
+
+
+def git(root, *args, stdin=None):
+    return subprocess.run(['git', '-C', root, *args], capture_output=True, text=True, input=stdin)
 
 
 # ---------- M0：盤點 ----------
@@ -171,6 +183,14 @@ def shape_inventory(repo):
                         inv['Entity.works:dict'] += 1
                     else:
                         bad(i, 'Entity.works', json.dumps(x, ensure_ascii=False)[:200])
+    for t, fields in V.SYMMETRIC_LISTS.items():
+        for i, r in repo.recs[t].items():
+            for f in fields:
+                for x in chk_list(i, f'{t}.{f}', r.data.get(f)):
+                    if isinstance(x, str) or (isinstance(x, dict) and (sym_id(x) or x.get('work_id'))):
+                        inv[f'{t}.{f}:' + type(x).__name__] += 1
+                    else:
+                        bad(i, f'{t}.{f}', json.dumps(x, ensure_ascii=False)[:200])
     for rel, d in repo.sidecars():
         name = os.path.basename(rel)
         keys = SIDECAR_ROW_KEYS.get(name)
@@ -363,8 +383,16 @@ def m1(repo, args):
                 repo.touch(wid)
                 A['② Work.authors[].role（由 Entity 回填）'] += 1
                 ITEMS['②'].append({'id': wid, 'add': 'authors[].role', 'value': role, 'entity': a['entity_id']})
-            else:
-                MAN['② role 缺且 Entity 側也無'].append({'work': wid, 'entity': a['entity_id']})
+    # ②b 仍缺者機械補「撰」（目錄總管 10-07 定；build 原本即以「撰」兜底，等於把兜底落成數據）
+    for wid, wr in sorted(repo.recs['Work'].items()):
+        for a in wr.data.get('authors') or []:
+            if isinstance(a, dict) and not a.get('role'):
+                a['role'] = DEFAULT_ROLE
+                repo.touch(wid)
+                k = '有 entity_id、Entity 側也無' if a.get('entity_id') else '無 entity_id'
+                A[f'②b Work.authors[].role 機械補「撰」（{k}）'] += 1
+                ITEMS['②b'].append({'id': wid, 'add': 'authors[].role', 'value': DEFAULT_ROLE, 'name': a.get('name'),
+                                    'entity': a.get('entity_id')})
     # ④⑤ 關係 note：規範側（related 為小 id 側）拼接兩側 note
     groups = edge_groups(repo)
     for (s, d, rel), ents in sorted(groups.items()):
@@ -599,6 +627,8 @@ def m2(repo, args, original_edges=None):
         repo.touch(s)
         A[f'規範側落筆：{rel}'] += 1
         ITEMS['place'].append({'id': s, 'add': item, 'from': sorted({e['rec'] for e in ents})})
+    # 2b. 對稱 id 列表：related_collections 的對象轉 id 字串（type／note 等逐條列報告）；小 id 側補寫
+    m2_symmetric_lists(repo, rep)
     # 3. 刪展示副本 title
     for wid, wr in sorted(repo.recs['Work'].items()):
         for r in wr.data.get('related_works') or []:
@@ -646,6 +676,279 @@ def m2(repo, args, original_edges=None):
     return rep
 
 
+def sym_id(x):
+    """對稱列表之項 → 對方 id（str，或 related_collections 的舊對象形）。"""
+    if isinstance(x, str):
+        return x
+    if isinstance(x, dict):
+        return x.get('collection_id') or x.get('book_id') or x.get('id')
+    return None
+
+
+def m2_symmetric_lists(repo, rep):
+    A, ITEMS = rep['added'], rep['items']
+    rep.setdefault('symmetric_object_info', [])
+    rep.setdefault('symmetric_unconvertible', [])
+    for t, fields in V.SYMMETRIC_LISTS.items():
+        for rid, rr in sorted(repo.recs[t].items()):
+            for f in fields:
+                lst = rr.data.get(f)
+                if not isinstance(lst, list):
+                    continue
+                for n, x in enumerate(list(lst)):
+                    if isinstance(x, str):
+                        continue
+                    tid = sym_id(x)
+                    if not tid:
+                        rep['symmetric_unconvertible'].append({'record': rid, 'field': f, 'item': x})
+                        continue
+                    extra = {k: v for k, v in x.items() if k not in ('collection_id', 'book_id', 'id', 'title') and v}
+                    if extra:
+                        rep['symmetric_object_info'].append({'record': rid, 'field': f, 'target': tid, 'dropped': extra})
+                    lst[n] = tid
+                    repo.touch(rid)
+                    A[f'{t}.{f}：對象 → id 字串'] += 1
+    # 小 id 側補寫（同型記錄才補；Collection.related_books 指 Book，非對稱同型，跳過）
+    for t, fields in V.SYMMETRIC_LISTS.items():
+        for f in fields:
+            tgt_type = 'Collection' if f == 'related_collections' else 'Book'
+            if tgt_type != t:
+                continue
+            for rid, rr in sorted(repo.recs[t].items()):
+                for tid in list(rr.data.get(f) or []):
+                    if not isinstance(tid, str) or tid >= rid:
+                        continue
+                    other = repo.get(t, tid)
+                    if other is None:
+                        rep['cannot_place'].append({'store_on': tid, 'target': rid, 'relation': f'{t}.{f}',
+                                                    'why': 'not in this repo', 'from': [rid]})
+                        continue
+                    if rid not in [sym_id(y) for y in other.get(f) or []]:
+                        if other.get(f) is None:
+                            other[f] = []
+                        other[f].append(rid)
+                        repo.touch(tid)
+                        A[f'{t}.{f}：小 id 側落筆'] += 1
+                        ITEMS['place'].append({'id': tid, 'add': {f: rid}, 'from': [rid]})
+
+
+def sym_pairs(repo):
+    out = set()
+    for t, fields in V.SYMMETRIC_LISTS.items():
+        for f in fields:
+            for rid, rr in repo.recs[t].items():
+                for x in rr.data.get(f) or []:
+                    tid = sym_id(x)
+                    if tid:
+                        out.add((t, f, min(rid, tid), max(rid, tid)))
+    return out
+
+
+# ---------- M3：刪派生與反向（F2-7 §二 M3；sidecar 留到 M6，`_has_text`／`_has_collated` 留作源欄） ----------
+M3_DROP = {
+    'Work': ('books', '_edition_count', '_has_image', 'has_image'),
+    'Book': ('_has_image', 'has_image'),
+    'Collection': ('books', 'contained_works', '_member_count', '_member_type', '_has_image', 'has_image'),
+    'Entity': ('works',),
+}
+M3_FOLD = {'has_text': '_has_text', 'has_full_text': '_has_text',
+           'has_collated': '_has_collated'}   # 無底線舊鍵併入准留之源欄
+
+
+def m3(repo, args, promotions):
+    rep = {'step': 'M3', 'removed': collections.Counter(), 'folded': collections.Counter(),
+           'lost': collections.defaultdict(list), 'manual': collections.defaultdict(list)}
+    R, LOST, MAN = rep['removed'], rep['lost'], rep['manual']
+    before_edges = all_edges(repo)
+    before_sym = sym_pairs(repo)
+    # 刪前對勘：舊反向欄的每一項，成員側／存儲側都已有（否則即「刪了就丟」）
+    for wid, wr in sorted(repo.recs['Work'].items()):
+        for bid in wr.data.get('books') or []:
+            b = repo.get('Book', bid)
+            if b is None:
+                LOST['Work.books 指向不存在的 Book（舊數據錯）'].append([wid, bid])
+            elif b.get('work_id') != wid:
+                LOST['Work.books 與 Book.work_id 不符'].append([wid, bid, b.get('work_id')])
+    for cid, cr in sorted(repo.recs['Collection'].items()):
+        for x in cr.data.get('books') or []:
+            bid = V.ref_id(x, 'book_id', 'id')
+            b = repo.get('Book', bid)
+            if b is None:
+                LOST['Collection.books 指向不存在的 Book（舊數據錯）'].append([cid, bid])
+            elif ci_entry(b, cid)[0] is None:
+                LOST['Collection.books 成員側無 contained_in'].append([cid, bid])
+        for x in cr.data.get('contained_works') or []:
+            wid = V.ref_id(x, 'id', 'work_id')
+            w = repo.get('Work', wid)
+            if w is None:
+                LOST['Collection.contained_works 指向不存在的 Work（舊數據錯）'].append([cid, wid])
+            elif ci_entry(w, cid)[0] is None:
+                LOST['Collection.contained_works 成員側無 contained_in'].append([cid, wid])
+    for eid, er in sorted(repo.recs['Entity'].items()):
+        for x in er.data.get('works') or []:
+            wid = x.get('work_id') if isinstance(x, dict) else None
+            w = repo.get('Work', wid)
+            if w is None:
+                LOST['Entity.works 指向不存在的 Work（舊數據錯）'].append([eid, wid])
+            elif eid not in {a.get('entity_id') for a in w.get('authors') or [] if isinstance(a, dict)}:
+                LOST['Entity.works 有而 Work.authors 無（M1③ 人工核清單）'].append([eid, wid])
+    # 刪
+    for t, keys in M3_DROP.items():
+        for rid, rr in sorted(repo.recs[t].items()):
+            d = rr.data
+            for old, new in M3_FOLD.items():
+                if old in d:
+                    if d[old] and not d.get(new):
+                        d[new] = True
+                        rep['folded'][f'{t}.{old} → {new}'] += 1
+                    del d[old]
+                    repo.touch(rid)
+                    R[f'{t}.{old}'] += 1
+            for k in keys:
+                if k in d:
+                    del d[k]
+                    repo.touch(rid)
+                    R[f'{t}.{k}'] += 1
+            if 'has_digitalization' in d:      # 舊鍵：有影像。resources 推得出才刪，否則交人工
+                if not d['has_digitalization'] or any(
+                        'image' in (r.get('types') or [r.get('type')]) for r in d.get('resources') or []
+                        if isinstance(r, dict)):
+                    del d['has_digitalization']
+                    repo.touch(rid)
+                    R[f'{t}.has_digitalization'] += 1
+                else:
+                    MAN['has_digitalization 為真而 resources 無影像（未刪）'].append(rid)
+            for k in ('_promoted_to', 'promoted_to', '_promoted_at', 'promoted_at'):
+                if k in d:
+                    if k.endswith('_to') and promotions.get(rid) != d[k]:
+                        MAN['promoted_to 與 promotions.json 不符（未刪）'].append({'id': rid, 'record': d[k],
+                                                                              'promotions': promotions.get(rid)})
+                        continue
+                    del d[k]
+                    repo.touch(rid)
+                    R[f'{t}.{k}'] += 1
+    # 反向詞項、related 在大 id 側者
+    for wid, wr in sorted(repo.recs['Work'].items()):
+        lst = wr.data.get('related_works')
+        if not isinstance(lst, list):
+            continue
+        keep = [r for r in lst if not (V.rel_target(r) and not V.is_stored_form(wid, V.rel_target(r), r.get('relation')))]
+        if len(keep) != len(lst):
+            for r in lst:
+                if r not in keep:
+                    R[f'Work.related_works[{r.get("relation")}]（非存儲形）'] += 1
+            wr.data['related_works'] = keep
+            repo.touch(wid)
+    # 對稱 id 列表：刪大 id 側
+    for t, fields in V.SYMMETRIC_LISTS.items():
+        for f in fields:
+            for rid, rr in sorted(repo.recs[t].items()):
+                lst = rr.data.get(f)
+                if not isinstance(lst, list):
+                    continue
+                tgt_type = 'Collection' if f == 'related_collections' else 'Book'
+                if tgt_type != t:
+                    continue          # Collection.related_books 指 Book，不是同型對稱，不動
+
+                def stored_on_smaller(x):
+                    other = repo.get(t, x) if isinstance(x, str) and x < rid else None
+                    return other is not None and rid in [sym_id(y) for y in other.get(f) or []]
+                keep = [x for x in lst if not stored_on_smaller(x)]
+                if len(keep) != len(lst):
+                    R[f'{t}.{f}（大 id 側）'] += len(lst) - len(keep)
+                    rr.data[f] = keep
+                    repo.touch(rid)
+    # 斷言
+    built = set()
+    for e in stored_edges(repo):
+        built |= V.expand_edge(*e)
+    lost_edges = sorted(before_edges - built)
+    after_sym = sym_pairs(repo)
+    lost_sym = sorted(before_sym - after_sym)
+    rep['edge_conservation'] = {'edges_before_M3': len(before_edges), 'entries_after_M3': len(all_edges(repo)),
+                                'built_edges': len(built), 'old_not_rebuilt': len(lost_edges),
+                                'sample': lost_edges[:50], 'symmetric_pairs_before': len(before_sym),
+                                'symmetric_pairs_after': len(after_sym), 'symmetric_lost': lost_sym[:50]}
+    hard = {k: v for k, v in LOST.items() if '舊數據錯' not in k and 'M1③' not in k}
+    rep['removed'] = dict(sorted(R.items()))
+    rep['folded'] = dict(rep['folded'])
+    rep['lost'] = {k: v for k, v in sorted(LOST.items())}
+    rep['manual'] = {k: v for k, v in sorted(MAN.items())}
+    rep['ok'] = not lost_edges and not lost_sym and not any(hard.values())
+    if hard:
+        rep['fail_reason'] = {k: len(v) for k, v in hard.items() if v}
+    return rep
+
+
+# ---------- 人工核清單（目錄總管 10-07：M1 的「要人工核的清單」整理成一份 md） ----------
+def _t(repo, i):
+    r = repo.by_id.get(i)
+    if not r:
+        return f'`{i}`（庫中無）'
+    return f"`{i}`《{r.data.get('title') or r.data.get('primary_name') or ''}》"
+
+
+def write_manual_md(repo, rep_dir, reps):
+    m1r, m2r, m3r = reps.get('M1'), reps.get('M2'), reps.get('M3')
+    if not (m1r or m2r or m3r):
+        return None
+    L = ['# 人工核清單（schema-v2 遷移 M1–M3）', '',
+         f'> 由 `build/migrate_v2.py` 生成；源：遷移前 HEAD `{repo.head0}` 的副本。'
+         '重跑腳本即重生本檔，請勿手改；核完的結論寫回卡上或直接改數據後重跑。', '']
+
+    def sec(title, rows, fmt, note=None):
+        if not rows:
+            return
+        L.append(f'## {title}（{len(rows)}）')
+        L.append('')
+        if note:
+            L.extend([note, ''])
+        for x in rows:
+            L.append('- ' + fmt(x))
+        L.append('')
+    if m1r:
+        M, E = m1r.get('manual', {}), m1r.get('data_errors', {})
+        sec('冊號不一：sidecar 冊號並集 vs Book.contained_in[].volume_index', M.get('⓪ 冊號不一（sidecar 並集 vs volume_index）'),
+            lambda x: f"{_t(repo, x['book'])} 叢編 `{x['collection']}`：sidecar {x['sidecar']}／記錄 {x['volume_index']}")
+        sec('Book 沒寫 volume_index、sidecar 有冊號', M.get('⓪ Book 無 volume_index、sidecar 有冊號'),
+            lambda x: f"{_t(repo, x['book'])} 叢編 `{x['collection']}`：sidecar {x['sidecar']}")
+        sec('zhsy_id：sidecar 有、Book 側空或不同', M.get('⓪ zhsy_id 與 Book.zhsy_id 不一'),
+            lambda x: f"{_t(repo, x['book'])}：sidecar `{x['sidecar']}`／Book `{x['book_side']}`")
+        sec('百衲本：Book 無對應 resource', M.get('⓪ 百衲本：Book 無對應 resource'),
+            lambda x: f"{_t(repo, x['book'])} 缺 `{x['resource']}`")
+        sec('百衲本：details 冊數與 sidecar 不一', M.get('⓪ 百衲本：details 與 sidecar 冊數不一'),
+            lambda x: f"{_t(repo, x['book'])} `{x['resource']}`：sidecar {x['found']}/{x['expected']}，details「{x['details']}」")
+        sec('sidecar 頂層資訊，記錄未見（目錄總管 10-07：先留著，不併入）', M.get('⓪ sidecar 頂層資訊（記錄未見，待定去處）'),
+            lambda x: f"`{x['sidecar']}` → 叢編 {_t(repo, x['collection'])}：{', '.join(x['fields'])}")
+        sec('叢編側與成員側 volume_index 不一（語義不同，未動）', M.get('① contained_in 與 contained_works 屬性不一'),
+            lambda x: f"{_t(repo, x['work'])} 叢編 `{x['collection']}`：叢編側 {x['collection_side']}／成員側 {x['member_side']}")
+        sec('contained_works.period 與 Work.period 不一', M.get('① contained_works.period 與 Work.period 不一'),
+            lambda x: f"{_t(repo, x['work'])} 叢編 `{x['collection']}`：{x['collection_side']}／{x['work_side']}")
+        sec('Entity.works 有而 Work.authors 無（M3 刪 Entity.works 後人物頁不再列；交人物道）',
+            M.get('③ Entity.works 有而 Work.authors 無、按名補不了'),
+            lambda x: f"人物 {_t(repo, x['entity'])} ↔ 作品 {_t(repo, x['work'])}：{x['why']}"
+                      + (f"（作品作者已繫 `{x['other_entity'][0]}`）" if x.get('other_entity') else ''))
+        sec('數據錯：sidecar 列了不存在的 Book（未併入）', E.get('sidecar 列了不存在的 Book'),
+            lambda x: f"`{x['book_id']}`《{x.get('title') or ''}》（{x['sidecar']}）")
+        sec('數據錯：parent_work_id 子或母作品不存在（未併入）', E.get('parent_work_id：子或母作品不存在'),
+            lambda x: f"子 {_t(repo, x['work'])} ／ 母 {_t(repo, x['parent'])}")
+        for k in ('Collection.books 指向不存在的 Book', 'Collection.contained_works 指向不存在的 Work', 'Entity.works 指向不存在的 Work'):
+            sec('數據錯：' + k, E.get(k), lambda x: ' → '.join(f'`{y}`' for y in x))
+    if m2r:
+        sec('related_collections 對象轉 id 字串時拿掉的資訊（目錄總管：我來看怎麼放）', m2r.get('symmetric_object_info'),
+            lambda x: f"{_t(repo, x['record'])}.{x['field']} → `{x['target']}`：{json.dumps(x['dropped'], ensure_ascii=False)}")
+        sec('related_collections 無法轉 id 字串（指向非叢編，原樣保留）', m2r.get('symmetric_unconvertible'),
+            lambda x: f"{_t(repo, x['record'])}.{x['field']}：{json.dumps(x['item'], ensure_ascii=False)}")
+    if m3r:
+        for k, v in (m3r.get('manual') or {}).items():
+            sec('M3：' + k, v, lambda x: json.dumps(x, ensure_ascii=False) if not isinstance(x, str) else _t(repo, x))
+    p = os.path.join(rep_dir, '人工核清單.md')
+    os.makedirs(rep_dir, exist_ok=True)
+    with open(p, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(L).rstrip() + '\n')
+    return p
+
+
 # ---------- 主程序 ----------
 def write_report(rep_dir, rep):
     os.makedirs(rep_dir, exist_ok=True)
@@ -658,17 +961,18 @@ def write_report(rep_dir, rep):
 
 def summarise(rep):
     s = {'step': rep['step'], 'ok': rep.get('ok')}
-    for k in ('records', 'added', 'sidecar_checks', 'removed_title', 'edge_conservation', 'records_changed',
+    for k in ('records', 'added', 'removed', 'folded', 'fail_reason', 'sidecar_checks', 'removed_title',
+              'edge_conservation', 'records_changed',
               'files_written', 'protected_violations', 'head', 'tag_command'):
         if k in rep:
             v = rep[k]
             if k == 'edge_conservation':
                 v = {a: b for a, b in v.items() if not a.startswith('sample')}
             s[k] = v
-    for k in ('unknown_shapes', 'cannot_place'):
+    for k in ('unknown_shapes', 'cannot_place', 'symmetric_object_info', 'symmetric_unconvertible'):
         if k in rep:
             s[k + '_count'] = len(rep[k])
-    for k in ('data_errors', 'manual'):
+    for k in ('data_errors', 'manual', 'lost'):
         if k in rep:
             s[k] = {a: len(b) for a, b in rep[k].items()}
     return s
@@ -677,7 +981,7 @@ def summarise(rep):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--root', required=True, help='數據倉根（正式庫或草稿庫）')
-    ap.add_argument('--steps', default='M0', help='逗號分隔：M0,M1,M2')
+    ap.add_argument('--steps', default='M0', help='逗號分隔：M0,M1,M2,M3')
     ap.add_argument('--dry-run', action='store_true', help='不寫回數據檔（報告照寫）')
     ap.add_argument('--report-dir', help='報告目錄（預設 <root>/migrate_report）')
     ap.add_argument('--tag', action='store_true', help='M0 時真的打 tag pre-schema-v2（預設只印命令）')
@@ -688,6 +992,7 @@ def main(argv=None):
     repo = Repo(a.root)
     original_edges = all_edges(repo)
     status = 0
+    done = {}
     for st in steps:
         if st == 'M0':
             rep = m0(repo, a)
@@ -695,6 +1000,8 @@ def main(argv=None):
             rep = m1(repo, a)
         elif st == 'M2':
             rep = m2(repo, a, original_edges)
+        elif st == 'M3':
+            rep = m3(repo, a, load_promotions(repo.root))
         else:
             ap.error(f'unknown step {st}')
         if st != 'M0':
@@ -707,17 +1014,20 @@ def main(argv=None):
             if rep['ok'] and not a.dry_run:
                 rep['files_written'] = repo.save()
                 if a.git_commit and paths:
-                    git(repo.root, 'add', '--', *paths)
+                    # 只 add 改過的記錄檔；檔數可上萬，走 stdin 免撞命令列長度上限
+                    git(repo.root, 'add', '--pathspec-from-file=-', '--pathspec-file-nul', stdin='\0'.join(paths))
                     git(repo.root, 'commit', '-q', '-m', f'schema-v2 {st}（migrate_v2.py）')
             elif a.dry_run:
                 repo.dirty.clear()
         write_report(rep_dir, rep)
+        done[st] = rep
         print(json.dumps(summarise(rep), ensure_ascii=False, indent=1, default=list))
         if not rep.get('ok'):
             print(f'FAIL at {st}; stop.', file=sys.stderr)
             status = 1
             break
     # dry-run 時記憶體已改不寫回，後一步在此基礎上跑：報告反映「依次跑」的結果
+    write_manual_md(repo, rep_dir, done)
     return status
 
 

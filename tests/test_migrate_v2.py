@@ -120,3 +120,76 @@ def test_dry_run_writes_nothing(repo):
     rc, R = mig(repo, 'M1,M2', '--dry-run')
     assert rc == 0 and R['M1']['records_changed'] > 0
     assert snapshot(repo) == before
+
+
+# ---------- 第二批：②b role 補「撰」、related_collections、M3、人工核清單 ----------
+def _extra(repo):
+    d = S.read(repo, 'Work', S.W5)
+    d['authors'] = [{'name': '無名氏'}]                                    # 無 entity_id、缺 role
+    S.put(repo, 'Work', d)
+    S.put(repo, 'Collection', {'id': 'c0000000002', 'type': 'collection', 'title': '續編', 'revision': '1.0.0',
+                               'related_collections': [{'collection_id': S.C1, 'type': 'continues', 'note': '續某叢書',
+                                                        'title': '某叢書'}, {'work_id': S.W5, 'note': '指向作品'}]})
+    b = S.read(repo, 'Book', S.B3)
+    b['related_books'] = [S.B1]                                            # 對稱、只在大 id 側
+    b['has_full_text'] = True
+    S.put(repo, 'Book', b)
+
+
+def test_m1_role_default(repo):
+    _extra(repo)
+    rc, R = mig(repo, 'M1')
+    assert rc == 0
+    assert S.read(repo, 'Work', S.W5)['authors'][0]['role'] == '撰'
+    assert R['M1']['added']['②b Work.authors[].role 機械補「撰」（無 entity_id）'] == 1
+
+
+def test_m2_symmetric_lists(repo):
+    _extra(repo)
+    rc, R = mig(repo, 'M1,M2')
+    assert rc == 0, R
+    c2 = S.read(repo, 'Collection', 'c0000000002')
+    assert c2['related_collections'][0] == S.C1                             # 對象 → id 字串
+    assert isinstance(c2['related_collections'][1], dict)                   # 指向非叢編者原樣保留
+    assert R['M2']['symmetric_object_info'][0]['dropped'] == {'type': 'continues', 'note': '續某叢書'}
+    assert len(R['M2']['symmetric_unconvertible']) == 1
+    assert S.read(repo, 'Book', S.B1)['related_books'] == [S.B3]             # 小 id 側補寫
+    assert S.read(repo, 'Collection', S.C1)['related_collections'] == ['c0000000002']
+
+
+def test_m3_drops_reverse_and_derived(repo):
+    _extra(repo)
+    rc, R = mig(repo, 'M1,M2,M3')
+    assert rc == 0, R
+    w1 = S.read(repo, 'Work', S.W1)
+    assert 'books' not in w1 and '_edition_count' not in w1
+    assert {(r['id'], r['relation']) for r in w1['related_works']} == {(S.W4, 'related')}   # 反向詞項已刪
+    assert w1['revision'] == '1.0.3' and w1['revised_at'] == '2026-01-01'
+    assert 'works' not in S.read(repo, 'Entity', S.E1)
+    c1 = S.read(repo, 'Collection', S.C1)
+    assert not {'books', 'contained_works', '_member_count'} & set(c1)
+    assert 'related_collections' in c1
+    assert S.read(repo, 'Collection', 'c0000000002')['related_collections'] == [{'work_id': S.W5, 'note': '指向作品'}]
+    b3 = S.read(repo, 'Book', S.B3)
+    assert b3['related_books'] == [] and b3['_has_text'] is True and 'has_full_text' not in b3
+    assert R['M3']['edge_conservation']['old_not_rebuilt'] == 0
+    assert R['M3']['lost']['Entity.works 有而 Work.authors 無（M1③ 人工核清單）'] == [[S.E1, S.W2]]
+    md = open(os.path.join(repo, '..', 'rep', '人工核清單.md'), encoding='utf-8').read()
+    assert '《乙書》' in md and 'related_collections' in md
+
+
+def test_m3_then_strict_build_clean(repo):
+    import build_derived as BD
+    _extra(repo)
+    mig(repo, 'M1,M2,M3')
+    r, P = BD.run(repo, check_only=True, strict=True, quiet=True)
+    assert r['fatal'] == [], r['fatal']
+    assert {(x['id'], x['relation'], x['direction']) for x in P[f'entry/{S.W1}.json']['_related']} >= {
+        (S.W2, 'has_part', 'in'), (S.W3, 'studied_by', 'in'), (S.W4, 'related', 'out')}
+
+
+def test_m3_idempotent(repo):
+    _extra(repo)
+    mig(repo, 'M1,M2,M3')
+    rc, R = mig(repo, 'M1,M2,M3')
+    assert rc == 0 and all(R[s]['records_changed'] == 0 for s in ('M1', 'M2', 'M3'))

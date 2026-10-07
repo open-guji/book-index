@@ -594,6 +594,159 @@ class Build:
         return out
 
 
+# ---------- index/（原 reindex.py／bim entry_extractor 併入；F2-3 §一、SCHEMA〈九〉） ----------
+INDEX_FAMILY = {'Work': 'works', 'Book': 'books', 'Entity': 'entities', 'Collection': 'collections'}
+
+
+def shard_of(i, n=16):
+    """與 bim storage.shard_of、reindex.shard 同：h=h*31+ord(c)，取模 16。"""
+    h = 0
+    for c in i:
+        h = ((h * 31) + ord(c)) & 0xFFFFFFFF
+    return h % n
+
+
+def _titles(raw):
+    out = []
+    for t in raw if isinstance(raw, list) else []:
+        if isinstance(t, str) and t:
+            out.append(t)
+        elif isinstance(t, dict) and t.get('book_title'):
+            out.append(t['book_title'])
+    return out
+
+
+def _res_flags(d):
+    txt = img = False
+    for r in d.get('resources') or [] if isinstance(d.get('resources'), list) else []:
+        if not isinstance(r, dict):
+            continue
+        ts = r.get('types')
+        if isinstance(ts, list) and ts:
+            txt = txt or 'text' in ts
+            img = img or 'image' in ts
+        else:
+            rt = r.get('type', '')
+            txt = txt or rt in ('text', 'text+image')
+            img = img or rt in ('image', 'text+image')
+    return txt, img
+
+
+def index_entry(d, typ, rel_path, promoted_to=None):
+    """逐字照 book_index_manager/entry_extractor.py（build_index_entry／build_entity_index_entry）。
+    promoted_to：record 上的舊值優先（遷移前），否則取 promotions.json（M3 後 record 不再帶）。"""
+    pt = d.get('_promoted_to') or d.get('promoted_to') or promoted_to
+    if typ == 'Entity':
+        ext = d.get('external_ids') or {}
+        e = {'id': d.get('id'), 'type': 'entity', 'subtype': d.get('subtype', 'people'),
+             'primary_name': d.get('primary_name', ''), 'path': rel_path}
+        if d.get('dynasty'):
+            e['dynasty'] = d['dynasty']
+        for k in ('birth_year', 'death_year'):
+            if d.get(k) is not None:
+                e[k] = d[k]
+        if isinstance(ext, dict) and ext.get('cbdb_id') is not None:
+            e['cbdb_id'] = ext['cbdb_id']
+        if d.get('period'):
+            e['period'] = d['period']
+        if pt:
+            e['promoted_to'] = pt
+        return e
+    au = d.get('authors', [])
+    a0 = {'name': '', 'dynasty': '', 'role': ''}
+    if isinstance(au, list) and au:
+        if isinstance(au[0], dict):
+            a0 = {k: au[0].get(k, '') for k in a0}
+        else:
+            a0['name'] = str(au[0])
+    elif isinstance(au, str):
+        a0['name'] = au
+    e = {'id': d.get('id'), 'title': d.get('title', '未命名'), 'type': typ, 'path': rel_path}
+    if a0['name']:
+        e['author'] = a0['name']
+    dt = d.get('dating')
+    if isinstance(dt, dict):
+        if isinstance(dt.get('era'), str) and dt['era']:
+            e['era'] = dt['era']
+        y = dt.get('year')
+        if isinstance(y, int) and not isinstance(y, bool):
+            e['sort_year'] = y
+        else:
+            rng = dt.get('year_range')
+            if isinstance(rng, list) and len(rng) == 2 and isinstance(rng[0], int):
+                e['sort_year'] = rng[0]
+    loc = d.get('current_location')
+    holder = loc.get('name', '') if isinstance(loc, dict) else loc if isinstance(loc, str) else ''
+    if holder:
+        e['holder'] = holder
+    dyn = a0['dynasty'] or d.get('dynasty') or ''
+    if dyn:
+        e['dynasty'] = dyn
+    if a0['role']:
+        e['role'] = a0['role']
+    jc = d.get('juan_count')
+    jn = (jc.get('number', 0) or 0) if isinstance(jc, dict) else int(jc) if isinstance(jc, (int, float)) else 0
+    if jn:
+        e['juan_count'] = jn
+    if d.get('measure_info'):
+        e['measure_info'] = d['measure_info']
+    for k in ('additional_titles', 'attached_texts'):
+        t = _titles(d.get(k, []))
+        if t:
+            e[k] = t
+    txt, img = _res_flags(d)
+    if txt:
+        e['has_text'] = True
+    if img:
+        e['has_image'] = True
+    if d.get('_has_collated') or d.get('has_collated'):
+        e['has_collated'] = True          # 整理本標記：源欄（目錄總管 10-07 定保留），既有 index 帶此欄
+    for k in ('edition', 'subtype', 'period', 'loss_status', 'original_title', 'work_id'):
+        if d.get(k):
+            e[k] = d[k]
+    if pt:
+        e['promoted_to'] = pt
+    return e
+
+
+def build_index(recs, promotions=None):
+    """→ {'index/works/<h>.json': {...}, …, 'index/collections.json': {...}}（鍵按 id 排序）。"""
+    promotions = promotions or {}
+    out = {}
+    for t in V.TYPES:
+        fam = INDEX_FAMILY[t]
+        for i in sorted(recs[t]):
+            r = recs[t][i]
+            rel = f'index/{fam}.json' if fam == 'collections' else f'index/{fam}/{shard_of(i):x}.json'
+            out.setdefault(rel, {})[i] = index_entry(r.data, t, r.path.replace(os.sep, '/'), promotions.get(i))
+    return {k: dict(sorted(v.items())) for k, v in sorted(out.items())}
+
+
+def write_index(root, shards):
+    """寫回倉內 index/：沿用各分片既有縮排與尾換行（bim write_shard 同法），只寫有變的檔。"""
+    n = 0
+    for rel, data in shards.items():
+        p = os.path.join(root, rel)
+        indent, trailing = 2, False
+        try:
+            with open(p, encoding='utf-8') as f:
+                raw = f.read()
+            second = raw.split('\n', 2)[1] if raw.count('\n') >= 1 else ''
+            st = second.lstrip(' ')
+            if st and not st.startswith('}'):
+                indent = len(second) - len(st) or 2
+            trailing = raw.endswith('\n')
+        except FileNotFoundError:
+            raw = None
+        new = json.dumps(data, ensure_ascii=False, indent=indent) + ('\n' if trailing else '')
+        if new != raw:
+            os.makedirs(os.path.dirname(p), exist_ok=True)
+            with open(p, 'w', encoding='utf-8', newline='\n') as f:
+                f.write(new)
+            n += 1
+    return n
+
+
 # ---------- 分類檔（F3-2；M4 之後才有） ----------
 def load_classification(root):
     base = os.path.join(root, 'classification')
@@ -646,6 +799,8 @@ def source_checks(recs):
         for i, r in recs[t].items():
             for k in r.data:
                 if k.startswith('_'):
+                    if k in V.SOURCE_UNDERSCORE:
+                        continue
                     if k in V.LEGACY_DERIVED[t]:
                         legacy[f'{t}.{k}'] += 1
                     else:
@@ -788,7 +943,26 @@ def write_products(out_dir, prods):
     return {'written': written, 'unchanged': unchanged, 'removed': removed}
 
 
-def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub_check=False, hub=HUB, quiet=False):
+def index_drift(root, shards):
+    """倉內現有 index/ 與重生值之差（逐欄計數）：舊索引漂移，重生後即消。"""
+    c = collections.Counter()
+    for rel, new in shards.items():
+        p = os.path.join(root, rel)
+        old = json.load(open(p, encoding='utf-8')) if os.path.exists(p) else {}
+        for k in set(old) | set(new):
+            if k not in new:
+                c['舊 index 有、記錄無'] += 1
+            elif k not in old:
+                c['記錄有、舊 index 無'] += 1
+            else:
+                for f in set(old[k]) | set(new[k]):
+                    if old[k].get(f) != new[k].get(f):
+                        c[f'欄 {f}'] += 1
+    return dict(sorted(c.items()))
+
+
+def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub_check=False, hub=HUB, quiet=False,
+        write_repo_index=False):
     recs, sidecars, problems = V.load_repo(root)
     ref = None
     for rr in ref_roots:
@@ -831,16 +1005,24 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
         fatal.append('--strict：源檔仍含舊派生／反向欄')
     if do_hub_check and not all(x['ok'] for x in report['hub_check']):
         fatal.append('改樞紐名牽動產物檔超過上限')
-    report['fatal'] = fatal
+    report['fatal'] = fatal   # 之後 index 校驗還會往裡加
+    shards = build_index(recs, load_promotions(root))
+    n_idx = sum(len(v) for v in shards.values())
+    report['index'] = {'files': len(shards), 'entries': n_idx, 'drift_vs_repo_index': index_drift(root, shards)}
+    if n_idx != report['entries']:
+        fatal.append(f'index 條數不守恒：記錄 {report["entries"]}，index {n_idx}')
     if not check_only:
         out_dir = out_dir or os.path.join(root, '_build')
         os.makedirs(out_dir, exist_ok=True)
         report['write'] = write_products(out_dir, prods)
+        report['write']['index_files_written'] = write_index(out_dir, shards)
+        if write_repo_index:
+            report['write']['repo_index_files_written'] = write_index(root, shards)
         with open(os.path.join(out_dir, 'report.json'), 'w', encoding='utf-8') as f:
             json.dump({k: v for k, v in report.items() if k != 'write'}, f, ensure_ascii=False, indent=1, sort_keys=True)
             f.write('\n')
     if not quiet:
-        brief = {k: report[k] for k in ('records', 'entries', 'files_total', 'pages', 'hubs', 'notes',
+        brief = {k: report[k] for k in ('records', 'entries', 'files_total', 'pages', 'hubs', 'notes', 'index',
                                        'legacy_vs_rebuilt', 'self_check_error_count', 'fatal')}
         brief['dangling'] = {k: v['count'] for k, v in report['dangling'].items()}
         brief['source_fields'] = {k: v for k, v in src.items() if k != 'unknown_underscore_where'}
@@ -863,8 +1045,11 @@ def main(argv=None):
     ap.add_argument('--strict', action='store_true', help='源檔有舊派生／反向欄也算失敗（M3 之後用）')
     ap.add_argument('--hub-check', action='store_true', help='加跑改樞紐名牽動檔數自校驗（多一次全量重算）')
     ap.add_argument('--hub', type=int, default=HUB, help=f'樞紐閾值（預設 {HUB}）')
+    ap.add_argument('--write-index', action='store_true',
+                    help='另把 index/ 寫回倉內（沿用各分片縮排；預設只寫 <out>/index/）')
     a = ap.parse_args(argv)
-    report, _ = run(a.root, a.ref_root, a.out, a.check_only, a.strict, a.hub_check, a.hub)
+    report, _ = run(a.root, a.ref_root, a.out, a.check_only, a.strict, a.hub_check, a.hub,
+                    write_repo_index=a.write_index)
     if report['fatal']:
         print('FAIL: ' + '；'.join(report['fatal']), file=sys.stderr)
         return 1

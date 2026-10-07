@@ -1,13 +1,13 @@
 # build/ — schema-v2 構建與遷移腳本（`schema-v2` 分支）
 
 依據：overview `項目進展/古籍目錄/進度/F-數據結構/` F2-3（build 與派生欄）、F2-7（遷移方案 M0–M6，§六附 sidecar 方案 B）、F4-2（卡片欄位、樞紐）。任務卡 open-guji-core/overview#459。
-**只含 M0–M2 與 build**；M3（刪派生與反向、刪 sidecar）、M4（分類抽出）及以後不在此。純 Python 標準庫，測試用 pytest。
+**含 M0–M3 與 build（連 `index/` 生成）**；M4（分類抽出）及以後不在此。sidecar 留到 M6 才刪（目錄總管 10-07）。純 Python 標準庫，測試用 pytest。
 
 | 檔 | 作用 |
 |---|---|
 | `v2common.py` | 共用：讀記錄（三層分片下的 `<id>-題名.json`；更深者是 sidecar）、保格式寫回、關係詞表（規範詞／反向詞／歸併詞／對稱／單向） |
 | `build_derived.py` | 源記錄 → `_build/`（不進 git）。確定性、可重跑、只寫有變的檔、刪不再產出的檔 |
-| `migrate_v2.py` | M0 盤點、M1 補齊（只增不刪）、M2 關係規範化。冪等；不改 `revision`／`revised_at` |
+| `migrate_v2.py` | M0 盤點、M1 補齊（只增不刪）、M2 關係規範化、M3 刪派生與反向。冪等；一步一提交；不改 `revision`／`revised_at` |
 
 ## build_derived.py
 
@@ -28,6 +28,8 @@ python3 build/build_derived.py --check-only --hub-check          # 只校驗；�
 
 過渡期（M3 前）：`Work.books`、`Entity.works`、`Collection.books`／`contained_works` 與成員側**取併集**，故遷移前後產物的關係集合相同；M3 刪掉舊欄後這一段自然空轉。
 
+`index/`（原 `reindex.py`、bim `entry_extractor.py` 併入）：逐字照 `entry_extractor` 的欄位規則，另帶 `has_collated`；分片同 `shard_of`（h=h*31+ord(c) mod 16），鍵按 id 排序。預設寫 `<out>/index/`，`--write-index` 另寫回倉內 `index/`（沿用各分片的縮排與尾換行，只寫有變的檔）。報告 `index.drift_vs_repo_index` 列倉內舊索引與重生值之差（舊索引漂移；草稿庫因數據 PR 不帶 `index/`，差得多是預期）。
+
 校驗（失敗退出碼 1）：條數守恒（源記錄數＝`entry/` 數）、派生值自洽（`_edition_count`＝`len(_books)`、分頁合計＝總數、`_members` 是第 1 頁前段）、卡片 id 皆可解析、`h:1` 皆在 `_hubs.json`、源檔含非舊有的 `_` 欄。報而不擋：懸空引用、舊 `_` 欄與重算值之差、源裡仍有的舊反向欄（`--strict` 時擋，M3 後用）。
 
 ## migrate_v2.py
@@ -40,14 +42,19 @@ python3 build/migrate_v2.py --root <倉> --steps M0,M1,M2 [--git-commit] [--dry-
 - **M0**：記錄數、各欄形態統計、sidecar 清單、**未識別形態清單**（含：重複鍵——寫回會丟數據；詞表外 relation；欄位形態不在已知集合）。印 `git tag pre-schema-v2 <HEAD>` 命令，`--tag` 才真打。
 - **M1**（只增不刪）：⓪ sidecar 方案 B——`sub_items`→`Book.contained_in[].sub_items`、`wiki_title`→`Book.resources` 維基文庫項（`details` 注「頁名取自舊叢編對照表，未驗證」）、`parent_work_id`→該對 `related` 的 `note`、sidecar 成員記錄側缺者補 `contained_in`（帶冊號）；冊號、`zhsy_id`、百衲本冊數、武英殿頂層資訊**只對勘不改**，列入報告；① 叢編側獨有成員併入成員側（`group`、`note`→`details` 一併帶）；③ 按名補 `entity_id`（唯一同名且未繫者）；② `authors[].role` 由 Entity 回填；④⑤ 規範側（`related` 為小 id 側）拼接兩側 note。
 - **M2**：`commentary_on`→`studies`、`related_to`→`related`；只有反向形者、`related` 只在大 id 側者，在規範側落筆（帶合併後的 note）；刪 `related_works[].title`、`contained_works[].title`、`Entity.works[].title`。**反向項留到 M3 刪**。斷言：只留規範形、展開後 ⊇ M2 輸入與 M0 時的全部邊（F2-6 T2「舊有而 build 無＝0」）。
+- **M1 ②b**：②之後仍缺 `role` 者機械補「撰」（目錄總管 10-07 定），按有無 `entity_id` 分開計數。
+- **M2 對稱 id 列表**：`Collection.related_collections` 的對象轉 id 字串（`type`／`note` 等逐條列 `symmetric_object_info`；指向非叢編者原樣保留、列 `symmetric_unconvertible`）；`related_books`／`related_collections` 只在大 id 側者，在小 id 側補寫。
+- **M3**：刪 `Work.books`、`_edition_count`、`_has_image`；`Book._has_image`；`Collection.books`／`contained_works`／`_member_count`／`_member_type`／`_has_image`；`Entity.works`；反向詞項與 `related` 在大 id 側者；對稱 id 列表的大 id 側；`promoted_to` 與 `promotions.json` 一致者。無底線舊鍵 `has_text`／`has_full_text`／`has_collated` 併入准留的 `_has_text`／`_has_collated` 後刪；`has_digitalization` 在 resources 推得出影像時刪。**刪前逐項對勘**：`Work.books` 每項的 Book 指回本作、叢編側每個成員在成員側都有 `contained_in`（否則失敗）；`Entity.works` 有而 Work 側無者照刪並逐條列（即 M1③ 人工核清單）。刪後斷言邊集守恆、對稱對守恆。
+- 跑 M1–M3 任一步都會在報告目錄生成 `人工核清單.md`（M1 要人工核的、數據錯、M2 拿掉的 `related_collections` 資訊、M3 的人工項）。
 - 每步寫回前斷言 `revision`／`revised_at` 未變；檔案保留原縮排（手排版、無法判讀者改寫為縮排 2，M0 報告列出）。
 
-## 未決（交目錄總管）
+## 已定（目錄總管 10-07，#459）
 
-1. `_has_text`／`_has_collated` 有一部分依據不在本倉（book-text 整理本、全文），resources 推不出；M3 刪源裡舊值之前要給 build 接上來源（或保留這兩欄為源欄）。
-2. 列表卡片 `cls`：分類檔（M4）出來前寫 `[l1, l2]` 標籤；有 `classification/` 後自動改寫節點 id。
-3. `index/` 生成（現 `reindex.py`）尚未併入 build（F2-3 §一），本批不做。
-4. 反向詞項（`has_part` 等，check_v2 的 V04）何時刪：F2-7 寫「M2 翻成規範方向、M3 刪派生與反向」，本腳本 M2 只在規範側補寫、**反向項留到 M3**（M2 純增改、不刪邊）；check_v2 把 V04 標為 M2。要在 M2 就刪，是一處改動。
-5. `Work.contained_in[]` 的 `group`（自 `contained_works`，200 項）與 `details`（自 `contained_works[].note`，6 項）：M1 為免 M3 刪 `contained_works` 時丟失而併入成員側；SCHEMA〈Work〉目前只寫 `{id, volume_index?}`，需補這兩個可選鍵或另定去處。
-6. `Collection.related_collections[]` 是帶 `title`／`note`／`type` 的對象（3 項），SCHEMA 寫作 ID 字串數組；F2-7 M2 未列，本腳本未動。
-7. `authors[].role` 迄 M1 後仍缺 937 項（Entity 側也無 730、無 entity_id 者 207）；SCHEMA 定為必填，build 以「撰」兜底並計數，是否機械補「撰」待定。
+- `Work.contained_in[]` 的 `group`／`details` 進 SCHEMA（F6-2 改）。反向詞項在 M3 刪（check_v2 的 V04 歸 M3）。
+- `_has_text`／`_has_collated` 留作源欄，M3 不刪不改名，build 照「resources 推得 或 源值為真」。
+- sidecar 到 M6 才刪；武英殿 sidecar 頂層資訊先留著。
+
+## 未決
+
+1. 列表卡片 `cls`：分類檔（M4）出來前寫 `[l1, l2]` 標籤；有 `classification/` 後自動改寫節點 id。
+2. `Collection 8rlcsybg2hi4.related_collections` 有一項指向 Work（`work_id`），轉不成叢編 id，原樣保留（check_v2 V06 剩這 1 處）。

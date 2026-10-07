@@ -26,20 +26,24 @@ ONE_WAY = {'collected_in', 'derived_from', 'same_entry', 'suspected_same',
            'excerpted_from', 'source_of'}               # 單向，原樣保留
 KNOWN_RELATIONS = set(REVERSE_OF) | set(CANON_OF) | set(RENAME) | SYMMETRIC | ONE_WAY
 
+# 准留在源檔的 `_` 欄：依據一部分在 book-text，resources 推不出（目錄總管 10-07 定：M3 不刪、不改名）
+SOURCE_UNDERSCORE = {'_has_text', '_has_collated'}
 # 迄 M3 前源檔裡仍有、M3 才刪的舊派生欄（build 照算、只報不擋；--strict 時擋）
 LEGACY_DERIVED = {
-    'Work': {'_edition_count', '_has_image', '_has_text', '_has_collated', '_promoted_to', '_promoted_at'},
-    'Book': {'_has_image', '_has_text', '_has_collated', '_promoted_to', '_promoted_at'},
-    'Collection': {'_member_count', '_member_type', '_has_image', '_has_text'},
-    'Entity': set(),
+    'Work': {'_edition_count', '_has_image', '_promoted_to', '_promoted_at'},
+    'Book': {'_has_image', '_promoted_to', '_promoted_at'},
+    'Collection': {'_member_count', '_member_type', '_has_image'},
+    'Entity': {'_promoted_to', '_promoted_at'},
 }
 # 迄 M3 前源檔裡仍有的「應派生」非底線欄（反向／副本）
 LEGACY_REVERSE = {
-    'Work': ('books', 'has_text', 'has_image', 'has_collated'),
-    'Book': ('has_text', 'has_image'),
+    'Work': ('books', 'has_text', 'has_image', 'has_collated', 'promoted_to'),
+    'Book': ('has_text', 'has_image', 'has_collated', 'promoted_to'),
     'Collection': ('books', 'contained_works', 'has_text', 'has_image'),
-    'Entity': ('works',),
+    'Entity': ('works', 'promoted_to'),
 }
+# 對稱的 id 字串列表（存 id 較小一側，SCHEMA〈〇〉3）
+SYMMETRIC_LISTS = {'Book': ('related_books',), 'Collection': ('related_books', 'related_collections')}
 
 
 def canon_edge(src, dst, rel):

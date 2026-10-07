@@ -148,3 +148,34 @@ def _load(root):
     import v2common as V
     recs, _, _ = V.load_repo(root)
     return recs, None, None, None
+
+
+def test_index_matches_entry_extractor_rules(repo, tmp_path):
+    shards = BD.build_index(*_idx_args(repo))
+    w1 = shards[f'index/works/{BD.shard_of(S.W1):x}.json'][S.W1]
+    assert w1 == {'id': S.W1, 'title': '甲書', 'type': 'Work', 'path': os.path.relpath(S.path(repo, 'Work', S.W1), repo),
+                  'author': '張三'}
+    b1 = shards[f'index/books/{BD.shard_of(S.B1):x}.json'][S.B1]
+    assert b1['sort_year'] == 1200 and b1['has_image'] is True and b1['work_id'] == S.W1
+    e1 = shards[f'index/entities/{BD.shard_of(S.E1):x}.json'][S.E1]
+    assert e1['type'] == 'entity' and e1['subtype'] == 'people'
+    assert list(shards['index/collections.json']) == [S.C1]
+    assert sum(len(v) for v in shards.values()) == 10
+
+
+def test_write_index_keeps_shard_format(repo):
+    shards = BD.build_index(*_idx_args(repo))
+    rel = next(k for k in shards if k.startswith('index/works/'))
+    p = os.path.join(repo, rel)
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    open(p, 'w', encoding='utf-8').write(json.dumps({'x': {}}, ensure_ascii=False, indent=1))   # 縮排 1、無尾換行
+    assert BD.write_index(repo, shards) == len(shards)
+    raw = open(p, encoding='utf-8').read()
+    assert raw == json.dumps(shards[rel], ensure_ascii=False, indent=1)
+    assert BD.write_index(repo, shards) == 0                                 # 重寫零變動
+
+
+def _idx_args(root):
+    import v2common as V
+    recs, _, _ = V.load_repo(root)
+    return recs, {}
