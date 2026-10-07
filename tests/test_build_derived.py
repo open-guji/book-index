@@ -179,3 +179,11 @@ def _idx_args(root):
     import v2common as V
     recs, _, _ = V.load_repo(root)
     return recs, {}
+
+
+def test_load_promotions_reads_bim_shape(tmp_path):
+    # bim promotion.py 写的是 {production_id, type, promoted_at}；舊式 to／字串也認
+    (tmp_path / 'promotions.json').write_text(json.dumps({'version': 1, 'promotions': {
+        'd1': {'production_id': 'p1', 'type': 'work', 'promoted_at': '2026-10-07'},
+        'd2': {'to': 'p2'}, 'd3': 'p3', 'd4': {'type': 'work'}}}), encoding='utf-8')
+    assert BD.load_promotions(str(tmp_path)) == {'d1': 'p1', 'd2': 'p2', 'd3': 'p3'}

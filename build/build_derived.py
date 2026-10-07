@@ -816,7 +816,7 @@ def load_promotions(root):
     d = json.load(open(p, encoding='utf-8'))
     out = {}
     for k, v in (d.get('promotions') or {}).items():
-        out[k] = v if isinstance(v, str) else (v.get('to') or v.get('official_id') or v.get('id')) if isinstance(v, dict) else None
+        out[k] = v if isinstance(v, str) else (v.get('production_id') or v.get('to') or v.get('official_id') or v.get('id')) if isinstance(v, dict) else None
     return {k: v for k, v in out.items() if v}
 
 
