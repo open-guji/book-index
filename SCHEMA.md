@@ -1819,6 +1819,62 @@ UI 執行期型別從不讀它，搜尋分片也不帶，寫了六年沒人消�
 
 ---
 
+### 附一·乙　`_build/` 产物契约（v1，2026-10-07；网站打包依此读，overview#458）
+
+**定为稳定契约**：下列目录布局、字段名、取值形状、分页规格，网站与 bim 可以直接依赖。**任何增删改名、改形状、改分页大小，先在 overview#458 留言通知网站经理，等对方回复后再合**；只新增可选字段算兼容改动，也要先通知。契约版本记在本节标题里，改动时同步加一。
+
+**谁跑、怎么跑**：网站 deploy 在打包前，于检出的 book-index（及 book-index-draft）上执行；产物写临时目录，打包脚本经 `BOOK_INDEX_DERIVED_DIR` 读取；`_build/` 不进 git。只用 Python 标准库，3.11／3.12／3.13 实测产物逐字节相同，正式库全量约 50 秒。
+
+```
+python3 build/build_derived.py --out "$BOOK_INDEX_DERIVED_DIR"                       # 正式库
+python3 build/build_derived.py --root ../book-index-draft --ref-root . --out <草稿输出目录>   # 草稿库（指向正式记录的 id 由正式库解析）
+```
+退出码非 0 表示自校验失败，不应继续打包。
+
+**目录布局**
+
+| 路径 | 形状 |
+|---|---|
+| `entry/<id>.json` | 一条记录一档：源记录原样（不含源里的旧 `_` 字段）＋下表的 `_` 派生字段；草稿记录另有 `promoted_to` |
+| `members/<collection_id>/<n>.json` | 丛编成员全表分页，`n` 从 1 起；元素是成员卡片（Work 卡或 Book 卡，带 `t:"work"\|"book"`，另带边属性 `vol`／`group`／`ord`／`section`／`sub`） |
+| `catalog/<志书 work_id>/<n>.json` | 志书著录成员分页，`n` 从 1 起；元素 `{id, title, title_info?}` |
+| `related/<work_id>/<n>.json` | `_related` 超过 200 条时的余页，**`n` 从 2 起**（第 1 页即条目里的 `_related`） |
+| `lineage/<work_id>.json` | 版本图 `{edges:[…], …}`，原样取自源 |
+| `_hubs.json` | `{id: {t:"w"\|"c"\|"e", title, dyn?}}`：枢纽条目的名称表 |
+| `classific.json` | 由 `classification/zongmu/tree.json` 生成的旧格式分类表（给尚未改读树的旧读者） |
+| `index/{works,books,entities}/<0-f>.json`、`index/collections.json` | 检索用扁平摘要，`{id: {…}}`，分片规则同源仓 `index/`（`h=h*31+ord(c) mod 16`），字段规则同 bim `entry_extractor.py` |
+| `report.json` | 本次构建的计数与自校验结果（不属契约，只供排查） |
+
+**分页**：每页 200 项（`PAGE`）。`_members` 是 `members/<id>/1.json` 的前 20 项；`_member_pages`、`_related_pages`、`_member_catalog.pages` 给页数。
+
+**枢纽**：被内联引用超过 200 次的丛编／志书／人物，在别处的卡片里只写 `{id, h:1}`（另带边属性），名称到 `_hubs.json` 查。
+
+**派生字段（`entry/` 里）**
+
+| 记录 | 字段 | 形状 |
+|---|---|---|
+| Work | `_books` | Book 卡片数组，按年代排，无年代按 id |
+| Work | `_edition_count` | int，`len(_books)` |
+| Work | `_authors` | 与 `authors[]` 同序：`{name, role, dyn?, id?, dates?}`，`id` 为 Entity（枢纽人物只多 `h:1`） |
+| Work | `_related` | `{id, relation, direction:"out"\|"in", note?}`＋Work 卡片字段（枢纽为 `h:1`）；`relation` 取本条视角的词（反向词只在此出现）；超 200 时另有 `_related_pages`、`_related_total` |
+| Work | `_catalogs` | `{bid, title?, dyn?, section?}`（枢纽志书为 `{bid, h:1, section?}`） |
+| Work、Book | `_collections` | `{id, title?, vol?, group?, ord?, sub?}`（枢纽丛编为 `{id, h:1, …}`） |
+| Work | `_classifications` | `[{scheme, node, path, l1, l2, l3, l4, source}]`；无分类的 Work 没有此键 |
+| Work（志书） | `_member_catalog` | `{pages, total}`，指向 `catalog/<id>/` |
+| Work、Book | `_lineage_graph_ref` | 版本图所在 work_id，指向 `lineage/<id>.json` |
+| Work、Book、Collection | `_has_image`、`_has_text`、`_has_collated` | bool，只在为真时出现 |
+| Book | `_work` | 所属 Work 卡片 |
+| Book | `_siblings` | 同作品其他版本的 Book 卡片，至多 40；超出时有 `_siblings_more:true`、`_siblings_total` |
+| Book | `_lineage_refs` | `{book_id: …}` 源流引用 |
+| Book | `_derived_by` | `{id, rel, title, edition?}`：以本书为底本者 |
+| Collection | `_members`、`_member_pages`、`_member_count`、`_member_type`（`"Work"`／`"Book"`／`"mixed"`，无成员时缺）、`_children`（子丛编 `{id, title}`） | 见上 |
+| Entity | `_works` | `{work_id, role, title, au?, dyn?, cls?, juan?, img?, txt?, nb?}` |
+| 草稿记录 | `promoted_to` | 正式 id（由 `promotions.json` 回填） |
+
+**卡片短键**（F4-2 §二）：Work 卡 `{id, title, dyn?, juan?, au?[≤3], cls?, nb?, img?, txt?}`；Book 卡 `{id, title, edition?, etype?, dating?, y?, holder?, juan?, img?, txt?, nres?, pub?, meas?, from?[], alias?}`；`cls` 是分类节点 id（如 `zm0030`）。值为空的键一律省略，读者按「缺即无」处理。
+
+**样例包**：`build/contract-sample/`（进 git）。正式库 22 条＋草稿库 4 条的 `entry/`、对应 `index/` 行、各自一页 `members/`／`catalog/`／`related/`、`lineage/`、`_hubs.json`、`classific.json`，覆盖丛书、合集、混合丛编、子丛编、志书、跨作品关系（含分页）、分类有无、枢纽、源流、草稿指正式。每条入选理由见 `MANIFEST.json`。由 `build/make_contract_sample.py` 生成，规则固定、可重跑；契约改动时与契约同一个提交重生。
+
 ## 附二　已刪之欄位
 
 | 欄位 | 刪於 | 去向／原因 |
