@@ -53,13 +53,5 @@
   "ai_note": "2026-08-19 有撰人之同名同卷組專項：《江圖》（張氏，1卷）在庫中兩建（或數建）其條——題名、撰人、卷數俱同而各繫不同之志，係匯入時重出，今合併。所併者：1evgpk1rxuqyo（國史經籍志）。**本專項掃「有撰人」之同名組，前此之同名異書核對只掃無撰人者，故此型久未相遇。**\n\n2026-09-05 泛稱 entity 解繫：撰人「張氏」係泛稱（有姓無名），解去所繫之 entity hixhd2h9biit 並撤其代——志書書「某氏」正因不知其名，泛稱不當立為一具體之人，其代亦無所據。（撰人之名仍存，志書原文如此。）\n\n2026-09-06 qa-sweep/nanbeichao：period_basis 引不存在之值為據（scan A 類）：舊句「據 authors[0].dynasty「南朝宋」」，而 authors[0]（泛稱「張氏」）之 dynasty 已於 2026-09-05 撤去。隋志著錄本書而不著其代，遍檢諸志亦無可定者，故 period 值不動（寧缺毋濫，不逕改亦不逕刪），改立實情之據並記 known-issues；另補 period_upper=sui-tang（見《隋志》著錄，成書必在隋前），此是確可據者。原句：「據 authors[0].dynasty「南朝宋」」。",
   "revision": "1.0.0",
   "revised_at": "2026-08-24",
-  "period_upper": "sui-tang",
-  "classification": {
-    "l1": "史部",
-    "l2": "",
-    "l3": "",
-    "l4": "",
-    "basis": "C",
-    "source": "國史經籍志"
-  }
+  "period_upper": "sui-tang"
 }
