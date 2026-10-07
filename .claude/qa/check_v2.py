@@ -12,7 +12,7 @@
   V05  related_works 用詞表外舊詞（commentary_on 等） M2
   V06  related_works／related_* 項帶 title 副本       M2
   V07  related 存在 id 較大一側                       M1⑤＋M3
-  V08  Work.authors[] 缺 role                         M1②（Entity 回填；兩側皆缺者補「撰」）
+  V08  Work／Book／Collection.authors[] 缺 role      M1②（Entity 回填；兩側皆缺者補「撰」）；Book／Collection 自 2026-10-07 起（overview#468）
   V09  舊分類欄 classification                         M4
   V10  Collection.books／contained_works              M1①＋M3
   V11  Entity.works                                   M3
@@ -95,7 +95,7 @@ CODES = {
     "V05": ("related_works 用詞表外舊詞", "M2"),
     "V06": ("關聯項帶 title 副本", "M2"),
     "V07": ("related 存在 id 較大一側", "M1⑤+M3"),
-    "V08": ("Work.authors[] 缺 role", "M1②"),
+    "V08": ("authors[] 缺 role（Work／Book／Collection）", "M1②"),
     "V09": ("舊分類欄 classification", "M4"),
     "V10": ("Collection.books／contained_works", "M1①+M3"),
     "V11": ("Entity.works", "M3"),
@@ -194,7 +194,7 @@ def check_record(kind, rec):
             if tgt and rid > tgt:
                 out.append(("V07", "%s[%d]" % (fld, i), "%s：%s > %s，應存於 %s 一側" % (fld, rid, tgt, tgt)))
 
-    if kind == "Work":
+    if kind in ("Work", "Book", "Collection"):
         au = rec.get("authors")
         if isinstance(au, list):
             for i, a in enumerate(au):

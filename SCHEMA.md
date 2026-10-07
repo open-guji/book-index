@@ -19,7 +19,7 @@
 | 3 | **对称关系存 id 较小的一侧** | `related_works` 的 `related`、`Book.related_books`、`Collection.related_books`／`related_collections`：两条记录 id 按**字符串比较**（Python `a < b`），写在较小者里；另一侧由 build 补。由工具（`bim link`）落笔，人不手选。 |
 | 4 | **源档不写 `_` 起首字段** | `_` 起首的都是派生字段，只出现在构建产物 `_build/entry/<id>.json` 里；源档里出现即校验失败（`check_v2.py` V01）。无下划线的旧派生字段（`has_text`、`promoted_to`…）同样不写（V02）。**唯一例外**：`_has_text`、`_has_collated` 暂留源档（build 尚无稳定来源，目录总管 10-07 定）。 |
 | 5 | **不写派生／反向列表** | 不写 `Work.books`、`Collection.books`、`Collection.contained_works`、`Entity.works`、`related_works[].title`。成员关系写在成员一侧（`Book.work_id`、`Book.contained_in`、`Work.contained_in`、`Work.authors[].entity_id`）。 |
-| 6 | **`authors[].role` 必填**（Work） | 不写 role 曾造成 Work 与 Entity 两侧角色不一（F2-1：3,957 条）。 |
+| 6 | **`authors[].role` 必填**（Work；Book／Collection 自 2026-10-07 起亦然，overview#468） | 不写 role 曾造成 Work 与 Entity 两侧角色不一（F2-1：3,957 条）。 |
 | 7 | **分类不在 Work 里** | 分类归属写在 `classification/<分类法>/members/<节点>.json`，Work 档里不写 `classification`。见〈八、分类〉。 |
 | 8 | **`_build/` 是构建产物，不是源** | `build/build_derived.py` 读源档生成 `_build/`（不进 git）；`_build/entry/<id>.json`＝源记录＋全部 `_` 派生字段，是网站与 bim 读的「页面就绪条目」。`index/` 也由它生成。见〈九、构建产物〉。 |
 | 9 | **读者新旧兼容，先切后拆** | 网站与 bim 读者「新字段（`_x`、类档）优先，没有就回退旧字段」；数据切换之后再删回退分支。build **不产出旧字段别名**（如不再产出 `classification`）。 |
@@ -937,7 +937,7 @@ Book 的 `indexed_by` 與 Work 的 `indexed_by` 同結構，記錄該具體版�
 | `subtype` | 本档 | `work_collection`｜`book_collection`，见〈Subtype〉 | ✔ | `"book_collection"` |
 | `title`、`additional_titles` | 本档 | | ✔（`title`） | `"欽定四庫全書·文淵閣本"` |
 | `description` | 本档 | Description 对象 | | |
-| `authors[]`、`editors`、`publisher`、`publish_year` | 本档 | 编者、出版者；`authors[]` 形状同 Work（`role` 建议写，见〈附三〉） | | |
+| `authors[]`、`editors`、`publisher`、`publish_year` | 本档 | 编者、出版者；`authors[]` 形状同 Work，**`role` 必填**（overview#468，2026-10-07） | | |
 | `publication_info`、`dating`、`edition` | 本档 | 出版信息；`dating` 形状同 Book | | |
 | `current_location`、`holder` | 本档 | Location 对象；`holder` 现藏机构名 | | |
 | `count` | 本档 | `{juan, ce, zhong, han, source}`，见下；至少一项非空才写 | | `{"juan":null,"ce":820,"zhong":24,"han":null,"source":"…"}` |
@@ -977,7 +977,7 @@ Book 的 `indexed_by` 與 Work 的 `indexed_by` 同結構，記錄該具體版�
 | `dating` | 本档 | `{era?, reign?, year?, year_range?, certainty?, source?, basis?, based_on?}`；方案见 overview `项目进展/古籍目录/整体设计/2026-09-年代字段统一方案.md` | | `{"era":"宋","reign":"紹熙","year":1193,"certainty":"inferred","source":"edition","basis":"…"}` |
 | `contained_in[]` | 本档（**Book∈丛编的唯一存储侧**） | `{id, volume_index?, details?, sub_items?}`：`id` 丛编 ID；`volume_index` 册次（整数／数组／字符串）；`details` 自由文本；**`sub_items: [str]`（新增，可选）**＝该书在**这个丛编**里附带的子目（如《周易正義》在文淵閣本附《周易略例》），非空字符串数组 | | `[{"id":"8rl…","volume_index":[1,2],"sub_items":["周易略例"]}]` |
 | `section` | 本档 | 该版本在所属丛编中的部类（是 `contained_in` 的属性，不是分类） | | `"經部/易類"` |
-| `authors[]` | 本档 | 版本层的责任者（刻者、批点者等），形状同 Work | | |
+| `authors[]` | 本档 | 版本层的责任者（刻者、批点者等），形状同 Work，**`role` 必填**（overview#468，2026-10-07） | | |
 | `publication_info`、`current_location`、`location_history`、`provenance`、`physical_description`、`base_edition`、`lineage`、`attached_texts` | 本档 | 见下各节；`lineage`／`base_edition` 只在后出者一侧，「谁以我为底本」由 build 生成 `_derived_by` | | |
 | `volume_count`、`page_count`、`juan_count`、`measures`、`measure_info` | 本档 | 本版本自身的计量 | | |
 | `description`、`additional_titles` | 本档 | | | |
@@ -2104,7 +2104,7 @@ python3 build/build_derived.py --root ../book-index-draft --ref-root . --out <�
 |---|---|---|---|
 | 1 | 分类成员行删不删 `basis` | #451 目录总管两次写「不答按默认删」，用户未明确回复。本文按默认写（成员行只 `[work_id, source]`）；若要保留，行尾加一项枚举即可，格式向后兼容 | 用户 |
 | 2 | ~~对称关系「id 较小」用字符串比较还是整数比较~~ | **已对齐**：F6-1 的 `build/v2common.py` 同用字符串比较（`src <= dst`），与本文、`check_v2.py` 一致 | — |
-| 3 | Book／Collection 的 `authors[].role` 是否也必填 | F2 只对 Work 定了必填；本文对 Book／Collection 写「建议写」，`check_v2.py` V08 只查 Work | 目录总管 |
+| 3 | ~~Book／Collection 的 `authors[].role` 是否也必填~~ | **已定（用户 10-07，overview#468）**：必填；`check_v2.py` V08 已扩至 Book／Collection（两库实测缺 0） | — |
 | 4 | `Work.collections`（1 条，Collection ID 数组） | 与 `Work.contained_in` 同义而形状不同；建议并入 `contained_in`，未见结论，未排迁移步 | 目录总管 |
 | 5 | `Entity.aliases`（13 条） | 形状同 `alt_names`，建议并入；未排迁移步 | 目录总管 |
 | 6 | `ai_note_fix`／`ai_note2`／`ai_note_periodfix`（各 1 条） | F3-3 说「迁移时并入 `ai_note`」，F2-7 未列入 M 步 | 目录总管 |

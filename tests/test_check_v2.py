@@ -97,9 +97,14 @@ def test_missing_role():
     assert codes("Work", rec) == ["V08", "V08"]
 
 
-def test_role_not_required_outside_work():
+def test_role_required_for_book_and_collection():
+    # overview#468（2026-10-07）：Book／Collection 的 authors[].role 亦必填
     book = {"id": "11b", "type": "book", "title": "x", "work_id": "w", "authors": [{"name": "某"}]}
-    assert codes("Book", book) == []
+    assert codes("Book", book) == ["V08"]
+    coll = {"id": "2a", "type": "collection", "title": "x", "authors": [{"name": "某", "role": "編"}, {"name": "乙"}]}
+    assert codes("Collection", coll) == ["V08"]
+    ent = {"id": "3e", "type": "entity", "primary_name": "x", "authors": [{"name": "某"}]}
+    assert "V08" not in codes("Entity", ent)
 
 
 def test_old_classification():
