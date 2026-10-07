@@ -58,6 +58,7 @@ class Repo:
                 self.by_id[i] = r
         self.protected = {i: tuple(copy.deepcopy(r.data.get(k)) for k in PROTECTED) for i, r in self.by_id.items()}
         self.dirty = set()
+        self.extra = {}
         self.handformatted = []
         self.head0 = git(self.root, 'rev-parse', '--short', 'HEAD').stdout.strip() or '（非 git 倉）'
 
@@ -80,8 +81,28 @@ class Repo:
                if tuple(self.by_id[i].data.get(k) for k in PROTECTED) != self.protected[i]]
         return bad
 
+    def put_file(self, rel, content):
+        """非記錄檔（分類檔等）的寫入；content=None 為刪除。與記錄一起在 save() 時落盤。"""
+        p = os.path.join(self.root, rel)
+        old = open(p, encoding='utf-8').read() if os.path.exists(p) else None
+        if old != content:
+            self.extra[rel] = content
+        else:
+            self.extra.pop(rel, None)
+
     def save(self):
         n = 0
+        for rel, content in sorted(self.extra.items()):
+            p = os.path.join(self.root, rel)
+            if content is None:
+                if os.path.exists(p):
+                    os.remove(p)
+            else:
+                os.makedirs(os.path.dirname(p), exist_ok=True)
+                with open(p, 'w', encoding='utf-8') as f:
+                    f.write(content)
+            n += 1
+        self.extra.clear()
         for i in sorted(self.dirty):
             r = self.by_id[i]
             new = V.dump(r.data, r.fmt)
@@ -94,7 +115,8 @@ class Repo:
         return n
 
     def changed_paths(self):
-        return sorted(self.by_id[i].path for i in self.dirty if V.dump(self.by_id[i].data, self.by_id[i].fmt) != self.by_id[i].raw)
+        return sorted([self.by_id[i].path for i in self.dirty
+                       if V.dump(self.by_id[i].data, self.by_id[i].fmt) != self.by_id[i].raw] + list(self.extra))
 
 
 def load_promotions(root):
@@ -880,6 +902,167 @@ def m3(repo, args, promotions):
     return rep
 
 
+# ---------- M4：分類抽出（F3-2 §六；用戶 10-07 定：取消「未分類」占位、Collection 不分類、basis 不遷入） ----------
+SCHEME = {'id': 'zongmu', 'name': '中國古籍總目', 'primary': True, 'exclusive': True, 'tree': 'zongmu/tree.json'}
+CLS_DIR = 'classification'
+UNCLS = '未分類'
+
+
+def jdump2(o):
+    return json.dumps(o, ensure_ascii=False, indent=2) + '\n'
+
+
+def members_dump(node, rows):
+    """成員檔：一行一條，按 work_id 排序（便於 git 逐行合併）。"""
+    body = ',\n'.join('    ' + json.dumps(r, ensure_ascii=False) for r in sorted(rows))
+    return '{\n  "node": %s,\n  "members": [\n%s\n  ]\n}\n' % (json.dumps(node), body)
+
+
+def tree_from_vocab(vocab):
+    """classific.json（葉子路徑表）→ 節點表：數組順序＝classific.json 首見順序；不含「未分類」占位節點；
+    id 依此順序 zm0001 起確定性分配（正式庫、草稿庫由同一詞表得同一組 id）。"""
+    paths, seen = [], set()
+    for v in vocab:
+        p = tuple(v[k] for k in ('cata_l1', 'cata_l2', 'cata_l3', 'cata_l4') if v.get(k))
+        for i in range(1, len(p) + 1):
+            q = p[:i]
+            if q[-1] == UNCLS or q in seen:
+                continue
+            seen.add(q)
+            paths.append(q)
+    ids = {q: 'zm%04d' % (n + 1) for n, q in enumerate(paths)}
+    return {'scheme': SCHEME['id'], 'name': SCHEME['name'],
+            'nodes': [{'id': ids[q], 'label': q[-1], 'parent': ids.get(q[:-1]), 'level': len(q)} for q in paths]}
+
+
+def tree_paths(tree):
+    nodes = {n['id']: n for n in tree['nodes']}
+
+    def path(i):
+        out = []
+        while i:
+            out.append(nodes[i]['label'])
+            i = nodes[i].get('parent')
+        return tuple(out[::-1])
+    return {i: path(i) for i in nodes if not nodes[i].get('retired')}
+
+
+def load_cls(repo, vocab_path):
+    base = os.path.join(repo.root, CLS_DIR, SCHEME['id'])
+    tp = os.path.join(base, 'tree.json')
+    if os.path.exists(tp):
+        tree = json.load(open(tp, encoding='utf-8'))
+        src = 'existing'
+    else:
+        vp = vocab_path or os.path.join(repo.root, 'classific.json')
+        if not os.path.exists(vp):
+            raise SystemExit(f'M4：{tp} 不存在，且找不到詞表 {vp}（草稿庫請 --vocab 指正式庫的 classific.json 或 tree.json）')
+        v = json.load(open(vp, encoding='utf-8'))
+        tree = v if isinstance(v, dict) and 'nodes' in v else tree_from_vocab(v)
+        src = vp
+    assign = {}
+    mdir = os.path.join(base, 'members')
+    for fn in sorted(os.listdir(mdir)) if os.path.isdir(mdir) else []:
+        m = json.load(open(os.path.join(mdir, fn), encoding='utf-8'))
+        for row in m['members']:
+            assign[row[0]] = (m['node'], row[1] if len(row) > 1 else '')
+    return tree, assign, src
+
+
+def cls_path(c):
+    ls = [c.get(k) or '' for k in ('l1', 'l2', 'l3', 'l4')]
+    if any(not ls[i] and any(ls[i + 1:]) for i in range(3)):
+        return None
+    return tuple(x for x in ls if x)
+
+
+def m4a(repo, args):
+    """⑴ 由 Work.classification 生成（upsert）分類檔；逐部斷言回填＝原值。可重跑：已抽走者靠成員檔保留。"""
+    rep = {'step': 'M4A', 'added': collections.Counter(), 'unknown': [], 'basis_ledger': [], 'dangling_members': []}
+    A = rep['added']
+    tree, assign, src = load_cls(repo, args.vocab)
+    rep['tree_source'] = src
+    rep['tree_nodes'] = len(tree['nodes'])
+    paths = tree_paths(tree)
+    node_of = {p: i for i, p in paths.items()}
+    for wid, wr in sorted(repo.recs['Work'].items()):
+        c = wr.data.get('classification')
+        if c is None:
+            continue
+        p = cls_path(c) if isinstance(c, dict) else None
+        if p and p[-1] == UNCLS:
+            p = p[:-1]                      # 挂「未分類」占位 → 上移到父節點（＝未細分）
+            A['掛「未分類」占位者上移到父節點'] += 1
+        if not p or p not in node_of:
+            rep['unknown'].append({'id': wid, 'classification': c})
+            continue
+        row = (node_of[p], c.get('source') or '')
+        if assign.get(wid) != row:
+            A['成員行新增' if wid not in assign else '成員行改動'] += 1
+            assign[wid] = row
+        b = c.get('basis')
+        if b and not re.fullmatch(r'[SABC]', str(b)):
+            rep['basis_ledger'].append({'id': wid, 'basis': b})   # 批次說明等非枚舉文字：不遷入，留 ledger 備查
+        A['basis 丟棄（不遷入）'] += 1 if b else 0
+    # 斷言：每部有 classification 的 Work，回填＝原值（未分類者比父路徑）
+    mismatch = []
+    for wid, wr in repo.recs['Work'].items():
+        c = wr.data.get('classification')
+        if not isinstance(c, dict) or any(u['id'] == wid for u in rep['unknown']):
+            continue
+        p = cls_path(c)
+        p = p[:-1] if p and p[-1] == UNCLS else p
+        node, srcv = assign[wid]
+        if paths[node] != p or srcv != (c.get('source') or ''):
+            mismatch.append(wid)
+    for wid in assign:
+        if repo.get('Work', wid) is None:
+            rep['dangling_members'].append(wid)
+    by_node = collections.defaultdict(list)
+    for wid, (node, sv) in assign.items():
+        by_node[node].append([wid, sv])
+    base = f'{CLS_DIR}/{SCHEME["id"]}'
+    repo.put_file(f'{CLS_DIR}/schemes.json', jdump2([SCHEME]))
+    repo.put_file(f'{base}/tree.json', jdump2(tree))
+    mdir = os.path.join(repo.root, base, 'members')
+    for fn in sorted(os.listdir(mdir)) if os.path.isdir(mdir) else []:
+        if fn[:-5] not in by_node:
+            repo.put_file(f'{base}/members/{fn}', None)
+    for node, rows in sorted(by_node.items()):
+        repo.put_file(f'{base}/members/{node}.json', members_dump(node, rows))
+    rep['members_total'] = len(assign)
+    rep['member_files'] = len(by_node)
+    rep['works_with_classification'] = sum(1 for r in repo.recs['Work'].values() if r.data.get('classification') is not None)
+    rep['backfill_mismatch'] = mismatch[:50]
+    rep['backfill_mismatch_count'] = len(mismatch)
+    rep['added'] = dict(A)
+    rep['ok'] = not rep['unknown'] and not mismatch
+    return rep
+
+
+def m4b(repo, args):
+    """⑶ 剝離：從 Work 刪 classification（不 bump revision）。刪前逐部核成員檔已有等值行，否則不刪。"""
+    rep = {'step': 'M4B', 'removed': collections.Counter(), 'not_covered': []}
+    tree, assign, _ = load_cls(repo, args.vocab)
+    paths = tree_paths(tree)
+    for wid, wr in sorted(repo.recs['Work'].items()):
+        c = wr.data.get('classification')
+        if c is None:
+            continue
+        p = cls_path(c) if isinstance(c, dict) else None
+        p = p[:-1] if p and p[-1] == UNCLS else p
+        row = assign.get(wid)
+        if not row or paths.get(row[0]) != p or row[1] != (c.get('source') or ''):
+            rep['not_covered'].append(wid)
+            continue
+        del wr.data['classification']
+        repo.touch(wid)
+        rep['removed']['Work.classification'] += 1
+    rep['removed'] = dict(rep['removed'])
+    rep['ok'] = not rep['not_covered']
+    return rep
+
+
 # ---------- 人工核清單（目錄總管 10-07：M1 的「要人工核的清單」整理成一份 md） ----------
 def _t(repo, i):
     r = repo.by_id.get(i)
@@ -961,7 +1144,8 @@ def write_report(rep_dir, rep):
 
 def summarise(rep):
     s = {'step': rep['step'], 'ok': rep.get('ok')}
-    for k in ('records', 'added', 'removed', 'folded', 'fail_reason', 'sidecar_checks', 'removed_title',
+    for k in ('records', 'tree_source', 'tree_nodes', 'members_total', 'member_files', 'works_with_classification',
+              'backfill_mismatch_count', 'added', 'removed', 'folded', 'fail_reason', 'sidecar_checks', 'removed_title',
               'edge_conservation', 'records_changed',
               'files_written', 'protected_violations', 'head', 'tag_command'):
         if k in rep:
@@ -969,7 +1153,8 @@ def summarise(rep):
             if k == 'edge_conservation':
                 v = {a: b for a, b in v.items() if not a.startswith('sample')}
             s[k] = v
-    for k in ('unknown_shapes', 'cannot_place', 'symmetric_object_info', 'symmetric_unconvertible'):
+    for k in ('unknown_shapes', 'cannot_place', 'symmetric_object_info', 'symmetric_unconvertible', 'unknown',
+              'basis_ledger', 'dangling_members', 'not_covered'):
         if k in rep:
             s[k + '_count'] = len(rep[k])
     for k in ('data_errors', 'manual', 'lost'):
@@ -981,13 +1166,15 @@ def summarise(rep):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--root', required=True, help='數據倉根（正式庫或草稿庫）')
-    ap.add_argument('--steps', default='M0', help='逗號分隔：M0,M1,M2,M3')
+    ap.add_argument('--steps', default='M0', help='逗號分隔：M0,M1,M2,M3,M4（＝M4a 生成分類檔＋M4b 剝離，各一提交）')
+    ap.add_argument('--vocab', help='M4 首次生成分類樹的詞表（classific.json 或已有的 tree.json；預設 <root>/classific.json）')
     ap.add_argument('--dry-run', action='store_true', help='不寫回數據檔（報告照寫）')
     ap.add_argument('--report-dir', help='報告目錄（預設 <root>/migrate_report）')
     ap.add_argument('--tag', action='store_true', help='M0 時真的打 tag pre-schema-v2（預設只印命令）')
     ap.add_argument('--git-commit', action='store_true', help='每步寫回後在 root 倉提交一次（只 add 改過的記錄檔）')
     a = ap.parse_args(argv)
-    steps = [s.strip().upper() for s in a.steps.split(',') if s.strip()]
+    steps = [x for s in a.steps.split(',') if s.strip()
+             for x in (('M4A', 'M4B') if s.strip().upper() == 'M4' else (s.strip().upper(),))]
     rep_dir = a.report_dir or os.path.join(a.root, 'migrate_report')
     repo = Repo(a.root)
     original_edges = all_edges(repo)
@@ -1002,6 +1189,10 @@ def main(argv=None):
             rep = m2(repo, a, original_edges)
         elif st == 'M3':
             rep = m3(repo, a, load_promotions(repo.root))
+        elif st == 'M4A':
+            rep = m4a(repo, a)
+        elif st == 'M4B':
+            rep = m4b(repo, a)
         else:
             ap.error(f'unknown step {st}')
         if st != 'M0':
@@ -1015,10 +1206,11 @@ def main(argv=None):
                 rep['files_written'] = repo.save()
                 if a.git_commit and paths:
                     # 只 add 改過的記錄檔；檔數可上萬，走 stdin 免撞命令列長度上限
-                    git(repo.root, 'add', '--pathspec-from-file=-', '--pathspec-file-nul', stdin='\0'.join(paths))
-                    git(repo.root, 'commit', '-q', '-m', f'schema-v2 {st}（migrate_v2.py）')
+                    git(repo.root, 'add', '-A', '--pathspec-from-file=-', '--pathspec-file-nul', stdin='\0'.join(paths))
+                    git(repo.root, 'commit', '-q', '-m', f'schema-v2 {rep["step"]}（migrate_v2.py）')
             elif a.dry_run:
                 repo.dirty.clear()
+                repo.extra.clear()
         write_report(rep_dir, rep)
         done[st] = rep
         print(json.dumps(summarise(rep), ensure_ascii=False, indent=1, default=list))

@@ -193,3 +193,72 @@ def test_m3_idempotent(repo):
     mig(repo, 'M1,M2,M3')
     rc, R = mig(repo, 'M1,M2,M3')
     assert rc == 0 and all(R[s]['records_changed'] == 0 for s in ('M1', 'M2', 'M3'))
+
+
+# ---------- M4：分類抽出 ----------
+VOCAB = [{'cata_l1': '經部', 'cata_l2': '未分類'}, {'cata_l1': '經部', 'cata_l2': '易類'},
+         {'cata_l1': '史部', 'cata_l2': '目錄類'}]
+
+
+def _with_vocab(repo):
+    with open(os.path.join(repo, 'classific.json'), 'w', encoding='utf-8') as f:
+        json.dump(VOCAB, f, ensure_ascii=False)
+    d = S.read(repo, 'Work', S.W5)
+    d['classification'] = {'l1': '經部', 'l2': '未分類', 'l3': '', 'l4': '', 'basis': 'Q3 訂正', 'source': '某目'}
+    S.put(repo, 'Work', d)
+
+
+def test_m4_extract_and_strip(repo):
+    import build_derived as BD
+    _with_vocab(repo)
+    rc, R = mig(repo, 'M4A,M4B')
+    assert rc == 0, R
+    tree = json.load(open(os.path.join(repo, 'classification', 'zongmu', 'tree.json'), encoding='utf-8'))
+    assert [(n['id'], n['label'], n['parent']) for n in tree['nodes']] == [
+        ('zm0001', '經部', None), ('zm0002', '易類', 'zm0001'), ('zm0003', '史部', None), ('zm0004', '目錄類', 'zm0003')]
+    m = json.load(open(os.path.join(repo, 'classification', 'zongmu', 'members', 'zm0001.json'), encoding='utf-8'))
+    assert m == {'node': 'zm0001', 'members': [[S.W5, '某目']]}                    # 未分類 → 父節點
+    assert R['M4A']['basis_ledger'] == [{'id': S.W5, 'basis': 'Q3 訂正'}]
+    w1 = S.read(repo, 'Work', S.W1)
+    assert 'classification' not in w1 and w1['revision'] == '1.0.3' and w1['revised_at'] == '2026-01-01'
+    r, P = BD.run(repo, check_only=True, quiet=True)                           # 樣本未跑 M1–M3，不用 --strict
+    assert r['fatal'] == [] and r['classification']['problem_count'] == 0
+    c = P[f'entry/{S.W1}.json']['_classifications'][0]
+    assert (c['node'], c['l1'], c['l2'], c['source']) == ('zm0002', '經部', '易類', '樣本')
+    assert 'classification' not in P[f'entry/{S.W1}.json']
+    assert P[f'entry/{S.B1}.json']['_work']['cls'] == 'zm0002'                    # 卡片只寫節點 id
+    assert {'cata_l1': '經部', 'cata_l2': '易類'} in P['classific.json']
+
+
+def test_m4_idempotent_and_upsert(repo):
+    _with_vocab(repo)
+    mig(repo, 'M4')
+    rc, R = mig(repo, 'M4A,M4B')
+    assert rc == 0 and R['M4A']['records_changed'] == 0 and R['M4B']['records_changed'] == 0
+    d = S.read(repo, 'Work', S.W2)                                              # 遷移後又進來一筆舊格式
+    d['classification'] = {'l1': '史部', 'l2': '目錄類', 'l3': '', 'l4': '', 'basis': 'S', 'source': '新批'}
+    S.put(repo, 'Work', d)
+    rc, R = mig(repo, 'M4A,M4B')
+    assert rc == 0 and R['M4A']['added']['成員行新增'] == 1
+    assert 'classification' not in S.read(repo, 'Work', S.W2)
+
+
+def test_m4_rejects_path_not_in_tree(repo):
+    _with_vocab(repo)
+    d = S.read(repo, 'Work', S.W2)
+    d['classification'] = {'l1': '子部', 'l2': '無此類', 'source': 'x'}
+    S.put(repo, 'Work', d)
+    before = snapshot(repo)
+    rc, R = mig(repo, 'M4A,M4B')
+    assert rc == 1 and R['M4A']['unknown'][0]['id'] == S.W2 and 'M4B' not in R
+    assert snapshot(repo) == before
+
+
+def test_build_rejects_bad_classification(repo):
+    import build_derived as BD
+    _with_vocab(repo)
+    mig(repo, 'M4')
+    p = os.path.join(repo, 'classification', 'zongmu', 'members', 'zm0004.json')
+    json.dump({'node': 'zm0004', 'members': [[S.W1, 'dup']]}, open(p, 'w', encoding='utf-8'), ensure_ascii=False)
+    r, _ = BD.run(repo, check_only=True, quiet=True)
+    assert any('分類檔' in f for f in r['fatal'])                                 # W1 同在 zm0002 與 zm0004

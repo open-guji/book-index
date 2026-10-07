@@ -1,13 +1,13 @@
 # build/ — schema-v2 構建與遷移腳本（`schema-v2` 分支）
 
 依據：overview `項目進展/古籍目錄/進度/F-數據結構/` F2-3（build 與派生欄）、F2-7（遷移方案 M0–M6，§六附 sidecar 方案 B）、F4-2（卡片欄位、樞紐）。任務卡 open-guji-core/overview#459。
-**含 M0–M3 與 build（連 `index/` 生成）**；M4（分類抽出）及以後不在此。sidecar 留到 M6 才刪（目錄總管 10-07）。純 Python 標準庫，測試用 pytest。
+**含 M0–M4 與 build（連 `index/` 生成）**；M5（parity）、M6 不在此。sidecar 留到 M6 才刪（目錄總管 10-07）。純 Python 標準庫，測試用 pytest。
 
 | 檔 | 作用 |
 |---|---|
 | `v2common.py` | 共用：讀記錄（三層分片下的 `<id>-題名.json`；更深者是 sidecar）、保格式寫回、關係詞表（規範詞／反向詞／歸併詞／對稱／單向） |
 | `build_derived.py` | 源記錄 → `_build/`（不進 git）。確定性、可重跑、只寫有變的檔、刪不再產出的檔 |
-| `migrate_v2.py` | M0 盤點、M1 補齊（只增不刪）、M2 關係規範化、M3 刪派生與反向。冪等；一步一提交；不改 `revision`／`revised_at` |
+| `migrate_v2.py` | M0 盤點、M1 補齊（只增不刪）、M2 關係規範化、M3 刪派生與反向、M4 分類抽出（M4a 生成分類檔、M4b 剝離）。冪等；一步一提交；不改 `revision`／`revised_at` |
 
 ## build_derived.py
 
@@ -45,6 +45,10 @@ python3 build/migrate_v2.py --root <倉> --steps M0,M1,M2 [--git-commit] [--dry-
 - **M1 ②b**：②之後仍缺 `role` 者機械補「撰」（目錄總管 10-07 定），按有無 `entity_id` 分開計數。
 - **M2 對稱 id 列表**：`Collection.related_collections` 的對象轉 id 字串（`type`／`note` 等逐條列 `symmetric_object_info`；指向非叢編者原樣保留、列 `symmetric_unconvertible`）；`related_books`／`related_collections` 只在大 id 側者，在小 id 側補寫。
 - **M3**：刪 `Work.books`、`_edition_count`、`_has_image`；`Book._has_image`；`Collection.books`／`contained_works`／`_member_count`／`_member_type`／`_has_image`；`Entity.works`；反向詞項與 `related` 在大 id 側者；對稱 id 列表的大 id 側；`promoted_to` 與 `promotions.json` 一致者。無底線舊鍵 `has_text`／`has_full_text`／`has_collated` 併入准留的 `_has_text`／`_has_collated` 後刪；`has_digitalization` 在 resources 推得出影像時刪。**刪前逐項對勘**：`Work.books` 每項的 Book 指回本作、叢編側每個成員在成員側都有 `contained_in`（否則失敗）；`Entity.works` 有而 Work 側無者照刪並逐條列（即 M1③ 人工核清單）。刪後斷言邊集守恆、對稱對守恆。
+- **M4**（F3-2 §六；用戶 10-07 定：取消「未分類」占位、Collection 不分類、`basis` 不遷入）：
+  - **M4a** 生成 `classification/schemes.json`、`zongmu/tree.json`、`zongmu/members/<節點>.json`（`{node, members:[[work_id, source]…]}`，按 work_id 排序、一行一條）。樹由 `classific.json` 首見順序建，不含「未分類」占位節點，id `zm0001` 起確定性分配；已有 `tree.json` 則沿用、永不重配。草稿庫無 `classific.json`，用 `--vocab <正式庫>/classification/zongmu/tree.json` 取同一棵樹。掛「未分類」者上移到父節點。**upsert**：Work 裡還有 `classification` 的（遷移後又進來的舊格式批）更新成員行，已抽走的靠成員檔保留，故可重跑。斷言：每部回填路徑與 `source` ＝原值；路徑不在樹上即失敗。`basis` 丟棄，非 S/A/B/C 的批次說明列報告 `basis_ledger`。
+  - **M4b** 刪 `Work.classification`（不 bump）；刪前逐部核成員檔有等值行，否則不刪、失敗。
+  - build：有 `classification/` 時產出 `_classifications`、卡片 `cls` 寫節點 id、`_build/classific.json`（由 tree 生成給舊讀者，F3-2 §六⑤）；自校驗含 `classify check`（節點存在且未 retired、互斥法一部一類、檔名＝node、成員是本倉或參照倉的 Work）；`--strict` 時 Work 裡殘留 `classification` 算失敗。
 - 跑 M1–M3 任一步都會在報告目錄生成 `人工核清單.md`（M1 要人工核的、數據錯、M2 拿掉的 `related_collections` 資訊、M3 的人工項）。
 - 每步寫回前斷言 `revision`／`revised_at` 未變；檔案保留原縮排（手排版、無法判讀者改寫為縮排 2，M0 報告列出）。
 
@@ -56,5 +60,4 @@ python3 build/migrate_v2.py --root <倉> --steps M0,M1,M2 [--git-commit] [--dry-
 
 ## 未決
 
-1. 列表卡片 `cls`：分類檔（M4）出來前寫 `[l1, l2]` 標籤；有 `classification/` 後自動改寫節點 id。
-2. `Collection 8rlcsybg2hi4.related_collections` 有一項指向 Work（`work_id`），轉不成叢編 id，原樣保留（check_v2 V06 剩這 1 處）。
+1. `Collection 8rlcsybg2hi4.related_collections` 有一項指向 Work（`work_id`），轉不成叢編 id，原樣保留（check_v2 V06 剩這 1 處）。

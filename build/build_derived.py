@@ -306,9 +306,9 @@ class Build:
         return any(self.has(self.R['Book'][b], kind) for b in self.books_of.get(wid, ()))
 
     def cls_of(self, wid):
-        if self.cls is not None:
+        if self.cls is not None:              # F2-3 補／F4-2：列表卡片的分類只寫節點 id，標籤由讀者查 tree.json
             rows = self.cls.get(wid)
-            return [rows[0]['node']] if rows else None
+            return rows[0]['node'] if rows else None
         c = self.R['Work'][wid].get('classification')
         if isinstance(c, dict) and c.get('l1'):
             return [c.get('l1'), c.get('l2') or None]
@@ -556,7 +556,8 @@ class Build:
             c['work_id'] = c.pop('id')            # SCHEMA〈九〉：Entity._works 以 work_id 為鍵
             c['role'] = role or DEFAULT_ROLE
             ws.append(c)
-        ws.sort(key=lambda c: (str((c.get('cls') or [''])[0] or ''), c.get('title') or '', c['work_id']))
+        ws.sort(key=lambda c: (str(c['cls'] if isinstance(c.get('cls'), str) else (c.get('cls') or [''])[0] or ''),
+                               c.get('title') or '', c['work_id']))
         v['_works'] = ws
         return v, {}
 
@@ -749,14 +750,19 @@ def write_index(root, shards):
 
 # ---------- 分類檔（F3-2；M4 之後才有） ----------
 def load_classification(root):
+    """讀 classification/（F3-2、SCHEMA〈八〉）→ ({work_id: [_classifications 項…]}, 問題清單, 舊式 classific.json)。
+    問題清單即 `classify check`：①節點存在且未 retired ②（記錄存在由 run 查）③互斥分類法一部只出現一次
+    ④成員檔名＝其 node。無 classification/ 回 (None, [], None)。"""
     base = os.path.join(root, 'classification')
     sp = os.path.join(base, 'schemes.json')
     if not os.path.exists(sp):
-        return None
+        return None, [], None
     schemes = json.load(open(sp, encoding='utf-8'))
     schemes = schemes.get('schemes', schemes) if isinstance(schemes, dict) else schemes
     schemes = sorted(schemes, key=lambda s: (not s.get('primary'), s['id']))
     out = collections.defaultdict(list)
+    problems = []
+    legacy = None
     for s in schemes:
         tree = json.load(open(os.path.join(base, s.get('tree') or f"{s['id']}/tree.json"), encoding='utf-8'))
         nodes = {n['id']: n for n in tree['nodes']}
@@ -767,16 +773,30 @@ def load_classification(root):
                 p.append(nodes[nid]['label'])
                 nid = nodes[nid].get('parent')
             return p[::-1]
+        if s.get('primary'):
+            parents = {n.get('parent') for n in tree['nodes']}
+            legacy = [{f'cata_l{k + 1}': lab for k, lab in enumerate(path(n['id']))}
+                      for n in tree['nodes'] if n['id'] not in parents and not n.get('retired')]
+        seen = {}
         mdir = os.path.join(base, s['id'], 'members')
         for fn in sorted(os.listdir(mdir)) if os.path.isdir(mdir) else []:
             m = json.load(open(os.path.join(mdir, fn), encoding='utf-8'))
-            p = path(m['node'])
+            node = m.get('node')
+            if fn != f'{node}.json':
+                problems.append(f'{s["id"]}/members/{fn}: 檔名與 node {node} 不符')
+            if node not in nodes or nodes[node].get('retired'):
+                problems.append(f'{s["id"]}/members/{fn}: 節點 {node} 不存在或已 retired')
+                continue
+            p = path(node)
             for row in m['members']:
+                if s.get('exclusive') and row[0] in seen:
+                    problems.append(f'{s["id"]}: {row[0]} 同在 {seen[row[0]]} 與 {node}（互斥分類法）')
+                seen[row[0]] = node
                 ls = (p + ['', '', '', ''])[:4]
-                out[row[0]].append(clean({'scheme': s['id'], 'node': m['node'], 'path': p, 'l1': ls[0], 'l2': ls[1],
+                out[row[0]].append(clean({'scheme': s['id'], 'node': node, 'path': p, 'l1': ls[0], 'l2': ls[1],
                                           'l3': ls[2], 'l4': ls[3], 'source': row[1] if len(row) > 1 else None},
                                          keep=('scheme', 'node', 'path', 'l1', 'l2', 'l3', 'l4')))
-    return dict(out)
+    return dict(out), problems, legacy
 
 
 def load_promotions(root):
@@ -973,9 +993,20 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
             for t in V.TYPES:
                 for k, x in r2[t].items():
                     ref[t].setdefault(k, x)
-    b = Build(recs, ref, load_classification(root), load_promotions(root), hub=hub)
+    cls, cls_problems, legacy_vocab = load_classification(root)
+    b = Build(recs, ref, cls, load_promotions(root), hub=hub)
     prods = b.products()
+    if legacy_vocab is not None:
+        prods['classific.json'] = legacy_vocab      # F3-2 §六⑤：舊詞表改為 tree.json 的生成物，供舊讀者
+    if cls is not None:
+        for wid in sorted(cls):
+            if b.kind_of(wid) != 'Work':
+                cls_problems.append(f'成員行 {wid} 不是本倉（或參照倉）的 Work')
     src = source_checks(recs)
+    if cls is not None:                       # 分類檔已在（M4a 後）：Work 裡還留舊 classification 即殘留
+        n = sum(1 for r in recs['Work'].values() if 'classification' in r.data)
+        if n:
+            src['legacy_reverse_fields']['Work.classification'] = n
     errs = self_checks(b, prods)
     report = {
         'root': os.path.basename(os.path.abspath(root)),
@@ -991,6 +1022,8 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
         'legacy_vs_rebuilt': legacy_diffs(recs, prods),
         'notes': dict(sorted(b.notes.items())),
         'self_check_errors': errs[:200], 'self_check_error_count': len(errs),
+        'classification': None if cls is None else {'works': len(cls), 'problems': cls_problems[:200],
+                                                    'problem_count': len(cls_problems)},
     }
     if do_hub_check:
         report['hub_check'] = hub_check(b, prods)
@@ -999,6 +1032,8 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
         fatal.append(f'自洽校驗 {len(errs)} 項失敗')
     if problems:
         fatal.append(f'讀檔問題 {len(problems)} 項')
+    if cls_problems:
+        fatal.append(f'分類檔校驗 {len(cls_problems)} 項失敗')
     if src['unknown_underscore_fields']:
         fatal.append('源檔含非舊有之 `_` 欄：' + ', '.join(src['unknown_underscore_fields']))
     if strict and (src['legacy_underscore_fields'] or src['legacy_reverse_fields']):
