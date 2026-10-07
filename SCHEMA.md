@@ -17,7 +17,7 @@
 | 1 | **一个事实只写一次** | 源数据里一条关系只存一侧；反向、计数、对方题名等展示副本全部由 build 生成。 |
 | 2 | **成对关系只写规范方向** | `part_of`／`studies`／`contains_text_of`／`preceded_by` 写在本侧；`has_part`／`studied_by`／`text_carried_by`／`followed_by` 只在构建产物里出现。见〈七、关联词表〉。 |
 | 3 | **对称关系存 id 较小的一侧** | `related_works` 的 `related`、`Book.related_books`、`Collection.related_books`／`related_collections`：两条记录 id 按**字符串比较**（Python `a < b`），写在较小者里；另一侧由 build 补。由工具（`bim link`）落笔，人不手选。 |
-| 4 | **源档不写 `_` 起首字段** | `_` 起首的都是派生字段，只出现在构建产物 `_build/entry/<id>.json` 里；源档里出现即校验失败（`check_v2.py` V01）。无下划线的旧派生字段（`has_text`、`promoted_to`…）同样不写（V02）。 |
+| 4 | **源档不写 `_` 起首字段** | `_` 起首的都是派生字段，只出现在构建产物 `_build/entry/<id>.json` 里；源档里出现即校验失败（`check_v2.py` V01）。无下划线的旧派生字段（`has_text`、`promoted_to`…）同样不写（V02）。**唯一例外**：`_has_text`、`_has_collated` 暂留源档（build 尚无稳定来源，目录总管 10-07 定）。 |
 | 5 | **不写派生／反向列表** | 不写 `Work.books`、`Collection.books`、`Collection.contained_works`、`Entity.works`、`related_works[].title`。成员关系写在成员一侧（`Book.work_id`、`Book.contained_in`、`Work.contained_in`、`Work.authors[].entity_id`）。 |
 | 6 | **`authors[].role` 必填**（Work） | 不写 role 曾造成 Work 与 Entity 两侧角色不一（F2-1：3,957 条）。 |
 | 7 | **分类不在 Work 里** | 分类归属写在 `classification/<分类法>/members/<节点>.json`，Work 档里不写 `classification`。见〈八、分类〉。 |
@@ -45,7 +45,7 @@
 | `classific.json` | 旧分类词表；schema-v2 起由 `classification/zongmu/tree.json` 生成，退役中 | 产物 |
 | `index/**` | 检索用扁平摘要 | 产物（build 生成，不手改） |
 | `_build/**` | 页面就绪条目与分页大列表 | 产物（不进 git） |
-| `Collection/**/volume_book_mapping.json`、`zhsy_book_mappings.json` 等 sidecar | 旧的叢编册号对照表 | **废止**：迁移 M1 并入记录、M3 删除（F2-7 §六·附）。`check_v2.py` V12 |
+| `Collection/**/volume_book_mapping.json`、`zhsy_book_mappings.json` 等 sidecar | 旧的叢编册号对照表 | **废止**：迁移 M1 并入记录、M6 删除（目录总管 10-07 定，#459；F2-7 §六·附原排 M3）。`check_v2.py` V12 |
 | `resource*.json`、`recommended.json` | 资源站点目录、首页推荐 | 源（非记录） |
 
 ---
@@ -83,7 +83,7 @@
 | `authenticity`、`authenticity_basis` | 本档 | 唯一值 `forged`，只在确定是伪书时写 | | |
 | `indexed_by[]` | 本档（被著录一侧） | IndexEntry，见〈IndexEntry〉；`source_bid` 必须指向存在的志书 Work；顺序有意义（同源多条按原序），不可按内容去重 | | |
 | `emendated_by[]` | 本档 | IndexEntry，考证／校勘类著作对本书的订正 | | |
-| `contained_in[]` | 本档（成员一侧） | `{id, volume_index?}`：本作品收入哪个 Collection | | `[{"id":"8rl…","volume_index":3}]` |
+| `contained_in[]` | 本档（成员一侧） | `{id, volume_index?, group?, details?}`：本作品收入哪个 Collection；`group`＝本作品在该丛编里所属的组（原 `contained_works[].group`）；`details`＝说明文字（原 `contained_works[].note`）。M1 由丛编侧并入（目录总管 10-07 定，#459） | | `[{"id":"8rl…","volume_index":3,"group":"經部"}]` |
 | `related_works[]` | 本档（规范方向一侧） | `{id, relation, note?}`；`relation` 只用〈七〉的「源档可写」词；**不写 `title`**；两侧原各有 note 者迁移时拼成一条 | | `[{"id":"1evl7l48e27ls","relation":"contains_text_of"}]` |
 | `preferred_book` | 本档 | Book ID，单值，「推荐版本」；取代旧 `books` 的手排顺序（`_books` 按年代排） | | `"11q…"` |
 | `version_graph` | 本档 | 手绘版本传承图（人工策展，6 条） | | |
@@ -873,7 +873,7 @@ Book 的 `indexed_by` 與 Work 的 `indexed_by` 同結構，記錄該具體版�
 | `work_id` | 本档 | 本丛编整体对应的伞状作品（7 条） | | `"1ev…"`（《十三經注疏》） |
 | `contained_in` | 本档（子丛编一侧） | **Collection ID 字符串数组**（注意：与 Book／Work 的对象数组形状不同） | | `["8rlcsybg2hih"]` |
 | `indexed_by[]` | 本档 | IndexEntry | | |
-| `related_books`、`related_collections` | 本档（id 较小一侧） | 对称关系，ID 字符串数组；只存 id 较小一侧 | | |
+| `related_books`、`related_collections` | 本档（id 较小一侧） | 对称关系，**ID 字符串数组**；只存 id 较小一侧。旧有 3 个对象形（带 `title`／`note`／`type`）由 M2 转成字符串，`title` 丢弃（build 派生），`type`／`note` 非空者列进 M2 报告待定去处（`check_v2.py` V14） | | `["8rlcsybg2hih"]` |
 | `resources[]` | 本档 | 同 Book | | |
 | `sources`、`ai_note`、`todo`、`review`、`revision`、`revised_at`、`updated_at` | 本档 | 共通字段 | | |
 | ~~`books`~~、~~`contained_works`~~ | 他档：成员的 `contained_in` | build 生成 `_members`（分页）、`_member_count`、`_member_type` | 不写 | |
@@ -914,7 +914,8 @@ Book 的 `indexed_by` 與 Work 的 `indexed_by` 同結構，記錄該具體版�
 | `zhsy_id` | 本档 | 中華再造善本编号 | | |
 | `metadata` | 本档 | 来源系统原始字段透传，不规范化 | | `{"npm_item_id":"平圖021465"}` |
 | `sources`、`merged_from`、`appendix`、`ai_note`、`todo`、`review`、`revision`、`revised_at`、`updated_at` | 本档 | 共通字段 | | |
-| `_has_image`、`_has_text`；旧 `has_full_text`、`has_digitalization` | build | 由 `resources` 推出 | **源档不写** | |
+| `_has_image`；旧 `has_full_text`、`has_digitalization` | build | 由 `resources` 推出 | **源档不写** | |
+| `_has_text`、`_has_collated` | **暂留源档**（例外） | 依据在 book-text 整理本／全文，build 还推不出；等文本总管给出稳定来源再迁（目录总管 10-07 定，#459） | | |
 
 ### 示例（新格式）
 
@@ -1235,7 +1236,7 @@ IndexEntry（`indexed_by`／`emendated_by` 共用）见〈二、Work〉的〈Ind
 
 ## 七、關聯詞表（`related_works[].relation`）
 
-**「存儲方向」一栏决定源档写不写这个词。** 成对关系只在规范方向一侧写一次；反向词只出现在构建产物 `_related` 里（`direction: "in"`）。
+**「存儲方向」一栏决定源档写不写这个词。** 成对关系只在规范方向一侧写一次；反向词只出现在构建产物 `_related` 里（`direction: "in"`）。存量里的反向项：M2 先在规范侧补写，M3 删除（`check_v2.py` V04）。
 
 | relation | 存儲方向 | 反向（只在 build 产物中） | 含義 |
 |---|---|---|---|
@@ -1322,7 +1323,7 @@ classification/
 | Work／Book | `_collections` | `contained_in` 解出题名 | — |
 | Work | `_authors` | 与 `authors[]` 同序，内嵌 Entity 摘要 | — |
 | Work | `_classifications` | 见〈八〉 | `Work.classification` |
-| Work／Book／Collection | `_has_text`、`_has_image`、`_has_collated` | 由 `resources`、整理本 manifest 推 | 手写 `_has_*`、旧 `has_text` 等 |
+| Work／Book／Collection | `_has_image`（及 `_has_text`、`_has_collated`） | 由 `resources`、整理本 manifest 推；**`_has_text`／`_has_collated` 迁移期仍以源档旧值为准、暂留源档**（见〈十〉例外） | 手写 `_has_image`、旧 `has_text` 等 |
 | Work（志书） | `_member_catalog` | 指向 `_build/catalog/<id>/` | — |
 | Book | `_work`、`_siblings`、`_lineage_refs`、`_derived_by`、`_lineage_graph_ref` | 所属作品摘要、同作品其他版本、源流引用、谁以我为底本、版本图 | — |
 | Collection | `_members`、`_member_pages`、`_member_count`、`_member_type`、`_children` | 成员（来自成员侧 `contained_in`）、计数、型别、子丛编 | `Collection.books`、`contained_works`、手写 `_member_*` |
@@ -1346,7 +1347,7 @@ classification/
 | `todo` | 條目級待核清單 `[{what, by?, date?}]`；做完即移除該項，不留「已辦」標記。只定義形狀，不批量回填。 |
 | `review` | 人工審核狀態 `{status, by?, date?}`，`status` ∈ `unreviewed`｜`reviewed`｜`disputed`；欄位不存在即 `unreviewed`。 |
 | `ai_note` | 整理者寫給整理者的注，見〈ai_note 的用法〉。 |
-| `_` 起首者 | **源檔一律不寫**。派生欄位只在 `_build/entry/` 裡（清單見〈九〉）。舊規「`_` 欄可寫、校驗重算比對」作廢：源檔出現任何 `_` 欄即 `check_v2.py` V01。 |
+| `_` 起首者 | **源檔一律不寫**。派生欄位只在 `_build/entry/` 裡（清單見〈九〉）。舊規「`_` 欄可寫、校驗重算比對」作廢：源檔出現任何 `_` 欄即 `check_v2.py` V01。<br>**例外（2026-10-07 目錄總管定，#459）**：`_has_text`、`_has_collated` 暫留源檔、M3 不刪不改名——其據在 book-text 整理本／全文，build 尚推不出（實測 295／65 條只有源檔舊值）；待文本總管給出穩定來源再遷。check_v2 對此二欄豁免。 |
 
 ### revision 的字段口径（F3-3）
 
@@ -1786,12 +1787,12 @@ UI 執行期型別從不讀它，搜尋分片也不帶，寫了六年沒人消�
 | `Work.books` 的手排顺序 | 丢弃；推荐版本用 `Work.preferred_book` | — | M3 | — |
 | `Work._edition_count`（手写） | 产物 `_edition_count` | `_edition_count`（产物恒有） | M3 删 | V01 |
 | `Work.related_works[].title` | 删；产物 `_related[].title` | `_related ?? related_works` | M2 删 | V06 |
-| `related_works` 反向词 `has_part`／`studied_by`／`text_carried_by`／`followed_by` | 对方源档写规范词 `part_of`／`studies`／`contains_text_of`／`preceded_by`；本侧在产物 `_related`（`direction:"in"`） | 同上 | M2 翻转 | V04 |
-| `has_pseudepigraph`／`has_adaptation` | 对方写 `pseudepigraph_of`／`adapted_from` | 同上 | M2 | V04 |
+| `related_works` 反向词 `has_part`／`studied_by`／`text_carried_by`／`followed_by` | 对方源档写规范词 `part_of`／`studies`／`contains_text_of`／`preceded_by`；本侧在产物 `_related`（`direction:"in"`） | 同上 | M2 在规范侧补写、M3 删反向项 | V04 |
+| `has_pseudepigraph`／`has_adaptation` | 对方写 `pseudepigraph_of`／`adapted_from` | 同上 | M2 补写、M3 删 | V04 |
 | `commentary_on`、`related_to` | `studies`、`related` | 读者两词都认 | M2 | V05 |
 | `related` 写在两侧 | 只存 id 较小一侧，note 拼接；另一侧在产物 `_related` | 同上 | M1⑤ 搬 note、M3 删大 id 侧 | V07 |
 | `Book.related_books`、`Collection.related_*` 写在两侧 | 只存 id 较小一侧 | 读产物 `_related` 或两侧并集 | M3 | V07 |
-| `Work.authors[].role` 缺 | 必填；缺者由 `Entity.works[].role` 回填 | `role ?? "撰"`（仅展示兜底） | M1② | V08 |
+| `Work.authors[].role` 缺 | 必填；缺者由 `Entity.works[].role` 回填，两侧都缺或无 `entity_id` 者机械补「撰」（数量单列进 M1 报告） | `role ?? "撰"`（仅展示兜底） | M1② | V08 |
 | `Work.classification {l1..l4, basis, source}` | `classification/<scheme>/members/<node>.json` 的 `[work_id, source]`；产物 `_classifications[]` | `_classifications?.[0] ?? classification` | M4 | V09 |
 | `classification.basis` | 删（默认，见〈附三〉） | 不读 | M4 | — |
 | `classific.json` | `classification/zongmu/tree.json`（`classific.json` 改为其生成物） | 读 `tree.json`，没有再读 `classific.json` | M4 | — |
@@ -1799,13 +1800,14 @@ UI 執行期型別從不讀它，搜尋分片也不帶，寫了六年沒人消�
 | `Collection.books[]` | 源：`Book.contained_in[].id`；产物 `Collection._members` | `_members ?? books` | M1① 并入成员侧、M3 删 | V10 |
 | `Collection.contained_works[]`（含 `title`、`volume_index`、`group`） | 源：`Work.contained_in[]`（`volume_index`）；产物 `_members` | `_members ?? contained_works` | M1①、M3 | V10 |
 | `Collection._member_count`／`_member_type`（手写） | 产物同名字段 | 产物恒有 | M3 | V01 |
-| sidecar `volume_book_mapping.json` 等的 `sub_items` | `Book.contained_in[].sub_items` | 读 `sub_items`，没有就不显示 | M1⓪、M3 删表 | V12 |
+| sidecar `volume_book_mapping.json` 等的 `sub_items` | `Book.contained_in[].sub_items` | 读 `sub_items`，没有就不显示 | M1⓪、M6 删表 | V12 |
 | sidecar 的 `parent_work_id` | 并入该对 `related` 的 `note`（不升级为 `part_of`） | — | M1⓪ | V12 |
 | sidecar 的 `wiki_title` | `Book.resources[]` 一项 `id:"wikisource"` | — | M1⓪ | V12 |
 | sidecar 的册号、部类、再造善本编号 | 已在 `Book.contained_in[].volume_index`、`Book.section`、`Book.zhsy_id` | — | 无需并入 | V12 |
 | `Entity.works[]` | 源：`Work.authors[].entity_id`（含 `role`）；产物 `Entity._works` | `_works ?? works` | M3 | V11 |
 | `Entity.works[].title` | 删；产物 `_works[].title` | 同上 | M2 | V11 |
-| `_has_text`／`_has_image`／`_has_collated`（手写） | 产物同名字段 | 产物恒有 | M3 | V01 |
+| `_has_image`（手写） | 产物同名字段 | 产物恒有 | M3 | V01 |
+| `_has_text`／`_has_collated`（手写） | **暂留源档**，M3 不删不改名；等文本总管给出稳定来源再迁 | 读源档值 | 未排步 | 豁免 |
 | `has_text`／`has_image`／`has_collated`／`has_full_text`／`has_digitalization`（无下划线旧键） | 产物 `_has_*` | `_has_x ?? has_x` | M3 | V02 |
 | `_promoted_to`、`promoted_to`、`promoted_at`（记录内） | `promotions.json`；`index/` 与产物里回填 `promoted_to` | 读 `index/` 或 `promotions.json` | M3 | V01／V02 |
 | `index/**`（`reindex.py` 生成） | `build_derived.py` 生成 | 不变 | M6 | — |
@@ -1827,8 +1829,8 @@ UI 執行期型別從不讀它，搜尋分片也不帶，寫了六年沒人消�
 | 反向關係詞（`has_part`、`studied_by`、`text_carried_by`、`followed_by`、`has_pseudepigraph`、`has_adaptation`）作為源檔值 | schema-v2（M2） | 只在 build 產物出現 |
 | `commentary_on`、`related_to` | schema-v2（M2） | 併入 `studies`、`related` |
 | `Work.classification` | schema-v2（M4） | 移入 `classification/` 類檔；舊形狀 `{l1, l2, l3, l4, basis, source}`，`basis` 曾為 S（四庫總目類目）／A（`indexed_by[].section` 同名）／B（對照表換算）／C（只到部），實測已漂移（S 中四庫總目僅 44%） |
-| 一切源檔內 `_` 起首欄、`has_text` 等無底線舊派生鍵、記錄內 `promoted_to` | schema-v2（M3） | 移入構建產物 |
-| sidecar 對照表（6 份） | schema-v2（M3） | 獨有資訊於 M1 併入記錄 |
+| 一切源檔內 `_` 起首欄（`_has_text`、`_has_collated` 暫留除外）、`has_text` 等無底線舊派生鍵、記錄內 `promoted_to` | schema-v2（M3） | 移入構建產物 |
+| sidecar 對照表（6 份） | schema-v2（M6） | 獨有資訊於 M1 併入記錄 |
 
 **按**：`resource_groups` 與 `volume_count` 在 **Book** 仍為有效欄位；舊版本節曾記「Work 層 `resource_groups` 已刪、庫中零」，實測正式庫 1,770 個 Work 有此欄（2026-10-07），**本版訂正為有效欄位**，形狀同 Book。
 留在 spec 裡的死欄位，三年內一定會被某個人重新啟用；需要時自 git 歷史取回。
@@ -1840,13 +1842,14 @@ UI 執行期型別從不讀它，搜尋分片也不帶，寫了六年沒人消�
 | # | 事项 | 现状／默认 | 谁定 |
 |---|---|---|---|
 | 1 | 分类成员行删不删 `basis` | #451 目录总管两次写「不答按默认删」，用户未明确回复。本文按默认写（成员行只 `[work_id, source]`）；若要保留，行尾加一项枚举即可，格式向后兼容 | 用户 |
-| 2 | 对称关系「id 较小」用字符串比较还是解码后整数比较 | 本文与 `check_v2.py` 用**字符串比较**（与 F2 试验 `trial.py` 的 `min(a,b)` 一致）；同长度 id 两者等价，只在草稿 13 字符 id 与正式 12 字符 id 互指时有别。须与 F6-1 的 `build_derived.py`／`migrate_v2.py` 对齐 | 目录总管（F6-1 对表） |
+| 2 | ~~对称关系「id 较小」用字符串比较还是整数比较~~ | **已对齐**：F6-1 的 `build/v2common.py` 同用字符串比较（`src <= dst`），与本文、`check_v2.py` 一致 | — |
 | 3 | Book／Collection 的 `authors[].role` 是否也必填 | F2 只对 Work 定了必填；本文对 Book／Collection 写「建议写」，`check_v2.py` V08 只查 Work | 目录总管 |
 | 4 | `Work.collections`（1 条，Collection ID 数组） | 与 `Work.contained_in` 同义而形状不同；建议并入 `contained_in`，未见结论，未排迁移步 | 目录总管 |
 | 5 | `Entity.aliases`（13 条） | 形状同 `alt_names`，建议并入；未排迁移步 | 目录总管 |
 | 6 | `ai_note_fix`／`ai_note2`／`ai_note_periodfix`（各 1 条） | F3-3 说「迁移时并入 `ai_note`」，F2-7 未列入 M 步 | 目录总管 |
 | 7 | `Collection.contained_works[].title` 里 47 处「括注撰人消歧」的展示题（如「補後漢書藝文志（顧懷三）」） | M2 删 title 后这类消歧随之消失；要不要在 `Work.contained_in[]` 项里留一个可选展示名，未定（S5 留给目录总管） | 目录总管 |
-| 8 | 武英殿 sidecar 顶层信息（馆藏、善本号、`sections`、`ai_note`）并入 Collection 哪些字段 | F2-7 §六·附「待核」 | F6-1／目录总管 |
+| 8 | 武英殿 sidecar 顶层信息（`source`、`sections`、`stats`、`ai_note`）的去处 | 目录总管 10-07：**先留着、不并入**；sidecar 留到 M6 才删，删表前再定 | 目录总管 |
 | 9 | Entity 是否套 `revision` 机制 | F3-3 §三：不在该卡 | 目录总管 |
 | 10 | 志书「本志著录了哪些书」成员页（`_member_catalog`、约 14 MB） | F4：新功能，用户定做不做；不影响其它产物 | 用户 |
 | 11 | S1 留下的候选分类（19 条冲突＋3,785 条撤回）进不进成员行 `status` 候选层 | 本轮只留格式口子，不做 | 用户（默认不做） |
+| 12 | `Collection.related_collections` 旧对象形里非空的 `type`／`note`（M2 报告列出） | 目录总管 10-07：逐条看后定放处 | 目录总管 |

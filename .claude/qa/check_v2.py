@@ -5,18 +5,20 @@
 
   代碼  檢的是什麼                                   對應遷移步（F2-7）
   V01  源檔頂層出現 `_` 起首欄位（派生欄手寫）        M3
+       （`_has_text`／`_has_collated` 豁免：暫留源欄，待文本總管給出穩定來源，#459）
   V02  無底線之舊派生欄（has_text／promoted_to…）    M3
   V03  Work.books                                    M3
-  V04  related_works 用反向詞（has_part 等）          M2
+  V04  related_works 用反向詞（has_part 等）          M3（M2 先在規範側補寫，M3 刪反向項）
   V05  related_works 用詞表外舊詞（commentary_on 等） M2
   V06  related_works／related_* 項帶 title 副本       M2
   V07  related 存在 id 較大一側                       M1⑤＋M3
-  V08  Work.authors[] 缺 role                         M1②
+  V08  Work.authors[] 缺 role                         M1②（Entity 回填；兩側皆缺者補「撰」）
   V09  舊分類欄 classification                         M4
   V10  Collection.books／contained_works              M1①＋M3
   V11  Entity.works                                   M3
-  V12  sidecar（Collection 目錄下非記錄之 .json）      M1⓪＋M3
+  V12  sidecar（Collection 目錄下非記錄之 .json）      M1⓪＋M6（M6 才刪表）
   V13  relation 未識別（不在新詞表、亦非已知舊詞）    M2（「未識別形態」清單）
+  V14  對稱 id 陣列（related_books／related_collections）之項不是字符串  M2
 
 M0（打 tag）、M5（build）、M6（index/ 重生）不產生源檔殘留，故無代碼。
 
@@ -63,6 +65,8 @@ DEPRECATED_RELATIONS = {
     "commentary_on": "studies",
     "related_to": "related",
 }
+# 暫留源欄之 `_` 欄（目錄總管 10-07 定，#459）：V01 不報
+UNDERSCORE_EXEMPT = {"_has_text", "_has_collated"}
 # 無底線之舊派生欄
 OLD_DERIVED = ("has_text", "has_image", "has_collated", "has_full_text",
                "has_digitalization", "promoted_to", "promoted_at")
@@ -76,7 +80,7 @@ CODES = {
     "V01": ("源檔有 _ 起首欄位", "M3"),
     "V02": ("無底線之舊派生欄", "M3"),
     "V03": ("Work.books", "M3"),
-    "V04": ("related_works 用反向詞", "M2"),
+    "V04": ("related_works 用反向詞", "M3"),
     "V05": ("related_works 用詞表外舊詞", "M2"),
     "V06": ("關聯項帶 title 副本", "M2"),
     "V07": ("related 存在 id 較大一側", "M1⑤+M3"),
@@ -84,8 +88,9 @@ CODES = {
     "V09": ("舊分類欄 classification", "M4"),
     "V10": ("Collection.books／contained_works", "M1①+M3"),
     "V11": ("Entity.works", "M3"),
-    "V12": ("sidecar 對照表", "M1⓪+M3"),
+    "V12": ("sidecar 對照表", "M1⓪+M6"),
     "V13": ("relation 未識別", "M2"),
+    "V14": ("對稱 id 陣列項非字符串", "M2"),
 }
 
 
@@ -114,7 +119,7 @@ def check_record(kind, rec):
     rid = rec.get("id", "")
 
     for k in rec:
-        if k.startswith("_"):
+        if k.startswith("_") and k not in UNDERSCORE_EXEMPT:
             out.append(("V01", k, ""))
     for k in OLD_DERIVED:
         if k in rec:
@@ -151,8 +156,8 @@ def check_record(kind, rec):
             continue
         for i, it in enumerate(v):
             tgt = it if isinstance(it, str) else rel_target(it)
-            if isinstance(it, dict) and "title" in it:
-                out.append(("V06", "%s[%d].title" % (fld, i), tgt or ""))
+            if not isinstance(it, str):
+                out.append(("V14", "%s[%d]" % (fld, i), json.dumps(it, ensure_ascii=False)[:80]))
             if tgt and rid > tgt:
                 out.append(("V07", "%s[%d]" % (fld, i), "%s：%s > %s，應存於 %s 一側" % (fld, rid, tgt, tgt)))
 

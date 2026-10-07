@@ -34,8 +34,15 @@ def test_new_format_work_is_clean():
 
 
 def test_underscore_and_old_derived_fields():
-    rec = dict(NEW_WORK, _edition_count=3, _has_text=True, has_image=True, promoted_to="abc")
+    rec = dict(NEW_WORK, _edition_count=3, _has_image=True, has_image=True, promoted_to="abc")
     assert codes("Work", rec) == ["V01", "V01", "V02", "V02"]
+
+
+def test_has_text_and_has_collated_exempt():
+    # 目錄總管 10-07：_has_text／_has_collated 暫留源欄，不報
+    rec = dict(NEW_WORK, _has_text=True, _has_collated=True)
+    assert codes("Work", rec) == []
+    assert codes("Book", {"id": "11b", "type": "book", "work_id": "w", "_has_text": True}) == []
 
 
 def test_work_books():
@@ -79,6 +86,10 @@ def test_symmetric_id_lists_on_book_and_collection():
     assert codes("Book", book) == ["V07"]
     coll = {"id": "2b", "type": "collection", "title": "x", "related_collections": ["2a"]}
     assert codes("Collection", coll) == ["V07"]
+    # 對象形（舊）：M2 轉成 id 字符串
+    coll = {"id": "2a", "type": "collection", "title": "x",
+            "related_collections": [{"id": "2b", "title": "乙", "type": "sibling"}]}
+    assert codes("Collection", coll) == ["V14"]
 
 
 def test_missing_role():
