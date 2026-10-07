@@ -278,13 +278,10 @@ class Build:
         for (s, d, rel), ns in sorted(self.edges.items()):
             # 規範側的 note 排前（遷移前兩側都寫時，以規範側為先）
             note = V.merge_notes([n for side, n in ns if side] + [n for side, n in ns if not side])
-            if rel in V.SYMMETRIC:
-                self.rel_view[s][(d, rel)] = ('sym', note)
-                self.rel_view[d][(s, rel)] = ('sym', note)
-            else:
-                self.rel_view[s][(d, rel)] = ('out', note)
-                inv = V.REVERSE_OF.get(rel, rel)
-                self.rel_view[d].setdefault((s, inv), ('in', note))
+            # SCHEMA〈九〉：`direction` 為 out（本記錄存儲）／in（對方存儲；成對者取反向詞，對稱者仍 related）
+            self.rel_view[s][(d, rel)] = ('out', note)
+            inv = V.REVERSE_OF.get(rel, rel)
+            self.rel_view[d].setdefault((s, inv), ('in', note))
 
     # ---------- 卡片（F4-2 §二） ----------
     def has(self, d, kind):
@@ -416,9 +413,9 @@ class Build:
         rel = []
         for (other, r), (direction, note) in self.rel_view.get(wid, {}).items():
             c = self.any_card(other)
-            c.update(clean({'rel': r, 'dir': direction, 'note': note}, keep=()))
+            c.update(clean({'relation': r, 'direction': direction, 'note': note}, keep=()))
             rel.append(c)
-        rel.sort(key=lambda c: (c['rel'], c['dir'], c['id']))
+        rel.sort(key=lambda c: (c['relation'], c['direction'], c['id']))
         pages = []
         if len(rel) > PAGE:
             pages = [rel[i:i + PAGE] for i in range(PAGE, len(rel), PAGE)]
@@ -443,7 +440,7 @@ class Build:
             cat_pages = [ents[i:i + PAGE] for i in range(0, len(ents), PAGE)]
             v['_member_catalog'] = {'total': len(ents), 'pages': len(cat_pages)}
         if self.promotions.get(wid):
-            v['_promoted_to'] = self.promotions[wid]
+            v['promoted_to'] = self.promotions[wid]      # SCHEMA〈九〉：草稿記錄回填 promoted_to
         lineage = self.lineage_graph(wid, books)
         if lineage:
             v['_lineage_graph_ref'] = f'lineage/{wid}.json'
@@ -505,7 +502,7 @@ class Build:
                                        'rel': r}) for x, r in der]
         self.put_has(v, b, lambda kind: self.has(b, kind))
         if self.promotions.get(bid):
-            v['_promoted_to'] = self.promotions[bid]
+            v['promoted_to'] = self.promotions[bid]
         if wid in R['Work'] and self.has_lineage(wid):
             v['_lineage_graph_ref'] = f'lineage/{wid}.json'
         return v, {}
@@ -555,14 +552,17 @@ class Build:
         for wid, role in self.works_of.get(eid, {}).items():
             if not role:
                 self.notes['Entity._works 缺 role（以「撰」補）'] += 1   # build_entity 只跑本倉記錄
-            ws.append(dict(self.work_card(wid), role=role or DEFAULT_ROLE))
-        ws.sort(key=lambda c: (str((c.get('cls') or [''])[0] or ''), c.get('title') or '', c['id']))
+            c = self.work_card(wid)
+            c['work_id'] = c.pop('id')            # SCHEMA〈九〉：Entity._works 以 work_id 為鍵
+            c['role'] = role or DEFAULT_ROLE
+            ws.append(c)
+        ws.sort(key=lambda c: (str((c.get('cls') or [''])[0] or ''), c.get('title') or '', c['work_id']))
         v['_works'] = ws
         return v, {}
 
     def strip(self, d, typ):
         """產物以源記錄為底；舊 `_` 派生欄一律丟掉重算（以生成值為準，SCHEMA 既有規矩）。"""
-        return {k: x for k, x in d.items() if not k.startswith('_')}
+        return {k: x for k, x in d.items() if not k.startswith('_') and k != 'promoted_to'}
 
     # ---------- 全量 ----------
     def products(self, ids=None):
@@ -700,8 +700,9 @@ def self_checks(b, prods):
             tot = sum(len(prods.get(f'catalog/{i}/{n}.json', [])) for n in range(1, v['_member_catalog']['pages'] + 1))
             if tot != v['_member_catalog']['total']:
                 errs.append(f'{i}: 志書成員分頁合計≠total')
-        for f in ('_related', '_collections', '_children', '_siblings', '_books', '_works'):
+        for f in ('_related', '_collections', '_children', '_siblings', '_books'):
             chk_cards(i, v.get(f) or [])
+        chk_cards(i, v.get('_works') or [], 'work_id')
         chk_cards(i, v.get('_catalogs') or [], 'bid')
         if '_work' in v:
             chk_cards(i, [v['_work']])
@@ -729,7 +730,7 @@ def legacy_diffs(recs, prods):
                     d['Work.books 集合≠_books'] += 1
             if t == 'Entity' and 'works' in r.data:
                 old = {x.get('work_id') for x in r.data['works'] or [] if isinstance(x, dict)}
-                if old != {x['id'] for x in v['_works']}:
+                if old != {x['work_id'] for x in v['_works']}:
                     d['Entity.works 集合≠_works'] += 1
     return dict(sorted(d.items()))
 

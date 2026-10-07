@@ -66,23 +66,24 @@ def test_reverse_derived_and_legacy_union(repo):
     w1 = P[f'entry/{S.W1}.json']
     assert [b['id'] for b in w1['_books']] == [S.B1, S.B2]          # 按年代
     assert w1['_edition_count'] == 2
-    rel = {(x['id'], x['rel'], x['dir']) for x in w1['_related']}
+    rel = {(x['id'], x['relation'], x['direction']) for x in w1['_related']}
     assert (S.W2, 'has_part', 'in') in rel                          # 兩側都寫 → 去重後一條
     assert (S.W3, 'studied_by', 'in') in rel                        # 只有反向形 → 照樣展開
-    assert (S.W4, 'related', 'sym') in rel
+    assert (S.W4, 'related', 'out') in rel                         # 對稱：小 id 側為 out
     note = [x for x in w1['_related'] if x['id'] == S.W2][0]['note']
     assert note == '乙側說；甲側說'                                    # 規範側 note 在前，簡單拼接
     w2 = P[f'entry/{S.W2}.json']
-    assert {(x['id'], x['rel'], x['dir']) for x in w2['_related']} == {(S.W1, 'part_of', 'out')}
+    assert {(x['id'], x['relation'], x['direction']) for x in w2['_related']} == {(S.W1, 'part_of', 'out')}
     w4 = P[f'entry/{S.W4}.json']
-    assert (S.W3, 'studied_by', 'in') in {(x['id'], x['rel'], x['dir']) for x in w4['_related']}   # commentary_on→studies
+    assert (S.W3, 'studied_by', 'in') in {(x['id'], x['relation'], x['direction']) for x in w4['_related']}   # commentary_on→studies
+    assert (S.W1, 'related', 'in') in {(x['id'], x['relation'], x['direction']) for x in w4['_related']}
     c = P[f'entry/{S.C1}.json']
     assert c['_member_count'] == 3 and c['_member_type'] == 'mixed'
     assert {(x['t'], x['id']) for x in P[f'members/{S.C1}/1.json']} == {('book', S.B1), ('book', S.B3), ('work', S.W2)}
     b3 = P[f'entry/{S.B3}.json']
     assert [x['id'] for x in b3['_collections']] == [S.C1]           # 叢編側獨有也反映到成員
     e = P[f'entry/{S.E1}.json']
-    assert {(x['id'], x['role']) for x in e['_works']} == {(S.W1, '撰'), (S.W2, '注')}
+    assert {(x['work_id'], x['role']) for x in e['_works']} == {(S.W1, '撰'), (S.W2, '注')}
     assert P[f'entry/{S.B1}.json']['_derived_by'][0]['id'] == S.B2
     assert P[f'entry/{S.B2}.json']['_lineage_refs'][S.B1]['title'] == '甲書宋本'
     assert P[f'lineage/{S.W1}.json']['edges'] == [{'from': S.B1, 'to': S.B2, 'rel': '翻刻', 'ref_type': 'book'}]
