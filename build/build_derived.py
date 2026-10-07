@@ -820,6 +820,15 @@ def load_promotions(root):
     return {k: v for k, v in out.items() if v}
 
 
+def load_promotions_all(root, ref_roots=()):
+    """promotions.json 2026-10-06 起只在正式庫根（overview#432）：草稿庫 build 時 root 下沒有，
+    要從 --ref-root 取，否則草稿 index 的 promoted_to 全丟。root 自己的優先。"""
+    out = {}
+    for r in list(ref_roots)[::-1] + [root]:
+        out.update(load_promotions(r))
+    return out
+
+
 # ---------- 校驗 ----------
 def source_checks(recs):
     """源檔裡不該有的：`_` 欄（舊派生，M3 刪；其他一律算錯）、舊反向欄。"""
@@ -1004,7 +1013,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
                 for k, x in r2[t].items():
                     ref[t].setdefault(k, x)
     cls, cls_problems, legacy_vocab = load_classification(root)
-    b = Build(recs, ref, cls, load_promotions(root), hub=hub)
+    b = Build(recs, ref, cls, load_promotions_all(root, ref_roots), hub=hub)
     prods = b.products()
     if legacy_vocab is not None:
         prods['classific.json'] = legacy_vocab      # F3-2 §六⑤：舊詞表改為 tree.json 的生成物，供舊讀者
@@ -1051,7 +1060,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
     if do_hub_check and not all(x['ok'] for x in report['hub_check']):
         fatal.append('改樞紐名牽動產物檔超過上限')
     report['fatal'] = fatal   # 之後 index 校驗還會往裡加
-    shards = build_index(recs, load_promotions(root))
+    shards = build_index(recs, load_promotions_all(root, ref_roots))
     n_idx = sum(len(v) for v in shards.values())
     report['index'] = {'files': len(shards), 'entries': n_idx, 'drift_vs_repo_index': index_drift(root, shards)}
     if n_idx != report['entries']:
