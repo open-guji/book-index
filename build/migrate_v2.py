@@ -1268,6 +1268,9 @@ def write_manual_md(repo, rep_dir, reps):
             write_dup_people(repo, rep_dir, dup)
         sec('Entity.works 有而 Work.authors 無、不屬疑重複人物（請目錄總管看）', rest,
             lambda x: f"人物 {_t(repo, x['entity'])} ↔ 作品 {_t(repo, x['work'])}：{x['why']}；作品作者 {x['authors']}")
+        sec('parent_work_id：子母皆在、但兩者間無 related 關係（說明無處可附，請目錄總管定）',
+            M.get('⓪ parent_work_id 對無 related 關係'),
+            lambda x: f"子 {_t(repo, x['work'])} ／ 母 {_t(repo, x['parent'])}")
         sec('sidecar 舊 id 已改指現 id（按 zhsy_id／題名＋同叢編／Book.work_id 唯一對上；sidecar 原樣不改）',
             (m1r.get('items') or {}).get('⓪ 改號'),
             lambda x: f"`{x['old']}` → {_t(repo, x['new'])}（{x['by']}；{x['sidecar']}）")
