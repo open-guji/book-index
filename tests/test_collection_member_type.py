@@ -119,7 +119,7 @@ def _reverse_counters():
 
 def test_all_84_collections_have_up_to_date_member_type():
     rows = _all_collections()
-    assert len(rows) == 84
+    assert len(rows) == 85   # 2026-10-07 #19 补立《四庫全書存目叢書》8rldhjfpv8cg
     rev_b, rev_w = _reverse_counters()
     bad = [
         f for f, d in rows
@@ -133,6 +133,7 @@ def test_member_type_distribution_matches_current_data():
     Book 39／Work 29／mixed 5／无（不写）11。
     2026-10-07 合并日 F9：Work d59dgrrusb28 的 `collections`（7 个叢編）併入 contained_in，
     分布变为 Book 36／Work 32／mixed 8／无 8（overview#459）。
+    同日 #19 补立《四庫全書存目叢書》（暂无成员）：无 8→9（overview#468）。
     若 Book／Work 的 contained_in 或 Collection 的 books／contained_works 结构改动导致
     此分布变化，需重跑 s3c_member_type_reverse.py 并更新本测试。"""
     rows = _all_collections()
@@ -141,7 +142,7 @@ def test_member_type_distribution_matches_current_data():
         verify.derive_member_type(d, bool(rev_b.get(d["id"], 0)), bool(rev_w.get(d["id"], 0)))
         for _, d in rows
     )
-    assert dist == collections.Counter({"Book": 36, "Work": 32, None: 8, "mixed": 8})
+    assert dist == collections.Counter({"Book": 36, "Work": 32, None: 9, "mixed": 8})
 
 
 def test_ershiwushi_yiwen_jingjizhi_kaobu_cuibian_total_volumes_corrected():

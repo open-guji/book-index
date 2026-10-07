@@ -56,7 +56,7 @@ def _all_collections():
 
 def test_all_84_collections_have_valid_count_shape_where_present():
     rows = _all_collections()
-    assert len(rows) == 84
+    assert len(rows) == 85   # 2026-10-07 #19 补立《四庫全書存目叢書》8rldhjfpv8cg
     bad = [f for f, d in rows if d.get("count") is not None and not verify.count_ok(d["count"])]
     assert bad == [], f"count 形狀不對：{bad}"
 
