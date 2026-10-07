@@ -531,16 +531,18 @@ catalog_bound 之真價值在**驗證**（實測查出 437 條 `period` 逾限�
 
 **規範朝代名完整枚舉**（按時序，附 CBDB c_dy 碼與 period 歸併）：
 
+> CBDB c_dy 列依 `cbdb_20261003` 真庫 `DYNASTIES` 核（overview `项目进展/古籍目录/整体设计/专名建档/D-朝代年号-设计.md` 附二，2026-10-07 勘 21 行）；「—」＝真庫無對應政權。北宋、南宋之 15 是真庫不分南北之「宋」，不動。本列將來是否刪去、改由 `external_ids.cbdb_dy` 承載，待用戶定。
+
 | 規範名 | CBDB c_dy | period | 別名（庫中已有寫法） | 說明 |
 |---|---|---|---|---|
 | 上古傳說 | — | pre-qin | 上古傳說 | 三皇五帝 |
 | 上古 | — | pre-qin | | 上古泛稱 |
-| 夏 | 0 | pre-qin | | |
-| 商 | 1 | pre-qin | | |
-| 西周 | 2 | pre-qin | | |
-| 東周 | 3 | pre-qin | | |
-| 春秋 | 4 | pre-qin | 春秋戰國 | |
-| 戰國 | 5 | pre-qin | | |
+| 夏 | — | pre-qin | | |
+| 商 | — | pre-qin | | |
+| 西周 | — | pre-qin | | |
+| 東周 | — | pre-qin | | |
+| 春秋 | — | pre-qin | 春秋戰國 | |
+| 戰國 | — | pre-qin | | |
 | 先秦 | — | pre-qin | 漢前、漢以前 | 漢以前泛稱 |
 | 春秋齊 | — | pre-qin | | 諸侯國 |
 | 春秋晉 | — | pre-qin | | |
@@ -549,16 +551,16 @@ catalog_bound 之真價值在**驗證**（實測查出 437 條 `period` 逾限�
 | 戰國齊 | — | pre-qin | | |
 | 戰國楚 | — | pre-qin | | |
 | 戰國趙 | — | pre-qin | | |
-| 秦 | 6 | qin-han | 贏秦 | 贏秦=嬴秦之訛 |
-| 西漢 | 7 | qin-han | | |
-| 新 | 8 | qin-han | | 新莽（王莽） |
-| 東漢 | 9 | qin-han | 東漢末、後漢(東漢別稱) | |
+| 秦 | 61 | qin-han | 贏秦 | 贏秦=嬴秦之訛 |
+| 西漢 | 29 | qin-han | | |
+| 新 | 46 | qin-han | | 新莽（王莽） |
+| 東漢 | 25 | qin-han | 東漢末、後漢(東漢別稱) | |
 | 三國魏 | 26 | three-kingdoms | 曹魏 | |
 | 三國蜀 | 53 | three-kingdoms | 蜀漢 | |
 | 三國吳 | 42 | three-kingdoms | 孫吳 | |
 | 三國 | — | three-kingdoms | | 通稱，不拆 |
-| 西晉 | 10 | jin | | |
-| 東晉 | 11 | jin | | |
+| 西晉 | 23 | jin | | |
+| 東晉 | 27 | jin | | |
 | 晉 | — | jin | | 兩晉通稱 |
 | 前涼 | — | jin | | 十六國之一 |
 | 前秦 | — | jin | | 十六國之一 |
@@ -575,8 +577,8 @@ catalog_bound 之真價值在**驗證**（實測查出 437 條 `period` 逾限�
 | 北周 | 31 | nanbeichao | | |
 | 北朝 | — | nanbeichao | | 通稱 |
 | 南北朝 | — | nanbeichao | | 通稱，不拆 |
-| 隋 | 12 | sui-tang | | |
-| 唐 | 13 | sui-tang | | |
+| 隋 | 5 | sui-tang | | |
+| 唐 | 6 | sui-tang | | |
 | 後梁 | 34 | five-dynasties | | 五代朱溫 |
 | 後唐 | 47 | five-dynasties | | |
 | 後晉 | 48 | five-dynasties | | |
@@ -592,14 +594,14 @@ catalog_bound 之真價值在**驗證**（實測查出 437 條 `period` 逾限�
 | 北宋 | 15 | song | | |
 | 南宋 | 15 | song | | |
 | 遼 | 16 | liao-jin-yuan | | |
-| 西夏 | 17 | liao-jin-yuan | | |
-| 金 | 18 | liao-jin-yuan | | |
-| 蒙古 | 19 | liao-jin-yuan | | 蒙古汗國至元 |
-| 元 | 19 | liao-jin-yuan | | |
+| 西夏 | 78 | liao-jin-yuan | | |
+| 金 | 17 | liao-jin-yuan | | |
+| 蒙古 | — | liao-jin-yuan | | 蒙古汗國至元 |
+| 元 | 18 | liao-jin-yuan | | |
 | 偽齊 | — | liao-jin-yuan | | 金扶持劉豫（1130-1137） |
-| 明 | 20 | ming | | |
-| 清 | 21 | qing | 清末 | |
-| 中華民國 | 22 | modern | 民國、民初 | |
+| 明 | 19 | ming | | |
+| 清 | 20 | qing | 清末 | |
+| 中華民國 | 21 | modern | 民國、民初 | |
 | 中華人民共和國 | — | modern | 當代、現代、近代 | |
 
 **域外朝代**（不歸入 period 枚舉，`period` 留 null）：
