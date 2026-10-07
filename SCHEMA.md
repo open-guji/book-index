@@ -26,7 +26,7 @@
 | 10 | **revision 只管「作品是什么」的陈述** | 派生字段、分类归属、反向链变化不 bump `revision`；迁移脚本一律不改 `revision`／`revised_at`。见〈十、记录之共通字段〉。 |
 
 **校验**：
-- `.claude/qa/check_v2.py`：查源档里的旧格式残留（V01–V13，代码表见脚本头注释与〈附一〉），只读、可 `--paths` 只查 PR 改动的文件。审数据 PR 时必跑：`git diff --name-only origin/main... | python3 .claude/qa/check_v2.py --paths -`，退出码非 0 即有残留。迁移（M1–M4）完成前，存量会大量报出，这是预期。
+- `.claude/qa/check_v2.py`：查源档里的旧格式残留（V01–V14，及专名子类型 E1／D／R／A／O／P 系列，代码表见脚本头注释与〈专名子类型〉），只读、可 `--paths` 只查 PR 改动的文件。审数据 PR 时必跑：`git diff --name-only origin/main... | python3 .claude/qa/check_v2.py --paths -`，退出码非 0 即有残留。迁移（M1–M4）完成前，存量会大量报出，这是预期。
 - `.claude/qa/verify.py`：字段形状、悬空引用、词表等（旧校验，迁移完成后改为调用 build 自校验，F2-7 §九 B8）。
 
 ---
@@ -513,7 +513,7 @@ catalog_bound 之真價值在**驗證**（實測查出 437 條 `period` 逾限�
 **規範化原則**：
 1. **自明性優先**：規範名必須一眼能讀出所屬時段——三國系列必冠「三國」（三國魏、三國蜀、三國吳），南朝系列必冠「南朝」（南朝宋、南朝齊、南朝梁、南朝陳），宋分北宋/南宋。
 2. **無歧義優先**：凡一字多朝者必加前綴（魏→三國魏/北魏、宋→南朝宋/北宋/南宋、蜀→三國蜀/前蜀/後蜀）。
-3. **對齊 CBDB**：規範名與 CBDB DYNASTIES 表（`c_dy` 碼）對齊，本庫已通過 `entity_id` 關聯 CBDB；冠詞（三國、南朝）不影響對應關係。
+3. **參照 CBDB**：規範名以 CBDB DYNASTIES 表為主要參照（冠詞三國、南朝不影響對應）；2026-10-07 起只作人工校對參照，不存 `c_dy` 碼（用戶定，#464）。
 4. **保留原文於 `indexed_by[].title_info`**：志書原文（如「毛詩義問十卷魏太子文學劉楨撰」）不受 `dynasty` 規範化影響。
 5. **`period` 為派生欄位**：`dynasty` 規範化後，`period` 可由 `dynasty` 自動歸併導出（南朝宋→nanbeichao、三國魏→three-kingdoms）。
 6. **判不出者留 null 並出清單**（`known-issues/dynasty未決.json`），**不猜**。
@@ -529,88 +529,135 @@ catalog_bound 之真價值在**驗證**（實測查出 437 條 `period` 逾限�
 
 無單一標準完全滿足文獻分類需求，故**以 CBDB 為主體，參考文物標準補南北宋，參考中研院補十六國**。
 
-**規範朝代名完整枚舉**（按時序，附 CBDB c_dy 碼與 period 歸併）：
+**規範朝代名完整枚舉**（按時序；2026-10-07 起與草稿庫 `schema-v2` 已入之 116 條 dynasty 條目逐字一致，overview#464）
 
-> CBDB c_dy 列依 `cbdb_20261003` 真庫 `DYNASTIES` 核（overview `项目进展/古籍目录/整体设计/专名建档/D-朝代年号-设计.md` 附二，2026-10-07 勘 21 行）；「—」＝真庫無對應政權。北宋、南宋之 15 是真庫不分南北之「宋」，不動。本列將來是否刪去、改由 `external_ids.cbdb_dy` 承載，待用戶定。
+> 本表首列即 `Entity.subtype=="dynasty"` 條 `primary_name` 之規範名來源（`check_v2.py` D1 讀此表）。條目化後改由 build 從條目生成、本表退為說明，**不得再手寫第二份**。
+> 2026-10-07 起已刪 CBDB `c_dy` 列：本庫不與 CBDB 匹配、不存任何 `cbdb_*` 外部 id（用戶定，#464）。
+> period 為默認值，**不反寫** `Work.period`；「null」＝無對應 period（非 12 值之一，如元末群雄、域外）。
+> 北宋、南宋之上增「趙宋」（兩宋通稱，作上級條）；兩漢、十六國、十國為上級通稱條。
 
-| 規範名 | CBDB c_dy | period | 別名（庫中已有寫法） | 說明 |
-|---|---|---|---|---|
-| 上古傳說 | — | pre-qin | 上古傳說 | 三皇五帝 |
-| 上古 | — | pre-qin | | 上古泛稱 |
-| 夏 | — | pre-qin | | |
-| 商 | — | pre-qin | | |
-| 西周 | — | pre-qin | | |
-| 東周 | — | pre-qin | | |
-| 春秋 | — | pre-qin | 春秋戰國 | |
-| 戰國 | — | pre-qin | | |
-| 先秦 | — | pre-qin | 漢前、漢以前 | 漢以前泛稱 |
-| 春秋齊 | — | pre-qin | | 諸侯國 |
-| 春秋晉 | — | pre-qin | | |
-| 春秋吳 | — | pre-qin | | |
-| 春秋魯 | — | pre-qin | | |
-| 戰國齊 | — | pre-qin | | |
-| 戰國楚 | — | pre-qin | | |
-| 戰國趙 | — | pre-qin | | |
-| 秦 | 61 | qin-han | 贏秦 | 贏秦=嬴秦之訛 |
-| 西漢 | 29 | qin-han | | |
-| 新 | 46 | qin-han | | 新莽（王莽） |
-| 東漢 | 25 | qin-han | 東漢末、後漢(東漢別稱) | |
-| 三國魏 | 26 | three-kingdoms | 曹魏 | |
-| 三國蜀 | 53 | three-kingdoms | 蜀漢 | |
-| 三國吳 | 42 | three-kingdoms | 孫吳 | |
-| 三國 | — | three-kingdoms | | 通稱，不拆 |
-| 西晉 | 23 | jin | | |
-| 東晉 | 27 | jin | | |
-| 晉 | — | jin | | 兩晉通稱 |
-| 前涼 | — | jin | | 十六國之一 |
-| 前秦 | — | jin | | 十六國之一 |
-| 後秦 | — | jin | 姚秦 | 姚秦=後秦（姚萇） |
-| 西燕 | — | jin | | 十六國之一 |
-| 北涼 | — | jin | | 十六國之一，末期入南北朝 |
-| 南朝宋 | 28 | nanbeichao | 劉宋、宋(劉) | |
-| 南朝齊 | 32 | nanbeichao | 南齊 | |
-| 南朝梁 | 44 | nanbeichao | 南梁 | |
-| 南朝陳 | 24 | nanbeichao | 陳 | |
-| 南朝 | — | nanbeichao | | 通稱 |
-| 北魏 | 30 | nanbeichao | 後魏 | 亦稱元魏 |
-| 北齊 | 35 | nanbeichao | | |
-| 北周 | 31 | nanbeichao | | |
-| 北朝 | — | nanbeichao | | 通稱 |
-| 南北朝 | — | nanbeichao | | 通稱，不拆 |
-| 隋 | 5 | sui-tang | | |
-| 唐 | 6 | sui-tang | | |
-| 後梁 | 34 | five-dynasties | | 五代朱溫 |
-| 後唐 | 47 | five-dynasties | | |
-| 後晉 | 48 | five-dynasties | | |
-| 後漢 | 52 | five-dynasties | | 五代劉知遠（東漢亦稱後漢，個別宜核） |
-| 後周 | 49 | five-dynasties | | |
-| 五代 | — | five-dynasties | | 通稱，不拆 |
-| 前蜀 | — | five-dynasties | | 十國之一 |
-| 後蜀 | — | five-dynasties | | 十國之一 |
-| 楊吳 | — | five-dynasties | 吳(楊) | 十國之一 |
-| 南唐 | — | five-dynasties | | 十國之一 |
-| 吳越 | — | five-dynasties | | 十國之一 |
-| 閩 | — | five-dynasties | 閩國 | 十國之一 |
-| 北宋 | 15 | song | | |
-| 南宋 | 15 | song | | |
-| 遼 | 16 | liao-jin-yuan | | |
-| 西夏 | 78 | liao-jin-yuan | | |
-| 金 | 17 | liao-jin-yuan | | |
-| 蒙古 | — | liao-jin-yuan | | 蒙古汗國至元 |
-| 元 | 18 | liao-jin-yuan | | |
-| 偽齊 | — | liao-jin-yuan | | 金扶持劉豫（1130-1137） |
-| 明 | 19 | ming | | |
-| 清 | 20 | qing | 清末 | |
-| 中華民國 | 21 | modern | 民國、民初 | |
-| 中華人民共和國 | — | modern | 當代、現代、近代 | |
+| 規範名 | period | 別名（庫中已有寫法；＊＝ambiguous，單獨不能定位） | 說明 |
+|---|---|---|---|
+| 上古傳說 | pre-qin | 上古傳說 | 三皇五帝 |
+| 上古 | pre-qin |  | 上古泛稱 |
+| 夏 | pre-qin |  |  |
+| 商 | pre-qin |  |  |
+| 西周 | pre-qin |  |  |
+| 東周 | pre-qin |  |  |
+| 春秋 | pre-qin |  |  |
+| 戰國 | pre-qin |  |  |
+| 先秦 | pre-qin | 漢前、漢以前 | 漢以前泛稱 |
+| 春秋齊 | pre-qin |  | 諸侯國 |
+| 春秋晉 | pre-qin |  |  |
+| 春秋吳 | pre-qin |  |  |
+| 春秋魯 | pre-qin |  |  |
+| 戰國齊 | pre-qin |  |  |
+| 戰國楚 | pre-qin |  |  |
+| 戰國趙 | pre-qin |  |  |
+| 秦 | qin-han | 贏秦 | 贏秦=嬴秦之訛 |
+| 西漢 | qin-han |  |  |
+| 新 | qin-han |  | 新莽（王莽） |
+| 東漢 | qin-han | 東漢末、後漢(東漢別稱) |  |
+| 兩漢 | qin-han | 前後漢 | 西漢與東漢的合稱 |
+| 玄漢 | qin-han | 漢＊ | 劉玄所建，年號更始，後為赤眉所滅 |
+| 三國魏 | three-kingdoms | 曹魏 |  |
+| 三國蜀 | three-kingdoms | 蜀漢 |  |
+| 三國吳 | three-kingdoms | 孫吳 |  |
+| 三國 | three-kingdoms |  | 通稱，不拆 |
+| 西晉 | jin |  |  |
+| 東晉 | jin |  |  |
+| 晉 | jin |  | 兩晉通稱 |
+| 前涼 | jin |  | 十六國之一 |
+| 前秦 | jin |  | 十六國之一 |
+| 後秦 | jin | 姚秦 | 姚秦=後秦（姚萇） |
+| 西燕 | jin |  | 十六國之一 |
+| 北涼 | jin |  | 十六國之一，末期入南北朝 |
+| 十六國 | jin |  | 五胡所建諸政權的通稱 |
+| 成漢 | jin | 大成 | 氐人李氏據蜀，初號成，後改漢；屬十六國 |
+| 前趙 | jin | 趙＊、漢趙 | 匈奴劉氏所建，初號漢；屬十六國 |
+| 代 | jin | 拓跋代 | 鮮卑拓跋氏之代國；屬十六國 |
+| 後趙 | jin | 趙＊、石趙 | 羯人石氏所建；屬十六國 |
+| 前燕 | jin | 燕＊ | 鮮卑慕容氏所建；屬十六國 |
+| 冉魏 | jin | 魏＊ | 冉閔所建，國號魏；屬十六國 |
+| 後燕 | jin | 燕＊ | 慕容垂所建；屬十六國 |
+| 西秦 | jin | 秦＊、乞伏秦 | 鮮卑乞伏氏所建；屬十六國 |
+| 後涼 | jin | 涼＊ | 氐人呂氏所建；屬十六國 |
+| 南涼 | jin | 涼＊ | 鮮卑禿髮氏所建；屬十六國 |
+| 南燕 | jin | 燕＊ | 慕容德所建，都廣固；屬十六國 |
+| 西涼 | jin | 涼＊ | 李暠所建，都敦煌酒泉；屬十六國 |
+| 桓楚 | jin | 楚＊ | 桓玄篡晉所建，國號楚 |
+| 胡夏 | jin | 夏＊、赫連夏、大夏＊ | 匈奴赫連氏所建，國號夏；屬十六國 |
+| 北燕 | jin | 燕＊ | 高雲、馮跋所建；屬十六國 |
+| 南朝宋 | nanbeichao | 劉宋、宋(劉) |  |
+| 南朝齊 | nanbeichao | 南齊 |  |
+| 南朝梁 | nanbeichao | 南梁 |  |
+| 南朝陳 | nanbeichao | 陳 |  |
+| 南朝 | nanbeichao |  | 通稱 |
+| 北魏 | nanbeichao | 後魏 | 亦稱元魏 |
+| 北齊 | nanbeichao |  |  |
+| 北周 | nanbeichao |  |  |
+| 北朝 | nanbeichao |  | 通稱 |
+| 南北朝 | nanbeichao |  | 通稱，不拆 |
+| 東魏 | nanbeichao | 魏＊ | 高歡所控北魏孝靜帝政權，都鄴；屬北朝 |
+| 西魏 | nanbeichao | 魏＊ | 宇文泰所控北魏文帝政權，都長安；屬北朝 |
+| 侯漢 | nanbeichao | 漢＊ | 侯景篡梁所建，國號漢 |
+| 西梁 | nanbeichao | 梁＊、後梁＊ | 蕭詧所建的附庸政權，與南朝梁並稱 |
+| 隋 | sui-tang |  |  |
+| 唐 | sui-tang |  |  |
+| 鄭（王世充） | sui-tang | 鄭 | 隋末王世充所建 |
+| 武周 | sui-tang | 周＊、大周＊ | 武則天改唐為周的政權，夾於唐中 |
+| 後梁 | five-dynasties |  | 五代朱溫 |
+| 後唐 | five-dynasties |  |  |
+| 後晉 | five-dynasties |  |  |
+| 後漢 | five-dynasties |  | 五代劉知遠（東漢亦稱後漢，個別宜核） |
+| 後周 | five-dynasties |  |  |
+| 五代 | five-dynasties |  | 通稱，不拆 |
+| 前蜀 | five-dynasties |  | 十國之一 |
+| 後蜀 | five-dynasties |  | 十國之一 |
+| 楊吳 | five-dynasties | 吳(楊) | 十國之一 |
+| 南唐 | five-dynasties |  | 十國之一 |
+| 吳越 | five-dynasties |  | 十國之一 |
+| 閩 | five-dynasties | 閩國 | 十國之一 |
+| 十國 | five-dynasties |  | 五代時南方與河東諸政權的通稱 |
+| 馬楚 | five-dynasties | 楚＊ | 馬氏據湖南；屬十國 |
+| 南漢 | five-dynasties |  | 劉氏據嶺南；屬十國 |
+| 南平 | five-dynasties | 荊南、北楚 | 高氏據荊南；屬十國 |
+| 北漢 | five-dynasties |  | 劉崇據河東；屬十國 |
+| 北宋 | song |  |  |
+| 南宋 | song |  |  |
+| 趙宋 | song | 兩宋、南北宋、宋＊ | 宋代的通稱，以別於南朝劉宋 |
+| 遼 | liao-jin-yuan |  |  |
+| 西夏 | liao-jin-yuan |  |  |
+| 金 | liao-jin-yuan |  |  |
+| 蒙古 | liao-jin-yuan |  | 蒙古汗國至元 |
+| 元 | liao-jin-yuan |  |  |
+| 偽齊 | liao-jin-yuan |  | 金扶持劉豫（1130-1137） |
+| 西遼 | liao-jin-yuan |  | 耶律大石西遷所建 |
+| 北元 | liao-jin-yuan |  | 元亡後退據漠北的政權 |
+| 明 | ming |  |  |
+| 清 | qing | 清末 |  |
+| 後金 | qing |  | 滿洲人入關前政權，1616 年努爾哈赤建，1636 年皇太極改國號為清 |
+| 中華民國 | modern | 民國、民初 |  |
+| 中華人民共和國 | modern | 當代、現代、近代 |  |
+| 天完 | null |  | 紅巾軍徐壽輝所建 |
+| 大周 | null | 周＊、大周＊ | 張士誠據江浙所建政權 |
+| 韓宋 | null |  | 紅巾軍韓山童、韓林兒所建 |
+| 大漢 | null |  | 陳友諒所建政權 |
+| 明夏 | null | 夏＊ | 明玉珍據四川所建政權 |
+| 大順 | null |  | 李自成所建農民政權 |
+| 南明 | null |  | 明亡後南方的明宗室政權 |
+| 大西 | null |  | 張獻忠所建農民政權 |
+| 吳周 | null |  | 吳三桂在衡州稱帝所建政權 |
+| 太平天國 | null | 太平天国 | 洪秀全所建的農民政權 |
 
-**域外朝代**（不歸入 period 枚舉，`period` 留 null）：
+**域外朝代**（不歸入 period 枚舉，`period` 留 null；日本、江戶時代、朝鮮、新羅、高麗已建 dynasty 條，韓國、英國、美國、比利時是國名不建條，`dynasty` 保持自由文本、`_dynasty_id` 留空）：
 
 | 規範名 | 庫中寫法 | 說明 |
 |---|---|---|
 | 日本 | 日本、日 | |
 | 江戶時代 | 日本江戶時代、日本寶永年間 | 寶永為江戶時代年號 |
-| 朝鮮 | 朝鮮、朝鮮（明）、高麗 | 高麗王朝 |
+| 朝鮮 | 朝鮮、朝鮮（明） | 李氏朝鮮，1392–1897 |
+| 高麗 | 高麗 | 高麗王朝，918–1392；2026-10-07 起從朝鮮拆出（CBDB c_dy=14，與朝鮮前後相繼，#464） |
 | 新羅 | 新羅 | 朝鮮三國之一 |
 | 韓國 | 韓國 | |
 | 英國 | 英國 | |
@@ -640,6 +687,7 @@ catalog_bound 之真價值在**驗證**（實測查出 437 條 `period` 逾限�
 | 隋唐 | sui-tang | 跨隋、唐 |
 | 齊梁 | nanbeichao | 跨南齊、梁 |
 | 金元 | liao-jin-yuan | 跨金、元 |
+| 遼金元 | liao-jin-yuan | 跨遼、金、元（合稱，不建條；2026-10-07 補，#464） |
 | 宋、齊 | nanbeichao | 跨劉宋、南齊 |
 | 明末清初 | null | 跨 ming/qing，逐條判 |
 | 宋末元初 | null | 跨 song/liao-jin-yuan，逐條判 |
@@ -1118,9 +1166,9 @@ IndexEntry（`indexed_by`／`emendated_by` 共用）见〈二、Work〉的〈Ind
 | 字段 | 谁存 | 取值 | 必填 | 示例 |
 |---|---|---|---|---|
 | `id`、`type`、`schema_version` | 本档 | `type` 恒为 `"entity"` | ✔ | |
-| `subtype` | 本档 | `people`｜`place`｜`dynasty`｜`collective`，见〈Entity.subtype〉 | ✔ | `"people"` |
+| `subtype` | 本档 | `people`｜`collective`｜`dynasty`｜`reign`｜`office`｜`place`，见〈Entity.subtype〉；後四種的專有字段見〈專名子類型〉 | ✔ | `"people"` |
 | `primary_name` | 本档 | 最通行的名字 | ✔ | `"蘇軾"` |
-| `alt_names[]` | 本档 | `{name, type}`，type 见〈alt_names.type 枚举〉 | | `[{"name":"子瞻","type":"字"}]` |
+| `alt_names[]` | 本档 | `{name, type, ambiguous?}`，type 见〈alt_names.type 枚举〉，`ambiguous` 见同节 | | `[{"name":"子瞻","type":"字"}]` |
 | `aliases` | 本档 | 旧写法（13 条），形状同 `alt_names`，待并入 `alt_names`（〈附三〉） | | |
 | `name_basis` | 本档 | 名字的依据 | | |
 | `dynasty`、`dynasty_basis`、`period`、`period_basis` | 本档 | 同 Work 的规范名与时代轴 | | |
@@ -1184,9 +1232,11 @@ IndexEntry（`indexed_by`／`emendated_by` 共用）见〈二、Work〉的〈Ind
 | subtype | 含义 | 示例 |
 |---|---|---|
 | `people` | 人物（作者、注家、编者等） | 蘇軾、王應麟、焦竑 |
-| `place` | 地名（保留） | — |
-| `dynasty` | 朝代（保留） | — |
 | `collective` | 机构/官署/局所等非个人主体 | 郵傳部（hixhd2h9bv4m，`ai_note`："此非個人，乃官署、局所、書院、編…"） |
+| `dynasty` | 朝代／政权（2026-10-07 转正，#464） | 趙宋、北宋、後金 |
+| `reign` | 年号（2026-10-07 新增） | 建和（東漢）、萬曆（明） |
+| `office` | 官职；`office_level` 区分概念条／具体条（2026-10-07 新增） | 知縣（概念）、知縣（趙宋）（具体） |
+| `place` | 地名（2026-10-07 转正，第一期无条目） | — |
 
 > 2026-09-09 C-entity 道核实补：production 实测 42 条 `collective`，此前未列入本表。
 
@@ -1210,10 +1260,108 @@ IndexEntry（`indexed_by`／`emendated_by` 共用）见〈二、Work〉的〈Ind
 | `異體` | 异体字写法 | — |
 | `封爵` | 封爵称谓 | — |
 | `俗姓` | 出家前本姓（僧道人物常见） | — |
+| `簡稱` | 简称（如「宋」「漢」）；长度 ≤2 者常需配 `ambiguous` | — |
+| `合稱` | 合称（如「兩宋」「春秋戰國」） | — |
+| `避諱` | 避讳改字写法 | — |
+| `別稱` | 别称（如「蜀漢」「劉宋」） | — |
+| `雅稱` | 雅称 | — |
+| `全稱` | 全称（**不参与匹配**） | — |
+| `異寫` | 异写（用字不同而音义同，如「太平天国」） | — |
+| `舊稱` | 旧称（专名子类型用） | — |
+| `異稱` | 异称（专名子类型用） | — |
+| `今名` | 今名（地名用） | — |
 
+> 2026-10-07（#464）补 `簡稱`…`今名` 十项（专名子类型用，`異體`、`別名` 已有）。
+>
+> **`alt_names[].ambiguous`**：bool，缺省 false。为 true 表示这个名字**单独不能定位**到本条
+> （如「宋」「漢」「魏」「太守」）；匹配时一律出 `ambiguous`、候选全带出，永不 `matched`。
+> 写在每一个声称该名的条目上。校验（A1）：带 `ambiguous` 的名字全库须有 ≥2 个条目声称
+> （含以它作 `primary_name` 的 dynasty，如「後漢」），否则 WARN（标记多余）。
+> 新增之专名子类型里 `alt_names[].type` 不在本表即 ERROR（O12）。
+>
 > 2026-09-09 C-entity 道核实补以上 6 种：production 全库按出现频次为
 > 著錄形(121)／小字(40)／小名(26)／著錄原形(21)／法號(20)／本名(16)／舊著錄形(15)／
 > 殘名(13)／異寫(11) 等，长尾还有 20 余种个位数值，未逐一收表，留 WARN 供人工按需并入。
+
+#### 專名子類型：`dynasty`／`reign`／`office`／`place`（2026-10-07，overview#464）
+
+依據：overview `項目進展/古籍目錄/整體設計/專名建檔/給S-字段清單.md`（N 定稿，用戶 10-07 答復 #464）及該目錄 D／O／P 設計檔；與設計檔相左處以清單為準。
+
+**硬約束**（用戶定）：① 不與 CBDB 匹配，**不存任何 `cbdb_*` 外部 id**；條目內容全部自寫，仍按 CC0 發布；CBDB、CHGIS、DILA 只作人工校對參照。② 第一期不填 `wikidata_id`（字段留位，CC0 來源，將來再填）。③ 地名第一期不建條目，只立字段；不帶坐標。④ 官職兩層：每朝一條具體條＋跨朝概念條。
+
+**共用**：`id`、`type`、`subtype`、`schema_version`、`primary_name`（必填）、`alt_names[]`、`description`、`ai_note`、`review`、`revision`、`revised_at`、`updated_at`（同〈十〉）。**源檔一律不寫 `_` 起首字段與反向列表**（`children`、`reigns`、`index_in_reign`、`holders`、`compounds`、`successors`、`people` 等，build 派生，見〈九〉）。
+
+**共用增改**：
+
+1. `alt_names[].type` 新增十項、`alt_names[].ambiguous`，見〈alt_names.type 枚举〉。
+2. `Entity.dates` 按 subtype 放行：`people`→`birth／death／floruit`（＋`basis`、`chinese`）；`dynasty`／`reign`→`start／end`（＋`basis`、`chinese`）；`office`／`place` **不用 `dates`**（起訖在 `start／end` 或沿革項裡）。
+3. `external_ids` 在四個新子類型裡**只許 `wikidata_id`**（`^Q\d+$`，第一期不填）；出現任何 `cbdb_*`、`chgis_id`、`dila_*` 即校驗失敗。`people` 的 `cbdb_id` 等不受影響。
+4. 禁字段：`translation`、`c_office_trans`、`cbdb_alt_names`（授權硬約束，防日後順手搬進來）。
+
+##### `dynasty`（朝代／政權）
+
+| 字段 | 取值 | 必填 | 說明 |
+|---|---|---|---|
+| `parent_id` | dynasty id | | 單父，上溯深度 ≤3（如 春秋吳→春秋→東周→先秦）；子列表由 build 派生 `_children` |
+| `dates` | `{start:int, end:int\|null, basis:str, chinese?:str}` | 中國朝代必填 `start`；域外可缺 | 公元年，公元前負數、無 0 年，閉區間 |
+| `period` | 現有 period slug \| null | 中國朝代宜填 | 只作默認值，**不反寫** `Work.period` |
+
+`primary_name` 與〈`dynasty` 規範化〉之〈規範朝代名完整枚舉〉（含〈域外朝代〉表）**逐字一致**；條目化後枚舉改由 build 從條目生成，不得再手寫第二份。
+
+##### `reign`（年號）
+
+| 字段 | 取值 | 必填 | 說明 |
+|---|---|---|---|
+| `dynasty_id` | dynasty id | ✔（所屬政權無條目時在 `ai_note` 說明） | 頒行當時的政權（天命、天聰取「後金」） |
+| `ruler` | `{name:str, entity_id?:str}` | `name` 必填 | `entity_id` 須指向 `people`；庫中無該帝王條時只寫名 |
+| `dates` | 同 dynasty | `start` 必填 | 改元當年記為起年 |
+
+`index_in_reign`、干支不寫（build 派生）。同朝同名年號區間不重疊；`(primary_name, dynasty_id, dates.start)` 全庫唯一。
+
+##### `office`（官職，兩層）
+
+| 字段 | 適用層 | 取值 | 必填 |
+|---|---|---|---|
+| `office_level` | 全部 | `concept`｜`concrete` | ✔ |
+| `parent_id` | 具體 | 概念條 id | 有概念時填；**概念條不得有**（概念只一級） |
+| `dynasty_ids[]` | 具體 | dynasty id 數組（宋默認「趙宋」，北南宋有變才拆） | 具體 ✔；概念不得有 |
+| `function` | 具體 | 本朝職掌（自寫） | 具體 ✔ |
+| `office_class` | 具體 | 職事官／差遣／散官／階官／加官／貼職／寄祿官／祠祿官／勳／爵／本官／試秩／憲官／兼職差遣／未詳 | |
+| `rank`、`salary` | 具體 | `{text, basis}`（自寫） | |
+| `start`、`end` | 具體 | 整數公曆年 | |
+| `institution_ref` | 具體 | collective id | |
+| `base_office_id`、`qualifier{kind, name, target?, note?}` | 具體（固定複合） | `base_office_id` 指同朝**具體**條；`kind` ∈ `institution`／`place`／`mode`／`mode+institution` | 複合時 ✔ |
+| `succeeds` | 具體 | 前代概念或具體條 id | 只留字段位，第一期不填 |
+| `basis` | 具體 | 本條依據（自由格式） | 具體 ✔ |
+
+概念條不得有 `dynasty_ids`、`rank`、`salary`、`office_class`、`base_office_id`。複合條與其 base 的 `dynasty_ids` 須相交。
+
+##### `place`（地名；第一期只立字段，不建條目）
+
+| 字段 | 取值 | 說明 |
+|---|---|---|
+| `history[]` | `{start, end, dynasty_ids[], name, level, parent_id?, parent_text?, note?}`；非空必填 | 一地一條＋沿革（不拆每朝一條）；上級寫在下級沿革項；`level` ∈ 國／郡／州／府／軍／監／路／道／省／縣／廳／都；`end` ≤1912；項時段不重疊（可有空檔） |
+| `modern` | `{text, adcode?, relation, note?}` | 今地對照；`adcode` 為 GB/T 2260 六位碼；`relation` ∈ 同名同地／治所今在／轄域約當／沿用其名而異地／無對應 |
+| `predecessors[]` | `{id, kind, year?, note?}`，`kind` ∈ 析出／並入 | 寫在後繼一側 |
+| `coords` | 預留 | **第一期禁止出現**；將來只許 Wikidata（CC0）或自測 |
+
+##### 校驗碼（`.claude/qa/check_v2.py`；實現在 `.claude/qa/entity_subtypes.py`，`verify.py` 共用同一份）
+
+ERROR 計殘留，WARN 只報不計（`check_v2.py` 之 summary 分列）。
+
+| 碼 | 查什麼 | 級別 |
+|---|---|---|
+| E1 | 四子類型出現 `cbdb_*`、`chgis_id`、`dila_*`、`translation`、`c_office_trans`、`cbdb_alt_names`；`external_ids` 含 `wikidata_id` 以外之鍵；非 place 之 `coords` | ERROR |
+| D1 | dynasty `primary_name` 在規範名枚舉內；全庫唯一 | ERROR |
+| D2 | `parent_id` 存在、是 dynasty、無環、上溯深度 ≤3；子朝代 `dates` 落在上級之內（容差 1 年） | ERROR／WARN |
+| D3 | `dates` 鍵按 subtype 放行；`start ≤ end`；整數；無 0 年；`period` 為現有 slug；有 `period` 而缺 `start` | ERROR（末項 WARN） |
+| R1 | reign 之 `dynasty_id`、`ruler.name`、`dates.start`、唯一性、同朝同名不重疊、`ruler.entity_id` 為 people；`dates ⊂ dynasty.dates`（容差 5 年） | ERROR／WARN（越界 WARN） |
+| A1 | `alt_names` 之 `name` 非空、`ambiguous` 為 bool；`ambiguous` 之名全庫 ≥2 條聲稱；無 `ambiguous` 之 dynasty 別名在 dynasty 內全局唯一 | ERROR／WARN |
+| O01–O05、O09–O12 | office：O01 `office_level`；O02 具體條 `dynasty_ids`／`function`／`basis` 與概念條禁字段；O03 `office_class`；O04 `parent_id`；O05 `base_office_id`／`qualifier`／dynasty_ids 相交（指向概念條而無 `ai_note` 為 WARN）；O09 `start/end` 整數且 `start ≤ end`；O10 簡稱長度 ≤2（WARN）；O11 同概念下同朝具體條重複（WARN）；O12 `alt_names[].type` 在枚舉內。O06（CBDB 碼防重）已刪；O07 併入 V01；O08 併入 E1 | ERROR／WARN |
+| P01–P09 | place：P01 `primary_name`、非空 `history`、`level`；P02 項時段；P03 `parent_id` 存在且為 place、不自引、無環，`parent_text` 與 `parent_id` 並存 WARN；P04 `dynasty_ids` 存在；P05 併入 V01；P06 `modern`；P07 `predecessors`；P08 `coords` 出現即失敗；P09 同名異地組（INFO）、同名同上級鏈疑重複（WARN） | ERROR／WARN／INFO |
+| V01 | 源檔出現 `_` 起首或 `children`、`reigns`、`index_in_reign` 等派生／反向字段（新子類型不享 `_has_text`／`_has_collated` 豁免） | ERROR |
+
+> 口徑（S 預審，2026-10-07）：上下級區間不合（如戰國止年晚於東周、北朝起年早於南北朝）、年號越出所屬朝代區間，一律 WARN，不是 ERROR。
 
 #### Work.authors.entity_id
 
@@ -1330,6 +1478,12 @@ classification/
 | Book | `_work`、`_siblings`、`_lineage_refs`、`_derived_by`、`_lineage_graph_ref` | 所属作品摘要、同作品其他版本、源流引用、谁以我为底本、版本图 | — |
 | Collection | `_members`、`_member_pages`、`_member_count`、`_member_type`、`_children` | 成员（来自成员侧 `contained_in`）、计数、型别、子丛编 | `Collection.books`、`contained_works`、手写 `_member_*` |
 | Entity | `_works` | `[{work_id, role, title, …}]`，`role` 取 `Work.authors[].role` | `Entity.works` |
+| Entity（dynasty） | `_children`、`_ancestors`、`_reigns` | 子朝代、上级链、所属年号 | —（新，#464；**build 尚未实现**，合 main 后另开道，先在 #458 通知网站） |
+| Entity（reign） | `_dynasty`、`_ruler`、`_index_in_reign`、`_same_name` | 所属朝代摘要、帝王摘要、年号第 n 年之序、同名年号 | —（同上） |
+| Entity（office） | `_children`、`_compounds`、`_holders` | 概念条下的具体条、复合条、任职人物 | —（同上） |
+| Entity（place） | `_children`、`_span` | 下辖、起讫跨度 | —（同上） |
+| Entity／Work | `_dynasty_id`、`_dynasty_candidates` | 按 `dynasty` 名解出的朝代条 id／候选 | —（同上） |
+| 构建产物 | `_build/dynasty_reign_keys.json` | 匹配键表（`primary_name`＋`alt_names`，带 `ambiguous`、`type`），供文本侧回挂 | —（同上） |
 | 草稿记录 | `promoted_to` | 由 `promotions.json` 回填（index 与产物里） | 手写 `_promoted_to`、`promoted_to` |
 
 字段的精确形状以 overview `F2-3-build与派生字段.md` 与 `F4-2-聚合产物字段表.md` 为准，本表只列名与来源。
@@ -1911,3 +2065,4 @@ python3 build/build_derived.py --root ../book-index-draft --ref-root . --out <�
 | 10 | 志书「本志著录了哪些书」成员页（`_member_catalog`、约 14 MB） | F4：新功能，用户定做不做；不影响其它产物 | 用户 |
 | 11 | S1 留下的候选分类（19 条冲突＋3,785 条撤回）进不进成员行 `status` 候选层 | 本轮只留格式口子，不做 | 用户（默认不做） |
 | 12 | `Collection.related_collections` 旧对象形里非空的 `type`／`note`（M2 报告列出） | 目录总管 10-07：逐条看后定放处 | 目录总管 |
+| 13 | 专名子类型的 build 派生字段与 `dynasty_reign_keys.json`（见〈九〉末六行） | 本轮只落 SCHEMA 与校验；build 实现属 `_build` 契约改动，按约定先在 #458 通知网站，放到 `schema-v2` 合 main 之后另开一道 | 目录总管 |

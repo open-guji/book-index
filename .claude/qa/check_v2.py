@@ -22,6 +22,14 @@
 
 M0（打 tag）、M5（build）、M6（index/ 重生）不產生源檔殘留，故無代碼。
 
+**專名子類型（dynasty／reign／office／place，overview#464 F6-5）另有一組代碼**：
+E1、D1–D3、R1、A1、O01–O05／O09–O12、P01–P09（V01 對新子類型亦加嚴）。實現在
+`.claude/qa/entity_subtypes.py`（verify.py 共用同一份，不寫兩份），碼義見該文件頭與 SCHEMA〈專名子類型〉。
+**級別**：V 系列與專名之 ERROR 計入殘留、決定退出碼；**WARN／INFO 只報不計**——明細 CSV 多一列 `level`，
+summary 分「ERROR」「WARN」「INFO」三段列出，退出碼只看 ERROR。`--errors-only` 令明細也不出 WARN／INFO。
+上下級區間不合、年號越出所屬朝代區間一律 WARN（S 預審口徑）。
+審 PR 用 `--paths` 時，專名之引用與唯一性仍對**全庫**查（索引用全庫建），只輸出所指檔之結果。
+
 用法：
   python3 .claude/qa/check_v2.py                     # 全庫（當前倉根）
   python3 .claude/qa/check_v2.py --root ../book-index-draft
@@ -30,7 +38,7 @@ M0（打 tag）、M5（build）、M6（index/ 重生）不產生源檔殘留，�
   python3 .claude/qa/check_v2.py --csv out.csv       # 逐條明細寫 CSV（預設寫 stdout）
   python3 .claude/qa/check_v2.py --summary           # 只出計數
 
-退出碼：0＝無殘留；1＝有殘留；2＝用法錯誤。
+退出碼：0＝無殘留（ERROR）；1＝有殘留；2＝用法錯誤。WARN／INFO 不影響退出碼。
 **遷移前的存量會大量報出，這是預期**；審數據 PR 時用 `--paths` 只看改動的檔。
 """
 import argparse
@@ -39,6 +47,9 @@ import csv
 import json
 import os
 import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import entity_subtypes as es  # noqa: E402  專名子類型校驗（與 verify.py 共用）
 
 RECORD_DIRS = ("Work", "Book", "Collection", "Entity")
 # 記錄目錄之下而非記錄者：整理本、輯佚檔
@@ -91,6 +102,22 @@ CODES = {
     "V12": ("sidecar 對照表", "M1⓪+M6"),
     "V13": ("relation 未識別", "M2"),
     "V14": ("對稱 id 陣列項非字符串", "M2"),
+    # 專名子類型（#464）：第二欄＝所屬檢查族（無遷移步）
+    "E1": ("專名：禁外部 id／翻譯欄位", "專名"),
+    "D1": ("dynasty 規範名枚舉／唯一", "專名"),
+    "D2": ("dynasty 上級／區間", "專名"),
+    "D3": ("dates 鍵、整數、無 0 年、period", "專名"),
+    "R1": ("reign 所屬朝代／帝王／唯一／區間", "專名"),
+    "A1": ("alt_names／ambiguous", "專名"),
+    "O01": ("office_level", "專名"), "O02": ("office 必填／概念條禁欄", "專名"),
+    "O03": ("office_class", "專名"), "O04": ("office parent_id", "專名"),
+    "O05": ("office 複合 base／qualifier", "專名"), "O09": ("office start／end", "專名"),
+    "O10": ("office 簡稱 ≤2", "專名"), "O11": ("office 同概念同朝重複", "專名"),
+    "O12": ("alt_names.type 枚舉", "專名"),
+    "P01": ("place 必填／level", "專名"), "P02": ("place 沿革項時段", "專名"),
+    "P03": ("place parent_id", "專名"), "P04": ("place dynasty_ids", "專名"),
+    "P06": ("place modern", "專名"), "P07": ("place predecessors", "專名"),
+    "P08": ("place coords", "專名"), "P09": ("place 同名異地／疑重複", "專名"),
 }
 
 
@@ -182,8 +209,9 @@ def check_record(kind, rec):
     return out
 
 
-def check_file(root, relpath):
-    """回 [(relpath, id, kind, code, field, detail)]；非記錄檔回 []。"""
+def check_file(root, relpath, registry=None):
+    """回 [(relpath, id, kind, code, field, detail, level)]；非記錄檔回 []。
+    registry：es.Registry（專名引用索引）；None 則不做專名檢查。"""
     kind, ok = kind_of(relpath)
     if not ok:
         return []
@@ -194,12 +222,16 @@ def check_file(root, relpath):
         with open(full, encoding="utf-8") as fh:
             rec = json.load(fh)
     except (ValueError, UnicodeDecodeError) as e:
-        return [(relpath, "", kind, "V13", "", "JSON 解析失敗：%s" % e)]
+        return [(relpath, "", kind, "V13", "", "JSON 解析失敗：%s" % e, es.ERROR)]
     if not (isinstance(rec, dict) and "id" in rec and "type" in rec):
         if kind == "Collection":
-            return [(relpath, "", kind, "V12", "", os.path.basename(relpath))]
+            return [(relpath, "", kind, "V12", "", os.path.basename(relpath), es.ERROR)]
         return []
-    return [(relpath, rec.get("id", ""), kind, c, f, d) for c, f, d in check_record(kind, rec)]
+    rows = [(relpath, rec.get("id", ""), kind, c, f, d, es.ERROR) for c, f, d in check_record(kind, rec)]
+    if kind == "Entity" and rec.get("subtype") in es.NEW_SUBTYPES and registry is not None:
+        rows += [(relpath, rec.get("id", ""), kind, c, f, d, lv)
+                 for c, lv, f, d in es.check_record(rec, registry)]
+    return rows
 
 
 def walk(root):
@@ -236,6 +268,7 @@ def main(argv=None):
     ap.add_argument("--csv", metavar="OUT", help="明細 CSV 寫到此檔（預設 stdout）")
     ap.add_argument("--summary", action="store_true", help="只出計數，不出明細")
     ap.add_argument("--codes", help="只報這些代碼，逗號分隔，如 V03,V08")
+    ap.add_argument("--errors-only", action="store_true", help="明細只出 ERROR（WARN／INFO 不出；summary 仍分列）")
     a = ap.parse_args(argv)
 
     root = os.path.abspath(a.root)
@@ -248,34 +281,54 @@ def main(argv=None):
         return 2
 
     files = read_paths(a.paths) if a.paths else walk(root)
-    rows, n_files = [], 0
+    registry = es.Registry.from_root(root)
+    rows, n_files, sel_ids = [], 0, set()
     for rp in files:
         rp = rp.replace("\\", "/")
         if os.path.isabs(rp):
             rp = os.path.relpath(rp, root).replace(os.sep, "/")
         if kind_of(rp)[1]:
             n_files += 1
-        for r in check_file(root, rp):
+        for r in check_file(root, rp, registry):
             if only is None or r[3] in only:
                 rows.append(r)
+        if rp.startswith("Entity/"):
+            sel_ids.add(os.path.splitext(os.path.basename(rp))[0].split("-")[0])
+    # 專名跨條目檢查（唯一性、ambiguous 聲稱數、重疊…）；--paths 時只留所指條目之結果
+    for i, c, lv, f, d in es.check_global(registry):
+        if a.paths and i not in sel_ids and registry.path.get(i, "") not in {x.replace("\\", "/") for x in files}:
+            continue
+        if only is None or c in only:
+            rows.append((registry.path.get(i, ""), i, "Entity", c, f, d, lv))
+    if a.errors_only:
+        shown = [r for r in rows if r[6] == es.ERROR]
+    else:
+        shown = rows
 
     if not a.summary:
         fh = open(a.csv, "w", encoding="utf-8", newline="") if a.csv else sys.stdout
         w = csv.writer(fh)
-        w.writerow(["path", "id", "kind", "code", "field", "detail"])
-        w.writerows(rows)
+        w.writerow(["path", "id", "kind", "code", "field", "detail", "level"])
+        w.writerows(shown)
         if a.csv:
             fh.close()
 
-    cnt = collections.Counter(r[3] for r in rows)
-    recs = collections.defaultdict(set)
-    for r in rows:
-        recs[r[3]].add(r[0])
+    errs = [r for r in rows if r[6] == es.ERROR]
     err = sys.stderr if not a.summary else sys.stdout
-    print("# check_v2：查 %d 檔，殘留 %d 處／%d 檔" % (n_files, len(rows), len({r[0] for r in rows})), file=err)
-    for c in sorted(cnt):
-        print("%s\t%s\t%d 處\t%d 檔\t%s" % (c, CODES[c][1], cnt[c], len(recs[c]), CODES[c][0]), file=err)
-    return 1 if rows else 0
+    print("# check_v2：查 %d 檔，殘留（ERROR）%d 處／%d 檔；WARN %d 處；INFO %d 處" % (
+        n_files, len(errs), len({r[0] for r in errs}),
+        sum(1 for r in rows if r[6] == es.WARN), sum(1 for r in rows if r[6] == es.INFO)), file=err)
+    for lv in (es.ERROR, es.WARN, es.INFO):
+        sub = [r for r in rows if r[6] == lv]
+        cnt = collections.Counter(r[3] for r in sub)
+        recs = collections.defaultdict(set)
+        for r in sub:
+            recs[r[3]].add(r[0])
+        if sub:
+            print("## %s" % lv, file=err)
+        for c in sorted(cnt):
+            print("%s\t%s\t%d 處\t%d 檔\t%s" % (c, CODES[c][1], cnt[c], len(recs[c]), CODES[c][0]), file=err)
+    return 1 if errs else 0
 
 
 if __name__ == "__main__":

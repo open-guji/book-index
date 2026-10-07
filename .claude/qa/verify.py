@@ -347,6 +347,10 @@ def base_edition_ok(be, self_id, book_ids, work_ids):
             if not isinstance(wid, str) or wid not in work_ids: return False
     return True
 
+def _CODES_SUBTYPE(cv2):
+    """check_v2.CODES 裡屬專名子類型之碼（第二欄為「專名」者）。"""
+    return {c for c, (_, grp) in cv2.CODES.items() if grp == '專名'}
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--why', action='store_true', help='「索引缺記錄檔」時印出各 id 之最後刪除提交（坑 41）')
     ap.add_argument('--strict', action='store_true'); a = ap.parse_args()
@@ -496,9 +500,19 @@ def main():
     try:
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         import check_v2 as _cv2
-        _cv2_rows = [r for rp in _cv2.walk(ROOT) for r in _cv2.check_file(ROOT, rp)]
+        import entity_subtypes as _es
+        # 專名子類型（dynasty／reign／office／place，#464）：與 check_v2 共用 entity_subtypes 同一份實現。
+        # ERROR 一律計入 FAIL（四子類型在正式庫為 0 條、草稿庫已清零）；WARN／INFO 只報數。
+        _reg = _es.Registry.from_root(ROOT)
+        _all = [r for rp in _cv2.walk(ROOT) for r in _cv2.check_file(ROOT, rp, _reg)]
+        _all += [(_reg.path.get(i, ''), i, 'Entity', c, f, d, lv) for i, c, lv, f, d in _es.check_global(_reg)]
+        _cv2_rows = [r for r in _all if r[6] == _es.ERROR and r[3] not in _CODES_SUBTYPE(_cv2)]
+        bad_subtype = [r for r in _all if r[6] == _es.ERROR and r[3] in _CODES_SUBTYPE(_cv2)]
+        subtype_warn = [r for r in _all if r[6] == _es.WARN]
+        subtype_n = collections.Counter(_reg.sub.get(i) for i in _reg.sub if _reg.sub[i] in _es.NEW_SUBTYPES)
     except Exception as _e:   # noqa: BLE001
-        _cv2_rows = [('', '', '', 'ERR', '', str(_e))]
+        _cv2_rows = [('', '', '', 'ERR', '', str(_e), 'ERROR')]
+        bad_subtype, subtype_warn, subtype_n = [], [], collections.Counter()
     print(f'索引檔缺記錄檔        {len(missing)}')
     print(f'works 索引漂移        {len(drift_w)}')
     print(f'entities 索引漂移     {len(drift_e)}')
@@ -513,6 +527,10 @@ def main():
     _cv2_cnt = collections.Counter(r[3] for r in _cv2_rows)
     print(f'舊格式殘留（check_v2；--strict 計入 FAIL） {len(_cv2_rows)}'
           + ('  ' + ' '.join(f'{k}:{v}' for k, v in sorted(_cv2_cnt.items())) if _cv2_rows else ''))
+    print(f'專名子類型不合（dynasty／reign／office／place；ERROR 計入 FAIL） {len(bad_subtype)}'
+          + (f'  條目數 {dict(subtype_n)}' if subtype_n else ''))
+    for r in bad_subtype[:10]: print('  專名', r[1], r[3], r[4], r[5])
+    print(f'專名子類型 WARN（僅報，不入 FAIL） {len(subtype_warn)}')
     print(f'provenance 形狀不合    {len(bad_prov)}')
     for r in bad_prov[:10]: print('  provenance', r)
     print(f'edition_type 不在詞表  {len(bad_et)}')
@@ -583,7 +601,7 @@ def main():
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
     bad = (_ledger_bad or missing or drift_w or drift_e or bad_cls or bad_cls_members or bad_prov or bad_dates or bad_extids or bad_count
-           or bad_et or bad_pd or bad_be or bad_member_type or bad_todo or bad_review or bad_edcount or bad_memcount
+           or bad_subtype or bad_et or bad_pd or bad_be or bad_member_type or bad_todo or bad_review or bad_edcount or bad_memcount
            or (a.strict and (dangle_w or dangle_e or oneway or dup_e or _cv2_rows)))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)

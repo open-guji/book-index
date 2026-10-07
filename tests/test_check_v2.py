@@ -131,7 +131,7 @@ def test_file_walk_sidecar_skips_and_exit_code(tmp_path, capsys):
     rc = check_v2.main(["--root", str(tmp_path), "--csv", str(out)])
     assert rc == 1
     lines = out.read_text(encoding="utf-8").splitlines()
-    assert lines[0] == "path,id,kind,code,field,detail"
+    assert lines[0] == "path,id,kind,code,field,detail,level"
     assert len(lines) == 2 and ",V12," in lines[1]
 
 
