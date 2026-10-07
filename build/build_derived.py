@@ -727,23 +727,29 @@ def build_index(recs, promotions=None):
     return {k: dict(sorted(v.items())) for k, v in sorted(out.items())}
 
 
+def index_file_content(root, rel, data):
+    """→ (舊內容或 None, 新內容)：沿用該分片既有縮排與尾換行（bim write_shard 同法）。"""
+    p = os.path.join(root, rel)
+    indent, trailing = 2, False
+    try:
+        with open(p, encoding='utf-8') as f:
+            raw = f.read()
+        second = raw.split('\n', 2)[1] if raw.count('\n') >= 1 else ''
+        st = second.lstrip(' ')
+        if st and not st.startswith('}'):
+            indent = len(second) - len(st) or 2
+        trailing = raw.endswith('\n')
+    except FileNotFoundError:
+        raw = None
+    return raw, json.dumps(data, ensure_ascii=False, indent=indent) + ('\n' if trailing else '')
+
+
 def write_index(root, shards):
-    """寫回倉內 index/：沿用各分片既有縮排與尾換行（bim write_shard 同法），只寫有變的檔。"""
+    """寫回倉內 index/，只寫有變的檔。"""
     n = 0
     for rel, data in shards.items():
         p = os.path.join(root, rel)
-        indent, trailing = 2, False
-        try:
-            with open(p, encoding='utf-8') as f:
-                raw = f.read()
-            second = raw.split('\n', 2)[1] if raw.count('\n') >= 1 else ''
-            st = second.lstrip(' ')
-            if st and not st.startswith('}'):
-                indent = len(second) - len(st) or 2
-            trailing = raw.endswith('\n')
-        except FileNotFoundError:
-            raw = None
-        new = json.dumps(data, ensure_ascii=False, indent=indent) + ('\n' if trailing else '')
+        raw, new = index_file_content(root, rel, data)
         if new != raw:
             os.makedirs(os.path.dirname(p), exist_ok=True)
             with open(p, 'w', encoding='utf-8', newline='\n') as f:

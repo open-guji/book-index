@@ -1154,6 +1154,67 @@ def m4b(repo, args):
     return rep
 
 
+# ---------- M5：build 全量＋自校驗；M6：重生 index/、刪 sidecar（F2-7 §二；sidecar 改到 M6 刪，目錄總管 10-07） ----------
+def m5(repo, args):
+    """不改數據：跑 build（--strict、--hub-check），寫 <root>/_build/（不進 git）。
+    有 --baseline（遷移前 build 的 report.json）時，懸空引用各類只許減不許增。"""
+    import build_derived as BD
+    report, _ = BD.run(repo.root, args.ref_root or (), None, check_only=args.dry_run, strict=True,
+                       do_hub_check=True, quiet=True)
+    rep = {'step': 'M5', 'build_fatal': report['fatal'], 'entries': report['entries'],
+           'files_total': report['files_total'], 'hubs': report['hubs'],
+           'hub_check': [{k: x[k] for k in ('type', 'id', 'changed', 'ok')} for x in report.get('hub_check') or []],
+           'dangling': {k: v['count'] for k, v in report['dangling'].items()},
+           'classification': {k: v for k, v in (report.get('classification') or {}).items() if k != 'problems'},
+           'index_entries': report['index']['entries'], 'index_drift_vs_repo': report['index']['drift_vs_repo_index']}
+    worse = {}
+    if args.baseline:
+        base = json.load(open(args.baseline, encoding='utf-8'))
+        bd = {k: (v['count'] if isinstance(v, dict) else v) for k, v in (base.get('dangling') or {}).items()}
+        rep['dangling_baseline'] = bd
+        worse = {k: [bd.get(k, 0), n] for k, n in rep['dangling'].items() if n > bd.get(k, 0)}
+    rep['dangling_increased'] = worse
+    rep['ok'] = not report['fatal'] and not worse
+    return rep
+
+
+def m6(repo, args, done):
+    """⑴ 前查：人工核處置都已落完＝再跑 M1 改動為 0；⑵ 重生 index/（沿用各分片格式）；⑶ 刪 sidecar。"""
+    import build_derived as BD
+    rep = {'step': 'M6', 'precheck': None, 'index_files_changed': [], 'sidecars_deleted': []}
+    chk = m1(repo, args)
+    pending = repo.changed_paths()
+    rep['precheck'] = {'M1_rerun_changes': len(pending), 'sample': pending[:20]}
+    done['M1'] = chk                                   # 用它重生剩餘人工核清單
+    if pending:
+        repo.dirty.clear()
+        repo.extra.clear()
+        rep['ok'] = False
+        rep['fail_reason'] = {'M1 重跑仍有改動（人工核處置或 M1 未落完／未提交）': len(pending)}
+        return rep
+    shards = BD.build_index(repo.recs, BD.load_promotions(repo.root))
+    for rel, data in shards.items():
+        raw, new = BD.index_file_content(repo.root, rel, data)
+        if new != raw:
+            repo.put_file(rel, new)
+            rep['index_files_changed'].append(rel)
+    idx = os.path.join(repo.root, 'index')
+    for dp, _, fns in os.walk(idx):
+        for fn in fns:
+            rel = os.path.relpath(os.path.join(dp, fn), repo.root).replace(os.sep, '/')
+            if rel.endswith('.json') and rel not in shards and rel.count('/') <= 2 and \
+                    rel.split('/')[1] in ('works', 'books', 'entities', 'collections.json'):
+                repo.put_file(rel, None)              # 舊分片多出的檔（不在重生集合內）
+                rep['index_files_changed'].append(rel + '（刪）')
+    for rel in repo.sidecar_paths:
+        repo.put_file(rel.replace(os.sep, '/'), None)
+        rep['sidecars_deleted'].append(rel)
+    repo.sidecar_paths = []                          # 已刪：之後的步驟不再讀
+    rep['index_entries'] = sum(len(v) for v in shards.values())
+    rep['ok'] = True
+    return rep
+
+
 # ---------- 人工核清單（目錄總管 10-07：M1 的「要人工核的清單」整理成一份 md） ----------
 def _t(repo, i):
     r = repo.by_id.get(i)
@@ -1256,7 +1317,8 @@ def write_report(rep_dir, rep):
 
 def summarise(rep):
     s = {'step': rep['step'], 'ok': rep.get('ok')}
-    for k in ('records', 'tree_source', 'tree_nodes', 'members_total', 'member_files', 'works_with_classification',
+    for k in ('records', 'precheck', 'build_fatal', 'entries', 'hubs', 'hub_check', 'dangling', 'dangling_increased',
+              'classification', 'index_entries', 'tree_source', 'tree_nodes', 'members_total', 'member_files', 'works_with_classification',
               'backfill_mismatch_count', 'added', 'removed', 'folded', 'fail_reason', 'sidecar_checks', 'removed_title',
               'edge_conservation', 'records_changed',
               'files_written', 'protected_violations', 'head', 'tag_command'):
@@ -1266,7 +1328,7 @@ def summarise(rep):
                 v = {a: b for a, b in v.items() if not a.startswith('sample')}
             s[k] = v
     for k in ('unknown_shapes', 'cannot_place', 'symmetric_object_info', 'symmetric_unconvertible', 'unknown',
-              'basis_ledger', 'dangling_members', 'not_covered'):
+              'basis_ledger', 'dangling_members', 'not_covered', 'index_files_changed', 'sidecars_deleted'):
         if k in rep:
             s[k + '_count'] = len(rep[k])
     for k in ('data_errors', 'manual', 'lost'):
@@ -1278,7 +1340,9 @@ def summarise(rep):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--root', required=True, help='數據倉根（正式庫或草稿庫）')
-    ap.add_argument('--steps', default='M0', help='逗號分隔：M0,M1,M2,M3,M4（＝M4a 生成分類檔＋M4b 剝離，各一提交）')
+    ap.add_argument('--steps', default='M0', help='逗號分隔：M0,M1,M2,M3,M4（＝M4a 生成分類檔＋M4b 剝離，各一提交）,M5,M6')
+    ap.add_argument('--ref-root', action='append', help='M5：只讀參照倉（草稿庫指正式庫）')
+    ap.add_argument('--baseline', help='M5：遷移前 build 的 report.json，懸空引用只許減')
     ap.add_argument('--vocab', help='M4 首次生成分類樹的詞表（classific.json 或已有的 tree.json；預設 <root>/classific.json）')
     ap.add_argument('--dry-run', action='store_true', help='不寫回數據檔（報告照寫）')
     ap.add_argument('--report-dir', help='報告目錄（預設 <root>/migrate_report）')
@@ -1305,9 +1369,13 @@ def main(argv=None):
             rep = m4a(repo, a)
         elif st == 'M4B':
             rep = m4b(repo, a)
+        elif st == 'M5':
+            rep = m5(repo, a)
+        elif st == 'M6':
+            rep = m6(repo, a, done)
         else:
             ap.error(f'unknown step {st}')
-        if st != 'M0':
+        if st not in ('M0', 'M5'):
             bad = repo.check_protected()
             rep['protected_violations'] = bad
             if bad:

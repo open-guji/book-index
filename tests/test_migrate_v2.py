@@ -303,3 +303,36 @@ def test_m1_sidecar_dispositions(repo):
     assert [m['id'] for m in P[f'members/{S.C1}/1.json'] if m['t'] == 'work'] == [S.W2]
     rc, R = mig(repo, 'M1')
     assert R['M1']['records_changed'] == 0
+
+
+# ---------- M5／M6 ----------
+def test_m5_m6_full_chain(repo):
+    _extra(repo)
+    _with_vocab(repo)
+    rc, R = mig(repo, 'M0,M1,M2,M3,M4A,M4B,M5,M6')
+    assert rc == 0, {k: v.get('fail_reason') or v.get('build_fatal') for k, v in R.items()}
+    assert R['M5']['build_fatal'] == [] and R['M5']['dangling_increased'] == {}
+    assert R['M6']['precheck']['M1_rerun_changes'] == 0
+    assert R['M6']['sidecars_deleted'] and not os.path.exists(
+        os.path.join(os.path.dirname(S.path(repo, 'Collection', S.C1)), S.C1, 'src', 'volume_book_mapping.json'))
+    idx = json.load(open(os.path.join(repo, 'index', 'collections.json'), encoding='utf-8'))
+    assert set(idx) == {S.C1, 'c0000000002'}
+    rc, R = mig(repo, 'M1,M2,M3,M4A,M4B,M6')                                 # 全部可重跑
+    assert rc == 0 and all(R[s]['records_changed'] == 0 for s in R)
+
+
+def test_m6_refuses_when_m1_pending(repo):
+    rc, R = mig(repo, 'M6')                                                 # 沒跑 M1 就想刪 sidecar
+    assert rc == 1 and R['M6']['precheck']['M1_rerun_changes'] > 0
+    assert os.path.exists(os.path.join(os.path.dirname(S.path(repo, 'Collection', S.C1)), S.C1, 'src',
+                                       'volume_book_mapping.json'))
+
+
+def test_m5_baseline_dangling_must_not_grow(repo, tmp_path):
+    base = tmp_path / 'base.json'
+    base.write_text(json.dumps({'dangling': {}}))
+    d = S.read(repo, 'Book', S.B3)
+    d['work_id'] = 'w9999999999'
+    S.put(repo, 'Book', d)
+    rc, R = mig(repo, 'M5', '--baseline', str(base))
+    assert rc == 1 and R['M5']['dangling_increased'] == {'Book.work_id': [0, 1]}
