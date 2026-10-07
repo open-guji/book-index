@@ -173,9 +173,14 @@ def test_m3_drops_reverse_and_derived(repo):
     b3 = S.read(repo, 'Book', S.B3)
     assert b3['related_books'] == [] and b3['_has_text'] is True and 'has_full_text' not in b3
     assert R['M3']['edge_conservation']['old_not_rebuilt'] == 0
-    assert R['M3']['lost']['Entity.works 有而 Work.authors 無（M1③ 人工核清單）'] == [[S.E1, S.W2]]
+    # W2 作者為空 → M1③ 按 Entity.works 補入作者（目錄總管 10-07），M3 刪 Entity.works 不丟
+    assert S.read(repo, 'Work', S.W2)['authors'][0] == {
+        'name': '張三', 'role': '注', 'entity_id': S.E1, 'note': '據 Entity.works 補入（schema-v2 遷移 M1）'}
+    assert not R['M3']['lost']
     md = open(os.path.join(repo, '..', 'rep', '人工核清單.md'), encoding='utf-8').read()
-    assert '《乙書》' in md and 'related_collections' in md
+    assert 'related_collections' in md
+    desc = S.read(repo, 'Collection', 'c0000000002')['description']['text']
+    assert desc == '與《某叢書》（c0000000001）關係：continues；續某叢書'                # 併進 description，不增欄位
 
 
 def test_m3_then_strict_build_clean(repo):
@@ -262,3 +267,39 @@ def test_build_rejects_bad_classification(repo):
     json.dump({'node': 'zm0004', 'members': [[S.W1, 'dup']]}, open(p, 'w', encoding='utf-8'), ensure_ascii=False)
     r, _ = BD.run(repo, check_only=True, quiet=True)
     assert any('分類檔' in f for f in r['fatal'])                                 # W1 同在 zm0002 與 zm0004
+
+
+def test_m1_sidecar_dispositions(repo):
+    """目錄總管 10-07 的人工核處置：冊號取並集、zhsy_id 補、舊 book_id 按 zhsy_id 改指、叢編側序號記 details。"""
+    import build_derived as BD
+    b1 = S.read(repo, 'Book', S.B1)
+    b1['zhsy_id'] = 'ZHSY000001'
+    S.put(repo, 'Book', b1)
+    sc = os.path.join(os.path.dirname(S.path(repo, 'Collection', S.C1)), S.C1, 'zhsy', 'zhsy_book_mappings.json')
+    os.makedirs(os.path.dirname(sc))
+    json.dump({'collection_id': S.C1, 'mappings': [
+        {'zhsy_id': 'ZHSY000001', 'book_id': 'b999999999', 'work_id': S.W1, 'title': '甲書宋本', 'section': '經'},
+        {'zhsy_id': 'ZHSY000002', 'book_id': S.B3, 'work_id': S.W2, 'title': '乙書刊本', 'section': '經'}]},
+        open(sc, 'w', encoding='utf-8'), ensure_ascii=False)
+    vb = os.path.join(os.path.dirname(S.path(repo, 'Collection', S.C1)), S.C1, 'src', 'volume_book_mapping.json')
+    d = json.load(open(vb, encoding='utf-8'))
+    d['books'][0]['volumes'] = [3, 5]                                       # 記錄 3 → 並集 [3, 5]
+    json.dump(d, open(vb, 'w', encoding='utf-8'), ensure_ascii=False)
+    c = S.read(repo, 'Collection', S.C1)
+    c['contained_works'][0]['volume_index'] = 7                              # 成員側無 → 直接補 7
+    S.put(repo, 'Collection', c)
+    w2 = S.read(repo, 'Work', S.W2)
+    w2['contained_in'] = [{'id': S.C1, 'volume_index': '第2卷'}]              # 與叢編側 7 不一 → 7 記 details
+    S.put(repo, 'Work', w2)
+    rc, R = mig(repo, 'M1')
+    assert rc == 0, R
+    b1 = S.read(repo, 'Book', S.B1)
+    assert b1['contained_in'][0]['volume_index'] == [3, 5]
+    assert S.read(repo, 'Book', S.B3)['zhsy_id'] == 'ZHSY000002'
+    assert R['M1']['items']['⓪ 改號'][0]['new'] == S.B1 and 'sidecar 列了不存在的 Book' not in R['M1']['data_errors']
+    assert S.read(repo, 'Work', S.W2)['contained_in'][0] == {'id': S.C1, 'volume_index': '第2卷', 'group': '甲編',
+                                                             'details': '叢編原序 7'}
+    _, P = BD.run(repo, check_only=True, quiet=True)
+    assert [m['id'] for m in P[f'members/{S.C1}/1.json'] if m['t'] == 'work'] == [S.W2]
+    rc, R = mig(repo, 'M1')
+    assert R['M1']['records_changed'] == 0

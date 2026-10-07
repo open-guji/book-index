@@ -26,6 +26,7 @@ import collections
 import hashlib
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -113,6 +114,9 @@ def contained(x):
         for k_src, k_out in (('volume_index', 'vol'), ('sub_items', 'sub'), ('group', 'group')):
             if x.get(k_src) not in (None, '', []):
                 attrs[k_out] = x[k_src]
+        m = re.search(r'叢編原序\s*(\d+)', x.get('details') or '') if isinstance(x.get('details'), str) else None
+        if m:                          # 叢編側原序號（遷移 M1 記入 details；目錄總管 10-07：build 據以排序）
+            attrs['ord'] = int(m.group(1))
     return i, attrs
 
 
@@ -529,7 +533,7 @@ class Build:
                 card['section'] = R['Book'][i]['section']
             card.update(attrs)
             cards.append(card)
-        cards.sort(key=lambda x: (x['t'], x['id']))
+        cards.sort(key=lambda x: (x['t'], 'ord' not in x, x.get('ord', 0), x['id']))
         pages = [cards[i:i + PAGE] for i in range(0, len(cards), PAGE)]
         v['_members'] = cards[:MEMBER_HEAD]
         v['_member_count'] = len(cards)

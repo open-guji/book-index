@@ -30,6 +30,7 @@ import v2common as V  # noqa: E402
 
 PROTECTED = ('revision', 'revised_at')
 DEFAULT_ROLE = '撰'
+ORDER_TAG = '叢編原序 '          # 叢編側 contained_works[].volume_index 與成員側不一時，記入成員 details 的前綴（build 據以排序）
 WIKISOURCE = 'https://zh.wikisource.org/wiki/'
 WIKISOURCE_UNVERIFIED = '頁名取自舊叢編對照表，未驗證'
 PARENT_NOTE = '舊叢編對照表（{coll}）列本書於《{title}》之下'   # parent_work_id 併入 related 之 note
@@ -356,8 +357,18 @@ def m1(repo, args):
                     A[f'① Work.contained_in[].{k}（自 contained_works 補）'] += 1
                     ITEMS['①'].append({'id': wid, 'add': f'Work.contained_in[{cid}].{k}', 'value': val})
                 elif cur != val and not (k == 'volume_index' and volset(cur) == volset(val)):
-                    MAN['① contained_in 與 contained_works 屬性不一'].append(
-                        {'work': wid, 'collection': cid, 'field': k, 'member_side': cur, 'collection_side': val})
+                    if k == 'volume_index':
+                        # 目錄總管 10-07：成員側為準；叢編側序號別丟，記進 details，build 據以排序
+                        item = ci_as_dict(w, n)
+                        tag = f'{ORDER_TAG}{val}'
+                        if tag not in (item.get('details') or ''):
+                            item['details'] = '；'.join(x for x in (item.get('details'), tag) if x)
+                            repo.touch(wid)
+                            A['① 叢編側序號記入 contained_in[].details'] += 1
+                            ITEMS['①'].append({'id': wid, 'add': f'contained_in[{cid}].details', 'value': tag})
+                    else:
+                        MAN['① contained_in 與 contained_works 屬性不一'].append(
+                            {'work': wid, 'collection': cid, 'field': k, 'member_side': cur, 'collection_side': val})
     # ③ 按名補 entity_id（Entity.works 有、Work.authors 無）
     ent_works = collections.defaultdict(dict)
     for eid, er in sorted(repo.recs['Entity'].items()):
@@ -390,6 +401,19 @@ def m1(repo, args):
                         if isinstance(a, dict) and a.get('entity_id') and a.get('name') in names]
                 why = ('同名作者已繫另一 Entity（疑重複人物，交人物道）' if same else
                        '同名作者不止一位' if len(cand) > 1 else 'Work.authors 無同名者')
+                if why == 'Work.authors 無同名者' and not w.get('authors') and e.get('subtype', 'people') == 'people':
+                    # 目錄總管 10-07：Work.authors 為空 → 按 Entity 側補入
+                    au = {'name': e.get('primary_name'), 'role': role or DEFAULT_ROLE, 'entity_id': eid}
+                    if e.get('dynasty'):
+                        au['dynasty'] = e['dynasty']
+                    au['note'] = '據 Entity.works 補入（schema-v2 遷移 M1）'
+                    w['authors'] = [au]
+                    repo.touch(wid)
+                    A['③ Work.authors 為空、按 Entity.works 補入作者'] += 1
+                    ITEMS['③'].append({'id': wid, 'add': 'authors[0]', 'value': au})
+                    continue
+                if why == 'Work.authors 無同名者':
+                    why += '（Work.authors ' + ('非空' if w.get('authors') else f'為空，但 Entity 非人物：{e.get("subtype")}') + '）'
                 MAN['③ Entity.works 有而 Work.authors 無、按名補不了'].append(
                     {'entity': eid, 'work': wid, 'entity_name': e.get('primary_name'), 'why': why,
                      'authors': [a.get('name') for a in w.get('authors') or [] if isinstance(a, dict)],
@@ -453,6 +477,18 @@ def edge_groups(repo):
     return g
 
 
+def resolve_book(repo, row, cid, zh_index, members_of):
+    """sidecar 列的 book_id 不在庫：按 zhsy_id（唯一）或「題名＋同叢編成員」（唯一）找現 id（目錄總管 10-07）。"""
+    if row.get('zhsy_id') and len(zh_index.get(row['zhsy_id'], ())) == 1:
+        return zh_index[row['zhsy_id']][0], 'zhsy_id'
+    t = row.get('title')
+    if t:
+        cand = [i for i in members_of.get(cid, ()) if (repo.get('Book', i) or {}).get('title') == t]
+        if len(cand) == 1:
+            return cand[0], '題名＋同叢編'
+    return None, None
+
+
 def m1_sidecars(repo, rep):
     """⓪ sidecar 方案 B（F2-7 §六附）：併入記錄、逐項對勘；sidecar 本身 M3 才刪。"""
     A, ITEMS, ERR, MAN = rep['added'], rep['items'], rep['data_errors'], rep['manual']
@@ -461,6 +497,14 @@ def m1_sidecars(repo, rep):
     vol_bad = set()
     parent = {}                         # (work, parent) -> collection title
     checks = collections.Counter()
+    zh_index = collections.defaultdict(list)
+    members_of = collections.defaultdict(set)
+    for bid_, br in sorted(repo.recs['Book'].items()):
+        if br.data.get('zhsy_id'):
+            zh_index[br.data['zhsy_id']].append(bid_)
+        for x in br.data.get('contained_in') or []:
+            if V.ref_id(x):
+                members_of[V.ref_id(x)].add(bid_)
     for rel, sc in repo.sidecars():
         cid = sc.get('collection_id')
         crec = repo.get('Collection', cid)
@@ -469,16 +513,27 @@ def m1_sidecars(repo, rep):
         name = os.path.basename(rel)
         for row in rows:
             bid = row['book_id']
-            pairs.add((cid, bid))
             b = repo.get('Book', bid)
             if b is None:
-                ERR['sidecar 列了不存在的 Book'].append({'sidecar': rel, 'book_id': bid, 'title': row.get('title')})
-                continue
+                nb, how = resolve_book(repo, row, cid, zh_index, members_of)
+                if nb is None:
+                    ERR['sidecar 列了不存在的 Book'].append({'sidecar': rel, 'book_id': bid, 'title': row.get('title'),
+                                                          'zhsy_id': row.get('zhsy_id')})
+                    continue
+                ITEMS['⓪ 改號'].append({'sidecar': rel, 'old': bid, 'new': nb, 'by': how, 'title': row.get('title')})
+                A[f'⓪ sidecar 舊 book_id 改指現 id（{how}）'] += 1
+                bid, b = nb, repo.get('Book', nb)
+            pairs.add((cid, bid))
             if 'volumes' in row and isinstance(row['volumes'], list) and all(isinstance(v, int) for v in row['volumes']):
                 vols[(cid, bid)] |= set(row['volumes'])
             elif 'volumes' in row and not (isinstance(row['volumes'], list) and all(isinstance(v, dict) for v in row['volumes'])):
                 vol_bad.add((cid, bid))
-            if row.get('zhsy_id') and b.get('zhsy_id') != row['zhsy_id']:
+            if row.get('zhsy_id') and not b.get('zhsy_id'):
+                b['zhsy_id'] = row['zhsy_id']             # Book 側空 → 補（目錄總管 10-07）
+                repo.touch(bid)
+                A['⓪ Book.zhsy_id（自 sidecar 補）'] += 1
+                ITEMS['⓪'].append({'id': bid, 'add': 'zhsy_id', 'value': row['zhsy_id']})
+            elif row.get('zhsy_id') and b.get('zhsy_id') != row['zhsy_id']:
                 MAN['⓪ zhsy_id 與 Book.zhsy_id 不一'].append({'book': bid, 'sidecar': row['zhsy_id'], 'book_side': b.get('zhsy_id')})
             if row.get('sub_items'):
                 checks['sub_items 字串（sidecar）'] += len(row['sub_items'])
@@ -511,14 +566,30 @@ def m1_sidecars(repo, rep):
                 ITEMS['⓪'].append({'id': bid, 'add': 'resources[wikisource]', 'value': url})
             if row.get('parent_work_id'):
                 checks['parent_work_id 行（sidecar）'] += 1
-                parent[(row.get('work_id'), row['parent_work_id'])] = ctitle
+                wid_ = row.get('work_id')
+                if repo.get('Work', wid_) is None and b.get('work_id') and repo.get('Work', b['work_id']):
+                    ITEMS['⓪ 改號'].append({'sidecar': rel, 'old': wid_, 'new': b['work_id'], 'by': 'Book.work_id'})
+                    A['⓪ parent_work_id 子作品改指現 id（經 Book.work_id）'] += 1
+                    wid_ = b['work_id']
+                parent[(wid_, row['parent_work_id'])] = ctitle
             if name == 'volume_book_mapping.json' and 'expected_volumes' in row:
                 exp, found = row.get('expected_volumes'), row.get('found_volumes')
                 rid = sc.get('resource_id')
                 res = [r for r in b.get('resources') or [] if isinstance(r, dict) and r.get('id') == rid]
                 det = ' '.join(r.get('details') or '' for r in res)
-                if not res:
-                    MAN['⓪ 百衲本：Book 無對應 resource'].append({'book': bid, 'resource': rid})
+                found_vols = [{k: v for k, v in x.items() if k not in ('status', 'ntul_id')}
+                              for x in row.get('volumes') or [] if isinstance(x, dict) and x.get('status') == 'found']
+                if not res and found_vols:            # sidecar 有鏈接 → 生成 resource（目錄總管 10-07）
+                    url = found_vols[0].get('tw_url') or found_vols[0].get('url') or found_vols[0].get('wiki_url')
+                    b.setdefault('resources', []).append({
+                        'id': rid, 'name': sc.get('resource_name') or rid, 'url': url,
+                        'details': f'共{found}/{exp}冊（據舊叢編對照表補）', 'volumes': found_vols, 'types': ['image']})
+                    repo.touch(bid)
+                    A[f'⓪ Book.resources[{rid}]（自 sidecar 生成）'] += 1
+                    ITEMS['⓪'].append({'id': bid, 'add': f'resources[{rid}]', 'value': url})
+                elif not res:
+                    MAN['⓪ 百衲本：Book 無對應 resource、sidecar 也無鏈接（交資源道）'].append(
+                        {'book': bid, 'resource': rid, 'expected': exp})
                 elif f'{found}/{exp}' not in det:
                     MAN['⓪ 百衲本：details 與 sidecar 冊數不一'].append(
                         {'book': bid, 'resource': rid, 'found': found, 'expected': exp,
@@ -549,11 +620,18 @@ def m1_sidecars(repo, rep):
         have = volset((item or {}).get('volume_index'))
         if have is None:
             MAN['⓪ volume_index 形態不識'].append({'book': bid, 'collection': cid, 'volume_index': item.get('volume_index')})
-        elif not have:
-            MAN['⓪ Book 無 volume_index、sidecar 有冊號'].append({'book': bid, 'collection': cid, 'sidecar': sorted(vs)})
-        elif have != vs:
-            MAN['⓪ 冊號不一（sidecar 並集 vs volume_index）'].append(
-                {'book': bid, 'collection': cid, 'sidecar': sorted(vs), 'volume_index': item.get('volume_index')})
+        elif not have or have != vs:
+            # 目錄總管 10-07：缺者自 sidecar 補；不一者取並集
+            u = sorted(have | vs)
+            n, _ = ci_entry(b, cid)
+            item = ci_as_dict(b, n)
+            old = item.get('volume_index')
+            item['volume_index'] = u[0] if len(u) == 1 else u
+            repo.touch(bid)
+            k = '⓪ volume_index 自 sidecar 補' if not have else '⓪ volume_index 取 sidecar 與記錄之並集'
+            A[k] += 1
+            ITEMS['⓪'].append({'id': bid, 'add': f'contained_in[{cid}].volume_index', 'value': item['volume_index'],
+                               'old': old})
         else:
             checks['冊號一致'] += 1
     for k in sorted(vol_bad):
@@ -726,7 +804,20 @@ def m2_symmetric_lists(repo, rep):
                         continue
                     extra = {k: v for k, v in x.items() if k not in ('collection_id', 'book_id', 'id', 'title') and v}
                     if extra:
-                        rep['symmetric_object_info'].append({'record': rid, 'field': f, 'target': tid, 'dropped': extra})
+                        # 目錄總管 10-07：併進本叢編的 description（不增欄位），一條一行
+                        tt = (repo.get(t, tid) or {}).get('title') or x.get('title') or tid
+                        line = f'與《{tt}》（{tid}）關係：' + '；'.join(
+                            [str(extra.pop('type'))] if 'type' in extra else []) + ''.join(
+                            f'；{v}' if k == 'note' else f'；{k}={v}' for k, v in extra.items())
+                        desc = rr.data.get('description')
+                        if not isinstance(desc, dict):
+                            desc = rr.data['description'] = {'text': desc or ''} if not isinstance(desc, dict) else desc
+                        if line not in (desc.get('text') or ''):
+                            desc['text'] = ((desc.get('text') or '').rstrip() + '\n' + line).lstrip('\n')
+                        rep['symmetric_object_info'].append({'record': rid, 'field': f, 'target': tid,
+                                                             'dropped': {k: v for k, v in x.items() if k not in
+                                                                         ('collection_id', 'book_id', 'id', 'title')},
+                                                             'merged_into': 'description.text', 'line': line})
                     lst[n] = tid
                     repo.touch(rid)
                     A[f'{t}.{f}：對象 → id 字串'] += 1
@@ -1097,8 +1188,9 @@ def write_manual_md(repo, rep_dir, reps):
             lambda x: f"{_t(repo, x['book'])} 叢編 `{x['collection']}`：sidecar {x['sidecar']}")
         sec('zhsy_id：sidecar 有、Book 側空或不同', M.get('⓪ zhsy_id 與 Book.zhsy_id 不一'),
             lambda x: f"{_t(repo, x['book'])}：sidecar `{x['sidecar']}`／Book `{x['book_side']}`")
-        sec('百衲本：Book 無對應 resource', M.get('⓪ 百衲本：Book 無對應 resource'),
-            lambda x: f"{_t(repo, x['book'])} 缺 `{x['resource']}`")
+        sec('百衲本：Book 無對應 resource、sidecar 也無鏈接（交資源道）',
+            M.get('⓪ 百衲本：Book 無對應 resource、sidecar 也無鏈接（交資源道）'),
+            lambda x: f"{_t(repo, x['book'])} 缺 `{x['resource']}`（應 {x['expected']} 冊）")
         sec('百衲本：details 冊數與 sidecar 不一', M.get('⓪ 百衲本：details 與 sidecar 冊數不一'),
             lambda x: f"{_t(repo, x['book'])} `{x['resource']}`：sidecar {x['found']}/{x['expected']}，details「{x['details']}」")
         sec('sidecar 頂層資訊，記錄未見（目錄總管 10-07：先留著，不併入）', M.get('⓪ sidecar 頂層資訊（記錄未見，待定去處）'),
@@ -1107,19 +1199,27 @@ def write_manual_md(repo, rep_dir, reps):
             lambda x: f"{_t(repo, x['work'])} 叢編 `{x['collection']}`：叢編側 {x['collection_side']}／成員側 {x['member_side']}")
         sec('contained_works.period 與 Work.period 不一', M.get('① contained_works.period 與 Work.period 不一'),
             lambda x: f"{_t(repo, x['work'])} 叢編 `{x['collection']}`：{x['collection_side']}／{x['work_side']}")
-        sec('Entity.works 有而 Work.authors 無（M3 刪 Entity.works 後人物頁不再列；交人物道）',
-            M.get('③ Entity.works 有而 Work.authors 無、按名補不了'),
-            lambda x: f"人物 {_t(repo, x['entity'])} ↔ 作品 {_t(repo, x['work'])}：{x['why']}"
-                      + (f"（作品作者已繫 `{x['other_entity'][0]}`）" if x.get('other_entity') else ''))
-        sec('數據錯：sidecar 列了不存在的 Book（未併入）', E.get('sidecar 列了不存在的 Book'),
-            lambda x: f"`{x['book_id']}`《{x.get('title') or ''}》（{x['sidecar']}）")
-        sec('數據錯：parent_work_id 子或母作品不存在（未併入）', E.get('parent_work_id：子或母作品不存在'),
+        dup = [x for x in M.get('③ Entity.works 有而 Work.authors 無、按名補不了') or [] if x.get('other_entity')]
+        rest = [x for x in M.get('③ Entity.works 有而 Work.authors 無、按名補不了') or [] if not x.get('other_entity')]
+        if dup:
+            L.append(f'## 疑重複人物（{len(dup)}）：M3 照刪 Entity.works，不補 authors；清單另存 `人物道-疑重複人物.md`')
+            L.append('')
+            write_dup_people(repo, rep_dir, dup)
+        sec('Entity.works 有而 Work.authors 無、不屬疑重複人物（請目錄總管看）', rest,
+            lambda x: f"人物 {_t(repo, x['entity'])} ↔ 作品 {_t(repo, x['work'])}：{x['why']}；作品作者 {x['authors']}")
+        sec('sidecar 舊 id 已改指現 id（按 zhsy_id／題名＋同叢編／Book.work_id 唯一對上；sidecar 原樣不改）',
+            (m1r.get('items') or {}).get('⓪ 改號'),
+            lambda x: f"`{x['old']}` → {_t(repo, x['new'])}（{x['by']}；{x['sidecar']}）")
+        sec('數據錯：sidecar 列了不存在的 Book、對不上現 id（作廢，不併入；sidecar 原樣保留）', E.get('sidecar 列了不存在的 Book'),
+            lambda x: f"`{x['book_id']}`《{x.get('title') or ''}》"
+                      + (f" zhsy_id `{x['zhsy_id']}`" if x.get('zhsy_id') else '') + f"（{x['sidecar']}）")
+        sec('數據錯：parent_work_id 子或母作品不存在、對不上現 id（不併入）', E.get('parent_work_id：子或母作品不存在'),
             lambda x: f"子 {_t(repo, x['work'])} ／ 母 {_t(repo, x['parent'])}")
         for k in ('Collection.books 指向不存在的 Book', 'Collection.contained_works 指向不存在的 Work', 'Entity.works 指向不存在的 Work'):
             sec('數據錯：' + k, E.get(k), lambda x: ' → '.join(f'`{y}`' for y in x))
     if m2r:
-        sec('related_collections 對象轉 id 字串時拿掉的資訊（目錄總管：我來看怎麼放）', m2r.get('symmetric_object_info'),
-            lambda x: f"{_t(repo, x['record'])}.{x['field']} → `{x['target']}`：{json.dumps(x['dropped'], ensure_ascii=False)}")
+        sec('related_collections 對象轉 id 字串：附加資訊已併入本叢編 description.text（備查）', m2r.get('symmetric_object_info'),
+            lambda x: f"{_t(repo, x['record'])}.{x['field']} → `{x['target']}`：「{x.get('line', '')}」")
         sec('related_collections 無法轉 id 字串（指向非叢編，原樣保留）', m2r.get('symmetric_unconvertible'),
             lambda x: f"{_t(repo, x['record'])}.{x['field']}：{json.dumps(x['item'], ensure_ascii=False)}")
     if m3r:
@@ -1130,6 +1230,18 @@ def write_manual_md(repo, rep_dir, reps):
     with open(p, 'w', encoding='utf-8') as f:
         f.write('\n'.join(L).rstrip() + '\n')
     return p
+
+
+def write_dup_people(repo, rep_dir, rows):
+    """目錄總管 10-07：94 條「同名作者已繫另一 Entity」另存一份交人物道。"""
+    L = ['# 人物道：疑重複人物（schema-v2 遷移 M1③ 產出）', '',
+         f'> 由 `build/migrate_v2.py` 生成；源：遷移前 HEAD `{repo.head0}`。每行：Entity.works 有此作品、而作品作者已繫另一 Entity。'
+         'M3 刪 Entity.works 後，左邊這個人物頁不再列該作品；作品側不動。', '',
+         '| 人物（Entity.works 側） | 作品 | 作品作者已繫 |', '|---|---|---|']
+    for x in sorted(rows, key=lambda r: (r['entity'], r['work'])):
+        L.append(f"| {_t(repo, x['entity'])} | {_t(repo, x['work'])} | {_t(repo, x['other_entity'][0])} |")
+    with open(os.path.join(rep_dir, '人物道-疑重複人物.md'), 'w', encoding='utf-8') as f:
+        f.write('\n'.join(L) + '\n')
 
 
 # ---------- 主程序 ----------
