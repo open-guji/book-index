@@ -240,7 +240,7 @@ def test_office_codes():
     assert not has(office("o", alt_names=[{"name": "令", "type": "異寫"}]), "O12")
 
 
-# ---- P01–P09
+# ---- P01–P10
 def test_place_codes():
     pr = dyn("s", "趙宋", 960, 1279)
     assert not has(place("pl"), "P01")
@@ -286,6 +286,17 @@ def test_place_codes():
     assert ("P09", "WARN") not in codes_ and ("P09", "INFO") not in codes_
     only = gcodes(place("a"), place("b"))
     assert ("P09", "INFO") in only and ("P09", "WARN") not in only      # 同名異地：僅 INFO
+
+
+def test_place_p10_parent_must_cover_segment():
+    # P10：沿革段之上級於該段年份內須有沿革段覆蓋（P5a 試點，2026-10-07）
+    h = lambda s, e, **k: dict({"start": s, "end": e, "dynasty_ids": ["s"], "name": "甲", "level": "縣"}, **k)
+    up = place("up", primary_name="上", history=[h(627, 907), h(907, 978), h(1000, 1100)])
+    assert not has(place("pl", history=[h(700, 978, parent_id="up")]), "P10", es.WARN, up)      # 端點相接算覆蓋
+    assert has(place("pl", history=[h(621, 742, parent_id="up")]), "P10", es.WARN, up)          # 上級尚未成立
+    assert has(place("pl", history=[h(900, 1050, parent_id="up")]), "P10", es.WARN, up)         # 跨上級空檔
+    assert has(place("pl", history=[h(1050, 1200, parent_id="up")]), "P10", es.WARN, up)        # 上級已廢
+    assert not has(place("pl", history=[h(None, None, parent_id="up")]), "P10", es.WARN, up)    # 起訖缺不查
 
 
 # ---- V01（派生／反向欄位）
