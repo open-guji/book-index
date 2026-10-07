@@ -21,7 +21,7 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
   O01–O05、O09–O12  官職，見各函數註；O06（CBDB 碼防重）已刪；O07 併入 V01；O08 併入 E1。
   P01–P09  地名，見各函數註（第一期無條目，靠單測覆蓋）；P05 併入 V01、P08 coords 單獨出碼。
   I01–I12  官署（collective 且 collective_kind=官署，P3c 設計稿 §六／§十二，S 10-07 定）；
-       I12 兼管官職條之 institution_ref（O14：`COL:` 占位只許凍結名單內，名單外 ERROR）。
+       I12 兼管官職條之 institution_ref（O14 第二步：`COL:` 占位一律 ERROR）。
        collective_kind 缺省＝未分，舊 collective 不受約束。
   V01  源檔出現 `_` 起首或 children／reigns／index_in_reign 等派生／反向欄位           ERROR
        （`_` 起首者仍由 check_v2 自身之 V01 報；本模塊只補非底線之派生名，並在新子類型內
@@ -79,12 +79,8 @@ INST_OFFICE_FIELDS = ("office_level", "office_class", "rank", "salary", "base_of
                       "institution_ref")
 INST_DERIVED = ("subordinates", "members", "offices", "_subordinates", "_members", "_children", "_offices")
 INST_WARN_RANGE = 5
-# O14 第一步：凍結之 `COL:` 占位名單（P3c 設計稿 §5.1，23 個）。替換 PR 合入後清空，`COL:` 一律 ERROR。
-COL_PLACEHOLDERS = frozenset({
-    "六部", "御史臺", "翰林院", "都察院", "國子監", "祕書省", "中書省", "大理寺", "內閣", "門下省",
-    "行人司", "翰林學士院", "六科", "中書科", "開封府", "祕閣", "王府長史司", "東宮", "中書門下",
-    "詹事府", "通政使司", "尚寶司", "太常寺",
-})
+# O14 第二步（替換 PR draft#97 合入後，S 10-07 收緊）：凍結名單清空，`COL:` 占位一律 ERROR。
+COL_PLACEHOLDERS = frozenset()
 PLACE_LEVELS = {"國", "郡", "州", "府", "軍", "監", "路", "道", "省", "縣", "廳", "都"}
 MODERN_RELATIONS = {"同名同地", "治所今在", "轄域約當", "沿用其名而異地", "無對應"}
 PRED_KINDS = {"析出", "並入"}
@@ -412,7 +408,7 @@ def _institution_ref_problems(rec, reg, dids):
         if name in COL_PLACEHOLDERS:
             out.append(("I12", WARN, "institution_ref", "占位 %r 待換真 id" % ref))
         else:
-            out.append(("I12", ERROR, "institution_ref", "占位 %r 不在凍結名單（新官署須先建條）" % ref))
+            out.append(("I12", ERROR, "institution_ref", "占位 %r：官署條已建，須指真 id（O14 第二步，新官署先建條）" % ref))
         return out
     if ref not in reg.sub:
         return [("I12", WARN, "institution_ref", "%r 不在本庫（若指正式庫須確認存在）" % ref)]

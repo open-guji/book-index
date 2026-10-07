@@ -1352,7 +1352,7 @@ IndexEntry（`indexed_by`／`emendated_by` 共用）见〈二、Work〉的〈Ind
 | `office_class` | 具體 | 職事官／差遣／散官／階官／加官／貼職／寄祿官／祠祿官／勳／爵／本官／試秩／憲官／兼職差遣／未詳 | |
 | `rank`、`salary` | 具體 | `{text, basis}`（自寫） | |
 | `start`、`end` | 具體 | 整數公曆年 | |
-| `institution_ref` | 具體 | 官署條 id（`collective_kind=官署`）；官署條未建前暫寫 `COL:<名>` 占位（只許凍結名單內，見 I12） | |
+| `institution_ref` | 具體 | 官署條 id（`collective_kind=官署`）；不得寫 `COL:<名>` 占位（O14 第二步，2026-10-07 起；新官署先建條） | |
 | `base_office_id`、`qualifier{kind, name, target?, note?}` | 具體（固定複合） | `base_office_id` 指同朝**具體**條；`kind` ∈ `institution`／`place`／`mode`／`mode+institution` | 複合時 ✔ |
 | `succeeds` | 具體 | 前代概念或具體條 id | 只留字段位，第一期不填 |
 | `basis` | 具體 | 本條依據（自由格式） | 具體 ✔ |
@@ -1407,7 +1407,7 @@ ERROR 計殘留，WARN 只報不計（`check_v2.py` 之 summary 分列）。
 | A1 | `alt_names` 之 `name` 非空、`ambiguous` 為 bool；`ambiguous` 之名全庫 ≥2 條聲稱；無 `ambiguous` 之 dynasty 別名在 dynasty 內全局唯一 | ERROR／WARN |
 | O01–O05、O09–O12 | office：O01 `office_level`；O02 具體條 `dynasty_ids`／`function`／`basis` 與概念條禁字段；O03 `office_class`；O04 `parent_id`；O05 `base_office_id`／`qualifier`／dynasty_ids 相交（指向概念條而無 `ai_note` 為 WARN）；O09 `start/end` 整數且 `start ≤ end`；O10 簡稱長度 ≤2（WARN）；O11 同概念下同朝具體條重複（WARN）；O12 `alt_names[].type` 在枚舉內。O06（CBDB 碼防重）已刪；O07 併入 V01；O08 併入 E1 | ERROR／WARN |
 | P01–P09 | place：P01 `primary_name`、非空 `history`、`level`；P02 項時段；P03 `parent_id` 存在且為 place、不自引、無環，`parent_text` 與 `parent_id` 並存 WARN；P04 `dynasty_ids` 存在；P05 併入 V01；P06 `modern`；P07 `predecessors`；P08 `coords` 出現即失敗；P09 同名異地組（INFO）、同名同上級鏈疑重複（WARN） | ERROR／WARN／INFO |
-| I01–I12 | 官署（`collective_kind=官署`）：I01 `collective_kind`／`institution_level` 枚舉；I02 具體條 `dynasty_ids`／`function`／`basis`（不含「待核」）必填、概念與合稱禁欄、概念與合稱 `description` 必填；I03 `parent_id` 指官署概念條；I04 `superiors` 指同朝具體條、不自指、無環、`start/end`（朝代不相交 WARN）；I05 `group_ids` 指合稱條（與概念條重複掛 WARN）；I06 `start/end` 整數、無 0 年、`start ≤ end`（越出朝代 5 年 WARN）；I07 同概念同朝重複（WARN）；I08 外部 id 與官職專有欄；I09 `location_id` 禁、`succeeds` 出現 WARN；I10 同名朝代重疊疑重複（WARN）；I11 派生欄；I12 官職 `institution_ref`：須指官署條、指具體條須朝代相交、指概念條須 `ai_note` 標「待補」（WARN）、官名含部名而指合稱（WARN）、id 不在本庫（WARN）；`COL:<名>` 占位在凍結名單內 WARN、名單外 ERROR（O14 第一步；替換 PR 合入後改為一律 ERROR） | ERROR／WARN |
+| I01–I12 | 官署（`collective_kind=官署`）：I01 `collective_kind`／`institution_level` 枚舉；I02 具體條 `dynasty_ids`／`function`／`basis`（不含「待核」）必填、概念與合稱禁欄、概念與合稱 `description` 必填；I03 `parent_id` 指官署概念條；I04 `superiors` 指同朝具體條、不自指、無環、`start/end`（朝代不相交 WARN）；I05 `group_ids` 指合稱條（與概念條重複掛 WARN）；I06 `start/end` 整數、無 0 年、`start ≤ end`（越出朝代 5 年 WARN）；I07 同概念同朝重複（WARN）；I08 外部 id 與官職專有欄；I09 `location_id` 禁、`succeeds` 出現 WARN；I10 同名朝代重疊疑重複（WARN）；I11 派生欄；I12 官職 `institution_ref`：須指官署條、指具體條須朝代相交、指概念條須 `ai_note` 標「待補」（WARN）、官名含部名而指合稱（WARN）、id 不在本庫（WARN）；`COL:<名>` 占位一律 ERROR（O14 第二步，替換 PR draft#97 合入後） | ERROR／WARN |
 | V01 | 源檔出現 `_` 起首或 `children`、`reigns`、`index_in_reign` 等派生／反向字段（新子類型不享 `_has_text`／`_has_collated` 豁免） | ERROR |
 
 > 口徑（S 預審，2026-10-07）：上下級區間不合（如戰國止年晚於東周、北朝起年早於南北朝）、年號越出所屬朝代區間，一律 WARN，不是 ERROR。

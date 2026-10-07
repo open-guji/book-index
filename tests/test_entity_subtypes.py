@@ -420,7 +420,7 @@ def test_i07_i10_global():
 def test_i12_institution_ref():
     sub = inst("sub", "concrete", primary_name="吏部")
     o = lambda ref, **kw: conc("of", ["t"], institution_ref=ref, **kw)
-    assert has(o("COL:六部"), "I12", es.WARN)
+    assert has(o("COL:六部"), "I12")            # O14 第二步：一律 ERROR
     assert has(o("COL:不在名單"), "I12")
     assert not has(o("sub"), "I12", es.ERROR, sub) and not has(o("sub"), "I12", es.WARN, sub)
     assert has(conc("of", ["s"], institution_ref="sub"), "I12", es.ERROR, sub)  # 朝代不相交
