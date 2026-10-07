@@ -19,7 +19,7 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
   A1   alt_names：type 在枚舉內、ambiguous 為 bool；帶 ambiguous 之名全庫至少 2 條聲稱
        （否則 WARN）；無 ambiguous 之 dynasty 別名在 dynasty 內全局唯一（ERROR）        ERROR／WARN
   O01–O05、O09–O12  官職，見各函數註；O06（CBDB 碼防重）已刪；O07 併入 V01；O08 併入 E1。
-  P01–P10  地名，見各函數註；P05 併入 V01、P08 coords 單獨出碼；P10 沿革段之上級於該段年份內須存在（WARN）。
+  P01–P11  地名，見各函數註；P05 併入 V01、P08 coords 單獨出碼；P10 沿革段之上級於該段年份內須存在（WARN）；P11 沿革段年份須為所掛朝代起訖覆蓋（WARN）。
   I01–I12  官署（collective 且 collective_kind=官署，P3c 設計稿 §六／§十二，S 10-07 定）；
        I12 兼管官職條之 institution_ref（O14 第二步：`COL:` 占位一律 ERROR）。
        collective_kind 缺省＝未分，舊 collective 不受約束。
@@ -597,6 +597,13 @@ def _check_place(rec, reg):
         for d in h.get("dynasty_ids") or []:
             if reg.sub.get(d) != "dynasty":
                 out.append(("P04", ERROR, f + ".dynasty_ids", "不存在或非 dynasty：%r" % (d,)))
+        dyn_hist = [{"start": _span(reg.rec[d])[0], "end": _span(reg.rec[d])[1]}
+                    for d in h.get("dynasty_ids") or [] if reg.sub.get(d) == "dynasty" and d in reg.rec]
+        if dyn_hist and all(is_int(x["start"]) and is_int(x["end"]) for x in dyn_hist):
+            gaps = _uncovered(s, e, dyn_hist)
+            if gaps:
+                out.append(("P11", WARN, f + ".dynasty_ids", "所掛朝代未覆蓋本段年份：%s（補掛該時之朝代，或於朝代交替處拆段）" % (
+                    "、".join("%s–%s" % g for g in gaps))))
         hp = h.get("parent_id")
         if hp is not None:
             if hp == rec["id"]:
