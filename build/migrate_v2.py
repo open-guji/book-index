@@ -1206,10 +1206,15 @@ def m6(repo, args, done):
                     rel.split('/')[1] in ('works', 'books', 'entities', 'collections.json'):
                 repo.put_file(rel, None)              # 舊分片多出的檔（不在重生集合內）
                 rep['index_files_changed'].append(rel + '（刪）')
+    # 頂層資訊尚未定去處的 sidecar（武英殿；目錄總管 10-07「先留著，不併入」）不刪，留待定案
+    hold = {x['sidecar'] for x in (chk.get('manual') or {}).get('⓪ sidecar 頂層資訊（記錄未見，待定去處）', [])}
+    rep['sidecars_kept'] = sorted(hold)
     for rel in repo.sidecar_paths:
+        if rel in hold:
+            continue
         repo.put_file(rel.replace(os.sep, '/'), None)
         rep['sidecars_deleted'].append(rel)
-    repo.sidecar_paths = []                          # 已刪：之後的步驟不再讀
+    repo.sidecar_paths = sorted(hold)                # 已刪者之後的步驟不再讀
     rep['index_entries'] = sum(len(v) for v in shards.values())
     rep['ok'] = True
     return rep
@@ -1331,7 +1336,8 @@ def summarise(rep):
                 v = {a: b for a, b in v.items() if not a.startswith('sample')}
             s[k] = v
     for k in ('unknown_shapes', 'cannot_place', 'symmetric_object_info', 'symmetric_unconvertible', 'unknown',
-              'basis_ledger', 'dangling_members', 'not_covered', 'index_files_changed', 'sidecars_deleted'):
+              'basis_ledger', 'dangling_members', 'not_covered', 'index_files_changed', 'sidecars_deleted',
+              'sidecars_kept'):
         if k in rep:
             s[k + '_count'] = len(rep[k])
     for k in ('data_errors', 'manual', 'lost'):
