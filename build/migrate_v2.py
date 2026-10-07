@@ -571,7 +571,13 @@ def m1_sidecars(repo, rep):
                     ITEMS['⓪ 改號'].append({'sidecar': rel, 'old': wid_, 'new': b['work_id'], 'by': 'Book.work_id'})
                     A['⓪ parent_work_id 子作品改指現 id（經 Book.work_id）'] += 1
                     wid_ = b['work_id']
-                parent[(wid_, row['parent_work_id'])] = ctitle
+                if wid_ == row['parent_work_id']:
+                    # 子作品改指後即母作品本身（舊子 Work 早已併入母作品）：無關係可補，只記
+                    ITEMS['⓪ 子母同一'].append({'sidecar': rel, 'old_child': row.get('work_id'), 'work': wid_,
+                                              'book': bid})
+                    checks['parent_work_id：子作品已併入母作品（子母同一，免補關係）'] += 1
+                else:
+                    parent[(wid_, row['parent_work_id'])] = ctitle
             if name == 'volume_book_mapping.json' and 'expected_volumes' in row:
                 exp, found = row.get('expected_volumes'), row.get('found_volumes')
                 rid = sc.get('resource_id')
@@ -597,11 +603,31 @@ def m1_sidecars(repo, rep):
                 else:
                     checks['百衲本 details 冊數一致'] += 1
         if name == 'volume_book_mapping.json' and isinstance(sc.get('source'), dict) and crec is not None:
-            # 武英殿 sidecar 頂層：列出記錄裡沒有的，由人定去處（F2-7 §六附「待核」）
-            miss = {k: sc[k] for k in ('source', 'sections', 'stats', 'ai_note', 'total_volumes')
-                    if k in sc and json.dumps(sc[k], ensure_ascii=False) not in json.dumps(crec, ensure_ascii=False)}
-            if miss:
-                MAN['⓪ sidecar 頂層資訊（記錄未見，待定去處）'].append({'sidecar': rel, 'collection': cid, 'fields': miss})
+            # 武英殿 sidecar 頂層（目錄總管 10-07，#459 6030175472）：source → 叢編 description.text 一行；
+            # ai_note → 叢編 ai_note；sections／stats 可由成員重算，不併入，原文存檔到報告目錄 sidecar-存档/
+            src_ = sc['source']
+            line = '冊號對應來源：' + '；'.join(x for x in (
+                (src_.get('holding') or '') + (f"藏《{src_['title']}》" if src_.get('title') else ''),
+                '，'.join(f'{k}{v}' for k, v in (('善本書號 ', src_.get('shanben_no')), ('', src_.get('edition')),
+                                                 ('', f"{src_['volumes']} 冊" if src_.get('volumes') else None)) if v),
+                src_.get('url'), src_.get('details')) if x)
+            desc = crec.get('description')
+            if not isinstance(desc, dict):
+                desc = crec['description'] = {'text': desc or ''}
+            if line not in (desc.get('text') or ''):
+                desc['text'] = ((desc.get('text') or '').rstrip() + '\n' + line).lstrip('\n')
+                repo.touch(cid)
+                A['⓪ sidecar 頂層 source → 叢編 description.text'] += 1
+                ITEMS['⓪'].append({'id': cid, 'add': 'description.text', 'value': line})
+            if sc.get('ai_note'):
+                tag = '【原叢編對照表 ai_note】'
+                if sc['ai_note'] not in (crec.get('ai_note') or ''):
+                    crec['ai_note'] = ((crec.get('ai_note') or '').rstrip() + '\n\n' + tag + sc['ai_note']).lstrip('\n')
+                    repo.touch(cid)
+                    A['⓪ sidecar 頂層 ai_note → 叢編 ai_note'] += 1
+            arc = {k: sc[k] for k in ('sections', 'stats', 'total_volumes') if k in sc}
+            if arc:
+                rep.setdefault('sidecar_archive', {})[rel] = arc
     # 成員對勘：sidecar 的 (叢編, Book) 是否都已在 Book.contained_in；缺者補（只增），列表
     for cid, bid in sorted(pairs):
         b = repo.get('Book', bid)
@@ -1273,6 +1299,9 @@ def write_manual_md(repo, rep_dir, reps):
             write_dup_people(repo, rep_dir, dup)
         sec('Entity.works 有而 Work.authors 無、不屬疑重複人物（請目錄總管看）', rest,
             lambda x: f"人物 {_t(repo, x['entity'])} ↔ 作品 {_t(repo, x['work'])}：{x['why']}；作品作者 {x['authors']}")
+        sec('parent_work_id：子作品改指後即母作品本身（舊子 Work 已併入母作品），免補關係（記錄備查）',
+            (m1r.get('items') or {}).get('⓪ 子母同一'),
+            lambda x: f"舊子 `{x['old_child']}` → {_t(repo, x['work'])}（經 Book `{x['book']}`）")
         sec('parent_work_id：子母皆在、但兩者間無 related 關係（說明無處可附，請目錄總管定）',
             M.get('⓪ parent_work_id 對無 related 關係'),
             lambda x: f"子 {_t(repo, x['work'])} ／ 母 {_t(repo, x['parent'])}")
@@ -1396,11 +1425,20 @@ def main(argv=None):
                 if a.git_commit and paths:
                     # 只 add 改過的記錄檔；檔數可上萬，走 stdin 免撞命令列長度上限
                     git(repo.root, 'add', '-A', '--pathspec-from-file=-', '--pathspec-file-nul', stdin='\0'.join(paths))
-                    git(repo.root, 'commit', '-q', '-m', f'schema-v2 {rep["step"]}（migrate_v2.py）')
+                    msg = f'schema-v2 {rep["step"]}（migrate_v2.py）'
+                    if os.environ.get('MIGRATE_COMMIT_TRAILER'):
+                        msg += '\n\n' + os.environ['MIGRATE_COMMIT_TRAILER']
+                    git(repo.root, 'commit', '-q', '-m', msg)
             elif a.dry_run:
                 repo.dirty.clear()
                 repo.extra.clear()
         write_report(rep_dir, rep)
+        for rel_, arc in (rep.get('sidecar_archive') or {}).items():
+            ap_ = os.path.join(rep_dir, 'sidecar-存档', rel_.replace('/', '__'))
+            os.makedirs(os.path.dirname(ap_), exist_ok=True)
+            with open(ap_, 'w', encoding='utf-8') as f:
+                f.write(jdump2({'sidecar': rel_, 'archived_fields': arc,
+                                'note': 'schema-v2 M1：可由成員重算的統計，不併入記錄；M6 刪 sidecar 前存檔（目錄總管 10-07）'}))
         done[st] = rep
         print(json.dumps(summarise(rep), ensure_ascii=False, indent=1, default=list))
         if not rep.get('ok'):
