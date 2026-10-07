@@ -21,8 +21,9 @@
   I dup_title        同題且撰人集合相同（或俱無撰人）之組
   J desc_gap         著錄 ≥4 源而 description 全缺
   K entity_oneway    work→entity 無回指；entity.works 懸空；entity→work 無回指（人指書而書之 authors 不指人）
+                     ——schema-v2 起 Entity 不存 works，本項只在舊格式殘留時有數
   L lone_outlier     一 entity 名下諸 work 之 period，n−1 同而恰一異（磁鐵／誤繫徵候）
-  M index_drift      索引 period/loss_status/title/subtype/author/dynasty/role 與記錄檔不符（dynasty 取頂層，無則 authors[0]）
+  M index_drift      索引 period/loss_status/title/subtype/author/dynasty/role 與記錄檔不符（dynasty 取 authors[0]，無則頂層——同 build）
   N source_no_bid    indexed_by 有 source 而無 source_bid（來源為 Collection 者豁免：其本無 work-space 之 bid）
   O dyn_transitional 撰人 entity 之 dynasty 作「元末明初」類跨代標籤而生卒與之相斥（L5 循環論據之遺）
   P bogus_alias      ai_note 載「撰人異稱……同指一人」而 X、Y 全無共字（補南北史志「深覈」偽註）
@@ -294,6 +295,15 @@ def run_checks(works, IW, IB, IE, IC, ents):
     for w in works.values():
         for a in (w.get('authors') or []):
             if a.get('entity_id'): w2e[a['entity_id']].add(w['id'])
+    # schema-v2（overview#459 F6-3）：源檔 Entity 不再存 works、Work 不再存 books。
+    # 無 works 之 entity 以 authors 反查補一份**只在記憶體**的視圖（role 取 Work 側），
+    # 供 C/L/O/T/U/X 諸檢照舊用；K 之「互不回指」在新格式下恆 0（反向本由 build 生成）。
+    for _eid, _e in ents.items():
+        if 'works' not in _e:
+            _e['works'] = [{'work_id': _wid, 'role': next((a.get('role') for a in (works[_wid].get('authors') or [])
+                                                          if a.get('entity_id') == _eid), None)}
+                           for _wid in sorted(w2e.get(_eid, ())) if _wid in works]
+    nbooks = collections.Counter(ie.get('work_id') for ie in IB.values() if ie.get('work_id'))
 
     for w in works.values():
         a_list = w.get('authors') or []
@@ -344,8 +354,10 @@ def run_checks(works, IW, IB, IE, IC, ents):
         if pu in ORD and p in ORD and ORD.index(pu) < ORD.index(p):
             R['D'].append(row(w, period_upper=pu))
         # E
-        if w.get('loss_status') == 'lost' and (w.get('books') or w.get('_has_text') or w.get('_has_image')):
-            R['E'].append(row(w, books=len(w.get('books') or []), has_text=bool(w.get('_has_text')), has_image=bool(w.get('_has_image'))))
+        _nb = len(w.get('books') or []) or nbooks.get(w['id'], 0)      # 舊 books 或 Book.work_id 反查
+        _img = bool(w.get('_has_image')) or any('image' in (r.get('types') or [r.get('type')] or []) for r in (w.get('resources') or []) if isinstance(r, dict))
+        if w.get('loss_status') == 'lost' and (_nb or w.get('_has_text') or _img):
+            R['E'].append(row(w, books=_nb, has_text=bool(w.get('_has_text')), has_image=_img))
         # G2（題首之病，與 G 互補；同樣須跳墓碑）
         _g2 = None if w.get('merged_into') else title_head_kind(w.get('title'))
         if _g2: R['G2'].append(row(w, kind=_g2))
@@ -420,7 +432,7 @@ def run_checks(works, IW, IB, IE, IC, ents):
         a0 = a_list[0] if a_list else {}
         want = {f: nz(w.get(f)) for f in ('period', 'loss_status', 'title', 'subtype')}
         want.update({'author': nz(a0.get('name')), 'role': nz(a0.get('role')),
-                     'dynasty': nz(w.get('dynasty')) if nz(w.get('dynasty')) is not None else nz(a0.get('dynasty'))})
+                     'dynasty': nz(a0.get('dynasty')) if nz(a0.get('dynasty')) is not None else nz(w.get('dynasty'))})   # 同 build index
         for f, b_ in want.items():
             a_ = nz(ie.get(f))
             if a_ != b_: R['M'].append(row(w, field=f, index=a_, record=b_))

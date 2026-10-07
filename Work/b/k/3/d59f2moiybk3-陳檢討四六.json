@@ -11,10 +11,6 @@
       "entity_id": "hixhd2h9bdcp"
     }
   ],
-  "books": [
-    "988g2o6i36",
-    "988g0517h2"
-  ],
   "indexed_by": [
     {
       "source": "欽定四庫全書總目",
@@ -103,18 +99,11 @@
   ],
   "updated_at": "2026-08-21T00:00:00-07:00",
   "_has_text": true,
-  "_has_image": true,
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "related_works": [
-    {
-      "id": "d59f2nnglg5d",
-      "title": "陳檢討四六注",
-      "relation": "text_carried_by"
-    }
-  ],
+  "related_works": [],
   "description": {
     "text": "陳維崧（清）撰。見著錄於《欽定四庫全書總目》。本書惟《欽定四庫全書總目》一志著錄，別無他證。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -132,14 +121,5 @@
       "rule": "I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一）",
       "why": "同題同撰人而**題止異體字之異**：「陳檢討四六」對「陳檢討·四六」。keeper 繫 欽定四庫全書總目；被併者繫 欽定四庫全書總目。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。"
     }
-  ],
-  "classification": {
-    "l1": "集部",
-    "l2": "別集類",
-    "l3": "",
-    "l4": "",
-    "basis": "S",
-    "source": "欽定四庫全書總目"
-  },
-  "_edition_count": 2
+  ]
 }

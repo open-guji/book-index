@@ -6,7 +6,8 @@
   "authors": [
     {
       "name": "顧彪",
-      "entity_id": "hixhd2h9bmv2"
+      "entity_id": "hixhd2h9bmv2",
+      "role": "撰"
     }
   ],
   "indexed_by": [
@@ -69,7 +70,6 @@
   "related_works": [
     {
       "id": "d59f20arpg5c",
-      "title": "偽古文尚書",
       "relation": "contains_text_of"
     }
   ],
@@ -93,13 +93,5 @@
       "rule": "I-一名二形致同書誤剖",
       "why": "一名二形致同書誤剖之重出，已併（keeper d59f28n38yro ← d59f28mu730j）。《隋書經籍志》《經義考》作「顧彪」（隋祕書學士）而《國史經籍志》作「顔彪」（形訛），二條之題、卷（二十卷）、代（sui-tang）俱同，且所繫之隋志節字字全同。**與本批『題黏撰人』者成因不同而形近**：那是題後黏撰人使正題檢不到，此是一名之二形（形訛、省稱、繁簡過度轉換）使撰人比對不合，遂各建一條；**Y 之 `misattached` 正為此而立**——同一節著錄（source_bid＋title_info＋summary 三者全同）同時掛在二條同題之 work 上，而該節之文只點名其一之撰人。本道昨日辦 F 時所立之界於此複用：**所差者在名之內（異體、形訛、省稱）者，authors[].name 存著錄原形不改，而所指是一人**——故二條當併，併後 keeper 之 name 取正形而被併者之異形存於其著錄節中，兩不相失。善後由 mergework.py 辦七件，另以人手搬第八件（keeper 所無而被併者有之欄）。"
     }
-  ],
-  "classification": {
-    "l1": "經部",
-    "l2": "書類",
-    "l3": "",
-    "l4": "",
-    "basis": "A",
-    "source": "經義考/書"
-  }
+  ]
 }

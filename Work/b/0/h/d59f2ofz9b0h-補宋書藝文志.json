@@ -26,20 +26,15 @@
   "contained_in": [
     {
       "id": "8rlcsybg2hhh",
-      "volume_index": "第12卷"
+      "volume_index": "第12卷",
+      "details": "叢編原序 30"
     }
   ],
   "ai_note": "民國代著作，收入《二十五史藝文經籍志考補萃編》第12卷。\n\n2026-09-03：已完成 PaddleOCR + 人工逐頁核對原圖，建立 collated_edition（660條書目，經史子集四部三十三類+釋典部），逐條匹配或新建對應書目 Work（416條匹配既有 Work，244條新建），並逐條核實/新建作者 Entity。過程中發現並修正既有庫中之疏漏：「宋武帝集」（`d59f2q6u0mbl`）此前雖著錄「宋武帝劉裕」而 authors 未實際關聯，已補；另糾正「明帝」「文帝」「孝武帝」等庙号一度誤建為獨立新 Entity（應關聯既有本名 Entity 劉彧/劉義隆/劉駿），及「釋慧義」誤建重複（應為既有「釋慧戮」之異寫）等問題。\n\n釋典部譯經僧人之朝代/國別多未详考，未臆定「南朝宋」標籤，詳見各人物 Entity 之 ai_note。",
   "related_works": [
     {
       "id": "d59f287ki6f4",
-      "title": "宋書",
       "relation": "contains_text_of"
-    },
-    {
-      "id": "d59f2o2muyo2",
-      "title": "補宋書藝文志",
-      "relation": "related"
     }
   ],
   "updated_at": "2026-08-24T11:06:17.469827+00:00",

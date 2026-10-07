@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
 """以記錄檔為真，回寫索引（協調者與各道合流撞衝突時用）。
+
+**【已廢，2026-10-07 schema-v2 起】`index/` 由 `build/build_derived.py` 生成**（SCHEMA〈十四〉；
+其欄位規則逐字承本檔與 bim `entry_extractor.py`）。本檔命令行已改為轉呼：
+  python3 .claude/qa/reindex.py            → build_derived.py --check-only（只校驗，報告含 index 漂移）
+  python3 .claude/qa/reindex.py --run      → build_derived.py --write-index（重生並寫回 index/）
+`--membership` 之「檔不坐在其 id 所定分片路徑上」檢查（misplaced）仍在本檔、照跑。
+下列函式（expect_*、shard、fix_membership…）留作參考與舊測試，不再是索引的生成者。
+
   python3 .claude/qa/reindex.py            # 乾跑，只列
   python3 .claude/qa/reindex.py --run
   python3 .claude/qa/reindex.py --run --membership   # 併補「增鍵／刪鍵／修 path」
@@ -186,6 +194,21 @@ def fix_membership(run):
     return add, drop, repath
 
 def main():
+    """schema-v2：轉呼 build_derived.py（見文首）。舊的逐欄回寫見 legacy_main()。"""
+    import subprocess
+    root = jio.ROOT
+    cmd = [sys.executable, os.path.join(root, 'build', 'build_derived.py'), '--root', root]
+    cmd += ['--write-index'] if '--run' in sys.argv else ['--check-only']
+    print('reindex.py 已廢：index/ 由 build 生成。轉呼：' + ' '.join(cmd), file=sys.stderr)
+    if '--membership' in sys.argv:
+        mp = misplaced()
+        if mp:
+            print(f'有 {len(mp)} 檔不坐在其 id 所定之分片路徑上（坑 50，須人手移動）：')
+            for f, want in mp[:10]: print(f'  {f}  →應在 {want}/')
+    return subprocess.call(cmd)
+
+
+def legacy_main():
     run = '--run' in sys.argv; n = 0
     if '--membership' in sys.argv:
         a, d_, r = fix_membership(run)
@@ -210,4 +233,4 @@ def main():
                         ch = True
             if ch and run: jio.save(rel, idx, fmt)
     print(('回寫' if run else '待回寫'), n)
-if __name__ == '__main__': main()
+if __name__ == '__main__': sys.exit(main())

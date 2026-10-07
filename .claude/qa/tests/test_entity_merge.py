@@ -50,17 +50,22 @@ def run() -> None:
 
         _write(tmp, keeper_rel, {
             'id': keeper_id, 'type': 'entity', 'subtype': 'people',
-            'primary_name': '測試正主', 'works': [], 'alt_names': [],
+            'primary_name': '測試正主', 'alt_names': [],
         })
         _write(tmp, loser_rel, {
             'id': loser_id, 'type': 'entity', 'subtype': 'people',
             'primary_name': '測試異寫',
-            'works': [{'work_id': work_id, 'role': '撰'}],
             'alt_names': [{'name': '測試字', 'type': '字'}],
         })
         _write(tmp, work_rel, {
             'id': work_id, 'type': 'work', 'title': '測試書',
             'authors': [{'name': '測試異寫', 'role': '撰', 'entity_id': loser_id}],
+        })
+        book_id = 'zzzbook0004'
+        book_rel = f'Book/{_shard(book_id)}/{book_id}-测试本.json'
+        _write(tmp, book_rel, {
+            'id': book_id, 'type': 'book', 'title': '測試本', 'work_id': work_id,
+            'authors': [{'name': '測試異寫', 'role': '批', 'entity_id': loser_id}],
         })
 
         # 关键一步：monkeypatch jio.ROOT，让 entity_merge 全部指向临时仓
@@ -87,9 +92,8 @@ def run() -> None:
         merged_ids = [m.get('id') for m in (keeper_after.get('merged_in') or [])]
         assert loser_id in merged_ids, f'keeper.merged_in 应含 {loser_id}，实际 {merged_ids}'
 
-        # 2b) works[]／alt_names 也应并入
-        keeper_wids = {w['work_id'] for w in keeper_after.get('works', [])}
-        assert work_id in keeper_wids, 'keeper.works[] 应并入 loser 的 work_id'
+        # 2b) schema-v2：不写 works[]（由 authors 反查）；alt_names 并入
+        assert 'works' not in keeper_after, 'schema-v2 起 Entity 不写 works[]'
         keeper_alt = {a['name'] for a in keeper_after.get('alt_names', [])}
         assert '測試字' in keeper_alt, 'keeper.alt_names 应并入 loser 的別名'
 
@@ -99,11 +103,13 @@ def run() -> None:
         eids = [a.get('entity_id') for a in work_after.get('authors', [])]
         assert eids == [keeper_id], f'Work.authors[].entity_id 应全部改成 {keeper_id}，实际 {eids}'
 
-        assert summary['redirected_works'] == [work_id]
+        with open(os.path.join(tmp, book_rel), encoding='utf-8') as f:
+            assert [a.get('entity_id') for a in json.load(f)['authors']] == [keeper_id], 'Book.authors 亦应改繫'
+        assert sorted(summary['redirected_works']) == sorted([work_id, book_id])
         assert summary['keeper_stale_works'] == [], \
             'keeper 起始 works=[]，不该报出 stale（这条本身也顺带验证了 verify_ground_truth 无假阳性）'
 
-        print('OK：loser 已删、keeper.merged_in 含 loser、Work 改繫成功、works/alt_names 并入正确')
+        print('OK：loser 已删、keeper.merged_in 含 loser、Work／Book 改繫成功、不写 works、alt_names 并入正确')
 
         # --- 第二段：验 stale-keeper 侦测（2026-09-26 那次真吃过的亏）---
         # 造一个「keeper2」，自己 works[] 写着 work2，但 work2 的 authors[]
@@ -141,4 +147,8 @@ def run() -> None:
 
 
 if __name__ == '__main__':
+    run()
+
+
+def test_entity_merge_v2():
     run()

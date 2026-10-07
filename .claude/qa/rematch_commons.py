@@ -366,15 +366,11 @@ def apply(report: Path):
         path = ROOT / row['path']
         work = json.loads(path.read_text(encoding='utf-8'))
         work.setdefault('resources', []).append(row['resource'])
-        work['_has_image'] = True
+        # schema-v2（overview#459 F6-3）：不寫 `_has_image`、不手改 index/——
+        # 二者由 build/build_derived.py 據 resources 生成（--write-index 寫回 index/）
         dump(path, work, preserve_format=True)
-        index_path = locations[row['work_id']]
-        if index_path not in indexes:
-            indexes[index_path] = json.loads(index_path.read_text(encoding='utf-8'))
-        indexes[index_path][row['work_id']]['has_image'] = True
-    for path, data in indexes.items():
-        dump(path, data, preserve_format=True)
-    print(f"Applied {len(payload['additions'])} new image resources; {len(indexes)} index shards updated", flush=True)
+    print(f"Applied {len(payload['additions'])} new image resources; "
+          "now run: python3 build/build_derived.py --write-index", flush=True)
 
 
 def audit(report: Path):
@@ -396,10 +392,8 @@ def audit(report: Path):
         before = json.loads(raw)
         expected = dict(before)
         expected['resources'] = [*(before.get('resources') or []), row['resource']]
-        expected['_has_image'] = True
         assert current == expected, f"Unexpected field changes: {row['path']}"
         assert classify(before, row['file'])[0] == 'confirmed'
-        assert index[row['work_id']]['has_image'] is True
         assert row['resource']['types'] == ['image']
         assert row['file']['sha1'] not in shas
         assert canon_url(row['resource']['url']) not in urls

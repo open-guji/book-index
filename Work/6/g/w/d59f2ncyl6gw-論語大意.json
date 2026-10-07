@@ -9,7 +9,8 @@
       "entity_id": "hixhd2h9bfvk",
       "name_basis": "2026-08-24 同名消歧：庫中名「李材」者不止一人，以period 相合定為 `1j967c148lk6k`（代「明」）。同名而代不合者，其書之上限已排之，故所存唯此一人。",
       "dynasty": "明",
-      "dynasty_basis": "entity_propagation:1j967c148lk6k（J21 S5 收尾）"
+      "dynasty_basis": "entity_propagation:1j967c148lk6k（J21 S5 收尾）",
+      "role": "撰"
     }
   ],
   "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書論語類著錄「李氏（材）論語大意」。庫中雖有同題之《論語大意》，然彼不著撰人而本條著「李材」，同題異撰是二書，故別建。\n\n`period`／`loss_status`／`role`／`entity_id` 不繫，其由與本輪所建諸條同（見《經義考待裁分流方案》）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967c148lk6k`.dynasty「明」propagate 補齊；work.dynasty 同步。",
@@ -60,13 +61,5 @@
       "books_moved": [],
       "note": "2026-09-06 qa-sweep/ming I 類重出併條：同一人（李材，明）之《論語大意》，keeper 出《經義考》（entity hixhd2h9bfvk，名下十四書）；本條出《明史藝文志》「李材《論語大意》十二卷」，其 ai_note 自陳「2026-08-25 同題異書拆分：本條自『1evcsw9fwypds』拆出……《明史藝文志》『李材《論語大意》十二卷』——與宋志所著高端叔二十卷本非一書」——是從一混同宋人高端叔、明人李材之磁鐵條拆出之明人一半，拆分本身無誤（宋明二人確非一書），惟拆出後未與 keeper（同為明李材）相認，遂成新重出。今補其 entity_id 為 hixhd2h9bfvk，併入 keeper。"
     }
-  ],
-  "classification": {
-    "l1": "經部",
-    "l2": "四書類",
-    "l3": "",
-    "l4": "",
-    "basis": "B",
-    "source": "經義考/論語"
-  }
+  ]
 }

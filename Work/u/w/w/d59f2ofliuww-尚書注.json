@@ -9,7 +9,8 @@
       "entity_id": "hixhd2h9bk7o",
       "name_basis": "2026-08-24 補繫 entity：本條 authors 舊有名「劉叔嗣」而無 entity_id，今繫 `1j96heyi0m9ds`——庫中 primary_name 同之者唯一。該 entity 未著其代，故只繫其人，不因之定代。",
       "dynasty": "南朝梁",
-      "dynasty_basis": "2026-08-25 period未定批次 3.1：從撰人 entity 之代。"
+      "dynasty_basis": "2026-08-25 period未定批次 3.1：從撰人 entity 之代。",
+      "role": "撰"
     }
   ],
   "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書書類著錄「劉氏（叔嗣）尚書注」，所引七録，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志、卷、頁。以下諸欄一概不繫，非漏，是無據：\n· `period`：《經義考》各類之內雖以撰人時代為序，然此序只堪分流（實測準確率 0.9646），不堪定代。定代須依所引之志與撰人本傳逐條為之。\n· `loss_status`：朱氏判本書為「佚」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役——「某氏（某）某經注」只是姓名加題，不言其人是撰是注。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n2026-09-05 《補梁書藝文志》整理：收《補梁書藝文志》一節。本志作「劉叔嗣　尚書注二十二卷」。撰人相符（尚書注）；measure_info 補「二十二卷」",
@@ -41,13 +42,5 @@
   "period_basis": "2026-08-25 period未定批次 3.1：撰人「劉叔嗣」（entity 1j96heyi0m9ds）已定代「南朝梁」，且與本條 period_upper（nanbeichao）相容，據以定代。",
   "revision": "1.0.0",
   "revised_at": "2026-08-25",
-  "measure_info": "二十二卷",
-  "classification": {
-    "l1": "經部",
-    "l2": "書類",
-    "l3": "",
-    "l4": "",
-    "basis": "A",
-    "source": "經義考/書"
-  }
+  "measure_info": "二十二卷"
 }

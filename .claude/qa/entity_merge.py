@@ -22,11 +22,12 @@ promote + merged_from/_promoted_to，见 C-entity-併條执行 先例），而�
      其实是另一个陈年孤本——第二轮才靠这条校验揪出来，回炉重并了一次。
      判据来自 `verify.py` 的「單向邊」检查同一件事（entity 说它有这本书，
      书不认这个 entity），这里在并之前对 keeper 自己先做一遍。
-  3. 全库扫 `Work/*.json`，把 `authors[].entity_id == loser_id` 的都改成
+  3. 全库扫 `Work`／`Book`／`Collection`，把 `authors[].entity_id == loser_id` 的都改成
      `keeper_id`（grep 先筛路径，再逐个精确解析 authors[] 确认命中，避免
      grep 撞见同码但非 entity_id 字段的假阳性）。
-  4. `keeper.works[]` 并入 `loser.works[]`（按 `work_id` 去重，keeper 已有的
-     不重复加）。
+  4. **schema-v2（2026-10-07，overview#459 F6-3）起不再写 `Entity.works`**：人物的作品列表
+     由 `Work.authors[].entity_id` 反查、build 生成 `_works`，第 3 步改繫即足。
+     记录里若还残留旧 `works[]`（迁移后新进的旧格式批），本工具不并、不改，只报。
   5. `keeper.alt_names` 并入 `loser.alt_names`（按 `name` 精确字符串去重，
      不做模糊/异体归并——那是 qa_entity.py 的 NAM02 或人工核查该做的事）。
   6. `keeper.external_ids` 补 `loser` 有而 `keeper` 缺的键（不覆盖 keeper
@@ -36,8 +37,8 @@ promote + merged_from/_promoted_to，见 C-entity-併條执行 先例），而�
      更早的 `merged_in`（链式并条：A 先并入 loser，今 loser 再并入 keeper），
      一并搬到 keeper，不许丢账。
   8. 删 `loser` 记录档。
-  9. **不在这里跑 reindex/verify**——批量跑完这一批之后手动跑
-     `python3 .claude/qa/reindex.py --run --membership` 与
+  9. **不在这里跑 build/verify**——批量跑完这一批之后手动跑
+     `python3 build/build_derived.py --write-index` 与
      `python3 .claude/qa/verify.py`，再 `pushmain.sh`。
 
 这不是 `book-index-manager` 的 `promote` 那条路（那条路是 draft→production，
@@ -75,7 +76,8 @@ def scan_referencing_works(eid: str):
     同码但不是 entity_id 字段的假阳性，例如混进了别的字段或 ai_note 正文）。
     返回 [(相对路径, dict, fmt), ...]。"""
     out = subprocess.run(
-        ['grep', '-lr', eid, os.path.join(jio.ROOT, 'Work')],
+        ['grep', '-lr', eid] + [os.path.join(jio.ROOT, t) for t in ('Work', 'Book', 'Collection')
+                                 if os.path.isdir(os.path.join(jio.ROOT, t))],
         capture_output=True, text=True,
     ).stdout.strip()
     paths = [p for p in out.splitlines() if p]
@@ -125,21 +127,16 @@ def merge(loser_id: str, keeper_id: str, *, reason: str, rule: str = '',
         'loser_id': loser_id, 'loser_name': loser.get('primary_name'), 'loser_rel': loser_rel,
         'keeper_id': keeper_id, 'keeper_name': keeper.get('primary_name'), 'keeper_rel': keeper_rel,
         'keeper_stale_works': verify_ground_truth(keeper_id, keeper.get('works')),
+        # 旧格式残留（schema-v2 后源档不该有 works）：只报不并
+        'legacy_works': {'keeper': len(keeper.get('works') or []), 'loser': len(loser.get('works') or [])},
     }
 
     # 找出所有指着 loser 的 Work
     refs = scan_referencing_works(loser_id)
     summary['redirected_works'] = [d.get('id') for _, d, _ in refs]
 
-    # works[] 并入
-    keeper_wids = {w.get('work_id') for w in (keeper.get('works') or []) if isinstance(w, dict)}
-    added_works = []
-    for w in (loser.get('works') or []):
-        if isinstance(w, dict) and w.get('work_id') not in keeper_wids:
-            keeper.setdefault('works', []).append(w)
-            keeper_wids.add(w.get('work_id'))
-            added_works.append(w.get('work_id'))
-    summary['added_works'] = added_works
+    # works[]：schema-v2 起不写（由 authors 反查），见文首第 4 条
+    summary['added_works'] = []
 
     # alt_names 并入（精确字符串去重）
     keeper_alt_names = {a.get('name') for a in (keeper.get('alt_names') or []) if isinstance(a, dict)}
@@ -205,7 +202,10 @@ def _print_summary(s: dict) -> None:
               f"（stale 单向边，可能是陈年孤本，不一定是本次要并的这条的错，但请核实）："
               f" {s['keeper_stale_works']}")
     print(f"待改繫 Work：{len(s['redirected_works'])} 部  {s['redirected_works']}")
-    print(f"works[] 并入新增 {len(s['added_works'])} 条")
+    lw = s.get('legacy_works') or {}
+    if lw.get('keeper') or lw.get('loser'):
+        print(f"⚠️  旧格式 works[] 残留（keeper {lw.get('keeper')}、loser {lw.get('loser')} 条）：本工具不并不改，"
+              "请先跑迁移（build/migrate_v2.py）或 check_v2.py 查")
     print(f"alt_names 并入新增 {len(s['added_alt_names'])} 条")
     print(f"external_ids 补缺：{s['filled_external_ids']}")
     if s['chained_merged_in']:
