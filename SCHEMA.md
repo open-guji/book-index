@@ -1397,6 +1397,8 @@ IndexEntry（`indexed_by`／`emendated_by` 共用）见〈二、Work〉的〈Ind
 
 ERROR 計殘留，WARN 只報不計（`check_v2.py` 之 summary 分列）。
 
+草稿库查专名时加 `--ref-root <book-index>`：草稿条目的 `dynasty_ids`、`parent_id` 等可以直接指正式库 id（专名升格后的规范写法），引用解析会认正式库的 Entity；跨条目检查（D1 唯一、P09 同名、I10 疑重复等）仍只在本仓内比，两仓同名条不算重复（overview#464，2026-10-07）。
+
 | 碼 | 查什麼 | 級別 |
 |---|---|---|
 | E1 | 四子類型出現 `cbdb_*`、`chgis_id`、`dila_*`、`translation`、`c_office_trans`、`cbdb_alt_names`；`external_ids` 含 `wikidata_id` 以外之鍵；非 place 之 `coords` | ERROR |

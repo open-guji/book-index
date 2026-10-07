@@ -269,6 +269,8 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="schema-v2 舊格式殘留檢查（只讀）")
     ap.add_argument("--root", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."),
                     help="數據倉根目錄（預設：本腳本所在之倉）")
+    ap.add_argument("--ref-root", action="append", default=[], metavar="DIR",
+                    help="只讀參照倉（可多次）：專名引用（dynasty_ids 等）可解析到該倉之 Entity；草稿庫查時指正式庫")
     ap.add_argument("--paths", nargs="+", metavar="PATH",
                     help="只查這些檔（相對倉根）；`-` 自 stdin 讀，`@檔` 自檔讀")
     ap.add_argument("--csv", metavar="OUT", help="明細 CSV 寫到此檔（預設 stdout）")
@@ -287,7 +289,8 @@ def main(argv=None):
         return 2
 
     files = read_paths(a.paths) if a.paths else walk(root)
-    registry = es.Registry.from_root(root)
+    registry = es.Registry.from_root(root)          # 本倉：跨條目檢查用
+    resolver = es.Registry.from_root(root, a.ref_root) if a.ref_root else registry   # 引用解析用
     rows, n_files, sel_ids = [], 0, set()
     for rp in files:
         rp = rp.replace("\\", "/")
@@ -295,7 +298,7 @@ def main(argv=None):
             rp = os.path.relpath(rp, root).replace(os.sep, "/")
         if kind_of(rp)[1]:
             n_files += 1
-        for r in check_file(root, rp, registry):
+        for r in check_file(root, rp, resolver):
             if only is None or r[3] in only:
                 rows.append(r)
         if rp.startswith("Entity/"):

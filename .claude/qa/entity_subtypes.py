@@ -134,16 +134,19 @@ class Registry:
         self.path = {}     # id -> relpath
 
     @classmethod
-    def from_root(cls, root):
+    def from_root(cls, root, ref_roots=()):
+        """ref_roots：只讀參照倉（草稿庫查時指正式庫），其 Entity 只供引用解析（如 dynasty_ids 指正式 id）；
+        同 id 以 root 為準。跨條目之全庫檢查（check_global）應另用不帶 ref_roots 之索引，免把兩倉同名條當重複。"""
         reg = cls()
-        for f in glob.glob(os.path.join(root, "Entity", "**", "*.json"), recursive=True):
-            try:
-                d = json.load(open(f, encoding="utf-8"))
-            except (ValueError, UnicodeDecodeError):
-                continue
-            if not (isinstance(d, dict) and d.get("id") and d.get("type") == "entity"):
-                continue
-            reg.add(d, os.path.relpath(f, root).replace(os.sep, "/"))
+        for r in list(ref_roots) + [root]:
+            for f in glob.glob(os.path.join(r, "Entity", "**", "*.json"), recursive=True):
+                try:
+                    d = json.load(open(f, encoding="utf-8"))
+                except (ValueError, UnicodeDecodeError):
+                    continue
+                if not (isinstance(d, dict) and d.get("id") and d.get("type") == "entity"):
+                    continue
+                reg.add(d, os.path.relpath(f, r).replace(os.sep, "/"))
         return reg
 
     def add(self, d, relpath=""):
