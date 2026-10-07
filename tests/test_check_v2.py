@@ -178,3 +178,31 @@ def test_verify_classification_members(tmp_path):
     _cls_repo(tmp_path, {'zm0001': [['w2', 'a'], ['w1', 'b']], 'zm0002': [['w1', 'c']], 'zm0009': [['w3', 'x']]})
     msgs = ' '.join(m for _, m in verify.classification_members_problems(str(tmp_path), {'w1', 'w2', 'w3'}))
     assert '未按 work_id 排序' in msgs and '節點不在樹上' in msgs and '互斥法一部多類' in msgs
+
+
+def test_ref_root_resolves_entity_refs(tmp_path):
+    # 草稿地名之 dynasty_ids 指正式庫 id：不帶 --ref-root 報 P04；帶上即可解析（overview#464 P5a）
+    draft, prod = tmp_path / "draft", tmp_path / "prod"
+    _write(prod, "Entity/a/b/c/pdyn-唐.json",
+           {"id": "pdyn", "type": "entity", "subtype": "dynasty", "primary_name": "唐"})
+    place = {"id": "dplace", "type": "entity", "subtype": "place", "primary_name": "某縣",
+             "history": [{"start": 700, "end": 800, "name": "某縣", "level": "縣", "dynasty_ids": ["pdyn"]}]}
+    _write(draft, "Entity/a/b/d/dplace-某縣.json", place)
+    assert check_v2.main(["--root", str(draft), "--summary", "--codes", "P04"]) == 1
+    assert check_v2.main(["--root", str(draft), "--ref-root", str(prod), "--summary", "--codes", "P04"]) == 0
+    # 參照倉之條不入本倉之跨條目檢查（不因兩倉同名而報重複），也不被當作本倉檔案檢查
+    _write(draft, "Entity/a/b/e/ddyn-唐.json",
+           {"id": "ddyn", "type": "entity", "subtype": "dynasty", "primary_name": "唐"})
+    rows_own = [r for r in check_v2_rows(draft, []) if r[3] == "D1"]
+    rows_ref = [r for r in check_v2_rows(draft, [str(prod)]) if r[3] == "D1"]
+    assert rows_own == rows_ref
+
+
+def check_v2_rows(root, refs):
+    import contextlib
+    import io
+    buf = io.StringIO()
+    args = ["--root", str(root)] + sum((["--ref-root", r] for r in refs), [])
+    with contextlib.redirect_stdout(buf):
+        check_v2.main(args)
+    return [line.split(",") for line in buf.getvalue().splitlines()[1:] if line.count(",") >= 5]
