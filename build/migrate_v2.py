@@ -1211,7 +1211,6 @@ def m6(repo, args, done):
     chk = m1(repo, args)
     pending = repo.changed_paths()
     rep['precheck'] = {'M1_rerun_changes': len(pending), 'sample': pending[:20]}
-    done['M1'] = chk                                   # 用它重生剩餘人工核清單
     if pending:
         repo.dirty.clear()
         repo.extra.clear()
@@ -1255,6 +1254,14 @@ def _t(repo, i):
 
 
 def write_manual_md(repo, rep_dir, reps):
+    # 逐步分開跑時，本次沒跑的步驟從報告目錄讀回（M1／M2／M3 的清單項是遷移當時的快照）
+    reps = dict(reps)
+    for st in ('M1', 'M2', 'M3'):
+        p = os.path.join(rep_dir, f'{st}.json')
+        if st not in reps and os.path.exists(p):
+            reps[st] = json.load(open(p, encoding='utf-8'))
+    if not any(k in reps for k in ('M1', 'M2', 'M3')):
+        return None
     m1r, m2r, m3r = reps.get('M1'), reps.get('M2'), reps.get('M3')
     if not (m1r or m2r or m3r):
         return None
@@ -1305,10 +1312,10 @@ def write_manual_md(repo, rep_dir, reps):
         sec('parent_work_id：子母皆在、但兩者間無 related 關係（說明無處可附，請目錄總管定）',
             M.get('⓪ parent_work_id 對無 related 關係'),
             lambda x: f"子 {_t(repo, x['work'])} ／ 母 {_t(repo, x['parent'])}")
-        sec('sidecar 舊 id 已改指現 id（按 zhsy_id／題名＋同叢編／Book.work_id 唯一對上；sidecar 原樣不改）',
+        sec('sidecar 舊 id 已改指現 id（按 zhsy_id／題名＋同叢編／Book.work_id 唯一對上）',
             (m1r.get('items') or {}).get('⓪ 改號'),
             lambda x: f"`{x['old']}` → {_t(repo, x['new'])}（{x['by']}；{x['sidecar']}）")
-        sec('數據錯：sidecar 列了不存在的 Book、對不上現 id（作廢，不併入；sidecar 原樣保留）', E.get('sidecar 列了不存在的 Book'),
+        sec('數據錯：sidecar 列了不存在的 Book、對不上現 id（作廢，不併入；sidecar 已於 M6 刪除，名單存此）', E.get('sidecar 列了不存在的 Book'),
             lambda x: f"`{x['book_id']}`《{x.get('title') or ''}》"
                       + (f" zhsy_id `{x['zhsy_id']}`" if x.get('zhsy_id') else '') + f"（{x['sidecar']}）")
         sec('數據錯：parent_work_id 子或母作品不存在、對不上現 id（不併入）', E.get('parent_work_id：子或母作品不存在'),
