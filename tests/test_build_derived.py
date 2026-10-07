@@ -187,3 +187,15 @@ def test_load_promotions_reads_bim_shape(tmp_path):
         'd1': {'production_id': 'p1', 'type': 'work', 'promoted_at': '2026-10-07'},
         'd2': {'to': 'p2'}, 'd3': 'p3', 'd4': {'type': 'work'}}}), encoding='utf-8')
     assert BD.load_promotions(str(tmp_path)) == {'d1': 'p1', 'd2': 'p2', 'd3': 'p3'}
+
+
+def test_load_promotions_all_falls_back_to_ref_root(tmp_path):
+    # promotions.json 只在正式庫根：草稿庫 build（root 無此檔）要從 ref_root 取；root 有則 root 優先
+    draft, prod = tmp_path / 'draft', tmp_path / 'prod'
+    draft.mkdir(); prod.mkdir()
+    (prod / 'promotions.json').write_text(json.dumps({'promotions': {
+        'd1': {'production_id': 'p1'}, 'd2': {'production_id': 'p2'}}}), encoding='utf-8')
+    assert BD.load_promotions_all(str(draft), [str(prod)]) == {'d1': 'p1', 'd2': 'p2'}
+    (draft / 'promotions.json').write_text(json.dumps({'promotions': {'d2': 'x2'}}), encoding='utf-8')
+    assert BD.load_promotions_all(str(draft), [str(prod)]) == {'d1': 'p1', 'd2': 'x2'}
+    assert BD.load_promotions_all(str(prod)) == {'d1': 'p1', 'd2': 'p2'}
