@@ -9,11 +9,13 @@ import check_v2  # noqa: E402
 
 
 def codes(kind, rec):
+    # 各例專驗別的代碼，缺 schema_version（V15）另有專測，這裡補上免得每例都報 V15
+    rec = dict(rec) if "schema_version" in rec else dict(rec, schema_version=1)
     return sorted(c for c, _, _ in check_v2.check_record(kind, rec))
 
 
 NEW_WORK = {
-    "id": "1evaaaaaaaaab", "type": "work", "title": "甲",
+    "id": "1evaaaaaaaaab", "type": "work", "schema_version": 1, "title": "甲",
     "authors": [{"name": "某", "role": "撰", "dynasty": "唐", "entity_id": "x"}],
     "related_works": [
         {"id": "1evaaaaaaaaaz", "relation": "related", "note": "同題"},
@@ -119,6 +121,18 @@ def test_collection_member_lists_and_entity_works():
     assert codes("Collection", coll) == ["V10", "V10"]
     ent = {"id": "4a", "type": "entity", "primary_name": "某", "works": [{"work_id": "w", "role": "撰"}]}
     assert codes("Entity", ent) == ["V11"]
+
+
+def test_schema_version_required():
+    # overview#473：schema_version 必填且為整數 1
+    def raw(rec):
+        return sorted(c for c, _, _ in check_v2.check_record("Book", rec))
+    book = {"id": "11b", "type": "book", "title": "x", "work_id": "w"}
+    assert raw(book) == ["V15"]
+    assert raw(dict(book, schema_version="1")) == ["V15"]
+    assert raw(dict(book, schema_version=True)) == ["V15"]
+    assert raw(dict(book, schema_version=2)) == ["V15"]
+    assert raw(dict(book, schema_version=1)) == []
 
 
 def _write(root, rel, obj):
