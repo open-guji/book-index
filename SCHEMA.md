@@ -1529,12 +1529,13 @@ classification/
 | Book | `_work`、`_siblings`、`_lineage_refs`、`_derived_by`、`_lineage_graph_ref` | 所属作品摘要、同作品其他版本、源流引用、谁以我为底本、版本图 | — |
 | Collection | `_members`、`_member_pages`、`_member_count`、`_member_type`、`_children` | 成员（来自成员侧 `contained_in`）、计数、型别、子丛编 | `Collection.books`、`contained_works`、手写 `_member_*` |
 | Entity | `_works` | `[{work_id, role, title, …}]`，`role` 取 `Work.authors[].role` | `Entity.works` |
-| Entity（dynasty） | `_children`、`_ancestors`、`_reigns` | 子朝代、上级链、所属年号 | —（新，#464；**build 尚未实现**，合 main 后另开道，先在 #458 通知网站） |
-| Entity（reign） | `_dynasty`、`_ruler`、`_index_in_reign`、`_same_name` | 所属朝代摘要、帝王摘要、年号第 n 年之序、同名年号 | —（同上） |
-| Entity（office） | `_children`、`_compounds`、`_holders` | 概念条下的具体条、复合条、任职人物 | —（同上） |
-| Entity（place） | `_children`、`_span` | 下辖、起讫跨度 | —（同上） |
-| Entity／Work | `_dynasty_id`、`_dynasty_candidates` | 按 `dynasty` 名解出的朝代条 id／候选 | —（同上） |
-| 构建产物 | `_build/dynasty_reign_keys.json` | 匹配键表（`primary_name`＋`alt_names`，带 `ambiguous`、`type`），供文本侧回挂 | —（同上） |
+| Entity（dynasty） | `_children`、`_ancestors`、`_reigns` | 子朝代、上级链（由近到远，≤3 层）、所属年号 `[{id, name, start, end, ruler, dynasty}]`（按 start） | —（F6-5b，`build/names.py`） |
+| Entity（reign） | `_dynasty`、`_ruler`、`_index_in_reign`、`_same_name` | 所属朝代摘要；帝王摘要（`ruler.entity_id` 有才出）；同一朝代、同一帝王名下按 start 的序号（从 1 起）；全库其他同名年号 | —（同上） |
+| Entity（office） | `_children`、`_compounds` | 概念条下的各朝具体条；以本条为 `base_office_id` 的复合条。卡片 `{id, name, level, dynasties}`。~~`_holders`~~（任职人物）暂不产出：库中尚无人物→官职数据 | —（同上） |
+| Entity（官署，`collective_kind`＝官署） | `_children`、`_subordinates`、`_members`、`_offices` | 概念→具体（`parent_id` 反查）、下级（`superiors` 反查）、合称成员（`group_ids` 反查）、所属官职（`office.institution_ref` 反查） | —（同上） |
+| Entity（place） | `_children`、`_span` | 下辖（`history[].parent_id` 反查，卡片带下级的 start／end）；`{start, end}`＝各沿革段最小起年、最大讫年 | —（同上） |
+| Entity（people）／Work | `_dynasty_id`、`_dynasty_candidates` | 按 `dynasty` 名（Work 取 `dynasty`，缺则 `authors[]` 首个）查 `dynasty_reign_keys`：唯一且不歧义给 `_dynasty_id`，否则给候选 id 列表 | —（同上） |
+| 构建产物 | `_build/dynasty_reign_keys.json`、`_build/office_keys.json` | 匹配键表（`primary_name`＋`alt_names`，全稱除外，含异体归一形；带 `via`、`ambiguous`），供文本侧回挂；形状见 overview `专名建档/P4-升格/*-交接.md`。同一条在一个键下只出一次。草稿库 build（带 `--ref-root`）才是全量 | —（同上） |
 | 草稿记录 | `promoted_to` | 由 `promotions.json` 回填（index 与产物里） | 手写 `_promoted_to`、`promoted_to` |
 
 字段的精确形状以 overview `F2-3-build与派生字段.md` 与 `F4-2-聚合产物字段表.md` 为准，本表只列名与来源。
@@ -2116,4 +2117,4 @@ python3 build/build_derived.py --root ../book-index-draft --ref-root . --out <�
 | 10 | 志书「本志著录了哪些书」成员页（`_member_catalog`、约 14 MB） | F4：新功能，用户定做不做；不影响其它产物 | 用户 |
 | 11 | S1 留下的候选分类（19 条冲突＋3,785 条撤回）进不进成员行 `status` 候选层 | 本轮只留格式口子，不做 | 用户（默认不做） |
 | 12 | `Collection.related_collections` 旧对象形里非空的 `type`／`note`（M2 报告列出） | 目录总管 10-07：逐条看后定放处 | 目录总管 |
-| 13 | 专名子类型的 build 派生字段与 `dynasty_reign_keys.json`（见〈九〉末六行） | 本轮只落 SCHEMA 与校验；build 实现属 `_build` 契约改动，按约定先在 #458 通知网站，放到 `schema-v2` 合 main 之后另开一道 | 目录总管 |
+| 13 | ~~专名子类型的 build 派生字段与 `dynasty_reign_keys.json`~~ | **已实现（F6-5b，2026-10-07）**：`build/names.py`；`_build/report.json` 的 `contract` 由 1 升为 2（纯增量，#458 已通知） | 目录总管 |

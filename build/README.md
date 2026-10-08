@@ -6,6 +6,7 @@
 | 檔 | 作用 |
 |---|---|
 | `v2common.py` | 共用：讀記錄（三層分片下的 `<id>-題名.json`；更深者是 sidecar）、保格式寫回、關係詞表（規範詞／反向詞／歸併詞／對稱／單向） |
+| `names.py` | 專名派生欄（dynasty／reign／office／place／官署，people 與 Work 的 `_dynasty_id`）與 `dynasty_reign_keys.json`、`office_keys.json`（F6-5b，overview#464／#458）；已升格草稿以正式條為準 |
 | `build_derived.py` | 源記錄 → `_build/`（不進 git）。確定性、可重跑、只寫有變的檔、刪不再產出的檔 |
 | `migrate_v2.py` | M0 盤點、M1 補齊（只增不刪）、M2 關係規範化、M3 刪派生與反向、M4 分類抽出（M4a 生成分類檔、M4b 剝離）、M5 build 全量自校驗、M6 重生 `index/`＋刪 sidecar。冪等；一步一提交；不改 `revision`／`revised_at` |
 
@@ -24,6 +25,7 @@ python3 build/build_derived.py --check-only --hub-check          # 只校驗；�
 - Book：`_work`、`_siblings`（≤40，超出 `_siblings_more`／`_siblings_total`）、`_collections`、`_lineage_refs`、`_derived_by`、`_has_*`。
 - Collection：`_members`（前 20）＋`_member_pages`、`_member_count`、`_member_type`、`_children`。
 - Entity：`_works`（`{work_id, role, title, …}`，全內嵌；role 取 `Work.authors[].role`，缺則「撰」並計數）。
+- 專名（`names.py`，SCHEMA〈九〉末幾行）：dynasty `_children`／`_ancestors`／`_reigns`；reign `_dynasty`／`_ruler`／`_index_in_reign`／`_same_name`；office `_children`／`_compounds`；官署 `_children`／`_subordinates`／`_members`／`_offices`；place `_children`／`_span`；people 與 Work `_dynasty_id`／`_dynasty_candidates`。另出 `dynasty_reign_keys.json`、`office_keys.json`（全量時才出；草稿庫帶 `--ref-root` 才齊）。`report.json` 的 `contract`＝2。
 - 樞紐：入度 >200（`--hub`）者，他處卡片只寫 `{id, h:1}`，名稱進 `_hubs.json`。正式庫實測 58 個；改最大叢編／志書／人物之名分別牽動 2／4／2 檔（與 F4-4 同）。
 
 過渡期（M3 前）：`Work.books`、`Entity.works`、`Collection.books`／`contained_works` 與成員側**取併集**，故遷移前後產物的關係集合相同；M3 刪掉舊欄後這一段自然空轉。
