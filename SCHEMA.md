@@ -41,7 +41,7 @@
 | `Collection/…/{id}-{题}.json` | 丛编记录 | 源 |
 | `Entity/…/{id}-{名}.json` | 人物等实体记录 | 源 |
 | `classification/schemes.json`、`classification/<分类法>/tree.json`、`…/members/<节点>.json` | 分类法登记、分类树、各类成员 | 源（只经 `bim classify` 写） |
-| `promotions.json` | 草稿 id → 正式 id 对照，升格的唯一权威 | 源 |
+| `promotions/<草稿id末2位>.json` | 草稿 id → 正式 id 对照，升格的唯一权威。2026-10-08 起由根目录整档 `promotions.json` 切成分片（每片形状同原整档 `{"version":1,"promotions":{…}}`，与网站 PH 分片同键）；读写一律经 bim `promotion.load_all`／`PromotionsStore` 或 build `v2common.read_promotions_raw`，不要手拼路径 | 源 |
 | `classific.json` | 旧分类词表；schema-v2 起由 `classification/zongmu/tree.json` 生成，退役中 | 产物 |
 | `index/**` | 检索用扁平摘要 | 产物（build 生成，不手改） |
 | `_build/**` | 页面就绪条目与分页大列表 | 产物（不进 git） |
@@ -1607,7 +1607,7 @@ ID 用 64-bit snowflake 结构，3 bits 标识 type：
 **0-3 用于实体书目，4-7 用于抽象概念。** 见 `book_index_manager/id_generator.py`、`.claude/qa/mintid.py`（base36、小写、`< 2^63`）。
 
 草稿庫的 ID 為 13 字元（status=1），升格後的 Production ID 為 12 字元（status=0）。
-**升格的權威對照表是根目錄的 `promotions.json`**；草稿記錄裡**不寫** `promoted_to`／`_promoted_to`（schema-v2 起由 build 回填到 `index/` 與產物）。
+**升格的權威對照表是 `promotions/<草稿id末2位>.json`**（2026-10-08 前為根目錄整檔 `promotions.json`，下文沿用此名泛指對照表）；草稿記錄裡**不寫** `promoted_to`／`_promoted_to`（schema-v2 起由 build 回填到 `index/` 與產物）。
 校驗關聯是否懸空時，Production ID 不在草稿索引中屬正常，須併入白名單。
 「id 較小一側」（對稱關係的存儲規則）按**字符串比較**：同長度的 base36 小寫 id，字符串序與數值序一致。
 

@@ -4,7 +4,7 @@
 >
 > 整理本（`collated_edition`）、輯佚（`fragments`）、全文（`full_text`）、
 > 抓取素材（`ctext`／`source_text`）已遷入 **[`book-text`](https://github.com/open-guji/book-text)**，
-> 本倉自此**只存元資料**（Work／Book／Collection／Entity 條目、`index/`、`promotions.json`）。
+> 本倉自此**只存元資料**（Work／Book／Collection／Entity 條目、`index/`、升格對照表 `promotions/`）。
 >
 > **凡寫文本者當寫 book-text。** 本倉之資產目錄已刪淨；寫在這裡的東西
 > 下一次合流就會消失——遷移當日即已發生一次：另一條車道在舊 checkout 上做完
