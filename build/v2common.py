@@ -115,6 +115,23 @@ def is_record_path(root, path):
     return len(rel) == 5 and rel[0] in TYPES and rel[-1].endswith('.json')
 
 
+def read_promotions_raw(root):
+    """升格對照表 `{草稿id: 原始記錄}`：根目錄整檔 `promotions.json` 與分片 `promotions/<草稿id末2位>.json`
+    兩種形狀都認（過渡期兩者都在時取並集，分片優先）。與 bim `promotion.load_all_raw` 等價，只用標準庫。"""
+    paths = []
+    p = os.path.join(root, 'promotions.json')
+    if os.path.isfile(p):
+        paths.append(p)
+    d = os.path.join(root, 'promotions')
+    if os.path.isdir(d):
+        paths += [os.path.join(d, fn) for fn in sorted(os.listdir(d)) if fn.endswith('.json')]
+    out = {}
+    for p in paths:
+        with open(p, encoding='utf-8') as f:
+            out.update(json.load(f).get('promotions') or {})
+    return out
+
+
 def iter_json(root, typ):
     base = os.path.join(root, typ)
     for dp, dns, fns in os.walk(base):

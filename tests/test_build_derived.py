@@ -189,6 +189,20 @@ def test_load_promotions_reads_bim_shape(tmp_path):
     assert BD.load_promotions(str(tmp_path)) == {'d1': 'p1', 'd2': 'p2', 'd3': 'p3'}
 
 
+def test_load_promotions_reads_shards(tmp_path):
+    # 分片形 promotions/<草稿id末2位>.json（promotions-分片方案）；與整檔並存時取並集、分片優先
+    d = tmp_path / 'promotions'
+    d.mkdir()
+    (d / 'xy.json').write_text(json.dumps({'version': 1, 'promotions': {
+        'aaxy': {'production_id': 'p1'}, 'bbxy': {'production_id': 'p2'}}}), encoding='utf-8')
+    (d / 'z9.json').write_text(json.dumps({'version': 1, 'promotions': {
+        'ccz9': {'production_id': 'p3'}}}), encoding='utf-8')
+    assert BD.load_promotions(str(tmp_path)) == {'aaxy': 'p1', 'bbxy': 'p2', 'ccz9': 'p3'}
+    (tmp_path / 'promotions.json').write_text(json.dumps({'promotions': {
+        'aaxy': {'production_id': 'old'}, 'dd00': {'production_id': 'p4'}}}), encoding='utf-8')
+    assert BD.load_promotions(str(tmp_path)) == {'aaxy': 'p1', 'bbxy': 'p2', 'ccz9': 'p3', 'dd00': 'p4'}
+
+
 def test_load_promotions_all_falls_back_to_ref_root(tmp_path):
     # promotions.json 只在正式庫根：草稿庫 build（root 無此檔）要從 ref_root 取；root 有則 root 優先
     draft, prod = tmp_path / 'draft', tmp_path / 'prod'
