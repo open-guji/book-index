@@ -12,17 +12,21 @@
                 _offices（office.institution_ref 反查）
       people／Work  _dynasty_id（朝代名唯一命中）／_dynasty_candidates（歧義名的候選 id）
     產物
-      dynasty_reign_keys.json、office_keys.json
+      dynasty_reign_keys.json、office_keys.json、place_keys.json（地名：鍵源另有沿革當時名、去通名；
+      候選可帶 segments、default，規則見 `專名建檔/P4-升格/place_keys-交接.md` §一～§四）
 
 已升格的草稿條（在 promotions 裡）以正式條為準：不進反查、不進鍵表；一切 id 引用先經 promotions 換成正式 id。
 純函數、確定性；列表一律按固定鍵排序。
 """
 import collections
 
-NORMALIZE = {'尙': '尚', '郞': '郎', '戸': '戶', '叅': '參', '秘': '祕', '歴': '曆'}
+NORMALIZE = {'尙': '尚', '郞': '郎', '戸': '戶', '叅': '參', '秘': '祕', '歴': '曆', '淸': '清'}   # 三表共用
 VARIANT = str.maketrans(NORMALIZE)
 KEYS_VERSION = 1
 LEVEL_ORDER = {'concept': 0, 'group': 1, 'concrete': 2}
+PLACE_SUFFIX = ('縣', '州', '府', '軍', '路', '道', '省', '廳')   # 去通名（基名至少 2 字）
+# 地名默認候選：同名多候選時取最低一級的實地（place_keys-交接 §四）
+PLACE_RANK = {'縣': 1, '廳': 1, '州': 2, '軍': 2, '監': 2, '府': 3, '郡': 3, '路': 4, '道': 4, '省': 5, '國': 5}
 
 
 def _dates(d):
@@ -120,6 +124,7 @@ class Names:
                                    lambda c: (c['subtype'] != 'dynasty', c.get('start') or 0, c['id']))
         self.off_keys = self._keys(lambda d: d.get('subtype') == 'office' or is_institution(d), self._off_cand,
                                    lambda c: (c['subtype'] != 'office', LEVEL_ORDER.get(c.get('level'), 3), c['id']))
+        self.pl_keys = self._place_keys()
 
     # ---------- 卡片 ----------
     def name(self, i):
@@ -298,6 +303,64 @@ class Names:
             c['rank'] = d['rank']['text']
         return _clean(c)
 
+    # ---------- 地名鍵表 ----------
+    def _seg(self, h):
+        s = {'name_then': h.get('name'), 'start': h.get('start'), 'end': h.get('end'), 'level': h.get('level')}
+        p = self.rid(h.get('parent_id'))
+        if p:
+            s['parent_id'] = p
+            s['parent'] = self.name(p)
+        s['dynasties'] = [self.name(x) for x in _ids(h.get('dynasty_ids'))]
+        return _clean(s)
+
+    def _place_cand(self, i, d, via, amb, segs):
+        hist = [h for h in d.get('history') or [] if isinstance(h, dict)]
+        c = {'id': i, 'subtype': 'place', 'primary_name': d['primary_name'], 'via': via,
+             'level': hist[-1].get('level') if hist else None,
+             'start': min((h['start'] for h in hist if isinstance(h.get('start'), int)), default=None),
+             'end': max((h['end'] for h in hist if isinstance(h.get('end'), int)), default=None),
+             'modern': (d.get('modern') or {}).get('text') if isinstance(d.get('modern'), dict) else None,
+             'segments': segs}
+        if amb:
+            c['ambiguous'] = True
+        return _clean(c)
+
+    def _place_keys(self):
+        """via 先後：primary_name → 別名（全稱除外）→ 沿革（各段當時名）→ 去通名；同條同鍵只留先出現者。
+        排序：只靠去通名命中者在後，其餘按 start、id。≥2 候選時至多標一個 default（mark_default）。"""
+        places = {i: d for i, d in self.E.items() if d.get('subtype') == 'place' and isinstance(d.get('primary_name'), str)}
+        keys = collections.defaultdict(dict)
+        for i, d in sorted(places.items()):
+            names = [(nm, via, amb, []) for nm, via, amb in _names(d)]
+            bynm = collections.defaultdict(list)
+            for h in d.get('history') or []:
+                if isinstance(h, dict) and isinstance(h.get('name'), str) and h['name']:
+                    bynm[h['name']].append(self._seg(h))
+            names += [(nm, '沿革', False, sg) for nm, sg in bynm.items()]
+            names += [(nm[:-1], '去通名', amb, sg) for nm, _, amb, sg in list(names)
+                      if nm.endswith(PLACE_SUFFIX) and len(nm) >= 3]
+            for nm, via, amb, sg in names:
+                c = self._place_cand(i, d, via, amb, sg)
+                for k in {nm, nm.translate(VARIANT)}:
+                    keys[k].setdefault(i, c)
+        out = {k: sorted(v.values(), key=lambda c: (c['via'] == '去通名', c.get('start') or 0, c['id']))
+               for k, v in sorted(keys.items())}
+        up = {i: {self.rid(h['parent_id']) for h in d.get('history') or [] if isinstance(h, dict) and h.get('parent_id')}
+              for i, d in places.items()}
+        anc = {}
+        for i in places:
+            seen, stack = set(), list(up.get(i, ()))
+            while stack:
+                x = stack.pop()
+                if x not in seen:
+                    seen.add(x)
+                    stack.extend(up.get(x, ()))
+            anc[i] = seen
+        for v in out.values():
+            mark_default(v, anc)
+        self.n_place = len(places)
+        return out
+
     def products(self):
         E = self.E
         n = collections.Counter('官署' if is_institution(d) else d.get('subtype') for d in E.values())
@@ -308,7 +371,30 @@ class Names:
               'count': {'keys': len(self.off_keys), 'office': n['office'], '官署': n['官署'],
                         'multi_candidate_keys': sum(1 for v in self.off_keys.values() if len(v) > 1)},
               'normalize': NORMALIZE, 'keys': self.off_keys}
-        return {'dynasty_reign_keys.json': dr, 'office_keys.json': of}
+        pl = {'version': KEYS_VERSION,
+              'count': {'keys': len(self.pl_keys), 'place': self.n_place,
+                        'multi_candidate_keys': sum(1 for v in self.pl_keys.values() if len(v) > 1),
+                        'default_marked': sum(1 for v in self.pl_keys.values() if any(c.get('default') for c in v))},
+              'normalize': NORMALIZE, 'keys': self.pl_keys}
+        return {'dynasty_reign_keys.json': dr, 'office_keys.json': of, 'place_keys.json': pl}
+
+
+def mark_default(cands, anc):
+    """≥2 候選時至多標一個 `default`（place_keys-交接 §四）：① 恰有一個候選是 primary_name 命中 → 標它；
+    ② 否則取級別最低者 L（最低一級有兩個以上則不標），僅當其餘候選都在 L 的沿革上級鏈閉包裡時標 L；③ 其餘不標。"""
+    if len(cands) < 2:
+        return
+    prim = [c for c in cands if c['via'] == 'primary_name']
+    if len(prim) == 1:
+        prim[0]['default'] = True
+        return
+    ranks = [PLACE_RANK.get(c.get('level'), 9) for c in cands]
+    lo = min(ranks)
+    if ranks.count(lo) > 1:
+        return
+    low = cands[ranks.index(lo)]
+    if all(c is low or c['id'] in anc.get(low['id'], ()) for c in cands):
+        low['default'] = True
 
 
 def _clean(d):
