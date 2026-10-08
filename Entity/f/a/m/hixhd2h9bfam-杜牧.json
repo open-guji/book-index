@@ -28,8 +28,8 @@
   "period": "sui-tang",
   "period_basis": "據 dynasty「唐」自動歸併",
   "ai_note": "2026-08-24 宋志頂真格（去括注本）：新收 1 部 work 之繫。\n2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=21194 補入空槽——籍貫「長安」。既有之值一概未動。",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-04",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-07",
   "native_place": "長安",
   "native_place_basis": "CBDB 21194 index_addr（2026-09-06 CBDB enrich）",
   "dates": {
@@ -37,5 +37,15 @@
     "death": 853,
     "floruit": null,
     "basis": "現行字段"
-  }
+  },
+  "merged_in": [
+    {
+      "id": "hixhii3ygykj",
+      "primary_name": "杜牧",
+      "at": "2026-10-08",
+      "by": "D4-Entity清账",
+      "rule": "keeper: cbdb>朝代与CBDB相容/生卒>作品数>较早id",
+      "why": "P4b 疑似重复人物（批3）：同一部书：《杜牧樊川集》↔《杜牧集》；同见宋史藝文志"
+    }
+  ]
 }
