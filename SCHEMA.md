@@ -26,7 +26,7 @@
 | 10 | **revision 只管「作品是什么」的陈述** | 派生字段、分类归属、反向链变化不 bump `revision`；迁移脚本一律不改 `revision`／`revised_at`。见〈十、记录之共通字段〉。 |
 
 **校验**：
-- `.claude/qa/check_v2.py`：查源档里的旧格式残留（V01–V15，及专名子类型 E1／D／R／A／O／P 系列，代码表见脚本头注释与〈专名子类型〉），只读、可 `--paths` 只查 PR 改动的文件。审数据 PR 时必跑：`git diff --name-only origin/main... | python3 .claude/qa/check_v2.py --paths -`，退出码非 0 即有残留。迁移（M1–M4）完成前，存量会大量报出，这是预期。
+- `.claude/qa/check_v2.py`：查源档里的旧格式残留（V01–V16，及专名子类型 E1／D／R／A／O／P 系列，代码表见脚本头注释与〈专名子类型〉），只读、可 `--paths` 只查 PR 改动的文件。审数据 PR 时必跑：`git diff --name-only origin/main... | python3 .claude/qa/check_v2.py --paths -`，退出码非 0 即有残留。迁移（M1–M4）完成前，存量会大量报出，这是预期。
 - `.claude/qa/verify.py`：字段形状、悬空引用、词表等（旧校验，迁移完成后改为调用 build 自校验，F2-7 §九 B8）。
 
 ---
@@ -943,7 +943,7 @@ Book 的 `indexed_by` 與 Work 的 `indexed_by` 同結構，記錄該具體版�
 | `count` | 本档 | `{juan, ce, zhong, han, source}`，见下；至少一项非空才写 | | `{"juan":null,"ce":820,"zhong":24,"han":null,"source":"…"}` |
 | `juan_count`、`page_count`、`measures`、`measure_info`、`total_works`、`total_volumes`、`sections` | 本档 | 规模与分部；`sections: [{name}]` | | |
 | `contains[]` | 本档 | 本丛编的**结构组成部分**（圣谕、进表、总目、选印来源等）`{type, title, work_id?, book_id?, collection_id?, scope?, position?, note?}`，**不是成员** | | |
-| `work_id` | 本档 | 本丛编整体对应的伞状作品（7 条） | | `"1ev…"`（《十三經注疏》） |
+| `work_id` | 本档 | 本丛编整体对应的伞状作品（8 条，正式库 2026-10-07 实测） | | `"1ev…"`（《十三經注疏》） |
 | `contained_in` | 本档（子丛编一侧） | **Collection ID 字符串数组**（注意：与 Book／Work 的对象数组形状不同） | | `["8rlcsybg2hih"]` |
 | `indexed_by[]` | 本档 | IndexEntry | | |
 | `related_books`、`related_collections` | 本档（id 较小一侧） | 对称关系，**ID 字符串数组**；只存 id 较小一侧。旧有 3 个对象形（带 `title`／`note`／`type`）由 M2 转成字符串，`title` 丢弃（build 派生），`type`／`note` 非空者列进 M2 报告待定去处（`check_v2.py` V14） | | `["8rlcsybg2hih"]` |
@@ -1139,9 +1139,26 @@ Book 頂層一律用 `edition`；曾有 276 條誤寫作 `version`，已於整�
 ```json
 {
     "text": "string (Overview of the work)",
-    "sources": ["Source"]
+    "sources": ["string | Source"]
   }
 ```
+
+**`sources[]` 的元素两种形状都合法**（目录经理 2026-10-07 定，overview#473）：
+- **字符串**：出处简述，通常就是书名，如 `"千頃堂書目"`。这是存量的主流写法。
+- **Source 对象**：需要链接、页码、版本等结构化信息时用，如 `{"name": "中國古籍總目", "type": "url", "details": "http://…"}`。
+
+新写入的条目按需选用，不强求统一，存量也不迁移。读者端两种都要认：字符串当作 `name` 显示，对象按 Source 渲染。`check_v2.py` V16 只查 `sources` 不是数组、或元素既不是非空字符串也不是对象的情况。
+
+正式库 2026-10-07 实测（`description.sources` 的元素数）：
+
+| | 字符串 | 对象 |
+|---|---|---|
+| Work | 93,290 | 665 |
+| Book | 530 | 34 |
+| Collection | 35 | 23 |
+| Entity | 8 | 5,052 |
+
+草稿库：Book 字符串 9；Entity 对象 725；其余为 0。顶层 `sources[]`（Book 正式库 194、草稿库 71,410）一律是 Source 对象，不在此列。
 
 IndexEntry（`indexed_by`／`emendated_by` 共用）见〈二、Work〉的〈IndexEntry object type〉。
 

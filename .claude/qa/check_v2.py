@@ -20,6 +20,7 @@
   V13  relation 未識別（不在新詞表、亦非已知舊詞）    M2（「未識別形態」清單）
   V14  對稱 id 陣列（related_books／related_collections）之項不是字符串  M2
   V15  缺 schema_version，或其值不是整數 1（必填，SCHEMA〈字段表〉）   2026-10-07 起（overview#473）
+  V16  description.sources 不是陣列，或其元素既非字符串亦非物件（SCHEMA〈Description〉）   2026-10-07 起（overview#473）
 
 M0（打 tag）、M5（build）、M6（index/ 重生）不產生源檔殘留，故無代碼。
 
@@ -104,6 +105,7 @@ CODES = {
     "V13": ("relation 未識別", "M2"),
     "V14": ("對稱 id 陣列項非字符串", "M2"),
     "V15": ("缺 schema_version 或值非 1", "#473"),
+    "V16": ("description.sources 形狀", "#473"),
     # 專名子類型（#464）：第二欄＝所屬檢查族（無遷移步）
     "E1": ("專名：禁外部 id／翻譯欄位", "專名"),
     "D1": ("dynasty 規範名枚舉／唯一", "專名"),
@@ -219,6 +221,16 @@ def check_record(kind, rec):
     sv = rec.get("schema_version")
     if type(sv) is not int or sv != 1:
         out.append(("V15", "schema_version", "缺" if "schema_version" not in rec else repr(sv)))
+
+    desc = rec.get("description")
+    if isinstance(desc, dict) and "sources" in desc:
+        ss = desc["sources"]
+        if not isinstance(ss, list):
+            out.append(("V16", "description.sources", "非陣列：%s" % type(ss).__name__))
+        else:
+            for i, x in enumerate(ss):
+                if not (isinstance(x, str) and x.strip()) and not isinstance(x, dict):
+                    out.append(("V16", "description.sources[%d]" % i, repr(x)[:60]))
 
     return out
 

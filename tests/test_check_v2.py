@@ -135,6 +135,14 @@ def test_schema_version_required():
     assert raw(dict(book, schema_version=1)) == []
 
 
+def test_description_sources_shape():
+    # overview#473：元素可為字符串（出處簡述）或 Source 物件；其餘形狀報 V16
+    ok = dict(NEW_WORK, description={"text": "x", "sources": ["千頃堂書目", {"name": "中國古籍總目", "type": "url", "details": "u"}]})
+    assert codes("Work", ok) == []
+    assert codes("Work", dict(NEW_WORK, description={"text": "x", "sources": "千頃堂書目"})) == ["V16"]
+    assert codes("Work", dict(NEW_WORK, description={"text": "x", "sources": ["", 3, None]})) == ["V16", "V16", "V16"]
+
+
 def _write(root, rel, obj):
     p = root / rel
     p.parent.mkdir(parents=True, exist_ok=True)
