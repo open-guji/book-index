@@ -21,6 +21,7 @@ def p(root, typ, rid):
 def put(root, typ, d):
     f = p(root, typ, d['id'])
     os.makedirs(os.path.dirname(f), exist_ok=True)
+    d = d if "schema_version" in d else dict(d, schema_version=1)  # V15：記錄必填
     open(f, 'w', encoding='utf-8').write(json.dumps(d, ensure_ascii=False, indent=2) + '\n')
 
 

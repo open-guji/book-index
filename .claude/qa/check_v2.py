@@ -19,6 +19,7 @@
   V12  sidecar（Collection 目錄下非記錄之 .json）      M1⓪＋M6（M6 才刪表）
   V13  relation 未識別（不在新詞表、亦非已知舊詞）    M2（「未識別形態」清單）
   V14  對稱 id 陣列（related_books／related_collections）之項不是字符串  M2
+  V15  缺 schema_version，或其值不是整數 1（必填，SCHEMA〈字段表〉）   2026-10-07 起（overview#473）
 
 M0（打 tag）、M5（build）、M6（index/ 重生）不產生源檔殘留，故無代碼。
 
@@ -102,6 +103,7 @@ CODES = {
     "V12": ("sidecar 對照表", "M1⓪+M6"),
     "V13": ("relation 未識別", "M2"),
     "V14": ("對稱 id 陣列項非字符串", "M2"),
+    "V15": ("缺 schema_version 或值非 1", "#473"),
     # 專名子類型（#464）：第二欄＝所屬檢查族（無遷移步）
     "E1": ("專名：禁外部 id／翻譯欄位", "專名"),
     "D1": ("dynasty 規範名枚舉／唯一", "專名"),
@@ -213,6 +215,10 @@ def check_record(kind, rec):
 
     if kind == "Entity" and "works" in rec:
         out.append(("V11", "works", "%d 項" % len(rec["works"] or [])))
+
+    sv = rec.get("schema_version")
+    if type(sv) is not int or sv != 1:
+        out.append(("V15", "schema_version", "缺" if "schema_version" not in rec else repr(sv)))
 
     return out
 
