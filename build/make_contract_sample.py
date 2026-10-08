@@ -50,10 +50,20 @@ RULES = [
     ('Collection：成員混合（mixed）', lambda d: d['type'] == 'collection' and d.get('_member_type') == 'mixed', 1),
     ('Collection：有子叢編（_children）', lambda d: d['type'] == 'collection' and d.get('_children'), 1),
     ('Entity：普通人物（非樞紐）', lambda d: d['type'] == 'entity' and 0 < len(d.get('_works') or []) < 5, 2),
+    # 專名派生欄（F6-5b，契約 2）
+    ('Entity：人物，朝代歧義（_dynasty_candidates）', lambda d: d['type'] == 'entity' and d.get('_dynasty_candidates'), 1),
+    ('Entity：朝代，有上級與年號（_ancestors／_reigns）', lambda d: d.get('subtype') == 'dynasty' and d.get('_ancestors') and d.get('_reigns'), 1),
+    ('Entity：朝代，有子朝代（_children）', lambda d: d.get('subtype') == 'dynasty' and d.get('_children'), 1),
+    ('Entity：年號，有同名（_dynasty／_index_in_reign／_same_name）', lambda d: d.get('subtype') == 'reign' and d.get('_same_name'), 1),
+    ('Entity：官署，有下級或合稱成員（_subordinates／_members）', lambda d: d.get('collective_kind') == '官署' and (d.get('_subordinates') or d.get('_members')), 1),
 ]
 DRAFT_RULES = [
     ('草稿 Work：新格式，有 _classifications', lambda d: d['type'] == 'work' and d.get('_classifications'), 2),
     ('草稿 Book：work_id 指正式庫 Work', lambda d: d['type'] == 'book' and (d.get('_work') or {}).get('id', '').startswith('d59'), 2),
+    ('草稿 Entity：官職概念條，有各朝具體條（_children）', lambda d: d.get('subtype') == 'office' and d.get('_children'), 1),
+    ('草稿 Entity：官職，有複合條（_compounds）', lambda d: d.get('subtype') == 'office' and d.get('_compounds'), 1),
+    ('草稿 Entity：官署，有所屬官職（_offices）', lambda d: d.get('collective_kind') == '官署' and d.get('_offices'), 1),
+    ('草稿 Entity：地名，有下轄與跨度（_children／_span）', lambda d: d.get('subtype') == 'place' and d.get('_children'), 1),
 ]
 
 

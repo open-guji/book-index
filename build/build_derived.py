@@ -31,6 +31,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import v2common as V  # noqa: E402
+import names as N  # noqa: E402
 
 HUB = 200          # 被內聯引用超過此數者為樞紐：卡片只寫 id＋h:1，名稱進 _hubs.json（F4-2 §一 4）
 PAGE = 200         # 分頁大小（F2-3 §二 Collection）
@@ -39,6 +40,7 @@ SIBLINGS_MAX = 40  # Book._siblings 上限（F2-3 §二）
 HUB_CHECK_MAX = 6  # 改樞紐名，牽動產物檔數上限（F4-4：2～4 檔）
 
 DEFAULT_ROLE = '撰'
+CONTRACT = 2       # _build/ 契約版本：2＝F6-5b 加專名派生欄與 dynasty_reign_keys／office_keys（overview#458，純增量）
 
 
 # ---------- 小工具 ----------
@@ -135,6 +137,7 @@ class Build:
         self.dangling = collections.defaultdict(list)
         self.notes = collections.Counter()
         self._index()
+        self.names = N.Names(self.R['Entity'], self.promotions, self.card)   # 專名派生與鍵表（F6-5b）
 
     # ---------- 反查圖（一次掃描） ----------
     def kind_of(self, i):
@@ -443,6 +446,7 @@ class Build:
             ents.sort(key=lambda c: (c.get('section') or '', c['id']))
             cat_pages = [ents[i:i + PAGE] for i in range(0, len(ents), PAGE)]
             v['_member_catalog'] = {'total': len(ents), 'pages': len(cat_pages)}
+        v.update(self.names.dynasty_ref(first_dynasty(w)))   # `_dynasty_id`／`_dynasty_candidates`（F6-5b）
         if self.promotions.get(wid):
             v['promoted_to'] = self.promotions[wid]      # SCHEMA〈九〉：草稿記錄回填 promoted_to
         lineage = self.lineage_graph(wid, books)
@@ -563,6 +567,7 @@ class Build:
         ws.sort(key=lambda c: (str(c['cls'] if isinstance(c.get('cls'), str) else (c.get('cls') or [''])[0] or ''),
                                c.get('title') or '', c['work_id']))
         v['_works'] = ws
+        v.update(self.names.derive(eid, R['Entity'][eid]))
         return v, {}
 
     def strip(self, d, typ):
@@ -596,6 +601,8 @@ class Build:
             hubs[i] = clean({'t': t[0].lower(), 'title': x.get('title') or x.get('primary_name'),
                              'dyn': first_dynasty(x) if t == 'Work' else x.get('dynasty')}, keep=('t',))
         out['_hubs.json'] = hubs
+        if ids is None:
+            out.update(self.names.products())
         return out
 
 
@@ -1028,6 +1035,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
             src['legacy_reverse_fields']['Work.classification'] = n
     errs = self_checks(b, prods)
     report = {
+        'contract': CONTRACT,
         'root': os.path.basename(os.path.abspath(root)),
         'records': {t: len(recs[t]) for t in V.TYPES},
         'entries': sum(1 for k in prods if k.startswith('entry/')),
