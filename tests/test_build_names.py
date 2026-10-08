@@ -134,3 +134,48 @@ def test_promoted_draft_resolves_to_official(tmp_path):
     assert rg['_dynasty']['id'] == DY_NS and rg['_index_in_reign'] == 3      # 建隆、乾德之後
     assert all(c['id'] != old for c in P['dynasty_reign_keys.json']['keys']['北宋'])
     assert '_reigns' not in P[f'entry/{old}.json']
+
+
+def test_place_keys_sources_and_default(tmp_path):
+    root = str(tmp_path / 'repo')
+    pl = [
+        ent('e00000px01', 'place', '撫州府', history=[{'start': 1368, 'end': 1912, 'name': '撫州府', 'level': '府'}]),
+        ent('e00000px02', 'place', '臨川縣', history=[{'start': 589, 'end': 1912, 'name': '臨川縣', 'level': '縣',
+                                                   'parent_id': 'e00000px01'}]),
+        ent('e00000px03', 'place', '臨川府', history=[{'start': 1000, 'end': 1100, 'name': '臨川府', 'level': '府'}]),
+        ent('e00000px04', 'place', '紹興府', history=[{'start': 618, 'end': 1131, 'name': '越州', 'level': '州'},
+                                                   {'start': 1131, 'end': 1912, 'name': '紹興府', 'level': '府'}]),
+        ent('e00000px05', 'place', '淸江縣', history=[{'start': 1000, 'end': 1912, 'name': '淸江縣', 'level': '縣'}]),
+        ent('e00000px06', 'place', '建寧縣', history=[{'start': 900, 'end': 1912, 'name': '建寧縣', 'level': '縣'}]),
+        ent('e00000px07', 'place', '建寧州', history=[{'start': 900, 'end': 1912, 'name': '建寧州', 'level': '州'}]),
+    ]
+    for d in pl:
+        S.put(root, 'Entity', d)
+    _, P = build(root)
+    k = P['place_keys.json']['keys']
+    yz = k['越州']
+    assert yz[0]['via'] == '沿革' and yz[0]['segments'][0]['name_then'] == '越州'
+    lc = k['臨川']                               # 去通名：縣、府兩條同鍵
+    assert all(c['via'] == '去通名' for c in lc)
+    assert '清江縣' in k and k['清江縣'][0]['id'] == 'e00000px05'      # 淸→清 歸一
+    # default ②：臨川縣之上級鏈不含臨川府 → 不標
+    assert not any(c.get('default') for c in lc)
+    # default ①：鍵「臨川縣」只有一條，不標；鍵「撫州」只一條，不標
+    assert not any(c.get('default') for c in k['撫州'])
+    # default ③：建寧縣、建寧州無上下級 → 「建寧」不標
+    assert not any(c.get('default') for c in k['建寧'])
+    assert P['place_keys.json']['count']['place'] == 7
+
+
+def test_mark_default_rules():
+    import names
+    anc = {'x': {'y'}}
+    a = [{'id': 'x', 'via': '去通名', 'level': '縣'}, {'id': 'y', 'via': '去通名', 'level': '府'}]
+    names.mark_default(a, anc)
+    assert a[0].get('default') and not a[1].get('default')        # ② 其餘皆其上級
+    b = [{'id': 'x', 'via': 'primary_name', 'level': '府'}, {'id': 'y', 'via': '沿革', 'level': '縣'}]
+    names.mark_default(b, {})
+    assert b[0].get('default') and not b[1].get('default')        # ① 規範名命中優先
+    c = [{'id': 'x', 'via': '去通名', 'level': '縣'}, {'id': 'z', 'via': '去通名', 'level': '縣'}]
+    names.mark_default(c, {})
+    assert not any(x.get('default') for x in c)                   # 最低一級兩條 → 不標

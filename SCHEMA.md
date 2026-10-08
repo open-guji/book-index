@@ -1535,7 +1535,7 @@ classification/
 | Entity（官署，`collective_kind`＝官署） | `_children`、`_subordinates`、`_members`、`_offices` | 概念→具体（`parent_id` 反查）、下级（`superiors` 反查）、合称成员（`group_ids` 反查）、所属官职（`office.institution_ref` 反查） | —（同上） |
 | Entity（place） | `_children`、`_span` | 下辖（`history[].parent_id` 反查，卡片带下级的 start／end）；`{start, end}`＝各沿革段最小起年、最大讫年 | —（同上） |
 | Entity（people）／Work | `_dynasty_id`、`_dynasty_candidates` | 按 `dynasty` 名（Work 取 `dynasty`，缺则 `authors[]` 首个）查 `dynasty_reign_keys`：唯一且不歧义给 `_dynasty_id`，否则给候选 id 列表 | —（同上） |
-| 构建产物 | `_build/dynasty_reign_keys.json`、`_build/office_keys.json` | 匹配键表（`primary_name`＋`alt_names`，全稱除外，含异体归一形；带 `via`、`ambiguous`），供文本侧回挂；形状见 overview `专名建档/P4-升格/*-交接.md`。同一条在一个键下只出一次。草稿库 build（带 `--ref-root`）才是全量 | —（同上） |
+| 构建产物 | `_build/dynasty_reign_keys.json`、`_build/office_keys.json`、`_build/place_keys.json` | 匹配键表（`primary_name`＋`alt_names`，全稱除外，含异体归一形；带 `via`、`ambiguous`；地名另以沿革段当时名、去通名为键，候选带 `segments`、`default`），供文本侧回挂；形状见 overview `专名建档/P4-升格/*-交接.md`。同一条在一个键下只出一次。草稿库 build（带 `--ref-root`）才是全量 | —（同上） |
 | 草稿记录 | `promoted_to` | 由 `promotions.json` 回填（index 与产物里） | 手写 `_promoted_to`、`promoted_to` |
 
 字段的精确形状以 overview `F2-3-build与派生字段.md` 与 `F4-2-聚合产物字段表.md` 为准，本表只列名与来源。
