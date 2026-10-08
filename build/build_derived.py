@@ -40,7 +40,8 @@ SIBLINGS_MAX = 40  # Book._siblings 上限（F2-3 §二）
 HUB_CHECK_MAX = 6  # 改樞紐名，牽動產物檔數上限（F4-4：2～4 檔）
 
 DEFAULT_ROLE = '撰'
-CONTRACT = 2       # _build/ 契約版本：2＝F6-5b 加專名派生欄與 dynasty_reign_keys／office_keys（overview#458，純增量）
+CONTRACT = 3       # _build/ 契約版本：2＝F6-5b 加專名派生欄與 dynasty_reign_keys／office_keys（overview#458，純增量）；
+                   # 3＝Book／Collection 加 `_related`（related_books／related_collections 兩側並集，純增量）
 
 
 # ---------- 小工具 ----------
@@ -289,6 +290,16 @@ class Build:
             self.rel_view[s][(d, rel)] = ('out', note)
             inv = V.REVERSE_OF.get(rel, rel)
             self.rel_view[d].setdefault((s, inv), ('in', note))
+        # Book.related_books、Collection.related_books／related_collections：對稱關係只存 id 較小一側
+        #（SCHEMA〈一〉3），另一側由此補。值為 {對方 id: 'out'（本記錄存儲）／'in'（對方存儲）}。
+        self.sym_view = collections.defaultdict(dict)
+        for t in ('Book', 'Collection'):
+            for i, r in sorted(self.R[t].items()):
+                for f in ('related_books', 'related_collections'):
+                    for o in r.get(f) or []:
+                        if isinstance(o, str) and o != i and self.kind_of(o) in ('Book', 'Collection'):
+                            self.sym_view[i][o] = 'out'
+                            self.sym_view[o].setdefault(i, 'in')
 
     # ---------- 卡片（F4-2 §二） ----------
     def has(self, d, kind):
@@ -369,6 +380,15 @@ class Build:
         if t == 'Collection':
             return self.card(i, self.coll_card)
         return {'id': i}
+
+    def sym_related(self, i):
+        """Book／Collection 的 `_related`：對稱關係兩側並集，按 id 排序；卡片帶 `t` 與 `direction`。"""
+        out = []
+        for o, direction in sorted(self.sym_view.get(i, {}).items()):
+            t = self.kind_of(o)
+            base = self.book_card(o) if t == 'Book' else self.card(o, self.coll_card)
+            out.append(dict(base, t=t.lower(), relation='related', direction=direction))
+        return out
 
     # ---------- 各類產物 ----------
     def collections_of(self, d):
@@ -495,6 +515,8 @@ class Build:
                 v['_siblings_more'] = True
                 v['_siblings_total'] = len(sib)
         v['_collections'] = self.collections_of(b)
+        if self.sym_view.get(bid):
+            v['_related'] = self.sym_related(bid)
         refs = {}
         lin = b.get('lineage')
         if isinstance(lin, dict):
@@ -539,6 +561,8 @@ class Build:
             cards.append(card)
         cards.sort(key=lambda x: (x['t'], 'ord' not in x, x.get('ord', 0), x['id']))
         pages = [cards[i:i + PAGE] for i in range(0, len(cards), PAGE)]
+        if self.sym_view.get(cid):
+            v['_related'] = self.sym_related(cid)
         v['_members'] = cards[:MEMBER_HEAD]
         v['_member_count'] = len(cards)
         v['_member_pages'] = len(pages)

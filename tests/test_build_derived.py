@@ -213,3 +213,22 @@ def test_load_promotions_all_falls_back_to_ref_root(tmp_path):
     (draft / 'promotions.json').write_text(json.dumps({'promotions': {'d2': 'x2'}}), encoding='utf-8')
     assert BD.load_promotions_all(str(draft), [str(prod)]) == {'d1': 'p1', 'd2': 'x2'}
     assert BD.load_promotions_all(str(prod)) == {'d1': 'p1', 'd2': 'p2'}
+
+
+def test_book_collection_related_both_sides(repo, tmp_path):
+    # related_books／related_collections 只存 id 較小一側（SCHEMA〈一〉3）：兩側產物都要有 `_related`
+    for typ, rid, extra in (('Book', S.B1, {'related_books': [S.B3]}),
+                            ('Collection', S.C1, {'related_books': [S.B2]})):
+        d = S.read(repo, typ, rid)
+        d.update(extra)
+        S.put(repo, typ, d)
+    out = str(tmp_path / 'out')
+    r, _ = run(repo, out_dir=out)
+    assert r['fatal'] == []
+    b1, b3, b2, c1 = (entry(out, i) for i in (S.B1, S.B3, S.B2, S.C1))
+    assert [(c['id'], c['t'], c['direction']) for c in b1['_related']] == [(S.B3, 'book', 'out')]
+    assert [(c['id'], c['t'], c['direction']) for c in b3['_related']] == [(S.B1, 'book', 'in')]
+    assert b3['_related'][0]['title'] and b3['_related'][0]['relation'] == 'related'
+    assert [(c['id'], c['t'], c['direction']) for c in b2['_related']] == [(S.C1, 'collection', 'in')]
+    assert [(c['id'], c['t'], c['direction']) for c in c1['_related']] == [(S.B2, 'book', 'out')]
+    assert b1['related_books'] == [S.B3] and 'related_books' not in b3

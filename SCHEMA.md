@@ -1544,6 +1544,7 @@ classification/
 | Work／Book／Collection | `_has_image`（及 `_has_text`、`_has_collated`） | 由 `resources`、整理本 manifest 推；**`_has_text`／`_has_collated` 迁移期仍以源档旧值为准、暂留源档**（见〈十〉例外） | 手写 `_has_image`、旧 `has_text` 等 |
 | Work（志书） | `_member_catalog` | 指向 `_build/catalog/<id>/` | — |
 | Book | `_work`、`_siblings`、`_lineage_refs`、`_derived_by`、`_lineage_graph_ref` | 所属作品摘要、同作品其他版本、源流引用、谁以我为底本、版本图 | — |
+| Book／Collection | `_related` | `related_books`／`related_collections` 两侧并集（源档只存 id 较小一侧，另一侧由此补） | 手写在两侧 |
 | Collection | `_members`、`_member_pages`、`_member_count`、`_member_type`、`_children` | 成员（来自成员侧 `contained_in`）、计数、型别、子丛编 | `Collection.books`、`contained_works`、手写 `_member_*` |
 | Entity | `_works` | `[{work_id, role, title, …}]`，`role` 取 `Work.authors[].role` | `Entity.works` |
 | Entity（dynasty） | `_children`、`_ancestors`、`_reigns` | 子朝代、上级链（由近到远，≤3 层）、所属年号 `[{id, name, start, end, ruler, dynasty}]`（按 start） | —（F6-5b，`build/names.py`） |
@@ -2090,6 +2091,7 @@ python3 build/build_derived.py --root ../book-index-draft --ref-root . --out <�
 | Book | `_siblings` | 同作品其他版本的 Book 卡片，至多 40；超出时有 `_siblings_more:true`、`_siblings_total` |
 | Book | `_lineage_refs` | `{book_id: …}` 源流引用 |
 | Book | `_derived_by` | `{id, rel, title, edition?}`：以本书为底本者 |
+| Book、Collection | `_related` | 对称关系两侧并集，按 id 排序：Book 卡片或 `{id, title}`（Collection；枢纽为 `h:1`）＋`t`（`"book"`／`"collection"`）、`relation:"related"`、`direction`（`"out"` 本条存储／`"in"` 对方存储）；无关联时缺（契约 3） |
 | Collection | `_members`、`_member_pages`、`_member_count`、`_member_type`（`"Work"`／`"Book"`／`"mixed"`，无成员时缺）、`_children`（子丛编 `{id, title}`） | 见上 |
 | Entity | `_works` | `{work_id, role, title, au?, dyn?, cls?, juan?, img?, txt?, nb?}` |
 | 草稿记录 | `promoted_to` | 正式 id（由 `promotions.json` 回填） |
@@ -2135,3 +2137,4 @@ python3 build/build_derived.py --root ../book-index-draft --ref-root . --out <�
 | 11 | S1 留下的候选分类（19 条冲突＋3,785 条撤回）进不进成员行 `status` 候选层 | 本轮只留格式口子，不做 | 用户（默认不做） |
 | 12 | `Collection.related_collections` 旧对象形里非空的 `type`／`note`（M2 报告列出） | 目录总管 10-07：逐条看后定放处 | 目录总管 |
 | 13 | ~~专名子类型的 build 派生字段与 `dynasty_reign_keys.json`~~ | **已实现（F6-5b，2026-10-07）**：`build/names.py`；`_build/report.json` 的 `contract` 由 1 升为 2（纯增量，#458 已通知） | 目录总管 |
+| 14 | ~~Book／Collection 对称关系的另一侧~~ | **已实现（2026-10-08）**：Book、Collection 产物加 `_related`，`contract` 由 2 升为 3（纯增量，#458 道 H 提出） | 目录总管 |

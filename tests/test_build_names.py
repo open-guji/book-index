@@ -66,7 +66,7 @@ def build(root, **kw):
 
 def test_dynasty_reign_fields(tmp_path):
     r, P = build(make(str(tmp_path / 'repo')))
-    assert r['fatal'] == [] and r['contract'] == 2
+    assert r['fatal'] == [] and r['contract'] == BD.CONTRACT
     ns = P[f'entry/{DY_NS}.json']
     assert ns['_ancestors'] == [{'id': DY_SONG, 'name': '趙宋', 'start': 960, 'end': 1279}]
     assert [x['id'] for x in ns['_reigns']] == [R_A, R_B]
