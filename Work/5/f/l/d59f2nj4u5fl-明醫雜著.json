@@ -51,6 +51,91 @@
       "type": "image",
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:SSID-12656603_%E6%98%8E%E9%86%AB%E9%9B%9C%E8%91%97.pdf"
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100419497",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100419497",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100419497",
+        "edition": "刊 正保２",
+        "holder": "二松学舎大東アジア研",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100419497/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200011944",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200011944",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200011944",
+        "edition": "刊 正保２",
+        "holder": "国文研",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200011944/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100317320",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100317320",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100317320",
+        "edition": "刊 元和３",
+        "holder": "京大富士川",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00003418/manifest.json"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100316748",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100316748",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100316748",
+        "edition": "刊 承応３",
+        "holder": "京大富士川",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00005348/manifest.json"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300096880",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300096880",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300096880",
+        "edition": "刊",
+        "holder": "府中之島図石崎",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300096880/manifest"
+      }
     }
   ],
   "ai_note": "從 1evkalxzbfy0w 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967da97uuit`.dynasty「明」propagate 補齊；work.dynasty 同步。",
@@ -63,5 +148,22 @@
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
   "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revised_at": "2026-09-07",
+  "resource_groups": {
+    "kokusho-100419497": {
+      "label": "國書·二松学舎大東アジア研藏刊 正保２"
+    },
+    "kokusho-200011944": {
+      "label": "國書·国文研藏刊 正保２"
+    },
+    "kokusho-100317320": {
+      "label": "國書·京大富士川藏刊 元和３"
+    },
+    "kokusho-100316748": {
+      "label": "國書·京大富士川藏刊 承応３"
+    },
+    "kokusho-300096880": {
+      "label": "國書·府中之島図石崎藏刊"
+    }
+  }
 }

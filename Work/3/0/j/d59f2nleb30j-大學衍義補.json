@@ -80,6 +80,91 @@
       "type": "text",
       "id": "wikisource",
       "url": "https://zh.wikisource.org/wiki/%E5%A4%A7%E5%AD%B8%E8%A1%8D%E7%BE%A9%E8%A3%9C"
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100141680",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100141680",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100141680",
+        "edition": "刊",
+        "holder": "南丹市博小出（園部町旧蔵）",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100141680/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100277881",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100277881",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100277881",
+        "edition": "写",
+        "holder": "高知城歴博山内文庫",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100277881/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100419421",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100419421",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100419421",
+        "edition": "刊",
+        "holder": "二松学舎大東アジア研",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100419421/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200043875",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200043875",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200043875",
+        "edition": "刊",
+        "holder": "国文研川瀬（特コレ）",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200043875/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300097787",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300097787",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300097787",
+        "edition": "刊",
+        "holder": "府中之島図石崎",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300097787/manifest"
+      }
     }
   ],
   "measures": [
@@ -115,5 +200,22 @@
       "rule": "I-撰人名異體字致查重失效之重出（題全同而撰人之生值相異）",
       "why": "《大學衍義補》**題逐字全同，而撰人之名止異體之異**：['邱濬'] 對 ['丘濬']。keeper 繫 欽定四庫全書總目／國史經籍志／書目答問；被併者繫 經義考。**scan 之 I 檢組鍵取 authors 之生值**，故撰人寫法一異即分作二組，同書遂不相見（scan.py 之 VARIANTS 表雖用於 F 檢之人名，I 檢之組鍵卻不用）。依坑 51 抽十二組逐條讀，假陽性 0——其最自明者為《字林音義》：**補宋書藝文志自己的兩節，一作「吴恭」一作「吳恭」**，同一部志裡同一個人的兩種寫法。　二者各繫不同 entity（hixhd2h9be7k），是 **entity 一人二目**——與坑 60 之「名同而人異」方向相反而同源：字形之異使同一人在庫中立了兩目。書當併而人之併屬 A 道，故撤其項而不改指。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "kokusho-100141680": {
+      "label": "國書·南丹市博小出（園部町旧蔵）藏刊"
+    },
+    "kokusho-100277881": {
+      "label": "國書·高知城歴博山内文庫藏写"
+    },
+    "kokusho-100419421": {
+      "label": "國書·二松学舎大東アジア研藏刊"
+    },
+    "kokusho-200043875": {
+      "label": "國書·国文研川瀬（特コレ）藏刊"
+    },
+    "kokusho-300097787": {
+      "label": "國書·府中之島図石崎藏刊"
+    }
+  }
 }
