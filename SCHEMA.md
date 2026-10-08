@@ -26,7 +26,7 @@
 | 10 | **revision 只管「作品是什么」的陈述** | 派生字段、分类归属、反向链变化不 bump `revision`；迁移脚本一律不改 `revision`／`revised_at`。见〈十、记录之共通字段〉。 |
 
 **校验**：
-- `.claude/qa/check_v2.py`：查源档里的旧格式残留（V01–V14，及专名子类型 E1／D／R／A／O／P 系列，代码表见脚本头注释与〈专名子类型〉），只读、可 `--paths` 只查 PR 改动的文件。审数据 PR 时必跑：`git diff --name-only origin/main... | python3 .claude/qa/check_v2.py --paths -`，退出码非 0 即有残留。迁移（M1–M4）完成前，存量会大量报出，这是预期。
+- `.claude/qa/check_v2.py`：查源档里的旧格式残留（V01–V15，及专名子类型 E1／D／R／A／O／P 系列，代码表见脚本头注释与〈专名子类型〉），只读、可 `--paths` 只查 PR 改动的文件。审数据 PR 时必跑：`git diff --name-only origin/main... | python3 .claude/qa/check_v2.py --paths -`，退出码非 0 即有残留。迁移（M1–M4）完成前，存量会大量报出，这是预期。
 - `.claude/qa/verify.py`：字段形状、悬空引用、词表等（旧校验，迁移完成后改为调用 build 自校验，F2-7 §九 B8）。
 
 ---
@@ -63,7 +63,7 @@
 |---|---|---|---|---|
 | `id` | 本档 | 正式库 12 字符、草稿库 13 字符 base36（见〈十一、ID〉） | ✔ | `"1evl7l48e27ls"` |
 | `type` | 本档 | 恒为 `"work"` | ✔ | `"work"` |
-| `schema_version` | 本档 | 整数，主记录现为 `1` | ✔ | `1` |
+| `schema_version` | 本档 | 整数，主记录现为 `1`；Work／Book／Collection／Entity 一律必填，缺或非 `1` 即 `check_v2.py` V15（2026-10-07，overview#473；升格时 bim 自动补） | ✔ | `1` |
 | `title` | 本档 | 规范题名，繁体 | ✔ | `"周易"` |
 | `subtype` | 本档 | `book`（默认，可省）｜`article`｜`poem`｜`chapter`，见〈Subtype〉 | | `"chapter"` |
 | `additional_titles` | 本档 | 同书异名，字符串数组 | | `["春秋左氏傳"]` |

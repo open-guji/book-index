@@ -14,7 +14,7 @@ CANON = {"趙宋", "北宋", "南宋", "唐", "東周", "戰國", "先秦", "春
 
 
 def dyn(i, name, start=None, end=None, **kw):
-    r = {"id": i, "type": "entity", "subtype": "dynasty", "primary_name": name}
+    r = {"id": i, "type": "entity", "schema_version": 1, "subtype": "dynasty", "primary_name": name}
     if start is not None:
         r["dates"] = {"start": start, "end": end, "basis": "x"}
     r.update(kw)
@@ -22,14 +22,14 @@ def dyn(i, name, start=None, end=None, **kw):
 
 
 def reign(i, name, did, start, end, **kw):
-    r = {"id": i, "type": "entity", "subtype": "reign", "primary_name": name, "dynasty_id": did,
+    r = {"id": i, "type": "entity", "schema_version": 1, "subtype": "reign", "primary_name": name, "dynasty_id": did,
          "ruler": {"name": "某"}, "dates": {"start": start, "end": end, "basis": "x"}}
     r.update(kw)
     return r
 
 
 def office(i, **kw):
-    r = {"id": i, "type": "entity", "subtype": "office", "primary_name": "知縣", "office_level": "concept"}
+    r = {"id": i, "type": "entity", "schema_version": 1, "subtype": "office", "primary_name": "知縣", "office_level": "concept"}
     r.update(kw)
     return r
 
@@ -39,14 +39,14 @@ def conc(i, dids, **kw):
 
 
 def place(i, **kw):
-    r = {"id": i, "type": "entity", "subtype": "place", "primary_name": "紹興",
+    r = {"id": i, "type": "entity", "schema_version": 1, "subtype": "place", "primary_name": "紹興",
          "history": [{"start": 1131, "end": 1276, "dynasty_ids": ["s"], "name": "紹興府", "level": "府"}]}
     r.update(kw)
     return r
 
 
 def people(i):
-    return {"id": i, "type": "entity", "subtype": "people", "primary_name": "蘇軾"}
+    return {"id": i, "type": "entity", "schema_version": 1, "subtype": "people", "primary_name": "蘇軾"}
 
 
 def reg_of(*recs):
@@ -364,7 +364,7 @@ def test_people_unaffected(tmp_path):
 
 # ---- 官署（collective_kind=官署，I01–I12；P3c 設計稿 §十二）
 def inst(i, lvl, **kw):
-    r = {"id": i, "type": "entity", "subtype": "collective", "collective_kind": "官署",
+    r = {"id": i, "type": "entity", "schema_version": 1, "subtype": "collective", "collective_kind": "官署",
          "primary_name": "吏部", "institution_level": lvl}
     if lvl in ("concept", "group"):
         r["description"] = "x"
