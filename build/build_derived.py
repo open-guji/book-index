@@ -817,12 +817,9 @@ def load_classification(root):
 
 
 def load_promotions(root):
-    p = os.path.join(root, 'promotions.json')
-    if not os.path.exists(p):
-        return {}
-    d = json.load(open(p, encoding='utf-8'))
+    """`{草稿id: 正式id}`；整檔、分片（`promotions/`）兩種形狀都認（V.read_promotions_raw）。"""
     out = {}
-    for k, v in (d.get('promotions') or {}).items():
+    for k, v in V.read_promotions_raw(root).items():
         out[k] = v if isinstance(v, str) else (v.get('production_id') or v.get('to') or v.get('official_id') or v.get('id')) if isinstance(v, dict) else None
     return {k: v for k, v in out.items() if v}
 

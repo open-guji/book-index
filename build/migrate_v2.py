@@ -121,11 +121,8 @@ class Repo:
 
 
 def load_promotions(root):
-    p = os.path.join(root, 'promotions.json')
-    if not os.path.exists(p):
-        return {}
     out = {}
-    for k, v in (json.load(open(p, encoding='utf-8')).get('promotions') or {}).items():
+    for k, v in V.read_promotions_raw(root).items():
         out[k] = v if isinstance(v, str) else (v.get('to') or v.get('official_id') or v.get('id')) if isinstance(v, dict) else None
     return out
 
