@@ -8,6 +8,9 @@
     {
       "name": "雷伯",
       "type": "字"
+    },
+    {
+      "name": "沈應元"
     }
   ],
   "dynasty": "元",
@@ -23,6 +26,16 @@
   "native_place": "揚州路",
   "native_place_basis": "CBDB 103774 index_addr（2026-09-06 CBDB enrich）",
   "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=103774 補入空槽——籍貫「揚州路」。既有之值一概未動。",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-07",
+  "merged_in": [
+    {
+      "id": "hixho5puw1jz",
+      "primary_name": "雷伯",
+      "at": "2026-10-08",
+      "by": "D4-Entity清账",
+      "rule": "keeper: cbdb>朝代生卒>作品数>较早id",
+      "why": "P4b 疑似重复人物硬判重：同 cbdb_id，且名字互为别名；同cbdb_id；一方主名是另一方cbdb人物的名／别名；主名在对方登记别名里；一方现无作品"
+    }
+  ]
 }
