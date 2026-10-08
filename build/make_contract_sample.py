@@ -46,6 +46,9 @@ RULES = [
     ('Book：被別本用作底本（_derived_by）', lambda d: d['type'] == 'book' and d.get('_derived_by'), 1),
     ('Book：在叢編裡（_collections 帶 vol／sub）', lambda d: d['type'] == 'book' and any('sub' in c for c in d.get('_collections') or []), 1),
     ('Book：有影像（_has_image）', lambda d: d['type'] == 'book' and d.get('_has_image') and not d.get('_collections'), 1),
+    # 對稱關係另一側（契約 3）
+    ('Book：_related 含 in（related_books 存在對方，id 較大一側）', lambda d: d['type'] == 'book' and any(c.get('direction') == 'in' for c in d.get('_related') or []), 1),
+    ('Collection：有 _related（related_books／related_collections）', lambda d: d['type'] == 'collection' and d.get('_related'), 1),
     ('Collection：合集（成員是 Work）', lambda d: d['type'] == 'collection' and d.get('_member_type') == 'Work', 1),
     ('Collection：成員混合（mixed）', lambda d: d['type'] == 'collection' and d.get('_member_type') == 'mixed', 1),
     ('Collection：有子叢編（_children）', lambda d: d['type'] == 'collection' and d.get('_children'), 1),
