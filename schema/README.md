@@ -145,7 +145,7 @@ open(p, 'w', encoding='utf-8').write(
 
 审数据 PR 时 `check_v2.py` 必跑；`check_schema.py` 宜跑（`--paths` 只查改动的文件），ERROR 须为 0，WARN 是已知旧写法（见 [legacy.md](legacy.md)）。
 
-`check_schema.py` 只用标准库，自带 2020-12 的一个子集校验器，另认两个扩展关键字：`x-legacy: true`（旧字段或旧写法，报 WARN）、`x-legacy-values`（枚举外的已知旧值，报 WARN）。跨记录的检查（引用存在、无环、唯一、规范名逐值比对）不在 JSON Schema 里，由 `check_v2.py`、`verify.py`、build 自校验做。标准 JSON Schema 校验器（如 Python `jsonschema`）也能读这些文件，但会忽略两个扩展关键字。
+`check_schema.py` 只用标准库，自带 2020-12 的一个子集校验器，另认两个扩展关键字：`x-legacy: true`（旧字段或旧写法，报 WARN）、`x-legacy-values`（枚举外的已知旧值，报 WARN）。`x-legacy` 写成 `"keep"` 表示旧写法但定为长期保留（如 `indexed_by[]` 的志书证据层），报 INFO（code `legacy-keep`），不计入 WARN；汇总行为 `ERROR n　WARN n　INFO n`。跨记录的检查（引用存在、无环、唯一、规范名逐值比对）不在 JSON Schema 里，由 `check_v2.py`、`verify.py`、build 自校验做。标准 JSON Schema 校验器（如 Python `jsonschema`）也能读这些文件，但会忽略两个扩展关键字。
 
 ---
 

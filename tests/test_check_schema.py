@@ -93,3 +93,16 @@ def test_build_checks_record_schema(tmp_path):
     code, out = run("--build", str(tmp_path))
     assert code == 1
     assert "title" in out
+
+
+# x-legacy: "keep" 报 INFO（legacy-keep），不计入 WARN；x-legacy: true 仍报 WARN
+def test_legacy_keep_is_info():
+    v = check_schema.Validator(check_schema.JSON_DIR)
+    out = []
+    v.validate({"a": 1, "b": 2}, {"type": "object", "properties": {"a": {"x-legacy": "keep"}, "b": {"x-legacy": True}}},
+               "common.schema.json", "", out)
+    assert sorted((lv, code, path) for lv, code, path, _ in out) == [("INFO", "legacy-keep", "a"), ("WARN", "legacy", "b")]
+    out = []
+    v.validate({"text": "原文"}, {"$ref": "common.schema.json#/$defs/IndexEntry"}, "common.schema.json", "", out)
+    assert ("INFO", "legacy-keep", "text") in [(lv, code, path) for lv, code, path, _ in out]
+    assert not [x for x in out if x[0] == "WARN" and x[2] == "text"]
