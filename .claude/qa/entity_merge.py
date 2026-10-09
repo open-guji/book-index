@@ -184,23 +184,29 @@ def merge(loser_id: str, keeper_id: str, *, reason: str, rule: str = '',
     summary['filled_external_ids'] = filled_ext
 
     # merged_in 记录（仿 Work.merged_in 先例）——链式并条一并搬过去
-    chained = loser.get('merged_in') or []
+    # 幂等：上次中途失败（keeper 已写、墓碑未写）后重跑，不重复记账
+    have = {m.get('id') for m in (keeper.get('merged_in') or []) if isinstance(m, dict)}
+    chained = [r for r in (loser.get('merged_in') or []) if not (isinstance(r, dict) and r.get('id') in have)]
     for rec in chained:
         keeper.setdefault('merged_in', []).append(rec)
+        have.add(rec.get('id') if isinstance(rec, dict) else None)
     summary['chained_merged_in'] = len(chained)
-    keeper.setdefault('merged_in', []).append({
-        'id': loser_id,
-        'primary_name': loser.get('primary_name'),
-        'at': date,
-        'by': by,
-        'rule': rule,
-        'why': reason,
-    })
+    if loser_id not in have:
+        keeper.setdefault('merged_in', []).append({
+            'id': loser_id,
+            'primary_name': loser.get('primary_name'),
+            'at': date,
+            'by': by,
+            'rule': rule,
+            'why': reason,
+        })
 
     summary['dry'] = dry
     if dry:
         return summary
 
+    # 落盘顺序：改繫的 Work → keeper → loser 墓碑。各档原子写（jio.save）；中途失败可原样重跑补完
+    # （改繫已完成的不会再命中，keeper.merged_in 去重，最后写墓碑）。
     # 落盘：Work 改繫
     for rel, d, fmt in refs:
         for a in (d.get('authors') or []):

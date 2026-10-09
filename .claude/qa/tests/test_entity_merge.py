@@ -15,6 +15,7 @@ Entity，一部 Work 指着 loser），跑一次真的 merge()，核三件事：
 真跑，不 skip；断言失败就是 AssertionError，退出码非 0。
 """
 from __future__ import annotations
+import glob
 import json
 import os
 import shutil
@@ -155,3 +156,50 @@ if __name__ == '__main__':
 
 def test_entity_merge_v2():
     run()
+
+
+def run_resume() -> None:
+    """中途失败（keeper 已写、写墓碑时崩）后原样重跑：补完墓碑，keeper.merged_in 不重复，无截断档。"""
+    tmp = tempfile.mkdtemp(prefix='entity_merge_resume_')
+    try:
+        keeper_id, loser_id, work_id = 'zzzkeeper05', 'zzzloser006', 'zzzwork0007'
+        keeper_rel = f'Entity/{_shard(keeper_id)}/{keeper_id}-测试正主.json'
+        loser_rel = f'Entity/{_shard(loser_id)}/{loser_id}-测试异写.json'
+        work_rel = f'Work/{_shard(work_id)}/{work_id}-测试書.json'
+        _write(tmp, keeper_rel, {'id': keeper_id, 'type': 'entity', 'subtype': 'people', 'primary_name': '測試正主'})
+        _write(tmp, loser_rel, {'id': loser_id, 'type': 'entity', 'subtype': 'people', 'primary_name': '測試異寫'})
+        _write(tmp, work_rel, {'id': work_id, 'type': 'work', 'title': '測試書',
+                               'authors': [{'name': '測試異寫', 'role': '撰', 'entity_id': loser_id}]})
+        import jio
+        import entity_merge
+        old_root, old_save = jio.ROOT, jio.save
+        jio.ROOT = tmp
+
+        def crash_on_loser(rel, d, fmt):
+            if rel == loser_rel:
+                raise OSError('模拟写墓碑时崩溃')
+            return old_save(rel, d, fmt)
+        try:
+            jio.save = crash_on_loser
+            try:
+                entity_merge.merge(loser_id, keeper_id, reason='r', rule='t', date='2026-10-09')
+                raise AssertionError('应在写墓碑时失败')
+            except OSError:
+                pass
+            jio.save = old_save
+            entity_merge.merge(loser_id, keeper_id, reason='r', rule='t', date='2026-10-09')
+        finally:
+            jio.ROOT, jio.save = old_root, old_save
+        with open(os.path.join(tmp, keeper_rel), encoding='utf-8') as f:
+            k = json.load(f)
+        assert [m['id'] for m in k['merged_in']] == [loser_id], f'重跑不该重复记账：{k["merged_in"]}'
+        with open(os.path.join(tmp, loser_rel), encoding='utf-8') as f:
+            assert json.load(f).get('merged_into') == keeper_id
+        assert not [p for p in glob.glob(os.path.join(tmp, '**', '*.tmp'), recursive=True)], '不应残留临时档'
+        print('OK：中途失败后重跑补完墓碑、merged_in 不重复、无残留临时档')
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def test_entity_merge_resume():
+    run_resume()
