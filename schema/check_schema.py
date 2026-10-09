@@ -417,7 +417,7 @@ def main():
     ap.add_argument("--paths", help="只查这些文件；'-' 从标准输入读（每行一个相对路径）")
     ap.add_argument("--json", help="另写机器可读报告到此路径")
     ap.add_argument("--examples", type=int, default=3, help="每类问题列几个例子")
-    ap.add_argument("--quiet-warn", action="store_true", help="不打印 WARN 明细")
+    ap.add_argument("--quiet-warn", action="store_true", help="不打印 WARN 与 INFO 明细")
     ap.add_argument("--build", metavar="DIR",
                     help="改为校验 build 产物（build_derived.py 的 --out 目录）：entry/ 与 index/")
     a = ap.parse_args()
