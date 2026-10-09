@@ -432,7 +432,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 | `era` | 可选 | `dating.era` | 非空字符串 |
 | `sort_year` | 可选 | `dating.year`、`dating.year_range` | **先取 `year`**（整数，非布尔），否则 `year_range` 是两项数组且首项是整数时取首项（与卡片 `y` 的先后相反，见〈十二〉第 2 条） |
 | `holder` | 可选 | `current_location` | 是对象取 `name`（不看 `text`）；是字符串取本身 |
-| `dynasty` | 可选 | `authors[0].dynasty`、`dynasty` | **第 1 位作者的 `dynasty` 优先**，没有再取顶层 `dynasty`（与卡片 `dyn` 的先后相反，见〈十二〉第 1 条） |
+| `dynasty` | 可选 | `authors[].dynasty`、`dynasty` | **撰人朝代**：`authors[]` 中**第一个**有非空 `dynasty` 的作者的值（不限第 1 位），没有再取顶层 `dynasty`。与卡片 `dyn`（成书朝代，顶层优先）语义不同，不统一，见〈十二〉第 1 条 |
 | `role` | 可选 | `authors[0].role` | |
 | `juan_count` | 可选 | `juan_count` | 对象取 `.number`，数字取整；0 不出 |
 | `measure_info` | 可选 | `measure_info` | 真值原样 |
@@ -546,7 +546,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 
 | # | 现状 | 影响 |
 |---|---|---|
-| 1 | **朝代取法不一**：`index/` 的 `dynasty` 取 `authors[0].dynasty` 优先、再顶层 `dynasty`；卡片 `dyn`、`_hubs.json` 的 `dyn`、Work 的 `_dynasty_id` 取顶层 `dynasty` 优先、再第一个有朝代的作者（不限第 1 位） | 顶层与作者朝代不同的 Work，搜索列表与页面显示的朝代不同 |
+| 1 | **朝代：两个字段，有意不同**（overview#496 §六-1，目录经理 10-09 定）：`index/` 的 `dynasty` 是**撰人朝代**（第一个有朝代的作者优先，再顶层）；卡片 `dyn`、`_hubs.json` 的 `dyn`、Work 的 `_dynasty_id` 是**成书朝代**（顶层 `dynasty` 优先，再第一个有朝代的作者）。正式库 10-09 实测 216 部 Work 两者不同：多为作者朝代更细（元末明初／明）或成书与撰人本异（今本竹書紀年 南朝梁／明），故不统一。bim `entry_extractor`、ui `storage.ts` 同此取法 | 搜索列表显示撰人朝代，页面显示成书朝代；读者勿当作同一字段 |
 | 2 | **年份取法不一**：`index/` 的 `sort_year` 取 `dating.year` 优先、再 `year_range[0]`（且要求 `year_range` 恰两项）；卡片 `y` 与 `_books`／`_siblings` 排序取 `year_range[0]` 优先、再 `year` | 两者都有的 Book，列表排序年与卡片年不同 |
 | 3 | **有无全文／影像取法不一**：`index/` 的 `has_text`／`has_image` 只看本条 `resources`（认旧 `type:"text+image"`），不看源档 `_has_text`，Work 也不并其 Book；entry 的 `_has_text`／`_has_image` 与卡片 `txt`／`img` 看源档旧值、Work 并其 Book，但旧单值 `type` 只按原值比，`"text+image"` 不算 `text` 也不算 `image`。正式库 10-09：Work 条目 `has_text` 11,511 vs `_has_text` 12,003；`has_image` 18,926 vs `_has_image` 20,540 | 搜索筛「有全文」与页面徽标不一致 |
 | 4 | **`promoted_to` 范围不一**：entry 里只有 Work、Book 出 `promoted_to`；`index/` 四类都出 | 已升格草稿 Collection（目前草稿库无 Collection）、Entity 的页面拿不到正式 id，要读 `index/` |
