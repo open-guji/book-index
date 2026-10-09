@@ -3,7 +3,7 @@
 check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
 
 依據：overview `項目進展/古籍目錄/整體設計/專名建檔/給S-字段清單.md` §四，及 D／O／P 設計檔；
-字段形狀見 SCHEMA.md §六〈專名子類型〉。overview#464（F6-5）。
+字段形狀見 schema/entity.md。overview#464（F6-5）。
 
 碼與級別（沿用清單）：
   E1   四子類型不許有 cbdb_*／chgis_id／dila_*／translation／c_office_trans／cbdb_alt_names，
@@ -97,31 +97,33 @@ def nonempty_str(v):
 
 
 def load_canonical_dynasties(schema_path=None):
-    """讀 SCHEMA.md〈規範朝代名完整枚舉〉表之首列（本腳本所在倉之 SCHEMA，非 --root 之倉）。
-    D1 之『枚舉』只此一份手寫；條目化後改由 build 生成，屆時換掉本函數即可。"""
+    """讀 schema/common.md〈规范朝代名全表〉與〈域外朝代〉兩表之首列（本腳本所在倉之 schema，非 --root 之倉）。
+    D1 之枚舉只此一份：權威在 schema/common.md（overview#496）。讀不到或解析為空即拋 RuntimeError——
+    不再靜默跳過 D1（吻合度報告 §六-14）。"""
     if schema_path is None:
-        schema_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "SCHEMA.md")
+        schema_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "schema", "common.md")
     try:
         txt = open(schema_path, encoding="utf-8").read()
-    except OSError:
-        return None
-    a = txt.find("**規範朝代名完整枚舉**")
-    b = txt.find("**域外朝代**", a)
-    if a < 0 or b < 0:
-        return None
-    names = set()
-    for ln in txt[a:b].splitlines():
-        if ln.startswith("|") and not ln.startswith("|--") and "規範名" not in ln:
+    except OSError as e:
+        raise RuntimeError("D1 讀不到朝代規範名表：%s（%s）" % (schema_path, e))
+
+    def table(head, nxt):
+        a = txt.find(head)
+        b = txt.find(nxt, a + len(head)) if a >= 0 else -1
+        if a < 0 or b < 0:
+            raise RuntimeError("D1 在 %s 找不到表〈%s〉" % (schema_path, head.strip("# ")))
+        names = set()
+        for ln in txt[a:b].splitlines():
+            if not ln.startswith("|") or ln.startswith("|-"):
+                continue
             cell = ln.split("|")[1].strip()
-            if cell:
+            if cell and cell != "规范名":
                 names.add(cell)
-    # 域外朝代表亦屬規範名（日本、江戶時代、朝鮮、新羅、高麗…）
-    c = txt.find("\n\n", b + 20)
-    for ln in txt[b:txt.find("**需拆分的歧義朝代**", b)].splitlines():
-        if ln.startswith("|") and not ln.startswith("|--") and "規範名" not in ln:
-            cell = ln.split("|")[1].strip()
-            if cell:
-                names.add(cell)
+        return names
+
+    names = table("#### 规范朝代名全表", "#### 域外朝代") | table("#### 域外朝代", "#### 需拆分的歧义朝代")
+    if not names:
+        raise RuntimeError("D1 朝代規範名表解析為空：%s" % schema_path)
     return names
 
 
@@ -688,7 +690,7 @@ def check_record(rec, reg):
 
 def check_global(reg, canonical=None):
     """跨條目之檢查。回 [(id, code, level, field, detail)]。
-    canonical：規範朝代名集合（None 則讀本倉 SCHEMA；讀不到則跳過 D1 枚舉比對）。"""
+    canonical：規範朝代名集合（None 則讀本倉 schema/common.md；讀不到即報錯）。"""
     out = []
     if canonical is None:
         canonical = load_canonical_dynasties()
