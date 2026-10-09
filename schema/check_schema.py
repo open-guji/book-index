@@ -7,6 +7,7 @@ prefixItems、minItems、maxItems、minLength、pattern、minimum、maximum、$r
 anyOf、oneOf、not、if／then／else；const、enum 按 JSON 语义比较，布尔与数字不相等）。另认两个本库扩展关键字：
 
   x-legacy: true           旧字段或旧写法（暂留）：实例落在这个子 schema 上时报 WARN，不报 ERROR
+  x-legacy: "keep"         旧写法但定为长期保留（如志书证据层）：报 INFO（code legacy-keep），不计入 WARN
   x-legacy-values: [...]   enum 之外、但属已知旧写法的值：出现时报 WARN
 
 用法：
@@ -63,7 +64,9 @@ class Validator:
             out.append(("ERROR", "false", path, "不允许出现"))
             return False
         ok = True
-        if schema.get("x-legacy"):
+        if schema.get("x-legacy") == "keep":
+            out.append(("INFO", "legacy-keep", path, "旧写法，长期保留不删（见 legacy.md）"))
+        elif schema.get("x-legacy"):
             out.append(("WARN", "legacy", path, "旧字段或旧写法（暂留，见 legacy.md）"))
         if "$ref" in schema:
             sub, fbase = self.resolve(schema["$ref"], base)
@@ -328,17 +331,18 @@ def emit_report(tally, examples, recs, a, label):
     """--build 的汇总输出，格式同记录校验。"""
     errors = sum(n for (lv, *_), n in tally.items() if lv == "ERROR")
     warns = sum(n for (lv, *_), n in tally.items() if lv == "WARN")
+    infos = sum(n for (lv, *_), n in tally.items() if lv == "INFO")
     print(f"{label}：{dict(recs)}")
-    print(f"ERROR {errors}　WARN {warns}")
-    for key, n in sorted(tally.items(), key=lambda kv: (kv[0][0] != "ERROR", -kv[1])):
+    print(f"ERROR {errors}　WARN {warns}　INFO {infos}")
+    for key, n in sorted(tally.items(), key=lambda kv: ({"ERROR": 0, "WARN": 1}.get(kv[0][0], 2), -kv[1])):
         level, code, path, kind = key
-        if level == "WARN" and a.quiet_warn:
+        if level in ("WARN", "INFO") and a.quiet_warn:
             continue
         print(f"{level:5} {n:>8}  {kind:10} {code:20} {path}")
         for ex in examples[key]:
             print(f"{'':16}例：{ex}")
     if a.json:
-        rep = {"records": dict(recs), "errors": errors, "warns": warns,
+        rep = {"records": dict(recs), "errors": errors, "warns": warns, "infos": infos,
                "items": [{"level": k[0], "code": k[1], "path": k[2], "type": k[3], "count": n,
                           "examples": examples[k]} for k, n in tally.items()]}
         with open(a.json, "w", encoding="utf-8") as f:
@@ -490,17 +494,18 @@ def main():
 
     errors = sum(n for (lv, *_), n in tally.items() if lv == "ERROR")
     warns = sum(n for (lv, *_), n in tally.items() if lv == "WARN")
+    infos = sum(n for (lv, *_), n in tally.items() if lv == "INFO")
     print(f"记录：{dict(recs)}")
-    print(f"ERROR {errors}　WARN {warns}")
-    for key, n in sorted(tally.items(), key=lambda kv: (kv[0][0] != "ERROR", -kv[1])):
+    print(f"ERROR {errors}　WARN {warns}　INFO {infos}")
+    for key, n in sorted(tally.items(), key=lambda kv: ({"ERROR": 0, "WARN": 1}.get(kv[0][0], 2), -kv[1])):
         level, code, path, kind = key
-        if level == "WARN" and a.quiet_warn:
+        if level in ("WARN", "INFO") and a.quiet_warn:
             continue
         print(f"{level:5} {n:>8}  {kind:10} {code:20} {path}")
         for ex in examples[key]:
             print(f"{'':16}例：{ex}")
     if a.json:
-        rep = {"records": dict(recs), "errors": errors, "warns": warns,
+        rep = {"records": dict(recs), "errors": errors, "warns": warns, "infos": infos,
                "items": [{"level": k[0], "code": k[1], "path": k[2], "type": k[3], "count": n,
                           "examples": examples[k]} for k, n in tally.items()]}
         with open(a.json, "w", encoding="utf-8") as f:
