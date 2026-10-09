@@ -12,17 +12,14 @@
   ],
   "dynasty": "唐",
   "external_ids": {
-    "cbdb_id": 142538,
-    "cbdb_match": "manual",
-    "cbdb_source": "pending_accept: auto_unique cbdb_dy=6 altname",
     "wikidata_id": "Q45580087"
   },
   "updated_at": "2026-08-08T11:51:58+00:00",
   "period": "sui-tang",
   "period_basis": "據 dynasty「唐」自動歸併",
-  "ai_note": "2026-09-06 CBDB 同步 L1 落盘：合併重出條目 hixhgyrw4xnz「道藏」（二者同占 cbdb_id=142538，時代相容、僧俗一致，判為同一人）。併入 work 1 條、別名 0 條；改 Work.authors 引用 1 處。",
+  "ai_note": "2026-09-06 CBDB 同步 L1 落盘：合併重出條目 hixhgyrw4xnz「道藏」（二者同占 cbdb_id=142538，時代相容、僧俗一致，判為同一人）。併入 work 1 條、別名 0 條；改 Work.authors 引用 1 處。\n\n2026-10-09 #489 CBDB 卸除：原 pending_accept cbdb_id=142538，「釋道藏」係「道藏目錄詳註」等題名切分所生，非實有其僧；CBDB 該號亦只有別名「道藏」，無可據。原值可逆：{\"cbdb_id\": 142538}。",
   "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revised_at": "2026-10-09",
   "merged_in": [
     {
       "id": "hixho5puw1ja",
@@ -32,5 +29,8 @@
       "rule": "keeper: cbdb>朝代生卒>作品数>较早id",
       "why": "P4b 疑似重复人物硬判重：同 cbdb_id，且名字互为别名；同cbdb_id；一方主名是另一方cbdb人物的名／别名；主名在对方登记别名里；同一作品曾被两页声称；一方现无作品"
     }
+  ],
+  "suppressed_fields": [
+    "cbdb_id"
   ]
 }
