@@ -29,7 +29,7 @@ Work、Book、Collection 的 `authors[]` 同形。Work 的 `authors[]` 是责任
 | `role` | string | 必填 | 原生 | 责任方式 | 开放词表，见下「role 取值」 | 录入 | `"撰"` |
 | `dynasty` | string | 可选 | 原生 | 责任者所属朝代 | 宜用规范朝代名（[§九](#九朝代与时代轴)）；现存仍有志书原文写法（`宋`、`漢`、`魏`）与空串，见 [legacy.md](legacy.md) | 录入 | `"北宋"` |
 | `entity_id` | string | 可选 | 原生 | 对应的 Entity id（people 或 collective） | Entity id；草稿记录可指正式 id | 录入、bim | `"hixhd2h9biza"` |
-| `source` | Source｜string | 可选 | 原生 | 本条责任者著录的出处 | Source 对象（多为 `{"name":"中國古籍總目","type":"url","details":"http://data.library.sh.cn/entity/person/…"}`）；字符串为旧写法（33 条） | 录入 | 见例 |
+| `source` | Source｜string | 可选 | 原生 | 本条责任者著录的出处 | Source 对象（多为 `{"name":"中國古籍總目","type":"url","details":"http://data.library.sh.cn/entity/person/…"}`）；字符串旧写法（原 Work 33、Book 19）已于 2026-10-09 改为 `{"name": …}` | 录入 | 见例 |
 | `name_basis` | string | 可选 | 原生 | 名字取定的依据 | 自由文本 | 录入 | |
 | `dynasty_basis` | string | 可选 | 原生 | 朝代判定的依据 | 自由文本 | 录入 | |
 | `role_basis` | string | 可选 | 原生 | 责任方式判定的依据 | 自由文本 | 录入 | |
@@ -281,7 +281,7 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 |---|---|---|---|---|---|
 | `merged_in` | array<object> | keeper（Work、Entity） | 原生 | 并条事件日志（事件，不是关系，不可派生） | 每项 `{id, title, at, by, rule, why}`；可另带 `author`、`title_info`、`indexed_by_moved[]`、`books_moved[]`、`measure_info`、`note`、`reason`。早期有 34 项只写了被并者 id 字符串 |
 | `merged_into` | string | 墓碑 | 原生 | 并入了哪一条 | 记录 id。**只在墓碑上** |
-| `merged_from` | array<string> | keeper（Work、Book） | 原生 | 并入本条的记录 id | id 数组（1 条为字符串，旧写） |
+| `merged_from` | array<string> | keeper（Work、Book） | 原生 | 并入本条的记录 id | id 数组（原 1 条字符串旧写已于 2026-10-09 改为数组） |
 | `merge_history` | array<object> | keeper（Work、Entity） | 原生 | 早期的并条账 | Work：`{date, merged_from, title, reason}`；Entity 见 [entity.md](entity.md) |
 
 `merged_in[]` 主要键：`id` 被并者 id；`title` 被并时的题名；`at` 时间（ISO 8601）；`by` 执行者代号（道名、`S`、`coordinator` 等）；`rule` 规则名；`why` 逐条理由。
