@@ -2,9 +2,9 @@
 """按 schema/json/ 的 JSON Schema（2020-12）校验 book-index／book-index-draft 的记录。
 
 只用 Python 标准库：自带一个够用的 2020-12 子集校验器（type、enum、const、required、
-properties、patternProperties、additionalProperties、items、prefixItems、minItems、
-maxItems、minLength、pattern、minimum、maximum、$ref、$defs、allOf、anyOf、oneOf、
-not、if／then／else）。另认两个本库扩展关键字：
+properties、patternProperties、additionalProperties、minProperties、maxProperties、items、
+prefixItems、minItems、maxItems、minLength、pattern、minimum、maximum、$ref、$defs、allOf、
+anyOf、oneOf、not、if／then／else；const、enum 按 JSON 语义比较，布尔与数字不相等）。另认两个本库扩展关键字：
 
   x-legacy: true           旧字段或旧写法（暂留）：实例落在这个子 schema 上时报 WARN，不报 ERROR
   x-legacy-values: [...]   enum 之外、但属已知旧写法的值：出现时报 WARN
@@ -72,11 +72,11 @@ class Validator:
         if t is not None and not type_ok(inst, t):
             out.append(("ERROR", "type", path, f"类型应为 {t}，实为 {jtype(inst)}"))
             return False
-        if "const" in schema and inst != schema["const"]:
+        if "const" in schema and not json_eq(inst, schema["const"]):
             out.append(("ERROR", "const", path, f"应为 {schema['const']!r}，实为 {short(inst)}"))
             ok = False
-        if "enum" in schema and inst not in schema["enum"]:
-            if inst in schema.get("x-legacy-values", []):
+        if "enum" in schema and not any(json_eq(inst, e) for e in schema["enum"]):
+            if any(json_eq(inst, e) for e in schema.get("x-legacy-values", [])):
                 out.append(("WARN", "legacy-value", path, f"旧写法 {short(inst)}"))
             else:
                 out.append(("ERROR", "enum", path, f"值 {short(inst)} 不在枚举内"))
@@ -109,6 +109,12 @@ class Validator:
                 elif "items" in schema:
                     ok &= self.validate(x, schema["items"], base, f"{path}[]", out)
         if isinstance(inst, dict):
+            if "minProperties" in schema and len(inst) < schema["minProperties"]:
+                out.append(("ERROR", "minProperties", path, f"至少 {schema['minProperties']} 个键"))
+                ok = False
+            if "maxProperties" in schema and len(inst) > schema["maxProperties"]:
+                out.append(("ERROR", "maxProperties", path, f"至多 {schema['maxProperties']} 个键"))
+                ok = False
             for k in schema.get("required", []):
                 if k not in inst:
                     out.append(("ERROR", "required", f"{path}.{k}" if path else k, "必填而缺"))
@@ -183,6 +189,19 @@ def jtype(v):
     return "object"
 
 
+def json_eq(a, b):
+    """按 JSON 语义比较：布尔与数字不相等（Python 里 True == 1），数组、对象逐项比。"""
+    if isinstance(a, bool) or isinstance(b, bool):
+        return isinstance(a, bool) and isinstance(b, bool) and a == b
+    if isinstance(a, (int, float)) and isinstance(b, (int, float)):
+        return a == b
+    if isinstance(a, list) and isinstance(b, list):
+        return len(a) == len(b) and all(json_eq(x, y) for x, y in zip(a, b))
+    if isinstance(a, dict) and isinstance(b, dict):
+        return a.keys() == b.keys() and all(json_eq(a[k], b[k]) for k in a)
+    return type(a) is type(b) and a == b
+
+
 def type_ok(v, t):
     if isinstance(t, list):
         return any(type_ok(v, x) for x in t)
@@ -224,35 +243,64 @@ def is_record_path(rel):
 
 
 def iter_aux(root):
-    """分类目录与 promotions 分片：(种类, 相对路径, 内容, schema 引用)。"""
+    """分类目录与 promotions 分片：(种类, 相对路径, 内容, schema 引用, 另加的问题列表)。
+
+    分类目录下的子目录不论是否登记在 schemes.json 里都查（未登记者报 ERROR）；
+    已登记的分类法缺 tree 文件也报 ERROR。schemes.json 里 id／tree 不是字符串时报错并跳过该项，不崩。
+    """
     def load(ap):
         try:
             with open(ap, encoding="utf-8") as f:
                 return json.load(f)
         except (OSError, ValueError) as e:
             return {"__parse_error__": str(e)}
+
     cdir = os.path.join(root, "classification")
+    registered = {}                        # 分类法 id -> tree 相对 classification/ 的路径
     sp = os.path.join(cdir, "schemes.json")
     if os.path.exists(sp):
         schemes = load(sp)
-        yield "schemes", "classification/schemes.json", schemes, "classification.schema.json#/$defs/schemes"
-        for sc in schemes if isinstance(schemes, list) else []:
+        yield "schemes", "classification/schemes.json", schemes, "classification.schema.json#/$defs/schemes", []
+        for i, sc in enumerate(schemes if isinstance(schemes, list) else []):
             sid = sc.get("id") if isinstance(sc, dict) else None
-            if not sid:
-                continue
-            tp = os.path.join(cdir, sc.get("tree") or f"{sid}/tree.json")
-            if os.path.exists(tp):
-                yield "tree", os.path.relpath(tp, root), load(tp), "classification.schema.json#/$defs/tree"
-            mdir = os.path.join(cdir, sid, "members")
-            for fn in sorted(os.listdir(mdir)) if os.path.isdir(mdir) else []:
-                if fn.endswith(".json"):
-                    ap = os.path.join(mdir, fn)
-                    yield "members", os.path.relpath(ap, root), load(ap), "classification.schema.json#/$defs/members"
+            tree = sc.get("tree", f"{sid}/tree.json") if isinstance(sc, dict) else None
+            if not isinstance(sid, str) or not sid or not isinstance(tree, str) or not tree:
+                continue                   # 形状错已由 schemes 的 schema 报出，这里只是不再往下走
+            registered[sid] = tree
+            tp = os.path.join(cdir, tree)
+            if not os.path.exists(tp):
+                yield ("tree", f"classification/{tree}", None, None,
+                       [("ERROR", "missing-tree", "", f"分类法 {sid} 已登记而 tree 文件不存在")])
+    elif os.path.isdir(cdir):
+        yield ("schemes", "classification/schemes.json", None, None,
+               [("ERROR", "missing-schemes", "", "有 classification/ 目录而缺 schemes.json")])
+    dirs = sorted(d for d in os.listdir(cdir) if os.path.isdir(os.path.join(cdir, d))) if os.path.isdir(cdir) else []
+    trees_seen = set()
+    for d in dirs:
+        extra = [] if d in registered else [("ERROR", "unregistered-scheme", "", f"目录 {d}/ 未在 schemes.json 登记")]
+        tree_rel = registered.get(d, f"{d}/tree.json")
+        tp = os.path.join(cdir, tree_rel)
+        if os.path.exists(tp):
+            trees_seen.add(os.path.normpath(tp))
+            yield "tree", os.path.relpath(tp, root), load(tp), "classification.schema.json#/$defs/tree", extra
+            extra = []
+        mdir = os.path.join(cdir, d, "members")
+        for fn in sorted(os.listdir(mdir)) if os.path.isdir(mdir) else []:
+            if fn.endswith(".json"):
+                ap = os.path.join(mdir, fn)
+                yield "members", os.path.relpath(ap, root), load(ap), "classification.schema.json#/$defs/members", extra
+                extra = []
+        if extra:                          # 未登记而目录里既无 tree 也无成员档
+            yield "tree", f"classification/{d}/", None, None, extra
+    for sid, tree in registered.items():   # 登记的 tree 不在同名目录下时也要查
+        tp = os.path.normpath(os.path.join(cdir, tree))
+        if os.path.exists(tp) and tp not in trees_seen:
+            yield "tree", os.path.relpath(tp, root), load(tp), "classification.schema.json#/$defs/tree", []
     pdir = os.path.join(root, "promotions")
     for fn in sorted(os.listdir(pdir)) if os.path.isdir(pdir) else []:
         if fn.endswith(".json"):
             ap = os.path.join(pdir, fn)
-            yield "promotions", os.path.relpath(ap, root), load(ap), "promotions.schema.json"
+            yield "promotions", os.path.relpath(ap, root), load(ap), "promotions.schema.json", []
 
 
 # ---------------------------------------------------------------- 构建产物（--build）
@@ -300,7 +348,8 @@ def emit_report(tally, examples, recs, a, label):
 
 
 def main_build(a):
-    """校验 build 产物：entry/ 用 derived-entry.schema.json，index/ 每条用 index.schema.json 的 Entry。"""
+    """校验 build 产物：entry/ 用 derived-entry.schema.json＋该记录类型的记录 schema（只看源字段），
+    index/ 每条用 index.schema.json 的 Entry。"""
     v = Validator(JSON_DIR)
     tally = collections.Counter()
     examples = collections.defaultdict(list)
@@ -324,10 +373,17 @@ def main_build(a):
             add([("ERROR", "parse", "", str(e))], f"{fam}:?", rel)
             continue
         if fam == "entry":
-            kind = f"entry:{data.get('type')}" if isinstance(data, dict) else "entry:?"
+            kind = f"entry:{data.get('type')}" if isinstance(data, dict) and isinstance(data.get("type"), str) else "entry:?"
             recs[kind] += 1
             out = []
             v.validate(data, v.doc(ENTRY_SCHEMA), ENTRY_SCHEMA, "", out)
+            # 源字段部分（去掉 `_` 起首与 promoted_to）再按其记录类型的 schema 校验
+            rtype = data.get("type") if isinstance(data, dict) else None
+            if isinstance(rtype, str) and rtype in SCHEMA_OF:
+                src = {k: x for k, x in data.items() if not k.startswith("_") and k != "promoted_to"}
+                v.validate(src, v.doc(SCHEMA_OF[rtype]), SCHEMA_OF[rtype], "", out)
+            elif isinstance(data, dict):
+                out.append(("ERROR", "type", "type", f"记录类型 {short(rtype)} 不可识别"))
             if isinstance(data, dict) and rel != f"entry/{data.get('id')}.json":
                 out.append(("ERROR", "id-mismatch", "id", "文件名与 id 不符"))
             add(out, kind, rel)
@@ -336,7 +392,7 @@ def main_build(a):
             add([("ERROR", "type", "", "index 分片应为对象")], "index:?", rel)
             continue
         for k, e in data.items():
-            kind = f"index:{e.get('type')}" if isinstance(e, dict) else "index:?"
+            kind = f"index:{e.get('type')}" if isinstance(e, dict) and isinstance(e.get("type"), str) else "index:?"
             recs[kind] += 1
             out = []
             if not re.fullmatch(r"[0-9a-z]{1,13}", k):
@@ -383,7 +439,7 @@ def main():
             examples[("ERROR", "parse", "", "?")].append(f"{rel}: {e}")
             bad_files += 1
             continue
-        if not isinstance(rec, dict) or rec.get("type") not in SCHEMA_OF:
+        if not isinstance(rec, dict) or not isinstance(rec.get("type"), str) or rec["type"] not in SCHEMA_OF:
             tally[("ERROR", "not-a-record", "", "?")] += 1
             examples[("ERROR", "not-a-record", "", "?")].append(rel)
             continue
@@ -404,21 +460,26 @@ def main():
             seen.add(key)
 
     if paths is None:   # 全库跑时，顺带校验分类目录与 promotions 分片
-        for kind, rel, data, schema_ref in iter_aux(a.root):
+        for kind, rel, data, schema_ref, extra in iter_aux(a.root):
             recs[kind] += 1
-            sub, fbase = v.resolve(schema_ref, None)
-            out = []
-            v.validate(data, sub, fbase, "", out)
+            out = list(extra)
+            if schema_ref is not None:
+                if isinstance(data, dict) and "__parse_error__" in data:
+                    out.append(("ERROR", "parse", "", data["__parse_error__"]))
+                else:
+                    sch, fbase = v.resolve(schema_ref, None)
+                    v.validate(data, sch, fbase, "", out)
             if kind == "members" and isinstance(data, dict):
-                rows = data.get("members") or []
-                ids = [r[0] for r in rows if isinstance(r, list) and r]
+                rows = data.get("members") if isinstance(data.get("members"), list) else []
+                ids = [r[0] for r in rows if isinstance(r, list) and r and isinstance(r[0], str)]
                 if ids != sorted(ids):
                     out.append(("ERROR", "order", "members", "成员行未按 work_id 排序"))
                 if data.get("node") != os.path.basename(rel)[:-5]:
                     out.append(("ERROR", "node-name", "node", "node 与文件名不符"))
             if kind == "promotions" and isinstance(data, dict):
                 key = os.path.basename(rel)[:-5]
-                bad = [d for d in (data.get("promotions") or {}) if d[-2:] != key]
+                proms = data.get("promotions")
+                bad = [d for d in (proms if isinstance(proms, dict) else {}) if d[-2:] != key]
                 if bad:
                     out.append(("ERROR", "shard-key", "promotions", f"{len(bad)} 项草稿 id 末 2 位与分片名不符"))
             for level, code, path, msg in out:
