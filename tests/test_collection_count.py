@@ -72,9 +72,6 @@ def test_bainaben_ershisishi_juan_count_corrected_to_count_ce():
 
 
 def test_schema_md_documents_count_field():
-    schema = (ROOT / "SCHEMA.md").read_text(encoding="utf-8")
-    idx = schema.index("## 三、Collection")
-    idx_book = schema.index("## 四、Book")
-    section = schema[idx:idx_book]
+    section = (ROOT / "schema" / "collection.md").read_text(encoding="utf-8")  # 2026-10-08 起格式定义在 schema/（overview#496）
     assert '"count"' in section or '`count`' in section   # schema-v2 起以字段表記
     assert "juan" in section and "ce" in section and "zhong" in section and "han" in section

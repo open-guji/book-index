@@ -158,8 +158,5 @@ def test_ershiwushi_yiwen_jingjizhi_kaobu_cuibian_total_volumes_corrected():
 
 
 def test_schema_md_documents_member_type_field():
-    schema = (ROOT / "SCHEMA.md").read_text(encoding="utf-8")
-    idx = schema.index("## 三、Collection")
-    idx_book = schema.index("## 四、Book")
-    section = schema[idx:idx_book]
+    section = (ROOT / "schema" / "collection.md").read_text(encoding="utf-8")  # 2026-10-08 起格式定义在 schema/（overview#496）
     assert "_member_type" in section
