@@ -82,9 +82,12 @@ def run() -> None:
         finally:
             jio.ROOT = old_root
 
-        # 1) loser 记录档被删
-        assert not os.path.exists(os.path.join(tmp, loser_rel)), \
-            f'loser 档应已删除：{loser_rel}'
+        # 1) loser 改写为墓碑（不删档，2026-10-09 起）
+        with open(os.path.join(tmp, loser_rel), encoding='utf-8') as f:
+            loser_after = json.load(f)
+        assert loser_after.get('merged_into') == keeper_id, f'loser 应为墓碑指向 keeper：{loser_after}'
+        assert set(loser_after) <= set(entity_merge.TOMBSTONE_KEYS), f'墓碑只许留 TOMBSTONE_KEYS：{set(loser_after)}'
+        assert loser_after['primary_name'] == '測試異寫' and loser_after['subtype'] == 'people'
 
         # 2) keeper.merged_in 含 loser
         with open(os.path.join(tmp, keeper_rel), encoding='utf-8') as f:
@@ -109,7 +112,7 @@ def run() -> None:
         assert summary['keeper_stale_works'] == [], \
             'keeper 起始 works=[]，不该报出 stale（这条本身也顺带验证了 verify_ground_truth 无假阳性）'
 
-        print('OK：loser 已删、keeper.merged_in 含 loser、Work／Book 改繫成功、不写 works、alt_names 并入正确')
+        print('OK：loser 写墓碑、keeper.merged_in 含 loser、Work／Book 改繫成功、不写 works、alt_names 并入正确')
 
         # --- 第二段：验 stale-keeper 侦测（2026-09-26 那次真吃过的亏）---
         # 造一个「keeper2」，自己 works[] 写着 work2，但 work2 的 authors[]
