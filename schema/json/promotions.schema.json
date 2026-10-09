@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "promotions.schema.json",
+  "title": "promotions/ 分片",
+  "description": "说明见 schema/promotions.md",
+  "type": "object",
+  "required": [
+    "version",
+    "promotions"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "promotions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "production_id",
+          "type",
+          "promoted_at"
+        ],
+        "properties": {
+          "production_id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "type": {
+            "enum": [
+              "work",
+              "book",
+              "collection",
+              "entity"
+            ]
+          },
+          "promoted_at": {
+            "$ref": "common.schema.json#/$defs/DateTime"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

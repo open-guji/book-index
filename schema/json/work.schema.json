@@ -1,0 +1,371 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "work.schema.json",
+  "title": "book-index Work 记录",
+  "description": "说明见 schema/work.md。正式库另要求 revision、revised_at（check_schema.py 按库口径加）。",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "schema_version",
+    "title"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "type": {
+      "const": "work"
+    },
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/SchemaVersion"
+    },
+    "revision": {
+      "$ref": "common.schema.json#/$defs/Revision"
+    },
+    "revised_at": {
+      "$ref": "common.schema.json#/$defs/Date"
+    },
+    "updated_at": {
+      "$ref": "common.schema.json#/$defs/DateTime"
+    },
+    "ai_note": {
+      "type": "string"
+    },
+    "todo": {
+      "$ref": "common.schema.json#/$defs/Todo"
+    },
+    "review": {
+      "$ref": "common.schema.json#/$defs/Review"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subtype": {
+      "enum": [
+        "book",
+        "article",
+        "poem",
+        "chapter"
+      ]
+    },
+    "additional_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "original_title": {
+      "type": "string"
+    },
+    "title_basis": {
+      "type": "string"
+    },
+    "title_emendation": {
+      "type": "object",
+      "required": [
+        "raw",
+        "status"
+      ],
+      "properties": {
+        "raw": {
+          "type": "string"
+        },
+        "emended": {
+          "type": "string"
+        },
+        "fill": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "已補",
+            "去衍空",
+            "闕疑"
+          ]
+        },
+        "basis": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "authors": {
+      "$ref": "common.schema.json#/$defs/Authors"
+    },
+    "dynasty": {
+      "$ref": "common.schema.json#/$defs/DynastyName"
+    },
+    "dynasty_basis": {
+      "type": "string"
+    },
+    "period": {
+      "$ref": "common.schema.json#/$defs/NullablePeriod"
+    },
+    "period_basis": {
+      "type": "string"
+    },
+    "period_upper": {
+      "$ref": "common.schema.json#/$defs/Period"
+    },
+    "period_upper_basis": {
+      "type": "string"
+    },
+    "description": {
+      "$ref": "common.schema.json#/$defs/Description"
+    },
+    "juan_count": {
+      "$ref": "common.schema.json#/$defs/JuanCount"
+    },
+    "measures": {
+      "$ref": "common.schema.json#/$defs/Measures"
+    },
+    "measure_info": {
+      "type": "string"
+    },
+    "additional_works": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "book_title"
+        ],
+        "properties": {
+          "book_title": {
+            "type": "string"
+          },
+          "n_juan": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "publication_info": {
+      "$ref": "common.schema.json#/$defs/PublicationInfo"
+    },
+    "loss_status": {
+      "enum": [
+        "lost",
+        "partially_extant",
+        "extant",
+        "undetermined"
+      ]
+    },
+    "loss_status_basis": {
+      "type": "string"
+    },
+    "loss_status_note": {
+      "type": "string"
+    },
+    "authenticity": {
+      "const": "forged"
+    },
+    "authenticity_basis": {
+      "type": "string"
+    },
+    "indexed_by": {
+      "$ref": "common.schema.json#/$defs/IndexEntries"
+    },
+    "emendated_by": {
+      "$ref": "common.schema.json#/$defs/IndexEntries"
+    },
+    "contained_in": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "volume_index": {
+            "type": [
+              "integer",
+              "string",
+              "array"
+            ],
+            "items": {
+              "type": "integer"
+            }
+          },
+          "details": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "related_works": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "relation"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "relation": {
+            "enum": [
+              "part_of",
+              "studies",
+              "contains_text_of",
+              "preceded_by",
+              "adapted_from",
+              "pseudepigraph_of",
+              "related",
+              "collected_in",
+              "derived_from",
+              "excerpted_from",
+              "source_of",
+              "suspected_same",
+              "same_entry"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "preferred_book": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "version_graph": {
+      "type": "object"
+    },
+    "resources": {
+      "$ref": "common.schema.json#/$defs/Resources"
+    },
+    "resource_groups": {
+      "$ref": "common.schema.json#/$defs/ResourceGroups"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Source"
+      }
+    },
+    "collection_scale": {
+      "type": "object",
+      "properties": {
+        "stated": {
+          "type": "string"
+        },
+        "books": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
+        },
+        "indexed_in_库": {
+          "type": "integer"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "appendix": {
+      "$ref": "common.schema.json#/$defs/AppendixItems"
+    },
+    "current_location": {
+      "x-legacy": true
+    },
+    "page_count": {
+      "x-legacy": true
+    },
+    "merged_in": {
+      "$ref": "common.schema.json#/$defs/MergedIn"
+    },
+    "merged_from": {
+      "$ref": "common.schema.json#/$defs/MergedFrom"
+    },
+    "merged_into": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "merge_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "merged_from": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "zhsy_retrieved_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "_has_text": {
+      "type": "boolean",
+      "x-legacy": true
+    },
+    "_has_collated": {
+      "type": "boolean",
+      "x-legacy": true
+    }
+  },
+  "patternProperties": {
+    "^_(?!has_text$|has_collated$)": {
+      "not": {},
+      "x-not-message": "源档不写 `_` 起首字段（派生字段只在 _build/ 里）"
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "authenticity"
+        ]
+      },
+      "then": {
+        "required": [
+          "authenticity_basis"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "period_upper"
+        ]
+      },
+      "then": {
+        "required": [
+          "period_upper_basis"
+        ]
+      }
+    }
+  ]
+}

@@ -204,9 +204,7 @@ def test_all_records_todo_review_shape_ok():
 
 
 def test_schema_md_documents_new_common_fields():
-    schema = (ROOT / "SCHEMA.md").read_text(encoding="utf-8")
-    idx = schema.index("## 九、构建产物与派生字段")  # schema-v2：派生欄清單在〈九〉，共通欄在〈十〉
-    idx_end = schema.index("## 十一、ID")
-    section = schema[idx:idx_end]
+    # 2026-10-08 起格式定义在 schema/（overview#496）：共通欄在 common.md，派生欄在 derived.md
+    section = "".join((ROOT / "schema" / f).read_text(encoding="utf-8") for f in ("common.md", "derived.md"))
     for token in ("todo", "review", "_edition_count", "_member_count", "unreviewed", "disputed"):
         assert token in section, f"通用欄位一節缺 {token}"

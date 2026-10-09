@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "index.schema.json",
+  "title": "index/ 分片文件（index/{works,books,entities}/<0-f>.json、index/collections.json）",
+  "description": "{id: 条目}，键按 id 排序。说明见 schema/derived.md §八。",
+  "type": "object",
+  "patternProperties": {
+    "^[0-9a-z]{1,13}$": {
+      "$ref": "#/$defs/Entry"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Entry": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/RecordEntry"
+        },
+        {
+          "$ref": "#/$defs/EntityEntry"
+        }
+      ]
+    },
+    "RecordEntry": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "type",
+        "path"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Work",
+            "Book",
+            "Collection"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^(Work|Book|Collection)/[^/]+/[^/]+/[^/]+/[^/]+\\.json$"
+        },
+        "author": {
+          "type": "string",
+          "minLength": 1
+        },
+        "era": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sort_year": {
+          "type": "integer"
+        },
+        "holder": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dynasty": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "juan_count": {
+          "type": "number"
+        },
+        "measure_info": {},
+        "additional_titles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "attached_texts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "has_text": {
+          "const": true
+        },
+        "has_image": {
+          "const": true
+        },
+        "has_collated": {
+          "const": true
+        },
+        "edition": {},
+        "subtype": {},
+        "period": {},
+        "loss_status": {},
+        "original_title": {},
+        "work_id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "promoted_to": {
+          "$ref": "common.schema.json#/$defs/Id"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Work／Book／Collection 的索引条目（derived.md §8.1）；edition 等「真值原样」字段不限类型"
+    },
+    "EntityEntry": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "subtype",
+        "primary_name",
+        "path"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "type": {
+          "const": "entity"
+        },
+        "subtype": {
+          "type": "string"
+        },
+        "primary_name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^Entity/[^/]+/[^/]+/[^/]+/[^/]+\\.json$"
+        },
+        "dynasty": {},
+        "birth_year": {},
+        "death_year": {},
+        "cbdb_id": {},
+        "period": {},
+        "promoted_to": {
+          "$ref": "common.schema.json#/$defs/Id"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Entity 的索引条目（derived.md §8.2）；type 是小写 entity"
+    }
+  }
+}

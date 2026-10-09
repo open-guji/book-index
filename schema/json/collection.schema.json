@@ -1,0 +1,364 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "collection.schema.json",
+  "title": "book-index Collection 记录",
+  "description": "说明见 schema/collection.md。正式库另要求 revision、revised_at（check_schema.py 按库口径加）。",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "schema_version",
+    "subtype",
+    "title"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "type": {
+      "const": "collection"
+    },
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/SchemaVersion"
+    },
+    "revision": {
+      "$ref": "common.schema.json#/$defs/Revision"
+    },
+    "revised_at": {
+      "$ref": "common.schema.json#/$defs/Date"
+    },
+    "updated_at": {
+      "$ref": "common.schema.json#/$defs/DateTime"
+    },
+    "ai_note": {
+      "type": "string"
+    },
+    "todo": {
+      "$ref": "common.schema.json#/$defs/Todo"
+    },
+    "review": {
+      "$ref": "common.schema.json#/$defs/Review"
+    },
+    "subtype": {
+      "enum": [
+        "work_collection",
+        "book_collection"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "additional_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description": {
+      "$ref": "common.schema.json#/$defs/Description"
+    },
+    "authors": {
+      "$ref": "common.schema.json#/$defs/Authors"
+    },
+    "editors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "role"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dynasty": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "publisher": {
+      "type": "string"
+    },
+    "publish_year": {
+      "type": "string"
+    },
+    "publication_info": {
+      "$ref": "common.schema.json#/$defs/PublicationInfo"
+    },
+    "dating": {
+      "$ref": "common.schema.json#/$defs/Dating"
+    },
+    "edition": {
+      "type": "string"
+    },
+    "current_location": {
+      "$ref": "common.schema.json#/$defs/Location"
+    },
+    "holder": {
+      "type": "string"
+    },
+    "count": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "juan",
+            "ce",
+            "zhong",
+            "han",
+            "source"
+          ],
+          "properties": {
+            "juan": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "ce": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "zhong": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "han": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false,
+          "anyOf": [
+            {
+              "properties": {
+                "juan": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "juan"
+              ]
+            },
+            {
+              "properties": {
+                "ce": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "ce"
+              ]
+            },
+            {
+              "properties": {
+                "zhong": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "zhong"
+              ]
+            },
+            {
+              "properties": {
+                "han": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "han"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "null",
+          "x-legacy": true
+        }
+      ]
+    },
+    "juan_count": {
+      "anyOf": [
+        {
+          "$ref": "common.schema.json#/$defs/JuanCount"
+        },
+        {
+          "type": "null",
+          "x-legacy": true
+        }
+      ]
+    },
+    "page_count": {
+      "$ref": "common.schema.json#/$defs/PageCount"
+    },
+    "measures": {
+      "$ref": "common.schema.json#/$defs/Measures"
+    },
+    "measure_info": {
+      "type": "string"
+    },
+    "total_works": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "total_volumes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "contains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "title",
+          "scope"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "subwork",
+              "preface",
+              "main_corpus",
+              "per_book_tiyao",
+              "selected_from",
+              "absent"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "position": {
+            "enum": [
+              "前置",
+              "後置"
+            ]
+          },
+          "work_id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "book_id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "collection_id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "own_work_id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "related_work_id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "categorization": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "work_id": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "contained_in": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "common.schema.json#/$defs/Id"
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "$ref": "common.schema.json#/$defs/Id",
+            "x-legacy": true
+          }
+        ]
+      }
+    },
+    "indexed_by": {
+      "$ref": "common.schema.json#/$defs/IndexEntries"
+    },
+    "related_books": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Id"
+      }
+    },
+    "related_collections": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Id"
+      }
+    },
+    "resources": {
+      "$ref": "common.schema.json#/$defs/Resources"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "common.schema.json#/$defs/Source"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "patternProperties": {
+    "^_(?!has_text$|has_collated$)": {
+      "not": {},
+      "x-not-message": "源档不写 `_` 起首字段（派生字段只在 _build/ 里）"
+    }
+  },
+  "additionalProperties": false
+}
