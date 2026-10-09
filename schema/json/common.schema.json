@@ -1,0 +1,893 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.schema.json",
+  "title": "book-index 共用定义",
+  "description": "各记录 schema 引用的共用对象。说明见 schema/common.md。扩展关键字：x-legacy（旧字段，出现报 WARN）、x-legacy-values（枚举外的已知旧写法，出现报 WARN）。",
+  "$defs": {
+    "Id": {
+      "type": "string",
+      "pattern": "^[0-9a-z]{1,13}$",
+      "description": "记录 id：base36 小写。正式库 Book 10 字符、其余 12 字符；草稿库 13 字符。"
+    },
+    "NonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Revision": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "Date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "DateTime": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}([T ][0-9:.]+(Z|[+-][0-9]{2}:?[0-9]{2})?)?$"
+    },
+    "SchemaVersion": {
+      "const": 1
+    },
+    "Period": {
+      "type": "string",
+      "enum": [
+        "pre-qin",
+        "qin-han",
+        "three-kingdoms",
+        "jin",
+        "nanbeichao",
+        "sui-tang",
+        "five-dynasties",
+        "song",
+        "liao-jin-yuan",
+        "ming",
+        "qing",
+        "modern"
+      ]
+    },
+    "NullablePeriod": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Period"
+        },
+        {
+          "type": "null",
+          "x-legacy": true
+        }
+      ]
+    },
+    "DynastyName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "朝代名。应为规范朝代名（common.md〈规范朝代名全表〉）；现存非规范写法见 legacy.md。逐值核对由 check_v2 与吻合度报告做，本 schema 只查类型。"
+    },
+    "Source": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "details": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "position": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "processor_version": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "description": "出处对象。各键皆可选（现存有只写 id/version/processor_version 的程序来源记号）。"
+    },
+    "Citation": {
+      "type": "object",
+      "description": "description.sources 的引文对象：{title, url?, details?, source_bid?}",
+      "required": [
+        "title"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        },
+        "source_bid": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Description": {
+      "type": "object",
+      "required": [
+        "text",
+        "sources"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/NonEmptyString"
+              },
+              {
+                "$ref": "#/$defs/Source"
+              },
+              {
+                "$ref": "#/$defs/Citation"
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Location": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "end_date": {
+          "type": "string"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/Source"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Author": {
+      "type": "object",
+      "required": [
+        "name",
+        "role"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^A-Za-z]+$"
+        },
+        "dynasty": {
+          "$ref": "#/$defs/DynastyName"
+        },
+        "entity_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Source"
+            },
+            {
+              "type": "string",
+              "x-legacy": true
+            }
+          ]
+        },
+        "name_basis": {
+          "type": "string"
+        },
+        "dynasty_basis": {
+          "type": "string"
+        },
+        "role_basis": {
+          "type": "string"
+        },
+        "original_name": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "cbdb_retrieved_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cbdb_id": {
+          "x-legacy": true
+        },
+        "cbdb_match": {
+          "x-legacy": true
+        },
+        "cbdb_source": {
+          "x-legacy": true
+        },
+        "title_or_office": {
+          "x-legacy": true
+        },
+        "courtesy_name": {
+          "x-legacy": true
+        },
+        "alt_names": {
+          "x-legacy": true
+        },
+        "entity_basis": {
+          "x-legacy": true
+        },
+        "sources": {
+          "x-legacy": true
+        },
+        "birthplace": {
+          "x-legacy": true
+        },
+        "ai_note": {
+          "x-legacy": true
+        },
+        "alias": {
+          "x-legacy": true
+        },
+        "additional_names": {
+          "x-legacy": true
+        },
+        "official": {
+          "x-legacy": true
+        },
+        "name_note": {
+          "x-legacy": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "Authors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Author"
+      }
+    },
+    "IndexEntry": {
+      "type": "object",
+      "required": [
+        "source"
+      ],
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "source_bid": {
+          "$ref": "#/$defs/Id"
+        },
+        "title_info": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "section": {
+          "type": "string"
+        },
+        "section_basis": {
+          "type": "string"
+        },
+        "author_info": {
+          "type": "string"
+        },
+        "juan_count": {
+          "type": "string"
+        },
+        "juan": {
+          "type": "string"
+        },
+        "volume": {
+          "type": "string"
+        },
+        "page": {
+          "type": "string"
+        },
+        "edition": {
+          "type": "string"
+        },
+        "catalog_no": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "in_note_of": {
+          "$ref": "#/$defs/Id"
+        },
+        "attested_status": {
+          "enum": [
+            "extant",
+            "lost",
+            "partial",
+            "not_seen"
+          ]
+        },
+        "attested_status_raw": {
+          "type": "string"
+        },
+        "attested_status_note": {
+          "type": "string"
+        },
+        "misattached": {
+          "const": true
+        },
+        "misattached_note": {
+          "type": "string"
+        },
+        "merged_from": {
+          "x-legacy": true
+        },
+        "text": {
+          "x-legacy": true
+        },
+        "self_note": {
+          "x-legacy": true
+        },
+        "commentaries": {
+          "x-legacy": true
+        },
+        "comment": {
+          "x-legacy": true
+        },
+        "category": {
+          "x-legacy": true
+        },
+        "additional_comment": {
+          "x-legacy": true
+        },
+        "link_basis": {
+          "x-legacy": true
+        },
+        "ai_note": {
+          "x-legacy": true
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "attested_status"
+            ]
+          },
+          "then": {
+            "required": [
+              "attested_status_raw"
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "misattached"
+            ]
+          },
+          "then": {
+            "required": [
+              "misattached_note"
+            ]
+          }
+        }
+      ]
+    },
+    "IndexEntries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/IndexEntry"
+      }
+    },
+    "ResourceType": {
+      "enum": [
+        "image",
+        "text",
+        "physical",
+        "catalog",
+        "annotated"
+      ]
+    },
+    "Resource": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "short_name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "types": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ResourceType"
+          }
+        },
+        "details": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "group_role": {
+          "enum": [
+            "origin",
+            "mirror",
+            "derivative"
+          ],
+          "x-legacy-values": [
+            "source"
+          ]
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "volumes": {
+          "type": [
+            "array",
+            "object"
+          ]
+        },
+        "expected_volumes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "root_type": {
+          "const": "catalog"
+        },
+        "color_mode": {
+          "enum": [
+            "color",
+            "bw"
+          ]
+        },
+        "note": {
+          "type": "string"
+        },
+        "source_label": {
+          "type": "string"
+        },
+        "type": {
+          "x-legacy": true,
+          "enum": [
+            "image",
+            "text",
+            "physical"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "group"
+            ]
+          },
+          "then": {
+            "required": [
+              "group_role"
+            ]
+          }
+        }
+      ]
+    },
+    "Resources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Resource"
+      }
+    },
+    "ResourceGroups": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "label"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "JuanUnit": {
+      "enum": [
+        "卷",
+        "冊",
+        "篇",
+        "回",
+        "集",
+        "編",
+        "種",
+        "則",
+        "部",
+        "章",
+        "函",
+        "首",
+        "筆",
+        "期",
+        "節",
+        "帙",
+        "弄",
+        "件"
+      ],
+      "x-legacy-values": [
+        "册"
+      ]
+    },
+    "JuanCount": {
+      "type": "object",
+      "required": [
+        "number"
+      ],
+      "properties": {
+        "number": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unit": {
+          "$ref": "#/$defs/JuanUnit"
+        },
+        "description": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Measures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "number",
+          "unit"
+        ],
+        "properties": {
+          "number": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "PageCount": {
+      "type": "object",
+      "required": [
+        "number"
+      ],
+      "properties": {
+        "number": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "description": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PublicationInfo": {
+      "type": "object",
+      "properties": {
+        "year": {
+          "type": "string"
+        },
+        "year_iso": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "place": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Dating": {
+      "type": "object",
+      "required": [
+        "certainty",
+        "source",
+        "basis"
+      ],
+      "properties": {
+        "era": {
+          "type": "string"
+        },
+        "reign": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer"
+        },
+        "year_range": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "certainty": {
+          "enum": [
+            "attested",
+            "inferred",
+            "uncertain"
+          ]
+        },
+        "source": {
+          "enum": [
+            "edition",
+            "catalog"
+          ]
+        },
+        "basis": {
+          "type": "string"
+        },
+        "based_on": {
+          "type": "object",
+          "required": [
+            "relation"
+          ],
+          "properties": {
+            "era": {
+              "type": "string"
+            },
+            "reign": {
+              "type": "string"
+            },
+            "year": {
+              "type": "integer"
+            },
+            "relation": {
+              "enum": [
+                "翻刻",
+                "影印",
+                "傳鈔",
+                "配補"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "later_repair": {
+          "type": "object",
+          "properties": {
+            "era": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "MergedInItem": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/Id"
+            },
+            "title": {
+              "type": "string"
+            },
+            "at": {
+              "type": "string"
+            },
+            "by": {
+              "type": "string"
+            },
+            "rule": {
+              "type": "string"
+            },
+            "why": {
+              "type": "string"
+            },
+            "author": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "title_info": {
+              "type": "string"
+            },
+            "indexed_by_moved": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "books_moved": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "measure_info": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "$ref": "#/$defs/Id",
+          "x-legacy": true
+        }
+      ]
+    },
+    "MergedIn": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/MergedInItem"
+      }
+    },
+    "MergedFrom": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Id"
+          }
+        },
+        {
+          "$ref": "#/$defs/Id",
+          "x-legacy": true
+        }
+      ]
+    },
+    "Todo": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "what"
+        ],
+        "properties": {
+          "what": {
+            "type": "string",
+            "minLength": 1
+          },
+          "by": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "Review": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "unreviewed",
+            "reviewed",
+            "disputed"
+          ]
+        },
+        "by": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "AppendixItems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "text"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "ManagementProps": {
+      "description": "共通管理字段（供各记录 schema 以 allOf 合并其 properties 时参照；本库校验器不做 properties 合并，各记录 schema 逐项列出）。",
+      "type": "object"
+    }
+  }
+}

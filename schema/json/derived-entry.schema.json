@@ -1,0 +1,1481 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "derived-entry.schema.json",
+  "title": "_build/entry/<id>.json（页面就绪条目，契约 3）",
+  "description": "源记录＋派生字段。本 schema 只约束 `_` 起首字段与 promoted_to；非 `_` 键的形状由各记录 schema 管。说明见 schema/derived.md。",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "type": {
+      "enum": [
+        "work",
+        "book",
+        "collection",
+        "entity"
+      ]
+    },
+    "promoted_to": {
+      "$ref": "common.schema.json#/$defs/Id",
+      "description": "草稿 Work／Book 由升格对照回填的正式 id"
+    },
+    "_collections": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/CollectionsItem"
+      }
+    },
+    "_has_image": {
+      "const": true
+    },
+    "_has_text": {
+      "const": true
+    },
+    "_has_collated": {
+      "const": true
+    },
+    "_lineage_graph_ref": {
+      "type": "string",
+      "pattern": "^lineage/[0-9a-z]+\\.json$"
+    },
+    "_dynasty_id": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "_dynasty_candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Id"
+      },
+      "minItems": 1
+    },
+    "_works": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/EntityWorkItem"
+      }
+    }
+  },
+  "patternProperties": {
+    "^_(?!(ancestors|authors|books|catalogs|children|classifications|collections|compounds|derived_by|dynasty|dynasty_candidates|dynasty_id|edition_count|has_collated|has_image|has_text|index_in_reign|lineage_graph_ref|lineage_refs|member_catalog|member_count|member_pages|member_type|members|offices|reigns|related|related_pages|related_total|ruler|same_name|siblings|siblings_more|siblings_total|span|subordinates|work|works)$)": false
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "work"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "required": [
+          "_books",
+          "_edition_count",
+          "_authors",
+          "_catalogs",
+          "_related",
+          "_collections"
+        ],
+        "properties": {
+          "_books": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/BookCard"
+            }
+          },
+          "_edition_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "_authors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/AuthorItem"
+            }
+          },
+          "_catalogs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/CatalogsItem"
+            }
+          },
+          "_related": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/WorkRelatedItem"
+            },
+            "maxItems": 200
+          },
+          "_related_total": {
+            "type": "integer",
+            "minimum": 201
+          },
+          "_related_pages": {
+            "type": "integer",
+            "minimum": 2
+          },
+          "_classifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/ClassificationRow"
+            },
+            "minItems": 1
+          },
+          "_member_catalog": {
+            "type": "object",
+            "required": [
+              "total",
+              "pages"
+            ],
+            "properties": {
+              "total": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "pages": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "patternProperties": {
+          "^_(?!(authors|books|catalogs|classifications|collections|dynasty_candidates|dynasty_id|edition_count|has_collated|has_image|has_text|lineage_graph_ref|member_catalog|related|related_pages|related_total)$)": false
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "book"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "required": [
+          "_collections"
+        ],
+        "properties": {
+          "_work": {
+            "$ref": "#/$defs/WorkCardOrHub"
+          },
+          "_siblings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/BookCard"
+            },
+            "maxItems": 40
+          },
+          "_siblings_more": {
+            "const": true
+          },
+          "_siblings_total": {
+            "type": "integer",
+            "minimum": 41
+          },
+          "_related": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/SymRelatedItem"
+            },
+            "minItems": 1
+          },
+          "_lineage_refs": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": {
+              "type": "object",
+              "required": [],
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "edition": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "_derived_by": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/DerivedByItem"
+            },
+            "minItems": 1
+          }
+        },
+        "patternProperties": {
+          "^_(?!(collections|derived_by|has_collated|has_image|has_text|lineage_graph_ref|lineage_refs|related|siblings|siblings_more|siblings_total|work)$)": false
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "collection"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "required": [
+          "_members",
+          "_member_count",
+          "_member_pages"
+        ],
+        "properties": {
+          "promoted_to": false,
+          "_members": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/MemberCard"
+            },
+            "maxItems": 20
+          },
+          "_member_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "_member_pages": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "_member_type": {
+            "enum": [
+              "Work",
+              "Book",
+              "mixed"
+            ]
+          },
+          "_children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/ChildCollection"
+            },
+            "minItems": 1
+          },
+          "_related": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/SymRelatedItem"
+            },
+            "minItems": 1
+          }
+        },
+        "patternProperties": {
+          "^_(?!(children|has_collated|has_image|has_text|member_count|member_pages|member_type|members|related)$)": false
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "entity"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "required": [
+          "_works"
+        ],
+        "properties": {
+          "promoted_to": false
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "subtype": {
+                  "const": "dynasty"
+                }
+              },
+              "required": [
+                "subtype"
+              ]
+            },
+            "then": {
+              "properties": {
+                "_children": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/DynCard"
+                  }
+                },
+                "_ancestors": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/DynCard"
+                  },
+                  "minItems": 1,
+                  "maxItems": 3
+                },
+                "_reigns": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/ReignCard"
+                  }
+                }
+              },
+              "patternProperties": {
+                "^_(?!(ancestors|children|reigns|works)$)": false
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "subtype": {
+                  "const": "reign"
+                }
+              },
+              "required": [
+                "subtype"
+              ]
+            },
+            "then": {
+              "properties": {
+                "_dynasty": {
+                  "$ref": "#/$defs/DynCard"
+                },
+                "_ruler": {
+                  "$ref": "#/$defs/PeopleCard"
+                },
+                "_index_in_reign": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "_same_name": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/ReignCard"
+                  }
+                }
+              },
+              "patternProperties": {
+                "^_(?!(dynasty|index_in_reign|ruler|same_name|works)$)": false
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "subtype": {
+                  "const": "office"
+                }
+              },
+              "required": [
+                "subtype"
+              ]
+            },
+            "then": {
+              "properties": {
+                "_children": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/OfficeCard"
+                  }
+                },
+                "_compounds": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/OfficeCard"
+                  }
+                }
+              },
+              "patternProperties": {
+                "^_(?!(children|compounds|works)$)": false
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "subtype": {
+                  "const": "place"
+                }
+              },
+              "required": [
+                "subtype"
+              ]
+            },
+            "then": {
+              "properties": {
+                "_children": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/PlaceCard"
+                  }
+                },
+                "_span": {
+                  "$ref": "#/$defs/Span"
+                }
+              },
+              "patternProperties": {
+                "^_(?!(children|span|works)$)": false
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "subtype": {
+                  "const": "people"
+                }
+              },
+              "required": [
+                "subtype"
+              ]
+            },
+            "then": {
+              "properties": {
+                "_dynasty_id": {
+                  "$ref": "common.schema.json#/$defs/Id"
+                },
+                "_dynasty_candidates": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "common.schema.json#/$defs/Id"
+                  },
+                  "minItems": 1
+                }
+              },
+              "patternProperties": {
+                "^_(?!(dynasty_candidates|dynasty_id|works)$)": false
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "subtype": {
+                  "const": "collective"
+                },
+                "collective_kind": {
+                  "const": "官署"
+                }
+              },
+              "required": [
+                "subtype",
+                "collective_kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "_children": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/OfficeCard"
+                  }
+                },
+                "_subordinates": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/OfficeCard"
+                  }
+                },
+                "_members": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/OfficeCard"
+                  }
+                },
+                "_offices": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/OfficeCard"
+                  }
+                }
+              },
+              "patternProperties": {
+                "^_(?!(children|members|offices|subordinates|works)$)": false
+              }
+            }
+          },
+          {
+            "if": {
+              "not": {
+                "anyOf": [
+                  {
+                    "properties": {
+                      "subtype": {
+                        "enum": [
+                          "dynasty",
+                          "office",
+                          "people",
+                          "place",
+                          "reign"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "subtype"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "subtype": {
+                        "const": "collective"
+                      },
+                      "collective_kind": {
+                        "const": "官署"
+                      }
+                    },
+                    "required": [
+                      "subtype",
+                      "collective_kind"
+                    ]
+                  }
+                ]
+              }
+            },
+            "then": {
+              "patternProperties": {
+                "^_(?!(works)$)": false
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "WorkCard": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dyn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "juan": {
+          "type": "number"
+        },
+        "au": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 3
+        },
+        "cls": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "description": "分类节点 id；无 classification/ 时为 [l1, l2|null]"
+        },
+        "nb": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "img": {
+          "const": true
+        },
+        "txt": {
+          "const": true
+        }
+      },
+      "additionalProperties": false,
+      "description": "Work 卡（derived.md §4.1），完整形"
+    },
+    "WorkCardOrHub": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dyn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "juan": {
+          "type": "number"
+        },
+        "au": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 3
+        },
+        "cls": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "description": "分类节点 id；无 classification/ 时为 [l1, l2|null]"
+        },
+        "nb": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "img": {
+          "const": true
+        },
+        "txt": {
+          "const": true
+        },
+        "h": {
+          "const": 1,
+          "description": "枢纽：名称在 _hubs.json，卡片只有 id 与边属性"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Work 卡或枢纽 {id, h:1}"
+    },
+    "BookCard": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "etype": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dating": {
+          "type": "string",
+          "minLength": 1
+        },
+        "y": {
+          "type": "integer"
+        },
+        "holder": {
+          "type": "string",
+          "minLength": 1
+        },
+        "juan": {
+          "type": "number"
+        },
+        "img": {
+          "const": true
+        },
+        "txt": {
+          "const": true
+        },
+        "nres": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "pub": {
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        "meas": {
+          "type": "string",
+          "minLength": 1
+        },
+        "from": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "minItems": 1
+        },
+        "alias": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "description": "Book 卡（derived.md §4.2），从不写成枢纽形"
+    },
+    "CollectionsItem": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "h": {
+          "const": 1,
+          "description": "枢纽：名称在 _hubs.json，卡片只有 id 与边属性"
+        },
+        "vol": {},
+        "sub": {
+          "type": "array"
+        },
+        "group": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ord": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "description": "_collections 元素：Collection 卡或枢纽，加边属性"
+    },
+    "ChildCollection": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "h": {
+          "const": 1,
+          "description": "枢纽：名称在 _hubs.json，卡片只有 id 与边属性"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Collection _children 元素"
+    },
+    "AuthorItem": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "h": {
+          "const": 1,
+          "description": "枢纽：名称在 _hubs.json，卡片只有 id 与边属性"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dyn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dates": {
+          "type": [
+            "object",
+            "string"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "description": "Work _authors 元素：作者项基础值覆盖 Entity 卡"
+    },
+    "CatalogsItem": {
+      "type": "object",
+      "required": [
+        "bid"
+      ],
+      "properties": {
+        "bid": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "h": {
+          "const": 1,
+          "description": "枢纽：名称在 _hubs.json，卡片只有 id 与边属性"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dyn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "section": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "WorkRelatedItem": {
+      "type": "object",
+      "required": [
+        "id",
+        "relation",
+        "direction"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dyn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "juan": {
+          "type": "number"
+        },
+        "au": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 3
+        },
+        "cls": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "description": "分类节点 id；无 classification/ 时为 [l1, l2|null]"
+        },
+        "nb": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "img": {
+          "const": true
+        },
+        "txt": {
+          "const": true
+        },
+        "h": {
+          "const": 1,
+          "description": "枢纽：名称在 _hubs.json，卡片只有 id 与边属性"
+        },
+        "relation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "enum": [
+            "out",
+            "in"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "description": "Work _related 元素：Work 卡或 Collection 卡（或枢纽）加关系属性"
+    },
+    "SymRelatedItem": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "t",
+            "relation",
+            "direction"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "common.schema.json#/$defs/Id"
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "edition": {
+              "type": "string",
+              "minLength": 1
+            },
+            "etype": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dating": {
+              "type": "string",
+              "minLength": 1
+            },
+            "y": {
+              "type": "integer"
+            },
+            "holder": {
+              "type": "string",
+              "minLength": 1
+            },
+            "juan": {
+              "type": "number"
+            },
+            "img": {
+              "const": true
+            },
+            "txt": {
+              "const": true
+            },
+            "nres": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "pub": {
+              "type": [
+                "string",
+                "integer"
+              ]
+            },
+            "meas": {
+              "type": "string",
+              "minLength": 1
+            },
+            "from": {
+              "type": "array",
+              "items": {
+                "$ref": "common.schema.json#/$defs/Id"
+              },
+              "minItems": 1
+            },
+            "alias": {
+              "type": "string",
+              "minLength": 1
+            },
+            "t": {
+              "const": "book"
+            },
+            "relation": {
+              "const": "related"
+            },
+            "direction": {
+              "enum": [
+                "out",
+                "in"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "t",
+            "relation",
+            "direction"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "common.schema.json#/$defs/Id"
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "h": {
+              "const": 1,
+              "description": "枢纽：名称在 _hubs.json，卡片只有 id 与边属性"
+            },
+            "t": {
+              "const": "collection"
+            },
+            "relation": {
+              "const": "related"
+            },
+            "direction": {
+              "enum": [
+                "out",
+                "in"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      ],
+      "description": "Book／Collection _related 元素（契约 3）"
+    },
+    "MemberCard": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "t"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "common.schema.json#/$defs/Id"
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "edition": {
+              "type": "string",
+              "minLength": 1
+            },
+            "etype": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dating": {
+              "type": "string",
+              "minLength": 1
+            },
+            "y": {
+              "type": "integer"
+            },
+            "holder": {
+              "type": "string",
+              "minLength": 1
+            },
+            "juan": {
+              "type": "number"
+            },
+            "img": {
+              "const": true
+            },
+            "txt": {
+              "const": true
+            },
+            "nres": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "pub": {
+              "type": [
+                "string",
+                "integer"
+              ]
+            },
+            "meas": {
+              "type": "string",
+              "minLength": 1
+            },
+            "from": {
+              "type": "array",
+              "items": {
+                "$ref": "common.schema.json#/$defs/Id"
+              },
+              "minItems": 1
+            },
+            "alias": {
+              "type": "string",
+              "minLength": 1
+            },
+            "t": {
+              "const": "book"
+            },
+            "section": {
+              "type": "string",
+              "minLength": 1
+            },
+            "vol": {},
+            "sub": {
+              "type": "array"
+            },
+            "group": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ord": {
+              "type": "integer"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "t"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "common.schema.json#/$defs/Id"
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dyn": {
+              "type": "string",
+              "minLength": 1
+            },
+            "juan": {
+              "type": "number"
+            },
+            "au": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "maxItems": 3
+            },
+            "cls": {
+              "type": [
+                "string",
+                "array"
+              ],
+              "description": "分类节点 id；无 classification/ 时为 [l1, l2|null]"
+            },
+            "nb": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "img": {
+              "const": true
+            },
+            "txt": {
+              "const": true
+            },
+            "t": {
+              "const": "work"
+            },
+            "vol": {},
+            "sub": {
+              "type": "array"
+            },
+            "group": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ord": {
+              "type": "integer"
+            }
+          },
+          "additionalProperties": false
+        }
+      ],
+      "description": "丛编成员卡（_members 与 members/ 页）"
+    },
+    "EntityWorkItem": {
+      "type": "object",
+      "required": [
+        "work_id",
+        "role"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dyn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "juan": {
+          "type": "number"
+        },
+        "au": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 3
+        },
+        "cls": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "description": "分类节点 id；无 classification/ 时为 [l1, l2|null]"
+        },
+        "nb": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "img": {
+          "const": true
+        },
+        "txt": {
+          "const": true
+        },
+        "work_id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "description": "Entity _works 元素"
+    },
+    "ClassificationRow": {
+      "type": "object",
+      "required": [
+        "scheme",
+        "node",
+        "path",
+        "l1",
+        "l2",
+        "l3",
+        "l4"
+      ],
+      "properties": {
+        "scheme": {
+          "type": "string",
+          "minLength": 1
+        },
+        "node": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "l1": {
+          "type": "string"
+        },
+        "l2": {
+          "type": "string"
+        },
+        "l3": {
+          "type": "string"
+        },
+        "l4": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DerivedByItem": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rel": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DynCard": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "h": {
+          "const": 1,
+          "description": "枢纽：名称在 _hubs.json，卡片只有 id 与边属性"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReignCard": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "h": {
+          "const": 1,
+          "description": "枢纽：名称在 _hubs.json，卡片只有 id 与边属性"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "ruler": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dynasty": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "OfficeCard": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "h": {
+          "const": 1,
+          "description": "枢纽：名称在 _hubs.json，卡片只有 id 与边属性"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "level": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dynasties": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "PlaceCard": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "h": {
+          "const": 1,
+          "description": "枢纽：名称在 _hubs.json，卡片只有 id 与边属性"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PeopleCard": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "h": {
+          "const": 1,
+          "description": "枢纽：名称在 _hubs.json，卡片只有 id 与边属性"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dyn": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Span": {
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

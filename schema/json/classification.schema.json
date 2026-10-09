@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "classification.schema.json",
+  "title": "分类目录 classification/",
+  "description": "说明见 schema/classification.md",
+  "$defs": {
+    "schemes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "primary",
+          "exclusive",
+          "tree"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_-]+$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "primary": {
+            "type": "boolean"
+          },
+          "exclusive": {
+            "type": "boolean"
+          },
+          "tree": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "tree": {
+      "type": "object",
+      "required": [
+        "scheme",
+        "name",
+        "nodes"
+      ],
+      "properties": {
+        "scheme": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "parent",
+              "level"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "parent": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "level": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4
+              },
+              "retired": {
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "members": {
+      "type": "object",
+      "required": [
+        "node",
+        "members"
+      ],
+      "properties": {
+        "node": {
+          "type": "string"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "$ref": "common.schema.json#/$defs/Id"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "adopted",
+                  "candidate",
+                  "revoked"
+                ]
+              }
+            ],
+            "minItems": 2,
+            "maxItems": 3
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

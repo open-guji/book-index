@@ -1,0 +1,2359 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "entity.schema.json",
+  "title": "Entity（人物与专名）",
+  "description": "说明见 schema/entity.md。跨记录检查（引用存在、无环、唯一、区间）不在本 schema，由 .claude/qa/check_v2.py（entity_subtypes.py）做。revision 正式库必填由 check_schema.py 另加。",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "schema_version",
+    "subtype",
+    "primary_name"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "type": {
+      "const": "entity"
+    },
+    "subtype": {
+      "enum": [
+        "people",
+        "collective",
+        "dynasty",
+        "reign",
+        "office",
+        "place"
+      ]
+    },
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/SchemaVersion"
+    },
+    "primary_name": {
+      "$ref": "common.schema.json#/$defs/NonEmptyString"
+    },
+    "alt_names": {
+      "$ref": "#/$defs/AltNames"
+    },
+    "dynasty": {
+      "anyOf": [
+        {
+          "$ref": "common.schema.json#/$defs/NonEmptyString"
+        },
+        {
+          "type": "null",
+          "x-legacy": true,
+          "description": "null 占位（旧）"
+        }
+      ]
+    },
+    "dynasty_basis": {
+      "type": "string"
+    },
+    "period": {
+      "$ref": "common.schema.json#/$defs/NullablePeriod"
+    },
+    "period_basis": {
+      "type": "string"
+    },
+    "native_place": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null",
+          "x-legacy": true,
+          "description": "null 占位（旧）"
+        }
+      ]
+    },
+    "native_place_basis": {
+      "type": "string"
+    },
+    "title_or_office": {
+      "type": "string"
+    },
+    "name_basis": {
+      "type": "string"
+    },
+    "birth_year": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null",
+          "x-legacy": true,
+          "description": "null 占位（旧），按缺省读"
+        }
+      ]
+    },
+    "death_year": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null",
+          "x-legacy": true,
+          "description": "null 占位（旧），按缺省读"
+        }
+      ]
+    },
+    "dates": {
+      "$ref": "#/$defs/Dates"
+    },
+    "external_ids": {
+      "$ref": "#/$defs/ExternalIds"
+    },
+    "description": {
+      "$ref": "#/$defs/EntityDescription"
+    },
+    "merge_history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/MergeHistoryItem"
+      }
+    },
+    "merged_in": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/EntityMergedInItem"
+      }
+    },
+    "merged_into": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "retired": {
+      "const": true
+    },
+    "retired_reason": {
+      "$ref": "common.schema.json#/$defs/NonEmptyString"
+    },
+    "suppressed_fields": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/NonEmptyString"
+      }
+    },
+    "ai_note": {
+      "type": "string"
+    },
+    "todo": {
+      "$ref": "common.schema.json#/$defs/Todo"
+    },
+    "review": {
+      "$ref": "common.schema.json#/$defs/Review"
+    },
+    "revision": {
+      "$ref": "common.schema.json#/$defs/Revision"
+    },
+    "revised_at": {
+      "$ref": "common.schema.json#/$defs/Date"
+    },
+    "updated_at": {
+      "$ref": "common.schema.json#/$defs/DateTime"
+    },
+    "collective_kind": {
+      "enum": [
+        "官署",
+        "書院學校",
+        "館局",
+        "民間",
+        "未分"
+      ]
+    },
+    "institution_level": {
+      "enum": [
+        "concept",
+        "concrete",
+        "group"
+      ]
+    },
+    "superiors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "start": {
+            "type": "integer"
+          },
+          "end": {
+            "type": "integer"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "group_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Id"
+      },
+      "minItems": 1
+    },
+    "parent_id": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "dynasty_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Id"
+      },
+      "minItems": 1
+    },
+    "function": {
+      "$ref": "common.schema.json#/$defs/NonEmptyString"
+    },
+    "basis": {
+      "$ref": "common.schema.json#/$defs/NonEmptyString"
+    },
+    "start": {
+      "type": "integer"
+    },
+    "end": {
+      "type": "integer"
+    },
+    "succeeds": {
+      "anyOf": [
+        {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/Id"
+          }
+        }
+      ],
+      "description": "只留字段位，第一期不填"
+    },
+    "dynasty_id": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "ruler": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "common.schema.json#/$defs/NonEmptyString"
+        },
+        "entity_id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        }
+      },
+      "additionalProperties": false
+    },
+    "office_level": {
+      "enum": [
+        "concept",
+        "concrete"
+      ]
+    },
+    "office_class": {
+      "enum": [
+        "職事官",
+        "差遣",
+        "散官",
+        "階官",
+        "加官",
+        "貼職",
+        "寄祿官",
+        "祠祿官",
+        "勳",
+        "爵",
+        "本官",
+        "試秩",
+        "憲官",
+        "兼職差遣",
+        "未詳"
+      ]
+    },
+    "rank": {
+      "$ref": "#/$defs/TextBasis"
+    },
+    "salary": {
+      "$ref": "#/$defs/TextBasis"
+    },
+    "institution_ref": {
+      "$ref": "common.schema.json#/$defs/Id",
+      "description": "官署条 id；不得写 COL:<名> 占位"
+    },
+    "base_office_id": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "qualifier": {
+      "type": "object",
+      "required": [
+        "kind",
+        "name"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "institution",
+            "place",
+            "mode",
+            "mode+institution"
+          ]
+        },
+        "name": {
+          "$ref": "common.schema.json#/$defs/NonEmptyString"
+        },
+        "target": {
+          "anyOf": [
+            {
+              "$ref": "common.schema.json#/$defs/Id"
+            },
+            {
+              "type": "null",
+              "x-legacy": true,
+              "description": "null 占位（旧）"
+            }
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "history": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "level"
+        ],
+        "properties": {
+          "start": {
+            "type": "integer"
+          },
+          "end": {
+            "type": "integer",
+            "maximum": 1912
+          },
+          "dynasty_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/Id"
+            }
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/NonEmptyString"
+          },
+          "level": {
+            "enum": [
+              "國",
+              "郡",
+              "州",
+              "府",
+              "軍",
+              "監",
+              "路",
+              "道",
+              "省",
+              "縣",
+              "廳",
+              "都"
+            ]
+          },
+          "parent_id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "parent_text": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "modern": {
+      "type": "object",
+      "required": [
+        "text",
+        "relation"
+      ],
+      "properties": {
+        "text": {
+          "$ref": "common.schema.json#/$defs/NonEmptyString"
+        },
+        "adcode": {
+          "type": "string",
+          "pattern": "^[0-9]{6}$"
+        },
+        "relation": {
+          "enum": [
+            "同名同地",
+            "治所今在",
+            "轄域約當",
+            "沿用其名而異地",
+            "無對應"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "predecessors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "kind": {
+            "enum": [
+              "析出",
+              "並入"
+            ]
+          },
+          "year": {
+            "type": "integer"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "subtype": {
+            "const": "people"
+          }
+        },
+        "required": [
+          "subtype"
+        ]
+      },
+      "then": {
+        "allOf": [
+          {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "collective_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_level"
+                  ]
+                },
+                {
+                  "required": [
+                    "superiors"
+                  ]
+                },
+                {
+                  "required": [
+                    "group_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "parent_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "function"
+                  ]
+                },
+                {
+                  "required": [
+                    "basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "start"
+                  ]
+                },
+                {
+                  "required": [
+                    "end"
+                  ]
+                },
+                {
+                  "required": [
+                    "succeeds"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "ruler"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_level"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_class"
+                  ]
+                },
+                {
+                  "required": [
+                    "rank"
+                  ]
+                },
+                {
+                  "required": [
+                    "salary"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_ref"
+                  ]
+                },
+                {
+                  "required": [
+                    "base_office_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "qualifier"
+                  ]
+                },
+                {
+                  "required": [
+                    "history"
+                  ]
+                },
+                {
+                  "required": [
+                    "modern"
+                  ]
+                },
+                {
+                  "required": [
+                    "predecessors"
+                  ]
+                }
+              ]
+            },
+            "x-not-message": "people 不得有专名子类型的字段"
+          },
+          {
+            "properties": {
+              "dates": {
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "start"
+                      ]
+                    }
+                  ]
+                },
+                "x-not-message": "people 的 dates 只放行 birth／death／floruit／basis／chinese（D3）"
+              }
+            }
+          },
+          {
+            "properties": {
+              "dates": {
+                "not": {
+                  "required": [
+                    "end"
+                  ]
+                },
+                "x-not-message": "people 的 dates 不放行 end（D3）"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "subtype": {
+            "const": "dynasty"
+          }
+        },
+        "required": [
+          "subtype"
+        ]
+      },
+      "then": {
+        "allOf": [
+          {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "dynasty"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "period_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "title_or_office"
+                  ]
+                },
+                {
+                  "required": [
+                    "name_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "birth_year"
+                  ]
+                },
+                {
+                  "required": [
+                    "death_year"
+                  ]
+                },
+                {
+                  "required": [
+                    "merge_history"
+                  ]
+                },
+                {
+                  "required": [
+                    "suppressed_fields"
+                  ]
+                },
+                {
+                  "required": [
+                    "collective_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_level"
+                  ]
+                },
+                {
+                  "required": [
+                    "superiors"
+                  ]
+                },
+                {
+                  "required": [
+                    "group_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "function"
+                  ]
+                },
+                {
+                  "required": [
+                    "basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "start"
+                  ]
+                },
+                {
+                  "required": [
+                    "end"
+                  ]
+                },
+                {
+                  "required": [
+                    "succeeds"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "ruler"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_level"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_class"
+                  ]
+                },
+                {
+                  "required": [
+                    "rank"
+                  ]
+                },
+                {
+                  "required": [
+                    "salary"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_ref"
+                  ]
+                },
+                {
+                  "required": [
+                    "base_office_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "qualifier"
+                  ]
+                },
+                {
+                  "required": [
+                    "history"
+                  ]
+                },
+                {
+                  "required": [
+                    "modern"
+                  ]
+                },
+                {
+                  "required": [
+                    "predecessors"
+                  ]
+                }
+              ]
+            },
+            "x-not-message": "dynasty 只许通用字段与 parent_id／dates／period"
+          },
+          {
+            "properties": {
+              "external_ids": {
+                "$ref": "#/$defs/ExternalIdsWikidataOnly"
+              },
+              "alt_names": {
+                "$ref": "#/$defs/AltNamesStrict"
+              }
+            }
+          },
+          {
+            "properties": {
+              "dates": {
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "birth"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "death"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "floruit"
+                      ]
+                    }
+                  ]
+                },
+                "x-not-message": "dynasty 的 dates 只放行 start／end／basis／chinese（D3）"
+              },
+              "period": {
+                "$ref": "common.schema.json#/$defs/Period"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "subtype": {
+            "const": "reign"
+          }
+        },
+        "required": [
+          "subtype"
+        ]
+      },
+      "then": {
+        "allOf": [
+          {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "dynasty"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "period"
+                  ]
+                },
+                {
+                  "required": [
+                    "period_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "title_or_office"
+                  ]
+                },
+                {
+                  "required": [
+                    "name_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "birth_year"
+                  ]
+                },
+                {
+                  "required": [
+                    "death_year"
+                  ]
+                },
+                {
+                  "required": [
+                    "merge_history"
+                  ]
+                },
+                {
+                  "required": [
+                    "suppressed_fields"
+                  ]
+                },
+                {
+                  "required": [
+                    "collective_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_level"
+                  ]
+                },
+                {
+                  "required": [
+                    "superiors"
+                  ]
+                },
+                {
+                  "required": [
+                    "group_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "parent_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "function"
+                  ]
+                },
+                {
+                  "required": [
+                    "basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "start"
+                  ]
+                },
+                {
+                  "required": [
+                    "end"
+                  ]
+                },
+                {
+                  "required": [
+                    "succeeds"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_level"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_class"
+                  ]
+                },
+                {
+                  "required": [
+                    "rank"
+                  ]
+                },
+                {
+                  "required": [
+                    "salary"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_ref"
+                  ]
+                },
+                {
+                  "required": [
+                    "base_office_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "qualifier"
+                  ]
+                },
+                {
+                  "required": [
+                    "history"
+                  ]
+                },
+                {
+                  "required": [
+                    "modern"
+                  ]
+                },
+                {
+                  "required": [
+                    "predecessors"
+                  ]
+                }
+              ]
+            },
+            "x-not-message": "reign 只许通用字段与 dynasty_id／ruler／dates"
+          },
+          {
+            "properties": {
+              "external_ids": {
+                "$ref": "#/$defs/ExternalIdsWikidataOnly"
+              },
+              "alt_names": {
+                "$ref": "#/$defs/AltNamesStrict"
+              }
+            }
+          },
+          {
+            "required": [
+              "dynasty_id",
+              "ruler",
+              "dates"
+            ]
+          },
+          {
+            "properties": {
+              "dates": {
+                "required": [
+                  "start"
+                ],
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "birth"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "death"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "floruit"
+                      ]
+                    }
+                  ]
+                },
+                "x-not-message": "reign 的 dates 只放行 start／end／basis／chinese（D3）"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "subtype": {
+            "const": "office"
+          }
+        },
+        "required": [
+          "subtype"
+        ]
+      },
+      "then": {
+        "allOf": [
+          {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "dynasty"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "period"
+                  ]
+                },
+                {
+                  "required": [
+                    "period_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "title_or_office"
+                  ]
+                },
+                {
+                  "required": [
+                    "name_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "birth_year"
+                  ]
+                },
+                {
+                  "required": [
+                    "death_year"
+                  ]
+                },
+                {
+                  "required": [
+                    "dates"
+                  ]
+                },
+                {
+                  "required": [
+                    "merge_history"
+                  ]
+                },
+                {
+                  "required": [
+                    "suppressed_fields"
+                  ]
+                },
+                {
+                  "required": [
+                    "collective_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_level"
+                  ]
+                },
+                {
+                  "required": [
+                    "superiors"
+                  ]
+                },
+                {
+                  "required": [
+                    "group_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "ruler"
+                  ]
+                },
+                {
+                  "required": [
+                    "history"
+                  ]
+                },
+                {
+                  "required": [
+                    "modern"
+                  ]
+                },
+                {
+                  "required": [
+                    "predecessors"
+                  ]
+                }
+              ]
+            },
+            "x-not-message": "office 只许通用字段与官职字段（dates、coords 等不得有）"
+          },
+          {
+            "properties": {
+              "external_ids": {
+                "$ref": "#/$defs/ExternalIdsWikidataOnly"
+              },
+              "alt_names": {
+                "$ref": "#/$defs/AltNamesStrict"
+              }
+            }
+          },
+          {
+            "required": [
+              "office_level"
+            ]
+          },
+          {
+            "if": {
+              "properties": {
+                "office_level": {
+                  "const": "concept"
+                }
+              },
+              "required": [
+                "office_level"
+              ]
+            },
+            "then": {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "parent_id"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "dynasty_ids"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "office_class"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "rank"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "salary"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "base_office_id"
+                    ]
+                  }
+                ]
+              },
+              "x-not-message": "官职概念条不得有 dynasty_ids／rank／salary／office_class／base_office_id／parent_id（O02／O04）"
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "office_level": {
+                  "const": "concrete"
+                }
+              },
+              "required": [
+                "office_level"
+              ]
+            },
+            "then": {
+              "required": [
+                "dynasty_ids",
+                "function",
+                "basis"
+              ]
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "base_office_id"
+              ]
+            },
+            "then": {
+              "required": [
+                "qualifier"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "subtype": {
+            "const": "place"
+          }
+        },
+        "required": [
+          "subtype"
+        ]
+      },
+      "then": {
+        "allOf": [
+          {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "dynasty"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "period"
+                  ]
+                },
+                {
+                  "required": [
+                    "period_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "title_or_office"
+                  ]
+                },
+                {
+                  "required": [
+                    "name_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "birth_year"
+                  ]
+                },
+                {
+                  "required": [
+                    "death_year"
+                  ]
+                },
+                {
+                  "required": [
+                    "dates"
+                  ]
+                },
+                {
+                  "required": [
+                    "merge_history"
+                  ]
+                },
+                {
+                  "required": [
+                    "suppressed_fields"
+                  ]
+                },
+                {
+                  "required": [
+                    "collective_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_level"
+                  ]
+                },
+                {
+                  "required": [
+                    "superiors"
+                  ]
+                },
+                {
+                  "required": [
+                    "group_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "parent_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "function"
+                  ]
+                },
+                {
+                  "required": [
+                    "basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "start"
+                  ]
+                },
+                {
+                  "required": [
+                    "end"
+                  ]
+                },
+                {
+                  "required": [
+                    "succeeds"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "ruler"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_level"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_class"
+                  ]
+                },
+                {
+                  "required": [
+                    "rank"
+                  ]
+                },
+                {
+                  "required": [
+                    "salary"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_ref"
+                  ]
+                },
+                {
+                  "required": [
+                    "base_office_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "qualifier"
+                  ]
+                }
+              ]
+            },
+            "x-not-message": "place 只许通用字段与 history／modern／predecessors（dates、coords 不得有）"
+          },
+          {
+            "properties": {
+              "external_ids": {
+                "$ref": "#/$defs/ExternalIdsWikidataOnly"
+              },
+              "alt_names": {
+                "$ref": "#/$defs/AltNamesStrict"
+              }
+            }
+          },
+          {
+            "required": [
+              "history"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "subtype": {
+            "const": "collective"
+          }
+        },
+        "required": [
+          "subtype"
+        ]
+      },
+      "then": {
+        "if": {
+          "properties": {
+            "collective_kind": {
+              "const": "官署"
+            }
+          },
+          "required": [
+            "collective_kind"
+          ]
+        },
+        "then": {
+          "allOf": [
+            {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "native_place"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "native_place_basis"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "title_or_office"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "name_basis"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "birth_year"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "death_year"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "dates"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "merge_history"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "suppressed_fields"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "dynasty_id"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "ruler"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "office_level"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "office_class"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "rank"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "salary"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "institution_ref"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "base_office_id"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "qualifier"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "history"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "modern"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "predecessors"
+                    ]
+                  }
+                ]
+              },
+              "x-not-message": "官署条不得有官职专有字段、dates 等（I08）"
+            },
+            {
+              "properties": {
+                "external_ids": {
+                  "$ref": "#/$defs/ExternalIdsWikidataOnly"
+                },
+                "alt_names": {
+                  "$ref": "#/$defs/AltNamesStrict"
+                }
+              }
+            },
+            {
+              "required": [
+                "institution_level"
+              ]
+            },
+            {
+              "properties": {
+                "dynasty": {
+                  "x-legacy": true,
+                  "description": "官署条不写旧式朝代／时代字符串（旧，暂留）"
+                },
+                "dynasty_basis": {
+                  "x-legacy": true,
+                  "description": "官署条不写旧式朝代／时代字符串（旧，暂留）"
+                },
+                "period": {
+                  "x-legacy": true,
+                  "description": "官署条不写旧式朝代／时代字符串（旧，暂留）"
+                },
+                "period_basis": {
+                  "x-legacy": true,
+                  "description": "官署条不写旧式朝代／时代字符串（旧，暂留）"
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "institution_level": {
+                    "const": "concrete"
+                  }
+                },
+                "required": [
+                  "institution_level"
+                ]
+              },
+              "then": {
+                "required": [
+                  "dynasty_ids",
+                  "function",
+                  "basis"
+                ],
+                "properties": {
+                  "basis": {
+                    "type": "string",
+                    "pattern": "^(?!.*待核)"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "institution_level": {
+                    "enum": [
+                      "concept",
+                      "group"
+                    ]
+                  }
+                },
+                "required": [
+                  "institution_level"
+                ]
+              },
+              "then": {
+                "allOf": [
+                  {
+                    "not": {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "superiors"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "parent_id"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "dynasty_ids"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "function"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "basis"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "start"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "end"
+                          ]
+                        }
+                      ]
+                    },
+                    "x-not-message": "官署概念条、合称条不得有 dynasty_ids／function／basis／superiors／start／end／parent_id（I02／I03）"
+                  },
+                  {
+                    "required": [
+                      "description"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "institution_level": {
+                    "const": "group"
+                  }
+                },
+                "required": [
+                  "institution_level"
+                ]
+              },
+              "then": {
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "group_ids"
+                      ]
+                    }
+                  ]
+                },
+                "x-not-message": "合称条不得有 group_ids（I02）"
+              }
+            }
+          ]
+        },
+        "else": {
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "native_place"
+                ]
+              },
+              {
+                "required": [
+                  "native_place_basis"
+                ]
+              },
+              {
+                "required": [
+                  "title_or_office"
+                ]
+              },
+              {
+                "required": [
+                  "name_basis"
+                ]
+              },
+              {
+                "required": [
+                  "birth_year"
+                ]
+              },
+              {
+                "required": [
+                  "death_year"
+                ]
+              },
+              {
+                "required": [
+                  "dates"
+                ]
+              },
+              {
+                "required": [
+                  "merge_history"
+                ]
+              },
+              {
+                "required": [
+                  "suppressed_fields"
+                ]
+              },
+              {
+                "required": [
+                  "institution_level"
+                ]
+              },
+              {
+                "required": [
+                  "superiors"
+                ]
+              },
+              {
+                "required": [
+                  "group_ids"
+                ]
+              },
+              {
+                "required": [
+                  "parent_id"
+                ]
+              },
+              {
+                "required": [
+                  "dynasty_ids"
+                ]
+              },
+              {
+                "required": [
+                  "function"
+                ]
+              },
+              {
+                "required": [
+                  "basis"
+                ]
+              },
+              {
+                "required": [
+                  "start"
+                ]
+              },
+              {
+                "required": [
+                  "end"
+                ]
+              },
+              {
+                "required": [
+                  "succeeds"
+                ]
+              },
+              {
+                "required": [
+                  "dynasty_id"
+                ]
+              },
+              {
+                "required": [
+                  "ruler"
+                ]
+              },
+              {
+                "required": [
+                  "office_level"
+                ]
+              },
+              {
+                "required": [
+                  "office_class"
+                ]
+              },
+              {
+                "required": [
+                  "rank"
+                ]
+              },
+              {
+                "required": [
+                  "salary"
+                ]
+              },
+              {
+                "required": [
+                  "institution_ref"
+                ]
+              },
+              {
+                "required": [
+                  "base_office_id"
+                ]
+              },
+              {
+                "required": [
+                  "qualifier"
+                ]
+              },
+              {
+                "required": [
+                  "history"
+                ]
+              },
+              {
+                "required": [
+                  "modern"
+                ]
+              },
+              {
+                "required": [
+                  "predecessors"
+                ]
+              }
+            ]
+          },
+          "x-not-message": "非官署 collective 只许通用字段、朝代／时代字段与 collective_kind"
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "retired": {
+            "const": true
+          }
+        },
+        "required": [
+          "retired"
+        ]
+      },
+      "then": {
+        "required": [
+          "retired_reason"
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "AltName": {
+      "description": "别名。type 枚举 23 值（entity.md〈三·二〉）；people 的表外旧值报 WARN；缺 type 为旧写法（WARN）。",
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "common.schema.json#/$defs/NonEmptyString"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "字",
+            "號",
+            "諡號",
+            "賜號",
+            "別名",
+            "常用名",
+            "簡體",
+            "行第",
+            "廟號",
+            "訛名",
+            "異體",
+            "封爵",
+            "俗姓",
+            "簡稱",
+            "合稱",
+            "避諱",
+            "別稱",
+            "雅稱",
+            "全稱",
+            "異寫",
+            "舊稱",
+            "異稱",
+            "今名"
+          ],
+          "x-legacy-values": [
+            "著錄形",
+            "小字",
+            "著錄原形",
+            "小名",
+            "法號",
+            "本名",
+            "舊著錄形",
+            "殘名",
+            "著錄異形",
+            "稱謂",
+            "本姓",
+            "年號",
+            "其他譯名",
+            "剝字之訛",
+            "洗名",
+            "著錄異寫",
+            "异体",
+            "稱號",
+            "位號",
+            "尊號",
+            "俗名",
+            "異書/或訛",
+            "異體字",
+            "著錄原形（誤切）",
+            "名",
+            "簡稱/或訛",
+            "訛寫",
+            "道號",
+            "形訛",
+            "著錄殘文",
+            "廟額",
+            "廟號諡號",
+            "志書異文"
+          ]
+        },
+        "ambiguous": {
+          "type": "boolean"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "if": {
+        "not": {
+          "required": [
+            "type"
+          ]
+        }
+      },
+      "then": {
+        "x-legacy": true
+      }
+    },
+    "AltNames": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/AltName"
+          },
+          {
+            "type": "string",
+            "minLength": 1,
+            "x-legacy": true,
+            "description": "裸字符串别名（旧），按 {name: 该串} 读"
+          }
+        ]
+      }
+    },
+    "AltNamesStrict": {
+      "description": "专名子类型与官署：type 必填且必须在 23 值内（O12）",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "字",
+              "號",
+              "諡號",
+              "賜號",
+              "別名",
+              "常用名",
+              "簡體",
+              "行第",
+              "廟號",
+              "訛名",
+              "異體",
+              "封爵",
+              "俗姓",
+              "簡稱",
+              "合稱",
+              "避諱",
+              "別稱",
+              "雅稱",
+              "全稱",
+              "異寫",
+              "舊稱",
+              "異稱",
+              "今名"
+            ]
+          }
+        }
+      }
+    },
+    "EntityDescription": {
+      "description": "Entity 的 description：sources 必有；people 多数只有 sources 而无 text。",
+      "type": "object",
+      "required": [
+        "sources"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "common.schema.json#/$defs/NonEmptyString"
+              },
+              {
+                "$ref": "common.schema.json#/$defs/Source"
+              },
+              {
+                "$ref": "common.schema.json#/$defs/Citation"
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Dates": {
+      "description": "按子类型放行的键见 entity.md〈四·一〉；分支里再收窄。",
+      "type": "object",
+      "properties": {
+        "birth": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null",
+              "x-legacy": true,
+              "description": "null 占位（旧），按缺省读"
+            }
+          ]
+        },
+        "death": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null",
+              "x-legacy": true,
+              "description": "null 占位（旧），按缺省读"
+            }
+          ]
+        },
+        "floruit": {
+          "anyOf": [
+            {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "integer"
+                }
+              ],
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "null",
+              "x-legacy": true,
+              "description": "null 占位（旧）"
+            }
+          ]
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null",
+              "x-legacy": true,
+              "description": "null 占位（旧），按缺省读"
+            }
+          ]
+        },
+        "basis": {
+          "type": "string"
+        },
+        "chinese": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExternalIds": {
+      "type": "object",
+      "properties": {
+        "cbdb_id": {
+          "type": "integer"
+        },
+        "cbdb_match": {
+          "type": "string"
+        },
+        "cbdb_source": {
+          "type": "string"
+        },
+        "cbdb_id_alt": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "cbdb_aliases": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "x-legacy": true,
+          "description": "同 cbdb_id_alt，待并入"
+        },
+        "cbdb_aliases_note": {
+          "type": "string",
+          "x-legacy": true
+        },
+        "cbdb_note": {
+          "type": "string",
+          "x-legacy": true,
+          "description": "待并入 ai_note"
+        },
+        "wikidata_id": {
+          "type": "string",
+          "pattern": "^Q[0-9]+$"
+        },
+        "viaf_id": {
+          "type": "string",
+          "pattern": "^[0-9]+$"
+        }
+      },
+      "additionalProperties": false,
+      "if": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "then": {
+        "x-legacy": true,
+        "description": "空对象 {}（旧），新写不写"
+      }
+    },
+    "ExternalIdsWikidataOnly": {
+      "description": "专名子类型与官署只许 wikidata_id（E1／I08）",
+      "type": "object",
+      "properties": {
+        "wikidata_id": {
+          "type": "string",
+          "pattern": "^Q[0-9]+$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "MergeHistoryItem": {
+      "type": "object",
+      "required": [
+        "primary_name",
+        "date",
+        "reason"
+      ],
+      "properties": {
+        "primary_name": {
+          "type": "string"
+        },
+        "date": {
+          "$ref": "common.schema.json#/$defs/Date"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "EntityMergedInItem": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "primary_name": {
+          "type": "string"
+        },
+        "at": {
+          "type": "string"
+        },
+        "by": {
+          "type": "string"
+        },
+        "rule": {
+          "type": "string"
+        },
+        "why": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TextBasis": {
+      "type": "object",
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "$ref": "common.schema.json#/$defs/NonEmptyString"
+        },
+        "basis": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,522 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "book.schema.json",
+  "title": "book-index Book 记录",
+  "description": "说明见 schema/book.md。正式库另要求 revision、revised_at（check_schema.py 按库口径加）。",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "schema_version",
+    "title",
+    "work_id"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "type": {
+      "const": "book"
+    },
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/SchemaVersion"
+    },
+    "revision": {
+      "$ref": "common.schema.json#/$defs/Revision"
+    },
+    "revised_at": {
+      "$ref": "common.schema.json#/$defs/Date"
+    },
+    "updated_at": {
+      "$ref": "common.schema.json#/$defs/DateTime"
+    },
+    "ai_note": {
+      "type": "string"
+    },
+    "todo": {
+      "$ref": "common.schema.json#/$defs/Todo"
+    },
+    "review": {
+      "$ref": "common.schema.json#/$defs/Review"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "work_id": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "edition": {
+      "type": "string"
+    },
+    "edition_type": {
+      "enum": [
+        "刻本",
+        "抄本",
+        "稿本",
+        "活字本",
+        "石印本",
+        "鉛印本",
+        "影印本",
+        "套印本",
+        "拓本",
+        "印刷本",
+        "其他"
+      ]
+    },
+    "dating": {
+      "$ref": "common.schema.json#/$defs/Dating"
+    },
+    "publication_info": {
+      "$ref": "common.schema.json#/$defs/PublicationInfo"
+    },
+    "contained_in": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "volume_index": {
+            "type": [
+              "integer",
+              "string",
+              "array"
+            ],
+            "items": {
+              "type": "integer"
+            }
+          },
+          "details": {
+            "type": "string"
+          },
+          "sub_items": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "section": {
+      "type": "string"
+    },
+    "authors": {
+      "$ref": "common.schema.json#/$defs/Authors"
+    },
+    "juan_count": {
+      "$ref": "common.schema.json#/$defs/JuanCount"
+    },
+    "measures": {
+      "$ref": "common.schema.json#/$defs/Measures"
+    },
+    "measure_info": {
+      "type": "string"
+    },
+    "volume_count": {
+      "type": "object",
+      "required": [
+        "number"
+      ],
+      "properties": {
+        "number": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "page_count": {
+      "$ref": "common.schema.json#/$defs/PageCount"
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "institution",
+          "call_number",
+          "seals",
+          "notes",
+          "source"
+        ],
+        "properties": {
+          "institution": {
+            "type": "string",
+            "minLength": 1
+          },
+          "call_number": {
+            "type": "string"
+          },
+          "seals": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notes": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "physical_description": {
+      "type": "object",
+      "required": [
+        "source"
+      ],
+      "properties": {
+        "leaf_style": {
+          "type": "string"
+        },
+        "binding": {
+          "type": "string"
+        },
+        "dimensions": {
+          "type": "string"
+        },
+        "condition": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "properties": {
+            "leaf_style": {
+              "minLength": 1
+            }
+          },
+          "required": [
+            "leaf_style"
+          ]
+        },
+        {
+          "properties": {
+            "binding": {
+              "minLength": 1
+            }
+          },
+          "required": [
+            "binding"
+          ]
+        },
+        {
+          "properties": {
+            "dimensions": {
+              "minLength": 1
+            }
+          },
+          "required": [
+            "dimensions"
+          ]
+        },
+        {
+          "properties": {
+            "condition": {
+              "minLength": 1
+            }
+          },
+          "required": [
+            "condition"
+          ]
+        }
+      ]
+    },
+    "base_edition": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "role",
+          "name",
+          "source"
+        ],
+        "properties": {
+          "role": {
+            "enum": [
+              "底本",
+              "配補",
+              "參校"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "book_id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "work_id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "note": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "not": {
+          "required": [
+            "book_id",
+            "work_id"
+          ]
+        },
+        "x-not-message": "book_id 与 work_id 至多填一项"
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer"
+        },
+        "year_range": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "year_text": {
+          "type": "string"
+        },
+        "year_uncertain": {
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "extant",
+            "fragment",
+            "lost"
+          ]
+        },
+        "extant_juan": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": "string"
+        },
+        "derived_from": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "ref",
+              "ref_type",
+              "relation"
+            ],
+            "properties": {
+              "ref": {
+                "type": "string"
+              },
+              "ref_type": {
+                "enum": [
+                  "book",
+                  "hypothetical"
+                ]
+              },
+              "relation": {
+                "type": "string"
+              },
+              "confidence": {
+                "enum": [
+                  "certain",
+                  "consensus",
+                  "probable",
+                  "disputed"
+                ]
+              },
+              "evidence": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "related_to": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "relation"
+            ],
+            "properties": {
+              "book_id": {
+                "$ref": "common.schema.json#/$defs/Id"
+              },
+              "ref": {
+                "type": "string"
+              },
+              "ref_type": {
+                "enum": [
+                  "book",
+                  "hypothetical"
+                ]
+              },
+              "relation": {
+                "type": "string"
+              },
+              "confidence": {
+                "enum": [
+                  "certain",
+                  "consensus",
+                  "probable",
+                  "disputed"
+                ]
+              },
+              "evidence": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "current_location": {
+      "$ref": "common.schema.json#/$defs/Location"
+    },
+    "location_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "item_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "acckey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "attached_texts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "book_title"
+        ],
+        "properties": {
+          "book_title": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "description": {
+      "$ref": "common.schema.json#/$defs/Description"
+    },
+    "additional_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "indexed_by": {
+      "$ref": "common.schema.json#/$defs/IndexEntries"
+    },
+    "resources": {
+      "$ref": "common.schema.json#/$defs/Resources"
+    },
+    "resource_groups": {
+      "$ref": "common.schema.json#/$defs/ResourceGroups"
+    },
+    "related_books": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Id"
+      }
+    },
+    "zhsy_id": {
+      "type": "string"
+    },
+    "zhsy_retrieved_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Source"
+      }
+    },
+    "merged_from": {
+      "$ref": "common.schema.json#/$defs/MergedFrom"
+    },
+    "appendix": {
+      "$ref": "common.schema.json#/$defs/AppendixItems"
+    },
+    "_has_text": {
+      "type": "boolean",
+      "x-legacy": true
+    },
+    "_has_collated": {
+      "type": "boolean",
+      "x-legacy": true
+    }
+  },
+  "patternProperties": {
+    "^_(?!has_text$|has_collated$)": {
+      "not": {},
+      "x-not-message": "源档不写 `_` 起首字段（派生字段只在 _build/ 里）"
+    }
+  },
+  "additionalProperties": false
+}
