@@ -451,3 +451,22 @@ def test_i12_institution_ref():
     assert has(conc("of", ["t"], institution_ref="ig", primary_name="吏部尚書"), "I12", es.WARN, IG)
     assert has(o("p1"), "I12")                 # 非官署
     assert has(o("nowhere"), "I12", es.WARN)   # 不在本庫（指正式庫）
+
+
+def test_canonical_dynasties_from_schema():
+    """D1 枚举改读 schema/common.md（overview#496 §六-14）：规范表＋域外表，共 143 名。"""
+    names = es.load_canonical_dynasties()
+    assert len(names) == 143
+    assert {"南朝梁", "趙宋", "高麗", "日本"} <= names
+    assert "规范名" not in names
+
+
+def test_canonical_dynasties_missing_raises(tmp_path):
+    """读不到表即报错，不再静默跳过 D1。"""
+    import pytest
+    with pytest.raises(RuntimeError):
+        es.load_canonical_dynasties(str(tmp_path / "nope.md"))
+    p = tmp_path / "common.md"
+    p.write_text("# 无表\n", encoding="utf-8")
+    with pytest.raises(RuntimeError):
+        es.load_canonical_dynasties(str(p))
