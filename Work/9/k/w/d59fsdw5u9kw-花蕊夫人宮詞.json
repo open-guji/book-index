@@ -9,21 +9,20 @@
   ],
   "authors": [
     {
-      "name": "毛晉",
-      "role": "編",
-      "dynasty": "清",
+      "name": "費氏",
+      "role": "撰",
+      "dynasty": "五代",
       "source": {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/10trfoc56j5ekoby"
-      },
-      "entity_id": "hixhd2h9bhmo"
+      }
     }
   ],
-  "dynasty": "清",
+  "dynasty": "五代",
   "dynasty_basis": "author_propagation",
-  "period": "qing",
-  "period_basis": "據 authors[0].dynasty「清」",
+  "period": "five-dynasties",
+  "period_basis": "據 authors[0].dynasty「五代」",
   "indexed_by": [
     {
       "source": "中國古籍總目",
@@ -34,7 +33,17 @@
       "summary": "共 1 個版本：十家宮詞本（馆藏未载）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：1z7ouloisvwfwuol\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-09"
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：1z7ouloisvwfwuol\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-09 S 併條（rule=跨批重複（Q1 集部升格批1–10））：併 d59fsdw5u9ky《花蕊夫人宮詞》 入本條。同書：兩條總目記錄同為五代費氏撰、十家宮詞本；原 Work 撰人誤取輯者（Q1 跨批查重 A 級）\n2026-10-09 S 改撰人：原署「毛晉・編」（被併者署「倪燦・編」），係取叢編輯者為作者；總目題名行作「五代費氏撰」（即花蕊夫人），從之。毛晉、倪燦為十家宮詞等叢編之輯者，屬 Book 層。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-09",
+  "merged_in": [
+    {
+      "id": "d59fsdw5u9ky",
+      "title": "花蕊夫人宮詞",
+      "at": "2026-10-09T01:55:52Z",
+      "by": "S",
+      "rule": "跨批重複（Q1 集部升格批1–10）",
+      "why": "同書：兩條總目記錄同為五代費氏撰、十家宮詞本；原 Work 撰人誤取輯者（Q1 跨批查重 A 級）"
+    }
+  ]
 }
