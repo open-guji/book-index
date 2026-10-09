@@ -34,7 +34,26 @@
   "juan_count": {
     "number": 42
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071318",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071318",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071318",
+        "request_no": "集０３５－０００１",
+        "edition": "刊本:明万暦:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4393827/manifest.json",
+        "extent": "16冊"
+      }
+    }
+  ],
   "measures": [
     {
       "unit": "卷",
@@ -55,8 +74,8 @@
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-09",
   "additional_titles": [
     "榖城山館文集"
   ],
@@ -69,5 +88,10 @@
       "rule": "I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一）",
       "why": "同題同撰人而**題止異體字之異**：「穀城山館文集」對「榖城山館文集」。keeper 繫 欽定四庫全書總目；被併者繫 四庫全書存目叢書。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1071318": {
+      "label": "內閣文庫藏本：明万暦刊本（集035-0001，16冊）"
+    }
+  }
 }
