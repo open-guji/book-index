@@ -8,7 +8,7 @@
 
 - `.claude/qa/entity_merge.py`：被并方不再删档，改写为墓碑（只留 `schema_version`、`id`、`type`、`subtype`、`primary_name`、`merged_into`、`revision`、`revised_at`）；新增 `--by`（`merged_in.by`）；拒绝把墓碑当 loser 或 keeper。回归测试同步改。依据：目录经理 10-09（徐光啓并入徐光啟时发现原脚本删档）。
 - `schema/entity.md`〈merged_into〉与〈并条〉两处记明「并条一律写墓碑、不删档」。
-- 核对结论：网站 `/item/<id>` 按记录上的 `merged_into` 308 跳到留存方（kaiyuanguji-web `item-redirect.ts`），Entity 同样适用；check_schema、check_v2 对墓碑不报；build 仍把墓碑（Work 395、Entity 2）列入 `index/`，是否排除另议。
+- 核对结论：网站 `/item/<id>` 按记录上的 `merged_into` 308 跳到留存方（kaiyuanguji-web `item-redirect.ts`），Entity 同样适用；check_schema、check_v2 对墓碑不报；build 仍把墓碑（Work 395、Entity 2）列入 `index/`；目录经理定不排除，`derived.md`〈八〉记「index 含墓碑条，检索端自行过滤」。
 - `.claude/qa/verify.py`：works 索引的 dynasty 口径改为「第一个有朝代的作者，无则顶层」，与 build（book-index#75）一致；此前按 `authors[0]` 算，报 14 条假漂移。
 
 ## 2026-10-08　格式定义终版（overview#496）
