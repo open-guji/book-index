@@ -420,6 +420,8 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 
 **条数守恒**：`index/` 条目总数必须等于 `entry/` 数，否则失败。
 
+**墓碑条**：`index/` 含被并方（记录上有 `merged_into` 的墓碑，现 Work 395、Entity 2），按普通条目列出，条目里不带 `merged_into`；**检索端自行过滤**。网站对旧 id 的跳转读的是条目记录上的 `merged_into`（kaiyuanguji-web `item-redirect.ts`，308 到留存方），build 不因此把墓碑排除出 `index/`（目录经理 2026-10-09 定，overview#409）。
+
 ### 8.1 Work、Book、Collection 条目
 
 | 键 | 必有／可选 | 来源字段 | 取法 |
