@@ -715,7 +715,11 @@ def index_entry(d, typ, rel_path, promoted_to=None):
     holder = loc.get('name', '') if isinstance(loc, dict) else loc if isinstance(loc, str) else ''
     if holder:
         e['holder'] = holder
-    dyn = a0['dynasty'] or d.get('dynasty') or ''
+    # 撰人朝代：第一个有朝代的作者优先，顶层 dynasty 兜底（overview#496 §六-1；与 bim entry_extractor、ui storage.ts 同）。
+    # 注意 index 的 dynasty 是撰人朝代，卡片 dyn／_dynasty_id 取 first_dynasty（成书朝代优先），二者语义不同、不统一。
+    dyn = next((a['dynasty'] for a in (au if isinstance(au, list) else [])
+                if isinstance(a, dict) and isinstance(a.get('dynasty'), str) and a['dynasty']), '') \
+        or d.get('dynasty') or ''
     if dyn:
         e['dynasty'] = dyn
     if a0['role']:
