@@ -4,7 +4,7 @@
   python3 .claude/qa/verify.py            # 全庫：索引漂移必須為 0；懸空計數與基線比
   python3 .claude/qa/verify.py --strict   # 懸空亦須為 0（收工前）
 
-輸出五個數：works 索引漂移（period/loss_status/title/subtype/author/dynasty/role；dynasty 取 authors[0]，無則頂層——同 build）、
+輸出五個數：works 索引漂移（period/loss_status/title/subtype/author/dynasty/role；dynasty 取第一個有朝代的作者，無則頂層——同 build）、
 entities 索引漂移、work 側懸空引用、entity.works 懸空、單向邊（人指書而書不指人）。
 漂移不為 0 即失敗（exit 1）——改了記錄而未回寫索引，或改了索引而未改記錄。
 
@@ -415,8 +415,9 @@ def main():
         nz = lambda v: None if v in ('', None) else v
         want = {'author': nz(a0.get('name')), 'role': nz(a0.get('role')),
                 # schema-v2：index/ 由 build 生成，口徑照 bim entry_extractor 與 SCHEMA〈十四〉——
-                # 索引之 dynasty＝撰人朝代，authors[0].dynasty 優先，無則頂層（舊 reindex 反之）
-                'dynasty': nz(a0.get('dynasty')) if nz(a0.get('dynasty')) is not None else nz(d.get('dynasty'))}
+                # 索引之 dynasty＝撰人朝代：第一個有朝代的作者，無則頂層（book-index#75、overview#496 §六-1；舊 reindex 反之）
+                'dynasty': next((a['dynasty'] for a in au if isinstance(a, dict) and isinstance(a.get('dynasty'), str) and a['dynasty']), None)
+                           or nz(d.get('dynasty'))}
         for f, y in want.items():
             if nz(ie.get(f)) != y: drift_w.append((wid, f, ie.get(f), y))
         for r in (d.get('related_works') or []):

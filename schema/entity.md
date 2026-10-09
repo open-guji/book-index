@@ -58,7 +58,7 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 | `description` | Description | 可选；官职概念条、官署概念条与合称条**必填** | 原生 | 介绍与出处 | 形状同 [common.md〈Description〉](common.md)，但 Entity 的 `text` 可省（正式库 people 5,886 条 `description` 里只有 213 条有 `text`，其余只记出处），`sources` 必有；Entity 的出处一律记 `description.sources` | 录入 | `{"text":"都開封。","sources":[]}` |
 | `merge_history` | array<object> | 可选；people | 原生 | 早期并条账（2026-09-09 一次写入） | 每项 `{primary_name, date, reason}`（正式库 4,409 条） | 迁移 | `[{"primary_name":"曾仲質","date":"2026-09-09","reason":"draft/production 同人同书重出（CBDB auto_create 批次遗留，纯冗余无增量），2026-09-09 併條"}]` |
 | `merged_in` | array<object> | 可选；留存方（keeper） | 原生 | 并入本条的他条 | 每项 `{id, primary_name, at, by, rule, why}`（正式库 people 313 条／324 项，collective 1 条） | 录入 | 见〈六·一〉馬令例 |
-| `merged_into` | string | 可选；被并方 | 原生 | 本条已并入的条目 id | entity id；被并条只留 `schema_version`、`id`、`type`、`subtype`、`primary_name`、`merged_into`、`revision`、`revised_at`（正式库 1 条） | 录入 | `"hixhd2h9biza"`（成無巳 `hixhd2h9blyf`） |
+| `merged_into` | string | 可选；被并方 | 原生 | 本条已并入的条目 id | entity id；被并条只留 `schema_version`、`id`、`type`、`subtype`、`primary_name`、`merged_into`、`revision`、`revised_at`（正式库 2 条）。**并条一律写墓碑、不删档**（2026-10-09 起） | 录入 | `"hixhd2h9biza"`（成無巳 `hixhd2h9blyf`） |
 | `retired` | boolean | 可选 | 原生 | 本条已退役 | 只写 `true`（正式库 5 条） | 录入 | `true` |
 | `retired_reason` | string | 条件：`retired` 时必填 | 原生 | 退役原因 | 自由文本 | 录入 | `"N3 壞名 entity 歸正（2026-08-24 南北朝斷代與壞名專項）：…"`（廋信 `hixhd2h9bq93`） |
 | `suppressed_fields` | array<string> | 可选；people | 原生 | 人工确认 CBDB 值有误而清空的字段名 | 字段名（顶层键名，或 `external_ids` 的子键名）；正式库 2 条，值均为 `"cbdb_id"`。见〈六·一〉 | 录入 | `["cbdb_id"]` |
@@ -209,7 +209,7 @@ people 的 `dates` 规则：
 
 - 名下作品不写，build 生成 `_works`；朝代名由 build 解析为 `_dynasty_id`（规范名唯一命中且不歧义）或 `_dynasty_candidates`（歧义名的候选 id），见 [derived.md](derived.md)。
 - **`suppressed_fields`**（2026-09-26 用户裁，甲案）：人工核过、确认 CBDB 该字段之值有误而清空的，把字段名列进 `suppressed_fields`；补空槽的 enrich 脚本（`cbdb-sync/apply_enrich.py`）逢清单里的字段即绕开，不再拿 CBDB 之值回填。原行为只认「字段现在是否空」，人清空一次、下一轮 enrich 就自动填回去，俞安期、謝顯两例皆如此每跑一次就再犯一次。**只影响列名的字段**，其余空槽仍照常补。
-- 并条：留存方写 `merged_in[]`，被并方只留 stub 并写 `merged_into`；早期（2026-09-09）的并条账在 `merge_history[]`。
+- 并条：留存方写 `merged_in[]`，被并方只留 stub（墓碑）并写 `merged_into`，**不删档**（2026-10-09 目录经理定，overview#409；`.claude/qa/entity_merge.py` 已改为写墓碑）。网站按被并方记录的 `merged_into` 308 跳到留存方；build 现仍把墓碑列入 `index/`。早期（2026-09-09）的并条账在 `merge_history[]`；此前 entity_merge.py 删档的并条只在留存方 `merged_in` 里有账。
 - 退役：写 `retired: true` 与 `retired_reason`，记录保留。
 
 例（正式库，馬令 `hixhd2h9bv8d`，节录）：
