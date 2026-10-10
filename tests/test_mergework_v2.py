@@ -116,7 +116,9 @@ def test_apply_new_format_only(tmp_path):
     assert get(root, 'Collection', C1)['contains'][0]['work_id'] == K
     # 分類行改指並重排
     assert members(root, 'zm0002') == [[Z, '某志'], [K, '孫目']]
-    # 全倉新格式、無懸空
+    # 全倉新格式、無懸空（#507 包 E：_has_text 不再豁免，樣本先移掉）
+    k.pop('_has_text')
+    put(root, 'Work', k)
     assert check_v2.main(['--root', root, '--summary']) == 0
     back = backrefs.scan(root)
     assert D not in back or all(w.endswith('merged_in') for w, _, _ in back[D])

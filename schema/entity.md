@@ -526,7 +526,7 @@ people 的 `dates` 规则：
 
 | 字段 | 适用 | 为什么 | 码 |
 |---|---|---|---|
-| 任何 `_` 起首字段 | 全部 | 派生字段只在产物里；`_has_text`／`_has_collated` 的暂留豁免只给 Work／Book，**专名子类型不享**，people 与 collective 也不该有（两库现无） | V01 |
+| 任何 `_` 起首字段 | 全部 | 派生字段只在产物里；`_has_text`／`_has_collated` 的暂留豁免已全面收回（包 E），任何类型源档都不该有 | V01 |
 | `works` | 全部 | 名下作品由 `Work.authors[].entity_id` 反查，build 生成 `_works`（两库现无） | V11 |
 | `children`、`reigns`、`index_in_reign`、`successors`、`people`、`holders`、`compounds`、`ancestors`、`span`、`same_name` | 专名四子类型 | 反向列表／派生值 | V01 |
 | `subordinates`、`members`、`offices`（及 `_children`、`_subordinates`、`_members`、`_offices`） | 官署 | 反向列表 | I11 |
@@ -606,7 +606,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | I10 | 官署 | 同名且朝代重叠的具体条，疑重复 | WARN |
 | I11 | 官署 | 派生字段入源档 | ERROR |
 | I12 | office | `institution_ref`：`COL:<名>` 占位（ERROR）；须指官署条（ERROR）；指具体条须与官职朝代相交（ERROR）；指概念条须 `ai_note` 标「待補」（WARN）；官名含部名而指合称（WARN）；id 不在本库（WARN） | ERROR／WARN |
-| V01 | 全部 | 源档出现 `_` 起首字段；专名四子类型另查无下划线的派生名（见〈七·一〉）并收回 `_has_text`／`_has_collated` 豁免 | ERROR |
+| V01 | 全部 | 源档出现 `_` 起首字段；专名四子类型另查无下划线的派生名（见〈七·一〉）；`_has_text`／`_has_collated` 豁免已收回 | ERROR |
 | V11 | 全部 | 源档有 `works` | ERROR |
 | V15 | 全部 | 缺 `schema_version` 或其值不是整数 `1` | ERROR |
 | V16 | 全部 | `description.sources` 不是数组，或元素既非字符串亦非对象 | ERROR |

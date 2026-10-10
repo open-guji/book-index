@@ -72,7 +72,7 @@
 | `_has_text:false`、`_has_collated:false` | Work | 正式库 46＋1／0 | 不写（总则 11：只标异常，缺省即无） | 读者按「缺即假」，`false` 与缺省同义 | 可随时删，不必等文本来源 | S |
 | `classific.json`（旧分类词表） | 正式库根；产物 `_build/classific.json` | 正式库有／草稿库无 | `classification/zongmu/tree.json`；`classific.json` 由 build 从 tree 生成，给尚未改读树的旧读者 | bim `ui/src/components/catalog/model.ts:9-58`（同级顺序按 `classific.json`）；`book_index_manager/__main__.py:607`、`book_index_manager/schema_fields.py:21`（词表四元组） | 未定日期，条件是上述读者改读 `tree.json` | 读者：网站经理；生成与仓根文件：S |
 
-**为何暂留**：`_has_text`／`_has_collated` 的依据有一部分在 book-text（整理本、全文），本仓的 resources 推不出；目录经理 10-07 定 M3 不删、不改名（#459）。它们是源档里**唯一**允许的 `_` 起首字段，专名子类型不享此例外。
+**已收回（2026-10-10，overview#507 包 E）**：`_has_text`／`_has_collated` 曾因依据在 book-text 而暂留源档（目录经理 10-07，#459）；来源定为 `index/texts` 后源档旧键已由数据道删净（book-index#141），`check_v2.py` V01 与 `build_derived.py` 源检的豁免随即撤销，源档再出现即报错。下表保留作沿革。
 
 ---
 

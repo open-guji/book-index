@@ -40,11 +40,11 @@ def test_underscore_and_old_derived_fields():
     assert codes("Work", rec) == ["V01", "V01", "V02", "V02"]
 
 
-def test_has_text_and_has_collated_exempt():
-    # 目錄總管 10-07：_has_text／_has_collated 暫留源欄，不報
+def test_has_text_and_has_collated_not_exempt():
+    # #507 包 E：豁免已收回，源檔再出現 _has_text／_has_collated 一律 V01
     rec = dict(NEW_WORK, _has_text=True, _has_collated=True)
-    assert codes("Work", rec) == []
-    assert codes("Book", {"id": "11b", "type": "book", "work_id": "w", "_has_text": True}) == []
+    assert codes("Work", rec) == ["V01", "V01"]
+    assert codes("Book", {"id": "11b", "type": "book", "work_id": "w", "_has_text": True}) == ["V01"]
 
 
 def test_work_books():

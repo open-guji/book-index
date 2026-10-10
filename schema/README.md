@@ -36,7 +36,7 @@
 | 1 | **一个事实只写一次** | 源档里一条关系只存一侧；反向关系、计数、对方题名等展示副本全部由 build 生成。 |
 | 2 | **成对关系只写规范方向** | `related_works` 的六对成对词（`part_of`、`studies`、`contains_text_of`、`preceded_by`、`adapted_from`、`pseudepigraph_of`）写在本侧；反向词（`has_part`、`studied_by`、`text_carried_by`、`followed_by`、`has_adaptation`、`has_pseudepigraph`）只出现在构建产物里。见 [work.md〈关联词表〉](work.md#关联词表)。 |
 | 3 | **对称关系存 id 较小的一侧** | `related_works` 的 `related`、`Book.related_books`、`Collection.related_books`／`related_collections`：两条记录的 id 按**字符串比较**（Python `a < b`），写在较小者里；另一侧由 build 补。（规划中的写入口 `bim link` 尚未实现，现由 `check_v2.py` V07 把关。） |
-| 4 | **源档不写 `_` 起首字段** | `_` 起首的都是派生字段，只出现在构建产物 `_build/entry/<id>.json` 里。**唯一例外**：`_has_text`、`_has_collated` 暂留在 Work／Book 源档（见 [legacy.md](legacy.md)）；专名子类型不享此例外。无下划线的旧派生字段（`has_text`、`promoted_to` 等）同样不写。 |
+| 4 | **源档不写 `_` 起首字段** | `_` 起首的都是派生字段，只出现在构建产物 `_build/entry/<id>.json` 里。**无例外**（`_has_text`、`_has_collated` 的暂留豁免已于 2026-10-10 收回，源档已无，见 [CHANGELOG.md](CHANGELOG.md)）。无下划线的旧派生字段（`has_text`、`promoted_to` 等）同样不写。 |
 | 5 | **不写派生列表与反向列表** | 不写 `Work.books`、`Collection.books`、`Collection.contained_works`、`Entity.works`、`related_works[].title`。成员关系写在成员一侧：`Book.work_id`、`Book.contained_in`、`Work.contained_in`、`Collection.contained_in`、`Work.authors[].entity_id`。 |
 | 6 | **`authors[].role` 必填** | Work、Book、Collection 的 `authors[]` 每项都要写 `role`。 |
 | 7 | **分类不写在 Work 里** | 分类归属写在 `classification/<分类法>/members/<节点>.json`。见 [classification.md](classification.md)。Collection 不分类。 |

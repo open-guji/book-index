@@ -183,10 +183,18 @@ def test_m3_drops_reverse_and_derived(repo):
     assert desc == '與《某叢書》（c0000000001）關係：continues；續某叢書'                # 併進 description，不增欄位
 
 
+def _drop_folded_has_text(repo):
+    # M3 把舊 has_full_text 折進 _has_text；#507 包 E 起該欄不許留在源檔，樣本在 M3 後移掉
+    b = S.read(repo, 'Book', S.B3)
+    b.pop('_has_text', None)
+    S.put(repo, 'Book', b)
+
+
 def test_m3_then_strict_build_clean(repo):
     import build_derived as BD
     _extra(repo)
     mig(repo, 'M1,M2,M3')
+    _drop_folded_has_text(repo)
     r, P = BD.run(repo, check_only=True, strict=True, quiet=True)
     assert r['fatal'] == [], r['fatal']
     assert {(x['id'], x['relation'], x['direction']) for x in P[f'entry/{S.W1}.json']['_related']} >= {
@@ -309,7 +317,10 @@ def test_m1_sidecar_dispositions(repo):
 def test_m5_m6_full_chain(repo):
     _extra(repo)
     _with_vocab(repo)
-    rc, R = mig(repo, 'M0,M1,M2,M3,M4A,M4B,M5,M6')
+    rc, R = mig(repo, 'M0,M1,M2,M3')
+    assert rc == 0, R
+    _drop_folded_has_text(repo)
+    rc, R = mig(repo, 'M4A,M4B,M5,M6')
     assert rc == 0, {k: v.get('fail_reason') or v.get('build_fatal') for k, v in R.items()}
     assert R['M5']['build_fatal'] == [] and R['M5']['dangling_increased'] == {}
     assert R['M6']['precheck']['M1_rerun_changes'] == 0

@@ -314,7 +314,7 @@ def test_place_p10_parent_must_cover_segment():
 def test_v01():
     assert has(dyn("x", "唐", 618, 907, children=["a"]), "V01")
     assert has(reign("r", "建和", "n", 960, 970, index_in_reign=1), "V01")
-    assert has(dyn("x", "唐", 618, 907, _has_text=True), "V01")     # 新子類型不享豁免
+    assert has(dyn("x", "唐", 618, 907, _has_text=True), "V01")     # 豁免已全面收回（#507 包 E）
     assert not has(dyn("x", "唐", 618, 907), "V01")
     # check_v2 自身之 `_` 起首 V01 仍報
     assert [c for c, _, _ in check_v2.check_record("Entity", dyn("x", "唐", 618, 907, _children=[]))] == ["V01"]

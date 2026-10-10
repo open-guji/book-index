@@ -304,7 +304,7 @@ Work、Book、Collection、Entity 都有。
 | `todo` | array<object> | 可选 | 原生 | 条目级待核清单 | `[{what, by?, date?}]`，`what` 非空；做完即移除该项，不留「已办」标记 | 录入 | |
 | `review` | object | 可选 | 原生 | 人工审核状态 | `{status, by?, date?}`；`status` ∈ `unreviewed`｜`reviewed`｜`disputed`；缺即 `unreviewed` | 录入 | `{"status":"unreviewed"}` |
 | `zhsy_retrieved_at`、`authors[].cbdb_retrieved_at` | string | 可选 | 原生 | 外部对齐的取得时间 | ISO 8601；新增对齐时必填（现存 0 条） | 录入 | |
-| `_` 起首一切 | — | 源档不写 | 派生 | 见 [derived.md](derived.md) | 例外：`_has_text`、`_has_collated` 暂留，见 [legacy.md](legacy.md) | build | |
+| `_` 起首一切 | — | 源档不写 | 派生 | 见 [derived.md](derived.md) | 无例外（`_has_text`、`_has_collated` 豁免已收回，见 [CHANGELOG.md](CHANGELOG.md)） | build | |
 
 **`updated_at`**：现值自 git 该档最后一次提交回填，**不一律填「现在」**，假时间比没有更坏。
 

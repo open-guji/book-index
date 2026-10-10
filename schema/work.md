@@ -53,7 +53,7 @@
 | `merged_in`、`merged_from`、`merged_into`、`merge_history` | — | 可选 | 原生 | 并条账 | 见 [common.md〈并条账〉](common.md#七并条账) | bim、录入 | |
 | `ai_note`、`todo`、`review` | — | 可选 | 原生 | 共通字段 | 见 common.md〈共通管理字段〉 | 录入 | |
 | `revision`、`revised_at`、`updated_at` | string | `revision` 正式库必填 | 原生 | 共通字段 | 见 common.md | bim | `"1.0.0"` |
-| `_has_text`、`_has_collated` | boolean | 可选 | 旧（暂留） | 有全文／有整理本（暂留源档） | 见 [legacy.md](legacy.md) | 录入 | `true` |
+| `_has_text`、`_has_collated` | boolean | 可选 | 已删 | 有全文／有整理本；源档不再写，产物由 build 从 resources＋book-text 推（check_v2 V01 报） | 见 [legacy.md](legacy.md) | build | `true` |
 | 其余 `_` 起首 | — | **源档不写** | 派生 | `_books`、`_edition_count`、`_related`、`_catalogs`、`_authors`、`_collections`、`_classifications` 等 | 见 [derived.md](derived.md) | build | |
 | ~~`books`~~ | — | **不写** | — | 版本列表：由 `Book.work_id` 反查 | — | — | |
 | ~~`classification`~~ | — | **不写** | — | 分类：写在 `classification/` 类档 | 见 [classification.md](classification.md) | — | |

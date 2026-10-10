@@ -508,7 +508,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 | 卡片可解析 | `_related`、`_collections`、`_children`、`_siblings`、`_books`、`_works`（按 `work_id`）、`_catalogs`（按 `bid`）、`_work`、带 `id` 的 `_authors`、各 `members/`／`catalog/` 页里每张卡片的 id 都能解到记录；带 `h:1` 的都在 `_hubs.json` |
 | 读档问题 | 读不了的文件、无 `id`、`type` 与所在目录不符、同 id 重复 |
 | 分类档校验 | 成员档名 ＝ 其 `node`；节点存在且未 `retired`；`exclusive` 分类法一部只出现一次；成员行是本仓或参照仓的 Work |
-| 源档里的未知 `_` 字段 | 除准留的 `_has_text`、`_has_collated` 与下面的旧派生字段外，源档出现任何 `_` 起首字段 |
+| 源档里的未知 `_` 字段 | 除下面的旧派生字段外（`_has_text`、`_has_collated` 豁免已收回），源档出现任何 `_` 起首字段 |
 | `--strict` | 源档仍有旧派生字段或旧反向字段（`LEGACY_DERIVED`、`LEGACY_REVERSE`；有 `classification/` 时 Work 里残留 `classification` 也算） |
 | `--hub-check` | 某类改枢纽名牵动的产物文件超过 `HUB_CHECK_MAX`（6） |
 
