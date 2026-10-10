@@ -59,7 +59,7 @@
 | `resources[]` 中 `types` 含 `text` 者 | Work、Book | 外部全文资源（维基文库、识典、ctext 之属），格式见 [common.md〈Resource〉](common.md)。与 book-text 的文件无直接对应 |
 | `_has_image` | 产物 | 只由 `resources[].types` 含 `image` 推得，与 book-text 无关 |
 
-来源已定为 `index/texts`（overview#506 工作包 C）；源档里的 `_has_text`／`_has_collated` 待数据道删除（工作包 D）后收回豁免（E）；见 [legacy.md](legacy.md)。注意 `index/texts` 条目目前**不带 `quality`**（在各条 `manifest.json`），build 读到有 `quality` 字段才过滤；需文本总管让 `build_texts_index.py` 把 `quality` 写进去。
+来源已定为 `index/texts`（overview#506 工作包 C）；源档里的 `_has_text`／`_has_collated` 已由数据道删除（工作包 D），豁免已收回（E）；见 [legacy.md](legacy.md)。注意 `index/texts` 条目目前**不带 `quality`**（在各条 `manifest.json`），build 读到有 `quality` 字段才过滤；需文本总管让 `build_texts_index.py` 把 `quality` 写进去。
 
 ### 文本一侧指向记录的字段
 

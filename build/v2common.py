@@ -26,8 +26,6 @@ ONE_WAY = {'collected_in', 'derived_from', 'same_entry', 'suspected_same',
            'excerpted_from', 'source_of'}               # 單向，原樣保留
 KNOWN_RELATIONS = set(REVERSE_OF) | set(CANON_OF) | set(RENAME) | SYMMETRIC | ONE_WAY
 
-# 准留在源檔的 `_` 欄：依據一部分在 book-text，resources 推不出（目錄總管 10-07 定：M3 不刪、不改名）
-SOURCE_UNDERSCORE = {'_has_text', '_has_collated'}
 # 迄 M3 前源檔裡仍有、M3 才刪的舊派生欄（build 照算、只報不擋；--strict 時擋）
 LEGACY_DERIVED = {
     'Work': {'_edition_count', '_has_image', '_promoted_to', '_promoted_at'},

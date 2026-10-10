@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-10-10　收回 `_has_text`／`_has_collated` 源档豁免（overview#507 工作包 E）
+
+- 源档已无这两键（book-index#141 删净）。`.claude/qa/check_v2.py` 去掉 `UNDERSCORE_EXEMPT`、`build/v2common.py` 去掉 `SOURCE_UNDERSCORE`、`build/build_derived.py` 源检不再放行：源档任何 `_` 起首字段（含这两个）一律报错（check_v2 V01；`build_derived --strict` 的 unknown_underscore_fields）。
+- `build_derived.py` 的 `--text-index` 仍可不给（旧行为＋警告），本包未动；是否改为必给待经理定。
+- `build/migrate_v2.py` 的 M3 仍把旧 `has_text`／`has_full_text`／`has_collated` 折进 `_has_text`／`_has_collated`（历史迁移，已跑完）；重跑会产出被新规则拦下的记录，测试样本已在 M3 后手工移掉。
+
 ## 2026-10-10　`_has_text`／`_has_collated` 改从 book-text 推（overview#506 工作包 C）
 
 - `build/build_derived.py` 新参数 `--text-index <book-text>/index/texts`；给了，entry 的 `_has_text`／`_has_collated`、卡片 `txt`、`index/` 的 `has_text`／`has_collated` **统一口径**：resources 含 `text`（Work 并其 Book）或 book-text 有该 id 且版本 `quality` 不是 `none`／`placeholder`；`_has_collated` 看 `kind ∈ {collated, self_collated}`；id 沿 `merged_into` 解析，悬空 id 写入 `report.json` 的 `dangling_text_ids`。源档旧值不再算。不给＝保持旧行为并警告。

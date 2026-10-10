@@ -930,8 +930,6 @@ def source_checks(recs):
         for i, r in recs[t].items():
             for k in r.data:
                 if k.startswith('_'):
-                    if k in V.SOURCE_UNDERSCORE:
-                        continue
                     if k in V.LEGACY_DERIVED[t]:
                         legacy[f'{t}.{k}'] += 1
                     else:

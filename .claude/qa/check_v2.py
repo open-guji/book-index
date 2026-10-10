@@ -5,7 +5,7 @@
 
   代碼  檢的是什麼                                   對應遷移步（F2-7）
   V01  源檔頂層出現 `_` 起首欄位（派生欄手寫）        M3
-       （`_has_text`／`_has_collated` 豁免：暫留源欄，待文本總管給出穩定來源，#459）
+       （`_has_text`／`_has_collated` 豁免已收回：源檔已無，派生值由 build 從 book-text 推；#507 包 E）
   V02  無底線之舊派生欄（has_text／promoted_to…）    M3
   V03  Work.books                                    M3
   V04  related_works 用反向詞（has_part 等）          M3（M2 先在規範側補寫，M3 刪反向項）
@@ -78,8 +78,6 @@ DEPRECATED_RELATIONS = {
     "commentary_on": "studies",
     "related_to": "related",
 }
-# 暫留源欄之 `_` 欄（目錄總管 10-07 定，#459）：V01 不報
-UNDERSCORE_EXEMPT = {"_has_text", "_has_collated"}
 # 無底線之舊派生欄
 OLD_DERIVED = ("has_text", "has_image", "has_collated", "has_full_text",
                "has_digitalization", "promoted_to", "promoted_at")
@@ -158,7 +156,7 @@ def check_record(kind, rec):
     rid = rec.get("id", "")
 
     for k in rec:
-        if k.startswith("_") and k not in UNDERSCORE_EXEMPT:
+        if k.startswith("_"):
             out.append(("V01", k, ""))
     for k in OLD_DERIVED:
         if k in rec:

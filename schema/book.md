@@ -46,7 +46,7 @@
 | `appendix` | array<object> | 可选 | 原生 | 附录说明 | `[{title, text}]` | 录入 | |
 | `ai_note`、`todo`、`review` | — | 可选 | 原生 | 共通字段 | 见 common.md | 录入 | |
 | `revision`、`revised_at`、`updated_at` | string | `revision` 正式库必填 | 原生 | 共通字段 | 见 common.md | bim | |
-| `_has_text`、`_has_collated` | boolean | 可选 | 旧（暂留） | 有全文／有整理本（暂留源档；Book 正式库 13 条） | 见 [legacy.md](legacy.md) | 录入 | |
+| `_has_text`、`_has_collated` | boolean | 可选 | 已删 | 有全文／有整理本；源档不再写，产物 `_has_text`／`_has_collated` 由 build 从 resources＋book-text 推（check_v2 V01 报） | 见 [legacy.md](legacy.md) | build | |
 | 其余 `_` 起首 | — | **源档不写** | 派生 | `_work`、`_siblings`、`_collections`、`_related`、`_lineage_refs`、`_derived_by`、`_has_image` 等 | 见 [derived.md](derived.md) | build | |
 
 ### 示例
