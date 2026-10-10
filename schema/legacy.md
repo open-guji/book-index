@@ -67,8 +67,8 @@
 
 | 旧字段或写法 | 在哪类记录 | 现状 | 新写法 | 读者兼容读法 | 何时删（迁） | 由谁删 |
 |---|---|---|---|---|---|---|
-| `_has_text` | Work、Book | 正式库 Work 10,723（`true` 10,677、`false` 46）、Book 13（皆 `true`）／草稿库 0 | 目标：产物 `_has_text`，由 build 从稳定来源推得 | 源档允许，`check_v2.py` V01 豁免（`UNDERSCORE_EXEMPT`）。build `build_derived.py:310-318` `put_has`：resources 推得 **或** 源值为真即出 `_has_text:true`；其中 Work 292、Book 3 条（共 295）resources 推不出、只凭源值（`legacy_hastext.py` 实测）。`index/` 的 `has_text` 只看 resources、不看源值（`build_derived.py:655-668` `_res_flags`），与 `_build/entry` 口径不一，**待 build 统一** | 未定日期，条件是文本总管给出稳定来源（book-text 全文／整理本清单）、build 改从该来源推 | 数据：S；build：S |
-| `_has_collated` | Work | 正式库 66（`true` 65、`false` 1）／草稿库 0 | 同上，产物 `_has_collated` | build 不推 collated，只看源值（`build_derived.py:312-314`）；`index/` 的 `has_collated` 取源值（`build_derived.py:738`；bim `entry_extractor.py:267` 同） | 同上 | 同上 |
+| `_has_text` | Work、Book | 正式库 Work 10,723（`true` 10,677、`false` 46）、Book 13（皆 `true`）／草稿库 0 | 目标：产物 `_has_text`，由 build 从稳定来源推得 | 源档允许，`check_v2.py` V01 豁免（`UNDERSCORE_EXEMPT`）。build `build_derived.py:310-318` `put_has`：resources 推得 **或** 源值为真即出 `_has_text:true`；其中 Work 292、Book 3 条（共 295）resources 推不出、只凭源值（`legacy_hastext.py` 实测）。build 已加 `--text-index`（工作包 C）：给了它，`_has_text` 由 resources＋book-text 推、不再认源值，`index/` 的 `has_text` 与 entry 同口径；不给则保持上述过渡行为并警告 | 未定日期，条件是文本总管给出稳定来源（book-text 全文／整理本清单）、build 改从该来源推 | 数据：S；build：S |
+| `_has_collated` | Work | 正式库 66（`true` 65、`false` 1）／草稿库 0 | 同上，产物 `_has_collated` | 给 `--text-index` 时 build 从 book-text 推（`kind` 为 `collated`／`self_collated` 且 `quality` 可用），`index/` 的 `has_collated` 同口径；不给则只看源值（过渡） | 同上 | 同上 |
 | `_has_text:false`、`_has_collated:false` | Work | 正式库 46＋1／0 | 不写（总则 11：只标异常，缺省即无） | 读者按「缺即假」，`false` 与缺省同义 | 可随时删，不必等文本来源 | S |
 | `classific.json`（旧分类词表） | 正式库根；产物 `_build/classific.json` | 正式库有／草稿库无 | `classification/zongmu/tree.json`；`classific.json` 由 build 从 tree 生成，给尚未改读树的旧读者 | bim `ui/src/components/catalog/model.ts:9-58`（同级顺序按 `classific.json`）；`book_index_manager/__main__.py:607`、`book_index_manager/schema_fields.py:21`（词表四元组） | 未定日期，条件是上述读者改读 `tree.json` | 读者：网站经理；生成与仓根文件：S |
 

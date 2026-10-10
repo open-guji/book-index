@@ -61,7 +61,7 @@ python3 build/migrate_v2.py --root <倉> --steps M0,M1,M2 [--git-commit] [--dry-
 ## 已定（目錄總管 10-07，#459）
 
 - `Work.contained_in[]` 的 `group`／`details` 進 SCHEMA（F6-2 改）。反向詞項在 M3 刪（check_v2 的 V04 歸 M3）。
-- `_has_text`／`_has_collated` 留作源欄，M3 不刪不改名，build 照「resources 推得 或 源值為真」。
+- `_has_text`／`_has_collated` 留作源欄，M3 不刪不改名，build 照「resources 推得 或 源值為真」。**工作包 C 起**：給 `--text-index <book-text>/index/texts`，改由 resources＋book-text 推，源值不再算（`textindex.py`）；不給則保持舊行為並警告。
 - sidecar 到 M6 才刪；武英殿 sidecar 頂層資訊先留著。
 
 ## 未決

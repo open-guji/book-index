@@ -54,12 +54,12 @@
 
 | 字段 | 在哪 | 与文本的关系 |
 |---|---|---|
-| `_has_collated` | Work 源档（暂留，见 [legacy.md](legacy.md)） | 「有整理本」。**唯一真指 book-text 目录的字段**：正式库 10-08 为真 65 条，与 book-text 的 65 个 `kind: "collated"` 版本逐一对应。build 不能从 book-index 推出，只认源档旧值（`build_derived.py` `put_has`）；`index/` 里写作 `has_collated` |
-| `_has_text` | Work、Book 源档（暂留） | 「有全文」。build 产物里的 `_has_text` ＝ `resources[].types` 含 `text`（Work 另并其 Book）**或**源档旧值为真。**不等于「book-text 有此条目」**：正式库 10-08 实测，Work `_has_text` 为真 10,677 条，其中 3,755 条 book-text 无此条目；book-text 有条目的 Work 8,783 条，其中 1,861 条 `_has_text` 不为真 |
+| `_has_collated` | Work 源档（暂留，见 [legacy.md](legacy.md)） | 「有整理本」。**唯一真指 book-text 目录的字段**：正式库 10-08 为真 65 条，与 book-text 的 65 个 `kind: "collated"` 版本逐一对应。build 从 book-text 的 `index/texts`（`kind` 为 `collated`／`self_collated`，`quality` 不是 `none`／`placeholder`）推出产物 `_has_collated`，参数 `--text-index`（工作包 C）；`index/` 里写作 `has_collated`，同口径 |
+| `_has_text` | Work、Book 源档（暂留） | 「有全文」。build 产物里的 `_has_text` ＝ `resources[].types` 含 `text`（Work 另并其 Book）**或** book-text 的 `index/texts` 里有该 id（或其 Book）且版本 `quality` 不是 `none`／`placeholder`（沿 `merged_into` 解析，悬空 id 记入 `report.json` 的 `dangling_text_ids`）；给了 `--text-index` 就不再认源档旧值。**不等于「book-text 有此条目」**：正式库 10-08 实测，Work `_has_text` 为真 10,677 条，其中 3,755 条 book-text 无此条目；book-text 有条目的 Work 8,783 条，其中 1,861 条 `_has_text` 不为真 |
 | `resources[]` 中 `types` 含 `text` 者 | Work、Book | 外部全文资源（维基文库、识典、ctext 之属），格式见 [common.md〈Resource〉](common.md)。与 book-text 的文件无直接对应 |
 | `_has_image` | 产物 | 只由 `resources[].types` 含 `image` 推得，与 book-text 无关 |
 
-`_has_text`、`_has_collated` 何时迁出源档、由什么来源替代，待文本总管给出稳定来源（#459）；见 [legacy.md](legacy.md)。
+来源已定为 `index/texts`（overview#506 工作包 C）；源档里的 `_has_text`／`_has_collated` 待数据道删除（工作包 D）后收回豁免（E）；见 [legacy.md](legacy.md)。注意 `index/texts` 条目目前**不带 `quality`**（在各条 `manifest.json`），build 读到有 `quality` 字段才过滤；需文本总管让 `build_texts_index.py` 把 `quality` 写进去。
 
 ### 文本一侧指向记录的字段
 
