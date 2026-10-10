@@ -208,3 +208,40 @@ def test_dates_ok_consistent_with_legacy_fields_passes():
 
 def test_dates_ok_allows_negative_bce_years():
     assert verify.dates_ok({'dates': {'birth': -145, 'death': -86, 'floruit': None, 'basis': '現行字段'}}) is None
+
+
+# ---------- B1：index_entry 生卒年改取 dates（回退 birth_year／death_year） ----------
+
+sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'build'))
+import build_derived
+
+
+def _ent(**kw):
+    d = {'id': 'hixtest00001', 'subtype': 'people', 'primary_name': '甲'}
+    d.update(kw)
+    return build_derived.index_entry(d, 'Entity', 'Entity/x.json')
+
+
+def test_index_entry_reads_dates_when_no_birth_year():
+    e = _ent(dates={'birth': 1036, 'death': 1101})
+    assert e['birth_year'] == 1036 and e['death_year'] == 1101
+
+
+def test_index_entry_falls_back_to_birth_year():
+    e = _ent(birth_year=1036, death_year=1101)
+    assert e['birth_year'] == 1036 and e['death_year'] == 1101
+
+
+def test_index_entry_dates_floruit_only_has_no_years():
+    e = _ent(dates={'floruit': [1019, 1019]})
+    assert 'birth_year' not in e and 'death_year' not in e
+
+
+def test_index_entry_dates_partial_falls_back_per_field():
+    e = _ent(dates={'birth': 1036}, death_year=1101)
+    assert e['birth_year'] == 1036 and e['death_year'] == 1101
+
+
+def test_dates_ok_consistency_only_when_both_present():
+    assert verify.dates_ok({'dates': {'birth': 1, 'death': 2}}) is None
+    assert verify.dates_ok({'dates': {'birth': 1}, 'birth_year': 2}) is not None
