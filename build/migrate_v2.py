@@ -887,12 +887,11 @@ M3_DROP = {
     'Collection': ('books', 'contained_works', '_member_count', '_member_type', '_has_image', 'has_image'),
     'Entity': ('works',),
 }
-M3_FOLD = {'has_text': '_has_text', 'has_full_text': '_has_text',
-           'has_collated': '_has_collated'}   # 無底線舊鍵併入准留之源欄
+M3_FOLD = ('has_text', 'has_full_text', 'has_collated')   # 無底線舊鍵直接丟棄（_has_text／_has_collated 由 build 推得）
 
 
 def m3(repo, args, promotions):
-    rep = {'step': 'M3', 'removed': collections.Counter(), 'folded': collections.Counter(),
+    rep = {'step': 'M3', 'removed': collections.Counter(),
            'lost': collections.defaultdict(list), 'manual': collections.defaultdict(list)}
     R, LOST, MAN = rep['removed'], rep['lost'], rep['manual']
     before_edges = all_edges(repo)
@@ -932,11 +931,8 @@ def m3(repo, args, promotions):
     for t, keys in M3_DROP.items():
         for rid, rr in sorted(repo.recs[t].items()):
             d = rr.data
-            for old, new in M3_FOLD.items():
+            for old in M3_FOLD:
                 if old in d:
-                    if d[old] and not d.get(new):
-                        d[new] = True
-                        rep['folded'][f'{t}.{old} → {new}'] += 1
                     del d[old]
                     repo.touch(rid)
                     R[f'{t}.{old}'] += 1
@@ -1007,7 +1003,6 @@ def m3(repo, args, promotions):
                                 'symmetric_pairs_after': len(after_sym), 'symmetric_lost': lost_sym[:50]}
     hard = {k: v for k, v in LOST.items() if '舊數據錯' not in k and 'M1③' not in k}
     rep['removed'] = dict(sorted(R.items()))
-    rep['folded'] = dict(rep['folded'])
     rep['lost'] = {k: v for k, v in sorted(LOST.items())}
     rep['manual'] = {k: v for k, v in sorted(MAN.items())}
     rep['ok'] = not lost_edges and not lost_sym and not any(hard.values())

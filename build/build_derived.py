@@ -1215,17 +1215,13 @@ def main(argv=None):
     ap.add_argument('--strict', action='store_true', help='源檔有舊派生／反向欄也算失敗（M3 之後用）')
     ap.add_argument('--hub-check', action='store_true', help='加跑改樞紐名牽動檔數自校驗（多一次全量重算）')
     ap.add_argument('--hub', type=int, default=HUB, help=f'樞紐閾值（預設 {HUB}）')
-    ap.add_argument('--text-index', metavar='DIR',
-                    help='book-text 的 index/texts 目錄；給了，`_has_text`／`_has_collated` 與 index 的 has_text／has_collated '
-                         '由 resources＋book-text 推（源裡舊值不再算）；不給＝保持舊行為並警告')
+    ap.add_argument('--text-index', metavar='DIR', required=True,
+                    help='book-text 的 index/texts 目錄；`_has_text`／`_has_collated` 與 index 的 has_text／has_collated '
+                         '由 resources＋book-text 推（源裡舊值不再算）')
     ap.add_argument('--write-index', action='store_true',
                     help='另把 index/ 寫回倉內（沿用各分片縮排；預設只寫 <out>/index/）')
     a = ap.parse_args(argv)
-    ti = None
-    if a.text_index:
-        ti = TX.load(a.text_index)
-    else:
-        print('WARN: 未給 --text-index：_has_text／_has_collated 仍認源檔舊值（過渡行為，與 book-text 可能不一致）', file=sys.stderr)
+    ti = TX.load(a.text_index)
     report, _ = run(a.root, a.ref_root, a.out, a.check_only, a.strict, a.hub_check, a.hub,
                     write_repo_index=a.write_index, text_index=ti)
     if report['fatal']:
