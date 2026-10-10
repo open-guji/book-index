@@ -32,6 +32,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import v2common as V  # noqa: E402
 import names as N  # noqa: E402
+import textindex as TX  # noqa: E402
 
 HUB = 200          # 被內聯引用超過此數者為樞紐：卡片只寫 id＋h:1，名稱進 _hubs.json（F4-2 §一 4）
 PAGE = 200         # 分頁大小（F2-3 §二 Collection）
@@ -124,7 +125,7 @@ def contained(x):
 
 
 class Build:
-    def __init__(self, recs, ref_recs=None, classification=None, promotions=None, hub=HUB):
+    def __init__(self, recs, ref_recs=None, classification=None, promotions=None, hub=HUB, text_index=None):
         self.R = {t: {i: r.data for i, r in recs[t].items()} for t in V.TYPES}
         self.own = {t: set(self.R[t]) for t in V.TYPES}
         self.paths = {i: r.path for t in V.TYPES for i, r in recs[t].items()}
@@ -138,6 +139,7 @@ class Build:
         self.dangling = collections.defaultdict(list)
         self.notes = collections.Counter()
         self._index()
+        self._text_index(text_index)
         self.names = N.Names(self.R['Entity'], self.promotions, self.card)   # 專名派生與鍵表（F6-5b）
 
     # ---------- 反查圖（一次掃描） ----------
@@ -301,17 +303,65 @@ class Build:
                             self.sym_view[i][o] = 'out'
                             self.sym_view[o].setdefault(i, 'in')
 
+    # ---------- book-text 文本索引（工作包 C） ----------
+    def _text_index(self, text_index):
+        """text_index＝{id: [版本…]}（textindex.load）或 None。None＝保持舊行為（`_has_text`／`_has_collated`
+        仍認源裡舊值）；給了就以 resources＋book-text 為唯一來源，源裡舊值不再算。
+        id 沿 merged_into 解析到存活記錄；解析不了的悬空 id 記進 self.dangling_text_ids。"""
+        self.ti = text_index
+        self.txt_ok, self.col_ok = set(), set()
+        self.dangling_text_ids = {}
+        self.text_merged = 0
+        if text_index is None:
+            return
+        for i, vs in sorted(text_index.items()):
+            tgt = self.resolve_live(i)
+            if tgt is None:
+                self.dangling_text_ids[i] = '記錄不存在' if self.kind_of(i) is None else 'merged_into 成環或斷鏈'
+                continue
+            if tgt != i:
+                self.text_merged += 1
+            t, c = TX.flags(vs)
+            if t:
+                self.txt_ok.add(tgt)
+            if c:
+                self.col_ok.add(tgt)
+
+    def resolve_live(self, i):
+        """沿 merged_into 走到存活（非墓碑）的 Work／Book；斷鏈或成環→None。"""
+        seen = set()
+        while i not in seen:
+            seen.add(i)
+            t = self.kind_of(i)
+            if t is None:
+                return None
+            m = self.R[t][i].get('merged_into')
+            if not (isinstance(m, str) and m):
+                return i
+            i = m
+        return None
+
+    def legacy_flag(self, d, key):
+        """源裡舊 `_has_text`／`_has_collated`：給了 text_index 就不認。"""
+        return self.ti is None and bool(d.get(key))
+
     # ---------- 卡片（F4-2 §二） ----------
     def has(self, d, kind):
-        """`_has_image`／`_has_text`：resources[].types；Work 另併其 Book。"""
-        return kind in types_of(d.get('resources'))
+        """`_has_image`／`_has_text`／`_has_collated`：resources[].types；text／collated 另看 book-text；Work 另併其 Book。"""
+        if kind in types_of(d.get('resources')):
+            return True
+        if self.ti is not None and kind in ('text', 'collated'):
+            return d.get('id') in (self.txt_ok if kind == 'text' else self.col_ok)
+        return False
 
     def put_has(self, v, src, computed):
-        """`_has_image`／`_has_text`／`_has_collated`：resources 推得者，或源裡舊值為真者（全文／整理本
-        的依據有一部分在 book-text，不在本倉；M3 刪舊欄之前要另接來源，見 README「未決」）。＝假不寫。"""
+        """`_has_image`／`_has_text`／`_has_collated`：resources（與 book-text，見 _text_index）推得者；
+        未給 text_index 時另認源裡舊值為真者（過渡，見 README「未決」）。＝假不寫。"""
         for kind, key in (('image', '_has_image'), ('text', '_has_text'), ('collated', '_has_collated')):
-            got = kind != 'collated' and computed(kind)
+            got = computed(kind)
             legacy = bool(src.get(key)) or bool(src.get(key[1:]))
+            if self.ti is not None and kind != 'image':
+                legacy = False
             if got or legacy:
                 v[key] = True
                 if legacy and not got:
@@ -342,7 +392,7 @@ class Build:
             'id': bid, 'title': b.get('title'), 'edition': b.get('edition'), 'etype': b.get('edition_type'),
             'dating': dating_text(b), 'y': sort_year(b), 'holder': text(b.get('current_location')),
             'juan': num(b.get('juan_count')),
-            'img': self.has(b, 'image') or bool(b.get('_has_image')), 'txt': self.has(b, 'text') or bool(b.get('_has_text')),
+            'img': self.has(b, 'image') or bool(b.get('_has_image')), 'txt': self.has(b, 'text') or self.legacy_flag(b, '_has_text'),
             'nres': len(b.get('resources') or []),
             'pub': pub.get('year') if isinstance(pub, dict) and isinstance(pub.get('year'), (str, int)) else None,
             'meas': b.get('measure_info') if isinstance(b.get('measure_info'), str) else None,
@@ -356,7 +406,7 @@ class Build:
             'au': [a.get('name') for a in (w.get('authors') or [])[:3] if isinstance(a, dict) and a.get('name')],
             'cls': self.cls_of(wid), 'nb': len(self.books_of.get(wid, ())),
             'img': self.work_has(wid, 'image') or bool(w.get('_has_image')),
-            'txt': self.work_has(wid, 'text') or bool(w.get('_has_text')),
+            'txt': self.work_has(wid, 'text') or self.legacy_flag(w, '_has_text'),
         })
 
     def ent_card(self, eid):
@@ -668,9 +718,11 @@ def _res_flags(d):
     return txt, img
 
 
-def index_entry(d, typ, rel_path, promoted_to=None):
+def index_entry(d, typ, rel_path, promoted_to=None, build=None):
     """逐字照 book_index_manager/entry_extractor.py（build_index_entry／build_entity_index_entry）。
-    promoted_to：record 上的舊值優先（遷移前），否則取 promotions.json（M3 後 record 不再帶）。"""
+    promoted_to：record 上的舊值優先（遷移前），否則取 promotions.json（M3 後 record 不再帶）。
+    build：給了且帶 text_index 時，`has_text`／`has_collated` 與 entry 的 `_has_text`／`_has_collated` 同口徑
+    （Work 並其 Book、book-text、merged_into 解析），否則照舊只看本記錄 resources 與源裡舊值。"""
     pt = d.get('_promoted_to') or d.get('promoted_to') or promoted_to
     if typ == 'Entity':
         ext = d.get('external_ids') or {}
@@ -735,11 +787,15 @@ def index_entry(d, typ, rel_path, promoted_to=None):
         if t:
             e[k] = t
     txt, img = _res_flags(d)
+    col = bool(d.get('_has_collated') or d.get('has_collated'))
+    if build is not None and build.ti is not None:
+        has = build.work_has if typ == 'Work' else (lambda _i, kind: build.has(d, kind))
+        txt, col = has(d.get('id'), 'text'), has(d.get('id'), 'collated')
     if txt:
         e['has_text'] = True
     if img:
         e['has_image'] = True
-    if d.get('_has_collated') or d.get('has_collated'):
+    if col:
         e['has_collated'] = True          # 整理本標記：源欄（目錄總管 10-07 定保留），既有 index 帶此欄
     for k in ('edition', 'subtype', 'period', 'loss_status', 'original_title', 'work_id'):
         if d.get(k):
@@ -749,7 +805,7 @@ def index_entry(d, typ, rel_path, promoted_to=None):
     return e
 
 
-def build_index(recs, promotions=None):
+def build_index(recs, promotions=None, build=None):
     """→ {'index/works/<h>.json': {...}, …, 'index/collections.json': {...}}（鍵按 id 排序）。"""
     promotions = promotions or {}
     out = {}
@@ -758,7 +814,7 @@ def build_index(recs, promotions=None):
         for i in sorted(recs[t]):
             r = recs[t][i]
             rel = f'index/{fam}.json' if fam == 'collections' else f'index/{fam}/{shard_of(i):x}.json'
-            out.setdefault(rel, {})[i] = index_entry(r.data, t, r.path.replace(os.sep, '/'), promotions.get(i))
+            out.setdefault(rel, {})[i] = index_entry(r.data, t, r.path.replace(os.sep, '/'), promotions.get(i), build)
     return {k: dict(sorted(v.items())) for k, v in sorted(out.items())}
 
 
@@ -1032,8 +1088,31 @@ def index_drift(root, shards):
     return dict(sorted(c.items()))
 
 
+def text_index_report(b, recs):
+    """book-text 文本索引的接入報告；未給 text_index 時只標 enabled=False。
+    has_text_lost／gained：本倉源檔 `_has_text:true` 而重算為假（舊假陽性）／源檔無而重算為真，只列 Work 清單。"""
+    if b.ti is None:
+        return {'enabled': False}
+    lost, gained = [], []
+    for wid, r in recs['Work'].items():
+        got = b.work_has(wid, 'text')
+        src = bool(r.data.get('_has_text'))
+        if src and not got:
+            lost.append(wid)
+        elif got and not src:
+            gained.append(wid)
+    counts = {}
+    for t in ('Work', 'Book'):
+        counts[f'{t}._has_text'] = sum(1 for i in recs[t] if (b.work_has(i, 'text') if t == 'Work' else b.has(b.R[t][i], 'text')))
+        counts[f'{t}._has_collated'] = sum(1 for i in recs[t] if (b.work_has(i, 'collated') if t == 'Work' else b.has(b.R[t][i], 'collated')))
+    return {'enabled': True, 'ids': len(b.ti), 'merged_resolved': b.text_merged,
+            'dangling': len(b.dangling_text_ids), 'counts': counts,
+            'has_text_lost_work': {'count': len(lost), 'ids': sorted(lost)},
+            'has_text_gained_work': {'count': len(gained)}}
+
+
 def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub_check=False, hub=HUB, quiet=False,
-        write_repo_index=False):
+        write_repo_index=False, text_index=None):
     recs, sidecars, problems = V.load_repo(root)
     ref = None
     for rr in ref_roots:
@@ -1045,7 +1124,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
                 for k, x in r2[t].items():
                     ref[t].setdefault(k, x)
     cls, cls_problems, legacy_vocab = load_classification(root)
-    b = Build(recs, ref, cls, load_promotions_all(root, ref_roots), hub=hub)
+    b = Build(recs, ref, cls, load_promotions_all(root, ref_roots), hub=hub, text_index=text_index)
     prods = b.products()
     if legacy_vocab is not None:
         prods['classific.json'] = legacy_vocab      # F3-2 §六⑤：舊詞表改為 tree.json 的生成物，供舊讀者
@@ -1073,6 +1152,8 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
         'source_fields': src,
         'legacy_vs_rebuilt': legacy_diffs(recs, prods),
         'notes': dict(sorted(b.notes.items())),
+        'text_index': text_index_report(b, recs),
+        'dangling_text_ids': dict(sorted(b.dangling_text_ids.items())),
         'self_check_errors': errs[:200], 'self_check_error_count': len(errs),
         'classification': None if cls is None else {'works': len(cls), 'problems': cls_problems[:200],
                                                     'problem_count': len(cls_problems)},
@@ -1093,7 +1174,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
     if do_hub_check and not all(x['ok'] for x in report['hub_check']):
         fatal.append('改樞紐名牽動產物檔超過上限')
     report['fatal'] = fatal   # 之後 index 校驗還會往裡加
-    shards = build_index(recs, load_promotions_all(root, ref_roots))
+    shards = build_index(recs, load_promotions_all(root, ref_roots), b)
     n_idx = sum(len(v) for v in shards.values())
     report['index'] = {'files': len(shards), 'entries': n_idx, 'drift_vs_repo_index': index_drift(root, shards)}
     if n_idx != report['entries']:
@@ -1132,11 +1213,19 @@ def main(argv=None):
     ap.add_argument('--strict', action='store_true', help='源檔有舊派生／反向欄也算失敗（M3 之後用）')
     ap.add_argument('--hub-check', action='store_true', help='加跑改樞紐名牽動檔數自校驗（多一次全量重算）')
     ap.add_argument('--hub', type=int, default=HUB, help=f'樞紐閾值（預設 {HUB}）')
+    ap.add_argument('--text-index', metavar='DIR',
+                    help='book-text 的 index/texts 目錄；給了，`_has_text`／`_has_collated` 與 index 的 has_text／has_collated '
+                         '由 resources＋book-text 推（源裡舊值不再算）；不給＝保持舊行為並警告')
     ap.add_argument('--write-index', action='store_true',
                     help='另把 index/ 寫回倉內（沿用各分片縮排；預設只寫 <out>/index/）')
     a = ap.parse_args(argv)
+    ti = None
+    if a.text_index:
+        ti = TX.load(a.text_index)
+    else:
+        print('WARN: 未給 --text-index：_has_text／_has_collated 仍認源檔舊值（過渡行為，與 book-text 可能不一致）', file=sys.stderr)
     report, _ = run(a.root, a.ref_root, a.out, a.check_only, a.strict, a.hub_check, a.hub,
-                    write_repo_index=a.write_index)
+                    write_repo_index=a.write_index, text_index=ti)
     if report['fatal']:
         print('FAIL: ' + '；'.join(report['fatal']), file=sys.stderr)
         return 1

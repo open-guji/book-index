@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-10-10　`_has_text`／`_has_collated` 改从 book-text 推（overview#506 工作包 C）
+
+- `build/build_derived.py` 新参数 `--text-index <book-text>/index/texts`；给了，entry 的 `_has_text`／`_has_collated`、卡片 `txt`、`index/` 的 `has_text`／`has_collated` **统一口径**：resources 含 `text`（Work 并其 Book）或 book-text 有该 id 且版本 `quality` 不是 `none`／`placeholder`；`_has_collated` 看 `kind ∈ {collated, self_collated}`；id 沿 `merged_into` 解析，悬空 id 写入 `report.json` 的 `dangling_text_ids`。源档旧值不再算。不给＝保持旧行为并警告。
+- `report.json` 新增 `text_index`（接入统计、丢掉的 Work 清单 `has_text_lost_work`）。
+- 文档同步：`derived.md`、`text-files.md`、`legacy.md`、`build/README.md`。
+- 待办：`index/texts` 条目现不带 `quality`（在 `manifest.json`），需文本总管让 `build_texts_index.py` 写入，否则 `placeholder`／`none` 版本过滤不生效。
+
+---
+
 ## 2026-10-09　Entity 并条一律写墓碑（overview#409）
 
 - `.claude/qa/entity_merge.py`：被并方不再删档，改写为墓碑（只留 `schema_version`、`id`、`type`、`subtype`、`primary_name`、`merged_into`、`revision`、`revised_at`）；新增 `--by`（`merged_in.by`）；拒绝把墓碑当 loser 或 keeper。回归测试同步改。依据：目录经理 10-09（徐光啓并入徐光啟时发现原脚本删档）。

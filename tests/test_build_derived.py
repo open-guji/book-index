@@ -232,3 +232,62 @@ def test_book_collection_related_both_sides(repo, tmp_path):
     assert [(c['id'], c['t'], c['direction']) for c in b2['_related']] == [(S.C1, 'collection', 'in')]
     assert [(c['id'], c['t'], c['direction']) for c in c1['_related']] == [(S.B2, 'book', 'out')]
     assert b1['related_books'] == [S.B3] and 'related_books' not in b3
+
+
+# ---------- 工作包 C：_has_text／_has_collated 從 book-text 推（--text-index） ----------
+def _ver(kind='transcription', quality=None):
+    v = {'key': 'default', 'kind': kind, 'label': 'x', 'chapters_total': 1}
+    if quality:
+        v['quality'] = quality
+    return v
+
+
+def test_text_index_off_keeps_legacy_flags(repo):
+    S.put(repo, 'Work', {'id': 'w0000000009', 'type': 'work', 'title': '假陽', 'revision': '1.0.0', '_has_text': True})
+    _, P = run(repo, check_only=True)
+    assert P['entry/w0000000009.json']['_has_text'] is True
+
+
+def test_text_index_replaces_source_flags(repo):
+    S.put(repo, 'Work', {'id': 'w0000000009', 'type': 'work', 'title': '假陽', 'revision': '1.0.0',
+                         '_has_text': True, '_has_collated': True})
+    r, P = run(repo, check_only=True, text_index={S.W2: [_ver()]})
+    assert 'entry/w0000000009.json' in P
+    assert '_has_text' not in P['entry/w0000000009.json'] and '_has_collated' not in P['entry/w0000000009.json']
+    assert P[f'entry/{S.W2}.json']['_has_text'] is True
+    assert r['text_index']['has_text_lost_work']['ids'] == ['w0000000009']
+
+
+def test_text_index_work_inherits_from_book_and_collated(repo):
+    r, P = run(repo, check_only=True, text_index={S.B1: [_ver('collated')]})
+    assert P[f'entry/{S.B1}.json']['_has_text'] is True and P[f'entry/{S.B1}.json']['_has_collated'] is True
+    assert P[f'entry/{S.W1}.json']['_has_text'] is True and P[f'entry/{S.W1}.json']['_has_collated'] is True
+    assert '_has_text' not in P[f'entry/{S.B2}.json']
+
+
+def test_text_index_bad_quality_not_counted(repo):
+    ti = {S.W2: [_ver('collated', 'placeholder')], S.W3: [_ver('collated', 'none'), _ver('transcription', 'source')]}
+    _, P = run(repo, check_only=True, text_index=ti)
+    assert '_has_text' not in P[f'entry/{S.W2}.json'] and '_has_collated' not in P[f'entry/{S.W2}.json']
+    assert P[f'entry/{S.W3}.json']['_has_text'] is True and '_has_collated' not in P[f'entry/{S.W3}.json']
+
+
+def test_text_index_resolves_merged_into_and_reports_dangling(repo):
+    S.put(repo, 'Work', {'id': 'w0000000008', 'type': 'work', 'title': '墓碑', 'merged_into': S.W2, 'revision': '1.0.0'})
+    r, P = run(repo, check_only=True, text_index={'w0000000008': [_ver()], 'zz9999999999': [_ver()]})
+    assert P[f'entry/{S.W2}.json']['_has_text'] is True
+    assert '_has_text' not in P['entry/w0000000008.json']
+    assert r['dangling_text_ids'] == {'zz9999999999': '記錄不存在'}
+    assert r['text_index']['merged_resolved'] == 1
+
+
+def test_text_index_index_and_entry_same_rule(repo):
+    recs, *_ = BD.V.load_repo(repo)
+    b = BD.Build(recs, text_index={S.B1: [_ver('collated')]})
+    P = b.products()
+    sh = BD.build_index(recs, {}, b)
+    w1 = sh[f'index/works/{BD.shard_of(S.W1):x}.json'][S.W1]
+    assert w1['has_text'] is True and w1['has_collated'] is True      # Work 並其 Book，與 entry 同口徑
+    assert P[f'entry/{S.W1}.json']['_has_text'] is True
+    b0 = BD.Build(recs)
+    assert 'has_text' not in BD.build_index(recs, {}, b0)[f'index/works/{BD.shard_of(S.W1):x}.json'][S.W1]
