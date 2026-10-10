@@ -678,9 +678,13 @@ def index_entry(d, typ, rel_path, promoted_to=None):
              'primary_name': d.get('primary_name', ''), 'path': rel_path}
         if d.get('dynasty'):
             e['dynasty'] = d['dynasty']
-        for k in ('birth_year', 'death_year'):
-            if d.get(k) is not None:
-                e[k] = d[k]
+        dt = d.get('dates') if isinstance(d.get('dates'), dict) else {}
+        for k, dk in (('birth_year', 'birth'), ('death_year', 'death')):
+            v = dt.get(dk)
+            if v is None:
+                v = d.get(k)  # 回退源：schema-v2 過渡期仍有的 birth_year／death_year
+            if v is not None:
+                e[k] = v
         if isinstance(ext, dict) and ext.get('cbdb_id') is not None:
             e['cbdb_id'] = ext['cbdb_id']
         if d.get('period'):
