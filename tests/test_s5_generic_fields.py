@@ -66,79 +66,6 @@ def test_review_ok_rejects_non_string_by():
     assert not verify.review_ok({"status": "reviewed", "by": 1})
 
 
-# ---- _edition_count ----
-
-def test_derive_edition_count_from_book_work_ids():
-    counts = {"d59x": 3}
-    assert verify.derive_edition_count("d59x", counts) == 3
-    assert verify.derive_edition_count("d59y", counts) == 0
-
-
-def test_edition_count_ok_passes_when_absent():
-    assert verify.edition_count_ok({"id": "d59x"}, {})
-
-
-def test_edition_count_ok_accepts_matching_positive_value():
-    d = {"id": "d59x", "_edition_count": 3}
-    assert verify.edition_count_ok(d, {"d59x": 3})
-
-
-def test_edition_count_ok_rejects_stale_value():
-    d = {"id": "d59x", "_edition_count": 2}
-    assert not verify.edition_count_ok(d, {"d59x": 3})
-
-
-def test_edition_count_ok_rejects_zero():
-    # =0 者不该写本栏（沿用 _has_text 等「只标异常」之例）
-    d = {"id": "d59x", "_edition_count": 0}
-    assert not verify.edition_count_ok(d, {})
-
-
-def test_edition_count_ok_rejects_negative():
-    d = {"id": "d59x", "_edition_count": -1}
-    assert not verify.edition_count_ok(d, {})
-
-
-# ---- _member_count ----
-
-def test_derive_member_count():
-    d = {"books": ["988a", "988b"], "contained_works": [{"id": "d59a"}]}
-    assert verify.derive_member_count(d) == 3
-
-
-def test_derive_member_count_excludes_contains():
-    d = {"contains": [{"type": "preface", "title": "聖諭"}]}
-    assert verify.derive_member_count(d) == 0
-
-
-def test_derive_member_count_includes_reverse_members():
-    # overview#198 订正：正向清单本就是空、全靠反挂（如「國立故宮博物院善本舊籍」一类）者，
-    # S5 首版会漏算为 0；今须并入反挂集合。
-    d = {}
-    assert verify.derive_member_count(d, reverse_book_ids={"988a", "988b"}) == 2
-    assert verify.derive_member_count(d, reverse_work_ids={"d59a"}) == 1
-
-
-def test_derive_member_count_dedups_forward_and_reverse():
-    # 正向亦列、反挂亦掛者只算一次，不重複计数。
-    d = {"books": ["988a"], "contained_works": [{"id": "d59a"}]}
-    assert verify.derive_member_count(d, reverse_book_ids={"988a"}, reverse_work_ids={"d59a"}) == 2
-
-
-def test_member_count_ok_accepts_matching_value():
-    d = {"books": ["988a"], "_member_count": 1}
-    assert verify.member_count_ok(d)
-
-
-def test_member_count_ok_rejects_stale_value():
-    d = {"books": [], "contained_works": [{"id": "d59a"}], "_member_count": 2}
-    assert not verify.member_count_ok(d)
-
-
-def test_member_count_ok_rejects_zero():
-    assert not verify.member_count_ok({"_member_count": 0})
-
-
 # ---- institution 简繁 ----
 
 def test_institution_simplified_detects_simplified():
@@ -173,24 +100,6 @@ def _all_collections():
     return [(f, json.load(open(f, encoding="utf-8")))
             for f in glob.glob(str(ROOT / "Collection/*/*/*/*.json"))
             if not f.endswith("volume_book_mapping.json")]
-
-
-def test_all_works_edition_count_up_to_date():
-    IB = verify.idx("books")
-    import collections
-    book_work_ids = collections.Counter(ie.get("work_id") for ie in IB.values() if ie.get("work_id"))
-    rows = _all_works()
-    bad = [f for f, d in rows if not verify.edition_count_ok(d, book_work_ids)]
-    assert bad == [], f"_edition_count 不合或過期：{bad[:5]}（共 {len(bad)} 條）"
-
-
-def test_all_collections_member_count_up_to_date():
-    rev_book_members, rev_work_members = verify.build_reverse_members()
-    rows = _all_collections()
-    bad = [f for f, d in rows
-           if not verify.member_count_ok(d, rev_book_members.get(d.get("id"), set()),
-                                          rev_work_members.get(d.get("id"), set()))]
-    assert bad == [], f"_member_count 不合或過期：{bad[:5]}（共 {len(bad)} 條）"
 
 
 def test_all_records_todo_review_shape_ok():

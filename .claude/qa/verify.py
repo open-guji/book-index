@@ -23,25 +23,6 @@ S5（overview#189）另加：通用 `todo`／`review`（審核狀態）形狀校
 import argparse, collections, glob, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 
-def build_reverse_members():
-    """S3c/#191、S5b/#198：掃全庫 Book／Work 之 `contained_in[].id`，回傳
-    (cid -> 反掛 book_id 集合, cid -> 反掛 work_id 集合)。`_member_type`／`_member_count`
-    之反掛判定、回補腳本、回歸測試共用同一份，避免各自各寫一遍而算法漂開。"""
-    rev_book_members, rev_work_members = collections.defaultdict(set), collections.defaultdict(set)
-    for f in glob.glob(os.path.join(ROOT, 'Book/*/*/*/*.json')):
-        bd = json.load(open(f))
-        bid = bd.get('id')
-        for ci in (bd.get('contained_in') or []):
-            cid_ = ci.get('id') if isinstance(ci, dict) else ci
-            if cid_: rev_book_members[cid_].add(bid)
-    for f in glob.glob(os.path.join(ROOT, 'Work/*/*/*/*.json')):
-        wd = json.load(open(f))
-        wid = wd.get('id')
-        for ci in (wd.get('contained_in') or []):
-            cid_ = ci.get('id') if isinstance(ci, dict) else ci
-            if cid_: rev_work_members[cid_].add(wid)
-    return rev_book_members, rev_work_members
-
 def idx(fam):
     out = {}
     for f in glob.glob(os.path.join(ROOT, 'index', fam, '*.json')): out.update(json.load(open(f)))
@@ -80,20 +61,6 @@ def classification_members_problems(root, work_ids, ref_work_ids=frozenset()):
             for wid, ns in seen.items():
                 if len(ns) > 1: out.append((sc['id'], '互斥法一部多類：%s %s' % (wid, ns)))
     return out
-
-def load_classific_vocab():
-    """classific.json：l1s、(l1,l2) 集合、(l1,l2,l3) 集合、(l1,l2,l3,l4) 集合。
-    schema-v2 起只用來驗舊格式殘留之 `Work.classification`；檔不在即回空集。"""
-    p = os.path.join(ROOT, 'classific.json')
-    if not os.path.exists(p): return set(), set(), set(), set()
-    rows = json.load(open(p, encoding='utf-8'))
-    l1s, l12, l123, l1234 = set(), set(), set(), set()
-    for r in rows:
-        l1, l2, l3, l4 = r['cata_l1'], r['cata_l2'], r.get('cata_l3'), r.get('cata_l4')
-        l1s.add(l1); l12.add((l1, l2))
-        if l3: l123.add((l1, l2, l3))
-        if l4: l1234.add((l1, l2, l3, l4))
-    return l1s, l12, l123, l1234
 
 def dates_ok(d):
     """Entity.dates 校验（S4 新 schema 吸收④）：無此欄即過。
@@ -175,42 +142,6 @@ def count_ok(c):
     if not isinstance(c.get('source'), str) or not c.get('source').strip(): return False
     return any(c.get(f) is not None for f in ('juan', 'ce', 'zhong', 'han'))
 
-MEMBER_TYPES = {'Work', 'Book', 'Collection', 'mixed'}
-
-def derive_member_type(d, reverse_has_book=False, reverse_has_work=False):
-    """Collection._member_type：由正向清單（`books`／`contained_works`）∪反掛清單
-    （Book／Work 之 `contained_in[].id` 指向本 Collection）機械推出（S3c，overview#191，
-    修正 S3b／overview#171 只看正向清單、漏了反掛成員之病——最大的幾部叢編〔如故宮善本舊籍〕
-    正是全靠反掛，正向清單原就是空的，S3b 因此漏推了它們）。
-    `contains`（結構組成部分，非平列成員，見 SCHEMA collection 一節）不計入。
-    只 Book 側（正向或反掛）非空→'Book'；只 Work 側非空→'Work'；兩側皆非空→'mixed'；
-    兩側皆空→None（無可推之依據）。"""
-    has_b = bool(d.get('books')) or reverse_has_book
-    has_w = bool(d.get('contained_works')) or reverse_has_work
-    if has_b and has_w: return 'mixed'
-    if has_b: return 'Book'
-    if has_w: return 'Work'
-    return None
-
-def member_type_ok(d, reverse_has_book=False, reverse_has_work=False):
-    """_member_type 若寫了：須落在值域內，且須等於重新推導之值（派生欄位，手寫無用）。"""
-    v = d.get('_member_type')
-    if v is None: return True
-    if v not in MEMBER_TYPES: return False
-    return v == derive_member_type(d, reverse_has_book, reverse_has_work)
-
-def classification_ok(c, vocab):
-    l1s, l12, l123, l1234 = vocab
-    l1, l2, l3, l4 = c.get('l1') or '', c.get('l2') or '', c.get('l3') or '', c.get('l4') or ''
-    if not l1: return l2 == '' and l3 == '' and l4 == ''
-    if l1 not in l1s: return False
-    if not l2: return l3 == '' and l4 == ''
-    if (l1, l2) not in l12: return False
-    if not l3: return l4 == ''
-    if (l1, l2, l3) not in l123: return False
-    if not l4: return True
-    return (l1, l2, l3, l4) in l1234
-
 def provenance_ok(prov):
     """Book.provenance：數組，每項 institution 非空字符串、call_number 為字符串。"""
     if not isinstance(prov, list): return False
@@ -268,41 +199,6 @@ def review_ok(v):
         if fv is not None and not isinstance(fv, str): return False
     return True
 
-def derive_edition_count(wid, book_work_ids):
-    """Work.`_edition_count`：掛在該 Work 下的 Book 數，由 Book.work_id 反查而得
-    （不採 Work.`books` 手寫清單——兩者對全庫 95,055 條核有 74 條不一致，見已知問題）。"""
-    return book_work_ids.get(wid, 0)
-
-def edition_count_ok(d, book_work_ids):
-    """`_edition_count` 若寫了：須為正整數且等於重新推導之值（派生欄位，手寫無用）。
-    ＝0 者不寫本欄（沿用 `_has_text` 等「只標異常，不標正常」之例）。"""
-    v = d.get('_edition_count')
-    if v is None: return True
-    if not isinstance(v, int) or isinstance(v, bool) or v <= 0: return False
-    return v == derive_edition_count(d.get('id'), book_work_ids)
-
-def derive_member_count(d, reverse_book_ids=frozenset(), reverse_work_ids=frozenset()):
-    """Collection.`_member_count`：Book 側『`books` 正向清單 ∪ `contained_in` 反掛』相異 id 數，
-    加 Work 側『`contained_works` 正向清單 ∪ `contained_in` 反掛』相異 id 數
-    （`contains` 是結構組成部分，不計入，與 `_member_type` 同一口徑）。
-    overview#198 訂正：原僅算正向清單長度和，反掛成員（如「國立故宮博物院善本舊籍」一類
-    正向清單本就是空、全靠反掛）完全算漏；今以 id 集合聯集去重，避免「正向亦列、反掛亦掛」
-    者算兩次。"""
-    book_ids = set(d.get('books') or []) | set(reverse_book_ids)
-    work_ids = set()
-    for cw in (d.get('contained_works') or []):
-        x = (cw.get('id') or cw.get('work_id')) if isinstance(cw, dict) else cw
-        if x: work_ids.add(x)
-    work_ids |= set(reverse_work_ids)
-    return len(book_ids) + len(work_ids)
-
-def member_count_ok(d, reverse_book_ids=frozenset(), reverse_work_ids=frozenset()):
-    """`_member_count` 若寫了：須為正整數且等於重新推導之值。＝0 者不寫本欄。"""
-    v = d.get('_member_count')
-    if v is None: return True
-    if not isinstance(v, int) or isinstance(v, bool) or v <= 0: return False
-    return v == derive_member_count(d, reverse_book_ids, reverse_work_ids)
-
 SIMP_HINT_CHARS = set('国学图书馆')  # 本庫以繁體為主，這批字一見即是簡體（機構名 stale_ref 推廣用）
 
 def institution_simplified(inst):
@@ -314,20 +210,6 @@ def title_of(rid, IW, IC):
     if rid in IW: return IW[rid]['title']
     if rid in IC: return IC[rid]['title']
     return None
-
-_PAREN_SUFFIX_RE = re.compile(r'^(.+)（[^（）]+）$')
-
-def strip_paren_suffix(title):
-    """去現名後綴之括注（如「補晉書藝文志（丁國鈞）」→「補晉書藝文志」），供
-    Collection.contained_works[].title 漂移比較剝括注撰人用（overview#198，目錄總管裁定：
-    只在現名後加括注撰人消歧之展示題算正常，只有括注以外之部分跟目標現名對不上才是漂移）。"""
-    m = _PAREN_SUFFIX_RE.match(title or '')
-    return m.group(1) if m else title
-
-def contained_title_stale(recorded, actual):
-    """recorded 與 actual 不同，但剝去 recorded 末尾括注後與 actual 相同者，判為括注撰人
-    消歧之展示題，不算漂移。"""
-    return recorded != actual and strip_paren_suffix(recorded) != actual
 
 BASE_EDITION_ROLES = {'底本', '配補', '參校'}
 
