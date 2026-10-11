@@ -224,47 +224,6 @@ class Build:
                     self.children[p].add(cid)
                 elif p:
                     self._dangle('Collection.contained_in', cid, p)
-        # ----- 過渡期：舊反向欄取併集（M3 刪除後為空操作） -----
-        for wid, w in R['Work'].items():
-            for bid in w.get('books') or []:
-                if bid in R['Book']:
-                    if R['Book'][bid].get('work_id') != wid and wid in self.paths:
-                        self.notes['legacy Work.books 與 Book.work_id 不符'] += 1
-                    self.books_of[wid].add(bid)
-                elif isinstance(bid, str):
-                    self._dangle('Work.books(legacy)', wid, bid)
-        for eid, e in R['Entity'].items():
-            for x in e.get('works') or []:
-                wid = x.get('work_id') if isinstance(x, dict) else None
-                if wid in R['Work']:
-                    cur = self.works_of[eid].get(wid)
-                    if wid not in self.works_of[eid] and eid in self.paths:
-                        self.notes['legacy Entity.works 有而 Work.authors 無（併入）'] += 1
-                    if not cur:
-                        self.works_of[eid][wid] = x.get('role') or None
-                elif wid:
-                    self._dangle('Entity.works(legacy)', eid, wid)
-        for cid, c in R['Collection'].items():
-            for x in c.get('books') or []:
-                bid = V.ref_id(x, 'book_id', 'id')
-                if bid in R['Book']:
-                    self.members[cid].setdefault(('Book', bid), {})
-                elif bid:
-                    self._dangle('Collection.books(legacy)', cid, bid)
-            for x in c.get('contained_works') or []:
-                wid = V.ref_id(x, 'id', 'work_id')
-                if wid in R['Work']:
-                    attrs = {}
-                    if isinstance(x, dict):
-                        if x.get('volume_index') not in (None, ''):
-                            attrs['vol'] = x['volume_index']
-                        if x.get('group'):
-                            attrs['group'] = x['group']
-                    m = self.members[cid].setdefault(('Work', wid), {})
-                    for k, v in attrs.items():
-                        m.setdefault(k, v)
-                elif wid:
-                    self._dangle('Collection.contained_works(legacy)', cid, wid)
         # ----- 入度 → 樞紐 -----
         for wid, bs in self.books_of.items():
             self.indeg[wid] += len(bs)
@@ -278,7 +237,7 @@ class Build:
         for sb, ms in self.catalog.items():
             self.indeg[sb] += len(ms)
         self.hubs = {i for i, n in self.indeg.items() if n > self.hub_threshold}
-        # 成員側看到的所屬叢編（含過渡期只寫在叢編側者）
+        # 成員側看到的所屬叢編
         self.colls_of = collections.defaultdict(dict)
         for cid, ms in self.members.items():
             for (t, i), attrs in ms.items():
@@ -341,10 +300,6 @@ class Build:
             i = m
         return None
 
-    def legacy_flag(self, d, key):
-        """源裡舊 `_has_text`／`_has_collated`：給了 text_index 就不認。"""
-        return self.ti is None and bool(d.get(key))
-
     # ---------- 卡片（F4-2 §二） ----------
     def has(self, d, kind):
         """`_has_image`／`_has_text`／`_has_collated`：resources[].types；text／collated 另看 book-text；Work 另併其 Book。"""
@@ -354,18 +309,11 @@ class Build:
             return d.get('id') in (self.txt_ok if kind == 'text' else self.col_ok)
         return False
 
-    def put_has(self, v, src, computed):
-        """`_has_image`／`_has_text`／`_has_collated`：resources（與 book-text，見 _text_index）推得者；
-        未給 text_index 時另認源裡舊值為真者（過渡，見 README「未決」）。＝假不寫。"""
+    def put_has(self, v, computed):
+        """`_has_image`／`_has_text`／`_has_collated`：resources（與 book-text，見 _text_index）推得者；＝假不寫。"""
         for kind, key in (('image', '_has_image'), ('text', '_has_text'), ('collated', '_has_collated')):
-            got = computed(kind)
-            legacy = bool(src.get(key)) or bool(src.get(key[1:]))
-            if self.ti is not None and kind != 'image':
-                legacy = False
-            if got or legacy:
+            if computed(kind):
                 v[key] = True
-                if legacy and not got:
-                    self.notes[f'{key} 僅憑源裡舊值（resources 推不出）'] += 1
 
     def work_has(self, wid, kind):
         w = self.R['Work'][wid]
@@ -374,13 +322,10 @@ class Build:
         return any(self.has(self.R['Book'][b], kind) for b in self.books_of.get(wid, ()))
 
     def cls_of(self, wid):
-        if self.cls is not None:              # F2-3 補／F4-2：列表卡片的分類只寫節點 id，標籤由讀者查 tree.json
-            rows = self.cls.get(wid)
-            return rows[0]['node'] if rows else None
-        c = self.R['Work'][wid].get('classification')
-        if isinstance(c, dict) and c.get('l1'):
-            return [c.get('l1'), c.get('l2') or None]
-        return None
+        if self.cls is None:                  # 無 classification/ 目錄：卡片不帶分類
+            return None
+        rows = self.cls.get(wid)              # F2-3 補／F4-2：列表卡片的分類只寫節點 id，標籤由讀者查 tree.json
+        return rows[0]['node'] if rows else None
 
     def book_card(self, bid):
         b = self.R['Book'][bid]
@@ -392,7 +337,7 @@ class Build:
             'id': bid, 'title': b.get('title'), 'edition': b.get('edition'), 'etype': b.get('edition_type'),
             'dating': dating_text(b), 'y': sort_year(b), 'holder': text(b.get('current_location')),
             'juan': num(b.get('juan_count')),
-            'img': self.has(b, 'image') or bool(b.get('_has_image')), 'txt': self.has(b, 'text') or self.legacy_flag(b, '_has_text'),
+            'img': self.has(b, 'image'), 'txt': self.has(b, 'text'),
             'nres': len(b.get('resources') or []),
             'pub': pub.get('year') if isinstance(pub, dict) and isinstance(pub.get('year'), (str, int)) else None,
             'meas': b.get('measure_info') if isinstance(b.get('measure_info'), str) else None,
@@ -405,8 +350,8 @@ class Build:
             'id': wid, 'title': w.get('title'), 'dyn': first_dynasty(w), 'juan': num(w.get('juan_count')),
             'au': [a.get('name') for a in (w.get('authors') or [])[:3] if isinstance(a, dict) and a.get('name')],
             'cls': self.cls_of(wid), 'nb': len(self.books_of.get(wid, ())),
-            'img': self.work_has(wid, 'image') or bool(w.get('_has_image')),
-            'txt': self.work_has(wid, 'text') or self.legacy_flag(w, '_has_text'),
+            'img': self.work_has(wid, 'image'),
+            'txt': self.work_has(wid, 'text'),
         })
 
     def ent_card(self, eid):
@@ -442,7 +387,7 @@ class Build:
 
     # ---------- 各類產物 ----------
     def collections_of(self, d):
-        """本記錄 contained_in 之序在前；過渡期只見於叢編側者按 id 補在後（M3 後為空）。"""
+        """本記錄 contained_in 之序在前。"""
         out = []
         seen = set()
         for x in d.get('contained_in') or []:
@@ -502,7 +447,7 @@ class Build:
             v['_related_total'] = len(rel) + sum(len(p) for p in pages)
             v['_related_pages'] = len(pages) + 1
         v['_collections'] = self.collections_of(w)
-        self.put_has(v, w, lambda kind: self.work_has(wid, kind))
+        self.put_has(v, lambda kind: self.work_has(wid, kind))
         if self.cls is not None and self.cls.get(wid):
             v['_classifications'] = self.cls[wid]
         cat_pages = []
@@ -580,7 +525,7 @@ class Build:
         if der:
             v['_derived_by'] = [clean({'id': x, 'title': R['Book'][x].get('title'), 'edition': R['Book'][x].get('edition'),
                                        'rel': r}) for x, r in der]
-        self.put_has(v, b, lambda kind: self.has(b, kind))
+        self.put_has(v, lambda kind: self.has(b, kind))
         if self.promotions.get(bid):
             v['promoted_to'] = self.promotions[bid]
         if wid in R['Work'] and self.has_lineage(wid):
@@ -624,7 +569,7 @@ class Build:
         ch = sorted(self.children.get(cid, ()))
         if ch:
             v['_children'] = [self.card(x, self.coll_card) for x in ch]
-        self.put_has(v, c, lambda kind: self.has(c, kind))
+        self.put_has(v, lambda kind: self.has(c, kind))
         return v, {'members': pages}
 
     def build_entity(self, eid):
@@ -646,7 +591,7 @@ class Build:
 
     def strip(self, d, typ):
         """產物以源記錄為底；舊 `_` 派生欄一律丟掉重算（以生成值為準，SCHEMA 既有規矩）。"""
-        return {k: x for k, x in d.items() if not k.startswith('_') and k != 'promoted_to'}
+        return {k: x for k, x in d.items() if not k.startswith('_')}
 
     # ---------- 全量 ----------
     def products(self, ids=None):
@@ -720,10 +665,10 @@ def _res_flags(d):
 
 def index_entry(d, typ, rel_path, promoted_to=None, build=None):
     """逐字照 book_index_manager/entry_extractor.py（build_index_entry／build_entity_index_entry）。
-    promoted_to：record 上的舊值優先（遷移前），否則取 promotions.json（M3 後 record 不再帶）。
+    promoted_to：取 promotions.json（源記錄不帶）。
     build：給了且帶 text_index 時，`has_text`／`has_collated` 與 entry 的 `_has_text`／`_has_collated` 同口徑
     （Work 並其 Book、book-text、merged_into 解析），否則照舊只看本記錄 resources 與源裡舊值。"""
-    pt = d.get('_promoted_to') or d.get('promoted_to') or promoted_to
+    pt = promoted_to
     if typ == 'Entity':
         ext = d.get('external_ids') or {}
         e = {'id': d.get('id'), 'type': 'entity', 'subtype': d.get('subtype', 'people'),
@@ -923,25 +868,17 @@ def load_promotions_all(root, ref_roots=()):
 
 # ---------- 校驗 ----------
 def source_checks(recs):
-    """源檔裡不該有的：`_` 欄（舊派生，M3 刪；其他一律算錯）、舊反向欄。"""
-    legacy, unknown, rev = collections.Counter(), collections.Counter(), collections.Counter()
+    """源檔裡不該有的：任何 `_` 欄（派生欄只由 build 生成，源檔一律不許帶）。"""
+    unknown = collections.Counter()
     unknown_where = []
     for t in V.TYPES:
         for i, r in recs[t].items():
             for k in r.data:
                 if k.startswith('_'):
-                    if k in V.LEGACY_DERIVED[t]:
-                        legacy[f'{t}.{k}'] += 1
-                    else:
-                        unknown[f'{t}.{k}'] += 1
-                        if len(unknown_where) < 200:
-                            unknown_where.append([i, k])
-            for k in V.LEGACY_REVERSE[t]:
-                if k in r.data:
-                    rev[f'{t}.{k}'] += 1
-    return {'legacy_underscore_fields': dict(sorted(legacy.items())),
-            'unknown_underscore_fields': dict(sorted(unknown.items())), 'unknown_underscore_where': unknown_where,
-            'legacy_reverse_fields': dict(sorted(rev.items()))}
+                    unknown[f'{t}.{k}'] += 1
+                    if len(unknown_where) < 200:
+                        unknown_where.append([i, k])
+    return {'unknown_underscore_fields': dict(sorted(unknown.items())), 'unknown_underscore_where': unknown_where}
 
 
 def self_checks(b, prods):
@@ -1069,28 +1006,18 @@ def index_drift(root, shards):
 
 def text_index_report(b, recs):
     """book-text 文本索引的接入報告；未給 text_index 時只標 enabled=False。
-    has_text_lost／gained：本倉源檔 `_has_text:true` 而重算為假（舊假陽性）／源檔無而重算為真，只列 Work 清單。"""
+    counts＝推得的 `_has_text`／`_has_collated` 條數。"""
     if b.ti is None:
         return {'enabled': False}
-    lost, gained = [], []
-    for wid, r in recs['Work'].items():
-        got = b.work_has(wid, 'text')
-        src = bool(r.data.get('_has_text'))
-        if src and not got:
-            lost.append(wid)
-        elif got and not src:
-            gained.append(wid)
     counts = {}
     for t in ('Work', 'Book'):
         counts[f'{t}._has_text'] = sum(1 for i in recs[t] if (b.work_has(i, 'text') if t == 'Work' else b.has(b.R[t][i], 'text')))
         counts[f'{t}._has_collated'] = sum(1 for i in recs[t] if (b.work_has(i, 'collated') if t == 'Work' else b.has(b.R[t][i], 'collated')))
     return {'enabled': True, 'ids': len(b.ti), 'merged_resolved': b.text_merged,
-            'dangling': len(b.dangling_text_ids), 'counts': counts,
-            'has_text_lost_work': {'count': len(lost), 'ids': sorted(lost)},
-            'has_text_gained_work': {'count': len(gained)}}
+            'dangling': len(b.dangling_text_ids), 'counts': counts}
 
 
-def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub_check=False, hub=HUB, quiet=False,
+def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, hub=HUB, quiet=False,
         write_repo_index=False, text_index=None):
     recs, sidecars, problems = V.load_repo(root)
     ref = None
@@ -1112,10 +1039,6 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
             if b.kind_of(wid) != 'Work':
                 cls_problems.append(f'成員行 {wid} 不是本倉（或參照倉）的 Work')
     src = source_checks(recs)
-    if cls is not None:                       # 分類檔已在（M4a 後）：Work 裡還留舊 classification 即殘留
-        n = sum(1 for r in recs['Work'].values() if 'classification' in r.data)
-        if n:
-            src['legacy_reverse_fields']['Work.classification'] = n
     errs = self_checks(b, prods)
     report = {
         'contract': CONTRACT,
@@ -1147,8 +1070,6 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
         fatal.append(f'分類檔校驗 {len(cls_problems)} 項失敗')
     if src['unknown_underscore_fields']:
         fatal.append('源檔含非舊有之 `_` 欄：' + ', '.join(src['unknown_underscore_fields']))
-    if strict and (src['legacy_underscore_fields'] or src['legacy_reverse_fields']):
-        fatal.append('--strict：源檔仍含舊派生／反向欄')
     if do_hub_check and not all(x['ok'] for x in report['hub_check']):
         fatal.append('改樞紐名牽動產物檔超過上限')
     report['fatal'] = fatal   # 之後 index 校驗還會往裡加
@@ -1188,7 +1109,7 @@ def main(argv=None):
                     help='只讀參照倉（草稿庫 build 時指正式庫，解析指向正式記錄的 id）')
     ap.add_argument('--out', help='輸出目錄（預設 <root>/_build）')
     ap.add_argument('--check-only', action='store_true', help='只校驗，不寫產物')
-    ap.add_argument('--strict', action='store_true', help='源檔有舊派生／反向欄也算失敗（M3 之後用）')
+    ap.add_argument('--strict', action='store_true', help='已無作用（現恆嚴格），保留以免舊命令報錯')
     ap.add_argument('--hub-check', action='store_true', help='加跑改樞紐名牽動檔數自校驗（多一次全量重算）')
     ap.add_argument('--hub', type=int, default=HUB, help=f'樞紐閾值（預設 {HUB}）')
     ap.add_argument('--text-index', metavar='DIR', required=True,
@@ -1198,7 +1119,7 @@ def main(argv=None):
                     help='另把 index/ 寫回倉內（沿用各分片縮排；預設只寫 <out>/index/）')
     a = ap.parse_args(argv)
     ti = TX.load(a.text_index)
-    report, _ = run(a.root, a.ref_root, a.out, a.check_only, a.strict, a.hub_check, a.hub,
+    report, _ = run(a.root, a.ref_root, a.out, a.check_only, a.hub_check, a.hub,
                     write_repo_index=a.write_index, text_index=ti)
     if report['fatal']:
         print('FAIL: ' + '；'.join(report['fatal']), file=sys.stderr)

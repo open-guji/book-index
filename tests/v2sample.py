@@ -1,7 +1,7 @@
 """schema-v2 單測用的小樣本倉（**樣本，非真數據**；在臨時目錄生成，不入庫）。
 
-覆蓋：Work.books 舊反向、成對關係兩側都寫且 note 不同、只有反向形、related 只在大 id 側、
-詞表外詞、Collection.books／contained_works（叢編側獨有）、Entity.works 帶 role 而 Work 缺、
+覆蓋：成對關係兩側都寫且 note 不同、只有反向形、related 只在大 id 側、
+詞表外詞、Book／Work 的 contained_in（叢編成員）、Work.authors 帶 role、
 sidecar（sub_items、wiki_title、parent_work_id）、承襲（lineage）。
 """
 import json
@@ -32,8 +32,7 @@ def read(root, typ, rid):
 def make(root):
     put(root, 'Work', {
         'id': W1, 'type': 'work', 'title': '甲書', 'revision': '1.0.3', 'revised_at': '2026-01-01',
-        'books': [B1, B2], '_edition_count': 2,
-        'authors': [{'name': '張三', 'entity_id': E1}],                     # 缺 role，Entity 側有
+        'authors': [{'name': '張三', 'entity_id': E1, 'role': '撰'}],
         'related_works': [
             {'id': W2, 'relation': 'has_part', 'title': '乙書', 'note': '甲側說'},  # 兩側都寫、note 不同
             {'id': W3, 'relation': 'studied_by', 'title': '丙書'},               # 只有反向形
@@ -42,6 +41,8 @@ def make(root):
     })
     put(root, 'Work', {
         'id': W2, 'type': 'work', 'title': '乙書', 'revision': '1.0.0',
+        'authors': [{'name': '張三', 'entity_id': E1, 'role': '注'}],
+        'contained_in': [{'id': C1, 'group': '甲編'}],
         'related_works': [{'id': W1, 'relation': 'part_of', 'title': '甲書', 'note': '乙側說'}],
     })
     put(root, 'Work', {
@@ -63,16 +64,13 @@ def make(root):
         'id': B2, 'type': 'book', 'title': '甲書明本', 'work_id': W1, 'revision': '1.0.0',
         'dating': {'year': 1500}, 'lineage': {'derived_from': [{'ref': B1, 'ref_type': 'book', 'relation': '翻刻'}]},
     })
-    put(root, 'Book', {'id': B3, 'type': 'book', 'title': '乙書刊本', 'work_id': W2, 'revision': '1.0.0'})
+    put(root, 'Book', {'id': B3, 'type': 'book', 'title': '乙書刊本', 'work_id': W2, 'revision': '1.0.0',
+        'contained_in': [{'id': C1}]})
     put(root, 'Collection', {
         'id': C1, 'type': 'collection', 'title': '某叢書', 'revision': '1.0.0',
-        'books': [B1, B3],                                                       # B3 只在叢編側
-        'contained_works': [{'id': W2, 'title': '乙書', 'group': '甲編'}],          # 只在叢編側
-        '_member_count': 1,
     })
     put(root, 'Entity', {
         'id': E1, 'type': 'entity', 'primary_name': '張三',
-        'works': [{'work_id': W1, 'role': '撰'}, {'work_id': W2, 'role': '注', 'title': '乙書'}],
     })
     sc = os.path.join(os.path.dirname(path(root, 'Collection', C1)), C1, 'src', 'volume_book_mapping.json')
     os.makedirs(os.path.dirname(sc), exist_ok=True)

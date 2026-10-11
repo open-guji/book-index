@@ -38,7 +38,7 @@
 ```
 python3 build/build_derived.py --out "$BOOK_INDEX_DERIVED_DIR"                                  # 正式库
 python3 build/build_derived.py --root ../book-index-draft --ref-root . --out <草稿输出目录>        # 草稿库
-python3 build/build_derived.py --check-only [--hub-check] [--strict]                            # 只校验，不写任何文件
+python3 build/build_derived.py --check-only [--hub-check]                            # 只校验，不写任何文件
 ```
 
 | 参数 | 作用 |
@@ -47,7 +47,7 @@ python3 build/build_derived.py --check-only [--hub-check] [--strict]            
 | `--ref-root`（可多次） | 只读参照仓。草稿库 build 时指向正式库：草稿记录引用的正式 id（如草稿 Book 的 `work_id` 指正式 Work）由参照仓解析；升格对照也从参照仓读（`promotions` 只在正式库根）。参照仓的记录参与反查与卡片，**但不为参照仓记录产出 `entry/`** |
 | `--out` | 输出目录，默认 `<root>/_build` |
 | `--check-only` | 只校验：不写产物，也不写 `report.json`，摘要打印到标准输出 |
-| `--strict` | 源档里还有旧派生字段、旧反向字段也算失败（见〈十〉） |
+| `--strict` | 已无作用（现恒严格：源档任何 `_` 字段即失败），只为旧命令不报错而保留 |
 | `--hub-check` | 加跑「改枢纽名牵动几个产物文件」自校验（多一次全量重算） |
 | `--hub N` | 枢纽阈值，默认 200 |
 | `--write-index` | 另把 `index/` 写回仓内 `index/`（默认只写 `<out>/index/`） |
@@ -508,20 +508,17 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 | 卡片可解析 | `_related`、`_collections`、`_children`、`_siblings`、`_books`、`_works`（按 `work_id`）、`_catalogs`（按 `bid`）、`_work`、带 `id` 的 `_authors`、各 `members/`／`catalog/` 页里每张卡片的 id 都能解到记录；带 `h:1` 的都在 `_hubs.json` |
 | 读档问题 | 读不了的文件、无 `id`、`type` 与所在目录不符、同 id 重复 |
 | 分类档校验 | 成员档名 ＝ 其 `node`；节点存在且未 `retired`；`exclusive` 分类法一部只出现一次；成员行是本仓或参照仓的 Work |
-| 源档里的未知 `_` 字段 | 除下面的旧派生字段外（`_has_text`、`_has_collated` 豁免已收回），源档出现任何 `_` 起首字段 |
-| `--strict` | 源档仍有旧派生字段或旧反向字段（`LEGACY_DERIVED`、`LEGACY_REVERSE`；有 `classification/` 时 Work 里残留 `classification` 也算） |
+| 源档里的 `_` 字段 | 源档出现任何 `_` 起首字段（派生字段只由 build 生成；2026-10-11 起没有任何豁免，旧派生字段的容忍已删） |
 | `--hub-check` | 某类改枢纽名牵动的产物文件超过 `HUB_CHECK_MAX`（6） |
 
-**只报不挡**（写进 `report.json`，不影响退出码；`--strict` 时第 2、3 项改为挡）：
+**只报不挡**（写进 `report.json`，不影响退出码）：
 1. 悬空引用 `dangling`：`Book.work_id`、`Book.contained_in`、`Book.lineage.derived_from`、`Work.authors.entity_id`、`Work.contained_in`、`Work.related_works`、`Work.indexed_by.source_bid`、`Collection.contained_in` 及各旧反向字段，只报本仓记录引出的。
-2. `LEGACY_DERIVED`：源档里迄 M3 前仍有的旧派生字段——Work `_edition_count`、`_has_image`、`_promoted_to`、`_promoted_at`；Book `_has_image`、`_promoted_to`、`_promoted_at`；Collection `_member_count`、`_member_type`、`_has_image`；Entity `_promoted_to`、`_promoted_at`。build 照算（entry 里以重算值为准），计数进 `source_fields.legacy_underscore_fields`，与重算值之差进 `legacy_vs_rebuilt`（不比 `_promoted_*`、`_has_collated`）。
-3. `LEGACY_REVERSE`：源档里的旧反向／副本字段——Work `books`、`has_text`、`has_image`、`has_collated`、`promoted_to`；Book `has_text`、`has_image`、`has_collated`、`promoted_to`；Collection `books`、`contained_works`、`has_text`、`has_image`；Entity `works`、`promoted_to`。
-4. `notes`：`report.json` 另有 `text_index`（接入统计、丢掉的 Work 清单）与 `dangling_text_ids`（book-text 里解析不了的悬空 id，不致命）。旧注（正式库 10-09：295 条）、「`_has_collated` 僅憑源裡舊值」（65 条）、「Entity._works 缺 role（以「撰」補）」。
-5. `index.drift_vs_repo_index`：仓内现有 `index/` 与重生值逐字段之差（草稿库数据 PR 不带 `index/`，差得多是预期）。
+2. `notes`：`report.json` 另有 `text_index`（接入统计、丢掉的 Work 清单）与 `dangling_text_ids`（book-text 里解析不了的悬空 id，不致命）。旧注（正式库 10-09：295 条）、「`_has_collated` 僅憑源裡舊值」（65 条）、「Entity._works 缺 role（以「撰」補）」。
+3. `index.drift_vs_repo_index`：仓内现有 `index/` 与重生值逐字段之差（草稿库数据 PR 不带 `index/`，差得多是预期）。
 
 **`--hub-check`**：Collection、Work、Entity 各取本仓入度最大的枢纽，在内存里给名字加后缀重算全部产物，数变了几个文件；结果进 `report.json` 的 `hub_check: [{type, id, indegree, changed, files（前 10）, ok}]`。正式库 10-09：`8rlcsybg2hhl`（入度 17,540）、`d59frnrt4lxc`（29,218）、`hixhd2h9bdqq`（380）各牵动 2 档。
 
-**`report.json` 的键**：`contract`、`root`、`records`、`entries`、`files_total`、`pages`、`hubs`、`hub_threshold`、`sidecars_ignored`、`load_problems`、`dangling`（每类 `{count, sample（前 50）}`）、`source_fields`、`legacy_vs_rebuilt`、`notes`、`self_check_errors`（前 200）、`self_check_error_count`、`classification`、`hub_check`（有时）、`fatal`、`index`（`{files, entries, drift_vs_repo_index}`）。不属契约，可随时增减。
+**`report.json` 的键**：`contract`、`root`、`records`、`entries`、`files_total`、`pages`、`hubs`、`hub_threshold`、`sidecars_ignored`、`load_problems`、`dangling`（每类 `{count, sample（前 50）}`）、`source_fields`（只剩 `unknown_underscore_fields`／`unknown_underscore_where`）、`notes`、`self_check_errors`（前 200）、`self_check_error_count`、`classification`、`hub_check`（有时）、`fatal`、`index`（`{files, entries, drift_vs_repo_index}`）。不属契约，可随时增减。
 
 ---
 
@@ -557,7 +554,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 | 7 | **新建 `index/` 文件尾无换行**：输出目录里还没有该分片时按缩进 2、无尾换行写出（如新的 `--out` 目录）；仓内已有分片沿用其原格式 | 与全库「文件尾一个换行」约定不一 |
 | 8 | **place 级别「都」在 `PLACE_RANK` 里缺失**：`level` 枚举有 `都`，`PLACE_RANK` 没有，按 9（最高）计，永远不会被选为「最低一级」的默认候选；`監` 在表内 | 涉及「都」的同名地名默认候选可能不标 |
 | 9 | **holder 取法不一**：卡片 `holder` 对象取 `name`、无则 `text`；`index/` 只取 `name` | 只写 `current_location.text` 的 Book 搜索列表无馆藏 |
-| 10 | **校验口径**：`.claude/qa/verify.py` 的 `MEMBER_TYPES` 含 `"Collection"`，build 只产出 `"Work"`／`"Book"`／`"mixed"`；verify 还允许源档写 `_edition_count`（只核值），build 把它列为旧派生字段（`--strict` 时算失败） | 两个校验器对同一份数据结论不同 |
+| 10 | **校验口径**：`.claude/qa/verify.py` 的 `MEMBER_TYPES` 含 `"Collection"`，build 只产出 `"Work"`／`"Book"`／`"mixed"`；verify 还允许源档写 `_edition_count`（只核值），build 现一律拒绝源档里的 `_` 字段 | 两个校验器对同一份数据结论不同 |
 | 11 | **Work 卡 `cls` 有两种类型**：有 `classification/` 时是节点 id 字符串，没有时退回 `[l1, l2]` 数组（正式库、草稿库都已有 `classification/`，实际只出字符串） | 读者按字符串读即可 |
 
 ---

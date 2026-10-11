@@ -61,7 +61,7 @@ def test_count_conservation_and_sidecar_ignored(repo):
     assert any(p.endswith('volume_book_mapping.json') for p in r['sidecars_ignored'])
 
 
-def test_reverse_derived_and_legacy_union(repo):
+def test_reverse_derived_from_canonical_side(repo):
     _, P = run(repo, check_only=True)
     w1 = P[f'entry/{S.W1}.json']
     assert [b['id'] for b in w1['_books']] == [S.B1, S.B2]          # 按年代
@@ -93,9 +93,9 @@ def test_reverse_derived_and_legacy_union(repo):
     assert P[f'entry/{S.W4}.json']['_catalogs'] == [{'bid': S.W5, 'title': '某志', 'section': '經部'}]
 
 
-def test_old_underscore_fields_recomputed(repo):
+def test_member_count_and_has_image_derived(repo):
     _, P = run(repo, check_only=True)
-    assert P[f'entry/{S.C1}.json']['_member_count'] == 3               # 源裡寫 1，以生成值為準
+    assert P[f'entry/{S.C1}.json']['_member_count'] == 3
     assert P[f'entry/{S.W1}.json']['_has_image'] is True
 
 
@@ -132,8 +132,7 @@ def test_validation_unknown_underscore_and_dangling(repo):
     r, _ = run(repo, check_only=True)
     assert any('_foo' in f for f in r['fatal'])
     assert r['dangling']['Work.related_works']['sample'] == [[S.W2, 'w9999999999']]
-    assert r['source_fields']['legacy_underscore_fields']['Work._edition_count'] == 1
-    assert run(repo, check_only=True, strict=True)[0]['fatal']
+    assert r['source_fields']['unknown_underscore_fields'] == {'Work._foo': 1}
 
 
 def test_ref_root_resolves_external_ids(repo, tmp_path):
@@ -154,7 +153,7 @@ def test_index_matches_entry_extractor_rules(repo, tmp_path):
     shards = BD.build_index(*_idx_args(repo))
     w1 = shards[f'index/works/{BD.shard_of(S.W1):x}.json'][S.W1]
     assert w1 == {'id': S.W1, 'title': '甲書', 'type': 'Work', 'path': os.path.relpath(S.path(repo, 'Work', S.W1), repo),
-                  'author': '張三'}
+                  'author': '張三', 'role': '撰'}
     b1 = shards[f'index/books/{BD.shard_of(S.B1):x}.json'][S.B1]
     assert b1['sort_year'] == 1200 and b1['has_image'] is True and b1['work_id'] == S.W1
     e1 = shards[f'index/entities/{BD.shard_of(S.E1):x}.json'][S.E1]
@@ -242,12 +241,6 @@ def _ver(kind='transcription', quality=None):
     return v
 
 
-def test_text_index_off_keeps_legacy_flags(repo):
-    S.put(repo, 'Work', {'id': 'w0000000009', 'type': 'work', 'title': '假陽', 'revision': '1.0.0', '_has_text': True})
-    _, P = run(repo, check_only=True)
-    assert P['entry/w0000000009.json']['_has_text'] is True
-
-
 def test_text_index_replaces_source_flags(repo):
     S.put(repo, 'Work', {'id': 'w0000000009', 'type': 'work', 'title': '假陽', 'revision': '1.0.0',
                          '_has_text': True, '_has_collated': True})
@@ -255,7 +248,6 @@ def test_text_index_replaces_source_flags(repo):
     assert 'entry/w0000000009.json' in P
     assert '_has_text' not in P['entry/w0000000009.json'] and '_has_collated' not in P['entry/w0000000009.json']
     assert P[f'entry/{S.W2}.json']['_has_text'] is True
-    assert r['text_index']['has_text_lost_work']['ids'] == ['w0000000009']
 
 
 def test_text_index_work_inherits_from_book_and_collated(repo):
