@@ -996,29 +996,6 @@ def self_checks(b, prods):
     return errs
 
 
-def legacy_diffs(recs, prods):
-    """舊派生欄（源裡手寫的）與重算值的差：只報，供 M3 前後對表。"""
-    d = collections.Counter()
-    for t in V.TYPES:
-        for i, r in recs[t].items():
-            v = prods[f'entry/{i}.json']
-            for k in V.LEGACY_DERIVED[t]:
-                if k in ('_promoted_to', '_promoted_at', '_has_collated'):
-                    continue
-                if k in r.data and r.data[k] != v.get(k):
-                    d[f'{t}.{k} 源值≠重算'] += 1
-                if k not in r.data and v.get(k) not in (None, False, 0):
-                    d[f'{t}.{k} 源缺、重算有'] += 1
-            if t == 'Work' and 'books' in r.data:
-                if sorted(r.data['books'] or []) != sorted(x['id'] for x in v['_books']):
-                    d['Work.books 集合≠_books'] += 1
-            if t == 'Entity' and 'works' in r.data:
-                old = {x.get('work_id') for x in r.data['works'] or [] if isinstance(x, dict)}
-                if old != {x['work_id'] for x in v['_works']}:
-                    d['Entity.works 集合≠_works'] += 1
-    return dict(sorted(d.items()))
-
-
 def hub_check(b, prods, limit=HUB_CHECK_MAX):
     """每類取入度最大的樞紐，記憶體裡改名後重算，數產物變了幾個檔（F2-3 補：寫進自校驗）。"""
     base = {k: hashlib.sha256(jb(v)).hexdigest() for k, v in prods.items()}
@@ -1152,7 +1129,6 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
         'load_problems': problems,
         'dangling': {k: {'count': len(v), 'sample': sorted(v)[:50]} for k, v in sorted(b.dangling.items())},
         'source_fields': src,
-        'legacy_vs_rebuilt': legacy_diffs(recs, prods),
         'notes': dict(sorted(b.notes.items())),
         'text_index': text_index_report(b, recs),
         'dangling_text_ids': dict(sorted(b.dangling_text_ids.items())),
@@ -1193,7 +1169,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, strict=False, do_hub
             f.write('\n')
     if not quiet:
         brief = {k: report[k] for k in ('records', 'entries', 'files_total', 'pages', 'hubs', 'notes', 'index',
-                                       'legacy_vs_rebuilt', 'self_check_error_count', 'fatal')}
+                                       'self_check_error_count', 'fatal')}
         brief['dangling'] = {k: v['count'] for k, v in report['dangling'].items()}
         brief['source_fields'] = {k: v for k, v in src.items() if k != 'unknown_underscore_where'}
         if 'write' in report:
