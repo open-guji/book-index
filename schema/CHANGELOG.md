@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-10-11　`entity.schema.json` 删 `birth_year`／`death_year` 占位（overview#506 B 第一批 3/3）
+
+- 源档 Entity 的 `birth_year`／`death_year` 已 0 个文件（B2），schema 里的 `null` 占位（`x-legacy`）及各子类型「不许带」清单里的两项一并删；schema 本就 `additionalProperties: false`，此后源档再带这两键即 ERROR。`index/` 里的同名键（网站读，由 `dates.birth`／`dates.death` 推出）不受影响。
+- `derived.md`、`entity.md` 里对应说明改为「读 `dates.*`」；`entity_merge.py`／`mergework.py` 里指向已删 `migrate_v2.py` 的提示语改掉。
+
 ## 2026-10-11　build 删旧容忍（overview#506 B 第一批）
 
 - `build/build_derived.py`：删过渡期旧反向欄并集（`Work.books`、`Entity.works`、`Collection.books`／`contained_works`）、`legacy_flag`、记录内 `_promoted_to`／`promoted_to` 兜底（`promoted_to` 只取 `promotions/`）、`classification` 旧形回退（无 `classification/` 目录时卡片不带分类）、`has_text_lost_work`／`has_text_gained_work`（源 `_has_text` 已无）。`source_checks` 只剩一条：源档任何 `_` 起首字段即报错（`source_fields` 只剩 `unknown_underscore_fields`／`unknown_underscore_where`）。`--strict` 现恒为真，命令行参数保留为空操作。

@@ -266,7 +266,7 @@ def retarget_ids(rec, old, new):
 
 
 def members_dump(node, rows):
-    """與 build/migrate_v2.members_dump 同式：一行一條、按 work_id 排序。"""
+    """分類成員檔的寫法（原與已刪的 build/migrate_v2.members_dump 同式）：一行一條、按 work_id 排序。"""
     body = ',\n'.join('    ' + json.dumps(r, ensure_ascii=False) for r in rows)
     return '{\n  "node": %s,\n  "members": [\n%s\n  ]\n}\n' % (json.dumps(node), body)
 

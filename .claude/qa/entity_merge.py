@@ -234,7 +234,7 @@ def _print_summary(s: dict) -> None:
     lw = s.get('legacy_works') or {}
     if lw.get('keeper') or lw.get('loser'):
         print(f"⚠️  旧格式 works[] 残留（keeper {lw.get('keeper')}、loser {lw.get('loser')} 条）：本工具不并不改，"
-              "请先跑迁移（build/migrate_v2.py）或 check_v2.py 查")
+              "请先用 check_v2.py 查（migrate_v2.py 已于 2026-10-11 删除）")
     print(f"alt_names 并入新增 {len(s['added_alt_names'])} 条")
     print(f"external_ids 补缺：{s['filled_external_ids']}")
     if s['chained_merged_in']:
