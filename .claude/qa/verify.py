@@ -13,12 +13,12 @@ S5（overview#189）另加：通用 `todo`／`review`（審核狀態）形狀校
 `Collection.contained_works[].title` 漂移、`provenance[].institution` 簡體字三項 stale_ref
 推廣校驗——這三項是既有欄位之內容問題，非本卡新增，只報數、落 known-issues，不計入 FAIL。
 
-**schema-v2（2026-10-07，overview#459 F6-3）**：源檔不再有 `Work.books`、`Entity.works`、
-`Collection.books／contained_works`、`Work.classification`、`_` 派生欄（`_has_text`／`_has_collated` 除外）。
-故：① 分類改驗 `classification/<法>/members/` 類檔（`classify check`：節點在樹上且未退役、成員是本倉 Work、
-互斥法一部一類、檔名＝node），計入 FAIL；② `entity.works`／單向邊／`_edition_count`／`_member_*`／
-`contained_works` 諸項只在舊格式殘留時才有數（新格式下恆 0，非「驗過」，派生值改由
-`build/build_derived.py` 自校驗）；③ 另報 `check_v2.py` 舊格式殘留數（`--strict` 時計入 FAIL）。
+**schema-v2（2026-10-07，overview#459 F6-3；2026-10-11 overview#506 B 收尾）**：源檔不再有 `Work.books`、
+`Entity.works`、`Collection.books／contained_works`、`Work.classification`、`_` 派生欄，故 main() 不再驗
+`entity.works`（懸空／重複／單向邊）、`_edition_count`／`_member_*`、舊 `classification`、`Collection.contained_works`。
+留下：分類改驗 `classification/<法>/members/` 類檔（`classify check`），計入 FAIL；另報 `check_v2.py` 舊格式殘留數
+（`--strict` 時計入 FAIL）。entities 索引漂移比的是 index 的 `birth_year`／`death_year` 與源檔 `dates.birth`／`dates.death`。
+（對應的 `derive_*`／`*_ok` 輔助函式與 `s3*`／`s5` 一次性腳本、測試另批刪。）
 """
 import argparse, collections, glob, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -358,15 +358,9 @@ def main():
     IW, IB, IE = idx('works'), idx('books'), idx('entities')
     IC = json.load(open(os.path.join(ROOT, 'index', 'collections.json')))
     ALL = set(IW) | set(IB) | set(IE) | set(IC)
-    CVOCAB = load_classific_vocab()
-    book_work_ids = collections.Counter(ie.get('work_id') for ie in IB.values() if ie.get('work_id'))
-    bad_cls = []
-    drift_w, dangle_w, missing, back = [], [], [], {}
+    drift_w, dangle_w, missing = [], [], []
     bad_prov = []
     bad_et, bad_pd = [], []
-    # S3c/#191：Collection id -> 反掛成員 id 集合，供 _member_type 反掛判定、
-    # _member_count（S5b/#198）聯集去重與回補腳本之前後對比報告
-    rev_book_members, rev_work_members = collections.defaultdict(set), collections.defaultdict(set)
     bad_todo, bad_review = [], []
     bad_inst = []
     bad_be = []
@@ -388,26 +382,16 @@ def main():
         pd_ = d.get('physical_description')
         if pd_ is not None and not physical_description_ok(pd_):
             bad_pd.append(bid)
-        for ci in (d.get('contained_in') or []):
-            cid_ = ci.get('id') if isinstance(ci, dict) else ci
-            if cid_: rev_book_members[cid_].add(bid)
         if not todo_ok(d.get('todo')): bad_todo.append((bid, 'Book'))
         if not review_ok(d.get('review')): bad_review.append((bid, 'Book'))
         be = d.get('base_edition')
         if be is not None and not base_edition_ok(be, bid, IB, IW):
             bad_be.append(bid)
-    bad_edcount = []
     stale_related = []
     for wid, ie in IW.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(wid); continue
         d = json.load(open(p))
-        for ci in (d.get('contained_in') or []):
-            cid_ = ci.get('id') if isinstance(ci, dict) else ci
-            if cid_: rev_work_members[cid_].add(wid)
-        c = d.get('classification')
-        if c and not classification_ok(c, CVOCAB):
-            bad_cls.append((wid, c.get('l1'), c.get('l2'), c.get('l3'), c.get('l4')))
         for f in ('period', 'loss_status', 'title', 'subtype'):
             x, y = ie.get(f), d.get(f)
             if x is None and y is None: continue
@@ -427,22 +411,22 @@ def main():
                 actual = title_of(r['id'], IW, IC)
                 if actual is not None and actual != r['title']:
                     stale_related.append((wid, r['id'], r['title'], actual))
-        for b in (d.get('books') or []):
-            if b not in ALL: dangle_w.append((wid, 'books', b))
-        back[wid] = {x.get('entity_id') for x in au if x.get('entity_id')}
         for x in au:
             if x.get('entity_id') and x['entity_id'] not in IE: dangle_w.append((wid, 'authors.entity_id', x['entity_id']))
         if not todo_ok(d.get('todo')): bad_todo.append((wid, 'Work'))
         if not review_ok(d.get('review')): bad_review.append((wid, 'Work'))
-        if not edition_count_ok(d, book_work_ids): bad_edcount.append((wid, d.get('_edition_count'), derive_edition_count(wid, book_work_ids)))
-    drift_e, dangle_e, fwd, dup_e, bad_dates, bad_extids = [], [], {}, [], [], []
+    drift_e, bad_dates, bad_extids = [], [], []
     bad_dynasty_century = []
     for eid, ie in IE.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(eid); continue
         d = json.load(open(p))
+        dts = d.get('dates') if isinstance(d.get('dates'), dict) else {}
         for f in ('primary_name', 'dynasty', 'birth_year', 'death_year', 'period'):
-            x, y = ie.get(f), d.get(f)
+            # B2 後源檔無 birth_year／death_year：index 的同名鍵由 dates.birth／dates.death 推出（整數才有）
+            y = d.get(f) if f not in ('birth_year', 'death_year') else dts.get('birth' if f == 'birth_year' else 'death')
+            if f in ('birth_year', 'death_year') and not (isinstance(y, int) and not isinstance(y, bool)): y = None
+            x = ie.get(f)
             if x is None and y is None: continue
             if x != y: drift_e.append((eid, f, x, y))
         err = dates_ok(d)
@@ -450,53 +434,20 @@ def main():
         err = external_ids_ok(d)
         if err: bad_extids.append((eid, err))
         if dynasty_century_mismatch(d):
-            bad_dynasty_century.append((eid, d.get('dynasty'), d.get('birth_year'), d.get('death_year')))
-        if ie.get('path') != d.get('path', ie.get('path')): pass
-        # 2026-09-07 lane-B 所報：本迴圈原以 set 收 works，**同一 work_id 列兩次者一入集合即消失**
-        # ——檢查所用之資料結構本身把一類缺陷吃掉了（全庫十一個 entity 有此病，清聖祖十二處）。
-        # 今先以 list 收，數過重複再入集合。**凡以 set／dict 收待驗之物者，須先問
-        # 「這個容器會不會把我要驗的那種病吃掉」**——坑 61「不在 A 之索引裡不等於不存在」之另一面。
-        seen_e = []
-        for w in (d.get('works') or []):
-            if w.get('work_id') and w['work_id'] not in IW: dangle_e.append((eid, w['work_id']))
-            elif w.get('work_id'):
-                seen_e.append(w['work_id']); fwd.setdefault(eid, set()).add(w['work_id'])
-        for wid, c in collections.Counter(seen_e).items():
-            if c > 1: dup_e.append((eid, wid, c))
+            bad_dynasty_century.append((eid, d.get('dynasty'), dts.get('birth'), dts.get('death')))
         if not todo_ok(d.get('todo')): bad_todo.append((eid, 'Entity'))
         if not review_ok(d.get('review')): bad_review.append((eid, 'Entity'))
-    # 2026-09-07 lane-B 所報之二：Collection.contained_works[].id 從來無人驗——
-    # 併條而漏改此處，斷了無人知。今併入「work 側懸空引用」一項。
     # S3（Collection.count 吸收，overview#140）：count 若寫了就必須形狀對、有依據、非全空。
     bad_count = []
-    bad_member_type = []
-    bad_memcount = []
-    stale_contained = []
     for cid, ie in IC.items():
         p2 = ie.get('path')
         if not p2 or not os.path.exists(p2): continue
         try: dc = json.load(open(p2))
         except Exception: continue
-        for cw in (dc.get('contained_works') or []):
-            x = cw.get('id') or cw.get('work_id') if isinstance(cw, dict) else cw
-            if isinstance(x, str) and x not in IW and x not in IC: dangle_w.append((cid, 'contained_works', x))
-            if isinstance(cw, dict) and x and cw.get('title') is not None:
-                actual = title_of(x, IW, IC)
-                if actual is not None and contained_title_stale(cw['title'], actual):
-                    stale_contained.append((cid, x, cw['title'], actual))
         cnt = dc.get('count')
         if cnt is not None and not count_ok(cnt): bad_count.append(cid)
-        rbm, rwm = rev_book_members.get(cid, set()), rev_work_members.get(cid, set())
-        rhb, rhw = bool(rbm), bool(rwm)
-        if not member_type_ok(dc, rhb, rhw):
-            bad_member_type.append((cid, dc.get('_member_type'), derive_member_type(dc, rhb, rhw)))
-        # S5b/#198 訂正：_member_count 今併入反掛成員（rev_book_members/rev_work_members），
-        # 以 id 集合聯集去重，不再遺漏「正向清單本就是空、全靠反掛」之巨型叢編（見 S3c/#191）。
-        if not member_count_ok(dc, rbm, rwm):
-            bad_memcount.append((cid, dc.get('_member_count'), derive_member_count(dc, rbm, rwm)))
         if not todo_ok(dc.get('todo')): bad_todo.append((cid, 'Collection'))
         if not review_ok(dc.get('review')): bad_review.append((cid, 'Collection'))
-    oneway = [(e, w) for e, ws in fwd.items() for w in ws if e not in back.get(w, set())]
     # schema-v2：分類類檔、舊格式殘留
     bad_cls_members = classification_members_problems(ROOT, set(IW))
     try:
@@ -519,11 +470,6 @@ def main():
     print(f'works 索引漂移        {len(drift_w)}')
     print(f'entities 索引漂移     {len(drift_e)}')
     print(f'work 側懸空引用       {len(dangle_w)}')
-    print(f'entity.works 懸空     {len(dangle_e)}')
-    print(f'entity.works 重複項  {len(dup_e)}')
-    print(f'單向邊 人指書書不指人 {len(oneway)}')
-    print(f'classification 不在詞表（舊格式殘留） {len(bad_cls)}')
-    for r in bad_cls[:10]: print('  詞表外', r)
     print(f'分類類檔不合（classify check） {len(bad_cls_members)}')
     for r in bad_cls_members[:10]: print('  分類類檔', r)
     _cv2_cnt = collections.Counter(r[3] for r in _cv2_rows)
@@ -547,21 +493,14 @@ def main():
     for r in bad_extids[:10]: print('  external_ids', r)
     print(f'count 形狀不對          {len(bad_count)}')
     for r in bad_count[:10]: print('  count 壞', r)
-    print(f'_member_type 不合／過期 {len(bad_member_type)}')
-    for r in bad_member_type[:10]: print('  _member_type 壞', r)
     print(f'todo 形狀不合           {len(bad_todo)}')
     for r in bad_todo[:10]: print('  todo 壞', r)
     print(f'review 形狀不合         {len(bad_review)}')
     for r in bad_review[:10]: print('  review 壞', r)
-    print(f'_edition_count 不合／過期 {len(bad_edcount)}')
-    for r in bad_edcount[:10]: print('  _edition_count 壞', r)
-    print(f'_member_count 不合／過期  {len(bad_memcount)}')
-    for r in bad_memcount[:10]: print('  _member_count 壞', r)
     # S5（overview#189）stale_ref 推廣：下三項是既有欄位之內容漂移／機構名簡繁不一，
     # 屬歷史遺留（本卡「不改任何已有字段的值」），故只報數、落 known-issues，不入 FAIL 之列，
     # 亦不隨 --strict 升級——否則本閘會為與本卡無關的既有數據把全庫判死。
     print(f'related_works[].title 漂移（僅報，不入 FAIL） {len(stale_related)}')
-    print(f'Collection.contained_works[].title 漂移（僅報，不入 FAIL） {len(stale_contained)}')
     print(f'provenance[].institution 簡體字（僅報，不入 FAIL） {len(bad_inst)}')
     # overview#217（据 #214 check5）：dynasty 與生卒世纪粗篩，史學慣例假陽性率高（實測約 355/360），
     # 只作監控用之報告項，不入 FAIL，亦不隨 --strict 升級。
@@ -596,15 +535,14 @@ def main():
             print(f'  {wid}  {c or "（未見刪除提交——檔名或曾改，先查索引 path 是否過時）"}')
         if len(missing) > 20: print(f'  …另有 {len(missing)-20} 條')
     if a.strict:
-        for r in dangle_w[:10] + dangle_e[:10]: print('  懸空', r)
-        for r in oneway[:10]: print('  單向', r)
+        for r in dangle_w[:10]: print('  懸空', r)
     # 賬之退步一律算敗（不分 strict）——這正是無人會自己發現的那一類（坑 68、坑 70）
     # 2026-09-07：`entity.works 重複項` 自即日納入 --strict 之成敗（清零後方納，免得未清前卡住各道）。
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
-    bad = (_ledger_bad or missing or drift_w or drift_e or bad_cls or bad_cls_members or bad_prov or bad_dates or bad_extids or bad_count
-           or bad_subtype or bad_et or bad_pd or bad_be or bad_member_type or bad_todo or bad_review or bad_edcount or bad_memcount
-           or (a.strict and (dangle_w or dangle_e or oneway or dup_e or _cv2_rows)))
+    bad = (_ledger_bad or missing or drift_w or drift_e or bad_cls_members or bad_prov or bad_dates or bad_extids or bad_count
+           or bad_subtype or bad_et or bad_pd or bad_be or bad_todo or bad_review
+           or (a.strict and (dangle_w or _cv2_rows)))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)
 
