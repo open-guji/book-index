@@ -458,7 +458,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 | `primary_name` | 必有 | `primary_name` | 缺则 `""` |
 | `path` | 必有 | — | 同上 |
 | `dynasty` | 可选 | `dynasty` | 真值 |
-| `birth_year`、`death_year` | 可选 | 顶层同名字段 | 不为 null 时原样 |
+| `birth_year`、`death_year` | 可选 | `dates.birth`、`dates.death` | 有整数值时写（键名不变，网站读它；源档已无同名顶层字段） |
 | `cbdb_id` | 可选 | `external_ids.cbdb_id` | 不为 null 时原样 |
 | `period` | 可选 | `period` | 真值 |
 | `promoted_to` | 可选 | 同 8.1 | |

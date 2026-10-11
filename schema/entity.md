@@ -620,7 +620,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | `dates` 合法性 | 见〈四·一〉末 | 一律计 |
 | `external_ids` 合法性 | `wikidata_id`、`viaf_id` 形状，见〈四·二〉 | 一律计 |
 | `todo`、`review` 形状 | 见〈二〉 | 一律计 |
-| entities 索引漂移 | `index/` 里的 `primary_name`、`dynasty`、`birth_year`、`death_year`、`period` 与源档不一致 | 一律计 |
+| entities 索引漂移 | `index/` 里的 `primary_name`、`dynasty`、`birth_year`、`death_year`、`period` 与源档不一致（`birth_year`／`death_year` 比的是源档 `dates.birth`／`dates.death`） | 一律计 |
 | `Work.authors[].entity_id` 悬空 | 指向不存在的 Entity | `--strict` 时计 |
 | 专名校验码与 V 系列 | 同上表，与 check_v2 共用实现（verify 不带 `--ref-root`） | 专名码的 ERROR 一律计；V 系列 ERROR `--strict` 时计；WARN／INFO 只报数 |
-| 朝代与生卒世纪明显不合 | people 的 `dynasty` 与 `birth_year`／`death_year`／`dates.birth`／`dates.death` 在宽容 ±40 年外不合；史学惯例常以主要活动或卒年所属朝代标注 | 只报数，不计 |
+| 朝代与生卒世纪明显不合 | people 的 `dynasty` 与 `birth_year`／`death_year`／`dates.birth`／`dates.death` 在宽容 ±40 年外不合（源档只读 `dates.*`，`birth_year`／`death_year` 指 `index/` 里的同名键）；史学惯例常以主要活动或卒年所属朝代标注 | 只报数，不计 |

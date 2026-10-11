@@ -79,30 +79,6 @@
     "name_basis": {
       "type": "string"
     },
-    "birth_year": {
-      "anyOf": [
-        {
-          "type": "integer"
-        },
-        {
-          "type": "null",
-          "x-legacy": true,
-          "description": "null 占位（旧），按缺省读"
-        }
-      ]
-    },
-    "death_year": {
-      "anyOf": [
-        {
-          "type": "integer"
-        },
-        {
-          "type": "null",
-          "x-legacy": true,
-          "description": "null 占位（旧），按缺省读"
-        }
-      ]
-    },
     "dates": {
       "$ref": "#/$defs/Dates"
     },
@@ -666,16 +642,6 @@
                 },
                 {
                   "required": [
-                    "birth_year"
-                  ]
-                },
-                {
-                  "required": [
-                    "death_year"
-                  ]
-                },
-                {
-                  "required": [
                     "merge_history"
                   ]
                 },
@@ -894,16 +860,6 @@
                 {
                   "required": [
                     "name_basis"
-                  ]
-                },
-                {
-                  "required": [
-                    "birth_year"
-                  ]
-                },
-                {
-                  "required": [
-                    "death_year"
                   ]
                 },
                 {
@@ -1132,16 +1088,6 @@
                 },
                 {
                   "required": [
-                    "birth_year"
-                  ]
-                },
-                {
-                  "required": [
-                    "death_year"
-                  ]
-                },
-                {
-                  "required": [
                     "dates"
                   ]
                 },
@@ -1360,16 +1306,6 @@
                 },
                 {
                   "required": [
-                    "birth_year"
-                  ]
-                },
-                {
-                  "required": [
-                    "death_year"
-                  ]
-                },
-                {
-                  "required": [
                     "dates"
                   ]
                 },
@@ -1550,16 +1486,6 @@
                   {
                     "required": [
                       "name_basis"
-                    ]
-                  },
-                  {
-                    "required": [
-                      "birth_year"
-                    ]
-                  },
-                  {
-                    "required": [
-                      "death_year"
                     ]
                   },
                   {
@@ -1814,16 +1740,6 @@
               {
                 "required": [
                   "name_basis"
-                ]
-              },
-              {
-                "required": [
-                  "birth_year"
-                ]
-              },
-              {
-                "required": [
-                  "death_year"
                 ]
               },
               {
