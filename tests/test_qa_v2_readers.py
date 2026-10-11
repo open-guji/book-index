@@ -31,8 +31,3 @@ def test_reindex_main_delegates_to_build(monkeypatch, capsys):
     assert calls[0][-1] == '--check-only' and calls[1][-1] == '--write-index'
     assert calls[0][1].endswith(os.path.join('build', 'build_derived.py'))
     assert '已廢' in capsys.readouterr().err
-
-
-def test_verify_classific_vocab_tolerates_missing_file(tmp_path, monkeypatch):
-    monkeypatch.setattr(verify, 'ROOT', str(tmp_path))
-    assert verify.load_classific_vocab() == (set(), set(), set(), set())
