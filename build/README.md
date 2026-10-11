@@ -31,7 +31,7 @@ python3 build/build_derived.py --check-only --hub-check          # 只校驗；�
 
 `index/`（原 `reindex.py`、bim `entry_extractor.py` 併入）：逐字照 `entry_extractor` 的欄位規則，另帶 `has_collated`；分片同 `shard_of`（h=h*31+ord(c) mod 16），鍵按 id 排序。預設寫 `<out>/index/`，`--write-index` 另寫回倉內 `index/`（沿用各分片的縮排與尾換行，只寫有變的檔）。報告 `index.drift_vs_repo_index` 列倉內舊索引與重生值之差（舊索引漂移；草稿庫因數據 PR 不帶 `index/`，差得多是預期）。
 
-校驗（失敗退出碼 1）：條數守恒（源記錄數＝`entry/` 數）、派生值自洽（`_edition_count`＝`len(_books)`、分頁合計＝總數、`_members` 是第 1 頁前段）、卡片 id 皆可解析、`h:1` 皆在 `_hubs.json`、源檔含非舊有的 `_` 欄。報而不擋：懸空引用、舊 `_` 欄與重算值之差、源裡仍有的舊反向欄（`--strict` 時擋，M3 後用）。
+校驗（失敗退出碼 1）：條數守恒（源記錄數＝`entry/` 數）、派生值自洽（`_edition_count`＝`len(_books)`、分頁合計＝總數、`_members` 是第 1 頁前段）、卡片 id 皆可解析、`h:1` 皆在 `_hubs.json`、源檔含非舊有的 `_` 欄。報而不擋：懸空引用。（舊 `_` 欄與舊反向欄的容忍已於 2026-10-11 刪除：源檔任何 `_` 欄即擋；`--strict` 現為空操作。）
 
 ## 已定（目錄總管 10-07，#459）
 

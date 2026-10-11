@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-10-11　build 删旧容忍（overview#506 B 第一批）
+
+- `build/build_derived.py`：删过渡期旧反向欄并集（`Work.books`、`Entity.works`、`Collection.books`／`contained_works`）、`legacy_flag`、记录内 `_promoted_to`／`promoted_to` 兜底（`promoted_to` 只取 `promotions/`）、`classification` 旧形回退（无 `classification/` 目录时卡片不带分类）、`has_text_lost_work`／`has_text_gained_work`（源 `_has_text` 已无）。`source_checks` 只剩一条：源档任何 `_` 起首字段即报错（`source_fields` 只剩 `unknown_underscore_fields`／`unknown_underscore_where`）。`--strict` 现恒为真，命令行参数保留为空操作。
+- `build/v2common.py`：删 `LEGACY_DERIVED`、`LEGACY_REVERSE`。
+- 契约（〈二〉到〈九〉的产物）不变；`report.json` 不属契约。数据 0 改动。
+
 ## 2026-10-10　删 `birth_year`／`death_year`（book-index#139 B2）
 
 - 依据 book-index#139（B2）：Entity 的 `birth_year`／`death_year` 已删净（10-11 核：Work／Book／Collection／Entity 各类 0 个文件）。展示与索引读 `dates.birth`／`dates.death`。
