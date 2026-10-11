@@ -1,6 +1,6 @@
 """schema-v2 共用件：讀記錄、辨 sidecar、保格式寫回、關係詞表。
 
-build_derived.py 與 migrate_v2.py 同用，故詞表與「哪些是記錄檔」只在此定一處。
+build_derived.py 等共用（migrate_v2.py 已于 2026-10-11 删除，见 overview#537），故詞表與「哪些是記錄檔」只在此定一處。
 依據：overview `項目進展/古籍目錄/進度/F-數據結構/` F2-2、F2-3、F2-7（§二、§六）。
 純標準庫。
 """
