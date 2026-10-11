@@ -176,7 +176,7 @@ people 的 `dates` 规则：
 
 - `birth`／`death` 与 `floruit` 不共存于同一条：生卒已知就不必补活动年。现存数据里 `floruit: null`（正式库 6,889、草稿库 253）、`birth: null`（正式库 1,048、草稿库 17）、`death: null`（正式库 1,493、草稿库 28）是迁移时写下的空槽（旧，check_schema 报 WARN），读者按缺省读；新写不写 `null`。
 - `birth_year`／`death_year` 已由 book-index#139（B2）删除；展示与索引读 `dates.birth`／`dates.death`。
-- 校验（`verify.py`）：`birth`／`death`／`floruit[0]`／`floruit[1]` 须为整数；`floruit` 为二元数组；`birth ≤ death`；`floruit[0] ≤ floruit[1]`；`dates.birth`／`dates.death` 与 `birth_year`／`death_year` 两者皆有时须一致。
+- 校验（`verify.py`）：`birth`／`death`／`floruit[0]`／`floruit[1]` 须为整数；`floruit` 为二元数组；`birth ≤ death`；`floruit[0] ≤ floruit[1]`。
 
 ### 四·二　`external_ids` 子键
 

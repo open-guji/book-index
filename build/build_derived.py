@@ -678,8 +678,6 @@ def index_entry(d, typ, rel_path, promoted_to=None, build=None):
         dt = d.get('dates') if isinstance(d.get('dates'), dict) else {}
         for k, dk in (('birth_year', 'birth'), ('death_year', 'death')):
             v = dt.get(dk)
-            if v is None:
-                v = d.get(k)  # 回退源：schema-v2 過渡期仍有的 birth_year／death_year
             if v is not None:
                 e[k] = v
         if isinstance(ext, dict) and ext.get('cbdb_id') is not None:
