@@ -217,8 +217,8 @@ python3 build/build_derived.py --check-only [--hub-check] [--strict]            
 | `_classifications` | array<`{scheme, node, path, l1, l2, l3, l4, source?}`> | 有 `classification/` 且该 Work 有成员行时 | 分类成员档 `[work_id, source]`。`path`＝节点到根的标签链（根在前）；`l1`–`l4`＝`path` 补 `""` 到 4 项；`source`＝成员行第二项。顺序同 Work 卡 `cls` | entry | v1 |
 | `_member_catalog` | `{total, pages}` | 本 Work 是志书（有别的 Work 的 `indexed_by[].source_bid` 指它）时 | 著录成员数、页数 | entry；成员在 `catalog/<id>/<n>.json` | v1 |
 | `_has_image` | `true` | 为真才有 | Work 或其任一 Book 的 resources 含 `image`；或源档 `_has_image`／`has_image` 为真 | entry | v1 |
-| `_has_text` | `true` | 为真才有 | Work 或其任一 Book 的 resources 含 `text`；**或** book-text 的 `index/texts` 里有该 Work 或其任一 Book 的 id，且至少一个版本 `quality` 不是 `none`／`placeholder`（id 沿 `merged_into` 解析）。build 参数 `--text-index <book-text>/index/texts`；不给则过渡期另认源档 `_has_text`／`has_text`（见 [legacy.md](legacy.md)） | entry | v1 |
-| `_has_collated` | `true` | 为真才有 | book-text 里该 Work（或其任一 Book）有 `kind` 为 `collated`／`self_collated` 且 `quality` 不是 `none`／`placeholder` 的版本（id 沿 `merged_into` 解析）；不给 `--text-index` 则过渡期只看源档 `_has_collated`／`has_collated` | entry | v1 |
+| `_has_text` | `true` | 为真才有 | Work 或其任一 Book 的 resources 含 `text`；**或** book-text 的 `index/texts` 里有该 Work 或其任一 Book 的 id，且至少一个版本 `quality` 不是 `none`／`placeholder`（id 沿 `merged_into` 解析）。build 必给参数 `--text-index <book-text>/index/texts`（#144 起不给直接报错） | entry | v1 |
+| `_has_collated` | `true` | 为真才有 | book-text 里该 Work（或其任一 Book）有 `kind` 为 `collated`／`self_collated` 且 `quality` 不是 `none`／`placeholder` 的版本（id 沿 `merged_into` 解析） | entry | v1 |
 | `_lineage_graph_ref` | string，形如 `"lineage/<work_id>.json"` | 本 Work 产出了 `lineage/` 文件时 | 见〈六·版本图〉 | entry | v1 |
 | `_dynasty_id` | string（dynasty 条 id） | 条件：见右 | 朝代名取 Work 卡 `dyn` 的取法（顶层 `dynasty` 优先，其次第一个有朝代的作者）；在 `dynasty_reign_keys` 里查该名（查不到再查异体归一形），只留 `subtype:"dynasty"` 的候选；恰好 1 个 id 且无候选带 `ambiguous` → 出 `_dynasty_id` | entry | v2 |
 | `_dynasty_candidates` | array<string>（按 id 排序） | 条件 | 同上，候选多于 1 个或带 `ambiguous` 时出候选 id 列表；查不到两者都不出 | entry | v2 |
@@ -241,8 +241,8 @@ python3 build/build_derived.py --check-only [--hub-check] [--strict]            
 | `_lineage_refs` | object `{book_id: {title?, edition?}}` | 有可解析的引用时 | `lineage.derived_from[]` 与 `lineage.related_to[]` 各项的 `ref`（旧写 `book_id`），对方须是 Book（不看 `ref_type`）；值取对方 `title`、`edition` | entry | v1 |
 | `_derived_by` | array<`{id, title?, edition?, rel?}`> | 有别本以本条为底本时 | 别的 Book 的 `lineage.derived_from[]` 中 `ref_type` 缺省或为 `"book"`、`ref`（或 `book_id`）指向本条者；`rel`＝该项 `relation`。按对方 id 排序 | entry | v1 |
 | `_has_image` | `true` | 为真才有 | 本条 resources 含 `image`，或源档 `_has_image`／`has_image` 为真 | entry | v1 |
-| `_has_text` | `true` | 为真才有 | 本条 resources 含 `text`，或 book-text 里有本条 id 的可用版本（口径同 Work；不给 `--text-index` 则另认源档旧值） | entry | v1 |
-| `_has_collated` | `true` | 为真才有 | 同 Work：book-text 里本条 id 有可用的 `collated`／`self_collated` 版本；不给 `--text-index` 则只看源档旧值 | entry | v1 |
+| `_has_text` | `true` | 为真才有 | 本条 resources 含 `text`，或 book-text 里有本条 id 的可用版本（口径同 Work） | entry | v1 |
+| `_has_collated` | `true` | 为真才有 | 同 Work：book-text 里本条 id 有可用的 `collated`／`self_collated` 版本 | entry | v1 |
 | `_lineage_graph_ref` | string `"lineage/<work_id>.json"` | 所属 Work 下任一 Book 的 `lineage.derived_from` 或 `related_to` 非空时（本条自己没有也出） | 见〈十二〉第 5 条 | entry | v1 |
 | `promoted_to` | string | 草稿记录在升格对照里时 | 升格对照 | entry | v1 |
 
@@ -260,7 +260,7 @@ python3 build/build_derived.py --check-only [--hub-check] [--strict]            
 | `_member_type` | `"Work"`｜`"Book"`｜`"mixed"` | 有成员时 | 成员全是 Book 为 `"Book"`、全是 Work 为 `"Work"`、两者都有为 `"mixed"`（注意首字母大写，与成员卡的小写 `t` 不同） | entry | v1 |
 | `_children` | array<Collection 卡>，枢纽为 `{id, h:1}` | 有子丛编时 | 别的 Collection 的 `contained_in[]` 指向本条（`contained_in` 项是字符串或 `{id,…}` 都认），按 id 排序 | entry | v1 |
 | `_related` | 同 Book `_related` | 有对称关联时 | 同 Book | entry | **v3** |
-| `_has_image`／`_has_text` | `true` | 为真才有 | 本条 resources；`_has_text` 另看源档旧值（仅在不给 `--text-index` 时） | entry | v1 |
+| `_has_image`／`_has_text` | `true` | 为真才有 | 本条 resources；`_has_text` 另由 book-text 推（口径同 Work） | entry | v1 |
 | `_has_collated` | `true` | 为真才有 | 只看源档旧值（Collection 无整理本） | entry | v1 |
 
 正式库 10-09：85 个丛编中 9 个无成员（`_member_pages: 0`、无 `_member_type`）。
@@ -440,9 +440,9 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 | `measure_info` | 可选 | `measure_info` | 真值原样 |
 | `additional_titles` | 可选 | `additional_titles` | 字符串数组；对象项取其 `book_title` |
 | `attached_texts` | 可选 | `attached_texts` | 同上 |
-| `has_text` | 可选（`true`） | `resources`、book-text | 给 `--text-index` 时**与 entry 的 `_has_text` 同口径**（Work 并其 Book，加 book-text，见〈三〉）。不给时照旧：只看本条 resources（有 `types` 数组且非空时看其中有无 `text`；否则看旧单值 `type` 是否为 `text` 或 `text+image`），不看源档、Work 也不并其 Book（见〈十二〉第 3 条） |
+| `has_text` | 可选（`true`） | `resources`、book-text | **与 entry 的 `_has_text` 同口径**（Work 并其 Book，加 book-text，见〈三〉）。 |
 | `has_image` | 可选（`true`） | `resources` | 同上，看 `image`（旧 `type` 为 `image` 或 `text+image`） |
-| `has_collated` | 可选（`true`） | book-text（旧：`_has_collated`、`has_collated`） | 给 `--text-index` 时与 entry 的 `_has_collated` 同口径；不给时源档值为真 |
+| `has_collated` | 可选（`true`） | book-text（旧：`_has_collated`、`has_collated`） | 与 entry 的 `_has_collated` 同口径 |
 | `edition`、`subtype`、`period`、`loss_status`、`original_title`、`work_id` | 可选 | 同名 | 真值原样 |
 | `promoted_to` | 可选 | 源档 `_promoted_to`、`promoted_to`、升格对照 | 按此先后取第一个非空者；四类记录都出 |
 
@@ -516,7 +516,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 1. 悬空引用 `dangling`：`Book.work_id`、`Book.contained_in`、`Book.lineage.derived_from`、`Work.authors.entity_id`、`Work.contained_in`、`Work.related_works`、`Work.indexed_by.source_bid`、`Collection.contained_in` 及各旧反向字段，只报本仓记录引出的。
 2. `LEGACY_DERIVED`：源档里迄 M3 前仍有的旧派生字段——Work `_edition_count`、`_has_image`、`_promoted_to`、`_promoted_at`；Book `_has_image`、`_promoted_to`、`_promoted_at`；Collection `_member_count`、`_member_type`、`_has_image`；Entity `_promoted_to`、`_promoted_at`。build 照算（entry 里以重算值为准），计数进 `source_fields.legacy_underscore_fields`，与重算值之差进 `legacy_vs_rebuilt`（不比 `_promoted_*`、`_has_collated`）。
 3. `LEGACY_REVERSE`：源档里的旧反向／副本字段——Work `books`、`has_text`、`has_image`、`has_collated`、`promoted_to`；Book `has_text`、`has_image`、`has_collated`、`promoted_to`；Collection `books`、`contained_works`、`has_text`、`has_image`；Entity `works`、`promoted_to`。
-4. `notes`：如「`_has_text` 僅憑源裡舊值（resources 推不出）」（仅在不给 `--text-index` 时出现）；给了则 `report.json` 另有 `text_index`（接入统计、丢掉的 Work 清单）与 `dangling_text_ids`（book-text 里解析不了的悬空 id，不致命）。旧注（正式库 10-09：295 条）、「`_has_collated` 僅憑源裡舊值」（65 条）、「Entity._works 缺 role（以「撰」補）」。
+4. `notes`：`report.json` 另有 `text_index`（接入统计、丢掉的 Work 清单）与 `dangling_text_ids`（book-text 里解析不了的悬空 id，不致命）。旧注（正式库 10-09：295 条）、「`_has_collated` 僅憑源裡舊值」（65 条）、「Entity._works 缺 role（以「撰」補）」。
 5. `index.drift_vs_repo_index`：仓内现有 `index/` 与重生值逐字段之差（草稿库数据 PR 不带 `index/`，差得多是预期）。
 
 **`--hub-check`**：Collection、Work、Entity 各取本仓入度最大的枢纽，在内存里给名字加后缀重算全部产物，数变了几个文件；结果进 `report.json` 的 `hub_check: [{type, id, indegree, changed, files（前 10）, ok}]`。正式库 10-09：`8rlcsybg2hhl`（入度 17,540）、`d59frnrt4lxc`（29,218）、`hixhd2h9bdqq`（380）各牵动 2 档。

@@ -51,8 +51,8 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 | `native_place_basis` | string | 可选；people | 原生 | 籍贯的依据 | 自由文本 | 录入 | `"CBDB 3767 index_addr（2026-09-06 CBDB enrich）"` |
 | `title_or_office` | string | 可选；people | 原生 | 著录所见官职 | 自由文本（正式库 1 条） | 录入 | `"散騎常侍"`（顾长康 `hixhi7qcyxa8`） |
 | `name_basis` | string | 可选；people | 原生 | 名字的依据（正名经过） | 自由文本（正式库 164 条） | 录入 | `"catalog：著錄之撰人名（2026-09-06 撰人書名切分訂正）"` |
-| `birth_year` | integer | 可选；people | 原生 | 生年 | 公历年，公元前负数；与 `dates.birth` 并存（见〈四〉）。正式库 3 条为 `null`（旧） | 录入 | `1036` |
-| `death_year` | integer | 可选；people | 原生 | 卒年 | 同上 | 录入 | `1101` |
+| `birth_year` | integer | 可选；people | 原生 | 生年（已删） | 已删（book-index#139 B2，正式库 0 个文件）；读 `dates.birth` | — | — |
+| `death_year` | integer | 可选；people | 原生 | 卒年（已删） | 已删（book-index#139 B2）；读 `dates.death` | — | — |
 | `dates` | object | 条件：people、dynasty、reign 可写；office、place **不得有** | 原生 | 结构化起讫／生卒 | 按子类型放行的键见〈四〉 | 录入 | `{"birth":1036,"death":1101,"floruit":null,"basis":"現行字段"}` |
 | `external_ids` | object | 可选（全部）；专名只许 `wikidata_id` | 原生 | 外部库 id | 子键见〈四·二〉 | 录入、bim | `{"cbdb_id":3767,"wikidata_id":"Q36020"}` |
 | `description` | Description | 可选；官职概念条、官署概念条与合称条**必填** | 原生 | 介绍与出处 | 形状同 [common.md〈Description〉](common.md)，但 Entity 的 `text` 可省（正式库 people 5,886 条 `description` 里只有 213 条有 `text`，其余只记出处），`sources` 必有；Entity 的出处一律记 `description.sources` | 录入 | `{"text":"都開封。","sources":[]}` |
@@ -175,7 +175,7 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 people 的 `dates` 规则：
 
 - `birth`／`death` 与 `floruit` 不共存于同一条：生卒已知就不必补活动年。现存数据里 `floruit: null`（正式库 6,889、草稿库 253）、`birth: null`（正式库 1,048、草稿库 17）、`death: null`（正式库 1,493、草稿库 28）是迁移时写下的空槽（旧，check_schema 报 WARN），读者按缺省读；新写不写 `null`。
-- `dates` 逐步取代 `birth_year`／`death_year` 的展示用途；现阶段**只增不删**，两者并存，待网站改完展示后另开卡再删。
+- `birth_year`／`death_year` 已由 book-index#139（B2）删除；展示与索引读 `dates.birth`／`dates.death`。
 - 校验（`verify.py`）：`birth`／`death`／`floruit[0]`／`floruit[1]` 须为整数；`floruit` 为二元数组；`birth ≤ death`；`floruit[0] ≤ floruit[1]`；`dates.birth`／`dates.death` 与 `birth_year`／`death_year` 两者皆有时须一致。
 
 ### 四·二　`external_ids` 子键
@@ -188,8 +188,6 @@ people 的 `dates` 规则：
 | `external_ids.cbdb_match` | string | 条件：有 `cbdb_id` 或核过 CBDB 时写 | 原生 | 匹配方式 | 开放词表。现值（正式库）：`auto` 5,825、`auto_2026-09-06` 3,246、`manual` 2,559、`auto_create` 1,831、`auto_create_p4` 720（草稿库 725）、`auto_placeholder_upgrade` 48、`auto_dy_ambig_year` 35、`none` 24、`manual_remap` 23、`auto_dy_unique` 22、`auto_altname_upgrade` 10、`manual (C5 batch17)` 5、`manual ; dynasty_fix: 南朝宋→宋 per CBDB dy=…` 4、`restored` 1。`none` 表示核过而 CBDB 无此人或只有误配，此时不写 `cbdb_id`，理由写在 `cbdb_source` | 录入、bim | `"manual"` |
 | `external_ids.cbdb_source` | string | 条件：同 `cbdb_match` | 原生 | 匹配依据 | 自由文本 | 录入、bim | `"name_exact+dy_match+work_recall_0.56+unique"`；`"none: 僧肇[晉]→CBDB[明]，僧肇(384-414)是東晉僧，非明人"` |
 | `external_ids.cbdb_id_alt` | array<integer> | 可选；people | 原生 | CBDB 为同一人另收的 id | 并条时被并方的 `cbdb_id`（正式库 45 条） | 录入 | `[66803]`（劉俊 `hixhd2h9bib6`） |
-| `external_ids.cbdb_aliases` | array<integer> | 可选；people | 旧（暂留） | 同 `cbdb_id_alt` | 正式库 12 条，均带 `cbdb_aliases_note`；待并入 `cbdb_id_alt` | 录入 | `[106639]`（張理 `hixhd2h9bie2`） |
-| `external_ids.cbdb_aliases_note` | string | 可选；people | 旧（暂留） | `cbdb_aliases` 的说明 | 现值只有 `"人工判定同一人，CBDB 收为多条"`（12）；待删 | 录入 | |
 | `external_ids.cbdb_note` | string | 可选；people | 旧（暂留） | 匹配疑点备注 | 正式库 1 条（梁正 `hixhd2h9bi3z`：`"疑為同名異人誤配——見下 ai_note"`）；待并入 `ai_note` | 录入 | |
 | `external_ids.wikidata_id` | string | 可选（全部） | 原生 | Wikidata Q 号 | `^Q\d+$`（正式库 people 11,516） | bim | `"Q36020"` |
 | `external_ids.viaf_id` | string | 可选；people | 原生 | VIAF id | 纯数字字符串（正式库 2,054） | bim | `"96591338"` |

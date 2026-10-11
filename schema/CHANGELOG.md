@@ -4,10 +4,19 @@
 
 ---
 
+## 2026-10-10　删 `birth_year`／`death_year`（book-index#139 B2）
+
+- 依据 book-index#139（B2）：Entity 的 `birth_year`／`death_year` 已删净（10-11 核：Work／Book／Collection／Entity 各类 0 个文件）。展示与索引读 `dates.birth`／`dates.death`。
+- `entity.md`、`legacy.md` 中两键由「并存」改为「已删」；`schema/json/entity.schema.json` 的 `null` 占位保留，读时按缺省。
+
+## 2026-10-10　`cbdb_aliases` 改名为 `cbdb_id_alt`（book-index#133 A1）
+
+- `external_ids.cbdb_aliases` 改名为 `external_ids.cbdb_id_alt`，值不变；删 `cbdb_aliases_note`。`entity.md`、`schema/json/entity.schema.json` 同步去掉旧键（旧键 0 个文件）。
+
 ## 2026-10-10　收回 `_has_text`／`_has_collated` 源档豁免（overview#507 工作包 E）
 
 - 源档已无这两键（book-index#141 删净）。`.claude/qa/check_v2.py` 去掉 `UNDERSCORE_EXEMPT`、`build/v2common.py` 去掉 `SOURCE_UNDERSCORE`、`build/build_derived.py` 源检不再放行：源档任何 `_` 起首字段（含这两个）一律报错（check_v2 V01；`build_derived --strict` 的 unknown_underscore_fields）。
-- `build_derived.py` 的 `--text-index` 仍可不给（旧行为＋警告），本包未动；是否改为必给待经理定。
+- `build_derived.py` 的 `--text-index` 仍可不给（旧行为＋警告），本包未动；是否改为必给待经理定。**已定（Mason 10-10）：必给**，见 book-index#144。
 - `build/migrate_v2.py` 的 M3 仍把旧 `has_text`／`has_full_text`／`has_collated` 折进 `_has_text`／`_has_collated`（历史迁移，已跑完）；重跑会产出被新规则拦下的记录，测试样本已在 M3 后手工移掉。
 
 ## 2026-10-10　`_has_text`／`_has_collated` 改从 book-text 推（overview#506 工作包 C）
