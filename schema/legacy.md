@@ -33,7 +33,7 @@
 | 草稿库缺 `revision` | 草稿库 Work／Book 全部 | 草稿库正当状态，升格时 bim 补 `"1.0.0"`（[common.md〈revision 口径〉](common.md#revision-口径)） |
 | `dynasty` 跨朝代值（宋末元初、元末明初、遼金元等） | 10-09 共 862 处（未重测） | 带真实信息，准许存量；随人物细化逐条改，无截止日（overview#496 C1・R5） |
 | `classific.json`（仓根旧分类词表） | 正式库有、草稿库无 | 2026-10-12 裁决：**保留**，由 build 从 `classification/zongmu/tree.json` 生成；读者 web 3 个脚本、bim 4 处仍读，改读 tree 前不删。读者全改完另立条再删 |
-| `check_v2.py` WARN 9（D2 2／D3 2／R1 5） | 允许清单见 `.claude/qa/check_v2_allow.txt`（B1a 步 3） | 逐条核过的已知例外，清单外新增 WARN 才算新问题 |
+| `check_v2.py` WARN 9（D2 2／D3 2／R1 5） | 7 条列入 `.claude/qa/check_v2_allow.txt`（降为 INFO）；承平 `hixi1ubml2ch`、鳳凰 `hixi1ubm9ts3` 2 条未核实，仍算 WARN | 清单只收逐条核过的例外；清单外新增 WARN 才算新问题；那 2 条待 Mirren 核后再加 |
 
 ## 三、还没清
 
