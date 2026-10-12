@@ -283,6 +283,17 @@ def read_paths(args_paths):
     return out
 
 
+def load_allow(path):
+    """已知例外清單 check_v2_allow.txt：每行 `<id> <代碼> <理由>`；命中之 WARN 降為 INFO。"""
+    out = set()
+    if os.path.exists(path):
+        for ln in open(path, encoding="utf-8"):
+            f = ln.split()
+            if len(f) >= 2 and not ln.startswith("#"):
+                out.add((f[0], f[1]))
+    return out
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="schema-v2 舊格式殘留檢查（只讀）")
     ap.add_argument("--root", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."),
@@ -327,6 +338,8 @@ def main(argv=None):
             continue
         if only is None or c in only:
             rows.append((registry.path.get(i, ""), i, "Entity", c, f, d, lv))
+    allow = load_allow(os.path.join(os.path.dirname(os.path.abspath(__file__)), "check_v2_allow.txt"))
+    rows = [r[:6] + (es.INFO,) if r[6] == es.WARN and (r[1], r[3]) in allow else r for r in rows]
     if a.errors_only:
         shown = [r for r in rows if r[6] == es.ERROR]
     else:
