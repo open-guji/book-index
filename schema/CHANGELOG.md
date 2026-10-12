@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-10-12　`legacy.md` 重写；`check_v2` 增已知例外清单（overview#568 B1a，book-index#160）
+
+- `schema/legacy.md` 重写为三节（已删／有意保留／还没清），不再列文件行号。
+- 新增 `.claude/qa/check_v2_allow.txt`，`check_v2.py` 读它把已核实的例外 WARN 降为 INFO；承平、鳳凰两条未核实，仍报 WARN（核对卡 overview#578）。
+
 ## 2026-10-11　`entity.schema.json` 删 `birth_year`／`death_year` 占位（overview#506 B 第一批 3/3）
 
 - 源档 Entity 的 `birth_year`／`death_year` 已 0 个文件（B2），schema 里的 `null` 占位（`x-legacy`）及各子类型「不许带」清单里的两项一并删；schema 本就 `additionalProperties: false`，此后源档再带这两键即 ERROR。`index/` 里的同名键（网站读，由 `dates.birth`／`dates.death` 推出）不受影响。

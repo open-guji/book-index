@@ -39,7 +39,7 @@
 
 **数据（待 S 修，规则在对应字段表）**：`dynasty` 非规范值、空串、`null`（10-08 数：Work 1,850、`authors[].dynasty` 非规范 3,099／空串 4,138，其余见 [common.md〈dynasty〉](common.md#dynasty-与-dynasty_basis)；check_schema 不校，**未重测**）。
 
-**读者回退分支（网站经理，数据切换完成后删）**：bim `ui/src/core/derived-compat.ts`（补回 `books`／`works`／`classification`／`_members`）；`WorkPage.tsx`、`EntityPage.tsx` 读 `books`／`collections`；`ui/src/storage/local-storage.ts` 读 `parent_work`；`ui/src/types.ts:getResourceTypes` 兜 `type`；`CollectionPage.tsx` 的 `contained_in[0]` 只认字符串形（对象形上级丛编显示不出）；`has_collated` 兼读在 `entry_extractor.py`、`_utils.py:read_promoted_to` 兼读 `_promoted_to`。行号随提交漂移，以 `grep` 为准。
+**读者回退分支（网站经理，数据切换完成后删）**：bim `ui/src/core/` 的派生兼容层（补回 `books`／`works`／`classification`／`_members`）；`WorkPage.tsx`、`EntityPage.tsx` 读 `books`／`collections`；`ui/src/storage/local-storage.ts` 读 `parent_work`；`ui/src/types.ts:getResourceTypes` 兜 `type`；`CollectionPage.tsx` 的 `contained_in[0]` 只认字符串形（对象形上级丛编显示不出）；`has_collated` 兼读在 `entry_extractor.py`、`_utils.py:read_promoted_to` 兼读 `_promoted_to`。行号随提交漂移，以 `grep` 为准。
 
 **仍会写回旧写法的代码（bim 侧，网站经理排期；修好前靠 `check_v2.py` 兜底）**：`manager.py`／`storage.py` 的 `save_item` 不拦已删字段；`update_field` 的「其他版本」整栏覆盖 `related_books`、「收藏历史」写 `history`；`storage.py:_migrate_keys` 的中文键迁移（`role:"author"`、字符串 `contained_in`、占位 0）；`add-resource` 与 `ResourceEditor.tsx` 写单值 `type`；`local-storage.ts:linkEntity` 写 `parent_work`／`books`；`github-storage.ts:fetchPromotions` 读草稿仓空 `promotions.json`；`_utils.py:mark_promoted` 死代码；bim CLI 无 `link` 子命令（对称关系仅靠 V07 把关）。
 
