@@ -210,7 +210,7 @@ def test_dates_ok_allows_negative_bce_years():
     assert verify.dates_ok({'dates': {'birth': -145, 'death': -86, 'floruit': None, 'basis': '現行字段'}}) is None
 
 
-# ---------- B1：index_entry 生卒年改取 dates（回退 birth_year／death_year） ----------
+# ---------- B1：index_entry 生卒年取 dates（已无 birth_year／death_year 回退，见 #538） ----------
 
 sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'build'))
 import build_derived
@@ -227,9 +227,9 @@ def test_index_entry_reads_dates_when_no_birth_year():
     assert e['birth_year'] == 1036 and e['death_year'] == 1101
 
 
-def test_index_entry_falls_back_to_birth_year():
+def test_index_entry_ignores_legacy_top_level_years():
     e = _ent(birth_year=1036, death_year=1101)
-    assert e['birth_year'] == 1036 and e['death_year'] == 1101
+    assert 'birth_year' not in e and 'death_year' not in e
 
 
 def test_index_entry_dates_floruit_only_has_no_years():
@@ -237,9 +237,9 @@ def test_index_entry_dates_floruit_only_has_no_years():
     assert 'birth_year' not in e and 'death_year' not in e
 
 
-def test_index_entry_dates_partial_falls_back_per_field():
+def test_index_entry_dates_partial_has_only_present_year():
     e = _ent(dates={'birth': 1036}, death_year=1101)
-    assert e['birth_year'] == 1036 and e['death_year'] == 1101
+    assert e['birth_year'] == 1036 and 'death_year' not in e
 
 
 def test_dates_ok_consistency_only_when_both_present():
