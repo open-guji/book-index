@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-10-12　删一次性脚本（overview#568 B1b，book-index#162）
+
+- 删 `scripts/`（`oneoff` 6 个、`a2`／`a3`／`b2`／`d` 4 个）、`.claude/qa/s5/`、`s3_collection_count.py`、`audit_biejii_dup.py`；来历一句话见 `.claude/qa/known-issues/oneoff-删除记录-20261012.md`。
+- 登记不删：`.claude/qa/s2/`、`s4/`（测试依赖），`s1/`、`b5/`、`rh/`（可复用工具）。
+
 ## 2026-10-12　`legacy.md` 重写；`check_v2` 增已知例外清单（overview#568 B1a，book-index#160）
 
 - `schema/legacy.md` 重写为三节（已删／有意保留／还没清），不再列文件行号。
