@@ -177,6 +177,36 @@
         "holder": "研医会図",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100248478/manifest"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-1287025",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/1287025",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid1287025",
+        "edition": "萬暦18 (1590) 序"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2605873",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2605873",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2605873",
+        "edition": "寛文12刊"
+      }
     }
   ],
   "measures": [
@@ -191,7 +221,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwkgwfzeo 與 11q37qvb1npxc 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwkgwfzeo 與 11q37qvb1npxc 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "description": {
     "text": "李時珍（明）撰。五十二卷。見著錄於《欽定四庫全書總目》《國史經籍志》。其著錄之文，《國史經籍志》作「《本草綱目》五十二卷（奈時珍）」。《欽定四庫全書總目》清乾隆間館臣修；《國史經籍志》明焦竑撰——本書之目賴之以存。",
     "sources": [
@@ -199,7 +229,7 @@
       "國史經籍志"
     ]
   },
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-10-13",
   "resource_groups": {
     "kokusho-100076789": {
@@ -213,6 +243,12 @@
     },
     "nlc-CBM1377": {
       "label": "國圖藏本：明萬曆[1573-1620]"
+    },
+    "ndl-1287025": {
+      "label": "NDL藏本：萬暦18 (1590) 序"
+    },
+    "ndl-2605873": {
+      "label": "NDL藏本：寛文12刊"
     }
   }
 }

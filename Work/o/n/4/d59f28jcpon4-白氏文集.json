@@ -256,6 +256,21 @@
         "holder": "真福寺大須文庫",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100115918/manifest"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2605620",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2605620",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2605620",
+        "edition": "[元和4 (1618)]"
+      }
     }
   ],
   "authors": [
@@ -266,7 +281,7 @@
       "entity_id": "hixhd2h9bfak"
     }
   ],
-  "ai_note": "作者「唐白居易撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjy5h30f4lc 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 索引中尚有同名異書：31hyr5d6fotci()（不同作者，故新建獨立 Work）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]",
+  "ai_note": "作者「唐白居易撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjy5h30f4lc 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 索引中尚有同名異書：31hyr5d6fotci()（不同作者，故新建獨立 Work）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "description": {
     "text": "本書收入《中華再造善本》唐宋編（ZHSY000318）。宋刻本。",
     "sources": [
@@ -278,8 +293,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-13",
   "resource_groups": {
     "nlc-411999031032": {
       "label": "國圖藏本：明嘉靖17年[1538]"
@@ -319,6 +334,9 @@
     },
     "kokusho-100115918": {
       "label": "國書·真福寺大須文庫藏写"
+    },
+    "ndl-2605620": {
+      "label": "NDL藏本：[元和4 (1618)]"
     }
   }
 }
