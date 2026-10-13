@@ -15,7 +15,7 @@
     "text": "杜預（西晉）撰，三十卷。分《春秋》經文繫於《左氏傳》之下而為之注，開經傳合編之體，自序論《春秋》五例、三體。預仕晉為鎮南大將軍，都督荊州諸軍事，平吳有功，自謂有「《左傳》癖」。唐孔穎達《春秋左傳正義》即以此注為底本，遂為十三經注疏之一，是《左傳》流傳之主脈。今存宋刻本以下版本三十餘種。",
     "sources": []
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。\n\n2026-08-24 J4 單篇文 description 補全：本條之 description 為新撰。所據為本篇所收之總集（見 sources）及通行之學術常識——篇題、體裁、本事與繫年出諸家文選注（李善注、五臣注）與史傳之通說，**未覆核原書**。本批之立，是因 check_article.py 六項判準中本桶單篇文五項全備而唯缺此欄。\n\n2026-09-06 qa-sweep/weijin·M 類（loss_status 空白而 description 已自書「今存」）逐條裁：loss_status 由空白正為「extant」，據 description 自書之「今存」語。",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。\n\n2026-08-24 J4 單篇文 description 補全：本條之 description 為新撰。所據為本篇所收之總集（見 sources）及通行之學術常識——篇題、體裁、本事與繫年出諸家文選注（李善注、五臣注）與史傳之通說，**未覆核原書**。本批之立，是因 check_article.py 六項判準中本桶單篇文五項全備而唯缺此欄。\n\n2026-09-06 qa-sweep/weijin·M 類（loss_status 空白而 description 已自書「今存」）逐條裁：loss_status 由空白正為「extant」，據 description 自書之「今存」語。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "juan_count": {
     "number": 30
   },
@@ -40,8 +40,8 @@
   "period_basis": "據 authors[0].dynasty「西晉」（2026-09-06 qa-sweep/weijin：本欄原引「晉」，而 authors[0].dynasty 實作「西晉」——係「晉」「三國」等籠統值細分之後本欄未隨改，非斷代錯；period 值不動，只正所引之值。）",
   "dynasty": "西晉",
   "dynasty_basis": "author_propagation:唯一作者朝代",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-13",
   "loss_status": "extant",
   "loss_status_basis": "2026-09-06 qa-sweep/weijin·M 類（loss_status 空白而 description 已自書「今存」）逐條裁：description 已自書「今存」。原文：「...注為底本，遂為十三經注疏之一，是《左傳》流傳之主脈。今存宋刻本以下版本三十餘種。」",
   "resources": [
@@ -274,6 +274,36 @@
         "holder": "京大谷村",
         "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00009806/manifest.json"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2605509",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2605509",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2605509",
+        "edition": "[慶長年間]"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2543903",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2543903",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2543903",
+        "edition": "[慶長年間]"
+      }
     }
   ],
   "resource_groups": {
@@ -315,6 +345,12 @@
     },
     "kokusho-100386059": {
       "label": "國書·京大谷村藏刊"
+    },
+    "ndl-2605509": {
+      "label": "NDL藏本：[慶長年間]"
+    },
+    "ndl-2543903": {
+      "label": "NDL藏本：[慶長年間]"
     }
   }
 }

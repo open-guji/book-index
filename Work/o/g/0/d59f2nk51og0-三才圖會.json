@@ -167,6 +167,21 @@
         "holder": "国文研山鹿",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200032226/manifest"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2610264",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2610264",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2610264",
+        "edition": "萬暦37 [1609] 序刊"
+      }
     }
   ],
   "measures": [
@@ -182,14 +197,14 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1evkps2mtn8qo 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善004931-005023）。阶段 5 兜底建立。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "從 1evkps2mtn8qo 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善004931-005023）。阶段 5 兜底建立。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-13",
   "resource_groups": {
     "nlc-312001152774": {
       "label": "國圖藏本：明萬曆間[1573-1620]"
@@ -202,6 +217,9 @@
     },
     "kokusho-200032226": {
       "label": "國書·国文研山鹿藏写（摘抄／局部）"
+    },
+    "ndl-2610264": {
+      "label": "NDL藏本：萬暦37 [1609] 序刊"
     }
   }
 }

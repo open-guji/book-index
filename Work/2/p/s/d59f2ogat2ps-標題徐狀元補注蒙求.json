@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,7 +31,7 @@
   "period_basis": "據 authors[0].dynasty「五代」",
   "dynasty": "五代",
   "dynasty_basis": "據唯一五代 author.dynasty「五代」補全",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-13",
   "resources": [
     {
@@ -56,11 +56,47 @@
         "nlc_fid": "412000003669",
         "edition": "[出版年不詳]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2609176",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2609176",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2609176",
+        "edition": "寛政2 [1790]"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2544111",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2544111",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2544111",
+        "edition": "[元和寛永年間] 活字印"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000003669": {
       "label": "國圖藏本：[出版年不詳]"
+    },
+    "ndl-2609176": {
+      "label": "NDL藏本：寛政2 [1790]"
+    },
+    "ndl-2544111": {
+      "label": "NDL藏本：[元和寛永年間] 活字印"
     }
   }
 }

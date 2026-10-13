@@ -14,9 +14,9 @@
   "dynasty_basis": "author_propagation",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
-  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007706509。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007706509。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-13",
   "resources": [
     {
       "id": "nat-archives-jp",
@@ -53,6 +53,21 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4397601/manifest.json",
         "extent": "8冊"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-14209170",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/14209170",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid14209170",
+        "edition": "天保15"
+      }
     }
   ],
   "resource_groups": {
@@ -61,6 +76,9 @@
     },
     "naikaku-1071867": {
       "label": "內閣文庫藏本：清道光2年刊本（序刊）（361-0006，8冊）"
+    },
+    "ndl-14209170": {
+      "label": "NDL藏本：天保15"
     }
   }
 }

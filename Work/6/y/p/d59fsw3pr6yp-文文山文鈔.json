@@ -18,7 +18,49 @@
       "relation": "excerpted_from"
     }
   ],
-  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（外館丙第二批：和人选抄/选本(是否独立Work待人判)）建條；源記錄：pid14363367。",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-09"
+  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（外館丙第二批：和人选抄/选本(是否独立Work待人判)）建條；源記錄：pid14363367。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國書 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-13",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-100453428",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100453428",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100453428",
+        "holder": "東洋大哲学堂",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100453428/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-14363367",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/14363367",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid14363367",
+        "edition": "萬延元"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-100453428": {
+      "label": "國書·東洋大哲学堂藏刊"
+    },
+    "ndl-14363367": {
+      "label": "NDL藏本：萬延元"
+    }
+  }
 }
