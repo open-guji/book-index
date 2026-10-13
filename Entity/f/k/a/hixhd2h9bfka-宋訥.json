@@ -24,6 +24,10 @@
     {
       "name": "西隱亭",
       "type": "別名"
+    },
+    {
+      "name": "吳訥",
+      "type": "訛名"
     }
   ],
   "dynasty": "明",
@@ -39,14 +43,14 @@
   "period_basis": "據 dynasty「明」自動歸併",
   "native_place": "滑縣",
   "native_place_basis": "CBDB 28560 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=28560 補入空槽——籍貫「滑縣」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=28560 補入空槽——籍貫「滑縣」。既有之值一概未動。\n\n2026-10-12 X2：并入 hixhiifvzi11（吳訥）。其所繫《吳訥西隱集》（國史經籍志二十一卷）之撰人「吳訥」為「宋訥」之訛：別集類「人名+號+集」體例，西隱乃宋訥之號，CBDB 28560 著作列《西隱集》《西隱文稿》；Work 側 authors[].name 仍存著錄原文「吳訥」，entity_id 改指本條。吳訥二人（明 1372–1457、元 1331–1357）之號皆非西隱，故未與之相混。",
   "dates": {
     "birth": 1311,
     "death": 1390,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-12",
   "description": {
     "sources": [
       {
@@ -55,5 +59,15 @@
         "details": "http://data.library.sh.cn/entity/person/o3ubi3yveal0a6wd"
       }
     ]
-  }
+  },
+  "merged_in": [
+    {
+      "id": "hixhiifvzi11",
+      "primary_name": "吳訥",
+      "at": "2026-10-12",
+      "by": "X2-Soren",
+      "rule": "X2-書名体例+号+CBDB著作互证",
+      "why": "《吳訥西隱集》（國史經籍志，21卷）按別集類「人名+號+集」體例，「西隱」為宋訥之號（宋訥 alt_names 已有「西隱」），CBDB 28560 著作列「西隱集」「西隱文稿」；吳訥二人（明 1372–1457 號思菴、元 1331–1357）之號皆非西隱，故「吳」為「宋」之訛形。X2 overview#575／#483 尾巴「读原书」#1、#2"
+    }
+  ]
 }
