@@ -14,7 +14,51 @@
   "dynasty_basis": "author_propagation",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
-  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007686442。",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-09"
+  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007686442。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國書 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-13",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-100224294",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100224294",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100224294",
+        "holder": "茨城県歴史",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100224294/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100393486",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100393486",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100393486",
+        "holder": "九大木活字本",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100393486/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-100224294": {
+      "label": "國書·茨城県歴史藏刊"
+    },
+    "kokusho-100393486": {
+      "label": "國書·九大木活字本藏刊"
+    }
+  }
 }

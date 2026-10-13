@@ -14,9 +14,9 @@
   "dynasty_basis": "author_propagation",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
-  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：pid14365499。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：pid14365499。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國書 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-13",
   "resources": [
     {
       "id": "nat-archives-jp",
@@ -35,11 +35,31 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5098434/manifest.json",
         "extent": "2冊"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100453604",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100453604",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100453604",
+        "holder": "東洋大哲学堂",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100453604/manifest"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1069821": {
       "label": "內閣文庫藏本：安政2年刊本（363-0155，2冊）"
+    },
+    "kokusho-100453604": {
+      "label": "國書·東洋大哲学堂藏刊"
     }
   }
 }
