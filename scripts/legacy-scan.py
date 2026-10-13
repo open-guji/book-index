@@ -21,7 +21,21 @@ LEGACY_KEYS = (
     'birth_year', 'death_year', 'cbdb_aliases', 'cbdb_aliases_note',
     '_has_text', '_has_collated', '_has_full_text',
     'books', 'works', 'contained_works', '_promoted_to', 'promoted_to',
+    'collections', 'aliases', 'ai_note_fix', 'ai_note2', 'ai_note_periodfix', 'book_contained_in',
+    'parent_works', 'parent_work', 'promoted_at',
+    'has_text', 'has_image', 'related_to',
 )
+# 仅非 Entity 才算旧键（Entity 地名的 history[] 沿革是正当字段）
+NON_ENTITY_LEGACY = ('history', 'volume_count')
+# authors[] 里已删的杂键（legacy.md §一）
+AUTHOR_LEGACY = ('title_or_office', 'courtesy_name', 'alt_names', 'entity_basis', 'sources', 'birthplace',
+                 'alias', 'additional_names', 'official', 'name_note')
+AUTHOR_ROLE = 'authors[].role 为英文 author'
+AUTHOR_KEYS = 'authors[] 杂键（cbdb_*／title_or_office 等）'
+RES_GROUP_LABEL = 'resources[].group_label'
+CONTAINED_STR = 'contained_in[] 字符串形'
+EMPTY_REL_COLL = 'related_collections 空占位'
+WORK_CLASSIF = 'Work classification 对象'
 OTHER_UNDERSCORE = '_* 其他下划线键'
 UPPER_TYPE = '顶层 type 非小写'
 RES_TYPE = 'resources[].type'
@@ -55,6 +69,10 @@ def scan(root, examples):
                 for k in LEGACY_KEYS:
                     if k in j:
                         hit(k, p)
+                if t != 'Entity':
+                    for k in NON_ENTITY_LEGACY:
+                        if k in j:
+                            hit(k, p)
                 if any(k.startswith('_') and k not in LEGACY_KEYS for k in j):
                     hit(OTHER_UNDERSCORE, p)
                 ty = j.get('type')
@@ -63,6 +81,22 @@ def scan(root, examples):
                 rs = j.get('resources')
                 if isinstance(rs, list) and any(isinstance(r, dict) and 'type' in r for r in rs):
                     hit(RES_TYPE, p)
+                if isinstance(rs, list) and any(isinstance(r, dict) and 'group_label' in r for r in rs):
+                    hit(RES_GROUP_LABEL, p)
+                au = j.get('authors')
+                if isinstance(au, list):
+                    if any(isinstance(a, dict) and a.get('role') == 'author' for a in au):
+                        hit(AUTHOR_ROLE, p)
+                    if any(isinstance(a, dict) and (any(k in a for k in AUTHOR_LEGACY) or any(k.startswith('cbdb_') for k in a))
+                           for a in au):
+                        hit(AUTHOR_KEYS, p)
+                ci = j.get('contained_in')
+                if isinstance(ci, list) and any(isinstance(x, str) for x in ci):
+                    hit(CONTAINED_STR, p)
+                if j.get('related_collections') == []:
+                    hit(EMPTY_REL_COLL, p)
+                if t == 'Work' and isinstance(j.get('classification'), dict):
+                    hit(WORK_CLASSIF, p)
     return n, bad, cnt, ex
 
 
@@ -73,7 +107,8 @@ def main():
     ap.add_argument('--json', action='store_true', help='输出 JSON')
     a = ap.parse_args()
 
-    names = list(LEGACY_KEYS) + [OTHER_UNDERSCORE, UPPER_TYPE, RES_TYPE]
+    names = list(LEGACY_KEYS) + list(NON_ENTITY_LEGACY) + [OTHER_UNDERSCORE, UPPER_TYPE, RES_TYPE, RES_GROUP_LABEL, AUTHOR_ROLE, AUTHOR_KEYS,
+             CONTAINED_STR, EMPTY_REL_COLL, WORK_CLASSIF]
     results = {}
     for r in a.roots:
         if not os.path.isdir(r):
