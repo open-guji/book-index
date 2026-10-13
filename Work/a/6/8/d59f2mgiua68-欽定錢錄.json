@@ -84,6 +84,22 @@
         "nlc_fid": "312001043233",
         "edition": "上海積山書局   清光緒20年[1894]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2563802",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2563802",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2563802",
+        "edition": "清刊"
+      },
+      "details": "NDL 非全網公開（送信サービス限定：個人送信須 NDL 本登録，或到圖書館送信參加館／NDL 館內閱覽）"
     }
   ],
   "measures": [
@@ -93,7 +109,7 @@
     }
   ],
   "measure_info": "十六卷",
-  "ai_note": "作者「清梁詩正等奉敕撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkan9qzz5ds 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3bbrlnc54w()（不同作者，故新建獨立 Work）。",
+  "ai_note": "作者「清梁詩正等奉敕撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkan9qzz5ds 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3bbrlnc54w()（不同作者，故新建獨立 Work）。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "description": {
     "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故觀008057-008058）。清光緒丙戍(十二年)峽州紅杏山房刊本。",
     "sources": [
@@ -105,14 +121,17 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-13",
   "resource_groups": {
     "nlc-312001043232": {
       "label": "國圖藏本：江甯李圭茹古室   清光緒5年[1879]"
     },
     "nlc-312001043233": {
       "label": "國圖藏本：上海積山書局   清光緒20年[1894]"
+    },
+    "ndl-2563802": {
+      "label": "NDL藏本（送信限定）：清刊"
     }
   }
 }
