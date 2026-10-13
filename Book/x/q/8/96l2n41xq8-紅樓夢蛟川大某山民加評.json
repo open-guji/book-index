@@ -68,12 +68,6 @@
     "year_uncertain": true,
     "derived_from": [
       {
-        "ref": "96kzkdm8e8",
-        "ref_type": "book",
-        "relation": "據以評",
-        "confidence": "consensus"
-      },
-      {
         "ref": "96kzmrrqbk",
         "ref_type": "book",
         "relation": "據以評",
@@ -110,8 +104,8 @@
       "details": "姚燮（大某山民）評收入 1930 上海商務印書館萬有文庫本《增評補圖石頭記》三家評合刊；本評本獨立刊本未見公開影像。"
     }
   ],
-  "revision": "1.0.1",
-  "revised_at": "2026-05-16",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-13",
   "related_books": [
     "96l2nocd1c"
   ],
@@ -129,5 +123,6 @@
       "source": "lineage.derived_from",
       "note": "孫楷第注「此書比王評本多……餘同王本」 在王評基礎上加評"
     }
-  ]
+  ],
+  "ai_note": "2026-10-13 #499 版本图第 1 项：删 lineage.derived_from 中指向程甲本（96kzkdm8e8）的一条边——该边无 evidence，且与指向王希廉評（96kzmrrqbk，evidence：孫楷第「此書比王評本多……餘同王本」）的边语义重叠；王希廉評本身 derived_from 程甲本，故经王評仍可达程甲，图上信息不丢。"
 }
