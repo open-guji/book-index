@@ -422,6 +422,8 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 
 **墓碑条**：`index/` 含被并方（记录上有 `merged_into` 的墓碑，现 Work 395、Entity 2），按普通条目列出，条目里不带 `merged_into`；**检索端自行过滤**。网站对旧 id 的跳转读的是条目记录上的 `merged_into`（kaiyuanguji-web `item-redirect.ts`，308 到留存方），build 不因此把墓碑排除出 `index/`（目录经理 2026-10-09 定，overview#409）。
 
+**Book 墓碑**（带 `merged_into` 的 Book，book-index#274 起）：`index/` 同样照列；但**不计入** Work 的 `_books`／`_edition_count`、同 Work 其他 Book 的 `_siblings`、卡片 `nb`，墓碑自身 entry 的 `_siblings` 为空，保留 `merged_into` 供 308 读取（ai-team#3，2026-10-13 Morgan 定）。
+
 ### 8.1 Work、Book、Collection 条目
 
 | 键 | 必有／可选 | 来源字段 | 取法 |

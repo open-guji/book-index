@@ -168,7 +168,8 @@ class Build:
             wid = b.get('work_id')
             if isinstance(wid, str) and wid:
                 if wid in R['Work']:
-                    self.books_of[wid].add(bid)
+                    if not b.get('merged_into'):      # Book 墓碑不計入版本：不進 _books／_siblings／_edition_count／nb
+                        self.books_of[wid].add(bid)
                 else:
                     self._dangle('Book.work_id', bid, wid)
             for x in b.get('contained_in') or []:
@@ -504,7 +505,8 @@ class Build:
         wid = b.get('work_id')
         if wid in R['Work']:
             v['_work'] = self.card(wid, self.work_card)
-            sib = sorted((x for x in self.books_of.get(wid, ()) if x != bid), key=lambda x: book_key(R['Book'][x]))
+            sib = [] if b.get('merged_into') else sorted(     # 墓碑自身不列同 Work 版本
+                (x for x in self.books_of.get(wid, ()) if x != bid), key=lambda x: book_key(R['Book'][x]))
             v['_siblings'] = [self.book_card(x) for x in sib[:SIBLINGS_MAX]]
             if len(sib) > SIBLINGS_MAX:
                 v['_siblings_more'] = True
