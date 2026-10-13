@@ -116,6 +116,51 @@
       ],
       "id": "wikisource",
       "url": "https://zh.wikisource.org/wiki/%E9%A6%AC%E6%B0%8F%E5%8D%97%E5%94%90%E6%9B%B8"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-0194",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0194",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0194",
+        "edition": "明嘉靖[1522-1566]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999008536",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999008536",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999008536",
+        "edition": "姚咨茶梦斋   明嘉靖二十年[1541]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999011846",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999011846",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999011846",
+        "edition": "明嘉靖29年[1550]"
+      }
     }
   ],
   "measures": [
@@ -126,7 +171,7 @@
   ],
   "measure_info": "三十卷",
   "updated_at": "2026-08-21T00:00:00+00:00",
-  "ai_note": "2026-08-10 撰人字首式重出候選覆核：1evincp3wzo5c（撰人折入題名之異寫）併入本條（同題同撰人）。\n\n2026-08-21 B1 同名異書併池：併入 `1evr5e3mkaqqi`（南唐書）。同上型。今併。\n\n[M3磁鐵 2026-08-23] 收 欽定四庫全書總目「《南唐書》·三十卷」一節：提要作「宋馬令撰」三十卷，與陸游十八卷本異書（提要自言撰《南唐書》者三家），今改繫馬令本。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…殆當時未睹其本，故傳聞致誤歟？」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。",
+  "ai_note": "2026-08-10 撰人字首式重出候選覆核：1evincp3wzo5c（撰人折入題名之異寫）併入本條（同題同撰人）。\n\n2026-08-21 B1 同名異書併池：併入 `1evr5e3mkaqqi`（南唐書）。同上型。今併。\n\n[M3磁鐵 2026-08-23] 收 欽定四庫全書總目「《南唐書》·三十卷」一節：提要作「宋馬令撰」三十卷，與陸游十八卷本異書（提要自言撰《南唐書》者三家），今改繫馬令本。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…殆當時未睹其本，故傳聞致誤歟？」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 3 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "period": "song",
   "period_basis": "據 authors[0].dynasty「宋」；P4b 批3c（2026-10-07）：撰人馬令併為宋人（總目著錄），原「唐」係誤繫",
   "description": {
@@ -139,7 +184,18 @@
       "直齋書錄解題"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
-  "loss_status": "extant"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-13",
+  "loss_status": "extant",
+  "resource_groups": {
+    "nlc-0194": {
+      "label": "國圖藏本：明嘉靖[1522-1566]"
+    },
+    "nlc-411999008536": {
+      "label": "國圖藏本：姚咨茶梦斋   明嘉靖二十年[1541]"
+    },
+    "nlc-411999011846": {
+      "label": "國圖藏本：明嘉靖29年[1550]"
+    }
+  }
 }

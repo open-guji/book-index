@@ -36,8 +36,8 @@
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "id": "d59f6eiiaxa9",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-13",
   "resources": [
     {
       "id": "commons",
@@ -87,6 +87,21 @@
         "holder": "東北大図",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300115870/manifest"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999032187",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999032187",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999032187",
+        "edition": "明萬曆16年[1588]"
+      }
     }
   ],
   "resource_groups": {
@@ -95,6 +110,10 @@
     },
     "kokusho-300115870": {
       "label": "國書·東北大図藏刊 ［寛延４］"
+    },
+    "nlc-411999032187": {
+      "label": "國圖藏本：明萬曆16年[1588]"
     }
-  }
+  },
+  "ai_note": "2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。"
 }
