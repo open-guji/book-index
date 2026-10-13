@@ -31,6 +31,7 @@ LANE_MACHINE = {
     "coordinator": 2000, "shanggu": 2001, "weijin": 2002, "nanbeichao": 2003,
     "suitang": 2004, "song": 2005, "liaojinyuan": 2006, "ming": 2007,
     "qing": 2008, "undated": 2009,
+    "silas": 2018,
 }
 
 
