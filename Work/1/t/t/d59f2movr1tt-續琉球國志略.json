@@ -59,6 +59,22 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:WUL-ru04_03457_%E7%BA%8C%E7%90%89%E7%90%83%E5%9C%8B%E5%BF%97%E7%95%A5.pdf"
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2583551",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2583551",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2583551",
+        "edition": "[出版年不明]"
+      },
+      "details": "NDL 非全網公開（送信サービス限定：個人送信須 NDL 本登録，或到圖書館送信參加館／NDL 館內閱覽）"
     }
   ],
   "updated_at": "2026-08-24T00:00:00+00:00",
@@ -66,8 +82,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-13",
   "contained_in": [
     {
       "id": "8rlcsybg2hhf",
@@ -78,5 +94,11 @@
         293
       ]
     }
-  ]
+  ],
+  "resource_groups": {
+    "ndl-2583551": {
+      "label": "NDL藏本（送信限定）：[出版年不明]"
+    }
+  },
+  "ai_note": "2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。"
 }
