@@ -10,6 +10,11 @@
       "dynasty": "明",
       "entity_id": "hixhd2h9bf1z",
       "role_basis": "據著錄語「舊本題明何良俊撰補，王世貞刪定。良俊有《四友齋叢說》，世貞有《弇」——所題之撰人不確，非謂本書偽。見 SCHEMA〈authenticity〉。"
+    },
+    {
+      "name": "王世貞",
+      "role": "撰",
+      "entity_id": "hixhd2h9be8z"
     }
   ],
   "indexed_by": [
@@ -29,6 +34,12 @@
       "edition": "王世貞 刪定 遼寧大學圖書館藏明萬曆張懋辰刻本",
       "volume": "第242冊",
       "section": "子部"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "王世貞世說新語補二十卷",
+      "summary": "王世貞世說新語補二十卷"
     }
   ],
   "juan_count": {
@@ -268,10 +279,14 @@
     {
       "unit": "卷",
       "number": 4
+    },
+    {
+      "unit": "卷",
+      "number": 20
     }
   ],
   "measure_info": "四卷",
-  "ai_note": "作者 \"明何良俊撰\" 補自《四庫全書存目叢書》目錄。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題明何良俊撰補，王世貞刪定。良俊有《四友齋叢說》，世貞有《弇」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "作者 \"明何良俊撰\" 補自《四庫全書存目叢書》目錄。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題明何良俊撰補，王世貞刪定。良俊有《四友齋叢說》，世貞有《弇」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 Elias 併條（rule=GUJI-126 同書拆多Work）：併 d59f6efuh2it《世說新語補》 入本條。同書拆多Work（去重結論 2026-10-13／10-14）",
   "updated_at": "2026-08-21T00:00:00-07:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
@@ -323,5 +338,17 @@
     "kokusho-100160845": {
       "label": "國書·新城図情報牧野藏刊 元禄７"
     }
-  }
+  },
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "merged_in": [
+    {
+      "id": "d59f6efuh2it",
+      "title": "世說新語補",
+      "at": "2026-10-14T06:10:51Z",
+      "by": "Elias",
+      "rule": "GUJI-126 同書拆多Work",
+      "why": "同書拆多Work（去重結論 2026-10-13／10-14）"
+    }
+  ]
 }

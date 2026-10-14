@@ -9,6 +9,12 @@
       "dynasty": "清",
       "entity_id": "hixhd2h9bog2",
       "name_basis": "2026-08-24 新建 entity `1jcf5151293mw` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。"
+    },
+    {
+      "name": "袁日省",
+      "role": "撰",
+      "dynasty": "清",
+      "entity_id": "hixhd2h9bj61"
     }
   ],
   "description": {
@@ -17,7 +23,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀009170-009173）。阶段 5 兜底建立。\n\n2026-09-06 qa-sweep/qing·G 類重出併條（坑28）：`d59f2myt5rsw`（\"選集漢印分韻二卷續集\"） 併入本條——皆同一撰人（entity_id 相同）之同書異刻／異目著錄，剝去卷數殘綴後題名相同（「奏議一卷首」「附錄」「續集」「補遺」「卷首」之屬皆版本著錄語綴於題末，非別書）。indexed_by／resources 已去重併入，Books 已改指本條，被併者之記錄檔與索引項刪去，其 entity.works 之對應項移除。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀009170-009173）。阶段 5 兜底建立。\n\n2026-09-06 qa-sweep/qing·G 類重出併條（坑28）：`d59f2myt5rsw`（\"選集漢印分韻二卷續集\"） 併入本條——皆同一撰人（entity_id 相同）之同書異刻／異目著錄，剝去卷數殘綴後題名相同（「奏議一卷首」「附錄」「續集」「補遺」「卷首」之屬皆版本著錄語綴於題末，非別書）。indexed_by／resources 已去重併入，Books 已改指本條，被併者之記錄檔與索引項刪去，其 entity.works 之對應項移除。\n\n2026-10-14 Elias 併條（rule=GUJI-126 同書拆多Work）：併 d59f2ngsjyf4《選集漢印分韻》 入本條。同書拆多Work（去重結論 2026-10-13／10-14）",
   "juan_count": {
     "number": 2
   },
@@ -43,11 +49,25 @@
       "summary": "本書收入《國立故宮博物院善本舊籍》（統一編號 故觀009170-009173）。清嘉慶二至八年南海謝氏漱藝堂刊本。",
       "edition": "清嘉慶二至八年南海謝氏漱藝堂刊本。",
       "catalog_no": "故觀009170-009173"
+    },
+    {
+      "source": "清史稿藝文志",
+      "source_bid": "d59f2mp0flz4",
+      "title_info": "選集漢印分韻",
+      "summary": "選集漢印分韻二卷，續二卷。袁日省撰。"
     }
   ],
   "merged_in": [
     {
       "id": "d59f2myt5rsw"
+    },
+    {
+      "id": "d59f2ngsjyf4",
+      "title": "選集漢印分韻",
+      "at": "2026-10-14T06:12:50Z",
+      "by": "Elias",
+      "rule": "GUJI-126 同書拆多Work",
+      "why": "同書拆多Work（去重結論 2026-10-13／10-14）"
     }
   ],
   "resources": [
@@ -58,6 +78,62 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:WUL-i04_03159_c101_%E9%81%B8%E9%9B%86%E6%BC%A2%E5%8D%B0%E5%88%86%E9%9F%BB_1.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001043444",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312001043444",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001043444",
+        "edition": "清[1644-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001043442",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312001043442",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001043442",
+        "edition": "漱藝堂   清嘉慶2年[1797]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999029444",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999029444",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999029444",
+        "edition": "清嘉慶2年8年[1797-1803]"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-312001043444": {
+      "label": "國圖藏本：清[1644-1911]"
+    },
+    "nlc-312001043442": {
+      "label": "國圖藏本：漱藝堂   清嘉慶2年[1797]"
+    },
+    "nlc-411999029444": {
+      "label": "國圖藏本：清嘉慶2年8年[1797-1803]"
+    }
+  }
 }
