@@ -4,6 +4,10 @@
 
 ---
 
+## 2026-10-13　Book 加 `merged_into`（墓碑，用户定「Schema 口径放行，Book 墓碑用 A」；GUJI-89 薈要重复 Book 合并）
+
+- `book.schema.json` 加 `merged_into`（Id）；`book.md` 字段表加一行。墓碑只留 `schema_version／id／type／title／work_id／merged_into／revision／revised_at`，与 Work 墓碑同形；keeper 的 `merged_from` 记被并 id。网站 `item-redirect` 读 `merged_into`，对 Book 同样 308。
+
 ## 2026-10-12　删一次性脚本（overview#568 B1b，book-index#162）
 
 - 删 `scripts/`（`oneoff` 6 个、`a2`／`a3`／`b2`／`d` 4 个）、`.claude/qa/s5/`、`s3_collection_count.py`、`audit_biejii_dup.py`；来历一句话见 `.claude/qa/known-issues/oneoff-删除记录-20261012.md`。
