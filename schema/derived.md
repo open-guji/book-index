@@ -36,9 +36,9 @@
 | 不进 git | `_build/` 写在 `.gitignore` 里。仓里提交的 `index/` 是另一份（见〈八〉），默认不改 |
 
 ```
-python3 build/build_derived.py --out "$BOOK_INDEX_DERIVED_DIR"                                  # 正式库
-python3 build/build_derived.py --root ../book-index-draft --ref-root . --out <草稿输出目录>        # 草稿库
-python3 build/build_derived.py --check-only [--hub-check]                            # 只校验，不写任何文件
+python3 build/build_derived.py --out "$BOOK_INDEX_DERIVED_DIR" --text-index "$BOOK_TEXT_DIR/index/texts"                                  # 正式库
+python3 build/build_derived.py --root ../book-index-draft --ref-root . --text-index "$BOOK_TEXT_DIR/index/texts" --out <草稿输出目录>        # 草稿库
+python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TEXT_DIR/index/texts"                            # 只校验，不写任何文件
 ```
 
 | 参数 | 作用 |

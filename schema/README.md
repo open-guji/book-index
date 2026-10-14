@@ -141,7 +141,7 @@ open(p, 'w', encoding='utf-8').write(
 | `schema/check_schema.py` | 按 `schema/json/` 的 JSON Schema 校验记录形状（未登记的键、枚举外的值、必填缺失）；全库跑时另查分类目录与 promotions 分片；`--build DIR` 校验构建产物。旧字段、旧写法报 WARN，其余报 ERROR | `python3 schema/check_schema.py [--root 仓] [--draft] [--paths -] [--json 报告]`；`--build <build 输出目录>` |
 | `.claude/qa/check_v2.py` | 旧格式残留（V01–V16）与专名子类型校验码（E1、D、R、A、O、P、I 系列） | `git diff --name-only origin/main... \| python3 .claude/qa/check_v2.py --paths -` |
 | `.claude/qa/verify.py` | 悬空引用、跨记录一致性、派生值与索引漂移 | `python3 .claude/qa/verify.py` |
-| `build/build_derived.py` | 构建并自校验（条数守恒、派生值自洽、卡片 id 可解析） | `python3 build/build_derived.py --check-only` |
+| `build/build_derived.py` | 构建并自校验（条数守恒、派生值自洽、卡片 id 可解析） | `python3 build/build_derived.py --check-only --text-index "$BOOK_TEXT_DIR/index/texts"` |
 
 审数据 PR 时 `check_v2.py` 必跑；`check_schema.py` 宜跑（`--paths` 只查改动的文件），ERROR 须为 0，WARN 是已知旧写法（见 [legacy.md](legacy.md)）。
 
