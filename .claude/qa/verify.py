@@ -236,7 +236,9 @@ def _CODES_SUBTYPE(cv2):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--why', action='store_true', help='「索引缺記錄檔」時印出各 id 之最後刪除提交（坑 41）')
-    ap.add_argument('--strict', action='store_true'); a = ap.parse_args()
+    ap.add_argument('--strict', action='store_true')
+    ap.add_argument('--base', default='origin/main', help='基線 ref（默認 origin/main）；解析不到則略過「消失 id」檢查')
+    a = ap.parse_args()
     IW, IB, IE = idx('works'), idx('books'), idx('entities')
     IC = json.load(open(os.path.join(ROOT, 'index', 'collections.json')))
     ALL = set(IW) | set(IB) | set(IE) | set(IC)
@@ -376,6 +378,24 @@ def main():
     print(f'work 側懸空引用       {len(dangle_w)}')
     print(f'被併旧 id 無墓碑（merged_in[] 之 id 須有 merged_into 指回本 Work 之墓碑檔） {len(bad_merged_in)}')
     for r in bad_merged_in[:10]: print('  無墓碑', r)
+    # 基線對比（GUJI-126 #326 缺陷：23 個被併 Work 被直接刪檔，線上 404）：相對基線（--base，默認 origin/main）
+    # 之全部 Work／Entity id，凡不再有任何檔（墓碑亦是檔，留在原路徑）者即「消失」，一律 FAIL。
+    # 同時印出 Work 活條目數之增減分解（新增、轉墓碑、消失），數目對不上必有消失 id。
+    vanished, base_note = [], ''
+    import subprocess
+    _r = subprocess.run(['git', '-C', ROOT, 'rev-parse', '--verify', '-q', a.base + '^{commit}'], capture_output=True, text=True)
+    if _r.returncode == 0:
+        _bl = subprocess.run(['git', '-C', ROOT, '-c', 'core.quotepath=off', 'ls-tree', '-r', '--name-only', a.base, '--', 'Work', 'Entity'],
+                             capture_output=True, text=True).stdout.split('\n')
+        _ids = lambda files: {os.path.basename(f).split('-')[0] for f in files if f.endswith('.json')}
+        _base_ids = _ids(_bl)
+        _cur_ids = _ids(glob.glob(os.path.join(ROOT, 'Work', '*', '*', '*', '*.json')) + glob.glob(os.path.join(ROOT, 'Entity', '*', '*', '*', '*.json')))
+        vanished = sorted(_base_ids - _cur_ids)
+        base_note = f'（基線 {a.base}：{len(_base_ids)} 個 Work／Entity id，現有 {len(_cur_ids)}，新增 {len(_cur_ids - _base_ids)}）'
+    else:
+        base_note = f'（基線 {a.base} 解析不到，略過）'
+    print(f'相對基線消失之 id（被併須留墓碑檔，不得直接刪） {len(vanished)} {base_note}')
+    for r in vanished[:10]: print('  消失', r)
     print(f'墓碑目標不存在或亦為墓碑 {len(bad_tomb_target)}')
     for r in bad_tomb_target[:10]: print('  墓碑目標', r)
     print(f'墓碑檔不在 index/works {len(bad_tomb_unindexed)}')
@@ -450,7 +470,7 @@ def main():
     # 2026-09-07：`entity.works 重複項` 自即日納入 --strict 之成敗（清零後方納，免得未清前卡住各道）。
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
-    bad = (_ledger_bad or missing or bad_merged_in or bad_tomb_target or bad_tomb_unindexed or drift_w or drift_e or bad_cls_members or bad_prov or bad_dates or bad_extids or bad_count
+    bad = (_ledger_bad or missing or bad_merged_in or vanished or bad_tomb_target or bad_tomb_unindexed or drift_w or drift_e or bad_cls_members or bad_prov or bad_dates or bad_extids or bad_count
            or bad_subtype or bad_et or bad_pd or bad_be or bad_todo or bad_review
            or (a.strict and (dangle_w or _cv2_rows)))
     print('FAIL' if bad else 'OK')
