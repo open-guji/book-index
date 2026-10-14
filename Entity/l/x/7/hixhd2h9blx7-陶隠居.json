@@ -8,7 +8,24 @@
   "dynasty": "南朝梁",
   "dynasty_basis": "N4 第五路·著錄語逐條手覈（2026-08-25）：第四路（隋志塊承）須撰人之名見於著錄語且其前有標記，本條落空之由是名與著錄語用字互異或朝代語不緊接其名。今逐條讀其著錄語而得：庫中同人他條已定「南朝梁」；本條所繫《名醫別錄》，國史經籍志作「（陶隠居）」、隋志作「陶氏撰」，故名不相值而漏。",
   "period": "nanbeichao",
-  "ai_note": "2026-08-25 N4 第五路：補 dynasty「南朝梁」，據見 dynasty_basis。\n\n2026-09-06 qa-sweep/nanbeichao：撤《名醫別錄》d59f28561fyb 之回指——本 entity 之 primary_name「陶隠居」是壞名（「陶隱居」乃陶弘景之號，「隠」又是「隱」之異體），該 work 之撰人名早已正為「陶弘景」並當繫正主 `hixhd2h9bf93`。本 entity 名下遂無 work，其併與刪不在本道之權，已記 known-issues。",
+  "ai_note": "2026-08-25 N4 第五路：補 dynasty「南朝梁」，據見 dynasty_basis。\n\n2026-09-06 qa-sweep/nanbeichao：撤《名醫別錄》d59f28561fyb 之回指——本 entity 之 primary_name「陶隠居」是壞名（「陶隱居」乃陶弘景之號，「隠」又是「隱」之異體），該 work 之撰人名早已正為「陶弘景」並當繫正主 `hixhd2h9bf93`。本 entity 名下遂無 work，其併與刪不在本道之權，已記 known-issues。\n\n2026-10-14 并入 hixhd2h9bojv「陶隱居」，其 ai_note：2026-08-24 新建 entity（甲等第一批）：本人之名見於 work 之 authors[]，而庫中無其人。取「首字在百家姓、名長二至四字、庫中兩見以上」者為甲等——兩見以上則非偶然之殘句，此判所以立，正為防 SKILL〈史料圈套〉所記之舊禍：本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、之以為嬰……）而竟為之建 entity。\n\n本人所繫之 work 2 部：《靈奇秘奧》、《經食草木法》。\n\n諸 work 皆未定代，故本 entity 未著 dynasty／period——待考。",
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "alt_names": [
+    {
+      "name": "陶隱居",
+      "type": "別名",
+      "note": "異寫同名重出并入"
+    }
+  ],
+  "merged_in": [
+    {
+      "id": "hixhd2h9bojv",
+      "primary_name": "陶隱居",
+      "at": "2026-10-14",
+      "by": "Elias",
+      "rule": "異體字同人并入（Soren 體檢判定）",
+      "why": "異體字同人：隱／隠，皆陶弘景（陶隱居）；Soren 判定應并"
+    }
+  ]
 }

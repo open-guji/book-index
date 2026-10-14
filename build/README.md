@@ -12,9 +12,9 @@
 ## build_derived.py
 
 ```
-python3 build/build_derived.py                                   # 本倉 → _build/
-python3 build/build_derived.py --root ../book-index-draft --ref-root .   # 草稿庫，指向正式記錄的 id 由正式庫解析
-python3 build/build_derived.py --check-only --hub-check          # 只校驗；加跑「改樞紐名牽動幾檔」
+python3 build/build_derived.py --text-index "$BOOK_TEXT_DIR/index/texts"                                   # 本倉 → _build/
+python3 build/build_derived.py --root ../book-index-draft --ref-root . --text-index "$BOOK_TEXT_DIR/index/texts"   # 草稿庫，指向正式記錄的 id 由正式庫解析
+python3 build/build_derived.py --check-only --hub-check --text-index "$BOOK_TEXT_DIR/index/texts"          # 只校驗；加跑「改樞紐名牽動幾檔」
 ```
 
 產物：`entry/<id>.json`（源記錄＋`_` 派生欄；源裡的舊 `_` 欄丟掉重算）、`members/<cid>/<n>.json`、`catalog/<志書>/<n>.json`、`related/<wid>/<n>.json`（每頁 200）、`lineage/<wid>.json`、`_hubs.json`、`report.json`。
