@@ -15,7 +15,7 @@
 | `related*` 写在 id 较大一侧或两侧都写；`related_works[]` 用 `work_id` 代 `id`；`related_collections[]` 对象形 | 只存 id 较小一侧；`id`；id 字符串 |
 | Work `classification {l1…}` | `classification/<分类法>/members/<节点>.json`；产物 `_classifications` |
 | 源档 `_` 起首派生字段（`_edition_count` 等）；无下划线 `has_text`／`has_image` 等；记录内 `promoted_to`／`promoted_at` | 产物同名带下划线；权威是 `promotions/`（见 [promotions.md](promotions.md)） |
-| sidecar 对照表 6 份；`aliases`；`ai_note_fix`／`ai_note2`／`ai_note_periodfix`；`book_contained_in`、`parent_works`、`history`、`volume_count`；`parent_work {id,title}` | 并入记录／`alt_names`／`ai_note`／`related_works`／`Book.work_id` |
+| sidecar 对照表 6 份；`aliases`；`ai_note_fix`／`ai_note2`／`ai_note_periodfix`；`book_contained_in`、`parent_works`、`history`、Work／Collection 层的 `volume_count`（Book 层 `volume_count` 是正当字段）；`parent_work {id,title}` | 并入记录／`alt_names`／`ai_note`／`related_works`／`Book.work_id` |
 | 源档 `_has_text`、`_has_collated`（含 `false`） | 产物 `_has_*`，由 build 经 `--text-index` 从 book-text 推（book-index#141、overview#507） |
 | Entity `birth_year`、`death_year`（含 `null`） | `dates`（book-index#139） |
 | `authors[].role` 写英文 `author`；`authors[]` 里的 `cbdb_*`、`title_or_office`、`courtesy_name`、`alt_names`、`entity_basis`、`sources`、`birthplace`、`alias`、`additional_names`、`official`、`name_note` | 志书原文 role（缺省 `撰`）；人物信息归 Entity，依据入 `note`／`ai_note` |
