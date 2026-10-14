@@ -25,7 +25,7 @@ LEGACY_KEYS = (
     'parent_works', 'parent_work', 'promoted_at',
     'has_text', 'has_image', 'related_to',
 )
-# 仅非 Entity 才算旧键（Entity 地名的 history[] 沿革是正当字段）
+# 仅非 Entity 才算旧键（Entity 地名的 history[] 沿革是正当字段）；volume_count 仅 Book 层合法
 NON_ENTITY_LEGACY = ('history', 'volume_count')
 # authors[] 里已删的杂键（legacy.md §一）
 AUTHOR_LEGACY = ('title_or_office', 'courtesy_name', 'alt_names', 'entity_basis', 'sources', 'birthplace',
@@ -71,6 +71,8 @@ def scan(root, examples):
                         hit(k, p)
                 if t != 'Entity':
                     for k in NON_ENTITY_LEGACY:
+                        if k == 'volume_count' and t == 'Book':
+                            continue            # Book.volume_count 是正当字段（book.md），只在 Work／Collection 算旧键
                         if k in j:
                             hit(k, p)
                 if any(k.startswith('_') and k not in LEGACY_KEYS for k in j):
