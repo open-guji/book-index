@@ -43,6 +43,7 @@
 | `metadata` | object | 可选 | 原生 | 来源系统原始字段透传，不规范化 | 实测键：`npm_item_id`（故宫统一编号）、`npm_acckey`、`nlc_bid`、`nlc_call_number` | 录入 | `{"npm_item_id":"平圖021465"}` |
 | `sources` | array<Source> | 可选 | 原生 | 数据来源 | 见 common.md | 录入 | |
 | `merged_from` | array<string> | 可选 | 原生 | 并入本条的 Book id | id 数组 | bim | |
+| `merged_into` | string | 墓碑 | 原生 | 本条已并入哪一个 Book | 记录 id。**只在墓碑上**；墓碑只留 `schema_version／id／type／title／work_id／merged_into／revision／revised_at`，形同 Work 墓碑；网站 `/item/<id>` 308 到 keeper | bim、录入 | |
 | `appendix` | array<object> | 可选 | 原生 | 附录说明 | `[{title, text}]` | 录入 | |
 | `ai_note`、`todo`、`review` | — | 可选 | 原生 | 共通字段 | 见 common.md | 录入 | |
 | `revision`、`revised_at`、`updated_at` | string | `revision` 正式库必填 | 原生 | 共通字段 | 见 common.md | bim | |
