@@ -270,6 +270,8 @@ def main():
         if be is not None and not base_edition_ok(be, bid, IB, IW):
             bad_be.append(bid)
     stale_related = []
+    bad_tomb_target, bad_tomb_unindexed = [], []   # 墓碑：目標須存在且自身非墓碑（防懸空／鏈式）；墓碑檔須在 index/works 有條目
+    bad_merged_in = []   # 被併旧 id 必有墓碑（GUJI-126 #326 缺陷：23 个被併 Work 被直接删除，线上 404）
     for wid, ie in IW.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(wid); continue
@@ -287,6 +289,19 @@ def main():
                            or nz(d.get('dynasty'))}
         for f, y in want.items():
             if nz(ie.get(f)) != y: drift_w.append((wid, f, ie.get(f), y))
+        if d.get('merged_into'):
+            tp = IW.get(d['merged_into'], {}).get('path')
+            try: td = json.load(open(os.path.join(ROOT, tp))) if tp else None
+            except Exception: td = None
+            if not td or td.get('merged_into'): bad_tomb_target.append((wid, d['merged_into']))
+        for m in (d.get('merged_in') or []):
+            mid = m.get('id') if isinstance(m, dict) else None
+            # 只查 2026-10-14 起 mergework 写入的条目（at 字段）；更早的 merged_in 多为 draft 旧 id／Book id，正式库本无其档
+            if not mid or str(m.get('at') or '') < '2026-10-14': continue
+            mp = IW.get(mid, {}).get('path')
+            try: md = json.load(open(os.path.join(ROOT, mp))) if mp else None
+            except Exception: md = None
+            if not md or md.get('merged_into') != wid: bad_merged_in.append((wid, mid))
         for r in (d.get('related_works') or []):
             if r.get('id') and r['id'] not in ALL: dangle_w.append((wid, 'related_works', r['id']))
             if r.get('id') and r.get('title') is not None:
@@ -297,6 +312,13 @@ def main():
             if x.get('entity_id') and x['entity_id'] not in IE: dangle_w.append((wid, 'authors.entity_id', x['entity_id']))
         if not todo_ok(d.get('todo')): bad_todo.append((wid, 'Work'))
         if not review_ok(d.get('review')): bad_review.append((wid, 'Work'))
+    import glob as _glob
+    for _f in _glob.glob(os.path.join(ROOT, 'Work', '*', '*', '*', '*.json')):
+        _wid = os.path.basename(_f).split('-')[0]
+        if _wid in IW: continue
+        try: _d = json.load(open(_f))
+        except Exception: continue
+        if _d.get('merged_into'): bad_tomb_unindexed.append(_wid)
     drift_e, bad_dates, bad_extids = [], [], []
     bad_dynasty_century = []
     for eid, ie in IE.items():
@@ -352,6 +374,12 @@ def main():
     print(f'works 索引漂移        {len(drift_w)}')
     print(f'entities 索引漂移     {len(drift_e)}')
     print(f'work 側懸空引用       {len(dangle_w)}')
+    print(f'被併旧 id 無墓碑（merged_in[] 之 id 須有 merged_into 指回本 Work 之墓碑檔） {len(bad_merged_in)}')
+    for r in bad_merged_in[:10]: print('  無墓碑', r)
+    print(f'墓碑目標不存在或亦為墓碑 {len(bad_tomb_target)}')
+    for r in bad_tomb_target[:10]: print('  墓碑目標', r)
+    print(f'墓碑檔不在 index/works {len(bad_tomb_unindexed)}')
+    for r in bad_tomb_unindexed[:10]: print('  墓碑未入索引', r)
     print(f'分類類檔不合（classify check） {len(bad_cls_members)}')
     for r in bad_cls_members[:10]: print('  分類類檔', r)
     _cv2_cnt = collections.Counter(r[3] for r in _cv2_rows)
@@ -422,7 +450,7 @@ def main():
     # 2026-09-07：`entity.works 重複項` 自即日納入 --strict 之成敗（清零後方納，免得未清前卡住各道）。
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
-    bad = (_ledger_bad or missing or drift_w or drift_e or bad_cls_members or bad_prov or bad_dates or bad_extids or bad_count
+    bad = (_ledger_bad or missing or bad_merged_in or bad_tomb_target or bad_tomb_unindexed or drift_w or drift_e or bad_cls_members or bad_prov or bad_dates or bad_extids or bad_count
            or bad_subtype or bad_et or bad_pd or bad_be or bad_todo or bad_review
            or (a.strict and (dangle_w or _cv2_rows)))
     print('FAIL' if bad else 'OK')
