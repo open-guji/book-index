@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "juan_count": {
     "number": 38
   },
@@ -34,7 +34,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-10-13",
   "resources": [
     {
@@ -53,11 +53,29 @@
         "holder": "東洋大哲学堂",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100394524/manifest"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2607463",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2607463",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2607463",
+        "edition": "慶安5"
+      }
     }
   ],
   "resource_groups": {
     "kokusho-100394524": {
       "label": "國書·東洋大哲学堂藏刊"
+    },
+    "ndl-2607463": {
+      "label": "NDL藏本：慶安5"
     }
   }
 }

@@ -14,7 +14,69 @@
   "dynasty_basis": "author_propagation",
   "period": "song",
   "period_basis": "據 authors[0].dynasty「宋」",
-  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007702920。",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-09"
+  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007702920。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國書 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-13",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-300106918",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300106918",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300106918",
+        "holder": "姫路文学金井",
+        "edition": "刊 寛文４",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300106918/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100145058",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100145058",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100145058",
+        "holder": "矢口丹波記念文庫",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100145058/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-14122682",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/14122682",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid14122682",
+        "edition": "寛文11刊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-300106918": {
+      "label": "國書·姫路文学金井藏刊 寛文４"
+    },
+    "kokusho-100145058": {
+      "label": "國書·矢口丹波記念文庫藏刊"
+    },
+    "ndl-14122682": {
+      "label": "NDL藏本：寛文11刊"
+    }
+  }
 }

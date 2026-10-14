@@ -272,6 +272,21 @@
         "holder": "府中之島図石崎",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300095359/manifest"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2610340",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2610340",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2610340",
+        "edition": "崇禎13"
+      }
     }
   ],
   "measures": [
@@ -301,7 +316,7 @@
       ]
     }
   ],
-  "ai_note": "合併：題名「李延壽南史」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「李延壽」已見本條 authors[]），裸題「南史」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvzy718n4 與 11q37p063gvsw 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 補全（著錄 ≥7 源批）：所據為本條所繫著錄之引文（見 indexed_by／emendated_by，尤以四庫提要、崇文總目、直齋書錄解題之敘錄為主）及通行學術常識，未覆核原書。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…《日知錄》摘之）。二十四史之一，今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。",
+  "ai_note": "合併：題名「李延壽南史」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「李延壽」已見本條 authors[]），裸題「南史」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvzy718n4 與 11q37p063gvsw 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 補全（著錄 ≥7 源批）：所據為本條所繫著錄之引文（見 indexed_by／emendated_by，尤以四庫提要、崇文總目、直齋書錄解題之敘錄為主）及通行學術常識，未覆核原書。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…《日知錄》摘之）。二十四史之一，今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
   "description": {
@@ -317,8 +332,8 @@
       "新唐書藝文志"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-13",
   "loss_status": "extant",
   "resource_groups": {
     "nlc-412004000287": {
@@ -344,6 +359,9 @@
     },
     "kokusho-300095359": {
       "label": "國書·府中之島図石崎藏刊 ［順治１３］"
+    },
+    "ndl-2610340": {
+      "label": "NDL藏本：崇禎13"
     }
   },
   "contained_in": [

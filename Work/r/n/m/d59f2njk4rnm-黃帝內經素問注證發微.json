@@ -159,6 +159,36 @@
         "holder": "城西大水田図",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100410614/manifest"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2607481",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2607481",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2607481",
+        "edition": "慶長13 [1608]"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2605506",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2605506",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2605506",
+        "edition": "慶長13 [1608]"
+      }
     }
   ],
   "description": {
@@ -168,7 +198,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "從 1evjxlljpn8qo 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjxlljpn8qo 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "additional_titles": [
     "黃帝內經素問註證發微"
   ],
@@ -184,8 +214,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-13",
   "resource_groups": {
     "kokusho-100317185": {
       "label": "國書·京大富士川藏刊 寛永５"
@@ -204,6 +234,12 @@
     },
     "kokusho-100410614": {
       "label": "國書·城西大水田図藏刊 寛永５"
+    },
+    "ndl-2607481": {
+      "label": "NDL藏本：慶長13 [1608]"
+    },
+    "ndl-2605506": {
+      "label": "NDL藏本：慶長13 [1608]"
     }
   }
 }

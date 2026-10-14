@@ -53,6 +53,22 @@
         "edition": "明治寫",
         "iiif_manifest": "https://dl.ndl.go.jp/api/iiif/2558121/manifest.json"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2557928",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2557928",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2557928",
+        "edition": "光緒15 [1889]"
+      },
+      "details": "NDL 非全網公開（送信サービス限定：個人送信須 NDL 本登録，或到圖書館送信參加館／NDL 館內閱覽）"
     }
   ],
   "authors": [
@@ -64,7 +80,7 @@
       "name_basis": "2026-08-24 新建 entity `1jcf5151296aa` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。"
     }
   ],
-  "ai_note": "作者「唐李勣等奉敕撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkabs3cmiv4 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evcpd3w6eghs()（不同作者，故新建獨立 Work）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（二十一卷），今據以補。\n\n2026-09-06 qa-sweep/suitang G 類·重出併條：2026-09-06 qa-sweep/suitang G 類：《新修本草》唐顯慶年間官修——本條撰人著「蘇敬」，keeper 著「李勣」：二人皆本書之撰者（李勣領銜監修、蘇敬〔蘇恭〕實任主纂，唐世官修之書例以領銜大臣具名，見《舊唐書》本傳），非異書。keeper 已有卷數（二十一卷，與本書通行卷數合），逕併，本條「(存十一卷)」之殘存卷數移入 merged_in 記存。",
+  "ai_note": "作者「唐李勣等奉敕撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkabs3cmiv4 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evcpd3w6eghs()（不同作者，故新建獨立 Work）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（二十一卷），今據以補。\n\n2026-09-06 qa-sweep/suitang G 類·重出併條：2026-09-06 qa-sweep/suitang G 類：《新修本草》唐顯慶年間官修——本條撰人著「蘇敬」，keeper 著「李勣」：二人皆本書之撰者（李勣領銜監修、蘇敬〔蘇恭〕實任主纂，唐世官修之書例以領銜大臣具名，見《舊唐書》本傳），非異書。keeper 已有卷數（二十一卷，與本書通行卷數合），逕併，本條「(存十一卷)」之殘存卷數移入 merged_in 記存。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "description": {
     "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故觀000440-000449）。日本影古鈔卷子本。",
     "sources": [
@@ -86,8 +102,8 @@
     }
   ],
   "measure_info": "二十一卷",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-13",
   "additional_titles": [
     "新修本草二十卷(存十一卷)"
   ],
@@ -105,6 +121,9 @@
   "resource_groups": {
     "ndl-2558121": {
       "label": "NDL藏本：明治寫"
+    },
+    "ndl-2557928": {
+      "label": "NDL藏本（送信限定）：光緒15 [1889]"
     }
   }
 }

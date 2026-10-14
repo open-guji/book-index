@@ -43,13 +43,13 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1evkpqmiw7oqo 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善023417-023432），無同名 Work 故新建。\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 16，與著錄原文（清史稿藝文志：「國朝詩別裁集」）所載之 36 卷不合，今據原文訂正。",
+  "ai_note": "從 1evkpqmiw7oqo 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善023417-023432），無同名 Work 故新建。\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 16，與著錄原文（清史稿藝文志：「國朝詩別裁集」）所載之 36 卷不合，今據原文訂正。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "updated_at": "2026-08-19T00:00:00-07:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-10-13",
   "resources": [
     {
@@ -74,11 +74,30 @@
         "nlc_fid": "312002090456",
         "edition": "清乾隆間[1736-1795]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-14363774",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/14363774",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid14363774",
+        "edition": "光緒9"
+      },
+      "details": "NDL 僅限館內閱覽（國立國會圖書館內限定，無線上公開）"
     }
   ],
   "resource_groups": {
     "nlc-312002090456": {
       "label": "國圖藏本：清乾隆間[1736-1795]"
+    },
+    "ndl-14363774": {
+      "label": "NDL藏本（館內限定）：光緒9"
     }
   }
 }
