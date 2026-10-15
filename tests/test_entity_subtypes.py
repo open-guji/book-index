@@ -470,3 +470,38 @@ def test_canonical_dynasties_missing_raises(tmp_path):
     p.write_text("# 无表\n", encoding="utf-8")
     with pytest.raises(RuntimeError):
         es.load_canonical_dynasties(str(p))
+
+
+# ---- N01–N03：人物籍贯 native_place_entity_id
+def _np(v, *extra, base=None):
+    p = base or dict(people("p2"), native_place_entity_id=v)
+    reg = reg_of(*BASE, *extra, p)
+    return sorted((c, lv) for c, lv, _, _ in es.check_native_place(p, reg))
+
+
+def test_native_place_entity_id():
+    pl = place("pl1")
+    assert es.check_native_place(people("p2"), reg_of(*BASE)) == []        # 缺字段＝合法，旧数据不受影响
+    assert _np("pl1", pl) == []                                              # 指向 place＝过
+    assert _np("nope", pl) == [("N02", es.ERROR)]                           # 不存在
+    assert _np("p1", pl) == [("N02", es.ERROR)]                             # 指向 people
+    assert _np("", pl) == [("N01", es.ERROR)] and _np(None, pl) == [("N01", es.ERROR)]
+    assert _np(123, pl) == [("N01", es.ERROR)]
+    tomb = place("pl2", merged_into="pl1")
+    assert _np("pl2", pl, tomb) == [("N03", es.WARN)]                       # 墓碑只警告
+    bad = dict(place("pl3"), native_place_entity_id="pl1")                  # 非 people 不许带
+    assert _np(None, pl, base=bad) == [("N01", es.ERROR)]
+    keep = dict(people("p3"), native_place="沛縣", native_place_basis="x", native_place_entity_id="pl1")
+    assert _np(None, pl, base=keep) == []                                    # 旧字段并存
+
+
+def test_native_place_entity_id_in_check_v2(tmp_path):
+    import os
+    root = tmp_path
+    for r in (place("pl1"), dict(people("p2"), native_place_entity_id="nope")):
+        f = root / "Entity" / "x" / "y" / "z" / ("%s-t.json" % r["id"])
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(json.dumps(r, ensure_ascii=False), encoding="utf-8")
+    reg = es.Registry.from_root(str(root))
+    rows = check_v2.check_file(str(root), "Entity/x/y/z/p2-t.json", reg)
+    assert any(r[3] == "N02" and r[6] == es.ERROR for r in rows)

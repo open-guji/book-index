@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-10-15　people 加 `native_place_entity_id`（籍贯回挂地名 Entity；GUJI-237，ai-team#2 Marcus 6182137410）
+
+- `entity.schema.json` 加 `native_place_entity_id`（非空字符串），非 people 子类型的「不许带」清单同步加；`entity.md` 字段表加一行。旧 `native_place`／`native_place_basis` 保留不改语义；缺此字段的旧数据仍合法。
+- `check_v2` 增 N01（非 people 或非字符串，ERROR）、N02（不存在或非 place，ERROR）、N03（指向墓碑，WARN，提示跟 `merged_into`），实现在 `.claude/qa/entity_subtypes.py` 的 `check_native_place`，草稿库用 `--ref-root` 指正式库即可解析正式 id。
+- 不进 `index/entities`（同 `native_place` 不入索引）；网站展示（EntityPage 读该 id 链到地名页）另案，不在本次。
+
 ## 2026-10-13　Book 加 `merged_into`（墓碑，用户定「Schema 口径放行，Book 墓碑用 A」；GUJI-89 薈要重复 Book 合并）
 
 - `book.schema.json` 加 `merged_into`（Id）；`book.md` 字段表加一行。墓碑只留 `schema_version／id／type／title／work_id／merged_into／revision／revised_at`，与 Work 墓碑同形；keeper 的 `merged_from` 记被并 id。网站 `item-redirect` 读 `merged_into`，对 Book 同样 308。
