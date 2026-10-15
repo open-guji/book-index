@@ -37,7 +37,7 @@
       "欽定四庫全書總目"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "juan_count": {
     "number": 35
   },
@@ -54,8 +54,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-14",
   "resources": [
     {
       "name": "维基共享资源",
@@ -79,11 +79,74 @@
         "nlc_fid": "411999032599",
         "edition": "明萬曆[1573-1620]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084536",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084536",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084536",
+        "request_no": "３６７－００２９",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5065653/manifest.json",
+        "extent": "13冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084547",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084547",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084547",
+        "request_no": "３６７－００４３",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4008534/manifest.json",
+        "extent": "12冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078947",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078947",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078947",
+        "request_no": "子１３３－０００３",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4493418/manifest.json",
+        "extent": "13冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999032599": {
       "label": "國圖藏本：明萬曆[1573-1620]"
+    },
+    "naikaku-1084536": {
+      "label": "內閣文庫藏本：明刊本（367-0029，13冊）"
+    },
+    "naikaku-1084547": {
+      "label": "內閣文庫藏本：明刊本（367-0043，12冊）"
+    },
+    "naikaku-1078947": {
+      "label": "內閣文庫藏本：明刊本（子133-0003，13冊）"
     }
   }
 }

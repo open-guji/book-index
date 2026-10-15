@@ -243,6 +243,60 @@
         "holder": "筑波大図",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100222464/manifest"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068373",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068373",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068373",
+        "request_no": "２９３－０１２５",
+        "edition": "刊本::清同治:100000:学海堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4909827/manifest.json",
+        "extent": "40冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068372",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068372",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068372",
+        "request_no": "２９３－０１１９",
+        "edition": "刊本:明嘉靖:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4768097/manifest.json",
+        "extent": "48冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067353",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067353",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067353",
+        "request_no": "別０３２－０００１",
+        "edition": "刊本::清咸豊:090000:崇仁謝氏",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4202496/manifest.json",
+        "extent": "40冊"
+      }
     }
   ],
   "measures": [
@@ -266,7 +320,7 @@
       ]
     }
   ],
-  "ai_note": "合併：題名「杜佑通典」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「杜佑」已見本條 authors[]），裸題「通典」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwaycfitc 與 11q37q2yxi1a8 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 補全（著錄 ≥7 源批）：所據為本條所繫著錄之引文（見 indexed_by／emendated_by，尤以四庫提要、崇文總目、直齋書錄解題、經義考之敘錄為主）及通行學術常識，未覆核原書。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…起黃虞、下迄天寶，「三通」之首，今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。",
+  "ai_note": "合併：題名「杜佑通典」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「杜佑」已見本條 authors[]），裸題「通典」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwaycfitc 與 11q37q2yxi1a8 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 補全（著錄 ≥7 源批）：所據為本條所繫著錄之引文（見 indexed_by／emendated_by，尤以四庫提要、崇文總目、直齋書錄解題、經義考之敘錄為主）及通行學術常識，未覆核原書。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…起黃虞、下迄天寶，「三通」之首，今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
   "description": {
@@ -281,8 +335,8 @@
       "新唐書藝文志"
     ]
   },
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-14",
   "loss_status": "extant",
   "resource_groups": {
     "nlc-CBM0900": {
@@ -305,6 +359,15 @@
     },
     "kokusho-100222464": {
       "label": "國書·筑波大図藏写"
+    },
+    "naikaku-1068373": {
+      "label": "內閣文庫藏本：清同治10年刊本 学海堂（293-0125，40冊）"
+    },
+    "naikaku-1068372": {
+      "label": "內閣文庫藏本：明嘉靖刊本（293-0119，48冊）"
+    },
+    "naikaku-1067353": {
+      "label": "內閣文庫藏本：清咸豊9年刊本 崇仁謝氏（別032-0001，40冊）"
     }
   }
 }

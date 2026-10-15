@@ -145,6 +145,60 @@
         "holder": "肥前松平文庫",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300000451/manifest"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070708",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070708",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070708",
+        "request_no": "２７７－００４７",
+        "edition": "刊本:江戸:::／印年::寛永:130000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4030072/manifest.json",
+        "extent": "20冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074271",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074271",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074271",
+        "request_no": "２７７－００４５",
+        "edition": "刊本:江戸:::／印年::寛永:130000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4029954/manifest.json",
+        "extent": "15冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074270",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074270",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074270",
+        "request_no": "経０３９－０００１",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4437932/manifest.json",
+        "extent": "20冊"
+      }
     }
   ],
   "measures": [
@@ -159,7 +213,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvvr6czk0 與 11q37oot6wikg 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvvr6czk0 與 11q37oot6wikg 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "蔡清（明）撰。十五卷。見著錄於《欽定四庫全書總目》《明史藝文志》《經義考》。《經義考》列於四書。其著錄之文，《明史藝文志》作「蔡清《四書蒙引》十五卷」。《欽定四庫全書總目》清乾隆間館臣修；《明史藝文志》清張廷玉等修——本書之目賴之以存。",
     "sources": [
@@ -168,14 +222,23 @@
       "經義考"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-14",
   "resource_groups": {
     "kokusho-100452675": {
       "label": "國書·東洋大哲学堂藏刊"
     },
     "kokusho-300000451": {
       "label": "國書·肥前松平文庫藏刊 寛永１３"
+    },
+    "naikaku-1070708": {
+      "label": "內閣文庫藏本：江戸刊本 /印年（277-0047，20冊）"
+    },
+    "naikaku-1074271": {
+      "label": "內閣文庫藏本：江戸刊本 /印年（277-0045，15冊）"
+    },
+    "naikaku-1074270": {
+      "label": "內閣文庫藏本：明刊本（経039-0001，20冊）"
     }
   }
 }

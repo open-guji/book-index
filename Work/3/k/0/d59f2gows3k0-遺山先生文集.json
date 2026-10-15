@@ -16,15 +16,15 @@
       "中華再造善本"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→金; 據 author.dynasty 集合補「金」]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→金; 據 author.dynasty 集合補「金」]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "id": "d59f2gows3k0",
   "updated_at": "2026-08-09T09:33:12+00:00",
   "period": "liao-jin-yuan",
   "period_basis": "據 authors[0].dynasty「金」",
   "dynasty": "金",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.2",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-14",
   "resources": [
     {
       "name": "维基文库",
@@ -71,6 +71,60 @@
         "nlc_fid": "411999018355",
         "edition": "明弘治11年[1498]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073801",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073801",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073801",
+        "request_no": "集０１４－０００９",
+        "edition": "刊本（序刊）::明弘治:110000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4771462/manifest.json",
+        "extent": "21冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073802",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073802",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073802",
+        "request_no": "３１６－００４９",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5086336/manifest.json",
+        "extent": "16冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071807",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071807",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071807",
+        "request_no": "３１６－００３４",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3673007/manifest.json",
+        "extent": "12冊"
+      }
     }
   ],
   "resource_groups": {
@@ -79,6 +133,15 @@
     },
     "nlc-411999018355": {
       "label": "國圖藏本：明弘治11年[1498]"
+    },
+    "naikaku-1073801": {
+      "label": "內閣文庫藏本：明弘治11年刊本（序刊）（集014-0009，21冊）"
+    },
+    "naikaku-1073802": {
+      "label": "內閣文庫藏本：清刊本（316-0049，16冊）"
+    },
+    "naikaku-1071807": {
+      "label": "內閣文庫藏本：江戸写本（316-0034，12冊）"
     }
   }
 }
