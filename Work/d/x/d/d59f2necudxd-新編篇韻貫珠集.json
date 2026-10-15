@@ -29,7 +29,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 3 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "juan_count": {
     "number": 1
   },
@@ -46,8 +46,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-15",
   "resources": [
     {
       "name": "维基共享资源",
@@ -56,6 +56,62 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NLC892-312002108709-312921_%E6%96%B0%E7%B7%A8%E7%AF%87%E9%9F%BB%E8%B2%AB%E7%8F%A0%E9%9B%86_%E5%85%AB%E5%8D%B7.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312002108708",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312002108708",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312002108708",
+        "edition": "明弘治11年[1498]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312002108709",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312002108709",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312002108709",
+        "edition": "釋覺恒   明正德11年[1516]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312002108711",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312002108711",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312002108711",
+        "edition": "明正德10年[1515]   明正德38年[1556]重修"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-312002108708": {
+      "label": "國圖藏本：明弘治11年[1498]"
+    },
+    "nlc-312002108709": {
+      "label": "國圖藏本：釋覺恒   明正德11年[1516]"
+    },
+    "nlc-312002108711": {
+      "label": "國圖藏本：明正德10年[1515]   明正德38年[1556]重修"
+    }
+  }
 }

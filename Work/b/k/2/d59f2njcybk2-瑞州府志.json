@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志000469-000478）。阶段 5 兜底建立。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志000469-000478）。阶段 5 兜底建立。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "juan_count": {
     "number": 24
   },
@@ -34,8 +34,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-15",
   "resources": [
     {
       "name": "维基共享资源",
@@ -44,6 +44,26 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:SSID-10116349_%E7%91%9E%E5%B7%9E%E5%BA%9C%E5%BF%97_%E4%B8%80%E3%80%81%E4%BA%8C.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-CBM0883",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=CBM0883",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "CBM0883",
+        "edition": "明崇禎[1627-1644]"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-CBM0883": {
+      "label": "國圖藏本：明崇禎[1627-1644]"
+    }
+  }
 }

@@ -114,6 +114,21 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4503374/manifest.json",
         "extent": "20冊"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ho04_00737",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ho04/ho04_00737/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ho04_00737",
+        "edition": "崇禎7[1634]序"
+      }
     }
   ],
   "measures": [
@@ -128,7 +143,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "呂維祺（明）撰。七十卷；諸志所著之數有異，別作六十卷、六十四卷。見著錄於《欽定四庫全書總目》《明史藝文志》《續修四庫全書》《四庫全書存目叢書》。《續修四庫全書》列於经部 小學類；《四庫全書存目叢書》列於经部。",
     "sources": [
@@ -138,7 +153,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-14",
   "resource_groups": {
     "naikaku-1071063": {
@@ -146,6 +161,9 @@
     },
     "naikaku-1070359": {
       "label": "內閣文庫藏本：明崇禎7年刊本（序刊）（経045-0006，20冊）"
+    },
+    "waseda-ho04_00737": {
+      "label": "早稲田藏本：崇禎7[1634]序"
     }
   }
 }
