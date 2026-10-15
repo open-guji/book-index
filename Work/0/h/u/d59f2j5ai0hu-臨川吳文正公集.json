@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 24 取自 `measure_info`「二十四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 24 取自 `measure_info`「二十四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "measures": [
     {
       "unit": "冊",
@@ -30,8 +30,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-14",
   "resources": [
     {
       "name": "维基共享资源",
@@ -85,6 +85,42 @@
         "nlc_fid": "412000000702",
         "edition": "明宣德10年[1435]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082368",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082368",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082368",
+        "request_no": "３１６－００４２",
+        "edition": "写本::享和:030000:昌平黌",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5086276/manifest.json",
+        "extent": "19冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073850",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073850",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073850",
+        "request_no": "集０１５－０００１",
+        "edition": "刊本（序刊）::明成化:200000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4393759/manifest.json",
+        "extent": "16冊"
+      }
     }
   ],
   "resource_groups": {
@@ -96,6 +132,12 @@
     },
     "nlc-412000000702": {
       "label": "國圖藏本：明宣德10年[1435]"
+    },
+    "naikaku-1082368": {
+      "label": "內閣文庫藏本：享和3年写本 昌平黌（316-0042，19冊）"
+    },
+    "naikaku-1073850": {
+      "label": "內閣文庫藏本：明成化20年刊本（序刊）（集015-0001，16冊）"
     }
   },
   "indexed_by": [
