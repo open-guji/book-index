@@ -16,11 +16,15 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjr3z7iwoao(熊均)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 B-修（错挂核对）：Wikimedia Commons 文件页作者栏与本条作者不符，已摘除 1 条 commons 挂接（同一文件页另有作者相符的同题 Work 保留）。依据见 overview 馆藏资源挂接/计划/B修-commons批1-v2初判.tsv。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjr3z7iwoao(熊均)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 B-修（错挂核对）：Wikimedia Commons 文件页作者栏与本条作者不符，已摘除 1 条 commons 挂接（同一文件页另有作者相符的同题 Work 保留）。依据见 overview 馆藏资源挂接/计划/B修-commons批1-v2初判.tsv。\n\n2026-10-15 Elias 併條（rule=A）：併 d59f2nejpm2p《新刊勿聽子俗解八十一難經》 入本條。同书并条，同Entity熊宗立（#526后；Selene规格）\n\n同书并条（R7，规则A，book-index#526 实体并后）：并入 Work d59f2nejpm2p（熊宗立/熊均 同Entity hixhd2h9bhvt；keeper署名熊宗立，被并方熊均署名与name_basis并入ai_note）。资源、著录由 apply_patch 搬入。\n\n2026-10-15 被并 d59f2nejpm2p 署「熊均」（同 Entity hixhd2h9bhvt），其 name_basis：2026-08-24 新建 entity `1jcf51512979i` 並繫之（庫中舊無其人）；该 entity 已由 book-index#526 并入熊宗立。被并方 measure_info 作「六卷」，与本条「三冊」不同未搬，juan_count 6 已搬入。",
   "measures": [
     {
       "unit": "冊",
       "number": 3
+    },
+    {
+      "unit": "卷",
+      "number": 6
     }
   ],
   "measure_info": "三冊",
@@ -168,6 +172,26 @@
         "holder": "京大谷村",
         "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00011986/manifest.json"
       }
+    },
+    {
+      "id": "wikimedia-commons-xuxiu",
+      "name": "維基共享 續修四庫全書 PDF",
+      "short_name": "維基共享",
+      "url": "https://commons.wikimedia.org/wiki/File:%E7%BA%8C%E4%BF%AE%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E7%AC%AC0983%E5%86%8A.pdf",
+      "metadata": {
+        "volume": 983
+      },
+      "types": [
+        "image"
+      ]
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:%E6%96%B0%E5%88%8A%E5%8B%BF%E8%81%BD%E5%AD%90%E4%BF%97%E8%A7%A3%E5%85%AB%E5%8D%81%E4%B8%80%E9%9B%A3%E7%B6%93%28%E4%B8%80%29.djvu"
     }
   ],
   "resource_groups": {
@@ -195,5 +219,30 @@
     "kokusho-100386178": {
       "label": "國書·京大谷村藏刊 天文５"
     }
-  }
+  },
+  "juan_count": {
+    "number": 6
+  },
+  "indexed_by": [
+    {
+      "source": "續修四庫全書",
+      "source_bid": "d59f2og4vksh",
+      "title_info": "《新刊勿聽子俗解八十一難經》六卷",
+      "author_info": "明熊均撰",
+      "summary": "《新刊勿聽子俗解八十一難經》六卷。明熊均撰。影印北京大學圖書館藏日本寬永四年(1627)刻本。",
+      "edition": "影印北京大學圖書館藏日本寬永四年(1627)刻本",
+      "volume": "第983冊",
+      "section": "子部 醫家類"
+    }
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2nejpm2p",
+      "title": "新刊勿聽子俗解八十一難經",
+      "at": "2026-10-15T12:42:54Z",
+      "by": "Elias",
+      "rule": "A",
+      "why": "同书并条，同Entity熊宗立（#526后；Selene规格）"
+    }
+  ]
 }
