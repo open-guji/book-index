@@ -1,3 +1,5 @@
 # 读侧旧读法允许清单（overview#606 V4；≤5 行）。格式：<仓名/路径>:<匹配该行的正则>  # 理由
 # 每行必须写理由；清单只许缩不许涨。S3/S4 删完读法后应只剩真·长期保留项。
 book-index-manager/book_index_manager/entry_extractor.py:_has_collated.*has_collated  # has_collated 源档透传：目录总管 10-07 定保留（SCHEMA〈十〉例外），B4 步骤 6 定去留前不算旧读法
+kaiyuanguji-web/ops/data-package-check.mjs:_has_(text|image|collated)  # 打包校验按"index 条目 has_*／derived 文档 _has_*"两种键各数一遍：_has_* 是 build_derived.py 现行产出、ops/data-contract.mjs 列为合法派生键，不是旧回退；B5 定是否只数一种前不算旧读法
+kaiyuanguji-web/nextjs/scripts/lib/item-http.mjs:_has_(text|image)  # 抽样挑有文本/图像的 work 条目，同时认 index 的 has_* 与 derived 的 _has_*（同上，现行合法键）；B5 定去留前不算旧读法
