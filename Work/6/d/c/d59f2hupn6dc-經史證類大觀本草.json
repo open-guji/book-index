@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 7 取自 `measure_info`「七冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 7 取自 `measure_info`「七冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-14",
   "resources": [
     {
       "name": "维基共享资源",
@@ -71,6 +71,60 @@
         "nlc_fid": "412004000777",
         "edition": "元大德6年[1302]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076347",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076347",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076347",
+        "request_no": "３０４－０２８８",
+        "edition": "刊本::安永:040000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4917955/manifest.json",
+        "extent": "25冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078778",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078778",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078778",
+        "request_no": "３０４－０２８６",
+        "edition": "刊本::安永:040000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4917930/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610967",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610967",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610967",
+        "request_no": "３０４－０２８９",
+        "edition": "刊本:朝鮮:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3895698/manifest.json",
+        "extent": "10冊"
+      }
     }
   ],
   "resource_groups": {
@@ -79,6 +133,15 @@
     },
     "nlc-412004000777": {
       "label": "國圖藏本：元大德6年[1302]"
+    },
+    "naikaku-1076347": {
+      "label": "內閣文庫藏本：安永4年刊本（304-0288，25冊）"
+    },
+    "naikaku-1078778": {
+      "label": "內閣文庫藏本：安永4年刊本（304-0286，5冊）"
+    },
+    "naikaku-3610967": {
+      "label": "內閣文庫藏本：朝鮮刊本（304-0289，10冊）"
     }
   }
 }

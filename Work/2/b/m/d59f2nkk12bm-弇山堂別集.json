@@ -133,6 +133,60 @@
         "holder": "筑波大図",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100193334/manifest"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068467",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068467",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068467",
+        "request_no": "２８６－０１６０",
+        "edition": "刊本:明:::翁氏雨金堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4903571/manifest.json",
+        "extent": "22冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070384",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070384",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070384",
+        "request_no": "２８６－０１６７",
+        "edition": "刊本::明万暦:180000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4274446/manifest.json",
+        "extent": "32冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068857",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068857",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068857",
+        "request_no": "史０４３－０００３",
+        "edition": "刊本::明万暦:180000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4406038/manifest.json",
+        "extent": "16冊"
+      }
     }
   ],
   "resource_groups": {
@@ -141,6 +195,15 @@
     },
     "kokusho-100193334": {
       "label": "國書·筑波大図藏刊"
+    },
+    "naikaku-1068467": {
+      "label": "內閣文庫藏本：明刊本 翁氏雨金堂（286-0160，22冊）"
+    },
+    "naikaku-1070384": {
+      "label": "內閣文庫藏本：明万暦18年刊本（286-0167，32冊）"
+    },
+    "naikaku-1068857": {
+      "label": "內閣文庫藏本：明万暦18年刊本（史043-0003，16冊）"
     }
   },
   "measures": [
@@ -155,7 +218,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw30wugw0 與 11q37pd61rcao 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw30wugw0 與 11q37pd61rcao 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "王世貞（明）撰。一百卷。見著錄於《欽定四庫全書總目》《明史藝文志》。別集之屬，所收為其人之詩文。《欽定四庫全書總目》清乾隆間館臣修；《明史藝文志》清張廷玉等修——本書之目賴之以存。",
     "sources": [
@@ -163,6 +226,6 @@
       "明史藝文志"
     ]
   },
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13"
+  "revision": "1.3.0",
+  "revised_at": "2026-10-14"
 }

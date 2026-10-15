@@ -147,6 +147,24 @@
         "nlc_fid": "411999005639",
         "edition": "明正德12年[1517]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071998",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071998",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071998",
+        "request_no": "経０４９－０００４",
+        "edition": "刊本（序刊）::明万暦:380000:見過斎",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4503492/manifest.json",
+        "extent": "6冊"
+      }
     }
   ],
   "measures": [
@@ -161,7 +179,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvy5j1dds 與 11q37oukx0s8w 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvy5j1dds 與 11q37oukx0s8w 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "趙撝謙（明）撰。十二卷。見著錄於《欽定四庫全書總目》《國史經籍志》。其著錄之文，《國史經籍志》作「《六書本義》十二卷（趙撝謙）」。《欽定四庫全書總目》清乾隆間館臣修；《國史經籍志》明焦竑撰——本書之目賴之以存。",
     "sources": [
@@ -169,8 +187,8 @@
       "國史經籍志"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-14",
   "resource_groups": {
     "nlc-411999016492": {
       "label": "國圖藏本：明萬曆38年[1610]"
@@ -180,6 +198,9 @@
     },
     "nlc-411999005639": {
       "label": "國圖藏本：明正德12年[1517]"
+    },
+    "naikaku-1071998": {
+      "label": "內閣文庫藏本：明万暦38年刊本（序刊） 見過斎（経049-0004，6冊）"
     }
   }
 }
