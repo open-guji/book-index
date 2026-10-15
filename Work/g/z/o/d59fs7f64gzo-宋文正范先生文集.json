@@ -31,9 +31,9 @@
       "summary": "共 1 個版本：（國家圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：l1ases5smojdj825",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：l1ases5smojdj825\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-14",
   "resources": [
     {
       "id": "nlc",
@@ -49,11 +49,53 @@
         "nlc_fid": "411999010955",
         "edition": "明萬曆36年[1608]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3611439",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3611439",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3611439",
+        "request_no": "３１３－０３９３",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3672286/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083668",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083668",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083668",
+        "request_no": "集００５－０００１",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4397190/manifest.json",
+        "extent": "10冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999010955": {
       "label": "國圖藏本：明萬曆36年[1608]"
+    },
+    "naikaku-3611439": {
+      "label": "內閣文庫藏本：江戸写本（313-0393，10冊）"
+    },
+    "naikaku-1083668": {
+      "label": "內閣文庫藏本：明刊本（集005-0001，10冊）"
     }
   }
 }

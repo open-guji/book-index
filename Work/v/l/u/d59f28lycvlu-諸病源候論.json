@@ -19,6 +19,24 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079602",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079602",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079602",
+        "request_no": "子０２２－０００１",
+        "edition": "写本:江戸初:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4756300/manifest.json",
+        "extent": "14冊"
+      }
     }
   ],
   "authors": [
@@ -29,7 +47,7 @@
       "entity_id": "hixhd2h9bhjj"
     }
   ],
-  "ai_note": "作者「隋巢元方等撰」補自《國立故宮博物院善本舊籍》目錄。 [sui-tang-round1: dynasty null->隋; 據唯一 author.dynasty「隋」補全]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（五十卷），今據以補。",
+  "ai_note": "作者「隋巢元方等撰」補自《國立故宮博物院善本舊籍》目錄。 [sui-tang-round1: dynasty null->隋; 據唯一 author.dynasty「隋」補全]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（五十卷），今據以補。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "updated_at": "2026-08-20T00:00:00-07:00",
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「隋」",
@@ -45,6 +63,11 @@
     }
   ],
   "measure_info": "五十卷",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-14",
+  "resource_groups": {
+    "naikaku-1079602": {
+      "label": "內閣文庫藏本：江戸初写本（子022-0001，14冊）"
+    }
+  }
 }
