@@ -25,6 +25,17 @@
         "details": "http://data.library.sh.cn/entity/person/gi0z421ww0od78ow"
       },
       "entity_id": "hixhd2h9bf59"
+    },
+    {
+      "name": "李廷機",
+      "role": "校",
+      "dynasty": "明",
+      "source": {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "上圖《中國古籍總目》署「李廷機攷正」"
+      },
+      "entity_id": "hixhd2h9befh"
     }
   ],
   "dynasty": "明",
@@ -41,7 +52,68 @@
       "summary": "共 2 個版本：明萬曆二十二年鄭雲竹宗文書舍刻本（國家圖書館）；明刻本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：b1khgx6din8bt4c1、q4h146r4p6fc3fjz\n責任者 role 異常未寫入：李廷機攷正",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：b1khgx6din8bt4c1、q4h146r4p6fc3fjz\n責任者 role 異常未寫入：李廷機攷正\n\n2026-10-15 Elias 併條（rule=攷考异写并条(GUJI-89)）：併 d59f2njvzsar《鐫翰林考正國朝七子詩集注解》 入本條。考／攷异写重复Work（Selene 攷考规格 66109608，Marlowe 转派）\n\n2026-10-15 Elias（攷考规格 Selene 66109608）：并入 d59f2njvzsar《鐫翰林考正國朝七子詩集注解》（7卷）；其撰人原作融合串「李攀龍王世貞」，实为同二人；撰人已补 李廷機（校，明；总目署「李廷機攷正」）；其余纂修者待补。",
   "revision": "1.0.0",
-  "revised_at": "2026-10-08"
+  "revised_at": "2026-10-08",
+  "resources": [
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC892-411999028204-148302_%E9%90%AB%E7%BF%B0%E6%9E%97%E8%80%83%E6%AD%A3%E5%9C%8B%E6%9C%9D%E4%B8%83%E5%AD%90%E8%A9%A9%E9%9B%86%E6%B3%A8%E8%A7%A3.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999028485",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999028485",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999028485",
+        "edition": "明[1368-1644]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999028204",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999028204",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999028204",
+        "edition": "明萬曆22年[1594]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-411999028485": {
+      "label": "國圖藏本：明[1368-1644]"
+    },
+    "nlc-411999028204": {
+      "label": "國圖藏本：明萬曆22年[1594]"
+    }
+  },
+  "additional_titles": [
+    "鐫翰林考正國朝七子詩集注解"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2njvzsar",
+      "title": "鐫翰林考正國朝七子詩集注解",
+      "at": "2026-10-15T07:48:01Z",
+      "by": "Elias",
+      "rule": "攷考异写并条(GUJI-89)",
+      "why": "考／攷异写重复Work（Selene 攷考规格 66109608，Marlowe 转派）"
+    }
+  ]
 }

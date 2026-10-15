@@ -23,7 +23,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 60 取自 `measure_info`「六十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-15 Elias 併條（rule=GUJI-89 薈要并条）：併 d59f2nhzxxxd《御定醫宗金鑑》 入本條。同书拆多Work（Selene 规格／Sabine S1 裁定 2026-10-15）\n2026-10-15 GUJI-89 并条：卷数取總目九十卷（被併條原值十卷為誤）；鄂爾泰與吳謙等兩側責任者並存（共同責任者）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 60 取自 `measure_info`「六十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-15 Elias 併條（rule=GUJI-89 薈要并条）：併 d59f2nhzxxxd《御定醫宗金鑑》 入本條。同书拆多Work（Selene 规格／Sabine S1 裁定 2026-10-15）\n2026-10-15 GUJI-89 并条：卷数取總目九十卷（被併條原值十卷為誤）；鄂爾泰與吳謙等兩側責任者並存（共同責任者）。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "measures": [
     {
       "unit": "冊",
@@ -41,7 +41,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-15",
   "resources": [
     {
@@ -111,6 +111,21 @@
         "holder": "千葉大古医書",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300056026/manifest"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ya09_00595",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ya09/ya09_00595/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ya09_00595",
+        "edition": "[北京] : 武英殿, 乾隆7[1742]"
+      }
     }
   ],
   "resource_groups": {
@@ -125,6 +140,9 @@
     },
     "kokusho-300056026": {
       "label": "國書·千葉大古医書藏刊 ［乾隆７］"
+    },
+    "waseda-ya09_00595": {
+      "label": "早稲田藏本：[北京] : 武英殿, 乾隆7[1742]"
     }
   },
   "juan_count": {

@@ -141,6 +141,60 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E8%97%8F%E6%9B%B8%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067662",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067662",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067662",
+        "request_no": "史０４３－０００１",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4424494/manifest.json",
+        "extent": "24冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070164",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070164",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070164",
+        "request_no": "２８６－００６５",
+        "edition": "刊本:明万暦:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4903037/manifest.json",
+        "extent": "44冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3609916",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3609916",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3609916",
+        "request_no": "２８６－００６１",
+        "edition": "刊本:明天啓:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3735133/manifest.json",
+        "extent": "34冊"
+      }
     }
   ],
   "measures": [
@@ -155,7 +209,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-20 整理本落空繫連回收專項：整理本有節繫於已不存在之 work id（`1evr5e3mezpd0`），據題名唯一回收於本條，並補其著錄。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-20 整理本落空繫連回收專項：整理本有節繫於已不存在之 work id（`1evr5e3mezpd0`），據題名唯一回收於本條，並補其著錄。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "李贄（明）撰。六十八卷；諸志所著之數有異，別作十二卷。見著錄於《欽定四庫全書總目》《明史藝文志》《續修四庫全書》《四庫全書存目叢書》《清史稿藝文志》。《續修四庫全書》列於史部 史部；《四庫全書存目叢書》列於史部。",
     "sources": [
@@ -166,6 +220,17 @@
       "清史稿藝文志"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-15",
+  "resource_groups": {
+    "naikaku-1067662": {
+      "label": "內閣文庫藏本：明刊本（史043-0001，24冊）"
+    },
+    "naikaku-1070164": {
+      "label": "內閣文庫藏本：明万暦刊本（286-0065，44冊）"
+    },
+    "naikaku-3609916": {
+      "label": "內閣文庫藏本：明天啓刊本（286-0061，34冊）"
+    }
+  }
 }

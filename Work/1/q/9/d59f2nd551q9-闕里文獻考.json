@@ -72,6 +72,42 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E9%97%95%E9%87%8C%E6%96%87%E7%8D%BB%E8%80%83%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070728",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070728",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070728",
+        "request_no": "２８７－００６５",
+        "edition": "刊本（序刊）::清乾隆:270000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4274773/manifest.json",
+        "extent": "12冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068740",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068740",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068740",
+        "request_no": "史０６６－００１１",
+        "edition": "刊本（序刊）::清乾隆:270000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4418039/manifest.json",
+        "extent": "8冊"
+      }
     }
   ],
   "description": {
@@ -80,7 +116,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1evkpuphfud4w 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善024494-024501）。阶段 5 兜底建立。\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（一百卷），今據以補。",
+  "ai_note": "從 1evkpuphfud4w 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善024494-024501）。阶段 5 兜底建立。\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（一百卷），今據以補。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "updated_at": "2026-08-20T00:00:00-07:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
@@ -96,6 +132,14 @@
     }
   ],
   "measure_info": "一百卷",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-14",
+  "resource_groups": {
+    "naikaku-1070728": {
+      "label": "內閣文庫藏本：清乾隆27年刊本（序刊）（287-0065，12冊）"
+    },
+    "naikaku-1068740": {
+      "label": "內閣文庫藏本：清乾隆27年刊本（序刊）（史066-0011，8冊）"
+    }
+  }
 }
