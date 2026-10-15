@@ -9,6 +9,8 @@ cd "$(dirname "$0")/.." || exit 2
 DRAFT=${DRAFT:-../book-index-draft}; BIM=${BIM:-../book-index-manager}
 WEB=${WEB:-../kaiyuanguji-web};      TEXT=${TEXT:-../book-text}
 OUT=${OUT:-$(mktemp -d)}
+# OUT 不存在则建；建不出或写不进就直接退出 2，不能让日志写失败后原始命中为空而假绿（GUJI-13）
+mkdir -p "$OUT" 2>/dev/null && : >"$OUT/.w" 2>/dev/null && rm -f "$OUT/.w" || { echo "OUT 目录不可写：$OUT" >&2; exit 2; }
 WHAT=${1:-all}
 RESULTS=()
 FAIL=0
