@@ -7,6 +7,13 @@
       "name": "錢肅樂",
       "role": "撰",
       "entity_id": "hixhd2h9bu3d"
+    },
+    {
+      "name": "張采",
+      "role": "纂",
+      "dynasty": "明",
+      "entity_id": "hixhd2h9bm8w",
+      "name_basis": "2026-08-24 補繫 entity（代相鄰者）：本條 authors 有名「張采」而無 entity_id，庫中同名唯一（`1j96hhvcr8mxq`）。entity 代 qing 與本書 ming 相鄰，一人歷易代——兩代首尾相接，一人之壽足以跨之（如宋元之際、元明之際、明清之際），非同名異人，故繫之。二者之代並不改，各存其舊。"
     }
   ],
   "indexed_by": [
@@ -38,13 +45,31 @@
     {
       "unit": "卷",
       "number": 15
+    },
+    {
+      "unit": "冊",
+      "number": 6
     }
   ],
   "measure_info": "十五卷",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
-  "ai_note": "同名異書：庫內已有同題「太倉州志」而撰人各異（張采(明)、桑悅(明)），本條撰人「錢肅樂」與之不合，依《千頃堂書目》著錄逕行新建。\n\nC1b 迁移遗留，按总目改正",
+  "ai_note": "同名異書：庫內已有同題「太倉州志」而撰人各異（張采(明)、桑悅(明)），本條撰人「錢肅樂」與之不合，依《千頃堂書目》著錄逕行新建。\n\nC1b 迁移遗留，按总目改正\n\n2026-10-15 Elias 併條（rule=E1 合纂方志拆Work并(Selene)）：併 d59f2nkla0ox《太倉州志》 入本條。同一志書被按合纂者拆成兩Work，規則A(Selene E1 18對規格，Sabine令)",
   "id": "d59f6eo8bjt2",
   "revision": "1.0.0",
-  "revised_at": "2026-09-01"
+  "revised_at": "2026-09-01",
+  "period": "ming",
+  "period_basis": "據 authors[0].dynasty「明」",
+  "dynasty": "明",
+  "dynasty_basis": "author_propagation",
+  "merged_in": [
+    {
+      "id": "d59f2nkla0ox",
+      "title": "太倉州志",
+      "at": "2026-10-15T09:59:11Z",
+      "by": "Elias",
+      "rule": "E1 合纂方志拆Work并(Selene)",
+      "why": "同一志書被按合纂者拆成兩Work，規則A(Selene E1 18對規格，Sabine令)"
+    }
+  ]
 }
