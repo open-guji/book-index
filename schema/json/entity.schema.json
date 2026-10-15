@@ -73,6 +73,9 @@
     "native_place_basis": {
       "type": "string"
     },
+    "native_place_entity_id": {
+      "$ref": "common.schema.json#/$defs/NonEmptyString"
+    },
     "title_or_office": {
       "type": "string"
     },
@@ -632,6 +635,11 @@
                 },
                 {
                   "required": [
+                    "native_place_entity_id"
+                  ]
+                },
+                {
+                  "required": [
                     "title_or_office"
                   ]
                 },
@@ -850,6 +858,11 @@
                 {
                   "required": [
                     "native_place_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place_entity_id"
                   ]
                 },
                 {
@@ -1078,6 +1091,11 @@
                 },
                 {
                   "required": [
+                    "native_place_entity_id"
+                  ]
+                },
+                {
+                  "required": [
                     "title_or_office"
                   ]
                 },
@@ -1296,6 +1314,11 @@
                 },
                 {
                   "required": [
+                    "native_place_entity_id"
+                  ]
+                },
+                {
+                  "required": [
                     "title_or_office"
                   ]
                 },
@@ -1476,6 +1499,11 @@
                   {
                     "required": [
                       "native_place_basis"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "native_place_entity_id"
                     ]
                   },
                   {
@@ -1730,6 +1758,11 @@
               {
                 "required": [
                   "native_place_basis"
+                ]
+              },
+              {
+                "required": [
+                  "native_place_entity_id"
                 ]
               },
               {
