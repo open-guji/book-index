@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjy8340blds(王德信)（不同作者，故新建獨立 Work）。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 6 取自 `measure_info`「六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-02 lane-B 併條（rule=T64同書重條）：併 d59f2j522lts《新校注古本西廂記》 入本條。新校注古本西廂記×2：題同；撰人王實甫＝王德信（二 entity 已併）；版本同為香雪居刻（故宮條「明萬曆間香雪居刊本」、再造善本條「明萬曆四十二年王氏香雪居刻本」）。保留 d59f2j5a6ry8（entity 王實甫，繫書較備）。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjy8340blds(王德信)（不同作者，故新建獨立 Work）。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 6 取自 `measure_info`「六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-02 lane-B 併條（rule=T64同書重條）：併 d59f2j522lts《新校注古本西廂記》 入本條。新校注古本西廂記×2：題同；撰人王實甫＝王德信（二 entity 已併）；版本同為香雪居刻（故宮條「明萬曆間香雪居刊本」、再造善本條「明萬曆四十二年王氏香雪居刻本」）。保留 d59f2j5a6ry8（entity 王實甫，繫書較備）。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "measures": [
     {
       "unit": "冊",
@@ -30,7 +30,7 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-15",
   "resources": [
     {
@@ -58,6 +58,21 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4769086/manifest.json",
         "extent": "6冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999019901",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999019901",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999019901",
+        "edition": "明萬曆42年[1614]"
+      }
     }
   ],
   "indexed_by": [],
@@ -74,6 +89,9 @@
   "resource_groups": {
     "naikaku-1072120": {
       "label": "內閣文庫藏本：明刊本 香雪居（309-0099，6冊）"
+    },
+    "nlc-411999019901": {
+      "label": "國圖藏本：明萬曆42年[1614]"
     }
   }
 }

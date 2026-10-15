@@ -25,10 +25,10 @@
   },
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
-  "ai_note": "同名異書：庫內已有同題「廬州府志」而撰人各異（張祥雲(清)），本條撰人「杜璁」與之不合，依《千頃堂書目》著錄逕行新建。\n\nC1b 迁移遗留，按总目改正",
+  "ai_note": "同名異書：庫內已有同題「廬州府志」而撰人各異（張祥雲(清)），本條撰人「杜璁」與之不合，依《千頃堂書目》著錄逕行新建。\n\nC1b 迁移遗留，按总目改正\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "id": "d59f6ejsta85",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-15",
   "resources": [
     {
       "id": "nat-archives-jp",
@@ -47,11 +47,29 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4760616/manifest.json",
         "extent": "8冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-0647",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0647",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0647",
+        "edition": "明萬曆[1573-1620]"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1068600": {
       "label": "內閣文庫藏本：明万暦3年刊本（序刊）（史144-0006，8冊）"
+    },
+    "nlc-0647": {
+      "label": "國圖藏本：明萬曆[1573-1620]"
     }
   }
 }
