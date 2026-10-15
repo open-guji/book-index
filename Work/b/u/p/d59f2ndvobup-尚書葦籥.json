@@ -76,6 +76,42 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL02042410_%E5%B0%9A%E6%9B%B8%E8%91%A6%E7%B1%A5%EF%BC%88%E4%B8%80%EF%BC%89.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073977",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073977",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073977",
+        "request_no": "経００６－０００１",
+        "edition": "刊本（序刊）::明崇禎:070000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4421182/manifest.json",
+        "extent": "16冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610388",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610388",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610388",
+        "request_no": "２７３－０１６１",
+        "edition": "刊本（序刊）::明崇禎:070000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3765655/manifest.json",
+        "extent": "20冊"
+      }
     }
   ],
   "measures": [
@@ -96,7 +132,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "潘士遴（明）撰。二十一卷；諸志所著之數有異，別作五十八卷、五十卷。見著錄於《欽定四庫全書總目》《明史藝文志》《四庫全書存目叢書》《經義考》。《四庫全書存目叢書》列於经部；《經義考》列於書。本書為《偽古文尚書》之注釋，其文附原典以行。",
     "sources": [
@@ -106,6 +142,14 @@
       "經義考"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-15",
+  "resource_groups": {
+    "naikaku-1073977": {
+      "label": "內閣文庫藏本：明崇禎7年刊本（序刊）（経006-0001，16冊）"
+    },
+    "naikaku-3610388": {
+      "label": "內閣文庫藏本：明崇禎7年刊本（序刊）（273-0161，20冊）"
+    }
+  }
 }

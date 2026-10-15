@@ -17,13 +17,13 @@
       "中華再造善本"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "id": "d59f24m8ifwg",
   "updated_at": "2026-08-06T22:59:42+00:00",
   "period": "qin-han",
   "period_basis": "據 authors[0].dynasty「東漢」（原作籠統「漢」且無 entity_id，2026-08-11 西漢探勘分期第三階段補繫並訂正）",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-15",
   "resources": [
     {
       "name": "维基共享资源",
@@ -32,6 +32,71 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NAJDA-283-0002_%E4%B8%A1%E6%BC%A2%E7%B4%80_%E6%BC%A2%E7%B4%80%E5%B7%BB1-6.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067489",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067489",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067489",
+        "request_no": "史０１９－０００３",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4501077/manifest.json",
+        "extent": "20冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073276",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073276",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073276",
+        "request_no": "２８３－０００４",
+        "edition": "刊本（序刊）::清康煕:350000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4898937/manifest.json",
+        "extent": "8冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3602546",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3602546",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3602546",
+        "request_no": "２８３－０００２",
+        "edition": "刊本::明万暦:260000:南監",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3637587/manifest.json",
+        "extent": "10冊"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1067489": {
+      "label": "內閣文庫藏本：明刊本（史019-0003，20冊）"
+    },
+    "naikaku-1073276": {
+      "label": "內閣文庫藏本：清康煕35年刊本（序刊）（283-0004，8冊）"
+    },
+    "naikaku-3602546": {
+      "label": "內閣文庫藏本：明万暦26年刊本 南監（283-0002，10冊）"
+    }
+  }
 }
