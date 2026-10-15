@@ -114,6 +114,36 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3970149/manifest.json",
         "extent": "6冊"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_03082",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_03082/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_03082",
+        "edition": "[江戸] : [昌平坂学問所], 文化8[1811]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_03288",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_03288/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_03288",
+        "edition": "横山町(東都) : 出雲寺万次郎, 文化8[1811] ( )"
+      }
     }
   ],
   "measures": [
@@ -134,7 +164,7 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvl3c7oqo 與 11q37nzo3drls 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvl3c7oqo 與 11q37nzo3drls 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "陳櫟（元）撰。六卷。見著錄於《欽定四庫全書總目》《補遼金元藝文志》《元史藝文志》。其著錄之文，《補遼金元藝文志》作「元陳櫟書集傳纂疏六卷」。本書為《偽古文尚書》之注釋，其文附原典以行。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -143,7 +173,7 @@
       "元史藝文志"
     ]
   },
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-14",
   "resource_groups": {
     "naikaku-1074115": {
@@ -154,6 +184,12 @@
     },
     "naikaku-1069972": {
       "label": "內閣文庫藏本：文化8年刊本（273-0131，6冊）"
+    },
+    "waseda-ro12_03082": {
+      "label": "早稲田藏本：[江戸] : [昌平坂学問所], 文化8[1811]"
+    },
+    "waseda-ro12_03288": {
+      "label": "早稲田藏本：横山町(東都) : 出雲寺万次郎, 文化8[1811] ( )"
     }
   }
 }

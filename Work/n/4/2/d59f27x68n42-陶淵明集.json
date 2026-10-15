@@ -257,6 +257,21 @@
         "holder": "藝大図脇本",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100288519/manifest"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-he16_02611",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/he16/he16_02611/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "he16_02611",
+        "edition": "旌邑 : 李文韓, 光緒2[1876]跋"
+      }
     }
   ],
   "measures": [
@@ -271,7 +286,7 @@
   "period_basis": "據 authors[0].dynasty「東晉」（2026-09-06 qa-sweep/weijin：本欄原引「晉」，而 authors[0].dynasty 實作「東晉」——係「晉」「三國」等籠統值細分之後本欄未隨改，非斷代錯；period 值不動，只正所引之值。）",
   "dynasty": "東晉",
   "dynasty_basis": "author_propagation:唯一作者朝代",
-  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx4qalurk 與 11q37sj164ruo 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J6 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx4qalurk 與 11q37sj164ruo 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J6 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "陶潛（東晉）撰。八卷；諸志所著之數有異，別作五卷、十卷。見著錄於《舊唐書經籍志》《宋史藝文志》《欽定四庫全書總目》。其著錄之文，《舊唐書經籍志》作「《陶淵明集》五卷」。別集之屬，所收為其人之詩文。",
     "sources": [
@@ -280,8 +295,8 @@
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.2.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-14",
   "resource_groups": {
     "nlc-412004001054": {
       "label": "國圖藏本：宋[960-1279]@@@[递修年不详]"
@@ -306,6 +321,9 @@
     },
     "kokusho-100288519": {
       "label": "國書·藝大図脇本藏刊"
+    },
+    "waseda-he16_02611": {
+      "label": "早稲田藏本：旌邑 : 李文韓, 光緒2[1876]跋"
     }
   }
 }

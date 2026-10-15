@@ -57,11 +57,29 @@
         "holder": "金沢図稼堂",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100108716/manifest"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-wa04_02059",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/wa04/wa04_02059/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "wa04_02059",
+        "edition": "写, [書写年不明]"
+      }
     }
   ],
   "resource_groups": {
     "kokusho-100108716": {
       "label": "國書·金沢図稼堂藏刊 嘉永６"
+    },
+    "waseda-wa04_02059": {
+      "label": "早稲田藏本：写, [書写年不明]"
     }
   },
   "measures": [
@@ -77,14 +95,14 @@
       "欽定四庫全書總目"
     ]
   },
-  "ai_note": "從 1evjy66s26xhc 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/liaojinyuan G 類：題名由「牧民忠告,經進風憲忠告,廟堂忠告」清為「牧民忠告」。舊題乃三書名（牧民忠告、經進風憲忠告、廟堂忠告）黏連而成，而本條 indexed_by 之四庫總目提要明言「養浩有《三事忠告》，已著錄。**此即三事中之一種**。魏裔介摘出別行，非完書也」——本條實止一卷，即《牧民忠告》一種之清人魏裔介摘行本，非兼載三書。庫中另有完帙之《三事忠告》（d59f2gpovgg0，四卷／三卷）已著錄，本條與之非重出（一是全帙、一是單種摘行本），故不併，只清題並補 related_works 互指。原值：title「牧民忠告,經進風憲忠告,廟堂忠告」。",
+  "ai_note": "從 1evjy66s26xhc 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/liaojinyuan G 類：題名由「牧民忠告,經進風憲忠告,廟堂忠告」清為「牧民忠告」。舊題乃三書名（牧民忠告、經進風憲忠告、廟堂忠告）黏連而成，而本條 indexed_by 之四庫總目提要明言「養浩有《三事忠告》，已著錄。**此即三事中之一種**。魏裔介摘出別行，非完書也」——本條實止一卷，即《牧民忠告》一種之清人魏裔介摘行本，非兼載三書。庫中另有完帙之《三事忠告》（d59f2gpovgg0，四卷／三卷）已著錄，本條與之非重出（一是全帙、一是單種摘行本），故不併，只清題並補 related_works 互指。原值：title「牧民忠告,經進風憲忠告,廟堂忠告」。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "updated_at": "2026-08-09T09:33:12+00:00",
   "period": "liao-jin-yuan",
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-14",
   "related_works": [
     {
       "id": "d59f2gpovgg0",
