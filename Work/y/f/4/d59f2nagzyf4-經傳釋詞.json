@@ -201,6 +201,36 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4403460/manifest.json",
         "extent": "3冊"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_00482",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_00482/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_00482",
+        "edition": "掃垢山民書首, 道光27[1847]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_03513",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_03513/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_03513",
+        "edition": "江戸 : 須原屋茂兵衛, 天保14[1843]"
+      }
     }
   ],
   "updated_at": "2026-08-19T00:00:00-07:00",
@@ -208,7 +238,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 12，與著錄原文（書目答問：「經傳釋詞」）所載之 10 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 12，與著錄原文（書目答問：「經傳釋詞」）所載之 10 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "王引之（清）撰。十卷；諸志所著之數有異，別作三十二卷。見著錄於《清史稿藝文志》《書目答問》《續修四庫全書》。《續修四庫全書》列於经部 小學類。《清史稿藝文志》民國趙爾巽等修；《書目答問》清張之洞撰——本書之目賴之以存。",
     "sources": [
@@ -217,7 +247,7 @@
       "續修四庫全書"
     ]
   },
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-14",
   "resource_groups": {
     "kokusho-100160899": {
@@ -240,6 +270,12 @@
     },
     "naikaku-1073832": {
       "label": "內閣文庫藏本：天保13年刊本（経050-0019，3冊）"
+    },
+    "waseda-ro12_00482": {
+      "label": "早稲田藏本：掃垢山民書首, 道光27[1847]"
+    },
+    "waseda-ro12_03513": {
+      "label": "早稲田藏本：江戸 : 須原屋茂兵衛, 天保14[1843]"
     }
   }
 }
