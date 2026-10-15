@@ -88,6 +88,24 @@
         "year": "民國25[1936]",
         "note": "本链接为扫描册 1；不代表全书齐备。"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077790",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077790",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077790",
+        "request_no": "子０６９－０００９",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4501411/manifest.json",
+        "extent": "2冊"
+      }
     }
   ],
   "measures": [
@@ -106,7 +124,12 @@
       "《欽定四庫全書總目》子部雜家類"
     ]
   },
-  "ai_note": "2026-08-21 秦漢段補描述：據本條所繫著錄之考證文撮述，所出之志已記於 description.sources。\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題漢黃憲撰。前有晉謝安，唐田宏、陸贄題詞。每篇又有宋韓洎贊」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "ai_note": "2026-08-21 秦漢段補描述：據本條所繫著錄之考證文撮述，所出之志已記於 description.sources。\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題漢黃憲撰。前有晉謝安，唐田宏、陸贄題詞。每篇又有宋韓洎贊」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-15",
+  "resource_groups": {
+    "naikaku-1077790": {
+      "label": "內閣文庫藏本：明刊本（子069-0009，2冊）"
+    }
+  }
 }

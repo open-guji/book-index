@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善023155-023164）。阶段 5 兜底建立。 | 從 1evka7u6wemf4 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-06 qa-sweep/suitang·批15 G·重出併條（坑28：清題後撞庫）：韓愈《昌黎先生集》——同人同題同繫一 entity，keeper juan 較備（二卷本），本條（宋咸淳廖氏世綵堂刻本，中華再造善本）移入為異本記存。\n\n2026-09-28 qa-sweep/S5b：Work.books 手写清单与 Book.work_id 反查对齐（overview#198）。删（已改挂别的 Work）：988g6fnhtu（现挂d59f28kzearq「昌黎先生集四十卷外集十卷遺文一卷朱子校昌黎先生集傳」）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善023155-023164）。阶段 5 兜底建立。 | 從 1evka7u6wemf4 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-06 qa-sweep/suitang·批15 G·重出併條（坑28：清題後撞庫）：韓愈《昌黎先生集》——同人同題同繫一 entity，keeper juan 較備（二卷本），本條（宋咸淳廖氏世綵堂刻本，中華再造善本）移入為異本記存。\n\n2026-09-28 qa-sweep/S5b：Work.books 手写清单与 Book.work_id 反查对齐（overview#198）。删（已改挂别的 Work）：988g6fnhtu（现挂d59f28kzearq「昌黎先生集四十卷外集十卷遺文一卷朱子校昌黎先生集傳」）。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "juan_count": {
     "number": 2
   },
@@ -33,8 +33,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.2",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-15",
   "indexed_by": [],
   "additional_titles": [
     "昌黎先生集四十卷外集十卷遺文一卷朱子校昌黎先生集傳"
@@ -154,6 +154,24 @@
         "nlc_fid": "411999009111",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082013",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082013",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082013",
+        "request_no": "３１４－０２３１",
+        "edition": "刊本:明万暦:::東雅堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4754661/manifest.json",
+        "extent": "8冊"
+      }
     }
   ],
   "resource_groups": {
@@ -174,6 +192,9 @@
     },
     "nlc-411999009111": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1082013": {
+      "label": "內閣文庫藏本：明万暦刊本 東雅堂（314-0231，8冊）"
     }
   }
 }

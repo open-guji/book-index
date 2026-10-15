@@ -45,9 +45,9 @@
   "period_upper_basis": "catalog_bound：《中國通俗小說書目》明清講史部自標所收之代，故不晚於 qing",
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（S5 缺值補齊，J19）",
-  "ai_note": "2026-08-25 J19：work.dynasty 缺值，據 authors[0].dynasty「明」補齊。",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "ai_note": "2026-08-25 J19：work.dynasty 缺值，據 authors[0].dynasty「明」補齊。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-15",
   "resources": [
     {
       "name": "维基共享资源",
@@ -56,6 +56,29 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL02005088_%E7%9A%87%E6%98%8E%E4%B8%AD%E8%88%88%E8%81%96%E7%83%88%E5%82%B3%EF%BC%88%E4%B8%8A%EF%BC%89.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3611274",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3611274",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3611274",
+        "request_no": "３０８－０２４９",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3670050/manifest.json",
+        "extent": "2冊"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-3611274": {
+      "label": "內閣文庫藏本：明刊本（308-0249，2冊）"
+    }
+  }
 }
