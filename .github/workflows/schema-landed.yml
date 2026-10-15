@@ -1,0 +1,27 @@
+name: Schema 落地闸（legacy-scan ＋ V4）
+# GUJI-413 / B6：数据旧键计数必须全 0（S2 闸），读侧旧读法命中必须全在 scripts/legacy-allow.txt。
+# 红＝有旧键或有不在允许清单的旧读法；脚本只读，不改任何文件。
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: book-index }
+      - uses: actions/checkout@v4
+        with: { repository: open-guji/book-index-draft, path: book-index-draft }
+      - uses: actions/checkout@v4
+        with: { repository: open-guji/book-index-manager, path: book-index-manager }
+      - uses: actions/checkout@v4
+        with: { repository: open-guji/kaiyuanguji-web, path: kaiyuanguji-web }
+      - name: legacy-scan（book-index ＋ book-index-draft）
+        working-directory: book-index
+        run: python3 scripts/legacy-scan.py . ../book-index-draft
+      - name: V4 读侧旧读法
+        working-directory: book-index
+        run: |
+          mkdir -p "$RUNNER_TEMP/v4"
+          OUT="$RUNNER_TEMP/v4" bash scripts/schema-landed-check.sh readers
+          cat "$RUNNER_TEMP/v4"/V4-readers.log || true
