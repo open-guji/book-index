@@ -43,10 +43,10 @@
   "measure_info": "十八卷",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
-  "ai_note": "同名異書：庫內已有同題「明詩正聲」而撰人各異（盧純學(明)），本條撰人「穆光胤」與之不合，依《千頃堂書目》著錄逕行新建。\n\n2026-10-13 #583 B-修（错挂核对）：Wikimedia Commons 文件页责任者与本条作者不符，已摘除 1 条 commons 挂接（同一文件页另有作者相符的同题 Work 保留）。依据见 overview 馆藏资源挂接/计划/B修-commons批2-PR核对表.tsv。",
+  "ai_note": "同名異書：庫內已有同題「明詩正聲」而撰人各異（盧純學(明)），本條撰人「穆光胤」與之不合，依《千頃堂書目》著錄逕行新建。\n\n2026-10-13 #583 B-修（错挂核对）：Wikimedia Commons 文件页责任者与本条作者不符，已摘除 1 条 commons 挂接（同一文件页另有作者相符的同题 Work 保留）。依据见 overview 馆藏资源挂接/计划/B修-commons批2-PR核对表.tsv。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "id": "d59f6er64zya",
-  "revision": "1.4.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-15",
   "resources": [
     {
       "id": "kokusho",
@@ -64,11 +64,53 @@
         "holder": "東洋大哲学堂",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100453543/manifest"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070801",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070801",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070801",
+        "request_no": "３５８－０１１３",
+        "edition": "刊本（後印）::享保:110000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5091807/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071480",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071480",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071480",
+        "request_no": "集１００－０００７",
+        "edition": "刊本（序刊）::明万暦:440000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4775955/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
     "kokusho-100453543": {
       "label": "國書·東洋大哲学堂藏刊 享保１１"
+    },
+    "naikaku-1070801": {
+      "label": "內閣文庫藏本：享保11年刊本（後印）（358-0113，4冊）"
+    },
+    "naikaku-1071480": {
+      "label": "內閣文庫藏本：明万暦44年刊本（序刊）（集100-0007，4冊）"
     }
   }
 }

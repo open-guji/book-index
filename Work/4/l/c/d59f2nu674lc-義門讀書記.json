@@ -90,6 +90,60 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084753",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084753",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084753",
+        "request_no": "３０７－０１９１",
+        "edition": "刊本（序刊）::清乾隆:340000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4920514/manifest.json",
+        "extent": "16冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610744",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610744",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610744",
+        "request_no": "３０７－０１８２",
+        "edition": "刊本（序刊）::清乾隆:340000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3669762/manifest.json",
+        "extent": "16冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079057",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079057",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079057",
+        "request_no": "子０７２－０００３",
+        "edition": "刊本（序刊）::清乾隆:340000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4422871/manifest.json",
+        "extent": "16冊"
+      }
     }
   ],
   "updated_at": "2026-08-19T00:00:00-07:00",
@@ -97,7 +151,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 18，與著錄原文（清史稿藝文志：「義門讀書記」）所載之 58 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 Elias 併條（rule=GUJI-126 同書拆多Work）：併 d59f2mgp311d《義門讀書記》 入本條。同書拆多Work（去重結論 2026-10-13／10-14）",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 18，與著錄原文（清史稿藝文志：「義門讀書記」）所載之 58 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 Elias 併條（rule=GUJI-126 同書拆多Work）：併 d59f2mgp311d《義門讀書記》 入本條。同書拆多Work（去重結論 2026-10-13／10-14）\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "何焯（清）撰。五十八卷。見著錄於《清史稿藝文志》《書目答問》。其著錄之文，《書目答問》作「《義門讀書記》五十八卷」。《清史稿藝文志》民國趙爾巽等修；《書目答問》清張之洞撰——本書之目賴之以存。",
     "sources": [
@@ -105,8 +159,8 @@
       "書目答問"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-15",
   "merged_in": [
     {
       "id": "d59f2mgp311d",
@@ -116,5 +170,16 @@
       "rule": "GUJI-126 同書拆多Work",
       "why": "同書拆多Work（去重結論 2026-10-13／10-14）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1084753": {
+      "label": "內閣文庫藏本：清乾隆34年刊本（序刊）（307-0191，16冊）"
+    },
+    "naikaku-3610744": {
+      "label": "內閣文庫藏本：清乾隆34年刊本（序刊）（307-0182，16冊）"
+    },
+    "naikaku-1079057": {
+      "label": "內閣文庫藏本：清乾隆34年刊本（序刊）（子072-0003，16冊）"
+    }
+  }
 }
