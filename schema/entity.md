@@ -49,6 +49,7 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 | `period_basis` | string | 可选；people、未分类 collective | 原生 | `period` 的依据 | 自由文本 | 录入 | `"据 dynasty「北宋」自动归并"` |
 | `native_place` | string | 可选；people | 原生 | 籍贯 | 自由文本（正式库 3 条为 `null`，旧） | 录入 | `"山陰"`、`"眉山"` |
 | `native_place_basis` | string | 可选；people | 原生 | 籍贯的依据 | 自由文本 | 录入 | `"CBDB 3767 index_addr（2026-09-06 CBDB enrich）"` |
+| `native_place_entity_id` | string | 可选；people | 原生 | 籍贯对应的地名 Entity id | 非空字符串，须指向 `subtype=place` 的 Entity（格式同 Entity id）。旧 `native_place`／`native_place_basis` 保留、语义不变；缺此字段的旧数据仍合法，不要求补。`check_v2`：N01 非 people 或非字符串＝ERROR；N02 不存在／非 place＝ERROR；N03 指向墓碑＝WARN，提示改指 `merged_into`。同名异地靠 id 区分，不靠 `primary_name`（overview ai-team#2，2026-10-15） | 录入 | `"hixi5xhv38jl"` |
 | `title_or_office` | string | 可选；people | 原生 | 著录所见官职 | 自由文本（正式库 1 条） | 录入 | `"散騎常侍"`（顾长康 `hixhi7qcyxa8`） |
 | `name_basis` | string | 可选；people | 原生 | 名字的依据（正名经过） | 自由文本（正式库 164 条） | 录入 | `"catalog：著錄之撰人名（2026-09-06 撰人書名切分訂正）"` |
 | `birth_year` | integer | 可选；people | 原生 | 生年（已删） | 已删（book-index#139 B2，正式库 0 个文件）；读 `dates.birth` | — | — |

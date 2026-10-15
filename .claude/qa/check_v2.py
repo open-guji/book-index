@@ -105,6 +105,9 @@ CODES = {
     "V15": ("缺 schema_version 或值非 1", "#473"),
     "V16": ("description.sources 形狀", "#473"),
     # 專名子類型（#464）：第二欄＝所屬檢查族（無遷移步）
+    "N01": ("人物 native_place_entity_id 形狀／僅 people", "人物籍貫"),
+    "N02": ("native_place_entity_id 須指向 place 條", "人物籍貫"),
+    "N03": ("native_place_entity_id 指向墓碑", "人物籍貫"),
     "E1": ("專名：禁外部 id／翻譯欄位", "專名"),
     "D1": ("dynasty 規範名枚舉／唯一", "專名"),
     "D2": ("dynasty 上級／區間", "專名"),
@@ -255,6 +258,9 @@ def check_file(root, relpath, registry=None):
     if kind == "Entity" and es.applies(rec) and registry is not None:
         rows += [(relpath, rec.get("id", ""), kind, c, f, d, lv)
                  for c, lv, f, d in es.check_record(rec, registry)]
+    if kind == "Entity" and "native_place_entity_id" in rec and registry is not None:
+        rows += [(relpath, rec.get("id", ""), kind, c, f, d, lv)
+                 for c, lv, f, d in es.check_native_place(rec, registry)]
     return rows
 
 

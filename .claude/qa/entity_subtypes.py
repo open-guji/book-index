@@ -26,6 +26,10 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
   V01  源檔出現 `_` 起首或 children／reigns／index_in_reign 等派生／反向欄位           ERROR
        （`_` 起首者仍由 check_v2 自身之 V01 報；本模塊只補非底線之派生名，並在新子類型內
        把 `_has_text`／`_has_collated` 之豁免收回。）
+  N01–N03  人物籍貫 `native_place_entity_id`（people 可選；值為地名 Entity id；舊 `native_place` 自由文本照留）：
+       N01  只許 people 有此欄；值須為非空字符串                                  ERROR
+       N02  須指向本庫（或 --ref-root 之正式庫）中 subtype=place 的 Entity，不存在或非 place   ERROR
+       N03  指向的地名是墓碑（有 merged_into）：只警告，提示跟 merged_into          WARN
   級別 INFO：P09 同名異地清單，不計入 ERROR／WARN。
 
 口徑（S 預審）：上下級區間不合（戰國止年晚於東周、北朝起年早於南北朝）、年號越出所屬朝代區間，
@@ -656,6 +660,25 @@ def _check_place(rec, reg):
     if "coords" in rec:
         out.append(("P08", ERROR, "coords", "第一期禁出現"))
     return out
+
+
+def check_native_place(rec, reg):
+    """人物籍貫 `native_place_entity_id`（N01–N03）。無此欄回 []。與 applies／check_record 無關（people 不屬新子類型）。"""
+    if "native_place_entity_id" not in rec:
+        return []
+    v = rec["native_place_entity_id"]
+    st = rec.get("subtype") or "people"
+    if st != "people":
+        return [("N01", ERROR, "native_place_entity_id", "只許 people 條有此欄，本條為 %s" % st)]
+    if not nonempty_str(v):
+        return [("N01", ERROR, "native_place_entity_id", "須為非空字符串（地名 Entity id）：%r" % (v,))]
+    if reg.sub.get(v) != "place":
+        return [("N02", ERROR, "native_place_entity_id",
+                 "須指向 place 條：%r %s" % (v, "不存在" if v not in reg.sub else "是 %s" % reg.sub[v]))]
+    tomb = (reg.rec.get(v) or {}).get("merged_into")
+    if tomb:
+        return [("N03", WARN, "native_place_entity_id", "%s 是墓碑，請改指 merged_into：%s" % (v, tomb))]
+    return []
 
 
 def applies(rec):
