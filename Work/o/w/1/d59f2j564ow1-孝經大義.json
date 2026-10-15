@@ -545,6 +545,36 @@
         "holder": "二松学舎大東アジア研",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100419529/manifest"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1846",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1846/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1846",
+        "edition": "出版年不明 : 明暦3[1657]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1848",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1848/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1848",
+        "edition": "明暦3[1657]"
+      }
     }
   ],
   "measures": [
@@ -565,15 +595,15 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-19 同題異撰人專項（撰人名一字之差）：本條與 `1evke37704ohs` 同題《孝經大義》、同卷數 1，撰人作「董鼎」與「董鼐」，僅一字之差（或一名含於另一名）。「董鼐」全庫僅 1 見而「董鼎」凡 7 見，前者為後者之訛。二者實一書之重出，今併，異名之著錄並存於 indexed_by。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvtmyw9a8 與 11q37oiyzidj4 同指文淵閣寫本一實物，今併於後者。",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-19 同題異撰人專項（撰人名一字之差）：本條與 `1evke37704ohs` 同題《孝經大義》、同卷數 1，撰人作「董鼎」與「董鼐」，僅一字之差（或一名含於另一名）。「董鼐」全庫僅 1 見而「董鼎」凡 7 見，前者為後者之訛。二者實一書之重出，今併，異名之著錄並存於 indexed_by。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvtmyw9a8 與 11q37oiyzidj4 同指文淵閣寫本一實物，今併於後者。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 贈善023860）。清康熙間徐乾學輯刊通志堂經解之一。",
     "sources": [
       "國立故宮博物院善本舊籍"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-14",
   "resource_groups": {
     "kokusho-100093173": {
       "label": "國書·岐阜市図藏刊 明暦３"
@@ -652,6 +682,12 @@
     },
     "kokusho-100419529": {
       "label": "國書·二松学舎大東アジア研藏刊"
+    },
+    "waseda-bunko31_e1846": {
+      "label": "早稲田藏本：出版年不明 : 明暦3[1657]"
+    },
+    "waseda-bunko31_e1848": {
+      "label": "早稲田藏本：明暦3[1657]"
     }
   }
 }

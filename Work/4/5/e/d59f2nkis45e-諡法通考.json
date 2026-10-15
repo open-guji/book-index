@@ -145,6 +145,21 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4770745/manifest.json",
         "extent": "12冊"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-wa04_06303",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/wa04/wa04_06303/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "wa04_06303",
+        "edition": "写, [書写年不明]"
+      }
     }
   ],
   "resource_groups": {
@@ -153,6 +168,9 @@
     },
     "naikaku-1073242": {
       "label": "內閣文庫藏本：明万暦24年刊本（序刊）（295-0023，12冊）"
+    },
+    "waseda-wa04_06303": {
+      "label": "早稲田藏本：写, [書写年不明]"
     }
   },
   "measures": [
@@ -167,7 +185,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "王圻（明）撰。十八卷。見著錄於《欽定四庫全書總目》《續修四庫全書》《四庫全書存目叢書》。《續修四庫全書》列於史部 史部；《四庫全書存目叢書》列於史部。《欽定四庫全書總目》清乾隆間館臣修；《續修四庫全書》一九九五年影印——本書之目賴之以存。",
     "sources": [
@@ -176,6 +194,6 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-10-14"
 }
