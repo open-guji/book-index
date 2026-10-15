@@ -36,14 +36,14 @@
       "dynasty_basis": "2026-08-24 宋代 G5 批量斷代·路三（entity 相容）：本條 period 已據引文定為 song，庫中同名 entity 唯一（`1j967cp1zdr19`，代「南宋」），二者相容，據以補代。**只補 dynasty 不繫 entity_id**——同名唯一之繫曾致漢代十九條誤入（skill 坑 23），entity 之繫留人物車道覈實後再作。"
     }
   ],
-  "ai_note": "作者「宋朱熹撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evka8rpessg0 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evgpn2nytiio()（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "作者「宋朱熹撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evka8rpessg0 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evgpn2nytiio()（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "updated_at": "2026-08-22T04:56:00.058800+00:00",
   "period_upper": "liao-jin-yuan",
   "period_upper_basis": "edition_bound：所掛版本中最早者為「元刊本」——版本之年不早於成書之年，故不晚於 liao-jin-yuan",
   "period": "song",
   "period_basis": "撰人朝代闕，據其 Entity「朱熹」之 period 傳播；上限 liao-jin-yuan 覆驗不相斥（2026-08-22 C1）",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-14",
   "resources": [
     {
       "id": "commons",
@@ -119,6 +119,60 @@
         "nlc_fid": "411999029347",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068194",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068194",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068194",
+        "request_no": "２８７－０１２２",
+        "edition": "刊本::嘉永:040000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4286109/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067216",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067216",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067216",
+        "request_no": "史０６９－０００６",
+        "edition": "刊本（序刊）::明崇禎:020000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4427405/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067906",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067906",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067906",
+        "request_no": "２８７－０１２０",
+        "edition": "刊本::文政:070000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4286106/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
@@ -133,6 +187,15 @@
     },
     "nlc-411999029347": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1068194": {
+      "label": "內閣文庫藏本：嘉永4年刊本（287-0122，4冊）"
+    },
+    "naikaku-1067216": {
+      "label": "內閣文庫藏本：明崇禎2年刊本（序刊）（史069-0006，2冊）"
+    },
+    "naikaku-1067906": {
+      "label": "內閣文庫藏本：文政7年刊本（287-0120，4冊）"
     }
   }
 }
