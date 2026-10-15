@@ -7,6 +7,13 @@
       "name": "楊琬",
       "role": "撰",
       "entity_id": "hixhgyrw4wgf"
+    },
+    {
+      "name": "李東",
+      "role": "修",
+      "dynasty": "明",
+      "entity_id": "hixhd2h9bo67",
+      "name_basis": "2026-08-24 新建 entity `1jcf5151293cx` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。"
     }
   ],
   "indexed_by": [
@@ -30,13 +37,31 @@
     {
       "unit": "卷",
       "number": 4
+    },
+    {
+      "unit": "冊",
+      "number": 4
     }
   ],
   "measure_info": "四卷",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
-  "ai_note": "同名異書：庫內已有同題「丹徒縣志」而撰人各異（李東(明)、呂耀斗(清)），本條撰人「楊琬」與之不合，依《千頃堂書目》著錄逕行新建。\n\nC1b 迁移遗留，按总目改正",
+  "ai_note": "同名異書：庫內已有同題「丹徒縣志」而撰人各異（李東(明)、呂耀斗(清)），本條撰人「楊琬」與之不合，依《千頃堂書目》著錄逕行新建。\n\nC1b 迁移遗留，按总目改正\n\n2026-10-15 Elias 併條（rule=E1 合纂方志拆Work并(Selene)）：併 d59f2nlbhybk《丹徒縣志》 入本條。同一志書被按合纂者拆成兩Work，規則A(Selene E1 18對規格，Sabine令)",
   "id": "d59f6eocovep",
   "revision": "1.0.0",
-  "revised_at": "2026-09-01"
+  "revised_at": "2026-09-01",
+  "period": "ming",
+  "period_basis": "據 authors[0].dynasty「明」",
+  "dynasty": "明",
+  "dynasty_basis": "author_propagation",
+  "merged_in": [
+    {
+      "id": "d59f2nlbhybk",
+      "title": "丹徒縣志",
+      "at": "2026-10-15T09:56:51Z",
+      "by": "Elias",
+      "rule": "E1 合纂方志拆Work并(Selene)",
+      "why": "同一志書被按合纂者拆成兩Work，規則A(Selene E1 18對規格，Sabine令)"
+    }
+  ]
 }

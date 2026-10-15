@@ -9,6 +9,12 @@
       "role": "撰",
       "dynasty": "明",
       "entity_id": "hixhd2h9bejx"
+    },
+    {
+      "name": "陳沂",
+      "role": "撰",
+      "dynasty": "明",
+      "entity_id": "hixhd2h9bea6"
     }
   ],
   "indexed_by": [
@@ -29,6 +35,19 @@
       "edition": "修 明 陳沂 纂修 天津圖書館藏明嘉靖刻本",
       "volume": "第189冊",
       "section": "史部"
+    },
+    {
+      "source": "明史藝文志",
+      "source_bid": "d59f2mox0000",
+      "title_info": "陈沂《南畿志》六十四卷，《金陵世纪》四卷，《金陵古今图考》一卷",
+      "summary": "陳沂《南畿志》六十四卷，《金陵世紀》四卷，《金陵古今圖考》一卷"
+    },
+    {
+      "source": "國史經籍志",
+      "source_bid": "d59f2nl40936",
+      "title_info": "《南畿志》六十四卷",
+      "summary": "《南畿志》六十四卷（陳沂）",
+      "author_info": "陳沂"
     }
   ],
   "juan_count": {
@@ -89,7 +108,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 Elias 併條（rule=E1 合纂方志拆Work并(Selene)）：併 d59f2ne1lu69《南畿志》 入本條。同一志書被按合纂者拆成兩Work，規則A(Selene E1 18對規格，Sabine令)",
   "description": {
     "text": "聞人詮（明）撰。六十四卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》。《四庫全書存目叢書》列於史部。其著錄之文，《四庫全書存目叢書》作「《南畿志》六十四卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -98,5 +117,15 @@
     ]
   },
   "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revised_at": "2026-09-07",
+  "merged_in": [
+    {
+      "id": "d59f2ne1lu69",
+      "title": "南畿志",
+      "at": "2026-10-15T09:59:52Z",
+      "by": "Elias",
+      "rule": "E1 合纂方志拆Work并(Selene)",
+      "why": "同一志書被按合纂者拆成兩Work，規則A(Selene E1 18對規格，Sabine令)"
+    }
+  ]
 }
