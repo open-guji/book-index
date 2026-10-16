@@ -18,10 +18,11 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 | `reign` | 年号 | 734 | 734 | 萬曆 `hixi1ubqbwu9` |
 | `office` | 官职（概念条＋每朝具体条两层） | 0 | 1,839 | 知縣（概念）`1jb8ajoi8crnk`、知縣（趙宋）`1jb8ajoiggxs0` |
 | `place` | 地名（一地一条＋沿革） | 0 | 921 | 河南府 `1jb8kgdh3pseq`、開封府 `1jb8lqn358dfk` |
+| `seal` | 印章（官印、私印、鑒藏印、齋館印；见〈六·四〉） | 见〈六·四〉示例 | 0 | 文淵閣寶 |
 
 **Entity 档只存这个人（这个专名）自己的信息。**「他写了哪些书」不存在 Entity 里：Entity↔Work 关系的唯一存储侧是 `Work.authors[].entity_id`（见 [common.md〈authors〉](common.md)），build 反查后在产物里生成 `_works`（每项带 `work_id`、`role`，`role` 取自 Work 一侧，缺则补「撰」）。源档不写 `works`（V11）。
 
-专名子类型（`dynasty`／`reign`／`office`／`place`，及 `collective_kind=官署` 的 `collective`）另有三条硬约束（overview#464）：
+专名子类型（`dynasty`／`reign`／`office`／`place`／`seal`，及 `collective_kind=官署` 的 `collective`）另有三条硬约束（overview#464）：
 
 1. **不与 CBDB 匹配，不存任何 `cbdb_*` 外部 id**；条目内容全部自写，仍按 CC0 发布；CBDB、CHGIS、DILA 只作人工校对参照。
 2. `external_ids` 只许 `wikidata_id`，第一期不填（字段留位，CC0 来源，将来再填）。
@@ -519,6 +520,30 @@ people 的 `dates` 规则：
 
 ---
 
+### 六·四　`seal`（印章，GUJI-538）
+
+一枚（一种）印章一条。`primary_name` 是印章通名（如「文淵閣寶」），`seal_text` 是印面文字（印文），**两者分开**：通名可含「印」「寶」等泛称，印文按印面所见照录（异体照录，不简化）。id 沿用 Entity 通则（`mintid.py --type Entity`），分片同其他 Entity。遵守〈一〉的三条专名硬约束（无 `cbdb_*`、`external_ids` 只许 `wikidata_id`、无坐标）。
+
+| 字段 | 类型 | 必填 | 含义／取值 |
+|---|---|---|---|
+| `seal_text` | string | **必填** | 印文 |
+| `seal_kind` | string | **必填** | `官印`｜`私印`｜`鑒藏印`｜`齋館印`｜`其他`（鑒藏印即收藏／鑒賞印，不另设「收藏印」） |
+| `dynasty_ids` | array<id> | **必填** | 启用时所属朝代（dynasty id，默认一朝一条）；不写旧式 `dynasty`／`period` 字符串 |
+| `description` | object | **必填** | 同通则，`sources` 非空；来源不实的字段一律留空，不编造 |
+| `start`／`end` | int | 可选 | 启用／停用年（公元，无 0 年，`start ≤ end`）；不确定不写，说明进 `description.text` |
+| `seal_style` | string | 可选 | `朱文`｜`白文`｜`朱白相間` |
+| `seal_script` | string | 可选 | 篆／隸／楷等，短文本 |
+| `seal_form` | string | 可选 | `方`｜`圓`｜`橢圓`｜`長方`｜`異形` |
+| `material`、`size`、`usage_scope` | string | 可选 | 质地、尺寸（文本，如「長×寬 mm」）、用途一句话 |
+| `owner_ids` | array<id> | 可选 | 印主，指向 people／collective／office 等 Entity id，**不写裸名字**；年号不是印主（乾隆印主指清高宗本人那条 people） |
+| `institution_ids` | array<id> | 可选 | 所属机构（如文渊阁 collective） |
+| `appears_in` | array | 可选 | **本期只作代表例，≤20 条、以 Book 为主**：`{ref_type: "Book"｜"Work", id, position?, note?}`；不是全量钤印清单（全量待 Book 侧另设字段） |
+| `images` | array | 可选 | `{url, credit, license?, note?}`，`url` 与 `credit` 必填 |
+
+归属单向：印→印主／机构，反向（某人有哪些印）由 build 派生；禁用 `dates`、`dynasty`、`period`、`native_place*`、`history`、`ruler` 等其他子类型专属字段（S05）。校验码见〈八〉S01–S05。
+
+---
+
 ## 七、禁字段与派生字段
 
 ### 七·一　源档不写
@@ -605,6 +630,11 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | I10 | 官署 | 同名且朝代重叠的具体条，疑重复 | WARN |
 | I11 | 官署 | 派生字段入源档 | ERROR |
 | I12 | office | `institution_ref`：`COL:<名>` 占位（ERROR）；须指官署条（ERROR）；指具体条须与官职朝代相交（ERROR）；指概念条须 `ai_note` 标「待補」（WARN）；官名含部名而指合称（WARN）；id 不在本库（WARN） | ERROR／WARN |
+| S01 | seal | `primary_name`、`seal_text` 非空；`seal_kind` 在 5 值内；`description.sources` 非空 | ERROR |
+| S02 | seal | `dynasty_ids` 非空且指 dynasty；`start`／`end` 为整数且 `start ≤ end`；`seal_style`／`seal_form` 在枚举内 | ERROR |
+| S03 | seal | `owner_ids`／`institution_ids` 为 id 数组且指向存在的 Entity，不得指 seal／dynasty（ERROR）；指墓碑（WARN） | ERROR／WARN |
+| S04 | seal | `appears_in` ≤20 条、`ref_type` ∈ Book／Work、`id` 在库内存在、不重复 | ERROR |
+| S05 | seal | `images` 每项有 `url`＋`credit`；出现其他子类型专属字段（含 `dates`、`dynasty`、`period`） | ERROR |
 | V01 | 全部 | 源档出现 `_` 起首字段；专名四子类型另查无下划线的派生名（见〈七·一〉）；`_has_text`／`_has_collated` 豁免已收回 | ERROR |
 | V11 | 全部 | 源档有 `works` | ERROR |
 | V15 | 全部 | 缺 `schema_version` 或其值不是整数 `1` | ERROR |

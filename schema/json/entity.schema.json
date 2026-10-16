@@ -25,7 +25,8 @@
         "dynasty",
         "reign",
         "office",
-        "place"
+        "place",
+        "seal"
       ]
     },
     "schema_version": {
@@ -418,6 +419,116 @@
           },
           "note": {
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "seal_text": {
+      "$ref": "common.schema.json#/$defs/NonEmptyString",
+      "description": "印面文字（印文）；与 primary_name（印章通名）分开"
+    },
+    "seal_kind": {
+      "enum": [
+        "官印",
+        "私印",
+        "鑒藏印",
+        "齋館印",
+        "其他"
+      ]
+    },
+    "seal_style": {
+      "enum": [
+        "朱文",
+        "白文",
+        "朱白相間"
+      ]
+    },
+    "seal_script": {
+      "$ref": "common.schema.json#/$defs/NonEmptyString"
+    },
+    "seal_form": {
+      "enum": [
+        "方",
+        "圓",
+        "橢圓",
+        "長方",
+        "異形"
+      ]
+    },
+    "material": {
+      "$ref": "common.schema.json#/$defs/NonEmptyString"
+    },
+    "size": {
+      "$ref": "common.schema.json#/$defs/NonEmptyString"
+    },
+    "usage_scope": {
+      "$ref": "common.schema.json#/$defs/NonEmptyString"
+    },
+    "owner_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Id"
+      },
+      "minItems": 1
+    },
+    "institution_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Id"
+      },
+      "minItems": 1
+    },
+    "appears_in": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": [
+          "ref_type",
+          "id"
+        ],
+        "properties": {
+          "ref_type": {
+            "enum": [
+              "Book",
+              "Work"
+            ]
+          },
+          "id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "position": {
+            "$ref": "common.schema.json#/$defs/NonEmptyString"
+          },
+          "note": {
+            "$ref": "common.schema.json#/$defs/NonEmptyString"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "images": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "url",
+          "credit"
+        ],
+        "properties": {
+          "url": {
+            "$ref": "common.schema.json#/$defs/NonEmptyString"
+          },
+          "credit": {
+            "$ref": "common.schema.json#/$defs/NonEmptyString"
+          },
+          "license": {
+            "$ref": "common.schema.json#/$defs/NonEmptyString"
+          },
+          "note": {
+            "$ref": "common.schema.json#/$defs/NonEmptyString"
           }
         },
         "additionalProperties": false
@@ -1920,6 +2031,206 @@
       "then": {
         "required": [
           "retired_reason"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "subtype": {
+            "const": "seal"
+          }
+        },
+        "required": [
+          "subtype"
+        ]
+      },
+      "then": {
+        "allOf": [
+          {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "dynasty"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "period"
+                  ]
+                },
+                {
+                  "required": [
+                    "period_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place_entity_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "title_or_office"
+                  ]
+                },
+                {
+                  "required": [
+                    "name_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "merge_history"
+                  ]
+                },
+                {
+                  "required": [
+                    "suppressed_fields"
+                  ]
+                },
+                {
+                  "required": [
+                    "collective_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_level"
+                  ]
+                },
+                {
+                  "required": [
+                    "superiors"
+                  ]
+                },
+                {
+                  "required": [
+                    "group_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "parent_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "function"
+                  ]
+                },
+                {
+                  "required": [
+                    "basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "succeeds"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_level"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_class"
+                  ]
+                },
+                {
+                  "required": [
+                    "rank"
+                  ]
+                },
+                {
+                  "required": [
+                    "salary"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_ref"
+                  ]
+                },
+                {
+                  "required": [
+                    "base_office_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "qualifier"
+                  ]
+                },
+                {
+                  "required": [
+                    "history"
+                  ]
+                },
+                {
+                  "required": [
+                    "modern"
+                  ]
+                },
+                {
+                  "required": [
+                    "predecessors"
+                  ]
+                },
+                {
+                  "required": [
+                    "dates"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "ruler"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "properties": {
+              "external_ids": {
+                "$ref": "#/$defs/ExternalIdsWikidataOnly"
+              },
+              "alt_names": {
+                "$ref": "#/$defs/AltNamesStrict"
+              }
+            }
+          },
+          {
+            "required": [
+              "seal_text",
+              "seal_kind",
+              "dynasty_ids",
+              "description"
+            ]
+          }
         ]
       }
     }
