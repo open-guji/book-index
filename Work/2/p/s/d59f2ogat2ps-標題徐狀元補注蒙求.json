@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,7 +31,7 @@
   "period_basis": "據 authors[0].dynasty「五代」",
   "dynasty": "五代",
   "dynasty_basis": "據唯一五代 author.dynasty「五代」補全",
-  "revision": "1.4.0",
+  "revision": "1.5.0",
   "revised_at": "2026-10-16",
   "resources": [
     {
@@ -131,6 +131,60 @@
         "waseda_id": "bunko31_e1933",
         "edition": "[京都] : 中野市右衛門, 寛永12[1635]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078110",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078110",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078110",
+        "request_no": "３６４－００９４",
+        "edition": "刊本（後印）::寛政:020000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5057013/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078618",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078618",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078618",
+        "request_no": "３６４－００９３",
+        "edition": "刊本（後印）::承応:030000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5057003/manifest.json",
+        "extent": "8冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078620",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078620",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078620",
+        "request_no": "３６４－００９７",
+        "edition": "刊本:江戸初:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5057018/manifest.json",
+        "extent": "3冊"
+      }
     }
   ],
   "resource_groups": {
@@ -151,6 +205,15 @@
     },
     "waseda-bunko31_e1933": {
       "label": "早稲田藏本：[京都] : 中野市右衛門, 寛永12[1635]"
+    },
+    "naikaku-1078110": {
+      "label": "內閣文庫藏本：寛政2年刊本（後印）（364-0094，3冊）"
+    },
+    "naikaku-1078618": {
+      "label": "內閣文庫藏本：承応3年刊本（後印）（364-0093，8冊）"
+    },
+    "naikaku-1078620": {
+      "label": "內閣文庫藏本：江戸初刊本（364-0097，3冊）"
     }
   }
 }

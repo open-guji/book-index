@@ -73,11 +73,32 @@
         "nlc_fid": "411999024777",
         "edition": "明萬曆30年[1602]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073810",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073810",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073810",
+        "request_no": "経００３－０００７",
+        "edition": "刊本（序刊）:明万暦:::還樸堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4749919/manifest.json",
+        "extent": "8冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999024777": {
       "label": "國圖藏本：明萬曆30年[1602]"
+    },
+    "naikaku-1073810": {
+      "label": "內閣文庫藏本：明万暦刊本（序刊） 還樸堂（経003-0007，8冊）"
     }
   },
   "measures": [
@@ -98,7 +119,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "張汝霖（明）撰。八卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》。《四庫全書存目叢書》列於经部。其著錄之文，《四庫全書存目叢書》作「《易經澹窩因指》八卷」。本書為《周易》之注釋，其文附原典以行。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -106,6 +127,6 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-16"
 }

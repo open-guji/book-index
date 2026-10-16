@@ -85,6 +85,42 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071878",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071878",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071878",
+        "request_no": "３０９－０００７",
+        "edition": "刊本:明:::天許斎",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4768967/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082676",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082676",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082676",
+        "request_no": "附００５－０００６",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4220638/manifest.json",
+        "extent": "6冊"
+      }
     }
   ],
   "updated_at": "2026-08-23T00:00:00-07:00",
@@ -94,9 +130,9 @@
   "period_upper_basis": "catalog_bound：《中國通俗小說書目》明清小說部自標所收之代，故不晚於 qing",
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
-  "ai_note": "2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzkq2w0`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-10-07 F7 併條（rule=版本條改建Book）：併 d59f2nfrq2gz《喻世明言》 入本條。孫目版本條，已於草稿庫改建為 Book",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "ai_note": "2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzkq2w0`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-10-07 F7 併條（rule=版本條改建Book）：併 d59f2nfrq2gz《喻世明言》 入本條。孫目版本條，已於草稿庫改建為 Book\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-16",
   "contained_in": [
     {
       "id": "8rlcsybg2hhy",
@@ -117,5 +153,13 @@
       "rule": "版本條改建Book",
       "why": "孫目版本條，已於草稿庫改建為 Book"
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1071878": {
+      "label": "內閣文庫藏本：明刊本 天許斎（309-0007，5冊）"
+    },
+    "naikaku-1082676": {
+      "label": "內閣文庫藏本：明刊本（附005-0006，6冊）"
+    }
+  }
 }
