@@ -131,6 +131,11 @@ CODES = {
     "S04": ("seal appears_in 引用與數量", "專名"),
     "S05": ("seal images 結構／禁字段", "專名"),
     "S06": ("seal images 文件在 book-index-asset 存在（無該倉則跳過）", "專名"),
+    "B-S01": ("Book seal_marks.seal_id 存在且為 seal", "專名"),
+    "B-S02": ("Book seal_marks 同項 seal_id 重複", "專名"),
+    "B-S03": ("Book seal_marks 指向墓碑", "專名"),
+    "B-S04": ("Book seal_marks 印章止年早於書之年份", "專名"),
+    "B-S05": ("Book seal_marks.position 過長（≤30）", "專名"),
     "K01": ("publisher 類別／狀態／來源", "專名"), "K02": ("publisher dynasty_ids（古代必填、現代禁）", "專名"),
     "K03": ("publisher start／end", "專名"), "K04": ("publisher locations", "專名"),
     "K05": ("publisher owners／parent_id", "專名"), "K06": ("publisher 禁欄", "專名"),
@@ -247,6 +252,42 @@ def check_record(kind, rec):
     return out
 
 
+def check_seal_marks(rec, registry):
+    """Book.provenance[].seal_marks 之引用檢查（B-S01…B-S05）；回 [(code, level, field, detail)]。"""
+    out = []
+    year = (rec.get("dating") or {}).get("year")
+    for pi, pv in enumerate(rec.get("provenance") or []):
+        marks = pv.get("seal_marks") if isinstance(pv, dict) else None
+        if not isinstance(marks, list):
+            continue
+        seen = set()
+        for mi, m in enumerate(marks):
+            if not isinstance(m, dict):
+                continue
+            f = "provenance[%d].seal_marks[%d]" % (pi, mi)
+            sid = m.get("seal_id")
+            if isinstance(m.get("position"), str) and len(m["position"]) > 30:
+                out.append(("B-S05", es.ERROR, f + ".position", "超過 30 字（%d）" % len(m["position"])))
+            if sid in seen:
+                out.append(("B-S02", es.ERROR, f + ".seal_id", "同一 provenance 項內重複：%s" % sid))
+            seen.add(sid)
+            st = registry.sub.get(sid)
+            if st is None:
+                out.append(("B-S01", es.ERROR, f + ".seal_id", "找不到該 Entity：%s" % sid))
+                continue
+            if st != "seal":
+                out.append(("B-S01", es.ERROR, f + ".seal_id", "%s 不是 seal（subtype=%s）" % (sid, st)))
+                continue
+            seal = registry.rec.get(sid) or {}
+            if seal.get("merged_into"):
+                out.append(("B-S03", es.WARN, f + ".seal_id", "%s 是墓碑，請改指 merged_into：%s" % (sid, seal["merged_into"])))
+            end = seal.get("end")
+            if isinstance(year, int) and not isinstance(year, bool) and isinstance(end, int) \
+                    and not isinstance(end, bool) and end < year:
+                out.append(("B-S04", es.WARN, f + ".seal_id", "印章止於 %d，早於書年份 %d" % (end, year)))
+    return out
+
+
 def check_file(root, relpath, registry=None):
     """回 [(relpath, id, kind, code, field, detail, level)]；非記錄檔回 []。
     registry：es.Registry（專名引用索引）；None 則不做專名檢查。"""
@@ -269,6 +310,9 @@ def check_file(root, relpath, registry=None):
     if kind == "Entity" and es.applies(rec) and registry is not None:
         rows += [(relpath, rec.get("id", ""), kind, c, f, d, lv)
                  for c, lv, f, d in es.check_record(rec, registry)]
+    if kind == "Book" and registry is not None:
+        rows += [(relpath, rec.get("id", ""), kind, c, f, d, lv)
+                 for c, lv, f, d in check_seal_marks(rec, registry)]
     if kind == "Entity" and "native_place_entity_id" in rec and registry is not None:
         rows += [(relpath, rec.get("id", ""), kind, c, f, d, lv)
                  for c, lv, f, d in es.check_native_place(rec, registry)]
