@@ -61,6 +61,12 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 | `description` | Description | 可选；官职概念条、官署概念条与合称条**必填** | 原生 | 介绍与出处 | 形状同 [common.md〈Description〉](common.md)，但 Entity 的 `text` 可省（正式库 people 5,886 条 `description` 里只有 213 条有 `text`，其余只记出处），`sources` 必有；Entity 的出处一律记 `description.sources` | 录入 | `{"text":"都開封。","sources":[]}` |
 | `merge_history` | array<object> | 可选；people | 原生 | 早期并条账（2026-09-09 一次写入） | 每项 `{primary_name, date, reason}`（正式库 4,409 条） | 迁移 | `[{"primary_name":"曾仲質","date":"2026-09-09","reason":"draft/production 同人同书重出（CBDB auto_create 批次遗留，纯冗余无增量），2026-09-09 併條"}]` |
 | `merged_in` | array<object> | 可选；留存方（keeper） | 原生 | 并入本条的他条 | 每项 `{id, primary_name, at, by, rule, why}`（正式库 people 313 条／324 项，collective 1 条） | 录入 | 见〈六·一〉馬令例 |
+| `merge_history[].primary_name` | string | **必填** | 原生 | 并入前的名 | 自由文本 | 迁移 | `"曾仲質"` |
+| `merge_history[].date` | string | **必填** | 原生 | 并条日 | `YYYY-MM-DD` | 迁移 | `"2026-09-09"` |
+| `merge_history[].reason` | string | **必填** | 原生 | 并条原因 | 自由文本 | 迁移 | |
+| `merged_in[].id` | string | **必填** | 原生 | 被并方 id | entity id | 录入 | `"hixhd2h9bmfu"` |
+| `merged_in[].primary_name` | string | 可选 | 原生 | 被并方名 | 自由文本 | 录入 | `"馬令"` |
+| `merged_in[].at`、`by`、`rule`、`why` | string | 可选 | 原生 | 并入日、经手人、裁定依据、理由 | 自由文本（`at` 为 `YYYY-MM-DD`） | 录入 | 见〈五·一〉馬令例 |
 | `merged_into` | string | 可选；被并方 | 原生 | 本条已并入的条目 id | entity id；被并条只留 `schema_version`、`id`、`type`、`subtype`、`primary_name`、`merged_into`、`revision`、`revised_at`（正式库 2 条）。**并条一律写墓碑、不删档**（2026-10-09 起） | 录入 | `"hixhd2h9biza"`（成無巳 `hixhd2h9blyf`） |
 | `retired` | boolean | 可选 | 原生 | 本条已退役 | 只写 `true`（正式库 5 条） | 录入 | `true` |
 | `retired_reason` | string | 条件：`retired` 时必填 | 原生 | 退役原因 | 自由文本 | 录入 | `"N3 壞名 entity 歸正（2026-08-24 南北朝斷代與壞名專項）：…"`（廋信 `hixhd2h9bq93`） |
@@ -185,7 +191,7 @@ people 的 `dates` 规则：
 
 ### 四·二　`external_ids` 子键
 
-**专名四子类型与官署：只许 `wikidata_id`**（`^Q\d+$`，第一期不填）；出现任何其他子键即 ERROR（E1；官署报 I08）。下表其余子键只用于 `people`。
+**专名四子类型、seal 与官署：只许 `wikidata_id`**（publisher 另许 `isbn_publisher_code`）（`^Q\d+$`，第一期不填）；出现任何其他子键即 ERROR（E1；官署报 I08）。下表其余子键只用于 `people`。
 
 | 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |
 |---|---|---|---|---|---|---|---|
@@ -195,6 +201,7 @@ people 的 `dates` 规则：
 | `external_ids.cbdb_id_alt` | array<integer> | 可选；people | 原生 | CBDB 为同一人另收的 id | 并条时被并方的 `cbdb_id`（正式库 45 条） | 录入 | `[66803]`（劉俊 `hixhd2h9bib6`） |
 | `external_ids.cbdb_note` | string | 可选；people | 旧（暂留） | 匹配疑点备注 | 正式库 1 条（梁正 `hixhd2h9bi3z`：`"疑為同名異人誤配——見下 ai_note"`）；待并入 `ai_note` | 录入 | |
 | `external_ids.wikidata_id` | string | 可选（全部） | 原生 | Wikidata Q 号 | `^Q\d+$`（正式库 people 11,516） | bim | `"Q36020"` |
+| `external_ids.isbn_publisher_code` | string | 可选；仅 publisher（現代出版社） | 原生 | 出版社 ISBN 前缀 | 非空字符串（K07）；专名其他子类型不许 | 录入 | `"7-101"` |
 | `external_ids.viaf_id` | string | 可选；people | 原生 | VIAF id | 纯数字字符串（正式库 2,054） | bim | `"96591338"` |
 
 - `wikidata_id`／`viaf_id` 的取法（overview#159）：只给有 `cbdb_id` 的 people 补，经 Wikidata 属性 **P497**（CBDB ID）反查；用 Wikidata 官方 SPARQL 端点一次性批量取全部 `?item wdt:P497 ?cbdb`（及 `wdt:P214` VIAF），不逐条请求，脚本 `.claude/qa/s4/sync_wikidata_ids.py`。按 `cbdb_id` 精确对；一个 `cbdb_id` 对多个 Q 的不写（列入冲突清单，人工另核）；已有 `wikidata_id` 的不覆盖，与新取值不一致的列入冲突清单。两者缺省表示未取得或未对上。
@@ -208,7 +215,28 @@ people 的 `dates` 规则：
 
 ### 五·一　`people`
 
-通用字段全部可用（见〈二〉）。people 特有的规矩：
+通用字段全部可用（见〈二〉）。people 实际用到的字段一览（每行的完整取值、统计数见〈二〉对应行；`people` 没有专属于它的子类型字段，下面都是〈二〉里的通用字段）：
+
+| 字段 | 类型 | 必填 | 含义 | 例 |
+|---|---|---|---|---|
+| `primary_name` | string | **必填** | 最通行的名字 | `"蘇軾"` |
+| `alt_names[]` | array<AltName> | 可选 | 字、号、谥号、别名等，类型枚举见〈三·二〉 | `[{"name":"子瞻","type":"字"}]` |
+| `dynasty`、`dynasty_basis` | string | 可选 | 所属朝代（规范名）及依据 | `"北宋"` |
+| `period`、`period_basis` | string | 可选 | 时代轴 slug 及依据 | `"song"` |
+| `dates` | object | 可选 | 生卒或活动年，键见〈四·一〉 | `{"birth":1036,"death":1101,"basis":"cbdb"}` |
+| `native_place`、`native_place_basis` | string | 可选 | 籍贯（文本）及依据 | `"眉山"` |
+| `native_place_entity_id` | string | 可选 | 籍贯对应的 place 条 id | `"hixi5xhv38jl"` |
+| `title_or_office` | string | 可选 | 著录所见官职 | `"散騎常侍"` |
+| `name_basis` | string | 可选 | 名字依据（正名经过） | |
+| `external_ids` | object | 可选 | CBDB、Wikidata、VIAF，子键见〈四·二〉 | `{"cbdb_id":3767,"wikidata_id":"Q36020"}` |
+| `description` | Description | 可选 | 介绍与出处（`sources`） | |
+| `merged_in[]`／`merged_into`／`merge_history[]` | array／string／array | 可选 | 并条账与墓碑，见下 | |
+| `retired`、`retired_reason` | boolean／string | 可选 | 退役 | |
+| `suppressed_fields` | array<string> | 可选 | 人工确认 CBDB 值有误而清空的字段名 | `["cbdb_id"]` |
+| `review`、`todo`、`ai_note` | object／array／string | 可选 | 审核状态、待办、备注 | |
+| `revision`、`revised_at`、`updated_at` | string | 见〈二〉 | 版本与改动时间 | `"1.1.0"` |
+
+people 特有的规矩：
 
 - 名下作品不写，build 生成 `_works`；朝代名由 build 解析为 `_dynasty_id`（规范名唯一命中且不歧义）或 `_dynasty_candidates`（歧义名的候选 id），见 [derived.md](derived.md)。
 - **`suppressed_fields`**（2026-09-26 用户裁，甲案）：人工核过、确认 CBDB 该字段之值有误而清空的，把字段名列进 `suppressed_fields`；补空槽的 enrich 脚本（`cbdb-sync/apply_enrich.py`）逢清单里的字段即绕开，不再拿 CBDB 之值回填。原行为只认「字段现在是否空」，人清空一次、下一轮 enrich 就自动填回去，俞安期、謝顯两例皆如此每跑一次就再犯一次。**只影响列名的字段**，其余空槽仍照常补。
@@ -464,6 +492,8 @@ people 的 `dates` 规则：
 | `modern.note` | string | 可选 | 原生 | 说明 | 自由文本 | 录入 | |
 | `predecessors` | array<object> | 可选 | 原生 | 前身 | 每项 `{id, kind, year?, note?}`，`id` 须为 place（P07）；写在后继一侧；草稿库现无 | 录入 | |
 | `predecessors[].kind` | string | **必填** | 原生 | 承继方式 | 2 值：`析出`｜`並入`（P07） | 录入 | |
+| `predecessors[].year` | integer | 可选 | 原生 | 承继发生年 | 整数公历年 | 录入 | |
+| `predecessors[].note` | string | 可选 | 原生 | 说明 | 自由文本 | 录入 | |
 | `coords` | — | **不得有** | — | 坐标 | 第一期禁止出现（P08）；将来只许 Wikidata（CC0）或自测 | — | |
 
 - 同名异地出 INFO 清单；同名且上级链相同的疑重复 WARN（P09）。
@@ -527,23 +557,41 @@ people 的 `dates` 规则：
 
 一枚（一种）印章一条。`primary_name` 是印章通名（如「文淵閣寶」），`seal_text` 是印面文字（印文），**两者分开**：通名可含「印」「寶」等泛称，印文按印面所见照录（异体照录，不简化）。id 沿用 Entity 通则（`mintid.py --type Entity`），分片同其他 Entity。遵守〈一〉的三条专名硬约束（无 `cbdb_*`、`external_ids` 只许 `wikidata_id`、无坐标）。
 
-| 字段 | 类型 | 必填 | 含义／取值 |
-|---|---|---|---|
-| `seal_text` | string | **必填** | 印文 |
-| `seal_kind` | string | **必填** | `官印`｜`私印`｜`鑒藏印`｜`齋館印`｜`其他`（鑒藏印即收藏／鑒賞印，不另设「收藏印」） |
-| `dynasty_ids` | array<id> | **必填** | 启用时所属朝代（dynasty id，默认一朝一条）；不写旧式 `dynasty`／`period` 字符串 |
-| `description` | object | **必填** | 同通则，`sources` 非空；来源不实的字段一律留空，不编造 |
-| `start`／`end` | int | 可选 | 启用／停用年（公元，无 0 年，`start ≤ end`）；不确定不写，说明进 `description.text` |
-| `seal_style` | string | 可选 | `朱文`｜`白文`｜`朱白相間` |
-| `seal_script` | string | 可选 | 篆／隸／楷等，短文本 |
-| `seal_form` | string | 可选 | `方`｜`圓`｜`橢圓`｜`長方`｜`異形` |
-| `material`、`size`、`usage_scope` | string | 可选 | 质地、尺寸（文本，如「長×寬 mm」）、用途一句话 |
-| `owner_ids` | array<id> | 可选 | 印主，指向 people／collective／office 等 Entity id，**不写裸名字**；年号不是印主（乾隆印主指清高宗本人那条 people） |
-| `institution_ids` | array<id> | 可选 | 所属机构（如文渊阁 collective） |
-| `appears_in` | array | 可选 | **本期只作代表例，≤20 条、以 Book 为主**：`{ref_type: "Book"｜"Work", id, position?, note?}`；不是全量钤印清单（全量待 Book 侧另设字段） |
-| `images` | array | 可选 | 印影，≤8 张；`{file, credit, license, source_url, note?}` 四项必填。`file`＝相对 **open-guji/book-index-asset** 仓根的路径，固定为 `entity/{id末3位逐位分片}/{id}/{序号}.webp`（如 id `hixi6zykf4ea` → `entity/4/e/a/hixi6zykf4ea/1.webp`）；`license` 闭集 `公有領域`｜`CC0`（印影入库须公有领域，来源与取得日期写进 asset 仓 README 或 `note`）；`source_url` 为原始出处网址。图本身不进本仓；限额：长边≤1600px、单张≤300KB、webp |
+| 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |
+|---|---|---|---|---|---|---|---|
+| `seal_text` | string | **必填** | 原生 | 印文（印面文字） | 非空；按印面所见照录，异体照录不简化；与 `primary_name` 通名分开 | 录入 | `"文淵閣寶"` |
+| `seal_kind` | string | **必填** | 原生 | 印章类别 | `官印`｜`私印`｜`鑒藏印`｜`齋館印`｜`其他`（鑒藏印即收藏／鑒賞印，不另设「收藏印」） | 录入 | `"官印"` |
+| `dynasty_ids` | array<id> | **必填** | 原生 | 启用时所属朝代 | dynasty id 数组，默认一朝一条；不写旧式 `dynasty`／`period` 字符串 | 录入 | `["hixi1ubjrxga"]`（清） |
+| `description` | object | **必填** | 原生 | 介绍与出处 | 同通则，`sources` 非空；来源不实的字段一律留空，不编造 | 录入 | `{"text":"…","sources":[{"title":"…"}]}` |
+| `start`、`end` | integer | 可选 | 原生 | 启用／停用年 | 公元年，无 0 年，`start ≤ end`；不确定不写，说明进 `description.text` | 录入 | |
+| `seal_style` | string | 可选 | 原生 | 朱白 | `朱文`｜`白文`｜`朱白相間` | 录入 | `"朱文"` |
+| `seal_script` | string | 可选 | 原生 | 印面字体 | 篆／隸／楷等，短文本 | 录入 | `"篆書"` |
+| `seal_form` | string | 可选 | 原生 | 印形 | `方`｜`圓`｜`橢圓`｜`長方`｜`異形` | 录入 | `"方"` |
+| `material` | string | 可选 | 原生 | 质地 | 短文本 | 录入 | `"玉"`（示意） |
+| `size` | string | 可选 | 原生 | 尺寸 | 文本，如「長×寬 mm」 | 录入 | `"50×50 mm"`（示意） |
+| `usage_scope` | string | 可选 | 原生 | 用途／钤用范围 | 一句话 | 录入 | `"鈐於文淵閣本《四庫全書》各冊首卷第一頁"` |
+| `owner_ids` | array<id> | 可选 | 原生 | 印主 | 指向 people／collective／office 的 Entity id，**不写裸名字**；年号不是印主（乾隆印主指清高宗本人那条 people） | 录入 | |
+| `institution_ids` | array<id> | 可选 | 原生 | 所属机构 | 指向 collective（如文渊阁）的 Entity id | 录入 | `["hixi6zykf4e8"]` |
+| `appears_in` | array<object> | 可选 | 原生 | 代表例：此印见于哪些书 | **本期只作代表例，≤20 条、以 Book 为主**；不是全量钤印清单（全量见 Book 侧 `provenance[].seal_marks`，见下〈与 Book、asset 仓的关系〉） | 录入 | |
+| `appears_in[].ref_type` | string | **必填** | 原生 | 引用类型 | `Book`｜`Work` | 录入 | `"Book"` |
+| `appears_in[].id` | string | **必填** | 原生 | 书的 id | 库内存在、不重复（S04） | 录入 | `"988g52c000"` |
+| `appears_in[].position` | string | 可选 | 原生 | 钤印位置 | 短文本 | 录入 | `"首卷第一頁"` |
+| `appears_in[].note` | string | 可选 | 原生 | 说明 | 自由文本 | 录入 | `"據通例，未逐冊核對"` |
+| `images` | array<object> | 可选 | 原生 | 印影 | ≤8 张；图本身不进本仓，在 **open-guji/book-index-asset** 仓；限额长边≤1600px、单张≤300KB、webp | 录入 | |
+| `images[].file` | string | **必填** | 原生 | 图文件路径 | 相对 asset 仓根，固定为 `entity/{id末3位逐位分片}/{id}/{序号}.webp`（id `hixi6zykf4ea` → `entity/4/e/a/hixi6zykf4ea/1.webp`） | 录入 | `"entity/4/e/a/hixi6zykf4ea/1.webp"` |
+| `images[].credit` | string | **必填** | 原生 | 署名／来源说明 | 自由文本 | 录入 | `"維基共享資源〈…〉"` |
+| `images[].license` | string | **必填** | 原生 | 许可 | 闭集 `公有領域`｜`CC0`（印影入库须公有领域） | 录入 | `"公有領域"` |
+| `images[].source_url` | string | **必填** | 原生 | 原始出处网址 | URL | 录入 | `"https://commons.wikimedia.org/wiki/File:…"` |
+| `images[].note` | string | 可选 | 原生 | 取图说明 | 取得日期、裁切、尺寸等 | 录入 | `"取 250px 縮略圖轉 webp"` |
 
 归属单向：印→印主／机构，反向（某人有哪些印）由 build 派生；禁用 `dates`、`dynasty`、`period`、`native_place*`、`history`、`ruler` 等其他子类型专属字段（S05）。校验码见〈八〉S01–S06。
+
+**与 Book、asset 仓的关系（查印章从这里开始）**：
+- **印章条本身**（本节）只记这一种印：印文、类别、朝代、印主、印影。
+- **某书有哪些印**不写在印章条，写在具体馆藏本上：`Book.provenance[].seal_marks[]`，每项 `{seal_id, position?, note?, source?}`，`seal_id` 指向本节的印章条（见 [book.md〈四、provenance〉](book.md#四provenance馆藏)）；旧 `provenance[].seals`（字符串数组）保留为著录原文。校验码 B-S01…B-S05 在 `check_v2.py` Book 段。
+- 印章条的 `appears_in` 只是代表例（≤20）；全量待 `seal_marks` 回填后由 build 派生，不手写。
+- **印影图**放在 **open-guji/book-index-asset** 仓，本仓只存 `images[]` 元数据；S06 校验文件是否存在（本地无该仓则跳过）。
+- 并条：印章条被合并时，`entity_merge.py` 同步改繫全库 `seal_marks[].seal_id`。
 
 ---
 
@@ -555,19 +603,27 @@ people 的 `dates` 规则：
 
 遵守〈一〉：无 `cbdb_*`、无坐标、不存「刻过哪些书」。`external_ids` 只许 `wikidata_id`，现当代出版社另许 `isbn_publisher_code`。朝代由 `dynasty_ids` 表达，不写旧式 `dynasty`／`period` 字符串。
 
-| 字段 | 类型 | 必填 | 含义／取值 |
-|---|---|---|---|
-| `publisher_kind` | string | **必填** | `家刻`｜`坊刻`｜`寺觀`｜`藩府`｜`現代出版社`｜`未分`（K01） |
-| `kind_also` | array<string> | 可选 | 兼营类别，取值同上，不含主类别（如汲古閣：主 `家刻`，兼 `坊刻`） |
-| `dynasty_ids` | array<id> | 古代类**必填**；`現代出版社`**不得写** | 活动所跨 dynasty id。跨朝单条仅限家刻／坊刻等同一私人／书坊主体连续经营跨朝（如掃葉山房明清）（K02） |
-| `start`、`end` | integer | 可选 | 公历年，无 0 年，`start ≤ end`；有把握才填；仍存续者不写 `end`；現代出版社 `start` 可早于 1900（K03） |
-| `dates_basis` | string | 条件：写了 `start`／`end` 时必填 | 起止年的依据（K08，WARN） |
-| `locations` | array<object> | 可选 | 所在地，可多段：`{place_id?, name, start?, end?, note?}`；`place_id` 须指 `subtype=place`；无地名条时只写 `name`；迁移（建陽→南京）用多段表达（K04） |
-| `owners` | array<object> | 可选 | 主持者／东家：`{id, role, start?, end?, note?}`，`id` 指 people 或 collective，`role` 开放词表（常用：主人／創辦／主持／經營／督刻）（K05） |
-| `parent_id` | string | 可选 | 上级主体（publisher 或 collective）：只写下→上，下属由 build 派生；不自指、publisher 链无环（K05） |
-| `status` | string | 可选 | `存續`｜`撤併`｜`停業`｜`未詳`；`end` 与 `status` 都缺按存续读 |
-| `description` | object | **必填** | 同通则，`sources` 非空（K01） |
-| `name_basis` | string | 可选 | 名称取定依据（牌记、《書林清話》等） |
+| 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |
+|---|---|---|---|---|---|---|---|
+| `publisher_kind` | string | **必填** | 原生 | 主类别 | `家刻`｜`坊刻`｜`寺觀`｜`藩府`｜`現代出版社`｜`未分`（K01） | 录入 | `"家刻"` |
+| `kind_also` | array<string> | 可选 | 原生 | 兼营类别 | 取值同上，不含主类别（如汲古閣：主 `家刻`，兼 `坊刻`） | 录入 | `["坊刻"]` |
+| `dynasty_ids` | array<id> | 条件：古代类**必填**；`現代出版社`**不得写** | 原生 | 活动所跨朝代 | dynasty id；跨朝单条仅限同一私人／书坊主体连续经营跨朝（如掃葉山房明清）（K02） | 录入 | `["hixi1ubjrxfw"]` |
+| `start`、`end` | integer | 可选 | 原生 | 起止年 | 公历年，无 0 年，`start ≤ end`；有把握才填；仍存续者不写 `end`；現代出版社 `start` 可早于 1900（K03） | 录入 | `1912` |
+| `dates_basis` | string | 条件：写了 `start`／`end` 时必填 | 原生 | 起止年依据 | 自由文本（K08，WARN） | 录入 | `"《書林清話》"` |
+| `locations` | array<object> | 可选 | 原生 | 所在地（可多段） | 迁移（建陽→南京）用多段表达（K04） | 录入 | |
+| `locations[].name` | string | **必填** | 原生 | 地名 | 非空；无地名条时只写这个 | 录入 | `"常熟"` |
+| `locations[].place_id` | string | 可选 | 原生 | 地名条 id | 须指 `subtype=place`（K04） | 录入 | |
+| `locations[].start`、`end` | integer | 可选 | 原生 | 该段起止年 | 同上 | 录入 | |
+| `locations[].note` | string | 可选 | 原生 | 说明 | 自由文本 | 录入 | |
+| `owners` | array<object> | 可选 | 原生 | 主持者／东家 | `{id, role, start?, end?, note?}`（K05） | 录入 | |
+| `owners[].id` | string | **必填** | 原生 | 人或机构条 id | 指 people 或 collective | 录入 | |
+| `owners[].role` | string | **必填** | 原生 | 角色 | 开放词表，常用：主人／創辦／主持／經營／督刻 | 录入 | `"主人"` |
+| `owners[].start`、`end`、`note` | integer／string | 可选 | 原生 | 任期、说明 | 同上 | 录入 | |
+| `parent_id` | string | 可选 | 原生 | 上级主体 | publisher 或 collective；只写下→上，下属由 build 派生；不自指、publisher 链无环（K05） | 录入 | |
+| `status` | string | 可选 | 原生 | 存续状态 | `存續`｜`撤併`｜`停業`｜`未詳`；`end` 与 `status` 都缺按存续读 | 录入 | `"存續"` |
+| `description` | object | **必填** | 原生 | 介绍与出处 | 同通则，`sources` 非空（K01） | 录入 | |
+| `name_basis` | string | 可选 | 原生 | 名称取定依据 | 牌记、《書林清話》等 | 录入 | `"牌記作「汲古閣」"` |
+| `external_ids.isbn_publisher_code` | string | 可选；現代出版社 | 原生 | 出版社 ISBN 前缀 | 字符串（K07）；其余仍只许 `wikidata_id` | 录入 | `"7-101"` |
 
 **1900 前后边界**：以创办时的主营业务判。1911 年以前以雕版／木活字刻书为业者→古代类，`dynasty_ids` 写到清，入民国仍存续的在 `end`／`description` 写明，不拆两条；以铅印、石印、影印等现代出版机制、公司／出版社体制创办者→`現代出版社`（无论 1897 商務还是 1912 中華），不写 `dynasty_ids`；掃葉山房类木刻转石印的老字号，按创办时主业归坊刻，单条。
 
