@@ -324,7 +324,10 @@ def iter_build(out_dir):
         for fn in sorted(fns):
             if fn.endswith(".json"):
                 ap = os.path.join(dp, fn)
-                yield "index", os.path.relpath(ap, out_dir).replace(os.sep, "/"), ap
+                rel = os.path.relpath(ap, out_dir).replace(os.sep, "/")
+                if rel == "index/seals.json" or rel.startswith("index/seals/"):
+                    continue    # 印章反查表（build/sealindex.py，形状不同于 {id: 条目}）；由 build 自校验与 verify 查
+                yield "index", rel, ap
 
 
 def emit_report(tally, examples, recs, a, label):

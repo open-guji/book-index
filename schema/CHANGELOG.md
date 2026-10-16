@@ -4,6 +4,14 @@
 
 ---
 
+## 2026-10-16　新增派生 `index/seals.json`＋`index/seals/<seal_id>/<n>.json`（印章反查表；GUJI-542 P2，Sylvie 核）
+
+- `build/sealindex.py`（新）：由 `Book.provenance[].seal_marks` 派生每枚现行印章的 Book 计数与分页（每页 ≤500）；`build_derived.py` 产出并自校验，`--write-index` 写回仓内；`report.json` 加 `index.seals`（含与手写 `appears_in` 的对账，只报不拦）。
+- `verify.py` 加「印章反查表漂移」（计入 FAIL）；`check_schema --build` 跳过这两处（形状不同于 `{id: 条目}`）。
+- 说明见 derived.md〈8.3〉。不改任何源记录；现 `seal_marks` 尚无数据，故现有 5 枚印章 `count` 均为 0（回填在 P4）。
+
+---
+
 ## 2026-10-16　拆分 `schema/entity.md`：总览＋`schema/entity/` 分档（纯文档；用户要求，Sylvie 核）
 
 - `entity.md` 改为总览（子类型一览、专名硬约束、通用部分概要、校验码索引、旧〈章节号〉对照表）。
