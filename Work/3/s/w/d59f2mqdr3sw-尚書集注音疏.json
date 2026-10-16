@@ -44,7 +44,7 @@
   "additional_titles": [
     "尚書集註音疏"
   ],
-  "ai_note": "entity_id 補繫：本條之撰人江聲與庫中人物記錄（1j9678gg7bqbl）同名，而該人物之 works 已列本條，是二者本相繫而作品側漏繫，今補。",
+  "ai_note": "entity_id 補繫：本條之撰人江聲與庫中人物記錄（1j9678gg7bqbl）同名，而該人物之 works 已列本條，是二者本相繫而作品側漏繫，今補。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "updated_at": "2026-08-09T10:40:18+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
@@ -57,8 +57,8 @@
       "number": 12
     }
   ],
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-16",
   "resources": [
     {
       "name": "维基共享资源",
@@ -67,6 +67,50 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NAJDA-273-0191_%E5%B0%9A%E6%9B%B8%E9%9B%86%E6%B3%A8%E9%9F%B3%E7%96%8F1.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073982",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073982",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073982",
+        "request_no": "２７３－０１９１",
+        "edition": "刊本（序刊）::清乾隆:580000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3997641/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073983",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073983",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073983",
+        "request_no": "経００６－０００８",
+        "edition": "刊本（序刊）::清乾隆:580000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4751345/manifest.json",
+        "extent": "6冊"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1073982": {
+      "label": "內閣文庫藏本：清乾隆58年刊本（序刊）（273-0191，6冊）"
+    },
+    "naikaku-1073983": {
+      "label": "內閣文庫藏本：清乾隆58年刊本（序刊）（経006-0008，6冊）"
+    }
+  }
 }
