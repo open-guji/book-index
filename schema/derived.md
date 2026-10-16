@@ -482,7 +482,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 - **用法**：印章条页面读 `seals.json` 的 `count`，列表读第 1 页，翻页读后续页；不要把整表塞进印章条 JSON（文淵閣寶这类通例印可达数千册）。
 - **不是 `{id: 条目}` 形**：不进 `index.schema.json`，`check_schema --build` 跳过这两处；由 build 自校验（`count` ＝各页之和、页内升序不重）与 `verify.py`（重算后与仓内文件比对，漂移计入 FAIL）把关。
 - **写入**：默认写 `<out>/index/`，`--write-index` 另写回仓内；只写有变的文件，缩小后多出的旧页删除（`index/seals/` 下空目录一并删）。文件缩进 2、尾一换行。
-- **与手写 `appears_in` 对账**：`report.json` 的 `index.seals.reconcile_appears_in` 列每枚印章手写 `appears_in`（Book 项）与派生表的差（`not_in_derived`）。P5 之前两者不必相等（`appears_in` 是代表例，`seal_marks` 逐步回填），只报不拦；P4 回填后据此核对，P5 再把 `appears_in` 改为禁手写。
+- **与手写 `appears_in` 对账**：`report.json` 的 `index.seals.reconcile_appears_in` 列每枚印章手写 `appears_in`（Book 项）与派生表的差（`not_in_derived`）。P5 之前两者不必相等（`appears_in` 是代表例，`seal_marks` 逐步回填），只报不拦；P4 回填后据此核对，并把这条对账从只报不拦转为硬检查（手写代表例须全在派生表里）；P5 再把 `appears_in` 改为禁手写。
 
 ## 九、匹配键表
 
