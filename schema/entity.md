@@ -60,7 +60,7 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 | `external_ids` | object | 可选（全部）；专名只许 `wikidata_id` | 原生 | 外部库 id | 子键见〈四·二〉 | 录入、bim | `{"cbdb_id":3767,"wikidata_id":"Q36020"}` |
 | `description` | Description | 可选；官职概念条、官署概念条与合称条**必填** | 原生 | 介绍与出处 | 形状同 [common.md〈Description〉](common.md)，但 Entity 的 `text` 可省（正式库 people 5,886 条 `description` 里只有 213 条有 `text`，其余只记出处），`sources` 必有；Entity 的出处一律记 `description.sources` | 录入 | `{"text":"都開封。","sources":[]}` |
 | `merge_history` | array<object> | 可选；people | 原生 | 早期并条账（2026-09-09 一次写入） | 每项 `{primary_name, date, reason}`（正式库 4,409 条） | 迁移 | `[{"primary_name":"曾仲質","date":"2026-09-09","reason":"draft/production 同人同书重出（CBDB auto_create 批次遗留，纯冗余无增量），2026-09-09 併條"}]` |
-| `merged_in` | array<object> | 可选；留存方（keeper） | 原生 | 并入本条的他条 | 每项 `{id, primary_name, at, by, rule, why}`（正式库 people 313 条／324 项，collective 1 条） | 录入 | 见〈六·一〉馬令例 |
+| `merged_in` | array<object> | 可选；留存方（keeper） | 原生 | 并入本条的他条 | 每项 `{id, primary_name, at, by, rule, why}`（正式库 people 313 条／324 项，collective 1 条） | 录入 | 见〈五·一〉馬令例 |
 | `merge_history[].primary_name` | string | **必填** | 原生 | 并入前的名 | 自由文本 | 迁移 | `"曾仲質"` |
 | `merge_history[].date` | string | **必填** | 原生 | 并条日 | `YYYY-MM-DD` | 迁移 | `"2026-09-09"` |
 | `merge_history[].reason` | string | **必填** | 原生 | 并条原因 | 自由文本 | 迁移 | |
