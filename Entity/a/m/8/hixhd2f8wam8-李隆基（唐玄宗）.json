@@ -32,6 +32,11 @@
     {
       "name": "玄宗明皇帝御",
       "type": "訛名"
+    },
+    {
+      "name": "李隆基",
+      "type": "別名",
+      "note": "重出條并入"
     }
   ],
   "dynasty": "唐",
@@ -45,7 +50,7 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "sui-tang",
   "period_basis": "據 dynasty「唐」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 5 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=19244 補入空槽——籍貫「長安」。既有之值一概未動。\n\n2026-10-02 lane-B 併條善後：所繫 d59f28nbd4w5 已併入 d59f28noh3ph，反邊改指。",
+  "ai_note": "2026-08-24 補繫 entity：新收 5 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=19244 補入空槽——籍貫「長安」。既有之值一概未動。\n\n2026-10-02 lane-B 併條善後：所繫 d59f28nbd4w5 已併入 d59f28noh3ph，反邊改指。\n\n2026-10-16 GUJI-383 帝王抽檢（Sylvie，評論12873）：同人雙條 hixhd2h9bo6w 李隆基 并入本條（Sidney 執行；同朝同廟號、生卒一致，留帶生卒與 cbdb 之一方），Work 引用已改指。",
   "native_place": "長安",
   "native_place_basis": "CBDB 19244 index_addr（2026-09-06 CBDB enrich）",
   "dates": {
@@ -53,6 +58,16 @@
     "death": 762,
     "basis": "現行字段"
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-10-09"
+  "revision": "1.0.2",
+  "revised_at": "2026-10-16",
+  "merged_in": [
+    {
+      "id": "hixhd2h9bo6w",
+      "primary_name": "李隆基",
+      "at": "2026-10-16",
+      "by": "Sidney",
+      "rule": "帝王同人双条并条（Sylvie 抽检）",
+      "why": "同人：同朝同庙号帝王，生卒/在位一致，保留带生卒与cbdb之一方；GUJI-383 评论12873"
+    }
+  ]
 }
