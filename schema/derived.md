@@ -469,6 +469,21 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 
 ---
 
+### 8.3 印章反查表 `index/seals.json` 与 `index/seals/`
+
+GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.provenance[].seal_marks[].seal_id`（见 [book.md〈四〉](book.md#四provenance馆藏)）；印章条自己不存全量。实现在 `build/sealindex.py`，`build_derived.py` 与 `verify.py` 共用。
+
+| 文件 | 内容 |
+|---|---|
+| `index/seals.json` | `{seal_id: {count, pages}}`，键按 id 排序。所有**现行**（非墓碑）印章条都列，没有钤印记录的 `count: 0, pages: 0` |
+| `index/seals/<seal_id>/<n>.json` | `{seal_id, page, books}`，`books` 是该页 Book id（升序），每页 ≤500；`n` 从 1 起 |
+
+- **计数口径**：`count` ＝不同 Book 数；同一 Book 的多个馆藏本都有此印只算 1。`seal_id` 沿 `merged_into` 归到现行印章条（墓碑不单列）；成环、不存在、不是 seal 的引用不计（`check_v2` 的 B-S01 另报）；带 `merged_into` 的 Book 不计。只含本库 Book，草稿库 Book 升格后再计入。
+- **用法**：印章条页面读 `seals.json` 的 `count`，列表读第 1 页，翻页读后续页；不要把整表塞进印章条 JSON（文淵閣寶这类通例印可达数千册）。
+- **不是 `{id: 条目}` 形**：不进 `index.schema.json`，`check_schema --build` 跳过这两处；由 build 自校验（`count` ＝各页之和、页内升序不重）与 `verify.py`（重算后与仓内文件比对，漂移计入 FAIL）把关。
+- **写入**：默认写 `<out>/index/`，`--write-index` 另写回仓内；只写有变的文件，缩小后多出的旧页删除（`index/seals/` 下空目录一并删）。文件缩进 2、尾一换行。
+- **与手写 `appears_in` 对账**：`report.json` 的 `index.seals.reconcile_appears_in` 列每枚印章手写 `appears_in`（Book 项）与派生表的差（`not_in_derived`）。P5 之前两者不必相等（`appears_in` 是代表例，`seal_marks` 逐步回填），只报不拦；P4 回填后据此核对，P5 再把 `appears_in` 改为禁手写。
+
 ## 九、匹配键表
 
 `dynasty_reign_keys.json`、`office_keys.json`、`place_keys.json`：供文本侧按名回挂专名条。每次全量 build 都产出；草稿库 build 带 `--ref-root` 时才含正式库专名、才是全量。
