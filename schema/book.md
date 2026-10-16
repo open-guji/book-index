@@ -16,7 +16,7 @@
 | `title` | string | 必填 | 原生 | 版本题名 | 自由文本，繁体 | 录入 | `"周易正義"` |
 | `work_id` | string | 必填 | 原生 | 所属作品（**Work↔Book 的唯一存储侧**） | Work id；草稿 Book 可指正式 Work | 录入 | `"1evl7l48e27ls"` |
 | `edition` | string | 可选 | 原生 | 版本名（文献学意义上「这是哪一个本子」） | 自由文本；不写成 `version` | 录入 | `"清乾隆間寫文淵閣四庫全書本"` |
-| `edition_type` | string | 可选 | 原生 | 版本类型 | 11 值闭集，见 [§二](#edition_type)；推不出不写 | 录入 | `"刻本"` |
+| `edition_type` | string | 可选 | 原生 | 版本类型 | 13 值闭集，见 [§二](#edition_type)；推不出不写 | 录入 | `"刻本"` |
 | `dating` | object | 可选 | 原生 | 刊刻／抄写年代 | 见 [common.md〈dating〉](common.md#六dating-与-publication_info) | 录入 | `{"era":"宋","reign":"紹熙","year":1193,"certainty":"inferred","source":"edition","basis":"…"}` |
 | `publication_info` | object | 可选 | 原生 | 出版信息 | 见 common.md | 录入 | `{"year":"清乾隆間"}` |
 | `contained_in` | array<object> | 可选 | 原生 | 收在哪些丛编（**Book∈Collection 的唯一存储侧**） | 每项 `{id, volume_index?, details?, sub_items?}`，见 [§三](#三contained_in) | 录入 | `[{"id":"8rl…","volume_index":[7,8],"sub_items":["周易略例"]}]` |
@@ -75,7 +75,7 @@
 
 ## 二、`edition_type`
 
-11 值闭集，推不出者**留空不写**（不设「不詳」占位值）：
+13 值闭集，推不出者**留空不写**（不设「不詳」占位值）：
 
 | 值 | 说明 |
 |---|---|
@@ -84,6 +84,8 @@
 | `稿本` | 稿本 |
 | `活字本` | 活字、聚珍 |
 | `石印本` | 石印 |
+| `油印本` | 油印、蠟紙油印、鐵筆謄印（多见于民國至建国后的内部印本、方志稿） |
+| `曬印本` | 曬印、曬藍、藍曬（以感光方式複制的印本） |
 | `鉛印本` | 铅活字排印；「排印」技法两可，光绪、宣统以后或纪年不详而明写「民國」者归此 |
 | `影印本` | 影印、景印 |
 | `套印本` | 套印 |
