@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-10-16　Entity 新增 `publisher`（出版社／刻书机构；GUJI-539 v3，用户当日拍板；Sylvie 核）
+
+- `entity.md` 增〈六·五〉与 K01–K09；`entity.schema.json` 增 `publisher` 子类型及字段（`publisher_kind`／`kind_also`／`dates_basis`／`locations`／`owners`／`status`），其他子类型的「不许带」清单同步加；`entity_subtypes.py` 增 `_check_publisher`（K01–K08）与 K09。
+- `alt_names[].type` 增 `堂號`、`牌記名`（23→25 值）。
+- `authors[].entity_id`（Work／Book／Collection）说明由 people／collective 放开到 people／collective／publisher（common.md）；现有校验只查悬空，不限类型，无代码改动。
+- 取舍（用户定）：不设 `publisher_sub`、`predecessors`、`legal_name`、「書房」类；书坊集群不建；官署、书院一律 collective，不建 publisher；外国出版社暂不收；全称入 `alt_names`（`全稱`）。
+
+---
+
 ## 2026-10-15　people 加 `native_place_entity_id`（籍贯回挂地名 Entity；GUJI-237，ai-team#2 Marcus 6182137410）
 
 - `entity.schema.json` 加 `native_place_entity_id`（非空字符串），非 people 子类型的「不许带」清单同步加；`entity.md` 字段表加一行。旧 `native_place`／`native_place_basis` 保留不改语义；缺此字段的旧数据仍合法。
