@@ -20,6 +20,16 @@
     {
       "name": "阿摩",
       "type": "別名"
+    },
+    {
+      "name": "楊廣",
+      "type": "別名",
+      "note": "重出條并入"
+    },
+    {
+      "name": "隋煬帝",
+      "type": "別名",
+      "note": "重出條并入"
     }
   ],
   "dynasty": "隋",
@@ -33,12 +43,30 @@
   "period_basis": "據 dynasty「隋」自動歸併",
   "native_place": "洛陽",
   "native_place_basis": "CBDB 30957 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=30957 補入空槽——籍貫「洛陽」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=30957 補入空槽——籍貫「洛陽」。既有之值一概未動。\n\n2026-10-16 GUJI-383 帝王抽檢（Sylvie，評論12873）：同人雙條 hixhd2h9bufq 隋煬帝 并入本條（Sidney 執行；同朝同廟號、生卒一致，留帶生卒與 cbdb 之一方），Work 引用已改指。",
   "dates": {
     "birth": 580,
     "death": 618,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.0.1",
+  "revised_at": "2026-10-16",
+  "merged_in": [
+    {
+      "id": "hixhd2h9brk2",
+      "primary_name": "楊廣",
+      "at": "2026-10-14",
+      "by": "Elias",
+      "rule": "帝王重出并入（Soren 核查）",
+      "why": "全朝帝王并入：楊廣→隋煬帝（Soren 清单）"
+    },
+    {
+      "id": "hixhd2h9bufq",
+      "primary_name": "隋煬帝",
+      "at": "2026-10-16",
+      "by": "Sidney",
+      "rule": "帝王同人双条并条（Sylvie 抽检）",
+      "why": "同人：同朝同庙号帝王，生卒/在位一致，保留带生卒与cbdb之一方；GUJI-383 评论12873"
+    }
+  ]
 }
