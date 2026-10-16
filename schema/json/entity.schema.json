@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "entity.schema.json",
   "title": "Entity（人物与专名）",
-  "description": "说明见 schema/entity.md。跨记录检查（引用存在、无环、唯一、区间）不在本 schema，由 .claude/qa/check_v2.py（entity_subtypes.py）做。revision 正式库必填由 check_schema.py 另加。",
+  "description": "说明见 schema/entity.md（总览）与 schema/entity/（各子类型分档）。跨记录检查（引用存在、无环、唯一、区间）不在本 schema，由 .claude/qa/check_v2.py（entity_subtypes.py）做。revision 正式库必填由 check_schema.py 另加。",
   "type": "object",
   "required": [
     "id",
@@ -2823,7 +2823,7 @@
   ],
   "$defs": {
     "AltName": {
-      "description": "别名。type 枚举 25 值（entity.md〈三·二〉）；people 的表外旧值报 WARN；缺 type 为旧写法（WARN）。",
+      "description": "别名。type 枚举 25 值（schema/entity/_alt-names.md）；people 的表外旧值报 WARN；缺 type 为旧写法（WARN）。",
       "type": "object",
       "required": [
         "name"
@@ -3004,7 +3004,7 @@
       "additionalProperties": false
     },
     "Dates": {
-      "description": "按子类型放行的键见 entity.md〈四·一〉；分支里再收窄。",
+      "description": "按子类型放行的键见 schema/entity/_dates-external-ids.md；分支里再收窄。",
       "type": "object",
       "properties": {
         "birth": {

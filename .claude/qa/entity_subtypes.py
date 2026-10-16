@@ -3,7 +3,7 @@
 check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
 
 依據：overview `項目進展/古籍目錄/整體設計/專名建檔/給S-字段清單.md` §四，及 D／O／P 設計檔；
-字段形狀見 schema/entity.md。overview#464（F6-5）。
+字段形狀見 schema/entity.md（總覽）與 schema/entity/（各子類型）。overview#464（F6-5）。
 
 碼與級別（沿用清單）：
   E1   四子類型不許有 cbdb_*／chgis_id／dila_*／translation／c_office_trans／cbdb_alt_names，
