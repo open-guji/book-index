@@ -25,10 +25,10 @@
   },
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
-  "ai_note": "撰人切分來源：又條承上。",
+  "ai_note": "撰人切分來源：又條承上。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "id": "d59f6egiiccg",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-16",
   "resources": [
     {
       "name": "维基共享资源",
@@ -52,11 +52,53 @@
         "nlc_fid": "411999015728",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079600",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079600",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079600",
+        "request_no": "子０２１－００１７",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4405777/manifest.json",
+        "extent": "8冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083903",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083903",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083903",
+        "request_no": "３０１－０１３４",
+        "edition": "刊本（序刊）::明嘉靖:350000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4770382/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999015728": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1079600": {
+      "label": "內閣文庫藏本：明刊本（子021-0017，8冊）"
+    },
+    "naikaku-1083903": {
+      "label": "內閣文庫藏本：明嘉靖35年刊本（序刊）（301-0134，4冊）"
     }
   }
 }

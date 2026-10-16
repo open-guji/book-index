@@ -77,7 +77,7 @@
       "欽定四庫全書總目"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n[M3磁鐵 2026-08-23] 收 欽定四庫全書總目「《徐文長集》•三十卷」一節：提要作《徐文長集》三十卷，即庫中《徐文長文集》三十卷（袁宏道評點本），與《徐文長逸稿》二十四卷異書，今改繫文集。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967bgl6pblu`.dynasty「明」propagate 補齊；work.dynasty 同步。",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n[M3磁鐵 2026-08-23] 收 欽定四庫全書總目「《徐文長集》•三十卷」一節：提要作《徐文長集》三十卷，即庫中《徐文長文集》三十卷（袁宏道評點本），與《徐文長逸稿》二十四卷異書，今改繫文集。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967bgl6pblu`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "juan_count": {
     "number": 30
   },
@@ -166,6 +166,60 @@
         "nlc_fid": "411999008411",
         "edition": "明萬曆42年[1614]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074777",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074777",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074777",
+        "request_no": "３１７－０１３４",
+        "edition": "刊本（後修）::明万暦:420000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5088061/manifest.json",
+        "extent": "11冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083416",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083416",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083416",
+        "request_no": "集０３１－０００８",
+        "edition": "刊本（後修）::明万暦:420000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4408580/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3609865",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3609865",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3609865",
+        "request_no": "３１７－０１３５",
+        "edition": "刊本（序刊）::明万暦:420000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3897100/manifest.json",
+        "extent": "10冊"
+      }
     }
   ],
   "updated_at": "2026-08-24T00:00:00+00:00",
@@ -173,8 +227,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-16",
   "resource_groups": {
     "nlc-2146": {
       "label": "國圖藏本：明萬曆[1573-1620]"
@@ -184,6 +238,15 @@
     },
     "nlc-411999008411": {
       "label": "國圖藏本：明萬曆42年[1614]"
+    },
+    "naikaku-1074777": {
+      "label": "內閣文庫藏本：明万暦42年刊本（後修）（317-0134，11冊）"
+    },
+    "naikaku-1083416": {
+      "label": "內閣文庫藏本：明万暦42年刊本（後修）（集031-0008，10冊）"
+    },
+    "naikaku-3609865": {
+      "label": "內閣文庫藏本：明万暦42年刊本（序刊）（317-0135，10冊）"
     }
   }
 }
