@@ -166,6 +166,32 @@
               "type": "string"
             }
           },
+          "seal_marks": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 100,
+            "items": {
+              "type": "object",
+              "required": [
+                "seal_id"
+              ],
+              "properties": {
+                "seal_id": {
+                  "$ref": "common.schema.json#/$defs/Id"
+                },
+                "position": {
+                  "type": "string"
+                },
+                "note": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
           "notes": {
             "type": "string"
           },
