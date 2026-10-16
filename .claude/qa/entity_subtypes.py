@@ -39,6 +39,18 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
        S04  appears_in ≤20 條、ref_type ∈ Book／Work、id 存在於本庫（或 --ref-root）對應目錄；     ERROR
             不得重複
        S05  images 每項有 url 與 credit；禁人物／朝代／地名／年號專屬欄位                         ERROR
+  K01–K09  出版社／刻書機構（publisher，GUJI-539 v3；官署／書院一律 collective，不入此）：
+       K01  publisher_kind 在 6 值內（家刻｜坊刻｜寺觀｜藩府｜現代出版社｜未分）、kind_also／status 枚舉、
+            primary_name 非空、description.sources 非空                                          ERROR
+       K02  古代類 dynasty_ids 必填且各指 dynasty；現代出版社不得寫 dynasty_ids                       ERROR
+       K03  start／end 為非 0 整數且 start ≤ end                                                  ERROR
+       K04  locations[]：{place_id?, name, start?, end?, note?}，place_id 須指 place；墓碑 WARN      ERROR／WARN
+       K05  owners[]={id, role}（id 指 people／collective）；parent_id 指 publisher／collective、
+            不自指、publisher 上級鏈無環；指墓碑 WARN                                             ERROR／WARN
+       K06  禁欄（predecessors、publisher_sub、legal_name、representative、books、其他子類型專屬欄）  ERROR
+       K07  external_ids 只許 wikidata_id／isbn_publisher_code                                   ERROR
+       K08  寫了 start／end 而缺 dates_basis                                                     WARN
+       K09  同名＋同類別＋同朝代集之 publisher 重複                                               WARN
   級別 INFO：P09 同名異地清單，不計入 ERROR／WARN。
 
 口徑（S 預審）：上下級區間不合（戰國止年晚於東周、北朝起年早於南北朝）、年號越出所屬朝代區間，
@@ -52,7 +64,7 @@ import json
 import os
 import re
 
-NEW_SUBTYPES = ("dynasty", "reign", "office", "place", "seal")
+NEW_SUBTYPES = ("dynasty", "reign", "office", "place", "seal", "publisher")
 ERROR, WARN, INFO = "ERROR", "WARN", "INFO"
 
 PERIODS = {"pre-qin", "qin-han", "three-kingdoms", "jin", "nanbeichao", "sui-tang",
@@ -62,6 +74,7 @@ PERIODS = {"pre-qin", "qin-han", "three-kingdoms", "jin", "nanbeichao", "sui-tan
 ALT_TYPES = {
     "字", "號", "諡號", "賜號", "別名", "常用名", "簡體", "行第", "廟號", "訛名", "異體", "封爵", "俗姓",
     "簡稱", "合稱", "避諱", "別稱", "雅稱", "全稱", "異寫", "舊稱", "異稱", "今名",
+    "堂號", "牌記名",   # publisher 用（GUJI-539 v3）
 }
 ALT_TYPES_NEW_ONLY = ALT_TYPES  # 新子類型暫與全表同；人物之長尾罕見值不在此限（由 qa_entity 判 WARN）
 
@@ -73,6 +86,7 @@ DATES_KEYS = {
     "office": set(),
     "place": set(),
     "seal": set(),
+    "publisher": set(),
 }
 # 源檔不許寫之派生／反向欄（無底線者；`_` 起首者由 check_v2 V01 報）
 DERIVED_NAMES = ("children", "reigns", "index_in_reign", "successors", "people", "holders",
@@ -216,7 +230,7 @@ def _dates_problems(rec, st):
     if not isinstance(dt, dict):
         return [("D3", ERROR, "dates", "非物件")]
     allowed = DATES_KEYS.get(st, set())
-    if st in ("office", "place", "seal"):
+    if st in ("office", "place", "seal", "publisher"):
         return [("D3", ERROR, "dates", "%s 不用 dates（起訖在 start／end 或沿革項）" % st)]
     for k in dt:
         if k not in allowed:
@@ -264,8 +278,12 @@ def _forbidden_problems(rec, st):
             out.append(("E1", ERROR, "external_ids", "非物件"))
         else:
             for k, v in ext.items():
-                if k != "wikidata_id":
-                    out.append(("E1", ERROR, "external_ids." + k, "新子類型只許 wikidata_id"))
+                if k == "isbn_publisher_code" and st == "publisher":
+                    if not nonempty_str(v):
+                        out.append(("K07", ERROR, "external_ids.isbn_publisher_code", "須非空字符串：%r" % (v,)))
+                elif k != "wikidata_id":
+                    out.append(("E1", ERROR, "external_ids." + k, "新子類型只許 wikidata_id"
+                                + ("（publisher 另許 isbn_publisher_code）" if st == "publisher" else "")))
                 elif v is not None and not (isinstance(v, str) and re.match(r"^Q\d+$", v)):
                     out.append(("E1", ERROR, "external_ids.wikidata_id", "須 Q\\d+：%r" % (v,)))
     for k in rec:
@@ -694,6 +712,134 @@ def _check_seal(rec, reg):
             out.append(("S05", ERROR, k, "seal 不用此欄"))
     return out
 
+PUBLISHER_KINDS = ("家刻", "坊刻", "寺觀", "藩府", "現代出版社", "未分")
+PUBLISHER_STATUS = ("存續", "撤併", "停業", "未詳")
+PUBLISHER_LOC_KEYS = {"place_id", "name", "start", "end", "note"}
+PUBLISHER_OWNER_ROLES_HINT = ("主人", "創辦", "主持", "經營", "督刻")   # 開放詞表，不在內只提示不報
+PUBLISHER_FORBIDDEN = ("dynasty", "dynasty_basis", "period", "period_basis", "native_place", "native_place_basis",
+                       "native_place_entity_id", "title_or_office", "collective_kind",
+                       "institution_level", "superiors", "group_ids", "function", "basis", "succeeds",
+                       "dynasty_id", "ruler", "office_level", "office_class", "rank", "salary", "institution_ref",
+                       "base_office_id", "qualifier", "history", "modern", "dates",
+                       "seal_text", "seal_kind", "owner_ids", "institution_ids", "appears_in", "images",
+                       "predecessors", "publisher_sub", "legal_name", "representative", "books", "subordinates")
+
+
+def _check_publisher(rec, reg):
+    """publisher（出版社／刻書機構，GUJI-539 v3）。K01–K08；K09 在 check_global。"""
+    out = []
+    if not nonempty_str(rec.get("primary_name")):
+        out.append(("K01", ERROR, "primary_name", "缺"))
+    kind = rec.get("publisher_kind")
+    if kind not in PUBLISHER_KINDS:
+        out.append(("K01", ERROR, "publisher_kind", "不在枚舉（%s）：%r" % ("｜".join(PUBLISHER_KINDS), kind)))
+    ka = rec.get("kind_also")
+    if ka is not None:
+        if not (isinstance(ka, list) and ka and all(x in PUBLISHER_KINDS for x in ka)):
+            out.append(("K01", ERROR, "kind_also", "須非空數組且取值在 publisher_kind 枚舉內：%r" % (ka,)))
+        elif kind in ka:
+            out.append(("K01", ERROR, "kind_also", "不得含主類別 %r" % (kind,)))
+    st = rec.get("status")
+    if st is not None and st not in PUBLISHER_STATUS:
+        out.append(("K01", ERROR, "status", "不在枚舉（%s）：%r" % ("｜".join(PUBLISHER_STATUS), st)))
+    desc = rec.get("description")
+    if not (isinstance(desc, dict) and isinstance(desc.get("sources"), list) and desc["sources"]):
+        out.append(("K01", ERROR, "description.sources", "publisher 條須有 description 與非空來源"))
+    # K02 dynasty_ids
+    dids = rec.get("dynasty_ids")
+    if kind == "現代出版社":
+        if dids is not None:
+            out.append(("K02", ERROR, "dynasty_ids", "現代出版社不得寫 dynasty_ids"))
+    elif kind in PUBLISHER_KINDS:
+        if not (isinstance(dids, list) and dids):
+            out.append(("K02", ERROR, "dynasty_ids", "古代類必有非空數組"))
+        else:
+            for d in dids:
+                if reg.sub.get(d) != "dynasty":
+                    out.append(("K02", ERROR, "dynasty_ids", "不存在或非 dynasty：%r" % (d,)))
+    # K03 start/end
+    s, e = rec.get("start"), rec.get("end")
+    for k, v in (("start", s), ("end", e)):
+        if v is not None and not is_int(v):
+            out.append(("K03", ERROR, k, "非整數：%r" % (v,)))
+        elif v == 0:
+            out.append(("K03", ERROR, k, "無 0 年"))
+    if is_int(s) and is_int(e) and s > e:
+        out.append(("K03", ERROR, "start", "start > end：%s > %s" % (s, e)))
+    # K04 locations
+    locs = rec.get("locations")
+    if locs is not None:
+        if not (isinstance(locs, list) and locs):
+            out.append(("K04", ERROR, "locations", "須非空數組"))
+        else:
+            for i, it in enumerate(locs):
+                f = "locations[%d]" % i
+                if not isinstance(it, dict) or not nonempty_str(it.get("name")):
+                    out.append(("K04", ERROR, f, "須物件且 name 非空"))
+                    continue
+                for k in it:
+                    if k not in PUBLISHER_LOC_KEYS:
+                        out.append(("K04", ERROR, f + "." + k, "不放行此鍵"))
+                for k in ("start", "end"):
+                    v = it.get(k)
+                    if v is not None and (not is_int(v) or v == 0):
+                        out.append(("K04", ERROR, f + "." + k, "須非 0 整數：%r" % (v,)))
+                if is_int(it.get("start")) and is_int(it.get("end")) and it["start"] > it["end"]:
+                    out.append(("K04", ERROR, f, "start > end"))
+                pid = it.get("place_id")
+                if pid is not None:
+                    if reg.sub.get(pid) != "place":
+                        out.append(("K04", ERROR, f + ".place_id", "不存在或非 place：%r" % (pid,)))
+                    elif (reg.rec.get(pid) or {}).get("merged_into"):
+                        out.append(("K04", WARN, f + ".place_id", "%r 是墓碑，請改指 merged_into" % (pid,)))
+    # K05 owners / parent_id
+    owners = rec.get("owners")
+    if owners is not None:
+        if not (isinstance(owners, list) and owners):
+            out.append(("K05", ERROR, "owners", "須非空數組"))
+        else:
+            for i, it in enumerate(owners):
+                f = "owners[%d]" % i
+                if not isinstance(it, dict) or not nonempty_str(it.get("id")) or not nonempty_str(it.get("role")):
+                    out.append(("K05", ERROR, f, "須 {id, role}，role 非空"))
+                    continue
+                for k in ("start", "end"):
+                    v = it.get(k)
+                    if v is not None and (not is_int(v) or v == 0):
+                        out.append(("K05", ERROR, f + "." + k, "須非 0 整數：%r" % (v,)))
+                x = it["id"]
+                sx = reg.sub.get(x)
+                if sx is None:
+                    out.append(("K05", ERROR, f + ".id", "id 不存在：%r" % (x,)))
+                elif sx not in ("people", "collective"):
+                    out.append(("K05", ERROR, f + ".id", "owners 只指 people／collective，不得指 %s：%r" % (sx, x)))
+                elif (reg.rec.get(x) or {}).get("merged_into"):
+                    out.append(("K05", WARN, f + ".id", "%r 是墓碑，請改指 merged_into" % (x,)))
+    pid = rec.get("parent_id")
+    if pid is not None:
+        if not nonempty_str(pid):
+            out.append(("K05", ERROR, "parent_id", "非字符串"))
+        elif pid == rec.get("id"):
+            out.append(("K05", ERROR, "parent_id", "自指"))
+        elif reg.sub.get(pid) not in ("publisher", "collective"):
+            out.append(("K05", ERROR, "parent_id", "須指 publisher 或 collective：%r（%s）" % (pid, reg.sub.get(pid))))
+        else:
+            seen, cur = {rec.get("id")}, pid
+            while cur and reg.sub.get(cur) == "publisher":
+                if cur in seen:
+                    out.append(("K05", ERROR, "parent_id", "上級鏈有環"))
+                    break
+                seen.add(cur)
+                cur = (reg.rec.get(cur) or {}).get("parent_id")
+    # K06 禁欄
+    for k in PUBLISHER_FORBIDDEN:
+        if k in rec:
+            out.append(("K06", ERROR, k, "publisher 不用此欄"))
+    # K08
+    if (s is not None or e is not None) and not nonempty_str(rec.get("dates_basis")):
+        out.append(("K08", WARN, "dates_basis", "寫了 start／end 而缺 dates_basis"))
+    return out
+
 
 def _check_place(rec, reg):
     out = []
@@ -828,7 +974,7 @@ def check_record(rec, reg):
     out += _alt_problems(rec)
     out += {"dynasty": _check_dynasty, "reign": _check_reign,
             "office": _check_office, "place": _check_place,
-            "seal": _check_seal}[st](rec, reg)
+            "seal": _check_seal, "publisher": _check_publisher}[st](rec, reg)
     return out
 
 
@@ -927,6 +1073,17 @@ def check_global(reg, canonical=None):
                 if (i, "I10") not in flagged:
                     flagged.add((i, "I10"))
                     out.append((i, "I10", WARN, "primary_name", "同名 %r 朝代重疊之具體條 %d 條，疑重複" % (k[0], len(ids))))
+    # K09：publisher 同名＋同類別＋同朝代集重複（防重複建檔）
+    pubs = {}
+    for i, r in reg.of("publisher"):
+        if r.get("merged_into"):
+            continue
+        k = (r.get("primary_name"), r.get("publisher_kind"), tuple(sorted(r.get("dynasty_ids") or [])))
+        pubs.setdefault(k, []).append(i)
+    for k, ids in pubs.items():
+        if len(ids) > 1:
+            for i in ids:
+                out.append((i, "K09", WARN, "primary_name", "同名同類別同朝代之 publisher %d 條，疑重複：%r" % (len(ids), k[0])))
     # P09：同名異地組（INFO）、同名同上級疑重複（WARN）
     names = {}
     for i, r in reg.of("place"):

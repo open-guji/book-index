@@ -28,7 +28,7 @@ Work、Book、Collection 的 `authors[]` 同形。Work 的 `authors[]` 是责任
 | `name` | string | 必填 | 原生 | 责任者之名，照著录原文或规范名 | 非空 | 录入 | `"蘇軾"` |
 | `role` | string | 必填 | 原生 | 责任方式 | 开放词表，见下「role 取值」 | 录入 | `"撰"` |
 | `dynasty` | string | 可选 | 原生 | 责任者所属朝代 | 宜用规范朝代名（[§九](#九朝代与时代轴)）；现存仍有志书原文写法（`宋`、`漢`、`魏`）与空串，见 [legacy.md](legacy.md) | 录入 | `"北宋"` |
-| `entity_id` | string | 可选 | 原生 | 对应的 Entity id（people 或 collective） | Entity id；草稿记录可指正式 id | 录入、bim | `"hixhd2h9biza"` |
+| `entity_id` | string | 可选 | 原生 | 对应的 Entity id（people、collective 或 publisher；publisher 用于刻印者，见 entity.md〈六·五〉） | Entity id；草稿记录可指正式 id | 录入、bim | `"hixhd2h9biza"` |
 | `source` | Source｜string | 可选 | 原生 | 本条责任者著录的出处 | Source 对象（多为 `{"name":"中國古籍總目","type":"url","details":"http://data.library.sh.cn/entity/person/…"}`）；字符串旧写法（原 Work 33、Book 19）已于 2026-10-09 改为 `{"name": …}` | 录入 | 见例 |
 | `name_basis` | string | 可选 | 原生 | 名字取定的依据 | 自由文本 | 录入 | |
 | `dynasty_basis` | string | 可选 | 原生 | 朝代判定的依据 | 自由文本 | 录入 | |

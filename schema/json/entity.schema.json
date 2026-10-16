@@ -26,7 +26,8 @@
         "reign",
         "office",
         "place",
-        "seal"
+        "seal",
+        "publisher"
       ]
     },
     "schema_version": {
@@ -533,6 +534,98 @@
         },
         "additionalProperties": false
       }
+    },
+    "publisher_kind": {
+      "enum": [
+        "家刻",
+        "坊刻",
+        "寺觀",
+        "藩府",
+        "現代出版社",
+        "未分"
+      ]
+    },
+    "kind_also": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "家刻",
+          "坊刻",
+          "寺觀",
+          "藩府",
+          "現代出版社",
+          "未分"
+        ]
+      },
+      "minItems": 1
+    },
+    "dates_basis": {
+      "$ref": "common.schema.json#/$defs/NonEmptyString"
+    },
+    "locations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "place_id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/NonEmptyString"
+          },
+          "start": {
+            "type": "integer"
+          },
+          "end": {
+            "type": "integer"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "owners": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "role"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "role": {
+            "$ref": "common.schema.json#/$defs/NonEmptyString"
+          },
+          "start": {
+            "type": "integer"
+          },
+          "end": {
+            "type": "integer"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "status": {
+      "enum": [
+        "存續",
+        "撤併",
+        "停業",
+        "未詳"
+      ]
     }
   },
   "additionalProperties": false,
@@ -666,6 +759,36 @@
                 {
                   "required": [
                     "predecessors"
+                  ]
+                },
+                {
+                  "required": [
+                    "publisher_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "kind_also"
+                  ]
+                },
+                {
+                  "required": [
+                    "dates_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "locations"
+                  ]
+                },
+                {
+                  "required": [
+                    "owners"
+                  ]
+                },
+                {
+                  "required": [
+                    "status"
                   ]
                 }
               ]
@@ -877,6 +1000,36 @@
                 {
                   "required": [
                     "predecessors"
+                  ]
+                },
+                {
+                  "required": [
+                    "publisher_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "kind_also"
+                  ]
+                },
+                {
+                  "required": [
+                    "dates_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "locations"
+                  ]
+                },
+                {
+                  "required": [
+                    "owners"
+                  ]
+                },
+                {
+                  "required": [
+                    "status"
                   ]
                 }
               ]
@@ -1100,6 +1253,36 @@
                   "required": [
                     "predecessors"
                   ]
+                },
+                {
+                  "required": [
+                    "publisher_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "kind_also"
+                  ]
+                },
+                {
+                  "required": [
+                    "dates_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "locations"
+                  ]
+                },
+                {
+                  "required": [
+                    "owners"
+                  ]
+                },
+                {
+                  "required": [
+                    "status"
+                  ]
                 }
               ]
             },
@@ -1273,6 +1456,36 @@
                 {
                   "required": [
                     "predecessors"
+                  ]
+                },
+                {
+                  "required": [
+                    "publisher_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "kind_also"
+                  ]
+                },
+                {
+                  "required": [
+                    "dates_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "locations"
+                  ]
+                },
+                {
+                  "required": [
+                    "owners"
+                  ]
+                },
+                {
+                  "required": [
+                    "status"
                   ]
                 }
               ]
@@ -1552,6 +1765,36 @@
                   "required": [
                     "qualifier"
                   ]
+                },
+                {
+                  "required": [
+                    "publisher_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "kind_also"
+                  ]
+                },
+                {
+                  "required": [
+                    "dates_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "locations"
+                  ]
+                },
+                {
+                  "required": [
+                    "owners"
+                  ]
+                },
+                {
+                  "required": [
+                    "status"
+                  ]
                 }
               ]
             },
@@ -1700,6 +1943,36 @@
                   {
                     "required": [
                       "predecessors"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "publisher_kind"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "kind_also"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "dates_basis"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "locations"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "owners"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "status"
                     ]
                   }
                 ]
@@ -2209,6 +2482,36 @@
                   "required": [
                     "ruler"
                   ]
+                },
+                {
+                  "required": [
+                    "publisher_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "kind_also"
+                  ]
+                },
+                {
+                  "required": [
+                    "dates_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "locations"
+                  ]
+                },
+                {
+                  "required": [
+                    "owners"
+                  ]
+                },
+                {
+                  "required": [
+                    "status"
+                  ]
                 }
               ]
             }
@@ -2233,11 +2536,283 @@
           }
         ]
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "subtype": {
+            "const": "publisher"
+          }
+        },
+        "required": [
+          "subtype"
+        ]
+      },
+      "then": {
+        "allOf": [
+          {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "dynasty"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "period"
+                  ]
+                },
+                {
+                  "required": [
+                    "period_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place_basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "native_place_entity_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "title_or_office"
+                  ]
+                },
+                {
+                  "required": [
+                    "merge_history"
+                  ]
+                },
+                {
+                  "required": [
+                    "suppressed_fields"
+                  ]
+                },
+                {
+                  "required": [
+                    "collective_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_level"
+                  ]
+                },
+                {
+                  "required": [
+                    "superiors"
+                  ]
+                },
+                {
+                  "required": [
+                    "group_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "function"
+                  ]
+                },
+                {
+                  "required": [
+                    "basis"
+                  ]
+                },
+                {
+                  "required": [
+                    "succeeds"
+                  ]
+                },
+                {
+                  "required": [
+                    "dynasty_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "ruler"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_level"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_class"
+                  ]
+                },
+                {
+                  "required": [
+                    "rank"
+                  ]
+                },
+                {
+                  "required": [
+                    "salary"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_ref"
+                  ]
+                },
+                {
+                  "required": [
+                    "base_office_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "qualifier"
+                  ]
+                },
+                {
+                  "required": [
+                    "history"
+                  ]
+                },
+                {
+                  "required": [
+                    "modern"
+                  ]
+                },
+                {
+                  "required": [
+                    "predecessors"
+                  ]
+                },
+                {
+                  "required": [
+                    "dates"
+                  ]
+                },
+                {
+                  "required": [
+                    "seal_text"
+                  ]
+                },
+                {
+                  "required": [
+                    "seal_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "seal_style"
+                  ]
+                },
+                {
+                  "required": [
+                    "seal_script"
+                  ]
+                },
+                {
+                  "required": [
+                    "seal_form"
+                  ]
+                },
+                {
+                  "required": [
+                    "material"
+                  ]
+                },
+                {
+                  "required": [
+                    "size"
+                  ]
+                },
+                {
+                  "required": [
+                    "usage_scope"
+                  ]
+                },
+                {
+                  "required": [
+                    "owner_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "institution_ids"
+                  ]
+                },
+                {
+                  "required": [
+                    "appears_in"
+                  ]
+                },
+                {
+                  "required": [
+                    "images"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "properties": {
+              "external_ids": {
+                "$ref": "#/$defs/ExternalIdsPublisher"
+              },
+              "alt_names": {
+                "$ref": "#/$defs/AltNamesStrict"
+              }
+            }
+          },
+          {
+            "required": [
+              "publisher_kind",
+              "description"
+            ]
+          },
+          {
+            "if": {
+              "properties": {
+                "publisher_kind": {
+                  "const": "現代出版社"
+                }
+              },
+              "required": [
+                "publisher_kind"
+              ]
+            },
+            "then": {
+              "not": {
+                "required": [
+                  "dynasty_ids"
+                ]
+              }
+            },
+            "else": {
+              "required": [
+                "dynasty_ids"
+              ]
+            }
+          }
+        ]
+      }
     }
   ],
   "$defs": {
     "AltName": {
-      "description": "别名。type 枚举 23 值（entity.md〈三·二〉）；people 的表外旧值报 WARN；缺 type 为旧写法（WARN）。",
+      "description": "别名。type 枚举 25 值（entity.md〈三·二〉）；people 的表外旧值报 WARN；缺 type 为旧写法（WARN）。",
       "type": "object",
       "required": [
         "name"
@@ -2271,7 +2846,9 @@
             "異寫",
             "舊稱",
             "異稱",
-            "今名"
+            "今名",
+            "堂號",
+            "牌記名"
           ],
           "x-legacy-values": [
             "著錄形",
@@ -2345,7 +2922,7 @@
       }
     },
     "AltNamesStrict": {
-      "description": "专名子类型与官署：type 必填且必须在 23 值内（O12）",
+      "description": "专名子类型与官署：type 必填且必须在 25 值内（O12）",
       "type": "array",
       "items": {
         "type": "object",
@@ -2378,7 +2955,9 @@
               "異寫",
               "舊稱",
               "異稱",
-              "今名"
+              "今名",
+              "堂號",
+              "牌記名"
             ]
           }
         }
@@ -2599,6 +3178,21 @@
         },
         "basis": {
           "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExternalIdsPublisher": {
+      "description": "publisher 只许 wikidata_id 与 isbn_publisher_code（E1／K07）",
+      "type": "object",
+      "properties": {
+        "wikidata_id": {
+          "type": "string",
+          "pattern": "^Q[0-9]+$"
+        },
+        "isbn_publisher_code": {
+          "type": "string",
+          "minLength": 1
         }
       },
       "additionalProperties": false

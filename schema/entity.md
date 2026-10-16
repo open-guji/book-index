@@ -19,6 +19,7 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 | `office` | 官职（概念条＋每朝具体条两层） | 0 | 1,839 | 知縣（概念）`1jb8ajoi8crnk`、知縣（趙宋）`1jb8ajoiggxs0` |
 | `place` | 地名（一地一条＋沿革） | 0 | 921 | 河南府 `1jb8kgdh3pseq`、開封府 `1jb8lqn358dfk` |
 | `seal` | 印章（官印、私印、鑒藏印、齋館印；见〈六·四〉） | 见〈六·四〉示例 | 0 | 文淵閣寶 |
+| `publisher` | 出版社／刻书机构（家刻、坊刻、寺觀、藩府、现代出版社；官署与书院**不在此**，仍是 collective；见〈六·五〉） | 0（GUJI-539 试建中） | 0 | 汲古閣、中華書局 |
 
 **Entity 档只存这个人（这个专名）自己的信息。**「他写了哪些书」不存在 Entity 里：Entity↔Work 关系的唯一存储侧是 `Work.authors[].entity_id`（见 [common.md〈authors〉](common.md)），build 反查后在产物里生成 `_works`（每项带 `work_id`、`role`，`role` 取自 Work 一侧，缺则补「撰」）。源档不写 `works`（V11）。
 
@@ -40,7 +41,7 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 |---|---|---|---|---|---|---|---|
 | `id` | string | **必填**（全部） | 原生 | 记录 id | base36 snowflake，正式库 12 字符、草稿库 13 字符，类型位 4 | bim | `"hixhd2h9bdqq"` |
 | `type` | string | **必填**（全部） | 原生 | 记录类型 | 恒为 `"entity"` | bim | `"entity"` |
-| `subtype` | string | **必填**（全部） | 原生 | 子类型 | `people`｜`collective`｜`dynasty`｜`reign`｜`office`｜`place`；读者遇缺省按 `people` 读（现存无缺） | 录入 | `"people"` |
+| `subtype` | string | **必填**（全部） | 原生 | 子类型 | `people`｜`collective`｜`dynasty`｜`reign`｜`office`｜`place`｜`seal`｜`publisher`；读者遇缺省按 `people` 读（现存无缺） | 录入 | `"people"` |
 | `schema_version` | integer | **必填**（全部） | 原生 | 记录格式大版本 | `1`（V15） | bim | `1` |
 | `primary_name` | string | **必填**（全部） | 原生 | 最通行的名字 | 自由文本，繁体；dynasty 须是规范朝代名（见〈五〉） | 录入 | `"蘇軾"` |
 | `alt_names` | array<AltName> | 可选（全部） | 原生 | 别名 | 见〈三〉 | 录入 | `[{"name":"子瞻","type":"字"}]` |
@@ -83,11 +84,11 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 |---|---|---|---|---|---|---|---|
 | `alt_names[]` | AltName | — | 原生 | 一个别名 | 对象。正式库 people 有 47 项是裸字符串（旧，如僧肇 `hixhd2h9bixi` 的 `["僧", "蕭維禎"]`），读者按 `{name: 该串}` 读 | 录入 | |
 | `alt_names[].name` | string | **必填** | 原生 | 别名本字 | 非空（A1） | 录入 | `"子瞻"` |
-| `alt_names[].type` | string | **必填**（新写） | 原生 | 别名类别 | 〈三·二〉23 值；专名子类型与官署里不在表内即 ERROR（O12）。正式库 people 有 2,613 项缺 `type`（旧） | 录入 | `"字"` |
+| `alt_names[].type` | string | **必填**（新写） | 原生 | 别名类别 | 〈三·二〉25 值；专名子类型与官署里不在表内即 ERROR（O12）。正式库 people 有 2,613 项缺 `type`（旧） | 录入 | `"字"` |
 | `alt_names[].ambiguous` | boolean | 可选 | 原生 | 此名单独不能定位到本条 | 只写 `true`，缺省即 false；规则见〈三·三〉 | 录入 | `true` |
 | `alt_names[].note` | string | 可选；people | 原生 | 此别名的来历说明 | 自由文本（正式库 22 项，多为「著錄形」之说明） | 录入 | `"《補晉書藝文志》諸本著錄之形，官銜「豫章太守」在名前。存之以覆按著錄原文。"`（`hixhjtdlfbb6`） |
 
-### 三·二　`alt_names[].type` 枚举（23 值）
+### 三·二　`alt_names[].type` 枚举（25 值）
 
 以 `.claude/qa/entity_subtypes.py` 的 `ALT_TYPES` 为准。这是活字典：新增合法值就补进本表与 `ALT_TYPES`。
 
@@ -116,6 +117,8 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 | `舊稱` | 旧称（专名用） | — | 洛州（河南府） |
 | `異稱` | 异称（专名用） | — | 洛陽（河南府） |
 | `今名` | 今名（地名用） | — | |
+| `堂號` | 堂号、斋馆号（publisher 用；如汲古閣≈毛氏汲古閣） | — | 汲古閣 |
+| `牌記名` | 版心、牌记所见的称呼（publisher 用） | — | 陳解元宅 |
 
 各库实际用到的（10-08）：正式库 people 用 `字` 9,603、`號` 6,933、`別名` 5,852、`行第` 1,406、`諡號` 1,294、`異體` 169、`訛名` 113、`封爵` 65、`廟號` 63、`賜號` 27、`俗姓` 18、`異寫` 11、`常用名` 2；dynasty（两库同）用 `簡稱` 89、`別稱` 49、`合稱` 7、`全稱` 4、`異寫`／`訛名`／`舊稱` 各 1；reign 用 `異體` 22、`避諱` 2、`別名` 2；草稿库 office 用 `簡稱` 149、`別稱` 73、`全稱` 53、`異稱` 3、`雅稱` 3；place 用 `舊稱` 879、`簡稱` 438、`異稱` 56、`今名` 17、`全稱` 16、`別稱` 7、`異寫` 6、`雅稱` 5；官署用 `別稱`、`雅稱`、`舊稱`。
 
@@ -544,6 +547,36 @@ people 的 `dates` 规则：
 
 ---
 
+### 六·五　`publisher`（出版社／刻书机构，GUJI-539，用户 2026-10-16 拍板）
+
+一个刻书／出版主体一条。**归属规则（写死）**：官署一律是 `collective`（`collective_kind=官署`，按〈六·一〉官署规则，具体条按朝代拆）；书院学校一律是 `collective`（`書院學校`）。`publisher` 只收非官署、非书院学校的主体。「官刻」「書院」只是传统刻书分类，不是 publisher 的取值。一个主体只一条 Entity，不得在 collective 与 publisher 各建一条；库里已有 collective 的，Book 的 `authors[].entity_id` 直接挂靠它。
+
+**不建档**：①书坊集群（建陽書坊、麻沙、金陵書坊、徽州書坊等），只作地域线索，写进各书坊条的 `locations`；②外国出版社（日、韩、美等）暂不收；③不设「書房」类（自署書房／山房者按家刻或坊刻归类）；④不设 `predecessors`（沿革写 `description`）；⑤不设 `publisher_sub`；⑥不设 `legal_name`，全称写进 `alt_names`（`type: 全稱`）。
+
+遵守〈一〉：无 `cbdb_*`、无坐标、不存「刻过哪些书」。`external_ids` 只许 `wikidata_id`，现当代出版社另许 `isbn_publisher_code`。朝代由 `dynasty_ids` 表达，不写旧式 `dynasty`／`period` 字符串。
+
+| 字段 | 类型 | 必填 | 含义／取值 |
+|---|---|---|---|
+| `publisher_kind` | string | **必填** | `家刻`｜`坊刻`｜`寺觀`｜`藩府`｜`現代出版社`｜`未分`（K01） |
+| `kind_also` | array<string> | 可选 | 兼营类别，取值同上，不含主类别（如汲古閣：主 `家刻`，兼 `坊刻`） |
+| `dynasty_ids` | array<id> | 古代类**必填**；`現代出版社`**不得写** | 活动所跨 dynasty id。跨朝单条仅限家刻／坊刻等同一私人／书坊主体连续经营跨朝（如掃葉山房明清）（K02） |
+| `start`、`end` | integer | 可选 | 公历年，无 0 年，`start ≤ end`；有把握才填；仍存续者不写 `end`；現代出版社 `start` 可早于 1900（K03） |
+| `dates_basis` | string | 条件：写了 `start`／`end` 时必填 | 起止年的依据（K08，WARN） |
+| `locations` | array<object> | 可选 | 所在地，可多段：`{place_id?, name, start?, end?, note?}`；`place_id` 须指 `subtype=place`；无地名条时只写 `name`；迁移（建陽→南京）用多段表达（K04） |
+| `owners` | array<object> | 可选 | 主持者／东家：`{id, role, start?, end?, note?}`，`id` 指 people 或 collective，`role` 开放词表（常用：主人／創辦／主持／經營／督刻）（K05） |
+| `parent_id` | string | 可选 | 上级主体（publisher 或 collective）：只写下→上，下属由 build 派生；不自指、publisher 链无环（K05） |
+| `status` | string | 可选 | `存續`｜`撤併`｜`停業`｜`未詳`；`end` 与 `status` 都缺按存续读 |
+| `description` | object | **必填** | 同通则，`sources` 非空（K01） |
+| `name_basis` | string | 可选 | 名称取定依据（牌记、《書林清話》等） |
+
+**1900 前后边界**：以创办时的主营业务判。1911 年以前以雕版／木活字刻书为业者→古代类，`dynasty_ids` 写到清，入民国仍存续的在 `end`／`description` 写明，不拆两条；以铅印、石印、影印等现代出版机制、公司／出版社体制创办者→`現代出版社`（无论 1897 商務还是 1912 中華），不写 `dynasty_ids`；掃葉山房类木刻转石印的老字号，按创办时主业归坊刻，单条。
+
+**与 Book／Work／Collection 的挂接**：唯一存储侧是 `authors[].entity_id`（见 [common.md〈authors〉](common.md)），`entity_id` 可指 people、collective 或 publisher；`role` 用已有的刻印义项（`刻`／`刊`／`刻印`／`印行`／`出版`／`影印`／`整理出版`）。build 反查得 `_books`；Entity 档不存书目。`publication_info.publisher` 自由文本保留作原文。
+
+禁字段（K06）：`predecessors`、`publisher_sub`、`legal_name`、`representative`、`books`、`subordinates`，以及人物／朝代／官职／地名／印章等其他子类型专属字段。校验码见〈八〉K01–K09。
+
+---
+
 ## 七、禁字段与派生字段
 
 ### 七·一　源档不写
@@ -574,6 +607,7 @@ people 的 `dates` 规则：
 | office | `_children`、`_compounds` | 具体条 `parent_id` 反查；`base_office_id` 反查 |
 | place | `_children`、`_span` | 沿革项 `parent_id` 反查；各段起讫 |
 | 官署 | `_children`、`_subordinates`、`_members`、`_offices` | `parent_id`、`superiors`、`group_ids`、office 的 `institution_ref` 反查 |
+| publisher | `_books`、`_subordinates` | `Work／Book／Collection.authors[].entity_id` 反查；下属 publisher 的 `parent_id` 反查 |
 
 已升格的草稿条以正式条为准：不进反查、不进键表，一切 id 引用先经 `promotions/` 换成正式 id。卡片形状与键表（`dynasty_reign_keys.json`、`office_keys.json`、`place_keys.json`）见 [derived.md](derived.md)。
 
@@ -581,7 +615,7 @@ people 的 `dates` 规则：
 
 ## 八、校验码
 
-专名子类型校验（E、D、R、A、O、P、I 系列，及 V01 对新子类型的加严）实现在 `.claude/qa/entity_subtypes.py`，`check_v2.py` 与 `verify.py` 共用同一份。只对专名四子类型与带 `collective_kind` 的 collective 生效；people、无 `collective_kind` 的旧 collective 不受这些码约束。ERROR 计残留；WARN 只报不计；INFO 只出清单。
+专名子类型校验（E、D、R、A、O、P、I 系列，及 V01 对新子类型的加严）实现在 `.claude/qa/entity_subtypes.py`，`check_v2.py` 与 `verify.py` 共用同一份。只对专名子类型（含 seal、publisher）与带 `collective_kind` 的 collective 生效；people、无 `collective_kind` 的旧 collective 不受这些码约束。ERROR 计残留；WARN 只报不计；INFO 只出清单。
 
 草稿库查专名时加 `--ref-root <book-index>`：草稿条目的 `dynasty_ids`、`parent_id` 等可以直接指正式库 id（专名升格后的规范写法），引用解析会认正式库的 Entity；跨条目检查（D1 唯一、P09 同名、I10 疑重复等）仍只在本仓内比，两仓同名条不算重复。
 
@@ -607,7 +641,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | O09 | office | `start`／`end` 为整数且 `start ≤ end` | ERROR |
 | O10 | office | `簡稱` 长度 ≤2，须确认不与他概念重名 | WARN |
 | O11 | office | 同一概念下同朝具体条重复 | WARN |
-| O12 | 专名四子类型、官署 | `alt_names[].type` 在 23 值枚举内 | ERROR |
+| O12 | 专名子类型、官署 | `alt_names[].type` 在 25 值枚举内 | ERROR |
 | P01 | place | `primary_name` 非空；`history` 为非空数组；各项为对象、`level` 在 12 值内、`name` 非空 | ERROR |
 | P02 | place | 各项 `start`／`end` 为整数、`start ≤ end`、`end ≤ 1912`；各项时段不重叠 | ERROR |
 | P03 | place | `history[].parent_id` 存在且为 place、不自引、上级链无环（ERROR）；`parent_id` 与 `parent_text` 并存（WARN） | ERROR／WARN |
@@ -635,6 +669,15 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | S03 | seal | `owner_ids`／`institution_ids` 为 id 数组且指向存在的 Entity，不得指 seal／dynasty（ERROR）；指墓碑（WARN） | ERROR／WARN |
 | S04 | seal | `appears_in` ≤20 条、`ref_type` ∈ Book／Work、`id` 在库内存在、不重复 | ERROR |
 | S05 | seal | `images` 每项有 `url`＋`credit`；出现其他子类型专属字段（含 `dates`、`dynasty`、`period`） | ERROR |
+| K01 | publisher | `publisher_kind` 在 6 值内；`kind_also`／`status` 在枚举内；`primary_name` 非空；`description.sources` 非空 | ERROR |
+| K02 | publisher | 古代类 `dynasty_ids` 非空且各指 dynasty；`現代出版社`不得写 `dynasty_ids` | ERROR |
+| K03 | publisher | `start`／`end` 为非 0 整数且 `start ≤ end` | ERROR |
+| K04 | publisher | `locations[]` 形状；`place_id` 须指 place（ERROR）、指墓碑（WARN） | ERROR／WARN |
+| K05 | publisher | `owners[]={id, role}`，`id` 指 people／collective；`parent_id` 指 publisher／collective、不自指、publisher 链无环（ERROR）；指墓碑（WARN） | ERROR／WARN |
+| K06 | publisher | 禁字段（见〈六·五〉） | ERROR |
+| K07 | publisher | `external_ids` 只许 `wikidata_id`／`isbn_publisher_code` | ERROR |
+| K08 | publisher | 写了 `start`／`end` 而缺 `dates_basis` | WARN |
+| K09 | publisher | 同名＋同类别＋同朝代集重复，疑重复建档 | WARN |
 | V01 | 全部 | 源档出现 `_` 起首字段；专名四子类型另查无下划线的派生名（见〈七·一〉）；`_has_text`／`_has_collated` 豁免已收回 | ERROR |
 | V11 | 全部 | 源档有 `works` | ERROR |
 | V15 | 全部 | 缺 `schema_version` 或其值不是整数 `1` | ERROR |
