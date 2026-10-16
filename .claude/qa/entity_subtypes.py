@@ -138,6 +138,7 @@ class Registry:
         self.sub = {}      # id -> subtype
         self.rec = {}      # id -> record（僅 NEW_SUBTYPES）
         self.path = {}     # id -> relpath
+        self.dyn_name = {}  # dynasty id -> primary_name（草稿／正式庫朝代 ID 為兩套，跨倉按名字比，GUJI-528）
 
     @classmethod
     def from_root(cls, root, ref_roots=()):
@@ -160,8 +161,19 @@ class Registry:
         st = d.get("subtype") or "people"
         self.sub[i] = st
         self.path[i] = relpath
+        if st == "dynasty" and d.get("primary_name"):
+            self.dyn_name[i] = d["primary_name"]
         if st in NEW_SUBTYPES or st == "collective":
             self.rec[i] = d
+
+    def dyn_overlap(self, a, b):
+        """兩組 dynasty_ids 是否相交：ID 相交，或（跨倉 ID 兩套時）朝代主名相交。"""
+        a, b = set(a or []), set(b or [])
+        if a & b:
+            return True
+        na = {self.dyn_name[x] for x in a if x in self.dyn_name}
+        nb = {self.dyn_name[x] for x in b if x in self.dyn_name}
+        return bool(na & nb)
 
     def is_inst(self, i):
         r = self.rec.get(i) or {}
@@ -388,7 +400,7 @@ def _check_office(rec, reg):
                 if _chain_cycle(rec["id"], lambda x: (reg.rec.get(x) or {}).get("base_office_id")):
                     out.append(("O05", ERROR, "base_office_id", "成環"))
                 bd = base.get("dynasty_ids") or []
-                if dids and bd and not (set(dids) & set(bd)):
+                if dids and bd and not reg.dyn_overlap(dids, bd):
                     out.append(("O05", ERROR, "dynasty_ids", "複合條與其 base 之 dynasty_ids 不相交"))
         if not isinstance(q, dict):
             out.append(("O05", ERROR, "qualifier", "有 base_office_id 則 qualifier 必有"))
@@ -427,7 +439,7 @@ def _institution_ref_problems(rec, reg, dids):
     lv = t.get("institution_level")
     if lv == "concrete":
         td = t.get("dynasty_ids") or []
-        if dids and td and not (set(dids) & set(td)):
+        if dids and td and not reg.dyn_overlap(dids, td):
             out.append(("I12", ERROR, "institution_ref", "所指官署 %s 之朝代與官職不相交" % t.get("primary_name")))
     elif lv == "concept":
         if "待補" not in (rec.get("ai_note") or ""):
@@ -499,7 +511,7 @@ def _check_institution(rec, reg):
                     out.append(("I04", ERROR, f, "須指官署具體條：%r" % (sid,)))
                     continue
                 sd = reg.rec[sid].get("dynasty_ids") or []
-                if dids and sd and not (set(dids) & set(sd)):
+                if dids and sd and not reg.dyn_overlap(dids, sd):
                     out.append(("I04", WARN, f, "上級 %s 與本條朝代不相交" % reg.rec[sid].get("primary_name")))
                 for kk in ("start", "end"):
                     if kk in x and not is_int(x[kk]):
