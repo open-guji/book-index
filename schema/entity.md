@@ -541,9 +541,9 @@ people 的 `dates` 规则：
 | `owner_ids` | array<id> | 可选 | 印主，指向 people／collective／office 等 Entity id，**不写裸名字**；年号不是印主（乾隆印主指清高宗本人那条 people） |
 | `institution_ids` | array<id> | 可选 | 所属机构（如文渊阁 collective） |
 | `appears_in` | array | 可选 | **本期只作代表例，≤20 条、以 Book 为主**：`{ref_type: "Book"｜"Work", id, position?, note?}`；不是全量钤印清单（全量待 Book 侧另设字段） |
-| `images` | array | 可选 | `{url, credit, license?, note?}`，`url` 与 `credit` 必填 |
+| `images` | array | 可选 | 印影，≤8 张；`{file, credit, license, source_url, note?}` 四项必填。`file`＝相对 **open-guji/book-index-asset** 仓根的路径，固定为 `entity/{id末3位逐位分片}/{id}/{序号}.webp`（如 id `hixi6zykf4ea` → `entity/4/e/a/hixi6zykf4ea/1.webp`）；`license` 闭集 `公有領域`｜`CC0`（印影入库须公有领域，来源与取得日期写进 asset 仓 README 或 `note`）；`source_url` 为原始出处网址。图本身不进本仓；限额：长边≤1600px、单张≤300KB、webp |
 
-归属单向：印→印主／机构，反向（某人有哪些印）由 build 派生；禁用 `dates`、`dynasty`、`period`、`native_place*`、`history`、`ruler` 等其他子类型专属字段（S05）。校验码见〈八〉S01–S05。
+归属单向：印→印主／机构，反向（某人有哪些印）由 build 派生；禁用 `dates`、`dynasty`、`period`、`native_place*`、`history`、`ruler` 等其他子类型专属字段（S05）。校验码见〈八〉S01–S06。
 
 ---
 
@@ -668,7 +668,8 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | S02 | seal | `dynasty_ids` 非空且指 dynasty；`start`／`end` 为整数且 `start ≤ end`；`seal_style`／`seal_form` 在枚举内 | ERROR |
 | S03 | seal | `owner_ids`／`institution_ids` 为 id 数组且指向存在的 Entity，不得指 seal／dynasty（ERROR）；指墓碑（WARN） | ERROR／WARN |
 | S04 | seal | `appears_in` ≤20 条、`ref_type` ∈ Book／Work、`id` 在库内存在、不重复 | ERROR |
-| S05 | seal | `images` 每项有 `url`＋`credit`；出现其他子类型专属字段（含 `dates`、`dynasty`、`period`） | ERROR |
+| S05 | seal | `images` 每项 `file`＋`credit`＋`license`（闭集）＋`source_url`、≤8、`file` 路径规范；`owner_ids` 只能指 people／collective／office，`institution_ids` 只能指 collective；出现其他子类型专属字段（含 `dates`、`dynasty`、`period`） | ERROR |
+| S06 | seal | `images[].file` 在 book-index-asset 中不存在（本地有 `BOOK_INDEX_ASSET_ROOT` 或并列的 `../book-index-asset` 才核；没有该仓就跳过，CI／verify 不硬依赖另一仓） | ERROR |
 | K01 | publisher | `publisher_kind` 在 6 值内；`kind_also`／`status` 在枚举内；`primary_name` 非空；`description.sources` 非空 | ERROR |
 | K02 | publisher | 古代类 `dynasty_ids` 非空且各指 dynasty；`現代出版社`不得写 `dynasty_ids` | ERROR |
 | K03 | publisher | `start`／`end` 为非 0 整数且 `start ≤ end` | ERROR |

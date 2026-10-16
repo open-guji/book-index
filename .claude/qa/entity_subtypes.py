@@ -30,7 +30,7 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
        N01  只許 people 有此欄；值須為非空字符串                                  ERROR
        N02  須指向本庫（或 --ref-root 之正式庫）中 subtype=place 的 Entity，不存在或非 place   ERROR
        N03  指向的地名是墓碑（有 merged_into）：只警告，提示跟 merged_into          WARN
-  S01–S05  印章（seal，GUJI-538）：
+  S01–S06  印章（seal，GUJI-538）：
        S01  seal_text（印文）非空、seal_kind 在枚舉內、primary_name 非空、description.sources 非空   ERROR
        S02  dynasty_ids 非空且各指 dynasty；start／end 為整數且 start ≤ end；                      ERROR
             seal_style／seal_form 若有須在枚舉內                                                 ERROR
@@ -38,7 +38,7 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
             不得指 seal 與 dynasty）；指墓碑 WARN                                               ERROR／WARN
        S04  appears_in ≤20 條、ref_type ∈ Book／Work、id 存在於本庫（或 --ref-root）對應目錄；     ERROR
             不得重複
-       S05  images 每項有 url 與 credit；禁人物／朝代／地名／年號專屬欄位                         ERROR
+       S05  images 每項有 file／credit／license／source_url（≤8、license 閉集、file 路徑規範）；S06 file 在 book-index-asset 存在；禁人物／朝代／地名／年號專屬欄位                         ERROR
   K01–K09  出版社／刻書機構（publisher，GUJI-539 v3；官署／書院一律 collective，不入此）：
        K01  publisher_kind 在 6 值內（家刻｜坊刻｜寺觀｜藩府｜現代出版社｜未分）、kind_also／status 枚舉、
             primary_name 非空、description.sources 非空                                          ERROR
@@ -155,6 +155,21 @@ def load_canonical_dynasties(schema_path=None):
     return names
 
 
+SEAL_IMG_MAX = 8
+SEAL_IMG_LICENSES = ("公有領域", "CC0")
+
+
+def _find_asset_root():
+    """book-index-asset 本地根：環境變量 BOOK_INDEX_ASSET_ROOT，或與本倉並列之 ../book-index-asset；都無則 None。"""
+    c = [os.environ.get("BOOK_INDEX_ASSET_ROOT", "")]
+    here = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    c.append(os.path.join(os.path.dirname(here), "book-index-asset"))
+    for x in c:
+        if x and os.path.isdir(os.path.join(x, "entity")):
+            return x
+    return None
+
+
 class Registry:
     """全庫 Entity 之輕量索引：id → (subtype, 記錄)。只留新子類型之整條記錄，其餘只留 subtype。"""
 
@@ -164,6 +179,7 @@ class Registry:
         self.path = {}     # id -> relpath
         self.roots = []     # 參與索引之倉根（供 Book／Work 存在性查詢）
         self._bw = {}       # (ref_type, id) 查詢快取：ref_type -> {id}
+        self.asset_root = _find_asset_root()   # book-index-asset 根；無則 S06 跳過（不硬依賴另一倉）
         self.dyn_name = {}  # dynasty id -> primary_name（草稿／正式庫朝代 ID 為兩套，跨倉按名字比，GUJI-528）
 
     @classmethod
@@ -676,8 +692,8 @@ def _check_seal(rec, reg):
             st = reg.sub.get(x)
             if st is None:
                 out.append(("S03", ERROR, f, "id 不存在：%r" % (x,)))
-            elif st in ("seal", "dynasty"):
-                out.append(("S03", ERROR, f, "不得指 %s：%r" % (st, x)))
+            elif st not in (("people", "collective", "office") if f == "owner_ids" else ("collective",)):
+                out.append(("S03", ERROR, f, "%s 不得指 %s：%r" % (f, st, x)))
             elif (reg.rec.get(x) or {}).get("merged_into"):
                 out.append(("S03", WARN, f, "%r 是墓碑，請改指 merged_into" % (x,)))
     ai = rec.get("appears_in")
@@ -701,12 +717,29 @@ def _check_seal(rec, reg):
                     out.append(("S04", ERROR, f + ".id", "%s 不存在：%r" % (it["ref_type"], it["id"])))
     imgs = rec.get("images")
     if imgs is not None:
-        if not isinstance(imgs, list):
-            out.append(("S05", ERROR, "images", "非數組"))
+        if not isinstance(imgs, list) or not imgs:
+            out.append(("S05", ERROR, "images", "須非空數組"))
         else:
+            if len(imgs) > SEAL_IMG_MAX:
+                out.append(("S05", ERROR, "images", "每條 ≤%d 張" % SEAL_IMG_MAX))
+            rid = rec.get("id") or ""
             for i, it in enumerate(imgs):
-                if not (isinstance(it, dict) and nonempty_str(it.get("url")) and nonempty_str(it.get("credit"))):
-                    out.append(("S05", ERROR, "images[%d]" % i, "須有 url 與 credit"))
+                f = "images[%d]" % i
+                if not isinstance(it, dict) or not all(nonempty_str(it.get(k)) for k in ("file", "credit", "license", "source_url")):
+                    out.append(("S05", ERROR, f, "須有 file／credit／license／source_url"))
+                    continue
+                if it["license"] not in SEAL_IMG_LICENSES:
+                    out.append(("S05", ERROR, f + ".license", "不在 %s：%r" % ("／".join(SEAL_IMG_LICENSES), it["license"])))
+                if not it["source_url"].startswith(("http://", "https://")):
+                    out.append(("S05", ERROR, f + ".source_url", "須為 http(s) 網址"))
+                fp = it["file"]
+                want = "entity/%s/%s/%s/%s/" % (rid[-3:-2], rid[-2:-1], rid[-1:], rid)
+                if not (fp.startswith(want) and re.fullmatch(r"[0-9]+\.webp", fp[len(want):])):
+                    out.append(("S05", ERROR, f + ".file", "須為 %s{序號}.webp（相對 book-index-asset）：%r" % (want, fp)))
+                    continue
+                ar = reg.asset_root
+                if ar and not os.path.isfile(os.path.join(ar, fp)):
+                    out.append(("S06", ERROR, f + ".file", "book-index-asset 中無此文件：%r" % (fp,)))
     for k in SEAL_FORBIDDEN:
         if k in rec:
             out.append(("S05", ERROR, k, "seal 不用此欄"))
