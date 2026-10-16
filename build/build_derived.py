@@ -658,10 +658,6 @@ def _res_flags(d):
         if isinstance(ts, list) and ts:
             txt = txt or 'text' in ts
             img = img or 'image' in ts
-        else:
-            rt = r.get('type', '')
-            txt = txt or rt in ('text', 'text+image')
-            img = img or rt in ('image', 'text+image')
     return txt, img
 
 
@@ -736,7 +732,7 @@ def index_entry(d, typ, rel_path, promoted_to=None, build=None):
         if t:
             e[k] = t
     txt, img = _res_flags(d)
-    col = bool(d.get('_has_collated') or d.get('has_collated'))
+    col = False                       # 源檔不再帶整理本標記；僅由 book-text 推（build.ts 給了才有）
     if build is not None and build.ti is not None:
         has = build.work_has if typ == 'Work' else (lambda _i, kind: build.has(d, kind))
         txt, col = has(d.get('id'), 'text'), has(d.get('id'), 'collated')
