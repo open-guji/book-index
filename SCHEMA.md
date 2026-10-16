@@ -9,7 +9,7 @@
 | [schema/work.md](schema/work.md) | Work 字段表；关联词表 |
 | [schema/book.md](schema/book.md) | Book 字段表 |
 | [schema/collection.md](schema/collection.md) | Collection 字段表 |
-| [schema/entity.md](schema/entity.md) | Entity：people、collective（官署）、dynasty、reign、office、place；校验码 |
+| [schema/entity.md](schema/entity.md) | Entity 总览：子类型一览、专名硬约束、校验码索引；各子类型字段表在 [schema/entity/](schema/entity/)（people、collective、dynasty、reign、office、place、seal、publisher） |
 | [schema/classification.md](schema/classification.md) | 分类目录 `classification/` |
 | [schema/promotions.md](schema/promotions.md) | 升格对照表 `promotions/` |
 | [schema/text-files.md](schema/text-files.md) | 整理本与辑佚档 |

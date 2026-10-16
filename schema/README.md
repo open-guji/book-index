@@ -17,7 +17,7 @@
 | [work.md](work.md) | Work（作品）字段全表与细则；关联词表（`related_works[].relation`） |
 | [book.md](book.md) | Book（版本）字段全表与细则 |
 | [collection.md](collection.md) | Collection（丛编）字段全表与细则 |
-| [entity.md](entity.md) | Entity（人物与专名）：通用字段；people／collective（含官署）／dynasty／reign／office／place／seal（印章）／publisher（出版社）各子类型字段表；通用字段、`alt_names` 枚举、`dates`、`external_ids`；校验码（seal 与 Book 的 `provenance[].seal_marks`、印影存放的 book-index-asset 仓，见 entity.md〈六·四〉） |
+| [entity.md](entity.md) | Entity（人物与专名）**总览**（子类型一览、专名硬约束、校验码索引、旧〈章节号〉对照）；分档在 [entity/](entity/)：通用字段、`alt_names`、`dates`／`external_ids`、禁字段与派生、校验码总表，及 people／collective（含官署）／dynasty／reign／office／place／seal（印章）／publisher（出版社）各子类型字段表；通用字段、`alt_names` 枚举、`dates`、`external_ids`；校验码（seal 与 Book 的 `provenance[].seal_marks`、印影存放的 book-index-asset 仓，见 [entity/seal.md](entity/seal.md)） |
 | [classification.md](classification.md) | 分类法目录 `classification/` 的三种文件 |
 | [promotions.md](promotions.md) | 升格对照表 `promotions/` 分片 |
 | [text-files.md](text-files.md) | 整理本与辑佚档（已迁 book-text）：去处与接口 |

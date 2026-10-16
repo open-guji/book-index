@@ -37,7 +37,7 @@ promote + merged_from/_promoted_to，见 C-entity-併條执行 先例），而�
      更早的 `merged_in`（链式并条：A 先并入 loser，今 loser 再并入 keeper），
      一并搬到 keeper，不许丢账。
   8. `loser` 改写为墓碑（tombstone）：只留 `schema_version`／`id`／`type`／`subtype`／
-     `primary_name`／`merged_into`／`revision`／`revised_at`（schema/entity.md〈merged_into〉）。
+     `primary_name`／`merged_into`／`revision`／`revised_at`（schema/entity/_common.md〈merged_into〉）。
      **不删档**（2026-10-09 目录经理定，overview#409）：墓碑可逆，旧 id 仍能解析到 keeper。
   9. **不在这里跑 build/verify**——批量跑完这一批之后手动跑
      `python3 build/build_derived.py --write-index` 与
@@ -125,7 +125,7 @@ TOMBSTONE_KEYS = ('schema_version', 'id', 'type', 'subtype', 'primary_name',
 
 
 def tombstone(loser: dict, keeper_id: str, date: str) -> dict:
-    """被并方的墓碑：只留 TOMBSTONE_KEYS（schema/entity.md〈merged_into〉）。"""
+    """被并方的墓碑：只留 TOMBSTONE_KEYS（schema/entity/_common.md〈merged_into〉）。"""
     t = {'schema_version': loser.get('schema_version', 1), 'id': loser['id'],
          'type': loser.get('type', 'entity')}
     if loser.get('subtype'):

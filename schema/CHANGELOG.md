@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-10-16　拆分 `schema/entity.md`：总览＋`schema/entity/` 分档（纯文档；用户要求，Sylvie 核）
+
+- `entity.md` 改为总览（子类型一览、专名硬约束、通用部分概要、校验码索引、旧〈章节号〉对照表）。
+- 新增 `schema/entity/`：`people`／`collective`（含官署）／`dynasty`／`reign`／`office`／`place`／`seal`／`publisher`（各含八列字段表、规则、示例、该类型校验码）；`_common`（通用字段）、`_alt-names`、`_dates-external-ids`、`_forbidden-derived`、`_checks`（校验码总表）。
+- 旧〈六·四〉〈六·五〉等章节号按 `entity.md`〈五、旧章节号对照〉找；下方旧条目里的 `entity.md〈…〉` 为历史写法，不改。
+- 不动 JSON schema 结构与数据；仅 `entity.schema.json`、QA 注释里的路径说明同步。
+
+---
+
 ## 2026-10-16　Entity 新增 `publisher`（出版社／刻书机构；GUJI-539 v3，用户当日拍板；Sylvie 核）
 
 - `entity.md` 增〈六·五〉与 K01–K09；`entity.schema.json` 增 `publisher` 子类型及字段（`publisher_kind`／`kind_also`／`dates_basis`／`locations`／`owners`／`status`），其他子类型的「不许带」清单同步加；`entity_subtypes.py` 增 `_check_publisher`（K01–K08）与 K09。

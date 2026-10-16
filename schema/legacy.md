@@ -1,6 +1,6 @@
 # 旧字段与旧写法
 
-本档只回答三件事：①哪些旧写法已删净（现存 0，门禁防回潮）；②哪些**有意保留**；③哪些**还没清**（读者回退、写入代码、存量数据）。新写法见各类字段表：[common.md](common.md)、[work.md](work.md)、[book.md](book.md)、[collection.md](collection.md)、[entity.md](entity.md)、[derived.md](derived.md)。
+本档只回答三件事：①哪些旧写法已删净（现存 0，门禁防回潮）；②哪些**有意保留**；③哪些**还没清**（读者回退、写入代码、存量数据）。新写法见各类字段表：[common.md](common.md)、[work.md](work.md)、[book.md](book.md)、[collection.md](collection.md)、[entity.md](entity.md)（总览，各子类型见 [entity/](entity/)）、[derived.md](derived.md)。
 
 - 总则 9「读者先切后拆」：读者新字段有就用、没有回退旧字段；数据切换完成后再删回退。build 不产出旧字段别名。
 - 来历：schema-v2 迁移见 overview#451、#459、#458、#464；本档 2026-10-12 按 #568 B1a 重写，数字来自 `check_schema --json` 与 `check_v2 --summary`（正式库 HEAD 25042ef9c1），复现命令见文末。

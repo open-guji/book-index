@@ -16,7 +16,7 @@ import os
 import sys
 
 TYPES = ('Work', 'Book', 'Collection', 'Entity')
-# 已退役的顶层键（出处：schema/legacy.md、entity.md、CHANGELOG）
+# 已退役的顶层键（出处：schema/legacy.md、entity/、CHANGELOG）
 LEGACY_KEYS = (
     'birth_year', 'death_year', 'cbdb_aliases', 'cbdb_aliases_note',
     '_has_text', '_has_collated', '_has_full_text',
