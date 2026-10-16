@@ -30,9 +30,9 @@
       "summary": "共 2 個版本：清乾隆十六年刻本（南京圖書館、國家圖書館、遼寧省圖書館、上海圖書館）；清抄本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zjwdahfcc65wt1ec、y3m2g3tbtk5ls7mc\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zjwdahfcc65wt1ec、y3m2g3tbtk5ls7mc\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-14",
   "resources": [
     {
       "id": "kokusho",
@@ -50,11 +50,50 @@
         "holder": "国文研日本漢詩文",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200012246/manifest"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070761",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070761",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070761",
+        "request_no": "３５８－００８６",
+        "edition": "刊本::文化:040000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5091619/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko11_d0140",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko11/bunko11_d0140/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko11_d0140",
+        "edition": "本銀町(江戸) : 宮商閣, 文化4[1807] ( )"
+      }
     }
   ],
   "resource_groups": {
     "kokusho-200012246": {
       "label": "國書藏本：刊 文化４（国文研日本漢詩文）"
+    },
+    "naikaku-1070761": {
+      "label": "內閣文庫藏本：文化4年刊本（358-0086，4冊）"
+    },
+    "waseda-bunko11_d0140": {
+      "label": "早稲田藏本：本銀町(江戸) : 宮商閣, 文化4[1807] ( )"
     }
   }
 }

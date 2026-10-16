@@ -104,6 +104,24 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E7%8E%8B%E9%96%80%E5%AE%97%E6%97%A8%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082866",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082866",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082866",
+        "request_no": "子００８－００１４",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4497741/manifest.json",
+        "extent": "12冊"
+      }
     }
   ],
   "measures": [
@@ -118,7 +136,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "周汝登（明）編。十四卷。見著錄於《欽定四庫全書總目》《續修四庫全書》《四庫全書存目叢書》。《續修四庫全書》列於子部 儒家類；《四庫全書存目叢書》列於子部。《欽定四庫全書總目》清乾隆間館臣修；《續修四庫全書》一九九五年影印——本書之目賴之以存。",
     "sources": [
@@ -127,6 +145,11 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-14",
+  "resource_groups": {
+    "naikaku-1082866": {
+      "label": "內閣文庫藏本：明刊本（子008-0014，12冊）"
+    }
+  }
 }

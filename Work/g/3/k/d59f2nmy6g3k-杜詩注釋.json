@@ -42,7 +42,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 14，與著錄原文（清史稿藝文志：「杜詩注釋」）所載之 24 卷不合，今據原文訂正。\n\n2026-08-21 原典注本繫連專項：本條 authors[0] 之 role 為「注」，是注本；其題去注疏尾綴得「杜詩」，庫中有同題而非注本之條 `1evcsz1rvbsow`，即其原典，今繫 `contains_text_of`，原典側繫 `text_carried_by`。見 SCHEMA〈原典與注本〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 14，與著錄原文（清史稿藝文志：「杜詩注釋」）所載之 24 卷不合，今據原文訂正。\n\n2026-08-21 原典注本繫連專項：本條 authors[0] 之 role 為「注」，是注本；其題去注疏尾綴得「杜詩」，庫中有同題而非注本之條 `1evcsz1rvbsow`，即其原典，今繫 `contains_text_of`，原典側繫 `text_carried_by`。見 SCHEMA〈原典與注本〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "related_works": [
     {
       "id": "d59f2hpb6by8",
@@ -55,6 +55,28 @@
       "清史稿藝文志"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-14",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-bunko17_w0141",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko17/bunko17_w0141/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko17_w0141",
+        "edition": "呉県 : 朱氏, 光緒3[1877]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-bunko17_w0141": {
+      "label": "早稲田藏本：呉県 : 朱氏, 光緒3[1877]"
+    }
+  }
 }

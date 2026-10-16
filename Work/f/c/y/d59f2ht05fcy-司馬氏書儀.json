@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-14",
   "resources": [
     {
       "id": "commons",
@@ -78,6 +78,57 @@
         "nlc_fid": "412004000049",
         "edition": "宋[960-1279]@@@元[1271-1368]重修"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074090",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074090",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074090",
+        "request_no": "２７４－００９１",
+        "edition": "刊本::清雍正:020000:仿宋",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3964699/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074470",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074470",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074470",
+        "request_no": "経０１３－０００４",
+        "edition": "刊本::清雍正:020000:仿宋",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4501565/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_00085",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_00085/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_00085",
+        "edition": ""
+      }
     }
   ],
   "resource_groups": {
@@ -86,6 +137,15 @@
     },
     "nlc-412004000049": {
       "label": "國圖藏本：宋[960-1279]@@@元[1271-1368]重修"
+    },
+    "naikaku-1074090": {
+      "label": "內閣文庫藏本：清雍正2年刊本 仿宋（274-0091，4冊）"
+    },
+    "naikaku-1074470": {
+      "label": "內閣文庫藏本：清雍正2年刊本 仿宋（経013-0004，4冊）"
+    },
+    "waseda-ro12_00085": {
+      "label": "早稲田藏本"
     }
   }
 }

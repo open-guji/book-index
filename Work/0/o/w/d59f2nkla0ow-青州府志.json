@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evdiclihlq80(馮惟訥)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 12 取自 `measure_info`「十二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 B-修（错挂核对）：Wikimedia Commons 文件页责任者与本条作者不符，已摘除 1 条 commons 挂接（同一文件页另有作者相符的同题 Work 保留）。依据见 overview 馆藏资源挂接/计划/B修-commons批2-PR核对表.tsv。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evdiclihlq80(馮惟訥)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 12 取自 `measure_info`「十二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 B-修（错挂核对）：Wikimedia Commons 文件页责任者与本条作者不符，已摘除 1 条 commons 挂接（同一文件页另有作者相符的同题 Work 保留）。依据见 overview 馆藏资源挂接/计划/B修-commons批2-PR核对表.tsv。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "measures": [
     {
       "unit": "冊",
@@ -30,7 +30,31 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
-  "resources": []
+  "revision": "1.2.0",
+  "revised_at": "2026-10-15",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073056",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073056",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073056",
+        "request_no": "史１５５－０００４",
+        "edition": "刊本（序刊）::明万暦:430000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4753146/manifest.json",
+        "extent": "20冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1073056": {
+      "label": "內閣文庫藏本：明万暦43年刊本（序刊）（史155-0004，20冊）"
+    }
+  }
 }

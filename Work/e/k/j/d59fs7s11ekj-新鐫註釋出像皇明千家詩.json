@@ -29,9 +29,9 @@
       "summary": "共 1 個版本：明周文卿刻本（南京圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pernr6s0l24hfauy\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pernr6s0l24hfauy\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-15",
   "resources": [
     {
       "id": "kokusho",
@@ -49,11 +49,32 @@
         "holder": "京大大惣本",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100419815/manifest"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083922",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083922",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083922",
+        "request_no": "３５８－０１１４",
+        "edition": "刊本::貞享:020000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5091809/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
     "kokusho-100419815": {
       "label": "國書藏本：刊 貞享２（京大大惣本）"
+    },
+    "naikaku-1083922": {
+      "label": "內閣文庫藏本：貞享2年刊本（358-0114，4冊）"
     }
   }
 }

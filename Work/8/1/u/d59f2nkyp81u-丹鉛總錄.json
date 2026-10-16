@@ -36,7 +36,7 @@
       "書目答問"
     ]
   },
-  "ai_note": "舊匹配結果為 GYL564KAtvj（author+similar），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "舊匹配結果為 GYL564KAtvj（author+similar），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "measures": [
     {
       "unit": "卷",
@@ -128,6 +128,21 @@
         "nlc_fid": "411999007715",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i05_00368",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i05/i05_00368/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i05_00368",
+        "edition": "大順堂, 乾隆59[1794]"
+      }
     }
   ],
   "updated_at": "2026-08-09T10:41:40+00:00",
@@ -135,8 +150,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.2",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-14",
   "resource_groups": {
     "nlc-411999024806": {
       "label": "國圖藏本：明[1368-1644]"
@@ -149,6 +164,9 @@
     },
     "nlc-411999007715": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "waseda-i05_00368": {
+      "label": "早稲田藏本：大順堂, 乾隆59[1794]"
     }
   }
 }

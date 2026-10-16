@@ -118,6 +118,60 @@
         "nlc_fid": "412000000095",
         "edition": "明嘉靖24年[1545]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074972",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074972",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074972",
+        "request_no": "２９２－００２９",
+        "edition": "刊本（序刊）::明嘉靖:240000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4767851/manifest.json",
+        "extent": "8冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070112",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070112",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070112",
+        "request_no": "集０７０－０００１",
+        "edition": "刊本（序刊）::明嘉靖:240000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4466897/manifest.json",
+        "extent": "12冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3602589",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3602589",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3602589",
+        "request_no": "２９２－００３０",
+        "edition": "刊本（序刊）::明嘉靖:240000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3668840/manifest.json",
+        "extent": "8冊"
+      }
     }
   ],
   "measures": [
@@ -132,7 +186,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-19 同題異撰人專項（二）：本條與 `1evgpjtsu0w74` 同題《荊溪外紀》、同卷數 25，撰人分作「沈敕」「沈敇」，僅一字之差（或一名含於另一名、或冠以朝代），乃一名之異寫或形訛，非二人二書。今併，正名取「沈敕」，異名之著錄並存於 indexed_by。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-19 同題異撰人專項（二）：本條與 `1evgpjtsu0w74` 同題《荊溪外紀》、同卷數 25，撰人分作「沈敕」「沈敇」，僅一字之差（或一名含於另一名、或冠以朝代），乃一名之異寫或形訛，非二人二書。今併，正名取「沈敕」，異名之著錄並存於 indexed_by。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "additional_titles": [
     "荆溪外紀"
   ],
@@ -145,14 +199,23 @@
       "國史經籍志"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-14",
   "resource_groups": {
     "nlc-0639": {
       "label": "國圖藏本：明嘉靖[1522-1566]"
     },
     "nlc-412000000095": {
       "label": "國圖藏本：明嘉靖24年[1545]"
+    },
+    "naikaku-1074972": {
+      "label": "內閣文庫藏本：明嘉靖24年刊本（序刊）（292-0029，8冊）"
+    },
+    "naikaku-1070112": {
+      "label": "內閣文庫藏本：明嘉靖24年刊本（序刊）（集070-0001，12冊）"
+    },
+    "naikaku-3602589": {
+      "label": "內閣文庫藏本：明嘉靖24年刊本（序刊）（292-0030，8冊）"
     }
   }
 }

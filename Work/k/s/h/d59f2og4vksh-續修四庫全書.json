@@ -44,7 +44,7 @@
       "name": "Internet Archive · 四庫全書文淵閣本及續修",
       "short_name": "IA·續修(全)",
       "url": "https://archive.org/details/siku-quanshu-archive-collection-2",
-      "details": "續修部分 xuxiushibu/ 下 1759 冊 PDF（缺 41 冊，多在第 1777-1800 冊），約 130 GB。2026-09-03 實測，覆蓋最全。",
+      "details": "續修部分 xuxiushibu/ 下 1759 冊 PDF（缺 41 冊：第 1777-1800 冊（24）及第 1477、1500、1537、1547、1554、1559、1586、1588-1590、1602、1606、1610、1612、1615、1617、1688 冊（17）），約 130 GB。2026-10-15 依 archive.org 文件清單逐冊號全量核對；覆蓋最全。",
       "types": [
         "image"
       ]
@@ -54,9 +54,9 @@
       "name": "Internet Archive · 续修四库全书",
       "short_name": "IA·續修(殘)",
       "url": "https://archive.org/details/xuxiu-siku-quanshu",
-      "details": "1393 個 PDF 約 112 GB，但 2026-09-03 實測僅 1315 冊，缺 485 冊（第 1323-1800 冊幾乎整個集部全缺），且為上一資源的完全子集。",
+      "details": "按經史子集分目錄編排的 PDF（1393 個 PDF，約 112 GB）。2026-10-15 依文件清單全量核對：實含續修冊號 1324 冊（第 1-1300 冊及第 1777-1800 冊），缺第 1301-1776 冊共 476 冊；與 siku-quanshu-archive-collection-2 重疊 1300 冊（md5 一致 1293 冊，餘 7 冊待抽字節）。非其子集：第 1777-1800 冊共 24 冊為彼所無，可作補缺來源；兩者並集覆蓋 1783/1800 冊，仍缺 17 冊（見上）。主資源仍取 collection-2。",
       "metadata": {
-        "total_volumes": 1315,
+        "total_volumes": 1324,
         "format": "PDF"
       },
       "types": [
@@ -87,12 +87,12 @@
       "relation": "preceded_by"
     }
   ],
-  "ai_note": "2026-05-18 ia-xuxiu-zongmu resource 已拆到獨立 Work 1evsx080vs3r4 續修四庫全書總目提要（民國稿本）。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evjr1ny7fmyo` 已併入 `d59f2my7mebk`（《欽定清涼山志》：二條同為武英殿本欽定之書，draft 條不著撰人而 production 繫高宗乾隆敕輯；「欽定」即敕），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-09-03 (1) 新建 Collection `8rlcxphotse8`（續修四庫全書）並繫 contained_in；(2) 資源訂正：原主資源 xuxiu-siku-quanshu 實測僅 1315/1800 冊、缺整個集部，且為 siku-quanshu-archive-collection-2（1759 冊）的完全子集，故補入後者並降前者次序。\n\n2026-09-06 qa-sweep/qing·A 類（基準句與實錄相牴）：period_basis 所引之值與 authors[0].dynasty 之實錄不符，今隨實錄改，period 不動。據：本條 authors[0].dynasty_basis 自書「synonym:近代->中華人民共和國」——朝代名同義正規化改了 dynasty 而未回改 period_basis；「近代」與「中華人民共和國」所指同一代，斷代（period=modern）不因之而異。原值：period_basis=「據 authors[0].dynasty「近代」」。",
+  "ai_note": "2026-05-18 ia-xuxiu-zongmu resource 已拆到獨立 Work 1evsx080vs3r4 續修四庫全書總目提要（民國稿本）。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evjr1ny7fmyo` 已併入 `d59f2my7mebk`（《欽定清涼山志》：二條同為武英殿本欽定之書，draft 條不著撰人而 production 繫高宗乾隆敕輯；「欽定」即敕），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-09-03 (1) 新建 Collection `8rlcxphotse8`（續修四庫全書）並繫 contained_in；(2) 資源訂正：原主資源 xuxiu-siku-quanshu 實測僅 1315/1800 冊、缺整個集部，且為 siku-quanshu-archive-collection-2（1759 冊）的完全子集，故補入後者並降前者次序。\n\n2026-09-06 qa-sweep/qing·A 類（基準句與實錄相牴）：period_basis 所引之值與 authors[0].dynasty 之實錄不符，今隨實錄改，period 不動。據：本條 authors[0].dynasty_basis 自書「synonym:近代->中華人民共和國」——朝代名同義正規化改了 dynasty 而未回改 period_basis；「近代」與「中華人民共和國」所指同一代，斷代（period=modern）不因之而異。原值：period_basis=「據 authors[0].dynasty「近代」」。\n\n2026-10-15 資源訂正（GUJI-371②）：xuxiu 實測 1324 冊、非 collection-2 之完全子集（含 1777-1800 共 24 冊為彼所無），並集 1783/1800 缺 17 冊；改 details 與 total_volumes，主資源仍為 collection-2。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "modern",
   "period_basis": "據 authors[0].dynasty「中華人民共和國」",
-  "revision": "1.1.0",
-  "revised_at": "2026-09-06",
+  "revision": "1.1.1",
+  "revised_at": "2026-10-15",
   "contained_in": [
     {
       "id": "8rlcxphotse8",

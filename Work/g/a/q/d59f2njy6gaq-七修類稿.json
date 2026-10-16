@@ -172,6 +172,75 @@
         "holder": "府中之島図石崎",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300091906/manifest"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079578",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079578",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079578",
+        "request_no": "子０７３－００１２",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4757202/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084758",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084758",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084758",
+        "request_no": "子０７３－００１１",
+        "edition": "刊本:清:::耕烟草堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4405563/manifest.json",
+        "extent": "16冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610767",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610767",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610767",
+        "request_no": "３０７－０２２２",
+        "edition": "刊本:清:::耕烟草堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3669032/manifest.json",
+        "extent": "16冊"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i03_00386",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i03/i03_00386/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i03_00386",
+        "edition": "銭塘 : 耕烟草堂, 乾隆40[1775]序"
+      }
     }
   ],
   "measures": [
@@ -199,9 +268,9 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-14",
   "resource_groups": {
     "nlc-411999023108": {
       "label": "國圖藏本：明[1368-1644]"
@@ -211,6 +280,18 @@
     },
     "kokusho-300091906": {
       "label": "國書·府中之島図石崎藏刊"
+    },
+    "naikaku-1079578": {
+      "label": "內閣文庫藏本：明刊本（子073-0012，10冊）"
+    },
+    "naikaku-1084758": {
+      "label": "內閣文庫藏本：清刊本 耕烟草堂（子073-0011，16冊）"
+    },
+    "naikaku-3610767": {
+      "label": "內閣文庫藏本：清刊本 耕烟草堂（307-0222，16冊）"
+    },
+    "waseda-i03_00386": {
+      "label": "早稲田藏本：銭塘 : 耕烟草堂, 乾隆40[1775]序"
     }
   }
 }

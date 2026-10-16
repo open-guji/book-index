@@ -37,7 +37,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/qing·A 類（基準句引不存在之值）：本條 period_basis 稱「據 authors[0].dynasty「清」」而 authors[0]（李書雲）原無 dynasty 一鍵，是引一不存在之值為據。病源在連書之撰人拆分：本條著錄作「(清)李書雲輯(清)朱素臣校」，其式為「(清)甲某撰(清)乙某注」，拆為二人時代字只落到後一人（朱素臣），前一人漏之。今據**本條著錄原文所冠之「(清)」**補 authors[0].dynasty=「清」，基準句遂與實錄相符，period=qing 不動（索引 dynasty 本已作「清」，與此相符，無須回寫）。原值：authors[0] 無 dynasty 鍵。",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/qing·A 類（基準句引不存在之值）：本條 period_basis 稱「據 authors[0].dynasty「清」」而 authors[0]（李書雲）原無 dynasty 一鍵，是引一不存在之值為據。病源在連書之撰人拆分：本條著錄作「(清)李書雲輯(清)朱素臣校」，其式為「(清)甲某撰(清)乙某注」，拆為二人時代字只落到後一人（朱素臣），前一人漏之。今據**本條著錄原文所冠之「(清)」**補 authors[0].dynasty=「清」，基準句遂與實錄相符，period=qing 不動（索引 dynasty 本已作「清」，與此相符，無須回寫）。原值：authors[0] 無 dynasty 鍵。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "juan_count": {
     "number": 2
   },
@@ -69,6 +69,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E9%9F%B3%E9%9F%BB%E9%A0%88%E7%9F%A5%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ho04_02379",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ho04/ho04_02379/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ho04_02379",
+        "edition": "香芸閣"
+      }
     }
   ],
   "updated_at": "2026-08-24T00:00:00+00:00",
@@ -76,6 +91,11 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-14",
+  "resource_groups": {
+    "waseda-ho04_02379": {
+      "label": "早稲田藏本：香芸閣"
+    }
+  }
 }

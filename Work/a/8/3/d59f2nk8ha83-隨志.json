@@ -29,6 +29,14 @@
       "edition": "湖北省圖書館藏舊鈔本",
       "volume": "第186冊",
       "section": "史部"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "1exjosng9241s",
+      "title_info": "[嘉靖]隨志二卷",
+      "author_info": "明顔木纂修",
+      "section": "史部/方志類/地志之屬",
+      "summary": "共 2 個版本：抄本（湖北省圖書館）；廣倉學宭叢書本（馆藏未载）"
     }
   ],
   "juan_count": {
@@ -58,6 +66,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL02050991_%E9%9A%A8%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-0820",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0820",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0820",
+        "edition": "明嘉靖[1522-1566]"
+      }
     }
   ],
   "measures": [
@@ -72,7 +95,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n總目分類：史部／方志類／地志之屬（與正式庫分類並存，未改 Work 分類）",
   "description": {
     "text": "顏木（明）撰。二卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》。《四庫全書存目叢書》列於史部。其著錄之文，《四庫全書存目叢書》作「《隨志》二卷 附錄一卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -80,6 +103,11 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-15",
+  "resource_groups": {
+    "nlc-0820": {
+      "label": "國圖藏本：明嘉靖[1522-1566]"
+    }
+  }
 }

@@ -31,9 +31,9 @@
       "summary": "共 1 個版本：宋四名家詩本（馆藏未载）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：y3nacgofxzrj8agb",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：y3nacgofxzrj8agb\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-14",
   "resources": [
     {
       "id": "kokusho",
@@ -51,11 +51,53 @@
         "holder": "国文研日本漢詩文",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200012279/manifest"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082922",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082922",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082922",
+        "request_no": "３１２－０２６０",
+        "edition": "刊本::文化:010000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5083578/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071666",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071666",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071666",
+        "request_no": "３１２－０２６３",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5083596/manifest.json",
+        "extent": "2冊"
+      }
     }
   ],
   "resource_groups": {
     "kokusho-200012279": {
       "label": "國書藏本：刊 天保１５（国文研日本漢詩文）"
+    },
+    "naikaku-1082922": {
+      "label": "內閣文庫藏本：文化1年刊本（312-0260，3冊）"
+    },
+    "naikaku-1071666": {
+      "label": "內閣文庫藏本：江戸写本（312-0263，2冊）"
     }
   }
 }

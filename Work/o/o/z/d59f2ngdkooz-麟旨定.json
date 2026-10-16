@@ -71,6 +71,24 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NAJDA-275-0076_%E9%BA%9F%E6%97%A8%E5%AE%9A1.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073875",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073875",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073875",
+        "request_no": "２７５－００７６",
+        "edition": "刊本（序刊）::明崇禎:040000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3955235/manifest.json",
+        "extent": "6冊"
+      }
     }
   ],
   "updated_at": "2026-08-20T00:00:00-07:00",
@@ -78,7 +96,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（十二卷），今據以補。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（十二卷），今據以補。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "juan_count": {
     "number": 12
   },
@@ -96,6 +114,11 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-15",
+  "resource_groups": {
+    "naikaku-1073875": {
+      "label": "內閣文庫藏本：明崇禎4年刊本（序刊）（275-0076，6冊）"
+    }
+  }
 }

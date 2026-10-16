@@ -46,7 +46,9 @@ check_readers() {
     'get\(["'"'"'](birth|death)_year["'"'"']\)'                                   # Python 读旧顶层生卒年
     '(birth|death)_year *(\?\?|\|\|) *[A-Za-z_.?]*(dates\??\.|\bd\??\.)(birth|death)'   # JS 旧键 ?? dates.*
     '(birth|death)\)? *(\?\?|\|\|) *\w*\(?[A-Za-z_.]*\b(birth|death)_year'              # dates.* ?? 旧键
-    '(get\(|\[)["'"'"']_has_(text|collated|full_text)["'"'"']|\._has_(text|collated|full_text)\b'  # 读旧下划线标记
+    '_has_full_text'                                                                      # 已退役的 _has_full_text
+    '(^|[^_A-Za-z0-9])has_(text|collated)\b.*\b_has_(text|collated)\b|\b_has_(text|collated)\b.*(^|[^_A-Za-z0-9])has_(text|collated)\b'  # has_*／_has_* 双读（现行派生键只有 _has_*，读它本身不算旧读法）
+    '\b(doc|derived)\??\.has_(text|collated|full_text)\b'                               # 读派生文档上无下划线的旧键
     'adaptEntry|derived-compat|migrate_v2'
     '⟨|⟩'
   )

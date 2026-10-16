@@ -29,6 +29,51 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:WUL-ru05_00135_%E4%B9%9D%E5%9F%9F%E5%BF%97_2.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999009606",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999009606",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999009606",
+        "edition": "清乾隆49年[1784]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999012444",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999012444",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999012444",
+        "edition": "清初[1644-1722]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999014778",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999014778",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999014778",
+        "edition": "清[1644-1911]"
+      }
     }
   ],
   "indexed_by": [
@@ -53,7 +98,7 @@
       "國史經籍志"
     ]
   },
-  "ai_note": "從 1evgpjm93y134 合併。原註：missing_reason: 作者冲突 work=王存等 vs anno=宋王存　撰人「等」字剝離：著錄作「王存等」，「等」謂王存及其他未具名之纂修者，非姓名之一部，今剝離作「王存」。著錄原有「等」字，是本書尚有未具名之纂修者，待補。\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（十卷），今據以補。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evgpjm93y134 合併。原註：missing_reason: 作者冲突 work=王存等 vs anno=宋王存　撰人「等」字剝離：著錄作「王存等」，「等」謂王存及其他未具名之纂修者，非姓名之一部，今剝離作「王存」。著錄原有「等」字，是本書尚有未具名之纂修者，待補。\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（十卷），今據以補。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 3 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "updated_at": "2026-08-25T00:00:00+00:00",
   "dynasty": "北宋",
   "dynasty_basis": "据本轮 author.dynasty「北宋」补全",
@@ -69,8 +114,8 @@
     }
   ],
   "measure_info": "十卷",
-  "revision": "1.0.2",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-15",
   "contained_in": [
     {
       "id": "8rlcsybg2hhf",
@@ -83,5 +128,16 @@
         256
       ]
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-411999009606": {
+      "label": "國圖藏本：清乾隆49年[1784]"
+    },
+    "nlc-411999012444": {
+      "label": "國圖藏本：清初[1644-1722]"
+    },
+    "nlc-411999014778": {
+      "label": "國圖藏本：清[1644-1911]"
+    }
+  }
 }

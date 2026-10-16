@@ -75,6 +75,42 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NAJDA-301-0030_%E5%9B%9B%E8%A8%BA%E6%B3%95%E5%B7%BB%E4%B8%8A.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079127",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079127",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079127",
+        "request_no": "３０１－００３０",
+        "edition": "刊本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/584711/manifest.json",
+        "extent": "39冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084313",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084313",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084313",
+        "request_no": "３０１－００３１",
+        "edition": "刊本（序刊）::明崇禎:170000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/593879/manifest.json",
+        "extent": "24冊"
+      }
     }
   ],
   "measures": [
@@ -89,7 +125,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "張三錫（明）撰。十九卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》。《四庫全書存目叢書》列於子部。其著錄之文，《四庫全書存目叢書》作「《醫學六要》十九卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -97,6 +133,14 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-15",
+  "resource_groups": {
+    "naikaku-1079127": {
+      "label": "內閣文庫藏本：江戸刊本（301-0030，39冊）"
+    },
+    "naikaku-1084313": {
+      "label": "內閣文庫藏本：明崇禎17年刊本（序刊）（301-0031，24冊）"
+    }
+  }
 }
