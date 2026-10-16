@@ -505,3 +505,20 @@ def test_native_place_entity_id_in_check_v2(tmp_path):
     reg = es.Registry.from_root(str(root))
     rows = check_v2.check_file(str(root), "Entity/x/y/z/p2-t.json", reg)
     assert any(r[3] == "N02" and r[6] == es.ERROR for r in rows)
+
+
+def test_dyn_overlap_by_name_across_repos():
+    # GUJI-528：草稿與正式庫朝代為兩套 ID，跨倉比較按朝代主名；同名即相交，異名仍不相交
+    import entity_subtypes as es
+    reg = es.Registry()
+    for i, n in (("d_ming", "明"), ("p_ming", "明"), ("p_qing", "清")):
+        reg.add({"id": i, "type": "entity", "subtype": "dynasty", "primary_name": n})
+    assert reg.dyn_overlap(["d_ming"], ["p_ming"])
+    assert not reg.dyn_overlap(["d_ming"], ["p_qing"])
+    assert reg.dyn_overlap(["p_ming"], ["p_ming"])
+    assert not reg.dyn_overlap(["unknown"], ["p_ming"])
+    reg.add({"id": "inst", "type": "entity", "subtype": "collective", "collective_kind": "官署",
+             "institution_level": "concrete", "primary_name": "翰林院", "dynasty_ids": ["p_ming"]})
+    rec = {"id": "off", "institution_ref": "inst"}
+    assert es._institution_ref_problems(rec, reg, ["d_ming"]) == []
+    assert [c for c, *_ in es._institution_ref_problems(rec, reg, ["p_qing"])] == ["I12"]
