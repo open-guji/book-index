@@ -30,6 +30,15 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
        N01  只許 people 有此欄；值須為非空字符串                                  ERROR
        N02  須指向本庫（或 --ref-root 之正式庫）中 subtype=place 的 Entity，不存在或非 place   ERROR
        N03  指向的地名是墓碑（有 merged_into）：只警告，提示跟 merged_into          WARN
+  S01–S05  印章（seal，GUJI-538）：
+       S01  seal_text（印文）非空、seal_kind 在枚舉內、primary_name 非空、description.sources 非空   ERROR
+       S02  dynasty_ids 非空且各指 dynasty；start／end 為整數且 start ≤ end；                      ERROR
+            seal_style／seal_form 若有須在枚舉內                                                 ERROR
+       S03  owner_ids／institution_ids 各指本庫存在的 Entity（people／collective／office／reign 之外
+            不得指 seal 與 dynasty）；指墓碑 WARN                                               ERROR／WARN
+       S04  appears_in ≤20 條、ref_type ∈ Book／Work、id 存在於本庫（或 --ref-root）對應目錄；     ERROR
+            不得重複
+       S05  images 每項有 url 與 credit；禁人物／朝代／地名／年號專屬欄位                         ERROR
   級別 INFO：P09 同名異地清單，不計入 ERROR／WARN。
 
 口徑（S 預審）：上下級區間不合（戰國止年晚於東周、北朝起年早於南北朝）、年號越出所屬朝代區間，
@@ -43,7 +52,7 @@ import json
 import os
 import re
 
-NEW_SUBTYPES = ("dynasty", "reign", "office", "place")
+NEW_SUBTYPES = ("dynasty", "reign", "office", "place", "seal")
 ERROR, WARN, INFO = "ERROR", "WARN", "INFO"
 
 PERIODS = {"pre-qin", "qin-han", "three-kingdoms", "jin", "nanbeichao", "sui-tang",
@@ -63,6 +72,7 @@ DATES_KEYS = {
     "reign": {"start", "end", "basis", "chinese"},
     "office": set(),
     "place": set(),
+    "seal": set(),
 }
 # 源檔不許寫之派生／反向欄（無底線者；`_` 起首者由 check_v2 V01 報）
 DERIVED_NAMES = ("children", "reigns", "index_in_reign", "successors", "people", "holders",
@@ -138,6 +148,8 @@ class Registry:
         self.sub = {}      # id -> subtype
         self.rec = {}      # id -> record（僅 NEW_SUBTYPES）
         self.path = {}     # id -> relpath
+        self.roots = []     # 參與索引之倉根（供 Book／Work 存在性查詢）
+        self._bw = {}       # (ref_type, id) 查詢快取：ref_type -> {id}
         self.dyn_name = {}  # dynasty id -> primary_name（草稿／正式庫朝代 ID 為兩套，跨倉按名字比，GUJI-528）
 
     @classmethod
@@ -145,6 +157,7 @@ class Registry:
         """ref_roots：只讀參照倉（草稿庫查時指正式庫），其 Entity 只供引用解析（如 dynasty_ids 指正式 id）；
         同 id 以 root 為準。跨條目之全庫檢查（check_global）應另用不帶 ref_roots 之索引，免把兩倉同名條當重複。"""
         reg = cls()
+        reg.roots = list(ref_roots) + [root]
         for r in list(ref_roots) + [root]:
             for f in glob.glob(os.path.join(r, "Entity", "**", "*.json"), recursive=True):
                 try:
@@ -175,6 +188,16 @@ class Registry:
         nb = {self.dyn_name[x] for x in b if x in self.dyn_name}
         return bool(na & nb)
 
+    def has_record(self, ref_type, i):
+        """Book／Work 記錄檔是否存在（按 {id}-*.json 檔名，各倉根任一有即可）。"""
+        if ref_type not in self._bw:
+            ids = set()
+            for r in self.roots:
+                for f in glob.glob(os.path.join(r, ref_type, "*", "*", "*", "*.json")):
+                    ids.add(os.path.basename(f).split("-", 1)[0].split(".json")[0])
+            self._bw[ref_type] = ids
+        return i in self._bw[ref_type]
+
     def is_inst(self, i):
         r = self.rec.get(i) or {}
         return r.get("subtype") == "collective" and r.get("collective_kind") == "官署"
@@ -193,7 +216,7 @@ def _dates_problems(rec, st):
     if not isinstance(dt, dict):
         return [("D3", ERROR, "dates", "非物件")]
     allowed = DATES_KEYS.get(st, set())
-    if st in ("office", "place"):
+    if st in ("office", "place", "seal"):
         return [("D3", ERROR, "dates", "%s 不用 dates（起訖在 start／end 或沿革項）" % st)]
     for k in dt:
         if k not in allowed:
@@ -585,6 +608,93 @@ def _uncovered(s, e, parent_hist):
     return [(a, b) for a, b in gaps if a < b]
 
 
+SEAL_KINDS = ("官印", "私印", "鑒藏印", "齋館印", "其他")
+SEAL_STYLES = ("朱文", "白文", "朱白相間")
+SEAL_FORMS = ("方", "圓", "橢圓", "長方", "異形")
+SEAL_REF_MAX = 20
+SEAL_FORBIDDEN = ("dynasty", "dynasty_basis", "period", "period_basis", "native_place", "native_place_basis",
+                  "native_place_entity_id", "title_or_office", "name_basis", "collective_kind",
+                  "institution_level", "superiors", "group_ids", "parent_id", "function", "basis", "succeeds",
+                  "dynasty_id", "ruler", "office_level", "office_class", "rank", "salary", "institution_ref",
+                  "base_office_id", "qualifier", "history", "modern", "predecessors", "dates")
+
+
+def _check_seal(rec, reg):
+    out = []
+    if not nonempty_str(rec.get("primary_name")):
+        out.append(("S01", ERROR, "primary_name", "缺"))
+    if not nonempty_str(rec.get("seal_text")):
+        out.append(("S01", ERROR, "seal_text", "印文必填且非空"))
+    if rec.get("seal_kind") not in SEAL_KINDS:
+        out.append(("S01", ERROR, "seal_kind", "不在枚舉：%r" % (rec.get("seal_kind"),)))
+    desc = rec.get("description")
+    if not (isinstance(desc, dict) and isinstance(desc.get("sources"), list) and desc["sources"]):
+        out.append(("S01", ERROR, "description.sources", "印章條須有來源"))
+    if rec.get("seal_style") is not None and rec["seal_style"] not in SEAL_STYLES:
+        out.append(("S02", ERROR, "seal_style", "不在枚舉：%r" % (rec["seal_style"],)))
+    if rec.get("seal_form") is not None and rec["seal_form"] not in SEAL_FORMS:
+        out.append(("S02", ERROR, "seal_form", "不在枚舉：%r" % (rec["seal_form"],)))
+    dids = rec.get("dynasty_ids")
+    if not (isinstance(dids, list) and dids):
+        out.append(("S02", ERROR, "dynasty_ids", "必有非空數組"))
+        dids = []
+    for d in dids:
+        if reg.sub.get(d) != "dynasty":
+            out.append(("S02", ERROR, "dynasty_ids", "不存在或非 dynasty：%r" % (d,)))
+    s, e = rec.get("start"), rec.get("end")
+    for k, v in (("start", s), ("end", e)):
+        if v is not None and not is_int(v):
+            out.append(("S02", ERROR, k, "非整數：%r" % (v,)))
+    if is_int(s) and is_int(e) and s > e:
+        out.append(("S02", ERROR, "start", "start > end：%s > %s" % (s, e)))
+    for f in ("owner_ids", "institution_ids"):
+        v = rec.get(f)
+        if v is None:
+            continue
+        if not (isinstance(v, list) and v and all(nonempty_str(x) for x in v)):
+            out.append(("S03", ERROR, f, "須非空 id 數組（不寫裸字符串名）"))
+            continue
+        for x in v:
+            st = reg.sub.get(x)
+            if st is None:
+                out.append(("S03", ERROR, f, "id 不存在：%r" % (x,)))
+            elif st in ("seal", "dynasty"):
+                out.append(("S03", ERROR, f, "不得指 %s：%r" % (st, x)))
+            elif (reg.rec.get(x) or {}).get("merged_into"):
+                out.append(("S03", WARN, f, "%r 是墓碑，請改指 merged_into" % (x,)))
+    ai = rec.get("appears_in")
+    if ai is not None:
+        if not isinstance(ai, list):
+            out.append(("S04", ERROR, "appears_in", "非數組"))
+        else:
+            if len(ai) > SEAL_REF_MAX:
+                out.append(("S04", ERROR, "appears_in", "本期只作代表例，≤%d 條" % SEAL_REF_MAX))
+            seen = set()
+            for i, it in enumerate(ai):
+                f = "appears_in[%d]" % i
+                if not isinstance(it, dict) or it.get("ref_type") not in ("Book", "Work") or not nonempty_str(it.get("id")):
+                    out.append(("S04", ERROR, f, "須 {ref_type: Book|Work, id}"))
+                    continue
+                key = (it["ref_type"], it["id"])
+                if key in seen:
+                    out.append(("S04", ERROR, f, "重複：%r" % (key,)))
+                seen.add(key)
+                if not reg.has_record(it["ref_type"], it["id"]):
+                    out.append(("S04", ERROR, f + ".id", "%s 不存在：%r" % (it["ref_type"], it["id"])))
+    imgs = rec.get("images")
+    if imgs is not None:
+        if not isinstance(imgs, list):
+            out.append(("S05", ERROR, "images", "非數組"))
+        else:
+            for i, it in enumerate(imgs):
+                if not (isinstance(it, dict) and nonempty_str(it.get("url")) and nonempty_str(it.get("credit"))):
+                    out.append(("S05", ERROR, "images[%d]" % i, "須有 url 與 credit"))
+    for k in SEAL_FORBIDDEN:
+        if k in rec:
+            out.append(("S05", ERROR, k, "seal 不用此欄"))
+    return out
+
+
 def _check_place(rec, reg):
     out = []
     if not nonempty_str(rec.get("primary_name")):
@@ -717,7 +827,8 @@ def check_record(rec, reg):
     out += _dates_problems(rec, st)
     out += _alt_problems(rec)
     out += {"dynasty": _check_dynasty, "reign": _check_reign,
-            "office": _check_office, "place": _check_place}[st](rec, reg)
+            "office": _check_office, "place": _check_place,
+            "seal": _check_seal}[st](rec, reg)
     return out
 
 
