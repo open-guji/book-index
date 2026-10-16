@@ -17,12 +17,7 @@ CASES = json.loads((ROOT / 'tests' / 'golden' / 'entries.json').read_text(encodi
 
 
 # 已知口径差异（对拍首跑暴露，overview#606）：strict xfail，读法删掉那一步合并时会变红，逼着把名字从这里删。
-KNOWN_RED_UNTIL = {
-    '负例 book-resources 旧单值 type 不再读（#544）':
-        'build_derived._res_flags 仍读 resources[].type 旧单值；数据里该键已 0（legacy-scan），删该分支即可',
-    '负例 book-源档旧 has_collated 不透传（待 B4 步骤 6 定）':
-        'build_derived 仍把源档 has_collated 透传进 index（目录总管 10-07 定保留）；待 B4 步骤 6 定去留',
-}
+KNOWN_RED_UNTIL = {}  # 2026-10-16 清零（GUJI-13 / Eric）：_res_flags 旧单值分支与源档 has_collated 透传均已删
 
 
 def _params():
