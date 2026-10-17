@@ -17,7 +17,7 @@
 | [work.md](work.md) | Work（作品）字段全表与细则；关联词表（`related_works[].relation`） |
 | [book.md](book.md) | Book（版本）字段全表与细则 |
 | [collection.md](collection.md) | Collection（丛编）字段全表与细则 |
-| [entity.md](entity.md) | Entity（人物与专名）：通用字段；people／collective（含官署）／dynasty／reign／office／place 各子类型字段表；校验码 |
+| [entity.md](entity.md) | Entity（人物与专名）**总览**（子类型一览、专名硬约束、校验码索引、旧〈章节号〉对照）；分档在 [entity/](entity/)：通用字段、`alt_names`、`dates`／`external_ids`、禁字段与派生、校验码总表，及 people／collective（含官署）／dynasty／reign／office／place／seal（印章）／publisher（出版社）各子类型字段表；通用字段、`alt_names` 枚举、`dates`、`external_ids`；校验码（seal 与 Book 的 `provenance[].seal_marks`、印影存放的 book-index-asset 仓，见 [entity/seal.md](entity/seal.md)） |
 | [classification.md](classification.md) | 分类法目录 `classification/` 的三种文件 |
 | [promotions.md](promotions.md) | 升格对照表 `promotions/` 分片 |
 | [text-files.md](text-files.md) | 整理本与辑佚档（已迁 book-text）：去处与接口 |
@@ -26,6 +26,21 @@
 | [cataloging-rules.md](cataloging-rules.md) | 录入判准（一条 Work 代表什么、原典与注本、同题重出、版本附属部帙、别本等）；不是格式，但录入时与格式同读 |
 | [CHANGELOG.md](CHANGELOG.md) | 自 schema-v2（2026-10-07）起的格式变化 |
 | [json/](json/) | 机器可读版（JSON Schema 2020-12）：`work`、`book`、`collection`、`entity` 各一份，`common`（共用 `$defs`）、`classification`、`promotions`，派生产物 `derived-entry`（`_build/entry/`）与 `index`（`index/`） |
+
+### 按类型找 Entity 示例
+
+每个子类型的字段表文件开头都有〈真实示例〉小节：2–3 个典型条目的仓内真实路径，并说明各演示什么。要看「实际写出来长什么样」，从下表进。
+
+| 子类型 | 字段表与示例 | 首选示例（源档） |
+|---|---|---|
+| `people` | [people.md〈真实示例〉](entity/people.md#真实示例) | [Entity/d/q/q/hixhd2h9bdqq-蘇軾.json](../Entity/d/q/q/hixhd2h9bdqq-蘇軾.json)（蘇軾） |
+| `collective` | [collective.md〈真实示例〉](entity/collective.md#真实示例) | [Entity/o/p/e/hixhd2h9bope-仙鶴堂.json](../Entity/o/p/e/hixhd2h9bope-仙鶴堂.json)（仙鶴堂） |
+| `dynasty` | [dynasty.md〈真实示例〉](entity/dynasty.md#真实示例) | [Entity/x/g/o/hixi1ubjrxgo-趙宋.json](../Entity/x/g/o/hixi1ubjrxgo-趙宋.json)（趙宋） |
+| `reign` | [reign.md〈真实示例〉](entity/reign.md#真实示例) | [Entity/w/u/9/hixi1ubqbwu9-萬曆.json](../Entity/w/u/9/hixi1ubqbwu9-萬曆.json)（萬曆） |
+| `office` | [office.md〈真实示例〉](entity/office.md#真实示例) | [Entity/r/m/6/hixi4udstrm6-尚書.json](../Entity/r/m/6/hixi4udstrm6-尚書.json)（尚書） |
+| `place` | [place.md〈真实示例〉](entity/place.md#真实示例) | [Entity/c/n/5/hixi4ugtgcn5-潼川府.json](../Entity/c/n/5/hixi4ugtgcn5-潼川府.json)（潼川府） |
+| `seal` | [seal.md〈真实示例〉](entity/seal.md#真实示例) | [Entity/4/e/a/hixi6zykf4ea-文淵閣寶.json](../Entity/4/e/a/hixi6zykf4ea-文淵閣寶.json)（文淵閣寶） |
+| `publisher` | [publisher.md〈真实示例〉](entity/publisher.md#真实示例) | [Entity/f/y/8/hixi70yf5fy8-汲古閣.json](../Entity/f/y/8/hixi70yf5fy8-汲古閣.json)（汲古閣） |
 
 ---
 

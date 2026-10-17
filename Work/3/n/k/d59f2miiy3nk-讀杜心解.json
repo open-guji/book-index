@@ -104,11 +104,50 @@
         "nlc_fid": "411999022820",
         "edition": "清雍正2年-3年[1724-1725]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko17_w0119",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko17/bunko17_w0119/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko17_w0119",
+        "edition": "前磵 : 寧我斎, 雍正2-3[1724-1725]"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082685",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082685",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082685",
+        "request_no": "３１２－０１７２",
+        "edition": "刊本（後印）::清雍正:030000:寧我斎",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5083386/manifest.json",
+        "extent": "10冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999022820": {
       "label": "國圖藏本：清雍正2年-3年[1724-1725]"
+    },
+    "waseda-bunko17_w0119": {
+      "label": "早稲田藏本：前磵 : 寧我斎, 雍正2-3[1724-1725]"
+    },
+    "naikaku-1082685": {
+      "label": "內閣文庫藏本：清雍正3年刊本（後印） 寧我斎（312-0172，10冊）"
     }
   },
   "measures": [
@@ -126,12 +165,12 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "從 1evjxms2y9yio 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3bdg7mbu9s(浦起龍)（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjxms2y9yio 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3bdg7mbu9s(浦起龍)（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "updated_at": "2026-08-09T10:40:18+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13"
+  "revision": "1.4.0",
+  "revised_at": "2026-10-16"
 }

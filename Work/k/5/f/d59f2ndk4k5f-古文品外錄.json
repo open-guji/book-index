@@ -80,6 +80,60 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL02069906_%E5%8F%A4%E6%96%87%E5%93%81%E5%A4%96%E9%8C%84%EF%BC%88%E4%B8%80%EF%BC%89.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1072039",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1072039",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1072039",
+        "request_no": "３５９－００６０",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5092887/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077500",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077500",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077500",
+        "request_no": "集０７７－０００１",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4427952/manifest.json",
+        "extent": "12冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083317",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083317",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083317",
+        "request_no": "３５９－００６１",
+        "edition": "刊本:明:::劉氏喬山堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5092894/manifest.json",
+        "extent": "8冊"
+      }
     }
   ],
   "measures": [
@@ -94,13 +148,24 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "description": {
     "text": "陳繼儒（明）編。十二卷。見著錄於《欽定四庫全書總目》。本書惟《欽定四庫全書總目》一志著錄，別無他證。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-16",
+  "resource_groups": {
+    "naikaku-1072039": {
+      "label": "內閣文庫藏本：明刊本（359-0060，10冊）"
+    },
+    "naikaku-1077500": {
+      "label": "內閣文庫藏本：明刊本（集077-0001，12冊）"
+    },
+    "naikaku-1083317": {
+      "label": "內閣文庫藏本：明刊本 劉氏喬山堂（359-0061，8冊）"
+    }
+  }
 }

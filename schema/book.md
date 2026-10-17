@@ -123,10 +123,13 @@
 | `institution` | string | 必填 | 现藏机构 | 非空，繁体机构名 |
 | `call_number` | string | 必填 | 索书号 | 字符串，可为空串 |
 | `seals` | array<string> | 必填 | 藏印 | 可为空数组 |
+| `seal_marks` | array<object> | 可选 | 已识别并指向印章条的钤印，见下 | 非空数组，≤100 项 |
 | `notes` | string | 必填 | 说明 | 可为空串 |
 | `source` | string | 必填 | 本项据现行哪个字段、哪批数据回填，供覆核回查 | 如 `metadata.npm_item_id` |
 
 - 一书多藏本各一项。
+- `seals`（字符串）＝著录原文，只读存档；`seal_marks`＝已识别并指向印章条的钤印。同一印两处都有是正常的，不算重复。
+- `seal_marks[]` 项：`seal_id`（必填，指向 `subtype=seal` 的 Entity；不得指墓碑，墓碑须改指 `merged_into`）、`position`（可选，≤30 字，如「首卷第一頁」「卷末」）、`note`（可选）、`source`（可选，这本上有此印的依据，缺省继承本项 `source`）。同一 `provenance` 项内 `seal_id` 不得重复。校验码 B-S01…B-S05 见 `check_v2.py`；印章条被合并时，`seal_marks[].seal_id` 随之改指（`entity_merge.py`）。
 - 与 `current_location`（现藏地）、`location_history`（递藏史）并存，不取代它们。
 - 故宫 17,540 条由 `metadata.npm_item_id`（故宫统一编号即索书号）机械回填，`seals` 按典藏号与故宫资料对照填入。草稿库 9 万余项来自《中國古籍總目》馆藏著录，`call_number` 皆为空串。
 

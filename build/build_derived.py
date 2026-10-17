@@ -33,6 +33,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import v2common as V  # noqa: E402
 import names as N  # noqa: E402
 import textindex as TX  # noqa: E402
+import sealindex as SI  # noqa: E402
 
 HUB = 200          # 被內聯引用超過此數者為樞紐：卡片只寫 id＋h:1，名稱進 _hubs.json（F4-2 §一 4）
 PAGE = 200         # 分頁大小（F2-3 §二 Collection）
@@ -1074,13 +1075,28 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
     report['index'] = {'files': len(shards), 'entries': n_idx, 'drift_vs_repo_index': index_drift(root, shards)}
     if n_idx != report['entries']:
         fatal.append(f'index 條數不守恒：記錄 {report["entries"]}，index {n_idx}')
+    seal_m, seal_p, seal_st = SI.derive(((i, b.R['Book'][i]) for i in sorted(b.own['Book'])), b.R['Entity'])
+    seal_files = SI.files(seal_m, seal_p)
+    seal_drift = SI.drift(root, seal_files)
+    report['index']['seals'] = {
+        'seals': len(seal_m), 'books_marked': sum(x['count'] for x in seal_m.values()), 'pages': len(seal_p),
+        'ignored_marks': seal_st['ignored_marks'],
+        'drift_vs_repo_index': {'count': len(seal_drift), 'sample': seal_drift[:20]},
+        'reconcile_appears_in': SI.reconcile(b.R['Entity'], seal_m, seal_p),
+    }
+    for sid, x in seal_m.items():       # 自洽：count＝各頁 Book id 之和，頁內升序、不重
+        got = [i for k in range(1, x['pages'] + 1) for i in seal_p[f'{SI.PAGE_DIR}/{sid}/{k}.json']['books']]
+        if len(got) != x['count'] or got != sorted(set(got)):
+            fatal.append(f'印章反查表自洽失敗：{sid}')
     if not check_only:
         out_dir = out_dir or os.path.join(root, '_build')
         os.makedirs(out_dir, exist_ok=True)
         report['write'] = write_products(out_dir, prods)
         report['write']['index_files_written'] = write_index(out_dir, shards)
+        report['write']['seal_files_written'], report['write']['seal_files_removed'] = SI.write(out_dir, seal_files)
         if write_repo_index:
             report['write']['repo_index_files_written'] = write_index(root, shards)
+            report['write']['repo_seal_files_written'], report['write']['repo_seal_files_removed'] = SI.write(root, seal_files)
         with open(os.path.join(out_dir, 'report.json'), 'w', encoding='utf-8') as f:
             json.dump({k: v for k, v in report.items() if k != 'write'}, f, ensure_ascii=False, indent=1, sort_keys=True)
             f.write('\n')

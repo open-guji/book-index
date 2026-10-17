@@ -248,11 +248,14 @@ def main():
     bad_todo, bad_review = [], []
     bad_inst = []
     bad_be = []
+    seal_books = []
     for bid, ie in IB.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(bid); continue
         d = json.load(open(p))
         prov = d.get('provenance')
+        if isinstance(prov, list) and any(isinstance(x, dict) and x.get('seal_marks') for x in prov):
+            seal_books.append((bid, d))
         if prov is not None and not provenance_ok(prov):
             bad_prov.append(bid)
         if prov:
@@ -437,6 +440,17 @@ def main():
     print(f'dynasty 與生卒世纪不合（僅報，不入 FAIL） {len(bad_dynasty_century)}')
     # 2026-09-07 lane-E 所報：賬曾三度被 pushmain 之 --ours 吞掉，共遺落 492 筆而無人察覺
     # ——被吞者無聲、吞人者亦無聲，**只有第三方比對才看得見**。故以水位線守之。
+    # 印章反查表 index/seals.json＋index/seals/（GUJI-542 P2）：由 Book.provenance[].seal_marks 重算，與倉內檔比對
+    sys.path.insert(0, os.path.join(ROOT, 'build'))
+    import sealindex as _si
+    _seal_ents = {}
+    for eid, ie in IE.items():
+        if ie.get('subtype') == 'seal':
+            _seal_ents[eid] = json.load(open(os.path.join(ROOT, ie['path']), encoding='utf-8'))
+    _sm, _sp, _ = _si.derive(seal_books, _seal_ents)
+    bad_seal_index = _si.drift(ROOT, _si.files(_sm, _sp))
+    print(f'印章反查表漂移（index/seals*） {len(bad_seal_index)}')
+    for r in bad_seal_index[:10]: print('  印章反查表', r)
     _ledger_bad = False
     try:
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -471,7 +485,7 @@ def main():
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
     bad = (_ledger_bad or missing or bad_merged_in or vanished or bad_tomb_target or bad_tomb_unindexed or drift_w or drift_e or bad_cls_members or bad_prov or bad_dates or bad_extids or bad_count
-           or bad_subtype or bad_et or bad_pd or bad_be or bad_todo or bad_review
+           or bad_seal_index or bad_subtype or bad_et or bad_pd or bad_be or bad_todo or bad_review
            or (a.strict and (dangle_w or _cv2_rows)))
     print('FAIL' if bad else 'OK')
     sys.exit(1 if bad else 0)

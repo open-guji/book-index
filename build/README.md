@@ -33,6 +33,8 @@ python3 build/build_derived.py --check-only --hub-check --text-index "$BOOK_TEXT
 
 校驗（失敗退出碼 1）：條數守恒（源記錄數＝`entry/` 數）、派生值自洽（`_edition_count`＝`len(_books)`、分頁合計＝總數、`_members` 是第 1 頁前段）、卡片 id 皆可解析、`h:1` 皆在 `_hubs.json`、源檔含非舊有的 `_` 欄。報而不擋：懸空引用。（舊 `_` 欄與舊反向欄的容忍已於 2026-10-11 刪除：源檔任何 `_` 欄即擋；`--strict` 現為空操作。）
 
+`index/seals.json`＋`index/seals/<seal_id>/<n>.json`（GUJI-542 P2，`sealindex.py`）：印章反查表，由 `Book.provenance[].seal_marks` 派生，計數＋分頁（每頁 ≤500 Book id）；規則見 schema/derived.md〈8.3〉。`report.json` 的 `index.seals` 帶計數、漂移與 `appears_in` 對賬；`verify.py` 重算比對。
+
 ## 已定（目錄總管 10-07，#459）
 
 - `Work.contained_in[]` 的 `group`／`details` 進 SCHEMA（F6-2 改）。反向詞項在 M3 刪（check_v2 的 V04 歸 M3）。

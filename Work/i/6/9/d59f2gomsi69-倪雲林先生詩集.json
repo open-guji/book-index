@@ -41,7 +41,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/liaojinyuan G 類撞題所得：d59f2j4l7sht《倪雲林先生詩集六卷附錄》併入本條（同書重出）。d59f2j4l7sht 之題乃著錄語（卷數／附錄／目錄／續編等）與正題黏連而成之誤（PITFALLS 坑 5〈題名孤證繫〉同型之反相——非題名孤證繫錯書，而是正題被自己的卷數附件字樣拖長）。卷數（六卷）與正題所載「六卷 附錄一卷」全合。 indexed_by 移入：國立故宮博物院善本舊籍。",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/liaojinyuan G 類撞題所得：d59f2j4l7sht《倪雲林先生詩集六卷附錄》併入本條（同書重出）。d59f2j4l7sht 之題乃著錄語（卷數／附錄／目錄／續編等）與正題黏連而成之誤（PITFALLS 坑 5〈題名孤證繫〉同型之反相——非題名孤證繫錯書，而是正題被自己的卷數附件字樣拖長）。卷數（六卷）與正題所載「六卷 附錄一卷」全合。 indexed_by 移入：國立故宮博物院善本舊籍。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "juan_count": {
     "number": 6
   },
@@ -58,8 +58,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-16",
   "merged_in": [
     {
       "id": "d59f2j4l7sht",
@@ -140,6 +140,24 @@
         "nlc_fid": "411999013384",
         "edition": "明萬曆19年[1591]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073857",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073857",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073857",
+        "request_no": "３１３－００２３",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4763228/manifest.json",
+        "extent": "6冊"
+      }
     }
   ],
   "resource_groups": {
@@ -154,6 +172,9 @@
     },
     "nlc-411999013384": {
       "label": "國圖藏本：明萬曆19年[1591]"
+    },
+    "naikaku-1073857": {
+      "label": "內閣文庫藏本：明刊本（313-0023，6冊）"
     }
   }
 }

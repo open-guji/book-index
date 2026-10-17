@@ -30,9 +30,9 @@
       "summary": "共 2 個版本：明萬曆間刻本（國家圖書館）；明萬曆間刻本（上海圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：q3aiw07a513l3pff、tvny62k01a8me45u",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：q3aiw07a513l3pff、tvny62k01a8me45u\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-16",
   "resources": [
     {
       "id": "nlc",
@@ -48,11 +48,32 @@
         "nlc_fid": "411999020835",
         "edition": "明萬曆[1573-1620]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077519",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077519",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077519",
+        "request_no": "集０４９－０００６",
+        "edition": "刊本（序刊）::明万暦:150000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4418600/manifest.json",
+        "extent": "2冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999020835": {
       "label": "國圖藏本：明萬曆[1573-1620]"
+    },
+    "naikaku-1077519": {
+      "label": "內閣文庫藏本：明万暦15年刊本（序刊）（集049-0006，2冊）"
     }
   }
 }

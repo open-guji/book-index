@@ -78,6 +78,42 @@
         "year": "1708 清康熙47年",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076904",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076904",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076904",
+        "request_no": "３０６－０２７５",
+        "edition": "刊本::清同治:070000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4919878/manifest.json",
+        "extent": "36冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084691",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084691",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084691",
+        "request_no": "子０６８－００１０",
+        "edition": "刊本（序刊）::清康煕:470000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4487822/manifest.json",
+        "extent": "40冊"
+      }
     }
   ],
   "description": {
@@ -86,12 +122,20 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1ev3bbtbqmj28 合併。原註：作者「清汪灝等奉敕撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkpy1dk0r28 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故薈005911-005990）。阶段 5 兜底建立。 | 從 1evkaccthjn5s 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n總目版本待定（庫中現有清乾隆間寫文淵閣四庫全書本）：總目著錄版本不能確證與庫中同版，未入 Book（4np7nfuzogj2dcqt）",
+  "ai_note": "從 1ev3bbtbqmj28 合併。原註：作者「清汪灝等奉敕撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkpy1dk0r28 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故薈005911-005990）。阶段 5 兜底建立。 | 從 1evkaccthjn5s 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n總目版本待定（庫中現有清乾隆間寫文淵閣四庫全書本）：總目著錄版本不能確證與庫中同版，未入 Book（4np7nfuzogj2dcqt）\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "updated_at": "2026-08-09T10:40:18+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-16",
+  "resource_groups": {
+    "naikaku-1076904": {
+      "label": "內閣文庫藏本：清同治7年刊本（306-0275，36冊）"
+    },
+    "naikaku-1084691": {
+      "label": "內閣文庫藏本：清康煕47年刊本（序刊）（子068-0010，40冊）"
+    }
+  }
 }

@@ -38,9 +38,9 @@
       "entity_id": "hixhd2h9bdqp"
     }
   ],
-  "ai_note": "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。\n\n2026-09-06 qa-sweep/song·G 類淨題撞庫得正條，逐條裁併：併入 `d59f2hukndoh`《資治通鑑二百九十四卷目錄》。據：source（三十卷目錄）與 keeper（二百九十四卷，直齋）皆司馬光《資治通鑑》，同書，二百九十四卷為定製之數。\n\n2026-09-06 qa-sweep/song·補撰人（原繫此書之 entity 已據 G 類淨題撞庫併入之 source 補全）：keeper 原 authors 為空，併入之 source 有撰人「司馬光」（entity_id `hixhd2h9bdqp`），今據以補，成單向邊（entity 指書而書不指人）之因即此欄闕如，今補之而合。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-14",
+  "ai_note": "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。\n\n2026-09-06 qa-sweep/song·G 類淨題撞庫得正條，逐條裁併：併入 `d59f2hukndoh`《資治通鑑二百九十四卷目錄》。據：source（三十卷目錄）與 keeper（二百九十四卷，直齋）皆司馬光《資治通鑑》，同書，二百九十四卷為定製之數。\n\n2026-09-06 qa-sweep/song·補撰人（原繫此書之 entity 已據 G 類淨題撞庫併入之 source 補全）：keeper 原 authors 為空，併入之 source 有撰人「司馬光」（entity_id `hixhd2h9bdqp`），今據以補，成單向邊（entity 指書而書不指人）之因即此欄闕如，今補之而合。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-16",
   "merge_history": [
     {
       "merged_from": "d59f2hukndoh",
@@ -244,6 +244,60 @@
         "waseda_id": "bunko01_01821",
         "edition": "[東京府] : 東京印刷会社, [明治年間]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067302",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067302",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067302",
+        "request_no": "別００７－０００１",
+        "edition": "刊本:明末:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4180632/manifest.json",
+        "extent": "180冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067490",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067490",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067490",
+        "request_no": "史０２１－０００１",
+        "edition": "刊本:明末:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/2851470/manifest.json",
+        "extent": "200冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067730",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067730",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067730",
+        "request_no": "２８３－０００９",
+        "edition": "刊本::天保:070000:／印年::嘉永:020000:津藩有造館",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4899284/manifest.json",
+        "extent": "143冊"
+      }
     }
   ],
   "resource_groups": {
@@ -279,6 +333,15 @@
     },
     "waseda-bunko01_01821": {
       "label": "早稲田藏本：[東京府] : 東京印刷会社, [明治年間]"
+    },
+    "naikaku-1067302": {
+      "label": "內閣文庫藏本：明末刊本（別007-0001，180冊）"
+    },
+    "naikaku-1067490": {
+      "label": "內閣文庫藏本：明末刊本（史021-0001，200冊）"
+    },
+    "naikaku-1067730": {
+      "label": "內閣文庫藏本：天保7年刊本 /印年（283-0009，143冊）"
     }
   }
 }

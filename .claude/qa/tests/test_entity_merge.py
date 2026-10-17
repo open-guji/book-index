@@ -150,8 +150,50 @@ def run() -> None:
         shutil.rmtree(tmp, ignore_errors=True)
 
 
+def run_seal_marks() -> None:
+    """GUJI-542：印章条合并时，Book.provenance[].seal_marks[].seal_id 随之改繫；改繫后同项重复则去重。"""
+    tmp = tempfile.mkdtemp(prefix='entity_merge_seal_')
+    try:
+        keeper_id, loser_id, book_id, book2_id = 'zzzsealk001', 'zzzseall002', 'zzzbook0005', 'zzzbook0006'
+        for i, n in ((keeper_id, '正印'), (loser_id, '異印')):
+            _write(tmp, f'Entity/{_shard(i)}/{i}-{n}.json', {
+                'id': i, 'type': 'entity', 'subtype': 'seal', 'primary_name': n, 'seal_text': n})
+        b1 = f'Book/{_shard(book_id)}/{book_id}-测试本.json'
+        b2 = f'Book/{_shard(book2_id)}/{book2_id}-测试本二.json'
+        _write(tmp, b1, {'id': book_id, 'type': 'book', 'title': '測試本', 'provenance': [
+            {'institution': 'X', 'call_number': '', 'seals': ['異印朱方'], 'notes': '', 'source': 's',
+             'seal_marks': [{'seal_id': loser_id, 'position': '卷末'}, {'seal_id': 'zzzother001'}]}]})
+        _write(tmp, b2, {'id': book2_id, 'type': 'book', 'title': '測試本二', 'provenance': [
+            {'institution': 'X', 'call_number': '', 'seals': [], 'notes': '', 'source': 's',
+             'seal_marks': [{'seal_id': keeper_id}, {'seal_id': loser_id}]}]})
+        import jio
+        import entity_merge
+        old_root = jio.ROOT
+        jio.ROOT = tmp
+        try:
+            summary = entity_merge.merge(loser_id, keeper_id, reason='回归测试：seal_marks 改繫',
+                                         rule='test', date='2026-10-16')
+        finally:
+            jio.ROOT = old_root
+        d1 = json.load(open(os.path.join(tmp, b1), encoding='utf-8'))
+        assert [m['seal_id'] for m in d1['provenance'][0]['seal_marks']] == [keeper_id, 'zzzother001'], d1
+        assert d1['provenance'][0]['seal_marks'][0]['position'] == '卷末'
+        assert d1['provenance'][0]['seals'] == ['異印朱方'], 'seals 原文不动'
+        d2 = json.load(open(os.path.join(tmp, b2), encoding='utf-8'))
+        assert [m['seal_id'] for m in d2['provenance'][0]['seal_marks']] == [keeper_id], d2
+        assert sorted(summary['redirected_works']) == sorted([book_id, book2_id])
+        print('OK：印章条合并，Book.provenance[].seal_marks 改繫 keeper、同项去重、seals 原文不动')
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def test_entity_merge_seal_marks():
+    run_seal_marks()
+
+
 if __name__ == '__main__':
     run()
+    run_seal_marks()
 
 
 def test_entity_merge_v2():

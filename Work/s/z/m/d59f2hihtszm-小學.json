@@ -29,7 +29,7 @@
       "國史經籍志"
     ]
   },
-  "ai_note": "missing_reason: 短title \"小學\" 唯一候选无作者\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "missing_reason: 短title \"小學\" 唯一候选无作者\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "id": "d59f2hihtszm",
   "measures": [
     {
@@ -324,6 +324,75 @@
         "holder": "国文研大橋",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200035806/manifest"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro13_03853",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro13/ro13_03853/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro13_03853",
+        "edition": "本石町十軒店(江戸) : 英平吉, 文政5[1822] ( ) : ※"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075955",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075955",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075955",
+        "request_no": "３５７－０００８",
+        "edition": "刊本::明治:150000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5055839/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075956",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075956",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075956",
+        "request_no": "３５７－０００７",
+        "edition": "刊本::明治:170000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5055836/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075958",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075958",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075958",
+        "request_no": "３５７－００１０",
+        "edition": "刊本::明治:160000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5055850/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "updated_at": "2026-08-23T00:00:00-07:00",
@@ -331,8 +400,8 @@
   "period_basis": "撰人 Entity 之代：朱熹（南宋）——同人名下他書 {'song': 46, 'sui-tang': 1} 佐證一致",
   "period_upper": "ming",
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-16",
   "resource_groups": {
     "kokusho-100436237": {
       "label": "國書·福島大図藏刊 嘉永２"
@@ -381,6 +450,18 @@
     },
     "nlc-312001198581": {
       "label": "國圖藏本：古吳朱君聘   明崇禎間[1628-164"
+    },
+    "waseda-ro13_03853": {
+      "label": "早稲田藏本：本石町十軒店(江戸) : 英平吉, 文政5[1822] ( ) : ※"
+    },
+    "naikaku-1075955": {
+      "label": "內閣文庫藏本：明治15年刊本（357-0008，4冊）"
+    },
+    "naikaku-1075956": {
+      "label": "內閣文庫藏本：明治17年刊本（357-0007，4冊）"
+    },
+    "naikaku-1075958": {
+      "label": "內閣文庫藏本：明治16年刊本（357-0010，4冊）"
     }
   }
 }

@@ -89,6 +89,42 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:ZJLib-626a487dd987650e7c6fe161-1_%E7%9F%B3%E9%8F%A1%E5%B1%B1%E6%88%BF%E5%91%A8%E6%98%93%E8%AA%AA%E7%B5%B1%E5%8D%81%E4%BA%8C%E5%8D%B7_%E7%AC%AC1%E5%86%8A.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073960",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073960",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073960",
+        "request_no": "経００１－００１２",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4264669/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074500",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074500",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074500",
+        "request_no": "２７３－００７１",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3995923/manifest.json",
+        "extent": "6冊"
+      }
     }
   ],
   "description": {
@@ -100,12 +136,20 @@
       "經義考"
     ]
   },
-  "ai_note": "從 1evjqxt6omha8 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjqxt6omha8 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-16",
+  "resource_groups": {
+    "naikaku-1073960": {
+      "label": "內閣文庫藏本：明刊本（経001-0012，10冊）"
+    },
+    "naikaku-1074500": {
+      "label": "內閣文庫藏本：明刊本（273-0071，6冊）"
+    }
+  }
 }

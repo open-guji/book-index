@@ -37,7 +37,7 @@ promote + merged_from/_promoted_to，见 C-entity-併條执行 先例），而�
      更早的 `merged_in`（链式并条：A 先并入 loser，今 loser 再并入 keeper），
      一并搬到 keeper，不许丢账。
   8. `loser` 改写为墓碑（tombstone）：只留 `schema_version`／`id`／`type`／`subtype`／
-     `primary_name`／`merged_into`／`revision`／`revised_at`（schema/entity.md〈merged_into〉）。
+     `primary_name`／`merged_into`／`revision`／`revised_at`（schema/entity/_common.md〈merged_into〉）。
      **不删档**（2026-10-09 目录经理定，overview#409）：墓碑可逆，旧 id 仍能解析到 keeper。
   9. **不在这里跑 build/verify**——批量跑完这一批之后手动跑
      `python3 build/build_derived.py --write-index` 与
@@ -72,8 +72,14 @@ def find_path(eid: str) -> str:
     return os.path.relpath(hits[0], jio.ROOT)
 
 
+def _marks_of(d: dict, eid: str) -> list:
+    """Book.provenance[].seal_marks[] 中 seal_id == eid 的项（GUJI-542）。"""
+    return [m for pv in (d.get('provenance') or []) if isinstance(pv, dict)
+            for m in (pv.get('seal_marks') or []) if isinstance(m, dict) and m.get('seal_id') == eid]
+
+
 def scan_referencing_works(eid: str):
-    """全库找 authors[].entity_id == eid 的 Work。grep 先筛路径（快），
+    """全库找 authors[].entity_id == eid 的 Work，或 provenance[].seal_marks[].seal_id == eid 的 Book。grep 先筛路径（快），
     再逐个精确解析 authors[] 确认命中（grep 只保证字符串命中，可能撞见
     同码但不是 entity_id 字段的假阳性，例如混进了别的字段或 ai_note 正文）。
     返回 [(相对路径, dict, fmt), ...]。"""
@@ -88,7 +94,7 @@ def scan_referencing_works(eid: str):
         rel = os.path.relpath(p, jio.ROOT)
         d, fmt = jio.load(rel)
         au = d.get('authors') or []
-        if any(isinstance(a, dict) and a.get('entity_id') == eid for a in au):
+        if any(isinstance(a, dict) and a.get('entity_id') == eid for a in au) or _marks_of(d, eid):
             hits.append((rel, d, fmt))
     return hits
 
@@ -119,7 +125,7 @@ TOMBSTONE_KEYS = ('schema_version', 'id', 'type', 'subtype', 'primary_name',
 
 
 def tombstone(loser: dict, keeper_id: str, date: str) -> dict:
-    """被并方的墓碑：只留 TOMBSTONE_KEYS（schema/entity.md〈merged_into〉）。"""
+    """被并方的墓碑：只留 TOMBSTONE_KEYS（schema/entity/_common.md〈merged_into〉）。"""
     t = {'schema_version': loser.get('schema_version', 1), 'id': loser['id'],
          'type': loser.get('type', 'entity')}
     if loser.get('subtype'):
@@ -212,6 +218,19 @@ def merge(loser_id: str, keeper_id: str, *, reason: str, rule: str = '',
         for a in (d.get('authors') or []):
             if isinstance(a, dict) and a.get('entity_id') == loser_id:
                 a['entity_id'] = keeper_id
+        for pv in (d.get('provenance') or []):
+            if not isinstance(pv, dict) or not pv.get('seal_marks'):
+                continue
+            seen, out = set(), []
+            for m in pv['seal_marks']:
+                if isinstance(m, dict) and m.get('seal_id') == loser_id:
+                    m['seal_id'] = keeper_id
+                if isinstance(m, dict) and m.get('seal_id') in seen:
+                    continue   # 改繫后与 keeper 重复：同项不得重复，丢后者
+                if isinstance(m, dict):
+                    seen.add(m.get('seal_id'))
+                out.append(m)
+            pv['seal_marks'] = out
         jio.save(rel, d, fmt)
 
     # 落盘：keeper

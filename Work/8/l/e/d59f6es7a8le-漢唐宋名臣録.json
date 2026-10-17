@@ -38,7 +38,7 @@
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "id": "d59f6es7a8le",
-  "revision": "1.0.1",
+  "revision": "1.1.0",
   "revised_at": "2026-10-16",
   "resources": [
     {
@@ -55,7 +55,51 @@
         "year": "1606 明萬曆34年",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067843",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067843",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067843",
+        "request_no": "２８７－０１３５",
+        "edition": "刊本（序刊）:明万暦34年:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4284471/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068131",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068131",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068131",
+        "request_no": "史０６７－００１２",
+        "edition": "刊本（序刊）:明万暦34年:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4411045/manifest.json",
+        "extent": "5冊"
+      }
     }
   ],
-  "ai_note": "\n\n2026-10-16 GUJI-511 內閣余量批1 S4朝代核：著者「李廷機」朝代 空→明。"
+  "ai_note": "2026-10-16 GUJI-511 內閣余量批1 S4朝代核：著者「李廷機」朝代 空→明。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "resource_groups": {
+    "naikaku-1067843": {
+      "label": "內閣文庫藏本：明万暦34年刊本（序刊）（287-0135，5冊）"
+    },
+    "naikaku-1068131": {
+      "label": "內閣文庫藏本：明万暦34年刊本（序刊）（史067-0012，5冊）"
+    }
+  }
 }

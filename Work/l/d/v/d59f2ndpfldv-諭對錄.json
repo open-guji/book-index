@@ -96,11 +96,53 @@
         "nlc_fid": "411999012775",
         "edition": "明万历三十六年[1608]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067139",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067139",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067139",
+        "request_no": "史０５３－００１０",
+        "edition": "刊本::明万暦:370000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4407638/manifest.json",
+        "extent": "14冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3609984",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3609984",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3609984",
+        "request_no": "２８７－００１５",
+        "edition": "刊本::明万暦:370000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3636314/manifest.json",
+        "extent": "14冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999012775": {
       "label": "國圖藏本：明万历三十六年[1608]"
+    },
+    "naikaku-1067139": {
+      "label": "內閣文庫藏本：明万暦37年刊本（史053-0010，14冊）"
+    },
+    "naikaku-3609984": {
+      "label": "內閣文庫藏本：明万暦37年刊本（287-0015，14冊）"
     }
   },
   "measures": [
@@ -111,7 +153,7 @@
   ],
   "measure_info": "三十四卷",
   "updated_at": "2026-08-24T00:00:00+00:00",
-  "ai_note": "2026-08-20 撰人補全專項：本條原無 authors，而所繫諸著錄之 author_info 一致作「張孚敬」，其文為裸名（去朝代與「撰」「編」「僧」「沙門」等職名之後為二至三字之人名，不含標點、數字、缺字），今據以補。四字以上者多為 OCR 之殘或二人連書，不在此批。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j969m70q2eqa`.dynasty「明」propagate 補齊；work.dynasty 同步。",
+  "ai_note": "2026-08-20 撰人補全專項：本條原無 authors，而所繫諸著錄之 author_info 一致作「張孚敬」，其文為裸名（去朝代與「撰」「編」「僧」「沙門」等職名之後為二至三字之人名，不含標點、數字、缺字），今據以補。四字以上者多為 OCR 之殘或二人連書，不在此批。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j969m70q2eqa`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "period": "ming",
   "period_basis": "志書子目斷代：《國史經籍志》制書類——該類 259 條中 249 條為 ming（96.1%），合 SCHEMA 斷代之驗（明史志 98%、清史稿 94%）。本條由整理本繫連而得，非題名字串",
   "period_upper": "ming",
@@ -125,6 +167,6 @@
   },
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-16"
 }

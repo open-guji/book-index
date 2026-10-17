@@ -4,6 +4,38 @@
 
 ---
 
+## 2026-10-17　entity 各子类型文档加〈真实示例〉，总览加「按类型找示例」入口（用户要求；纯文档＋一条测试）
+
+- `schema/entity/{people,collective,dynasty,reign,office,place,seal,publisher}.md` 开头各加〈真实示例〉小节：2–5 个典型条目，列仓内源档路径与 `index/entities/N.json` 分片路径，并说明各演示什么。
+- `schema/entity.md`、`schema/README.md`、`schema/entity/_common.md` 加「按类型找示例」入口表。
+- `tests/test_entity_examples.py`（新）：核实示例源档存在、subtype 与所在文档一致、id 在所指 index 分片里，入口表链接都能解析。不改任何字段规则或数据。
+
+## 2026-10-16　新增派生 `index/seals.json`＋`index/seals/<seal_id>/<n>.json`（印章反查表；GUJI-542 P2，Sylvie 核）
+
+- `build/sealindex.py`（新）：由 `Book.provenance[].seal_marks` 派生每枚现行印章的 Book 计数与分页（每页 ≤500）；`build_derived.py` 产出并自校验，`--write-index` 写回仓内；`report.json` 加 `index.seals`（含与手写 `appears_in` 的对账，只报不拦）。
+- `verify.py` 加「印章反查表漂移」（计入 FAIL）；`check_schema --build` 跳过这两处（形状不同于 `{id: 条目}`）。
+- 说明见 derived.md〈8.3〉。不改任何源记录；现 `seal_marks` 尚无数据，故现有 5 枚印章 `count` 均为 0（回填在 P4）。
+
+---
+
+## 2026-10-16　拆分 `schema/entity.md`：总览＋`schema/entity/` 分档（纯文档；用户要求，Sylvie 核）
+
+- `entity.md` 改为总览（子类型一览、专名硬约束、通用部分概要、校验码索引、旧〈章节号〉对照表）。
+- 新增 `schema/entity/`：`people`／`collective`（含官署）／`dynasty`／`reign`／`office`／`place`／`seal`／`publisher`（各含八列字段表、规则、示例、该类型校验码）；`_common`（通用字段）、`_alt-names`、`_dates-external-ids`、`_forbidden-derived`、`_checks`（校验码总表）。
+- 旧〈六·四〉〈六·五〉等章节号按 `entity.md`〈五、旧章节号对照〉找；下方旧条目里的 `entity.md〈…〉` 为历史写法，不改。
+- 不动 JSON schema 结构与数据；仅 `entity.schema.json`、QA 注释里的路径说明同步。
+
+---
+
+## 2026-10-16　Entity 新增 `publisher`（出版社／刻书机构；GUJI-539 v3，用户当日拍板；Sylvie 核）
+
+- `entity.md` 增〈六·五〉与 K01–K09；`entity.schema.json` 增 `publisher` 子类型及字段（`publisher_kind`／`kind_also`／`dates_basis`／`locations`／`owners`／`status`），其他子类型的「不许带」清单同步加；`entity_subtypes.py` 增 `_check_publisher`（K01–K08）与 K09。
+- `alt_names[].type` 增 `堂號`、`牌記名`（23→25 值）。
+- `authors[].entity_id`（Work／Book／Collection）说明由 people／collective 放开到 people／collective／publisher（common.md）；现有校验只查悬空，不限类型，无代码改动。
+- 取舍（用户定）：不设 `publisher_sub`、`predecessors`、`legal_name`、「書房」类；书坊集群不建；官署、书院一律 collective，不建 publisher；外国出版社暂不收；全称入 `alt_names`（`全稱`）。
+
+---
+
 ## 2026-10-15　people 加 `native_place_entity_id`（籍贯回挂地名 Entity；GUJI-237，ai-team#2 Marcus 6182137410）
 
 - `entity.schema.json` 加 `native_place_entity_id`（非空字符串），非 people 子类型的「不许带」清单同步加；`entity.md` 字段表加一行。旧 `native_place`／`native_place_basis` 保留不改语义；缺此字段的旧数据仍合法。

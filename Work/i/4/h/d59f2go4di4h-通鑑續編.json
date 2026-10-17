@@ -149,6 +149,24 @@
         "nlc_fid": "412004000477",
         "edition": "元至正[1341-1368]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3602532",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3602532",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3602532",
+        "request_no": "別０５１－０００３",
+        "edition": "刊本:元:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3752291/manifest.json",
+        "extent": "24冊"
+      }
     }
   ],
   "measures": [
@@ -165,7 +183,7 @@
       "國史經籍志"
     ]
   },
-  "ai_note": "從 1evgph4q70mio 合併。原註：作者「元陳桱撰」補自《國立故宮博物院善本舊籍》目錄。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw17gg074 與 11q37p6ffk4qo 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題元陳桱撰。桱，字子經，奉化人，流寓長洲，後入明為翰林編修」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evgph4q70mio 合併。原註：作者「元陳桱撰」補自《國立故宮博物院善本舊籍》目錄。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw17gg074 與 11q37p6ffk4qo 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題元陳桱撰。桱，字子經，奉化人，流寓長洲，後入明為翰林編修」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
   "additional_titles": [
     "通鑒續編"
   ],
@@ -174,8 +192,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-16",
   "resource_groups": {
     "nlc-0230": {
       "label": "國圖藏本：元[1271-1368]"
@@ -185,6 +203,9 @@
     },
     "nlc-412004000477": {
       "label": "國圖藏本：元至正[1341-1368]"
+    },
+    "naikaku-3602532": {
+      "label": "內閣文庫藏本：元刊本（別051-0003，24冊）"
     }
   }
 }
