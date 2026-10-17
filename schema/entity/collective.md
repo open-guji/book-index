@@ -2,6 +2,18 @@
 
 总览与子类型索引见 [../entity.md](../entity.md)。
 
+## 真实示例
+
+下列路径都是本仓真实文件（`tests/test_entity_examples.py` 逐条核实存在）；「index」列是派生分片索引，键即该条 id。分片编号会随重建变动，以测试核实为准。
+
+| 示例 | 源档 | index | 演示什么 |
+|---|---|---|---|
+| 仙鶴堂 `hixhd2h9bope` | [Entity/o/p/e/hixhd2h9bope-仙鶴堂.json](../../Entity/o/p/e/hixhd2h9bope-仙鶴堂.json) | [index/entities/2.json](../../index/entities/2.json) | 无 `collective_kind` 的一般机构（日本刻书堂号），只有最基本字段 |
+| 文淵閣 `hixi6zykf4e8` | [Entity/4/e/8/hixi6zykf4e8-文淵閣.json](../../Entity/4/e/8/hixi6zykf4e8-文淵閣.json) | [index/entities/9.json](../../index/entities/9.json) | `collective_kind=館局` 的例（文淵閣），也是印章条 `institution_ids` 的指向对象 |
+| 禮部 `hixi1ubqbwv2` | [Entity/w/v/2/hixi1ubqbwv2-禮部.json](../../Entity/w/v/2/hixi1ubqbwv2-禮部.json) | [index/entities/6.json](../../index/entities/6.json) | 官署**概念条**（禮部，跨朝）：不属于任何一朝，`collective_kind=官署` |
+| 禮部 `hixi5dv8bb4b` | [Entity/b/4/b/hixi5dv8bb4b-禮部.json](../../Entity/b/4/b/hixi5dv8bb4b-禮部.json) | [index/entities/1.json](../../index/entities/1.json) | 官署**具体条**（禮部，某一朝）：`parent_id` 指向上面的概念条，带 `dynasty_ids` |
+| 六部 `hixi1ubqbwuz` | [Entity/w/u/z/hixi1ubqbwuz-六部.json](../../Entity/w/u/z/hixi1ubqbwuz-六部.json) | [index/entities/f.json](../../index/entities/f.json) | 官署**合称条**（六部）：合称不是单个官署，仍 `collective_kind=官署` |
+
 `collective` 是非个人主体。官署不另立 subtype，仍是 `collective`，以 `collective_kind` 区分；**只有 `collective_kind=官署` 受本节官署规则约束**，其余取值与缺 `collective_kind` 的旧条（缺省即 `未分`，正式库 38 条，如宗人府 `hixhd2h9bq2d`、郵傳部 `hixhd2h9bv4m`）照通用字段写，可带 `dynasty`／`dynasty_basis`／`period`／`period_basis`。
 
 | 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |

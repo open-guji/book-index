@@ -2,6 +2,17 @@
 
 总览与子类型索引见 [../entity.md](../entity.md)。
 
+## 真实示例
+
+下列路径都是本仓真实文件（`tests/test_entity_examples.py` 逐条核实存在）；「index」列是派生分片索引，键即该条 id。分片编号会随重建变动，以测试核实为准。
+
+| 示例 | 源档 | index | 演示什么 |
+|---|---|---|---|
+| 蘇軾 `hixhd2h9bdqq` | [Entity/d/q/q/hixhd2h9bdqq-蘇軾.json](../../Entity/d/q/q/hixhd2h9bdqq-蘇軾.json) | [index/entities/2.json](../../index/entities/2.json) | 字、号等 `alt_names`、`external_ids`（CBDB／Wikidata 等）、籍贯、`dates` 的完整典型人物条 |
+| 強仕 `hixi23un53pm` | [Entity/3/p/m/hixi23un53pm-強仕.json](../../Entity/3/p/m/hixi23un53pm-強仕.json) | [index/entities/7.json](../../index/entities/7.json) | 并条的**留存方**：`merged_in[]` 记录被并入的条（含并入时间、规则、理由） |
+| 載湉 `hixi5ikz83tv` | [Entity/3/t/v/hixi5ikz83tv-載湉.json](../../Entity/3/t/v/hixi5ikz83tv-載湉.json) | [index/entities/2.json](../../index/entities/2.json) | 并条的**墓碑**：只留 `primary_name` 与 `merged_into`，指向留存条 `hixhd2h9brxy`（清德宗） |
+| 張金瀾 `hixhd2h9bqib` | [Entity/q/i/b/hixhd2h9bqib-張金瀾.json](../../Entity/q/i/b/hixhd2h9bqib-張金瀾.json) | [index/entities/8.json](../../index/entities/8.json) | `native_place_entity_id` 指向 place 条（山陰縣 `hixi5xctqcxs`）的籍贯写法 |
+
 通用字段全部可用（见[通用字段](_common.md)）。people 实际用到的字段一览（每行的完整取值、统计数见[通用字段](_common.md)对应行；`people` 没有专属于它的子类型字段，下面都是[通用字段](_common.md)里的通用字段）：
 
 | 字段 | 类型 | 必填 | 含义 | 例 |

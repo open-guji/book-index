@@ -2,6 +2,16 @@
 
 总览与子类型索引见 [../entity.md](../entity.md)。
 
+## 真实示例
+
+下列路径都是本仓真实文件（`tests/test_entity_examples.py` 逐条核实存在）；「index」列是派生分片索引，键即该条 id。分片编号会随重建变动，以测试核实为准。
+
+| 示例 | 源档 | index | 演示什么 |
+|---|---|---|---|
+| 汲古閣 `hixi70yf5fy8` | [Entity/f/y/8/hixi70yf5fy8-汲古閣.json](../../Entity/f/y/8/hixi70yf5fy8-汲古閣.json) | [index/entities/8.json](../../index/entities/8.json) | 家刻（汲古閣）：`publisher_kind=家刻` |
+| 陳宅書籍鋪 `hixi70yhnbwg` | [Entity/b/w/g/hixi70yhnbwg-陳宅書籍鋪.json](../../Entity/b/w/g/hixi70yhnbwg-陳宅書籍鋪.json) | [index/entities/e.json](../../index/entities/e.json) | 坊刻（陳宅書籍鋪）：`publisher_kind=坊刻`，多个 `alt_names` |
+| 劉元起家塾之敬室 `hixi70yk588w` | [Entity/8/8/w/hixi70yk588w-劉元起家塾之敬室.json](../../Entity/8/8/w/hixi70yk588w-劉元起家塾之敬室.json) | [index/entities/f.json](../../index/entities/f.json) | `publisher_kind=未分`（劉元起家塾之敬室）：家刻还是坊刻一时判不准时的写法 |
+
 一个刻书／出版主体一条。**归属规则（写死）**：官署一律是 `collective`（`collective_kind=官署`，按[collective](collective.md)官署规则，具体条按朝代拆）；书院学校一律是 `collective`（`書院學校`）。`publisher` 只收非官署、非书院学校的主体。「官刻」「書院」只是传统刻书分类，不是 publisher 的取值。一个主体只一条 Entity，不得在 collective 与 publisher 各建一条；库里已有 collective 的，Book 的 `authors[].entity_id` 直接挂靠它。
 
 **不建档**：①书坊集群（建陽書坊、麻沙、金陵書坊、徽州書坊等），只作地域线索，写进各书坊条的 `locations`；②外国出版社（日、韩、美等）暂不收；③不设「書房」类（自署書房／山房者按家刻或坊刻归类）；④不设 `predecessors`（沿革写 `description`）；⑤不设 `publisher_sub`；⑥不设 `legal_name`，全称写进 `alt_names`（`type: 全稱`）。
