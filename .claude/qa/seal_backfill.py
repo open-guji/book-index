@@ -33,12 +33,25 @@ def seal_info(ents):
     return out
 
 
+def canon_form(shape):
+    """书上形 → 条上 seal_form 枚举（橢→橢圓、長→長方）；「方」「圓」不再被「長方」「橢圓」子串误吞。"""
+    if '橢' in shape:
+        return '橢圓'
+    if '長' in shape:
+        return '長方'
+    if '圓' in shape:
+        return '圓'
+    if '方' in shape:
+        return '方'
+    return shape
+
+
 def classify(text, color, shape, sid, info):
     """→ 'ok'｜'形未核'｜'异形'。命中已由调用方保证（印文唯一对上）。"""
     _t, f, c = info[sid]
     if not f and not c:
         return '形未核'
-    if f and shape and f not in shape and shape not in f:
+    if f and shape and f != canon_form(shape):
         return '异形'
     if c and color and c not in color:
         return '异形'
