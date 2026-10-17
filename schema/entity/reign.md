@@ -2,6 +2,16 @@
 
 总览与子类型索引见 [../entity.md](../entity.md)。
 
+## 真实示例
+
+下列路径都是本仓真实文件（`tests/test_entity_examples.py` 逐条核实存在）；「index」列是派生分片索引，键即该条 id。分片编号会随重建变动，以测试核实为准。
+
+| 示例 | 源档 | index | 演示什么 |
+|---|---|---|---|
+| 萬曆 `hixi1ubqbwu9` | [Entity/w/u/9/hixi1ubqbwu9-萬曆.json](../../Entity/w/u/9/hixi1ubqbwu9-萬曆.json) | [index/entities/e.json](../../index/entities/e.json) | 萬曆：`ruler`、`dates`（起讫）与 `alt_names`（異體「萬歷」） |
+| 康熙 `hixi1ubqbwun` | [Entity/w/u/n/hixi1ubqbwun-康熙.json](../../Entity/w/u/n/hixi1ubqbwun-康熙.json) | [index/entities/3.json](../../index/entities/3.json) | 康熙：只有 `ruler` 与 `dates` 的最小写法 |
+| 承平 `hixi1ubml2ch` | [Entity/2/c/h/hixi1ubml2ch-承平.json](../../Entity/2/c/h/hixi1ubml2ch-承平.json) | [index/entities/c.json](../../index/entities/c.json) | 承平（443–460）：同名年号并存，另有 `hixi1ubml2cj`（承平，452）；演示重名年号靠起讫区分 |
+
 | 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |
 |---|---|---|---|---|---|---|---|
 | `primary_name` | string | **必填** | 原生 | 年号 | 自由文本 | 录入 | `"萬曆"` |

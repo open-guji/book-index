@@ -2,6 +2,16 @@
 
 总览与子类型索引见 [../entity.md](../entity.md)。
 
+## 真实示例
+
+下列路径都是本仓真实文件（`tests/test_entity_examples.py` 逐条核实存在）；「index」列是派生分片索引，键即该条 id。分片编号会随重建变动，以测试核实为准。
+
+| 示例 | 源档 | index | 演示什么 |
+|---|---|---|---|
+| 文淵閣寶 `hixi6zykf4ea` | [Entity/4/e/a/hixi6zykf4ea-文淵閣寶.json](../../Entity/4/e/a/hixi6zykf4ea-文淵閣寶.json) | [index/entities/2.json](../../index/entities/2.json) | 官印（文淵閣寶）：`institution_ids` 指文淵閣、带 `images` 印影（图在 book-index-asset 仓） |
+| 乾隆御覽之寶 `hixi6zykf4eb` | [Entity/4/e/b/hixi6zykf4eb-乾隆御覽之寶.json](../../Entity/4/e/b/hixi6zykf4eb-乾隆御覽之寶.json) | [index/entities/3.json](../../index/entities/3.json) | 鑒藏印（乾隆御覽之寶）：`owner_ids` 指印主（清高宗）、`usage_scope` 与 `description.sources` 的写法 |
+| 金澤文庫印 `hixi7176qbr4` | [Entity/b/r/4/hixi7176qbr4-金澤文庫印.json](../../Entity/b/r/4/hixi7176qbr4-金澤文庫印.json) | [index/entities/e.json](../../index/entities/e.json) | 日本藏印（金澤文庫印）：非中国朝代的印章条怎么写 |
+
 一枚（一种）印章一条。`primary_name` 是印章通名（如「文淵閣寶」），`seal_text` 是印面文字（印文），**两者分开**：通名可含「印」「寶」等泛称，印文按印面所见照录（异体照录，不简化）。id 沿用 Entity 通则（`mintid.py --type Entity`），分片同其他 Entity。遵守[总说](../entity.md)的三条专名硬约束（无 `cbdb_*`、`external_ids` 只许 `wikidata_id`、无坐标）。
 
 | 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |

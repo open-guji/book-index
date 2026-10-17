@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-10-17　entity 各子类型文档加〈真实示例〉，总览加「按类型找示例」入口（用户要求；纯文档＋一条测试）
+
+- `schema/entity/{people,collective,dynasty,reign,office,place,seal,publisher}.md` 开头各加〈真实示例〉小节：2–5 个典型条目，列仓内源档路径与 `index/entities/N.json` 分片路径，并说明各演示什么。
+- `schema/entity.md`、`schema/README.md`、`schema/entity/_common.md` 加「按类型找示例」入口表。
+- `tests/test_entity_examples.py`（新）：核实示例源档存在、subtype 与所在文档一致、id 在所指 index 分片里，入口表链接都能解析。不改任何字段规则或数据。
+
 ## 2026-10-16　新增派生 `index/seals.json`＋`index/seals/<seal_id>/<n>.json`（印章反查表；GUJI-542 P2，Sylvie 核）
 
 - `build/sealindex.py`（新）：由 `Book.provenance[].seal_marks` 派生每枚现行印章的 Book 计数与分页（每页 ≤500）；`build_derived.py` 产出并自校验，`--write-index` 写回仓内；`report.json` 加 `index.seals`（含与手写 `appears_in` 的对账，只报不拦）。

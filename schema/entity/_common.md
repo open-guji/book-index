@@ -2,6 +2,21 @@
 
 总览与子类型索引见 [../entity.md](../entity.md)。体例见 [../README.md〈八、字段表体例〉](../README.md#八字段表体例)。各子类型专有字段见同目录对应文件。
 
+## 按类型找示例
+
+每个子类型的字段表文件开头都有〈真实示例〉小节：2–3 个典型条目的仓内真实路径，并说明各演示什么。要看「实际写出来长什么样」，从下表进。
+
+| 子类型 | 字段表与示例 | 首选示例（源档） |
+|---|---|---|
+| `people` | [people.md〈真实示例〉](people.md#真实示例) | [Entity/d/q/q/hixhd2h9bdqq-蘇軾.json](../../Entity/d/q/q/hixhd2h9bdqq-蘇軾.json)（蘇軾） |
+| `collective` | [collective.md〈真实示例〉](collective.md#真实示例) | [Entity/o/p/e/hixhd2h9bope-仙鶴堂.json](../../Entity/o/p/e/hixhd2h9bope-仙鶴堂.json)（仙鶴堂） |
+| `dynasty` | [dynasty.md〈真实示例〉](dynasty.md#真实示例) | [Entity/x/g/o/hixi1ubjrxgo-趙宋.json](../../Entity/x/g/o/hixi1ubjrxgo-趙宋.json)（趙宋） |
+| `reign` | [reign.md〈真实示例〉](reign.md#真实示例) | [Entity/w/u/9/hixi1ubqbwu9-萬曆.json](../../Entity/w/u/9/hixi1ubqbwu9-萬曆.json)（萬曆） |
+| `office` | [office.md〈真实示例〉](office.md#真实示例) | [Entity/r/m/6/hixi4udstrm6-尚書.json](../../Entity/r/m/6/hixi4udstrm6-尚書.json)（尚書） |
+| `place` | [place.md〈真实示例〉](place.md#真实示例) | [Entity/c/n/5/hixi4ugtgcn5-潼川府.json](../../Entity/c/n/5/hixi4ugtgcn5-潼川府.json)（潼川府） |
+| `seal` | [seal.md〈真实示例〉](seal.md#真实示例) | [Entity/4/e/a/hixi6zykf4ea-文淵閣寶.json](../../Entity/4/e/a/hixi6zykf4ea-文淵閣寶.json)（文淵閣寶） |
+| `publisher` | [publisher.md〈真实示例〉](publisher.md#真实示例) | [Entity/f/y/8/hixi70yf5fy8-汲古閣.json](../../Entity/f/y/8/hixi70yf5fy8-汲古閣.json)（汲古閣） |
+
 「适用」写在「必填」列里。「专名」指 `dynasty`／`reign`／`office`／`place` 四子类型及官署。
 
 | 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |

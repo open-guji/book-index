@@ -2,6 +2,16 @@
 
 总览与子类型索引见 [../entity.md](../entity.md)。
 
+## 真实示例
+
+下列路径都是本仓真实文件（`tests/test_entity_examples.py` 逐条核实存在）；「index」列是派生分片索引，键即该条 id。分片编号会随重建变动，以测试核实为准。
+
+| 示例 | 源档 | index | 演示什么 |
+|---|---|---|---|
+| 尚書 `hixi4udstrm6` | [Entity/r/m/6/hixi4udstrm6-尚書.json](../../Entity/r/m/6/hixi4udstrm6-尚書.json) | [index/entities/9.json](../../index/entities/9.json) | 官职**概念条**（尚書，跨朝）：无朝代、无品秩，只写 `description` |
+| 尚書 `hixi5v2mknbd` | [Entity/n/b/d/hixi5v2mknbd-尚書.json](../../Entity/n/b/d/hixi5v2mknbd-尚書.json) | [index/entities/3.json](../../index/entities/3.json) | 官职**具体条**（尚書，清）：`parent_id` 指概念条，带 `dynasty_ids`、`rank`（從一品）、`institution_ref`（指六部合称条） |
+| 集賢殿修撰 `hixi5vx2u32n` | [Entity/3/2/n/hixi5vx2u32n-集賢殿修撰.json](../../Entity/3/2/n/hixi5vx2u32n-集賢殿修撰.json) | [index/entities/7.json](../../index/entities/7.json) | **固定复合条**（集賢殿修撰）：`base_office_id` 指基官（修撰），`qualifier` 记限定成分（`kind=institution`） |
+
 | 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |
 |---|---|---|---|---|---|---|---|
 | `office_level` | string | **必填** | 原生 | 层级 | `concept`｜`concrete`（O01） | 录入 | `"concrete"` |
