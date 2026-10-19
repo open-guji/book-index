@@ -214,7 +214,7 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 |---|---|---|---|---|
 | `juan_count` | object | Work、Book、Collection | 主计量：一个数＋单位 | `{number, unit?, description?, source?}`，见下 |
 | `measures` | array<object> | Work、Book、Collection | 多维计量，按原书顺序 | `[{number, unit, note?}]` |
-| `measure_info` | string | Work、Book、Collection | 人可读的计量拼接，供界面直接显示 | 自由文本，如 `"四卷二十回"`、`"八集四十回（每集五回）"` |
+| `measure_info` | string | Work、Book、Collection | 人可读的计量拼接，供界面直接显示 | 自由文本，如 `"四卷二十回"`、`"八集四十回（每集五回）"`；卷数用汉字数字（`"一百零五卷"`，不写 `"105卷"`，不夹「０」），schema 有闸 |
 | `page_count` | object | Work、Book、Collection | 页数 | `{number, description?, source?}` |
 | `volume_count` | object | Book | 册数 | `{number, description?}` |
 | `additional_works` | array<object> | Work | 主体之外各自计卷的部分 | `[{book_title, n_juan?}]`，`n_juan` 字面即「卷」 |
