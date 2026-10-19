@@ -1,0 +1,18 @@
+name: 分类校验（互斥／节点）
+# 同一 Work 挂两个互斥分类节点，会让网站发布（data.yml 建包）和 reindex-search 在最后一步失败。
+# 这里用与上线同一个 build_derived.load_classification 在 PR 阶段拦住。正式库问题数非 0 即红；
+# 草稿库只报警不阻断（草稿不进搜索，2026-10-18 用户定）。脚本只读。
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  classification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 正式库（问题数非 0 即失败）
+        run: python3 scripts/check-classification.py .
+      - uses: actions/checkout@v4
+        with: { repository: open-guji/book-index-draft, path: book-index-draft }
+      - name: 草稿库（只报警）
+        run: python3 scripts/check-classification.py book-index-draft --warn-only
