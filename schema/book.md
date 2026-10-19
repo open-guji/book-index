@@ -196,3 +196,5 @@
 - `relation`：自由文本（实测：翻刻、過錄、校改、據以評、刪節、參校、刪改、合刊、底本……）。
 - `confidence`：`certain`｜`consensus`｜`probable`｜`disputed`。
 - `evidence`：依据。
+
+`related_to[]` 之 `relation: "同版"`：同一版（同一套版片所印）的另一部实体书。Book 仍一部一条；非代表的各部写一条指向代表本（资料最全、通常有影印者），代表本不写。网站作品页版本表据此把同版各部收在代表行下（bim `groupSameEdition`）。例：故宫藏三部殿本《欽定四庫全書總目》→ `96mid1ogzk`。
