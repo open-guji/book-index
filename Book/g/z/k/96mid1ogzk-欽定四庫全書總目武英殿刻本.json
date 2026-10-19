@@ -12,6 +12,19 @@
   ],
   "resources": [
     {
+      "id": "cadal-06061300",
+      "name": "CADAL 大學數字圖書館",
+      "short_name": "CADAL·書目卡",
+      "url": "https://cadal.edu.cn/cardpage/bookCardPage?ssno=06061300&source=card",
+      "details": "CADAL 書目卡（ssno 06061300，卷首一至四），館藏單位浙江大學；後續各冊 ssno 連續。閱覽影像需 CADAL 帳號。",
+      "types": [
+        "catalog",
+        "image"
+      ],
+      "group": "wuyingdian-cadal-scan",
+      "group_role": "origin"
+    },
+    {
       "id": "ia-06061300",
       "name": "Internet Archive",
       "short_name": "IA·CADAL 殿本",
@@ -21,7 +34,7 @@
         "image"
       ],
       "group": "wuyingdian-cadal-scan",
-      "group_role": "origin"
+      "group_role": "mirror"
     },
     {
       "id": "ctext-library-zongmu",
@@ -38,7 +51,12 @@
   ],
   "description": {
     "text": "《欽定四庫全書總目》武英殿刻本（殿本），二百卷卷首四卷。乾隆四十六年（1781）二月初稿進呈，四十七年七月修改定稿，乾隆五十一年起由武英殿開雕，中經停輟，至乾隆六十年（1795）十一月始刊竣刷印。總纂官紀昀，副總纂陸錫熊、孫士毅，總裁官永瑢等領銜。每半葉九行，行二十一字，小字雙行，四周雙邊，白口，單魚尾，版心鐫書名、卷數、部類、葉碼。\n\n**1. 印本**：據乾隆六十年十一月十六日曹文埴奏，當時刷印陳設書二十部、備賞書八十部，另刷四部分貯四閣，共一百零四部；版片八千二百七十八塊交武英殿收貯。殿本只此一版，今各館所藏（含國立故宮博物院三部）皆同版之不同印本，學界未見區分不同印次之著錄；刊刻期間曾隨時在版中挖改（如「琰」字缺筆）。\n\n**2. 本條目書影**：本項目書影與整理文本所據，為 CADAL 項目 600dpi 掃描之一部殿本，分冊上傳 Internet Archive（首冊 06061300.cn，卷首一至四）。CADAL 書目卡（ssno 06061300）著錄館藏單位為浙江大學，無出版者項；分冊依原書卷次（卷首一至四、卷一至三、卷四至五……），每幅一個半葉、九列，當是線裝原書之掃描，非臺灣商務印書館《景印文淵閣四庫全書》所收之《總目》（CADAL 另有其掃描，如 ssno 06009002「總目二·史部」，出版者臺灣商務）。\n\n**3. 與他本**：浙江刻本（浙本）同年十月先一月刊竣，同治七年（1868）廣東書局據浙本重刊（粵本）。2019 年國家圖書館出版社《武英殿本四庫全書總目》六十冊，係據天津圖書館藏殿本影印，與本條目非同一部書。",
-    "sources": []
+    "sources": [
+      {
+        "title": "CADAL 書目卡 ssno 06061300《欽定四庫全書總目·卷首一~卷首四》（館藏單位：浙江大學）",
+        "url": "https://cadal.edu.cn/cardpage/bookCardPage?ssno=06061300&source=card"
+      }
+    ]
   },
   "authors": [
     {
@@ -124,7 +142,7 @@
   "resource_groups": {
     "wuyingdian-cadal-scan": {
       "label": "CADAL 600dpi 掃描",
-      "description": "CADAL 項目（中美百萬冊數字圖書館）於浙江大學掃描之武英殿本，分冊上傳 Internet Archive，CText 影像庫為其鏡像。原書藏館未詳。"
+      "description": "CADAL 項目（中美百萬冊數字圖書館）掃描浙江大學藏武英殿本，CADAL 書目卡為原始來源；分冊上傳 Internet Archive 與 CText 影像庫者為其鏡像。"
     }
   },
   "lineage": {
