@@ -214,7 +214,14 @@
       "$ref": "common.schema.json#/$defs/Measures"
     },
     "measure_info": {
-      "type": "string"
+      "type": "string",
+      "not": {
+        "anyOf": [
+          {"pattern": "^[0-9０-９]+(（[^）]*）)?[卷篇冊册回種部集章]$"},
+          {"pattern": "[一二三四五六七八九十百千萬][0０][一二三四五六七八九十]"}
+        ]
+      },
+      "x-not-message": "卷数用汉字数字写（如「十卷」「一百零五卷」），不写阿拉伯数字，也不夹「０」"
     },
     "total_works": {
       "type": "integer",
