@@ -283,6 +283,7 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 | `merged_into` | string | 墓碑 | 原生 | 并入了哪一条 | 记录 id。**只在墓碑上** |
 | `merged_from` | array<string> | keeper（Work、Book） | 原生 | 并入本条的记录 id | id 数组（原 1 条字符串旧写已于 2026-10-09 改为数组） |
 | `merge_history` | array<object> | keeper（Work、Entity） | 原生 | 早期的并条账 | Work：`{date, merged_from, title, reason}`；Entity 见 [entity/_common.md](entity/_common.md) |
+| `merged_basis` | object | 草稿库 Work 墓碑 | 原生 | 并条留痕：保留方在正式库、按「只追加」不改时，被并方把自己的著录与作者异写留在墓碑上 | `{rule, at, by, author_as_written, indexed_by}`，`rule` 为并条口径名（如「叢書去重」「跨部查重」），`at` 为时间，`by` 为执行方；`author_as_written`、`indexed_by` 照被并方原值搬来，不设格式。**只在墓碑上** | 并条脚本 | |
 
 `merged_in[]` 主要键：`id` 被并者 id；`title` 被并时的题名；`at` 时间（ISO 8601）；`by` 执行者代号（道名、`S`、`coordinator` 等）；`rule` 规则名；`why` 逐条理由。
 

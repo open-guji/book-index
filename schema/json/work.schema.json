@@ -306,6 +306,23 @@
     "merged_into": {
       "$ref": "common.schema.json#/$defs/Id"
     },
+    "merged_basis": {
+      "type": "object",
+      "properties": {
+        "rule": {
+          "type": "string"
+        },
+        "at": {
+          "type": "string"
+        },
+        "by": {
+          "type": "string"
+        },
+        "author_as_written": {},
+        "indexed_by": {}
+      },
+      "additionalProperties": false
+    },
     "merge_history": {
       "type": "array",
       "items": {

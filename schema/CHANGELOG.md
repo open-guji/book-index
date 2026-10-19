@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-10-19　Work 加 `merged_basis`（草稿库墓碑的并条留痕；schema 补登，不改数据）
+
+- `schema/json/work.schema.json` 加 `merged_basis`（object：`rule`、`at`、`by` 为字符串，`author_as_written`、`indexed_by` 不限类型，不许其他键）；`common.md〈并条账〉` 与 `work.md` 字段表各补一行。
+- 背景：并条脚本在保留方位于正式库时不改正式库文件，把被并方的 `indexed_by`、作者异写写进草稿库墓碑的 `merged_basis`。草稿库已有 2696 个这样的墓碑（跨部查重 2287、子部一近重复复核 210、叢書去重 199），此前 check_schema 对它们报 `unknown-field`。
+- 正式库没有带 `merged_basis` 的档。
+
 ## 2026-10-19　`measure_info` 卷数一律用汉字数字（用户报《永樂大典》显示「22877（阿拉伯數字）卷」）
 
 - 数据：正式库 165 条 `measure_info` 由阿拉伯数字改为汉字数字（158 条形如「1卷」「20卷」，《永樂大典》「22877（阿拉伯數字）卷」→「二萬二千八百七十七卷」，5 条夹全角「０」如「一百０八冊」→「一百零八冊」）；同步改 `index/` 分片里的同一字段。
