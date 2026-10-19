@@ -6,8 +6,8 @@
 """
 import json, glob, os, subprocess, sys, collections
 apply = len(sys.argv) > 1 and sys.argv[1] == 'apply'
-changed = subprocess.run(['git', 'diff', '--name-only', 'origin/main...'], capture_output=True, text=True).stdout.split()
-changed += subprocess.run(['git', 'ls-files', '-m', '-o', '--exclude-standard'], capture_output=True, text=True).stdout.split()
+changed = subprocess.run(['git', '-c', 'core.quotepath=false', 'diff', '--name-only', '-z', 'origin/main...'], capture_output=True, text=True).stdout.split('\0')
+changed += subprocess.run(['git', '-c', 'core.quotepath=false', 'ls-files', '-z', '-m', '-o', '--exclude-standard'], capture_output=True, text=True).stdout.split('\0')
 changed = sorted({p for p in changed if p.startswith('Work/') and p.endswith('.json') and os.path.exists(p)})
 loc = {os.path.basename(p).split('-')[0]: p for p in glob.glob('Work/*/*/*/*.json')}
 load = lambda p: json.load(open(p, encoding='utf-8'))
