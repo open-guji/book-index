@@ -1,0 +1,30 @@
+{
+  "first_batch_pr": "https://github.com/open-guji/book-index/pull/1213",
+  "upstream_pr": "https://github.com/open-guji/book-index/pull/1209",
+  "upstream_sha": "bc2bb3fcda98a30781b46ddca8b7783dd58a7d97",
+  "first_batch_loser_count": 1876,
+  "main_ledger_loser_count": 1875,
+  "same_mapping_count": 591,
+  "different_mapping": [
+    {
+      "loser": "d59fy034e1hc",
+      "first_batch_keeper": "d59f2nlavcw0",
+      "main_keeper": "d59f2mqfmj2a"
+    }
+  ],
+  "note": "Ledger comparison, not a source-level equivalence audit. Reconcile residual records and preservation differences before superseding or updating PR1213; never apply the full old map again.",
+  "equivalence_counts": {
+    "same_direct_mapping": 591,
+    "same_equivalence_different_keeper": 1284,
+    "unresolved_relationship": 1
+  },
+  "unresolved_relationships": [
+    {
+      "loser": "993avdq3up",
+      "keeper": "9954l761oh",
+      "main_loser_target": null,
+      "main_keeper_target": null
+    }
+  ],
+  "warning": "1,284 IDs absent as upstream losers are mostly inverse keeper choices, not 1,284 outstanding duplicates. Use equivalence_counts, not raw loser-set difference."
+}

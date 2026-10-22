@@ -1,0 +1,5084 @@
+[
+  {
+    "case_id": "MR-001",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fydyduha8",
+    "losers": [
+      "d59fyfkh8f7k"
+    ],
+    "title": "新雕洞靈真經",
+    "reason": "完整 indexed_by 相同，均同一上圖源記錄 t5fdt5mvl7kspg0x；差異是一次晉升前補作者，何粲注在兩條原文均明示。",
+    "rule": "same-source-record",
+    "records": [
+      {
+        "path": "Work/h/a/8/d59fydyduha8-新雕洞靈真經.json",
+        "sha256": "f1eb8e4ab1061810b3212d02d4d33f8912b6bda35970f59ce48b865260b0a22d",
+        "id": "d59fydyduha8"
+      },
+      {
+        "path": "Work/f/7/k/d59fyfkh8f7k-新雕洞靈真經.json",
+        "sha256": "94dea06313571a165396f10897aff3c1066faff12ee0ef226859ce202e0f58d7",
+        "id": "d59fyfkh8f7k"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fydyduha8",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "新雕洞靈真經五卷",
+            "author_info": "宋何粲注",
+            "section": "子部/道家類/先秦之屬/其他",
+            "summary": "共 1 個版本：宋刻本（國家圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：t5fdt5mvl7kspg0x\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：宋何粲注\nE6 第 16 批新建（hold 清零：子部E机械落地b3:E-N-anon-clean；原 hold 原因：）\n晋升前審計補錄：據 indexed_by.author_info 補入 何粲（錄入時漏）"
+      },
+      {
+        "id": "d59fyfkh8f7k",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "新雕洞靈真經五卷",
+            "author_info": "宋何粲注",
+            "section": "子部/道家類/先秦之屬/其他",
+            "summary": "共 1 個版本：宋刻本（國家圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：t5fdt5mvl7kspg0x\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：宋何粲注\nE6 第 16 批新建（hold 清零：子部E机械落地b3:E-N-anon-clean；原 hold 原因：）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {
+        "authors": [
+          {
+            "name": "何粲",
+            "role": "注",
+            "dynasty": "宋"
+          }
+        ],
+        "dynasty": "宋",
+        "period": "song",
+        "period_basis": "據 authors[0].dynasty「宋」"
+      },
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "新雕洞靈真經"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "explicit_set",
+        "selected": "宋"
+      },
+      "period": {
+        "action": "explicit_set",
+        "selected": "song"
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "period_basis": {
+        "action": "explicit_set",
+        "selected": "據 authors[0].dynasty「宋」"
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fydyduha8"
+      },
+      "authors": {
+        "action": "explicit_set",
+        "selected": [
+          {
+            "name": "何粲",
+            "role": "注",
+            "dynasty": "宋"
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0513",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fydyduha8": [
+          {
+            "node": "zm0513",
+            "name": "子部/道家類/先秦之屬/其他",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fyfkh8f7k": []
+      }
+    },
+    "related_book_ids": [
+      "993yiwhfcx",
+      "993wvk5b7l",
+      "993wvkgjr4"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-002",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fy2maxnnk",
+    "losers": [
+      "d59fy6kgwm4g"
+    ],
+    "title": "修行捷徑",
+    "reason": "完整 indexed_by 相同、源記錄 drwyyz2b2gg0i5fi 相同；一側佚名為漏錄，原文清雲龕道人等撰已於keeper補入。",
+    "rule": "same-source-record",
+    "records": [
+      {
+        "path": "Work/n/n/k/d59fy2maxnnk-修行捷徑.json",
+        "sha256": "309a5d62703f8b52b96d8fb3e1fd726262209da22ba88f88b419d53ec419b5ce",
+        "id": "d59fy2maxnnk"
+      },
+      {
+        "path": "Work/m/4/g/d59fy6kgwm4g-修行捷徑.json",
+        "sha256": "efcd21ac324c4005230ebabeea8b257c9a6f205fd8b3ef5fcf301000e239fbfb",
+        "id": "d59fy6kgwm4g"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fy2maxnnk",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "修行捷徑二卷",
+            "author_info": "清雲龕道人等撰",
+            "section": "子部/道家類/道教之屬/詩文雜著",
+            "summary": "共 1 個版本：清光緒間醉仙亭刻本（天津圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：drwyyz2b2gg0i5fi\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：清雲龕道人等撰\nE6 第 16 批新建（hold 清零：子部E机械落地b3:D-N-anon-clean；原 hold 原因：）晋升前審計補錄：source 作「清雲龕道人等撰」。"
+      },
+      {
+        "id": "d59fy6kgwm4g",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "修行捷徑二卷",
+            "author_info": "清雲龕道人等撰",
+            "section": "子部/道家類/道教之屬/詩文雜著",
+            "summary": "共 1 個版本：清光緒間醉仙亭刻本（天津圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：drwyyz2b2gg0i5fi\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：清雲龕道人等撰\nE6 第 16 批新建（hold 清零：子部E机械落地b3:D-N-anon-clean；原 hold 原因：）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {
+        "authors": [
+          {
+            "name": "雲龕道人",
+            "role": "撰",
+            "dynasty": "清"
+          }
+        ]
+      },
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "修行捷徑"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fy2maxnnk"
+      },
+      "authors": {
+        "action": "explicit_set",
+        "selected": [
+          {
+            "name": "雲龕道人",
+            "role": "撰",
+            "dynasty": "清"
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0523",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fy2maxnnk": [
+          {
+            "node": "zm0523",
+            "name": "子部/道家類/道教之屬/詩文雜著",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fy6kgwm4g": []
+      }
+    },
+    "related_book_ids": [
+      "993phniolc"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-003",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fydh8f1fm",
+    "losers": [
+      "d59fydxeknwg"
+    ],
+    "title": "大藏治病藥",
+    "reason": "同一總目著錄、同一組8源版本；完整 indexed_by 相同，差異僅漏錄輯者黃秩模。",
+    "rule": "same-source-record",
+    "records": [
+      {
+        "path": "Work/1/f/m/d59fydh8f1fm-大藏治病藥.json",
+        "sha256": "5aeb67b37fdbe3697fc96234fa693c4b8e10017613b54c43e970be68acd35a6d",
+        "id": "d59fydh8f1fm"
+      },
+      {
+        "path": "Work/n/w/g/d59fydxeknwg-大藏治病藥.json",
+        "sha256": "ff673b71643c63971ea2307fdfd8d10e82ab0f752371b1ff9be2dbf640cb0ea7",
+        "id": "d59fydxeknwg"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fydh8f1fm",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "大藏治病藥一卷",
+            "author_info": "唐釋靈澈撰;清黃秩模輯",
+            "section": "子部/釋家類/撰述之屬/雜撰部",
+            "summary": "共 8 個版本：清道光二十七年木活字印（國家圖書館、中國科學院圖書館、江西省圖書館、四川省圖書館、復旦大學圖書館、浙江圖書館、吉林大學圖書館、南京圖書館、中國人民大學圖書館、上海圖書館）；遜敏堂叢書本（馆藏未载）；唐代叢書本（馆藏未载）；居家必備本（馆藏未载）；五朝小說本（馆藏未载）；清刻本（南京圖書館）；唐人說薈本（馆藏未载）；水邊林下本（馆藏未载）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：j8dbnzmzuqhkq0za、h5s18q8scyv4kfy2、vmdwvi0q4yxfsnly、qpekni15yyx1skbw、112lzy2exx2d8nnh、e4au0011jc77q1o6、3rsvu1dcgajvqmes、6urtkxfi6ro6my0u"
+      },
+      {
+        "id": "d59fydxeknwg",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "大藏治病藥一卷",
+            "author_info": "唐釋靈澈撰;清黃秩模輯",
+            "section": "子部/釋家類/撰述之屬/雜撰部",
+            "summary": "共 8 個版本：清道光二十七年木活字印（國家圖書館、中國科學院圖書館、江西省圖書館、四川省圖書館、復旦大學圖書館、浙江圖書館、吉林大學圖書館、南京圖書館、中國人民大學圖書館、上海圖書館）；遜敏堂叢書本（馆藏未载）；唐代叢書本（馆藏未载）；居家必備本（馆藏未载）；五朝小說本（馆藏未载）；清刻本（南京圖書館）；唐人說薈本（馆藏未载）；水邊林下本（馆藏未载）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：j8dbnzmzuqhkq0za、h5s18q8scyv4kfy2、vmdwvi0q4yxfsnly、qpekni15yyx1skbw、112lzy2exx2d8nnh、e4au0011jc77q1o6、3rsvu1dcgajvqmes、6urtkxfi6ro6my0u\n晋升前審計補錄：據 indexed_by.author_info 補入 黃秩模（錄入時漏）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {
+        "authors": [
+          {
+            "name": "釋靈澈",
+            "role": "撰",
+            "dynasty": "唐",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/hlcjyybynoyas6sq"
+            }
+          },
+          {
+            "name": "黃秩模",
+            "role": "輯",
+            "dynasty": "清"
+          }
+        ]
+      },
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "大藏治病藥"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "唐"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「唐」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fydh8f1fm"
+      },
+      "authors": {
+        "action": "explicit_set",
+        "selected": [
+          {
+            "name": "釋靈澈",
+            "role": "撰",
+            "dynasty": "唐",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/hlcjyybynoyas6sq"
+            }
+          },
+          {
+            "name": "黃秩模",
+            "role": "輯",
+            "dynasty": "清"
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "sui-tang"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0549",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fydh8f1fm": [
+          {
+            "node": "zm0549",
+            "name": "子部/釋家類/撰述之屬/雜撰部",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fydxeknwg": [
+          {
+            "node": "zm0549",
+            "name": "子部/釋家類/撰述之屬/雜撰部",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "993wukvhtt",
+      "993wukvhtu",
+      "993wul6qdc",
+      "993wul6qdd",
+      "993wunompt",
+      "993wunomps",
+      "993wunde68",
+      "993wunde69",
+      "993wi5ke0w",
+      "993wun25mo",
+      "993wfb6juo",
+      "993wumfojk",
+      "993wumfojl",
+      "993wulhyww",
+      "993wulhywx",
+      "993wult7gh",
+      "993wult7gg",
+      "993wum4g00",
+      "993wumqx35",
+      "993wumqx36",
+      "993wumqx34"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-004",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fydxphyww",
+    "losers": [
+      "d59fyfkj3ugx"
+    ],
+    "title": "龍瑞觀禹穴陽明洞天圖經",
+    "reason": "完整兩條 indexed_by 相同，來源 mn24bl1ybmaouwyn 及歷史合併帳相同；差異僅漏錄撰者葉樞。",
+    "rule": "same-source-record",
+    "records": [
+      {
+        "path": "Work/y/w/w/d59fydxphyww-龍瑞觀禹穴陽明洞天圖經.json",
+        "sha256": "f460915a4a6ad9ae83265e6034665205c0f17413b93c188d918da7652d511b06",
+        "id": "d59fydxphyww"
+      },
+      {
+        "path": "Work/u/g/x/d59fyfkj3ugx-龍瑞觀禹穴陽明洞天圖經.json",
+        "sha256": "709bd8d510113f244a379b73782d03a3d9501ef02ab594af6ca5eb296ab77935",
+        "id": "d59fyfkj3ugx"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fydxphyww",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "龍瑞觀禹穴陽明洞天圖經一卷",
+            "author_info": "宋李宗諤修定",
+            "section": "子部/道家類/道教之屬/合編",
+            "summary": "共 1 個版本：（國家圖書館）"
+          },
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "龍瑞觀禹穴陽明洞天圖經一卷",
+            "author_info": "宋葉樞撰;宋李宗諤修定",
+            "section": "史部/地理類/專志之屬/寺觀",
+            "summary": "共 3 個版本：道藏本（馆藏未载）；道藏舉要本（馆藏未载）；玉簡齋叢書本（馆藏未载）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：mn24bl1ybmaouwyn\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n查重线（跨部查重 10-19）：同题同作者或近题同作者（逐对复核同书）并入 1 个 Work（1exoatfh1bh1i）；作者异写：1exoatfh1bh1i作者作「葉樞」\n晋升前審計補錄：據 indexed_by.author_info 補入 葉樞（錄入時漏）"
+      },
+      {
+        "id": "d59fyfkj3ugx",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "龍瑞觀禹穴陽明洞天圖經一卷",
+            "author_info": "宋李宗諤修定",
+            "section": "子部/道家類/道教之屬/合編",
+            "summary": "共 1 個版本：（國家圖書館）"
+          },
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "龍瑞觀禹穴陽明洞天圖經一卷",
+            "author_info": "宋葉樞撰;宋李宗諤修定",
+            "section": "史部/地理類/專志之屬/寺觀",
+            "summary": "共 3 個版本：道藏本（馆藏未载）；道藏舉要本（馆藏未载）；玉簡齋叢書本（馆藏未载）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：mn24bl1ybmaouwyn\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n查重线（跨部查重 10-19）：同题同作者或近题同作者（逐对复核同书）并入 1 个 Work（1exoatfh1bh1i）；作者异写：1exoatfh1bh1i作者作「葉樞」"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {
+        "authors": [
+          {
+            "name": "李宗諤",
+            "role": "修定",
+            "dynasty": "宋",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/l75wr0emga5dfq53"
+            }
+          },
+          {
+            "name": "葉樞",
+            "role": "撰",
+            "dynasty": "宋"
+          }
+        ]
+      },
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "龍瑞觀禹穴陽明洞天圖經"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "宋"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「宋」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fydxphyww"
+      },
+      "authors": {
+        "action": "explicit_set",
+        "selected": [
+          {
+            "name": "李宗諤",
+            "role": "修定",
+            "dynasty": "宋",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/l75wr0emga5dfq53"
+            }
+          },
+          {
+            "name": "葉樞",
+            "role": "撰",
+            "dynasty": "宋"
+          }
+        ]
+      },
+      "merged_in": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "song"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0270",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fydxphyww": [
+          {
+            "node": "zm0270",
+            "name": "史部/地理類/專志之屬/寺觀",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fyfkj3ugx": []
+      }
+    },
+    "related_book_ids": [
+      "993yj31erl",
+      "993wuw41ds",
+      "993wuwf9xc",
+      "993wuwf9xd",
+      "993wuvssu9",
+      "993wuwqigw",
+      "993wuwqigx"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-005",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fy9ep4ikg",
+    "losers": [
+      "d59fydymwd1c"
+    ],
+    "title": "佛說希有校量功德經",
+    "reason": "完整三條 indexed_by 及歷史合併帳相同；同一譯本同一導入源 wjj7a2f4dl1egcfr，另一側authors被清空。保留闍那崛多譯；不是把不同譯者同名經合併。",
+    "rule": "same-source-record",
+    "records": [
+      {
+        "path": "Work/i/k/g/d59fy9ep4ikg-佛說希有校量功德經.json",
+        "sha256": "2b524d1042acb76fd9bb1dd49e87f08b509b9cfa6bdd3c284e6eaf627fe86382",
+        "id": "d59fy9ep4ikg"
+      },
+      {
+        "path": "Work/d/1/c/d59fydymwd1c-佛說希有校量功德經.json",
+        "sha256": "730cec8e71242d42bc74676fa3e8086b575f08f2f408e3febf720b4dc30831fe",
+        "id": "d59fydymwd1c"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fy9ep4ikg",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "佛說希有校量功德經一卷",
+            "author_info": "隋釋閣那崛多譯",
+            "section": "子部/釋家類/大藏之屬",
+            "summary": "共 1 個版本：明永樂十八年至正統五年刻（馆藏未载）"
+          },
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "佛說希有校量功德經一卷",
+            "author_info": "隋釋闍那崛多譯",
+            "section": "子部/釋家類/經藏之屬/寶積部",
+            "summary": "共 3 個版本：清乾隆間嵇璜寫本（馆藏未载）；明萬曆三十六年刻（臺灣圖書館、北京市法源寺）；（日本龍谷大學）"
+          },
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "希有校量功德經一卷",
+            "author_info": "隋釋闍那崛多譯",
+            "section": "子部/釋家類/大藏之屬",
+            "summary": "共 5 個版本：明永樂間刻（馆藏未载）；宋元豐八年福州東禪等覺院刻（馆藏未载）；宋嘉熙二年平江府磧砂延聖院刻（馆藏未载）；宋靖康元年福州開元寺刻（馆藏未载）；（馆藏未载）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：wjj7a2f4dl1egcfr\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 426 批新建（hold 清零：E；原 hold 原因：-）\n查重线（跨部查重 10-19）：同题同作者或近题同作者（逐对复核同书）并入 2 个 Work（1exoboy6oxfd0,1exokzow1zshs）；作者异写：1exoboy6oxfd0作者作「釋闍那崛多」；1exokzow1zshs作者作「釋闍那崛多」\n晋升前審計補錄：據 indexed_by.author_info 補入 闍那崛多（錄入時漏）"
+      },
+      {
+        "id": "d59fydymwd1c",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "佛說希有校量功德經一卷",
+            "author_info": "隋釋閣那崛多譯",
+            "section": "子部/釋家類/大藏之屬",
+            "summary": "共 1 個版本：明永樂十八年至正統五年刻（馆藏未载）"
+          },
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "佛說希有校量功德經一卷",
+            "author_info": "隋釋闍那崛多譯",
+            "section": "子部/釋家類/經藏之屬/寶積部",
+            "summary": "共 3 個版本：清乾隆間嵇璜寫本（馆藏未载）；明萬曆三十六年刻（臺灣圖書館、北京市法源寺）；（日本龍谷大學）"
+          },
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "希有校量功德經一卷",
+            "author_info": "隋釋闍那崛多譯",
+            "section": "子部/釋家類/大藏之屬",
+            "summary": "共 5 個版本：明永樂間刻（馆藏未载）；宋元豐八年福州東禪等覺院刻（馆藏未载）；宋嘉熙二年平江府磧砂延聖院刻（馆藏未载）；宋靖康元年福州開元寺刻（馆藏未载）；（馆藏未载）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：wjj7a2f4dl1egcfr\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 426 批新建（hold 清零：E；原 hold 原因：-）\n查重线（跨部查重 10-19）：同题同作者或近题同作者（逐对复核同书）并入 2 个 Work（1exoboy6oxfd0,1exokzow1zshs）；作者异写：1exoboy6oxfd0作者作「釋闍那崛多」；1exokzow1zshs作者作「釋闍那崛多」\n晋升前審計補錄：據 indexed_by.author_info 補入 闍那崛多（錄入時漏）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {
+        "authors": [
+          {
+            "name": "闍那崛多",
+            "role": "譯",
+            "dynasty": "隋"
+          }
+        ]
+      },
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "佛說希有校量功德經"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "隋"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「隋」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fy9ep4ikg"
+      },
+      "authors": {
+        "action": "explicit_set",
+        "selected": [
+          {
+            "name": "闍那崛多",
+            "role": "譯",
+            "dynasty": "隋"
+          }
+        ]
+      },
+      "merged_in": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "sui-tang"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0524",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fy9ep4ikg": [
+          {
+            "node": "zm0524",
+            "name": "子部/釋家類",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fydymwd1c": []
+      }
+    },
+    "related_book_ids": [
+      "993wvtifi8",
+      "993wvtifi9",
+      "993wvt76yp",
+      "993wvtto1t",
+      "993wvtto1s",
+      "993wvu4wlc",
+      "993wvu4wld"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-006",
+    "type": "Work",
+    "status": "open",
+    "keeper": "d59fxx2vur5t",
+    "losers": [
+      "d59fy0i85ibl"
+    ],
+    "title": "楊忠愍公遺訓",
+    "reason": "原題明列楊椒山先生遺訓為異名；同一楊繼盛、同一一卷家訓，只有尊稱題差異。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/r/5/t/d59fxx2vur5t-楊忠愍公遺訓.json",
+        "sha256": "89b70dbed5ae40c37e3845225a499dcdcffc2078f543262df2923b514f00a375",
+        "id": "d59fxx2vur5t"
+      },
+      {
+        "path": "Work/i/b/l/d59fy0i85ibl-楊椒山先生遺訓.json",
+        "sha256": "4258c5efdc5ede40ea3442d14f882adeb67757865c3829e9139cb36ab0ab1b26",
+        "id": "d59fy0i85ibl"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxx2vur5t",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "楊忠愍公遺訓（楊椒山先生遺訓）一卷",
+            "author_info": "明楊繼盛撰",
+            "section": "子部/儒家類/禮教之屬/家訓",
+            "summary": "共 2 個版本：東聽雨堂刊書本（馆藏未载）；清光緒七年慎思樓刻本（北京大學圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：yoq7ggvsvmgkz1qu、4n8crsa23efz1g3n\nE6 第 10 批新建（hold 清零：子部E机械落地b2:E-M-new；原 hold 原因：）"
+      },
+      {
+        "id": "d59fy0i85ibl",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "楊椒山先生遺訓一卷",
+            "author_info": "明楊繼盛撰",
+            "section": "子部/儒家類/禮教之屬/合編",
+            "summary": "共 1 個版本：（上海圖書館、山東大學圖書館、北京師範大學圖書館、國家圖書館、福建師範大學圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：bvzkkkifyb0uz4s6\nauto-split:存疑未并\nE6 第 952 批新建（hold 清零：J-near；原 hold 原因：）"
+      }
+    ],
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "楊忠愍公遺訓"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "明"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「明」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fxx2vur5t"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "楊繼盛",
+            "role": "撰",
+            "entity_id": "hixhd2h9bfmw",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/jdturf42269ncraf"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "ming"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0337",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fxx2vur5t": [
+          {
+            "node": "zm0337",
+            "name": "子部/儒家類/禮教之屬/家訓",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fy0i85ibl": [
+          {
+            "node": "zm0334",
+            "name": "子部/儒家類/禮教之屬/合編",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "counterreview_reason": "关联Book新增张承燮辑，Book contMap 与Work author_info不一致；仅凭同一卷与括注不足排除后人另辑家训，先核正文/目录。",
+    "counterreview_book": {
+      "path": "Book/v/w/g/9951cgevwg-楊椒山先生遺訓.json",
+      "sha256": "17f9bcde48e07b06fb4b881db097095ec139e968b77eef7200cf00a0f7501271",
+      "record": {
+        "schema_version": 1,
+        "id": "9951cgevwg",
+        "type": "book",
+        "title": "楊椒山先生遺訓",
+        "work_id": "d59fy0i85ibl",
+        "edition": "",
+        "juan_count": {
+          "number": 1,
+          "unit": "卷"
+        },
+        "measure_info": "一卷",
+        "authors": [
+          {
+            "name": "楊繼盛",
+            "role": "撰",
+            "dynasty": "明"
+          },
+          {
+            "name": "張承燮",
+            "role": "輯",
+            "dynasty": "清"
+          }
+        ],
+        "provenance": [
+          {
+            "institution": "上海圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/0f22qwqrmjd87jqm"
+          },
+          {
+            "institution": "山東大學圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/ilaxleosxgao6e6x"
+          },
+          {
+            "institution": "北京師範大學圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/k0qe122hyuhhxoaa"
+          },
+          {
+            "institution": "國家圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/ya5677v53y66l267"
+          },
+          {
+            "institution": "福建師範大學圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/yxr4iioz5yp3llpe"
+          }
+        ],
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "楊椒山先生遺訓一卷",
+            "summary": "楊椒山先生遺訓一卷｜明楊繼盛撰｜｜上海圖書館、山東大學圖書館、北京師範大學圖書館、國家圖書館、福建師範大學圖書館"
+          }
+        ],
+        "sources": [
+          {
+            "id": "bvzkkkifyb0uz4s6",
+            "name": "中國古籍總目（上圖聯合目錄）",
+            "type": "url",
+            "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/bvzkkkifyb0uz4s6&from=evidence"
+          }
+        ],
+        "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：bvzkkkifyb0uz4s6\n責任者一致性：總目 contMap 與題名行 dclabel 在「name」上不一致，取 contMap；題名行：明楊繼盛撰",
+        "revision": "1.0.0",
+        "revised_at": "2026-10-21"
+      }
+    },
+    "related_book_ids": [
+      "99508m3fuo",
+      "99508ls7b5",
+      "9951cgevwg"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-007",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fy11nzk76",
+    "losers": [
+      "d59fxt2urrwi"
+    ],
+    "title": "青囊序",
+    "reason": "原題明列青囊敍為異名；曾文辿、一卷完全相同，序/敍為題名異寫，非增訂注本。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/k/7/6/d59fy11nzk76-青囊序.json",
+        "sha256": "acf9354c428d4b22ef07bc2e16fa152ae72e547675676b165df7c0d0f020fec7",
+        "id": "d59fy11nzk76"
+      },
+      {
+        "path": "Work/r/w/i/d59fxt2urrwi-青囊敍.json",
+        "sha256": "d98b12417441fc8594abc6cb1baa39eb398793b8b56468ab490a6f59aa265060",
+        "id": "d59fxt2urrwi"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fy11nzk76",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "青囊序（青囊敍）一卷",
+            "author_info": "唐曾文辿撰",
+            "section": "子部/術數類/堪輿之屬/地理",
+            "summary": "共 5 個版本：抄本（上海圖書館）；四庫全書本（馆藏未载）；地理大全本（馆藏未载）；（國家圖書館）；（上海辭書出版社圖書館、湖北省圖書館、上海圖書館、福建省圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：vjucdcr2f734lfsn、gd1c2u88qixzec88、v7mqy5z7q1vtmim0\nauto-split:存疑未并\nE6 第 546 批新建（hold 清零：jyiyi；原 hold 原因：）\n總目版本待定（庫內已有 Book 11sog14q3ru2o、11sog14q3ru2p、11sog14q3ru2q：抄本、四庫全書本、地理大全本）：總目著錄版本標籤空，未入 Book，只作 Work 級來源（第 953 批；wlnbs3tfc3mb6wh8、6n1ynqmovn12tkob）；總目分類：子部／術數類／堪輿之屬／合編"
+      },
+      {
+        "id": "d59fxt2urrwi",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "青囊敍一卷",
+            "author_info": "唐曾文辿撰",
+            "section": "子部/術數類/堪輿之屬/合編",
+            "summary": "共 1 個版本：（南京圖書館、華東師範大學圖書館、上海圖書館、北京大學圖書館、國家圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：st1i5ojbnxytooz1"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {},
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "青囊序"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "唐"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「唐」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fy11nzk76"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "曾文辿",
+            "role": "撰",
+            "entity_id": "hixi8us2ksm9",
+            "dynasty": "唐",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/djvlk3uabiakvlc8"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "sui-tang"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0418",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fy11nzk76": [
+          {
+            "node": "zm0418",
+            "name": "子部/術數類/堪輿之屬/地理",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fxt2urrwi": [
+          {
+            "node": "zm0416",
+            "name": "子部/術數類/堪輿之屬/合編",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "9955hcarcw",
+      "994qprsk5c",
+      "993ymuiept",
+      "993c01dudc",
+      "9940117ytc",
+      "9955hduy2o",
+      "9955hd8gzk"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-008",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fxsvhg2de",
+    "losers": [
+      "d59fy0708flt"
+    ],
+    "title": "經驗痘疹不求人方論",
+    "reason": "原題明列新刊/新刻題為版本冠詞；同一朱棟隆、一卷方論，責任者無增注差異。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/2/d/e/d59fxsvhg2de-經驗痘疹不求人方論.json",
+        "sha256": "a16ade2040c9c0f0ef529dbecd6f074b73dba3ad30daa11678f5cf4877bfe628",
+        "id": "d59fxsvhg2de"
+      },
+      {
+        "path": "Work/f/l/t/d59fy0708flt-新刊經驗痘疹不求人方論.json",
+        "sha256": "a450e0d801eddb6d767b9fa4bb5282bd5d45864bf58c7cfea31596e74ff6dd61",
+        "id": "d59fy0708flt"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxsvhg2de",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "經驗痘疹不求人方論（新刊經驗痘疹不求人方論、新刻經驗痘疹不求人方論）一卷",
+            "author_info": "明朱棟隆撰",
+            "section": "子部/醫家類/方論之屬/婦幼科",
+            "summary": "共 9 個版本：清康熙三十六年刻本（上海圖書館）；經驗四種本（湖南中醫學院圖書館、重慶市圖書館、江西省圖書館）；清光緒十七年刻本（蘇州中醫醫院、上海中醫藥大學圖書館）；清聚錦堂刻本（江西省圖書館）；便產痘疹合併方書本（馆藏未载）；清光緒三年幼幼堂刻本（江西省圖書館）；清咸豐間積善堂刻本（陝西省圖書館、天津圖書館）；（中醫科學院、山東中醫藥大學圖書館、中國醫學科學院）；（馆藏未载）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：34aen3nhilna3r81、qgj2jz8l3u0j4wxr、80kc4u0i3gp8iajq、4xzviw5bgzz4hm6l、qbmivcl2heorb1v1、f1mvnm43b6d2e45s、5zk3scjsm4m7u1yd\nE6 第 422 批新建（hold 清零：E；原 hold 原因：-）\n第 4006 批追加版本，源記錄：8ikopqr24gnsv4yi、7exlmsw28tabkb6m"
+      },
+      {
+        "id": "d59fy0708flt",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "新刊經驗痘疹不求人方論一卷",
+            "author_info": "明朱棟隆撰",
+            "section": "子部/醫家類/方論之屬/婦幼科",
+            "summary": "共 1 個版本：（中醫科學院）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3yph2nfa7o3x6zz8\nauto-split:存疑未并\nE6 第 4004 批新建（hold 清零：hold-near_dup；原 hold 原因：auto-split:近重复未并）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {},
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "經驗痘疹不求人方論"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "明"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「明」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fxsvhg2de"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "朱棟隆",
+            "role": "撰",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/7vt4z2mut7iff0oa"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "ming"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0389",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fxsvhg2de": [
+          {
+            "node": "zm0389",
+            "name": "子部/醫家類/方論之屬/婦幼科",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fy0708flt": [
+          {
+            "node": "zm0389",
+            "name": "子部/醫家類/方論之屬/婦幼科",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "993j46j9j6",
+      "993bsozugw",
+      "993bsodddt",
+      "993bsodddu",
+      "993bsoddds",
+      "993bso24u8",
+      "993bso24u9",
+      "993bsoolxc",
+      "993bsoolxd"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-009",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fy1h3aqkh",
+    "losers": [
+      "d59fxquuwc8y"
+    ],
+    "title": "圖像水黃牛經合併大全",
+    "reason": "總目明列圖像水黃牛經大全異名；喻仁與喻傑二人、二卷相同，刻本/石印本分留Book。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/q/k/h/d59fy1h3aqkh-圖像水黃牛經合併大全.json",
+        "sha256": "f063184e4648dab06b7bf7f697708ee2431d0da3b3996b362c6ca8be957cf3e2",
+        "id": "d59fy1h3aqkh"
+      },
+      {
+        "path": "Work/c/8/y/d59fxquuwc8y-圖像水黃牛經大全.json",
+        "sha256": "a08843a65c3b7cb1342c2c5455a4f960d928e3edd349f1a7bf2f64814944ef10",
+        "id": "d59fxquuwc8y"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fy1h3aqkh",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "圖像水黃牛經合併大全（圖像水黃牛經大全）二卷",
+            "author_info": "明喻仁、明喻傑撰",
+            "section": "子部/農家類/牧養之屬",
+            "summary": "共 1 個版本：清蘇州綠蔭堂刻本（南京圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pko2a21upwv86xdu\nauto-split:存疑未并\nE6 第 555 批新建（hold 清零：jyiyi；原 hold 原因：）"
+      },
+      {
+        "id": "d59fxquuwc8y",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "圖像水黃牛經大全二卷",
+            "author_info": "明喻仁、明喻傑撰",
+            "section": "子部/農家類/牧養之屬",
+            "summary": "共 1 個版本：上海鑄記書局石印本（南京圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ot0yqazkksfy6s2x"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {
+        "authors": [
+          {
+            "name": "喻仁",
+            "role": "撰",
+            "entity_id": "hixhd2h9bppn",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/gea8xqunnweboctf"
+            }
+          },
+          {
+            "name": "喻傑",
+            "role": "撰",
+            "entity_id": "hixhd2h9bppo",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/ujsd5lvesbpvx84t"
+            }
+          }
+        ]
+      },
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "圖像水黃牛經合併大全"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "明"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「明」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fy1h3aqkh"
+      },
+      "authors": {
+        "action": "explicit_set",
+        "selected": [
+          {
+            "name": "喻仁",
+            "role": "撰",
+            "entity_id": "hixhd2h9bppn",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/gea8xqunnweboctf"
+            }
+          },
+          {
+            "name": "喻傑",
+            "role": "撰",
+            "entity_id": "hixhd2h9bppo",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/ujsd5lvesbpvx84t"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "ming"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0357",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fy1h3aqkh": [
+          {
+            "node": "zm0357",
+            "name": "子部/農家類/牧養之屬",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fxquuwc8y": [
+          {
+            "node": "zm0357",
+            "name": "子部/農家類/牧養之屬",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "9939s1ieps",
+      "9956cx51q8"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-010",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fxzeyfqbm",
+    "losers": [
+      "d59fxrtp3v29"
+    ],
+    "title": "牛痘要法",
+    "reason": "原題明列刺種牛痘要法異名；同一余楙一卷、無增注責任者，叢編子目是同書收入不同載體。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/q/b/m/d59fxzeyfqbm-牛痘要法.json",
+        "sha256": "bfb863088e123bcc27697a5413ab3304c92209bf8d2b2937d7939bcbb05124b9",
+        "id": "d59fxzeyfqbm"
+      },
+      {
+        "path": "Work/v/2/9/d59fxrtp3v29-刺種牛痘要法.json",
+        "sha256": "52278af5f6b99089924b6be566d45c512ea64dd5592ab44132a4dc26c8d8501d",
+        "id": "d59fxrtp3v29"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxzeyfqbm",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "牛痘要法（刺種牛痘要法）一卷",
+            "author_info": "清余楙撰",
+            "section": "子部/醫家類/方論之屬/婦幼科",
+            "summary": "共 2 個版本：清光緒十年刻本（上海圖書館）；白嶽盦雜綴醫書五種本（湖南中醫學院圖書館、上海中醫藥大學圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：cumtoflowhk17dg5、wvk1k8qgx4cilafn\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）"
+      },
+      {
+        "id": "d59fxrtp3v29",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "刺種牛痘要法一卷",
+            "author_info": "清余楙撰",
+            "section": "子部/醫家類/叢編之屬",
+            "summary": "共 1 個版本：（天津中醫藥大學第一附屬醫院圖書館、上海中醫藥大學圖書館、軍事醫學科學院圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：hzshd7l86vhw8qf5\nE6 第 422 批新建（hold 清零：E；原 hold 原因：-）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {},
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "牛痘要法"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "清"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「清」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fxzeyfqbm"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "余楙",
+            "role": "撰",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/ts0usrwq2xl8tgdc"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "qing"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0389",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fxzeyfqbm": [
+          {
+            "node": "zm0389",
+            "name": "子部/醫家類/方論之屬/婦幼科",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fxrtp3v29": [
+          {
+            "node": "zm0359",
+            "name": "子部/醫家類/叢編之屬",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "993aqveozm",
+      "993ic51ssh",
+      "993ic51ssg"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-011",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fxxqdgmwx",
+    "losers": [
+      "d59fxxqe3400"
+    ],
+    "title": "延陵弟子紀畧",
+    "reason": "紀畧/紀要在原題明列異名；兩側 author_info 均曹存心撰、吳元善輯，相同二重責任，非另一作者醫案。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/m/w/x/d59fxxqdgmwx-延陵弟子紀畧.json",
+        "sha256": "00b974888dbde3c07969d2c873038172abe6838dcca835f797d00c4be09d8c10",
+        "id": "d59fxxqdgmwx"
+      },
+      {
+        "path": "Work/4/0/0/d59fxxqe3400-延陵弟子紀要.json",
+        "sha256": "5c8b45ead47a8919d663c65c4bfc39b1bc37e2dde673a5400f2fe21bd21fb1d9",
+        "id": "d59fxxqe3400"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxxqdgmwx",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "延陵弟子紀畧（延陵弟子紀要）一卷",
+            "author_info": "清曹存心撰;清吳元善輯",
+            "section": "子部/醫家類/醫案醫話之屬/清",
+            "summary": "共 3 個版本：清咸豐九年刻本（中醫科學院）；醫書二十種本（南京圖書館）；三三醫書本（馆藏未载）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：sv61ilngjb60ihvu、zl1k4lp0m103sqzs、ihmippaitinfc70v\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）"
+      },
+      {
+        "id": "d59fxxqe3400",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "延陵弟子紀要",
+            "author_info": "清曹存心撰;吳元善輯",
+            "section": "子部/醫家類/叢編之屬",
+            "summary": "共 1 個版本：（同濟醫科大學圖書館、中醫科學院、成都中醫藥大學圖書館、上海中醫藥大學圖書館、內蒙古自治區圖書館、中華醫學會上海分會圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fjzdtxvwzykrghs7\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {
+        "authors": [
+          {
+            "name": "曹存心",
+            "role": "撰",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/6u5j84tow3lrxu71"
+            }
+          },
+          {
+            "name": "吳元善",
+            "role": "輯",
+            "dynasty": "清"
+          }
+        ]
+      },
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "延陵弟子紀畧"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "清"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「清」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fxxqdgmwx"
+      },
+      "authors": {
+        "action": "explicit_set",
+        "selected": [
+          {
+            "name": "曹存心",
+            "role": "撰",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/6u5j84tow3lrxu71"
+            }
+          },
+          {
+            "name": "吳元善",
+            "role": "輯",
+            "dynasty": "清"
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "qing"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0399",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fxxqdgmwx": [
+          {
+            "node": "zm0399",
+            "name": "子部/醫家類/醫案醫話之屬/清",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fxxqe3400": [
+          {
+            "node": "zm0359",
+            "name": "子部/醫家類/叢編之屬",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "993gnk2pdt",
+      "993gnk2pds",
+      "993gnjrgua",
+      "993gnkdxxd"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-012",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fxziflw5e",
+    "losers": [
+      "d59fxunlrzeo"
+    ],
+    "title": "張仲景金匱要畧編注",
+    "reason": "原題明列沈注金匱要畧為異名，沈明宗、二十四卷同；合併的是同一注本，並非張仲景原典。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/w/5/e/d59fxziflw5e-張仲景金匱要畧編注.json",
+        "sha256": "4bfa996d24aac298ff991be6b0e4a908aa5a9a7ba092c86a203f99d10ef09a22",
+        "id": "d59fxziflw5e"
+      },
+      {
+        "path": "Work/z/e/o/d59fxunlrzeo-沈注金匱要畧.json",
+        "sha256": "2268fa4f342ef6d5ed5e3d949f0770bb4d23f50a8be155dc31b21576f88fcf2d",
+        "id": "d59fxunlrzeo"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxziflw5e",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "張仲景金匱要畧編注（張仲景金匱要畧、沈注金匱要畧、醫徵金匱要畧）二十四卷",
+            "author_info": "清沈明宗輯注",
+            "section": "子部/醫家類/方論之屬/傷寒金匱",
+            "summary": "共 9 個版本：清大觀堂刻本（浙江圖書館、蘇州市圖書館）；清道光二十二年掃葉山房刻本（山西省圖書館、天津中醫藥大學第一附屬醫院圖書館）；清刻本（上海中醫藥大學圖書館、廣州中山醫科大學圖書館）；清康熙三十二年致和堂刻本（中華醫學會上海分會圖書館）；清康熙三十二年刻乾隆三十年重印本（浙江圖書館、軍事醫學科學院圖書館）；醫徵本（山東中醫藥大學圖書館、遼寧中醫藥大學圖書館、中國醫科大學圖書館、遼寧省圖書館、天津中醫藥大學第一附屬醫院圖書館、上海中醫藥大學圖書館、河南中醫學院圖書館、蘇州中醫醫院、南京中醫藥大學圖書館）；抄本（上海中醫藥大學圖書館、上海圖書館、浙江省中醫藥研究院、中醫科學院）；清道光間沈宜抄本（馆藏未载）；清存樸堂刻本（廣西中醫學院圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：whhg1xubime2jb4g、x3h6sxd42g2h47e1、1wig28cttqqy0e22、sofh763vxpfhqrjc、ilromoq8y5lu4b7e、0p7zss4h6kcplyd1、qz85x1i31hhu0o58、arrsrqtomqqamaga、3g3qvqan0hokipbn\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）"
+      },
+      {
+        "id": "d59fxunlrzeo",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "沈注金匱要畧二十四卷",
+            "author_info": "清沈明宗撰",
+            "section": "子部/醫家類/叢編之屬",
+            "summary": "共 1 個版本：（上海圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：b35omfpbzaurvvhx\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-22 confirmed-duplicate-audit-2026-10-22：合併已核定重複條 d59fxuzex79d；原記錄、保留ID與衝突欄位裁決見 .claude/qa/confirmed-duplicate-audit-2026-10-22/。"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {
+        "authors": [
+          {
+            "name": "沈明宗",
+            "role": "輯注",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/h82rsxwjsr7ld0g7"
+            }
+          }
+        ]
+      },
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "張仲景金匱要畧編注"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "清"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「清」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fxziflw5e"
+      },
+      "authors": {
+        "action": "explicit_set",
+        "selected": [
+          {
+            "name": "沈明宗",
+            "role": "輯注",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/h82rsxwjsr7ld0g7"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "merged_in": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "qing"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0384",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fxziflw5e": [
+          {
+            "node": "zm0384",
+            "name": "子部/醫家類/方論之屬/傷寒金匱",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fxunlrzeo": [
+          {
+            "node": "zm0359",
+            "name": "子部/醫家類/叢編之屬",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "993ifmufpc",
+      "993ifmufpd",
+      "993dks2tc1",
+      "993ifn5o8w",
+      "993ifn5o8x",
+      "993ifm7ym8",
+      "993ifm7ym9",
+      "993ifm7yma",
+      "993ifmj75t",
+      "993ifmj75s"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-013",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fxu2cpbsw",
+    "losers": [
+      "d59fy1xu1zia"
+    ],
+    "title": "陸清獻公宰嘉訓俗",
+    "reason": "原題明列宰嘉訓俗為異名；同一陸隴其、一卷，差異為作者諡號冠詞。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/b/s/w/d59fxu2cpbsw-陸清獻公宰嘉訓俗.json",
+        "sha256": "64d0f07c21339e2f5ec89745d8a47c1a5f5c4a246ae7c28e4f0af4f4d97e22a1",
+        "id": "d59fxu2cpbsw"
+      },
+      {
+        "path": "Work/z/i/a/d59fy1xu1zia-宰嘉訓俗.json",
+        "sha256": "56253718566f5b974465496fd669031a02485cad265c41e9f691b1714db1f138",
+        "id": "d59fy1xu1zia"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxu2cpbsw",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "陸清獻公宰嘉訓俗（宰嘉訓俗）一卷",
+            "author_info": "清陸隴其撰",
+            "section": "子部/儒家類/禮教之屬/俗訓",
+            "summary": "共 7 個版本：有諸己齋格言叢書本（馆藏未载）；清光緒二十六年刻本（上海圖書館）；清光緒六年解梁書院刻本（吉林省圖書館、國家圖書館）；清光緒二十五年鐘慶堂刻本（國家圖書館）；清光緒十七年桂垣書局刻本（東北師範大學圖書館）；民國三十一年鉛印本（上海圖書館）；清光緒十年涂宗瀛刻本（南京圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ed1ycw1iuuxry8ld、jwrfv8qv0t213w8g、drnn2a1t2fooxhh7、e62bpw568wusd6xm、zqejwxgvhm3luyf6、fmj1mkkjyijuvyd8、1xiltp0l5hghqisr"
+      },
+      {
+        "id": "d59fy1xu1zia",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "宰嘉訓俗一卷",
+            "author_info": "清陸隴其撰",
+            "section": "子部/儒家類/禮教之屬/合編",
+            "summary": "共 1 個版本：（中國科學院圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：hy602klv2ly5mres\nauto-split:存疑未并\nE6 第 952 批新建（hold 清零：J-near；原 hold 原因：）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {},
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "陸清獻公宰嘉訓俗"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "清"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「清」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fxu2cpbsw"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "陸隴其",
+            "role": "撰",
+            "entity_id": "hixhd2f8wamr",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/yj4zfft2jnizdue1"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "qing"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0336",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fxu2cpbsw": [
+          {
+            "node": "zm0336",
+            "name": "子部/儒家類/禮教之屬/俗訓",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fy1xu1zia": [
+          {
+            "node": "zm0334",
+            "name": "子部/儒家類/禮教之屬/合編",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "994zzzibcw",
+      "994zzzibcx",
+      "9951cp5j40",
+      "994zzyvu9s",
+      "994zzz72tc",
+      "994zzy9d6o",
+      "994zzyklq8",
+      "994zzyklq9"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-014",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fy0gziku9",
+    "losers": [
+      "d59fxtzh2jnk"
+    ],
+    "title": "張千里醫案",
+    "reason": "原題明列千里醫案異名；張千里、五卷同，沒有另編者或增注層。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/k/u/9/d59fy0gziku9-張千里醫案.json",
+        "sha256": "691d45ff58f7870f7918a03f04d640c7cc099f4fe0f3c7e551e4926465ad1b1e",
+        "id": "d59fy0gziku9"
+      },
+      {
+        "path": "Work/j/n/k/d59fxtzh2jnk-千里醫案.json",
+        "sha256": "d5734fe0c136c2ca0ff89ded39528ec6f54212ed9fc9a9910a819e337bd0f97d",
+        "id": "d59fxtzh2jnk"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fy0gziku9",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "張千里醫案（千里醫案）五卷",
+            "author_info": "清張千里撰",
+            "section": "子部/醫家類/醫案醫話之屬/清",
+            "summary": "共 3 個版本：邱鴻翼抄本（上海中醫藥大學圖書館）；清道光十六年邵慶槐抄本（成都中醫藥大學圖書館）；三三醫書本（馆藏未载）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：h2ltjfnuigajsw16、l4tni7u2z7m1chqa、itzkglc5dlpdzceo\nauto-split:存疑未并\nE6 第 4004 批新建（hold 清零：hold-near_dup；原 hold 原因：auto-split:近重复未并）"
+      },
+      {
+        "id": "d59fxtzh2jnk",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "千里醫案五卷",
+            "author_info": "清張千里撰",
+            "section": "子部/醫家類/叢編之屬",
+            "summary": "共 1 個版本：（同濟醫科大學圖書館、中醫科學院、成都中醫藥大學圖書館、上海中醫藥大學圖書館、內蒙古自治區圖書館、中華醫學會上海分會圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：uvlx2dfvgwcen7d2\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {},
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "張千里醫案"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "清"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「清」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fy0gziku9"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "張千里",
+            "role": "撰",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/b2tbs28jgaznkv8r"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "qing"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0399",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fy0gziku9": [
+          {
+            "node": "zm0399",
+            "name": "子部/醫家類/醫案醫話之屬/清",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fxtzh2jnk": [
+          {
+            "node": "zm0359",
+            "name": "子部/醫家類/叢編之屬",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "993je5term",
+      "993cwnddkx",
+      "993je64nb5",
+      "993je64nb4"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-015",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fxzgh29ds",
+    "losers": [
+      "d59fxzhaekg0"
+    ],
+    "title": "外科百效全書",
+    "reason": "新刻祕授為題名冠詞，原題列為異名；龔居中、四卷及外科內容一致。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/9/d/s/d59fxzgh29ds-外科百效全書.json",
+        "sha256": "21b3bf20d4311eb4de29efa91bbeb6a3e74d5529c281d3367b9413d4ea062758",
+        "id": "d59fxzgh29ds"
+      },
+      {
+        "path": "Work/k/g/0/d59fxzhaekg0-新刻祕授外科百效全書.json",
+        "sha256": "dc11947e9957804119a37401dd96919de29c05cdc78b10be5b31173931028503",
+        "id": "d59fxzhaekg0"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxzgh29ds",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "外科百效全書（新刻祕授外科百效全書）四卷",
+            "author_info": "明龔居中撰",
+            "section": "子部/醫家類/方論之屬/外科",
+            "summary": "共 8 個版本：清宏道堂刻本（湖北中醫學院圖書館、山東中醫藥大學圖書館、浙江中醫藥大學圖書館）；清初發祥堂刻本（中華醫學會上海分會圖書館）；清寶翰樓刻本（北京中醫藥大學圖書館）；清錦盛堂刻本（長春中醫藥大學圖書館）；清善成堂刻本（北京中醫藥大學圖書館、四川省圖書館）；清同治十三年鋤經園刻本（中國醫學科學院）；清致和堂刻本（首都圖書館、中醫科學院）；清天文堂刻本（上海中醫藥大學圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：d1gaapdxsibeamel、aho8fazjloviej2b、zlx86ixqfud8vpt6、qzyl0j5s3i76q2ml、08eynmr38tdetynr、401o6ppjpfasg2x7、ri1sgutkk6proq67、rsp5by3pzu2vk0f4\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）"
+      },
+      {
+        "id": "d59fxzhaekg0",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "新刻祕授外科百效全書四卷",
+            "author_info": "明龔居中撰",
+            "section": "子部/醫家類/方論之屬/外科",
+            "summary": "共 1 個版本：清刻本（上海圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5sgxdmsiewvttk3a\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {},
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "外科百效全書"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "明"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「明」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fxzgh29ds"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "龔居中",
+            "role": "撰",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/margkl8caya5pl47"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "ming"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0388",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fxzgh29ds": [
+          {
+            "node": "zm0388",
+            "name": "子部/醫家類/方論之屬/外科",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fxzhaekg0": [
+          {
+            "node": "zm0388",
+            "name": "子部/醫家類/方論之屬/外科",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "993idnzke8",
+      "993idnzke9",
+      "993iegpedd",
+      "993idnobuo",
+      "993idnobup",
+      "993idoasxt",
+      "993idoasxs",
+      "993idnd3b5",
+      "993idnd3b6"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-016",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fxxc8z20w",
+    "losers": [
+      "d59fxyp2ocu8"
+    ],
+    "title": "小兒痘疹要訣",
+    "reason": "原題明列東園痘症要訣異名；吳子揚輯、二卷同，保產痘症合編本僅為收入載體。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/2/0/w/d59fxxc8z20w-小兒痘疹要訣.json",
+        "sha256": "83eb72682f71360f95830cbe28f40a6dd6f5c7957792cccfad59fff460890d95",
+        "id": "d59fxxc8z20w"
+      },
+      {
+        "path": "Work/c/u/8/d59fxyp2ocu8-東園痘症要訣.json",
+        "sha256": "70ecb7978557ea48f08343ae6cc50e68f5a4e3fbdf5c52e558a283dde1e96d20",
+        "id": "d59fxyp2ocu8"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxxc8z20w",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "小兒痘疹要訣（東園痘症要訣）二卷",
+            "author_info": "明吳子揚輯",
+            "section": "子部/醫家類/方論之屬/婦幼科",
+            "summary": "共 2 個版本：明萬曆三十九年刻本（北京中醫藥大學圖書館）；明萬曆四十一年梁治麟刻保産痘症合編本（馆藏未载）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：u5wua7vqx5ohq17l、ag18x6yo6x30jxsg\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）"
+      },
+      {
+        "id": "d59fxyp2ocu8",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "東園痘症要訣二卷",
+            "author_info": "明吳子揚輯",
+            "section": "子部/醫家類/方論之屬/婦幼科",
+            "summary": "共 1 個版本：（上海中醫藥大學圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2bwg41ujowqt37ds\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 444 批新建（hold 清零：E-N-anon-clean；原 hold 原因：no_main_author）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {},
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "小兒痘疹要訣"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "明"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「明」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fxxc8z20w"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "吳子揚",
+            "role": "輯",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/4mctgp0l4r0n8ly2"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "ming"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0389",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fxxc8z20w": [
+          {
+            "node": "zm0389",
+            "name": "子部/醫家類/方論之屬/婦幼科",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fxyp2ocu8": [
+          {
+            "node": "zm0389",
+            "name": "子部/醫家類/方論之屬/婦幼科",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "993hm8z6rl",
+      "993g9f9vy9",
+      "993g9fl4hs"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-017",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fyexmq5fk",
+    "losers": [
+      "d59fyew6lipu"
+    ],
+    "title": "釋音精嚴集",
+    "reason": "同一釋處觀三卷音義書，原題明列紹興重雕大藏音異名，無異譯者之別。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/5/f/k/d59fyexmq5fk-釋音精嚴集.json",
+        "sha256": "6fc87cb8cd5378974446a010011a559e1f0255726ab65085186831c1a17f7f35",
+        "id": "d59fyexmq5fk"
+      },
+      {
+        "path": "Work/i/p/u/d59fyew6lipu-紹興重雕大藏音.json",
+        "sha256": "3e9159d423127fd30e69f8eef5fea51d5b09fcaf42fd1e9669ceafcef5db86ff",
+        "id": "d59fyew6lipu"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fyexmq5fk",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "釋音精嚴集（紹興重雕大藏音）三卷",
+            "author_info": "宋釋處觀撰",
+            "section": "子部/釋家類/大藏之屬",
+            "summary": "共 1 個版本：（馆藏未载）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：778xd4oa3hmcwqvc\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）"
+      },
+      {
+        "id": "d59fyew6lipu",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "紹興重雕大藏音三卷",
+            "author_info": "宋釋處觀撰",
+            "section": "子部/釋家類/大藏之屬",
+            "summary": "共 6 個版本：清順治十八年嘉興楞嚴寺刻（臺灣圖書館、北京市法源寺）；明永樂十八年至正統五年刻（馆藏未载）；元至元間杭州路餘杭大普寧寺刻（日本東京增上寺、日本東京淺草寺）；明永樂間刻（馆藏未载）；宋元間磧砂延聖院刻（馆藏未载）；（馆藏未载）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：v0wdnu3dd7gw52jg、pff6kd21fpwm1tf3、q54u55simzlehfwz、h8jnm0hyam5875ug、b8ynis5bdd0et2ra\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）\n總目版本待定（庫內已有 Book 11so52epw7i80、11so52epw7i81、11so52epw7i82、11so52epw7i83、11so52epw7i84：清順治十八年嘉興楞嚴寺刻、明永樂十八年至正統五年刻、元至元間杭州路餘杭大普寧寺刻、明永樂間刻、宋元間磧砂延聖院刻）：總目著錄版本標籤空，未入 Book，只作 Work 級來源（第 801 批；nwlpdhcmlin03ozv）；總目分類：子部／釋家類／大藏之屬"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {},
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "釋音精嚴集"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "宋"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「宋」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fyexmq5fk"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "釋處觀",
+            "role": "撰",
+            "dynasty": "宋",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/3nep24lqolj0x3c4"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "song"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0525",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fyexmq5fk": [
+          {
+            "node": "zm0525",
+            "name": "子部/釋家類/大藏之屬",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fyew6lipu": [
+          {
+            "node": "zm0525",
+            "name": "子部/釋家類/大藏之屬",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "993xut0zcx",
+      "993xtditq8",
+      "993xtditq9",
+      "993xtdu29s",
+      "993xtd7l6o",
+      "993xtd7l6p"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-018",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fxxa3k7b4",
+    "losers": [
+      "d59fy06um5tt"
+    ],
+    "title": "外治壽世方初編",
+    "reason": "原題明列外治壽世方異名，鄒存淦輯、四卷同，初編未與續編相混。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/7/b/4/d59fxxa3k7b4-外治壽世方初編.json",
+        "sha256": "8dba5ebdb54858176fcee953e24566d573cb42f6fe8388d6008850e804548254",
+        "id": "d59fxxa3k7b4"
+      },
+      {
+        "path": "Work/5/t/t/d59fy06um5tt-外治壽世方.json",
+        "sha256": "642f30da8f6aef467f0cc29979f94267beae2d1537547733d2cc1f3a54ad4002",
+        "id": "d59fy06um5tt"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxxa3k7b4",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "外治壽世方初編（外治壽世方）四卷",
+            "author_info": "清鄒存淦輯",
+            "section": "子部/醫家類/方論之屬/驗方",
+            "summary": "共 4 個版本：清光緒三年杭州勤藝堂刻本（上海圖書館、浙江圖書館、雲南省圖書館、廣州中山醫科大學圖書館、湖南中醫學院圖書館、南京圖書館、成都中醫藥大學圖書館、陝西中醫學院圖書館、吉林省圖書館、中國醫學科學院、黑龍江省圖書館）；珍本醫書集成本（馆藏未载）；抄本（福建中醫學院圖書館）；清光緒三年杭州雅集齋刻本（遼寧中醫藥大學圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：g44ilfh8x24sy0zm、cyoxtvuioks3iau1、u6kmq4y3me2xkye1、nrei8t25bjnmiqlv\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）"
+      },
+      {
+        "id": "d59fy06um5tt",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "外治壽世方四卷",
+            "author_info": "清鄒存淦輯",
+            "section": "子部/醫家類/叢編之屬",
+            "summary": "共 1 個版本：（上海圖書館、四川省圖書館、國家圖書館、遼寧省圖書館、中國醫學科學院、中醫科學院、浙江圖書館、山東省圖書館、重慶市圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：i0c5a3ly8o0beoxk\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 4004 批新建（hold 清零：hold-near_dup；原 hold 原因：auto-split:近重复未并）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {},
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "外治壽世方初編"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "清"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「清」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fxxa3k7b4"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "鄒存淦",
+            "role": "輯",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/stmof8fslej1r8c7"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "qing"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0390",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fxxa3k7b4": [
+          {
+            "node": "zm0390",
+            "name": "子部/醫家類/方論之屬/驗方",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fy06um5tt": [
+          {
+            "node": "zm0359",
+            "name": "子部/醫家類/叢編之屬",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "993j4188ao",
+      "993g79v18h",
+      "993g79v18i",
+      "993g7a69s1",
+      "993g7a69s0"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-019",
+    "type": "Work",
+    "status": "open",
+    "keeper": "d59fxzherw1t",
+    "losers": [
+      "d59fy04zi51e"
+    ],
+    "title": "薛氏醫案",
+    "reason": "明列薛生白醫案異名，兩條都明指薛雪且一卷；不涉及其他薛氏醫家。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/w/1/t/d59fxzherw1t-薛氏醫案.json",
+        "sha256": "b077829c565f8609247465cd69f8a1473c6786930bc423ca9ec31d56a93664cf",
+        "id": "d59fxzherw1t"
+      },
+      {
+        "path": "Work/5/1/e/d59fy04zi51e-薛生白醫案.json",
+        "sha256": "af513c3842e36d91c420396ea48b244949d83012391320ef258ab2e0c49d06cb",
+        "id": "d59fy04zi51e"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxzherw1t",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "薛氏醫案（薛生白醫案）一卷",
+            "author_info": "清薛雪撰",
+            "section": "子部/醫家類/醫案醫話之屬/清",
+            "summary": "共 2 個版本：三家醫案合刻本（馆藏未载）；清道光十一年務本堂刻本（江西省圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gqe2zjlafpnsxxh7、h0v0jqy1ds86bk3l\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）"
+      },
+      {
+        "id": "d59fy04zi51e",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "薛生白醫案一卷",
+            "author_info": "清薛雪撰",
+            "section": "子部/醫家類/醫案醫話之屬/清",
+            "summary": "共 16 個版本：（成都中醫藥大學圖書館）；（雲南省圖書館、中醫科學院、遼寧中醫藥大學圖書館、陝西省圖書館、山西省圖書館、成都中醫藥大學圖書館）；（湖北省圖書館）；（山東中醫藥大學圖書館、天津中醫藥大學第一附屬醫院圖書館）；（國家圖書館）；（山東中醫藥大學圖書館、廣西壯族自治區桂林圖書館、南京圖書館、河南省圖書館、黑龍江中醫藥大學圖書館、上海中醫藥大學圖書館）；（南京圖書館、安徽省圖書館）；（南京圖書館）；（遼寧省圖書館、四川省圖書館、中醫科學院、北京中醫藥大學圖書館、安徽省圖書館、上海中醫藥大學圖書館）；（湖北中醫學院圖書館、山東中醫藥大學圖書館）；（貴州省圖書館、中國醫學科學院、山西省圖書館、中醫科學院、黑龍江中醫藥大學圖書館、青島市圖書館、廣西壯族自治區圖書館、南京圖書館）；（山西中醫學院圖書館、揚州市圖書館）；（黑龍江中醫藥大學圖書館、山東省圖書館、中國科學院圖書館、廣東省中山圖書館）；（甘肅省圖書館、南京圖書館）；（湖北省圖書館、四川省圖書館、中國科學院圖書館、山東省圖書館、南京圖書館、首都圖書館、廣東省中山圖書館、上海圖書館、重慶市圖書館、國家圖書館）；（上海圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：cgvmf8l3ribrih2n、rrp833j5kit666en、t2e8mlbt0c72p5zo、vjl6nkm6w2moxcv1、joz2qqxqfe57mv5m、bzgr4n7h20aihkay、b6z5nvmqp0onjuu1、t14ako18dt4pih3c、rqhfz0n32p6v5svj、ajmhmt6xiavx6ue6、aqhtx1gt1wvfgku2、2034h0pbw21ad8i4、o4nnfz148lrzdkhd、7iba8yr3yqq8e0by、5mtw7yajhgo8ov4y\n第 4006 批追加版本，源記錄：n76v7uk3b15w587x"
+      }
+    ],
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "薛氏醫案"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "清"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「清」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fxzherw1t"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "薛雪",
+            "role": "撰",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/o8w82baqirs4qsig"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "qing"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0399",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fxzherw1t": [
+          {
+            "node": "zm0399",
+            "name": "子部/醫家類/醫案醫話之屬/清",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fy04zi51e": [
+          {
+            "node": "zm0399",
+            "name": "子部/醫家類/醫案醫話之屬/清",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "counterreview_reason": "关联Book出现吴金寿编，Work 总目汇总仅列薛雪撰而未体现此层；先核是否另一选编医案，禁止整条吸收。",
+    "counterreview_book": {
+      "path": "Book/7/i/9/993j2647i9-薛生白醫案.json",
+      "sha256": "70d40589ae87518b93638fe8d240f07160a905b42f592fd776992e69ed606ef1",
+      "record": {
+        "schema_version": 1,
+        "id": "993j2647i9",
+        "type": "book",
+        "title": "薛生白醫案",
+        "work_id": "d59fy04zi51e",
+        "edition": "",
+        "authors": [
+          {
+            "name": "薛雪",
+            "role": "撰",
+            "dynasty": "清"
+          },
+          {
+            "name": "吳金壽",
+            "role": "編",
+            "dynasty": "清"
+          }
+        ],
+        "provenance": [
+          {
+            "institution": "上海圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/dqkg8iqfsygnt4vd"
+          }
+        ],
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "薛生白醫案",
+            "summary": "薛生白醫案｜清薛雪撰;清吳金壽編｜｜上海圖書館"
+          }
+        ],
+        "sources": [
+          {
+            "id": "n76v7uk3b15w587x",
+            "name": "中國古籍總目（上圖聯合目錄）",
+            "type": "url",
+            "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/n76v7uk3b15w587x&from=evidence"
+          }
+        ],
+        "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：n76v7uk3b15w587x",
+        "revision": "1.0.0",
+        "revised_at": "2026-10-18"
+      }
+    },
+    "related_book_ids": [
+      "993iel2pz6",
+      "993ieldyio",
+      "993j2647i8",
+      "993j2647i9"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-020",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fxyoc56o0",
+    "losers": [
+      "d59fxyode4u8"
+    ],
+    "title": "周慎齋三書",
+    "reason": "同一周子幹三卷合輯，先生敬稱有無不改範圍；不是將某一子書併進三書。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/6/o/0/d59fxyoc56o0-周慎齋三書.json",
+        "sha256": "629c2e81cef0555fceb7d47b277b8b938df47764f04b26a725c74723daaf1d31",
+        "id": "d59fxyoc56o0"
+      },
+      {
+        "path": "Work/4/u/8/d59fxyode4u8-周慎齋先生三書.json",
+        "sha256": "87654ad8ad58a9d4a66448161dcb21038ced98abd1c3266df1b329fcfb06c3e5",
+        "id": "d59fxyode4u8"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxyoc56o0",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "周慎齋三書（周慎齋先生三書）三卷",
+            "author_info": "明周子幹撰",
+            "section": "子部/醫家類/綜論之屬",
+            "summary": "共 2 個版本：醫學粹精本（中華醫學會上海分會圖書館、浙江省中醫藥研究院）；清康熙間刻本（天津圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2urc4towje2ozupj、boo5s2vju10wfkxb\nE6 第 424 批新建（hold 清零：E；原 hold 原因：-）"
+      },
+      {
+        "id": "d59fxyode4u8",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "周慎齋先生三書三卷",
+            "author_info": "明周子幹撰",
+            "section": "子部/醫家類/叢編之屬",
+            "summary": "共 1 個版本：（中醫科學院、中華醫學會上海分會圖書館、北京中醫藥大學圖書館、浙江中醫藥大學圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fxsq3b1zaa7m47sb\nE6 第 424 批新建（hold 清零：E；原 hold 原因：-）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {},
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "周慎齋三書"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "明"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「明」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fxyoc56o0"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "周子幹",
+            "role": "撰",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/gj/entity/person/twysjitzkzbowehj"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "ming"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0360",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fxyoc56o0": [
+          {
+            "node": "zm0360",
+            "name": "子部/醫家類/綜論之屬",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fxyode4u8": [
+          {
+            "node": "zm0359",
+            "name": "子部/醫家類/叢編之屬",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "993hlir94w",
+      "993hljoyrl",
+      "993hlig0ld"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-021",
+    "type": "Work",
+    "status": "confirmed",
+    "keeper": "d59fxsjywwzk",
+    "losers": [
+      "d59fy0h6p1c0"
+    ],
+    "title": "含飴堂知醫必辨",
+    "reason": "原題明列知醫必辨異名；含飴堂冠詞有無，責任者均李文榮，無續補或注本層。",
+    "rule": "explicit-alias-same-responsibility-and-scope",
+    "records": [
+      {
+        "path": "Work/w/z/k/d59fxsjywwzk-含飴堂知醫必辨.json",
+        "sha256": "c8e0ce72664826a3f1673bec395c3d5280b1bd719dead0acdcfb1c61bcc08eac",
+        "id": "d59fxsjywwzk"
+      },
+      {
+        "path": "Work/1/c/0/d59fy0h6p1c0-知醫必辨.json",
+        "sha256": "420cbe03f26217403d174314f0f74f72eb7cae2a07564bf6302bb4eb70a87c05",
+        "id": "d59fy0h6p1c0"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxsjywwzk",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "含飴堂知醫必辨（知醫必辨）一卷",
+            "author_info": "清李文榮撰",
+            "section": "子部/醫家類/綜論之屬",
+            "summary": "共 2 個版本：清抄本（南京圖書館）；抄本（蘇州市圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ui1vtr55r5z8z4tb、bxdz76ow7s1l1a3c\nE6 第 422 批新建（hold 清零：E；原 hold 原因：-）"
+      },
+      {
+        "id": "d59fy0h6p1c0",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "知醫必辨",
+            "author_info": "清李文榮撰",
+            "section": "子部/醫家類/叢編之屬",
+            "summary": "共 1 個版本：（上海圖書館）"
+          }
+        ],
+        "sources": [],
+        "source_record_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：cj85bs5mki05stgq\nauto-split:存疑未并\nE6 第 4004 批新建（hold 清零：hold-near_dup；原 hold 原因：auto-split:近重复未并）"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {},
+      "remove_fields": []
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "含飴堂知醫必辨"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "dynasty": {
+        "action": "equal_keep",
+        "selected": "清"
+      },
+      "period_basis": {
+        "action": "equal_keep",
+        "selected": "據 authors[0].dynasty「清」"
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "d59fxsjywwzk"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "李文榮",
+            "role": "撰",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/m7sh30nph16rx3uj"
+            }
+          }
+        ]
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "work"
+      },
+      "additional_titles": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "dynasty_basis": {
+        "action": "equal_keep",
+        "selected": "author_propagation"
+      },
+      "period": {
+        "action": "equal_keep",
+        "selected": "qing"
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "classification_decision": {
+      "node": "zm0360",
+      "reason": "同一作品的專門內容分類優先；合編/叢編是來源載體，原著錄section保留於indexed_by。",
+      "before": {
+        "d59fxsjywwzk": [
+          {
+            "node": "zm0360",
+            "name": "子部/醫家類/綜論之屬",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ],
+        "d59fy0h6p1c0": [
+          {
+            "node": "zm0359",
+            "name": "子部/醫家類/叢編之屬",
+            "member_source": [
+              "中國古籍總目"
+            ]
+          }
+        ]
+      }
+    },
+    "related_book_ids": [
+      "993bh57qwx",
+      "993bh5izgg",
+      "993jeczv9d"
+    ],
+    "own_text_assets": {}
+  },
+  {
+    "case_id": "MR-022",
+    "type": "Book",
+    "status": "confirmed",
+    "keeper": "993wfb6juo",
+    "losers": [
+      "993wunomps"
+    ],
+    "title": "大藏治病藥",
+    "reason": "同一上圖 instance ID、同一逐項館藏 item、卷數/附錄/版本及全部業務欄位完全相同；僅id、已確認重複work_id、草稿Collection晉升ID不同。",
+    "rule": "same-instance-full-payload-explicit-promotion",
+    "records": [
+      {
+        "path": "Book/j/u/o/993wfb6juo-大藏治病藥.json",
+        "sha256": "3460e219d6f465c4cb7627f6304f67fe151e5b21dc45d1e1f04477805471c24e",
+        "id": "993wfb6juo"
+      },
+      {
+        "path": "Book/m/p/s/993wunomps-大藏治病藥.json",
+        "sha256": "e98d5abeda211de8853252fb3f7f6ad6f9737a0c74b9ce763012b40fde2f516e",
+        "id": "993wunomps"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "993wfb6juo",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "大藏治病藥一卷",
+            "summary": "大藏治病藥一卷｜唐釋靈澈撰｜｜天津圖書館"
+          }
+        ],
+        "sources": [
+          {
+            "id": "e75ykzzoedtu2yo6",
+            "name": "中國古籍總目（上圖聯合目錄）",
+            "type": "url",
+            "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/e75ykzzoedtu2yo6&from=evidence"
+          }
+        ],
+        "source_record_note": "【叢書子目·挂既有Work】叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：e75ykzzoedtu2yo6"
+      },
+      {
+        "id": "993wunomps",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "大藏治病藥一卷",
+            "summary": "大藏治病藥一卷｜唐釋靈澈撰｜｜天津圖書館"
+          }
+        ],
+        "sources": [
+          {
+            "id": "e75ykzzoedtu2yo6",
+            "name": "中國古籍總目（上圖聯合目錄）",
+            "type": "url",
+            "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/e75ykzzoedtu2yo6&from=evidence"
+          }
+        ],
+        "source_record_note": "【叢書子目·挂既有Work】叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：e75ykzzoedtu2yo6"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {
+        "work_id": "d59fydh8f1fm",
+        "contained_in": [
+          {
+            "id": "8rldo7slfyf4"
+          }
+        ]
+      },
+      "remove_fields": [],
+      "work_resolution": {
+        "work_id": "d59fydh8f1fm"
+      }
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "大藏治病藥"
+      },
+      "edition": {
+        "action": "equal_keep",
+        "selected": ""
+      },
+      "juan_count": {
+        "action": "equal_keep",
+        "selected": {
+          "number": 1,
+          "unit": "卷"
+        }
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "993wfb6juo"
+      },
+      "work_id": {
+        "action": "explicit_set",
+        "selected": "d59fydh8f1fm"
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "book"
+      },
+      "measure_info": {
+        "action": "equal_keep",
+        "selected": "一卷"
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "provenance": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "institution": "天津圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/hrzbj20k6nay0x7f"
+          }
+        ]
+      },
+      "contained_in": {
+        "action": "explicit_set",
+        "selected": [
+          {
+            "id": "8rldo7slfyf4"
+          }
+        ]
+      },
+      "sources": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "promotions_evidence": {
+      "1ak0ioiy67dog": {
+        "production_id": "8rldo7slfyf4",
+        "type": "collection",
+        "promoted_at": "2026-10-19T09:38:41Z"
+      }
+    },
+    "depends_on_work_merge": "d59fydh8f1fm"
+  },
+  {
+    "case_id": "MR-023",
+    "type": "Book",
+    "status": "confirmed",
+    "keeper": "993wi5ke0w",
+    "losers": [
+      "993wult7gh"
+    ],
+    "title": "大藏治病藥",
+    "reason": "同一上圖 instance ID、同一逐項館藏 item、卷數/附錄/版本及全部業務欄位完全相同；僅id、已確認重複work_id、草稿Collection晉升ID不同。",
+    "rule": "same-instance-full-payload-explicit-promotion",
+    "records": [
+      {
+        "path": "Book/e/0/w/993wi5ke0w-大藏治病藥.json",
+        "sha256": "35f6e181816b9f43760ebe61f1069c66c51da9a82e9dadb777b3e9bced2402c7",
+        "id": "993wi5ke0w"
+      },
+      {
+        "path": "Book/7/g/h/993wult7gh-大藏治病藥.json",
+        "sha256": "96634a4ba04630d9cb90a62117fd260335766962b8514bbf91221abf3b2c5745",
+        "id": "993wult7gh"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "993wi5ke0w",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "大藏治病藥一卷",
+            "summary": "大藏治病藥一卷｜唐釋靈澈撰｜｜臺灣圖書館、北京大學圖書館、中國科學院圖書館、日本京都大學人文科學研究所"
+          }
+        ],
+        "sources": [
+          {
+            "id": "tt6hlnyr3uhvv16x",
+            "name": "中國古籍總目（上圖聯合目錄）",
+            "type": "url",
+            "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/tt6hlnyr3uhvv16x&from=evidence"
+          }
+        ],
+        "source_record_note": "【叢書子目·挂既有Work】叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：tt6hlnyr3uhvv16x"
+      },
+      {
+        "id": "993wult7gh",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "大藏治病藥一卷",
+            "summary": "大藏治病藥一卷｜唐釋靈澈撰｜｜臺灣圖書館、北京大學圖書館、中國科學院圖書館、日本京都大學人文科學研究所"
+          }
+        ],
+        "sources": [
+          {
+            "id": "tt6hlnyr3uhvv16x",
+            "name": "中國古籍總目（上圖聯合目錄）",
+            "type": "url",
+            "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/tt6hlnyr3uhvv16x&from=evidence"
+          }
+        ],
+        "source_record_note": "【叢書子目·挂既有Work】叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：tt6hlnyr3uhvv16x"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {
+        "work_id": "d59fydh8f1fm",
+        "contained_in": [
+          {
+            "id": "8rldo7slfyf5"
+          }
+        ]
+      },
+      "remove_fields": [],
+      "work_resolution": {
+        "work_id": "d59fydh8f1fm"
+      }
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "大藏治病藥"
+      },
+      "edition": {
+        "action": "equal_keep",
+        "selected": ""
+      },
+      "juan_count": {
+        "action": "equal_keep",
+        "selected": {
+          "number": 1,
+          "unit": "卷"
+        }
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "993wi5ke0w"
+      },
+      "work_id": {
+        "action": "explicit_set",
+        "selected": "d59fydh8f1fm"
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "book"
+      },
+      "measure_info": {
+        "action": "equal_keep",
+        "selected": "一卷"
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "provenance": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "institution": "臺灣圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/4oxbpbh878gvwngp"
+          },
+          {
+            "institution": "北京大學圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/51pfwnvrtjkf76d0"
+          },
+          {
+            "institution": "中國科學院圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/j4di1qq2ch3zq3qe"
+          },
+          {
+            "institution": "日本京都大學人文科學研究所",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/ofbvy02hn86or0nx"
+          }
+        ]
+      },
+      "contained_in": {
+        "action": "explicit_set",
+        "selected": [
+          {
+            "id": "8rldo7slfyf5"
+          }
+        ]
+      },
+      "sources": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "promotions_evidence": {
+      "1ak0ioiys1zpc": {
+        "production_id": "8rldo7slfyf5",
+        "type": "collection",
+        "promoted_at": "2026-10-19T09:38:41Z"
+      }
+    },
+    "depends_on_work_merge": "d59fydh8f1fm"
+  },
+  {
+    "case_id": "MR-024",
+    "type": "Book",
+    "status": "confirmed",
+    "keeper": "993wvk5b7l",
+    "losers": [
+      "993yiwhfcx"
+    ],
+    "title": "新雕洞靈真經",
+    "reason": "同一上圖 instance ID、同一逐項館藏 item、卷數/附錄/版本及全部業務欄位完全相同；僅id、已確認重複work_id、草稿Collection晉升ID不同。",
+    "rule": "same-instance-full-payload-explicit-promotion",
+    "records": [
+      {
+        "path": "Book/b/7/l/993wvk5b7l-新雕洞靈真經影印宋刻本.json",
+        "sha256": "2e41c5a6960bbe84612e1f639f8fd78cca066992ed8b9b05ef9d7660b5343c20",
+        "id": "993wvk5b7l"
+      },
+      {
+        "path": "Book/f/c/x/993yiwhfcx-新雕洞靈真經影印宋刻本.json",
+        "sha256": "f0f2f58eca3dffc0a47d75c794c3589702eee10d70604d973e4407c14b3416f9",
+        "id": "993yiwhfcx"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "993wvk5b7l",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "新雕洞靈真經五卷附校勘記一卷",
+            "summary": "新雕洞靈真經五卷附校勘記一卷｜｜影印宋刻本｜天津圖書館、中國科學院圖書館、遼寧省圖書館、四川省圖書館、國家圖書館、浙江圖書館、湖北省圖書館、山東省圖書館、復旦大學圖書館、北京大學圖書館、上海圖書館、南京圖書館"
+          }
+        ],
+        "sources": [
+          {
+            "id": "7g4qrf4d34ipvvyb",
+            "name": "中國古籍總目（上圖聯合目錄）",
+            "type": "url",
+            "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/7g4qrf4d34ipvvyb&from=evidence"
+          }
+        ],
+        "source_record_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：7g4qrf4d34ipvvyb\n後印／補刻：\"宋刻本\"\n責任者一致性：總目 contMap 與題名行 dclabel 在「one_side_empty」上不一致，取 contMap；題名行：\nauto-split:存疑未并\n叢書子目，作者缺（同题既有 Work 作者缺，未硬并）\n作者均缺，按唯一同题并(叢書子目新建Work并入既有Work)"
+      },
+      {
+        "id": "993yiwhfcx",
+        "indexed_by": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "新雕洞靈真經五卷附校勘記一卷",
+            "summary": "新雕洞靈真經五卷附校勘記一卷｜｜影印宋刻本｜天津圖書館、中國科學院圖書館、遼寧省圖書館、四川省圖書館、國家圖書館、浙江圖書館、湖北省圖書館、山東省圖書館、復旦大學圖書館、北京大學圖書館、上海圖書館、南京圖書館"
+          }
+        ],
+        "sources": [
+          {
+            "id": "7g4qrf4d34ipvvyb",
+            "name": "中國古籍總目（上圖聯合目錄）",
+            "type": "url",
+            "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/7g4qrf4d34ipvvyb&from=evidence"
+          }
+        ],
+        "source_record_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：7g4qrf4d34ipvvyb\n後印／補刻：\"宋刻本\"\n責任者一致性：總目 contMap 與題名行 dclabel 在「one_side_empty」上不一致，取 contMap；題名行：\nauto-split:存疑未并\n叢書子目，作者缺（同题既有 Work 作者缺，未硬并）\n作者均缺，按唯一同题并(叢書子目新建Work并入既有Work)"
+      }
+    ],
+    "machine_decision": {
+      "set_fields": {
+        "work_id": "d59fydyduha8",
+        "contained_in": [
+          {
+            "id": "8rldo9w1fsoy"
+          }
+        ]
+      },
+      "remove_fields": [],
+      "work_resolution": {
+        "work_id": "d59fydyduha8"
+      }
+    },
+    "field_decisions": {
+      "indexed_by": {
+        "action": "append_preserve_order",
+        "selected": null
+      },
+      "title": {
+        "action": "retain_keeper",
+        "selected": "新雕洞靈真經"
+      },
+      "edition": {
+        "action": "equal_keep",
+        "selected": "影印宋刻本"
+      },
+      "schema_version": {
+        "action": "equal_keep",
+        "selected": 1
+      },
+      "measure_info": {
+        "action": "equal_keep",
+        "selected": "五卷附校勘記一卷"
+      },
+      "revision": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "id": {
+        "action": "retain_keeper",
+        "selected": "993wvk5b7l"
+      },
+      "authors": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "name": "張元濟",
+            "role": "校勘",
+            "dynasty": "民國"
+          },
+          {
+            "name": "何粲",
+            "role": "注",
+            "dynasty": "唐"
+          }
+        ]
+      },
+      "work_id": {
+        "action": "explicit_set",
+        "selected": "d59fydyduha8"
+      },
+      "type": {
+        "action": "equal_keep",
+        "selected": "book"
+      },
+      "edition_type": {
+        "action": "equal_keep",
+        "selected": "影印本"
+      },
+      "revised_at": {
+        "action": "bump_by_schema",
+        "selected": null
+      },
+      "provenance": {
+        "action": "equal_keep",
+        "selected": [
+          {
+            "institution": "天津圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/0kaed7nmigmgu3rm"
+          },
+          {
+            "institution": "中國科學院圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/284btwmonwl4agsz"
+          },
+          {
+            "institution": "遼寧省圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/4fl2wu2ixhwu3chv"
+          },
+          {
+            "institution": "四川省圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/5u5ir14hv6pu7sx2"
+          },
+          {
+            "institution": "國家圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/61hmbo7efjbk3zmo"
+          },
+          {
+            "institution": "浙江圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/cejwzv3m7g03y8pg"
+          },
+          {
+            "institution": "湖北省圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/hhhfiwjmm2xtfa2k"
+          },
+          {
+            "institution": "山東省圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/ln0ibr863cj7n00n"
+          },
+          {
+            "institution": "復旦大學圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/tzknyptx0t6ttl0x"
+          },
+          {
+            "institution": "北京大學圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/vcquh7kodcinck1f"
+          },
+          {
+            "institution": "上海圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/xd3sbote06pq6lgq"
+          },
+          {
+            "institution": "南京圖書館",
+            "call_number": "",
+            "seals": [],
+            "notes": "",
+            "source": "中國古籍總目 item/zkahhcjjvhqxrn7t"
+          }
+        ]
+      },
+      "contained_in": {
+        "action": "explicit_set",
+        "selected": [
+          {
+            "id": "8rldo9w1fsoy"
+          }
+        ]
+      },
+      "sources": {
+        "action": "union_preserve_payload",
+        "selected": null
+      },
+      "ai_note": {
+        "action": "preserve_with_original_id",
+        "selected": null
+      }
+    },
+    "apply_prerequisites": [
+      "全庫有效引用改指keeper；建立loser墓碑並保留歷史合併帳。",
+      "檢查book-text整理本/輯佚檔之跨庫引用；本分道沒有完整book-text快照，不能宣稱聯動檢查完成。"
+    ],
+    "promotions_evidence": {
+      "1ak0ih0veqps0": {
+        "production_id": "8rldo9w1fsoy",
+        "type": "collection",
+        "promoted_at": "2026-10-19T12:03:42Z"
+      }
+    },
+    "depends_on_work_merge": "d59fydyduha8",
+    "followup_issue": "原Book何粲標唐、Work原著錄標宋，屬兩重來源時代衝突；此次同實例去重保留原值，不據此推定朝代。影印本與宋刻原本絕不可併。"
+  },
+  {
+    "case_id": "MR-025",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fxsuo3rb5",
+      "d59fy05qz0u9"
+    ],
+    "titles": [
+      "焦氏喉科枕祕",
+      "喉科枕祕"
+    ],
+    "reason": "焦氏條另附十藥神書一卷，另一側叢編範圍不明；須核對書影/子目而非僅括注。",
+    "records": [
+      {
+        "id": "d59fxsuo3rb5",
+        "path": "Work/r/b/5/d59fxsuo3rb5-焦氏喉科枕祕.json",
+        "sha256": "e3d857faf4f8b3bce90788a629ef3b4b1608d5dd331e19301a73f79fa81b510a"
+      },
+      {
+        "id": "d59fy05qz0u9",
+        "path": "Work/0/u/9/d59fy05qz0u9-喉科枕祕.json",
+        "sha256": "41fc081eb53f62574876ed6a2f911c4c7d06358d15428e74cfa08e31a239842e"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-026",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fy11izri9",
+      "d59f28nosc8w"
+    ],
+    "titles": [
+      "地理點穴撼龍經",
+      "撼龍經"
+    ],
+    "reason": "一側地理點穴撼龍經十卷、清高其倬批；另一側原典一卷，存在增批與內容範圍差。",
+    "records": [
+      {
+        "id": "d59fy11izri9",
+        "path": "Work/r/i/9/d59fy11izri9-地理點穴撼龍經.json",
+        "sha256": "9dfa68eac9accb13cc770b33461961944faf9121a46373fdb2c1cc5e80e157f9"
+      },
+      {
+        "id": "d59f28nosc8w",
+        "path": "Work/c/8/w/d59f28nosc8w-撼龍經.json",
+        "sha256": "4a52960f51f5b648b0040e74d1f7fa33d4aa2040d38d850eb3239ad3355d76ff"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-027",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fy11l6fb6",
+      "d59f2mg7wz5t"
+    ],
+    "titles": [
+      "皇極經世書",
+      "皇極經世書解"
+    ],
+    "reason": "同作者王植但8卷/14卷，需確認改編或分卷差異。",
+    "records": [
+      {
+        "id": "d59fy11l6fb6",
+        "path": "Work/f/b/6/d59fy11l6fb6-皇極經世書.json",
+        "sha256": "5676edcacbe5ef736626cdb061a8b7bfd149bf13af6db0508755d5eb10f9a3a6"
+      },
+      {
+        "id": "d59f2mg7wz5t",
+        "path": "Work/z/5/t/d59f2mg7wz5t-皇極經世書解.json",
+        "sha256": "ffe67658bb0dfddf6f822994dcf13c0ca54767b3acdf5d6c4345422baa3ad719"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-028",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fxt22of0i",
+      "d59fxt2f5wqo"
+    ],
+    "titles": [
+      "靈棋經解",
+      "明誠意伯劉伯溫靈棋經解"
+    ],
+    "reason": "同源總目一卷/二卷同注者，尚須版本目錄對照。",
+    "records": [
+      {
+        "id": "d59fxt22of0i",
+        "path": "Work/f/0/i/d59fxt22of0i-靈棋經解.json",
+        "sha256": "3b89084c6bcf0a1c8d4cb7812105deb0b0bd9c9417f6897c0d3a7c7180d2a583"
+      },
+      {
+        "id": "d59fxt2f5wqo",
+        "path": "Work/w/q/o/d59fxt2f5wqo-明誠意伯劉伯溫靈棋經解.json",
+        "sha256": "c56ae0fc6a7884a142fd8148e8f91a3916b145b1df63b410e9b024f5e2af720a"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-029",
+    "type": "Work",
+    "status": "separate",
+    "ids": [
+      "d59fxyfsoflu",
+      "d59fy3wylnnl"
+    ],
+    "titles": [
+      "重訂外科正宗",
+      "外科正宗"
+    ],
+    "reason": "張鶩翼重訂與徐大椿評為不同加工層，不將相同陳實功基礎作者誤作同一Work。",
+    "records": [
+      {
+        "id": "d59fxyfsoflu",
+        "path": "Work/f/l/u/d59fxyfsoflu-重訂外科正宗.json",
+        "sha256": "a1e5130612bd3814af4a618c672b3b77ca487bab34a44c217ceee6b770e4dfdf"
+      },
+      {
+        "id": "d59fy3wylnnl",
+        "path": "Work/n/n/l/d59fy3wylnnl-外科正宗.json",
+        "sha256": "ce1c17591917d9893568d0afe54283730a9fd037844b5ed980bb719d3bfbf8c3"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-030",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fxyqrjmrl",
+      "d59fxyrf9o1t"
+    ],
+    "titles": [
+      "拔萃良方",
+      "集驗良方拔萃"
+    ],
+    "reason": "一側含續補一卷，叢編子目範圍未明，保持先前待核。",
+    "records": [
+      {
+        "id": "d59fxyqrjmrl",
+        "path": "Work/m/r/l/d59fxyqrjmrl-拔萃良方.json",
+        "sha256": "3f2fe27cee146892b7f08b72ed81e9d7710a6430bce221ee84c36cedaa15a861"
+      },
+      {
+        "id": "d59fxyrf9o1t",
+        "path": "Work/o/1/t/d59fxyrf9o1t-集驗良方拔萃.json",
+        "sha256": "de8d1b8a0be672da5908873a30c830b06a96a08e4b89d3a5c67afb192c1f121a"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-031",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59f2njhbmrl",
+      "d59fy11h4c8x"
+    ],
+    "titles": [
+      "異魚圖贊",
+      "異魚圖贊"
+    ],
+    "reason": "楊慎原作與胡世安補三卷閏集一卷責任範圍待分層。",
+    "records": [
+      {
+        "id": "d59f2njhbmrl",
+        "path": "Work/m/r/l/d59f2njhbmrl-異魚圖贊.json",
+        "sha256": "59d134328e15d086412cf461ecd5bcddcbeb7df5bb2ed2256f1f889244657142"
+      },
+      {
+        "id": "d59fy11h4c8x",
+        "path": "Work/c/8/x/d59fy11h4c8x-異魚圖贊.json",
+        "sha256": "6a8d81b19295062a480ed14061c353eaa90af34e9f56784312094a575d80ec20"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-032",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fygn2wz5t",
+      "d59fyh6355vl"
+    ],
+    "titles": [
+      "憨山大師夢遊全集",
+      "憨山大師夢遊全集"
+    ],
+    "reason": "憨山夢遊全集55卷與20卷+年譜2卷、編者組合不同，需檢原目。",
+    "records": [
+      {
+        "id": "d59fygn2wz5t",
+        "path": "Work/z/5/t/d59fygn2wz5t-憨山大師夢遊全集.json",
+        "sha256": "3d38100d62a1c38487b6189ce119e0023519ca9b3047966593e68da3b4b5ccc1"
+      },
+      {
+        "id": "d59fyh6355vl",
+        "path": "Work/5/v/l/d59fyh6355vl-憨山大師夢遊全集.json",
+        "sha256": "18008eb29e990104a2e7b174c4ffc022f1492bdadd45071843f237db8ee3fa83"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-033",
+    "type": "Work",
+    "status": "separate",
+    "ids": [
+      "d59fxyw5dz42",
+      "d59fxyeo3k01"
+    ],
+    "titles": [
+      "大乘唯識論",
+      "大乘唯識論"
+    ],
+    "reason": "同名同天親原作，但菩提流支與真諦各自漢譯，依庫例分立。",
+    "records": [
+      {
+        "id": "d59fxyw5dz42",
+        "path": "Work/z/4/2/d59fxyw5dz42-大乘唯識論.json",
+        "sha256": "8a0270e4b1ea2710c45e9377c1f818b4a538eef549976181d97724f33ec93be0"
+      },
+      {
+        "id": "d59fxyeo3k01",
+        "path": "Work/k/0/1/d59fxyeo3k01-大乘唯識論.json",
+        "sha256": "8ddfe451f5b6d52502d1950af09a2b9a9069433661b8344ad8e057bd73c03788"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-034",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fyfdmmznl",
+      "d59fyk5ic7pc"
+    ],
+    "titles": [
+      "雪嶠禪師語錄",
+      "雪嶠禪師語錄"
+    ],
+    "reason": "雪嶠禪師語錄十卷/六卷，編纂範圍及年代不同，不能僅弘歇名同即合。",
+    "records": [
+      {
+        "id": "d59fyfdmmznl",
+        "path": "Work/z/n/l/d59fyfdmmznl-雪嶠禪師語錄.json",
+        "sha256": "635ac8da3f0c003c50ec3307413437e9e6adeac896bd2377db46207fbcfff9de"
+      },
+      {
+        "id": "d59fyk5ic7pc",
+        "path": "Work/7/p/c/d59fyk5ic7pc-雪嶠禪師語錄.json",
+        "sha256": "c695a44c2924daadd4761c786ff9090083c94c7dd5f748921c9d920b86eedf8f"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-035",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fxz3mgkcg",
+      "d59fyjschxq9"
+    ],
+    "titles": [
+      "脈因證治",
+      "丹溪朱氏脈因證治"
+    ],
+    "reason": "脈因證治四卷/二卷，總目分列且未核分卷關係。",
+    "records": [
+      {
+        "id": "d59fxz3mgkcg",
+        "path": "Work/k/c/g/d59fxz3mgkcg-脈因證治.json",
+        "sha256": "1b8c82371a098e7e3b96b79cc8c214461f3252b7f7a690c9d2530485434a56ad"
+      },
+      {
+        "id": "d59fyjschxq9",
+        "path": "Work/x/q/9/d59fyjschxq9-丹溪朱氏脈因證治.json",
+        "sha256": "5fd070a8bef7273fe1f7c21967bf3be4ba7628ec6c9adfc039e1135086db6745"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-036",
+    "type": "Work",
+    "status": "separate",
+    "ids": [
+      "d59fykxagk5c",
+      "d59fxuegrtvk"
+    ],
+    "titles": [
+      "佛母大孔雀明王經",
+      "讀誦佛母大孔雀明王經前啓請法"
+    ],
+    "reason": "經正文與讀誦前啓請法為不同文本範圍，括注經名不能判同書。",
+    "records": [
+      {
+        "id": "d59fykxagk5c",
+        "path": "Work/k/5/c/d59fykxagk5c-佛母大孔雀明王經.json",
+        "sha256": "27016abf7759e896215d76130745571132b3caf694f0eb2af5facb6458f6be7c"
+      },
+      {
+        "id": "d59fxuegrtvk",
+        "path": "Work/t/v/k/d59fxuegrtvk-讀誦佛母大孔雀明王經前啓請法.json",
+        "sha256": "def945ceadac01b6dfce4fbf981b5a955ba9f34acf6df9390e078283220a981c"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-037",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fxxs1perk",
+      "d59fykwoly4g"
+    ],
+    "titles": [
+      "大方廣佛華嚴經疏鈔會本",
+      "大方廣佛華嚴經疏鈔會本"
+    ],
+    "reason": "華嚴疏鈔會本80卷/220卷，需校核會編結構，不能僅作者澄觀相同即併。",
+    "records": [
+      {
+        "id": "d59fxxs1perk",
+        "path": "Work/e/r/k/d59fxxs1perk-大方廣佛華嚴經疏鈔會本.json",
+        "sha256": "fea1cc7038aa1af1c1a514c5a7919fb8204899e07b937730bd46333e65848ae8"
+      },
+      {
+        "id": "d59fykwoly4g",
+        "path": "Work/y/4/g/d59fykwoly4g-大方廣佛華嚴經疏鈔會本.json",
+        "sha256": "b65512abdebc716931c872a712c537b00644b246ae697671902117e128c7f968"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-038",
+    "type": "Work",
+    "status": "separate",
+    "ids": [
+      "d59fxq72oete",
+      "d59fxq0mfuo3"
+    ],
+    "titles": [
+      "六言唐詩畫譜",
+      "黃氏畫譜"
+    ],
+    "reason": "黃氏畫譜括號逐列八種畫譜，六言唐詩畫譜只是其中一種，為整體與組成部分。",
+    "records": [
+      {
+        "id": "d59fxq72oete",
+        "path": "Work/e/t/e/d59fxq72oete-六言唐詩畫譜.json",
+        "sha256": "2ee48a2dc1fbb7e672cfc5b9390e7207618058b95674120d57a8b0ebd4a8ef16"
+      },
+      {
+        "id": "d59fxq0mfuo3",
+        "path": "Work/u/o/3/d59fxq0mfuo3-黃氏畫譜.json",
+        "sha256": "4ae6e7b192693a9793e23fc0cc79fd190d3f2ca44a4a40dac1cc8176f5e578da"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-039",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fxxoncetc",
+      "d59fxzqzp4ao"
+    ],
+    "titles": [
+      "新刊注釋素問玄機原病式",
+      "注釋素問玄機原病式"
+    ],
+    "reason": "素問玄機原病式同薛時平注但一卷/二卷，先核版本分卷。",
+    "records": [
+      {
+        "id": "d59fxxoncetc",
+        "path": "Work/e/t/c/d59fxxoncetc-新刊注釋素問玄機原病式.json",
+        "sha256": "5d22f08d101965e4a6f632015acc8b4f43bef5fe06d52ae68a789025aded7f4a"
+      },
+      {
+        "id": "d59fxzqzp4ao",
+        "path": "Work/4/a/o/d59fxzqzp4ao-注釋素問玄機原病式.json",
+        "sha256": "f0bd1fb630537c903982ed44e747f8cc40f98a305f66f90f8fde1c74ae556523"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-040",
+    "type": "Work",
+    "status": "separate",
+    "ids": [
+      "d59fyfe6xeyo",
+      "d59fyfe7v4lc"
+    ],
+    "titles": [
+      "因明正理門論",
+      "因明正理門論"
+    ],
+    "reason": "因明正理門論同原作但義淨/玄奘不同漢譯，分立。",
+    "records": [
+      {
+        "id": "d59fyfe6xeyo",
+        "path": "Work/e/y/o/d59fyfe6xeyo-因明正理門論.json",
+        "sha256": "f4741b26daa399752752a47bb5f28783a5303640869d718356f5417f275b99c7"
+      },
+      {
+        "id": "d59fyfe7v4lc",
+        "path": "Work/4/l/c/d59fyfe7v4lc-因明正理門論.json",
+        "sha256": "6e0a586cd3c27afce462eb7a99436628545189f51a0dfd20aa867774d38b97d1"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-041",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fyis0aeio",
+      "d59fyykehds1"
+    ],
+    "titles": [
+      "周易參同契註",
+      "朱子周易參同契考異"
+    ],
+    "reason": "參同契注/考異涉及一卷與三卷、黃瑞節附錄及名字切分錯誤，須分層核定。",
+    "records": [
+      {
+        "id": "d59fyis0aeio",
+        "path": "Work/e/i/o/d59fyis0aeio-周易參同契註.json",
+        "sha256": "f0fbedc9782123b98af0bd94b09423c261ebed0fe159c19afdfc1d046a3dfb22"
+      },
+      {
+        "id": "d59fyykehds1",
+        "path": "Work/d/s/1/d59fyykehds1-朱子周易參同契考異.json",
+        "sha256": "cbb57959f268ab1687a83da490222518503a82a01feddc39df8ca1d07fdf9e9b"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-042",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fy5b6k5q9",
+      "d59fy5qbki68"
+    ],
+    "titles": [
+      "鄉守輯要合抄",
+      "鄉守輯要"
+    ],
+    "reason": "鄉守輯要合抄十卷與十二卷，合抄可能節取，不把括號別名當全本同一證據。",
+    "records": [
+      {
+        "id": "d59fy5b6k5q9",
+        "path": "Work/5/q/9/d59fy5b6k5q9-鄉守輯要合抄.json",
+        "sha256": "f74c8a193978288631c7ebad88e0dab24645dc9281ff44c4b5560d66c90ec43e"
+      },
+      {
+        "id": "d59fy5qbki68",
+        "path": "Work/i/6/8/d59fy5qbki68-鄉守輯要.json",
+        "sha256": "7bb57b8c2f3f36c4ab9949155cf9af7761153e23147bc4d5f2e587dbc2e2bac7"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-043",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fxydle5mp",
+      "d59fxydmn3sx"
+    ],
+    "titles": [
+      "增補痘疹玉髓金鏡錄",
+      "增補祕傳痘疹玉髓金鏡錄真本"
+    ],
+    "reason": "痘疹玉髓金鏡錄三卷首一卷與四卷圖像一卷、陸道元補遺等責任層不同，須核增補。",
+    "records": [
+      {
+        "id": "d59fxydle5mp",
+        "path": "Work/5/m/p/d59fxydle5mp-增補痘疹玉髓金鏡錄.json",
+        "sha256": "f975ccf4d7854e7539b14b7a7c1978846602f111c8c0e3a82530d47cbd38c714"
+      },
+      {
+        "id": "d59fxydmn3sx",
+        "path": "Work/3/s/x/d59fxydmn3sx-增補祕傳痘疹玉髓金鏡錄真本.json",
+        "sha256": "cf646b817212008fb7d452f6b78a52254b2fde3bb7f481a7b91e5fd9dd673153"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-044",
+    "type": "Work",
+    "status": "separate",
+    "ids": [
+      "d59fxs7uj5z5",
+      "d59fxq8y3o5c"
+    ],
+    "titles": [
+      "十竹齋書畫譜",
+      "書畫册"
+    ],
+    "reason": "十竹齋書畫譜含書畫册等八種，書畫册一卷是組成部分，非全書別名。",
+    "records": [
+      {
+        "id": "d59fxs7uj5z5",
+        "path": "Work/5/z/5/d59fxs7uj5z5-十竹齋書畫譜.json",
+        "sha256": "6ad2972835db59253a8e3172fc9270f2b7fc8f0560412d6eddb32008dd30c5c4"
+      },
+      {
+        "id": "d59fxq8y3o5c",
+        "path": "Work/o/5/c/d59fxq8y3o5c-書畫册.json",
+        "sha256": "f0f25299922278d4252bf06bd93da2fd27e9feca9f1196ebecc433b58d0e1f49"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-045",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fxu3ml535",
+      "d59fy03vjoqo"
+    ],
+    "titles": [
+      "西銘",
+      "事天謨"
+    ],
+    "reason": "西銘一條混朱熹注與無注原典著錄，先拆責任層，不將事天謨原典整條併入。",
+    "records": [
+      {
+        "id": "d59fxu3ml535",
+        "path": "Work/5/3/5/d59fxu3ml535-西銘.json",
+        "sha256": "1bc982b8795ee7f36999ae53eeea6b45f8ad48cb18418e57197e9300667c48ca"
+      },
+      {
+        "id": "d59fy03vjoqo",
+        "path": "Work/o/q/o/d59fy03vjoqo-事天謨.json",
+        "sha256": "f79edf6c80aaa4c934bc6df1dc051531fac72accc5c53592adfaf6406219464e"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-046",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59f2q7zj6yp",
+      "d59fxwylng8x"
+    ],
+    "titles": [
+      "夢溪筆談",
+      "夢溪筆談"
+    ],
+    "reason": "夢溪筆談二十六卷與一卷叢編節本可能不同範圍，須核原目及起訖。",
+    "records": [
+      {
+        "id": "d59f2q7zj6yp",
+        "path": "Work/6/y/p/d59f2q7zj6yp-夢溪筆談.json",
+        "sha256": "a72d0042ab2a6f4b7f3cb5f84c5699f04cf8405e881b609b1126b8c1a4d058e6"
+      },
+      {
+        "id": "d59fxwylng8x",
+        "path": "Work/g/8/x/d59fxwylng8x-夢溪筆談.json",
+        "sha256": "3bdcbc4108e0255706c417f9fe7052a57e926658f34b9bbf9333f6b74c1f411b"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-047",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fxt68ibr5",
+      "d59fxt5zgg00"
+    ],
+    "titles": [
+      "關中四先生要語錄",
+      "馮少墟關中四先生要語錄"
+    ],
+    "reason": "關中四先生要語錄另一側有李元春註，是注本層差，暫不併。",
+    "records": [
+      {
+        "id": "d59fxt68ibr5",
+        "path": "Work/b/r/5/d59fxt68ibr5-關中四先生要語錄.json",
+        "sha256": "81b9180ffb77cbf3417ed0b8c8c6120d484ef80c7d8177691c4fc892ebc1d5b8"
+      },
+      {
+        "id": "d59fxt5zgg00",
+        "path": "Work/g/0/0/d59fxt5zgg00-馮少墟關中四先生要語錄.json",
+        "sha256": "f23650b6021c72b88ad75c9297bfa8364201cb09a1ce5e84462f1594b24a2f8b"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-048",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fy1ygub5t",
+      "d59fy3s5cveo"
+    ],
+    "titles": [
+      "上蔡先生語錄",
+      "上蔡先生語錄"
+    ],
+    "reason": "上蔡先生語錄一側含張伯行重訂、另一側朱熹role混撰/輯，須核編纂層。",
+    "records": [
+      {
+        "id": "d59fy1ygub5t",
+        "path": "Work/b/5/t/d59fy1ygub5t-上蔡先生語錄.json",
+        "sha256": "ca80604c26ba740aafb3123fbed0137b09c6d11991a794168587b82dc796291d"
+      },
+      {
+        "id": "d59fy3s5cveo",
+        "path": "Work/v/e/o/d59fy3s5cveo-上蔡先生語錄.json",
+        "sha256": "6003c14e54181e3c45dcc780f0035059cdf18294f877aa88cb412aec23386128"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-049",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fy10ns16q",
+      "d59fy1y5x05d"
+    ],
+    "titles": [
+      "二程全書",
+      "二程子全書"
+    ],
+    "reason": "二程全書68卷與51卷屬編次範圍差，未核目錄不可合。",
+    "records": [
+      {
+        "id": "d59fy10ns16q",
+        "path": "Work/1/6/q/d59fy10ns16q-二程全書.json",
+        "sha256": "ea5bb3e278a6589e54110797fe51d361de902c2f27a3900c04af194b73ddf505"
+      },
+      {
+        "id": "d59fy1y5x05d",
+        "path": "Work/0/5/d/d59fy1y5x05d-二程子全書.json",
+        "sha256": "9a483b343c2a3e9e6967337f863fdbffa1b50a793bbfb2d9f2c991d4452becbc"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-050",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fyh4fu0w1",
+      "d59fyk6fqlts"
+    ],
+    "titles": [
+      "神咒錄",
+      "神咒錄"
+    ],
+    "reason": "吳又可瘟疫論含補遺一卷而溫疫論僅二卷；須核補遺是否另作及各版本範圍，保持待核。",
+    "records": [
+      {
+        "id": "d59fyh4fu0w1",
+        "path": "Work/0/w/1/d59fyh4fu0w1-神咒錄.json",
+        "sha256": "82881e716e63832d4b2028367471d6a7613e1a8174304541552c0e539c69cd2b"
+      },
+      {
+        "id": "d59fyk6fqlts",
+        "path": "Work/l/t/s/d59fyk6fqlts-神咒錄.json",
+        "sha256": "db47f23e7f4bd94bbfb952d71810cd92febecba58dffb8a51c16f35ad3f377e9"
+      }
+    ],
+    "next_step": "核對各版本目錄及正文起訖，尋書目明文，不按相似度自動合併。"
+  },
+  {
+    "case_id": "MR-051",
+    "type": "Work",
+    "status": "open",
+    "ids": [
+      "d59fy113p4w1",
+      "d59fy113p4w0"
+    ],
+    "titles": [
+      "性理會通續編",
+      "性理大全會通"
+    ],
+    "reason": "性理會通續編42卷與性理大全會通70卷，同鍾人傑而分題明載續編；不可只按近題同作者合。若另有42卷同書條目，須先定位原本目次再擴組。",
+    "records": [
+      {
+        "id": "d59fy113p4w1",
+        "path": "Work/4/w/1/d59fy113p4w1-性理會通續編.json",
+        "sha256": "cca16c4ef18a1d1f3775c3c1ec589a7d368a1fbaa6945abb5887b7ec81633215"
+      },
+      {
+        "id": "d59fy113p4w0",
+        "path": "Work/4/w/0/d59fy113p4w0-性理大全會通.json",
+        "sha256": "b43a57c1724b3362181b0e7e0c04a104cfeae754023ccab5cb6bca502d25d030"
+      }
+    ],
+    "next_step": "核續編與正編目次起訖，獨立查找同42卷異題本。"
+  }
+]
