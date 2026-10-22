@@ -1,0 +1,1115 @@
+[
+  {
+    "case_id": "MR-H2000-001",
+    "type": "Work",
+    "status": "confirmed",
+    "title": "内外傷辨",
+    "members": [
+      "d59fxzex6s5c",
+      "d59fy3s5cvep"
+    ],
+    "keeper": "d59fxzex6s5c",
+    "losers": [
+      "d59fy3s5cvep"
+    ],
+    "direction_status": "proposal_only",
+    "reason": "两侧题名及三卷范围相同；第一责任者为同一李杲，上图person URI完全相同；两份原始author_info都明确金李杲撰。叢書子目自称来自叢書集成初編，独立一侧保存七种版本。子目authors写宋与其自己原著录相冲突，是归代字段问题，不是另一宋人同名著作。判同依据是题名、责任实体、朝代原文、卷数及子目层级的组合，并非source_bid或摘要相等。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 1,
+    "candidate_signals": [
+      "exact-title"
+    ],
+    "prior_cases": [],
+    "records": [
+      {
+        "id": "d59fxzex6s5c",
+        "path": "Work/s/5/c/d59fxzex6s5c-内外傷辨.json",
+        "blob_sha": "18df74d4a42a5b1458ba0d68d7ecc3d6e34e39f7",
+        "sha256": "1496322078026b2eef47302263883e7809af1d787511e94c2ddfb85ca87119f0"
+      },
+      {
+        "id": "d59fy3s5cvep",
+        "path": "Work/v/e/p/d59fy3s5cvep-内外傷辨.json",
+        "blob_sha": "598482496784dbb18c9d293ae912c15c19cc39cc",
+        "sha256": "b4a4ab3ebf8b46c200f2548ee242188ac53f5045b8f84df6845615758cb603ce"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxzex6s5c",
+        "pointer": "original-records.json#/d59fxzex6s5c/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "内外傷辨三卷",
+            "author_info": "金李杲撰",
+            "section": "子部/醫家類/叢編之屬",
+            "summary": "共 7 個版本：（北京大學圖書館）；（黑龍江省圖書館）；（中華醫學會上海分會圖書館、吉林省圖書館、浙江圖書館、天津圖書館、四川省圖書館、甘肅省圖書館、中國醫學科學院、湖南省圖書館、南京圖書館）；（北京大學圖書館）；（遼寧中醫藥大學圖書館、重慶市圖書館、陝西中醫藥研究院、天津中醫藥大學第一附屬醫院圖書館）；（國家圖書館、天津圖書館）；（上海圖書館）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/nfno34t2wtr8dqw5",
+          "https://data.library.sh.cn/gj/resource/instance/s4r11ulikcldqun7",
+          "https://data.library.sh.cn/gj/resource/instance/554luch5bma07lkj",
+          "https://data.library.sh.cn/gj/resource/instance/6urm1335h1lmfa80",
+          "https://data.library.sh.cn/gj/resource/instance/sohkt7pjb483d70z",
+          "https://data.library.sh.cn/gj/resource/instance/u4k6zqq03uhupgvz",
+          "https://data.library.sh.cn/gj/resource/instance/4srljtz7163xhn32"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "李杲",
+            "role": "撰",
+            "dynasty": "金",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/xu0m4utllwng485h"
+            }
+          }
+        ]
+      },
+      {
+        "id": "d59fy3s5cvep",
+        "pointer": "original-records.json#/d59fy3s5cvep/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "内外傷辨三卷",
+            "author_info": "金李杲撰",
+            "section": "叢書部/雜纂類/民國以來",
+            "summary": "共 1 個版本：（四川省圖書館、中國科學院圖書館、甘肅省圖書館、復旦大學圖書館、湖北省圖書館、天津圖書館、遼寧省圖書館、上海圖書館、國家圖書館、浙江圖書館）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/ypn5qj7cxc00ntif"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "李杲",
+            "role": "撰",
+            "dynasty": "宋",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/xu0m4utllwng485h"
+            }
+          }
+        ]
+      }
+    ],
+    "external_evidence_ids": [
+      "E-LI"
+    ],
+    "unresolved_execution_gates": [
+      "将子目authors[0].dynasty=宋的冲突在台账显式记为原著录金，保留原值及更正依据；不按宋另立李杲。",
+      "逐个保留两侧版本/分类来源；若Book层发现摘录范围则单独处置，不由Work判同推导Book可并。",
+      "执行前在最新main重验全部原档SHA256，处理main漂移；本批固定main只作研究基线。",
+      "全量扫描Work/Book/Collection/Entity/分类/promotions及book-text的入边与出边；当前SQLite只有活动Work、Entity及分类成员，不支持声称全引用闭包完成。",
+      "逐字段出无损保留表，保留不同indexed_by全文、authors责任角色、资源组、contained_in、关系及独有ai_note/description；source_bid不是唯一来源记录键。",
+      "确定keeper/losers后先出带前置SHA256的正式台账，再用可复现脚本改数据；同步草稿引用与promotions，仅改被并ID到keeper。",
+      "完成T/L/P/R审计、D草稿后续PR、schema、分类、builder检查；本批均未运行正式合并后检查。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  },
+  {
+    "case_id": "MR-H2000-002",
+    "type": "Work",
+    "status": "confirmed",
+    "title": "儼山外纂",
+    "members": [
+      "d59fxzsgg7wh",
+      "d59fy5ordpts"
+    ],
+    "keeper": "d59fxzsgg7wh",
+    "losers": [
+      "d59fy5ordpts"
+    ],
+    "direction_status": "proposal_only",
+    "reason": "同题、明陸深撰、一卷；两侧共享陸深person URI。子部版本明确为學海類編本，叢書侧父源明确學海類編四百三十種，构成具体载体回接；这是同一作品在子部与叢書子目重复建Work，不把學海類編整部与该一卷书合并。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 2,
+    "candidate_signals": [
+      "exact-title"
+    ],
+    "prior_cases": [],
+    "records": [
+      {
+        "id": "d59fxzsgg7wh",
+        "path": "Work/7/w/h/d59fxzsgg7wh-儼山外纂.json",
+        "blob_sha": "bd8c50a9b2dd4312e8ee26e8b3a9ef88ccacc51a",
+        "sha256": "8c2df4c7413fefb27b3a685142dee640c90783f1f81e411d76df4138c362a8a7"
+      },
+      {
+        "id": "d59fy5ordpts",
+        "path": "Work/p/t/s/d59fy5ordpts-儼山外纂.json",
+        "blob_sha": "f30f816a1d6728133716e41e0c2e86cd379c546c",
+        "sha256": "98bf05295232895dc6fa4a0a6bf0853fd6ca37a571c98e7666a7d48a337f8897"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxzsgg7wh",
+        "pointer": "original-records.json#/d59fxzsgg7wh/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "儼山外纂一卷",
+            "author_info": "明陸深撰",
+            "section": "子部/雜家類/雜學雜說之屬",
+            "summary": "共 1 個版本：學海類編本（馆藏未载）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/dduyfqsxnfb1vmlf"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "陸深",
+            "role": "撰",
+            "entity_id": "hixhd2h9bea4",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/tkkj2wx5jj55rm8e"
+            }
+          }
+        ]
+      },
+      {
+        "id": "d59fy5ordpts",
+        "pointer": "original-records.json#/d59fy5ordpts/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "儼山外纂一卷",
+            "author_info": "明陸深撰",
+            "section": "叢書部/雜纂類/清代前期",
+            "summary": "共 1 個版本：（福建省圖書館、中國科學院圖書館、中山大學圖書館、國家圖書館、上海圖書館、重慶市圖書館、北京大學圖書館、中國社會科學院文學研究所）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/yhlx1j60sh3nqxn8"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "陸深",
+            "role": "撰",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/tkkj2wx5jj55rm8e"
+            }
+          }
+        ]
+      }
+    ],
+    "external_evidence_ids": [],
+    "unresolved_execution_gates": [
+      "保留两条indexed_by及子部/叢書分类来源；叢書父源6vdgzv8ybc7u7qgg与两条instance来源均须落到Book/Collection再改引用。",
+      "执行前在最新main重验全部原档SHA256，处理main漂移；本批固定main只作研究基线。",
+      "全量扫描Work/Book/Collection/Entity/分类/promotions及book-text的入边与出边；当前SQLite只有活动Work、Entity及分类成员，不支持声称全引用闭包完成。",
+      "逐字段出无损保留表，保留不同indexed_by全文、authors责任角色、资源组、contained_in、关系及独有ai_note/description；source_bid不是唯一来源记录键。",
+      "确定keeper/losers后先出带前置SHA256的正式台账，再用可复现脚本改数据；同步草稿引用与promotions，仅改被并ID到keeper。",
+      "完成T/L/P/R审计、D草稿后续PR、schema、分类、builder检查；本批均未运行正式合并后检查。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  },
+  {
+    "case_id": "MR-H2000-003",
+    "type": "Work",
+    "status": "confirmed",
+    "title": "武備輯要",
+    "members": [
+      "d59fxsf7jk01",
+      "d59fy5b4dhxc"
+    ],
+    "keeper": "d59fy5b4dhxc",
+    "losers": [
+      "d59fxsf7jk01"
+    ],
+    "direction_status": "proposal_only",
+    "reason": "同题、清許學范撰、六卷及相同person URI；子部两版本之一明确敏果齋七種本，叢書侧父目明确敏果齋七種并记道光十二年广州刻。该版本与全书卷数相合，另抄本是作品的版本差异，不是另一著述。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 6,
+    "candidate_signals": [
+      "exact-title"
+    ],
+    "prior_cases": [],
+    "records": [
+      {
+        "id": "d59fxsf7jk01",
+        "path": "Work/k/0/1/d59fxsf7jk01-武備輯要.json",
+        "blob_sha": "ef796c678b4624cc34c39f0707c2a41b73cba408",
+        "sha256": "b8cc8a04f6c1fbbe636e94ec1a9c706aecd01b1331780d50ccd2febbffa3b937"
+      },
+      {
+        "id": "d59fy5b4dhxc",
+        "path": "Work/h/x/c/d59fy5b4dhxc-武備輯要.json",
+        "blob_sha": "67a3f4e1175eeb847c836120dc4fc09dc654cf35",
+        "sha256": "68a8978b31a6777300f76bb3902dd682e3a99e07235be506c1cccf4cd6fb4a42"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxsf7jk01",
+        "pointer": "original-records.json#/d59fxsf7jk01/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "武備輯要六卷",
+            "author_info": "清許學范撰",
+            "section": "叢書部/雜纂類/清代後期",
+            "summary": "共 1 個版本：清道光十二年廣州刻（天津圖書館、四川省圖書館、中國科學院圖書館、國家圖書館、上海圖書館、湖北省圖書館、南京圖書館、北京大學圖書館）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/ikcw0jc666bqrnkm"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "許學范",
+            "role": "撰",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/ibpu0zeldwngjt07"
+            }
+          }
+        ]
+      },
+      {
+        "id": "d59fy5b4dhxc",
+        "pointer": "original-records.json#/d59fy5b4dhxc/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "武備輯要六卷",
+            "author_info": "清許學范撰",
+            "section": "子部/兵家類",
+            "summary": "共 2 個版本：抄本（軍事科學院圖書館）；敏果齋七種本（馆藏未载）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/fuzwzc3a1icy883d",
+          "https://data.library.sh.cn/gj/resource/instance/2pw6yupcegvncb5p"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "許學范",
+            "role": "撰",
+            "entity_id": "hixi8us379j5",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/ibpu0zeldwngjt07"
+            }
+          }
+        ]
+      }
+    ],
+    "external_evidence_ids": [],
+    "unresolved_execution_gates": [
+      "保留子部抄本、敏果齋版本及叢書道光十二年来源三种著录信息；不能把抄本Book和刻本Book并为同版。",
+      "执行前在最新main重验全部原档SHA256，处理main漂移；本批固定main只作研究基线。",
+      "全量扫描Work/Book/Collection/Entity/分类/promotions及book-text的入边与出边；当前SQLite只有活动Work、Entity及分类成员，不支持声称全引用闭包完成。",
+      "逐字段出无损保留表，保留不同indexed_by全文、authors责任角色、资源组、contained_in、关系及独有ai_note/description；source_bid不是唯一来源记录键。",
+      "确定keeper/losers后先出带前置SHA256的正式台账，再用可复现脚本改数据；同步草稿引用与promotions，仅改被并ID到keeper。",
+      "完成T/L/P/R审计、D草稿后续PR、schema、分类、builder检查；本批均未运行正式合并后检查。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  },
+  {
+    "case_id": "MR-H2000-004",
+    "type": "Work",
+    "status": "open",
+    "title": "三元延壽參賛書／三元延壽參贊書",
+    "members": [
+      "d59f2gljz9c1",
+      "d59fy1wrcjcx"
+    ],
+    "keeper": null,
+    "losers": [],
+    "direction_status": "no_merge_direction",
+    "reason": "内部两条均李鵬飛、元、五卷，賛/贊题字及輯/集角色差异本来支持同一作品。但d59f2gljz9c1所挂kokusho-100314944资源的IIIF指向京大RB00000599；实开京大馆方目录署曲直瀬道三(正慶)著、一册写本。不能将该异责任资源当作李鵬飛作品的佐证，也不能不解决而整包搬运。依外部标识冲突门槛，本轮保持open。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 11,
+    "candidate_signals": [
+      "same-first-author-near-title"
+    ],
+    "prior_cases": [],
+    "records": [
+      {
+        "id": "d59f2gljz9c1",
+        "path": "Work/9/c/1/d59f2gljz9c1-三元延壽參賛書.json",
+        "blob_sha": "b6bc57415734b8698d63cedf177557a23d31652b",
+        "sha256": "d85c0bb43635f273a2b531a00bc51d64667c0fba841087d27d4a358227b00060"
+      },
+      {
+        "id": "d59fy1wrcjcx",
+        "path": "Work/j/c/x/d59fy1wrcjcx-三元延壽參贊書.json",
+        "blob_sha": "5f9a2c9b9dc9b97f62511a21dcc15c507b093e43",
+        "sha256": "deb666b0f7f81ef63a72fbd689ec8e36ead65717710bec20589a53593b33c5fc"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59f2gljz9c1",
+        "pointer": "original-records.json#/d59f2gljz9c1/data",
+        "catalogue_entries": [
+          {
+            "source": "四庫全書存目叢書",
+            "source_bid": "d59f2og4vke9",
+            "title_info": "《三元延壽參賛書》五卷",
+            "author_info": "元李鵬飛輯",
+            "summary": "《三元延壽參賛書》五卷。元李鵬飛輯。涵芬樓影印明正統刻道藏本。",
+            "edition": "涵芬樓影印明正統刻道藏本",
+            "volume": "第259冊",
+            "section": "子部"
+          }
+        ],
+        "source_instance_urls": [],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "李鵬飛",
+            "role": "輯",
+            "dynasty": "元",
+            "entity_id": "hixhd2h9bmi2",
+            "name_basis": "2026-08-24 補繫 entity：本條 authors 舊有名「李鵬飛」而無 entity_id，今繫 `1j96hjwlxny26`——庫中 primary_name 同之者唯一。其代「元」與本書已定之代「liao-jin-yuan」相合。"
+          }
+        ]
+      },
+      {
+        "id": "d59fy1wrcjcx",
+        "pointer": "original-records.json#/d59fy1wrcjcx/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "三元延壽參贊書五卷",
+            "author_info": "元李鵬飛集行",
+            "section": "子部/道家類/道教之屬/合編",
+            "summary": "共 1 個版本：（國家圖書館）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/oiim4sstfa2k7tdj"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "李鵬飛",
+            "role": "集",
+            "dynasty": "元"
+          }
+        ]
+      }
+    ],
+    "external_evidence_ids": [
+      "E-KYOTO"
+    ],
+    "unresolved_execution_gates": [
+      "实开国书100314944并比较京大RB00000599题签、序跋、首末；确认是错挂、同题异书、改编或传抄责任差异。",
+      "逐项提出resources、resource_groups及IIIF挂接纠偏；原资源信息必须有可追溯去向，未审不得静默删除。",
+      "资源归属解决后再审两条李鵬飛五卷Work身份；不要将日本一册写本册数误当五卷的卷数矛盾。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  },
+  {
+    "case_id": "MR-H2000-005",
+    "type": "Work",
+    "status": "confirmed",
+    "title": "三教平心論／靜齋學士三教平心論",
+    "members": [
+      "d59f2ghlbt34",
+      "d59f2gpjvnr5"
+    ],
+    "keeper": "d59f2ghlbt34",
+    "losers": [
+      "d59f2gpjvnr5"
+    ],
+    "direction_status": "proposal_only",
+    "reason": "两条内部独立目录著录均二卷，责任归元劉謐；长题目录保留劉謐靜齋學士三教平心論字串，短题有中國古籍總目二卷劉謐撰。CBETA官方检索命中卷下题三教平心論并署靜齋學士劉謐撰，说明靜齋學士属于责任称谓。旧分立理由静同劉字十是已记录的导入乱序，不可继续作为异作者证据。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 12,
+    "candidate_signals": [
+      "same-first-author-near-title"
+    ],
+    "prior_cases": [],
+    "records": [
+      {
+        "id": "d59f2ghlbt34",
+        "path": "Work/t/3/4/d59f2ghlbt34-三教平心論.json",
+        "blob_sha": "062e09a4b7ad5c6e2f75dfccc92e826f2f1304c9",
+        "sha256": "26ebb22aa3589ca40fa797c961cda4e5e0d5f3ff07d88449c0cf8db2a3674d49"
+      },
+      {
+        "id": "d59f2gpjvnr5",
+        "path": "Work/n/r/5/d59f2gpjvnr5-靜齋學士三教平心論.json",
+        "blob_sha": "5ab24c450661442dcd548be5157da5060398db77",
+        "sha256": "e7c237d825770f4404e1031b0b39ebd3b0aaa613e3d5aab70f2124d512498f5b"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59f2ghlbt34",
+        "pointer": "original-records.json#/d59f2ghlbt34/data",
+        "catalogue_entries": [
+          {
+            "source": "國史經籍志",
+            "source_bid": "d59f2nl40936",
+            "title_info": "《三教平心論》二卷",
+            "summary": "《三教平心論》二卷（靜同劉字十）"
+          },
+          {
+            "source": "中國古籍總目",
+            "source_bid": "d59frnrt4lxc",
+            "title_info": "三敎平心論二卷",
+            "author_info": "元劉謐撰",
+            "section": "子部/釋家類/大藏之屬",
+            "summary": "共 4 個版本：明續刻（馆藏未载）；明萬曆十二年續刻（馆藏未载）；清抄本（北京大學圖書館）；清順治八年嘉興楞嚴寺刻（臺灣圖書館、北京市法源寺）"
+          },
+          {
+            "source": "中國古籍總目",
+            "source_bid": "d59frnrt4lxc",
+            "title_info": "三教平心論二卷",
+            "author_info": "元劉謐撰",
+            "section": "子部/釋家類/大藏之屬",
+            "summary": "共 1 個版本：（上海圖書館、寧夏壽佛寺、南京圖書館、福州市雪峰崇聖寺、蘇州市西園寺、重慶市慈雲寺、青島市湛山寺、南陽市水帘寺、國家圖書館、哈爾濱市極樂寺、大同市吉祥寺）"
+          }
+        ],
+        "source_instance_urls": [],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "劉謐",
+            "role": "撰",
+            "dynasty": "元",
+            "name_basis": "《國史經籍志》括注舊匯入作「靜同劉字十」——非人名，是括注之亂序殘文（其中「劉」「字」二字尚存，當是「劉謐字靜同」之屬）。《三教平心論》二卷，通行著錄皆繫元人劉謐。今據以正之。**此判所據非本庫之證，而是通行著錄，俟覆核原志。**"
+          }
+        ]
+      },
+      {
+        "id": "d59f2gpjvnr5",
+        "pointer": "original-records.json#/d59f2gpjvnr5/data",
+        "catalogue_entries": [
+          {
+            "source": "補遼金元藝文志",
+            "source_bid": "d59f2mp1zsox",
+            "title_info": "劉謐靜齋學士三教平心論二卷",
+            "summary": "元劉謐靜齋學士三教平心論二卷"
+          },
+          {
+            "source": "元史藝文志",
+            "source_bid": "d59f2mp1zsoz",
+            "title_info": "《靜齋學士三教平心論》二卷",
+            "summary": "元劉謐靜齋學士三教平心論二卷"
+          }
+        ],
+        "source_instance_urls": [],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "劉謐",
+            "role": "撰",
+            "dynasty": "元",
+            "entity_id": "hixhd2h9bh1y"
+          }
+        ]
+      }
+    ],
+    "external_evidence_ids": [
+      "E-CBETA-SANJIAO"
+    ],
+    "unresolved_execution_gates": [
+      "短题description仍把静同劉字十当人名且说仅一志著录；保留原文于台账并另给可追溯更正，不能无损拼接污染为事实。",
+      "完整保留长题ai_note中的旧并入历史1evkaiy7xtp1c，核实其墓碑与promotions，不使用旧1876映射。",
+      "另有第三条d59f6ekv7h1c静齋學士三教平心論，已读全文作上下文，未计新增身份确认；执行前纳入闭包并单独裁决，避免只并两条又漏第三条。",
+      "CBETA实开仅返回前端框架；官方索引题署是辅助佐证，执行前最好留原页影像或可取的正文版本。",
+      "执行前在最新main重验全部原档SHA256，处理main漂移；本批固定main只作研究基线。",
+      "全量扫描Work/Book/Collection/Entity/分类/promotions及book-text的入边与出边；当前SQLite只有活动Work、Entity及分类成员，不支持声称全引用闭包完成。",
+      "逐字段出无损保留表，保留不同indexed_by全文、authors责任角色、资源组、contained_in、关系及独有ai_note/description；source_bid不是唯一来源记录键。",
+      "确定keeper/losers后先出带前置SHA256的正式台账，再用可复现脚本改数据；同步草稿引用与promotions，仅改被并ID到keeper。",
+      "完成T/L/P/R审计、D草稿后续PR、schema、分类、builder检查；本批均未运行正式合并后检查。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  },
+  {
+    "case_id": "MR-H2000-006",
+    "type": "Work",
+    "status": "confirmed",
+    "title": "下陴紀談／下陴記談",
+    "members": [
+      "d59f2nengg75",
+      "d59f2ngxjv9f"
+    ],
+    "keeper": "d59f2ngxjv9f",
+    "losers": [
+      "d59f2nengg75"
+    ],
+    "direction_status": "proposal_only",
+    "reason": "两侧均明皇甫錄、同一实体hixhd2h9bf7o、二卷。四庫總目提要明确该书为守顺庆时作并解释下陴题名；另一侧存目叢書及總目载嘉靖刻本。紀/記不改变这个特定作品识别；没有另一个作者或注疏层。四庫侧末附皇甫沖三峽山水記一卷必须保留为附书信息，不将父子责任混同。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 13,
+    "candidate_signals": [
+      "same-first-author-near-title"
+    ],
+    "prior_cases": [],
+    "records": [
+      {
+        "id": "d59f2nengg75",
+        "path": "Work/g/7/5/d59f2nengg75-下陴紀談.json",
+        "blob_sha": "d72f39682e3d4c767034b2851801d85f06a54963",
+        "sha256": "d0a54a3f0bbff115a18b671e89ad95043442b052fd062712bf888c233a2f7500"
+      },
+      {
+        "id": "d59f2ngxjv9f",
+        "path": "Work/v/9/f/d59f2ngxjv9f-下陴記談.json",
+        "blob_sha": "93a459be28edb25d2fc77e67b64807be14bd013c",
+        "sha256": "6a8c6177a3fbfcb0bf54d65e4d7bc57876e0104b72b8ff5bf818d0bd5f561f64"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59f2nengg75",
+        "pointer": "original-records.json#/d59f2nengg75/data",
+        "catalogue_entries": [
+          {
+            "source": "欽定四庫全書總目",
+            "source_bid": "d59dh3vo9af4",
+            "title_info": "《下陴紀談》•二卷",
+            "author_info": "明皇甫錄撰",
+            "summary": "明皇甫錄撰。是書乃其守四川順慶府時所作。或載時事，或考前聞，大抵皆有關於是地者也。時值藍鄢之亂，賊三犯順慶，錄授兵固守。以其登城則守陴，下陴則著書，故以下陴為名。末附三峽山水記一卷，為其子沖作。沖字子浚，嘉靖戊子舉人。《明史》附見皇甫涍傳。稱所著有《幾策》、《兵統》、《枕戈雜言》三書，今皆未見，惟此記附其父書以存耳。",
+            "edition": "浙江范懋柱家天一閣藏本"
+          }
+        ],
+        "source_instance_urls": [],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "皇甫錄",
+            "role": "撰",
+            "dynasty": "明",
+            "entity_id": "hixhd2h9bf7o"
+          }
+        ]
+      },
+      {
+        "id": "d59f2ngxjv9f",
+        "pointer": "original-records.json#/d59f2ngxjv9f/data",
+        "catalogue_entries": [
+          {
+            "source": "四庫全書存目叢書",
+            "source_bid": "d59f2og4vke9",
+            "title_info": "《下陴記談》二卷",
+            "author_info": "明皇甫錄撰",
+            "summary": "《下陴記談》二卷。明皇甫錄撰。北京圖書館藏明嘉靖刻本。",
+            "edition": "北京圖書館藏明嘉靖刻本",
+            "volume": "第239冊",
+            "section": "子部"
+          },
+          {
+            "source": "中國古籍總目",
+            "source_bid": "d59frnrt4lxc",
+            "title_info": "下陴記談二卷",
+            "author_info": "明皇甫錄撰",
+            "section": "集部/別集類/雜志之屬",
+            "summary": "共 1 個版本：明嘉靖間刻本（國家圖書館）"
+          }
+        ],
+        "source_instance_urls": [],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "皇甫錄",
+            "role": "撰",
+            "dynasty": "明",
+            "entity_id": "hixhd2h9bf7o"
+          }
+        ]
+      }
+    ],
+    "external_evidence_ids": [
+      "E-XIAPI"
+    ],
+    "unresolved_execution_gates": [
+      "核Book是否含三峽山水記附卷；不能把附书一卷并入主书二卷或把皇甫沖写成主书作者。",
+      "保留天一閣藏本与国图嘉靖本来源的差别，description中仅一志著录的旧断语须随合并重述并留原文。",
+      "执行前在最新main重验全部原档SHA256，处理main漂移；本批固定main只作研究基线。",
+      "全量扫描Work/Book/Collection/Entity/分类/promotions及book-text的入边与出边；当前SQLite只有活动Work、Entity及分类成员，不支持声称全引用闭包完成。",
+      "逐字段出无损保留表，保留不同indexed_by全文、authors责任角色、资源组、contained_in、关系及独有ai_note/description；source_bid不是唯一来源记录键。",
+      "确定keeper/losers后先出带前置SHA256的正式台账，再用可复现脚本改数据；同步草稿引用与promotions，仅改被并ID到keeper。",
+      "完成T/L/P/R审计、D草稿后续PR、schema、分类、builder检查；本批均未运行正式合并后检查。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  },
+  {
+    "case_id": "MR-H2000-007",
+    "type": "Work",
+    "status": "confirmed",
+    "title": "駉思室答問",
+    "members": [
+      "d59fxyeqa8lc",
+      "d59fxz4jjn5t"
+    ],
+    "keeper": "d59fxyeqa8lc",
+    "losers": [
+      "d59fxz4jjn5t"
+    ],
+    "direction_status": "proposal_only",
+    "reason": "同题一卷，子部成蓉鏡侧版本含南菁書院叢書；叢書侧父目正是南菁書院叢書，author_info明确清成孺（蓉鏡）撰。当前成孺实体hixhd2f8wain已列成蓉鏡别名且保留两侧上图URI；清史稿成孺传实开明确原名蓉镜，构成独立人物消歧证据。此案是两个Work重复，不需要重新合并已合人物。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 15,
+    "candidate_signals": [
+      "exact-title"
+    ],
+    "prior_cases": [],
+    "records": [
+      {
+        "id": "d59fxyeqa8lc",
+        "path": "Work/8/l/c/d59fxyeqa8lc-駉思室答問.json",
+        "blob_sha": "73d165ef7ae3c83d4bca68648756b003286678c0",
+        "sha256": "f9a186cf23f8e36b8c561cd0da189a608ba5da58a8300623fb8c91e1b9ad4ff6"
+      },
+      {
+        "id": "d59fxz4jjn5t",
+        "path": "Work/n/5/t/d59fxz4jjn5t-駉思室答問.json",
+        "blob_sha": "b502f003db72697321761560494b90d7d3d924b8",
+        "sha256": "2372d95f02f810b3c51c0380a657d2b03a7f7cc78e743174b35640f8b8397854"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxyeqa8lc",
+        "pointer": "original-records.json#/d59fxyeqa8lc/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "駉思室答問一卷",
+            "author_info": "清成蓉鏡撰",
+            "section": "子部/雜家類/雜考之屬",
+            "summary": "共 2 個版本：成氏遺書本（馆藏未载）；南菁書院叢書本（馆藏未载）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/sgi8ztywluiebu7m",
+          "https://data.library.sh.cn/gj/resource/instance/we0t6mr0pbsbguj7"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "成蓉鏡",
+            "role": "撰",
+            "entity_id": "hixhd2f8wain",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/u3vq28wodcu0naeg"
+            }
+          }
+        ]
+      },
+      {
+        "id": "d59fxz4jjn5t",
+        "pointer": "original-records.json#/d59fxz4jjn5t/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "駉思室答問一卷",
+            "author_info": "清成孺（蓉鏡）撰",
+            "section": "叢書部/雜纂類/清代後期",
+            "summary": "共 1 個版本：（上海圖書館、四川省圖書館、北京大學圖書館、浙江圖書館、湖北省圖書館、天津圖書館、國家圖書館、甘肅省圖書館、中國科學院圖書館、遼寧省圖書館、復旦大學圖書館、南京圖書館、山東省圖書館）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/sroudj7rwb354b32"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "成孺",
+            "role": "撰",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/guw4n54wdzoabnej"
+            }
+          }
+        ]
+      }
+    ],
+    "external_evidence_ids": [
+      "E-CHENG"
+    ],
+    "unresolved_execution_gates": [
+      "保留成孺、成蓉鏡两个原始署名及各自person URI，统一指向当前hixhd2f8wain前核墓碑链。",
+      "父南菁書院叢書51ge66l3yznzczdc、成氏遺書本来源与Book容器关系另行保存。",
+      "执行前在最新main重验全部原档SHA256，处理main漂移；本批固定main只作研究基线。",
+      "全量扫描Work/Book/Collection/Entity/分类/promotions及book-text的入边与出边；当前SQLite只有活动Work、Entity及分类成员，不支持声称全引用闭包完成。",
+      "逐字段出无损保留表，保留不同indexed_by全文、authors责任角色、资源组、contained_in、关系及独有ai_note/description；source_bid不是唯一来源记录键。",
+      "确定keeper/losers后先出带前置SHA256的正式台账，再用可复现脚本改数据；同步草稿引用与promotions，仅改被并ID到keeper。",
+      "完成T/L/P/R审计、D草稿后续PR、schema、分类、builder检查；本批均未运行正式合并后检查。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  },
+  {
+    "case_id": "MR-H2000-008",
+    "type": "Work",
+    "status": "open",
+    "title": "天方字母解義一卷／三卷",
+    "members": [
+      "d59fxwpstl36",
+      "d59fykw5vpj4"
+    ],
+    "keeper": null,
+    "losers": [],
+    "direction_status": "no_merge_direction",
+    "reason": "两侧同题同清劉智且person URI相同，但一侧一卷且无补者，另一侧三卷并明确馬德新（復初）補；后者structured authors漏补者。具体版本也分别为镇江/光绪十九年与同治二年/成都光绪十二年。不能从同首位责任者推导一卷原著与三卷补本完全同一；现证据尚不足判独立改编或同Work附补版本。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 18,
+    "candidate_signals": [
+      "exact-title"
+    ],
+    "prior_cases": [],
+    "records": [
+      {
+        "id": "d59fxwpstl36",
+        "path": "Work/l/3/6/d59fxwpstl36-天方字母解義.json",
+        "blob_sha": "000f9404fe39475b734f7098ffacd0cbe930f36c",
+        "sha256": "b4aae46092f48791b6656701e7db6dc5a699157fca6b0f2f6a9257e871bcf701"
+      },
+      {
+        "id": "d59fykw5vpj4",
+        "path": "Work/p/j/4/d59fykw5vpj4-天方字母解義.json",
+        "blob_sha": "cf91bec85f1105059570b46c88b0ebc0b56f2651",
+        "sha256": "e0c0bf31e29072cb80d89275f8d2935bc0f11c7609fc97f04864fa6bf0c8383a"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxwpstl36",
+        "pointer": "original-records.json#/d59fxwpstl36/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "天方字母解義一卷",
+            "author_info": "清劉智撰",
+            "section": "經部/小學類/譯文之屬",
+            "summary": "共 2 個版本：清刻鎮江西關外印本（北京大學圖書館）；清光緒十九年刻本（天津圖書館）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/140yk1oxtwika6ch",
+          "https://data.library.sh.cn/gj/resource/instance/ul7cldphm6sh1kxv"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "劉智",
+            "role": "撰",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/8x6buml4badmtj7w"
+            }
+          }
+        ]
+      },
+      {
+        "id": "d59fykw5vpj4",
+        "pointer": "original-records.json#/d59fykw5vpj4/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "天方字母解義三卷",
+            "author_info": "清劉智撰;清馬德新（復初）補",
+            "section": "子部/諸教類/伊斯蘭教之屬/史志",
+            "summary": "共 2 個版本：清同治二年刻本（國家圖書館）；清光緒十二年成都周氏敬畏堂刻本刻本（國家圖書館）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/oue7783k55z5fw2k",
+          "https://data.library.sh.cn/gj/resource/instance/cyr1ngpbl4tv05wg"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "劉智",
+            "role": "撰",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/8x6buml4badmtj7w"
+            }
+          }
+        ]
+      }
+    ],
+    "external_evidence_ids": [],
+    "unresolved_execution_gates": [
+      "取得四条实例140yk1oxtwika6ch、ul7cldphm6sh1kxv、oue7783k55z5fw2k、cyr1ngpbl4tv05wg的题页、目录、序跋和补文起讫。",
+      "判明三卷为原著分卷、合刊补编还是再创作；保留馬德新补的责任，未定范围不批量改Book.work_id。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  },
+  {
+    "case_id": "MR-H2000-009",
+    "type": "Work",
+    "status": "separate",
+    "title": "七俱胝佛母所說准提陀羅尼經／會釋",
+    "members": [
+      "d59fyeuscb9d",
+      "d59fyeusysch"
+    ],
+    "keeper": null,
+    "losers": [],
+    "direction_status": "no_merge_direction",
+    "reason": "一卷原经为唐不空译；三卷會釋明确清弘贊会释且类别为章疏，书名含會釋。CBETA官方发布目录独立列X0446三卷、清弘贊会释，支持这是后出解释文本。原经与会释有著述层级差异，应分立关联，不是仅同一作品两个版本。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 19,
+    "candidate_signals": [
+      "same-first-author-near-title"
+    ],
+    "prior_cases": [],
+    "records": [
+      {
+        "id": "d59fyeuscb9d",
+        "path": "Work/b/9/d/d59fyeuscb9d-七俱胝佛母所說准提陀羅尼經會釋.json",
+        "blob_sha": "b46f38830b639436ca5e730e24e26b25e0d1008b",
+        "sha256": "9cee2e9016c2e1063b1793e4572aebe9d0e1150f99654bfe00bc36bcafb88670"
+      },
+      {
+        "id": "d59fyeusysch",
+        "path": "Work/s/c/h/d59fyeusysch-七俱胝佛母所說准提陀羅尼經.json",
+        "blob_sha": "f46b7cba9e3c2c049597b3f50199f5da8721d8fd",
+        "sha256": "a10e2ef168b3f9c9e94d9e28b171ca07de610ed4597855e4815f559dcc06181d"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fyeuscb9d",
+        "pointer": "original-records.json#/d59fyeuscb9d/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "七俱胝佛母所說准提陀羅尼經會釋三卷",
+            "author_info": "唐釋不空譯;清釋弘贊會釋",
+            "section": "子部/釋家類/撰述之屬/章疏部",
+            "summary": "共 4 個版本：清光緒間刻本（國家圖書館）；清宣統三年常州刻本（國家圖書館）；清康熙十年刻（臺灣圖書館、北京市法源寺）；清宣統三年常州天寧寺刻經處刻本（上海圖書館）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/3ducvme2v7n163hn",
+          "https://data.library.sh.cn/gj/resource/instance/n5jx0ublysi0owpp",
+          "https://data.library.sh.cn/gj/resource/instance/2ti6p3g80j4kocdg",
+          "https://data.library.sh.cn/gj/resource/instance/5ymorompix3l2as7"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "釋不空",
+            "role": "譯",
+            "dynasty": "唐",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/kfyeroe0q7mtyp4c"
+            }
+          },
+          {
+            "name": "釋弘贊",
+            "role": "撰",
+            "dynasty": "清",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/fqfz73otb4ci3md8"
+            }
+          }
+        ]
+      },
+      {
+        "id": "d59fyeusysch",
+        "pointer": "original-records.json#/d59fyeusysch/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "七俱胝佛母所說准提陀羅尼經一卷",
+            "author_info": "唐釋不空譯",
+            "section": "子部/釋家類/大藏之屬",
+            "summary": "共 9 個版本：明萬曆四十五年刻（臺灣圖書館、北京市法源寺）；宋政和元年福州東禪等覺院刻（馆藏未载）；明永樂十八年至正統五年刻（馆藏未载）；明永樂間刻（馆藏未载）；元至元間杭州路餘杭大普寧寺刻（日本東京增上寺、日本東京淺草寺）；（日本龍谷大學）；（馆藏未载）；（馆藏未载）；（馆藏未载）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/r7fs5dxdbk8wxb3h",
+          "https://data.library.sh.cn/gj/resource/instance/j6im7gaxdxnulhmi",
+          "https://data.library.sh.cn/gj/resource/instance/hwtj8wkrb10jau30",
+          "https://data.library.sh.cn/gj/resource/instance/32jfnctwucq5eu4p",
+          "https://data.library.sh.cn/gj/resource/instance/36u8lm1l13w7bbks"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "釋不空",
+            "role": "譯",
+            "dynasty": "唐",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/kfyeroe0q7mtyp4c"
+            }
+          }
+        ]
+      }
+    ],
+    "external_evidence_ids": [
+      "E-CBETA-HUISHI"
+    ],
+    "unresolved_execution_gates": [
+      "禁止本对合并；可另拟原经—会释关系，选择schema支持关系后再写。",
+      "会释Work当前dynasty=唐由第一译者传播而来，与会释成书时代不同；应另审责任层与断代，不因本次分立擅改。",
+      "其related_works目标d59fyjst1jwg不在本对判定中，不能外推其身份。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  },
+  {
+    "case_id": "MR-H2000-010",
+    "type": "Work",
+    "status": "separate",
+    "title": "三子通義／列子通義",
+    "members": [
+      "d59f6eqe1n2c",
+      "d59fyirefshs"
+    ],
+    "keeper": null,
+    "losers": [],
+    "direction_status": "no_merge_direction",
+    "reason": "千頃堂書目原文把三子通義展开为老子二卷、莊子十卷、列子八卷，合二十卷；另一条列子通義八卷版本明确三子通義本。是整体与所含八卷子书，作者相同及题名包含不能构成重复。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 20,
+    "candidate_signals": [
+      "same-first-author-near-title"
+    ],
+    "prior_cases": [],
+    "records": [
+      {
+        "id": "d59f6eqe1n2c",
+        "path": "Work/n/2/c/d59f6eqe1n2c-三子通義.json",
+        "blob_sha": "5577e425e037122a879b1dbe3227ee71dd2f6b86",
+        "sha256": "26fa24f8ed74ea102a4ddb988305e460a82c2bdb523521447cc932a1d126d8ce"
+      },
+      {
+        "id": "d59fyirefshs",
+        "path": "Work/s/h/s/d59fyirefshs-列子通義.json",
+        "blob_sha": "9eb091a3bcd05e52e31cd3e80722aa05d56a3bd4",
+        "sha256": "fed195ae536e4d1e67989d7c415624116369d1a074a11921d2a1b97e07ab993e"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59f6eqe1n2c",
+        "pointer": "original-records.json#/d59f6eqe1n2c/data",
+        "catalogue_entries": [
+          {
+            "source": "千頃堂書目",
+            "source_bid": "d59f2mel8d1c",
+            "title_info": "朱得之三子通義",
+            "author_info": "老子二卷荘子十卷列子八卷",
+            "summary": "朱得之三子通義⟨老子二卷荘子十卷列子八卷⟩"
+          },
+          {
+            "source": "中國古籍總目",
+            "source_bid": "d59frnrt4lxc",
+            "title_info": "三子通義",
+            "author_info": "明朱得之撰",
+            "section": "子部/道家類/先秦之屬/合編",
+            "summary": "共 1 個版本：明嘉靖四十四年浩然齋刻本（中共中央黨校圖書館、上海圖書館、北京師範大學圖書館、山東省圖書館、無錫市圖書館）"
+          }
+        ],
+        "source_instance_urls": [],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "朱得之",
+            "role": "撰",
+            "entity_id": "hixhd2h9bf0b"
+          }
+        ]
+      },
+      {
+        "id": "d59fyirefshs",
+        "pointer": "original-records.json#/d59fyirefshs/data",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "列子通義八卷",
+            "author_info": "明朱得之撰",
+            "section": "子部/道家類/先秦之屬/其他",
+            "summary": "共 2 個版本：明王潼錄刻本（北京大學圖書館）；三子通義本（馆藏未载）"
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/ablbabuza1iq5e6q",
+          "https://data.library.sh.cn/gj/resource/instance/g6ipiqfwmlpu2527"
+        ],
+        "source_instance_access": "not_fetched; provenance from fixed-main ai_note",
+        "authors": [
+          {
+            "name": "朱得之",
+            "role": "撰",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/7lpztsabbzyazkyf"
+            }
+          }
+        ]
+      }
+    ],
+    "external_evidence_ids": [],
+    "unresolved_execution_gates": [
+      "禁止将二十卷整体与八卷子书合并；另审整体/子书关系及Book层contained_in表达。",
+      "三子通義资源自带存一种标题的扫描，应查实际所存子书，不将局部影像说明为二十卷齐备。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  }
+]

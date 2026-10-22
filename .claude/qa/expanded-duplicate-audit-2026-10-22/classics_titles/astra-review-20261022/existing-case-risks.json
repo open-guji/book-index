@@ -1,0 +1,27 @@
+[
+  {
+    "case_id": "JC-007",
+    "type": "execution_risk_override",
+    "status": "confirmed",
+    "execution_hold": true,
+    "not_a_new_identity_case": true,
+    "main_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "record_id": "d59fxvkzjk76",
+    "path": "Work/k/7/6/d59fxvkzjk76-王肅周易注.json",
+    "sha256": "8ba3033f5fd6eb5e70e8ecf2f9390e9db8cc9b2542a725d6065917930c50dc8e",
+    "changed_field": "related_works",
+    "old_value": null,
+    "current_value": [
+      {
+        "id": "d59fxx72mb5u",
+        "relation": "related",
+        "note": "經部深度查重：同作者+题名包含+卷数相容，未並，待核"
+      }
+    ],
+    "finding": "新增指向d59fxx72mb5u的related關係，註為同作者、題名包含、卷數相容，未並待核；兩端均為JC-007擬併至d59f27yxltdu的loser。",
+    "identity_effect": "新增候選關係不單獨推翻舊同一性裁決；原著錄、責任者及卷數字段未變。",
+    "execution_effect": "舊SHA前置條件失效。直接把兩端重指keeper會生成自關係，原note亦會保留過期未並待核判語；必須先更新台賬並明定邊與note的處理，不能照搬舊machine_decision。",
+    "next_step": "把當前完整related_works及原note存入修復台賬，明確擬並後自邊的語義處理；重新完成無損與引用檢查後方可解除本項hold。",
+    "applied": false
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "ref": "c6dd8356d",
+  "source_checks": [
+    {
+      "path": "Entity/6/f/x/hixi8u5rf6fx-釋篆玉.json",
+      "expected": "ee30ae833f3f8c49d3bb74101ef73adab5ce6710bb7a333d934baa47d20dc8fc",
+      "actual": "ee30ae833f3f8c49d3bb74101ef73adab5ce6710bb7a333d934baa47d20dc8fc",
+      "ok": true
+    },
+    {
+      "path": "Entity/j/c/k/hixhd2h9bjck-篆玉.json",
+      "expected": "da676f7f4fadbcff83d52ee59a51d1e2211e5de9d4a20433facc1e1f4325dc0a",
+      "actual": "da676f7f4fadbcff83d52ee59a51d1e2211e5de9d4a20433facc1e1f4325dc0a",
+      "ok": true
+    },
+    {
+      "path": "Entity/s/y/c/hixhd2h9bsyc-菩提流志.json",
+      "expected": "2b3daf3c0eaeb4409eaec32e196fa3b7e1d640e092275e1107d6834502a906e4",
+      "actual": "2b3daf3c0eaeb4409eaec32e196fa3b7e1d640e092275e1107d6834502a906e4",
+      "ok": true
+    },
+    {
+      "path": "Entity/m/8/1/hixi5eks7m81-釋菩提流志.json",
+      "expected": "0bb9778c36c51ea37140e2a62611439933425ac67766fc2174bacce44a03b7c1",
+      "actual": "0bb9778c36c51ea37140e2a62611439933425ac67766fc2174bacce44a03b7c1",
+      "ok": true
+    },
+    {
+      "path": "Work/8/u/9/d59fxzprd8u9-話墮二集.json",
+      "expected": "a3f418fb06129da973af4b75be1edad0f0163dafae5fcc5385e3357f8f897a47",
+      "actual": "a3f418fb06129da973af4b75be1edad0f0163dafae5fcc5385e3357f8f897a47",
+      "ok": true
+    },
+    {
+      "path": "Work/4/1/s/d59fxyc4y41s-話墮三集.json",
+      "expected": "c979174ca25760809f6ebcb20918102553e3286a2bcdf3f7a9d356e8d36ea4fc",
+      "actual": "c979174ca25760809f6ebcb20918102553e3286a2bcdf3f7a9d356e8d36ea4fc",
+      "ok": true
+    },
+    {
+      "path": "Work/o/z/k/d59f2nqjeozk-話墮集.json",
+      "expected": "393991856c42208c8476b83e0cd6957d1a99e6fe4c68c78bb08f21c338334c44",
+      "actual": "393991856c42208c8476b83e0cd6957d1a99e6fe4c68c78bb08f21c338334c44",
+      "ok": true
+    },
+    {
+      "path": "Work/x/6/w/d59f28jd0x6w-大寶積經.json",
+      "expected": "a862253cca413666a797d57e07f647c733b85792bdf087e72872bbd33014bd87",
+      "actual": "a862253cca413666a797d57e07f647c733b85792bdf087e72872bbd33014bd87",
+      "ok": true
+    }
+  ],
+  "source_checks_pass": true,
+  "ready_to_apply": false,
+  "native_mutations": 0,
+  "reason": "Identity confirmation and source hashes do not replace full-reference, cross-repository, losslessness and schema gates.",
+  "candidate_mappings": {
+    "hixhd2h9bjck": "hixi8u5rf6fx",
+    "hixi5eks7m81": "hixhd2h9bsyc"
+  },
+  "pending_gates": [
+    "book-index-draft引用与生产ID同步检查",
+    "book-text文本及元数据引用检查",
+    "check_v2/check-classification/build_derived gates after any future native edit",
+    "当前正式库全字段引用与promotions扫描",
+    "规范墓碑/merged_in/merge_history更新方案与无损审计"
+  ]
+}

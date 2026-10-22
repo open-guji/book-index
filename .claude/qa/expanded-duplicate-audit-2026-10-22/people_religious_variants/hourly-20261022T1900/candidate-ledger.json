@@ -1,0 +1,1126 @@
+{
+  "schema": "research-only-person-field-ledger-v1",
+  "main_ref": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+  "ready_to_apply": false,
+  "native_mutations": 0,
+  "merges": [
+    {
+      "cluster_id": "PRV-H1900-P007",
+      "type": "people",
+      "keeper": "hixi8u5rf6fx",
+      "losers": [
+        "hixhd2h9bjck"
+      ],
+      "preconditions": [
+        {
+          "id": "hixi8u5rf6fx",
+          "path": "Entity/6/f/x/hixi8u5rf6fx-釋篆玉.json",
+          "sha256": "ee30ae833f3f8c49d3bb74101ef73adab5ce6710bb7a333d934baa47d20dc8fc",
+          "git_blob_sha": "a2f70ea01561baefb58c86f73395fd12a70f8f0f"
+        },
+        {
+          "id": "hixhd2h9bjck",
+          "path": "Entity/j/c/k/hixhd2h9bjck-篆玉.json",
+          "sha256": "da676f7f4fadbcff83d52ee59a51d1e2211e5de9d4a20433facc1e1f4325dc0a",
+          "git_blob_sha": "f14167be2e0c67690737ea0fb94df73c03daa9e8"
+        }
+      ],
+      "field_ledger": [
+        {
+          "field": "ai_note",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": true,
+              "value": "集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/h85po5zxenm8rpwd）新建；著錄 2 處，同 uri 視為同一人；未對接 CBDB。"
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": false
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "[來源 hixi8u5rf6fx] 集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/h85po5zxenm8rpwd）新建；著錄 2 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-10-22 PRV-H1900-P007 候選并條理由：清篆玉話墮集；同一 Work d59f2nqjeozk 同時有清史稿篆玉與中國古籍總目清釋篆玉兩種責任者署法。二集三集仍分立，只合人物。 證據：https://www.shidianguji.com/zh/book/CADAL02036163/chapter/1lafpp28af1nv。舊說明中的著錄處數／部數為建檔當時記載，不是本輪引用掃描結果。"
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "retain_all_attributed_original_text; add_research_reason_only",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "alt_names",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": false
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": false
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": [
+              {
+                "name": "篆玉",
+                "type": "別名",
+                "note": "清篆玉話墮集；同一 Work d59f2nqjeozk 同時有清史稿篆玉與中國古籍總目清釋篆玉兩種責任者署法。二集三集仍分立，只合人物。"
+              }
+            ]
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "stable_exact_object_union; preserve_historical_ids",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "description",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": true,
+              "value": {
+                "sources": [
+                  {
+                    "name": "中國古籍總目",
+                    "type": "url",
+                    "details": "http://data.library.sh.cn/entity/person/h85po5zxenm8rpwd"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": false
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": {
+              "sources": [
+                {
+                  "name": "中國古籍總目",
+                  "type": "url",
+                  "details": "http://data.library.sh.cn/entity/person/h85po5zxenm8rpwd"
+                },
+                {
+                  "name": "話墮集卷三（識典古籍轉錄）",
+                  "type": "url",
+                  "details": "https://www.shidianguji.com/zh/book/CADAL02036163/chapter/1lafpp28af1nv"
+                }
+              ]
+            }
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "preserve_source_objects_exactly; stable_union; append_evidence_source",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "dynasty",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": true,
+              "value": "清"
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": true,
+              "value": "清"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "清"
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "dynasty_basis",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": true,
+              "value": "據《中國古籍總目》責任者著錄"
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": false
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "據《中國古籍總目》責任者著錄"
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "retain_all_attributed_original_text; add_research_reason_only",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "id",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": true,
+              "value": "hixi8u5rf6fx"
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": true,
+              "value": "hixhd2h9bjck"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "hixi8u5rf6fx"
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "hixhd2h9bjck"
+          },
+          "action": "keeper_id_retained; loser_id_retained_in_tombstone_and_merged_in",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "merged_in",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": false
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": false
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": [
+              {
+                "id": "hixhd2h9bjck",
+                "primary_name": "篆玉",
+                "at": "2026-10-22",
+                "by": "expanded-duplicate-audit",
+                "rule": "PRV-P007",
+                "why": "清篆玉話墮集；同一 Work d59f2nqjeozk 同時有清史稿篆玉與中國古籍總目清釋篆玉兩種責任者署法。二集三集仍分立，只合人物。"
+              }
+            ]
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "stable_exact_object_union; preserve_historical_ids",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "merged_into",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": false
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": false
+            }
+          ],
+          "keeper_after": {
+            "present": false
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "hixi8u5rf6fx"
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "period",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": true,
+              "value": "qing"
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": true,
+              "value": "qing"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "qing"
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "period_basis",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": false
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": true,
+              "value": "據 dynasty「清」自動歸併"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "據 dynasty「清」自動歸併"
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "retain_all_attributed_original_text; add_research_reason_only",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "primary_name",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": true,
+              "value": "釋篆玉"
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": true,
+              "value": "篆玉"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "釋篆玉"
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "篆玉"
+          },
+          "action": "retain_keeper; loser_name_in_alias_and_tombstone",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "review",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": true,
+              "value": {
+                "status": "unreviewed"
+              }
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": false
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": {
+              "status": "unreviewed"
+            }
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "revised_at",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": true,
+              "value": "2026-10-19"
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": true,
+              "value": "2026-10-07"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "2026-10-22"
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "2026-10-22"
+          },
+          "action": "archive_original_management_values; refresh_on_execution; minor_content_bump_for_keeper_and_tombstone",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "revision",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": true,
+              "value": "1.0.0"
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": true,
+              "value": "1.0.0"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "1.1.0"
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "1.1.0"
+          },
+          "action": "archive_original_management_values; refresh_on_execution; minor_content_bump_for_keeper_and_tombstone",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "schema_version",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": true,
+              "value": 1
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": true,
+              "value": 1
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": 1
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": 1
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "subtype",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": true,
+              "value": "people"
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": true,
+              "value": "people"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "people"
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "people"
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "type",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": true,
+              "value": "entity"
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": true,
+              "value": "entity"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "entity"
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "entity"
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "updated_at",
+          "before": [
+            {
+              "id": "hixi8u5rf6fx",
+              "present": false
+            },
+            {
+              "id": "hixhd2h9bjck",
+              "present": true,
+              "value": "2026-08-08T11:51:58+00:00"
+            }
+          ],
+          "keeper_after": {
+            "present": false
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "archive_original_management_values; refresh_on_execution; minor_content_bump_for_keeper_and_tombstone",
+          "archive": "source-snapshots.json"
+        }
+      ],
+      "projected_keeper": {
+        "schema_version": 1,
+        "id": "hixi8u5rf6fx",
+        "type": "entity",
+        "subtype": "people",
+        "primary_name": "釋篆玉",
+        "dynasty": "清",
+        "dynasty_basis": "據《中國古籍總目》責任者著錄",
+        "period": "qing",
+        "description": {
+          "sources": [
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/h85po5zxenm8rpwd"
+            },
+            {
+              "name": "話墮集卷三（識典古籍轉錄）",
+              "type": "url",
+              "details": "https://www.shidianguji.com/zh/book/CADAL02036163/chapter/1lafpp28af1nv"
+            }
+          ]
+        },
+        "ai_note": "[來源 hixi8u5rf6fx] 集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/h85po5zxenm8rpwd）新建；著錄 2 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-10-22 PRV-H1900-P007 候選并條理由：清篆玉話墮集；同一 Work d59f2nqjeozk 同時有清史稿篆玉與中國古籍總目清釋篆玉兩種責任者署法。二集三集仍分立，只合人物。 證據：https://www.shidianguji.com/zh/book/CADAL02036163/chapter/1lafpp28af1nv。舊說明中的著錄處數／部數為建檔當時記載，不是本輪引用掃描結果。",
+        "review": {
+          "status": "unreviewed"
+        },
+        "revision": "1.1.0",
+        "revised_at": "2026-10-22",
+        "period_basis": "據 dynasty「清」自動歸併",
+        "alt_names": [
+          {
+            "name": "篆玉",
+            "type": "別名",
+            "note": "清篆玉話墮集；同一 Work d59f2nqjeozk 同時有清史稿篆玉與中國古籍總目清釋篆玉兩種責任者署法。二集三集仍分立，只合人物。"
+          }
+        ],
+        "merged_in": [
+          {
+            "id": "hixhd2h9bjck",
+            "primary_name": "篆玉",
+            "at": "2026-10-22",
+            "by": "expanded-duplicate-audit",
+            "rule": "PRV-P007",
+            "why": "清篆玉話墮集；同一 Work d59f2nqjeozk 同時有清史稿篆玉與中國古籍總目清釋篆玉兩種責任者署法。二集三集仍分立，只合人物。"
+          }
+        ]
+      },
+      "projected_tombstone": {
+        "schema_version": 1,
+        "id": "hixhd2h9bjck",
+        "type": "entity",
+        "subtype": "people",
+        "primary_name": "篆玉",
+        "merged_into": "hixi8u5rf6fx",
+        "revision": "1.1.0",
+        "revised_at": "2026-10-22"
+      },
+      "ready_to_apply": false,
+      "projection_warning": "Only research artifacts. Execution date, revision, and source drift must be reevaluated; no native write occurred."
+    },
+    {
+      "cluster_id": "PRV-H1900-H001",
+      "type": "people",
+      "keeper": "hixhd2h9bsyc",
+      "losers": [
+        "hixi5eks7m81"
+      ],
+      "preconditions": [
+        {
+          "id": "hixhd2h9bsyc",
+          "path": "Entity/s/y/c/hixhd2h9bsyc-菩提流志.json",
+          "sha256": "2b3daf3c0eaeb4409eaec32e196fa3b7e1d640e092275e1107d6834502a906e4",
+          "git_blob_sha": "26ec98c1550559c22e843fb918f7f66f15ae49b4"
+        },
+        {
+          "id": "hixi5eks7m81",
+          "path": "Entity/m/8/1/hixi5eks7m81-釋菩提流志.json",
+          "sha256": "0bb9778c36c51ea37140e2a62611439933425ac67766fc2174bacce44a03b7c1",
+          "git_blob_sha": "ad1a94b8f09e32d880eedf2a743fe99ffc7b8f96"
+        }
+      ],
+      "field_ledger": [
+        {
+          "field": "ai_note",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": true,
+              "value": "2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《大寶積經》。"
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": true,
+              "value": "批A-人物（GUJI-114／GUJI-174）：史部／子部總目責任者未建檔、出現≥3部（3部，如《不空羂索咒心經》）；未掛 CBDB，待人審。"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "[來源 hixhd2h9bsyc] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《大寶積經》。\n\n[來源 hixi5eks7m81] 批A-人物（GUJI-114／GUJI-174）：史部／子部總目責任者未建檔、出現≥3部（3部，如《不空羂索咒心經》）；未掛 CBDB，待人審。\n\n2026-10-22 PRV-H1900-H001 候選并條理由：同一唐代译师。释为僧人称谓；keeper所系大宝积经120卷总目直接署唐释菩提流志，loser建档依据不空羂索咒心经亦列DILA A001358作译目录。 證據：https://authority.dila.edu.tw/person/search.php?aid=A001358。舊說明中的著錄處數／部數為建檔當時記載，不是本輪引用掃描結果。"
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "retain_all_attributed_original_text; add_research_reason_only",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "alt_names",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": false
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": false
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": [
+              {
+                "name": "釋菩提流志",
+                "type": "別名",
+                "note": "同一唐代译师。释为僧人称谓；keeper所系大宝积经120卷总目直接署唐释菩提流志，loser建档依据不空羂索咒心经亦列DILA A001358作译目录。"
+              }
+            ]
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "stable_exact_object_union; preserve_historical_ids",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "description",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": false
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": false
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": {
+              "sources": [
+                {
+                  "name": "DILA 人名規範 A001358",
+                  "type": "url",
+                  "details": "https://authority.dila.edu.tw/person/search.php?aid=A001358"
+                }
+              ]
+            }
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "preserve_source_objects_exactly; stable_union; append_evidence_source",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "dynasty",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": true,
+              "value": "唐"
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": true,
+              "value": "唐"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "唐"
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "dynasty_basis",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": true,
+              "value": "author_propagation:所繫 work 之 authors[].dynasty 作「唐」"
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": true,
+              "value": "中國古籍總目責任者著錄「唐」"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "[來源 hixhd2h9bsyc] author_propagation:所繫 work 之 authors[].dynasty 作「唐」\n[來源 hixi5eks7m81] 中國古籍總目責任者著錄「唐」"
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "retain_all_attributed_original_text; add_research_reason_only",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "external_ids",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": false
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": true,
+              "value": {
+                "cbdb_match": "none",
+                "cbdb_source": "none: CBDB 查無（name 接口 404，2026-10-13）"
+              }
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": {
+              "cbdb_match": "none",
+              "cbdb_source": "none: CBDB 查無（name 接口 404，2026-10-13）"
+            }
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "id",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": true,
+              "value": "hixhd2h9bsyc"
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": true,
+              "value": "hixi5eks7m81"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "hixhd2h9bsyc"
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "hixi5eks7m81"
+          },
+          "action": "keeper_id_retained; loser_id_retained_in_tombstone_and_merged_in",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "merged_in",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": false
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": false
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": [
+              {
+                "id": "hixi5eks7m81",
+                "primary_name": "釋菩提流志",
+                "at": "2026-10-22",
+                "by": "expanded-duplicate-audit",
+                "rule": "PRV-H001",
+                "why": "同一唐代译师。释为僧人称谓；keeper所系大宝积经120卷总目直接署唐释菩提流志，loser建档依据不空羂索咒心经亦列DILA A001358作译目录。"
+              }
+            ]
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "stable_exact_object_union; preserve_historical_ids",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "merged_into",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": false
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": false
+            }
+          ],
+          "keeper_after": {
+            "present": false
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "hixhd2h9bsyc"
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "period",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": true,
+              "value": "sui-tang"
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": true,
+              "value": "sui-tang"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "sui-tang"
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "period_basis",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": true,
+              "value": "據 dynasty「唐」自動歸併"
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": false
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "據 dynasty「唐」自動歸併"
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "retain_all_attributed_original_text; add_research_reason_only",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "primary_name",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": true,
+              "value": "菩提流志"
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": true,
+              "value": "釋菩提流志"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "菩提流志"
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "釋菩提流志"
+          },
+          "action": "retain_keeper; loser_name_in_alias_and_tombstone",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "review",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": false
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": true,
+              "value": {
+                "status": "unreviewed"
+              }
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": {
+              "status": "unreviewed"
+            }
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "revised_at",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": true,
+              "value": "2026-10-07"
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": true,
+              "value": "2026-10-13"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "2026-10-22"
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "2026-10-22"
+          },
+          "action": "archive_original_management_values; refresh_on_execution; minor_content_bump_for_keeper_and_tombstone",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "revision",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": true,
+              "value": "1.0.0"
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": true,
+              "value": "1.0.0"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "1.1.0"
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "1.1.0"
+          },
+          "action": "archive_original_management_values; refresh_on_execution; minor_content_bump_for_keeper_and_tombstone",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "schema_version",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": true,
+              "value": 1
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": true,
+              "value": 1
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": 1
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": 1
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "subtype",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": true,
+              "value": "people"
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": true,
+              "value": "people"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "people"
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "people"
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "type",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": true,
+              "value": "entity"
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": true,
+              "value": "entity"
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "entity"
+          },
+          "tombstone_after": {
+            "present": true,
+            "value": "entity"
+          },
+          "action": "retain_or_copy_nonconflicting_value; no_inferred_enrichment",
+          "archive": "source-snapshots.json"
+        },
+        {
+          "field": "updated_at",
+          "before": [
+            {
+              "id": "hixhd2h9bsyc",
+              "present": true,
+              "value": "2026-08-24T00:00:00+00:00"
+            },
+            {
+              "id": "hixi5eks7m81",
+              "present": false
+            }
+          ],
+          "keeper_after": {
+            "present": true,
+            "value": "2026-08-24T00:00:00+00:00"
+          },
+          "tombstone_after": {
+            "present": false
+          },
+          "action": "archive_original_management_values; refresh_on_execution; minor_content_bump_for_keeper_and_tombstone",
+          "archive": "source-snapshots.json"
+        }
+      ],
+      "projected_keeper": {
+        "schema_version": 1,
+        "id": "hixhd2h9bsyc",
+        "type": "entity",
+        "subtype": "people",
+        "primary_name": "菩提流志",
+        "dynasty": "唐",
+        "dynasty_basis": "[來源 hixhd2h9bsyc] author_propagation:所繫 work 之 authors[].dynasty 作「唐」\n[來源 hixi5eks7m81] 中國古籍總目責任者著錄「唐」",
+        "updated_at": "2026-08-24T00:00:00+00:00",
+        "period": "sui-tang",
+        "period_basis": "據 dynasty「唐」自動歸併",
+        "ai_note": "[來源 hixhd2h9bsyc] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《大寶積經》。\n\n[來源 hixi5eks7m81] 批A-人物（GUJI-114／GUJI-174）：史部／子部總目責任者未建檔、出現≥3部（3部，如《不空羂索咒心經》）；未掛 CBDB，待人審。\n\n2026-10-22 PRV-H1900-H001 候選并條理由：同一唐代译师。释为僧人称谓；keeper所系大宝积经120卷总目直接署唐释菩提流志，loser建档依据不空羂索咒心经亦列DILA A001358作译目录。 證據：https://authority.dila.edu.tw/person/search.php?aid=A001358。舊說明中的著錄處數／部數為建檔當時記載，不是本輪引用掃描結果。",
+        "revision": "1.1.0",
+        "revised_at": "2026-10-22",
+        "external_ids": {
+          "cbdb_match": "none",
+          "cbdb_source": "none: CBDB 查無（name 接口 404，2026-10-13）"
+        },
+        "review": {
+          "status": "unreviewed"
+        },
+        "alt_names": [
+          {
+            "name": "釋菩提流志",
+            "type": "別名",
+            "note": "同一唐代译师。释为僧人称谓；keeper所系大宝积经120卷总目直接署唐释菩提流志，loser建档依据不空羂索咒心经亦列DILA A001358作译目录。"
+          }
+        ],
+        "description": {
+          "sources": [
+            {
+              "name": "DILA 人名規範 A001358",
+              "type": "url",
+              "details": "https://authority.dila.edu.tw/person/search.php?aid=A001358"
+            }
+          ]
+        },
+        "merged_in": [
+          {
+            "id": "hixi5eks7m81",
+            "primary_name": "釋菩提流志",
+            "at": "2026-10-22",
+            "by": "expanded-duplicate-audit",
+            "rule": "PRV-H001",
+            "why": "同一唐代译师。释为僧人称谓；keeper所系大宝积经120卷总目直接署唐释菩提流志，loser建档依据不空羂索咒心经亦列DILA A001358作译目录。"
+          }
+        ]
+      },
+      "projected_tombstone": {
+        "schema_version": 1,
+        "id": "hixi5eks7m81",
+        "type": "entity",
+        "subtype": "people",
+        "primary_name": "釋菩提流志",
+        "merged_into": "hixhd2h9bsyc",
+        "revision": "1.1.0",
+        "revised_at": "2026-10-22"
+      },
+      "ready_to_apply": false,
+      "projection_warning": "Only research artifacts. Execution date, revision, and source drift must be reevaluated; no native write occurred."
+    }
+  ]
+}

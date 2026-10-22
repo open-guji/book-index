@@ -1,0 +1,151 @@
+[
+  {
+    "case_id": "H-A001",
+    "supersedes_case_id": "H-C085",
+    "type": "Work",
+    "title": "清豐縣志／新修清豐縣志",
+    "status": "confirmed",
+    "verdict": "confirmed",
+    "review_depth": "current_native_records_and_primary_catalogue_transcription_compared",
+    "upstream_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "members": [
+      {
+        "id": "d59f6ep8j2ti",
+        "path": "Work/2/t/i/d59f6ep8j2ti-清豐縣志.json",
+        "sha256": "2b5383751435486a0cd87e93702ffc11df46a63a29590faefdf0cae4d4cf44aa",
+        "git_blob": "a6a3579ac90e7e0458cb85c0d70ad28ebb105451",
+        "snapshot_method": "archive bytes matched to inherited SHA256 and proven equal by pinned-main Git blob comparison"
+      },
+      {
+        "id": "d59f2njb2wao",
+        "path": "Work/w/a/o/d59f2njb2wao-新修清豐縣志.json",
+        "sha256": "274042a8f53ecd75e6e5efc9df31bd1a20319fa5b5a93c1e92cb55196545f34a",
+        "git_blob": "8b1790bccc35c2478d9cf10f15f75e0e23c10390",
+        "snapshot_method": "archive bytes matched to inherited SHA256 and proven equal by pinned-main Git blob comparison"
+      }
+    ],
+    "keeper": "d59f2njb2wao",
+    "losers": [
+      "d59f6ep8j2ti"
+    ],
+    "implemented": false,
+    "merge_eligible": false,
+    "reason": "晁瑮的清豐縣志是嘉靖新修清豐縣志的省題著錄：兩條責任者同指hixhd2h9bn18，原典千頃堂卷六明記十六卷並繫嘉靖間修；總目條明列嘉靖新修清豐縣志十六卷、李汝寬修晁瑮纂、嘉靖三十七年本。題名、地域、纂者、卷數和修纂時代形成聯合證據，不只是刪掉新修二字。",
+    "evidence": [
+      {
+        "kind": "pinned_native_record",
+        "id": "d59f6ep8j2ti",
+        "locator": "authors[0]; indexed_by[0]; juan_count",
+        "fact": "晁瑮entity_id、千頃堂省題、十六卷；舊indexed_by未抄卷數，不能把description當獨立證據。"
+      },
+      {
+        "kind": "pinned_native_record",
+        "id": "d59f2njb2wao",
+        "locator": "indexed_by[0]; description; measures",
+        "fact": "總目明記十六卷、嘉靖、李汝寬修及晁瑮纂；四冊是裝訂冊數，並非另一部四卷書。"
+      },
+      {
+        "kind": "external_primary_transcription",
+        "reference_id": "EXT-Q1",
+        "fact": "補齊原典十六卷與嘉靖時代證據。"
+      }
+    ],
+    "counterevidence_and_resolution": [
+      "新修不是普遍可刪前綴；本案以同一纂者、嘉靖和十六卷識別。",
+      "清代楊燝、高俊的同題縣志在舊ai_note明確另列，本案不涵蓋。",
+      "四冊與十六卷屬不同單位；不將measures四冊改寫成四卷。",
+      "李汝寬在原生authors缺漏，但總目author_info明記；必須保留其修的角色，不能只剩晁瑮。"
+    ],
+    "field_decisions": {
+      "title": "保留新修清豐縣志，清豐縣志加別題；嘉靖保留於版本和斷代證據。",
+      "authors": "晁瑮角色依總目為纂；補李汝寬修前先核Person身份，不臆配entity_id。",
+      "indexed_by": "兩側全部原著錄順序保留；千頃堂新取原文及葉碼另附說明，不靜默覆寫舊引文。",
+      "description": "刪除無根據的惟一志著錄、賴之以存表述；舊全文留快照/台帳。",
+      "measure_info": "十六卷與四冊同時有據留存，不互相替代。",
+      "resources": "國圖0584及resource_groups保留。",
+      "Book": "不提出任何Book合併；work_id改指與版本辨別分開。"
+    },
+    "defer_reason": "身份確證只完成研究；keeper方向仍須全部引用、正文資產與升格表核查，尚無可直接執行的合併台帳。",
+    "next_steps": [
+      "查兩側全部Book/Collection/Entity/分類/promotions及草稿引用。",
+      "核book-text正文、整理本、輯佚及元資料後選定keeper並制定遷移。",
+      "查李汝寬Person，保留修/纂責任層次；原檔重算hash後按現行規則建立無損合併台帳並跑寫後驗證。"
+    ]
+  },
+  {
+    "case_id": "H-A002",
+    "supersedes_case_id": "H-C092",
+    "type": "Work",
+    "title": "龍虎山志／續修龍虎山志：元原編與明續修混掛",
+    "status": "open",
+    "verdict": "open",
+    "review_depth": "current_native_records_and_revision_scope_compared",
+    "upstream_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "members": [
+      {
+        "id": "d59f2ghntpfm",
+        "path": "Work/p/f/m/d59f2ghntpfm-續修龍虎山志.json",
+        "sha256": "9d337da5b42be275684f30d8d5ccb5dd4c6ba4768c0ac2c4a4e55a2f7483d58c",
+        "git_blob": "b4a616f8c30f964a45b1782bafb604afb02ee1a7",
+        "snapshot_method": "archive bytes matched to inherited SHA256 and proven equal by pinned-main Git blob comparison"
+      },
+      {
+        "id": "d59f2gp07pj6",
+        "path": "Work/p/j/6/d59f2gp07pj6-龍虎山志.json",
+        "sha256": "e648410ecb5296f8b5a67e53d93c8543230d4713afb676ceb1bdd5dbb90425aa",
+        "git_blob": "a76f28ebb92b081c809015c7c94c21698e59e1c3",
+        "snapshot_method": "archive bytes matched to inherited SHA256 and proven equal by pinned-main Git blob comparison"
+      }
+    ],
+    "implemented": false,
+    "merge_eligible": false,
+    "keeper": null,
+    "losers": [],
+    "reason": "同一元明善只是原編責任者，不能識別現存各修訂層。續修條原始著錄明列張國祥、張顯庸續撰，而龍虎山志條同時掛四庫所見明張國祥續修本、元刻三卷續編一卷與周召續編。候選由單純同作者近題提升為來源混掛的範圍拆辨案，沒有足夠證據整組合併或整組判成兩部完全獨立作品。",
+    "evidence": [
+      {
+        "kind": "pinned_native_record",
+        "id": "d59f2ghntpfm",
+        "locator": "indexed_by[0].summary/edition",
+        "fact": "四庫全書存目叢書史部第228冊，北京圖書館藏明刻本；原文已記張國祥與張顯庸續撰，但authors只寫元明善。"
+      },
+      {
+        "kind": "pinned_native_record",
+        "id": "d59f2gp07pj6",
+        "locator": "indexed_by[0].summary",
+        "fact": "四庫提要明言張國祥續修，並稱原本體例不可復考、此本多所竄亂非其舊；是修訂範圍的明確反證。"
+      },
+      {
+        "kind": "pinned_native_record",
+        "id": "d59f2gp07pj6",
+        "locator": "indexed_by[3]",
+        "fact": "總目另記龍虎山志三卷續編一卷，續編周召；有元刻本與清影元抄本。"
+      },
+      {
+        "kind": "external_catalogue_lead",
+        "reference_ids": [
+          "EXT-L1",
+          "EXT-L2",
+          "EXT-L3"
+        ],
+        "fact": "明續修角色獲檢索印證；三卷/續編一卷/六卷須逐本核對，網頁未完整取到，不冒充書影證據。"
+      }
+    ],
+    "counterevidence_and_resolution": [
+      "兩條四庫/存目著錄有可能部分指向同一明續修本，故不逕判全組separate。",
+      "龍虎山志條又包含元本與周召續編，故不把整條當成明續修本合併。",
+      "同一元明善、同為三卷不能消除續修者與範圍衝突。"
+    ],
+    "diagnostic_changes": [
+      "明續修兩人被塞進edition而未列authors；修前須校責任層次。",
+      "龍虎山志description稱本書之目賴四庫以存，與本條所記元刻、影元抄等實存本不相稱；須另修生成摘要。",
+      "兩條無資料變動，本輪只增加研究判據與拆辨次序。"
+    ],
+    "defer_reason": "尚未核元刻/清影元抄、明刻續修本的序跋、目錄和正文邊界；已有混掛不能依現有Work粒度強行合併或分立。",
+    "next_steps": [
+      "取得存目叢書史228明刻本卷首及三卷目錄，核張國祥/張顯庸所增範圍。",
+      "對照國圖元刻本與周召續編一卷，逐項映射Book及resources所對應文本。",
+      "先形成按修訂層的著錄/資源拆分修復案，再裁兩Work的部分重疊；保留所有舊引文及來源。"
+    ]
+  }
+]

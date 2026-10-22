@@ -1,0 +1,1704 @@
+[
+  {
+    "case_id": "PRV-T001",
+    "cluster_id": "PRV-T001",
+    "type": "Entity",
+    "status": "confirmed",
+    "keeper": "hixhd2h9bixk",
+    "losers": [
+      "hixhjtd64op2"
+    ],
+    "why": "後秦曇影與釋曇影，同繫法華義疏四卷及中論注。DILA A002223 引高僧傳明列兩書，東晉／後秦為同一時期身份口徑；keeper 後秦沿用，原晉值保留備考。",
+    "evidence": [
+      {
+        "url": "https://authority.dila.edu.tw/person/search.php?aid=A002223",
+        "title": "曇影 人物與著錄佐證",
+        "support": "後秦曇影與釋曇影，同繫法華義疏四卷及中論注。DILA A002223 引高僧傳明列兩書，東晉／後秦為同一時期身份口徑；keeper 後秦沿用，原晉值保留備考。",
+        "retrieved_at": "2026-10-22"
+      }
+    ],
+    "records": [
+      {
+        "id": "hixhd2h9bixk",
+        "path": "Entity/i/x/k/hixhd2h9bixk-曇影.json",
+        "sha256": "2374677893cfa1de1bafbc49043575004a087802cb9de42f7e1b6399bd79fd30",
+        "primary_name": "曇影"
+      },
+      {
+        "id": "hixhjtd64op2",
+        "path": "Entity/o/p/2/hixhjtd64op2-釋曇影.json",
+        "sha256": "ccc6286fb0b17945562cb92005fdea62c8da2d443132ff6e16ddf9642849ab7b",
+        "primary_name": "釋曇影"
+      }
+    ],
+    "related_work_ids": [
+      "d59f27yj8wea",
+      "d59f27wuov0g",
+      "d59f9nmws83t",
+      "d59f9nmws83u"
+    ],
+    "work_review": {
+      "coverage": "all current live Work.authors[].entity_id references scanned",
+      "count": 4,
+      "snapshots": "prefix-records.json"
+    },
+    "field_decisions": {
+      "ai_note": {
+        "action": "preserve_attributed_notes",
+        "selected": "[來源 hixhd2h9bixk]  2026-08-11：三國魏晉探勘——曇影為後秦鳩摩羅什譯場門下弟子，參與法華經等譯述，訂正dynasty為後秦。\n\n[來源 hixhjtd64op2] 2026-09-06 《補晉書藝文志》（文廷式）整理：據《補晉書藝文志》（文廷式）新建，本志繫晉代。庫中舊無其人。\n\n2026-09-06 《補晉書藝文志》（文廷式）整理：併入本批重複新建之同名同代 entity 1 個。整理腳本之同名索引為啟動時之快照，本批新建者不在其中，故同名者每遇一條即別建一個（「釋曇影」建 2 個）。今併之，移入 works 1 部。異代同號者（如宋武帝、齊武帝、梁武帝）不併。\n\n2026-10-22 expanded duplicate audit PRV-T001：後秦曇影與釋曇影，同繫法華義疏四卷及中論注。DILA A002223 引高僧傳明列兩書，東晉／後秦為同一時期身份口徑；keeper 後秦沿用，原晉值保留備考。 證據：https://authority.dila.edu.tw/person/search.php?aid=A002223 合併前衝突原值存檔：[{\"field\": \"dynasty\", \"values\": [{\"id\": \"hixhd2h9bixk\", \"value\": \"後秦\"}, {\"id\": \"hixhjtd64op2\", \"value\": \"晉\"}], \"selected\": \"後秦\"}, {\"field\": \"primary_name\", \"values\": [{\"id\": \"hixhd2h9bixk\", \"value\": \"曇影\"}, {\"id\": \"hixhjtd64op2\", \"value\": \"釋曇影\"}], \"selected\": \"曇影\"}]",
+        "original_values": [
+          {
+            "id": "hixhd2h9bixk",
+            "value": " 2026-08-11：三國魏晉探勘——曇影為後秦鳩摩羅什譯場門下弟子，參與法華經等譯述，訂正dynasty為後秦。"
+          },
+          {
+            "id": "hixhjtd64op2",
+            "value": "2026-09-06 《補晉書藝文志》（文廷式）整理：據《補晉書藝文志》（文廷式）新建，本志繫晉代。庫中舊無其人。\n\n2026-09-06 《補晉書藝文志》（文廷式）整理：併入本批重複新建之同名同代 entity 1 個。整理腳本之同名索引為啟動時之快照，本批新建者不在其中，故同名者每遇一條即別建一個（「釋曇影」建 2 個）。今併之，移入 works 1 部。異代同號者（如宋武帝、齊武帝、梁武帝）不併。"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty": {
+        "action": "retain_keeper_and_archive_all_alternatives",
+        "selected": "後秦",
+        "original_values": [
+          {
+            "id": "hixhd2h9bixk",
+            "value": "後秦"
+          },
+          {
+            "id": "hixhjtd64op2",
+            "value": "晉"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty_basis": {
+        "action": "preserve_attributed_basis_values",
+        "selected": "2026-09-06 《補晉書藝文志》（文廷式）整理：《補晉書藝文志》（文廷式）著錄，本志繫晉。",
+        "original_values": [
+          {
+            "id": "hixhjtd64op2",
+            "value": "2026-09-06 《補晉書藝文志》（文廷式）整理：《補晉書藝文志》（文廷式）著錄，本志繫晉。"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period": {
+        "action": "retain_keeper",
+        "selected": "jin",
+        "original_values": [
+          {
+            "id": "hixhd2h9bixk",
+            "value": "jin"
+          },
+          {
+            "id": "hixhjtd64op2",
+            "value": "jin"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period_basis": {
+        "action": "preserve_attributed_basis_values",
+        "selected": "據 dynasty「晉」自動歸併",
+        "original_values": [
+          {
+            "id": "hixhd2h9bixk",
+            "value": "據 dynasty「晉」自動歸併"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "primary_name": {
+        "action": "retain_keeper_and_archive_all_alternatives",
+        "selected": "曇影",
+        "original_values": [
+          {
+            "id": "hixhd2h9bixk",
+            "value": "曇影"
+          },
+          {
+            "id": "hixhjtd64op2",
+            "value": "釋曇影"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "alt_names": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "後秦曇影與釋曇影，同繫法華義疏四卷及中論注。DILA A002223 引高僧傳明列兩書，東晉／後秦為同一時期身份口徑；keeper 後秦沿用，原晉值保留備考。",
+        "selected": [
+          {
+            "name": "釋曇影",
+            "type": "別名",
+            "note": "後秦曇影與釋曇影，同繫法華義疏四卷及中論注。DILA A002223 引高僧傳明列兩書，東晉／後秦為同一時期身份口徑；keeper 後秦沿用，原晉值保留備考。"
+          }
+        ]
+      },
+      "subtype": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "後秦曇影與釋曇影，同繫法華義疏四卷及中論注。DILA A002223 引高僧傳明列兩書，東晉／後秦為同一時期身份口徑；keeper 後秦沿用，原晉值保留備考。",
+        "selected": "people"
+      }
+    },
+    "machine_decision": {
+      "field_overrides": {
+        "ai_note": "[來源 hixhd2h9bixk]  2026-08-11：三國魏晉探勘——曇影為後秦鳩摩羅什譯場門下弟子，參與法華經等譯述，訂正dynasty為後秦。\n\n[來源 hixhjtd64op2] 2026-09-06 《補晉書藝文志》（文廷式）整理：據《補晉書藝文志》（文廷式）新建，本志繫晉代。庫中舊無其人。\n\n2026-09-06 《補晉書藝文志》（文廷式）整理：併入本批重複新建之同名同代 entity 1 個。整理腳本之同名索引為啟動時之快照，本批新建者不在其中，故同名者每遇一條即別建一個（「釋曇影」建 2 個）。今併之，移入 works 1 部。異代同號者（如宋武帝、齊武帝、梁武帝）不併。\n\n2026-10-22 expanded duplicate audit PRV-T001：後秦曇影與釋曇影，同繫法華義疏四卷及中論注。DILA A002223 引高僧傳明列兩書，東晉／後秦為同一時期身份口徑；keeper 後秦沿用，原晉值保留備考。 證據：https://authority.dila.edu.tw/person/search.php?aid=A002223 合併前衝突原值存檔：[{\"field\": \"dynasty\", \"values\": [{\"id\": \"hixhd2h9bixk\", \"value\": \"後秦\"}, {\"id\": \"hixhjtd64op2\", \"value\": \"晉\"}], \"selected\": \"後秦\"}, {\"field\": \"primary_name\", \"values\": [{\"id\": \"hixhd2h9bixk\", \"value\": \"曇影\"}, {\"id\": \"hixhjtd64op2\", \"value\": \"釋曇影\"}], \"selected\": \"曇影\"}]",
+        "dynasty": "後秦",
+        "dynasty_basis": "2026-09-06 《補晉書藝文志》（文廷式）整理：《補晉書藝文志》（文廷式）著錄，本志繫晉。",
+        "period": "jin",
+        "period_basis": "據 dynasty「晉」自動歸併",
+        "primary_name": "曇影",
+        "alt_names": [
+          {
+            "name": "釋曇影",
+            "type": "別名",
+            "note": "後秦曇影與釋曇影，同繫法華義疏四卷及中論注。DILA A002223 引高僧傳明列兩書，東晉／後秦為同一時期身份口徑；keeper 後秦沿用，原晉值保留備考。"
+          }
+        ],
+        "subtype": "people"
+      },
+      "field_delete": [],
+      "why": "後秦曇影與釋曇影，同繫法華義疏四卷及中論注。DILA A002223 引高僧傳明列兩書，東晉／後秦為同一時期身份口徑；keeper 後秦沿用，原晉值保留備考。"
+    }
+  },
+  {
+    "case_id": "PRV-T002",
+    "cluster_id": "PRV-T002",
+    "type": "Entity",
+    "status": "confirmed",
+    "keeper": "hixhd2h9btz8",
+    "losers": [
+      "hixhd2h9bs13"
+    ],
+    "why": "灌頂／釋灌頂的國清道場百錄與隋天台智者大師別傳，同見 DILA A004896 著譯列表及釋灌頂別名。原隋斷代沿用，不因卒於唐而分人。",
+    "evidence": [
+      {
+        "url": "https://authority.dila.edu.tw/person/search.php?aid=A004896",
+        "title": "釋灌頂 人物與著錄佐證",
+        "support": "灌頂／釋灌頂的國清道場百錄與隋天台智者大師別傳，同見 DILA A004896 著譯列表及釋灌頂別名。原隋斷代沿用，不因卒於唐而分人。",
+        "retrieved_at": "2026-10-22"
+      }
+    ],
+    "records": [
+      {
+        "id": "hixhd2h9btz8",
+        "path": "Entity/t/z/8/hixhd2h9btz8-釋灌頂.json",
+        "sha256": "5e6847d3c45b830bbec62224bc0a7f6ef282e6d29277d8edeabd9e9ae6666c7c",
+        "primary_name": "釋灌頂"
+      },
+      {
+        "id": "hixhd2h9bs13",
+        "path": "Entity/s/1/3/hixhd2h9bs13-灌頂.json",
+        "sha256": "44189012ad9e4eff2387b5f3b79431ac86180a9c0d41b0166ce0fb2929f355c0",
+        "primary_name": "灌頂"
+      }
+    ],
+    "related_work_ids": [
+      "d59f28jq4w01",
+      "d59f28klnuv9"
+    ],
+    "work_review": {
+      "coverage": "all current live Work.authors[].entity_id references scanned",
+      "count": 2,
+      "snapshots": "prefix-records.json"
+    },
+    "field_decisions": {
+      "ai_note": {
+        "action": "preserve_attributed_notes",
+        "selected": "[來源 hixhd2h9btz8] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《隋天台智者大師別傳》。\n\n[來源 hixhd2h9bs13] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《國清道場百錄》。\n\n2026-10-22 expanded duplicate audit PRV-T002：灌頂／釋灌頂的國清道場百錄與隋天台智者大師別傳，同見 DILA A004896 著譯列表及釋灌頂別名。原隋斷代沿用，不因卒於唐而分人。 證據：https://authority.dila.edu.tw/person/search.php?aid=A004896 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixhd2h9btz8\", \"value\": \"釋灌頂\"}, {\"id\": \"hixhd2h9bs13\", \"value\": \"灌頂\"}], \"selected\": \"釋灌頂\"}]",
+        "original_values": [
+          {
+            "id": "hixhd2h9btz8",
+            "value": "2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《隋天台智者大師別傳》。"
+          },
+          {
+            "id": "hixhd2h9bs13",
+            "value": "2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《國清道場百錄》。"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty": {
+        "action": "retain_keeper",
+        "selected": "隋",
+        "original_values": [
+          {
+            "id": "hixhd2h9btz8",
+            "value": "隋"
+          },
+          {
+            "id": "hixhd2h9bs13",
+            "value": "隋"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty_basis": {
+        "action": "preserve_attributed_basis_values",
+        "selected": "author_propagation:所繫 work 之 authors[].dynasty 作「隋」",
+        "original_values": [
+          {
+            "id": "hixhd2h9btz8",
+            "value": "author_propagation:所繫 work 之 authors[].dynasty 作「隋」"
+          },
+          {
+            "id": "hixhd2h9bs13",
+            "value": "author_propagation:所繫 work 之 authors[].dynasty 作「隋」"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period": {
+        "action": "retain_keeper",
+        "selected": "sui-tang",
+        "original_values": [
+          {
+            "id": "hixhd2h9btz8",
+            "value": "sui-tang"
+          },
+          {
+            "id": "hixhd2h9bs13",
+            "value": "sui-tang"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period_basis": {
+        "action": "preserve_attributed_basis_values",
+        "selected": "據 dynasty「隋」自動歸併",
+        "original_values": [
+          {
+            "id": "hixhd2h9btz8",
+            "value": "據 dynasty「隋」自動歸併"
+          },
+          {
+            "id": "hixhd2h9bs13",
+            "value": "據 dynasty「隋」自動歸併"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "primary_name": {
+        "action": "retain_keeper_and_archive_all_alternatives",
+        "selected": "釋灌頂",
+        "original_values": [
+          {
+            "id": "hixhd2h9btz8",
+            "value": "釋灌頂"
+          },
+          {
+            "id": "hixhd2h9bs13",
+            "value": "灌頂"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "alt_names": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "灌頂／釋灌頂的國清道場百錄與隋天台智者大師別傳，同見 DILA A004896 著譯列表及釋灌頂別名。原隋斷代沿用，不因卒於唐而分人。",
+        "selected": [
+          {
+            "name": "灌頂",
+            "type": "別名",
+            "note": "灌頂／釋灌頂的國清道場百錄與隋天台智者大師別傳，同見 DILA A004896 著譯列表及釋灌頂別名。原隋斷代沿用，不因卒於唐而分人。"
+          }
+        ]
+      },
+      "subtype": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "灌頂／釋灌頂的國清道場百錄與隋天台智者大師別傳，同見 DILA A004896 著譯列表及釋灌頂別名。原隋斷代沿用，不因卒於唐而分人。",
+        "selected": "people"
+      }
+    },
+    "machine_decision": {
+      "field_overrides": {
+        "ai_note": "[來源 hixhd2h9btz8] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《隋天台智者大師別傳》。\n\n[來源 hixhd2h9bs13] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《國清道場百錄》。\n\n2026-10-22 expanded duplicate audit PRV-T002：灌頂／釋灌頂的國清道場百錄與隋天台智者大師別傳，同見 DILA A004896 著譯列表及釋灌頂別名。原隋斷代沿用，不因卒於唐而分人。 證據：https://authority.dila.edu.tw/person/search.php?aid=A004896 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixhd2h9btz8\", \"value\": \"釋灌頂\"}, {\"id\": \"hixhd2h9bs13\", \"value\": \"灌頂\"}], \"selected\": \"釋灌頂\"}]",
+        "dynasty": "隋",
+        "dynasty_basis": "author_propagation:所繫 work 之 authors[].dynasty 作「隋」",
+        "period": "sui-tang",
+        "period_basis": "據 dynasty「隋」自動歸併",
+        "primary_name": "釋灌頂",
+        "alt_names": [
+          {
+            "name": "灌頂",
+            "type": "別名",
+            "note": "灌頂／釋灌頂的國清道場百錄與隋天台智者大師別傳，同見 DILA A004896 著譯列表及釋灌頂別名。原隋斷代沿用，不因卒於唐而分人。"
+          }
+        ],
+        "subtype": "people"
+      },
+      "field_delete": [],
+      "why": "灌頂／釋灌頂的國清道場百錄與隋天台智者大師別傳，同見 DILA A004896 著譯列表及釋灌頂別名。原隋斷代沿用，不因卒於唐而分人。"
+    }
+  },
+  {
+    "case_id": "PRV-T003",
+    "cluster_id": "PRV-T003",
+    "type": "Entity",
+    "status": "confirmed",
+    "keeper": "hixhd2h9btyk",
+    "losers": [
+      "hixhd2h9bqv3"
+    ],
+    "why": "智顗／釋智顗均指隋天台智者；天台止觀國史經籍志直接署隋智顗，四教義與摩訶止觀續修四庫署隋釋智顗，DILA A001301 生平相合。只合人，不把一卷天台止觀與十卷摩訶止觀逕合。",
+    "evidence": [
+      {
+        "url": "https://authority.dila.edu.tw/person/search.php?aid=A001301",
+        "title": "釋智顗 人物與著錄佐證",
+        "support": "智顗／釋智顗均指隋天台智者；天台止觀國史經籍志直接署隋智顗，四教義與摩訶止觀續修四庫署隋釋智顗，DILA A001301 生平相合。只合人，不把一卷天台止觀與十卷摩訶止觀逕合。",
+        "retrieved_at": "2026-10-22"
+      }
+    ],
+    "records": [
+      {
+        "id": "hixhd2h9btyk",
+        "path": "Entity/t/y/k/hixhd2h9btyk-釋智顗.json",
+        "sha256": "d525f5bc7e31d90fa6b4cc635290bece6bfd22d4b0785eec5aa132ad8533855d",
+        "primary_name": "釋智顗"
+      },
+      {
+        "id": "hixhd2h9bqv3",
+        "path": "Entity/q/v/3/hixhd2h9bqv3-智顗.json",
+        "sha256": "7707739cb58229b63146887de399694c2be137af478d4f7556d4742b841cd2dd",
+        "primary_name": "智顗"
+      }
+    ],
+    "related_work_ids": [
+      "d59f28ljdhj9",
+      "d59f28jxml1g",
+      "d59f28kvyosh"
+    ],
+    "work_review": {
+      "coverage": "all current live Work.authors[].entity_id references scanned",
+      "count": 3,
+      "snapshots": "prefix-records.json"
+    },
+    "field_decisions": {
+      "ai_note": {
+        "action": "preserve_attributed_notes",
+        "selected": "[來源 hixhd2h9btyk] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 3 部：《妙法蓮華經玄義》、《摩訶止觀》、《四教義》。\n\n[來源 hixhd2h9bqv3] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《天台止觀》。\n\n2026-10-22 expanded duplicate audit PRV-T003：智顗／釋智顗均指隋天台智者；天台止觀國史經籍志直接署隋智顗，四教義與摩訶止觀續修四庫署隋釋智顗，DILA A001301 生平相合。只合人，不把一卷天台止觀與十卷摩訶止觀逕合。 證據：https://authority.dila.edu.tw/person/search.php?aid=A001301 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixhd2h9btyk\", \"value\": \"釋智顗\"}, {\"id\": \"hixhd2h9bqv3\", \"value\": \"智顗\"}], \"selected\": \"釋智顗\"}]",
+        "original_values": [
+          {
+            "id": "hixhd2h9btyk",
+            "value": "2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 3 部：《妙法蓮華經玄義》、《摩訶止觀》、《四教義》。"
+          },
+          {
+            "id": "hixhd2h9bqv3",
+            "value": "2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《天台止觀》。"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty": {
+        "action": "retain_keeper",
+        "selected": "隋",
+        "original_values": [
+          {
+            "id": "hixhd2h9btyk",
+            "value": "隋"
+          },
+          {
+            "id": "hixhd2h9bqv3",
+            "value": "隋"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty_basis": {
+        "action": "preserve_attributed_basis_values",
+        "selected": "author_propagation:所繫 work 之 authors[].dynasty 作「隋」",
+        "original_values": [
+          {
+            "id": "hixhd2h9btyk",
+            "value": "author_propagation:所繫 work 之 authors[].dynasty 作「隋」"
+          },
+          {
+            "id": "hixhd2h9bqv3",
+            "value": "author_propagation:所繫 work 之 authors[].dynasty 作「隋」"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period": {
+        "action": "retain_keeper",
+        "selected": "sui-tang",
+        "original_values": [
+          {
+            "id": "hixhd2h9btyk",
+            "value": "sui-tang"
+          },
+          {
+            "id": "hixhd2h9bqv3",
+            "value": "sui-tang"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period_basis": {
+        "action": "preserve_attributed_basis_values",
+        "selected": "據 dynasty「隋」自動歸併",
+        "original_values": [
+          {
+            "id": "hixhd2h9btyk",
+            "value": "據 dynasty「隋」自動歸併"
+          },
+          {
+            "id": "hixhd2h9bqv3",
+            "value": "據 dynasty「隋」自動歸併"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "primary_name": {
+        "action": "retain_keeper_and_archive_all_alternatives",
+        "selected": "釋智顗",
+        "original_values": [
+          {
+            "id": "hixhd2h9btyk",
+            "value": "釋智顗"
+          },
+          {
+            "id": "hixhd2h9bqv3",
+            "value": "智顗"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "alt_names": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "智顗／釋智顗均指隋天台智者；天台止觀國史經籍志直接署隋智顗，四教義與摩訶止觀續修四庫署隋釋智顗，DILA A001301 生平相合。只合人，不把一卷天台止觀與十卷摩訶止觀逕合。",
+        "selected": [
+          {
+            "name": "智顗",
+            "type": "別名",
+            "note": "智顗／釋智顗均指隋天台智者；天台止觀國史經籍志直接署隋智顗，四教義與摩訶止觀續修四庫署隋釋智顗，DILA A001301 生平相合。只合人，不把一卷天台止觀與十卷摩訶止觀逕合。"
+          }
+        ]
+      },
+      "subtype": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "智顗／釋智顗均指隋天台智者；天台止觀國史經籍志直接署隋智顗，四教義與摩訶止觀續修四庫署隋釋智顗，DILA A001301 生平相合。只合人，不把一卷天台止觀與十卷摩訶止觀逕合。",
+        "selected": "people"
+      }
+    },
+    "machine_decision": {
+      "field_overrides": {
+        "ai_note": "[來源 hixhd2h9btyk] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 3 部：《妙法蓮華經玄義》、《摩訶止觀》、《四教義》。\n\n[來源 hixhd2h9bqv3] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《天台止觀》。\n\n2026-10-22 expanded duplicate audit PRV-T003：智顗／釋智顗均指隋天台智者；天台止觀國史經籍志直接署隋智顗，四教義與摩訶止觀續修四庫署隋釋智顗，DILA A001301 生平相合。只合人，不把一卷天台止觀與十卷摩訶止觀逕合。 證據：https://authority.dila.edu.tw/person/search.php?aid=A001301 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixhd2h9btyk\", \"value\": \"釋智顗\"}, {\"id\": \"hixhd2h9bqv3\", \"value\": \"智顗\"}], \"selected\": \"釋智顗\"}]",
+        "dynasty": "隋",
+        "dynasty_basis": "author_propagation:所繫 work 之 authors[].dynasty 作「隋」",
+        "period": "sui-tang",
+        "period_basis": "據 dynasty「隋」自動歸併",
+        "primary_name": "釋智顗",
+        "alt_names": [
+          {
+            "name": "智顗",
+            "type": "別名",
+            "note": "智顗／釋智顗均指隋天台智者；天台止觀國史經籍志直接署隋智顗，四教義與摩訶止觀續修四庫署隋釋智顗，DILA A001301 生平相合。只合人，不把一卷天台止觀與十卷摩訶止觀逕合。"
+          }
+        ],
+        "subtype": "people"
+      },
+      "field_delete": [],
+      "why": "智顗／釋智顗均指隋天台智者；天台止觀國史經籍志直接署隋智顗，四教義與摩訶止觀續修四庫署隋釋智顗，DILA A001301 生平相合。只合人，不把一卷天台止觀與十卷摩訶止觀逕合。"
+    }
+  },
+  {
+    "case_id": "PRV-T004",
+    "cluster_id": "PRV-T004",
+    "type": "Entity",
+    "status": "confirmed",
+    "keeper": "hixhd2h9bty9",
+    "losers": [
+      "hixi8u60h288"
+    ],
+    "why": "斯植／釋斯植：采芝集同一 Work 原中國古籍總目責任者已署宋釋斯植，續集亦同署；江湖集研究目錄列芳庭斯植采芝集及采芝續稿。採集與續稿分立，只合人。",
+    "evidence": [
+      {
+        "url": "https://digicoll.lib.berkeley.edu/record/81683/files/2017Spring_Feng_Xiangjun.pdf",
+        "title": "釋斯植 人物與著錄佐證",
+        "support": "斯植／釋斯植：采芝集同一 Work 原中國古籍總目責任者已署宋釋斯植，續集亦同署；江湖集研究目錄列芳庭斯植采芝集及采芝續稿。採集與續稿分立，只合人。",
+        "retrieved_at": "2026-10-22"
+      }
+    ],
+    "records": [
+      {
+        "id": "hixhd2h9bty9",
+        "path": "Entity/t/y/9/hixhd2h9bty9-釋斯植.json",
+        "sha256": "dcd193c3acee2b586196d90cc8ece0e02d19d520f6e9419eea26b01049749b40",
+        "primary_name": "釋斯植"
+      },
+      {
+        "id": "hixi8u60h288",
+        "path": "Entity/2/8/8/hixi8u60h288-斯植.json",
+        "sha256": "bb49475b14cb436f5b6bb4be25b27a659c9e0fdfa682644ad5e3a0fc87c4b79e",
+        "primary_name": "斯植"
+      }
+    ],
+    "related_work_ids": [
+      "d59f2hm4xh4w",
+      "d59f2hhpqg3m"
+    ],
+    "work_review": {
+      "coverage": "all current live Work.authors[].entity_id references scanned",
+      "count": 2,
+      "snapshots": "prefix-records.json"
+    },
+    "field_decisions": {
+      "ai_note": {
+        "action": "preserve_attributed_notes",
+        "selected": "[來源 hixhd2h9bty9] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《采芝集續集》。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=53650（「釋斯植」宋，?–?）。判準 score=70.0：name 命中、同期候選 1 個、著作重合 0.0。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=53650 補入空槽——別名 1 條（建中）。既有之值一概未動。\n\n[來源 hixi8u60h288] 集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（無 person_uri，按名＋朝代聚合）新建；著錄 1 處，同 uri 視為同一人；未對接 CBDB。庫中另有同名 Entity hixhd2h9bmur，朝代不明或不合，未并，待 P3 查證。\n\n2026-10-22 expanded duplicate audit PRV-T004：斯植／釋斯植：采芝集同一 Work 原中國古籍總目責任者已署宋釋斯植，續集亦同署；江湖集研究目錄列芳庭斯植采芝集及采芝續稿。採集與續稿分立，只合人。 證據：https://digicoll.lib.berkeley.edu/record/81683/files/2017Spring_Feng_Xiangjun.pdf 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixhd2h9bty9\", \"value\": \"釋斯植\"}, {\"id\": \"hixi8u60h288\", \"value\": \"斯植\"}], \"selected\": \"釋斯植\"}]",
+        "original_values": [
+          {
+            "id": "hixhd2h9bty9",
+            "value": "2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《采芝集續集》。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=53650（「釋斯植」宋，?–?）。判準 score=70.0：name 命中、同期候選 1 個、著作重合 0.0。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=53650 補入空槽——別名 1 條（建中）。既有之值一概未動。"
+          },
+          {
+            "id": "hixi8u60h288",
+            "value": "集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（無 person_uri，按名＋朝代聚合）新建；著錄 1 處，同 uri 視為同一人；未對接 CBDB。庫中另有同名 Entity hixhd2h9bmur，朝代不明或不合，未并，待 P3 查證。"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "alt_names": {
+        "action": "stable_union",
+        "selected": [
+          {
+            "name": "建中",
+            "type": "字"
+          },
+          {
+            "name": "斯植",
+            "type": "別名",
+            "note": "斯植／釋斯植：采芝集同一 Work 原中國古籍總目責任者已署宋釋斯植，續集亦同署；江湖集研究目錄列芳庭斯植采芝集及采芝續稿。採集與續稿分立，只合人。"
+          }
+        ],
+        "original_values": [
+          {
+            "id": "hixhd2h9bty9",
+            "value": [
+              {
+                "name": "建中",
+                "type": "字"
+              }
+            ]
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty": {
+        "action": "retain_keeper",
+        "selected": "趙宋",
+        "original_values": [
+          {
+            "id": "hixhd2h9bty9",
+            "value": "趙宋"
+          },
+          {
+            "id": "hixi8u60h288",
+            "value": "趙宋"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty_basis": {
+        "action": "preserve_attributed_basis_values",
+        "selected": "synonym:period=song\n據《中國古籍總目》責任者著錄",
+        "original_values": [
+          {
+            "id": "hixhd2h9bty9",
+            "value": "synonym:period=song"
+          },
+          {
+            "id": "hixi8u60h288",
+            "value": "據《中國古籍總目》責任者著錄"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "external_ids": {
+        "action": "retain_keeper",
+        "selected": {
+          "cbdb_id": 53650,
+          "cbdb_match": "auto_2026-09-06",
+          "cbdb_source": "score=70.0 via=name(命中「釋斯植」) cand=1 work_recall=0.0 cbdb=釋斯植/宋",
+          "wikidata_id": "Q10563824"
+        },
+        "original_values": [
+          {
+            "id": "hixhd2h9bty9",
+            "value": {
+              "cbdb_id": 53650,
+              "cbdb_match": "auto_2026-09-06",
+              "cbdb_source": "score=70.0 via=name(命中「釋斯植」) cand=1 work_recall=0.0 cbdb=釋斯植/宋",
+              "wikidata_id": "Q10563824"
+            }
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period": {
+        "action": "retain_keeper",
+        "selected": "song",
+        "original_values": [
+          {
+            "id": "hixhd2h9bty9",
+            "value": "song"
+          },
+          {
+            "id": "hixi8u60h288",
+            "value": "song"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period_basis": {
+        "action": "preserve_attributed_basis_values",
+        "selected": "據 dynasty「宋」自動歸併",
+        "original_values": [
+          {
+            "id": "hixhd2h9bty9",
+            "value": "據 dynasty「宋」自動歸併"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "primary_name": {
+        "action": "retain_keeper_and_archive_all_alternatives",
+        "selected": "釋斯植",
+        "original_values": [
+          {
+            "id": "hixhd2h9bty9",
+            "value": "釋斯植"
+          },
+          {
+            "id": "hixi8u60h288",
+            "value": "斯植"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "review": {
+        "action": "copy_nonconflicting_loser",
+        "selected": {
+          "status": "unreviewed"
+        },
+        "original_values": [
+          {
+            "id": "hixi8u60h288",
+            "value": {
+              "status": "unreviewed"
+            }
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "subtype": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "斯植／釋斯植：采芝集同一 Work 原中國古籍總目責任者已署宋釋斯植，續集亦同署；江湖集研究目錄列芳庭斯植采芝集及采芝續稿。採集與續稿分立，只合人。",
+        "selected": "people"
+      }
+    },
+    "machine_decision": {
+      "field_overrides": {
+        "ai_note": "[來源 hixhd2h9bty9] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《采芝集續集》。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=53650（「釋斯植」宋，?–?）。判準 score=70.0：name 命中、同期候選 1 個、著作重合 0.0。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=53650 補入空槽——別名 1 條（建中）。既有之值一概未動。\n\n[來源 hixi8u60h288] 集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（無 person_uri，按名＋朝代聚合）新建；著錄 1 處，同 uri 視為同一人；未對接 CBDB。庫中另有同名 Entity hixhd2h9bmur，朝代不明或不合，未并，待 P3 查證。\n\n2026-10-22 expanded duplicate audit PRV-T004：斯植／釋斯植：采芝集同一 Work 原中國古籍總目責任者已署宋釋斯植，續集亦同署；江湖集研究目錄列芳庭斯植采芝集及采芝續稿。採集與續稿分立，只合人。 證據：https://digicoll.lib.berkeley.edu/record/81683/files/2017Spring_Feng_Xiangjun.pdf 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixhd2h9bty9\", \"value\": \"釋斯植\"}, {\"id\": \"hixi8u60h288\", \"value\": \"斯植\"}], \"selected\": \"釋斯植\"}]",
+        "alt_names": [
+          {
+            "name": "建中",
+            "type": "字"
+          },
+          {
+            "name": "斯植",
+            "type": "別名",
+            "note": "斯植／釋斯植：采芝集同一 Work 原中國古籍總目責任者已署宋釋斯植，續集亦同署；江湖集研究目錄列芳庭斯植采芝集及采芝續稿。採集與續稿分立，只合人。"
+          }
+        ],
+        "dynasty": "趙宋",
+        "dynasty_basis": "synonym:period=song\n據《中國古籍總目》責任者著錄",
+        "external_ids": {
+          "cbdb_id": 53650,
+          "cbdb_match": "auto_2026-09-06",
+          "cbdb_source": "score=70.0 via=name(命中「釋斯植」) cand=1 work_recall=0.0 cbdb=釋斯植/宋",
+          "wikidata_id": "Q10563824"
+        },
+        "period": "song",
+        "period_basis": "據 dynasty「宋」自動歸併",
+        "primary_name": "釋斯植",
+        "review": {
+          "status": "unreviewed"
+        },
+        "subtype": "people"
+      },
+      "field_delete": [],
+      "why": "斯植／釋斯植：采芝集同一 Work 原中國古籍總目責任者已署宋釋斯植，續集亦同署；江湖集研究目錄列芳庭斯植采芝集及采芝續稿。採集與續稿分立，只合人。"
+    }
+  },
+  {
+    "case_id": "PRV-T005",
+    "cluster_id": "PRV-T005",
+    "type": "Entity",
+    "status": "confirmed",
+    "keeper": "hixi8u5puzo6",
+    "losers": [
+      "hixhd2h9bjcq"
+    ],
+    "why": "嘯顛／釋嘯顛：清古樹軒錄一卷及古樹軒詩錄一卷，清史稿與中國古籍總目相互對應，無第二人線索；全部引用即此兩書。",
+    "evidence": [
+      {
+        "url": "prefix-records.json#d59fxt2ou3gg,d59f2nqkyvpd",
+        "title": "釋嘯顛 人物與著錄佐證",
+        "support": "嘯顛／釋嘯顛：清古樹軒錄一卷及古樹軒詩錄一卷，清史稿與中國古籍總目相互對應，無第二人線索；全部引用即此兩書。",
+        "retrieved_at": "2026-10-22"
+      }
+    ],
+    "records": [
+      {
+        "id": "hixi8u5puzo6",
+        "path": "Entity/z/o/6/hixi8u5puzo6-釋嘯顛.json",
+        "sha256": "a4e28e4dec7c9059d0c1dd8c75d7d8566d772336f550e9f36f2bfff5c44abb5e",
+        "primary_name": "釋嘯顛"
+      },
+      {
+        "id": "hixhd2h9bjcq",
+        "path": "Entity/j/c/q/hixhd2h9bjcq-嘯顛.json",
+        "sha256": "1cf876ae99ff126b5be78e48082858db028165eea6d2a2cbdefda908f7c4500e",
+        "primary_name": "嘯顛"
+      }
+    ],
+    "related_work_ids": [
+      "d59fxt2ou3gg",
+      "d59f2nqkyvpd"
+    ],
+    "work_review": {
+      "coverage": "all current live Work.authors[].entity_id references scanned",
+      "count": 2,
+      "snapshots": "prefix-records.json"
+    },
+    "field_decisions": {
+      "ai_note": {
+        "action": "preserve_attributed_notes",
+        "selected": "[來源 hixi8u5puzo6] 集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/moobaje5uomk5wzj）新建；著錄 1 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-10-22 expanded duplicate audit PRV-T005：嘯顛／釋嘯顛：清古樹軒錄一卷及古樹軒詩錄一卷，清史稿與中國古籍總目相互對應，無第二人線索；全部引用即此兩書。 證據：prefix-records.json#d59fxt2ou3gg,d59f2nqkyvpd 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixi8u5puzo6\", \"value\": \"釋嘯顛\"}, {\"id\": \"hixhd2h9bjcq\", \"value\": \"嘯顛\"}], \"selected\": \"釋嘯顛\"}]",
+        "original_values": [
+          {
+            "id": "hixi8u5puzo6",
+            "value": "集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/moobaje5uomk5wzj）新建；著錄 1 處，同 uri 視為同一人；未對接 CBDB。"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "description": {
+        "action": "union_description_and_sources",
+        "selected": {
+          "sources": [
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/moobaje5uomk5wzj"
+            }
+          ]
+        },
+        "original_values": [
+          {
+            "id": "hixi8u5puzo6",
+            "value": {
+              "sources": [
+                {
+                  "name": "中國古籍總目",
+                  "type": "url",
+                  "details": "http://data.library.sh.cn/entity/person/moobaje5uomk5wzj"
+                }
+              ]
+            }
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty": {
+        "action": "retain_keeper",
+        "selected": "清",
+        "original_values": [
+          {
+            "id": "hixi8u5puzo6",
+            "value": "清"
+          },
+          {
+            "id": "hixhd2h9bjcq",
+            "value": "清"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty_basis": {
+        "action": "preserve_attributed_basis_values",
+        "selected": "據《中國古籍總目》責任者著錄",
+        "original_values": [
+          {
+            "id": "hixi8u5puzo6",
+            "value": "據《中國古籍總目》責任者著錄"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period": {
+        "action": "retain_keeper",
+        "selected": "qing",
+        "original_values": [
+          {
+            "id": "hixi8u5puzo6",
+            "value": "qing"
+          },
+          {
+            "id": "hixhd2h9bjcq",
+            "value": "qing"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period_basis": {
+        "action": "preserve_attributed_basis_values",
+        "selected": "據 dynasty「清」自動歸併",
+        "original_values": [
+          {
+            "id": "hixhd2h9bjcq",
+            "value": "據 dynasty「清」自動歸併"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "primary_name": {
+        "action": "retain_keeper_and_archive_all_alternatives",
+        "selected": "釋嘯顛",
+        "original_values": [
+          {
+            "id": "hixi8u5puzo6",
+            "value": "釋嘯顛"
+          },
+          {
+            "id": "hixhd2h9bjcq",
+            "value": "嘯顛"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "review": {
+        "action": "retain_keeper",
+        "selected": {
+          "status": "unreviewed"
+        },
+        "original_values": [
+          {
+            "id": "hixi8u5puzo6",
+            "value": {
+              "status": "unreviewed"
+            }
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "alt_names": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "嘯顛／釋嘯顛：清古樹軒錄一卷及古樹軒詩錄一卷，清史稿與中國古籍總目相互對應，無第二人線索；全部引用即此兩書。",
+        "selected": [
+          {
+            "name": "嘯顛",
+            "type": "別名",
+            "note": "嘯顛／釋嘯顛：清古樹軒錄一卷及古樹軒詩錄一卷，清史稿與中國古籍總目相互對應，無第二人線索；全部引用即此兩書。"
+          }
+        ]
+      },
+      "subtype": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "嘯顛／釋嘯顛：清古樹軒錄一卷及古樹軒詩錄一卷，清史稿與中國古籍總目相互對應，無第二人線索；全部引用即此兩書。",
+        "selected": "people"
+      }
+    },
+    "machine_decision": {
+      "field_overrides": {
+        "ai_note": "[來源 hixi8u5puzo6] 集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/moobaje5uomk5wzj）新建；著錄 1 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-10-22 expanded duplicate audit PRV-T005：嘯顛／釋嘯顛：清古樹軒錄一卷及古樹軒詩錄一卷，清史稿與中國古籍總目相互對應，無第二人線索；全部引用即此兩書。 證據：prefix-records.json#d59fxt2ou3gg,d59f2nqkyvpd 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixi8u5puzo6\", \"value\": \"釋嘯顛\"}, {\"id\": \"hixhd2h9bjcq\", \"value\": \"嘯顛\"}], \"selected\": \"釋嘯顛\"}]",
+        "description": {
+          "sources": [
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/moobaje5uomk5wzj"
+            }
+          ]
+        },
+        "dynasty": "清",
+        "dynasty_basis": "據《中國古籍總目》責任者著錄",
+        "period": "qing",
+        "period_basis": "據 dynasty「清」自動歸併",
+        "primary_name": "釋嘯顛",
+        "review": {
+          "status": "unreviewed"
+        },
+        "alt_names": [
+          {
+            "name": "嘯顛",
+            "type": "別名",
+            "note": "嘯顛／釋嘯顛：清古樹軒錄一卷及古樹軒詩錄一卷，清史稿與中國古籍總目相互對應，無第二人線索；全部引用即此兩書。"
+          }
+        ],
+        "subtype": "people"
+      },
+      "field_delete": [],
+      "why": "嘯顛／釋嘯顛：清古樹軒錄一卷及古樹軒詩錄一卷，清史稿與中國古籍總目相互對應，無第二人線索；全部引用即此兩書。"
+    }
+  },
+  {
+    "case_id": "PRV-T006",
+    "cluster_id": "PRV-T006",
+    "type": "Entity",
+    "status": "confirmed",
+    "keeper": "hixhd2h9bczp",
+    "losers": [
+      "hixhd2h9bjcr"
+    ],
+    "why": "達受／釋達受：清史稿小綠天菴吟草與中國古籍總目小綠天庵遺詩均為達受、六舟之著述；翠微亭題名考同署釋達受。吟草與遺詩不是同一版本斷言，只合人物。故宮博物院所刊鄭岩《六舟〈百歲圖〉補論》直接引六舟小綠天庵吟草，並標釋達受著。",
+    "evidence": [
+      {
+        "url": "https://www.dpm.org.cn/Uploads/File/2019/03/25/u5c98450807e8c.pdf",
+        "title": "釋達受 人物與著錄佐證",
+        "support": "達受／釋達受：清史稿小綠天菴吟草與中國古籍總目小綠天庵遺詩均為達受、六舟之著述；翠微亭題名考同署釋達受。吟草與遺詩不是同一版本斷言，只合人物。故宮博物院所刊鄭岩《六舟〈百歲圖〉補論》直接引六舟小綠天庵吟草，並標釋達受著。",
+        "retrieved_at": "2026-10-22"
+      }
+    ],
+    "records": [
+      {
+        "id": "hixhd2h9bczp",
+        "path": "Entity/c/z/p/hixhd2h9bczp-釋達受.json",
+        "sha256": "8b97d3d2538f87da46196d30342817fbf3241c2ddd3fc05da373ac44de690a80",
+        "primary_name": "釋達受"
+      },
+      {
+        "id": "hixhd2h9bjcr",
+        "path": "Entity/j/c/r/hixhd2h9bjcr-達受.json",
+        "sha256": "1c07242a6456f8bb2f5fa86bfbd0e6df9885cc03d4e9fd50abe5be724e73f013",
+        "primary_name": "達受"
+      }
+    ],
+    "related_work_ids": [
+      "d59f2ngj6u4g",
+      "d59fssn2y2v6",
+      "d59f2nqla48w"
+    ],
+    "work_review": {
+      "coverage": "all current live Work.authors[].entity_id references scanned",
+      "count": 3,
+      "snapshots": "prefix-records.json"
+    },
+    "field_decisions": {
+      "alt_names": {
+        "action": "stable_union",
+        "selected": [
+          {
+            "name": "六舟",
+            "type": "字"
+          },
+          {
+            "name": "達受",
+            "type": "別名",
+            "note": "達受／釋達受：清史稿小綠天菴吟草與中國古籍總目小綠天庵遺詩均為達受、六舟之著述；翠微亭題名考同署釋達受。吟草與遺詩不是同一版本斷言，只合人物。故宮博物院所刊鄭岩《六舟〈百歲圖〉補論》直接引六舟小綠天庵吟草，並標釋達受著。"
+          }
+        ],
+        "original_values": [
+          {
+            "id": "hixhd2h9bczp",
+            "value": [
+              {
+                "name": "六舟",
+                "type": "字"
+              }
+            ]
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "description": {
+        "action": "union_description_and_sources",
+        "selected": {
+          "sources": [
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/uifufdktkzn6n4cv"
+            }
+          ]
+        },
+        "original_values": [
+          {
+            "id": "hixhd2h9bczp",
+            "value": {
+              "sources": [
+                {
+                  "name": "中國古籍總目",
+                  "type": "url",
+                  "details": "http://data.library.sh.cn/entity/person/uifufdktkzn6n4cv"
+                }
+              ]
+            }
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty": {
+        "action": "retain_keeper",
+        "selected": "清",
+        "original_values": [
+          {
+            "id": "hixhd2h9bczp",
+            "value": "清"
+          },
+          {
+            "id": "hixhd2h9bjcr",
+            "value": "清"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "external_ids": {
+        "action": "retain_keeper",
+        "selected": {
+          "cbdb_id": 690216,
+          "cbdb_match": "auto",
+          "cbdb_source": "name_exact+dy_match+unique"
+        },
+        "original_values": [
+          {
+            "id": "hixhd2h9bczp",
+            "value": {
+              "cbdb_id": 690216,
+              "cbdb_match": "auto",
+              "cbdb_source": "name_exact+dy_match+unique"
+            }
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period": {
+        "action": "retain_keeper",
+        "selected": "qing",
+        "original_values": [
+          {
+            "id": "hixhd2h9bczp",
+            "value": "qing"
+          },
+          {
+            "id": "hixhd2h9bjcr",
+            "value": "qing"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period_basis": {
+        "action": "preserve_attributed_basis_values",
+        "selected": "據 dynasty「清」自動歸併",
+        "original_values": [
+          {
+            "id": "hixhd2h9bczp",
+            "value": "據 dynasty「清」自動歸併"
+          },
+          {
+            "id": "hixhd2h9bjcr",
+            "value": "據 dynasty「清」自動歸併"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "primary_name": {
+        "action": "retain_keeper_and_archive_all_alternatives",
+        "selected": "釋達受",
+        "original_values": [
+          {
+            "id": "hixhd2h9bczp",
+            "value": "釋達受"
+          },
+          {
+            "id": "hixhd2h9bjcr",
+            "value": "達受"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "ai_note": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "達受／釋達受：清史稿小綠天菴吟草與中國古籍總目小綠天庵遺詩均為達受、六舟之著述；翠微亭題名考同署釋達受。吟草與遺詩不是同一版本斷言，只合人物。故宮博物院所刊鄭岩《六舟〈百歲圖〉補論》直接引六舟小綠天庵吟草，並標釋達受著。",
+        "selected": "\n\n2026-10-22 expanded duplicate audit PRV-T006：達受／釋達受：清史稿小綠天菴吟草與中國古籍總目小綠天庵遺詩均為達受、六舟之著述；翠微亭題名考同署釋達受。吟草與遺詩不是同一版本斷言，只合人物。故宮博物院所刊鄭岩《六舟〈百歲圖〉補論》直接引六舟小綠天庵吟草，並標釋達受著。 證據：https://www.dpm.org.cn/Uploads/File/2019/03/25/u5c98450807e8c.pdf 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixhd2h9bczp\", \"value\": \"釋達受\"}, {\"id\": \"hixhd2h9bjcr\", \"value\": \"達受\"}], \"selected\": \"釋達受\"}]"
+      },
+      "subtype": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "達受／釋達受：清史稿小綠天菴吟草與中國古籍總目小綠天庵遺詩均為達受、六舟之著述；翠微亭題名考同署釋達受。吟草與遺詩不是同一版本斷言，只合人物。故宮博物院所刊鄭岩《六舟〈百歲圖〉補論》直接引六舟小綠天庵吟草，並標釋達受著。",
+        "selected": "people"
+      }
+    },
+    "machine_decision": {
+      "field_overrides": {
+        "alt_names": [
+          {
+            "name": "六舟",
+            "type": "字"
+          },
+          {
+            "name": "達受",
+            "type": "別名",
+            "note": "達受／釋達受：清史稿小綠天菴吟草與中國古籍總目小綠天庵遺詩均為達受、六舟之著述；翠微亭題名考同署釋達受。吟草與遺詩不是同一版本斷言，只合人物。故宮博物院所刊鄭岩《六舟〈百歲圖〉補論》直接引六舟小綠天庵吟草，並標釋達受著。"
+          }
+        ],
+        "description": {
+          "sources": [
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/uifufdktkzn6n4cv"
+            }
+          ]
+        },
+        "dynasty": "清",
+        "external_ids": {
+          "cbdb_id": 690216,
+          "cbdb_match": "auto",
+          "cbdb_source": "name_exact+dy_match+unique"
+        },
+        "period": "qing",
+        "period_basis": "據 dynasty「清」自動歸併",
+        "primary_name": "釋達受",
+        "ai_note": "\n\n2026-10-22 expanded duplicate audit PRV-T006：達受／釋達受：清史稿小綠天菴吟草與中國古籍總目小綠天庵遺詩均為達受、六舟之著述；翠微亭題名考同署釋達受。吟草與遺詩不是同一版本斷言，只合人物。故宮博物院所刊鄭岩《六舟〈百歲圖〉補論》直接引六舟小綠天庵吟草，並標釋達受著。 證據：https://www.dpm.org.cn/Uploads/File/2019/03/25/u5c98450807e8c.pdf 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixhd2h9bczp\", \"value\": \"釋達受\"}, {\"id\": \"hixhd2h9bjcr\", \"value\": \"達受\"}], \"selected\": \"釋達受\"}]",
+        "subtype": "people"
+      },
+      "field_delete": [],
+      "why": "達受／釋達受：清史稿小綠天菴吟草與中國古籍總目小綠天庵遺詩均為達受、六舟之著述；翠微亭題名考同署釋達受。吟草與遺詩不是同一版本斷言，只合人物。故宮博物院所刊鄭岩《六舟〈百歲圖〉補論》直接引六舟小綠天庵吟草，並標釋達受著。"
+    }
+  },
+  {
+    "case_id": "PRV-T007",
+    "cluster_id": "PRV-T007",
+    "type": "Entity",
+    "status": "confirmed",
+    "keeper": "hixi8u5szd8u",
+    "losers": [
+      "hixhgyrw4wdh"
+    ],
+    "why": "果斌／釋果斌：千頃堂半峯集原小注為號半峯、嘉靖初住持天界寺；中國古籍總目釋半峯集一卷署明釋果斌，DILA A022307 亦列半峰果斌。字／號分類異說，暫不新增半峰類型。保留 loser 舊 merge_history。",
+    "evidence": [
+      {
+        "url": "https://authority.dila.edu.tw/person/search.php?aid=A022307",
+        "title": "釋果斌 人物與著錄佐證",
+        "support": "果斌／釋果斌：千頃堂半峯集原小注為號半峯、嘉靖初住持天界寺；中國古籍總目釋半峯集一卷署明釋果斌，DILA A022307 亦列半峰果斌。字／號分類異說，暫不新增半峰類型。保留 loser 舊 merge_history。",
+        "retrieved_at": "2026-10-22"
+      }
+    ],
+    "records": [
+      {
+        "id": "hixi8u5szd8u",
+        "path": "Entity/d/8/u/hixi8u5szd8u-釋果斌.json",
+        "sha256": "7422877206fa9c73b18a3e0a831766e5be7da07bdc815396cb7f6a95a354c5c7",
+        "primary_name": "釋果斌"
+      },
+      {
+        "id": "hixhgyrw4wdh",
+        "path": "Entity/w/d/h/hixhgyrw4wdh-果斌.json",
+        "sha256": "461a9aec486b3ea9a3f3cba8b2d61cea340365ced049adc877accfe40776c266",
+        "primary_name": "果斌"
+      }
+    ],
+    "related_work_ids": [
+      "d59fxt790x6p",
+      "d59f6emv01z9"
+    ],
+    "work_review": {
+      "coverage": "all current live Work.authors[].entity_id references scanned",
+      "count": 2,
+      "snapshots": "prefix-records.json"
+    },
+    "field_decisions": {
+      "ai_note": {
+        "action": "preserve_attributed_notes",
+        "selected": "[來源 hixi8u5szd8u] 集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/2enk6z5t6osl1lg4）新建；著錄 1 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-10-22 expanded duplicate audit PRV-T007：果斌／釋果斌：千頃堂半峯集原小注為號半峯、嘉靖初住持天界寺；中國古籍總目釋半峯集一卷署明釋果斌，DILA A022307 亦列半峰果斌。字／號分類異說，暫不新增半峰類型。保留 loser 舊 merge_history。 證據：https://authority.dila.edu.tw/person/search.php?aid=A022307 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixi8u5szd8u\", \"value\": \"釋果斌\"}, {\"id\": \"hixhgyrw4wdh\", \"value\": \"果斌\"}], \"selected\": \"釋果斌\"}]",
+        "original_values": [
+          {
+            "id": "hixi8u5szd8u",
+            "value": "集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/2enk6z5t6osl1lg4）新建；著錄 1 處，同 uri 視為同一人；未對接 CBDB。"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "description": {
+        "action": "union_description_and_sources",
+        "selected": {
+          "sources": [
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/2enk6z5t6osl1lg4"
+            }
+          ]
+        },
+        "original_values": [
+          {
+            "id": "hixi8u5szd8u",
+            "value": {
+              "sources": [
+                {
+                  "name": "中國古籍總目",
+                  "type": "url",
+                  "details": "http://data.library.sh.cn/entity/person/2enk6z5t6osl1lg4"
+                }
+              ]
+            }
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty": {
+        "action": "retain_keeper",
+        "selected": "明",
+        "original_values": [
+          {
+            "id": "hixi8u5szd8u",
+            "value": "明"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty_basis": {
+        "action": "preserve_attributed_basis_values",
+        "selected": "據《中國古籍總目》責任者著錄",
+        "original_values": [
+          {
+            "id": "hixi8u5szd8u",
+            "value": "據《中國古籍總目》責任者著錄"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "merge_history": {
+        "action": "stable_union",
+        "selected": [
+          {
+            "primary_name": "果斌",
+            "date": "2026-09-09",
+            "reason": "draft/production 同人同书重出（CBDB auto_create 批次遗留，纯冗余无增量），2026-09-09 併條"
+          }
+        ],
+        "original_values": [
+          {
+            "id": "hixhgyrw4wdh",
+            "value": [
+              {
+                "primary_name": "果斌",
+                "date": "2026-09-09",
+                "reason": "draft/production 同人同书重出（CBDB auto_create 批次遗留，纯冗余无增量），2026-09-09 併條"
+              }
+            ]
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period": {
+        "action": "retain_keeper",
+        "selected": "ming",
+        "original_values": [
+          {
+            "id": "hixi8u5szd8u",
+            "value": "ming"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "primary_name": {
+        "action": "retain_keeper_and_archive_all_alternatives",
+        "selected": "釋果斌",
+        "original_values": [
+          {
+            "id": "hixi8u5szd8u",
+            "value": "釋果斌"
+          },
+          {
+            "id": "hixhgyrw4wdh",
+            "value": "果斌"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "review": {
+        "action": "retain_keeper",
+        "selected": {
+          "status": "unreviewed"
+        },
+        "original_values": [
+          {
+            "id": "hixi8u5szd8u",
+            "value": {
+              "status": "unreviewed"
+            }
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "alt_names": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "果斌／釋果斌：千頃堂半峯集原小注為號半峯、嘉靖初住持天界寺；中國古籍總目釋半峯集一卷署明釋果斌，DILA A022307 亦列半峰果斌。字／號分類異說，暫不新增半峰類型。保留 loser 舊 merge_history。",
+        "selected": [
+          {
+            "name": "果斌",
+            "type": "別名",
+            "note": "果斌／釋果斌：千頃堂半峯集原小注為號半峯、嘉靖初住持天界寺；中國古籍總目釋半峯集一卷署明釋果斌，DILA A022307 亦列半峰果斌。字／號分類異說，暫不新增半峰類型。保留 loser 舊 merge_history。"
+          }
+        ]
+      },
+      "subtype": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "果斌／釋果斌：千頃堂半峯集原小注為號半峯、嘉靖初住持天界寺；中國古籍總目釋半峯集一卷署明釋果斌，DILA A022307 亦列半峰果斌。字／號分類異說，暫不新增半峰類型。保留 loser 舊 merge_history。",
+        "selected": "people"
+      }
+    },
+    "machine_decision": {
+      "field_overrides": {
+        "ai_note": "[來源 hixi8u5szd8u] 集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/2enk6z5t6osl1lg4）新建；著錄 1 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-10-22 expanded duplicate audit PRV-T007：果斌／釋果斌：千頃堂半峯集原小注為號半峯、嘉靖初住持天界寺；中國古籍總目釋半峯集一卷署明釋果斌，DILA A022307 亦列半峰果斌。字／號分類異說，暫不新增半峰類型。保留 loser 舊 merge_history。 證據：https://authority.dila.edu.tw/person/search.php?aid=A022307 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixi8u5szd8u\", \"value\": \"釋果斌\"}, {\"id\": \"hixhgyrw4wdh\", \"value\": \"果斌\"}], \"selected\": \"釋果斌\"}]",
+        "description": {
+          "sources": [
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/2enk6z5t6osl1lg4"
+            }
+          ]
+        },
+        "dynasty": "明",
+        "dynasty_basis": "據《中國古籍總目》責任者著錄",
+        "period": "ming",
+        "primary_name": "釋果斌",
+        "review": {
+          "status": "unreviewed"
+        },
+        "alt_names": [
+          {
+            "name": "果斌",
+            "type": "別名",
+            "note": "果斌／釋果斌：千頃堂半峯集原小注為號半峯、嘉靖初住持天界寺；中國古籍總目釋半峯集一卷署明釋果斌，DILA A022307 亦列半峰果斌。字／號分類異說，暫不新增半峰類型。保留 loser 舊 merge_history。"
+          }
+        ],
+        "subtype": "people"
+      },
+      "field_delete": [],
+      "why": "果斌／釋果斌：千頃堂半峯集原小注為號半峯、嘉靖初住持天界寺；中國古籍總目釋半峯集一卷署明釋果斌，DILA A022307 亦列半峰果斌。字／號分類異說，暫不新增半峰類型。保留 loser 舊 merge_history。"
+    }
+  },
+  {
+    "case_id": "PRV-T008",
+    "cluster_id": "PRV-T008",
+    "type": "Entity",
+    "status": "confirmed",
+    "keeper": "hixi23umtv60",
+    "losers": [
+      "hixi8u5wez7q",
+      "hixhd2h9boxz"
+    ],
+    "why": "尚顏／釋尚顏／僧尚顏：中國古籍總目明題唐尚顏詩集（尚顏詩集）一卷，同一作者兩種署法；宋史藝文志釋氏別集研究確認荊門集即唐末詩僧尚顏字茂聖，直齋尚顏供奉集亦同人。兩個上海 person URI 保存在 description sources，不當作不相容身份。",
+    "evidence": [
+      {
+        "url": "https://www.chibs.edu.tw/ch_html/chbs/10/chbs1007.pdf",
+        "title": "尚顏 人物與著錄佐證",
+        "support": "尚顏／釋尚顏／僧尚顏：中國古籍總目明題唐尚顏詩集（尚顏詩集）一卷，同一作者兩種署法；宋史藝文志釋氏別集研究確認荊門集即唐末詩僧尚顏字茂聖，直齋尚顏供奉集亦同人。兩個上海 person URI 保存在 description sources，不當作不相容身份。",
+        "retrieved_at": "2026-10-22"
+      }
+    ],
+    "records": [
+      {
+        "id": "hixi23umtv60",
+        "path": "Entity/v/6/0/hixi23umtv60-尚顏.json",
+        "sha256": "82471f3ed54f8a047aad8df2b72fd4c70234dc0d32a2933e86c0ee6833af17a6",
+        "primary_name": "尚顏"
+      },
+      {
+        "id": "hixi8u5wez7q",
+        "path": "Entity/z/7/q/hixi8u5wez7q-釋尚顏.json",
+        "sha256": "7475acd2a8f1ed0a38e5dd481706faf5613f4e706327efa4002b1227131d5eca",
+        "primary_name": "釋尚顏"
+      },
+      {
+        "id": "hixhd2h9boxz",
+        "path": "Entity/o/x/z/hixhd2h9boxz-僧尚顏.json",
+        "sha256": "aabc62cfd67648f3396344ebd86ccc6173cdf17228b2df212c986c79095613a1",
+        "primary_name": "僧尚顏"
+      }
+    ],
+    "related_work_ids": [
+      "d59fsa73mhhf",
+      "d59fsegdroci",
+      "d59f2q6h7wg0",
+      "d59f2q6oed4w"
+    ],
+    "work_review": {
+      "coverage": "all current live Work.authors[].entity_id references scanned",
+      "count": 4,
+      "snapshots": "prefix-records.json"
+    },
+    "field_decisions": {
+      "ai_note": {
+        "action": "preserve_attributed_notes",
+        "selected": "[來源 hixi23umtv60] P4（overview#395）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/f5akic0sbmu8wyv0）新建；名＋朝代與 CBDB 93737 唯一對應，著作 《尚顏詩集》 與 CBDB 著作重合。依據：總目題名＋CBDB 唯一，無生卒交叉。\n\n[來源 hixi8u5wez7q] 集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/xcgd6k012ghcw0rm）新建；著錄 1 處，同 uri 視為同一人；未對接 CBDB。\n\n[來源 hixhd2h9boxz] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《荊門集》。\n\n所繫之 work 未定代，故本 entity 未著 dynasty／period——待考。\n\n2026-10-22 expanded duplicate audit PRV-T008：尚顏／釋尚顏／僧尚顏：中國古籍總目明題唐尚顏詩集（尚顏詩集）一卷，同一作者兩種署法；宋史藝文志釋氏別集研究確認荊門集即唐末詩僧尚顏字茂聖，直齋尚顏供奉集亦同人。兩個上海 person URI 保存在 description sources，不當作不相容身份。 證據：https://www.chibs.edu.tw/ch_html/chbs/10/chbs1007.pdf 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixi23umtv60\", \"value\": \"尚顏\"}, {\"id\": \"hixi8u5wez7q\", \"value\": \"釋尚顏\"}, {\"id\": \"hixhd2h9boxz\", \"value\": \"僧尚顏\"}], \"selected\": \"尚顏\"}]",
+        "original_values": [
+          {
+            "id": "hixi23umtv60",
+            "value": "P4（overview#395）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/f5akic0sbmu8wyv0）新建；名＋朝代與 CBDB 93737 唯一對應，著作 《尚顏詩集》 與 CBDB 著作重合。依據：總目題名＋CBDB 唯一，無生卒交叉。"
+          },
+          {
+            "id": "hixi8u5wez7q",
+            "value": "集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/xcgd6k012ghcw0rm）新建；著錄 1 處，同 uri 視為同一人；未對接 CBDB。"
+          },
+          {
+            "id": "hixhd2h9boxz",
+            "value": "2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《荊門集》。\n\n所繫之 work 未定代，故本 entity 未著 dynasty／period——待考。"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "alt_names": {
+        "action": "stable_union",
+        "selected": [
+          {
+            "name": "茂聖",
+            "type": "字"
+          },
+          {
+            "name": "釋尚顏",
+            "type": "別名",
+            "note": "尚顏／釋尚顏／僧尚顏：中國古籍總目明題唐尚顏詩集（尚顏詩集）一卷，同一作者兩種署法；宋史藝文志釋氏別集研究確認荊門集即唐末詩僧尚顏字茂聖，直齋尚顏供奉集亦同人。兩個上海 person URI 保存在 description sources，不當作不相容身份。"
+          },
+          {
+            "name": "僧尚顏",
+            "type": "別名",
+            "note": "尚顏／釋尚顏／僧尚顏：中國古籍總目明題唐尚顏詩集（尚顏詩集）一卷，同一作者兩種署法；宋史藝文志釋氏別集研究確認荊門集即唐末詩僧尚顏字茂聖，直齋尚顏供奉集亦同人。兩個上海 person URI 保存在 description sources，不當作不相容身份。"
+          }
+        ],
+        "original_values": [
+          {
+            "id": "hixi23umtv60",
+            "value": [
+              {
+                "name": "茂聖",
+                "type": "字"
+              }
+            ]
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "description": {
+        "action": "union_description_and_sources",
+        "selected": {
+          "sources": [
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/f5akic0sbmu8wyv0"
+            },
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/xcgd6k012ghcw0rm"
+            }
+          ]
+        },
+        "original_values": [
+          {
+            "id": "hixi23umtv60",
+            "value": {
+              "sources": [
+                {
+                  "name": "中國古籍總目",
+                  "type": "url",
+                  "details": "http://data.library.sh.cn/entity/person/f5akic0sbmu8wyv0"
+                }
+              ]
+            }
+          },
+          {
+            "id": "hixi8u5wez7q",
+            "value": {
+              "sources": [
+                {
+                  "name": "中國古籍總目",
+                  "type": "url",
+                  "details": "http://data.library.sh.cn/entity/person/xcgd6k012ghcw0rm"
+                }
+              ]
+            }
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty": {
+        "action": "retain_keeper",
+        "selected": "唐",
+        "original_values": [
+          {
+            "id": "hixi23umtv60",
+            "value": "唐"
+          },
+          {
+            "id": "hixi8u5wez7q",
+            "value": "唐"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "dynasty_basis": {
+        "action": "preserve_attributed_basis_values",
+        "selected": "據《中國古籍總目》責任者著錄",
+        "original_values": [
+          {
+            "id": "hixi23umtv60",
+            "value": "據《中國古籍總目》責任者著錄"
+          },
+          {
+            "id": "hixi8u5wez7q",
+            "value": "據《中國古籍總目》責任者著錄"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "external_ids": {
+        "action": "retain_keeper",
+        "selected": {
+          "cbdb_id": 93737,
+          "cbdb_match": "auto_create_p4",
+          "cbdb_source": "P4 總目person_uri 名＋朝代唯一＋題名重合"
+        },
+        "original_values": [
+          {
+            "id": "hixi23umtv60",
+            "value": {
+              "cbdb_id": 93737,
+              "cbdb_match": "auto_create_p4",
+              "cbdb_source": "P4 總目person_uri 名＋朝代唯一＋題名重合"
+            }
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "period": {
+        "action": "copy_nonconflicting_loser",
+        "selected": "sui-tang",
+        "original_values": [
+          {
+            "id": "hixi8u5wez7q",
+            "value": "sui-tang"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "primary_name": {
+        "action": "retain_keeper_and_archive_all_alternatives",
+        "selected": "尚顏",
+        "original_values": [
+          {
+            "id": "hixi23umtv60",
+            "value": "尚顏"
+          },
+          {
+            "id": "hixi8u5wez7q",
+            "value": "釋尚顏"
+          },
+          {
+            "id": "hixhd2h9boxz",
+            "value": "僧尚顏"
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "review": {
+        "action": "retain_keeper",
+        "selected": {
+          "status": "unreviewed"
+        },
+        "original_values": [
+          {
+            "id": "hixi23umtv60",
+            "value": {
+              "status": "unreviewed"
+            }
+          },
+          {
+            "id": "hixi8u5wez7q",
+            "value": {
+              "status": "unreviewed"
+            }
+          }
+        ],
+        "reason": "字段原值全部保存在 prefix-records.json；非衝突資訊保留到 canonical；衝突不擅自聲稱外部權威ID等價。"
+      },
+      "subtype": {
+        "action": "explicit_evidence_addition",
+        "original_values": [],
+        "reason": "尚顏／釋尚顏／僧尚顏：中國古籍總目明題唐尚顏詩集（尚顏詩集）一卷，同一作者兩種署法；宋史藝文志釋氏別集研究確認荊門集即唐末詩僧尚顏字茂聖，直齋尚顏供奉集亦同人。兩個上海 person URI 保存在 description sources，不當作不相容身份。",
+        "selected": "people"
+      }
+    },
+    "machine_decision": {
+      "field_overrides": {
+        "ai_note": "[來源 hixi23umtv60] P4（overview#395）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/f5akic0sbmu8wyv0）新建；名＋朝代與 CBDB 93737 唯一對應，著作 《尚顏詩集》 與 CBDB 著作重合。依據：總目題名＋CBDB 唯一，無生卒交叉。\n\n[來源 hixi8u5wez7q] 集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/xcgd6k012ghcw0rm）新建；著錄 1 處，同 uri 視為同一人；未對接 CBDB。\n\n[來源 hixhd2h9boxz] 2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《荊門集》。\n\n所繫之 work 未定代，故本 entity 未著 dynasty／period——待考。\n\n2026-10-22 expanded duplicate audit PRV-T008：尚顏／釋尚顏／僧尚顏：中國古籍總目明題唐尚顏詩集（尚顏詩集）一卷，同一作者兩種署法；宋史藝文志釋氏別集研究確認荊門集即唐末詩僧尚顏字茂聖，直齋尚顏供奉集亦同人。兩個上海 person URI 保存在 description sources，不當作不相容身份。 證據：https://www.chibs.edu.tw/ch_html/chbs/10/chbs1007.pdf 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixi23umtv60\", \"value\": \"尚顏\"}, {\"id\": \"hixi8u5wez7q\", \"value\": \"釋尚顏\"}, {\"id\": \"hixhd2h9boxz\", \"value\": \"僧尚顏\"}], \"selected\": \"尚顏\"}]",
+        "alt_names": [
+          {
+            "name": "茂聖",
+            "type": "字"
+          },
+          {
+            "name": "釋尚顏",
+            "type": "別名",
+            "note": "尚顏／釋尚顏／僧尚顏：中國古籍總目明題唐尚顏詩集（尚顏詩集）一卷，同一作者兩種署法；宋史藝文志釋氏別集研究確認荊門集即唐末詩僧尚顏字茂聖，直齋尚顏供奉集亦同人。兩個上海 person URI 保存在 description sources，不當作不相容身份。"
+          },
+          {
+            "name": "僧尚顏",
+            "type": "別名",
+            "note": "尚顏／釋尚顏／僧尚顏：中國古籍總目明題唐尚顏詩集（尚顏詩集）一卷，同一作者兩種署法；宋史藝文志釋氏別集研究確認荊門集即唐末詩僧尚顏字茂聖，直齋尚顏供奉集亦同人。兩個上海 person URI 保存在 description sources，不當作不相容身份。"
+          }
+        ],
+        "description": {
+          "sources": [
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/f5akic0sbmu8wyv0"
+            },
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/xcgd6k012ghcw0rm"
+            }
+          ]
+        },
+        "dynasty": "唐",
+        "dynasty_basis": "據《中國古籍總目》責任者著錄",
+        "external_ids": {
+          "cbdb_id": 93737,
+          "cbdb_match": "auto_create_p4",
+          "cbdb_source": "P4 總目person_uri 名＋朝代唯一＋題名重合"
+        },
+        "period": "sui-tang",
+        "primary_name": "尚顏",
+        "review": {
+          "status": "unreviewed"
+        },
+        "subtype": "people"
+      },
+      "field_delete": [],
+      "why": "尚顏／釋尚顏／僧尚顏：中國古籍總目明題唐尚顏詩集（尚顏詩集）一卷，同一作者兩種署法；宋史藝文志釋氏別集研究確認荊門集即唐末詩僧尚顏字茂聖，直齋尚顏供奉集亦同人。兩個上海 person URI 保存在 description sources，不當作不相容身份。"
+    }
+  }
+]

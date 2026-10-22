@@ -1,0 +1,359 @@
+[
+  {
+    "id": "d59f6ep8j2ti",
+    "path": "Work/2/t/i/d59f6ep8j2ti-清豐縣志.json",
+    "sha256": "2b5383751435486a0cd87e93702ffc11df46a63a29590faefdf0cae4d4cf44aa",
+    "git_blob": "a6a3579ac90e7e0458cb85c0d70ad28ebb105451",
+    "record": {
+      "schema_version": 1,
+      "type": "work",
+      "title": "清豐縣志",
+      "authors": [
+        {
+          "name": "晁瑮",
+          "role": "撰",
+          "entity_id": "hixhd2h9bn18"
+        }
+      ],
+      "indexed_by": [
+        {
+          "source": "千頃堂書目",
+          "source_bid": "d59f2mel8d1c",
+          "title_info": "晁瑮清豐縣志",
+          "summary": "晁瑮清豐縣志"
+        }
+      ],
+      "description": {
+        "text": "晁瑮撰。十六卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「晁瑮清豐縣志」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+        "sources": [
+          "千頃堂書目"
+        ]
+      },
+      "juan_count": {
+        "number": 16
+      },
+      "measures": [
+        {
+          "unit": "卷",
+          "number": 16
+        }
+      ],
+      "measure_info": "十六卷",
+      "period_upper": "qing",
+      "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+      "ai_note": "同名異書：庫內已有同題「清豐縣志」而撰人各異（楊燝(清)、高俊(清)），本條撰人「晁瑮」與之不合，依《千頃堂書目》著錄逕行新建。\n\nC1b 迁移遗留，按总目改正",
+      "id": "d59f6ep8j2ti",
+      "revision": "1.1.0",
+      "revised_at": "2026-10-07",
+      "period": "ming",
+      "period_basis": "據撰人 晁瑮（hixhd2h9bn18） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）"
+    },
+    "snapshot_method": "archive bytes matched to inherited SHA256 and proven equal by pinned-main Git blob comparison"
+  },
+  {
+    "id": "d59f2njb2wao",
+    "path": "Work/w/a/o/d59f2njb2wao-新修清豐縣志.json",
+    "sha256": "274042a8f53ecd75e6e5efc9df31bd1a20319fa5b5a93c1e92cb55196545f34a",
+    "git_blob": "8b1790bccc35c2478d9cf10f15f75e0e23c10390",
+    "record": {
+      "schema_version": 1,
+      "type": "work",
+      "title": "新修清豐縣志",
+      "authors": [
+        {
+          "name": "晁瑮",
+          "role": "纂修",
+          "dynasty": "明",
+          "entity_id": "hixhd2h9bn18"
+        }
+      ],
+      "description": {
+        "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 平圖007188-007191）。明嘉靖戊午(三十七年)刊本。",
+        "sources": [
+          "國立故宮博物院善本舊籍"
+        ]
+      },
+      "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+      "measures": [
+        {
+          "unit": "冊",
+          "number": 4
+        }
+      ],
+      "measure_info": "四冊",
+      "id": "d59f2njb2wao",
+      "updated_at": "2026-08-09T10:41:40+00:00",
+      "period": "ming",
+      "period_basis": "據 authors[0].dynasty「明」",
+      "dynasty": "明",
+      "dynasty_basis": "author_propagation",
+      "revision": "1.1.0",
+      "revised_at": "2026-10-15",
+      "resources": [
+        {
+          "id": "nlc",
+          "group": "nlc-0584",
+          "group_role": "origin",
+          "name": "中華古籍資源庫（國家圖書館）",
+          "short_name": "國圖",
+          "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0584",
+          "types": [
+            "image"
+          ],
+          "metadata": {
+            "nlc_fid": "0584",
+            "edition": "明嘉靖[1522-1566]"
+          }
+        }
+      ],
+      "resource_groups": {
+        "nlc-0584": {
+          "label": "國圖藏本：明嘉靖[1522-1566]"
+        }
+      },
+      "indexed_by": [
+        {
+          "source": "中國古籍總目",
+          "source_bid": "d59frnrt4lxc",
+          "title_info": "[嘉靖]新修清豐縣志十六卷",
+          "author_info": "明李汝寬修;明晁瑮纂",
+          "section": "史部/方志類",
+          "summary": "共 1 個版本：明嘉靖戊午(三十七年)刊本（北平圖書館（藏臺圖））"
+        }
+      ]
+    },
+    "snapshot_method": "archive bytes matched to inherited SHA256 and proven equal by pinned-main Git blob comparison"
+  },
+  {
+    "id": "d59f2ghntpfm",
+    "path": "Work/p/f/m/d59f2ghntpfm-續修龍虎山志.json",
+    "sha256": "9d337da5b42be275684f30d8d5ccb5dd4c6ba4768c0ac2c4a4e55a2f7483d58c",
+    "git_blob": "b4a616f8c30f964a45b1782bafb604afb02ee1a7",
+    "record": {
+      "schema_version": 1,
+      "type": "work",
+      "title": "續修龍虎山志",
+      "authors": [
+        {
+          "name": "元明善",
+          "role": "撰",
+          "dynasty": "元",
+          "entity_id": "hixhd2h9bel7"
+        }
+      ],
+      "indexed_by": [
+        {
+          "source": "四庫全書存目叢書",
+          "source_bid": "d59f2og4vke9",
+          "title_info": "《續修龍虎山志》三卷",
+          "author_info": "元元明善撰",
+          "summary": "《續修龍虎山志》三卷。元元明善撰。明 張國祥 續撰 明 張顯庸 續撰 北京圖書館藏明刻本。",
+          "edition": "明 張國祥 續撰 明 張顯庸 續撰 北京圖書館藏明刻本",
+          "volume": "第228冊",
+          "section": "史部"
+        }
+      ],
+      "description": {
+        "text": "元明善（元）撰。三卷。見著錄於《四庫全書存目叢書》。《四庫全書存目叢書》列於史部。其著錄之文，《四庫全書存目叢書》作「《續修龍虎山志》三卷」。本書惟《四庫全書存目叢書》一志著錄，別無他證。",
+        "sources": [
+          "四庫全書存目叢書"
+        ]
+      },
+      "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+      "juan_count": {
+        "number": 3
+      },
+      "measures": [
+        {
+          "unit": "卷",
+          "number": 3
+        }
+      ],
+      "measure_info": "三卷",
+      "id": "d59f2ghntpfm",
+      "updated_at": "2026-08-09T09:33:12+00:00",
+      "period": "liao-jin-yuan",
+      "period_basis": "據 authors[0].dynasty「元」",
+      "dynasty": "元",
+      "dynasty_basis": "author_propagation",
+      "revision": "1.0.1",
+      "revised_at": "2026-09-07",
+      "resources": [
+        {
+          "name": "维基共享资源",
+          "types": [
+            "image"
+          ],
+          "id": "commons",
+          "url": "https://commons.wikimedia.org/wiki/File:CADAL02052113_%E7%BA%8C%E4%BF%AE%E9%BE%8D%E8%99%8E%E5%B1%B1%E5%BF%97%EF%BC%88%E4%BA%8C%EF%BC%89.djvu"
+        }
+      ]
+    },
+    "snapshot_method": "archive bytes matched to inherited SHA256 and proven equal by pinned-main Git blob comparison"
+  },
+  {
+    "id": "d59f2gp07pj6",
+    "path": "Work/p/j/6/d59f2gp07pj6-龍虎山志.json",
+    "sha256": "e648410ecb5296f8b5a67e53d93c8543230d4713afb676ceb1bdd5dbb90425aa",
+    "git_blob": "a76f28ebb92b081c809015c7c94c21698e59e1c3",
+    "record": {
+      "schema_version": 1,
+      "id": "d59f2gp07pj6",
+      "type": "work",
+      "title": "龍虎山志",
+      "authors": [
+        {
+          "name": "元明善",
+          "role": "撰",
+          "dynasty": "元",
+          "entity_id": "hixhd2h9bel7"
+        }
+      ],
+      "indexed_by": [
+        {
+          "source": "欽定四庫全書總目",
+          "source_bid": "d59dh3vo9af4",
+          "title_info": "《龍虎山志》•三卷",
+          "author_info": "元元明善撰",
+          "summary": "元元明善撰，明張國祥續修。明善字複初，清河人。以浙東使者薦，為學正。擢太子文學，曆翰林學士，諡文敏，事蹟具《元史》本傳。國祥則嗣封真人也。是書乃皇慶三年明善官翰林學士時奉敕所修。然原本體例，不可複考，惟存延祐元年程钜夫序及吳全節進表。此本載山川、建置、人物、道侶並累朝制敕、藝文，頗為龐雜。殆已多所竄亂，非其舊矣。",
+          "edition": "兩淮馬裕家藏本"
+        },
+        {
+          "source": "補遼金元藝文志",
+          "source_bid": "d59f2mp1zsox",
+          "title_info": "《龍虎山志》三卷",
+          "summary": "元元明善龍虎山志三卷"
+        },
+        {
+          "source": "元史藝文志",
+          "source_bid": "d59f2mp1zsoz",
+          "title_info": "《龍虎山志》三卷",
+          "summary": "元元明善龍虎山志三卷"
+        },
+        {
+          "source": "中國古籍總目",
+          "source_bid": "d59frnrt4lxc",
+          "title_info": "龍虎山志三卷續編一卷",
+          "author_info": "元元明善撰;（續編）元周召撰",
+          "section": "史部/地理類/山水志之屬/山",
+          "summary": "共 2 個版本：清影元抄本（北京大學圖書館）；元刻本（國家圖書館）"
+        }
+      ],
+      "juan_count": {
+        "number": 3
+      },
+      "resources": [
+        {
+          "id": "shidianguji-qianlongwuqibitangta",
+          "name": "识典古籍",
+          "url": "https://www.shidianguji.com/book/HY2516",
+          "metadata": {
+            "edition": "乾隆五年(1740)棲碧堂太上清宮刻本",
+            "version": "v14",
+            "total_page": 865,
+            "paragraph_count": 951,
+            "has_translation": true,
+            "check_type": "粗校"
+          },
+          "types": [
+            "text",
+            "image"
+          ]
+        },
+        {
+          "id": "shidianguji-qianlongkeben",
+          "name": "识典古籍",
+          "url": "https://www.shidianguji.com/book/ZWDS0218",
+          "metadata": {
+            "edition": "乾隆刻本",
+            "version": "v3",
+            "total_page": 192,
+            "paragraph_count": 351,
+            "check_type": "粗校"
+          },
+          "types": [
+            "text",
+            "image"
+          ]
+        },
+        {
+          "name": "维基共享资源",
+          "types": [
+            "image"
+          ],
+          "id": "commons",
+          "url": "https://commons.wikimedia.org/wiki/File:03-02%E9%BE%8D%E8%99%8E%E5%B1%B1%E5%BF%97.pdf"
+        },
+        {
+          "id": "nlc",
+          "group": "nlc-0913",
+          "group_role": "origin",
+          "name": "中華古籍資源庫（國家圖書館）",
+          "short_name": "國圖",
+          "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0913",
+          "types": [
+            "image"
+          ],
+          "metadata": {
+            "nlc_fid": "0913",
+            "edition": "元[1271-1368]"
+          }
+        },
+        {
+          "id": "nlc",
+          "group": "nlc-411999030603",
+          "group_role": "origin",
+          "name": "中華古籍資源庫（國家圖書館）",
+          "short_name": "國圖",
+          "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999030603",
+          "types": [
+            "image"
+          ],
+          "metadata": {
+            "nlc_fid": "411999030603",
+            "edition": "明[1368-1644]"
+          }
+        }
+      ],
+      "measures": [
+        {
+          "unit": "卷",
+          "number": 3
+        }
+      ],
+      "measure_info": "三卷",
+      "updated_at": "2026-08-09T09:33:12+00:00",
+      "period": "liao-jin-yuan",
+      "period_basis": "據 authors[0].dynasty「元」",
+      "dynasty": "元",
+      "dynasty_basis": "author_propagation",
+      "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n作者部分交集（總目著錄作者:周召、元明善；Work作者:元明善，合著差異，未改Work.authors）（Sawyer 2026-10-17，批418，Sabine口徑）\n作者部分交集（總目著錄作者:元明善、周召；Work作者:元明善，合著差異，未改Work.authors）（Sawyer 2026-10-17，批418，Sabine口徑）",
+      "description": {
+        "text": "元明善（元）撰。三卷。見著錄於《欽定四庫全書總目》《補遼金元藝文志》《元史藝文志》。其著錄之文，《補遼金元藝文志》作「元元明善龍虎山志三卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
+        "sources": [
+          "欽定四庫全書總目",
+          "補遼金元藝文志",
+          "元史藝文志"
+        ]
+      },
+      "revision": "1.0.1",
+      "revised_at": "2026-09-07",
+      "resource_groups": {
+        "nlc-0913": {
+          "label": "國圖藏本：元[1271-1368]"
+        },
+        "nlc-411999030603": {
+          "label": "國圖藏本：明[1368-1644]"
+        }
+      },
+      "related_works": [
+        {
+          "id": "d59fyv81vz0g",
+          "relation": "related",
+          "note": "史部E另立（anon）：總目記錄「龍虎山志」（無作者）與既有 Work 題名相同或相近而不可證同書（记录无作者、目标 Work 有作者且卷数不符／缺：不能证同作者，默认另立＋related），判為不同著作（不並）；互為相關。"
+        }
+      ]
+    },
+    "snapshot_method": "archive bytes matched to inherited SHA256 and proven equal by pinned-main Git blob comparison"
+  }
+]

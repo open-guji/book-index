@@ -1,0 +1,268 @@
+{
+  "main_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+  "native_mutations": 0,
+  "plan_only": true,
+  "cases": [
+    {
+      "case_id": "PNA-A001",
+      "keeper": "hixhd2h9bhe7",
+      "losers": [
+        "hixhd2h9blpt"
+      ],
+      "precondition_main_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+      "pre_sha256": {
+        "hixhd2h9bhe7": "8475c8c0e3a5bed617bd41a9273c134a289a58df257d0e292a2ee4ed8ad3163e",
+        "hixhd2h9blpt": "480978b6f50a417f28d92c54e274693e30522a648665b242cb8608f8a59a39e1"
+      },
+      "identity_mapping": {
+        "hixhd2h9blpt": "hixhd2h9bhe7"
+      },
+      "entity_actions": [
+        {
+          "action": "append_alt_name_if_absent",
+          "target": "hixhd2h9bhe7",
+          "value": {
+            "name": "錢希白",
+            "type": "別稱",
+            "note": "姓連字之著錄稱呼；字為希白。見 PNA-A001。"
+          }
+        },
+        {
+          "action": "preserve_all_keeper_fields_except_merge_management_and_alt_names",
+          "target": "hixhd2h9bhe7"
+        },
+        {
+          "action": "archive_complete_originals_in_ledger",
+          "records": {
+            "hixhd2h9bhe7": {
+              "schema_version": 1,
+              "id": "hixhd2h9bhe7",
+              "type": "entity",
+              "subtype": "people",
+              "primary_name": "錢易",
+              "alt_names": [
+                {
+                  "name": "希白",
+                  "type": "字"
+                }
+              ],
+              "dynasty": "北宋",
+              "external_ids": {
+                "cbdb_id": 146,
+                "cbdb_match": "manual",
+                "cbdb_source": "manual+pid_146_錢易_dy15",
+                "wikidata_id": "Q15933289",
+                "viaf_id": "21866453"
+              },
+              "updated_at": "2026-08-09T08:58:29+00:00",
+              "dynasty_basis": "cbdb:index_year=969→北宋",
+              "period": "song",
+              "period_basis": "据 dynasty「北宋」自动归并",
+              "native_place": "錢塘",
+              "native_place_entity_id": "hixi5whkfuo0",
+              "native_place_basis": "CBDB 146 index_addr（2026-09-06 CBDB enrich）",
+              "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=146 補入空槽——籍貫「錢塘」。既有之值一概未動。",
+              "dates": {
+                "floruit": [
+                  969,
+                  969
+                ],
+                "basis": "cbdb:index_year"
+              },
+              "revision": "1.0.0",
+              "revised_at": "2026-10-07",
+              "description": {
+                "sources": [
+                  {
+                    "name": "中國古籍總目",
+                    "type": "url",
+                    "details": "http://data.library.sh.cn/entity/person/yv35v4ilfu0psve4"
+                  }
+                ]
+              }
+            },
+            "hixhd2h9blpt": {
+              "schema_version": 1,
+              "id": "hixhd2h9blpt",
+              "type": "entity",
+              "subtype": "people",
+              "primary_name": "錢希白",
+              "updated_at": "2026-04-29T16:51:33-07:00",
+              "revision": "1.0.0",
+              "revised_at": "2026-10-07"
+            }
+          }
+        },
+        {
+          "action": "union_ai_note_description_sources_and_merge_history_with_original_owner",
+          "keeper": "hixhd2h9bhe7",
+          "losers": [
+            "hixhd2h9blpt"
+          ]
+        },
+        {
+          "action": "append_merged_in_and_create_schema_minimal_loser_tombstone",
+          "keeper": "hixhd2h9bhe7",
+          "losers": [
+            "hixhd2h9blpt"
+          ]
+        }
+      ],
+      "known_typed_reference_operations": [
+        {
+          "path": "Work/9/1/f/d59f2hket91f-洞微志.json",
+          "pre_sha256": "04f31e1804c474d699df3745cf71ead78a14d50447162d382207f4301f3dbec5",
+          "op": "replace",
+          "json_pointer": "/authors/0/entity_id",
+          "old": "hixhd2h9blpt",
+          "new": "hixhd2h9bhe7",
+          "preserve": [
+            "name",
+            "role",
+            "dynasty",
+            "name_basis",
+            "dynasty_basis"
+          ]
+        }
+      ],
+      "additional_reference_gate": "Before mutation, scan fixed/latest main Work, Book, Collection, Entity, classifications, promotions production_id, all other typed refs; scan draft and book-text. Known operations are not exhaustive. Historical prose and ledger IDs stay unchanged.",
+      "post_write_gates": [
+        "scripts/audit-merge-ledger.py T/L/P/R without ERROR; D linked draft PR or zero residual",
+        "check_v2.py --paths - on decoded actual changed paths",
+        "scripts/check-classification.py",
+        "build/build_derived.py --check-only"
+      ],
+      "apply_enabled": false
+    },
+    {
+      "case_id": "PNA-A002",
+      "keeper": "hixhd2h9bhcp",
+      "losers": [
+        "hixhd2h9bppr"
+      ],
+      "precondition_main_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+      "pre_sha256": {
+        "hixhd2h9bhcp": "ed4ef478b755c77d0e33b003dbbe7faa9d46a19825378d6edc40d6122fc1a12c",
+        "hixhd2h9bppr": "2ca39b1b456a11fa41c30d7e796053681f7dd5a257721a8305dbc933971c0dbe"
+      },
+      "identity_mapping": {
+        "hixhd2h9bppr": "hixhd2h9bhcp"
+      },
+      "entity_actions": [
+        {
+          "action": "append_alt_name_if_absent",
+          "target": "hixhd2h9bhcp",
+          "value": {
+            "name": "喻子材",
+            "type": "別稱",
+            "note": "姓連字之著錄稱呼；字為子材（亦作子才）。見 PNA-A002。"
+          }
+        },
+        {
+          "action": "preserve_all_keeper_fields_except_merge_management_and_alt_names",
+          "target": "hixhd2h9bhcp"
+        },
+        {
+          "action": "archive_complete_originals_in_ledger",
+          "records": {
+            "hixhd2h9bhcp": {
+              "schema_version": 1,
+              "id": "hixhd2h9bhcp",
+              "type": "entity",
+              "subtype": "people",
+              "primary_name": "喻樗",
+              "alt_names": [
+                {
+                  "name": "子才",
+                  "type": "字"
+                },
+                {
+                  "name": "子材",
+                  "type": "字"
+                },
+                {
+                  "name": "湍石",
+                  "type": "號"
+                },
+                {
+                  "name": "玉泉",
+                  "type": "號"
+                }
+              ],
+              "dynasty": "南宋",
+              "external_ids": {
+                "cbdb_id": 22849,
+                "cbdb_match": "manual",
+                "cbdb_source": "manual+pid_22849_喻樗_dy15",
+                "wikidata_id": "Q9661907"
+              },
+              "updated_at": "2026-08-24T00:00:00+00:00",
+              "dynasty_basis": "cbdb:birth/death_name=南宋",
+              "period": "song",
+              "period_basis": "据 dynasty「南宋」自动归并",
+              "ai_note": "2026-08-24 補繫 entity：新收 3 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=22849 補入空槽——籍貫「建德」。既有之值一概未動。",
+              "native_place": "建德",
+              "native_place_basis": "CBDB 22849 index_addr（2026-09-06 CBDB enrich）",
+              "dates": {
+                "death": 1180,
+                "basis": "現行字段"
+              },
+              "revision": "1.0.0",
+              "revised_at": "2026-10-07"
+            },
+            "hixhd2h9bppr": {
+              "schema_version": 1,
+              "id": "hixhd2h9bppr",
+              "type": "entity",
+              "subtype": "people",
+              "primary_name": "喻子材",
+              "updated_at": "2026-08-24T00:00:00+00:00",
+              "ai_note": "2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《豐公逸事》。\n\n所繫之 work 未定代，故本 entity 未著 dynasty／period——待考。",
+              "revision": "1.0.0",
+              "revised_at": "2026-10-07"
+            }
+          }
+        },
+        {
+          "action": "union_ai_note_description_sources_and_merge_history_with_original_owner",
+          "keeper": "hixhd2h9bhcp",
+          "losers": [
+            "hixhd2h9bppr"
+          ]
+        },
+        {
+          "action": "append_merged_in_and_create_schema_minimal_loser_tombstone",
+          "keeper": "hixhd2h9bhcp",
+          "losers": [
+            "hixhd2h9bppr"
+          ]
+        }
+      ],
+      "known_typed_reference_operations": [
+        {
+          "path": "Work/7/i/9/d59f2psls7i9-豐公逸事.json",
+          "pre_sha256": "e185aae5abe27a80973449a33756d347ed5c6fa924b8a22b861adbb2ca770dcc",
+          "op": "replace",
+          "json_pointer": "/authors/0/entity_id",
+          "old": "hixhd2h9bppr",
+          "new": "hixhd2h9bhcp",
+          "preserve": [
+            "name",
+            "role",
+            "dynasty",
+            "name_basis",
+            "dynasty_basis"
+          ]
+        }
+      ],
+      "additional_reference_gate": "Before mutation, scan fixed/latest main Work, Book, Collection, Entity, classifications, promotions production_id, all other typed refs; scan draft and book-text. Known operations are not exhaustive. Historical prose and ledger IDs stay unchanged.",
+      "post_write_gates": [
+        "scripts/audit-merge-ledger.py T/L/P/R without ERROR; D linked draft PR or zero residual",
+        "check_v2.py --paths - on decoded actual changed paths",
+        "scripts/check-classification.py",
+        "build/build_derived.py --check-only"
+      ],
+      "apply_enabled": false
+    }
+  ]
+}
