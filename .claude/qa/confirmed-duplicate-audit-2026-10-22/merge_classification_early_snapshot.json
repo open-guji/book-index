@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "snapshot_commit": "302c4a8e85fc59e951a36feee8725afbe809396a",
+  "decisions": [
+    {
+      "case_id": "EC01",
+      "keeper": "d59f2gcp9ypt",
+      "losers": [
+        "d59f2gckwn42"
+      ],
+      "scheme": "zongmu",
+      "selected_node": "zm0502",
+      "selected_path": [
+        {
+          "id": "zm0321",
+          "label": "子部"
+        },
+        {
+          "id": "zm0500",
+          "label": "小說類"
+        },
+        {
+          "id": "zm0502",
+          "label": "文言之屬"
+        }
+      ],
+      "selected_member_row": [
+        "d59f2gcp9ypt",
+        "欽定四庫全書總目"
+      ],
+      "remove_members": [
+        {
+          "node": "zm0321",
+          "work_ids": [
+            "d59f2gckwn42",
+            "d59f2gcp9ypt"
+          ]
+        }
+      ],
+      "reason": "zm0321為子部一級節點，zm0502為其下小說類／文言之屬，兩者是粗細層級差，不是互相排斥的內容判斷。合併後沿用keeper較細且現成的zm0502；國史粗分類原文及來源留snapshot，不冒稱國史已細分到文言之屬。",
+      "evidence": [
+        "tree.json：zm0502(parent=zm0500,level=3) → zm0500小說類(parent=zm0321,level=2) → zm0321子部(level=1)。",
+        "keeper當前member row已明確以欽定四庫全書總目為zm0502來源；loser僅列國史經籍志／子部。",
+        "四庫本條摘要明說唐代貢舉制度及名場雜事；此輪無需將現成zm0502再推斷細分為zm0503筆記。"
+      ],
+      "original_classification_snapshot": [
+        {
+          "work_id": "d59f2gcp9ypt",
+          "node": "zm0502",
+          "path": [
+            {
+              "id": "zm0321",
+              "label": "子部"
+            },
+            {
+              "id": "zm0500",
+              "label": "小說類"
+            },
+            {
+              "id": "zm0502",
+              "label": "文言之屬"
+            }
+          ],
+          "member_path": "classification/zongmu/members/zm0502.json",
+          "member_row": [
+            "d59f2gcp9ypt",
+            "欽定四庫全書總目"
+          ]
+        },
+        {
+          "work_id": "d59f2gckwn42",
+          "node": "zm0321",
+          "path": [
+            {
+              "id": "zm0321",
+              "label": "子部"
+            }
+          ],
+          "member_path": "classification/zongmu/members/zm0321.json",
+          "member_row": [
+            "d59f2gckwn42",
+            "國史經籍志"
+          ]
+        }
+      ],
+      "guards": {
+        "both_original_rows_present": true,
+        "selected_node_active": true,
+        "discarded_node_is_selected_ancestor": true
+      },
+      "execution_note": "互斥分類最終僅保留selected_member_row一行；原分類快照隨合併審計保存。不要把國史經籍志直接並入zm0502的source而失去原分類層級。"
+    }
+  ]
+}

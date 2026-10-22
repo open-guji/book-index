@@ -1,0 +1,134 @@
+{
+  "baseline": "302c4a8e85fc59e951a36feee8725afbe809396a",
+  "scheme": "zongmu",
+  "exclusive": true,
+  "policy": "分类是合并后作品在当前主分类树中的单一编排。选用 tree.json 已存在、未退役节点；保留所有原始 indexed_by.section，不将异说依据拼成支持新类目的来源。原成员行随审计快照保存。",
+  "decisions": [
+    {
+      "case_id": "WL-015",
+      "keeper": "d59f2niolssh",
+      "title": "古今治平略",
+      "node": "zm0220",
+      "node_path": "史部/政書類/通制之屬",
+      "members_path": "classification/zongmu/members/zm0220.json",
+      "member": [
+        "d59f2niolssh",
+        "中國古籍總目/史部/政書類/通制之屬"
+      ],
+      "remove_previous_memberships_for_ids": [
+        "d59f2niolssh",
+        "d59fxycpv6kh"
+      ],
+      "original_memberships": [
+        {
+          "path": "classification/zongmu/members/zm0176.json",
+          "member": [
+            "d59f2niolssh",
+            "續修四庫全書/史部 史部"
+          ],
+          "node_path": "史部"
+        },
+        {
+          "path": "classification/zongmu/members/zm0497.json",
+          "member": [
+            "d59fxycpv6kh",
+            "中國古籍總目"
+          ],
+          "node_path": "子部/類書類/類編之屬/通編"
+        }
+      ],
+      "evidence": [
+        {
+          "record": "d59f2niolssh",
+          "field": "indexed_by[3]",
+          "title_info": "古今治平畧不分卷",
+          "section": "史部/政書類/通制之屬"
+        },
+        {
+          "record": "d59fxycpv6kh",
+          "field": "indexed_by[0]",
+          "title_info": "古今治平畧三十三卷",
+          "section": "史部/政書類/通制之屬"
+        },
+        {
+          "record": "d59f2niolssh",
+          "field": "indexed_by[0]",
+          "title_info": "《古今治平畧》三十三卷",
+          "section": "史部 史部"
+        },
+        {
+          "record": "d59fxycpv6kh",
+          "field": "indexed_by[1]",
+          "title_info": "古今治平畧三十三卷附蒼崖子内篇一卷外篇一卷",
+          "section": "子部/類書類/類編之屬/通編"
+        }
+      ],
+      "rationale": "不分卷与三十三卷两条主体总目著录均明确归史部政书通制，且与续修四库的史部归属相容，采用此较具体节点。类书通编只见于带附篇的另一版本著录；这不是断言该原分类错误，也不足以覆盖主体两条一致归类。它作为原始版本层分类差异照存。",
+      "preserve_raw_sections": true
+    },
+    {
+      "case_id": "WL-014",
+      "keeper": "d59f2nk5cwzk",
+      "title": "西吳裏語",
+      "node": "zm0266",
+      "node_path": "史部/地理類/雜志之屬",
+      "members_path": "classification/zongmu/members/zm0266.json",
+      "member": [
+        "d59f2nk5cwzk",
+        "中國古籍總目/史部/地理類/雜志之屬"
+      ],
+      "remove_previous_memberships_for_ids": [
+        "d59f2nk5cwzk",
+        "d59f6en91qf7",
+        "d59fxy3v5tdt"
+      ],
+      "original_memberships": [
+        {
+          "path": "classification/zongmu/members/zm0502.json",
+          "member": [
+            "d59f2nk5cwzk",
+            "欽定四庫全書總目"
+          ],
+          "node_path": "子部/小說類/文言之屬"
+        },
+        {
+          "path": "classification/zongmu/members/zm0263.json",
+          "member": [
+            "d59f6en91qf7",
+            "千頃堂書目"
+          ],
+          "node_path": "史部/地理類"
+        }
+      ],
+      "evidence": [
+        {
+          "record": "d59fxy3v5tdt",
+          "field": "indexed_by[0]",
+          "title_info": "西吳里語四卷",
+          "section": "史部/地理類/雜志之屬",
+          "edition_scope": "嘉靖二十六年刻本、適園叢書本及三类清抄本"
+        },
+        {
+          "record": "d59f2nk5cwzk",
+          "field": "indexed_by[0].summary",
+          "excerpt": "皆記吳興軼事",
+          "interpretation": "区域杂志与文言笔记双重内容特征，故两套目录异类并不构成异书。"
+        },
+        {
+          "record": "d59f6en91qf7",
+          "field": "classification/zongmu/members/zm0263.json",
+          "source": "千頃堂書目",
+          "node_path": "史部/地理類"
+        },
+        {
+          "record": "d59fxy3v5tdt",
+          "field": "indexed_by[1]",
+          "section": "叢書部/雜纂類/民國以來",
+          "interpretation": "此为民国丛书版本著录，不将单篇作品改归丛书部。"
+        }
+      ],
+      "rationale": "当前主分类法为中国古籍总目，采用总目主体条明确的地理杂志之属；该条涵盖多种单行及适园丛书版本，并与千顷堂既有地理归属相合。四库提要将吴兴轶事作为小说笔记评价，原小说分类是可理解的另一目录选择，仍保存在原成员审计快照和著录材料中，不把四库来源附到新地理节点冒充支持。",
+      "preserve_raw_sections": true
+    }
+  ]
+}
