@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-22T20:20:07.146136+00:00",
-  "stage": "broad_discovery_52_new_cases_feng_validation",
+  "updated_at": "2026-10-22T20:32:09.443564+00:00",
+  "stage": "broad_research_and_five_person_data_prs_open",
   "research_base": "bfaf3cfb3b9b0475fc9fd8d2ce216c291ebc9cca",
   "upstream_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
   "research_branch": "codex/expanded-duplicate-research-20261022",
@@ -14,7 +14,7 @@
     "new_confirmations": 26,
     "new_separations": 10,
     "new_open_cases": 16,
-    "native_merge_groups": 0,
+    "native_merge_groups": 1,
     "reference_scan_complete_for_selected_person_groups": 1
   },
   "effective_counts": {
@@ -638,7 +638,7 @@
           "status": "separate"
         }
       ],
-      "native_merge_groups": 2
+      "native_merge_groups": 3
     },
     "people_religious_variants": {
       "counts": {
@@ -768,7 +768,7 @@
     "text_scan_scope": "Only four selected Person loser IDs; no claims for remaining Work candidates"
   },
   "next_steps": [
-    "Finish Feng write-after validation and publish small data PR; use isolated book-index-feng, never modify old current checkout.",
+    "Both #1216 (four groups) and #1217 (Feng group) are OPEN. Read their current status and latest main before any additional application.",
     "Continue 198 strong-rule candidate pairs with neither Work classified; do not claim four divisions cover all Work.",
     "Choose safe remaining confirmed groups, recheck current main and three-repo refs before implementation.",
     "Retain all listed source-pollution and scope holds; never revive old1876 mappings."
@@ -786,7 +786,7 @@
   },
   "this_round_reviews": 52,
   "new_confirmations": 26,
-  "native_merge_groups": 4,
+  "native_merge_groups": 5,
   "authoritative_rollup": "current-rollup.json",
   "astra_round": {
     "model": "gpt-6-astra",
@@ -856,10 +856,10 @@
     "native_merge_groups": 4,
     "reference_scan_complete_for_selected_person_groups": 4
   },
-  "data_pr": "https://github.com/open-guji/book-index/pull/1216",
+  "data_pr": "https://github.com/open-guji/book-index/pull/1217",
   "data_pr_state": "open_not_merged",
-  "data_branch": "codex/person-alias-verified-20261022",
-  "data_head": "21e979390a80f1a09e5138f32849c45d32ba9cf2",
+  "data_branch": "codex/person-feng-alias-20261022",
+  "data_head": "d9378abae8dee8739bb5e1a86e6e738cd9737cec",
   "latest_reports": "*/hourly-20261022T2000/report.md",
   "broad_discovery": {
     "active_work": 266045,
@@ -871,5 +871,9 @@
     "unclassified_pair_backlog": 198,
     "identity_inference_from_candidate_counts": false,
     "saved_checkpoint": "broad-discovery-checkpoint-20261022/manifest.json"
-  }
+  },
+  "data_prs": [
+    "https://github.com/open-guji/book-index/pull/1216",
+    "https://github.com/open-guji/book-index/pull/1217"
+  ]
 }

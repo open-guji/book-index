@@ -50,6 +50,7 @@ def run():
         result['native_merge_groups'] = execution['native_merge_groups']
         result['native_data_state'] = execution['state']
         result['data_pr'] = execution['data_pr']
+        result['data_prs'] = execution.get('data_prs', [execution['data_pr']])
         for lane, count in execution['lanes'].items():
             result['lanes'][lane]['native_merge_groups'] = count
     (ROOT / 'current-rollup.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')

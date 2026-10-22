@@ -23,7 +23,7 @@
 
 四组人物已实施于独立数据PR [#1216](https://github.com/open-guji/book-index/pull/1216)，开放、未合入。旧1876条映射永不复用；JC-001、JC-007及BOOK-0010保留原hold。
 
-冯时行／冯当可为本轮选定实施候选：三仓完整归档扫描通过（正式714388档、草稿563825档、文本190821档）；正式仅一处Work作者引用，草稿只历史TSV，文本零命中。独立字段审查通过。独立工作树book-index-feng正在做写后全量审计与builder比较，尚未计入已交付数据PR。详见 `reference-preflight-20261022T2000/report.md`。
+冯时行／冯当可为本轮选定实施候选：三仓完整归档扫描通过（正式714388档、草稿563825档、文本190821档）；正式仅一处Work作者引用，草稿只历史TSV，文本零命中。独立字段审查通过。写后T/L/P/R、3原档schema/check_v2、分类及官方索引均通过，builder前后报告完全相同。已提交独立数据PR [#1217](https://github.com/open-guji/book-index/pull/1217)，开放未合入；当前两份数据PR合计5组人物。详见 `reference-preflight-20261022T2000/report.md`。
 
 ## 统计与复现
 
