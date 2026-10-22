@@ -1,0 +1,357 @@
+[
+  {
+    "case_id": "COL-2022-001",
+    "type": "Work",
+    "status": "confirmed",
+    "applied": false,
+    "native_mutations": 0,
+    "execution_hold": true,
+    "research_ref": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "ids": [
+      "d59f2hfub6rm",
+      "d59f2hsp84ch"
+    ],
+    "label": "格齋／格齋四六",
+    "reason": "两条均指王子俊现存一卷102首四六；格齋一条的题名从《格齋》四六分裂抽取，书前提要及正文卷题明作格齋四六。不是把已佚三松类稿全集并入现存残编。",
+    "scope": {
+      "identity": "王子俊，字材臣/才臣；两Work共用hixhd2h9bn3s；字号差异不是新作者。",
+      "scope": "现存一卷102首四六",
+      "excluded": "已佚史論、師友緒言及三松類稿全体"
+    },
+    "external_sources": [
+      "COL-2022-S01",
+      "COL-2022-S02"
+    ],
+    "field_review_pointers": [
+      "/title",
+      "/indexed_by/0/title_info",
+      "/indexed_by/0/summary",
+      "/authors/0/entity_id",
+      "/juan_count"
+    ],
+    "next_steps": [
+      "保留格齋与格齋三松集原名及出处；不得把三松類稿作为无条件全集同义名。",
+      "核四种Book范围和contained_in，才制定可执行映射。"
+    ],
+    "execution_gates": [
+      "Revalidate current origin/main before implementation; preserve this fixed research baseline.",
+      "Inventory and adjudicate every Book and edition, Collection containment, authors, resources, indexed_by, description, ai_note and prior merge history; retain all unique values in keeper or field ledger.",
+      "Scan and rewrite typed Work/Book/Collection/Entity references, classification membership and promotions production_id; preserve historical merge-ledger IDs.",
+      "Audit draft repository work_id/merged_into/related_works/classification references and prepare its separate PR when needed.",
+      "Record book-text HEAD and manifest and inspect affected text/links; do not infer absent text from this Work/Entity-only census.",
+      "Prepare reproducible merge script, exact keeper/loser precondition SHA256 ledger and minimal tombstones; no execution map is supplied by this research checkpoint.",
+      "After actual writes run T/L/P/R audit-merge-ledger, schema/check_v2 on real changed paths, classification, official indexes and builder baseline comparison; no hypothetical green checks.",
+      "Rebase/revalidate before small-batch PR; do not auto-merge."
+    ],
+    "supersedes_case_id": null,
+    "candidate_source": "collections_titles/broad-20261022/review-pool.json",
+    "execution_mapping": null,
+    "records": [
+      {
+        "id": "d59f2hfub6rm",
+        "path": "Work/6/r/m/d59f2hfub6rm-格齋.json",
+        "sha256": "3821b003c3c31e7bc791044ef9fb9c1ca32e04eeca0cdc2f2a029b6cf3c33e6f",
+        "blob_sha": "b63165e9c6a26d41a9e25795529a785811931253",
+        "title": "格齋"
+      },
+      {
+        "id": "d59f2hsp84ch",
+        "path": "Work/4/c/h/d59f2hsp84ch-格齋四六.json",
+        "sha256": "068050a8dfc913d32e84472df5a15012e69f1008d239ccaad9caa137291b2815",
+        "blob_sha": "e47375b41d97a021a9ce8fdf754cd1dd56fbb05d",
+        "title": "格齋四六"
+      }
+    ],
+    "main_verification": {
+      "reference": "verification.json",
+      "all_work_bytes_match_main": true,
+      "tombstones": 0
+    }
+  },
+  {
+    "case_id": "COL-2022-002",
+    "type": "Work",
+    "status": "confirmed",
+    "applied": false,
+    "native_mutations": 0,
+    "execution_hold": true,
+    "research_ref": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "ids": [
+      "d59f2nj89r7l",
+      "d59f2njfrg8x"
+    ],
+    "label": "青溪漫稿／清谿漫稿",
+    "reason": "总目卷170作清谿漫稿，四库书前与二十四卷目录作青谿漫稿；同署倪岳、字舜咨，并以奏议59篇及同批具体奏题对应。清/青是该书传题差异，不能概括成一般简繁转换。",
+    "scope": {
+      "identity": "倪岳/倪嶽均为字舜咨、倪谦之子，现共用hixhd2h9bjyw；不是其父謙齋文錄。",
+      "scope": "倪岳二十四卷主集；补遗作为附属范围另保留",
+      "excluded": "未确认所有抄刻本逐篇完全相同"
+    },
+    "external_sources": [
+      "COL-2022-S03",
+      "COL-2022-S04"
+    ],
+    "field_review_pointers": [
+      "/title",
+      "/additional_titles",
+      "/indexed_by/1/note",
+      "/indexed_by/2/title_info",
+      "/authors/0/entity_id",
+      "/juan_count"
+    ],
+    "next_steps": [
+      "修订既有note把青/清误称简繁转换的解释，原值留台账。",
+      "保留24卷主集与补遗1卷的版本/附属范围，不把补遗抹平；查Book是否记录附件。"
+    ],
+    "execution_gates": [
+      "Revalidate current origin/main before implementation; preserve this fixed research baseline.",
+      "Inventory and adjudicate every Book and edition, Collection containment, authors, resources, indexed_by, description, ai_note and prior merge history; retain all unique values in keeper or field ledger.",
+      "Scan and rewrite typed Work/Book/Collection/Entity references, classification membership and promotions production_id; preserve historical merge-ledger IDs.",
+      "Audit draft repository work_id/merged_into/related_works/classification references and prepare its separate PR when needed.",
+      "Record book-text HEAD and manifest and inspect affected text/links; do not infer absent text from this Work/Entity-only census.",
+      "Prepare reproducible merge script, exact keeper/loser precondition SHA256 ledger and minimal tombstones; no execution map is supplied by this research checkpoint.",
+      "After actual writes run T/L/P/R audit-merge-ledger, schema/check_v2 on real changed paths, classification, official indexes and builder baseline comparison; no hypothetical green checks.",
+      "Rebase/revalidate before small-batch PR; do not auto-merge."
+    ],
+    "supersedes_case_id": null,
+    "candidate_source": "collections_titles/broad-20261022/review-pool.json",
+    "execution_mapping": null,
+    "records": [
+      {
+        "id": "d59f2nj89r7l",
+        "path": "Work/r/7/l/d59f2nj89r7l-青溪漫稿.json",
+        "sha256": "705aef5aa55921187e54b1c9106ece14cc20393255e076a35ff74b2663110618",
+        "blob_sha": "73284e453d956f5468e2dc2c79d79c8a4af9a6cb",
+        "title": "青溪漫稿"
+      },
+      {
+        "id": "d59f2njfrg8x",
+        "path": "Work/g/8/x/d59f2njfrg8x-清谿漫稿.json",
+        "sha256": "676d9a67376595cf19aef40ff0530cf1867ebf40524a1164f2dd4eec879c2f19",
+        "blob_sha": "e533b03fea78c80772090143dcb45dc89dbc05f1",
+        "title": "清谿漫稿"
+      }
+    ],
+    "main_verification": {
+      "reference": "verification.json",
+      "all_work_bytes_match_main": true,
+      "tombstones": 0
+    }
+  },
+  {
+    "case_id": "COL-2022-003",
+    "type": "Work",
+    "status": "separate",
+    "applied": false,
+    "native_mutations": 0,
+    "execution_hold": true,
+    "research_ref": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "ids": [
+      "d59f2gnyfzsw",
+      "d59f2hrydpmo"
+    ],
+    "label": "佩韋齋文集／佩韋齋集",
+    "reason": "短题Work唯一indexed_by对应宋百家诗存一卷选诗；全集为诗七卷文九卷，辑闻四卷另书。宋百家诗存原序明确选录，卷38用短题且仅列诗。不能因全集目录也称佩韋齋集便把该选本并入全集。短题Work顶层20卷与唯一来源1卷冲突，须先厘清误混字段。",
+    "scope": {
+      "identity": "俞德鄰同一作者hixhd2h9bi1h；俞庸裒辑、曹庭栋选录为不同编纂层次。",
+      "scope": "separate针对宋百家诗存一卷选本与16卷诗文全集；并非否认全集短题",
+      "record_scope_conflict": true,
+      "excluded": "20卷顶层字段尚待历史复核；各Book归属未判"
+    },
+    "external_sources": [
+      "COL-2022-S05",
+      "COL-2022-S06",
+      "COL-2022-S07",
+      "COL-2022-S08"
+    ],
+    "field_review_pointers": [
+      "/juan_count",
+      "/measures",
+      "/measure_info",
+      "/indexed_by/0/title_info",
+      "/indexed_by/0/summary",
+      "/additional_titles"
+    ],
+    "next_steps": [
+      "核短题Work历史和所挂Book，把20卷字段的来源与一卷曹庭栋选本分开，不直接删除。",
+      "明确建立/保留选本与原集关系；俞庸辑全集与曹庭栋选诗的责任层次应分别表达。",
+      "不得借本案吞并佩韋齋輯聞四卷。"
+    ],
+    "execution_gates": [
+      "Revalidate current origin/main before implementation; preserve this fixed research baseline.",
+      "Inventory and adjudicate every Book and edition, Collection containment, authors, resources, indexed_by, description, ai_note and prior merge history; retain all unique values in keeper or field ledger.",
+      "Scan and rewrite typed Work/Book/Collection/Entity references, classification membership and promotions production_id; preserve historical merge-ledger IDs.",
+      "Audit draft repository work_id/merged_into/related_works/classification references and prepare its separate PR when needed.",
+      "Record book-text HEAD and manifest and inspect affected text/links; do not infer absent text from this Work/Entity-only census.",
+      "Prepare reproducible merge script, exact keeper/loser precondition SHA256 ledger and minimal tombstones; no execution map is supplied by this research checkpoint.",
+      "After actual writes run T/L/P/R audit-merge-ledger, schema/check_v2 on real changed paths, classification, official indexes and builder baseline comparison; no hypothetical green checks.",
+      "Rebase/revalidate before small-batch PR; do not auto-merge."
+    ],
+    "supersedes_case_id": null,
+    "candidate_source": "collections_titles/broad-20261022/review-pool.json",
+    "execution_mapping": null,
+    "records": [
+      {
+        "id": "d59f2gnyfzsw",
+        "path": "Work/z/s/w/d59f2gnyfzsw-佩韋齋文集.json",
+        "sha256": "76faa2413d79b9e561d2323f8c7c633fdd81944a01c41c8cea65c6a44e16e28e",
+        "blob_sha": "a42421ea0f09d832702ac91a67b8f9e4a91e2c90",
+        "title": "佩韋齋文集"
+      },
+      {
+        "id": "d59f2hrydpmo",
+        "path": "Work/p/m/o/d59f2hrydpmo-佩韋齋集.json",
+        "sha256": "dc6989503a5ef723f16a5267c5f2542c0a29e6098941a8c8ca92ebb428796d63",
+        "blob_sha": "df9f3840ae77c788656844f6a86156cfee01dc2e",
+        "title": "佩韋齋集"
+      }
+    ],
+    "main_verification": {
+      "reference": "verification.json",
+      "all_work_bytes_match_main": true,
+      "tombstones": 0
+    }
+  },
+  {
+    "case_id": "COL-2022-004",
+    "type": "Work",
+    "status": "open",
+    "applied": false,
+    "native_mutations": 0,
+    "execution_hold": true,
+    "research_ref": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "ids": [
+      "d59f2gotyyo1",
+      "d59f2gpw1wxs"
+    ],
+    "label": "剡源文集／剡源集",
+    "reason": "同一四库页面提要题剡源集而目录题剡源文集，三十卷题名同一确证；但文集Work同时聚合五卷清抄本。八千卷楼书目将三十卷集、五卷文集、四卷文钞并列，且四库提要区分旧28卷、重辑30卷、黄宗羲选四卷，不能整条并。",
+    "scope": {
+      "identity": "戴表元字帥初/曾伯，两条共用hixhd2h9bfhv，未见作者冲突。",
+      "scope": "30卷题名同一，5卷抄本范围未决",
+      "excluded": "4卷黄宗羲选本及28卷旧编不能自动等价"
+    },
+    "external_sources": [
+      "COL-2022-S09",
+      "COL-2022-S10"
+    ],
+    "field_review_pointers": [
+      "/indexed_by/0/title_info",
+      "/indexed_by/1/title_info",
+      "/indexed_by/2/title_info",
+      "/indexed_by/2/summary",
+      "/juan_count",
+      "/additional_titles"
+    ],
+    "next_steps": [
+      "读上图/南图五卷抄本目录、序跋、首末，确认是甲乙丙丁戊选文系统还是完整30卷重分卷，不能以检索摘要代替。",
+      "先按来源拆清30卷与5卷范围，保留28卷历史版本和4卷选本边界，再重审合并。"
+    ],
+    "execution_gates": [
+      "Revalidate current origin/main before implementation; preserve this fixed research baseline.",
+      "Inventory and adjudicate every Book and edition, Collection containment, authors, resources, indexed_by, description, ai_note and prior merge history; retain all unique values in keeper or field ledger.",
+      "Scan and rewrite typed Work/Book/Collection/Entity references, classification membership and promotions production_id; preserve historical merge-ledger IDs.",
+      "Audit draft repository work_id/merged_into/related_works/classification references and prepare its separate PR when needed.",
+      "Record book-text HEAD and manifest and inspect affected text/links; do not infer absent text from this Work/Entity-only census.",
+      "Prepare reproducible merge script, exact keeper/loser precondition SHA256 ledger and minimal tombstones; no execution map is supplied by this research checkpoint.",
+      "After actual writes run T/L/P/R audit-merge-ledger, schema/check_v2 on real changed paths, classification, official indexes and builder baseline comparison; no hypothetical green checks.",
+      "Rebase/revalidate before small-batch PR; do not auto-merge."
+    ],
+    "supersedes_case_id": null,
+    "candidate_source": "collections_titles/broad-20261022/review-pool.json",
+    "execution_mapping": null,
+    "records": [
+      {
+        "id": "d59f2gotyyo1",
+        "path": "Work/y/o/1/d59f2gotyyo1-剡源文集.json",
+        "sha256": "87e2f53dbed7457b1496f867128c4c97ffe5d6e855f8689998d4e5eed58d1f8c",
+        "blob_sha": "220a4651b77fa00be6bdf3b23e891ce0179cf3c0",
+        "title": "剡源文集"
+      },
+      {
+        "id": "d59f2gpw1wxs",
+        "path": "Work/w/x/s/d59f2gpw1wxs-剡源集.json",
+        "sha256": "8b07bb4efebcef787a74f8632299eed95434eb0ce6c84b81b49497c1e24742c0",
+        "blob_sha": "1b80dd3b7c99afb073268d427c0dacb407be6b49",
+        "title": "剡源集"
+      }
+    ],
+    "main_verification": {
+      "reference": "verification.json",
+      "all_work_bytes_match_main": true,
+      "tombstones": 0
+    }
+  },
+  {
+    "case_id": "COL-2022-005",
+    "type": "Work",
+    "status": "open",
+    "applied": false,
+    "native_mutations": 0,
+    "execution_hold": true,
+    "research_ref": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "ids": [
+      "d59f2nkla0ht",
+      "d59fsejqvr46"
+    ],
+    "label": "半軒集／王半軒先生文集",
+    "reason": "同作者王行、字止仲可核，但6卷旧钞本已有傅斯年图书馆条码165211独立著录；四库正文目录及书前为12卷兼补遗，现Work顶层却14卷。八千卷楼目录并列14卷和12卷补遗2卷，提示附卷计数层次，但不足证明6卷本重分卷同内容。",
+    "scope": {
+      "identity": "王行字止仲，两条共用hixhd2h9bfku；半軒是题名组成，不能仅凭先生称谓判全范围。",
+      "scope": "6卷旧钞与12卷主集+补遗的关系未决",
+      "excluded": "未读取傅斯年六卷影像；WorldCat链接只返回空壳"
+    },
+    "external_sources": [
+      "COL-2022-S10",
+      "COL-2022-S11",
+      "COL-2022-S12"
+    ],
+    "field_review_pointers": [
+      "/title",
+      "/indexed_by/0/title_info",
+      "/indexed_by/1/title_info",
+      "/indexed_by/3/title_info",
+      "/juan_count",
+      "/merged_in",
+      "/additional_titles"
+    ],
+    "next_steps": [
+      "查傅斯年165211六卷旧钞与天一阁本篇目，比较四库12卷及补遗；数字化状态不等于已阅影像。",
+      "保留现merged_in的d59f6eigqqkg历史；14/12/6卷逐来源建账，不盲改主卷数。"
+    ],
+    "execution_gates": [
+      "Revalidate current origin/main before implementation; preserve this fixed research baseline.",
+      "Inventory and adjudicate every Book and edition, Collection containment, authors, resources, indexed_by, description, ai_note and prior merge history; retain all unique values in keeper or field ledger.",
+      "Scan and rewrite typed Work/Book/Collection/Entity references, classification membership and promotions production_id; preserve historical merge-ledger IDs.",
+      "Audit draft repository work_id/merged_into/related_works/classification references and prepare its separate PR when needed.",
+      "Record book-text HEAD and manifest and inspect affected text/links; do not infer absent text from this Work/Entity-only census.",
+      "Prepare reproducible merge script, exact keeper/loser precondition SHA256 ledger and minimal tombstones; no execution map is supplied by this research checkpoint.",
+      "After actual writes run T/L/P/R audit-merge-ledger, schema/check_v2 on real changed paths, classification, official indexes and builder baseline comparison; no hypothetical green checks.",
+      "Rebase/revalidate before small-batch PR; do not auto-merge."
+    ],
+    "supersedes_case_id": null,
+    "candidate_source": "collections_titles/broad-20261022/review-pool.json",
+    "execution_mapping": null,
+    "records": [
+      {
+        "id": "d59f2nkla0ht",
+        "path": "Work/0/h/t/d59f2nkla0ht-半軒集.json",
+        "sha256": "92ab86fce086dc7cb090b6eb212882151f4ff06c6dcd6a21ed6ff3d769da6090",
+        "blob_sha": "a7c325e112947d648956eab7ab92e5d9ad32c53e",
+        "title": "半軒集"
+      },
+      {
+        "id": "d59fsejqvr46",
+        "path": "Work/r/4/6/d59fsejqvr46-王半軒先生文集.json",
+        "sha256": "5de8d012bf0225ea1d51ae16cf28087fdf0b902af591b9a0e7469d388cf9d31e",
+        "blob_sha": "4f38e76ce9fb4e36d0fa2b46c9aba3f150843089",
+        "title": "王半軒先生文集"
+      }
+    ],
+    "main_verification": {
+      "reference": "verification.json",
+      "all_work_bytes_match_main": true,
+      "tombstones": 0
+    }
+  }
+]
