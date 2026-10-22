@@ -42,3 +42,13 @@ python3 -m pytest -q tests/test_duplicate_audit_merges.py
 审数据改动另跑 `schema/check_schema.py --paths` 和 `.claude/qa/check_v2.py --paths -`；路径须是未转义的真实路径（Git 命令加 `-c core.quotePath=false`）。全库测试与 `.claude/qa/verify.py` 须和原基线比对，不能把既有失败描述为本批通过。
 
 基线已知问题：pytest 有 3 项既有失败（Collection 数量常量过时、旧 reindex 口径与现索引不一致、Collection 索引不齐）；verify 有 4,953 项旧并条账缺墓碑、10 项旧墓碑目标异常、18 项既有 V07 关系方向错误。本批不以删除断言、修改校验脚本或大批补造旧墓碑使其转绿。
+
+## 本批运行结果
+
+- 修改的 3,890 条记录通过 schema 校验：ERROR 0、WARN 0、INFO 1（原有长期保留写法）；581 份分类／promotions 文件另验 ERROR 0。
+- `check_v2` 覆盖 3,890 条修改记录，ERROR 0、WARN 0。
+- 独立引用检查：1,868 个保留者、1,875 个墓碑；活跃源引用、分类成员、升格目标无一仍指向本批被并 ID。8,791 个文本 ID 未受损。
+- 全量构建：709,943 条派生 entry，self-check 0、fatal 0。Book.work_id 悬空数由 2,475 降至 2,364；Work.indexed_by.source_bid 悬空数由 142,534 降至 142,095；其余构建悬空项不变。
+- 互斥分类与成员排序已修复：200,216 个有分类 Work，问题 0。
+- 新增回归测试 6 项全部通过；干净提交上的全库测试为 **321 passed、3 failed、2 skipped**，失败项与原基线完全相同。两项跳过分别需要完整 book-text manifest 与可选 opencc。
+- 修复成员排序后，全库 `verify.py` 的完整输出与修改前基线逐字一致；仍因上述既有问题返回 FAIL，没有新增校验项或数量回退。
