@@ -56,3 +56,7 @@ python .claude/qa/expanded-duplicate-audit-2026-10-22/audit_checkpoint.py --root
 ```
 
 部分历史生成脚本记录旧工作区绝对路径，仅作为可追溯生成逻辑；复跑前需调整路径并使用原基线。两个大型原始扫描快照仅提交等字节gzip：`history_titles/rows.json.gz`、`masters_titles/candidate-snapshots.json.gz`。需要历史脚本输入时先解压为同目录去掉.gz的文件，原字节SHA256见packaging.json。其余证据和快照全部保留。`artifact-manifest.json` 校验交付文件字节（不含自身）。
+
+## 唯一残留关系复核结果
+
+已对最新main四份Book/Work原档独立复核。BOOK-0010在main规则和台账中均为刻意defer，绝非漏执行；旧E3导入备注不足推翻此裁定。故原PR全部1876条关系中1875条已覆盖，剩余1条维持open，不作为新的数据合并。详 `masters_titles/hourly-20261022/residual-book-review.md/json`。原PR尚未撤回：自动审批因账号选择歧义拒绝创建替代PR，等待用户明确授权使用sheldonlidev；不得改用CLI绕过拒绝。
