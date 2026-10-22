@@ -29,7 +29,7 @@
 ## 验证与执行门槛
 
 - 对恢复批次与增量案件引用的808个不同源文件重算 SHA256，无不符；各分道另存完整引用与关联Book快照。确认组成员无重叠。
-- 研究证据基线 `bfaf3cfb3b9b0475fc9fd8d2ce216c291ebc9cca`；本PR建立于最新 main `bc2bb3fcda98a30781b46ddca8b7783dd58a7d97`。比较发现2个Work及2个分类文件在main上变化（6条案件引用），均列入 upstream_drift；任何执行先重读最新原档。
+- 研究证据基线 `bfaf3cfb3b9b0475fc9fd8d2ce216c291ebc9cca`；本PR已重新基于 main `c6dd8356d613fc5614beb88f0a61a3d04cfb069e`。更新检查发现9条案件引用发生main漂移，均列入 upstream_drift；任何执行先重读最新原档。
 - 已获取 book-text 完整Git目录树 `c76c233eda8aa3bd46a6689e6e0f17cfe461848f`，发现19个拟被并ID实际拥有文本或辑佚资产（经部4、集部15），已逐路径列出。不能在未迁移资产时先写墓碑。
 - 目录树检查不等于正文／元数据全引用检查。book-text内部引用、草稿库指向正式库的引用、promotions及官方派生索引检查仍需在实际数据批次完成。
 - 本批不涉及原生数据，未运行或宣称通过原生写后schema、分类及builder门槛；这些是后续实际合并必须执行的检查。
@@ -60,3 +60,7 @@ python .claude/qa/expanded-duplicate-audit-2026-10-22/audit_checkpoint.py --root
 ## 唯一残留关系复核结果
 
 已对最新main四份Book/Work原档独立复核。BOOK-0010在main规则和台账中均为刻意defer，绝非漏执行；旧E3导入备注不足推翻此裁定。故原PR全部1876条关系中1875条已覆盖，剩余1条维持open，不作为新的数据合并。详 `masters_titles/hourly-20261022/residual-book-review.md/json`。原PR尚未撤回：自动审批因账号选择歧义拒绝创建替代PR，等待用户明确授权使用sheldonlidev；不得改用CLI绕过拒绝。
+
+## 授权与本轮续接
+
+用户已明确授权使用 `sheldonlidev` 创建替代PR并关闭#1213，前述账号歧义审批阻塞已解除。已对最新main重做rebase与808份源证据校验，0哈希错误，9条漂移引用，确认成员重叠0。六个新子会话均为 `gpt-6-astra` / `high`，分别对六路进行最新main复核并推进待核队列；结果将存入各路 `astra-review-20261022/`。旧累计118/22/158在新结果归并前保持为历史研究计数，不代表当前可执行数量。

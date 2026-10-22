@@ -1,14 +1,21 @@
 {
-  "updated_at": "2026-10-22T18:13:35.167447+00:00",
-  "stage": "branch_pushed_pr_creation_blocked_by_account_approval",
+  "updated_at": "2026-10-22T18:34:02.719350+00:00",
+  "stage": "authorized_rebased_research_pr_prepared",
   "research_base": "bfaf3cfb3b9b0475fc9fd8d2ce216c291ebc9cca",
-  "upstream_sha": "bc2bb3fcda98a30781b46ddca8b7783dd58a7d97",
+  "upstream_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
   "research_branch": "codex/expanded-duplicate-research-20261022",
   "research_pr": null,
   "first_batch_pr": "https://github.com/open-guji/book-index/pull/1213",
   "first_batch_pr_state": "open_conflicting_with_merged_1209",
   "github_cli_account": "sheldonlidev",
-  "active_agents": [],
+  "active_agents": [
+    "classics_astra",
+    "history_astra",
+    "masters_astra",
+    "collections_astra",
+    "people_names_astra",
+    "people_religious_astra"
+  ],
   "this_run": {
     "cases_reviewed": 31,
     "decisions": {
@@ -407,7 +414,8 @@
     "source_hashes_checked": 808,
     "hash_errors": 0,
     "text_asset_loser_ids": 19,
-    "text_full_reference_scan_complete": false
+    "text_full_reference_scan_complete": false,
+    "upstream_drift_occurrences": 9
   },
   "next_steps": [
     "Read current main and reconcile first batch with merged PR1209; only one old merge relationship is not covered by its ledger.",
@@ -418,9 +426,12 @@
   "scope_complete": false,
   "research_commit": "d9ed755804cdd0210d539b9e21f246d7dfb6d407",
   "publication_blocker": {
-    "reason": "Automatic approval rejected PR creation under sheldonlidev because older request named lishaodong; second attempt rejected after verifying CLI login, connector profile and original PR author all sheldonlidev. No CLI workaround attempted.",
-    "required_user_confirmation": "Explicit authorization to use sheldonlidev to create replacement PR and close obsolete PR1213.",
-    "old_pr_state": "still open and unchanged",
-    "pushed_branch": "codex/expanded-duplicate-research-20261022"
+    "resolved": true,
+    "resolution": "User explicitly confirmed sheldonlidev to publish replacement PR and close #1213 on 2026-10-22."
+  },
+  "subagent_configuration": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "high",
+    "fork_turns": "none"
   }
 }
