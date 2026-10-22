@@ -1,0 +1,102 @@
+{
+  "reviewer": "masters_next independent reviewer",
+  "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+  "phase": "pre-apply proposed-record review",
+  "verdict": "no_blocking_identity_or_preservation_findings",
+  "blocking_findings": [],
+  "identity": {
+    "confirmed": true,
+    "reason": "名与字倒置为同一易论三卷条内明载的异说；时行/当可、蜀人、缙云号、宋代经学互相衔接，keeper独立总目传记相合。无证据指两名不同作者。保留馮當可署名与异说，不将争议抹成单一原名事实。"
+  },
+  "sources": [
+    {
+      "url": "https://zh.wikisource.org/wiki/經義考_(四庫全書本)/卷025",
+      "access": "independently opened",
+      "ref": "turn56view0",
+      "locator": "lines 130–136",
+      "evidence": "同一馮氏當可易論三卷条分别记时行字当可及当可字时行，并记蜀人、缙云号。"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/四庫全書總目提要/卷158",
+      "access": "independently opened",
+      "ref": "turn58view0",
+      "locator": "line 212 縉雲文集提要",
+      "evidence": "馮時行字當可、壁山、縉雲山、紹興官历。提要并反驳嘉熙状元传说，不将状元说当作此次硬证据。"
+    }
+  ],
+  "checks": {
+    "input_sha256": {
+      "merges.json": "ee6b00c6af77261f5347fa87c5f988e225de89a331f1c58ddc1dd600b9601e19",
+      "field-ledger.json": "b892cddae7b04a29c49d5608ccd32c87843535b0e992bf7484c1344cd83650ba",
+      "apply.py": "158afb03d964b7d641acf28e8ca778b6f9e6552df15981b3c6f9e06f538993d2",
+      "verify_fields.py": "fd9e17864659506a2b69a9dfe4264a34091bc5f4f7262547c59bc4870d62201e",
+      "reference-scans/scan_archive.py": "c1528fd9324666871ed69e5121f37e4291733b7e521f3aea5613e0ceadc2e12f",
+      "reference-scans/book-index.json": "c9d10f6c1ac482116b9a8d51727b67f7afc66e91742f956621dcc0ad3f8af012",
+      "reference-scans/book-index-draft.json": "71264713cf0be09c58072dcf6888c5aaff2d80fedf46dae377f555c139105566",
+      "reference-scans/book-text.json": "51f6fad2bde86e50bc77ad90e1b587104b09f6d53845825ad73fb712a212d477"
+    },
+    "final_field_ledger_rows": 47,
+    "field_coverage_complete": true,
+    "field_before_after_matches": true,
+    "three_native_before_hashes_verified": true,
+    "original_and_proposed_records_consistent": true,
+    "work_only_entity_id_changed": true,
+    "keeper_external_ids_sources_dates_place_note_unchanged": true,
+    "loser_original_complete_in_ledger": true,
+    "loser_period_basis_attributed_in_keeper": true,
+    "tombstone_direct_to_active_keeper": true,
+    "matching_archive_bytes_sha256_verified": 4,
+    "scan_summary": {
+      "book-index": {
+        "files": 714388,
+        "hits": 3,
+        "live_nonindex_reference_count": 1
+      },
+      "book-index-draft": {
+        "files": 563825,
+        "hits": 1,
+        "hit_kind": "historical TSV"
+      },
+      "book-text": {
+        "files": 190821,
+        "hits": 0
+      }
+    },
+    "independent_full_archive_rerun": false
+  },
+  "resolved_during_review": [
+    {
+      "issue": "最初field_ledger路径无文件，evidence候选字段表与最终投影有5项差异。",
+      "resolution": "根代理新增根目录field-ledger.json；独立复核47行覆盖全部三条before/after字段，完全一致。evidence旧表保留研究历史，不是实施字段表。"
+    }
+  ],
+  "audit_blind_spots": [
+    {
+      "issue": "官方L对people无字段无损分支，不检查人物别名、外部ID、来源或独有说明。",
+      "mitigation": "本次逐字段核对最终投影与47行完整表，loser原档完整入台账。"
+    },
+    {
+      "issue": "官方R只查JSON字符串精确等于旧ID，忽略对象键和含ID长字符串，并豁免merged_into/merged_in；也不检查index，rg错误码未处理。",
+      "mitigation": "固定SHA全归档原字节子串扫描已补足本案旧ID可见命中，独立校验命中档散列；索引另由update_index及写后检查负责。"
+    },
+    {
+      "issue": "官方P在production_id按mapping变化时不另拒绝同条其他字段变化；没有precondition SHA256强制检查。",
+      "mitigation": "本案全归档promotions无旧ID，预计无promotions改动；apply预检三个原档SHA256，提交前应确保promotions无diff。"
+    },
+    {
+      "issue": "草稿/正文扫描属于固定ref快照，扫描工具不展开仓库内部压缩文件，且仅针对本次旧production ID。",
+      "mitigation": "本案已见草稿命中为原始历史TSV，并无活动JSON引用；不声称检查旧草稿ID历史或压缩容器内容。若main/相关仓ref变化，按新增变化重审。"
+    },
+    {
+      "issue": "原Work name_basis保留旧草稿ID和当时建档说法；period_basis原有绍兴状元断语，与总目对状元传说持疑不宜混作新证。",
+      "mitigation": "本次仅更改entity_id，历史说明与所引原文保留；不把旧断语用作同人证明，后续文本质量修订另案处理。"
+    }
+  ],
+  "remaining_owner_checks": [
+    "apply时重验三档前置散列；写后实际数据必须等于merges.records.after。",
+    "官方T/L/P/R、字段验证、schema、classification及builder前后差分仍须完成。",
+    "index更新只改本组投影，检查旧ID索引项重定向且无意外其他条目变化；草稿历史TSV不改。"
+  ],
+  "native_data_modified_by_reviewer": false,
+  "git_operations_by_reviewer": false
+}
