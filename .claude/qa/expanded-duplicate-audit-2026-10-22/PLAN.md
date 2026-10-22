@@ -1,12 +1,8 @@
-# 当前续接计划（2026-10-22）
+# 续接计划（2026-10-22，本轮14案后）
 
-替代研究PR #1215已打开，旧#1213已关闭。最新权威入口：README.md当前状态、STATUS.json、current-rollup.json及六路astra-review-20261022/report.md。六个Astra/high子会话已完成本轮13案复核；当前无待续跑的旧子会话。累计119确认/22分立/157待核，实际新增数据合并0。旧checkpoint-validation.json是上一批源证据校验，不包含Astra新案替代计数。
-
-下一轮从远端研究分支codex/expanded-duplicate-research-20261022恢复检查点，fetch最新main，避免重复计数和重提main已完成数据。所有子会话使用gpt-6-astra、reasoning_effort=high、fork_turns=none并提供充分上下文；小时任务已同步。
-
-1. 从两路人物候选方案挑最小批次，读最新原档，完成正式库所有型别引用、promotions、草稿库及book-text引用扫描，生成逐字段无损台账，再动数据。不得把已知1处引用当全库只有1处。
-2. 先读史部H-C010/H-C082两份已知漂移正文。子部MR-046责任者污染、MR-050串案说明已定位；集部此山/敬业堂与经部左传补注保持待核与污染修复边界。
-3. 19个旧拟并ID带文本资产，先做book-text联动迁移。维持JC-001污染执行暂停及JC-007组内关联改指自边风险暂停以及瀧岡阡表BOOK-0010明确defer。
-4. 实际数据批次按main现行正式库并条审查规则跑台账审计、schema、分类和官方builder；分批PR，不自动合main。
-
-资料库大且是partial clone，避免六路同时全库git grep或逐blob懒取；优先共享固定main树与旧原档blob双散列证明，确有漂移才定点读。旧脚本含历史绝对路径者仅为可追溯逻辑，复跑先对齐路径。资料记录中的claimed确认仅指身份，不代表所有执行门槛通过。
+1. 先fetch最新main与研究分支，读STATUS/current-rollup和六路hourly-20261022T1900/report。当前120确认/22分立/156待核；本轮新增谢万孝经确认1项。
+2. 四人物已完成三库全引用扫描。数据工作树 /workspace/scratch/0bc7226fa660/book-index-current，分支codex/person-alias-incremental-20261022，台账 .claude/qa/person-alias-incremental-2026-10-22/merges.json。本检查点baseline builder仍在跑，尚未写原生；先查真实状态，不重复apply。
+3. 原生修改必须通过台账人物逐字段无损（官方L不查people全部字段）、T/L/P/R、真实变更路径schema、classification、官方builder和index；生成小批PR，不合main。
+4. 史部H-C010/H-C082漂移正文已解决，不要再重复排队；后续按新案件H-1900-001/002处理关联自边及书目范围。
+5. 经部H005、子部梦溪、集部此山/敬业堂均有精确污染提案，先修范围/责任/来源，不整包并。JC-001/JC-007/BOOK-0010维持hold。
+6. 继续未完成研究时全部子代理gpt-6-astra/high/fork_turns none，提供完整上下文；每路独占目录，根负责统计和提交。旧1876映射永久停用。持久恢复以远端PR分支为准。

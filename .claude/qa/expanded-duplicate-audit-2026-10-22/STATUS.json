@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-22T18:44:57.900677+00:00",
-  "stage": "astra_review_completed_research_pr_open",
+  "updated_at": "2026-10-22T19:10:59.228485+00:00",
+  "stage": "hourly_research_complete_four_person_data_validation_pending",
   "research_base": "bfaf3cfb3b9b0475fc9fd8d2ce216c291ebc9cca",
   "upstream_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
   "research_branch": "codex/expanded-duplicate-research-20261022",
@@ -10,26 +10,21 @@
   "github_cli_account": "sheldonlidev",
   "active_agents": [],
   "this_run": {
-    "cases_reviewed": 31,
-    "decisions": {
-      "confirmed": 12,
-      "open": 15,
-      "separate": 4
-    },
-    "old_cases_superseded": 10,
-    "new_distinct_cases": 21,
-    "native_merge_groups": 0
+    "cases_reviewed": 14,
+    "new_confirmations": 1,
+    "native_merge_groups": 0,
+    "reference_scan_complete_for_selected_person_groups": 4
   },
   "effective_counts": {
-    "confirmed": 119,
-    "open": 157,
+    "confirmed": 120,
+    "open": 156,
     "separate": 22
   },
   "lanes": {
     "classics_titles": {
       "counts": {
-        "confirmed": 13,
-        "open": 6,
+        "confirmed": 14,
+        "open": 5,
         "separate": 1
       },
       "effective_case_ids": [
@@ -45,24 +40,35 @@
         "JC-010",
         "JC-011",
         "JC-OPEN-d59f27srzbpe",
-        "JC-OPEN-d59f2q4d1zpc",
         "JC-H001",
         "JC-H002",
         "JC-H003",
         "JC-H004",
-        "JC-H005",
-        "JC-H006",
-        "JC-H007"
+        "JC-H007",
+        "JC-ASTRA-H006",
+        "JC-1900-XIAOJING",
+        "JC-1900-H005"
       ],
-      "inputs": [
-        "classics_titles/cases.json",
-        "classics_titles/hourly-20261022/cases.json"
-      ]
+      "this_round": [
+        {
+          "case_id": "JC-1900-XIAOJING",
+          "replaces": "JC-OPEN-d59f2q4d1zpc",
+          "old_status": "open",
+          "status": "confirmed"
+        },
+        {
+          "case_id": "JC-1900-H005",
+          "replaces": "JC-ASTRA-H005",
+          "old_status": "open",
+          "status": "open"
+        }
+      ],
+      "native_merge_groups": 0
     },
     "history_titles": {
       "counts": {
-        "confirmed": 8,
-        "open": 102,
+        "confirmed": 9,
+        "open": 101,
         "separate": 3
       },
       "effective_case_ids": [
@@ -82,7 +88,6 @@
         "H-C007",
         "H-C008",
         "H-C009",
-        "H-C010",
         "H-C011",
         "H-C012",
         "H-C013",
@@ -150,17 +155,14 @@
         "H-C079",
         "H-C080",
         "H-C081",
-        "H-C082",
         "H-C083",
         "H-C084",
-        "H-C085",
         "H-C086",
         "H-C087",
         "H-C088",
         "H-C089",
         "H-C090",
         "H-C091",
-        "H-C092",
         "H-C093",
         "H-C094",
         "H-C095",
@@ -178,12 +180,27 @@
         "H-H001",
         "H-H002",
         "H-H003",
-        "H-H004"
+        "H-H004",
+        "H-A001",
+        "H-A002",
+        "H-1900-001",
+        "H-1900-002"
       ],
-      "inputs": [
-        "history_titles/cases.json",
-        "history_titles/hourly-20261022/cases.json"
-      ]
+      "this_round": [
+        {
+          "case_id": "H-1900-001",
+          "replaces": "H-C010",
+          "old_status": "open",
+          "status": "open"
+        },
+        {
+          "case_id": "H-1900-002",
+          "replaces": "H-C082",
+          "old_status": "open",
+          "status": "open"
+        }
+      ],
+      "native_merge_groups": 0
     },
     "masters_titles": {
       "counts": {
@@ -203,7 +220,6 @@
         "MR-009",
         "MR-010",
         "MR-011",
-        "MR-012",
         "MR-013",
         "MR-014",
         "MR-015",
@@ -237,22 +253,34 @@
         "MR-043",
         "MR-044",
         "MR-045",
-        "MR-046",
         "MR-047",
         "MR-048",
         "MR-049",
-        "MR-050",
         "MR-051",
         "MR-H001",
         "MR-H002",
         "MR-H003",
         "MR-H004",
-        "MR-H005"
+        "MR-H005",
+        "MR-A003",
+        "MR-H1900-001",
+        "MR-H1900-002"
       ],
-      "inputs": [
-        "masters_titles/cases.json",
-        "masters_titles/hourly-20261022/cases.json"
-      ]
+      "this_round": [
+        {
+          "case_id": "MR-H1900-001",
+          "replaces": "MR-A001",
+          "old_status": "confirmed",
+          "status": "confirmed"
+        },
+        {
+          "case_id": "MR-H1900-002",
+          "replaces": "MR-A002",
+          "old_status": "open",
+          "status": "open"
+        }
+      ],
+      "native_merge_groups": 0
     },
     "collections_titles": {
       "counts": {
@@ -281,7 +309,6 @@
         "COL-R018",
         "COL-R019",
         "COL-R020",
-        "COL-R023",
         "COL-R024",
         "COL-R025",
         "COL-R026",
@@ -289,7 +316,6 @@
         "COL-R028",
         "COL-R029",
         "COL-R030",
-        "COL-R031",
         "COL-R032",
         "COL-R035",
         "COL-R036",
@@ -298,18 +324,31 @@
         "COL-H002",
         "COL-H003",
         "COL-H004",
-        "COL-H005"
+        "COL-H005",
+        "COL-1900-001",
+        "COL-1900-002"
       ],
-      "inputs": [
-        "collections_titles/cases.json",
-        "collections_titles/hourly-20261022/cases.json"
-      ]
+      "this_round": [
+        {
+          "case_id": "COL-1900-001",
+          "replaces": "COL-A001",
+          "old_status": "open",
+          "status": "open"
+        },
+        {
+          "case_id": "COL-1900-002",
+          "replaces": "COL-A002",
+          "old_status": "open",
+          "status": "open"
+        }
+      ],
+      "native_merge_groups": 0
     },
     "people_names_aliases": {
       "counts": {
         "confirmed": 15,
-        "open": 5,
-        "separate": 2
+        "separate": 2,
+        "open": 5
       },
       "effective_case_ids": [
         "PNA-R001",
@@ -321,24 +360,41 @@
         "PNA-R007",
         "PNA-R008",
         "PNA-R009",
-        "PNA-R011",
         "PNA-R012",
         "PNA-R013",
         "PNA-R014",
-        "PNA-R015",
         "PNA-R016",
         "PNA-R018",
         "PNA-R019",
         "PNA-H001",
-        "PNA-H002",
         "PNA-H003",
         "PNA-H004",
-        "PNA-H005"
+        "PNA-H005",
+        "PNA-1900-001",
+        "PNA-1900-002",
+        "PNA-1900-003"
       ],
-      "inputs": [
-        "people_names_aliases/cases.json",
-        "people_names_aliases/hourly-20261022/cases.json"
-      ]
+      "this_round": [
+        {
+          "case_id": "PNA-1900-001",
+          "replaces": "PNA-A001",
+          "old_status": "confirmed",
+          "status": "confirmed"
+        },
+        {
+          "case_id": "PNA-1900-002",
+          "replaces": "PNA-A002",
+          "old_status": "confirmed",
+          "status": "confirmed"
+        },
+        {
+          "case_id": "PNA-1900-003",
+          "replaces": "PNA-R015",
+          "old_status": "open",
+          "status": "open"
+        }
+      ],
+      "native_merge_groups": 0
     },
     "people_religious_variants": {
       "counts": {
@@ -358,7 +414,6 @@
         "PRV-R009",
         "PRV-R010",
         "PRV-R011",
-        "PRV-R012",
         "PRV-R013",
         "PRV-P001",
         "PRV-P002",
@@ -366,7 +421,6 @@
         "PRV-P004",
         "PRV-P005",
         "PRV-P006",
-        "PRV-P007",
         "PRV-P008",
         "PRV-P009",
         "PRV-P010",
@@ -391,30 +445,50 @@
         "PRV-T006",
         "PRV-T007",
         "PRV-T008",
-        "PRV-H001",
         "PRV-H002",
         "PRV-H003",
         "PRV-H004",
-        "PRV-H005"
+        "PRV-H005",
+        "PRV-H1900-P007",
+        "PRV-H1900-H001",
+        "PRV-H1900-R012"
       ],
-      "inputs": [
-        "people_religious_variants/cases-all.json",
-        "people_religious_variants/hourly-20261022/cases.json"
-      ]
+      "this_round": [
+        {
+          "case_id": "PRV-H1900-P007",
+          "replaces": "PRV-ASTRA-P007",
+          "old_status": "confirmed",
+          "status": "confirmed"
+        },
+        {
+          "case_id": "PRV-H1900-H001",
+          "replaces": "PRV-ASTRA-H001",
+          "old_status": "confirmed",
+          "status": "confirmed"
+        },
+        {
+          "case_id": "PRV-H1900-R012",
+          "replaces": "PRV-R012",
+          "old_status": "open",
+          "status": "open"
+        }
+      ],
+      "native_merge_groups": 0
     }
   },
   "validation": {
     "source_hashes_checked": 808,
     "hash_errors": 0,
     "text_asset_loser_ids": 19,
-    "text_full_reference_scan_complete": false,
-    "upstream_drift_occurrences": 9
+    "text_full_reference_scan_complete": true,
+    "upstream_drift_occurrences": 9,
+    "full_reference_scan": "reference-preflight-20261022T1900/report.md",
+    "text_scan_scope": "Only four selected Person loser IDs; no claims for remaining Work candidates"
   },
   "next_steps": [
-    "Select the four documented Person candidate plans; verify all live production, promotions, draft and book-text references before data writes.",
-    "Read the two history lane upstream-drift records still pending; preserve holds for source contamination and text assets.",
-    "Apply only current incremental mappings in small data PRs; never restore obsolete PR1213.",
-    "Continue remaining candidate queues with gpt-6-astra / high and superseding case IDs."
+    "Finish four-Person data batch in book-index-current; baseline builder running, no native writes yet.",
+    "Run applied field preservation, audit/schema/classification/builder/index gates and publish small data PR.",
+    "Resume documented source contamination repairs; no blanket Work merge."
   ],
   "scope_complete": false,
   "research_commit": "d9ed755804cdd0210d539b9e21f246d7dfb6d407",
@@ -427,7 +501,7 @@
     "reasoning_effort": "high",
     "fork_turns": "none"
   },
-  "this_round_reviews": 13,
+  "this_round_reviews": 14,
   "new_confirmations": 1,
   "native_merge_groups": 0,
   "authoritative_rollup": "current-rollup.json",
@@ -492,5 +566,62 @@
     "JC-001",
     "JC-007",
     "BOOK-0010"
-  ]
+  ],
+  "previous_round": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "high",
+    "reviews": 13,
+    "new_confirmations": 1,
+    "native_merge_groups": 0,
+    "lanes": {
+      "classics_titles": {
+        "counts": {
+          "confirmed": 13,
+          "open": 6,
+          "separate": 1
+        },
+        "reviews": 2
+      },
+      "history_titles": {
+        "counts": {
+          "confirmed": 9,
+          "open": 101,
+          "separate": 3
+        },
+        "reviews": 2
+      },
+      "masters_titles": {
+        "counts": {
+          "confirmed": 25,
+          "open": 25,
+          "separate": 6
+        },
+        "reviews": 3
+      },
+      "collections_titles": {
+        "counts": {
+          "confirmed": 24,
+          "open": 10,
+          "separate": 4
+        },
+        "reviews": 2
+      },
+      "people_names_aliases": {
+        "counts": {
+          "confirmed": 15,
+          "open": 5,
+          "separate": 2
+        },
+        "reviews": 2
+      },
+      "people_religious_variants": {
+        "counts": {
+          "confirmed": 33,
+          "open": 10,
+          "separate": 6
+        },
+        "reviews": 2
+      }
+    }
+  }
 }

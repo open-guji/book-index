@@ -1,0 +1,38 @@
+{
+  "main_ref": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+  "source_snapshot_count": 11,
+  "rule_snapshot_count": 7,
+  "field_checks": [
+    {
+      "case_id": "PRV-H1900-P007",
+      "all_original_top_level_fields_accounted": true,
+      "all_original_ai_notes_preserved": true,
+      "all_dynasty_basis_values_preserved": true,
+      "all_original_sources_preserved": true,
+      "minimal_tombstone": true
+    },
+    {
+      "case_id": "PRV-H1900-H001",
+      "all_original_top_level_fields_accounted": true,
+      "all_original_ai_notes_preserved": true,
+      "all_dynasty_basis_values_preserved": true,
+      "all_original_sources_preserved": true,
+      "minimal_tombstone": true
+    }
+  ],
+  "passed": true,
+  "not_run": [
+    "official audit-merge-ledger against modified native tree",
+    "schema/check_v2 on actual changes",
+    "classification",
+    "build_derived",
+    "all references (delegated to root)"
+  ],
+  "new_cases": 0,
+  "new_identity_decisions": 0,
+  "native_merges": 0,
+  "projected_json_schema": {
+    "status": "not_run",
+    "reason": "default Python ModuleNotFoundError: jsonschema; no schema pass claimed"
+  }
+}

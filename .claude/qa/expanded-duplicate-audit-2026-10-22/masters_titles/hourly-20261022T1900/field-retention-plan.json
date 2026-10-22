@@ -1,0 +1,83 @@
+{
+  "case_id": "MR-H1900-001",
+  "execution_ready": false,
+  "keeper": "d59fxziflw5e",
+  "losers": [
+    "d59fxunlrzeo"
+  ],
+  "field_decisions": [
+    {
+      "field": "schema_version",
+      "decision": "相同保留1，按执行时schema复核"
+    },
+    {
+      "field": "id",
+      "decision": "keeper保留d59fxziflw5e；loser只留最小墓碑+merged_into"
+    },
+    {
+      "field": "type",
+      "decision": "相同保留work"
+    },
+    {
+      "field": "title",
+      "decision": "保留張仲景金匱要畧編注；沈注金匱要畧已在additional_titles，不重复插入"
+    },
+    {
+      "field": "additional_titles",
+      "decision": "保留keeper全部3项；保留loser题名存在性"
+    },
+    {
+      "field": "authors",
+      "decision": "保留沈明宗輯注与沈明宗撰两个完整来源责任对象；不得按name或URI去重删除角色差异"
+    },
+    {
+      "field": "dynasty",
+      "decision": "相同清，保留"
+    },
+    {
+      "field": "dynasty_basis",
+      "decision": "相同author_propagation，保留"
+    },
+    {
+      "field": "period",
+      "decision": "相同qing，保留"
+    },
+    {
+      "field": "period_basis",
+      "decision": "两侧相同，据authors[0].dynasty清，保留"
+    },
+    {
+      "field": "indexed_by",
+      "decision": "精确对象并集，完整保留两项；共同source_bid不是合并著录的去重键，section/author_info/title_info/summary各不相同"
+    },
+    {
+      "field": "ai_note",
+      "decision": "双方原字符串逐字保留于可追溯台账或keeper，另追加方向说明；不要静默改写旧并入措辞或历史ID"
+    },
+    {
+      "field": "revision",
+      "decision": "双方当前1.0.0/1.1.0记录到前置台账；实际修改时按项目规则提升"
+    },
+    {
+      "field": "revised_at",
+      "decision": "双方当前2026-10-18/2026-10-21留前置台账；实际执行日期重设"
+    },
+    {
+      "field": "merged_in",
+      "decision": "完整复制loser原d59fxuzex79d历史对象，再增加本次d59fxunlrzeo历史成员；历史ID不可替换为keeper"
+    }
+  ],
+  "third_tombstone": {
+    "id": "d59fxuzex79d",
+    "current_merged_into": "d59fxunlrzeo",
+    "proposed_merged_into": "d59fxziflw5e",
+    "reason": "避免新生两跳墓碑链；属存储侧引用，历史台账WORK-0187不改写"
+  },
+  "absent_fields_checked": [
+    "contained_in",
+    "resources",
+    "description",
+    "related_works"
+  ],
+  "scope_note": "只覆盖已核两条Work及第三条墓碑，不是引用全扫；Book不按Work归并自动合并。"
+}

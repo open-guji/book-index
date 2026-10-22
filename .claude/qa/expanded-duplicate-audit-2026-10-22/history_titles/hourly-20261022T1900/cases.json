@@ -1,0 +1,411 @@
+[
+  {
+    "type": "Work",
+    "status": "open",
+    "verdict": "open",
+    "upstream_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "implemented": false,
+    "merge_eligible": false,
+    "keeper": null,
+    "losers": [],
+    "review_depth": "pinned_native_records_field_audit_and_primary_source_review",
+    "case_id": "H-1900-001",
+    "supersedes_case_id": "H-C010",
+    "title": "公門不費錢功德錄：兩項漂移與叢書子目範圍",
+    "members": [
+      {
+        "path": "Work/h/3/4/d59fz73hih34-公門不費錢功德錄.json",
+        "git_blob": "5b5defcd3011a78aea99fe041fbb3fb62230921a",
+        "sha256": "775bd633a0aa66988108c70e8789c355d4093c06b723bda4cbdf5f2ca9289d52",
+        "id": "d59fz73hih34"
+      },
+      {
+        "path": "Work/1/h/c/d59fym9z61hc-公門不費錢功德錄.json",
+        "git_blob": "6549ed21b77929ad5b918dab79ec5f5e11df82c5",
+        "sha256": "8e98d38ddd73d9943d62d15c17f02558a513f61aafb2ee9d8012320109c07413",
+        "id": "d59fym9z61hc"
+      }
+    ],
+    "reason": "兩個候選核心著錄未變，漂移只新增向候選另一成員的related邊。版本不明的n2htu6i0tvy33r07仍無母叢書或序跋可定位，不能僅憑同題一卷、清佚名確認全組。同題鄰域另有天壤閣二條及叢書集成一條，已取得具體叢書關係和天壤閣原典書影，但不擴大為整題名合併。",
+    "evidence": [
+      {
+        "kind": "pinned_native_drift",
+        "locator": "upstream-drift-review.json[0]",
+        "fact": "d59fym9z61hc僅related_works追加d59fz73hih34；原指向甘峻卿輯本之邊本就存在。"
+      },
+      {
+        "kind": "pinned_native_book",
+        "ids": [
+          "994q45lxxc",
+          "99459zupkx",
+          "9945a05y4g"
+        ],
+        "fact": "前者edition空、無contained_in，源n2htu6i0tvy33r07；後二者分別天壤閣叢書本和叢書集成初編本。館藏與版本不能互補成未有證據的單一版本。"
+      },
+      {
+        "kind": "pinned_native_title_neighborhood",
+        "ids": [
+          "d59fyh7lgetd",
+          "d59fyi36ap6q",
+          "d59fy3pv9gjk"
+        ],
+        "fact": "三Work分屬天壤閣叢書二十種增刊六種、天壤閣叢書二十種、叢書集成初編四千一百七種；都有相應Book/contained_in，不是原H-C010兩成員。"
+      },
+      {
+        "kind": "external_primary_catalogue_and_scanned_prefaces",
+        "reference_ids": [
+          "EXT-1900-G1",
+          "EXT-1900-G2"
+        ],
+        "fact": "東京大學目錄以明刑弼教錄子目著錄一卷本；PDF第3頁見補刊公門不費錢功德錄序及光緒六年王懿榮署，第14頁版心/刊牌見公門不費錢功德錄與天壤閣叢書。"
+      }
+    ],
+    "field_audit": {
+      "d59fz73hih34": {
+        "schema_version": {
+          "value": 1,
+          "decision": "不改schema；本輪研究未寫原生資料"
+        },
+        "id": {
+          "value": "d59fz73hih34",
+          "decision": "原ID仍為活動Work；不作墓碑"
+        },
+        "type": {
+          "value": "work",
+          "decision": "Work粒度；不能以同題直接合Book"
+        },
+        "title": {
+          "value": "公門不費錢功德錄",
+          "decision": "保留原題；相同題名不足排除不同輯本"
+        },
+        "authors": {
+          "value": [
+            {
+              "name": "佚名",
+              "role": "撰",
+              "dynasty": ""
+            }
+          ],
+          "decision": "佚名／空值不能作同一責任者證據；不得從序作者推作撰者"
+        },
+        "indexed_by": {
+          "value": [
+            {
+              "source": "中國古籍總目",
+              "source_bid": "1exjosng9241s",
+              "title_info": "公門不費錢功德錄一卷",
+              "author_info": "清□□撰",
+              "section": "史部/政書類/叢編之屬",
+              "summary": "共 1 個版本：（中國科學院圖書館、上海圖書館）"
+            }
+          ],
+          "decision": "所有原著錄及分類、版本、館藏提示逐項保留；空版本不自動填充"
+        },
+        "ai_note": {
+          "value": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：n2htu6i0tvy33r07\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：清□□撰\n責任者名含缺字／組字，待人工補\nauto-split:存疑未并\nE6 第 442 批新建（hold 清零：串3余量另立；原 hold 原因：E:anonymous_author）",
+          "decision": "保留生成來源串及原auto-split理由；不把自動判語當獨立書誌證據"
+        },
+        "revision": {
+          "value": "1.0.0",
+          "decision": "未改"
+        },
+        "revised_at": {
+          "value": "2026-10-20",
+          "decision": "未改；不是內容身份證據"
+        }
+      },
+      "d59fym9z61hc": {
+        "schema_version": {
+          "value": 1,
+          "decision": "不改schema；本輪研究未寫原生資料"
+        },
+        "id": {
+          "value": "d59fym9z61hc",
+          "decision": "原ID仍為活動Work；不作墓碑"
+        },
+        "type": {
+          "value": "work",
+          "decision": "Work粒度；不能以同題直接合Book"
+        },
+        "title": {
+          "value": "公門不費錢功德錄",
+          "decision": "保留原題；相同題名不足排除不同輯本"
+        },
+        "authors": {
+          "value": [
+            {
+              "name": "佚名",
+              "role": "撰",
+              "dynasty": ""
+            }
+          ],
+          "decision": "佚名／空值不能作同一責任者證據；不得從序作者推作撰者"
+        },
+        "indexed_by": {
+          "value": [
+            {
+              "source": "中國古籍總目",
+              "source_bid": "1exjosng9241s",
+              "title_info": "公門不費錢功德錄一卷",
+              "author_info": "清□□撰",
+              "section": "史部/政書類/職官之屬/政紀",
+              "summary": "共 2 個版本：叢書集成初編本（馆藏未载）；天壤閣叢書本（馆藏未载）"
+            }
+          ],
+          "decision": "所有原著錄及分類、版本、館藏提示逐項保留；空版本不自動填充"
+        },
+        "ai_note": {
+          "value": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4yton662tik105j2、bpfq5tikftjqawuw\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：清□□撰\n責任者名含缺字／組字，待人工補\nauto-split:存疑未并\nE6 第 9 批新建（hold 清零：a3；原 hold 原因：anonymous_author）\n总目无名氏同题，库内有具名/他源著录，未并（P8 史部 a3，Sabine 10-17）",
+          "decision": "保留生成來源串及原auto-split理由；不把自動判語當獨立書誌證據"
+        },
+        "revision": {
+          "value": "1.0.0",
+          "decision": "未改"
+        },
+        "revised_at": {
+          "value": "2026-10-19",
+          "decision": "未改；不是內容身份證據"
+        },
+        "related_works": {
+          "value": [
+            {
+              "id": "d59fyna62n0g",
+              "relation": "related",
+              "note": "总目无名氏同题，库内有具名/他源著录，未并"
+            },
+            {
+              "id": "d59fz73hih34",
+              "relation": "related",
+              "note": "auto-split:同題撞庫未并（公門不費錢功德錄）"
+            }
+          ],
+          "decision": "關聯不等於同一；若將來並入關聯對象，須顯式處理自邊且保留舊邊台帳"
+        }
+      }
+    },
+    "counterevidence_and_resolution": [
+      "原相關d59fyna62n0g為甘峻卿輯不費錢功德錄三卷附錄一卷、光緒二十五年津逮樓本；題名少公門但卷數、責任者、刊本均不同，本輪不得當作省題整條合併。",
+      "相關邊只是舊判疑，不是定同證據；其note所稱具名/他源不能代替正文核查。",
+      "天壤閣叢書子目可形成後續較強候選小組，但不能連帶證明缺版次的d59fz73hih34。",
+      "序作者、補刊者與全書撰者須分開，未將王懿榮或序中人物補入authors。"
+    ],
+    "defer_reason": "版本不明成員尚缺能連到天壤閣本的原始目錄層級或卷首；全引用、promotions、草稿、正文資產未做。",
+    "next_steps": [
+      "取得n2htu6i0tvy33r07原始instance母叢書/版次及中科院、上圖藏本卷首，不以館藏名重合代替。",
+      "先對天壤閣兩個子目Work及d59fym9z61hc形成範圍明確的候選小組，讀其父Collection，核增刊關係及叢書集成重印說明。",
+      "若身份定同，所有contained_in、來源與館藏保留；Book不隨Work自動合併；關聯改指自邊須台帳化處理。"
+    ]
+  },
+  {
+    "type": "Work",
+    "status": "open",
+    "verdict": "open",
+    "upstream_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "implemented": false,
+    "merge_eligible": false,
+    "keeper": null,
+    "losers": [],
+    "review_depth": "pinned_native_records_field_audit_and_primary_source_review",
+    "case_id": "H-1900-002",
+    "supersedes_case_id": "H-C082",
+    "title": "太康地記：說郛節錄、王謨輯本與版本不明條",
+    "members": [
+      {
+        "path": "Work/9/s/0/d59fz73mi9s0-太康地記.json",
+        "git_blob": "fafb6eae85ca971e339032122375cc28364141b8",
+        "sha256": "b9698c0cb37b5ddf7ece98ccf370244399531cd12288a504665f6937c206d31c",
+        "id": "d59fz73mi9s0"
+      },
+      {
+        "path": "Work/x/v/k/d59fybc8uxvk-太康地記.json",
+        "git_blob": "d30f5f62ae3d851f90b8c58bf07d7047b67d4b09",
+        "sha256": "3d54218c6e327bfd4404e2c4207f7d84b62d6a11daf4f458df2f1edf94d25449",
+        "id": "d59fybc8uxvk"
+      }
+    ],
+    "reason": "漂移只新增related_works兩邊；讀到王謨輯本的三種版本及直接Book後，原編、節錄、後世輯佚層次已明確需要區分。版本不明的中科院本仍不能確定屬說郛本或王謨輯本。畢沅總序證明古書異名及輯佚歷史，並不證明現存各輯本範圍全等。",
+    "evidence": [
+      {
+        "kind": "pinned_native_drift",
+        "locator": "upstream-drift-review.json[1]",
+        "fact": "d59fybc8uxvk新增到王謨輯本d59fymcjka9t和候選d59fz73mi9s0的related邊；其他字段未變。"
+      },
+      {
+        "kind": "pinned_native_book",
+        "ids": [
+          "994q3jg3cw",
+          "9952lyvjeo"
+        ],
+        "fact": "前者源wzd8w3gfe7ng7bfp，版本空、無contained_in；後者源60sfvux3q30wsop5，明記說郛本。"
+      },
+      {
+        "kind": "pinned_native_related_work",
+        "ids": [
+          "d59fymcjka9t",
+          "9945egx5vk",
+          "9945egx5vl",
+          "9945eglxc1"
+        ],
+        "fact": "王謨角色為輯，原文保有晉□□撰；重訂漢唐地理書鈔、漢唐地理書鈔、漢唐地理書鈔存本三版本不能視為晉原書的無差別複本。"
+      },
+      {
+        "kind": "external_primary_transcription",
+        "reference_id": "EXT-1900-T1",
+        "fact": "畢沅乾隆四十九年總序將地志/地記/地理記/土地記視為舊書異稱，同時明言所輯佚文及附錄；只證原書題名沿革與輯本性質。"
+      }
+    ],
+    "field_audit": {
+      "d59fz73mi9s0": {
+        "schema_version": {
+          "value": 1,
+          "decision": "不改schema；本輪研究未寫原生資料"
+        },
+        "id": {
+          "value": "d59fz73mi9s0",
+          "decision": "原ID仍為活動Work；不作墓碑"
+        },
+        "type": {
+          "value": "work",
+          "decision": "Work粒度；不能以同題直接合Book"
+        },
+        "title": {
+          "value": "太康地記",
+          "decision": "保留原題；相同題名不足排除不同輯本"
+        },
+        "authors": {
+          "value": [
+            {
+              "name": "佚名",
+              "role": "撰",
+              "dynasty": ""
+            }
+          ],
+          "decision": "佚名／空值不能作同一責任者證據；不得從序作者推作撰者"
+        },
+        "indexed_by": {
+          "value": [
+            {
+              "source": "中國古籍總目",
+              "source_bid": "1exjosng9241s",
+              "title_info": "太康地記一卷",
+              "author_info": "",
+              "section": "史部/地理類/叢編之屬",
+              "summary": "共 1 個版本：（中國科學院圖書館）"
+            }
+          ],
+          "decision": "所有原著錄及分類、版本、館藏提示逐項保留；空版本不自動填充"
+        },
+        "ai_note": {
+          "value": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：wzd8w3gfe7ng7bfp\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：（空）\nauto-split:存疑未并\nE6 第 442 批新建（hold 清零：串3余量另立；原 hold 原因：E:no_responsible_person）",
+          "decision": "保留生成來源串及原auto-split理由；不把自動判語當獨立書誌證據"
+        },
+        "revision": {
+          "value": "1.0.0",
+          "decision": "未改"
+        },
+        "revised_at": {
+          "value": "2026-10-20",
+          "decision": "未改；不是內容身份證據"
+        }
+      },
+      "d59fybc8uxvk": {
+        "schema_version": {
+          "value": 1,
+          "decision": "不改schema；本輪研究未寫原生資料"
+        },
+        "id": {
+          "value": "d59fybc8uxvk",
+          "decision": "原ID仍為活動Work；不作墓碑"
+        },
+        "type": {
+          "value": "work",
+          "decision": "Work粒度；不能以同題直接合Book"
+        },
+        "title": {
+          "value": "太康地記",
+          "decision": "保留原題；相同題名不足排除不同輯本"
+        },
+        "authors": {
+          "value": [
+            {
+              "name": "佚名",
+              "role": "撰",
+              "dynasty": ""
+            }
+          ],
+          "decision": "佚名／空值不能作同一責任者證據；不得從序作者推作撰者"
+        },
+        "indexed_by": {
+          "value": [
+            {
+              "source": "中國古籍總目",
+              "source_bid": "1exjosng9241s",
+              "title_info": "太康地記一卷",
+              "author_info": "晉□□撰",
+              "section": "史部/地理類/總志之屬",
+              "summary": "共 1 個版本：說郛本（馆藏未载）"
+            }
+          ],
+          "decision": "所有原著錄及分類、版本、館藏提示逐項保留；空版本不自動填充"
+        },
+        "ai_note": {
+          "value": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：60sfvux3q30wsop5\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：晉□□撰\n責任者名含缺字／組字，待人工補\nE6 第 8 批新建（hold 清零：a3；原 hold 原因：anonymous_author）",
+          "decision": "保留生成來源串及原auto-split理由；不把自動判語當獨立書誌證據"
+        },
+        "revision": {
+          "value": "1.0.0",
+          "decision": "未改"
+        },
+        "revised_at": {
+          "value": "2026-10-19",
+          "decision": "未改；不是內容身份證據"
+        },
+        "related_works": {
+          "value": [
+            {
+              "id": "d59fymcjka9t",
+              "relation": "related",
+              "note": "auto-split:近名/疑同書未并（太康地記）"
+            },
+            {
+              "id": "d59fz73mi9s0",
+              "relation": "related",
+              "note": "auto-split:同題撞庫未并（太康地記）"
+            }
+          ],
+          "decision": "關聯不等於同一；若將來並入關聯對象，須顯式處理自邊且保留舊邊台帳"
+        }
+      }
+    },
+    "counterevidence_and_resolution": [
+      "王謨是清代輯者，不是晉代原撰者；Work作者傳播所得清代斷代不能覆蓋原作時代。",
+      "同為一卷不能證明說郛節錄與王謨輯本材料、附錄完全相同。",
+      "現有說郛Work已連多個叢書子目Book，有一百卷及一百二十卷不同叢書提示；不把這些版本機械合Book。"
+    ],
+    "diagnostic_changes": [
+      {
+        "id": "9945egx5vl",
+        "fields": [
+          "edition_type",
+          "publication_info"
+        ],
+        "issue": "《漢唐地理書鈔》叢書名被拆作抄本、year=漢、抄錄者=唐地理書；原總目只是漢唐地理書鈔本，屬確定解析污染，須另修並保留原串。"
+      },
+      {
+        "id": "9945eglxc1",
+        "fields": [
+          "publication_info",
+          "ai_note"
+        ],
+        "issue": "year=漢、刊刻者=唐地理書同為叢書名誤析；把存本後綴推成後印/補刻亦缺獨立證據。"
+      }
+    ],
+    "defer_reason": "缺版次中科院本未定位；說郛、王謨各本卷首目錄與輯文範圍未逐條比對，不將原作同一等同現行Work全部內容可合。",
+    "next_steps": [
+      "取wzd8w3gfe7ng7bfp原始版本及中科院藏本索書號、母叢書、卷首。",
+      "依Book contained_in逐本核說郛版本及材料範圍，再與王謨輯本序跋/目錄比對。",
+      "先單獨修復漢唐地理書鈔名稱誤析，保留原author_info的晉撰/清輯層次，不由錯誤publication year推斷書年代。",
+      "全引用與book-text資產門檻交根代理；若未通過，不作keeper或刪ID。"
+    ]
+  }
+]

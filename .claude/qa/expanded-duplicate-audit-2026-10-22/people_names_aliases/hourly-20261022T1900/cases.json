@@ -1,0 +1,428 @@
+[
+  {
+    "case_id": "PNA-1900-001",
+    "supersedes_case_id": "PNA-A001",
+    "status": "confirmed",
+    "review_kind": "exact field/tombstone/index execution-candidate review; no native mutation",
+    "label": "錢易 / 錢希白",
+    "main_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "keeper": "hixhd2h9bhe7",
+    "losers": [
+      "hixhd2h9blpt"
+    ],
+    "paths": {
+      "hixhd2h9bhe7": "Entity/h/e/7/hixhd2h9bhe7-錢易.json",
+      "hixhd2h9blpt": "Entity/l/p/t/hixhd2h9blpt-錢希白.json"
+    },
+    "sha256": {
+      "hixhd2h9bhe7": "8475c8c0e3a5bed617bd41a9273c134a289a58df257d0e292a2ee4ed8ad3163e",
+      "hixhd2h9blpt": "480978b6f50a417f28d92c54e274693e30522a648665b242cb8608f8a59a39e1"
+    },
+    "identity_evidence": "《南部新書》提要明載錢易字希白，同一條國史經籍志責任者作錢希白；錢希白名下洞微志亦與錢易相應。",
+    "name_role": {
+      "primary": "錢易",
+      "style": [
+        "希白"
+      ],
+      "alias": "錢希白",
+      "note": "姓連字全稱列別稱；字與號不混用。現有號不重新鑒定。"
+    },
+    "field_conflicts": [
+      {
+        "field": "ai_note",
+        "keeper": "2026-09-06 CBDB enrich：據所繫 cbdb_id=146 補入空槽——籍貫「錢塘」。既有之值一概未動。",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "alt_names",
+        "keeper": [
+          {
+            "name": "希白",
+            "type": "字"
+          }
+        ],
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "dates",
+        "keeper": {
+          "floruit": [
+            969,
+            969
+          ],
+          "basis": "cbdb:index_year"
+        },
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "description",
+        "keeper": {
+          "sources": [
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/yv35v4ilfu0psve4"
+            }
+          ]
+        },
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "dynasty",
+        "keeper": "北宋",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "dynasty_basis",
+        "keeper": "cbdb:index_year=969→北宋",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "external_ids",
+        "keeper": {
+          "cbdb_id": 146,
+          "cbdb_match": "manual",
+          "cbdb_source": "manual+pid_146_錢易_dy15",
+          "wikidata_id": "Q15933289",
+          "viaf_id": "21866453"
+        },
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "id",
+        "keeper": "hixhd2h9bhe7",
+        "loser": "hixhd2h9blpt",
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "native_place",
+        "keeper": "錢塘",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "native_place_basis",
+        "keeper": "CBDB 146 index_addr（2026-09-06 CBDB enrich）",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "native_place_entity_id",
+        "keeper": "hixi5whkfuo0",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "period",
+        "keeper": "song",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "period_basis",
+        "keeper": "据 dynasty「北宋」自动归并",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "primary_name",
+        "keeper": "錢易",
+        "loser": "錢希白",
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "updated_at",
+        "keeper": "2026-08-09T08:58:29+00:00",
+        "loser": "2026-04-29T16:51:33-07:00",
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      }
+    ],
+    "known_current_reference_count": 6,
+    "known_loser_reference_edits": 1,
+    "reference_paths": [
+      "Work/2/m/a/d59f2hh472ma-錢氏家話.json",
+      "Work/z/9/e/d59f2hk96z9e-洞微志.json",
+      "Work/9/1/f/d59f2hket91f-洞微志.json",
+      "Work/x/s/1/d59f2hu6wxs1-南部新書.json",
+      "Work/q/9/u/d59f2og14q9u-錢易集.json",
+      "Work/3/k/1/d59fy0zxk3k1-稽古堂訂正南部新書.json"
+    ],
+    "full_live_reference_scan_complete": false,
+    "external_evidence": [
+      {
+        "url": "https://zh.wikisource.org/wiki/南部新書",
+        "retrieval": "opened 2026-10-22; line 131 Siku preface states 易，字希白; line 140 son Qian Mingyi preface places authorship in Zhenzong Xiangfu reign",
+        "source_ref": "turn25view0"
+      },
+      {
+        "url": "https://cbdb.fas.harvard.edu/cbdbapi/person.php?id=146",
+        "retrieval": "search snippet associates Qian Yi with Dongweizhi; direct open returned only site shell, not full record; auxiliary only",
+        "source_ref": "turn15search7"
+      }
+    ],
+    "execution_status": "plan_only_pending_central_reference_scan_and_post_write_gates",
+    "caveats": [
+      "No Work/Book merges authorized by this identity determination.",
+      "Prior external IDs, date and native place metadata are not independently recertified.",
+      "dates.floruit=[969,969] comes from cbdb:index_year; this identity audit does not certify that as a biographical activity date or resolve competing birth years. Preserve the value with this caveat; do not add dates from general web pages."
+    ],
+    "ledger_path": ".claude/qa/expanded-duplicate-audit-2026-10-22/people_names_aliases/hourly-20261022T1900/candidate-ledger.json",
+    "apply_enabled": false
+  },
+  {
+    "case_id": "PNA-1900-002",
+    "supersedes_case_id": "PNA-A002",
+    "status": "confirmed",
+    "review_kind": "exact field/tombstone/index execution-candidate review; no native mutation",
+    "label": "喻樗 / 喻子材",
+    "main_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "keeper": "hixhd2h9bhcp",
+    "losers": [
+      "hixhd2h9bppr"
+    ],
+    "paths": {
+      "hixhd2h9bhcp": "Entity/h/c/p/hixhd2h9bhcp-喻樗.json",
+      "hixhd2h9bppr": "Entity/p/p/r/hixhd2h9bppr-喻子材.json"
+    },
+    "sha256": {
+      "hixhd2h9bhcp": "ed4ef478b755c77d0e33b003dbbe7faa9d46a19825378d6edc40d6122fc1a12c",
+      "hixhd2h9bppr": "2ca39b1b456a11fa41c30d7e796053681f7dd5a257721a8305dbc933971c0dbe"
+    },
+    "identity_evidence": "陸游《入蜀記》乾道六年六月十二日直接稱「喻子材郎中樗」，經義考引紹興府志稱喻樗字子才，互證姓名。孤立子材條只繫宋史《豐公逸事》，CBDB人物22849搜尋結果列同著作；全部五部所繫Work未見跨代或別人反證。",
+    "name_role": {
+      "primary": "喻樗",
+      "style": [
+        "子材",
+        "子才"
+      ],
+      "alias": "喻子材",
+      "note": "姓連字全稱列別稱；字與號不混用。現有號不重新鑒定。"
+    },
+    "field_conflicts": [
+      {
+        "field": "ai_note",
+        "keeper": "2026-08-24 補繫 entity：新收 3 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=22849 補入空槽——籍貫「建德」。既有之值一概未動。",
+        "loser": "2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《豐公逸事》。\n\n所繫之 work 未定代，故本 entity 未著 dynasty／period——待考。",
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "alt_names",
+        "keeper": [
+          {
+            "name": "子才",
+            "type": "字"
+          },
+          {
+            "name": "子材",
+            "type": "字"
+          },
+          {
+            "name": "湍石",
+            "type": "號"
+          },
+          {
+            "name": "玉泉",
+            "type": "號"
+          }
+        ],
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "dates",
+        "keeper": {
+          "death": 1180,
+          "basis": "現行字段"
+        },
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "dynasty",
+        "keeper": "南宋",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "dynasty_basis",
+        "keeper": "cbdb:birth/death_name=南宋",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "external_ids",
+        "keeper": {
+          "cbdb_id": 22849,
+          "cbdb_match": "manual",
+          "cbdb_source": "manual+pid_22849_喻樗_dy15",
+          "wikidata_id": "Q9661907"
+        },
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "id",
+        "keeper": "hixhd2h9bhcp",
+        "loser": "hixhd2h9bppr",
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "native_place",
+        "keeper": "建德",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "native_place_basis",
+        "keeper": "CBDB 22849 index_addr（2026-09-06 CBDB enrich）",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "period",
+        "keeper": "song",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "period_basis",
+        "keeper": "据 dynasty「南宋」自动归并",
+        "loser": null,
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      },
+      {
+        "field": "primary_name",
+        "keeper": "喻樗",
+        "loser": "喻子材",
+        "policy": "management fields follow merge engine; primary_name keeper; alt_names add surname+style; retain keeper existing biography; preserve complete loser ai_note and historical values in ledger"
+      }
+    ],
+    "known_current_reference_count": 5,
+    "known_loser_reference_edits": 1,
+    "reference_paths": [
+      "Work/f/p/g/d59f2hdmefpg-易義.json",
+      "Work/t/4/w/d59f2hdpit4w-四書性理窟.json",
+      "Work/z/u/q/d59f2hdr2zuq-大學解.json",
+      "Work/r/r/6/d59f2hicirr6-論語學.json",
+      "Work/7/i/9/d59f2psls7i9-豐公逸事.json"
+    ],
+    "full_live_reference_scan_complete": false,
+    "external_evidence": [
+      {
+        "url": "https://zh.wikisource.org/wiki/入蜀記/卷1",
+        "retrieval": "opened 2026-10-22; line 152 reads 喻子材郎中樗",
+        "source_ref": "turn13view0"
+      }
+    ],
+    "execution_status": "plan_only_pending_central_reference_scan_and_post_write_gates",
+    "caveats": [
+      "No Work/Book merges authorized by this identity determination.",
+      "Prior external IDs, date and native place metadata are not independently recertified."
+    ],
+    "ledger_path": ".claude/qa/expanded-duplicate-audit-2026-10-22/people_names_aliases/hourly-20261022T1900/candidate-ledger.json",
+    "apply_enabled": false
+  },
+  {
+    "case_id": "PNA-1900-003",
+    "status": "open",
+    "type": "Entity",
+    "label": "柳宗直 / 柳正夫",
+    "keeper": "hixhd2h9brft",
+    "losers": [
+      "hixhd2h9brg1"
+    ],
+    "paths": {
+      "hixhd2h9brft": "Entity/r/f/t/hixhd2h9brft-柳宗直.json",
+      "hixhd2h9brg1": "Entity/r/g/1/hixhd2h9brg1-柳正夫.json"
+    },
+    "sha256": {
+      "hixhd2h9brft": "cab35e2cb2a56fac1411309b5c7b7ead3ed0e2daf75d54fbe7d1a54bcecc4249",
+      "hixhd2h9brg1": "9f8852294d67a5f80d13de13bf0c0278999d65186af54c5e6568b4ded4760e45"
+    },
+    "why": "柳宗直字正夫與孤立柳正夫《西漢蒙求》的責任者橋接仍未證。新查張栻《西漢蒙求跋》先舉宗直《西漢文類》，後轉東平侯彦明編書；前者是比興先例，不可當成宗直作《西漢蒙求》的證據。",
+    "evidence_refs": [
+      {
+        "work_id": "d59f28jsy0w6",
+        "path": "Work/0/w/6/d59f28jsy0w6-西漢文類.json",
+        "sha256": "d86a7d3b58ead662863499ba03f881fb36782e747afa35d0cf27ea85dcad349b",
+        "indexed_by": [
+          {
+            "source": "宋史藝文志",
+            "source_bid": "d59f2gdp696q",
+            "title_info": "《西漢文類》",
+            "summary": "柳宗直《西漢文類》四十卷芮挺章"
+          },
+          {
+            "source": "國史經籍志",
+            "source_bid": "d59f2nl40936",
+            "title_info": "《西漢文類》四十卷",
+            "summary": "《西漢文類》四十卷（唐抑宗直集）",
+            "author_info": "唐抑宗直集",
+            "note": "撰人原作「抑宗直」，乃「柳宗直」之異寫或形訛，本條併入。"
+          },
+          {
+            "source": "新唐書藝文志",
+            "source_bid": "d59f2hl0cmio",
+            "title_info": "柳宗直西漢文類",
+            "summary": "柳宗直西漢文類四十卷"
+          }
+        ],
+        "description": {
+          "text": "《國史經籍志》收錄。",
+          "sources": [
+            "國史經籍志"
+          ]
+        }
+      },
+      {
+        "work_id": "d59f2qajay9t",
+        "path": "Work/y/9/t/d59f2qajay9t-西漢蒙求.json",
+        "sha256": "34b987e0bedf50ee851ab0f5ea779e103468122818ad8d7833d4cb5bbd1240d8",
+        "indexed_by": [
+          {
+            "source": "宋史藝文志",
+            "source_bid": "d59f2gdp696q",
+            "title_info": "《西漢蒙求》",
+            "summary": "柳正夫《西漢蒙求》一卷"
+          }
+        ],
+        "description": null
+      }
+    ],
+    "external_evidence": [
+      {
+        "url": "https://www.shidianguji.com/zh/book/CADAL01024476/chapter/1l3f0fa2xfkss",
+        "title": "張南軒先生文集卷六：西漢蒙求跋",
+        "accessed": "2026-10-22",
+        "source_ref": "turn30view0",
+        "lines": "284-304",
+        "finding": "開篇回顧柳宗直所輯《西漢文類》，接著以東平侯彦明取班史故事及雅訓語為新書敘述主體；不是柳宗直／柳正夫互見。搜尋摘要截取題名與首句易造成假橋接。",
+        "short_quotes": [
+          "柳宗直輯西漢文類",
+          "東平侯彦明取班史故事及雅訓語"
+        ]
+      }
+    ],
+    "related_record_ids": [
+      "d59f28jsy0w6",
+      "d59f2qajay9t"
+    ],
+    "related_counts": {
+      "work": 2
+    },
+    "apply_blocker": "宗直已有字正夫，然而正夫孤立條僅西漢蒙求一卷，尚無足夠原始資料將它與宗直西漢文類四十卷繫為同一作者；不能由共字或漢字題名推定。",
+    "supersedes_case_id": "PNA-R015",
+    "main_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "execution_status": "open_identity_bridge_missing",
+    "new_identity_confirmations": 0,
+    "native_mutations": 0,
+    "next_step": "優先核《西漢蒙求》柳正夫條原刻與注本，尋本名、籍貫或官歷；張栻跋只可作異作者線索，不能據此改繫侯彦明。保留兩Entity及兩Work原字段。"
+  }
+]

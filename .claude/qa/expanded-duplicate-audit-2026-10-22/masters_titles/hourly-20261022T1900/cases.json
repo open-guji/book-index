@@ -1,0 +1,131 @@
+[
+  {
+    "case_id": "MR-H1900-001",
+    "supersedes_case_id": "MR-A001",
+    "type": "Work",
+    "status": "confirmed",
+    "review_kind": "field-and-history-preexecution-review",
+    "title": "張仲景金匱要畧編注",
+    "ids": [
+      "d59fxziflw5e",
+      "d59fxunlrzeo"
+    ],
+    "keeper": "d59fxziflw5e",
+    "losers": [
+      "d59fxunlrzeo"
+    ],
+    "reason": "身份confirmed不变；本轮核实第三条墓碑及WORK-0187真实方向，完成当前双方全部顶层字段保留计划，并识别第三条墓碑重定向的二跳风险。",
+    "evidence": [
+      "d59fxuzex79d当前墓碑merged_into=d59fxunlrzeo；WORK-0187台账keeper亦为d59fxunlrzeo，旧ai_note措辞不能反转结构。",
+      "两侧当前字段共15项，field-retention-plan.json逐项决策，authors两种来源责任及indexed_by两份完整著录均保留。",
+      "若最终keeper仍d59fxziflw5e，须将第三条历史墓碑直接改指该keeper；merged_in原历史成员对象和历史台账旧ID保留。"
+    ],
+    "records": [
+      {
+        "path": "Work/w/5/e/d59fxziflw5e-張仲景金匱要畧編注.json",
+        "sha256": "4bfa996d24aac298ff991be6b0e4a908aa5a9a7ba092c86a203f99d10ef09a22",
+        "id": "d59fxziflw5e",
+        "old_sha256": "4bfa996d24aac298ff991be6b0e4a908aa5a9a7ba092c86a203f99d10ef09a22",
+        "old_snapshot_bytes_reproduced": true,
+        "baseline_git_blob": "2264b8a0ce433583e7f5c561d4b5bddb2dc9b7c4",
+        "main_git_blob": "2264b8a0ce433583e7f5c561d4b5bddb2dc9b7c4",
+        "state": "unchanged",
+        "merged_into": null
+      },
+      {
+        "path": "Work/z/e/o/d59fxunlrzeo-沈注金匱要畧.json",
+        "sha256": "c3212943f9c27252f2aafafe70daea9af5e313407de917b6b7571b7a202a27f5",
+        "id": "d59fxunlrzeo",
+        "old_sha256": "2268fa4f342ef6d5ed5e3d949f0770bb4d23f50a8be155dc31b21576f88fcf2d",
+        "old_snapshot_bytes_reproduced": true,
+        "baseline_git_blob": "d56a7be005a6280e9918f45f5472a4c2d8075f39",
+        "main_git_blob": "0d082ab6e9c8c22f48c247188590f38099583e25",
+        "state": "changed_read",
+        "merged_into": null
+      }
+    ],
+    "main_state": "all_live",
+    "main_relation_applied": false,
+    "execution_ready": false,
+    "next_step": "根代理完成全型别、promotions、草稿及book-text引用扫；执行前重验当前哈希，确认第三条墓碑重定向、无损台账和所有官方检查。",
+    "execution_gates": [
+      "当前原档与前置SHA256重验",
+      "全部业务字段、历史及来源无损",
+      "正式库/草稿/promotions/book-text真实引用与资产检查",
+      "现行规则要求的schema/分类/builder/合并台账检查"
+    ],
+    "previous_case_chain": [
+      "MR-012",
+      "MR-A001"
+    ],
+    "main_commit": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "field_plan": "field-retention-plan.json",
+    "historical_member": "d59fxuzex79d"
+  },
+  {
+    "case_id": "MR-H1900-002",
+    "supersedes_case_id": "MR-A002",
+    "type": "Work",
+    "status": "open",
+    "review_kind": "responsibility-layer-and-attached-books-review",
+    "title": [
+      "夢溪筆談",
+      "夢溪筆談"
+    ],
+    "ids": [
+      "d59f2q7zj6yp",
+      "d59fxwylng8x"
+    ],
+    "keeper": null,
+    "losers": [],
+    "reason": "一卷著录所在Work已承载二十六卷和补续卷Book，不能将其概括为纯一卷本；CiNii实开目录区分沈括撰与林思進補校，旧同人异写理由不可信，但尚未复原被并1exoli8a3q2v4原档及两个一卷子目正文，保持open。",
+    "evidence": [
+      "CiNii NCID BB13733082实开目录明确(宋)沈括撰, 林思進補校，列夢溪筆談補校子目；这是独立责任层线索，不证明与旧被并成员为同一版。",
+      "题含夢溪的main Book路径有界检查中，35条work_id=d59fxwylng8x均以原字节Git SHA1核对main成功；其卷数范围包含一卷、二十六卷、补续卷及卷数未载。",
+      "994hr7l7nl的一卷子目source=4p4exdbghctw7mad，contained_in=8rldot389yx0；该Collection源s830ijgc7k0exr0x确为蒼雪菴日鈔十一種。",
+      "另有一卷Book 993yln4etd，source=wdxz72pncliv7l10，contained_in=8rldo9qhnwua为待清書屋雜鈔四百九十三種。不得将两个一卷子目默认为同一摘录。",
+      "7条同Work Book原著录含（補筆談）清林思進撰；其中版本年代与责任层有待解释，不能直接统一改成补校。"
+    ],
+    "records": [
+      {
+        "id": "d59f2q7zj6yp",
+        "path": "Work/6/y/p/d59f2q7zj6yp-夢溪筆談.json",
+        "sha256": "5a64d2a771925d58c0c97795c89da7cf8443ed1e431604fe4361e33e7501573b",
+        "old_sha256": "a72d0042ab2a6f4b7f3cb5f84c5699f04cf8405e881b609b1126b8c1a4d058e6",
+        "old_snapshot_bytes_reproduced": true,
+        "baseline_git_blob": "1b57bdbca282157cceb1cf0f5fc5af20d71181cc",
+        "main_git_blob": "13ddd6239e53868d61060df575630ac87688c96a",
+        "state": "changed_read",
+        "merged_into": null
+      },
+      {
+        "id": "d59fxwylng8x",
+        "path": "Work/g/8/x/d59fxwylng8x-夢溪筆談.json",
+        "sha256": "3bdcbc4108e0255706c417f9fe7052a57e926658f34b9bbf9333f6b74c1f411b",
+        "old_sha256": "3bdcbc4108e0255706c417f9fe7052a57e926658f34b9bbf9333f6b74c1f411b",
+        "old_snapshot_bytes_reproduced": true,
+        "baseline_git_blob": "d46a2e3bca4f8485b98f57c8332935f24188d8da",
+        "main_git_blob": "d46a2e3bca4f8485b98f57c8332935f24188d8da",
+        "state": "unchanged",
+        "merged_into": null
+      }
+    ],
+    "main_state": "all_live",
+    "main_relation_applied": false,
+    "execution_ready": false,
+    "next_step": "先复原1exoli8a3q2v4原档和升格/旧并条来源；分开审核蒼雪菴、待清書屋两个一卷子目与完整/补续本的正文范围及附属责任。对35条只能逐Book判挂接，不得整包迁移或反向强加一卷属性。",
+    "execution_gates": [
+      "当前原档与前置SHA256重验",
+      "全部业务字段、历史及来源无损",
+      "正式库/草稿/promotions/book-text真实引用与资产检查",
+      "现行规则要求的schema/分类/builder/合并台账检查"
+    ],
+    "previous_case_chain": [
+      "MR-046",
+      "MR-A002"
+    ],
+    "main_commit": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "external_sources": "external-evidence.json",
+    "bounded_book_inventory": "bounded-book-scan.json"
+  }
+]

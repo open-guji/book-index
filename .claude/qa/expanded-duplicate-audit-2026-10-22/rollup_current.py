@@ -23,7 +23,7 @@ def run():
         base = 'cases-all.json' if lane == 'people_religious_variants' else 'cases.json'
         effective = {}
         changes = []
-        for rel in [base, 'hourly-20261022/cases.json', 'astra-review-20261022/cases.json']:
+        for rel in [base, 'hourly-20261022/cases.json', 'astra-review-20261022/cases.json', 'hourly-20261022T1900/cases.json']:
             for case in json.loads((folder / rel).read_text()):
                 cid = case['case_id']
                 old = case.get('supersedes_case_id') or case.get('supersedes')
@@ -32,7 +32,7 @@ def run():
                     result['errors'].append(f'{lane}:{cid}: unknown replacement {old}')
                 if cid in effective:
                     result['errors'].append(f'{lane}:{cid}: duplicate ID')
-                if rel.startswith('astra-'):
+                if rel.startswith('hourly-20261022T1900/'):
                     changes.append({'case_id': cid, 'replaces': old,
                                     'old_status': prior['status'] if prior else None,
                                     'status': case['status']})
