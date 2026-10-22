@@ -1,0 +1,335 @@
+[
+  {
+    "case_id": "H-2022-001",
+    "candidate_id": "H-BROAD-00123",
+    "ids": [
+      "d59f27scdgjm",
+      "d59f27suh81u"
+    ],
+    "status": "confirmed",
+    "reason": "㑹/會只是题名异体；两条均为谢承七卷原作的目录身份",
+    "source_ids": [
+      "S1"
+    ],
+    "evidence": [
+      "固定main两条同署三国吴谢承、同一Entity，均以七卷为原书卷数。异体题只载国史经籍志；常体题兼载隋唐目录。",
+      "已打开隋书卷33杂传原文转录，明确七卷谢承，并与钟离岫会稽后贤传记二卷、会稽先贤像赞五卷分列，排除邻题误并。"
+    ],
+    "context_ids": [
+      "d59fycrzr7y8"
+    ],
+    "keeper_proposal": "d59f27suh81u",
+    "titles": [
+      "㑹稽先賢傳",
+      "會稽先賢傳"
+    ],
+    "decision_scope": "original Work identity only",
+    "merge_eligible": false,
+    "supersedes": null,
+    "old_case_overlap": [],
+    "discovery_candidate_ids": [
+      "H-BROAD-00123"
+    ],
+    "unresolved_gates": [
+      "d59fycrzr7y8明确清黄奭辑的一卷汉学堂知足斋本，本案不纳入；不得因原作身份确认自动吞并辑本。",
+      "d59f27suh81u indexed_by[2].summary尾部夹入徐整豫章列士传；单独台账清理串条，不传播为谢承著述。",
+      "执行前重新fetch main并校验原字节；制作keeper/losers逐字段无损台账及全部源值历史。",
+      "未扫描全库引用、分类成员、promotions、草稿及book-text；须另做全引用审计后跑T/L/P/R、schema、check_v2、classification和derived基线比较。",
+      "确认只涉及Work身份，不授权机械并Book或人物；本轮无原生修改。"
+    ],
+    "preservation_requirements": [
+      "两种原题、国史经籍志独有著录与来源、旧唐书五卷异数必须并存；七卷为原书，后世一卷辑本不得覆盖原卷数。",
+      "d59f27suh81u已有merged_in 1evcs0f6qxj40和related_works→d59fycrzr7y8；全部历史和出边保留。"
+    ],
+    "member_snapshots": [
+      {
+        "id": "d59f27scdgjm",
+        "path": "Work/g/j/m/d59f27scdgjm-㑹稽先賢傳.json",
+        "blob_sha": "31523203cac05e3b2797c1dc0bc3c8c96e24e83c",
+        "sha256": "cd58d3d53e15c3c28da4638ab51a90963d7d6e20eefabfbddd4ad757dc484b71",
+        "snapshot": "snapshots/d59f27scdgjm.json"
+      },
+      {
+        "id": "d59f27suh81u",
+        "path": "Work/8/1/u/d59f27suh81u-會稽先賢傳.json",
+        "blob_sha": "5084f9348e8aacf1da4404520572ee9a5512df94",
+        "sha256": "461be3d81870779ae5f33f2d6a0e73487cbf78eb6e317dba0c14765537ac3aea",
+        "snapshot": "snapshots/d59f27suh81u.json"
+      }
+    ],
+    "source_urls": [
+      "https://zh.wikisource.org/wiki/隋書/卷33"
+    ],
+    "field_pointers": {
+      "d59f27scdgjm": [
+        "/title",
+        "/authors",
+        "/indexed_by",
+        "/juan_count",
+        "/description",
+        "/ai_note"
+      ],
+      "d59f27suh81u": [
+        "/title",
+        "/authors",
+        "/indexed_by",
+        "/juan_count",
+        "/description",
+        "/ai_note",
+        "/related_works",
+        "/merged_in"
+      ]
+    }
+  },
+  {
+    "case_id": "H-2022-002",
+    "candidate_id": "H-BROAD-00136",
+    "ids": [
+      "d59f2hj7qi2r",
+      "d59f2hrhiwap"
+    ],
+    "status": "confirmed",
+    "reason": "三朝北盟集編是徐梦莘自序题，與會編指同一二百五十卷书",
+    "source_ids": [
+      "S2",
+      "S3"
+    ],
+    "evidence": [
+      "固定main两条同署徐梦莘、同Entity、250卷，集编条来自国史经籍志。",
+      "国图明抄本卷首转录题三朝北盟集编序，并题三朝北盟集编书目；序述上中下三帙、250卷。国史经籍志卷三另列集补50卷，不能把集编误当续编。"
+    ],
+    "context_ids": [],
+    "keeper_proposal": "d59f2hrhiwap",
+    "titles": [
+      "三朝北盟集編",
+      "三朝北盟會編"
+    ],
+    "decision_scope": "original Work identity only",
+    "merge_eligible": false,
+    "supersedes": null,
+    "old_case_overlap": [],
+    "discovery_candidate_ids": [
+      "H-BROAD-00136"
+    ],
+    "unresolved_gates": [
+      "不纳入北盟集补50卷；本轮未逐册检验會編条资源或Book。",
+      "识典卷首转录有明显OCR断句、误字；确认依序题与250卷结构，不采用自动转录每一字作精校。",
+      "执行前重新fetch main并校验原字节；制作keeper/losers逐字段无损台账及全部源值历史。",
+      "未扫描全库引用、分类成员、promotions、草稿及book-text；须另做全引用审计后跑T/L/P/R、schema、check_v2、classification和derived基线比较。",
+      "确认只涉及Work身份，不授权机械并Book或人物；本轮无原生修改。"
+    ],
+    "preservation_requirements": [
+      "保留集編题名及国史经籍志著录；會編条全部资源组、馆藏链接及已合并历史保留。",
+      "序文转录的绍兴三十二年/四十六年，与库内四库提要的三十一年/四十五年有差别；不替换为统一断年，保留各源原话待书影核字。"
+    ],
+    "member_snapshots": [
+      {
+        "id": "d59f2hj7qi2r",
+        "path": "Work/i/2/r/d59f2hj7qi2r-三朝北盟集編.json",
+        "blob_sha": "4703c47f00b6f79379266323d000651b856e8ac3",
+        "sha256": "f6d66581609d70faa396262367709c61215dd8b8514114a44e52c0b8b6c62cea",
+        "snapshot": "snapshots/d59f2hj7qi2r.json"
+      },
+      {
+        "id": "d59f2hrhiwap",
+        "path": "Work/w/a/p/d59f2hrhiwap-三朝北盟會編.json",
+        "blob_sha": "8b75a0f638b9caa64b0275998cf11720dae0d219",
+        "sha256": "94ecad94cdcf15f5d8a6a0eefe317143de0e0df6fade85e880ab68f456a5b92c",
+        "snapshot": "snapshots/d59f2hrhiwap.json"
+      }
+    ],
+    "source_urls": [
+      "https://www.shidianguji.com/zh/book/NGJ892412000000049154883/chapter/1lvroqroh4wtv",
+      "https://www.shidianguji.com/zh/book/CADAL02091118/chapter/1lcq2me5aorop"
+    ],
+    "field_pointers": {
+      "d59f2hj7qi2r": [
+        "/title",
+        "/authors",
+        "/indexed_by",
+        "/juan_count",
+        "/description",
+        "/ai_note"
+      ],
+      "d59f2hrhiwap": [
+        "/title",
+        "/authors",
+        "/indexed_by",
+        "/juan_count",
+        "/description",
+        "/ai_note",
+        "/resources",
+        "/resource_groups"
+      ]
+    }
+  },
+  {
+    "case_id": "H-2022-003",
+    "candidate_id": "H-BROAD-00144",
+    "ids": [
+      "d59f2moxmh34",
+      "d59f2nc7qnls"
+    ],
+    "status": "confirmed",
+    "reason": "三藩/三籓紀事本末为杨陆荣四卷原作异体题",
+    "source_ids": [
+      "S4",
+      "S5"
+    ],
+    "evidence": [
+      "两条同署清杨陆荣、同Entity，均四卷；籓字条独载清史稿艺文志。",
+      "中研院提要明确杨陆荣、康熙五十六年成书，记南明福唐桂三王，四卷共22篇；其分卷篇目与本库四库提要相接，不能误解为吴三桂三藩之乱另一书。"
+    ],
+    "context_ids": [],
+    "keeper_proposal": "d59f2moxmh34",
+    "titles": [
+      "三藩紀事本末",
+      "三籓紀事本末"
+    ],
+    "decision_scope": "original Work identity only",
+    "merge_eligible": false,
+    "supersedes": null,
+    "old_case_overlap": [],
+    "discovery_candidate_ids": [
+      "H-BROAD-00144"
+    ],
+    "unresolved_gates": [
+      "逐查d59f2moxmh34 indexed_by[3]对应总目原文和全部Book范围，排除丛编父子串接；本轮仅证明四卷原作身份，未证明22卷聚合来源可直接合入。",
+      "当前四库summary写康王，而中研院和卷目为唐王；此为独立字误风险，保留原值后核原书，不顺手覆盖。",
+      "执行前重新fetch main并校验原字节；制作keeper/losers逐字段无损台账及全部源值历史。",
+      "未扫描全库引用、分类成员、promotions、草稿及book-text；须另做全引用审计后跑T/L/P/R、schema、check_v2、classification和derived基线比较。",
+      "确认只涉及Work身份，不授权机械并Book或人物；本轮无原生修改。"
+    ],
+    "preservation_requirements": [
+      "保留三籓源题及清史稿著录；四库存目、书目答问、存目丛书的四卷来源分别保留。",
+      "中国古籍总目著录title_info作二十二卷且摘要共22版本，与四卷原作冲突；不能把22篇/22版本自动转成22卷。"
+    ],
+    "member_snapshots": [
+      {
+        "id": "d59f2moxmh34",
+        "path": "Work/h/3/4/d59f2moxmh34-三藩紀事本末.json",
+        "blob_sha": "5208fec5e175e53f4aaac435d7419c69f19086a1",
+        "sha256": "118d054b4b7e88d2179800def30f820d5f3a9ebe5830cb769d44a12a16d28bf1",
+        "snapshot": "snapshots/d59f2moxmh34.json"
+      },
+      {
+        "id": "d59f2nc7qnls",
+        "path": "Work/n/l/s/d59f2nc7qnls-三籓紀事本末.json",
+        "blob_sha": "d3bfb280f3fda15c6dc55666189d00565a23598a",
+        "sha256": "9f0fdffe1628c5ea023c39bf0b80399dab2055a42474f7b10dd3bed2cbb6870b",
+        "snapshot": "snapshots/d59f2nc7qnls.json"
+      }
+    ],
+    "source_urls": [
+      "https://taicool.ith.sinica.edu.tw/browse-ebook.html?id=EB0000000149",
+      "https://www.guoxue.com/shibu/24shi/qingshigao/qsg_146.htm"
+    ],
+    "field_pointers": {
+      "d59f2moxmh34": [
+        "/title",
+        "/authors",
+        "/indexed_by",
+        "/juan_count",
+        "/description",
+        "/ai_note",
+        "/resources",
+        "/resource_groups"
+      ],
+      "d59f2nc7qnls": [
+        "/title",
+        "/authors",
+        "/indexed_by",
+        "/juan_count",
+        "/description",
+        "/ai_note"
+      ]
+    }
+  },
+  {
+    "case_id": "H-2022-004",
+    "candidate_id": "H-BROAD-00212",
+    "ids": [
+      "d59f2hs822gx",
+      "d59f2huxrchs"
+    ],
+    "status": "open",
+    "reason": "题名省记可解释，但宋原书与四库重辑本的作品范围须先定",
+    "source_ids": [
+      "S6"
+    ],
+    "evidence": [
+      "固定main纂误条引宋史三卷、直斋五卷；史记纂误条主要依据永乐大典辑本，作者同署吴缜。",
+      "四库提要明确原书久佚，辑得112事，相对晁公武所记200余事仅存五六成，又加薛史异同附识；卷数相近不证明原貌、重辑和附识层完全相同。",
+      "提要同时讨论刘羲仲作者异说并判不足据；这一异说应保留来源层，不另造吴缜/刘羲仲人物合并。"
+    ],
+    "context_ids": [
+      "d59f20aowb9c",
+      "d59fyptzppfl"
+    ],
+    "keeper_proposal": null,
+    "titles": [
+      "五代史纂誤",
+      "五代史記纂誤"
+    ],
+    "decision_scope": "original vs reconstructed work scope unresolved",
+    "merge_eligible": false,
+    "supersedes": null,
+    "old_case_overlap": [],
+    "discovery_candidate_ids": [
+      "H-BROAD-00212"
+    ],
+    "unresolved_gates": [
+      "核宋原本/四库辑本身份模型、目录及首末，明确是否原作的一种版本或需独立辑佚Work，再定keeper。",
+      "d59f2huxrchs /related_works/0 的 contains_text_of→司马迁史记须单独核实，不能机械迁移为可信关系。",
+      "纂误条related→d59fyptzppfl是无名氏五代史纂不分卷明抄本，缺誤字也不能纳入本案；须独立看原件。",
+      "执行前重新fetch main并校验原字节；制作keeper/losers逐字段无损台账及全部源值历史。",
+      "未扫描全库引用、分类成员、promotions、草稿及book-text；须另做全引用审计后跑T/L/P/R、schema、check_v2、classification和derived基线比较。",
+      "确认只涉及Work身份，不授权机械并Book或人物；本轮无原生修改。"
+    ],
+    "preservation_requirements": [
+      "保留宋史3卷、直斋5卷、重辑3卷及112事各自作用域；保留原作者异说、四库辑佚与附识责任。",
+      "related_works→d59f20aowb9c目前是司马迁史记，不能仅因标题含史记而当作五代史底本。"
+    ],
+    "member_snapshots": [
+      {
+        "id": "d59f2hs822gx",
+        "path": "Work/2/g/x/d59f2hs822gx-五代史纂誤.json",
+        "blob_sha": "5554fe2d4923fb21885dc0a559fa5a844342c993",
+        "sha256": "ec46883a7e62c480bc0a47dd09df337dd95681128c70fb7044ed23b4335a4a4f",
+        "snapshot": "snapshots/d59f2hs822gx.json"
+      },
+      {
+        "id": "d59f2huxrchs",
+        "path": "Work/c/h/s/d59f2huxrchs-五代史記纂誤.json",
+        "blob_sha": "dbedd60369cceca4c41c379d384b53e1106e8a29",
+        "sha256": "bf4c6d8eb034c267654014b42ccf7ee29714e4d373b5be587f3f119d35225271",
+        "snapshot": "snapshots/d59f2huxrchs.json"
+      }
+    ],
+    "source_urls": [
+      "https://zh.wikisource.org/zh-hant/四庫全書總目提要/卷046"
+    ],
+    "field_pointers": {
+      "d59f2hs822gx": [
+        "/title",
+        "/authors",
+        "/indexed_by",
+        "/description",
+        "/ai_note",
+        "/related_works",
+        "/resources",
+        "/resource_groups"
+      ],
+      "d59f2huxrchs": [
+        "/title",
+        "/authors",
+        "/indexed_by",
+        "/juan_count",
+        "/description",
+        "/ai_note",
+        "/related_works",
+        "/resources"
+      ]
+    }
+  }
+]

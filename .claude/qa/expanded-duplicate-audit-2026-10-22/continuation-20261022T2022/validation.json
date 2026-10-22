@@ -1,0 +1,689 @@
+{
+  "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+  "case_count": 26,
+  "member_records_checked": 52,
+  "unique_member_pairs": 26,
+  "old_and_cross_lane_pairs_checked": true,
+  "byte_sha256_and_git_blob_against_fixed_main_tree_checked": true,
+  "errors": [],
+  "not_run": [
+    "all-type reference migration",
+    "draft/promotions/text asset migration",
+    "native writes",
+    "native schema/classification/builder audits"
+  ],
+  "lane_files": {
+    "classics_titles/hourly-20261022T2022/build_checkpoint.py": {
+      "sha256": "3c8578a110a0911ee2696d3b16a09f2a72280c18dd6780eb73c8df2feedddee9",
+      "bytes": 14767
+    },
+    "classics_titles/hourly-20261022T2022/cases.json": {
+      "sha256": "21879d61f06286d3e0746cfc9f653ae1d34b59608962ffe61fa838fe97492007",
+      "bytes": 19103
+    },
+    "classics_titles/hourly-20261022T2022/main-records.json.gz": {
+      "sha256": "3851aba0ec147bc43031d93978dcbd9031f4509d5171f54494da42b67f744877",
+      "bytes": 14925
+    },
+    "classics_titles/hourly-20261022T2022/references.json": {
+      "sha256": "177ce266bc4f025037bcfb3f6101032417d441a33ac3229872a6b1f13ace2d85",
+      "bytes": 6222
+    },
+    "classics_titles/hourly-20261022T2022/report.md": {
+      "sha256": "86411cb8c472ea0acdacac41c474fe69bbb133e5440470dac3f54faf10573ef8",
+      "bytes": 6739
+    },
+    "classics_titles/hourly-20261022T2022/validation.json": {
+      "sha256": "f8dba799dd15a80a7d9e396b95df50027db96b007491dcbca8ddd5b07fcfd690",
+      "bytes": 6155
+    },
+    "history_titles/hourly-20261022T2022/artifact-manifest.json": {
+      "sha256": "95e4bf3829b9d361d5317b7de4cccc9010bbddf9532f08e5646b04ac47079ad8",
+      "bytes": 4024
+    },
+    "history_titles/hourly-20261022T2022/build_report.py": {
+      "sha256": "a37183056330729340439fc643f3941beb08ad600d871ced6305bed81ad76d54",
+      "bytes": 14141
+    },
+    "history_titles/hourly-20261022T2022/cases.json": {
+      "sha256": "239a99443b8c9a85fc30ffdc3220986be0dd92e2374ed350bf9a035e9318e039",
+      "bytes": 13157
+    },
+    "history_titles/hourly-20261022T2022/current-records.json": {
+      "sha256": "b917e83a47dd3feeaec59125f75ed41c105bef977e94661c135dbe5363383578",
+      "bytes": 117287
+    },
+    "history_titles/hourly-20261022T2022/discovery-candidates.json": {
+      "sha256": "89336a3a1dc1e9d378b5cf696e8b7982c1938c5b7b2676670a2670958eecab02",
+      "bytes": 2934
+    },
+    "history_titles/hourly-20261022T2022/evidence/build-output.txt": {
+      "sha256": "1e886a8e22433ba9d3228a5a339c83223d0a4587ff43563dbc03511cae6f19a8",
+      "bytes": 1261
+    },
+    "history_titles/hourly-20261022T2022/evidence/merge-rules.snapshot.md": {
+      "sha256": "e04e8d49fff91389c8ba419590b4052951892baa8a096201c810c9567f67e444",
+      "bytes": 3425
+    },
+    "history_titles/hourly-20261022T2022/evidence/web-retrievals.json": {
+      "sha256": "5cb0737eaadf1e1c1f3c3daa72e9c2916f247b6a582f6335abcf2d721ece8a13",
+      "bytes": 141071
+    },
+    "history_titles/hourly-20261022T2022/report.md": {
+      "sha256": "a9d8d1b35ed9ffb964571b149d63fe44d5d1f3f784f0b41f2cfe1df0db02fa60",
+      "bytes": 7775
+    },
+    "history_titles/hourly-20261022T2022/snapshots/d59f20aowb9c.json": {
+      "sha256": "3551ef96d2e73502d8517618052dd69dbcbeb552240309c72692f6402e4c8187",
+      "bytes": 51395
+    },
+    "history_titles/hourly-20261022T2022/snapshots/d59f27scdgjm.json": {
+      "sha256": "cd58d3d53e15c3c28da4638ab51a90963d7d6e20eefabfbddd4ad757dc484b71",
+      "bytes": 1916
+    },
+    "history_titles/hourly-20261022T2022/snapshots/d59f27suh81u.json": {
+      "sha256": "461be3d81870779ae5f33f2d6a0e73487cbf78eb6e317dba0c14765537ac3aea",
+      "bytes": 9000
+    },
+    "history_titles/hourly-20261022T2022/snapshots/d59f2hj7qi2r.json": {
+      "sha256": "f6d66581609d70faa396262367709c61215dd8b8514114a44e52c0b8b6c62cea",
+      "bytes": 2244
+    },
+    "history_titles/hourly-20261022T2022/snapshots/d59f2hrhiwap.json": {
+      "sha256": "94ecad94cdcf15f5d8a6a0eefe317143de0e0df6fade85e880ab68f456a5b92c",
+      "bytes": 14443
+    },
+    "history_titles/hourly-20261022T2022/snapshots/d59f2hs822gx.json": {
+      "sha256": "ec46883a7e62c480bc0a47dd09df337dd95681128c70fb7044ed23b4335a4a4f",
+      "bytes": 2744
+    },
+    "history_titles/hourly-20261022T2022/snapshots/d59f2huxrchs.json": {
+      "sha256": "bf4c6d8eb034c267654014b42ccf7ee29714e4d373b5be587f3f119d35225271",
+      "bytes": 6714
+    },
+    "history_titles/hourly-20261022T2022/snapshots/d59f2moxmh34.json": {
+      "sha256": "118d054b4b7e88d2179800def30f820d5f3a9ebe5830cb769d44a12a16d28bf1",
+      "bytes": 8431
+    },
+    "history_titles/hourly-20261022T2022/snapshots/d59f2nc7qnls.json": {
+      "sha256": "9f0fdffe1628c5ea023c39bf0b80399dab2055a42474f7b10dd3bed2cbb6870b",
+      "bytes": 1835
+    },
+    "history_titles/hourly-20261022T2022/snapshots/d59fycrzr7y8.json": {
+      "sha256": "46cdf6ecf68ad5f717b8a8e090e6774d80452ddc313cd8c8ac90182f43e458fa",
+      "bytes": 1960
+    },
+    "history_titles/hourly-20261022T2022/snapshots/d59fyptzppfl.json": {
+      "sha256": "65c87e17ec404a60b385d3200b6dad235e7bb2a5cedff7d9c63c5536c14d48ee",
+      "bytes": 985
+    },
+    "history_titles/hourly-20261022T2022/snapshots/hixhd2h9be72.json": {
+      "sha256": "907200a6f556c9a1195bbd4cb3a3afab8a45734793deeacf561140b55d564652",
+      "bytes": 1024
+    },
+    "history_titles/hourly-20261022T2022/snapshots/hixhd2h9be7z.json": {
+      "sha256": "3ebbbebbe453cc097d80ee98e6f753464511f9f5c5c319a84a7cef8e487de802",
+      "bytes": 976
+    },
+    "history_titles/hourly-20261022T2022/snapshots/hixhd2h9bhwj.json": {
+      "sha256": "f6c3e7fbe9703db6e738880ab219c9b16ebe6a9f3b2b70812feb34766a4e8cbe",
+      "bytes": 579
+    },
+    "history_titles/hourly-20261022T2022/snapshots/hixhd2h9biw0.json": {
+      "sha256": "4094b0f1a96460061b9860b76e23d672fd6843de971ef1b75b29d99d313efe5e",
+      "bytes": 335
+    },
+    "history_titles/hourly-20261022T2022/sources.json": {
+      "sha256": "3ff9dcf0da12a6c377bc097ccf7c7ebf3549c8bd971ef0cb27f99e15b6d3d353",
+      "bytes": 2297
+    },
+    "history_titles/hourly-20261022T2022/validation.json": {
+      "sha256": "1e886a8e22433ba9d3228a5a339c83223d0a4587ff43563dbc03511cae6f19a8",
+      "bytes": 1261
+    },
+    "masters_titles/hourly-20261022T2022/artifact-manifest.json": {
+      "sha256": "17c07f96fec5d57153247bba25a632a03925276c5a71f37e64250abfaf03f3c1",
+      "bytes": 637
+    },
+    "masters_titles/hourly-20261022T2022/build_evidence.py": {
+      "sha256": "b3ba99750ca01d163eee6a0692e4a22db75e9d9c9bfd70bc1e39539460702003",
+      "bytes": 12931
+    },
+    "masters_titles/hourly-20261022T2022/cases.json": {
+      "sha256": "2ed0ddb36925240aafe76f72aa313e787425df142ebe5fc2a4c295bec9c7f266",
+      "bytes": 25516
+    },
+    "masters_titles/hourly-20261022T2022/new-pair-validation.json": {
+      "sha256": "b5e9c730d24e0406533799d55821d03fecf801f27c6412159235fad6eaf91679",
+      "bytes": 571
+    },
+    "masters_titles/hourly-20261022T2022/original-records.json": {
+      "sha256": "11f731bf6a53b10cbdcf68ddf9db11ec5a4129c29d1f928cf1360c5174c04a7b",
+      "bytes": 33639
+    },
+    "masters_titles/hourly-20261022T2022/report.md": {
+      "sha256": "6dba3d171ce11beee26a7b45961e618f38ac177b3adc8d9967ded9a629139634",
+      "bytes": 5667
+    },
+    "masters_titles/hourly-20261022T2022/source-evidence.json": {
+      "sha256": "91e5fce512b06c32bdbaebcd02b6581fdece95c97567b03d3ca26bd8bdf9e311",
+      "bytes": 3514
+    },
+    "masters_titles/hourly-20261022T2022/validation.json": {
+      "sha256": "fb284ae41204a53bfa1db5c0701f0fed0d71e2ab7abe3b257f80d1d11d8f92e8",
+      "bytes": 2266
+    },
+    "collections_titles/hourly-20261022T2022/artifact-manifest.json": {
+      "sha256": "db14ec5b6916272dea05533fe92d4fad13ab981ce6bc9355e3e3f53906dda902",
+      "bytes": 2898
+    },
+    "collections_titles/hourly-20261022T2022/build_checkpoint.py": {
+      "sha256": "f8db9a38ab9b37714c4621ed78abb0b84509542ad9f8d1a3ddfdf47b368bbccc",
+      "bytes": 12299
+    },
+    "collections_titles/hourly-20261022T2022/cases.json": {
+      "sha256": "ff98e825c13e1c58a9784b63bef70fda0928da63bffe13052a732fa244c75916",
+      "bytes": 17780
+    },
+    "collections_titles/hourly-20261022T2022/evidence/retrieval-1.json": {
+      "sha256": "0590ee895a52f5f554f112a72a511967885b5c3b22abf280943d0833870be3c8",
+      "bytes": 21501
+    },
+    "collections_titles/hourly-20261022T2022/evidence/retrieval-2.json": {
+      "sha256": "68f7387e5c34e22511d040bdee6c3875e0b13e9961f06677016786433c512392",
+      "bytes": 21223
+    },
+    "collections_titles/hourly-20261022T2022/evidence/retrieval-3.json": {
+      "sha256": "4755b5e3aa2c5166b6f6a525b95f90349144ac0c9632bacb507242083d3b7437",
+      "bytes": 20298
+    },
+    "collections_titles/hourly-20261022T2022/evidence/retrieval-4.json": {
+      "sha256": "257de57a20c87097e3b1e4a654bd812c954d45fc3191662c52efba6fb988ece6",
+      "bytes": 21087
+    },
+    "collections_titles/hourly-20261022T2022/evidence/retrieval-5.json": {
+      "sha256": "e1844e3043702448d73ed27bd0cedf92ca2540aa881e0006b573b07d96def617",
+      "bytes": 20140
+    },
+    "collections_titles/hourly-20261022T2022/evidence/retrieval-6.json": {
+      "sha256": "8d2a5b5871bf3714a203e9ab4d8b983be8ba0f3d73494f6532b0031d3d2d3a9c",
+      "bytes": 22715
+    },
+    "collections_titles/hourly-20261022T2022/evidence/retrieval-7.json": {
+      "sha256": "010267cefa1ce18daf4b89401a82016bf8c30746233b69f73266dae43900c9c7",
+      "bytes": 20313
+    },
+    "collections_titles/hourly-20261022T2022/evidence-manifest.json": {
+      "sha256": "4d8cace2b58719013d3d672eb4242a17fe5db57e4c5ae42b0a3d8c5083bdce00",
+      "bytes": 1522
+    },
+    "collections_titles/hourly-20261022T2022/field-ledger.json": {
+      "sha256": "60a5cfb3dfdd4a20d1759eb0979224949da9f9f5098f4abb154a16aa55d5a858",
+      "bytes": 23971
+    },
+    "collections_titles/hourly-20261022T2022/formal-rules-main.md": {
+      "sha256": "e04e8d49fff91389c8ba419590b4052951892baa8a096201c810c9567f67e444",
+      "bytes": 3425
+    },
+    "collections_titles/hourly-20261022T2022/original-records.json": {
+      "sha256": "d3a06e49b5422280964456ecea26adfcd956554519b730812fb352cf58676b9a",
+      "bytes": 62168
+    },
+    "collections_titles/hourly-20261022T2022/overlap-check.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    "collections_titles/hourly-20261022T2022/references.json": {
+      "sha256": "7289098a7aa99c9e4999d6021ff1927f458d1fd6d57c0fd9ddab685cfad8cbdb",
+      "bytes": 5818
+    },
+    "collections_titles/hourly-20261022T2022/report.md": {
+      "sha256": "dacf38fbb3655254cb7240462ad0d0cece836925b83db009c301ff0e05a42686",
+      "bytes": 5940
+    },
+    "collections_titles/hourly-20261022T2022/source-validation.json": {
+      "sha256": "bdd6cef450b308b93694b20cab157a271f22b1ce75966e0a253e72cfcb36cdc2",
+      "bytes": 353
+    },
+    "collections_titles/hourly-20261022T2022/stats.json": {
+      "sha256": "f246cefeb12ceec1b5a4d244a8de8134a63b907c5ae74b83c7aa1fa0debf4f44",
+      "bytes": 241
+    },
+    "collections_titles/hourly-20261022T2022/validation.json": {
+      "sha256": "f4cfded19ebba06b6ec78d75bf99e4ddaa98a7aef9076b0f390776c89be87668",
+      "bytes": 451
+    },
+    "collections_titles/hourly-20261022T2022/verification.json": {
+      "sha256": "ea13aa661c92fe8617aa94c015a127f758a1c31483d3a6083f1de095eb229672",
+      "bytes": 6882
+    },
+    "people_names_aliases/hourly-20261022T2022/artifact-manifest.json": {
+      "sha256": "989ce1d0c501504453630cb8a754f911e5741749649512492e404c003a15e2cb",
+      "bytes": 1191
+    },
+    "people_names_aliases/hourly-20261022T2022/build_review.py": {
+      "sha256": "2eed7ff1e9cee3c3885e7c2ca45b657440fc23d5f38861a25b9d04b67b18e502",
+      "bytes": 11606
+    },
+    "people_names_aliases/hourly-20261022T2022/cases.json": {
+      "sha256": "f1b921ab99f904b32862a41a79c074cfd5801397554776420a73f0f3d859a949",
+      "bytes": 35440
+    },
+    "people_names_aliases/hourly-20261022T2022/external-primary-addendum.json": {
+      "sha256": "0a6e20f60d262d7678498059b3d4dc782bdf352b1bea1dd43a8e3cefd2965a8b",
+      "bytes": 20116
+    },
+    "people_names_aliases/hourly-20261022T2022/external-retrieval.json": {
+      "sha256": "20040db49f8892d4eec88c320f5431b981ac25434d7859e8608cc68e35714998",
+      "bytes": 143046
+    },
+    "people_names_aliases/hourly-20261022T2022/reference-review.json": {
+      "sha256": "c90c2a2636e9f166aac66de8f37161a03792d01f85b2dde695e558455ef0cc34",
+      "bytes": 6050
+    },
+    "people_names_aliases/hourly-20261022T2022/related-works.json": {
+      "sha256": "6e4464e9c9250fd39e82495dad9d3cf5723c861f8de0a61a0a7d49be9fc7d4a9",
+      "bytes": 274955
+    },
+    "people_names_aliases/hourly-20261022T2022/report.md": {
+      "sha256": "7fd07a301f0c349cd1d1e3c00205bff77d59791679cd3ca5530a1600b34e5e73",
+      "bytes": 5817
+    },
+    "people_names_aliases/hourly-20261022T2022/source-snapshots.json": {
+      "sha256": "af3c6dc90e2f20d007d1ebfde4a627d0684bb713b0a352cccd871f90cb221987",
+      "bytes": 294420
+    },
+    "people_names_aliases/hourly-20261022T2022/validation.json": {
+      "sha256": "5a7296599b571097621352c4037e136d61dc22460a2c8fa48f82cd5ea452bde3",
+      "bytes": 3791
+    },
+    "people_religious_variants/hourly-20261022T2022/artifact-manifest.json": {
+      "sha256": "2bc5e7f82f14c14fae2b162f568f4d5d37fe72e082b29a5bd1c27609aaf2715f",
+      "bytes": 5894
+    },
+    "people_religious_variants/hourly-20261022T2022/build_evidence.py": {
+      "sha256": "adc7d0680daafcee7bd2af679e81af16ffa4546af2947df203de75e90aa4f873",
+      "bytes": 10297
+    },
+    "people_religious_variants/hourly-20261022T2022/cases.json": {
+      "sha256": "429ff198c9adb2ce91e043ff8af0619c221b1ffb313700c7eff7592e974ed3c3",
+      "bytes": 11630
+    },
+    "people_religious_variants/hourly-20261022T2022/field-ledger.json": {
+      "sha256": "4f4db56bd9f5fc88f0ecba31e51e6943d8e3256d41a026f98794883f5516c447",
+      "bytes": 24036
+    },
+    "people_religious_variants/hourly-20261022T2022/known-references.json": {
+      "sha256": "79efc937a6a0cd2739ed5aff0f4a33c02c8bfe8e9feef3e9767c7356974e4533",
+      "bytes": 3480
+    },
+    "people_religious_variants/hourly-20261022T2022/report.md": {
+      "sha256": "7cb023e1c5eddce499c77a79d3f009c187ef71eefbd5aef0c16dc7003e365a7f",
+      "bytes": 5541
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/d59f2miz6fwh.json": {
+      "sha256": "c914efd33506d90a52854967893a954024cbae5bc481ebdec356aae6d5a71c58",
+      "bytes": 4720
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/d59f2ndy648y.json": {
+      "sha256": "b74af6845486e9f59be5c0a487b47220c148d69d28dfe4a7ce3a6390a7455711",
+      "bytes": 1799
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/d59f2nukva4h.json": {
+      "sha256": "8bdd80f1f95d78f770aff5ca551ff2c1758122b82f24b6f12153cf7397f3ef81",
+      "bytes": 1850
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/d59f2ogc2136.json": {
+      "sha256": "57f363aee5e677b86bf5d28e9dcd497e85d753bf318189b745e7a715b096ff73",
+      "bytes": 1333
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/d59f2pvz7im9.json": {
+      "sha256": "d671ecd4af87cbdfcd93918e4aadc5c55c10fb1e75bdd2da52d6a396230d30a2",
+      "bytes": 1569
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/d59f2px3sd1e.json": {
+      "sha256": "a8cad2d0720c9d58430f812fc0943147f8b9269a7f690d89233431d97e8bfa18",
+      "bytes": 1569
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/d59f9bl4z950.json": {
+      "sha256": "5744e5635fd1cf447d79103c8237290cb836a837f9b438f77b173a05e887fbb2",
+      "bytes": 2636
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/d59f9bl687b5.json": {
+      "sha256": "a29e6036a6e8b0b7a5fe41257d492389b85abb7df3acd046fc2c3874f17cead5",
+      "bytes": 957
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/d59fsfefklj4.json": {
+      "sha256": "79f8dbb7c3373683e469d885c1b73a1ffb418248e5c49ab64291a02fd00939a1",
+      "bytes": 1655
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/d59fxrulkd8g.json": {
+      "sha256": "9a6d8a97ec01eb739a0a024f9500813892e8ed8748fe59bd7795541223b5a325",
+      "bytes": 1149
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/hixhd2h9bikf.json": {
+      "sha256": "9ee03ccb1a27a653e293ce3a61daa3c4d32401b64cf9a3285c078db9b34feea3",
+      "bytes": 774
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/hixhd2h9biq8.json": {
+      "sha256": "4b31f9afa7de36768dda6c939e22063c5727d30c797983208c597dc446990fe1",
+      "bytes": 313
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/hixhd2h9bj3o.json": {
+      "sha256": "18e669177a8297b0c1af7d498ecaa12c2962644d15f99cf4c62f4e4a655b367c",
+      "bytes": 316
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/hixhd2h9bk0g.json": {
+      "sha256": "9b1c6a4efa379a27ff185d36bcbbdeef8602b57777fcebcbdb3a2178873c6bdc",
+      "bytes": 518
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/hixhd2h9boyw.json": {
+      "sha256": "51ce8102c5dbb39030028d38e1e4ae528bf2725cef9c2445eff2d24cf8357d53",
+      "bytes": 1328
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/hixhjhaw7y0y.json": {
+      "sha256": "acb51a49d5f014c08d2227aa586f0da9e27107607e9a9f001bea62ef205b0424",
+      "bytes": 463
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/hixhjhaxs4qo.json": {
+      "sha256": "8854e0f415d49e2fc4cb5135905eb6c1b8134852fd2ba82d96c4bd29491e03dd",
+      "bytes": 466
+    },
+    "people_religious_variants/hourly-20261022T2022/snapshots/hixi8u605tnq.json": {
+      "sha256": "c78ab4fd1dac4f89cda988fe4f0616b601fccb8107d23a0f66c63db327e6c41a",
+      "bytes": 847
+    },
+    "people_religious_variants/hourly-20261022T2022/source-snapshots.json": {
+      "sha256": "1e25605bd9fcc5014cab94e8641416af707e4798a43537d4925810c9bb7ee690",
+      "bytes": 35526
+    },
+    "people_religious_variants/hourly-20261022T2022/sources/S01.json": {
+      "sha256": "57939ebe0b31e5237458e4c8281b2865660c852dc556be954e8741c1e1e93ccb",
+      "bytes": 473
+    },
+    "people_religious_variants/hourly-20261022T2022/sources/S02.json": {
+      "sha256": "efe70ee6f541bbabf80fe95163c9f64608c65f917a6423417ac4b737ff058279",
+      "bytes": 478
+    },
+    "people_religious_variants/hourly-20261022T2022/sources/S03.json": {
+      "sha256": "f933d281dde84fa6935ef8659ca91a9de6da3a2ef4be820853a1438210906aa5",
+      "bytes": 528
+    },
+    "people_religious_variants/hourly-20261022T2022/sources/S04.json": {
+      "sha256": "2d177eaf878ccdd06dacd7478f73bbc66973a9e9447765f9998348a7f0d5a4f2",
+      "bytes": 436
+    },
+    "people_religious_variants/hourly-20261022T2022/sources/S05.json": {
+      "sha256": "15fbb088e7319bb83599bcbdde42f1f4f9ae844327dc572e11d9104e10f176b0",
+      "bytes": 493
+    },
+    "people_religious_variants/hourly-20261022T2022/sources/S06.json": {
+      "sha256": "cdcfe61ce5fd08ba4c2a1c33dd630ecf7a03b48967b25a9cae01061a274e37f5",
+      "bytes": 492
+    },
+    "people_religious_variants/hourly-20261022T2022/sources/S07.json": {
+      "sha256": "157407becfa3229bf405e30a9d05e4abddebee7ca6a2a9e14957977989c1f55d",
+      "bytes": 568
+    },
+    "people_religious_variants/hourly-20261022T2022/sources/S08.json": {
+      "sha256": "04d5f080aca7f77ef03210338d8825ec9e7a6b76970b812bdf5bcfe82d1354f5",
+      "bytes": 498
+    },
+    "people_religious_variants/hourly-20261022T2022/sources/S09.json": {
+      "sha256": "29315501d01af5dd12e124b05c648a1f5a3d0d2cc1e510b1cf2b4f714bbfb3e7",
+      "bytes": 517
+    },
+    "people_religious_variants/hourly-20261022T2022/sources/S10.json": {
+      "sha256": "8554bd9c6a5559572b97dcfb5fbf6869a72b359263b89d1d5dd47ea156aa0d95",
+      "bytes": 512
+    },
+    "people_religious_variants/hourly-20261022T2022/sources/S11.json": {
+      "sha256": "87881f157d27d1aef5173ca87a5bb6738a48ac8bc691b3f43fd136929efe45e7",
+      "bytes": 576
+    },
+    "people_religious_variants/hourly-20261022T2022/sources.json": {
+      "sha256": "9d6c7b43442f935df7b57c325dda8f945ecde4ffc2925532809971f134d2439f",
+      "bytes": 5827
+    },
+    "people_religious_variants/hourly-20261022T2022/validation.json": {
+      "sha256": "fa7108e69bc6174fbbe186f4f157f7ee0565ed764f6247d5b7eaead5f89d1f3c",
+      "bytes": 8085
+    }
+  },
+  "cases": [
+    {
+      "case_id": "JC-2022-001",
+      "lane": "classics_titles",
+      "ids": [
+        "d59f2gcv7h1e",
+        "d59f2gidf5z4"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "JC-2022-002",
+      "lane": "classics_titles",
+      "ids": [
+        "d59f2gcybugx",
+        "d59f6eryjldy"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "JC-2022-003",
+      "lane": "classics_titles",
+      "ids": [
+        "d59f2he2mry8",
+        "d59f2hlnrf9e"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "JC-2022-004",
+      "lane": "classics_titles",
+      "ids": [
+        "d59f2hrbldz4",
+        "d59f2hs0vlz7"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "JC-2022-005",
+      "lane": "classics_titles",
+      "ids": [
+        "d59f2mrsy0w2",
+        "d59f2nbi5728"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "H-2022-001",
+      "lane": "history_titles",
+      "ids": [
+        "d59f27scdgjm",
+        "d59f27suh81u"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "H-2022-002",
+      "lane": "history_titles",
+      "ids": [
+        "d59f2hj7qi2r",
+        "d59f2hrhiwap"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "H-2022-003",
+      "lane": "history_titles",
+      "ids": [
+        "d59f2moxmh34",
+        "d59f2nc7qnls"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "H-2022-004",
+      "lane": "history_titles",
+      "ids": [
+        "d59f2hs822gx",
+        "d59f2huxrchs"
+      ],
+      "status": "open"
+    },
+    {
+      "case_id": "MR-2022-001",
+      "lane": "masters_titles",
+      "ids": [
+        "d59fxryzim80",
+        "d59fybbiy8sg"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "MR-2022-002",
+      "lane": "masters_titles",
+      "ids": [
+        "d59fxzsh2ozl",
+        "d59fy5oui39c"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "MR-2022-003",
+      "lane": "masters_titles",
+      "ids": [
+        "d59f2ng8w4ci",
+        "d59fxrwiv8jl"
+      ],
+      "status": "separate"
+    },
+    {
+      "case_id": "MR-2022-004",
+      "lane": "masters_titles",
+      "ids": [
+        "d59fxuca40zm",
+        "d59fxwc307b5"
+      ],
+      "status": "open"
+    },
+    {
+      "case_id": "COL-2022-001",
+      "lane": "collections_titles",
+      "ids": [
+        "d59f2hfub6rm",
+        "d59f2hsp84ch"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "COL-2022-002",
+      "lane": "collections_titles",
+      "ids": [
+        "d59f2nj89r7l",
+        "d59f2njfrg8x"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "COL-2022-003",
+      "lane": "collections_titles",
+      "ids": [
+        "d59f2gnyfzsw",
+        "d59f2hrydpmo"
+      ],
+      "status": "separate"
+    },
+    {
+      "case_id": "COL-2022-004",
+      "lane": "collections_titles",
+      "ids": [
+        "d59f2gotyyo1",
+        "d59f2gpw1wxs"
+      ],
+      "status": "open"
+    },
+    {
+      "case_id": "COL-2022-005",
+      "lane": "collections_titles",
+      "ids": [
+        "d59f2nkla0ht",
+        "d59fsejqvr46"
+      ],
+      "status": "open"
+    },
+    {
+      "case_id": "PNA-2022-001",
+      "lane": "people_names_aliases",
+      "ids": [
+        "hixhd2h9bf9t",
+        "hixhd2h9bjaz"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "PNA-2022-002",
+      "lane": "people_names_aliases",
+      "ids": [
+        "hixhd2h9bm5v",
+        "hixhd2h9buzq"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "PNA-2022-003",
+      "lane": "people_names_aliases",
+      "ids": [
+        "hixhd2h9bdqk",
+        "hixhd2h9bosw"
+      ],
+      "status": "separate"
+    },
+    {
+      "case_id": "PNA-2022-004",
+      "lane": "people_names_aliases",
+      "ids": [
+        "hixhd2h9bnw5",
+        "hixi5fstaolq"
+      ],
+      "status": "separate"
+    },
+    {
+      "case_id": "PRV-2022-001",
+      "lane": "people_religious_variants",
+      "ids": [
+        "hixhd2h9bikf",
+        "hixhd2h9boyw"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "PRV-2022-002",
+      "lane": "people_religious_variants",
+      "ids": [
+        "hixhd2h9biq8",
+        "hixhd2h9bk0g"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "case_id": "PRV-2022-003",
+      "lane": "people_religious_variants",
+      "ids": [
+        "hixhd2h9bj3o",
+        "hixi8u605tnq"
+      ],
+      "status": "separate"
+    },
+    {
+      "case_id": "PRV-2022-004",
+      "lane": "people_religious_variants",
+      "ids": [
+        "hixhjhaw7y0y",
+        "hixhjhaxs4qo"
+      ],
+      "status": "confirmed"
+    }
+  ]
+}

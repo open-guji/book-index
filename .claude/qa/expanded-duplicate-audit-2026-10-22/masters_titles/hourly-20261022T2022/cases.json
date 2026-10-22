@@ -1,0 +1,516 @@
+[
+  {
+    "case_id": "MR-2022-001",
+    "type": "Work",
+    "status": "confirmed",
+    "title": "䖷籛𤭏筆／䖷籛□筆",
+    "members": [
+      "d59fxryzim80",
+      "d59fybbiy8sg"
+    ],
+    "keeper": "d59fxryzim80",
+    "losers": [
+      "d59fybbiy8sg"
+    ],
+    "direction_status": "proposal_only",
+    "reason": "同明楊慎、同上图person URI；短缺字记录原title_info明确为䖷籛（⿰谷瓦）筆且ai_note说明□=⿰谷瓦，另一侧为𤭏，即该字的Unicode表达。子部一卷說郛本与叢書子目所屬說郛/說郛續相接。焦竑跋实开列楊慎著述䖷籛瓻筆；馆方题录搜索摘录列䖷籛𤭏筆一卷。判同基于缺字解码、责任与载体，不是把所有含□书名模糊合并。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 23,
+    "candidate_signals": [
+      "same-first-author-near-title"
+    ],
+    "prior_cases": [],
+    "supersedes": [],
+    "records": [
+      {
+        "id": "d59fxryzim80",
+        "path": "Work/m/8/0/d59fxryzim80-䖷籛𤭏筆.json",
+        "blob_sha": "c19beb2bdfed6f3904e711e7248321bb7bf11941",
+        "sha256": "c864db1fa70c786d9534109aed5f9212c718138047e1c000f4eeb4c39c0590ee"
+      },
+      {
+        "id": "d59fybbiy8sg",
+        "path": "Work/8/s/g/d59fybbiy8sg-䖷籛筆.json",
+        "blob_sha": "4794782ba39cf2e81665b1912ceaf0385c1fb9e4",
+        "sha256": "c4dd063393411b161817e49c81846ba1b8bac35f6328aa1bc1500b0e40ddc80e"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxryzim80",
+        "original_pointer": "original-records.json#/d59fxryzim80/data",
+        "title_pointer": "original-records.json#/d59fxryzim80/data/title",
+        "catalogue_pointer": "original-records.json#/d59fxryzim80/data/indexed_by",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "䖷籛𤭏筆一卷",
+            "author_info": "明楊慎撰",
+            "section": "子部/雜家類/雜學雜說之屬",
+            "summary": "共 1 個版本：說郛本（馆藏未载）"
+          }
+        ],
+        "authors": [
+          {
+            "name": "楊慎",
+            "role": "撰",
+            "entity_id": "hixhd2h9be0u",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/sjl4draw8brkl5af"
+            }
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/uh70r5at8ynucg1a"
+        ],
+        "source_instance_access": "not_fetched; fixed-main ai_note provenance"
+      },
+      {
+        "id": "d59fybbiy8sg",
+        "original_pointer": "original-records.json#/d59fybbiy8sg/data",
+        "title_pointer": "original-records.json#/d59fybbiy8sg/data/title",
+        "catalogue_pointer": "original-records.json#/d59fybbiy8sg/data/indexed_by",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "䖷籛（⿰谷瓦）筆",
+            "author_info": "明楊慎撰",
+            "section": "叢書部/雜纂類/宋元",
+            "summary": "共 1 個版本：（中國科學院圖書館、浙江圖書館、南京圖書館、上海圖書館、天津圖書館、國家圖書館、遼寧省圖書館、復旦大學圖書館）"
+          }
+        ],
+        "authors": [
+          {
+            "name": "楊慎",
+            "role": "撰",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/sjl4draw8brkl5af"
+            }
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/bdton3pgqxie2zsf"
+        ],
+        "source_instance_access": "not_fetched; fixed-main ai_note provenance"
+      }
+    ],
+    "external_evidence_ids": [
+      "E-YANG-PREFACE",
+      "E-YANG-CATALOGUE",
+      "E-CHAR"
+    ],
+    "unresolved_execution_gates": [
+      "保留原title=䖷籛□筆、原IDS题名和缺字注记；规范题名可用䖷籛𤭏筆，瓻筆只作原典异体线索，不未经审核自动扩散到全库。",
+      "子目父源ap7cw3wh7xgzw0ph含說郛一百二十卷及說郛續四十六卷，执行前查其Book/Collection具体子卷位置；不得把叢書整部与一卷子书并条。",
+      "子目未载卷数不得机械补Book卷数；一卷是Work身份依据及另一来源著录，仍保留子目卷数缺载事实。",
+      "执行前在最新main逐一重验原档SHA256与活动状态；本批是固定main研究快照，不是当前可直接执行台账。",
+      "扫描正式Work/Book/Collection/Entity/分类/promotions、草稿及book-text全引用；当前SQLite不含Book/Collection及promotions全量，闭包尚未完成。",
+      "逐字段制定无损保留表：indexed_by全文、原署名/责任角色、所有来源instance、ai_note/description及独有关系均保留；source_bid不得当作来源行唯一键。",
+      "keeper为提案；正式执行前另出带原值、前置SHA256和可复现写入脚本的台账，保留墓碑/merged_in并同步草稿引用和promotions。",
+      "写后运行T/L/P/R、D草稿检查、schema、check_v2、分类、官方索引及builder基线比较；本轮未运行数据合并检查。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  },
+  {
+    "case_id": "MR-2022-002",
+    "type": "Work",
+    "status": "confirmed",
+    "title": "陰陽管見",
+    "members": [
+      "d59fxzsh2ozl",
+      "d59fy5oui39c"
+    ],
+    "keeper": "d59fxzsh2ozl",
+    "losers": [
+      "d59fy5oui39c"
+    ],
+    "direction_status": "proposal_only",
+    "reason": "两条同题、明何瑭撰、一卷、同person URI。子部载學海類編及百陵學山，叢書侧为曝書亭輯叢書子目。CiNii馆目实开分别证实何瑭《陰陽管見》的百陵學山影印本与學海類編第34冊载体。不存在新增注释者或增补范围的正面证据；依同题同责任同朝代规则确认Work重复，不由此推断三种载体同版。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 10,
+    "candidate_signals": [
+      "exact-title"
+    ],
+    "prior_cases": [],
+    "supersedes": [],
+    "records": [
+      {
+        "id": "d59fxzsh2ozl",
+        "path": "Work/o/z/l/d59fxzsh2ozl-陰陽管見.json",
+        "blob_sha": "186e7ff89f0e721744f0a06c7f6013394ca941a4",
+        "sha256": "59cdb1e575ba8bf3abbb5ddc93ce069cb490c5b9ac8a65a374dbd23dff233697"
+      },
+      {
+        "id": "d59fy5oui39c",
+        "path": "Work/3/9/c/d59fy5oui39c-陰陽管見.json",
+        "blob_sha": "053fd54be37afbc05954e3b2278be15bfd9b38e8",
+        "sha256": "01c681ac31c39cc21af63c6e738181a7ec61ec26f153bd25d184d2b5ccb3119d"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxzsh2ozl",
+        "original_pointer": "original-records.json#/d59fxzsh2ozl/data",
+        "title_pointer": "original-records.json#/d59fxzsh2ozl/data/title",
+        "catalogue_pointer": "original-records.json#/d59fxzsh2ozl/data/indexed_by",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "陰陽管見一卷",
+            "author_info": "明何瑭撰",
+            "section": "子部/雜家類/雜學雜說之屬",
+            "summary": "共 2 個版本：學海類編本（馆藏未载）；百陵學山本（馆藏未载）"
+          }
+        ],
+        "authors": [
+          {
+            "name": "何瑭",
+            "role": "撰",
+            "entity_id": "hixhd2h9betx",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/wfbffoh1q0fooswe"
+            }
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/o1b7hxeeu31gjcch",
+          "https://data.library.sh.cn/gj/resource/instance/wr7qi2283pg34ar3"
+        ],
+        "source_instance_access": "not_fetched; fixed-main ai_note provenance"
+      },
+      {
+        "id": "d59fy5oui39c",
+        "original_pointer": "original-records.json#/d59fy5oui39c/data",
+        "title_pointer": "original-records.json#/d59fy5oui39c/data/title",
+        "catalogue_pointer": "original-records.json#/d59fy5oui39c/data/indexed_by",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "陰陽管見一卷",
+            "author_info": "明何瑭撰",
+            "section": "叢書部/雜纂類/明代",
+            "summary": "共 1 個版本：（公安部羣衆出版社圖書館）"
+          }
+        ],
+        "authors": [
+          {
+            "name": "何瑭",
+            "role": "撰",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/wfbffoh1q0fooswe"
+            }
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/r12puwjcejqr7ask"
+        ],
+        "source_instance_access": "not_fetched; fixed-main ai_note provenance"
+      }
+    ],
+    "external_evidence_ids": [
+      "E-YINYANG-BAILING",
+      "E-YINYANG-XUEHAI"
+    ],
+    "unresolved_execution_gates": [
+      "保留學海類編、百陵學山、曝書亭輯叢書三种载体和各自馆藏，不能并其Book为同一刻本。",
+      "曝書亭輯叢書父源jq88ndyxp1eolhfs及instance r12puwjcejqr7ask尚未实开；执行前核子目范围、保存容器关系，不与整部叢書合并。",
+      "CiNii BB02338745书志责任原写何塘，规范作者入口为何瑭；此为外部目录局部异字，不引入新人物也不覆盖原始署名。",
+      "执行前在最新main逐一重验原档SHA256与活动状态；本批是固定main研究快照，不是当前可直接执行台账。",
+      "扫描正式Work/Book/Collection/Entity/分类/promotions、草稿及book-text全引用；当前SQLite不含Book/Collection及promotions全量，闭包尚未完成。",
+      "逐字段制定无损保留表：indexed_by全文、原署名/责任角色、所有来源instance、ai_note/description及独有关系均保留；source_bid不得当作来源行唯一键。",
+      "keeper为提案；正式执行前另出带原值、前置SHA256和可复现写入脚本的台账，保留墓碑/merged_in并同步草稿引用和promotions。",
+      "写后运行T/L/P/R、D草稿检查、schema、check_v2、分类、官方索引及builder基线比较；本轮未运行数据合并检查。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  },
+  {
+    "case_id": "MR-2022-003",
+    "type": "Work",
+    "status": "separate",
+    "title": "三遂平妖傳二十回／墨憨齋批點北宋三遂平妖傳四十回",
+    "members": [
+      "d59f2ng8w4ci",
+      "d59fxrwiv8jl"
+    ],
+    "keeper": null,
+    "losers": [],
+    "direction_status": "no_merge_direction",
+    "reason": "前条孙楷第书目明确四卷二十回、王慎修本、题東原羅貫中編次，且封面馮猶龍先生增定系后来所加；后条總目明确四十回和馮夢龍增補。是二十回旧本与扩写改编四十回本的范围/责任区别，不是墨憨齋批點等题名修饰所能消除。识典实开新平妖傳序有旧刻/倍前的残损OCR语句，并题天許齋引首，不能冒称实读了嘉會堂原刻序。分立主证为两份固定main原始书目。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 22,
+    "candidate_signals": [
+      "same-first-author-near-title"
+    ],
+    "prior_cases": [],
+    "supersedes": [],
+    "records": [
+      {
+        "id": "d59f2ng8w4ci",
+        "path": "Work/4/c/i/d59f2ng8w4ci-三遂平妖傳.json",
+        "blob_sha": "322da9d9b7422a0b978d842e018e3b8ae577d285",
+        "sha256": "7a9f7b853cc8dae8d79fb97e87e3cbbb358abcf60c71c3ea7142c186bb8a4af8"
+      },
+      {
+        "id": "d59fxrwiv8jl",
+        "path": "Work/8/j/l/d59fxrwiv8jl-墨憨齋批點北宋三遂平妖傳.json",
+        "blob_sha": "c93ba638a65fa5636d9ec12cc79cd80f7a99552b",
+        "sha256": "a6e0a6208b31183af7d4cf88d530c2bab0b78ee4d3f1a48360404e6b7bce26c5"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59f2ng8w4ci",
+        "original_pointer": "original-records.json#/d59f2ng8w4ci/data",
+        "title_pointer": "original-records.json#/d59f2ng8w4ci/data/title",
+        "catalogue_pointer": "original-records.json#/d59f2ng8w4ci/data/indexed_by",
+        "catalogue_entries": [
+          {
+            "source": "中國通俗小說書目",
+            "source_bid": "d59f2ofwg64g",
+            "title_info": "三遂平妖傳四卷二十回",
+            "summary": "三遂平妖傳四卷二十回\n存 明錢塘王慎修精刊本。圖嵌正文中，左右半葉合為一幅。圖記刊工姓名曰「金陵劉希賢刻」。正文半葉九行，行二十字。書刻在萬曆二十幾年，封面右方題「馮猶龍先生增定」，係後來所加。【北京大學圖書館】【日本田中慶太郎】\n\n題「東原羅貫中編次」。首武勝童昌作益開甫序，不記年月。此為羅貫中原本，張無咎序新平妖傳所謂武林舊刻止二十回者也。"
+          }
+        ],
+        "authors": [
+          {
+            "name": "羅貫中",
+            "role": "編次",
+            "entity_id": "hixhd2h9bhu4",
+            "dynasty": "元末明初",
+            "dynasty_basis": "entity_propagation:1j96a3rlxwt8y（J21 S5 收尾）"
+          }
+        ],
+        "source_instance_urls": [],
+        "source_instance_access": "not_fetched; fixed-main ai_note provenance"
+      },
+      {
+        "id": "d59fxrwiv8jl",
+        "original_pointer": "original-records.json#/d59fxrwiv8jl/data",
+        "title_pointer": "original-records.json#/d59fxrwiv8jl/data/title",
+        "catalogue_pointer": "original-records.json#/d59fxrwiv8jl/data/indexed_by",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "墨憨齋批點北宋三遂平妖傳四十回",
+            "author_info": "明羅本撰;明馮夢龍增補",
+            "section": "子部/小說類/白話之屬/長篇",
+            "summary": "共 1 個版本：清初嘉會堂刻本（馆藏未载）"
+          }
+        ],
+        "authors": [
+          {
+            "name": "羅本",
+            "role": "撰",
+            "dynasty": "明",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/rq1vipae1sbsbjze"
+            }
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/zhjqbgb5lq172dpv"
+        ],
+        "source_instance_access": "not_fetched; fixed-main ai_note provenance"
+      }
+    ],
+    "external_evidence_ids": [
+      "E-PINGYAO-PREFACE"
+    ],
+    "unresolved_execution_gates": [
+      "禁止本对合并；若建立原著—增补改编关系，先核schema及各自Book范围。",
+      "四十回条structured authors漏馮夢龍增補，需另案逐源补责任，不将其降为单纯批点者。",
+      "二十回条现挂维基文库三遂平妖傳资源必须核回数，资源无条件保留或转移均未获核实；本轮不判其正文范围。",
+      "另有二十回同题d59fxs7l61oh（Broad第16对），不在本对计数或裁决；后续可单独核与罗贯中原本身份。",
+      "执行前在最新main逐一重验原档SHA256与活动状态；本批是固定main研究快照，不是当前可直接执行台账。",
+      "扫描正式Work/Book/Collection/Entity/分类/promotions、草稿及book-text全引用；当前SQLite不含Book/Collection及promotions全量，闭包尚未完成。",
+      "逐字段制定无损保留表：indexed_by全文、原署名/责任角色、所有来源instance、ai_note/description及独有关系均保留；source_bid不得当作来源行唯一键。",
+      "keeper为提案；正式执行前另出带原值、前置SHA256和可复现写入脚本的台账，保留墓碑/merged_in并同步草稿引用和promotions。",
+      "写后运行T/L/P/R、D草稿检查、schema、check_v2、分类、官方索引及builder基线比较；本轮未运行数据合并检查。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  },
+  {
+    "case_id": "MR-2022-004",
+    "type": "Work",
+    "status": "open",
+    "title": "不空罥索神變真言經／不空羂索神變真言經",
+    "members": [
+      "d59fxuca40zm",
+      "d59fxwc307b5"
+    ],
+    "keeper": null,
+    "losers": [],
+    "direction_status": "no_merge_direction",
+    "reason": "同题异体、两份原始title_info均三十卷且author_info同唐菩提流志，支持核心经本相同。但羂字长记录authors另外混入唐地婆訶羅、南北朝菩提留支/流支，ai_note又留功德施菩薩造、天親菩薩造两项异常责任。其15实例汇聚可能含错题、合册或责任聚合污染，不能以首位译者相同直接整包并入。CBETA《續古今譯經圖紀》官方摘录列唐菩提流志所译本三十卷，尚不能解释长记录的所有实例。故保持open而非认定异体题字导致异书。",
+    "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+    "broad_selected_pair_number": 14,
+    "candidate_signals": [
+      "same-first-author-near-title"
+    ],
+    "prior_cases": [],
+    "supersedes": [],
+    "records": [
+      {
+        "id": "d59fxuca40zm",
+        "path": "Work/0/z/m/d59fxuca40zm-不空罥索神變真言經.json",
+        "blob_sha": "8bf5b8a11f2cadfaefeed8182e6be3da74968e25",
+        "sha256": "c601d8fbe6bdba53ad96b67a5b50055145b5724723c236aecf61ef2182f170e8"
+      },
+      {
+        "id": "d59fxwc307b5",
+        "path": "Work/7/b/5/d59fxwc307b5-不空羂索神變真言經.json",
+        "blob_sha": "174e9dd817d891e13e6c37df3095a877a99a2958",
+        "sha256": "4b525c5edb09cb71ee1ea5d3e72b5be22b32518e3823b9dd5a2d8f74783382ef"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "d59fxuca40zm",
+        "original_pointer": "original-records.json#/d59fxuca40zm/data",
+        "title_pointer": "original-records.json#/d59fxuca40zm/data/title",
+        "catalogue_pointer": "original-records.json#/d59fxuca40zm/data/indexed_by",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "不空罥索神變真言經三十卷",
+            "author_info": "唐釋菩提流志譯",
+            "section": "子部/釋家類/大藏之屬",
+            "summary": "共 2 個版本：（馆藏未载）；（馆藏未载）"
+          }
+        ],
+        "authors": [
+          {
+            "name": "釋菩提流志",
+            "role": "譯",
+            "dynasty": "唐",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/otsd1t7qmyf6nh4q"
+            }
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/7kxcssesn538rfls",
+          "https://data.library.sh.cn/gj/resource/instance/w0s173587bowpke3"
+        ],
+        "source_instance_access": "not_fetched; fixed-main ai_note provenance"
+      },
+      {
+        "id": "d59fxwc307b5",
+        "original_pointer": "original-records.json#/d59fxwc307b5/data",
+        "title_pointer": "original-records.json#/d59fxwc307b5/data/title",
+        "catalogue_pointer": "original-records.json#/d59fxwc307b5/data/indexed_by",
+        "catalogue_entries": [
+          {
+            "source": "中國古籍總目",
+            "source_bid": "1exjosng9241s",
+            "title_info": "不空羂索神變真言經三十卷",
+            "author_info": "唐釋菩提流志譯",
+            "section": "子部/釋家類/大藏之屬",
+            "summary": "共 15 個版本：明萬曆四十年刻（臺灣圖書館、北京市法源寺）；（馆藏未载）；（馆藏未载）；明永樂十八年至正統五年刻（馆藏未载）；明永樂間刻（馆藏未载）；宋元豐八年福州東禪等覺院刻（馆藏未载）；宋靖康元年至二年福州開元寺刻（馆藏未载）；元至元間杭州路餘杭大普寧寺刻（日本東京增上寺、日本東京淺草寺）；宋刻本（北京大學圖書館）；元刻本（國家圖書館）；（日本龍谷大學）；宋元間磧砂延聖院刻（馆藏未载）；宋刻本（北京大學圖書館）；清宣統間金陵刻經處刻本（上海圖書館、北京大學圖書館）；清康熙五十二年刻本（北京大學圖書館）"
+          }
+        ],
+        "authors": [
+          {
+            "name": "釋菩提流志",
+            "role": "譯",
+            "dynasty": "唐",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/otsd1t7qmyf6nh4q"
+            }
+          },
+          {
+            "name": "釋地婆訶羅",
+            "role": "譯",
+            "dynasty": "唐",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/m0wfxlv53buz6b1f"
+            }
+          },
+          {
+            "name": "釋菩提留支",
+            "role": "譯",
+            "dynasty": "南北朝",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/3ybmp03ei0ol4a22"
+            }
+          },
+          {
+            "name": "釋菩提流支",
+            "role": "譯",
+            "dynasty": "南北朝",
+            "source": {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/erajuhvs4vhqv54h"
+            }
+          }
+        ],
+        "source_instance_urls": [
+          "https://data.library.sh.cn/gj/resource/instance/mzkyzncab1e0e15f",
+          "https://data.library.sh.cn/gj/resource/instance/bpwt2q6hoyfyovj5",
+          "https://data.library.sh.cn/gj/resource/instance/r8qihay6288zlskj",
+          "https://data.library.sh.cn/gj/resource/instance/svgma5zqgar51stc",
+          "https://data.library.sh.cn/gj/resource/instance/m446g6ww75bjykky",
+          "https://data.library.sh.cn/gj/resource/instance/yth3e7idwz4izdx3",
+          "https://data.library.sh.cn/gj/resource/instance/hug1nmfe5q17588p",
+          "https://data.library.sh.cn/gj/resource/instance/4ld0ksm23nvnkbag",
+          "https://data.library.sh.cn/gj/resource/instance/pcowefnp5dt8sqv7",
+          "https://data.library.sh.cn/gj/resource/instance/g4j3frpnlfttd8ki",
+          "https://data.library.sh.cn/gj/resource/instance/cio78oq0krc0hxfa",
+          "https://data.library.sh.cn/gj/resource/instance/cvuw85ad7pxii8vj",
+          "https://data.library.sh.cn/gj/resource/instance/kzs2wpq8v2g4rdto",
+          "https://data.library.sh.cn/gj/resource/instance/cjhw633wyv08czjw",
+          "https://data.library.sh.cn/gj/resource/instance/zgn2umf5p2tseelk"
+        ],
+        "source_instance_access": "not_fetched; fixed-main ai_note provenance"
+      }
+    ],
+    "external_evidence_ids": [
+      "E-CBETA-BODHIRUCI"
+    ],
+    "unresolved_execution_gates": [
+      "逐个实开短记录2实例和长记录15实例，取得题页/卷首/卷末与合册目录，建立instance→具体作品→责任映射。",
+      "核唐菩提流志与南北朝菩提流支的现行Entity及墓碑，保留URI与原值，不能为并Work顺手合并跨时代译者。",
+      "查地婆訶羅、功德施、天親责任对应何书及所在合册；责任去向未明前不删除、不整包搬运。",
+      "核心三十卷同一判断与全部来源可并分开记录；来源净化后再决定拆分或Work合并，保持不同译本/注释/合册边界。",
+      "执行前在最新main逐一重验原档SHA256与活动状态；本批是固定main研究快照，不是当前可直接执行台账。",
+      "扫描正式Work/Book/Collection/Entity/分类/promotions、草稿及book-text全引用；当前SQLite不含Book/Collection及promotions全量，闭包尚未完成。",
+      "逐字段制定无损保留表：indexed_by全文、原署名/责任角色、所有来源instance、ai_note/description及独有关系均保留；source_bid不得当作来源行唯一键。",
+      "keeper为提案；正式执行前另出带原值、前置SHA256和可复现写入脚本的台账，保留墓碑/merged_in并同步草稿引用和promotions。",
+      "写后运行T/L/P/R、D草稿检查、schema、check_v2、分类、官方索引及builder基线比较；本轮未运行数据合并检查。"
+    ],
+    "execution_ready": false,
+    "actual_merges": 0
+  }
+]

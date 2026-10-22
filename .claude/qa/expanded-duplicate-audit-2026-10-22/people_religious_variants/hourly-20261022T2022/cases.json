@@ -1,0 +1,335 @@
+[
+  {
+    "case_id": "PRV-2022-001",
+    "type": "people",
+    "group": "釋道誠／僧道誠",
+    "status": "confirmed",
+    "new_case": true,
+    "candidate_ids": [
+      "PRV-B-C11961"
+    ],
+    "ids": [
+      "hixhd2h9bikf",
+      "hixhd2h9boyw"
+    ],
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ],
+    "decision": "宋志兩書同署僧道誠，《釋氏要覽》自序署錢唐月輪山釋道誠並有天禧紀年；規範庫明確連接慧悟大師、尼蒙求、釋氏須知、要覽以及當前CBDB53758/Wikidata Q45679936。兩條所代表人物同一，不是僅去僧/釋前綴。",
+    "keeper_candidate": "hixhd2h9bikf",
+    "loser_candidates": [
+      "hixhd2h9boyw"
+    ],
+    "remaining_gates": [
+      "保留慧悟大師、CBDB manual及其pending_accept來源字串、錢塘地名引用、原ai_note/管理歷史；不把原宋志name_basis歷史中的舊ID改寫。兩部Work仍分立；其撰/集責任表述另核，不藉人物並條默改。",
+      "Execution requires fresh-main hashes, full native types/classification/promotions/drafts and nonempty 16-shard book-text references, lossless person field ledger and actual post-write schema/check_v2/classification/official-index/builder plus T/L/P/R validation."
+    ],
+    "native_merge_count": 0,
+    "records": [
+      {
+        "id": "hixhd2h9bikf",
+        "name": "釋道誠",
+        "path": "Entity/i/k/f/hixhd2h9bikf-釋道誠.json",
+        "sha256": "9ee03ccb1a27a653e293ce3a61daa3c4d32401b64cf9a3285c078db9b34feea3",
+        "blob_sha": "1a95ed0d17517b28a62238fa90a5d89c07ec94ae",
+        "raw_snapshot": "snapshots/hixhd2h9bikf.json"
+      },
+      {
+        "id": "hixhd2h9boyw",
+        "name": "僧道誠",
+        "path": "Entity/o/y/w/hixhd2h9boyw-僧道誠.json",
+        "sha256": "51ce8102c5dbb39030028d38e1e4ae528bf2725cef9c2445eff2d24cf8357d53",
+        "blob_sha": "93453c430c1d9bf74e222416349a9e3bcdaeff3e",
+        "raw_snapshot": "snapshots/hixhd2h9boyw.json"
+      }
+    ],
+    "known_references": [
+      {
+        "id": "d59f2ogc2136",
+        "type": "Work",
+        "name": "尼蒙求",
+        "path": "Work/1/3/6/d59f2ogc2136-尼蒙求.json",
+        "inactive": false,
+        "hits": [
+          {
+            "pointer": "/authors/0/entity_id",
+            "target": "hixhd2h9bikf",
+            "match": "exact"
+          }
+        ]
+      },
+      {
+        "id": "d59f2px3sd1e",
+        "type": "Work",
+        "name": "釋氏須知",
+        "path": "Work/d/1/e/d59f2px3sd1e-釋氏須知.json",
+        "inactive": false,
+        "hits": [
+          {
+            "pointer": "/authors/0/entity_id",
+            "target": "hixhd2h9boyw",
+            "match": "exact"
+          }
+        ]
+      },
+      {
+        "id": "d59f2pvz7im9",
+        "type": "Work",
+        "name": "釋氏要覽",
+        "path": "Work/i/m/9/d59f2pvz7im9-釋氏要覽.json",
+        "inactive": false,
+        "hits": [
+          {
+            "pointer": "/authors/0/entity_id",
+            "target": "hixhd2h9boyw",
+            "match": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case_id": "PRV-2022-002",
+    "type": "people",
+    "group": "通復／釋通復",
+    "status": "confirmed",
+    "new_case": true,
+    "candidate_ids": [
+      "PRV-B-C11981"
+    ],
+    "ids": [
+      "hixhd2h9biq8",
+      "hixhd2h9bk0g"
+    ],
+    "source_ids": [
+      "S04",
+      "S05",
+      "S06"
+    ],
+    "decision": "清史稿方外列冬關詩鈔六卷通復，四庫同題六卷署釋通複字文可，原集卷首署嘉禾釋通復文可、盛遠輯。通復Entity所繫唯一Work原始indexed_by就是該清史稿條，因此可識別同人；現題傳經室賦是獨立題名污染。",
+    "keeper_candidate": "hixhd2h9bk0g",
+    "loser_candidates": [
+      "hixhd2h9biq8"
+    ],
+    "remaining_gates": [
+      "先核d59f2nukva4h從冬關詩鈔改為傳經室賦的原變更來源；不得將傳經室賦當作通復真著述傳播。冬關詩草稿本與詩鈔刻本的作品範圍未證相同，不合併Work。通復/通複異體要保留原著錄形式。",
+      "Execution requires fresh-main hashes, full native types/classification/promotions/drafts and nonempty 16-shard book-text references, lossless person field ledger and actual post-write schema/check_v2/classification/official-index/builder plus T/L/P/R validation."
+    ],
+    "native_merge_count": 0,
+    "records": [
+      {
+        "id": "hixhd2h9biq8",
+        "name": "通復",
+        "path": "Entity/i/q/8/hixhd2h9biq8-通復.json",
+        "sha256": "4b31f9afa7de36768dda6c939e22063c5727d30c797983208c597dc446990fe1",
+        "blob_sha": "5775dede1e2243072aec52446b9011806b905c61",
+        "raw_snapshot": "snapshots/hixhd2h9biq8.json"
+      },
+      {
+        "id": "hixhd2h9bk0g",
+        "name": "釋通復",
+        "path": "Entity/k/0/g/hixhd2h9bk0g-釋通復.json",
+        "sha256": "9b1c6a4efa379a27ff185d36bcbbdeef8602b57777fcebcbdb3a2178873c6bdc",
+        "blob_sha": "c95b4980e5730cabdaa2808f90084698c3781981",
+        "raw_snapshot": "snapshots/hixhd2h9bk0g.json"
+      }
+    ],
+    "known_references": [
+      {
+        "id": "d59f2nukva4h",
+        "type": "Work",
+        "name": "傳經室賦",
+        "path": "Work/a/4/h/d59f2nukva4h-傳經室賦.json",
+        "inactive": false,
+        "hits": [
+          {
+            "pointer": "/authors/0/entity_id",
+            "target": "hixhd2h9biq8",
+            "match": "exact"
+          }
+        ]
+      },
+      {
+        "id": "d59fxrulkd8g",
+        "type": "Work",
+        "name": "冬關詩草",
+        "path": "Work/d/8/g/d59fxrulkd8g-冬關詩草.json",
+        "inactive": false,
+        "hits": [
+          {
+            "pointer": "/authors/0/entity_id",
+            "target": "hixhd2h9bk0g",
+            "match": "exact"
+          }
+        ]
+      },
+      {
+        "id": "d59f2miz6fwh",
+        "type": "Work",
+        "name": "冬關詩鈔",
+        "path": "Work/f/w/h/d59f2miz6fwh-冬關詩鈔.json",
+        "inactive": false,
+        "hits": [
+          {
+            "pointer": "/authors/0/entity_id",
+            "target": "hixhd2h9bk0g",
+            "match": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case_id": "PRV-2022-003",
+    "type": "people",
+    "group": "清釋行海／宋釋行海",
+    "status": "separate",
+    "new_case": true,
+    "candidate_ids": [
+      "PRV-B-C11992"
+    ],
+    "ids": [
+      "hixhd2h9bj3o",
+      "hixi8u605tnq"
+    ],
+    "source_ids": [
+      "S07",
+      "S08",
+      "S09",
+      "S10"
+    ],
+    "decision": "金山志略緣起由清康熙二十年行海自署臨濟圜祖第二十一代孫，並自敘清初金山繼席。佛祖統紀所列雪岑行海是佛光照法嗣，機構規範及雪岑集書目明繫南宋。年代、師承、著作均分立；寬文1665是宋集刊本年代，不是作者生存朝代。",
+    "keeper_candidate": null,
+    "loser_candidates": [],
+    "remaining_gates": [
+      "保留兩人物和各自Work作者邊；可另補號/師承來源以防再撞，但不把清行海改成宋。雪岑集自序與NDL原影像本輪未取到，未宣稱直接讀過其自序。",
+      "Execution requires fresh-main hashes, full native types/classification/promotions/drafts and nonempty 16-shard book-text references, lossless person field ledger and actual post-write schema/check_v2/classification/official-index/builder plus T/L/P/R validation."
+    ],
+    "native_merge_count": 0,
+    "records": [
+      {
+        "id": "hixhd2h9bj3o",
+        "name": "釋行海",
+        "path": "Entity/j/3/o/hixhd2h9bj3o-釋行海.json",
+        "sha256": "18e669177a8297b0c1af7d498ecaa12c2962644d15f99cf4c62f4e4a655b367c",
+        "blob_sha": "9bcc7c88251bc4cbe59058397af0d6d523bcb5e9",
+        "raw_snapshot": "snapshots/hixhd2h9bj3o.json"
+      },
+      {
+        "id": "hixi8u605tnq",
+        "name": "釋行海",
+        "path": "Entity/t/n/q/hixi8u605tnq-釋行海.json",
+        "sha256": "c78ab4fd1dac4f89cda988fe4f0616b601fccb8107d23a0f66c63db327e6c41a",
+        "blob_sha": "408127fb5b4bb2e3b6eb0b4de57c1850d20b7554",
+        "raw_snapshot": "snapshots/hixi8u605tnq.json"
+      }
+    ],
+    "known_references": [
+      {
+        "id": "d59f2ndy648y",
+        "type": "Work",
+        "name": "金山志略",
+        "path": "Work/4/8/y/d59f2ndy648y-金山志略.json",
+        "inactive": false,
+        "hits": [
+          {
+            "pointer": "/authors/0/entity_id",
+            "target": "hixhd2h9bj3o",
+            "match": "exact"
+          }
+        ]
+      },
+      {
+        "id": "d59fsfefklj4",
+        "type": "Work",
+        "name": "雪岑和尚續集",
+        "path": "Work/l/j/4/d59fsfefklj4-雪岑和尚續集.json",
+        "inactive": false,
+        "hits": [
+          {
+            "pointer": "/authors/0/entity_id",
+            "target": "hixi8u605tnq",
+            "match": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case_id": "PRV-2022-004",
+    "type": "people",
+    "group": "曇曜／釋曇曜",
+    "status": "confirmed",
+    "new_case": true,
+    "candidate_ids": [
+      "PRV-B-C12760"
+    ],
+    "ids": [
+      "hixhjhaw7y0y",
+      "hixhjhaxs4qo"
+    ],
+    "source_ids": [
+      "S11"
+    ],
+    "decision": "開元錄在同一沙門釋曇曜條直接列大吉義神咒經二卷或四卷、浄度三昧經一卷，並繫和平三年北臺譯事，與兩Entity各自補魏書來源及兩Work一一對合。釋是前綴，昭玄統是此人的職稱。",
+    "keeper_candidate": "hixhjhaxs4qo",
+    "loser_candidates": [
+      "hixhjhaw7y0y"
+    ],
+    "remaining_gates": [
+      "兩Work現role撰與來源譯本不符，需另署源修正；大吉義二/四卷差別需保留各來源。淨度為一卷第四譯且闕，不與其他譯者二/三卷本、北台淨度三昧經機械併書；也不將吉迦夜替換為曇曜。",
+      "Execution requires fresh-main hashes, full native types/classification/promotions/drafts and nonempty 16-shard book-text references, lossless person field ledger and actual post-write schema/check_v2/classification/official-index/builder plus T/L/P/R validation."
+    ],
+    "native_merge_count": 0,
+    "records": [
+      {
+        "id": "hixhjhaw7y0y",
+        "name": "曇曜",
+        "path": "Entity/y/0/y/hixhjhaw7y0y-曇曜.json",
+        "sha256": "acb51a49d5f014c08d2227aa586f0da9e27107607e9a9f001bea62ef205b0424",
+        "blob_sha": "45d1da3b12ce1a706b52643723748a7171745246",
+        "raw_snapshot": "snapshots/hixhjhaw7y0y.json"
+      },
+      {
+        "id": "hixhjhaxs4qo",
+        "name": "釋曇曜",
+        "path": "Entity/4/q/o/hixhjhaxs4qo-釋曇曜.json",
+        "sha256": "8854e0f415d49e2fc4cb5135905eb6c1b8134852fd2ba82d96c4bd29491e03dd",
+        "blob_sha": "2a75699a8dfc8e7a14821bcbf601d2c43fba2ddb",
+        "raw_snapshot": "snapshots/hixhjhaxs4qo.json"
+      }
+    ],
+    "known_references": [
+      {
+        "id": "d59f9bl687b5",
+        "type": "Work",
+        "name": "淨度三昧經",
+        "path": "Work/7/b/5/d59f9bl687b5-淨度三昧經.json",
+        "inactive": false,
+        "hits": [
+          {
+            "pointer": "/authors/0/entity_id",
+            "target": "hixhjhaxs4qo",
+            "match": "exact"
+          }
+        ]
+      },
+      {
+        "id": "d59f9bl4z950",
+        "type": "Work",
+        "name": "大吉義神咒經",
+        "path": "Work/9/5/0/d59f9bl4z950-大吉義神咒經.json",
+        "inactive": false,
+        "hits": [
+          {
+            "pointer": "/authors/0/entity_id",
+            "target": "hixhjhaw7y0y",
+            "match": "exact"
+          }
+        ]
+      }
+    ]
+  }
+]
