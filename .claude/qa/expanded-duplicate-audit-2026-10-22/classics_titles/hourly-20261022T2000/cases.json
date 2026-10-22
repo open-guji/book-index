@@ -1,0 +1,841 @@
+[
+  {
+    "case_id": "JC-2000-001",
+    "status": "separate",
+    "title": "易傳：京房三卷錯掛管輅，與管輅一卷分立",
+    "ids": [
+      "d59f27sg4b2a",
+      "d59f27xhh6o3"
+    ],
+    "supersedes": [],
+    "new_case": true,
+    "candidate_pair_index_zero_based": 27,
+    "candidate_provenance": {
+      "ids": [
+        "d59f27sg4b2a",
+        "d59f27xhh6o3"
+      ],
+      "signals": [
+        "normalized_exact_title",
+        "shared_author_exact_title"
+      ],
+      "score": 1,
+      "old_case_ids": [],
+      "is_new_pair": true,
+      "has_old_member": false,
+      "titles": [
+        "易傳",
+        "易傳"
+      ],
+      "authors": [
+        [
+          "管輅"
+        ],
+        [
+          "管格"
+        ]
+      ],
+      "periods": [
+        "three-kingdoms",
+        "three-kingdoms"
+      ],
+      "scope_reasons": {
+        "d59f27sg4b2a": [],
+        "d59f27xhh6o3": [
+          "classification",
+          "source_section"
+        ]
+      },
+      "shared_author_keys": [
+        "id:hixhd2h9bi0y"
+      ]
+    },
+    "decision": "宋志整段採作者前置；京房領易傳算法一卷及易傳三卷，管輅從遇仙訣五音歌起，領周易八仙歌及易傳一卷。三卷條作者名、entity、朝代及description均受截句錯誤污染。另一條題管格而按語全述管輅，是另項字形污染；相同entity不構成同書證。",
+    "relationship_kind": "homonym_with_author_contamination",
+    "research_keeper_candidate": null,
+    "research_loser_candidates": [],
+    "machine_merge_mapping": null,
+    "native_merges": 0,
+    "already_main_covered": false,
+    "evidence_ids": [
+      "E1"
+    ],
+    "evidence_urls": [
+      "https://zh.wikisource.org/zh-hant/宋史/卷206"
+    ],
+    "exact_source_pointers": [
+      "d59f27sg4b2a#/indexed_by/0",
+      "d59f27sg4b2a#/authors/0",
+      "d59f27sg4b2a#/ai_note",
+      "d59f27sg4b2a#/description",
+      "d59f27xhh6o3#/indexed_by/0/summary",
+      "d59f27xhh6o3#/authors/0"
+    ],
+    "records": [
+      {
+        "id": "d59f27sg4b2a",
+        "path": "Work/b/2/a/d59f27sg4b2a-易傳.json",
+        "blob_sha": "70ab1523832c975779c9e23426c1e04b0705416c",
+        "sha256": "2a2da8351e8babbca2fc071a3c3d494a219442a400694316b52f6aac130a449e"
+      },
+      {
+        "id": "d59f27xhh6o3",
+        "path": "Work/6/o/3/d59f27xhh6o3-易傳.json",
+        "blob_sha": "e28c2715cbe84f687d3212583a42ea00d673f865",
+        "sha256": "9491ebfaec98ada5165bd1a4c2b5fe7fdc66160ddd97609331af9716e2a13cd4"
+      }
+    ],
+    "specific_execution_gates": [
+      "校正文獻責任人與受污染推生字段；保留舊說原值入污染台帳",
+      "另查京房三卷本現有Work，不能將這對分立計作京房去重成功",
+      "管格字形與注角色須查三國藝文志原頁；不因本文判斷直接修改contains_text_of"
+    ],
+    "common_execution_gates": [
+      "同步最新origin/main並重核全字段與墓碑狀態",
+      "逐字段無損台帳，保存所有來源、責任角色、獨有ai_note/description及矛盾原值",
+      "逐Book/Collection/Entity/分類/promotions型別引用審計；草稿庫同步另PR",
+      "book-text整理本、輯佚檔及內容引用遷移核查",
+      "正式audit-merge-ledger T/L/P/R、check_v2、check-classification及官方build_derived --check-only全通過"
+    ],
+    "raw_conflict_archive": "main-records.json.gz contains complete data and exact raw_utf8 for both records; pointers identify disputed fields"
+  },
+  {
+    "case_id": "JC-2000-002",
+    "status": "confirmed",
+    "title": "聲類：魏李登原書與輯本目錄重出",
+    "ids": [
+      "d59f27t3uccg",
+      "d59fyivqiept"
+    ],
+    "supersedes": [],
+    "new_case": true,
+    "candidate_pair_index_zero_based": 28,
+    "candidate_provenance": {
+      "ids": [
+        "d59f27t3uccg",
+        "d59fyivqiept"
+      ],
+      "signals": [
+        "normalized_exact_title",
+        "shared_author_exact_title"
+      ],
+      "score": 1,
+      "old_case_ids": [],
+      "is_new_pair": true,
+      "has_old_member": false,
+      "titles": [
+        "聲類",
+        "聲類"
+      ],
+      "authors": [
+        [
+          "李登"
+        ],
+        [
+          "李登"
+        ]
+      ],
+      "periods": [
+        "three-kingdoms",
+        "ming"
+      ],
+      "scope_reasons": {
+        "d59f27t3uccg": [
+          "classification",
+          "source_section"
+        ],
+        "d59fyivqiept": [
+          "source_section"
+        ]
+      },
+      "shared_author_keys": [
+        "candidate_alias:hixhd2h9bhre",
+        "candidate_alias:hixhd2h9bm8n",
+        "name:李登"
+      ]
+    },
+    "decision": "總目側13項author_info全部為魏李登，首項明示三國魏李登撰、清黃奭輯；所稱明李登只在衍生authors/dynasty/period。隋志十卷和清史稿馬國翰輯一卷解釋原書/輯本卷差；作品對象同一可確認，但13條版本著錄與附刻韻書不能不分範圍整包吞入。",
+    "relationship_kind": "same_work",
+    "research_keeper_candidate": "d59f27t3uccg",
+    "research_loser_candidates": [
+      "d59fyivqiept"
+    ],
+    "machine_merge_mapping": null,
+    "native_merges": 0,
+    "already_main_covered": false,
+    "evidence_ids": [
+      "E2",
+      "E10",
+      "E11"
+    ],
+    "evidence_urls": [
+      "https://zh.wikisource.org/zh-hant/隋書/卷32",
+      "https://zh.wikisource.org/zh-hant/清史稿/卷145",
+      "https://www.shidianguji.com/zh/book/CADAL02091108/chapter/1lcpv6bbdy6us"
+    ],
+    "exact_source_pointers": [
+      "d59f27t3uccg#/indexed_by/0",
+      "d59f27t3uccg#/indexed_by/2",
+      "d59f27t3uccg#/indexed_by/3",
+      "d59fyivqiept#/indexed_by",
+      "d59fyivqiept#/indexed_by/3/title_info",
+      "d59fyivqiept#/authors/0",
+      "d59fyivqiept#/ai_note",
+      "d59f27t3uccg#/related_works/0"
+    ],
+    "records": [
+      {
+        "id": "d59f27t3uccg",
+        "path": "Work/c/c/g/d59f27t3uccg-聲類.json",
+        "blob_sha": "12e9a91b1dc5318c4c223e87d731cc0cc5ae8cde",
+        "sha256": "ecc3de7e9e2493f5db21527a6d7056592056501956995daccec6a27335e16c18"
+      },
+      {
+        "id": "d59fyivqiept",
+        "path": "Work/e/p/t/d59fyivqiept-聲類.json",
+        "blob_sha": "5d55b54e9e117ce7fab80d7ed47c5f08fa463dc9",
+        "sha256": "6d66ebeeee5de6468d2641c2b87cd12c588521aeb403d3de513b6a8591bcf26d"
+      }
+    ],
+    "specific_execution_gates": [
+      "將明代人物URI與衍生朝代列污染候選，不以同名誤合兩個Person",
+      "逐核21版本及note列13 Book的現行ID，附韻集/韻畧/聲譜/音譜/字音韻譜不歸原作正文",
+      "保留黃奭、馬國翰、任大椿等輯本差異；趙之謙role異常原note不可丟",
+      "現有兩條之related邊在合併後會成自邊，須有顯式處理台帳"
+    ],
+    "common_execution_gates": [
+      "同步最新origin/main並重核全字段與墓碑狀態",
+      "逐字段無損台帳，保存所有來源、責任角色、獨有ai_note/description及矛盾原值",
+      "逐Book/Collection/Entity/分類/promotions型別引用審計；草稿庫同步另PR",
+      "book-text整理本、輯佚檔及內容引用遷移核查",
+      "正式audit-merge-ledger T/L/P/R、check_v2、check-classification及官方build_derived --check-only全通過"
+    ],
+    "raw_conflict_archive": "main-records.json.gz contains complete data and exact raw_utf8 for both records; pointers identify disputed fields"
+  },
+  {
+    "case_id": "JC-2000-003",
+    "status": "confirmed",
+    "title": "春秋條例：劉實／劉寔異名重出",
+    "ids": [
+      "d59f27td7gn6",
+      "d59f27wapo8x"
+    ],
+    "supersedes": [],
+    "new_case": true,
+    "candidate_pair_index_zero_based": 29,
+    "candidate_provenance": {
+      "ids": [
+        "d59f27td7gn6",
+        "d59f27wapo8x"
+      ],
+      "signals": [
+        "normalized_exact_title",
+        "shared_author_exact_title"
+      ],
+      "score": 1,
+      "old_case_ids": [],
+      "is_new_pair": true,
+      "has_old_member": false,
+      "titles": [
+        "春秋條例",
+        "春秋條例"
+      ],
+      "authors": [
+        [
+          "劉實"
+        ],
+        [
+          "劉寔"
+        ]
+      ],
+      "periods": [
+        "jin",
+        "jin"
+      ],
+      "scope_reasons": {
+        "d59f27td7gn6": [
+          "classification",
+          "jingyikao_source"
+        ],
+        "d59f27wapo8x": [
+          "classification",
+          "source_section"
+        ]
+      },
+      "shared_author_keys": [
+        "candidate_alias:hixhd2h9bgex",
+        "id:hixhd2h9bmt4"
+      ]
+    },
+    "decision": "經義考卷174卷首劉氏實條明引隋志十一卷，隋志原文署晉太尉劉寔；同卷隨後的生平亦指劉寔。同一條隋志著錄在兩側重出。這比同entity或實寔字形更強。十/十一/二十卷諸源異數留各源；本案不吸收左氏牒例二十卷或公羊達義。",
+    "relationship_kind": "same_work",
+    "research_keeper_candidate": "d59f27wapo8x",
+    "research_loser_candidates": [
+      "d59f27td7gn6"
+    ],
+    "machine_merge_mapping": null,
+    "native_merges": 0,
+    "already_main_covered": false,
+    "evidence_ids": [
+      "E2",
+      "E3"
+    ],
+    "evidence_urls": [
+      "https://zh.wikisource.org/zh-hant/隋書/卷32",
+      "https://zh.wikisource.org/zh-hant/經義考_(四庫全書本)/卷174"
+    ],
+    "exact_source_pointers": [
+      "d59f27td7gn6#/indexed_by/0",
+      "d59f27wapo8x#/indexed_by/2",
+      "d59f27wapo8x#/indexed_by/3"
+    ],
+    "records": [
+      {
+        "id": "d59f27td7gn6",
+        "path": "Work/g/n/6/d59f27td7gn6-春秋條例.json",
+        "blob_sha": "58daa5451e72a58ff25221f94d2436358124a136",
+        "sha256": "001a33bf35ab5339c75d4267ae00c4a97720009be1fb1b99d86fe444c40129b7"
+      },
+      {
+        "id": "d59f27wapo8x",
+        "path": "Work/o/8/x/d59f27wapo8x-春秋條例.json",
+        "blob_sha": "47dc28027c9df000aee26b60afb5a3791e5ca9b5",
+        "sha256": "47255fbbcc1779675fe4f92368dd4d49c40a5c27d5789f7a429b95600024d8b1"
+      }
+    ],
+    "specific_execution_gates": [
+      "經義考條的attested_status及卷174原頁保留",
+      "補晉書條summary中的劉庭疑OCR不可提升為作者別名",
+      "左氏牒例與公羊達義僅為排除邊界，本案不另判不另計"
+    ],
+    "common_execution_gates": [
+      "同步最新origin/main並重核全字段與墓碑狀態",
+      "逐字段無損台帳，保存所有來源、責任角色、獨有ai_note/description及矛盾原值",
+      "逐Book/Collection/Entity/分類/promotions型別引用審計；草稿庫同步另PR",
+      "book-text整理本、輯佚檔及內容引用遷移核查",
+      "正式audit-merge-ledger T/L/P/R、check_v2、check-classification及官方build_derived --check-only全通過"
+    ],
+    "raw_conflict_archive": "main-records.json.gz contains complete data and exact raw_utf8 for both records; pointers identify disputed fields"
+  },
+  {
+    "case_id": "JC-2000-004",
+    "status": "open",
+    "title": "發蒙記：經部小學／史部地理重出或同名書未決",
+    "ids": [
+      "d59f27tuor29",
+      "d59f27wtfwua"
+    ],
+    "supersedes": [],
+    "new_case": true,
+    "candidate_pair_index_zero_based": 31,
+    "candidate_provenance": {
+      "ids": [
+        "d59f27tuor29",
+        "d59f27wtfwua"
+      ],
+      "signals": [
+        "normalized_exact_title",
+        "shared_author_exact_title"
+      ],
+      "score": 1,
+      "old_case_ids": [],
+      "is_new_pair": true,
+      "has_old_member": false,
+      "titles": [
+        "發蒙記",
+        "發蒙記"
+      ],
+      "authors": [
+        [
+          "束晳"
+        ],
+        [
+          "束皙"
+        ]
+      ],
+      "periods": [
+        "jin",
+        "jin"
+      ],
+      "scope_reasons": {
+        "d59f27tuor29": [],
+        "d59f27wtfwua": [
+          "classification",
+          "source_section"
+        ]
+      },
+      "shared_author_keys": [
+        "candidate_alias:hixhd2h9bix8",
+        "id:hixhd2h9bix8"
+      ]
+    },
+    "decision": "隋志兩部確實各列一卷束皙；史部特注載物產之異。馬國翰輯本序明言兩書或重出疑不能明。庫中地理側已吸入秦榮光經部著錄，小學側輯本又混物產佚文，不能把同作者異體與同卷數當成同書。現階段保持兩Work，不以歷代疑說充確認。",
+    "relationship_kind": "scope_or_edition_unresolved",
+    "research_keeper_candidate": null,
+    "research_loser_candidates": [],
+    "machine_merge_mapping": null,
+    "native_merges": 0,
+    "already_main_covered": false,
+    "evidence_ids": [
+      "E2",
+      "E4",
+      "E5"
+    ],
+    "evidence_urls": [
+      "https://zh.wikisource.org/zh-hant/隋書/卷32",
+      "https://zh.wikisource.org/zh-hant/隋書/卷33",
+      "https://zh.wikisource.org/zh-hant/發蒙記"
+    ],
+    "exact_source_pointers": [
+      "d59f27tuor29#/indexed_by/2",
+      "d59f27tuor29#/indexed_by/3",
+      "d59f27tuor29#/indexed_by/7",
+      "d59f27wtfwua#/indexed_by/0",
+      "d59f27wtfwua#/indexed_by/3",
+      "d59f27wtfwua#/indexed_by/5",
+      "d59f27wtfwua#/indexed_by/6"
+    ],
+    "records": [
+      {
+        "id": "d59f27tuor29",
+        "path": "Work/r/2/9/d59f27tuor29-發蒙記.json",
+        "blob_sha": "7e52403549b2a95dfc955b0933c02bfeea2bccbc",
+        "sha256": "edd4b3c9170d434c877d8325990fbf9bb144bc3d6c900e79f1f1502713c46b9e"
+      },
+      {
+        "id": "d59f27wtfwua",
+        "path": "Work/w/u/a/d59f27wtfwua-發蒙記.json",
+        "blob_sha": "4b78cf0faa939c1114d35b57151e05b0e5c4416c",
+        "sha256": "c5cc2ef0e244f1615d46b51ffc3d4e4c0f43595a4a186a37c4e5614f82827269"
+      }
+    ],
+    "specific_execution_gates": [
+      "逐段核兩類著錄、馬氏輯本及說郛十五條；特別排除啓蒙記一條",
+      "地理側秦榮光經部來源是否錯掛須獨立污染台帳",
+      "未能證明一書前不改成一書兩著，不合Work"
+    ],
+    "common_execution_gates": [
+      "同步最新origin/main並重核全字段與墓碑狀態",
+      "逐字段無損台帳，保存所有來源、責任角色、獨有ai_note/description及矛盾原值",
+      "逐Book/Collection/Entity/分類/promotions型別引用審計；草稿庫同步另PR",
+      "book-text整理本、輯佚檔及內容引用遷移核查",
+      "正式audit-merge-ledger T/L/P/R、check_v2、check-classification及官方build_derived --check-only全通過"
+    ],
+    "raw_conflict_archive": "main-records.json.gz contains complete data and exact raw_utf8 for both records; pointers identify disputed fields"
+  },
+  {
+    "case_id": "JC-2000-005",
+    "status": "confirmed",
+    "title": "周易繫辭義疏：劉瓛系／繫異體重出",
+    "ids": [
+      "d59f2841glc0",
+      "d59f8ii7ck5d"
+    ],
+    "supersedes": [],
+    "new_case": true,
+    "candidate_pair_index_zero_based": 36,
+    "candidate_provenance": {
+      "ids": [
+        "d59f2841glc0",
+        "d59f8ii7ck5d"
+      ],
+      "signals": [
+        "normalized_exact_title",
+        "shared_author_exact_title"
+      ],
+      "score": 1,
+      "old_case_ids": [],
+      "is_new_pair": true,
+      "has_old_member": false,
+      "titles": [
+        "周易系辭義疏",
+        "周易繫辭義疏"
+      ],
+      "authors": [
+        [
+          "劉瓛"
+        ],
+        [
+          "劉瓛"
+        ]
+      ],
+      "periods": [
+        "nanbeichao",
+        "nanbeichao"
+      ],
+      "scope_reasons": {
+        "d59f2841glc0": [
+          "classification",
+          "jingyikao_source"
+        ],
+        "d59f8ii7ck5d": []
+      },
+      "shared_author_keys": [
+        "candidate_alias:hixhd2h9bmy2",
+        "id:hixhd2h9bmy2",
+        "name:劉瓛"
+      ]
+    },
+    "decision": "隋志明列劉瓛二卷；經義考同人同題。另一側補南齊兩志直接以隋志、新唐志為據，所指為同一作品而非新編；系/繫為字形差。原作二卷與後人一卷輯本不互覆；乾坤義佚文的混入辨析須保留。",
+    "relationship_kind": "same_work",
+    "research_keeper_candidate": "d59f2841glc0",
+    "research_loser_candidates": [
+      "d59f8ii7ck5d"
+    ],
+    "machine_merge_mapping": null,
+    "native_merges": 0,
+    "already_main_covered": false,
+    "evidence_ids": [
+      "E2",
+      "E6"
+    ],
+    "evidence_urls": [
+      "https://zh.wikisource.org/zh-hant/隋書/卷32",
+      "https://zh.wikisource.org/zh-hant/經義考_(四庫全書本)/卷069"
+    ],
+    "exact_source_pointers": [
+      "d59f2841glc0#/indexed_by/0",
+      "d59f2841glc0#/indexed_by/1",
+      "d59f2841glc0#/indexed_by/3",
+      "d59f8ii7ck5d#/indexed_by/0",
+      "d59f8ii7ck5d#/indexed_by/1",
+      "d59f2841glc0#/related_works"
+    ],
+    "records": [
+      {
+        "id": "d59f2841glc0",
+        "path": "Work/l/c/0/d59f2841glc0-周易系辭義疏.json",
+        "blob_sha": "03e9cf99757b65eaa3837636f90b040a19d4a2ab",
+        "sha256": "b1d40e79d0f70992bc401009aa9f9249ef66834e5f05a8cd7c7ddf3e3ce5e4fa"
+      },
+      {
+        "id": "d59f8ii7ck5d",
+        "path": "Work/k/5/d/d59f8ii7ck5d-周易繫辭義疏.json",
+        "blob_sha": "45d06079178843184c064d3b5e13907700ddc9e4",
+        "sha256": "58ccd4a02bf44e21046effae9a48c097566d6d741328d12d4d8683402c449f04"
+      }
+    ],
+    "specific_execution_gates": [
+      "完整保存補南齊志所引張惠言、馬國翰輯本邊界",
+      "contains_text_of原典邊保留；不能與原典或乾坤義合併",
+      "keeper existing indexed_by merged_from自值是歷史來源原值，本輪不擅改"
+    ],
+    "common_execution_gates": [
+      "同步最新origin/main並重核全字段與墓碑狀態",
+      "逐字段無損台帳，保存所有來源、責任角色、獨有ai_note/description及矛盾原值",
+      "逐Book/Collection/Entity/分類/promotions型別引用審計；草稿庫同步另PR",
+      "book-text整理本、輯佚檔及內容引用遷移核查",
+      "正式audit-merge-ledger T/L/P/R、check_v2、check-classification及官方build_derived --check-only全通過"
+    ],
+    "raw_conflict_archive": "main-records.json.gz contains complete data and exact raw_utf8 for both records; pointers identify disputed fields"
+  },
+  {
+    "case_id": "JC-2000-006",
+    "status": "open",
+    "title": "周易大義：梁武帝原書與總目一卷本待版本定位",
+    "ids": [
+      "d59f2843yhoh",
+      "d59fxygrmxvl"
+    ],
+    "supersedes": [],
+    "new_case": true,
+    "candidate_pair_index_zero_based": 37,
+    "candidate_provenance": {
+      "ids": [
+        "d59f2843yhoh",
+        "d59fxygrmxvl"
+      ],
+      "signals": [
+        "normalized_exact_title",
+        "shared_author_exact_title"
+      ],
+      "score": 1,
+      "old_case_ids": [],
+      "is_new_pair": true,
+      "has_old_member": false,
+      "titles": [
+        "周易大義",
+        "周易大義"
+      ],
+      "authors": [
+        [
+          "蕭衍"
+        ],
+        [
+          "武帝"
+        ]
+      ],
+      "periods": [
+        "nanbeichao",
+        "nanbeichao"
+      ],
+      "scope_reasons": {
+        "d59f2843yhoh": [
+          "classification"
+        ],
+        "d59fxygrmxvl": [
+          "classification",
+          "source_section"
+        ]
+      },
+      "shared_author_keys": [
+        "candidate_alias:hixhd2h9bdol"
+      ]
+    },
+    "decision": "隋志武帝二十一卷與清史稿馬國翰輯一卷建立可行原作/輯本鏈；總目側作者南朝梁武帝同一，但僅著一個未載版本的記錄。隋志另有無撰人同題一卷，原書/輯本/同名條界限不能只憑卷數。保留高度疑同判斷，待總目源記錄giv76i0d03xubbl7版本及序錄驗證。",
+    "relationship_kind": "scope_or_edition_unresolved",
+    "research_keeper_candidate": null,
+    "research_loser_candidates": [],
+    "machine_merge_mapping": null,
+    "native_merges": 0,
+    "already_main_covered": false,
+    "evidence_ids": [
+      "E10",
+      "E12"
+    ],
+    "evidence_urls": [
+      "https://zh.wikisource.org/zh-hant/清史稿/卷145",
+      "https://zh.wikisource.org/zh-hant/隋書/卷32"
+    ],
+    "exact_source_pointers": [
+      "d59f2843yhoh#/indexed_by/0",
+      "d59f2843yhoh#/indexed_by/1",
+      "d59f2843yhoh#/indexed_by/2",
+      "d59fxygrmxvl#/indexed_by/0",
+      "d59fxygrmxvl#/ai_note",
+      "d59f2843yhoh#/related_works/1"
+    ],
+    "records": [
+      {
+        "id": "d59f2843yhoh",
+        "path": "Work/h/o/h/d59f2843yhoh-周易大義.json",
+        "blob_sha": "bfb64c1c2e6d814d80616d02e16227dc4b901325",
+        "sha256": "3c70836276d36af87c5251d03fe72475cce5fd107dd08b03d28a12430a8cae96"
+      },
+      {
+        "id": "d59fxygrmxvl",
+        "path": "Work/x/v/l/d59fxygrmxvl-周易大義.json",
+        "blob_sha": "c4030526530e375f78e2a5908511f29dc15b79c5",
+        "sha256": "049fc5bf0d3e8cc153bcd547b1acd53581b986b2568b4ca58554afc6cc72a7c3"
+      }
+    ],
+    "specific_execution_gates": [
+      "核總目原記錄giv76i0d03xubbl7及所藏本，確認輯家與內容範圍",
+      "不得把二十/二十一原書卷數改成輯本一卷",
+      "若身份升確認，related互指自邊和輯佚檔須列執行台帳"
+    ],
+    "common_execution_gates": [
+      "同步最新origin/main並重核全字段與墓碑狀態",
+      "逐字段無損台帳，保存所有來源、責任角色、獨有ai_note/description及矛盾原值",
+      "逐Book/Collection/Entity/分類/promotions型別引用審計；草稿庫同步另PR",
+      "book-text整理本、輯佚檔及內容引用遷移核查",
+      "正式audit-merge-ledger T/L/P/R、check_v2、check-classification及官方build_derived --check-only全通過"
+    ],
+    "raw_conflict_archive": "main-records.json.gz contains complete data and exact raw_utf8 for both records; pointers identify disputed fields"
+  },
+  {
+    "case_id": "JC-2000-007",
+    "status": "confirmed",
+    "title": "周易兩繫訓注：沈驎士繋／繫異體重出",
+    "ids": [
+      "d59f28503xmo",
+      "d59f8ii6euip"
+    ],
+    "supersedes": [],
+    "new_case": true,
+    "candidate_pair_index_zero_based": 39,
+    "candidate_provenance": {
+      "ids": [
+        "d59f28503xmo",
+        "d59f8ii6euip"
+      ],
+      "signals": [
+        "normalized_exact_title",
+        "shared_author_exact_title"
+      ],
+      "score": 1,
+      "old_case_ids": [],
+      "is_new_pair": true,
+      "has_old_member": false,
+      "titles": [
+        "周易兩繋訓注",
+        "周易兩繫訓注"
+      ],
+      "authors": [
+        [
+          "沈驎士"
+        ],
+        [
+          "沈驎士"
+        ]
+      ],
+      "periods": [
+        "nanbeichao",
+        "nanbeichao"
+      ],
+      "scope_reasons": {
+        "d59f28503xmo": [
+          "classification",
+          "jingyikao_source"
+        ],
+        "d59f8ii6euip": []
+      },
+      "shared_author_keys": [
+        "candidate_alias:hixhd2h9bo9k",
+        "id:hixhd2h9bo9k",
+        "name:沈驎士"
+      ]
+    },
+    "decision": "經義考直接標沈驎士周易兩繋訓注；補南齊志以本傳著述列舉建立同題。南齊書四庫轉錄未標點原文支持訓注/要略兩組，不能把數十卷或另列易經要略揉為本書。只合兩條同一兩繫訓注，不吸收莊子訓注或易經要略。",
+    "relationship_kind": "same_work",
+    "research_keeper_candidate": "d59f28503xmo",
+    "research_loser_candidates": [
+      "d59f8ii6euip"
+    ],
+    "machine_merge_mapping": null,
+    "native_merges": 0,
+    "already_main_covered": false,
+    "evidence_ids": [
+      "E6",
+      "E7"
+    ],
+    "evidence_urls": [
+      "https://zh.wikisource.org/zh-hant/經義考_(四庫全書本)/卷069",
+      "https://zh.wikisource.org/zh-hant/南齊書_(四庫全書本)/卷54"
+    ],
+    "exact_source_pointers": [
+      "d59f28503xmo#/indexed_by/0",
+      "d59f8ii6euip#/indexed_by/0"
+    ],
+    "records": [
+      {
+        "id": "d59f28503xmo",
+        "path": "Work/x/m/o/d59f28503xmo-周易兩繋訓注.json",
+        "blob_sha": "5c09a47741151922ccdaedfad9b26cf653aec94d",
+        "sha256": "3a27710cec43787d004fe3ffe1f7b8c91e7686964c23614da56c2965377f2872"
+      },
+      {
+        "id": "d59f8ii6euip",
+        "path": "Work/u/i/p/d59f8ii6euip-周易兩繫訓注.json",
+        "blob_sha": "e6a9a42c87400e2335b0ca5333a6c6eb549f0cae",
+        "sha256": "bdfb7a6c6845070412c53225629932649014e9170d60fd8265768ea9c6a8ee38"
+      }
+    ],
+    "specific_execution_gates": [
+      "保存兩繫/兩繋字形與經義考原頁、佚之來源判斷",
+      "補南齊條title_info兼載易經要略，遷移保留原文並標明本Work承載兩繫訓注範圍",
+      "南齊書現代有標點版本歧讀，不用其標點當作新作品證"
+    ],
+    "common_execution_gates": [
+      "同步最新origin/main並重核全字段與墓碑狀態",
+      "逐字段無損台帳，保存所有來源、責任角色、獨有ai_note/description及矛盾原值",
+      "逐Book/Collection/Entity/分類/promotions型別引用審計；草稿庫同步另PR",
+      "book-text整理本、輯佚檔及內容引用遷移核查",
+      "正式audit-merge-ledger T/L/P/R、check_v2、check-classification及官方build_derived --check-only全通過"
+    ],
+    "raw_conflict_archive": "main-records.json.gz contains complete data and exact raw_utf8 for both records; pointers identify disputed fields"
+  },
+  {
+    "case_id": "JC-2000-008",
+    "status": "confirmed",
+    "title": "孝經義記：西梁孝明帝／蕭巋重出",
+    "ids": [
+      "d59f2850f66e",
+      "d59f990c2b5x"
+    ],
+    "supersedes": [],
+    "new_case": true,
+    "candidate_pair_index_zero_based": 41,
+    "candidate_provenance": {
+      "ids": [
+        "d59f2850f66e",
+        "d59f990c2b5x"
+      ],
+      "signals": [
+        "normalized_exact_title",
+        "shared_author_exact_title"
+      ],
+      "score": 1,
+      "old_case_ids": [],
+      "is_new_pair": true,
+      "has_old_member": false,
+      "titles": [
+        "孝經義記",
+        "孝經義記"
+      ],
+      "authors": [
+        [
+          "西梁孝明帝"
+        ],
+        [
+          "蕭巋"
+        ]
+      ],
+      "periods": [
+        "nanbeichao",
+        "nanbeichao"
+      ],
+      "scope_reasons": {
+        "d59f2850f66e": [
+          "classification",
+          "jingyikao_source"
+        ],
+        "d59f990c2b5x": []
+      },
+      "shared_author_keys": [
+        "id:hixhd2h9boer"
+      ]
+    },
+    "decision": "經義考孝明帝巋標目直指蕭巋，隋書本傳明載蕭巋諡孝明皇帝；補周、補梁、補南北史三志同述此書。帝號與姓名非兩作者。隋書現代標點將孝經與周易義記拆開，故題名依經義考，人物同一依本傳，不冒稱所有來源逐字相同。",
+    "relationship_kind": "same_work",
+    "research_keeper_candidate": "d59f990c2b5x",
+    "research_loser_candidates": [
+      "d59f2850f66e"
+    ],
+    "machine_merge_mapping": null,
+    "native_merges": 0,
+    "already_main_covered": false,
+    "evidence_ids": [
+      "E8",
+      "E9"
+    ],
+    "evidence_urls": [
+      "https://zh.wikisource.org/zh-hant/經義考_(四庫全書本)/卷223",
+      "https://zh.wikisource.org/zh-hant/隋書/卷79"
+    ],
+    "exact_source_pointers": [
+      "d59f2850f66e#/indexed_by/0",
+      "d59f990c2b5x#/indexed_by/0",
+      "d59f990c2b5x#/indexed_by/1",
+      "d59f990c2b5x#/indexed_by/2",
+      "d59f990c2b5x#/period_basis"
+    ],
+    "records": [
+      {
+        "id": "d59f2850f66e",
+        "path": "Work/6/6/e/d59f2850f66e-孝經義記.json",
+        "blob_sha": "e614b044bcd92e2d750e9e1aaae2f6259e83a577",
+        "sha256": "5fb08967638df47247191407828803956c35a5f02ac6a29a1b401c57f1f10dde"
+      },
+      {
+        "id": "d59f990c2b5x",
+        "path": "Work/b/5/x/d59f990c2b5x-孝經義記.json",
+        "blob_sha": "b4753bf6baa88c5dcf5c4f7497db1303b97c2bad",
+        "sha256": "e711c972676afc7d03e08cce5d0956b31578bfee0c870b2e0038a39212d4cbea"
+      }
+    ],
+    "specific_execution_gates": [
+      "保存孝明帝稱號、經義考佚判和原頁，不改作確定全佚",
+      "補周志收書時代與作者西梁身份分開；period_basis現仍稱北周須記矛盾",
+      "不將鄰列梁武帝/簡文帝孝經義疏納入"
+    ],
+    "common_execution_gates": [
+      "同步最新origin/main並重核全字段與墓碑狀態",
+      "逐字段無損台帳，保存所有來源、責任角色、獨有ai_note/description及矛盾原值",
+      "逐Book/Collection/Entity/分類/promotions型別引用審計；草稿庫同步另PR",
+      "book-text整理本、輯佚檔及內容引用遷移核查",
+      "正式audit-merge-ledger T/L/P/R、check_v2、check-classification及官方build_derived --check-only全通過"
+    ],
+    "raw_conflict_archive": "main-records.json.gz contains complete data and exact raw_utf8 for both records; pointers identify disputed fields"
+  }
+]

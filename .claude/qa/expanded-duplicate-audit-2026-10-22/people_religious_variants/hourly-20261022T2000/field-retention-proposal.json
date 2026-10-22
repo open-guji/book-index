@@ -1,0 +1,518 @@
+{
+  "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+  "case_id": "PRV-H2000-001",
+  "executable": false,
+  "reason": "No native write; execution date/executor placeholders intentionally invalid until preflight; not a ready-to-apply ledger",
+  "keeper": "hixhd2f8wam8",
+  "losers": [
+    "hixhd2h9bn9s"
+  ],
+  "preconditions": [
+    {
+      "id": "hixhd2f8wam8",
+      "path": "Entity/a/m/8/hixhd2f8wam8-李隆基（唐玄宗）.json",
+      "blob_sha": "b1529b65eec5b85e4224fee67c9ba2d6250b46b7",
+      "sha256": "c66123a32ce15fee69605daec2e7efd3bbafcbfbe8a08de508225c2fd606590b"
+    },
+    {
+      "id": "hixhd2h9bn9s",
+      "path": "Entity/n/9/s/hixhd2h9bn9s-明皇.json",
+      "blob_sha": "be4b84eb720f639ab57be88dc496368b9b0f381b",
+      "sha256": "97632813d6368c13c7a652b42fb97c58e1c92482c3f5bed789ad24ae9011ed16"
+    }
+  ],
+  "keeper_candidate": {
+    "schema_version": 1,
+    "id": "hixhd2f8wam8",
+    "type": "entity",
+    "subtype": "people",
+    "primary_name": "李隆基（唐玄宗）",
+    "alt_names": [
+      {
+        "name": "三郎",
+        "type": "別名"
+      },
+      {
+        "name": "唐明皇",
+        "type": "別名"
+      },
+      {
+        "name": "明皇",
+        "type": "別名"
+      },
+      {
+        "name": "玄宗",
+        "type": "廟號"
+      },
+      {
+        "name": "至道大聖大明孝皇帝",
+        "type": "諡號"
+      },
+      {
+        "name": "唐玄宗",
+        "type": "別名"
+      },
+      {
+        "name": "玄宗明皇帝御",
+        "type": "訛名"
+      },
+      {
+        "name": "李隆基",
+        "type": "別名",
+        "note": "重出條并入"
+      }
+    ],
+    "dynasty": "唐",
+    "external_ids": {
+      "cbdb_id": 19244,
+      "cbdb_match": "manual",
+      "cbdb_source": "manual+pid_19244_李隆基（唐玄宗）_dy6",
+      "wikidata_id": "Q9746",
+      "viaf_id": "107082478"
+    },
+    "updated_at": "2026-08-24T00:00:00+00:00",
+    "period": "sui-tang",
+    "period_basis": "據 dynasty「唐」自動歸併",
+    "ai_note": "2026-08-24 補繫 entity：新收 5 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=19244 補入空槽——籍貫「長安」。既有之值一概未動。\n\n2026-10-02 lane-B 併條善後：所繫 d59f28nbd4w5 已併入 d59f28noh3ph，反邊改指。\n\n2026-10-16 GUJI-383 帝王抽檢（Sylvie，評論12873）：同人雙條 hixhd2h9bo6w 李隆基 并入本條（Sidney 執行；同朝同廟號、生卒一致，留帶生卒與 cbdb 之一方），Work 引用已改指。\n\n2026-10-22 研究候選（未執行）：據《舊唐書》卷八與《孝經注疏》四庫提要，明皇所繫《孝經明皇注》之責任者即玄宗李隆基。本段僅供未來執行另定日期；舊建檔數字及既有並條史完整保留。",
+    "native_place": "長安",
+    "native_place_entity_id": "hixi5x9i6gw0",
+    "native_place_basis": "CBDB 19244 index_addr（2026-09-06 CBDB enrich）",
+    "dates": {
+      "birth": 685,
+      "death": 762,
+      "basis": "現行字段"
+    },
+    "revision": "1.1.0",
+    "revised_at": "EXECUTION_DATE_REQUIRED",
+    "merged_in": [
+      {
+        "id": "hixhd2h9bo6w",
+        "primary_name": "李隆基",
+        "at": "2026-10-16",
+        "by": "Sidney",
+        "rule": "帝王同人双条并条（Sylvie 抽检）",
+        "why": "同人：同朝同庙号帝王，生卒/在位一致，保留带生卒与cbdb之一方；GUJI-383 评论12873"
+      },
+      {
+        "id": "hixhd2h9bn9s",
+        "primary_name": "明皇",
+        "at": "EXECUTION_DATE_REQUIRED",
+        "by": "EXECUTOR_REQUIRED",
+        "rule": "帝王別稱與所繫孝經注原典互證",
+        "why": "PRV-H2000-001；S01/S02；身份確認不等於全庫門檻已完成"
+      }
+    ],
+    "description": {
+      "sources": [
+        {
+          "name": "中國古籍總目",
+          "type": "url",
+          "details": "http://data.library.sh.cn/entity/person/takq02svgihd3p4i"
+        },
+        {
+          "name": "舊唐書卷八",
+          "type": "url",
+          "details": "https://zh.wikisource.org/wiki/舊唐書/卷8"
+        },
+        {
+          "name": "孝經注疏四庫提要",
+          "type": "url",
+          "details": "https://zh.wikisource.org/wiki/孝經注疏_(四庫全書本)"
+        }
+      ]
+    }
+  },
+  "loser_candidate": {
+    "schema_version": 1,
+    "id": "hixhd2h9bn9s",
+    "type": "entity",
+    "subtype": "people",
+    "primary_name": "明皇",
+    "merged_into": "hixhd2f8wam8",
+    "revision": "1.1.0",
+    "revised_at": "EXECUTION_DATE_REQUIRED"
+  },
+  "field_ledger": [
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "schema_version",
+      "before": 1,
+      "after": 1,
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "id",
+      "before": "hixhd2f8wam8",
+      "after": "hixhd2f8wam8",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "type",
+      "before": "entity",
+      "after": "entity",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "subtype",
+      "before": "people",
+      "after": "people",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "primary_name",
+      "before": "李隆基（唐玄宗）",
+      "after": "李隆基（唐玄宗）",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "alt_names",
+      "before": [
+        {
+          "name": "三郎",
+          "type": "別名"
+        },
+        {
+          "name": "唐明皇",
+          "type": "別名"
+        },
+        {
+          "name": "明皇",
+          "type": "別名"
+        },
+        {
+          "name": "玄宗",
+          "type": "廟號"
+        },
+        {
+          "name": "至道大聖大明孝皇帝",
+          "type": "諡號"
+        },
+        {
+          "name": "唐玄宗",
+          "type": "別名"
+        },
+        {
+          "name": "玄宗明皇帝御",
+          "type": "訛名"
+        },
+        {
+          "name": "李隆基",
+          "type": "別名",
+          "note": "重出條并入"
+        }
+      ],
+      "after": [
+        {
+          "name": "三郎",
+          "type": "別名"
+        },
+        {
+          "name": "唐明皇",
+          "type": "別名"
+        },
+        {
+          "name": "明皇",
+          "type": "別名"
+        },
+        {
+          "name": "玄宗",
+          "type": "廟號"
+        },
+        {
+          "name": "至道大聖大明孝皇帝",
+          "type": "諡號"
+        },
+        {
+          "name": "唐玄宗",
+          "type": "別名"
+        },
+        {
+          "name": "玄宗明皇帝御",
+          "type": "訛名"
+        },
+        {
+          "name": "李隆基",
+          "type": "別名",
+          "note": "重出條并入"
+        }
+      ],
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "dynasty",
+      "before": "唐",
+      "after": "唐",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "external_ids",
+      "before": {
+        "cbdb_id": 19244,
+        "cbdb_match": "manual",
+        "cbdb_source": "manual+pid_19244_李隆基（唐玄宗）_dy6",
+        "wikidata_id": "Q9746",
+        "viaf_id": "107082478"
+      },
+      "after": {
+        "cbdb_id": 19244,
+        "cbdb_match": "manual",
+        "cbdb_source": "manual+pid_19244_李隆基（唐玄宗）_dy6",
+        "wikidata_id": "Q9746",
+        "viaf_id": "107082478"
+      },
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "updated_at",
+      "before": "2026-08-24T00:00:00+00:00",
+      "after": "2026-08-24T00:00:00+00:00",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "period",
+      "before": "sui-tang",
+      "after": "sui-tang",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "period_basis",
+      "before": "據 dynasty「唐」自動歸併",
+      "after": "據 dynasty「唐」自動歸併",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "ai_note",
+      "before": "2026-08-24 補繫 entity：新收 5 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=19244 補入空槽——籍貫「長安」。既有之值一概未動。\n\n2026-10-02 lane-B 併條善後：所繫 d59f28nbd4w5 已併入 d59f28noh3ph，反邊改指。\n\n2026-10-16 GUJI-383 帝王抽檢（Sylvie，評論12873）：同人雙條 hixhd2h9bo6w 李隆基 并入本條（Sidney 執行；同朝同廟號、生卒一致，留帶生卒與 cbdb 之一方），Work 引用已改指。",
+      "after": "2026-08-24 補繫 entity：新收 5 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=19244 補入空槽——籍貫「長安」。既有之值一概未動。\n\n2026-10-02 lane-B 併條善後：所繫 d59f28nbd4w5 已併入 d59f28noh3ph，反邊改指。\n\n2026-10-16 GUJI-383 帝王抽檢（Sylvie，評論12873）：同人雙條 hixhd2h9bo6w 李隆基 并入本條（Sidney 執行；同朝同廟號、生卒一致，留帶生卒與 cbdb 之一方），Work 引用已改指。\n\n2026-10-22 研究候選（未執行）：據《舊唐書》卷八與《孝經注疏》四庫提要，明皇所繫《孝經明皇注》之責任者即玄宗李隆基。本段僅供未來執行另定日期；舊建檔數字及既有並條史完整保留。",
+      "disposition": "appended_without_overwrite",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "native_place",
+      "before": "長安",
+      "after": "長安",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "native_place_entity_id",
+      "before": "hixi5x9i6gw0",
+      "after": "hixi5x9i6gw0",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "native_place_basis",
+      "before": "CBDB 19244 index_addr（2026-09-06 CBDB enrich）",
+      "after": "CBDB 19244 index_addr（2026-09-06 CBDB enrich）",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "dates",
+      "before": {
+        "birth": 685,
+        "death": 762,
+        "basis": "現行字段"
+      },
+      "after": {
+        "birth": 685,
+        "death": 762,
+        "basis": "現行字段"
+      },
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "revision",
+      "before": "1.0.2",
+      "after": "1.1.0",
+      "disposition": "versioned_management_value_archived",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "revised_at",
+      "before": "2026-10-16",
+      "after": "EXECUTION_DATE_REQUIRED",
+      "disposition": "versioned_management_value_archived",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "merged_in",
+      "before": [
+        {
+          "id": "hixhd2h9bo6w",
+          "primary_name": "李隆基",
+          "at": "2026-10-16",
+          "by": "Sidney",
+          "rule": "帝王同人双条并条（Sylvie 抽检）",
+          "why": "同人：同朝同庙号帝王，生卒/在位一致，保留带生卒与cbdb之一方；GUJI-383 评论12873"
+        }
+      ],
+      "after": [
+        {
+          "id": "hixhd2h9bo6w",
+          "primary_name": "李隆基",
+          "at": "2026-10-16",
+          "by": "Sidney",
+          "rule": "帝王同人双条并条（Sylvie 抽检）",
+          "why": "同人：同朝同庙号帝王，生卒/在位一致，保留带生卒与cbdb之一方；GUJI-383 评论12873"
+        },
+        {
+          "id": "hixhd2h9bn9s",
+          "primary_name": "明皇",
+          "at": "EXECUTION_DATE_REQUIRED",
+          "by": "EXECUTOR_REQUIRED",
+          "rule": "帝王別稱與所繫孝經注原典互證",
+          "why": "PRV-H2000-001；S01/S02；身份確認不等於全庫門檻已完成"
+        }
+      ],
+      "disposition": "appended_without_overwrite",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2f8wam8",
+      "field": "description",
+      "before": {
+        "sources": [
+          {
+            "name": "中國古籍總目",
+            "type": "url",
+            "details": "http://data.library.sh.cn/entity/person/takq02svgihd3p4i"
+          }
+        ]
+      },
+      "after": {
+        "sources": [
+          {
+            "name": "中國古籍總目",
+            "type": "url",
+            "details": "http://data.library.sh.cn/entity/person/takq02svgihd3p4i"
+          },
+          {
+            "name": "舊唐書卷八",
+            "type": "url",
+            "details": "https://zh.wikisource.org/wiki/舊唐書/卷8"
+          },
+          {
+            "name": "孝經注疏四庫提要",
+            "type": "url",
+            "details": "https://zh.wikisource.org/wiki/孝經注疏_(四庫全書本)"
+          }
+        ]
+      },
+      "disposition": "appended_without_overwrite",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2h9bn9s",
+      "field": "schema_version",
+      "before": 1,
+      "after": 1,
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2h9bn9s",
+      "field": "id",
+      "before": "hixhd2h9bn9s",
+      "after": "hixhd2h9bn9s",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2h9bn9s",
+      "field": "type",
+      "before": "entity",
+      "after": "entity",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2h9bn9s",
+      "field": "subtype",
+      "before": "people",
+      "after": "people",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2h9bn9s",
+      "field": "primary_name",
+      "before": "明皇",
+      "after": "明皇",
+      "disposition": "preserved_exact",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2h9bn9s",
+      "field": "updated_at",
+      "before": "2026-04-29T16:51:33-07:00",
+      "after": null,
+      "disposition": "versioned_management_value_archived",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2h9bn9s",
+      "field": "revision",
+      "before": "1.0.0",
+      "after": "1.1.0",
+      "disposition": "versioned_management_value_archived",
+      "archive": "source-snapshots.json"
+    },
+    {
+      "entity_id": "hixhd2h9bn9s",
+      "field": "revised_at",
+      "before": "2026-10-07",
+      "after": "EXECUTION_DATE_REQUIRED",
+      "disposition": "versioned_management_value_archived",
+      "archive": "source-snapshots.json"
+    }
+  ],
+  "known_reference_edit": {
+    "work_id": "d59f28n1djid",
+    "pointer": "/authors/0/entity_id",
+    "before": "hixhd2h9bn9s",
+    "after": "hixhd2f8wam8",
+    "preserve_fields": [
+      "name",
+      "role",
+      "source",
+      "dynasty",
+      "name_basis"
+    ]
+  },
+  "unresolved_gates": [
+    "原生寫入前完成全型別/草稿/promotions/book-text引用查核及實際寫後驗證。",
+    "Fresh-main hash preconditions; complete native types and promotions plus draft and full nonempty 16-shard book-text; lossless person field ledger; actual changed-path schema/check_v2/classification/builder and independent audit."
+  ]
+}

@@ -1,8 +1,9 @@
-# 续接计划（2026-10-22，本轮14案后）
+# 接续计划：52新案扩大研究后
 
-1. 先fetch最新main与研究分支，读STATUS/current-rollup和六路hourly-20261022T1900/report。当前120确认/22分立/156待核；本轮新增谢万孝经确认1项。
-2. 四人物已完成并提交数据PR #1216（open，未merge）：codex/person-alias-verified-20261022，head 21e979390a80f1a09e5138f32849c45d32ba9cf2。实际数据根book-index-current；不要重跑apply或把尚未main覆盖当作新案重复提交。先查PR状态、评论和最新main。
-3. 四组写后全门槛通过，见execution.json。旧临时分支codex/person-alias-incremental-20261022不是正式交付分支，其普通commit曾触发无关partial-clone补取；持久真相为verified分支与#1216。后续从远端verified分支恢复可绕开临时工作树状态。所有未改base对象均来自固定main，42个新增/变更Git blob已逐个校对后提交。
-4. 史部H-C010/H-C082漂移正文已解决，不要再重复排队；后续按新案件H-1900-001/002处理关联自边及书目范围。
-5. 经部H005、子部梦溪、集部此山/敬业堂均有精确污染提案，先修范围/责任/来源，不整包并。JC-001/JC-007/BOOK-0010维持hold。
-6. 继续未完成研究时全部子代理gpt-6-astra/high/fork_turns none，提供完整上下文；每路独占目录，根负责统计和提交。旧1876映射永久停用。持久恢复以远端PR分支为准。
+1. 先fetch远端最新main和codex/expanded-duplicate-research-20261022，读STATUS、current-rollup、README、checkpoint-validation及六路hourly-20261022T2000/report。最新累计146确认/32分立/172待核。本轮52新案，26新确认；宽扫候选绝不当作已确认。
+2. 查#1215/#1216状态。四组人物已在#1216开放PR，不重复执行。冯时行/冯当可独立工作树book-index-feng，三仓扫描完毕；继续检查其写后验证和数据PR真实状态，不能把目录存在当作已提交。
+3. 新全量候选在broad-discovery-checkpoint-20261022（gzip解压散列见manifest）及broad-census-20261022。全量活跃Work266045，人物52806。重点接续198对两侧都未分类的Work候选，另从六路未审列表选新案，避免只循环此山/敬业堂/梦溪等旧难案。
+4. 集部与经部多个候选混有作者链污染、选本/初续/辑佚范围差异；先分源修复和核卷次，不整包合并。读每案remaining gates，不按相似度或共用长摘要自动并条。
+5. 全部子代理gpt-6-astra/high/fork_turns none，提供当前上下文。每路独占新目录；不要覆盖broad原文件，也不要多个代理改共用统计/Git索引。根统一按替代关系和ID对排重。
+6. 任何新实施先重验main未覆盖、台账原值/来源/历史全留、正式/分类/promotions/草稿/book-text全引用，再实际写后T/L/P/R、schema、check_v2、分类、官方索引和builder基线比较；小批PR交付，不自动merge。
+7. 原#1213已关闭，1875关系由#1209覆盖，BOOK-0010《瀧岡阡表》defer；严禁重用旧1876映射。JC-001/JC-007原hold继续。
