@@ -1,21 +1,14 @@
 {
-  "updated_at": "2026-10-22T18:34:02.719350+00:00",
-  "stage": "authorized_rebased_research_pr_prepared",
+  "updated_at": "2026-10-22T18:44:57.900677+00:00",
+  "stage": "astra_review_completed_research_pr_open",
   "research_base": "bfaf3cfb3b9b0475fc9fd8d2ce216c291ebc9cca",
   "upstream_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
   "research_branch": "codex/expanded-duplicate-research-20261022",
-  "research_pr": null,
+  "research_pr": "https://github.com/open-guji/book-index/pull/1215",
   "first_batch_pr": "https://github.com/open-guji/book-index/pull/1213",
-  "first_batch_pr_state": "open_conflicting_with_merged_1209",
+  "first_batch_pr_state": "closed",
   "github_cli_account": "sheldonlidev",
-  "active_agents": [
-    "classics_astra",
-    "history_astra",
-    "masters_astra",
-    "collections_astra",
-    "people_names_astra",
-    "people_religious_astra"
-  ],
+  "active_agents": [],
   "this_run": {
     "cases_reviewed": 31,
     "decisions": {
@@ -28,8 +21,8 @@
     "native_merge_groups": 0
   },
   "effective_counts": {
-    "confirmed": 118,
-    "open": 158,
+    "confirmed": 119,
+    "open": 157,
     "separate": 22
   },
   "lanes": {
@@ -418,10 +411,10 @@
     "upstream_drift_occurrences": 9
   },
   "next_steps": [
-    "Read current main and reconcile first batch with merged PR1209; only one old merge relationship is not covered by its ledger.",
-    "Apply small verified Entity batches only after complete production/draft/text reference checks, preserving provenance and rebuilding derived indexes.",
-    "Prepare text migration for 19 loser IDs with assets; hold JC001 for source contamination repair.",
-    "Continue unreviewed candidate queues using superseding records to avoid duplicate counts."
+    "Select the four documented Person candidate plans; verify all live production, promotions, draft and book-text references before data writes.",
+    "Read the two history lane upstream-drift records still pending; preserve holds for source contamination and text assets.",
+    "Apply only current incremental mappings in small data PRs; never restore obsolete PR1213.",
+    "Continue remaining candidate queues with gpt-6-astra / high and superseding case IDs."
   ],
   "scope_complete": false,
   "research_commit": "d9ed755804cdd0210d539b9e21f246d7dfb6d407",
@@ -433,5 +426,71 @@
     "model": "gpt-6-astra",
     "reasoning_effort": "high",
     "fork_turns": "none"
-  }
+  },
+  "this_round_reviews": 13,
+  "new_confirmations": 1,
+  "native_merge_groups": 0,
+  "authoritative_rollup": "current-rollup.json",
+  "astra_round": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "high",
+    "reviews": 13,
+    "new_confirmations": 1,
+    "native_merge_groups": 0,
+    "lanes": {
+      "classics_titles": {
+        "counts": {
+          "confirmed": 13,
+          "open": 6,
+          "separate": 1
+        },
+        "reviews": 2
+      },
+      "history_titles": {
+        "counts": {
+          "confirmed": 9,
+          "open": 101,
+          "separate": 3
+        },
+        "reviews": 2
+      },
+      "masters_titles": {
+        "counts": {
+          "confirmed": 25,
+          "open": 25,
+          "separate": 6
+        },
+        "reviews": 3
+      },
+      "collections_titles": {
+        "counts": {
+          "confirmed": 24,
+          "open": 10,
+          "separate": 4
+        },
+        "reviews": 2
+      },
+      "people_names_aliases": {
+        "counts": {
+          "confirmed": 15,
+          "open": 5,
+          "separate": 2
+        },
+        "reviews": 2
+      },
+      "people_religious_variants": {
+        "counts": {
+          "confirmed": 33,
+          "open": 10,
+          "separate": 6
+        },
+        "reviews": 2
+      }
+    }
+  },
+  "execution_hold_case_ids": [
+    "JC-001",
+    "JC-007",
+    "BOOK-0010"
+  ]
 }

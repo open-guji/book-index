@@ -1,11 +1,12 @@
 # 当前续接计划（2026-10-22）
 
-权威入口为 README.md、STATUS.json、checkpoint-validation.json。六路检查点全部恢复并完成本轮31案；旧“文件缺失”“PR尚未创建”“CLI未登录”说明已失效。
+替代研究PR #1215已打开，旧#1213已关闭。最新权威入口：README.md当前状态、STATUS.json、current-rollup.json及六路astra-review-20261022/report.md。六个Astra/high子会话已完成本轮13案复核；当前无待续跑的旧子会话。累计119确认/22分立/157待核，实际新增数据合并0。旧checkpoint-validation.json是上一批源证据校验，不包含Astra新案替代计数。
 
-本轮工作已收束为基于main的研究PR；上一检查点没有运行中的研究代理；本轮已新启六个Astra/high代理，结果写入各路astra-review-20261022目录。下一轮从已提交分支获取检查点，不依赖旧子会话。每路增量替代关系与有效案例ID见checkpoint-validation.json，不能重复审已裁案例。
+下一轮从远端研究分支codex/expanded-duplicate-research-20261022恢复检查点，fetch最新main，避免重复计数和重提main已完成数据。所有子会话使用gpt-6-astra、reasoning_effort=high、fork_turns=none并提供充分上下文；小时任务已同步。
 
-执行顺序：先收束PR1213和main1209的重复关系／字段保留差异，再按最新main挑无文本资产无污染的小批人物组进行全引用验证和合并；带文本资产的19个ID先做book-text联动；疑难案例继续证据研究。具体门槛与路径见README。
+1. 从两路人物候选方案挑最小批次，读最新原档，完成正式库所有型别引用、promotions、草稿库及book-text引用扫描，生成逐字段无损台账，再动数据。不得把已知1处引用当全库只有1处。
+2. 先读史部H-C010/H-C082两份已知漂移正文。子部MR-046责任者污染、MR-050串案说明已定位；集部此山/敬业堂与经部左传补注保持待核与污染修复边界。
+3. 19个旧拟并ID带文本资产，先做book-text联动迁移。维持JC-001污染执行暂停及JC-007组内关联改指自边风险暂停以及瀧岡阡表BOOK-0010明确defer。
+4. 实际数据批次按main现行正式库并条审查规则跑台账审计、schema、分类和官方builder；分批PR，不自动合main。
 
-数据写入只有主集成者执行，各子任务仅写自己新建批次目录。所有确认组仍需遵守源hash、schema、墓碑、来源历史、promotions、草稿库、文本库和官方索引检查。允许用户已授权范围内的分支与PR提交，不自动合入main。
-
-所有后续子会话按用户要求使用gpt-6-astra、high effort；每小时任务已同步此偏好及最新授权、main去重要求。
+资料库大且是partial clone，避免六路同时全库git grep或逐blob懒取；优先共享固定main树与旧原档blob双散列证明，确有漂移才定点读。旧脚本含历史绝对路径者仅为可追溯逻辑，复跑先对齐路径。资料记录中的claimed确认仅指身份，不代表所有执行门槛通过。

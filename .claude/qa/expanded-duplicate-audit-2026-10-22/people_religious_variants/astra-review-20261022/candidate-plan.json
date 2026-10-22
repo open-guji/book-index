@@ -1,0 +1,159 @@
+{
+  "schema": "research-only-person-merge-candidate-plan-v1",
+  "main_ref": "c6dd8356d",
+  "native_mutations": 0,
+  "ready_to_apply": false,
+  "groups": [
+    {
+      "case_id": "PRV-ASTRA-P007",
+      "reviews_case_id": "PRV-P007",
+      "counts_as_new_case": false,
+      "status": "confirmed",
+      "execution_status": "candidate_only_pending_gates",
+      "keeper": "hixi8u5rf6fx",
+      "losers": [
+        "hixhd2h9bjck"
+      ],
+      "records": [
+        {
+          "id": "hixi8u5rf6fx",
+          "path": "Entity/6/f/x/hixi8u5rf6fx-釋篆玉.json",
+          "sha256": "ee30ae833f3f8c49d3bb74101ef73adab5ce6710bb7a333d934baa47d20dc8fc",
+          "primary_name": "釋篆玉"
+        },
+        {
+          "id": "hixhd2h9bjck",
+          "path": "Entity/j/c/k/hixhd2h9bjck-篆玉.json",
+          "sha256": "da676f7f4fadbcff83d52ee59a51d1e2211e5de9d4a20433facc1e1f4325dc0a",
+          "primary_name": "篆玉"
+        }
+      ],
+      "related_work_ids": [
+        "d59fxzprd8u9",
+        "d59fxyc4y41s",
+        "d59f2nqjeozk"
+      ],
+      "why": "清篆玉話墮集；同一 Work d59f2nqjeozk 同時有清史稿篆玉與中國古籍總目清釋篆玉兩種責任者署法。二集三集仍分立，只合人物。",
+      "source_ids": [
+        "HUADU-JUAN3",
+        "HUADU-JUAN1"
+      ],
+      "field_risks": [
+        "三卷、六卷与二集、三集的范围不同；只并人物，全部Work与Book保留。",
+        "卷一OCR篆王不作为别名。",
+        "保留上图来源及unreviewed；不新增无来源生卒籍贯。"
+      ],
+      "candidate_field_overrides": {
+        "ai_note": "[來源 hixi8u5rf6fx] 集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/h85po5zxenm8rpwd）新建；著錄 2 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-10-22 expanded duplicate audit PRV-P007：清篆玉話墮集；同一 Work d59f2nqjeozk 同時有清史稿篆玉與中國古籍總目清釋篆玉兩種責任者署法。二集三集仍分立，只合人物。 證據：https://www.shidianguji.com/zh/book/CADAL02036163/chapter/1lafpoyq5lvl6 合併前衝突原值存檔：[{\"field\": \"primary_name\", \"values\": [{\"id\": \"hixi8u5rf6fx\", \"value\": \"釋篆玉\"}, {\"id\": \"hixhd2h9bjck\", \"value\": \"篆玉\"}], \"selected\": \"釋篆玉\"}]",
+        "description": {
+          "sources": [
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/h85po5zxenm8rpwd"
+            }
+          ]
+        },
+        "dynasty": "清",
+        "dynasty_basis": "據《中國古籍總目》責任者著錄",
+        "period": "qing",
+        "period_basis": "據 dynasty「清」自動歸併",
+        "primary_name": "釋篆玉",
+        "review": {
+          "status": "unreviewed"
+        },
+        "alt_names": [
+          {
+            "name": "篆玉",
+            "type": "別名",
+            "note": "清篆玉話墮集；同一 Work d59f2nqjeozk 同時有清史稿篆玉與中國古籍總目清釋篆玉兩種責任者署法。二集三集仍分立，只合人物。"
+          }
+        ],
+        "subtype": "people"
+      },
+      "current_main_verification": "selected-current-snapshots.json",
+      "pending_gates": [
+        "当前正式库全字段引用与promotions扫描",
+        "book-index-draft引用与生产ID同步检查",
+        "book-text文本及元数据引用检查",
+        "规范墓碑/merged_in/merge_history更新方案与无损审计",
+        "check_v2/check-classification/build_derived gates after any future native edit"
+      ],
+      "supersedes_case_id": "PRV-P007"
+    },
+    {
+      "case_id": "PRV-ASTRA-H001",
+      "reviews_case_id": "PRV-H001",
+      "counts_as_new_case": false,
+      "status": "confirmed",
+      "execution_status": "candidate_only_pending_gates",
+      "keeper": "hixhd2h9bsyc",
+      "losers": [
+        "hixi5eks7m81"
+      ],
+      "records": [
+        {
+          "id": "hixhd2h9bsyc",
+          "path": "Entity/s/y/c/hixhd2h9bsyc-菩提流志.json",
+          "sha256": "2b3daf3c0eaeb4409eaec32e196fa3b7e1d640e092275e1107d6834502a906e4",
+          "primary_name": "菩提流志",
+          "title": null
+        },
+        {
+          "id": "hixi5eks7m81",
+          "path": "Entity/m/8/1/hixi5eks7m81-釋菩提流志.json",
+          "sha256": "0bb9778c36c51ea37140e2a62611439933425ac67766fc2174bacce44a03b7c1",
+          "primary_name": "釋菩提流志",
+          "title": null
+        }
+      ],
+      "related_work_ids": [
+        "d59f28jd0x6w"
+      ],
+      "why": "同一唐代译师。释为僧人称谓；keeper所系大宝积经120卷总目直接署唐释菩提流志，loser建档依据不空羂索咒心经亦列DILA A001358作译目录。",
+      "source_ids": [
+        "DILA-A001358"
+      ],
+      "field_risks": [
+        "DILA寿数与生年口径不一，不补生卒。",
+        "不把北魏菩提流支、菩提留支并入。",
+        "loser旧note写三书，不等于目前真实引用数。",
+        "不盲增DILA页面的多个Wikidata或CBDB映射。"
+      ],
+      "candidate_field_overrides": {
+        "alt_names": [
+          {
+            "name": "釋菩提流志",
+            "type": "別名",
+            "note": "唐代译师之释氏前缀；DILA A001358 及本库大宝积经总目著录。"
+          }
+        ],
+        "ai_note": "2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《大寶積經》。\n\n[來源 hixi5eks7m81] 批A-人物（GUJI-114／GUJI-174）：史部／子部總目責任者未建檔、出現≥3部（3部，如《不空羂索咒心經》）；未掛 CBDB，待人審。\n\n2026-10-22 PRV-H001：唐菩提流志与释菩提流志同人，北魏菩提流支另人。证据 DILA A001358 与大宝积经总目责任者；不自动补生卒或改译经角色。",
+        "review": {
+          "status": "unreviewed"
+        },
+        "external_ids": {
+          "cbdb_match": "none",
+          "cbdb_source": "none: CBDB 查無（name 接口 404，2026-10-13）"
+        }
+      },
+      "current_main_verification": "selected-current-snapshots.json",
+      "pending_gates": [
+        "当前正式库全字段引用与promotions扫描",
+        "book-index-draft引用与生产ID同步检查",
+        "book-text文本及元数据引用检查",
+        "规范墓碑/merged_in/merge_history更新方案与无损审计",
+        "check_v2/check-classification/build_derived gates after any future native edit"
+      ],
+      "supersedes_case_id": "PRV-H001"
+    }
+  ],
+  "actions": [
+    "先按selected-current-snapshots.json复验全部前置hash。",
+    "保留keeper完整原记录，按candidate_field_overrides逐字段合并；对当前新字段先停审，不盲覆盖。",
+    "别名、来源、历史稳定去重联集；被并条独有说明必须在keeper或台账保存。",
+    "只将真正结构化引用中的loser ID改keeper；保留authors.name、role、dynasty，不全局替换历史文字。",
+    "为loser生成schema认可最小墓碑；keeper加merged_in，并保留旧merge_history。",
+    "完成所有pending_gates后才可交付原生数据PR。"
+  ]
+}
