@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-22T19:10:59.228485+00:00",
-  "stage": "hourly_research_complete_four_person_data_validation_pending",
+  "updated_at": "2026-10-22T19:20:23.230150+00:00",
+  "stage": "research_and_four_person_data_prs_open",
   "research_base": "bfaf3cfb3b9b0475fc9fd8d2ce216c291ebc9cca",
   "upstream_sha": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
   "research_branch": "codex/expanded-duplicate-research-20261022",
@@ -12,7 +12,7 @@
   "this_run": {
     "cases_reviewed": 14,
     "new_confirmations": 1,
-    "native_merge_groups": 0,
+    "native_merge_groups": 4,
     "reference_scan_complete_for_selected_person_groups": 4
   },
   "effective_counts": {
@@ -394,7 +394,7 @@
           "status": "open"
         }
       ],
-      "native_merge_groups": 0
+      "native_merge_groups": 2
     },
     "people_religious_variants": {
       "counts": {
@@ -473,7 +473,7 @@
           "status": "open"
         }
       ],
-      "native_merge_groups": 0
+      "native_merge_groups": 2
     }
   },
   "validation": {
@@ -486,9 +486,9 @@
     "text_scan_scope": "Only four selected Person loser IDs; no claims for remaining Work candidates"
   },
   "next_steps": [
-    "Finish four-Person data batch in book-index-current; baseline builder running, no native writes yet.",
-    "Run applied field preservation, audit/schema/classification/builder/index gates and publish small data PR.",
-    "Resume documented source contamination repairs; no blanket Work merge."
+    "Read latest main and PR1216 status first; four Person mappings are already implemented in the open PR, do not repeat.",
+    "Continue remaining cases and narrowly evidenced source repairs documented in the six 1900 reports.",
+    "Preserve JC-001/JC-007/BOOK-0010 holds and Work text-asset gates."
   ],
   "scope_complete": false,
   "research_commit": "d9ed755804cdd0210d539b9e21f246d7dfb6d407",
@@ -503,7 +503,7 @@
   },
   "this_round_reviews": 14,
   "new_confirmations": 1,
-  "native_merge_groups": 0,
+  "native_merge_groups": 4,
   "authoritative_rollup": "current-rollup.json",
   "astra_round": {
     "model": "gpt-6-astra",
@@ -623,5 +623,9 @@
         "reviews": 2
       }
     }
-  }
+  },
+  "data_pr": "https://github.com/open-guji/book-index/pull/1216",
+  "data_pr_state": "open_not_merged",
+  "data_branch": "codex/person-alias-verified-20261022",
+  "data_head": "21e979390a80f1a09e5138f32849c45d32ba9cf2"
 }

@@ -45,6 +45,13 @@ def run():
     result['this_round_reviews'] = sum(len(x['this_round']) for x in result['lanes'].values())
     result['new_confirmations'] = sum(c['status'] == 'confirmed' and c['old_status'] != 'confirmed'
                                     for x in result['lanes'].values() for c in x['this_round'])
+    if (ROOT / 'execution.json').exists():
+        execution = json.loads((ROOT / 'execution.json').read_text())
+        result['native_merge_groups'] = execution['native_merge_groups']
+        result['native_data_state'] = execution['state']
+        result['data_pr'] = execution['data_pr']
+        for lane, count in execution['lanes'].items():
+            result['lanes'][lane]['native_merge_groups'] = count
     (ROOT / 'current-rollup.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps({k: v for k, v in result.items() if k != 'lanes'}, ensure_ascii=False))
     return bool(result['errors'])
