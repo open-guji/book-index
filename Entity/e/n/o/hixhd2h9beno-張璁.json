@@ -14,7 +14,7 @@
   "dynasty": "明",
   "native_place_basis": "CBDB 68266 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 3 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=68266 補入空槽——籍貫「永嘉」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ej37toj、d59f6eg7l1c2、d59f6eg7l1c5。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 3 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=68266 補入空槽——籍貫「永嘉」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ej37toj、d59f6eg7l1c2、d59f6eg7l1c5。\n\n被併條 hixhd2h9bhrh 原處理記錄：\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 7 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=513353 補入空槽——籍貫「永嘉」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ens37k2、d59f6ehy0hzb、d59f6ehnpo1u、d59f6enrrz0i、d59f6eqy0ttt、d59f6ek0xgcg、d59f6enrrz0l。\n\n被併條 hixi8u5vh9jo 原處理記錄：\n集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/3pzsjn1oe502cq34）新建；著錄 3 處，同 uri 視為同一人；未對接 CBDB。庫中另有同名 Entity hixhd2h9beno、hixhd2h9bhrh，朝代不明或不合，未并，待 P3 查證。\n\n2026-10-22 confirmed-duplicate-audit-2026-10-22：合併已核定重複條 hixhd2h9bhrh、hixi8u5vh9jo；原記錄、保留ID與衝突欄位裁決見 .claude/qa/confirmed-duplicate-audit-2026-10-22/。",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "period": "ming",
   "alt_names": [
@@ -69,6 +69,10 @@
     {
       "name": "茂恭",
       "type": "字"
+    },
+    {
+      "name": "璁",
+      "type": "別名"
     }
   ],
   "subtype": "people",
@@ -78,6 +82,33 @@
     "death": 1539,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-22",
+  "merged_in": [
+    {
+      "id": "hixhd2h9bhrh",
+      "primary_name": "張孚敬",
+      "at": "2026-10-22T00:00:00Z",
+      "by": "Codex",
+      "rule": "confirmed-duplicate-audit-2026-10-22",
+      "why": "張璁明确以張孚敬为别名；旧張孚敬条别名璁，字茂恭，双方籍贯永嘉。 旧張孚敬.cbdb_source 明写“明張璁（孚敬）大礼议名臣”。 新張孚敬条名下《太師張文忠公文稿》《羅山詩稿》《張文忠公詩稿》，对应张璁号罗山、谥文忠；新条说明列出两旧ID却因匹配规则未并。"
+    },
+    {
+      "id": "hixi8u5vh9jo",
+      "primary_name": "張孚敬",
+      "at": "2026-10-22T00:00:00Z",
+      "by": "Codex",
+      "rule": "confirmed-duplicate-audit-2026-10-22",
+      "why": "張璁明确以張孚敬为别名；旧張孚敬条别名璁，字茂恭，双方籍贯永嘉。 旧張孚敬.cbdb_source 明写“明張璁（孚敬）大礼议名臣”。 新張孚敬条名下《太師張文忠公文稿》《羅山詩稿》《張文忠公詩稿》，对应张璁号罗山、谥文忠；新条说明列出两旧ID却因匹配规则未并。"
+    }
+  ],
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/3pzsjn1oe502cq34"
+      }
+    ]
+  }
 }

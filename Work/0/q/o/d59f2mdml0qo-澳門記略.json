@@ -9,7 +9,12 @@
       "role": "撰",
       "dynasty": "清",
       "name_basis": "2026-08-24 新建 entity `1jcf51512934b` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。",
-      "entity_id": "hixhd2h9bnxs"
+      "entity_id": "hixhd2h9bnxs",
+      "source": {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/2lel1bd7x88pzfnp"
+      }
     },
     {
       "name": "張汝霖",
@@ -51,6 +56,22 @@
       "author_info": "清印光任、張汝霖纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 3 個版本：清嘉慶五年刻本（上海圖書館、復旦大學圖書館、天津圖書館、北京大學圖書館、遼寧省圖書館、國家圖書館、浙江圖書館、南京圖書館）；嶺海異聞錄本（北京大學圖書館）；清嘉慶五年刻光緒六年印本（國家圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "1exjosng9241s",
+      "title_info": "澳門記畧",
+      "author_info": "清印光任、張汝霖撰",
+      "section": "叢書部/雜纂類/清代前期",
+      "summary": "共 1 個版本：（馆藏未载）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "1exjosng9241s",
+      "title_info": "[乾隆]澳門記畧二卷首一卷末一卷",
+      "author_info": "清印光任、張汝霖纂",
+      "section": "史部/方志類/地志之屬",
+      "summary": "共 4 個版本：清乾隆十六年刻本（復旦大學圖書館、國家圖書館、上海圖書館）；清末傅氏長恩閣抄本（浙江圖書館）；筆記小說大觀本（浙江圖書館、湖北省圖書館、上海圖書館）；昭代叢書本（馆藏未载）"
     }
   ],
   "juan_count": {
@@ -125,12 +146,25 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "從 1evjxkrj72g3k 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3baveq0c8w(印光任、張汝霖同)（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/qing·L 類（承前，訂正誤操作）：本批原欲解繫「張汝霖」（entity `hixhd2h9bnuk`，明代易學家，與本條「國朝……官至澳門同知」之張汝霖絕不相涉），然腳本失於一時，誤取 authors[0]（印光任）而非 authors[1]（張汝霖），致印光任之 entity_id 遭誤刪。今兩事並正：印光任之 entity_id 已復原（`hixhd2h9bnxs`），張汝霖之誤繫已正解（原值：authors[1].entity_id=「hixhd2h9bnuk」，可逆）。\n\n總目分類：史部／方志類／地志之屬（與正式庫分類並存，未改 Work 分類）",
+  "ai_note": "從 1evjxkrj72g3k 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3baveq0c8w(印光任、張汝霖同)（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/qing·L 類（承前，訂正誤操作）：本批原欲解繫「張汝霖」（entity `hixhd2h9bnuk`，明代易學家，與本條「國朝……官至澳門同知」之張汝霖絕不相涉），然腳本失於一時，誤取 authors[0]（印光任）而非 authors[1]（張汝霖），致印光任之 entity_id 遭誤刪。今兩事並正：印光任之 entity_id 已復原（`hixhd2h9bnxs`），張汝霖之誤繫已正解（原值：authors[1].entity_id=「hixhd2h9bnuk」，可逆）。\n\n總目分類：史部／方志類／地志之屬（與正式庫分類並存，未改 Work 分類）\n\n被併條 d59fy2deo4jk 原處理記錄：\n【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 8dk3r0bjv5j4z65n（昭代叢書合刻十集五百六十種附一種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：i35e1q4jrbqbjspm\n叢書子目，卷數缺（總目未載卷數，Book 不填卷數）\n第 440 批追加版本，源記錄：z2snsxiwqrha6bik、oelmkakdkazyohad、bipjq8swpa4d7z6z、muimuco241xd24z2\n\n本次合併澳門記略／畧：兩條原始總目皆著錄「[乾隆]澳門記畧二卷首一卷末一卷」「清印光任、張汝霖纂」，差別為乾隆與嘉慶等版本。loser作者張汝霖的明代值及由此推得Work明/ming與自身著錄相斥，留存採四庫提要明稱國朝、澳門同知之清代作者。其entity_id留空，未恢復曾誤繫的明代同名人；原錯誤字段及URL留隨提交審計快照可追溯。\n\n2026-10-22 confirmed-duplicate-audit-2026-10-22：合併已核定重複條 d59fy2deo4jk；原記錄、保留ID與衝突欄位裁決見 .claude/qa/confirmed-duplicate-audit-2026-10-22/。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13"
+  "revision": "1.3.0",
+  "revised_at": "2026-10-22",
+  "additional_titles": [
+    "澳門記畧"
+  ],
+  "merged_in": [
+    {
+      "id": "d59fy2deo4jk",
+      "title": "澳門記畧",
+      "at": "2026-10-22T00:00:00Z",
+      "by": "Codex",
+      "rule": "confirmed-duplicate-audit-2026-10-22",
+      "why": "本次合併澳門記略／畧：兩條原始總目皆著錄「[乾隆]澳門記畧二卷首一卷末一卷」「清印光任、張汝霖纂」，差別為乾隆與嘉慶等版本。loser作者張汝霖的明代值及由此推得Work明/ming與自身著錄相斥，留存採四庫提要明稱國朝、澳門同知之清代作者。其entity_id留空，未恢復曾誤繫的明代同名人；原錯誤字段及URL留隨提交審計快照可追溯。"
+    }
+  ]
 }

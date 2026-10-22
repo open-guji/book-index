@@ -8,6 +8,11 @@
     {
       "name": "若汀",
       "type": "別名"
+    },
+    {
+      "name": "華衡芳",
+      "type": "異寫",
+      "note": "人物查重合并，保留被并条姓名；据本次逐组身份核验。"
     }
   ],
   "dynasty": "清",
@@ -24,14 +29,14 @@
   "native_place": "金匱",
   "native_place_entity_id": "hixi5wnd9m2v",
   "native_place_basis": "CBDB 74593 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=74593 補入空槽——籍貫「金匱」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=74593 補入空槽——籍貫「金匱」。既有之值一概未動。\n\n被併條 hixi8us1bued 原處理記錄：\n子部二串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/s0jphhsf33c5x287）新建；著錄 4 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-10-22 confirmed-duplicate-audit-2026-10-22：合併已核定重複條 hixi8us1bued；原記錄、保留ID與衝突欄位裁決見 .claude/qa/confirmed-duplicate-audit-2026-10-22/。",
   "dates": {
     "birth": 1833,
     "death": 1902,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-22",
   "description": {
     "sources": [
       {
@@ -45,5 +50,15 @@
         "details": "http://data.library.sh.cn/entity/person/s0jphhsf33c5x287"
       }
     ]
-  }
+  },
+  "merged_in": [
+    {
+      "id": "hixi8us1bued",
+      "primary_name": "華衡芳",
+      "at": "2026-10-22T00:00:00Z",
+      "by": "Codex",
+      "rule": "confirmed-duplicate-audit-2026-10-22",
+      "why": "两条同清代，description.sources 共享上图person URI s0jphhsf33c5x287。 蘅芳条系《金匱華氏行素軒算學全書》及算学系列；衡芳条系《行素軒算稿九種》《華氏中西算學全書》《代數術補式》，责任领域与行素轩名号对应。"
+    }
+  ]
 }

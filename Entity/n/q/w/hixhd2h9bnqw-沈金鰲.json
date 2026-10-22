@@ -14,6 +14,11 @@
       "name": "芊綠",
       "type": "別名",
       "note": "CBDB 類別未詳"
+    },
+    {
+      "name": "沈金鼇",
+      "type": "異體",
+      "note": "人物查重合并，保留被并条姓名；据本次逐组身份核验。"
     }
   ],
   "external_ids": {
@@ -29,14 +34,14 @@
   "native_place": "無錫",
   "native_place_entity_id": "hixi4ui6glxg",
   "native_place_basis": "CBDB 79676 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=79676 補入空槽——籍貫「無錫」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=79676 補入空槽——籍貫「無錫」。既有之值一概未動。\n\n2026-10-22 confirmed-duplicate-audit-2026-10-22：合併已核定重複條 hixhd2h9bhvi；原記錄、保留ID與衝突欄位裁決見 .claude/qa/confirmed-duplicate-audit-2026-10-22/。",
   "dates": {
     "birth": 1717,
     "death": 1776,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-22",
   "description": {
     "sources": [
       {
@@ -44,6 +49,17 @@
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/au7wqg9goqmrykko"
       }
-    ]
-  }
+    ],
+    "text": "清醫家，《沈氏尊生書》作者"
+  },
+  "merged_in": [
+    {
+      "id": "hixhd2h9bhvi",
+      "primary_name": "沈金鼇",
+      "at": "2026-10-22T00:00:00Z",
+      "by": "Codex",
+      "rule": "confirmed-duplicate-audit-2026-10-22",
+      "why": "两条生卒均1717–1776。 鼇条说明“清醫家，《沈氏尊生書》作者”，名下《傷寒論綱目》《幼科釋謎》；鰲条名下《雜病源流犀燭》《婦科玉尺》，身份与著作系统一致。"
+    }
+  ]
 }

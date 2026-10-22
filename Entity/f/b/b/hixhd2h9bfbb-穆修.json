@@ -8,6 +8,11 @@
     {
       "name": "伯長",
       "type": "字"
+    },
+    {
+      "name": "穆脩",
+      "type": "異體",
+      "note": "人物查重合并，保留被并条姓名；据本次逐组身份核验。"
     }
   ],
   "dynasty": "北宋",
@@ -25,12 +30,31 @@
   "native_place": "汝陽",
   "native_place_entity_id": "hixi61e9ds7o",
   "native_place_basis": "CBDB 27759 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=27759 補入空槽——籍貫「汝陽」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=27759 補入空槽——籍貫「汝陽」。既有之值一概未動。\n\n被併條 hixi8u5x1g91 原處理記錄：\n集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/arcdi7vnrbgi21j4）新建；著錄 2 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-10-22 confirmed-duplicate-audit-2026-10-22：合併已核定重複條 hixi8u5x1g91；原記錄、保留ID與衝突欄位裁決見 .claude/qa/confirmed-duplicate-audit-2026-10-22/。",
   "dates": {
     "birth": 979,
     "death": 1032,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-22",
+  "merged_in": [
+    {
+      "id": "hixi8u5x1g91",
+      "primary_name": "穆脩",
+      "at": "2026-10-22T00:00:00Z",
+      "by": "Codex",
+      "rule": "confirmed-duplicate-audit-2026-10-22",
+      "why": "新穆脩条所系《河南穆先生詩文集》《河南集》，authors用穆脩，但两条indexed_by.author_info均直接写“宋穆修撰”。 《河南集》著录还写附穆參軍遺事；旧穆修条名下有《穆參軍集》。"
+    }
+  ],
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/arcdi7vnrbgi21j4"
+      }
+    ]
+  }
 }

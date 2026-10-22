@@ -25,7 +25,7 @@
     "cbdb_source": "altname_exact+dy_match+work_recall_0.57+unique",
     "wikidata_id": "Q5507312"
   },
-  "ai_note": "works 卸除：本記錄原列下列作品，而各該作品之撰人欄所題非本人——《御製增訂清文鑑》（撰人傅恆）。作品側有著錄原文為據，故以作品為準，卸除本記錄之 claim。　按：其中或本人實與其書有關而非撰人（如書寫、校讎、注解、傳授），待關係模型定後再以適當之關係繫之，非謂其無關。\n2026-08-24 補繫 entity：新收 3 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n2026-08-25 works 死鏈清理：所指 work 檔兩倉皆無（歷次併條/刪條之積欠），去之：1evr5e3m8qyhh。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=58396 補入空槽——籍貫「滿洲鑲黃旗」。既有之值一概未動。",
+  "ai_note": "works 卸除：本記錄原列下列作品，而各該作品之撰人欄所題非本人——《御製增訂清文鑑》（撰人傅恆）。作品側有著錄原文為據，故以作品為準，卸除本記錄之 claim。　按：其中或本人實與其書有關而非撰人（如書寫、校讎、注解、傳授），待關係模型定後再以適當之關係繫之，非謂其無關。\n2026-08-24 補繫 entity：新收 3 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n2026-08-25 works 死鏈清理：所指 work 檔兩倉皆無（歷次併條/刪條之積欠），去之：1evr5e3m8qyhh。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=58396 補入空槽——籍貫「滿洲鑲黃旗」。既有之值一概未動。\n\n被併條 hixhd2h9bjlc 原處理記錄：\n2026-09-07 qa-sweep/lane-F·F 類 entity 正名：本欄原作「乾隆三十二年傅恆」，今正為「傅恆」，舊形降入 alt_names（不刪）。「乾隆三十二年」係成書之年，非姓名之一部（《清史稿藝文志》「乾隆三十二年傅恆等奉敕撰」）；work d59f2mc9w000 已於 2026-09-06 qa-sweep/qing·H 剝之，本條未同步。\n\n2026-10-22 confirmed-duplicate-audit-2026-10-22：合併已核定重複條 hixhd2h9bjlc；原記錄、保留ID與衝突欄位裁決見 .claude/qa/confirmed-duplicate-audit-2026-10-22/。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "qing",
   "period_basis": "據 dynasty「清」自動歸併",
@@ -35,6 +35,16 @@
     "death": 1770,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-22",
+  "merged_in": [
+    {
+      "id": "hixhd2h9bjlc",
+      "primary_name": "傅恆",
+      "at": "2026-10-22T00:00:00Z",
+      "by": "Codex",
+      "rule": "confirmed-duplicate-audit-2026-10-22",
+      "why": "富察傅恆.alt_names 明列傅恆。 傅恆条唯一Work《御批通鑑輯覽》，清史稿著录“乾隆三十二年傅恆等奉敕撰”；富察傅恆条系《御批歷代通鑑輯覽》《兩朝御批通鑑輯覽》，同作品与奉敕身份。"
+    }
+  ]
 }

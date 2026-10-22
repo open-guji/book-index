@@ -48,21 +48,36 @@
   "period_basis": "據 dynasty「清」自動歸併",
   "native_place": "敘浦",
   "native_place_basis": "CBDB 76312 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=76312 補入空槽——籍貫「敘浦」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=76312 補入空槽——籍貫「敘浦」。既有之值一概未動。\n\n被併條 hixhd2h9bcri 原處理記錄：\n2026-09-06 CBDB enrich：據所繫 cbdb_id=35169 補入空槽——籍貫「敘浦」。既有之值一概未動。\n\n2026-10-22 confirmed-duplicate-audit-2026-10-22：合併已核定重複條 hixhd2h9bcri；原記錄、保留ID與衝突欄位裁決見 .claude/qa/confirmed-duplicate-audit-2026-10-22/。",
   "dates": {
     "birth": 1759,
     "death": 1826,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-22",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/24jebpuaf3e87jae"
+      },
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/pul0dlgo3jij8yp5"
       }
     ]
-  }
+  },
+  "merged_in": [
+    {
+      "id": "hixhd2h9bcri",
+      "primary_name": "嚴如煜",
+      "at": "2026-10-22T00:00:00Z",
+      "by": "Codex",
+      "rule": "confirmed-duplicate-audit-2026-10-22",
+      "why": "两条共享 Wikidata Q8048170 与 VIAF 24460405，但 CBDB 分别为35169、76312。 两条均记1759–1826、清、籍贯敘浦，且均有炳文/樂園异名；嚴如熤条已将嚴如煜列为別名。 CiNii author DA09759718 以嚴如熤为标目，明确收嚴如煜为别名；不是仅凭本库外部ID的循环论证。 人物各挂5条活跃Work，著作分裂：三省邊防備覽/苗防備覽/洋防輯要挂嚴如煜；樂園文鈔/樂園詩鈔等挂嚴如熤。"
+    }
+  ]
 }

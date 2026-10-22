@@ -40,14 +40,14 @@
   "native_place": "休寧",
   "native_place_entity_id": "hixi4ui65ddz",
   "native_place_basis": "CBDB 17527 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=17527 補入空槽——籍貫「休寧」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=17527 補入空槽——籍貫「休寧」。既有之值一概未動。\n\n被併條 hixhd2h9bino 原處理記錄：\n2026-09-06 CBDB enrich：據所繫 cbdb_id=547509 補入空槽——籍貫「休寧」。既有之值一概未動。\n\n2026-10-22 confirmed-duplicate-audit-2026-10-22：合併已核定重複條 hixhd2h9bino；原記錄、保留ID與衝突欄位裁決見 .claude/qa/confirmed-duplicate-audit-2026-10-22/。",
   "dates": {
     "birth": 1127,
     "death": 1183,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-22",
   "description": {
     "sources": [
       {
@@ -56,5 +56,15 @@
         "details": "http://data.library.sh.cn/entity/person/eh7u8plaqejyo4w0"
       }
     ]
-  }
+  },
+  "merged_in": [
+    {
+      "id": "hixhd2h9bino",
+      "primary_name": "吳偁",
+      "at": "2026-10-22T00:00:00Z",
+      "by": "Codex",
+      "rule": "confirmed-duplicate-audit-2026-10-22",
+      "why": "吳儆.alt_names 明列吳偁；两条皆南宋、籍贯休宁。 吴偁的floruit=1127与吴儆birth=1127同年，日期字段语义不应机械传递。 吴偁无当前Work作者引用；吴儆系竹洲集系统9条。"
+    }
+  ]
 }

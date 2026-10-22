@@ -12,7 +12,7 @@
   "dynasty": "元",
   "native_place_basis": "CBDB 35398 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「元」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=35398 補入空槽——籍貫「碭山」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eomd88w。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=35398 補入空槽——籍貫「碭山」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eomd88w。\n\n被併條 hixi8u605tng 原處理記錄：\n集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（無 person_uri，按名＋朝代聚合）新建；著錄 1 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-10-22 confirmed-duplicate-audit-2026-10-22：合併已核定重複條 hixi8u605tng；原記錄、保留ID與衝突欄位裁決見 .claude/qa/confirmed-duplicate-audit-2026-10-22/。",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "period": "liao-jin-yuan",
   "alt_names": [
@@ -27,6 +27,11 @@
     {
       "name": "文貞",
       "type": "諡號"
+    },
+    {
+      "name": "曹伯啓",
+      "type": "異體",
+      "note": "人物查重合并，保留被并条姓名；据本次逐组身份核验。"
     }
   ],
   "subtype": "people",
@@ -36,8 +41,8 @@
     "death": 1333,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-22",
   "description": {
     "sources": [
       {
@@ -46,5 +51,15 @@
         "details": "http://data.library.sh.cn/entity/person/ris1kzc1fdy6amaz"
       }
     ]
-  }
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u605tng",
+      "primary_name": "曹伯啓",
+      "at": "2026-10-22T00:00:00Z",
+      "by": "Codex",
+      "rule": "confirmed-duplicate-audit-2026-10-22",
+      "why": "两条同元代，啟／啓异体。 旧条《曹文貞詩集》四库著录十卷後錄一卷，称子曹復亨类次、胡益编；新条《漢泉曹文貞公詩集》同十卷後錄一卷，author_info明确曹伯啓、曹復亨、胡益。"
+    }
+  ]
 }

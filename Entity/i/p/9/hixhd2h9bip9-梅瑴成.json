@@ -30,7 +30,7 @@
       "type": "字"
     }
   ],
-  "ai_note": "2026-08-17 PUA 缺字訂正：原題「梅成」（含私用區缺字），訂正為「梅瑴成」。依據：《平立定三差詳說》《操縵卮言》皆梅瑴成（1681-1763，梅文鼎之孫，清代天文數學家）確切著作，操縵卮言尤為其代表作，外部檢索獨立確證。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=57793（「梅瑴成」清，1681–1763）。判準 score=85.0：name 命中、同期候選 1 個、著作重合 0.5。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=57793 補入空槽——別名 2 條（文穆、玉汝）；生年 1681；卒年 1763；籍貫「宣城」。既有之值一概未動。",
+  "ai_note": "2026-08-17 PUA 缺字訂正：原題「梅成」（含私用區缺字），訂正為「梅瑴成」。依據：《平立定三差詳說》《操縵卮言》皆梅瑴成（1681-1763，梅文鼎之孫，清代天文數學家）確切著作，操縵卮言尤為其代表作，外部檢索獨立確證。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=57793（「梅瑴成」清，1681–1763）。判準 score=85.0：name 命中、同期候選 1 個、著作重合 0.5。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=57793 補入空槽——別名 2 條（文穆、玉汝）；生年 1681；卒年 1763；籍貫「宣城」。既有之值一概未動。\n\n被併條 hixi8us1n2z0 原處理記錄：\n子部二串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/kwu385kigm7ahyfa）新建；著錄 2 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-10-22 confirmed-duplicate-audit-2026-10-22：合併已核定重複條 hixi8us1n2z0；原記錄、保留ID與衝突欄位裁決見 .claude/qa/confirmed-duplicate-audit-2026-10-22/。",
   "native_place": "宣城",
   "native_place_entity_id": "hixi5whl2br5",
   "native_place_basis": "CBDB 57793 index_addr（2026-09-06 CBDB enrich）",
@@ -39,8 +39,8 @@
     "death": 1763,
     "basis": "現行字段"
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-10-09",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-22",
   "description": {
     "sources": [
       {
@@ -49,5 +49,15 @@
         "details": "http://data.library.sh.cn/entity/person/kwu385kigm7ahyfa"
       }
     ]
-  }
+  },
+  "merged_in": [
+    {
+      "id": "hixi8us1n2z0",
+      "primary_name": "梅瑴成彙",
+      "at": "2026-10-22T00:00:00Z",
+      "by": "Codex",
+      "rule": "confirmed-duplicate-audit-2026-10-22",
+      "why": "同朝代并共享person URI kwu385kigm7ahyfa。 新条两部书《弦切對數表》《對數表》的author_info均作“清何國宗、清梅瑴成彙編”；解析成name=梅瑴成彙、role=編，角色词“彙編”被错误截断。"
+    }
+  ]
 }

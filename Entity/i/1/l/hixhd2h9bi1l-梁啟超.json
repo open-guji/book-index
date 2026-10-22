@@ -144,6 +144,11 @@
     {
       "name": "飲冰室主人",
       "type": "別名"
+    },
+    {
+      "name": "梁啓超",
+      "type": "異體",
+      "note": "人物查重合并，保留被并条姓名；据本次逐组身份核验。"
     }
   ],
   "dynasty": "中華民國",
@@ -157,7 +162,7 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "modern",
   "period_basis": "據 dynasty「中華民國」自動歸併",
-  "ai_note": "2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=89137 補入空槽——籍貫「新會」。既有之值一概未動。",
+  "ai_note": "2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=89137 補入空槽——籍貫「新會」。既有之值一概未動。\n\n被併條 hixhd2h9bpp3 原處理記錄：\n2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《戊戌政變記》。\n姓氏字被誤拆為朝代：原 primary_name「啓超」、dynasty「梁」，今還原為「梁啓超」、清（S，2026-10-09，overview#496 C1 姓氏誤拆複核）\n\n2026-10-22 confirmed-duplicate-audit-2026-10-22：合併已核定重複條 hixhd2h9bpp3；原記錄、保留ID與衝突欄位裁決見 .claude/qa/confirmed-duplicate-audit-2026-10-22/。",
   "native_place": "新會",
   "native_place_entity_id": "hixi61e9p0qo",
   "native_place_basis": "CBDB 89137 index_addr（2026-09-06 CBDB enrich）",
@@ -166,6 +171,33 @@
     "death": 1929,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-22",
+  "merged_in": [
+    {
+      "id": "hixi8u5puzsn",
+      "primary_name": "梁啓超",
+      "at": "2026-10-19",
+      "by": "集部串P3",
+      "rule": "同名且有硬证据确认同人（作品同书／字號吻合／生平吻合）",
+      "why": "戊戌政變記乃梁啓超作；二审：梁啓超確知，戊戌政變記"
+    },
+    {
+      "id": "hixhd2h9bpp3",
+      "primary_name": "梁啓超",
+      "at": "2026-10-22T00:00:00Z",
+      "by": "Codex",
+      "rule": "confirmed-duplicate-audit-2026-10-22",
+      "why": "两条都活跃；前者 dates=1873–1929，后者 dynasty_basis 明写 cbdb:691198 梁啓超（1873–1929）。 后者12条作品包括《戊戌政變記》《飲冰室全集》《梁任公文集》；前者4条包括《飲冰室文集》。 后者10/19已合并第三条梁啓超，却仍与啟字条分立；清／民国是跨朝生平而非异人。"
+    }
+  ],
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/0rs2exbs4fq613y6"
+      }
+    ]
+  }
 }
