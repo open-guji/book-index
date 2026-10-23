@@ -23,7 +23,7 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 
 专名子类型（`dynasty`／`reign`／`office`／`place`／`seal`，及 `collective_kind=官署` 的 `collective`）另有三条硬约束（overview#464）：
 
-1. **不与 CBDB 匹配，不存任何 `cbdb_*` 外部 id**；条目内容全部自写，仍按 CC0 发布；CBDB、CHGIS、DILA 只作人工校对参照。
+1. **不与 CBDB 匹配，不存任何 `cbdb_*` 外部 id**；条目内容全部自写，仍按 CC BY-SA 4.0 发布；CBDB、CHGIS、DILA 只作人工校对参照。
 2. `external_ids` 只许 `wikidata_id`，第一期不填（字段留位，CC0 来源，将来再填）。
 3. 地名不带坐标（`coords` 第一期禁止出现）。
 
