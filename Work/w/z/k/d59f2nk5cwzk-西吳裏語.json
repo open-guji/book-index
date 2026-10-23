@@ -72,6 +72,36 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-0960",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0960",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0960",
+        "edition": "明嘉靖[1522-1566]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999012280",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999012280",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999012280",
+        "edition": "清[1644-1911]"
+      }
     }
   ],
   "measures": [
@@ -86,7 +116,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-21 重出审计 WORK-0010：并入 d59f6en91qf7、d59fxy3v5tdt；保留墓碑，迁移存储侧引用。原字段异说与逐组依据见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-21 重出审计 WORK-0010：并入 d59f6en91qf7、d59fxy3v5tdt；保留墓碑，迁移存储侧引用。原字段异说与逐组依据见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json。\n\n国图數字古籍重配挂接",
   "description": {
     "text": "宋雷（明）撰。四卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》。《四庫全書存目叢書》列於子部。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -95,8 +125,8 @@
       "千頃堂書目"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-21",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-23",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "additional_titles": [
@@ -127,5 +157,13 @@
       "rule": "同作同源覆核",
       "why": "WORK-0010；逐组证据与原字段差异见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-0960": {
+      "label": "國圖藏本：明嘉靖[1522-1566]"
+    },
+    "nlc-411999012280": {
+      "label": "國圖藏本：清[1644-1911]"
+    }
+  }
 }
