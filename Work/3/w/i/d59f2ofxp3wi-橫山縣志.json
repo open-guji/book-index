@@ -18,7 +18,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善019662-019669），無同名 Work 故新建。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-09-06 qa-sweep/qing·A 類（基準句與實錄相牴）：period_basis 所引之值與 authors[0].dynasty 之實錄不符，今隨實錄改，period 不動。據：本條 authors[0].dynasty_basis 自書「synonym:民國->中華民國」——朝代名同義正規化改了 dynasty 而未回改 period_basis；「民國」與「中華民國」所指同一代，斷代（period=modern）不因之而異。原值：period_basis=「據 authors[0].dynasty「民國」」。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善019662-019669），無同名 Work 故新建。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-09-06 qa-sweep/qing·A 類（基準句與實錄相牴）：period_basis 所引之值與 authors[0].dynasty 之實錄不符，今隨實錄改，period 不動。據：本條 authors[0].dynasty_basis 自書「synonym:民國->中華民國」——朝代名同義正規化改了 dynasty 而未回改 period_basis；「民國」與「中華民國」所指同一代，斷代（period=modern）不因之而異。原值：period_basis=「據 authors[0].dynasty「民國」」。\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
   "juan_count": {
     "number": 4
   },
@@ -33,8 +33,8 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "modern",
   "period_basis": "據 authors[0].dynasty「中華民國」",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-06",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "indexed_by": [
     {
       "source": "中國古籍總目",
@@ -44,5 +44,27 @@
       "section": "史部/方志類/地志之屬",
       "summary": "共 1 個版本：民國十八年榆林東順齋石印本（復旦大學圖書館、國家圖書館、中國科學院圖書館、北京大學圖書館、天津圖書館、南京圖書館）"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-312001065709",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001065709",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001065709",
+        "edition": ""
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-312001065709": {
+      "label": "國圖藏本："
+    }
+  }
 }

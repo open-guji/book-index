@@ -240,6 +240,36 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3670002/manifest.json",
         "extent": "20冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-ZHCH1174",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10021&showType=1&indexName=data_892&fid=ZHCH1174",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "ZHCH1174",
+        "edition": ""
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-ZHCH0782",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10021&showType=1&indexName=data_892&fid=ZHCH0782",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "ZHCH0782",
+        "edition": "金皇統九年[1149]"
+      }
     }
   ],
   "measures": [
@@ -254,7 +284,7 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx2pm6pkw 與 11q37sdo8jcw0 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…後每卷各分上下，實三十四卷也。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx2pm6pkw 與 11q37sdo8jcw0 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…後每卷各分上下，實三十四卷也。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
   "description": {
     "text": "《廣弘明集》三十卷，唐釋道宣撰。諸志所著卷數不一：《舊唐書經籍志》、《新唐書藝文志》、《宋史藝文志》、《欽定四庫全書總目》著三十卷；《國史經籍志》著四十卷——卷數之異，歷代殘闕與傳鈔之跡。《欽定四庫全書總目》敘曰：「唐釋道宣撰。道宣姓錢氏，丹徒人。隋末居終南白泉寺，又遷豐德寺淨業寺，至唐高宗時乃卒。持戒精苦，釋家謂之宣律師。《唐志》載《廣弘明集》三十卷，與此本合，然二十七卷以後每卷各分上下，實三十四卷也。」今存。",
     "sources": [
@@ -265,8 +295,8 @@
       "國史經籍志"
     ]
   },
-  "revision": "1.3.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-24",
   "loss_status": "extant",
   "resource_groups": {
     "kokusho-100178015": {
@@ -286,6 +316,12 @@
     },
     "naikaku-3610994": {
       "label": "內閣文庫藏本：承応3年刊本（311-0060，20冊）"
+    },
+    "nlc-ZHCH1174": {
+      "label": "國圖藏本："
+    },
+    "nlc-ZHCH0782": {
+      "label": "國圖藏本：金皇統九年[1149]"
     }
   }
 }

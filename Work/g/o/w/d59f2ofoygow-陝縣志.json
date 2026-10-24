@@ -18,7 +18,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-06 qa-sweep/qing·A 類（基準句與實錄相牴）：period_basis 所引之值與 authors[0].dynasty 之實錄不符，今隨實錄改，period 不動。據：本條 authors[0].dynasty_basis 自書「synonym:民國->中華民國」——朝代名同義正規化改了 dynasty 而未回改 period_basis；「民國」與「中華民國」所指同一代，斷代（period=modern）不因之而異。原值：period_basis=「據 authors[0].dynasty「民國」」。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-06 qa-sweep/qing·A 類（基準句與實錄相牴）：period_basis 所引之值與 authors[0].dynasty 之實錄不符，今隨實錄改，period 不動。據：本條 authors[0].dynasty_basis 自書「synonym:民國->中華民國」——朝代名同義正規化改了 dynasty 而未回改 period_basis；「民國」與「中華民國」所指同一代，斷代（period=modern）不因之而異。原值：period_basis=「據 authors[0].dynasty「民國」」。\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
   "juan_count": {
     "number": 26
   },
@@ -33,8 +33,8 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "modern",
   "period_basis": "據 authors[0].dynasty「中華民國」",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-06",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "indexed_by": [
     {
       "source": "中國古籍總目",
@@ -44,5 +44,27 @@
       "section": "史部/方志類/地志之屬",
       "summary": "共 1 個版本：民國二十五年開封鉛印本（湖北省圖書館、河南省圖書館、北京大學圖書館、南京圖書館、國家圖書館、中國科學院圖書館、上海圖書館、浙江圖書館）"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-312001072754",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001072754",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001072754",
+        "edition": ""
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-312001072754": {
+      "label": "國圖藏本："
+    }
+  }
 }
