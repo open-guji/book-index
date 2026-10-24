@@ -12,6 +12,10 @@
     {
       "name": "縉雲",
       "type": "號"
+    },
+    {
+      "name": "馮當可",
+      "type": "別稱"
     }
   ],
   "dynasty": "南宋",
@@ -24,7 +28,7 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "dynasty_basis": "cbdb:birth/death_name=南宋",
   "period": "song",
-  "period_basis": "据 dynasty「南宋」自动归并",
+  "period_basis": "据 dynasty「南宋」自动归并\n[原馮當可 hixhd2h9bun9] 所繫 work 之 period 作「song」，故從之",
   "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=13893 補入空槽——籍貫「壁山」。既有之值一概未動。",
   "native_place": "壁山",
   "native_place_basis": "CBDB 13893 index_addr（2026-09-06 CBDB enrich）",
@@ -32,8 +36,8 @@
     "death": 1163,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-22",
   "description": {
     "sources": [
       {
@@ -42,5 +46,15 @@
         "details": "http://data.library.sh.cn/entity/person/yauq8wn8cwvq5oqh"
       }
     ]
-  }
+  },
+  "merged_in": [
+    {
+      "id": "hixhd2h9bun9",
+      "primary_name": "馮當可",
+      "at": "2026-10-22",
+      "by": "Codex",
+      "rule": "E",
+      "why": "《經義考》卷二十五同一《易論》三卷條引程逈稱蜀人馮時行字當可、號縉雲，又明錄朱子／陳氏名與字倒置異說。總目《縉雲文集》稱馮時行字當可、壁山人、紹興間官歷。是同一人名／字次序異說，不是兩作者。"
+    }
+  ]
 }
