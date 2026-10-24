@@ -58,7 +58,7 @@
 3. **丛编 ↔ 书**：丛编是书的容器，负责将具体的“书”按逻辑组织起来。
 ## 授權
 
-本倉之元資料（Work／Book／Collection／Entity 條目、`index/`、`classific.json` 等）以 **CC0 1.0** 釋出（見倉根 `LICENSE`），可自由使用、改作、再發佈，無須署名。
+本倉之元資料（Work／Book／Collection／Entity 條目、`index/`、`classific.json` 等）以 **[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans)** 釋出（見倉根 `LICENSE`），可自由使用、改作、再發佈，但須署名（註明「開源古籍 book-index」及來源鏈接、是否有修改），並以相同方式共享。
 
 - 條目中所記之**外部鏈接、館藏號、外部 ID**（如 CBDB、Wikidata、VIAF）只是指向他處之事實，所指之影像、全文、數據庫各從其站之條款。
 - 文本（整理本、全文、輯佚）不在本倉，見 [`book-text`](https://github.com/open-guji/book-text)，該倉逐文本授權。
