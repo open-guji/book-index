@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->隋; 據唯一 author.dynasty「隋」補全]\n\n2026-08-20 題名訂正專項（題名外裹書名號）：本條原題「《大威德陀羅尼經》」，書名號為匯入時隨著錄語一併攝入者，非題名之一部。庫中他條皆不以書名號入題，今去之，原題記於 original_title。\n\n2026-08-21 original_title 清雜訊：撤去「《大威德陀羅尼經》」——與 title 全同，非本條所本之書題。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n總目著錄版本待定（版本標籤空，與正式庫既有 Book 版本不符或無法比對，未入 Book）：gr35vozch8jmai4i、ji2w87l5ksv0m2ex、ze6224desm8yjhj8、ghald4wlu050xz2a\n總目分類：子部／釋家類／大藏之屬",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->隋; 據唯一 author.dynasty「隋」補全]\n\n2026-08-20 題名訂正專項（題名外裹書名號）：本條原題「《大威德陀羅尼經》」，書名號為匯入時隨著錄語一併攝入者，非題名之一部。庫中他條皆不以書名號入題，今去之，原題記於 original_title。\n\n2026-08-21 original_title 清雜訊：撤去「《大威德陀羅尼經》」——與 title 全同，非本條所本之書題。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n總目著錄版本待定（版本標籤空，與正式庫既有 Book 版本不符或無法比對，未入 Book）：gr35vozch8jmai4i、ji2w87l5ksv0m2ex、ze6224desm8yjhj8、ghald4wlu050xz2a\n總目分類：子部／釋家類／大藏之屬\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "period_basis": "據 authors[0].dynasty「隋」",
   "dynasty": "隋",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -41,6 +41,36 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NLC892-ZHCH0300-199209_%E5%A4%A7%E5%A8%81%E5%BE%B7%E9%99%80%E7%BE%85%E5%B0%BC%E7%B6%93_%E7%AC%AC1%E5%86%8A.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-ZHCH0300",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10021&showType=1&indexName=data_892&fid=ZHCH0300",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "ZHCH0300",
+        "edition": "金皇統九年[1149]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-ZHCH1243",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10021&showType=1&indexName=data_892&fid=ZHCH1243",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "ZHCH1243",
+        "edition": ""
+      }
     }
   ],
   "indexed_by": [
@@ -60,5 +90,13 @@
       "section": "子部/釋家類/大藏之屬",
       "summary": "共 4 個版本：（上海圖書館、寧夏壽佛寺、南京圖書館、福州市雪峰崇聖寺、蘇州市西園寺、重慶市慈雲寺、青島市湛山寺、南陽市水帘寺、國家圖書館、哈爾濱市極樂寺、大同市吉祥寺）；（馆藏未载）；（馆藏未载）；（日本龍谷大學）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-ZHCH0300": {
+      "label": "國圖藏本：金皇統九年[1149]"
+    },
+    "nlc-ZHCH1243": {
+      "label": "國圖藏本："
+    }
+  }
 }

@@ -236,6 +236,21 @@
         "waseda_id": "ru07_03055",
         "edition": "万暦46[1618]序"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001067227",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001067227",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001067227",
+        "edition": ""
+      }
     }
   ],
   "measures": [
@@ -250,7 +265,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwa8nults 與 11q37q0y3ruv4 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-15 Elias 併條（rule=攷考异写并条(GUJI-89)）：併 d59f6ep2abyb《東西洋攷》 入本條。考／攷异写重复Work（Selene 攷考规格 66109608，Marlowe 转派）\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwa8nults 與 11q37q0y3ruv4 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-15 Elias 併條（rule=攷考异写并条(GUJI-89)）：併 d59f6ep2abyb《東西洋攷》 入本條。考／攷异写重复Work（Selene 攷考规格 66109608，Marlowe 转派）\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
   "description": {
     "text": "張燮（明）撰。十二卷。見著錄於《欽定四庫全書總目》《明史藝文志》。其著錄之文，《明史藝文志》作「張燮《東西洋考》十二卷」。《欽定四庫全書總目》清乾隆間館臣修；《明史藝文志》清張廷玉等修——本書之目賴之以存。",
     "sources": [
@@ -258,8 +273,8 @@
       "明史藝文志"
     ]
   },
-  "revision": "1.5.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.6.0",
+  "revised_at": "2026-10-24",
   "resource_groups": {
     "kokusho-100109172": {
       "label": "國書·南丹市博小出（園部町旧蔵）藏刊"
@@ -281,6 +296,9 @@
     },
     "waseda-ru07_03055": {
       "label": "早稲田藏本：万暦46[1618]序"
+    },
+    "nlc-312001067227": {
+      "label": "國圖藏本："
     }
   },
   "period_upper": "qing",

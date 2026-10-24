@@ -16,15 +16,15 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善016336-016337），無同名 Work 故新建。\n\n2026-09-06 qa-sweep/qing·C 類（entity 之代與 work 相牴，批22系統性覆核）：撰人「王學曾」原繫 entity（明，另有《萬曆廣東通志》，約1590年代）——「鄉土志」為清末（1904後）新興體裁，與萬曆朝相去逾三百年，絕非一人，同名而誤繫，解之。原值：authors[0].entity_id=「hixhd2h9bv3c」，可逆。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善016336-016337），無同名 Work 故新建。\n\n2026-09-06 qa-sweep/qing·C 類（entity 之代與 work 相牴，批22系統性覆核）：撰人「王學曾」原繫 entity（明，另有《萬曆廣東通志》，約1590年代）——「鄉土志」為清末（1904後）新興體裁，與萬曆朝相去逾三百年，絕非一人，同名而誤繫，解之。原值：authors[0].entity_id=「hixhd2h9bv3c」，可逆。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
   "id": "d59f2n50yxaa",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -33,6 +33,26 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E6%83%A0%E6%B0%91%E7%B8%A3%E9%84%89%E5%9C%9F%E5%BF%97_-_%E5%85%89%E7%B7%92%E4%B8%89%E5%8D%81%E4%BA%8C%E5%B9%B4_%281906%29.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001070007",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001070007",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001070007",
+        "edition": ""
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-312001070007": {
+      "label": "國圖藏本："
+    }
+  }
 }
