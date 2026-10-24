@@ -1052,11 +1052,19 @@ def text_index_report(b, recs):
             'dangling': len(b.dangling_text_ids), 'counts': counts}
 
 
+def _mem(tag):
+    """BUILD_MEM_TRACE=1 时在 stderr 打各阶段的峰值 RSS（MB），查内存用。"""
+    if os.environ.get('BUILD_MEM_TRACE'):
+        import resource
+        print(f'MEM {tag} {resource.getrusage(resource.RUSAGE_SELF).ru_maxrss // 1024} MB', file=sys.stderr)
+
+
 def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, hub=HUB, quiet=False,
         write_repo_index=False, text_index=None, stream=False):
     """stream=True：逐 id 生成、校驗、寫盤，不攒全庫產物字典（CI 內存峰值降一大截）；輸出與 stream=False 逐字節相同，
     返回的 prods 為 None。--hub-check 要全量重算比對，仍走非流式。"""
     recs, sidecars, problems = V.load_repo(root)
+    _mem('load_repo')
     ref = None
     for rr in ref_roots:
         r2, _, _ = V.load_repo(rr)
@@ -1068,6 +1076,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
                     ref[t].setdefault(k, x)
     cls, cls_problems, legacy_vocab = load_classification(root)
     b = Build(recs, ref, cls, load_promotions_all(root, ref_roots), hub=hub, text_index=text_index)
+    _mem('Build init')
     stream = stream and not do_hub_check
     sink = None
     if stream:
@@ -1099,6 +1108,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
         for wid in sorted(cls):
             if b.kind_of(wid) != 'Work':
                 cls_problems.append(f'成員行 {wid} 不是本倉（或參照倉）的 Work')
+    _mem('products+write')
     src = source_checks(recs)
     if not stream:
         errs = self_checks(b, prods)
@@ -1140,6 +1150,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
     report['index'] = {'files': len(shards), 'entries': n_idx, 'drift_vs_repo_index': index_drift(root, shards)}
     if n_idx != report['entries']:
         fatal.append(f'index 條數不守恒：記錄 {report["entries"]}，index {n_idx}')
+    _mem('build_index')
     seal_m, seal_p, seal_st = SI.derive(((i, b.R['Book'][i]) for i in sorted(b.own['Book'])), b.R['Entity'])
     seal_files = SI.files(seal_m, seal_p)
     seal_drift = SI.drift(root, seal_files)
@@ -1153,6 +1164,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
         got = [i for k in range(1, x['pages'] + 1) for i in seal_p[f'{SI.PAGE_DIR}/{sid}/{k}.json']['books']]
         if len(got) != x['count'] or got != sorted(set(got)):
             fatal.append(f'印章反查表自洽失敗：{sid}')
+    _mem('seal')
     if not check_only:
         out_dir = out_dir or os.path.join(root, '_build')
         os.makedirs(out_dir, exist_ok=True)

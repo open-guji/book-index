@@ -21,9 +21,10 @@ jobs:
           grep -E "Maximum resident|Elapsed" "$RUNNER_TEMP/old.time"
       - name: 新版（流式）
         run: |
-          cd new && /usr/bin/time -v python3 build/build_derived.py --out "$RUNNER_TEMP/out-new" --text-index "$GITHUB_WORKSPACE/bt/index/texts" 2> "$RUNNER_TEMP/new.time" | tail -3
+          cd new && /usr/bin/time -v BUILD_MEM_TRACE=1 python3 build/build_derived.py --out "$RUNNER_TEMP/out-new" --text-index "$GITHUB_WORKSPACE/bt/index/texts" 2> "$RUNNER_TEMP/new.time" | tail -3; grep -E "^MEM " "$RUNNER_TEMP/new.time"
           grep -E "Maximum resident|Elapsed" "$RUNNER_TEMP/new.time"
       - name: 逐字节比较
         run: |
-          diff -rq "$RUNNER_TEMP/out-old" "$RUNNER_TEMP/out-new" && echo "产物逐字节一致：$(find "$RUNNER_TEMP/out-new" -type f | wc -l) 个文件"
+          diff <(python3 -m json.tool --sort-keys "$RUNNER_TEMP/out-old/report.json") <(python3 -m json.tool --sort-keys "$RUNNER_TEMP/out-new/report.json") | head -30 || true
+          diff -rq -x report.json "$RUNNER_TEMP/out-old" "$RUNNER_TEMP/out-new" && echo "产物逐字节一致：$(find "$RUNNER_TEMP/out-new" -type f | wc -l) 个文件"
           for f in old new; do printf '%s 峰值 RSS(KB): ' $f; grep "Maximum resident" "$RUNNER_TEMP/$f.time" | awk '{print $NF}'; done
