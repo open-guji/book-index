@@ -1,0 +1,68 @@
+{
+  "review_result": "no_material_defect_found_in_reviewed_scope",
+  "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+  "native_records_reviewed": 11,
+  "index_shards_reviewed": [
+    "index/entities/0.json",
+    "index/entities/9.json"
+  ],
+  "checks": [
+    {
+      "path": "Entity/h/e/7/hixhd2h9bhe7-錢易.json",
+      "base_hash_and_before_after_match": true
+    },
+    {
+      "path": "Entity/l/p/t/hixhd2h9blpt-錢希白.json",
+      "base_hash_and_before_after_match": true
+    },
+    {
+      "path": "Work/9/1/f/d59f2hket91f-洞微志.json",
+      "base_hash_and_before_after_match": true
+    },
+    {
+      "path": "Entity/h/c/p/hixhd2h9bhcp-喻樗.json",
+      "base_hash_and_before_after_match": true
+    },
+    {
+      "path": "Entity/p/p/r/hixhd2h9bppr-喻子材.json",
+      "base_hash_and_before_after_match": true
+    },
+    {
+      "path": "Work/7/i/9/d59f2psls7i9-豐公逸事.json",
+      "base_hash_and_before_after_match": true
+    },
+    {
+      "path": "Entity/6/f/x/hixi8u5rf6fx-釋篆玉.json",
+      "base_hash_and_before_after_match": true
+    },
+    {
+      "path": "Entity/j/c/k/hixhd2h9bjck-篆玉.json",
+      "base_hash_and_before_after_match": true
+    },
+    {
+      "path": "Entity/s/y/c/hixhd2h9bsyc-菩提流志.json",
+      "base_hash_and_before_after_match": true
+    },
+    {
+      "path": "Entity/m/8/1/hixi5eks7m81-釋菩提流志.json",
+      "base_hash_and_before_after_match": true
+    },
+    {
+      "path": "Work/o/z/k/d59f2nqjeozk-話墮集.json",
+      "base_hash_and_before_after_match": true
+    }
+  ],
+  "complete_original_owners_checked": 8,
+  "field_ledger_rows_checked": 119,
+  "findings": [],
+  "limitations": [
+    "apply.py requires a clean immutable base; it is not rerunnable on applied data",
+    "all preflight checks precede writes, but the write sequence is not one filesystem-wide transaction",
+    "verify_fields.py is a batch-specific checker; full before/after independently matched here against git base and worktree"
+  ],
+  "not_repeated": [
+    "repository-wide scans",
+    "schema/classification/builder"
+  ],
+  "reviewer_native_mutations": 0
+}

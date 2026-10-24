@@ -1,0 +1,527 @@
+{
+  "base": "c6dd8356d613fc5614beb88f0a61a3d04cfb069e",
+  "mapping": {
+    "hixhd2h9bun9": "hixhd2h9bfe9"
+  },
+  "merges": [
+    {
+      "cluster_id": "PNA-2000-004",
+      "type": "people",
+      "keeper": "hixhd2h9bfe9",
+      "losers": [
+        "hixhd2h9bun9"
+      ],
+      "evidence": "《經義考》卷二十五同一《易論》三卷條引程逈稱蜀人馮時行字當可、號縉雲，又明錄朱子／陳氏名與字倒置異說。總目《縉雲文集》稱馮時行字當可、壁山人、紹興間官歷。是同一人名／字次序異說，不是兩作者。",
+      "preconditions": [
+        {
+          "id": "hixhd2h9bfe9",
+          "path": "Entity/f/e/9/hixhd2h9bfe9-馮時行.json",
+          "blob_sha": "03107e990b08cb96fde18ab7150041f916e987b7",
+          "sha256": "c764e06db760e1e33812c42c42b525f0b3e7d71006a1eb6d2e0043236b1cad1c"
+        },
+        {
+          "id": "hixhd2h9bun9",
+          "path": "Entity/u/n/9/hixhd2h9bun9-馮當可.json",
+          "blob_sha": "213c6a00c8f0bb6ab024ea81148bc9c5d83520c9",
+          "sha256": "8eed28a730ad49775cbc4dd726fff582a30939b7b581141aac4df06c48e0267b"
+        },
+        {
+          "id": "d59f2heaqy2o",
+          "path": "Work/y/2/o/d59f2heaqy2o-易論.json",
+          "blob_sha": "451ec742cb8665235d22b10619c9d87f5e776e27",
+          "sha256": "979fce3a675a14f2e3490fa7b2559773f4119b5293ad02d4b5779c2ba94a3375"
+        }
+      ],
+      "original_records": {
+        "hixhd2h9bfe9": {
+          "schema_version": 1,
+          "id": "hixhd2h9bfe9",
+          "type": "entity",
+          "subtype": "people",
+          "primary_name": "馮時行",
+          "alt_names": [
+            {
+              "name": "當可",
+              "type": "字"
+            },
+            {
+              "name": "縉雲",
+              "type": "號"
+            }
+          ],
+          "dynasty": "南宋",
+          "external_ids": {
+            "cbdb_id": 13893,
+            "cbdb_match": "auto",
+            "cbdb_source": "name_exact+dy_match+work_recall_1.00+unique",
+            "wikidata_id": "Q45378859"
+          },
+          "updated_at": "2026-08-24T00:00:00+00:00",
+          "dynasty_basis": "cbdb:birth/death_name=南宋",
+          "period": "song",
+          "period_basis": "据 dynasty「南宋」自动归并",
+          "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=13893 補入空槽——籍貫「壁山」。既有之值一概未動。",
+          "native_place": "壁山",
+          "native_place_basis": "CBDB 13893 index_addr（2026-09-06 CBDB enrich）",
+          "dates": {
+            "death": 1163,
+            "basis": "現行字段"
+          },
+          "revision": "1.1.0",
+          "revised_at": "2026-10-07",
+          "description": {
+            "sources": [
+              {
+                "name": "中國古籍總目",
+                "type": "url",
+                "details": "http://data.library.sh.cn/entity/person/yauq8wn8cwvq5oqh"
+              }
+            ]
+          }
+        },
+        "hixhd2h9bun9": {
+          "schema_version": 1,
+          "id": "hixhd2h9bun9",
+          "type": "entity",
+          "subtype": "people",
+          "primary_name": "馮當可",
+          "updated_at": "2026-08-24T00:00:00+00:00",
+          "period": "song",
+          "period_basis": "所繫 work 之 period 作「song」，故從之",
+          "ai_note": "2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《易論》。",
+          "revision": "1.0.0",
+          "revised_at": "2026-10-07"
+        },
+        "d59f2heaqy2o": {
+          "schema_version": 1,
+          "type": "work",
+          "title": "易論",
+          "id": "d59f2heaqy2o",
+          "authors": [
+            {
+              "name": "馮當可",
+              "entity_id": "hixhd2h9bun9",
+              "name_basis": "2026-08-24 新建 entity `1jcf5151299vc` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。",
+              "dynasty": "趙宋",
+              "dynasty_basis": "synonym:period=song",
+              "role": "撰"
+            }
+          ],
+          "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書易類著錄「馮氏（當可）易論」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「佚」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。",
+          "indexed_by": [
+            {
+              "source": "經義考",
+              "source_bid": "d59f2mel8d1d",
+              "title_info": "《易論》（馮當可）",
+              "summary": "三卷\n程逈曰蜀人馮時行字當可嘗言易之象在畫易之道在用號縉雲先生其學傳之李舜臣王應麟曰趾所以行輔所以言艮其趾雖行猶不行也艮其輔雖言猶不言也故能時行時止動静不失其時其道光明馮當可云董真卿曰當可字時行蜀人易論三卷止六十四卦孫興祖編朱子曰馮當可字時行名字見於跋語陳氏書解名時行字當可今從朱子姓譜時行字當可巴縣人紹興狀元極言和議之非秦檜忌之出知左州",
+              "section": "易",
+              "juan": "卷二十五",
+              "page": "KR2n0011_WYG_025-4b",
+              "attested_status": "lost",
+              "attested_status_raw": "佚",
+              "attested_status_note": "此是朱彝尊所判，非本庫之判，故不改本記錄之 loss_status。四庫御製題論此書曰「所注闕佚未見者，今四庫所録往往其書尚存」——其判是十七世紀一人之見聞。「未見」尤非亡佚，是朱氏未見其書。"
+            }
+          ],
+          "period_upper": "qing",
+          "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing",
+          "period": "song",
+          "period_basis": "馮時行紹興狀元（2026-08-24 R3 引文定代）",
+          "updated_at": "2026-08-24T00:00:00+00:00",
+          "description": {
+            "text": "《易論》，宋馮當可撰。《經義考》敘曰：「三卷程逈曰蜀人馮時行字當可嘗言易之象在畫易之道在用號縉雲先生其學傳之李舜臣王應麟曰趾所以行輔所以言艮其趾雖行猶不行也艮其輔雖言猶不言也故能時行時止動静不失其時其道光明馮當可云董真卿曰當可字時行蜀人易論三卷止六十四卦孫興祖編朱子曰馮當可字時行名字見於跋語陳氏書解名時行字當可今從朱子姓譜時行字當可巴縣人……」",
+            "sources": [
+              "經義考"
+            ]
+          },
+          "revision": "1.0.0",
+          "revised_at": "2026-08-25"
+        }
+      },
+      "proposed_records": {
+        "hixhd2h9bfe9": {
+          "schema_version": 1,
+          "id": "hixhd2h9bfe9",
+          "type": "entity",
+          "subtype": "people",
+          "primary_name": "馮時行",
+          "alt_names": [
+            {
+              "name": "當可",
+              "type": "字"
+            },
+            {
+              "name": "縉雲",
+              "type": "號"
+            },
+            {
+              "name": "馮當可",
+              "type": "別稱"
+            }
+          ],
+          "dynasty": "南宋",
+          "external_ids": {
+            "cbdb_id": 13893,
+            "cbdb_match": "auto",
+            "cbdb_source": "name_exact+dy_match+work_recall_1.00+unique",
+            "wikidata_id": "Q45378859"
+          },
+          "updated_at": "2026-08-24T00:00:00+00:00",
+          "dynasty_basis": "cbdb:birth/death_name=南宋",
+          "period": "song",
+          "period_basis": "据 dynasty「南宋」自动归并\n[原馮當可 hixhd2h9bun9] 所繫 work 之 period 作「song」，故從之",
+          "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=13893 補入空槽——籍貫「壁山」。既有之值一概未動。",
+          "native_place": "壁山",
+          "native_place_basis": "CBDB 13893 index_addr（2026-09-06 CBDB enrich）",
+          "dates": {
+            "death": 1163,
+            "basis": "現行字段"
+          },
+          "revision": "1.2.0",
+          "revised_at": "2026-10-22",
+          "description": {
+            "sources": [
+              {
+                "name": "中國古籍總目",
+                "type": "url",
+                "details": "http://data.library.sh.cn/entity/person/yauq8wn8cwvq5oqh"
+              }
+            ]
+          },
+          "merged_in": [
+            {
+              "id": "hixhd2h9bun9",
+              "primary_name": "馮當可",
+              "at": "2026-10-22",
+              "by": "Codex",
+              "rule": "E",
+              "why": "《經義考》卷二十五同一《易論》三卷條引程逈稱蜀人馮時行字當可、號縉雲，又明錄朱子／陳氏名與字倒置異說。總目《縉雲文集》稱馮時行字當可、壁山人、紹興間官歷。是同一人名／字次序異說，不是兩作者。"
+            }
+          ]
+        },
+        "hixhd2h9bun9": {
+          "schema_version": 1,
+          "id": "hixhd2h9bun9",
+          "type": "entity",
+          "subtype": "people",
+          "primary_name": "馮當可",
+          "revision": "1.1.0",
+          "revised_at": "2026-10-22",
+          "merged_into": "hixhd2h9bfe9"
+        },
+        "d59f2heaqy2o": {
+          "schema_version": 1,
+          "type": "work",
+          "title": "易論",
+          "id": "d59f2heaqy2o",
+          "authors": [
+            {
+              "name": "馮當可",
+              "entity_id": "hixhd2h9bfe9",
+              "name_basis": "2026-08-24 新建 entity `1jcf5151299vc` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。",
+              "dynasty": "趙宋",
+              "dynasty_basis": "synonym:period=song",
+              "role": "撰"
+            }
+          ],
+          "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書易類著錄「馮氏（當可）易論」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「佚」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。",
+          "indexed_by": [
+            {
+              "source": "經義考",
+              "source_bid": "d59f2mel8d1d",
+              "title_info": "《易論》（馮當可）",
+              "summary": "三卷\n程逈曰蜀人馮時行字當可嘗言易之象在畫易之道在用號縉雲先生其學傳之李舜臣王應麟曰趾所以行輔所以言艮其趾雖行猶不行也艮其輔雖言猶不言也故能時行時止動静不失其時其道光明馮當可云董真卿曰當可字時行蜀人易論三卷止六十四卦孫興祖編朱子曰馮當可字時行名字見於跋語陳氏書解名時行字當可今從朱子姓譜時行字當可巴縣人紹興狀元極言和議之非秦檜忌之出知左州",
+              "section": "易",
+              "juan": "卷二十五",
+              "page": "KR2n0011_WYG_025-4b",
+              "attested_status": "lost",
+              "attested_status_raw": "佚",
+              "attested_status_note": "此是朱彝尊所判，非本庫之判，故不改本記錄之 loss_status。四庫御製題論此書曰「所注闕佚未見者，今四庫所録往往其書尚存」——其判是十七世紀一人之見聞。「未見」尤非亡佚，是朱氏未見其書。"
+            }
+          ],
+          "period_upper": "qing",
+          "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing",
+          "period": "song",
+          "period_basis": "馮時行紹興狀元（2026-08-24 R3 引文定代）",
+          "updated_at": "2026-08-24T00:00:00+00:00",
+          "description": {
+            "text": "《易論》，宋馮當可撰。《經義考》敘曰：「三卷程逈曰蜀人馮時行字當可嘗言易之象在畫易之道在用號縉雲先生其學傳之李舜臣王應麟曰趾所以行輔所以言艮其趾雖行猶不行也艮其輔雖言猶不言也故能時行時止動静不失其時其道光明馮當可云董真卿曰當可字時行蜀人易論三卷止六十四卦孫興祖編朱子曰馮當可字時行名字見於跋語陳氏書解名時行字當可今從朱子姓譜時行字當可巴縣人……」",
+            "sources": [
+              "經義考"
+            ]
+          },
+          "revision": "1.0.0",
+          "revised_at": "2026-08-25"
+        }
+      },
+      "field_ledger": "field-ledger.json",
+      "known_reference_changes": [
+        {
+          "id": "d59f2heaqy2o",
+          "type": "Work",
+          "path": "Work/y/2/o/d59f2heaqy2o-易論.json",
+          "pointer": "/authors/0/entity_id",
+          "before": "hixhd2h9bun9",
+          "after": "hixhd2h9bfe9",
+          "action": "review_exact_reference"
+        }
+      ],
+      "unresolved_gates": [],
+      "notes": [
+        "Historical name/courtesy-name inversion retained verbatim. No Work identity decisions. Full loser original retained by owner in ledger; keeper period_basis includes loser source basis."
+      ]
+    }
+  ],
+  "records": [
+    {
+      "id": "hixhd2h9bfe9",
+      "path": "Entity/f/e/9/hixhd2h9bfe9-馮時行.json",
+      "blob_sha": "03107e990b08cb96fde18ab7150041f916e987b7",
+      "sha256": "c764e06db760e1e33812c42c42b525f0b3e7d71006a1eb6d2e0043236b1cad1c",
+      "before": {
+        "schema_version": 1,
+        "id": "hixhd2h9bfe9",
+        "type": "entity",
+        "subtype": "people",
+        "primary_name": "馮時行",
+        "alt_names": [
+          {
+            "name": "當可",
+            "type": "字"
+          },
+          {
+            "name": "縉雲",
+            "type": "號"
+          }
+        ],
+        "dynasty": "南宋",
+        "external_ids": {
+          "cbdb_id": 13893,
+          "cbdb_match": "auto",
+          "cbdb_source": "name_exact+dy_match+work_recall_1.00+unique",
+          "wikidata_id": "Q45378859"
+        },
+        "updated_at": "2026-08-24T00:00:00+00:00",
+        "dynasty_basis": "cbdb:birth/death_name=南宋",
+        "period": "song",
+        "period_basis": "据 dynasty「南宋」自动归并",
+        "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=13893 補入空槽——籍貫「壁山」。既有之值一概未動。",
+        "native_place": "壁山",
+        "native_place_basis": "CBDB 13893 index_addr（2026-09-06 CBDB enrich）",
+        "dates": {
+          "death": 1163,
+          "basis": "現行字段"
+        },
+        "revision": "1.1.0",
+        "revised_at": "2026-10-07",
+        "description": {
+          "sources": [
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/yauq8wn8cwvq5oqh"
+            }
+          ]
+        }
+      },
+      "after": {
+        "schema_version": 1,
+        "id": "hixhd2h9bfe9",
+        "type": "entity",
+        "subtype": "people",
+        "primary_name": "馮時行",
+        "alt_names": [
+          {
+            "name": "當可",
+            "type": "字"
+          },
+          {
+            "name": "縉雲",
+            "type": "號"
+          },
+          {
+            "name": "馮當可",
+            "type": "別稱"
+          }
+        ],
+        "dynasty": "南宋",
+        "external_ids": {
+          "cbdb_id": 13893,
+          "cbdb_match": "auto",
+          "cbdb_source": "name_exact+dy_match+work_recall_1.00+unique",
+          "wikidata_id": "Q45378859"
+        },
+        "updated_at": "2026-08-24T00:00:00+00:00",
+        "dynasty_basis": "cbdb:birth/death_name=南宋",
+        "period": "song",
+        "period_basis": "据 dynasty「南宋」自动归并\n[原馮當可 hixhd2h9bun9] 所繫 work 之 period 作「song」，故從之",
+        "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=13893 補入空槽——籍貫「壁山」。既有之值一概未動。",
+        "native_place": "壁山",
+        "native_place_basis": "CBDB 13893 index_addr（2026-09-06 CBDB enrich）",
+        "dates": {
+          "death": 1163,
+          "basis": "現行字段"
+        },
+        "revision": "1.2.0",
+        "revised_at": "2026-10-22",
+        "description": {
+          "sources": [
+            {
+              "name": "中國古籍總目",
+              "type": "url",
+              "details": "http://data.library.sh.cn/entity/person/yauq8wn8cwvq5oqh"
+            }
+          ]
+        },
+        "merged_in": [
+          {
+            "id": "hixhd2h9bun9",
+            "primary_name": "馮當可",
+            "at": "2026-10-22",
+            "by": "Codex",
+            "rule": "E",
+            "why": "《經義考》卷二十五同一《易論》三卷條引程逈稱蜀人馮時行字當可、號縉雲，又明錄朱子／陳氏名與字倒置異說。總目《縉雲文集》稱馮時行字當可、壁山人、紹興間官歷。是同一人名／字次序異說，不是兩作者。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hixhd2h9bun9",
+      "path": "Entity/u/n/9/hixhd2h9bun9-馮當可.json",
+      "blob_sha": "213c6a00c8f0bb6ab024ea81148bc9c5d83520c9",
+      "sha256": "8eed28a730ad49775cbc4dd726fff582a30939b7b581141aac4df06c48e0267b",
+      "before": {
+        "schema_version": 1,
+        "id": "hixhd2h9bun9",
+        "type": "entity",
+        "subtype": "people",
+        "primary_name": "馮當可",
+        "updated_at": "2026-08-24T00:00:00+00:00",
+        "period": "song",
+        "period_basis": "所繫 work 之 period 作「song」，故從之",
+        "ai_note": "2026-08-24 新建 entity（乙等）：本人之名見於 work 之 authors[] 而庫中無其人。乙等者，庫中止一見，不比甲等之兩見以上，故別立四道之驗而後建：一去含標點者（多人連書或夾注）、含拉丁字母者、匿名之語、機構之名、數與卷篇並見者（著錄殘語）、首字為虛詞者、尾為「弟子」「門人」之屬者；二去某氏之泛稱、年號、廟號；三、四字而前二字合庫中既有之人、後二字為其字者，繫既有而不新建；四、五字以上、尾為役字、尾為「人」者別出待覈。此四道所以立，正為防 SKILL〈史料圈套〉所記之舊禍——本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、舊十四篇今、之以為嬰、問董無心、錄一卷劉向），而竟為之建 entity；今以此六者反驗，五者為所去，其一（外黃人）入待覈之列。\n\n本人所繫之 work 1 部：《易論》。",
+        "revision": "1.0.0",
+        "revised_at": "2026-10-07"
+      },
+      "after": {
+        "schema_version": 1,
+        "id": "hixhd2h9bun9",
+        "type": "entity",
+        "subtype": "people",
+        "primary_name": "馮當可",
+        "revision": "1.1.0",
+        "revised_at": "2026-10-22",
+        "merged_into": "hixhd2h9bfe9"
+      }
+    },
+    {
+      "id": "d59f2heaqy2o",
+      "path": "Work/y/2/o/d59f2heaqy2o-易論.json",
+      "blob_sha": "451ec742cb8665235d22b10619c9d87f5e776e27",
+      "sha256": "979fce3a675a14f2e3490fa7b2559773f4119b5293ad02d4b5779c2ba94a3375",
+      "before": {
+        "schema_version": 1,
+        "type": "work",
+        "title": "易論",
+        "id": "d59f2heaqy2o",
+        "authors": [
+          {
+            "name": "馮當可",
+            "entity_id": "hixhd2h9bun9",
+            "name_basis": "2026-08-24 新建 entity `1jcf5151299vc` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。",
+            "dynasty": "趙宋",
+            "dynasty_basis": "synonym:period=song",
+            "role": "撰"
+          }
+        ],
+        "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書易類著錄「馮氏（當可）易論」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「佚」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。",
+        "indexed_by": [
+          {
+            "source": "經義考",
+            "source_bid": "d59f2mel8d1d",
+            "title_info": "《易論》（馮當可）",
+            "summary": "三卷\n程逈曰蜀人馮時行字當可嘗言易之象在畫易之道在用號縉雲先生其學傳之李舜臣王應麟曰趾所以行輔所以言艮其趾雖行猶不行也艮其輔雖言猶不言也故能時行時止動静不失其時其道光明馮當可云董真卿曰當可字時行蜀人易論三卷止六十四卦孫興祖編朱子曰馮當可字時行名字見於跋語陳氏書解名時行字當可今從朱子姓譜時行字當可巴縣人紹興狀元極言和議之非秦檜忌之出知左州",
+            "section": "易",
+            "juan": "卷二十五",
+            "page": "KR2n0011_WYG_025-4b",
+            "attested_status": "lost",
+            "attested_status_raw": "佚",
+            "attested_status_note": "此是朱彝尊所判，非本庫之判，故不改本記錄之 loss_status。四庫御製題論此書曰「所注闕佚未見者，今四庫所録往往其書尚存」——其判是十七世紀一人之見聞。「未見」尤非亡佚，是朱氏未見其書。"
+          }
+        ],
+        "period_upper": "qing",
+        "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing",
+        "period": "song",
+        "period_basis": "馮時行紹興狀元（2026-08-24 R3 引文定代）",
+        "updated_at": "2026-08-24T00:00:00+00:00",
+        "description": {
+          "text": "《易論》，宋馮當可撰。《經義考》敘曰：「三卷程逈曰蜀人馮時行字當可嘗言易之象在畫易之道在用號縉雲先生其學傳之李舜臣王應麟曰趾所以行輔所以言艮其趾雖行猶不行也艮其輔雖言猶不言也故能時行時止動静不失其時其道光明馮當可云董真卿曰當可字時行蜀人易論三卷止六十四卦孫興祖編朱子曰馮當可字時行名字見於跋語陳氏書解名時行字當可今從朱子姓譜時行字當可巴縣人……」",
+          "sources": [
+            "經義考"
+          ]
+        },
+        "revision": "1.0.0",
+        "revised_at": "2026-08-25"
+      },
+      "after": {
+        "schema_version": 1,
+        "type": "work",
+        "title": "易論",
+        "id": "d59f2heaqy2o",
+        "authors": [
+          {
+            "name": "馮當可",
+            "entity_id": "hixhd2h9bfe9",
+            "name_basis": "2026-08-24 新建 entity `1jcf5151299vc` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。",
+            "dynasty": "趙宋",
+            "dynasty_basis": "synonym:period=song",
+            "role": "撰"
+          }
+        ],
+        "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書易類著錄「馮氏（當可）易論」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「佚」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。",
+        "indexed_by": [
+          {
+            "source": "經義考",
+            "source_bid": "d59f2mel8d1d",
+            "title_info": "《易論》（馮當可）",
+            "summary": "三卷\n程逈曰蜀人馮時行字當可嘗言易之象在畫易之道在用號縉雲先生其學傳之李舜臣王應麟曰趾所以行輔所以言艮其趾雖行猶不行也艮其輔雖言猶不言也故能時行時止動静不失其時其道光明馮當可云董真卿曰當可字時行蜀人易論三卷止六十四卦孫興祖編朱子曰馮當可字時行名字見於跋語陳氏書解名時行字當可今從朱子姓譜時行字當可巴縣人紹興狀元極言和議之非秦檜忌之出知左州",
+            "section": "易",
+            "juan": "卷二十五",
+            "page": "KR2n0011_WYG_025-4b",
+            "attested_status": "lost",
+            "attested_status_raw": "佚",
+            "attested_status_note": "此是朱彝尊所判，非本庫之判，故不改本記錄之 loss_status。四庫御製題論此書曰「所注闕佚未見者，今四庫所録往往其書尚存」——其判是十七世紀一人之見聞。「未見」尤非亡佚，是朱氏未見其書。"
+          }
+        ],
+        "period_upper": "qing",
+        "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing",
+        "period": "song",
+        "period_basis": "馮時行紹興狀元（2026-08-24 R3 引文定代）",
+        "updated_at": "2026-08-24T00:00:00+00:00",
+        "description": {
+          "text": "《易論》，宋馮當可撰。《經義考》敘曰：「三卷程逈曰蜀人馮時行字當可嘗言易之象在畫易之道在用號縉雲先生其學傳之李舜臣王應麟曰趾所以行輔所以言艮其趾雖行猶不行也艮其輔雖言猶不言也故能時行時止動静不失其時其道光明馮當可云董真卿曰當可字時行蜀人易論三卷止六十四卦孫興祖編朱子曰馮當可字時行名字見於跋語陳氏書解名時行字當可今從朱子姓譜時行字當可巴縣人……」",
+          "sources": [
+            "經義考"
+          ]
+        },
+        "revision": "1.0.0",
+        "revised_at": "2026-08-25"
+      }
+    }
+  ],
+  "references": [
+    {
+      "id": "d59f2heaqy2o",
+      "type": "Work",
+      "path": "Work/y/2/o/d59f2heaqy2o-易論.json",
+      "pointer": "/authors/0/entity_id",
+      "before": "hixhd2h9bun9",
+      "after": "hixhd2h9bfe9",
+      "action": "review_exact_reference"
+    }
+  ],
+  "rule": "E",
+  "source_urls": [
+    "https://zh.wikisource.org/wiki/經義考_(四庫全書本)/卷025",
+    "https://zh.wikisource.org/wiki/四庫全書總目提要/卷158"
+  ]
+}
