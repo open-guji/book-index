@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-06 qa-sweep/qing·C 類（entity 之代與 work 相牴，批22系統性覆核）：撰人「周廣」原繫 entity（明，周廣生卒（1474–1531）），與本條著錄自身之「清」全然不合——去 1644 年逾百載，非鼎革之際可跨，同名而誤繫，解之。原值：authors[0].entity_id=「hixhd2h9bfrg」，可逆。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-06 qa-sweep/qing·C 類（entity 之代與 work 相牴，批22系統性覆核）：撰人「周廣」原繫 entity（明，周廣生卒（1474–1531）），與本條著錄自身之「清」全然不合——去 1644 年逾百載，非鼎革之際可跨，同名而誤繫，解之。原值：authors[0].entity_id=「hixhd2h9bfrg」，可逆。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
   "juan_count": {
     "number": 46
   },
@@ -36,8 +36,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -61,11 +61,29 @@
         "waseda_id": "ru05_03252",
         "edition": "還読書屋, 光緒19[1893]"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001081016",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001081016",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001081016",
+        "edition": ""
+      }
     }
   ],
   "resource_groups": {
     "waseda-ru05_03252": {
       "label": "早稲田藏本：還読書屋, 光緒19[1893]"
+    },
+    "nlc-312001081016": {
+      "label": "國圖藏本："
     }
   }
 }

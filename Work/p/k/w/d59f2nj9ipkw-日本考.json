@@ -131,6 +131,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E6%97%A5%E6%9C%AC%E8%80%83%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001067255",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001067255",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001067255",
+        "edition": ""
+      }
     }
   ],
   "measures": [
@@ -145,7 +160,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 Elias 併條（rule=攷考全库同类并(Selene补丁B)）：併 d59f6el6r950《日本攷》 入本條。攷／考異寫同名同作者，Selene 全庫掃描，Sabine 批",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 Elias 併條（rule=攷考全库同类并(Selene补丁B)）：併 d59f6el6r950《日本攷》 入本條。攷／考異寫同名同作者，Selene 全庫掃描，Sabine 批\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
   "description": {
     "text": "李言恭（明）撰、都傑（明）撰。五卷；諸志所著之數有異，別作四卷。見著錄於《欽定四庫全書總目》《明史藝文志》《國史經籍志》《續修四庫全書》《四庫全書存目叢書》。《續修四庫全書》列於史部 史部；《四庫全書存目叢書》列於史部。",
     "sources": [
@@ -156,8 +171,8 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "additional_titles": [
@@ -172,5 +187,10 @@
       "rule": "攷考全库同类并(Selene补丁B)",
       "why": "攷／考異寫同名同作者，Selene 全庫掃描，Sabine 批"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-312001067255": {
+      "label": "國圖藏本："
+    }
+  }
 }

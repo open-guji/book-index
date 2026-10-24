@@ -114,6 +114,21 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4905426/manifest.json",
         "extent": "29冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001082477",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001082477",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001082477",
+        "edition": ""
+      }
     }
   ],
   "measures": [
@@ -123,7 +138,7 @@
     }
   ],
   "measure_info": "七十八卷",
-  "ai_note": "作者「清郝玉麟等纂修」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkpzmdta9s0 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志003499-003551）。阶段 5 兜底建立。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw7f3nz7k 與 11q37psp7j2tc 同指文淵閣寫本一實物，今併於後者。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "作者「清郝玉麟等纂修」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkpzmdta9s0 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志003499-003551）。阶段 5 兜底建立。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw7f3nz7k 與 11q37psp7j2tc 同指文淵閣寫本一實物，今併於後者。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
   "description": {
     "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故志003499-003551）。清乾隆丁巳(二年)刊本。",
     "sources": [
@@ -135,11 +150,14 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resource_groups": {
     "naikaku-1070176": {
       "label": "內閣文庫藏本：清乾隆刊本（288-0040，29冊）"
+    },
+    "nlc-312001082477": {
+      "label": "國圖藏本："
     }
   }
 }

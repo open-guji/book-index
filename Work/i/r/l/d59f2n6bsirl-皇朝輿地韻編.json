@@ -32,7 +32,7 @@
       "清史稿藝文志"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 購善000475）。阶段 5 兜底建立。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 購善000475）。阶段 5 兜底建立。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
   "juan_count": {
     "number": 2
   },
@@ -49,8 +49,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -59,6 +59,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:WUL-ru05_00099_0008_%E7%9A%87%E6%9C%9D%E8%BC%BF%E5%9C%B0%E9%9F%BB%E7%B7%A8.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001000540",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001000540",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001000540",
+        "edition": ""
+      }
     }
   ],
   "related_works": [
@@ -67,5 +82,10 @@
       "relation": "related",
       "note": "史部E另立（anon）：總目記錄「皇朝輿地韻編」（無作者）與既有 Work 題名相同或相近而不可證同書（无作者疑同书（题名同、卷数相符，无作者可证，另立＋related）），判為不同著作（不並）；互為相關。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-312001000540": {
+      "label": "國圖藏本："
+    }
+  }
 }

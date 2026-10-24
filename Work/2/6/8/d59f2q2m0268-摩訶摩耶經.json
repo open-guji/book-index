@@ -49,6 +49,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NLC892-ZHCH0284-199731_%E6%91%A9%E8%A8%B6%E6%91%A9%E8%80%B6%E7%B6%93_%E7%AC%AC1%E5%86%8A.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-ZHCH0284",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10021&showType=1&indexName=data_892&fid=ZHCH0284",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "ZHCH0284",
+        "edition": "金皇統九年[1149]"
+      }
     }
   ],
   "updated_at": "2026-08-20T00:00:00-07:00",
@@ -62,7 +77,7 @@
     }
   ],
   "measure_info": "二卷",
-  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（二卷），今據以補。\n\n2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。\n\n2026-09-05 《補南齊書藝文志》整理：收《補南齊書藝文志》一節。本志作「曇景　摩訶摩耶經二卷」。庫中同題而無撰人，本志考出之，當併並回填；authors 補「曇景」——庫中舊無撰人而本志考出之；period 補 nanbeichao\n\n總目版本待定：總目著錄版本標籤空，未入 Book（6avcgidmb8olthtz、2hqt3er6a5t7muis、7ipilrd3x0mu2tua、m8jg8olh0syknhae、a234tj0culgxawhu）\n總目分類：子部／釋家類／大藏之屬",
+  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（二卷），今據以補。\n\n2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。\n\n2026-09-05 《補南齊書藝文志》整理：收《補南齊書藝文志》一節。本志作「曇景　摩訶摩耶經二卷」。庫中同題而無撰人，本志考出之，當併並回填；authors 補「曇景」——庫中舊無撰人而本志考出之；period 補 nanbeichao\n\n總目版本待定：總目著錄版本標籤空，未入 Book（6avcgidmb8olthtz、2hqt3er6a5t7muis、7ipilrd3x0mu2tua、m8jg8olh0syknhae、a234tj0culgxawhu）\n總目分類：子部／釋家類／大藏之屬\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
   "period_upper": "ming",
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming",
   "authors": [
@@ -73,8 +88,13 @@
       "entity_id": "hixhjh40zzsw"
     }
   ],
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "period": "nanbeichao",
-  "period_basis": "2026-09-05 《補南齊書藝文志》整理：《補南齊書藝文志》著錄。齊（479-502）。"
+  "period_basis": "2026-09-05 《補南齊書藝文志》整理：《補南齊書藝文志》著錄。齊（479-502）。",
+  "resource_groups": {
+    "nlc-ZHCH0284": {
+      "label": "國圖藏本：金皇統九年[1149]"
+    }
+  }
 }
