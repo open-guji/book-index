@@ -21,7 +21,7 @@ jobs:
           grep -E "Maximum resident|Elapsed" "$RUNNER_TEMP/old.time"
       - name: 新版（流式）
         run: |
-          cd new && /usr/bin/time -v BUILD_MEM_TRACE=1 python3 build/build_derived.py --out "$RUNNER_TEMP/out-new" --text-index "$GITHUB_WORKSPACE/bt/index/texts" 2> "$RUNNER_TEMP/new.time" | tail -3; grep -E "^MEM " "$RUNNER_TEMP/new.time"
+          cd new && BUILD_MEM_TRACE=1 /usr/bin/time -v python3 build/build_derived.py --out "$RUNNER_TEMP/out-new" --text-index "$GITHUB_WORKSPACE/bt/index/texts" 2> "$RUNNER_TEMP/new.time" | tail -3; grep -E "^MEM " "$RUNNER_TEMP/new.time"
           grep -E "Maximum resident|Elapsed" "$RUNNER_TEMP/new.time"
       - name: 逐字节比较
         run: |
