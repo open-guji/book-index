@@ -15,7 +15,7 @@ rows = [f"| {m['cluster_id']} | {dyn(m, m['keeper'])} | {'、'.join(dyn(m, l) fo
 
 | 案 | 保留 | 被并 |
 |---|---|---|
-""" + '\\n'.join(rows) + """
+""" + '\n'.join(rows) + """
 
 验证：audit-merge-ledger（--draft）T/L/P/R/D 全 0；check_v2、check-classification、check_promo_dup 全 0。只改作者 entity_id 与人物档。
 """, encoding='utf-8')
