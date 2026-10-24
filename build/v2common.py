@@ -6,6 +6,7 @@ build_derived.py 等共用（migrate_v2.py 已于 2026-10-11 删除，见 overvi
 """
 import json
 import os
+import sys
 
 TYPES = ('Work', 'Book', 'Collection', 'Entity')
 
@@ -159,6 +160,11 @@ def _pairs_hook(dups):
     return hook
 
 
+def _intern_pairs(pairs):
+    """json 默认每个文档各存一份键字符串；全库 60 万份记录共用一套键，省下几百 MB。语义同默认（重复键后者胜、保序）。"""
+    return {sys.intern(k): v for k, v in pairs}
+
+
 def load_repo(root, keep_raw=False):
     """回傳 (records{type:{id:Record}}, sidecars[path], problems[])。
     problems：讀不了的檔、無 id、type 不符、同 id 重複——全列，不吞。"""
@@ -174,7 +180,7 @@ def load_repo(root, keep_raw=False):
             try:
                 raw = open(p, encoding='utf-8').read()
                 # 遷移時要寫回，故查重複鍵（json 只留後者，寫回即丟前者）
-                d = json.loads(raw, object_pairs_hook=_pairs_hook(dups)) if keep_raw else json.loads(raw)
+                d = json.loads(raw, object_pairs_hook=_pairs_hook(dups)) if keep_raw else json.loads(raw, object_pairs_hook=_intern_pairs)
             except Exception as e:  # noqa: BLE001 — 列入報告
                 problems.append({'path': rel, 'problem': f'unreadable: {e.__class__.__name__}'})
                 continue
