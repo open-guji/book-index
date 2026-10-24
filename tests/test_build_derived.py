@@ -298,3 +298,25 @@ def test_book_tombstone_excluded_from_work_editions_but_kept_in_index(repo):
     stub = P['entry/b0000000009.json']
     assert stub['merged_into'] == S.B1 and not stub.get('_siblings')
     assert r['self_check_error_count'] == 0
+
+
+def test_stream_output_identical_to_dict_build(repo, tmp_path):
+    a, b = str(tmp_path / 'a'), str(tmp_path / 'b')
+    r1, p1 = run(repo, out_dir=a)
+    r2, p2 = run(repo, out_dir=b, stream=True)
+    assert p1 is not None and p2 is None
+    assert tree_bytes(a) == tree_bytes(b)
+    for k in ('entries', 'files_total', 'pages', 'self_check_errors', 'fatal', 'index'):
+        assert r1[k] == r2[k], k
+    r3, _ = run(repo, out_dir=b, stream=True)
+    assert r3['write']['written'] == 0 and r3['write']['removed'] == 0
+
+
+def test_stream_removes_stale_and_check_only_writes_nothing(repo, tmp_path):
+    out = str(tmp_path / 'o')
+    run(repo, out_dir=out, stream=True)
+    os.remove(S.path(repo, 'Book', S.B3))
+    r, _ = run(repo, out_dir=out, stream=True)
+    assert not os.path.exists(os.path.join(out, 'entry', f'{S.B3}.json')) and r['write']['removed'] >= 1
+    r, _ = run(repo, out_dir=str(tmp_path / 'none'), check_only=True, stream=True)
+    assert not os.path.exists(str(tmp_path / 'none')) and 'write' not in r
