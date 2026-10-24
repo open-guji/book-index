@@ -120,6 +120,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E5%B1%B1%E6%9D%B1%E8%80%83%E5%8F%A4%E9%8C%84.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001058705",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001058705",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001058705",
+        "edition": ""
+      }
     }
   ],
   "measures": [
@@ -138,19 +153,24 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "從 1evjxkyghb5ds 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3bayd4omio(顧炎武)（不同作者，故新建獨立 Work）。\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題國朝顧炎武撰，載吳震方《說鈴》中。然《說鈴》載炎武書四種，其」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjxkyghb5ds 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3bayd4omio(顧炎武)（不同作者，故新建獨立 Work）。\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題國朝顧炎武撰，載吳震方《說鈴》中。然《說鈴》載炎武書四種，其」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
   "updated_at": "2026-08-21T00:00:00-07:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "related_works": [
     {
       "id": "d59fyn5ayg3l",
       "relation": "related",
       "note": "auto-split:近名/疑同書未并（山東考古錄）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-312001058705": {
+      "label": "國圖藏本："
+    }
+  }
 }
