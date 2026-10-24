@@ -597,9 +597,8 @@ class Build:
         return {k: x for k, x in d.items() if not k.startswith('_')}
 
     # ---------- 全量 ----------
-    def products(self, ids=None):
-        """產生 {relpath: obj}。ids=None 為本倉全部。"""
-        out = {}
+    def iter_groups(self, ids=None):
+        """逐 id 產生 {relpath: obj}（該 id 的 entry 與其分頁）。順序與 products() 相同；調用方寫完即丟，不攒全庫。"""
         builders = (('Work', self.build_work), ('Book', self.build_book),
                     ('Collection', self.build_collection), ('Entity', self.build_entity))
         for t, fn in builders:
@@ -607,7 +606,7 @@ class Build:
                 if ids is not None and i not in ids:
                     continue
                 v, extra = fn(i)
-                out[f'entry/{i}.json'] = v
+                out = {f'entry/{i}.json': v}
                 for n, pg in enumerate(extra.get('related') or [], start=2):
                     out[f'related/{i}/{n}.json'] = pg
                 for n, pg in enumerate(extra.get('catalog') or [], start=1):
@@ -616,13 +615,23 @@ class Build:
                     out[f'members/{i}/{n}.json'] = pg
                 if extra.get('lineage'):
                     out[f'lineage/{i}.json'] = extra['lineage']
+                yield out
+
+    def hubs_product(self):
         hubs = {}
         for i in sorted(self.hubs):
             t = self.kind_of(i)
             x = self.R[t][i]
             hubs[i] = clean({'t': t[0].lower(), 'title': x.get('title') or x.get('primary_name'),
                              'dyn': first_dynasty(x) if t == 'Work' else x.get('dynasty')}, keep=('t',))
-        out['_hubs.json'] = hubs
+        return hubs
+
+    def products(self, ids=None):
+        """產生 {relpath: obj}。ids=None 為本倉全部。"""
+        out = {}
+        for g in self.iter_groups(ids):
+            out.update(g)
+        out['_hubs.json'] = self.hubs_product()
         if ids is None:
             out.update(self.names.products())
         return out
@@ -879,14 +888,19 @@ def source_checks(recs):
 
 
 def self_checks(b, prods):
-    """派生值自洽、卡片可解析、h:1 都在 _hubs、條數守恒。"""
+    """派生值自洽、卡片可解析、h:1 都在 _hubs、條數守恆。"""
     errs = []
     hubs = prods['_hubs.json']
     n_entries = sum(1 for k in prods if k.startswith('entry/'))
     n_src = sum(len(b.own[t]) for t in V.TYPES)
     if n_entries != n_src:
         errs.append(f'條數不守恒：源 {n_src}，entry {n_entries}')
+    check_entries(b, prods, hubs, errs)
+    return errs
 
+
+def check_entries(b, prods, hubs, errs):
+    """逐 entry 自洽校驗。prods 只需含這些 entry 及其分頁（按 id 分組給也行），hubs 為完整 _hubs.json。"""
     def chk_cards(where, cards, idk='id'):
         for c in cards:
             if c.get('h') == 1 and c[idk] not in hubs:
@@ -927,7 +941,6 @@ def self_checks(b, prods):
         for a in v.get('_authors') or []:
             if 'id' in a:
                 chk_cards(i, [a])
-    return errs
 
 
 def hub_check(b, prods, limit=HUB_CHECK_MAX):
@@ -953,34 +966,59 @@ def hub_check(b, prods, limit=HUB_CHECK_MAX):
 
 
 # ---------- 寫出 ----------
-def write_products(out_dir, prods):
-    written = unchanged = removed = 0
-    want = set()
-    for rel, obj in prods.items():
-        p = os.path.join(out_dir, rel)
-        want.add(os.path.normpath(p))
+class ProductSink:
+    """按到達順序逐檔寫產物（內容沒變不寫），finish() 時清掉不在名單裡的舊檔。out_dir=None 只計數、不寫。"""
+
+    def __init__(self, out_dir):
+        self.out_dir = out_dir
+        self.want = set()
+        self.written = self.unchanged = 0
+        self.files = self.entries = 0
+        self.pages = {s: 0 for s in ('members', 'catalog', 'related', 'lineage')}
+
+    def put(self, rel, obj):
+        self.files += 1
+        if rel.startswith('entry/'):
+            self.entries += 1
+        for s in self.pages:
+            if rel.startswith(s + '/'):
+                self.pages[s] += 1
+        if self.out_dir is None:
+            return
+        p = os.path.join(self.out_dir, rel)
+        self.want.add(os.path.normpath(p))
         data = jb(obj)
         try:
             with open(p, 'rb') as f:
                 if f.read() == data:
-                    unchanged += 1
-                    continue
+                    self.unchanged += 1
+                    return
         except FileNotFoundError:
             os.makedirs(os.path.dirname(p), exist_ok=True)
         with open(p, 'wb') as f:
             f.write(data)
-        written += 1
-    for sub in ('entry', 'members', 'catalog', 'related', 'lineage'):
-        base = os.path.join(out_dir, sub)
-        for dp, dns, fns in os.walk(base, topdown=False):
-            for fn in fns:
-                p = os.path.normpath(os.path.join(dp, fn))
-                if p not in want:
-                    os.remove(p)
-                    removed += 1
-            if dp != base and not os.listdir(dp):
-                os.rmdir(dp)
-    return {'written': written, 'unchanged': unchanged, 'removed': removed}
+        self.written += 1
+
+    def finish(self):
+        removed = 0
+        for sub in ('entry', 'members', 'catalog', 'related', 'lineage'):
+            base = os.path.join(self.out_dir, sub)
+            for dp, dns, fns in os.walk(base, topdown=False):
+                for fn in fns:
+                    p = os.path.normpath(os.path.join(dp, fn))
+                    if p not in self.want:
+                        os.remove(p)
+                        removed += 1
+                if dp != base and not os.listdir(dp):
+                    os.rmdir(dp)
+        return {'written': self.written, 'unchanged': self.unchanged, 'removed': removed}
+
+
+def write_products(out_dir, prods):
+    sink = ProductSink(out_dir)
+    for rel, obj in prods.items():
+        sink.put(rel, obj)
+    return sink.finish()
 
 
 def index_drift(root, shards):
@@ -1014,9 +1052,19 @@ def text_index_report(b, recs):
             'dangling': len(b.dangling_text_ids), 'counts': counts}
 
 
+def _mem(tag):
+    """BUILD_MEM_TRACE=1 时在 stderr 打各阶段的峰值 RSS（MB），查内存用。"""
+    if os.environ.get('BUILD_MEM_TRACE'):
+        import resource
+        print(f'MEM {tag} {resource.getrusage(resource.RUSAGE_SELF).ru_maxrss // 1024} MB', file=sys.stderr)
+
+
 def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, hub=HUB, quiet=False,
-        write_repo_index=False, text_index=None):
+        write_repo_index=False, text_index=None, stream=False):
+    """stream=True：逐 id 生成、校驗、寫盤，不攒全庫產物字典（CI 內存峰值降一大截）；輸出與 stream=False 逐字節相同，
+    返回的 prods 為 None。--hub-check 要全量重算比對，仍走非流式。"""
     recs, sidecars, problems = V.load_repo(root)
+    _mem('load_repo')
     ref = None
     for rr in ref_roots:
         r2, _, _ = V.load_repo(rr)
@@ -1028,22 +1076,49 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
                     ref[t].setdefault(k, x)
     cls, cls_problems, legacy_vocab = load_classification(root)
     b = Build(recs, ref, cls, load_promotions_all(root, ref_roots), hub=hub, text_index=text_index)
-    prods = b.products()
-    if legacy_vocab is not None:
-        prods['classific.json'] = legacy_vocab      # F3-2 §六⑤：舊詞表改為 tree.json 的生成物，供舊讀者
+    _mem('Build init')
+    stream = stream and not do_hub_check
+    sink = None
+    if stream:
+        if not check_only:
+            out_dir = out_dir or os.path.join(root, '_build')
+            os.makedirs(out_dir, exist_ok=True)
+        sink = ProductSink(None if check_only else out_dir)
+        hubs = b.hubs_product()
+        errs = []
+        for g in b.iter_groups():
+            check_entries(b, g, hubs, errs)
+            for rel, obj in g.items():
+                sink.put(rel, obj)
+            del g
+        sink.put('_hubs.json', hubs)
+        for rel, obj in b.names.products().items():
+            sink.put(rel, obj)
+        if legacy_vocab is not None:
+            sink.put('classific.json', legacy_vocab)
+        n_src = sum(len(b.own[t]) for t in V.TYPES)
+        if sink.entries != n_src:
+            errs.append(f'條數不守恒：源 {n_src}，entry {sink.entries}')
+        prods = None
+    else:
+        prods = b.products()
+        if legacy_vocab is not None:
+            prods['classific.json'] = legacy_vocab      # F3-2 §六⑤：舊詞表改為 tree.json 的生成物，供舊讀者
     if cls is not None:
         for wid in sorted(cls):
             if b.kind_of(wid) != 'Work':
                 cls_problems.append(f'成員行 {wid} 不是本倉（或參照倉）的 Work')
+    _mem('products+write')
     src = source_checks(recs)
-    errs = self_checks(b, prods)
+    if not stream:
+        errs = self_checks(b, prods)
     report = {
         'contract': CONTRACT,
         'root': os.path.basename(os.path.abspath(root)),
         'records': {t: len(recs[t]) for t in V.TYPES},
-        'entries': sum(1 for k in prods if k.startswith('entry/')),
-        'files_total': len(prods),
-        'pages': {s: sum(1 for k in prods if k.startswith(s + '/')) for s in ('members', 'catalog', 'related', 'lineage')},
+        'entries': sink.entries if stream else sum(1 for k in prods if k.startswith('entry/')),
+        'files_total': sink.files if stream else len(prods),
+        'pages': dict(sink.pages) if stream else {s: sum(1 for k in prods if k.startswith(s + '/')) for s in ('members', 'catalog', 'related', 'lineage')},
         'hubs': len(b.hubs), 'hub_threshold': hub,
         'sidecars_ignored': sidecars,
         'load_problems': problems,
@@ -1075,6 +1150,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
     report['index'] = {'files': len(shards), 'entries': n_idx, 'drift_vs_repo_index': index_drift(root, shards)}
     if n_idx != report['entries']:
         fatal.append(f'index 條數不守恒：記錄 {report["entries"]}，index {n_idx}')
+    _mem('build_index')
     seal_m, seal_p, seal_st = SI.derive(((i, b.R['Book'][i]) for i in sorted(b.own['Book'])), b.R['Entity'])
     seal_files = SI.files(seal_m, seal_p)
     seal_drift = SI.drift(root, seal_files)
@@ -1088,10 +1164,11 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
         got = [i for k in range(1, x['pages'] + 1) for i in seal_p[f'{SI.PAGE_DIR}/{sid}/{k}.json']['books']]
         if len(got) != x['count'] or got != sorted(set(got)):
             fatal.append(f'印章反查表自洽失敗：{sid}')
+    _mem('seal')
     if not check_only:
         out_dir = out_dir or os.path.join(root, '_build')
         os.makedirs(out_dir, exist_ok=True)
-        report['write'] = write_products(out_dir, prods)
+        report['write'] = sink.finish() if stream else write_products(out_dir, prods)
         report['write']['index_files_written'] = write_index(out_dir, shards)
         report['write']['seal_files_written'], report['write']['seal_files_removed'] = SI.write(out_dir, seal_files)
         if write_repo_index:
@@ -1132,7 +1209,7 @@ def main(argv=None):
     a = ap.parse_args(argv)
     ti = TX.load(a.text_index)
     report, _ = run(a.root, a.ref_root, a.out, a.check_only, a.hub_check, a.hub,
-                    write_repo_index=a.write_index, text_index=ti)
+                    write_repo_index=a.write_index, text_index=ti, stream=True)
     if report['fatal']:
         print('FAIL: ' + '；'.join(report['fatal']), file=sys.stderr)
         return 1
