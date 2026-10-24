@@ -1,0 +1,29 @@
+name: build_derived 流式写盘验证（临时）
+# 对比 main 的旧版与本分支的流式版：产物逐字节一致，并量内存峰值。验证完随 PR 合并前删除。
+on:
+  pull_request:
+    paths: ['build/**', '.github/workflows/stream-verify.yml']
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: new }
+      - uses: actions/checkout@v4
+        with: { ref: main, path: old }
+      - uses: actions/checkout@v4
+        with: { repository: open-guji/book-text, path: bt, sparse-checkout: index/texts, sparse-checkout-cone-mode: true }
+      - name: 旧版（字典全量）
+        run: |
+          cd old && /usr/bin/time -v python3 build/build_derived.py --out "$RUNNER_TEMP/out-old" --text-index "$GITHUB_WORKSPACE/bt/index/texts" 2> "$RUNNER_TEMP/old.time" | tail -3
+          grep -E "Maximum resident|Elapsed" "$RUNNER_TEMP/old.time"
+      - name: 新版（流式）
+        run: |
+          cd new && /usr/bin/time -v python3 build/build_derived.py --out "$RUNNER_TEMP/out-new" --text-index "$GITHUB_WORKSPACE/bt/index/texts" 2> "$RUNNER_TEMP/new.time" | tail -3
+          grep -E "Maximum resident|Elapsed" "$RUNNER_TEMP/new.time"
+      - name: 逐字节比较
+        run: |
+          diff -rq "$RUNNER_TEMP/out-old" "$RUNNER_TEMP/out-new" && echo "产物逐字节一致：$(find "$RUNNER_TEMP/out-new" -type f | wc -l) 个文件"
+          for f in old new; do printf '%s 峰值 RSS(KB): ' $f; grep "Maximum resident" "$RUNNER_TEMP/$f.time" | awk '{print $NF}'; done
