@@ -28,21 +28,41 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000007545",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000007545",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000007545",
+        "edition": "清嘉慶[1796-1820]"
+      }
     }
   ],
-  "ai_note": "撰人「等」字剝離：著錄作「托津等」，「等」謂托津及其他未具名之纂修者，非姓名之一部，今剝離作「托津」。著錄原有「等」字，是本書尚有未具名之纂修者，待補。",
+  "ai_note": "撰人「等」字剝離：著錄作「托津等」，「等」謂托津及其他未具名之纂修者，非姓名之一部，今剝離作「托津」。著錄原有「等」字，是本書尚有未具名之纂修者，待補。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "updated_at": "2026-08-25T00:00:00+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "related_works": [
     {
       "id": "d59fyt7igmip",
       "relation": "related",
       "note": "史部E存疑另立：總目記錄「續修大清會典」（託津）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（候选核对：卷差>1（本条4卷，目标100卷））），按嚴口徑另立；互為相關，待並條複核。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-412000007545": {
+      "label": "國圖藏本：清嘉慶[1796-1820]"
+    }
+  }
 }

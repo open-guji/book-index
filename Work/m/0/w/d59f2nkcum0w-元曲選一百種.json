@@ -16,15 +16,15 @@
       "中華再造善本"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "id": "d59f2nkcum0w",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -33,6 +33,44 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NLC892-411999027478-45509_%E5%85%83%E6%9B%B2%E9%81%B8%E4%B8%80%E7%99%BE%E7%A8%AE.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999027478",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999027478",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999027478",
+        "edition": "明萬曆[1573-1620]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999017362",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999017362",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999017362",
+        "edition": "明萬曆[1573-1620]"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-411999027478": {
+      "label": "國圖藏本：明萬曆[1573-1620]"
+    },
+    "nlc-411999017362": {
+      "label": "國圖藏本：明萬曆[1573-1620]"
+    }
+  }
 }

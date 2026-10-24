@@ -36,7 +36,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "id": "d59f28kz3285",
   "resources": [
     {
@@ -50,6 +50,21 @@
       "types": [
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000002838",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000002838",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000002838",
+        "edition": "[出版年不詳]"
+      }
     }
   ],
   "updated_at": "2026-08-09T09:00:59+00:00",
@@ -57,6 +72,11 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
+  "resource_groups": {
+    "nlc-412000002838": {
+      "label": "國圖藏本：[出版年不詳]"
+    }
+  }
 }

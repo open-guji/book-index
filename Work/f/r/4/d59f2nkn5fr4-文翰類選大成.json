@@ -96,6 +96,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NAJDA-362-0068_%E6%96%87%E7%BF%B0%E9%A1%9E%E9%81%B8%E5%A4%A7%E6%88%901.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999022895",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999022895",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999022895",
+        "edition": "明弘治14年[1501]"
+      }
     }
   ],
   "measures": [
@@ -113,12 +128,17 @@
       "明史藝文志"
     ]
   },
-  "ai_note": "從 1evdie637t81s 合併。原註：標題與現有Work匹配但作者不同（Title match but author mismatch: entry='李伯玙' vs work='李伯璵、馮原同' (GYL5BtUnCiK)），判定為同名異書，新建獨立Work。 舊匹配結果為 GYL5BtUnCiK（exact_title），經作者校驗後判定不匹配。 來源：明史藝文志。 | 從 1evkps3zqs5j4 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善005788-005883）。阶段 5 兜底建立。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evdie637t81s 合併。原註：標題與現有Work匹配但作者不同（Title match but author mismatch: entry='李伯玙' vs work='李伯璵、馮原同' (GYL5BtUnCiK)），判定為同名異書，新建獨立Work。 舊匹配結果為 GYL5BtUnCiK（exact_title），經作者校驗後判定不匹配。 來源：明史藝文志。 | 從 1evkps3zqs5j4 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善005788-005883）。阶段 5 兜底建立。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
+  "resource_groups": {
+    "nlc-411999022895": {
+      "label": "國圖藏本：明弘治14年[1501]"
+    }
+  }
 }

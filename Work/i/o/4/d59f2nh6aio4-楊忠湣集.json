@@ -50,12 +50,70 @@
       "明史藝文志"
     ]
   },
-  "ai_note": "從 1evdidv1ijgn4 合併。原註：標題與現有Work匹配但作者不同（Title match but author mismatch: entry='楊繼盛' vs work='李若水' (GYL58EbjQYo)），判定為同名異書，新建獨立Work。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evdidv1ijgn4 合併。原註：標題與現有Work匹配但作者不同（Title match but author mismatch: entry='楊繼盛' vs work='李若水' (GYL58EbjQYo)），判定為同名異書，新建獨立Work。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-411999031184",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999031184",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999031184",
+        "edition": "明萬曆26年[1598]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999021997",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999021997",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999021997",
+        "edition": "明隆慶3年[1569]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999031200",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999031200",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999031200",
+        "edition": "清康熙33年[1694]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-411999031184": {
+      "label": "國圖藏本：明萬曆26年[1598]"
+    },
+    "nlc-411999021997": {
+      "label": "國圖藏本：明隆慶3年[1569]"
+    },
+    "nlc-411999031200": {
+      "label": "國圖藏本：清康熙33年[1694]"
+    }
+  }
 }

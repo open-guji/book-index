@@ -128,6 +128,51 @@
         "year": "民國26[1937]",
         "note": "本链接为扫描册 1；不代表全书齐备。"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-001903919",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=001903919",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "001903919",
+        "edition": "浙江書局   清末[1851-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-001903972",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=001903972",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "001903972",
+        "edition": "武昌書局   清光緒9年[1883]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-001903969",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=001903969",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "001903969",
+        "edition": "南海伍崇曜   清咸豐3年[1853]"
+      }
     }
   ],
   "measures": [
@@ -150,14 +195,25 @@
       "清史稿藝文志"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "related_works": [
     {
       "id": "d59fyt858y68",
       "relation": "related",
       "note": "史部E存疑另立：總目記錄「朱子年譜考異」（王懋竑）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（候选核对：同名未并（题名仅包含／近似而非异体，另立＋related））），按嚴口徑另立；互為相關，待並條複核。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-001903919": {
+      "label": "國圖藏本：浙江書局   清末[1851-1911]"
+    },
+    "nlc-001903972": {
+      "label": "國圖藏本：武昌書局   清光緒9年[1883]"
+    },
+    "nlc-001903969": {
+      "label": "國圖藏本：南海伍崇曜   清咸豐3年[1853]"
+    }
+  }
 }

@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-06 qa-sweep/qing·G 類重出併條（坑28）：`d59f2n1n8dfm`（\"欽定儀象考成三十卷奏議一卷首\"） 併入本條——皆同一撰人（entity_id 相同）之同書異刻／異目著錄，剝去卷數殘綴後題名相同（「奏議一卷首」「附錄」「續集」「補遺」「卷首」之屬皆版本著錄語綴於題末，非別書）。indexed_by／resources 已去重併入，Books 已改指本條，被併者之記錄檔與索引項刪去，其 entity.works 之對應項移除。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 12 取自 `measure_info`「十二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-15 Elias 併條（rule=GUJI-89 薈要并条）：併 d59f2pvuiy2q《御定儀象考成》 入本條。同书拆多Work（Selene 规格／Sabine S1 裁定 2026-10-15）",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-06 qa-sweep/qing·G 類重出併條（坑28）：`d59f2n1n8dfm`（\"欽定儀象考成三十卷奏議一卷首\"） 併入本條——皆同一撰人（entity_id 相同）之同書異刻／異目著錄，剝去卷數殘綴後題名相同（「奏議一卷首」「附錄」「續集」「補遺」「卷首」之屬皆版本著錄語綴於題末，非別書）。indexed_by／resources 已去重併入，Books 已改指本條，被併者之記錄檔與索引項刪去，其 entity.works 之對應項移除。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 12 取自 `measure_info`「十二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-15 Elias 併條（rule=GUJI-89 薈要并条）：併 d59f2pvuiy2q《御定儀象考成》 入本條。同书拆多Work（Selene 规格／Sabine S1 裁定 2026-10-15）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "measures": [
     {
       "unit": "冊",
@@ -35,8 +35,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "merged_in": [
     {
       "id": "d59f2n1n8dfm"
@@ -80,6 +80,21 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001039708",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312001039708",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001039708",
+        "edition": "清乾隆19年[1754]"
+      }
     }
   ],
   "juan_count": {
@@ -114,5 +129,10 @@
   "additional_titles": [
     "御定儀象考成",
     "禦定儀象考成"
-  ]
+  ],
+  "resource_groups": {
+    "nlc-312001039708": {
+      "label": "國圖藏本：清乾隆19年[1754]"
+    }
+  }
 }

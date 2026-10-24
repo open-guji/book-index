@@ -118,9 +118,24 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5083047/manifest.json",
         "extent": "16冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312002084701",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312002084701",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312002084701",
+        "edition": "益元局   清光緒25年[1899]"
+      }
     }
   ],
-  "ai_note": "從 1evke5bjk394w 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-25 J30：authors[0].dynasty 補「明」——period_basis 已具體考定（著錄原文自書撰人朝代：《中國通俗小說書目》「\n明無名氏輯」…），indexed_by 無 misattached 標記，逕 propagate。\n\n2026-10-07 F7 併條（rule=重出）：併 d59f2pzy67eo《繡像今古奇觀》 入本條。版本題名另立之 Work\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "從 1evke5bjk394w 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-25 J30：authors[0].dynasty 補「明」——period_basis 已具體考定（著錄原文自書撰人朝代：《中國通俗小說書目》「\n明無名氏輯」…），indexed_by 無 misattached 標記，逕 propagate。\n\n2026-10-07 F7 併條（rule=重出）：併 d59f2pzy67eo《繡像今古奇觀》 入本條。版本題名另立之 Work\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "updated_at": "2026-08-23T00:00:00-07:00",
   "period": "ming",
   "period_basis": "著錄原文自書撰人朝代：《中國通俗小說書目》「\n明無名氏輯」",
@@ -128,8 +143,8 @@
   "period_upper_basis": "edition_bound：所掛版本中最早者為「清光緒三十年上海書局石印本」——版本之年不早於成書之年，故不晚於 qing",
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（J30，period_basis 已考定）",
-  "revision": "1.4.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-24",
   "additional_titles": [
     "繡像今古奇觀",
     "繪圖今古奇觀"
@@ -156,6 +171,9 @@
     },
     "naikaku-1082119": {
       "label": "內閣文庫藏本：清刊本（309-0041，16冊）"
+    },
+    "nlc-312002084701": {
+      "label": "國圖藏本：益元局   清光緒25年[1899]"
     }
   },
   "related_works": [

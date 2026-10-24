@@ -17,15 +17,15 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "id": "d59f2nl32jgg",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "id": "nlc",
@@ -41,10 +41,28 @@
         "nlc_fid": "0688",
         "edition": "明嘉靖[1522-1566]"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999018629",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999018629",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999018629",
+        "edition": "明嘉靖[1522-1566]"
+      }
     }
   ],
   "resource_groups": {
     "nlc-0688": {
+      "label": "國圖藏本：明嘉靖[1522-1566]"
+    },
+    "nlc-411999018629": {
       "label": "國圖藏本：明嘉靖[1522-1566]"
     }
   },

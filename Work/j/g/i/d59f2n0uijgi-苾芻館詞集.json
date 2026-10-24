@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "juan_count": {
     "number": 6
   },
@@ -34,8 +34,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -44,6 +44,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NLC892-312002087234-386485_%E8%8B%BE%E8%8A%BB%E9%A4%A8%E8%A9%9E%E9%9B%86_%E5%85%AD%E5%8D%B7_%E7%AC%AC2%E5%86%8A.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312002087234",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312002087234",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312002087234",
+        "edition": "金陵糧儲道廨   清光緒29年[1903]"
+      }
     }
   ],
   "indexed_by": [
@@ -55,5 +70,10 @@
       "section": "集部/詞類/別集之屬",
       "summary": "共 3 個版本：清光緒二十七年刻朱印本（天津圖書館）；清光緒十三年成都胡氏家刻朱印本（天津圖書館、上海圖書館、北京大學圖書館、國家圖書館、香港中山圖書館、南京圖書館）；清光緒二十九年金陵糧儲道廳刻本（國家圖書館、上海圖書館、天津圖書館、南京圖書館、北京大學圖書館、遼寧省圖書館、香港中山圖書館、北京師範大學圖書館、湖北省圖書館）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-312002087234": {
+      "label": "國圖藏本：金陵糧儲道廨   清光緒29年[1903]"
+    }
+  }
 }

@@ -63,7 +63,7 @@
   "additional_titles": [
     "尚書今古文註疏"
   ],
-  "ai_note": "entity_id 補繫：本條之撰人孫星衍與庫中人物記錄（1j9678gg70hs9）同名，而該人物之 works 已列本條，是二者本相繫而作品側漏繫，今補。",
+  "ai_note": "entity_id 補繫：本條之撰人孫星衍與庫中人物記錄（1j9678gg70hs9）同名，而該人物之 works 已列本條，是二者本相繫而作品側漏繫，今補。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "updated_at": "2026-08-06T22:59:42+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
@@ -74,8 +74,8 @@
       "number": 30
     }
   ],
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -84,6 +84,26 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E5%B0%9A%E6%9B%B8%E4%BB%8A%E5%8F%A4%E6%96%87%E6%B3%A8%E7%96%8F%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999014627",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999014627",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999014627",
+        "edition": "清嘉慶20年[1815]"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-411999014627": {
+      "label": "國圖藏本：清嘉慶20年[1815]"
+    }
+  }
 }

@@ -30,9 +30,9 @@
       "summary": "共 1 個版本：清乾隆二十五年洪其哲刻本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：g4e2zakddtex5v5s",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：g4e2zakddtex5v5s\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "id": "nat-archives-jp",
@@ -51,11 +51,29 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5084442/manifest.json",
         "extent": "6冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999003453",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999003453",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999003453",
+        "edition": "清乾隆[1736-1795]"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1082822": {
       "label": "內閣文庫藏本：清乾隆25年刊本（序刊）（313-0257，6冊）"
+    },
+    "nlc-411999003453": {
+      "label": "國圖藏本：清乾隆[1736-1795]"
     }
   }
 }

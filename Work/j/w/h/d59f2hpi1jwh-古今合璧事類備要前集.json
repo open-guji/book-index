@@ -67,6 +67,36 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E6%96%87%E6%B7%B5%E9%96%A3%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8_0939%E5%86%8A.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999005509",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999005509",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999005509",
+        "edition": "明嘉靖31年至35年[1552]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000001065",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000001065",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000001065",
+        "edition": "明嘉靖31年-35年[1552-1556]"
+      }
     }
   ],
   "measures": [
@@ -87,9 +117,17 @@
       "欽定四庫全書總目"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…集》四十一門，子目四百九十一。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n總目版本待定（庫中現僅有文淵閣本）：總目著錄版本標籤空，未入 Book（faa6gf3qh2fvb0xz、yxqpye540cwjrqu4、2bztbhb251ot0ic6）\n總目分類：子部／類書類／類編之屬／通編",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…集》四十一門，子目四百九十一。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n總目版本待定（庫中現僅有文淵閣本）：總目著錄版本標籤空，未入 Book（faa6gf3qh2fvb0xz、yxqpye540cwjrqu4、2bztbhb251ot0ic6）\n總目分類：子部／類書類／類編之屬／通編\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "loss_status": "extant",
-  "loss_status_basis": "今存。集》四十一門，子目四百九十一。」今存。"
+  "loss_status_basis": "今存。集》四十一門，子目四百九十一。」今存。",
+  "resource_groups": {
+    "nlc-411999005509": {
+      "label": "國圖藏本：明嘉靖31年至35年[1552]"
+    },
+    "nlc-412000001065": {
+      "label": "國圖藏本：明嘉靖31年-35年[1552-1556]"
+    }
+  }
 }

@@ -16,7 +16,7 @@
       "（所繫實物之版本著錄）"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L6 desc 補全：本條之 description 非人所撰，是據所繫著錄之引文（或所繫實物之版本著錄）機械組織而成，未覆核原書。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L6 desc 補全：本條之 description 非人所撰，是據所繫著錄之引文（或所繫實物之版本著錄）機械組織而成，未覆核原書。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "id": "d59f2j57ovlt",
   "measures": [
     {
@@ -30,8 +30,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -58,11 +58,29 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3734949/manifest.json",
         "extent": "5冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412004000989",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412004000989",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412004000989",
+        "edition": "元[1271-1368]"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-3009463": {
       "label": "內閣文庫藏本：元末刊本（別035-0001，5冊）"
+    },
+    "nlc-412004000989": {
+      "label": "國圖藏本：元[1271-1368]"
     }
   }
 }

@@ -118,6 +118,51 @@
       "types": [
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999012211",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999012211",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999012211",
+        "edition": "清康熙[1662-1722]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-0008",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0008",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0008",
+        "edition": "元[1271-1368]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999011095",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999011095",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999011095",
+        "edition": "明初[1368-1424]"
+      }
     }
   ],
   "juan_count": {
@@ -141,7 +186,7 @@
   "period_basis": "據 authors[0].dynasty「明」（2026-08-13 遼金元/明邊界人口獨立立項：梁寅（生卒1303-1389）：死於明建國(1368)後，Entity既有分類（明／ming）已正確，Work.period因啟發式或欄位同步遺漏誤植為liao-jin-yuan，訂正）",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvi4mxc00 與 11q37nufmjke8 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvi4mxc00 與 11q37nufmjke8 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "description": {
     "text": "梁寅（明）撰。十二卷；諸志所著之數有異，別作九卷。見著錄於《明史藝文志》《欽定四庫全書總目》《國史經籍志》《經義考》。《經義考》列於易。其著錄之文，《國史經籍志》作「《周易參義》九卷（梁寅）」。本書為《周易》之注釋，其文附原典以行。",
     "sources": [
@@ -151,6 +196,17 @@
       "經義考"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
+  "resource_groups": {
+    "nlc-411999012211": {
+      "label": "國圖藏本：清康熙[1662-1722]"
+    },
+    "nlc-0008": {
+      "label": "國圖藏本：元[1271-1368]"
+    },
+    "nlc-411999011095": {
+      "label": "國圖藏本：明初[1368-1424]"
+    }
+  }
 }

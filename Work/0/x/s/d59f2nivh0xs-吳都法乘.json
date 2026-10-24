@@ -50,6 +50,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL02060309_%E5%90%B3%E9%83%BD%E6%B3%95%E4%B9%98%EF%BC%88%E4%B8%80%EF%BC%89.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999002249",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999002249",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999002249",
+        "edition": "清[1644-1911]"
+      }
     }
   ],
   "measures": [
@@ -64,7 +79,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "description": {
     "text": "周永年（明）撰。十二卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》。《四庫全書存目叢書》列於子部。其著錄之文，《四庫全書存目叢書》作「《吳都法乘》十二卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -72,6 +87,11 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
+  "resource_groups": {
+    "nlc-411999002249": {
+      "label": "國圖藏本：清[1644-1911]"
+    }
+  }
 }

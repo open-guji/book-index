@@ -20,7 +20,7 @@
       "name_basis": "2026-08-24 新建 entity `1jcf515129462` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。"
     }
   ],
-  "ai_note": "作者「清允祿等奉敕撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkacozh1ybk 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evincl7obe9s()（不同作者，故新建獨立 Work）。",
+  "ai_note": "作者「清允祿等奉敕撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkacozh1ybk 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evincl7obe9s()（不同作者，故新建獨立 Work）。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "description": {
     "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故殿005009-005037）。清乾隆十九年武英殿刊本。",
     "sources": [
@@ -32,8 +32,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "id": "kokusho",
@@ -68,6 +68,21 @@
         "holder": "東北大和算",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100246310/manifest"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001039712",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312001039712",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001039712",
+        "edition": "清光緒24年[1898]"
+      }
     }
   ],
   "resource_groups": {
@@ -76,6 +91,9 @@
     },
     "kokusho-100246310": {
       "label": "國書·東北大和算藏写"
+    },
+    "nlc-312001039712": {
+      "label": "國圖藏本：清光緒24年[1898]"
     }
   }
 }

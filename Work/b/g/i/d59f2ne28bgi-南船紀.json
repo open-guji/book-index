@@ -87,6 +87,36 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E8%88%B9%E7%B4%80.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999024515",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999024515",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999024515",
+        "edition": "清乾隆6年[1741]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000012894",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000012894",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000012894",
+        "edition": "清乾隆6年[1741]"
+      }
     }
   ],
   "measures": [
@@ -101,7 +131,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-19 同題異撰人專項（二）：本條與 `1evjr2lvzty4g` 同題《南船紀》、同卷數 4，撰人分作「沈啟」「沈囗」，僅一字之差（或一名含於另一名、或冠以朝代），乃一名之異寫或形訛，非二人二書。今併，正名取「沈啟」，異名之著錄並存於 indexed_by。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-19 同題異撰人專項（二）：本條與 `1evjr2lvzty4g` 同題《南船紀》、同卷數 4，撰人分作「沈啟」「沈囗」，僅一字之差（或一名含於另一名、或冠以朝代），乃一名之異寫或形訛，非二人二書。今併，正名取「沈啟」，異名之著錄並存於 indexed_by。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "description": {
     "text": "沈啟（明）撰。四卷。見著錄於《欽定四庫全書總目》《續修四庫全書》。《續修四庫全書》列於史部 史部。其著錄之文，《續修四庫全書》作「《南船紀》四卷」。《欽定四庫全書總目》清乾隆間館臣修；《續修四庫全書》一九九五年影印——本書之目賴之以存。",
     "sources": [
@@ -109,13 +139,21 @@
       "續修四庫全書"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "related_works": [
     {
       "id": "d59fyv7bz9xe",
       "relation": "related",
       "note": "史部E另立（anon）：總目記錄「南船紀」（無作者）與既有 Work 題名相同或相近而不可證同書（无作者疑同书（题名同、卷数相符，无作者可证，另立＋related）），判為不同著作（不並）；互為相關。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-411999024515": {
+      "label": "國圖藏本：清乾隆6年[1741]"
+    },
+    "nlc-412000012894": {
+      "label": "國圖藏本：清乾隆6年[1741]"
+    }
+  }
 }

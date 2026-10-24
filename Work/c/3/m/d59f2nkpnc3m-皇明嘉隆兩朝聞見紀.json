@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjxjzjlc7b4(沈越)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-20 磁鐵拆解專項（全域，卷數定其一）：「《皇明嘉隆兩朝聞見紀》十二卷」一節原繫於磁鐵條（`1ev3babwzwq9s`），庫中同題之 work 不止一個，然唯本條之卷數與之合，且本條非磁鐵，故歸本條並補其著錄。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 12 取自 `measure_info`「十二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjxjzjlc7b4(沈越)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-20 磁鐵拆解專項（全域，卷數定其一）：「《皇明嘉隆兩朝聞見紀》十二卷」一節原繫於磁鐵條（`1ev3babwzwq9s`），庫中同題之 work 不止一個，然唯本條之卷數與之合，且本條非磁鐵，故歸本條並補其著錄。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 12 取自 `measure_info`「十二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "measures": [
     {
       "unit": "冊",
@@ -39,8 +39,8 @@
       "note": "本著錄原繫於磁鐵條「嘉隆兩朝聞見紀」（`1ev3babwzwq9s`），今歸本條。"
     }
   ],
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "id": "nat-archives-jp",
@@ -59,11 +59,47 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4900946/manifest.json",
         "extent": "12冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-CBM0126",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=CBM0126",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "CBM0126",
+        "edition": "明萬曆[1573-1620]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999029956",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999029956",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999029956",
+        "edition": "明萬曆27年[1599]"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1072579": {
       "label": "內閣文庫藏本：明万暦27年刊本（序刊）（284-0038，12冊）"
+    },
+    "nlc-CBM0126": {
+      "label": "國圖藏本：明萬曆[1573-1620]"
+    },
+    "nlc-411999029956": {
+      "label": "國圖藏本：明萬曆27年[1599]"
     }
   }
 }

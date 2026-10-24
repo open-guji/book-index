@@ -48,7 +48,7 @@
   "additional_titles": [
     "黃帝内經明堂類成"
   ],
-  "ai_note": "撰人訂正：原作「揚上害」，係「楊上善」之形訛。《黃帝內經明堂類成》十三卷，舊唐志著錄楊上善撰，新唐志有《楊上善注黃帝內經明堂類成》。　按：暫不繫 entity_id，俟人物專項覈定後再繫。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-23 B1 同名異書併池：併入 `1evcpd3qnkagw`（黃帝內經明堂類成）。2026-08-23 B10（同題一方無撰人）：併入 `1evcpd3qnkagw`（舊唐書經籍志，13卷，不著撰人）。題名、卷數與本條全同，著錄異源，全庫同題僅此二條，裸條唯本條可繫，同書。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1evgq46q81bls` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。",
+  "ai_note": "撰人訂正：原作「揚上害」，係「楊上善」之形訛。《黃帝內經明堂類成》十三卷，舊唐志著錄楊上善撰，新唐志有《楊上善注黃帝內經明堂類成》。　按：暫不繫 entity_id，俟人物專項覈定後再繫。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-23 B1 同名異書併池：併入 `1evcpd3qnkagw`（黃帝內經明堂類成）。2026-08-23 B10（同題一方無撰人）：併入 `1evcpd3qnkagw`（舊唐書經籍志，13卷，不著撰人）。題名、卷數與本條全同，著錄異源，全庫同題僅此二條，裸條唯本條可繫，同書。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1evgq46q81bls` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "related_works": [
     {
       "id": "d59f2q4lherl",
@@ -66,6 +66,28 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-007438592",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=007438592",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "007438592",
+        "edition": "不詳"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-007438592": {
+      "label": "國圖藏本：不詳"
+    }
+  }
 }

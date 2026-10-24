@@ -14,7 +14,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故善003754-003765）。阶段 5 兜底建立。\n\n2026-08-22 B3 併池（藏本條重出）：1evkq3xllbzeo 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 1→3）併入本條。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故善003754-003765）。阶段 5 兜底建立。\n\n2026-08-22 B3 併池（藏本條重出）：1evkq3xllbzeo 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 1→3）併入本條。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "juan_count": {
     "number": 28
   },
@@ -30,8 +30,8 @@
   "period_upper": "liao-jin-yuan",
   "period_upper_basis": "edition_bound：所掛版本中最早者為「元至元二十三年重刊本」——版本之年不早於成書之年，故不晚於 liao-jin-yuan",
   "indexed_by": [],
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -40,6 +40,44 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-04457_%E5%A2%9E%E5%85%A5%E8%AB%B8%E5%84%92%E8%AD%B0%E8%AB%96%E6%9D%9C%E6%B0%8F%E9%80%9A%E5%85%B8%E8%A9%B3%E7%AF%80.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999008447",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999008447",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999008447",
+        "edition": "明弘治8年[1495]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-CBM0925",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=CBM0925",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "CBM0925",
+        "edition": "元[1206-1368]"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-411999008447": {
+      "label": "國圖藏本：明弘治8年[1495]"
+    },
+    "nlc-CBM0925": {
+      "label": "國圖藏本：元[1206-1368]"
+    }
+  }
 }

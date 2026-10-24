@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "measures": [
     {
       "unit": "冊",
@@ -30,8 +30,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基文库",
@@ -40,6 +40,51 @@
       ],
       "id": "wikisource",
       "url": "https://zh.wikisource.org/wiki/%E8%98%87%E5%B9%B3%E4%BB%B2%E6%96%87%E9%9B%86_(%E5%9B%9B%E9%83%A8%E5%8F%A2%E5%88%8A%E6%9C%AC)"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999022841",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999022841",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999022841",
+        "edition": "明正統7年[1442]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999018367",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999018367",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999018367",
+        "edition": "明正統7年[1442]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999017485",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999017485",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999017485",
+        "edition": "明正统七年[1442]"
+      }
     }
   ],
   "indexed_by": [
@@ -51,5 +96,16 @@
       "section": "集部/別集類/明代之屬",
       "summary": "共 5 個版本：清張氏研古樓抄本（上海圖書館）；明正統七年黎諒刻本（南京圖書館、上海圖書館、北京大學圖書館、國家圖書館）；清抄本（中國科學院圖書館、南京圖書館、上海圖書館）；金華叢書本（馆藏未载）；四庫全書本（馆藏未载）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-411999022841": {
+      "label": "國圖藏本：明正統7年[1442]"
+    },
+    "nlc-411999018367": {
+      "label": "國圖藏本：明正統7年[1442]"
+    },
+    "nlc-411999017485": {
+      "label": "國圖藏本：明正统七年[1442]"
+    }
+  }
 }

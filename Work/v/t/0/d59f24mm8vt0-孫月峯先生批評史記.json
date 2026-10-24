@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 40 取自 `measure_info`「四十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 40 取自 `measure_info`「四十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "measures": [
     {
       "unit": "冊",
@@ -37,8 +37,8 @@
   "updated_at": "2026-08-06T22:59:42+00:00",
   "period": "qin-han",
   "period_basis": "據 authors[0].dynasty「西漢」（原作籠統「漢」，2026-08-11 西漢探勘分期第一階段訂正：前145-前86，西漢太史令，《史記》作者）",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "id": "nat-archives-jp",
@@ -57,11 +57,29 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4046167/manifest.json",
         "extent": "14冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999032185",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999032185",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999032185",
+        "edition": "明崇禎[1628-1644]"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1073250": {
       "label": "內閣文庫藏本：明崇禎9年刊本（序刊）（279-0014，14冊）"
+    },
+    "nlc-411999032185": {
+      "label": "國圖藏本：明崇禎[1628-1644]"
     }
   },
   "indexed_by": [
