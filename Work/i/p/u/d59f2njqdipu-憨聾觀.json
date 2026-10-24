@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "measures": [
     {
       "unit": "冊",
@@ -30,8 +30,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -40,6 +40,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-07473_%E6%86%A8%E8%81%BE%E8%A7%80.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-1390",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=1390",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "1390",
+        "edition": "明萬曆[1573-1620]"
+      }
     }
   ],
   "related_works": [
@@ -48,5 +63,10 @@
       "relation": "related",
       "note": "P11 批1（Sabine 判定）：總目題名「屠田叔小品七種（霞爽閣空言、憨聾觀、聾政、笑詞黃鶯兒三十闋、狀游翻、狀游廿三發、游舟山籍各一卷）」較候選 Work「憨聾觀」多出限定（屠田叔小品七種（霞爽閣空言、、聾政、笑詞黃鶯兒三十闋、狀游翻、狀游廿三發、游舟山籍各），判為不同著作（選本／批本／注本等），不並；互為相關。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-1390": {
+      "label": "國圖藏本：明萬曆[1573-1620]"
+    }
+  }
 }

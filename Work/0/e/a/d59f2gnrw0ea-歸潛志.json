@@ -108,6 +108,51 @@
       "types": [
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-1423",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=1423",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "1423",
+        "edition": "清[1644-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999025580",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999025580",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999025580",
+        "edition": "清[1644-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-1422",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=1422",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "1422",
+        "edition": "[出版年不詳]"
+      }
     }
   ],
   "measures": [
@@ -122,7 +167,7 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx1aymc5c 與 11q37saahzi80 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx1aymc5c 與 11q37saahzi80 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "description": {
     "text": "劉祁（元）撰。十四卷。見著錄於《欽定四庫全書總目》《補遼金元藝文志》《元史藝文志》《書目答問》。其著錄之文，《補遼金元藝文志》作「元劉祁歸潛志十四卷」。",
     "sources": [
@@ -132,8 +177,8 @@
       "書目答問"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "contained_in": [
     {
       "id": "8rlcsybg2hhf",
@@ -156,5 +201,16 @@
       "relation": "related",
       "note": "多正式库候选，不并，互链"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-1423": {
+      "label": "國圖藏本：清[1644-1911]"
+    },
+    "nlc-411999025580": {
+      "label": "國圖藏本：清[1644-1911]"
+    },
+    "nlc-1422": {
+      "label": "國圖藏本：[出版年不詳]"
+    }
+  }
 }

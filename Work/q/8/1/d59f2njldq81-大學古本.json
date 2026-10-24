@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 平圖000647）。阶段 5 兜底建立。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 平圖000647）。阶段 5 兜底建立。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "juan_count": {
     "number": 1
   },
@@ -33,13 +33,35 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "related_works": [
     {
       "id": "d59fxx8bvpxc",
       "relation": "related",
       "note": "總目經部另立（auto-split:同名无主责任者未并）"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-0102",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0102",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0102",
+        "edition": "明萬曆[1573-1620]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-0102": {
+      "label": "國圖藏本：明萬曆[1573-1620]"
+    }
+  }
 }

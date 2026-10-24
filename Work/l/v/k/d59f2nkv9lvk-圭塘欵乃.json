@@ -18,7 +18,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 平圖019131），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-25 合流追改（並行車道 J31）：本條升格之後，並行車道經 WebSearch 覆核查明——《圭塘欸乃集》乃元至正年間（1350-1366）許有壬、許有孚兄弟暨許楨唱和之詩詞集，**非明代之作**；題亦當作「圭塘欸乃集」（「欵乃」「疑乃」為其異形，已入 additional_titles）。升格時所據者是訂正前之舊貌，故 period 誤作 ming。今取其訂正：title／period（ming→liao-jin-yuan）／dynasty（明→元）／authors／description 一並追入並 bump revision。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 平圖019131），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-25 合流追改（並行車道 J31）：本條升格之後，並行車道經 WebSearch 覆核查明——《圭塘欸乃集》乃元至正年間（1350-1366）許有壬、許有孚兄弟暨許楨唱和之詩詞集，**非明代之作**；題亦當作「圭塘欸乃集」（「欵乃」「疑乃」為其異形，已入 additional_titles）。升格時所據者是訂正前之舊貌，故 period 誤作 ming。今取其訂正：title／period（ming→liao-jin-yuan）／dynasty（明→元）／authors／description 一並追入並 bump revision。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "juan_count": {
     "number": 1
   },
@@ -35,10 +35,32 @@
   "period_basis": "據 authors[0].dynasty「元」——WebSearch 覆核《圭塘欸乃集》乃元至正年間（1350-1366）許有壬、許有孚兄弟暨許楨合編之詩詞集，非明代之作。",
   "dynasty": "元",
   "dynasty_basis": "據 authors[0].dynasty「元」",
-  "revision": "1.0.1",
-  "revised_at": "2026-08-24",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "additional_titles": [
     "圭塘疑乃",
     "圭塘欵乃"
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-411999029080",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999029080",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999029080",
+        "edition": "清[1644-1911]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-411999029080": {
+      "label": "國圖藏本：清[1644-1911]"
+    }
+  }
 }

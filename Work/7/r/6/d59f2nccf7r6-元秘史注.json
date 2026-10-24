@@ -59,6 +59,36 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E5%85%83%E7%A7%98%E5%8F%B2%E6%B3%A8%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999002431",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999002431",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999002431",
+        "edition": "清[1644-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000002904",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000002904",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000002904",
+        "edition": "清光緒22年[1896]"
+      }
     }
   ],
   "additional_titles": [
@@ -80,7 +110,7 @@
       "note": "总目无名氏同题，库内有具名/他源著录，未并"
     }
   ],
-  "ai_note": "2026-08-21 原典注本繫連專項：本條 authors[0] 之 role 為「注」，是注本；其題去注疏尾綴得「元秘史」，庫中有同題而非注本之條 `1evgbvknngkxs`，即其原典，今繫 `contains_text_of`，原典側繫 `text_carried_by`。見 SCHEMA〈原典與注本〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-21 原典注本繫連專項：本條 authors[0] 之 role 為「注」，是注本；其題去注疏尾綴得「元秘史」，庫中有同題而非注本之條 `1evgbvknngkxs`，即其原典，今繫 `contains_text_of`，原典側繫 `text_carried_by`。見 SCHEMA〈原典與注本〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "description": {
     "text": "李文田（清）注。十五卷。見著錄於《清史稿藝文志》《續修四庫全書》。《續修四庫全書》列於史部 史部。經注之屬。本書為《元秘史》之注釋，其文附原典以行。《清史稿藝文志》民國趙爾巽等修；《續修四庫全書》一九九五年影印——本書之目賴之以存。",
     "sources": [
@@ -88,6 +118,14 @@
       "續修四庫全書"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
+  "resource_groups": {
+    "nlc-411999002431": {
+      "label": "國圖藏本：清[1644-1911]"
+    },
+    "nlc-412000002904": {
+      "label": "國圖藏本：清光緒22年[1896]"
+    }
+  }
 }

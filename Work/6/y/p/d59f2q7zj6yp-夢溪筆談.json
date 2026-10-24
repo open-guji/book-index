@@ -45,9 +45,9 @@
       }
     }
   ],
-  "ai_note": "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。\n\n2026-10-21 重出审计 WORK-0012：并入 d59fy1jip6o1；保留墓碑，迁移存储侧引用。原字段异说与逐组依据见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-21",
+  "ai_note": "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。\n\n2026-10-21 重出审计 WORK-0012：并入 d59fy1jip6o1；保留墓碑，迁移存储侧引用。原字段异说与逐组依据见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "dynasty": "宋",
   "dynasty_basis": "合并同作，據《中國古籍總目》author_info「宋沈括撰」",
   "period": "song",
@@ -64,5 +64,63 @@
       "rule": "同作同源覆核",
       "why": "WORK-0012；逐组证据与原字段差异见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-411999019365",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999019365",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999019365",
+        "edition": "明[1368-1644]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001152697",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312001152697",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001152697",
+        "edition": "明崇禎間[1628-164"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999032499",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999032499",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999032499",
+        "edition": "明崇禎4年[1631]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-411999019365": {
+      "label": "國圖藏本：明[1368-1644]"
+    },
+    "nlc-312001152697": {
+      "label": "國圖藏本：明崇禎間[1628-164"
+    },
+    "nlc-411999032499": {
+      "label": "國圖藏本：明崇禎4年[1631]"
+    }
+  }
 }

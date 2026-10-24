@@ -85,6 +85,36 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000002554",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000002554",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000002554",
+        "edition": "清[1644-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000002555",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000002555",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000002555",
+        "edition": "清[1644-1911]"
+      }
     }
   ],
   "measures": [
@@ -105,13 +135,21 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-17 撰人闕載：原作者欄作「敕撰」並繫於偽 Entity「敕撰(清)」——該 Entity 之名本是著錄語而非人名。《四庫全書總目》提要作「不著撰人名氏」或「舊本題某朝無名氏撰」。逐條回讀著錄原文，本書之撰人確不可考，故 authors 留空。空欄即「未著撰人」之正解；繫於一個偽人，反使不可考者看似可考。\n\n2026-08-22 B3 併池（異志・卷數異或缺）：1evkad37o8etc 併入本條。二者同題而分見二志，其一省撰人。跨志之卷數本多歧（各志所據之本不同），故卷數異於此不作二書之證；已驗二者時代不相斥、著錄語所題之書名一致、非連書涵蓋數書。",
+  "ai_note": "2026-08-17 撰人闕載：原作者欄作「敕撰」並繫於偽 Entity「敕撰(清)」——該 Entity 之名本是著錄語而非人名。《四庫全書總目》提要作「不著撰人名氏」或「舊本題某朝無名氏撰」。逐條回讀著錄原文，本書之撰人確不可考，故 authors 留空。空欄即「未著撰人」之正解；繫於一個偽人，反使不可考者看似可考。\n\n2026-08-22 B3 併池（異志・卷數異或缺）：1evkad37o8etc 併入本條。二者同題而分見二志，其一省撰人。跨志之卷數本多歧（各志所據之本不同），故卷數異於此不作二書之證；已驗二者時代不相斥、著錄語所題之書名一致、非連書涵蓋數書。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "description": {
     "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故殿013471-013486）。清乾隆十四年武英殿刊本。",
     "sources": [
       "國立故宮博物院善本舊籍"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
+  "resource_groups": {
+    "nlc-412000002554": {
+      "label": "國圖藏本：清[1644-1911]"
+    },
+    "nlc-412000002555": {
+      "label": "國圖藏本：清[1644-1911]"
+    }
+  }
 }

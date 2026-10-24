@@ -67,7 +67,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/qing·A 類（基準句引不存在之值）：本條 period_basis 稱「據 authors[0].dynasty「清」」而 authors[0]（徐慶卿）原無 dynasty 一鍵，是引一不存在之值為據。病源在連書之撰人拆分：本條著錄作「(清)徐慶卿輯(清)鈕少雅訂撰」，其式為「(清)甲某撰(清)乙某注」，拆為二人時代字只落到後一人（鈕少雅），前一人漏之。今據**本條著錄原文所冠之「(清)」**補 authors[0].dynasty=「清」，基準句遂與實錄相符，period=qing 不動（索引 dynasty 本已作「清」，與此相符，無須回寫）。原值：authors[0] 無 dynasty 鍵。",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/qing·A 類（基準句引不存在之值）：本條 period_basis 稱「據 authors[0].dynasty「清」」而 authors[0]（徐慶卿）原無 dynasty 一鍵，是引一不存在之值為據。病源在連書之撰人拆分：本條著錄作「(清)徐慶卿輯(清)鈕少雅訂撰」，其式為「(清)甲某撰(清)乙某注」，拆為二人時代字只落到後一人（鈕少雅），前一人漏之。今據**本條著錄原文所冠之「(清)」**補 authors[0].dynasty=「清」，基準句遂與實錄相符，period=qing 不動（索引 dynasty 本已作「清」，與此相符，無須回寫）。原值：authors[0] 無 dynasty 鍵。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "juan_count": {
     "number": 0
   },
@@ -123,6 +123,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E7%BA%8C%E4%BF%AE%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E7%AC%AC1750%E5%86%8A.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000013566",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000013566",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000013566",
+        "edition": "清[1644-1911]"
+      }
     }
   ],
   "additional_titles": [
@@ -133,6 +148,11 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
+  "resource_groups": {
+    "nlc-412000013566": {
+      "label": "國圖藏本：清[1644-1911]"
+    }
+  }
 }

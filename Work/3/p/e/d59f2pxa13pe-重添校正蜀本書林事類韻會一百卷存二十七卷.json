@@ -31,7 +31,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-09-06 qa-sweep/liaojinyuan G 類：題名由「重添校正蜀本書林事類韻會一百卷(存二十七卷)」清為「重添校正蜀本書林事類韻會」，卷數（一百卷）、存佚範圍（存二十七卷）移入結構化欄。period 暫不動——本條 period_basis 作「2026-08-25 period 未定批次 3.3……鄰次法 tier T3」，係據《續修四庫全書》編次鄰近已定代之條推得，而本條自身之著錄明載「影印國家圖書館藏**宋刻本**」——直接證據（版本）與鄰次法之推斷孰輕孰重，已記 known-issues 待裁，本批止清其題。原值：title「重添校正蜀本書林事類韻會一百卷(存二十七卷)」。",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-09-06 qa-sweep/liaojinyuan G 類：題名由「重添校正蜀本書林事類韻會一百卷(存二十七卷)」清為「重添校正蜀本書林事類韻會」，卷數（一百卷）、存佚範圍（存二十七卷）移入結構化欄。period 暫不動——本條 period_basis 作「2026-08-25 period 未定批次 3.3……鄰次法 tier T3」，係據《續修四庫全書》編次鄰近已定代之條推得，而本條自身之著錄明載「影印國家圖書館藏**宋刻本**」——直接證據（版本）與鄰次法之推斷孰輕孰重，已記 known-issues 待裁，本批止清其題。原值：title「重添校正蜀本書林事類韻會一百卷(存二十七卷)」。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "id": "d59f2pxa13pe",
   "resources": [
     {
@@ -57,6 +57,21 @@
       "types": [
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412004000931",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412004000931",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412004000931",
+        "edition": "宋[960-1279]"
+      }
     }
   ],
   "updated_at": "2026-05-14T02:04:40-07:00",
@@ -64,10 +79,15 @@
   "period_upper_basis": "collection_bound：本書收入《續修四庫全書》——其書收錄止於辛亥（1911）以前之著作，故不晚於 qing",
   "period": "liao-jin-yuan",
   "period_basis": "2026-08-25 period未定批次 3.3（shard 3）：本條見《續修四庫全書》〈子部〉，該篇編次以時代為序（同篇已定代諸條大抵依次遞進）；本條前後最近之已定代諸條皆繫 liao-jin-yuan，據其編次定代（鄰次法 tier T3，抽驗準確率 96%–98%）。",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "juan_count": {
     "number": 100
   },
-  "loss_status": "partially_extant"
+  "loss_status": "partially_extant",
+  "resource_groups": {
+    "nlc-412004000931": {
+      "label": "國圖藏本：宋[960-1279]"
+    }
+  }
 }

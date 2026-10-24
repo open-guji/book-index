@@ -41,9 +41,9 @@
       "summary": "共 4 個版本：清順治間金閶振鄴堂刻本（浙江圖書館）；清順治十七年文錦堂刻本（上海圖書館）；清順治十六至十七年尚德堂刻本（國家圖書館）；清順治十七年泌樂堂刻本（國家圖書館、中國科學院圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zjk5yg07g26s7eul、v8oraez3c555786j、hehajfhtxfn8y1i3、0ty8zc1ke3287qug\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zjk5yg07g26s7eul、v8oraez3c555786j、hehajfhtxfn8y1i3、0ty8zc1ke3287qug\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "id": "nat-archives-jp",
@@ -62,11 +62,29 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5097332/manifest.json",
         "extent": "16冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999032058",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999032058",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999032058",
+        "edition": "清順治16年-17年[1659-1660]"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1072191": {
       "label": "內閣文庫藏本：清順治17年刊本（序刊）（362-0040，16冊）"
+    },
+    "nlc-411999032058": {
+      "label": "國圖藏本：清順治16年-17年[1659-1660]"
     }
   }
 }

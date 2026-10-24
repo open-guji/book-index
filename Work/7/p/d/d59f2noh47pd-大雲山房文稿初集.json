@@ -43,14 +43,14 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1evke40em0a2o 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。",
+  "ai_note": "從 1evke40em0a2o 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "updated_at": "2026-08-09T10:40:18+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -59,6 +59,44 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NJlib-0003417-0001_%E5%A4%A7%E9%9B%B2%E5%B1%B1%E6%88%BF%E6%96%87%E7%A8%BF%E5%88%9D%E9%9B%86%E5%9B%9B%E5%8D%B7.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000006438",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000006438",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000006438",
+        "edition": "清嘉慶20年[1815]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000006497",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000006497",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000006497",
+        "edition": "清同治8年[1869]"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-412000006438": {
+      "label": "國圖藏本：清嘉慶20年[1815]"
+    },
+    "nlc-412000006497": {
+      "label": "國圖藏本：清同治8年[1869]"
+    }
+  }
 }

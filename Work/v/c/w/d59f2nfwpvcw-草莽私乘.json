@@ -99,6 +99,51 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-002308448",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=002308448",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "002308448",
+        "edition": "新陽趙氏   清光緒15年[1889]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999012268",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999012268",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999012268",
+        "edition": "清[1644-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999013034",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999013034",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999013034",
+        "edition": "清[1644-1911]"
+      }
     }
   ],
   "measures": [
@@ -113,7 +158,7 @@
   "period_basis": "2026-09-06 qa-sweep/ming A 類重立據：《欽定四庫全書總目》著錄之文作「舊本題明陶宗儀編」，《四庫全書存目叢書》作「明陶宗儀輯」。本條 period 仍作 ming。原句「據 authors[0].dynasty「明」」與實錄之「元末明初」相牴（2026-08-25 遼金元 L5 改撰人之代而未改本句）；本批不動 period，只重立其據。原值：period_basis=\"據 authors[0].dynasty「明」\"。",
   "dynasty": "元末明初",
   "dynasty_basis": "author_propagation（2026-09-06 qa-sweep/ming A 類重propagate：authors[0].dynasty 已作「元末明初」而本欄仍留「明」，同步之。原值：明）",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-21 真偽專項：據上引判語標 `authenticity: forged`。判準見 SCHEMA〈authenticity〉——所斷之語須指向本書，且非否定句、非泛論、非說他書。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 遼金元 L5：撰人「陶宗儀」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-09-06 qa-sweep/ming A 類重立據：period_basis 引 authors[0].dynasty「明」而實錄非之，重立其據（見 period_basis）。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-21 真偽專項：據上引判語標 `authenticity: forged`。判準見 SCHEMA〈authenticity〉——所斷之語須指向本書，且非否定句、非泛論、非說他書。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 遼金元 L5：撰人「陶宗儀」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-09-06 qa-sweep/ming A 類重立據：period_basis 引 authors[0].dynasty「明」而實錄非之，重立其據（見 period_basis）。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "authenticity": "forged",
   "authenticity_basis": "《欽定四庫全書總目》：「然孫作《滄螺集》載有《宗儀小傳》，紀所作書目有《說郛》一百卷、《書史會要》九卷、《四書備遺》二卷、《輟耕錄》三十卷。無此書名，疑好事者依託也。」",
   "description": {
@@ -123,6 +168,17 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
+  "resource_groups": {
+    "nlc-002308448": {
+      "label": "國圖藏本：新陽趙氏   清光緒15年[1889]"
+    },
+    "nlc-411999012268": {
+      "label": "國圖藏本：清[1644-1911]"
+    },
+    "nlc-411999013034": {
+      "label": "國圖藏本：清[1644-1911]"
+    }
+  }
 }

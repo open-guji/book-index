@@ -87,6 +87,51 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL09006774_%E6%AC%BD%E5%AE%9A%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E7%B0%A1%E6%98%8E%E7%9B%AE%E9%8C%84.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-001945430",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=001945430",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "001945430",
+        "edition": "廣東書局   清同治7年[1868]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-001945446",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=001945446",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "001945446",
+        "edition": "暢懷書屋   清光緒14年[1888]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-001945455",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=001945455",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "001945455",
+        "edition": "清[1644-1911]"
+      }
     }
   ],
   "juan_count": {
@@ -103,7 +148,7 @@
       "relation": "related"
     }
   ],
-  "ai_note": "[merged from 1evkpuopnq0ow on 2026-05-17: 簡明目錄 故宮善本瘦条目合并] 原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善023455-023458）。阶段 5 兜底建立。\n\n2026-08-23 related_works 整飭：題名同步 1 處、(id,relation) 重複去 0 條。題名依 SCHEMA〈關聯詞表〉「應與目標 Work 的 title 保持一致」鏡射目標之現題；去重只去單側冗餘，雙向之對稱未動（反向側逐條驗過皆只一條）。按：production 無校驗在管（chk 只跑 draft），此二事遂積至 51／43。\n\n2026-09-06 撰人欄原作「紀昀等」，「等」謂不止一人而非名之一部，今取主名「紀昀」；「等」之義存於 indexed_by 之著錄原文。（做秦榮光本《補晉書藝文志》寫庫時所見）",
+  "ai_note": "[merged from 1evkpuopnq0ow on 2026-05-17: 簡明目錄 故宮善本瘦条目合并] 原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善023455-023458）。阶段 5 兜底建立。\n\n2026-08-23 related_works 整飭：題名同步 1 處、(id,relation) 重複去 0 條。題名依 SCHEMA〈關聯詞表〉「應與目標 Work 的 title 保持一致」鏡射目標之現題；去重只去單側冗餘，雙向之對稱未動（反向側逐條驗過皆只一條）。按：production 無校驗在管（chk 只跑 draft），此二事遂積至 51／43。\n\n2026-09-06 撰人欄原作「紀昀等」，「等」謂不止一人而非名之一部，今取主名「紀昀」；「等」之義存於 indexed_by 之著錄原文。（做秦榮光本《補晉書藝文志》寫庫時所見）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "indexed_by": [
     {
       "source": "書目答問",
@@ -130,8 +175,8 @@
     }
   ],
   "measure_info": "二十卷",
-  "revision": "1.3.2",
-  "revised_at": "2026-09-07",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-24",
   "period": "qing",
   "period_basis": "補 period（2026-08-25）：《欽定四庫全書》一系，清乾隆間敕修，紀昀等總其事。本條無 period 者，以其升格在 period 欄設立之前。",
   "updated_at": "2026-08-26T00:00:00+00:00",
@@ -140,5 +185,16 @@
       "id": "8rld0ts2thj4",
       "volume_index": ""
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-001945430": {
+      "label": "國圖藏本：廣東書局   清同治7年[1868]"
+    },
+    "nlc-001945446": {
+      "label": "國圖藏本：暢懷書屋   清光緒14年[1888]"
+    },
+    "nlc-001945455": {
+      "label": "國圖藏本：清[1644-1911]"
+    }
+  }
 }

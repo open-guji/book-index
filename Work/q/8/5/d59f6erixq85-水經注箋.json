@@ -35,15 +35,55 @@
   "measure_info": "四十卷",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
-  "ai_note": "同名異書：庫內已有同題「水經注箋」而撰人各異（桑欽(漢)），本條撰人「朱謀㙔」與之不合，依《千頃堂書目》著錄逕行新建。",
+  "ai_note": "同名異書：庫內已有同題「水經注箋」而撰人各異（桑欽(漢)），本條撰人「朱謀㙔」與之不合，依《千頃堂書目》著錄逕行新建。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "id": "d59f6erixq85",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-01",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "related_works": [
     {
       "id": "d59fyv7vn85d",
       "relation": "related",
       "note": "史部E另立（anon）：總目記錄「水經注箋」（無作者）與既有 Work 題名相同或相近而不可證同書（无作者疑同书（题名同、卷数相符，无作者可证，另立＋related）），判為不同著作（不並）；互為相關。"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-0937",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0937",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0937",
+        "edition": "明萬曆[1573-1620]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999008955",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999008955",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999008955",
+        "edition": "明萬曆43年[1615]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-0937": {
+      "label": "國圖藏本：明萬曆[1573-1620]"
+    },
+    "nlc-411999008955": {
+      "label": "國圖藏本：明萬曆43年[1615]"
+    }
+  }
 }

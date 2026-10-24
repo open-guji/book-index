@@ -22,7 +22,7 @@
       "title_info": "靈棋經注二卷"
     }
   ],
-  "ai_note": "2026-09-06 《補晉書藝文志》（秦榮光）整理：據《補晉書藝文志》（秦榮光撰）新建。原文「顏幼明　靈棊經注二卷」。新建之由：庫中無同題者。　撰人自考證文首句提取（A）\n\n2026-09-07 lane-B 併條（rule=I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一））：併 d59f27xqj2f4《靈棋經注》 入本條。同題同撰人而**題止異體字之異**：「靈棊經注」對「靈棋經注」。keeper 繫 補晉書藝文志（秦榮光）；被併者繫 補晉書藝文志（丁國鈞）。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。",
+  "ai_note": "2026-09-06 《補晉書藝文志》（秦榮光）整理：據《補晉書藝文志》（秦榮光撰）新建。原文「顏幼明　靈棊經注二卷」。新建之由：庫中無同題者。　撰人自考證文首句提取（A）\n\n2026-09-07 lane-B 併條（rule=I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一））：併 d59f27xqj2f4《靈棋經注》 入本條。同題同撰人而**題止異體字之異**：「靈棊經注」對「靈棋經注」。keeper 繫 補晉書藝文志（秦榮光）；被併者繫 補晉書藝文志（丁國鈞）。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "measure_info": "二卷",
   "authors": [
     {
@@ -33,8 +33,8 @@
     }
   ],
   "id": "d59f9uwug5xh",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-06",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "additional_titles": [
     "靈棋經注"
   ],
@@ -53,5 +53,45 @@
       "id": "d59f208lo4cg",
       "relation": "contains_text_of"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-411999009528",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999009528",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999009528",
+        "edition": "明正德15年[1505]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999023565",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999023565",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999023565",
+        "edition": "明正德15年[1520]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-411999009528": {
+      "label": "國圖藏本：明正德15年[1505]"
+    },
+    "nlc-411999023565": {
+      "label": "國圖藏本：明正德15年[1520]"
+    }
+  }
 }

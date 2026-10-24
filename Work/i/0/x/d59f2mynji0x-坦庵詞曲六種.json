@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -41,6 +41,62 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NLC892-411999026447-141289_%E5%9D%A6%E5%BA%B5%E8%A9%9E%E6%9B%B2%E5%85%AD%E7%A8%AE.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999026447",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999026447",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999026447",
+        "edition": "清初[1644-1722]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-2508",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=2508",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "2508",
+        "edition": "清初[1644-1722)"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999021415",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999021415",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999021415",
+        "edition": "清初[1644-1722]"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-411999026447": {
+      "label": "國圖藏本：清初[1644-1722]"
+    },
+    "nlc-2508": {
+      "label": "國圖藏本：清初[1644-1722)"
+    },
+    "nlc-411999021415": {
+      "label": "國圖藏本：清初[1644-1722]"
+    }
+  }
 }

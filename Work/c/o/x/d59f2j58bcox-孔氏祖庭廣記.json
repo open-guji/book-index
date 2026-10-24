@@ -17,7 +17,7 @@
       "（所繫實物之版本著錄）"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L6 desc 補全：本條之 description 非人所撰，是據所繫著錄之引文（或所繫實物之版本著錄）機械組織而成，未覆核原書。",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L6 desc 補全：本條之 description 非人所撰，是據所繫著錄之引文（或所繫實物之版本著錄）機械組織而成，未覆核原書。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "id": "d59f2j58bcox",
   "measures": [
     {
@@ -31,8 +31,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基文库",
@@ -57,6 +57,44 @@
         "year": "1936",
         "note": "本链接为扫描册 第1卷；不代表全书齐备。"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000003061",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000003061",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000003061",
+        "edition": "清[1644-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999012456",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999012456",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999012456",
+        "edition": "清[1644-1911]"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-412000003061": {
+      "label": "國圖藏本：清[1644-1911]"
+    },
+    "nlc-411999012456": {
+      "label": "國圖藏本：清[1644-1911]"
+    }
+  }
 }

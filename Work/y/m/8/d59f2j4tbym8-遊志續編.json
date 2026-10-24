@@ -18,7 +18,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L5：撰人「陶宗儀」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-09-06 qa-sweep/liaojinyuan A 類「基準句之陳舊」：period_basis 舊句作「據 authors[0].dynasty「元」」，而該欄實作「元末明初」——2026-08-25「L5 斷代歸一（遼金元輪）」把撰人之代由「元」細化為「元末明初」而未同改本句。今止改所引之值使與實錄相符；「元末明初」仍在 liao-jin-yuan 之內（本庫既例：宋末元初／元末明初之人繫本期），period 不改。原值：period_basis「據 authors[0].dynasty「元」」。\n\n2026-09-06 qa-sweep/liaojinyuan：頂層 dynasty 由「元」隨 authors[0].dynasty 改「元末明初」。二欄本應相符，而索引之 dynasty 取頂層（PITFALLS 坑 10、11）；本輪改撰人之代時漏改此欄，今補。原值：dynasty「元」。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L5：撰人「陶宗儀」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-09-06 qa-sweep/liaojinyuan A 類「基準句之陳舊」：period_basis 舊句作「據 authors[0].dynasty「元」」，而該欄實作「元末明初」——2026-08-25「L5 斷代歸一（遼金元輪）」把撰人之代由「元」細化為「元末明初」而未同改本句。今止改所引之值使與實錄相符；「元末明初」仍在 liao-jin-yuan 之內（本庫既例：宋末元初／元末明初之人繫本期），period 不改。原值：period_basis「據 authors[0].dynasty「元」」。\n\n2026-09-06 qa-sweep/liaojinyuan：頂層 dynasty 由「元」隨 authors[0].dynasty 改「元末明初」。二欄本應相符，而索引之 dynasty 取頂層（PITFALLS 坑 10、11）；本輪改撰人之代時漏改此欄，今補。原值：dynasty「元」。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "measures": [
     {
       "unit": "冊",
@@ -32,8 +32,8 @@
   "period_basis": "據 authors[0].dynasty「元末明初」",
   "dynasty": "元末明初",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -57,10 +57,46 @@
         "nlc_fid": "411999008780",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999022455",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999022455",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999022455",
+        "edition": "清[1644-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999029198",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999029198",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999029198",
+        "edition": "清[1644-1911]"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999008780": {
+      "label": "國圖藏本：清[1644-1911]"
+    },
+    "nlc-411999022455": {
+      "label": "國圖藏本：清[1644-1911]"
+    },
+    "nlc-411999029198": {
       "label": "國圖藏本：清[1644-1911]"
     }
   }

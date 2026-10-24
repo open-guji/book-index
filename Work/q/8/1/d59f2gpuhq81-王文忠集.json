@@ -54,6 +54,21 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999012029",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999012029",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999012029",
+        "edition": "翰林院   清乾隆[1736-1795]"
+      }
     }
   ],
   "measures": [
@@ -71,7 +86,7 @@
       "清史稿藝文志"
     ]
   },
-  "ai_note": "從 1evgaarduudc0 合併。原註：同名異書：已有 Work 作者為 [('歐陽修', '宋')]，本條作者 王結（元），另建　合併：題名「王結王文忠集」撰人折入題首（來源：清史稿藝文志），與本條同書（撰人「王結」已見本條 authors[]），裸題「王文忠集」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 L7：loss_status 判為 partially_extant，據見 loss_status_basis。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ev3bd5z76ha8` 不同（ai_note）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。",
+  "ai_note": "從 1evgaarduudc0 合併。原註：同名異書：已有 Work 作者為 [('歐陽修', '宋')]，本條作者 王結（元），另建　合併：題名「王結王文忠集」撰人折入題首（來源：清史稿藝文志），與本條同書（撰人「王結」已見本條 authors[]），裸題「王文忠集」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 L7：loss_status 判為 partially_extant，據見 loss_status_basis。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ev3bd5z76ha8` 不同（ai_note）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "additional_titles": [
     "王忠文集"
   ],
@@ -91,6 +106,11 @@
   ],
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
+  "resource_groups": {
+    "nlc-411999012029": {
+      "label": "國圖藏本：翰林院   清乾隆[1736-1795]"
+    }
+  }
 }

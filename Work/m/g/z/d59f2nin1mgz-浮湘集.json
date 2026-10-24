@@ -59,15 +59,15 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-28 qa-sweep/S5b：Work.books 手写清单与 Book.work_id 反查对齐（overview#198）。删（已改挂别的 Work）：988g04eqdn（现挂d59f2nl74mbk「顧華玉集（浮湘稿，山中集，憑几集，憑几集續編，息園存稿詩，息園存稿文，緩慟集）」）、988g4bhlac（现挂d59f2njufls0「浮湘集四卷山中集十卷憑几集五卷續集二卷息園存稾詩十四卷文九卷緩慟集」）。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-28 qa-sweep/S5b：Work.books 手写清单与 Book.work_id 反查对齐（overview#198）。删（已改挂别的 Work）：988g04eqdn（现挂d59f2nl74mbk「顧華玉集（浮湘稿，山中集，憑几集，憑几集續編，息園存稿詩，息園存稿文，緩慟集）」）、988g4bhlac（现挂d59f2njufls0「浮湘集四卷山中集十卷憑几集五卷續集二卷息園存稾詩十四卷文九卷緩慟集」）。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "description": {
     "text": "顧璘（明）撰。四卷。見著錄於《欽定四庫全書總目》。本書惟《欽定四庫全書總目》一志著錄，別無他證。別集之屬，所收為其人之詩文。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "merged_in": [
     {
       "id": "d59f2njufls0",
@@ -100,6 +100,26 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NJlib-0809455-0001_%E6%B5%AE%E6%B9%98%E9%9B%86%E5%9B%9B%E5%8D%B7%E5%B1%B1%E4%B8%AD%E9%9B%86%E5%9B%9B%E5%8D%B7%E6%86%91%E5%85%92%E9%9B%86%E4%BA%94%E5%8D%B7%E7%BA%8C%E9%9B%86%E4%BA%8C%E5%8D%B7%E6%81%AF%E5%9C%92%E5%AD%98%E7%A8%BF%E8%A9%A9%E5%8D%81%E5%9B%9B%E5%8D%B7%E6%96%87%E4%B9%9D%E5%8D%B7%E7%B7%A9%E6%85%9F%E9%9B%86%E4%B8%80%E5%8D%B7.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-CBM2017",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=CBM2017",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "CBM2017",
+        "edition": "明嘉靖[1522-1566]"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-CBM2017": {
+      "label": "國圖藏本：明嘉靖[1522-1566]"
+    }
+  }
 }

@@ -50,6 +50,21 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999031685",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999031685",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999031685",
+        "edition": "清[1644-1911]"
+      }
     }
   ],
   "updated_at": "2026-08-23T00:00:00-07:00",
@@ -57,7 +72,12 @@
   "period_basis": "著錄原文自書撰人朝代：《中國通俗小說書目》「\n清劉璋撰」",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：《中國通俗小說書目》明清小說部自標所收之代，故不晚於 qing",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-06",
-  "ai_note": "2026-09-06 qa-sweep/qing·C 類（entity 之 period 與 work 相牴）：本條撰人「劉璋」（清，康熙三十五年舉人）與所繫 entity（明，1429–1511）絕不相涉，同名而誤繫，解之。原值：authors[0].entity_id=「hixhd2h9bewh」，可逆。"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
+  "ai_note": "2026-09-06 qa-sweep/qing·C 類（entity 之 period 與 work 相牴）：本條撰人「劉璋」（清，康熙三十五年舉人）與所繫 entity（明，1429–1511）絕不相涉，同名而誤繫，解之。原值：authors[0].entity_id=「hixhd2h9bewh」，可逆。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "resource_groups": {
+    "nlc-411999031685": {
+      "label": "國圖藏本：清[1644-1911]"
+    }
+  }
 }

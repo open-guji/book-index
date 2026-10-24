@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "dynasty_basis": "据唯一 author.dynasty「南宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「南宋」自动归并",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -41,6 +41,36 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCPSSD-70014748_%E5%AE%8B%E5%AE%97%E5%BF%A0%E7%B0%A1%E5%85%AC%E6%96%87%E9%9B%86%E5%9B%9B%E5%8D%B7%E8%A3%9C%E9%81%BA%E4%B8%80%E5%8D%B7%E9%81%BA%E4%BA%8B%E4%BA%8C%E5%8D%B7%E9%99%84%E9%8C%84%E4%B8%80%E5%8D%B7%E9%A6%96%E4%B8%80%E5%8D%B7_%E7%AC%AC%E4%B8%80%E5%86%8C.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312002090451",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312002090451",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312002090451",
+        "edition": "清乾隆間[1736-1795]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999016123",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999016123",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999016123",
+        "edition": "明崇祯十三年[1640]"
+      }
     }
   ],
   "indexed_by": [
@@ -52,5 +82,13 @@
       "section": "集部/別集類/宋代之屬",
       "summary": "共 3 個版本：西京清麓叢書本（馆藏未载）；清同治二年刻本（南京圖書館）；諸葛宗岳史四公文集本（馆藏未载）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-312002090451": {
+      "label": "國圖藏本：清乾隆間[1736-1795]"
+    },
+    "nlc-411999016123": {
+      "label": "國圖藏本：明崇祯十三年[1640]"
+    }
+  }
 }

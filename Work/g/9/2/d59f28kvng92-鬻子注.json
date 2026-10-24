@@ -43,7 +43,65 @@
   "dynasty_basis": "author_propagation:唯一作者朝代",
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「唐」",
-  "ai_note": "2026-08-19 全庫同名異書核對：宋史藝文志、直齋書錄解題同著《鬻子注》一卷，今合併並據宋志前置撰人補為逢行珪。",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "ai_note": "2026-08-19 全庫同名異書核對：宋史藝文志、直齋書錄解題同著《鬻子注》一卷，今合併並據宋志前置撰人補為逢行珪。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-411999025404",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999025404",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999025404",
+        "edition": "明正統10年[1445]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999019362",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999019362",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999019362",
+        "edition": "清[1644-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999014896",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999014896",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999014896",
+        "edition": "明[1368-1644]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-411999025404": {
+      "label": "國圖藏本：明正統10年[1445]"
+    },
+    "nlc-411999019362": {
+      "label": "國圖藏本：清[1644-1911]"
+    },
+    "nlc-411999014896": {
+      "label": "國圖藏本：明[1368-1644]"
+    }
+  }
 }

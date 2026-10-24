@@ -110,9 +110,54 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999002207",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999002207",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999002207",
+        "edition": "明[1368-1644]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999004538",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999004538",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999004538",
+        "edition": "明嘉靖9年[1530]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000007188",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000007188",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000007188",
+        "edition": "清乾隆[1736-1795]"
+      }
     }
   ],
-  "ai_note": "清史稿藝文志匹配：書名「農書」為短名（2字），已通過作者驗證。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 A 車道著錄錯掛：受《補遼金元藝文志》《元史藝文志》二節（自 `1ev3bbfhb4x6o` 改繫，該條實宋陳旉三卷本）並王禎本六部 Book。\n\n**交 E 車道**：庫中「王禎」`1j967da95o6r2` 與「王楨」`1j96hhvcr8my6` 二 entity，禎／楨異體而俱標元，疑一人之重出。又二志所記其字相違——《補遼金元藝文志》作「字伯翔」而《欽定四庫全書總目》作「字伯善，東平人，官豐城縣尹」（《元史藝文志》亦作豐城縣尹），宜並覈。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 qa2-D·V 維基文庫題名孤證連結覆核（rule V-連結誤繫）：本條之 `wikisource` 一項係以**書名字面唯一匹配**而得（url 作 zh.wikisource.org/wiki/<題名>，頁名恰等題名、無消歧義後綴），不問撰人朝代，故易撞「明星同名書」（坑 44）。今取該頁原始 wikitext 覆核：頁 header author=陳旉 times=北宋。本條為王楨《農書》（元），而維基文庫「農書」頁之 header 明書 author=陳旉、times=北宋——《陳旉農書》與《王禎農書》為農家二大書，判然二物。 今摘除該項。**只摘 `wikisource` 一項，其餘 resources 不動。**_has_text 隨之由 True 改為 True（依 resources 中尚有無 types 含 text 者重算）。原值可逆，所摘之項具此：[{\"id\": \"wikisource\", \"name\": \"维基文库\", \"url\": \"https://zh.wikisource.org/wiki/農書\", \"types\": [\"text\"]}]",
+  "ai_note": "清史稿藝文志匹配：書名「農書」為短名（2字），已通過作者驗證。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 A 車道著錄錯掛：受《補遼金元藝文志》《元史藝文志》二節（自 `1ev3bbfhb4x6o` 改繫，該條實宋陳旉三卷本）並王禎本六部 Book。\n\n**交 E 車道**：庫中「王禎」`1j967da95o6r2` 與「王楨」`1j96hhvcr8my6` 二 entity，禎／楨異體而俱標元，疑一人之重出。又二志所記其字相違——《補遼金元藝文志》作「字伯翔」而《欽定四庫全書總目》作「字伯善，東平人，官豐城縣尹」（《元史藝文志》亦作豐城縣尹），宜並覈。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 qa2-D·V 維基文庫題名孤證連結覆核（rule V-連結誤繫）：本條之 `wikisource` 一項係以**書名字面唯一匹配**而得（url 作 zh.wikisource.org/wiki/<題名>，頁名恰等題名、無消歧義後綴），不問撰人朝代，故易撞「明星同名書」（坑 44）。今取該頁原始 wikitext 覆核：頁 header author=陳旉 times=北宋。本條為王楨《農書》（元），而維基文庫「農書」頁之 header 明書 author=陳旉、times=北宋——《陳旉農書》與《王禎農書》為農家二大書，判然二物。 今摘除該項。**只摘 `wikisource` 一項，其餘 resources 不動。**_has_text 隨之由 True 改為 True（依 resources 中尚有無 types 含 text 者重算）。原值可逆，所摘之項具此：[{\"id\": \"wikisource\", \"name\": \"维基文库\", \"url\": \"https://zh.wikisource.org/wiki/農書\", \"types\": [\"text\"]}]\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "measures": [
     {
       "unit": "卷",
@@ -135,8 +180,8 @@
       "元史藝文志"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "contained_in": [
     {
       "id": "8rlcsybg2hhf",
@@ -147,5 +192,16 @@
         517
       ]
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-411999002207": {
+      "label": "國圖藏本：明[1368-1644]"
+    },
+    "nlc-411999004538": {
+      "label": "國圖藏本：明嘉靖9年[1530]"
+    },
+    "nlc-412000007188": {
+      "label": "國圖藏本：清乾隆[1736-1795]"
+    }
+  }
 }

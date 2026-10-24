@@ -28,7 +28,7 @@
       "name_basis": "2026-08-24 新建 entity `1jcf5151295ix` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。"
     }
   ],
-  "ai_note": "作者 \"清張士俊輯\" 補自《國立故宮博物院善本舊籍》目錄。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "作者 \"清張士俊輯\" 補自《國立故宮博物院善本舊籍》目錄。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
@@ -40,8 +40,8 @@
       "書目答問"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-24",
   "resources": [
     {
       "name": "维基共享资源",
@@ -50,6 +50,44 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NLC892-412000002858-151463_%E6%BE%A4%E5%AD%98%E5%A0%82%E4%BA%94%E7%A8%AE_%E7%AC%AC1%E5%86%8A.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000002858",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000002858",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000002858",
+        "edition": "清康熙43年-53年[1704-1714]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312002082840",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312002082840",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312002082840",
+        "edition": "上海蜚英?   清光緒14年[1888]"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-412000002858": {
+      "label": "國圖藏本：清康熙43年-53年[1704-1714]"
+    },
+    "nlc-312002082840": {
+      "label": "國圖藏本：上海蜚英?   清光緒14年[1888]"
+    }
+  }
 }

@@ -134,9 +134,54 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/2318996/manifest.json",
         "extent": "4冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412004000449",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412004000449",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412004000449",
+        "edition": "元[1271-1368]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412004000451",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412004000451",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412004000451",
+        "edition": "元[1271-1368]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412004000450",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412004000450",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412004000450",
+        "edition": "元[1271-1368]"
+      }
     }
   ],
-  "ai_note": "作者 \"元胡三省撰\" 補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjy64fuxedc 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "作者 \"元胡三省撰\" 補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjy64fuxedc 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "description": {
     "text": "胡三省（元）撰。見著錄於《欽定四庫全書總目》《書目答問》。其著錄之文，《書目答問》作「《通鑑釋文辨誤》十二卷」。《欽定四庫全書總目》清乾隆間館臣修；《書目答問》清張之洞撰——本書之目賴之以存。",
     "sources": [
@@ -154,8 +199,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resource_groups": {
     "naikaku-1073345": {
       "label": "內閣文庫藏本：明刊本（283-0023，5冊）"
@@ -165,6 +210,15 @@
     },
     "naikaku-1068119": {
       "label": "內閣文庫藏本：明刊本（史022-0002，4冊）"
+    },
+    "nlc-412004000449": {
+      "label": "國圖藏本：元[1271-1368]"
+    },
+    "nlc-412004000451": {
+      "label": "國圖藏本：元[1271-1368]"
+    },
+    "nlc-412004000450": {
+      "label": "國圖藏本：元[1271-1368]"
     }
   }
 }

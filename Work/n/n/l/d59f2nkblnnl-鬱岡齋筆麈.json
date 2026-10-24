@@ -132,6 +132,21 @@
         "edition": "民國19"
       },
       "details": "NDL 非全網公開（送信サービス限定：個人送信須 NDL 本登録，或到圖書館送信參加館／NDL 館內閱覽）"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-1373",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=1373",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "1373",
+        "edition": "明萬曆[1573-1620]"
+      }
     }
   ],
   "measures": [
@@ -146,7 +161,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
   "description": {
     "text": "王肯堂（明）撰。四卷。見著錄於《欽定四庫全書總目》《明史藝文志》《續修四庫全書》《四庫全書存目叢書》。《續修四庫全書》列於子部 雑家類；《四庫全書存目叢書》列於子部。",
     "sources": [
@@ -156,8 +171,8 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-24",
   "resource_groups": {
     "nlc-411999025534": {
       "label": "國圖藏本：明萬曆[1573-1620]"
@@ -167,6 +182,9 @@
     },
     "ndl-2578966": {
       "label": "NDL藏本（送信限定）：民國19"
+    },
+    "nlc-1373": {
+      "label": "國圖藏本：明萬曆[1573-1620]"
     }
   }
 }
