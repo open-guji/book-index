@@ -417,6 +417,7 @@ five-dynasties  song  liao-jin-yuan  ming  qing  modern
 | 有虞氏 | pre-qin | 虞舜 | 傳說帝舜；與陶唐氏合稱唐虞 |
 | 夏 | pre-qin |  |  |
 | 商 | pre-qin |  |  |
+| 周 | pre-qin | 周代 | 西周、東周的統稱 |
 | 西周 | pre-qin |  |  |
 | 東周 | pre-qin |  |  |
 | 春秋 | pre-qin |  |  |
