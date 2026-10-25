@@ -144,6 +144,18 @@ def merge_book(g, apply):
     return 'book %s <- %s' % (keeper, g['losers'])
 
 
+def fix_promotions(mapping):
+    # 升格表：只允许 production_id 由被并者改为 keeper，其余字段不动
+    n = 0
+    for f in sorted(glob.glob(os.path.join(ROOT, 'promotions', '*.json'))):
+        t = open(f, encoding='utf-8').read(); o = t
+        for l, k in mapping.items():
+            t = t.replace('"production_id": "%s"' % l, '"production_id": "%s"' % k)
+        if t != o:
+            open(f, 'w', encoding='utf-8').write(t); n += 1
+    return n
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('batch'); ap.add_argument('--apply', action='store_true')
@@ -159,7 +171,11 @@ def main():
         print('=====', g['cluster_id'], g['type'], g['keeper'], '<-', g['losers']); print(out)
         ledger.append({'cluster_id': g['cluster_id'], 'type': g['type'], 'keeper': g['keeper'], 'losers': g['losers'],
                        'evidence': g['evidence'], 'rule': g['rule'], 'preconditions': pre, 'retained_alternatives': g.get('retained_alternatives', []),
-                       'classification_decisions': g.get('classification_decisions', []), 'dropped_author_entities': g.get('dropped_author_entities', [])})
+                       'classification_decisions': g.get('classification_decisions', []), 'dropped_author_entities': g.get('dropped_author_entities', []),
+                       'loser_original_notes': g.get('loser_original_notes', {})})
+    if a.apply:
+        mp = {l: g['keeper'] for g in spec['groups'] for l in g['losers']}
+        print('promotions 文件改动：', fix_promotions(mp))
     if a.apply:
         base = subprocess.check_output(['git', 'rev-parse', 'origin/main'], cwd=ROOT, text=True).strip()
         json.dump({'base': base, 'merges': ledger}, open(os.path.join(os.path.dirname(os.path.abspath(a.batch)), 'merges.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

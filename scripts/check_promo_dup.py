@@ -10,8 +10,13 @@ def main_shards():
         out.update(json.loads(subprocess.check_output(['git', 'show', 'origin/main:' + n]))['promotions'])
     return out
 base = main_shards(); bad = 0
+def merged_into(pid):
+    # 并条后：main 里的旧正式 id 在本分支已是墓碑且 merged_into 指向新值，则这条变动是并条改指，不是双晋升
+    for t in ('Work', 'Book', 'Collection', 'Entity'):
+        for f in glob.glob(f'{t}/{pid[-3]}/{pid[-2]}/{pid[-1]}/{pid}-*.json'):
+            return json.load(open(f)).get('merged_into')
 for p in glob.glob('promotions/*.json'):
     for k, v in json.load(open(p))['promotions'].items():
-        if k in base and base[k]['production_id'] != v['production_id']:
+        if k in base and base[k]['production_id'] != v['production_id'] and merged_into(base[k]['production_id']) != v['production_id']:
             bad += 1; print('DUP', k, 'main:', base[k]['production_id'], '本分支:', v['production_id'])
 print('重复晋升', bad, '处'); sys.exit(1 if bad else 0)
