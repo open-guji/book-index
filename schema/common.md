@@ -413,6 +413,8 @@ five-dynasties  song  liao-jin-yuan  ming  qing  modern
 |---|---|---|---|
 | 上古傳說 | pre-qin | 上古傳說 | 三皇五帝 |
 | 上古 | pre-qin |  | 上古泛稱 |
+| 陶唐氏 | pre-qin | 唐堯 | 傳說帝堯；與有虞氏合稱唐虞 |
+| 有虞氏 | pre-qin | 虞舜 | 傳說帝舜；與陶唐氏合稱唐虞 |
 | 夏 | pre-qin |  |  |
 | 商 | pre-qin |  |  |
 | 西周 | pre-qin |  |  |
