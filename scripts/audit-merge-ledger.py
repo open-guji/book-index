@@ -109,7 +109,7 @@ def main():
                 if kb.get('title') != lb.get('title'): warn['Q:collection.题名不同'] += 1
                 if kb.get('edition') != lb.get('edition'): warn['Q:collection.版本不同'] += 1
                 members = subprocess.run(['git', '-c', 'core.quotePath=false', 'grep', '-l', '-F', l, a.base, '--',
-                                          'Book', 'Work', 'Collection'], cwd=ROOT, text=True, capture_output=True).stdout.split()
+                                          'Book', 'Work', 'Collection'], cwd=ROOT, text=True, capture_output=True).stdout.splitlines()
                 for m in members:
                     m = m.split(':', 1)[1]
                     mb = base_member(m)
@@ -133,7 +133,7 @@ def main():
     targets = set(mapping)
     listing = subprocess.run(['rg', '-l', '-F', '-f', '/dev/stdin', '--glob', '*.json', 'Work', 'Book', 'Collection',
                               'Entity', 'classification', 'promotions', 'curation', 'recommended.json'],
-                             input='\n'.join(targets) + '\n', cwd=ROOT, text=True, capture_output=True).stdout.split()
+                             input='\n'.join(targets) + '\n', cwd=ROOT, text=True, capture_output=True).stdout.splitlines()
     for f in listing:
         for p, v in refs_in(json.loads((ROOT / f).read_text(encoding='utf-8')), targets):
             if p == ('id',) or p == ('merged_into',) or p[0] in ('merged_from', 'merged_in'): continue
@@ -142,7 +142,7 @@ def main():
     # D 草稿库
     if a.draft:
         dl = subprocess.run(['rg', '-l', '-F', '-f', '/dev/stdin', '--glob', '*.json', '--glob', '!index/**', '.'],
-                            input='\n'.join(targets) + '\n', cwd=a.draft, text=True, capture_output=True).stdout.split()
+                            input='\n'.join(targets) + '\n', cwd=a.draft, text=True, capture_output=True).stdout.splitlines()
         for f in dl:
             for p, v in refs_in(json.loads((a.draft / f).read_text(encoding='utf-8')), targets):
                 if p == ('id',): continue

@@ -21,12 +21,21 @@
       "title_info": "《馬書》十四卷",
       "summary": "《馬書》十四卷（楊時喬）",
       "author_info": "楊時喬"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "新刻馬書十四卷",
+      "author_info": "明楊時喬撰",
+      "section": "子部/農家類/牧養之屬",
+      "summary": "共 1 個版本：明萬曆二十二年自刻本（國家圖書館）"
     }
   ],
   "description": {
-    "text": "楊時喬撰。十四卷。見著錄於《國史經籍志》。其著錄之文，《國史經籍志》作「《馬書》十四卷（楊時喬）」。本書惟《國史經籍志》一志著錄，別無他證。《國史經籍志》明焦竑撰——本書之目賴之以存。",
+    "text": "楊時喬撰。十四卷。見著錄於《國史經籍志》。其著錄之文，《國史經籍志》作「《馬書》十四卷（楊時喬）」。",
     "sources": [
-      "國史經籍志"
+      "國史經籍志",
+      "中國古籍總目"
     ]
   },
   "id": "d59f2nh1x728",
@@ -42,9 +51,51 @@
   "period_basis": "撰人 Entity 之代：楊時喬（明）——同人名下他書 {'ming': 10} 佐證一致",
   "period_upper": "ming",
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming",
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967afjbhiyr`.dynasty「明」propagate 補齊；work.dynasty 同步。",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967afjbhiyr`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59fy1yn320w《新刻馬書》 入本條。同题同首位责任者：《馬書》楊時喬(明,14卷,0版本)／《新刻馬書》楊時喬(明,14卷,1版本)；B 档逐组复核判同一作品：楊時喬馬書十四卷，同萬曆自刻本，新刻為套語；flags=sec_diff",
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-25",
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-411999003193",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999003193",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999003193",
+        "edition": "明万历二十二年[1594]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-411999003193": {
+      "label": "國圖藏本：明万历二十二年[1594]"
+    }
+  },
+  "additional_titles": [
+    "新刻馬書"
+  ],
+  "merged_in": [
+    {
+      "id": "d59fy1yn320w",
+      "title": "新刻馬書",
+      "at": "2026-10-25T20:26:41Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a-2：同题同首位责任者 B 档逐组复核并",
+      "why": "同题同首位责任者：《馬書》楊時喬(明,14卷,0版本)／《新刻馬書》楊時喬(明,14卷,1版本)；B 档逐组复核判同一作品：楊時喬馬書十四卷，同萬曆自刻本，新刻為套語；flags=sec_diff",
+      "author": "楊時喬",
+      "title_info": [
+        "新刻馬書十四卷"
+      ]
+    }
+  ],
+  "merged_from": [
+    "d59fy1yn320w"
+  ]
 }

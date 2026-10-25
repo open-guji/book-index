@@ -20,15 +20,23 @@
       "source_bid": "d59f2mox0000",
       "title_info": "朱同《新安志》十卷",
       "summary": "朱同《新安志》十卷"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "朱同重編新安志",
+      "author_info": "洪武間修",
+      "summary": "朱同重編新安志⟨洪武間修⟩"
     }
   ],
   "description": {
-    "text": "朱同（明）撰。十卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「朱同《新安志》十卷」。本書惟《明史藝文志》一志著錄，別無他證。《明史藝文志》清張廷玉等修——本書之目賴之以存。",
+    "text": "朱同（明）撰。十卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「朱同《新安志》十卷」。",
     "sources": [
-      "明史藝文志"
+      "明史藝文志",
+      "千頃堂書目"
     ]
   },
-  "ai_note": "標題與現有Work匹配但作者不同（Title match but author mismatch: entry='朱同' vs work='羅願' (GYL53i88Bc3)），判定為同名異書，新建獨立Work。 舊匹配結果為 GYL53i88Bc3（exact_title），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "標題與現有Work匹配但作者不同（Title match but author mismatch: entry='朱同' vs work='羅願' (GYL53i88Bc3)），判定為同名異書，新建獨立Work。 舊匹配結果為 GYL53i88Bc3（exact_title），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59f6ejtqzur《重編新安志》 入本條。同题同首位责任者：《新安志》朱同(明,10卷,0版本)／《重編新安志》朱同(明,10卷,0版本)；B 档逐组复核判同一作品：朱同洪武間重編新安志十卷，明志省稱新安志，同書；flags=prefix_weak",
   "measures": [
     {
       "unit": "卷",
@@ -41,6 +49,26 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-25",
+  "additional_titles": [
+    "重編新安志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6ejtqzur",
+      "title": "重編新安志",
+      "at": "2026-10-25T20:25:52Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a-2：同题同首位责任者 B 档逐组复核并",
+      "why": "同题同首位责任者：《新安志》朱同(明,10卷,0版本)／《重編新安志》朱同(明,10卷,0版本)；B 档逐组复核判同一作品：朱同洪武間重編新安志十卷，明志省稱新安志，同書；flags=prefix_weak",
+      "author": "朱同",
+      "title_info": [
+        "朱同重編新安志"
+      ]
+    }
+  ],
+  "merged_from": [
+    "d59f6ejtqzur"
+  ]
 }
