@@ -1,79 +1,9 @@
 {
   "schema_version": 1,
+  "id": "d59f2ht7bvuq",
   "type": "work",
   "title": "新刻埤雅",
-  "authors": [
-    {
-      "name": "陸佃",
-      "role": "撰",
-      "dynasty": "北宋",
-      "entity_id": "hixhd2h9be5k",
-      "dynasty_basis": "entity_propagation_r2:1j967avzlcjyf"
-    }
-  ],
-  "description": {
-    "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故觀009427-009432）。明萬曆三十一年錢塘胡文煥刊格致叢書本。",
-    "sources": [
-      "國立故宮博物院善本舊籍"
-    ]
-  },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 6 取自 `measure_info`「六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
-  "measures": [
-    {
-      "unit": "冊",
-      "number": 6
-    }
-  ],
-  "measure_info": "六冊",
-  "id": "d59f2ht7bvuq",
-  "updated_at": "2026-08-09T08:58:29+00:00",
-  "dynasty": "北宋",
-  "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
-  "period": "song",
-  "period_basis": "据唯一 author.dynasty「北宋」自动归并",
   "revision": "1.1.0",
-  "revised_at": "2026-10-16",
-  "resources": [
-    {
-      "name": "维基文库",
-      "types": [
-        "text"
-      ],
-      "id": "wikisource",
-      "url": "https://zh.wikisource.org/wiki/%E5%9F%A4%E9%9B%85_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)"
-    },
-    {
-      "id": "nat-archives-jp",
-      "group": "naikaku-1071752",
-      "group_role": "origin",
-      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
-      "short_name": "內閣文庫",
-      "url": "https://www.digital.archives.go.jp/file/1071752",
-      "types": [
-        "image"
-      ],
-      "metadata": {
-        "naikaku_file_id": "1071752",
-        "request_no": "経０４４－０００５",
-        "edition": "刊本:明:::",
-        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4442717/manifest.json",
-        "extent": "2冊"
-      }
-    }
-  ],
-  "resource_groups": {
-    "naikaku-1071752": {
-      "label": "內閣文庫藏本：明刊本（経044-0005，2冊）"
-    }
-  },
-  "indexed_by": [
-    {
-      "source": "中國古籍總目",
-      "source_bid": "d59frnrt4lxc",
-      "title_info": "新刻埤雅二十卷",
-      "author_info": "宋陸佃撰",
-      "section": "經部/小學類/訓詁之屬/羣雅",
-      "summary": "共 1 個版本：格致叢書本（馆藏未载）"
-    }
-  ]
+  "merged_into": "d59f2hqn8vls",
+  "revised_at": "2026-10-25"
 }

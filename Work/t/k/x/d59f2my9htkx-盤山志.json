@@ -16,11 +16,15 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 10 取自 `measure_info`「十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 10 取自 `measure_info`「十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59f2mdegum9《欽定盤山志》 入本條。同题同首位责任者：《盤山志》蔣溥(清,?卷,5版本)／《欽定盤山志》蔣溥(清,21卷,4版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突",
   "measures": [
     {
       "unit": "冊",
       "number": 10
+    },
+    {
+      "unit": "卷",
+      "number": 21
     }
   ],
   "measure_info": "十冊",
@@ -30,8 +34,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-25",
   "resources": [
     {
       "name": "维基共享资源",
@@ -40,6 +44,111 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:Harvard_drs_28475671_%E7%9B%A4%E5%B1%B1%E5%BF%97_v.2.pdf"
+    },
+    {
+      "id": "wikisource-siku",
+      "name": "维基文库（四庫全書本）",
+      "url": "https://zh.wikisource.org/wiki/欽定盤山志_(四庫全書本)",
+      "types": [
+        "text"
+      ]
+    },
+    {
+      "id": "shidianguji-qianlongershiwuyingd",
+      "name": "识典古籍",
+      "url": "https://www.shidianguji.com/book/HY2514",
+      "metadata": {
+        "edition": "乾隆二十年(1755)武英殿刻本",
+        "version": "v7",
+        "total_page": 1017,
+        "paragraph_count": 1902,
+        "has_translation": true,
+        "check_type": "粗校"
+      },
+      "types": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "shidianguji-sikuquanshuben",
+      "name": "识典古籍",
+      "url": "https://www.shidianguji.com/book/SK1051",
+      "metadata": {
+        "edition": "四庫全書本",
+        "version": "v5",
+        "total_page": 1318,
+        "paragraph_count": 3716,
+        "check_type": "粗校"
+      },
+      "types": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "shidianguji-qianlongershiwuyingd-1",
+      "name": "识典古籍",
+      "url": "https://www.shidianguji.com/book/HY0291",
+      "metadata": {
+        "edition": "乾隆二十年武英殿刻本",
+        "version": "v4",
+        "total_page": 1134,
+        "paragraph_count": 1970,
+        "has_translation": true,
+        "check_type": "粗校"
+      },
+      "types": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "name": "Internet Archive",
+      "id": "internet-archive",
+      "url": "https://archive.org/details/06042833.cn",
+      "types": [
+        "image"
+      ]
     }
+  ],
+  "juan_count": {
+    "number": 21
+  },
+  "indexed_by": [
+    {
+      "source": "欽定四庫全書總目",
+      "source_bid": "d59dh3vo9af4",
+      "title_info": "《欽定盤山志》·二十一卷",
+      "author_info": "國朝大學士蔣溥等奉敕撰",
+      "summary": "國朝大學士蔣溥等奉敕撰。盤山在薊州城北二十五里，為漢末田疇隱居之地。五峰三盤，林壑幽邃。單椒秀澤，雄甲畿東。自聖祖仁皇帝四度臨幸，宸章題詠，照燦岩阿。然舊無山志，青溝釋智樸，始草創成編，詞旨冗蔓，體例尚多未備。我皇上宸遊蒞止，靈境日開。乾隆九年始命發內帑，建靜寄山莊於山之陽。天辟名區，全攬勝概。歲春秋有事於祖陵，每駐蹕行宮。幾餘靜憩，智仁樂趣，暢洽宸襟。山水效靈，益增神秀。乾隆十九年二月，因行幸山莊，爰命蔣溥、汪由敦、董邦達纂修新志。溥等承詔屬稿，詳加裒輯，分《圖考》、《名勝》、《寺宇》、《流寓》、《方外》、《藝文》、《物產》、《雜綴》八門，厘為十六卷。首冠以巡典、天章五卷。至十二月，書成，奉表恭進焉。臣等敬繹睿制，旁考舊聞。惟茲山之靚潤深奧，足與嶽鎮競秀，而其名不大顯於前世。以是知天地清淑之氣，扶輿磅礴，固必待時而出，以奉大聖人泮奐之娛。而天筆昭回，鏤岩耀谷，品題甲乙，榮幸無涯，尤自古所未有。敬錄斯編，亦以慶茲山之遭也。"
+    },
+    {
+      "source": "清史稿藝文志",
+      "source_bid": "d59f2mp0flz4",
+      "title_info": "盤山志",
+      "summary": "盤山志二十一卷。乾隆十九年，蔣溥等奉敕撰。"
+    }
+  ],
+  "additional_titles": [
+    "欽定盤山志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2mdegum9",
+      "title": "欽定盤山志",
+      "at": "2026-10-25T19:01:36Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a-1：同题同首位责任者 A 档机械并",
+      "why": "同题同首位责任者：《盤山志》蔣溥(清,?卷,5版本)／《欽定盤山志》蔣溥(清,21卷,4版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突",
+      "author": "蔣溥",
+      "title_info": [
+        "《欽定盤山志》·二十一卷",
+        "盤山志"
+      ]
+    }
+  ],
+  "merged_from": [
+    "d59f2mdegum9"
   ]
 }
