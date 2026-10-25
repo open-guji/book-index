@@ -7,6 +7,7 @@ import json, sys, os, glob, re, subprocess
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
 TODAY = '2026-10-25'
 SENT = re.compile(r'本書惟《[^》]+》一志著錄，別無他證。')
+TAIL = re.compile(r'《[^》]+》[^。《]*——本書之目賴之以存。')
 def p(i): return glob.glob(f'{ROOT}/Work/{i[-3]}/{i[-2]}/{i[-1]}/{i}-*.json')[0]
 def main():
     d = sys.argv[1]; apply = '--apply' in sys.argv
@@ -19,7 +20,7 @@ def main():
         desc = j.get('description')
         if isinstance(desc, dict) and SENT.search(desc.get('text') or ''):
             orig.setdefault(j['id'], {})['description'] = json.loads(json.dumps(desc))
-            desc['text'] = SENT.sub('', desc['text']).strip()
+            desc['text'] = TAIL.sub('', SENT.sub('', desc['text'])).strip()
             srcs = desc.setdefault('sources', [])
             for e in j.get('indexed_by') or []:
                 s = e.get('source')

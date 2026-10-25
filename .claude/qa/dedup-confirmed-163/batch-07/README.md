@@ -34,3 +34,5 @@
 ## 附带
 - `../postfix_common.py`：keeper description 里「本書惟《某》一志著錄，別無他證。」一句并条后失实，删去并补 description.sources；keeper 同名撰人缺 entity_id 而被并者有的补挂。本批 3 个 keeper，另回补第 3～5 批 14 个 keeper（原值各存 `batch-0N/postfix_common-原值.json`）。
 - 第 6 批台账 MR-H2000-005 的 `dropped_author_entities` 记的劉謐 hixhd2h9bh1y 已由 batch-06/postfix.py 补到 keeper。
+- 抽检（子 agent，20/20 组）：错并 0。据其意见补修：H-C004 台账证据更正（卷数是分卷不同的传本）；潮陽縣志 d59f6epog6io 撤去并入带来的「一冊」measures；17 个 keeper 描述再删「《某》……——本書之目賴之以存」残句；滹南集、薜荔園詩集描述里的撰人名随第 5 批更正（王若虛、佘翔）。
+- 抽检另报的残余同书（元朝秘史 d59f2go2tbep、大金弔伐錄 d59f2gp7e60x、天水冰山錄 d59f2pujpclc、紹興十八年同年小錄 d59f2q8v25mo，及甲申傳信錄另 4 条等）登记进部分 1 分发表，转部分 3/4。
