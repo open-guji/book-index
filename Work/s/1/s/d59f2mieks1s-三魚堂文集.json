@@ -102,6 +102,60 @@
         "edition": "6冊",
         "note": "本链接为扫描册 第1冊；不代表全书齐备。"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071899",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071899",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071899",
+        "request_no": "３１４－０１１８",
+        "edition": "刊本（後印）:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5085226/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078095",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078095",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078095",
+        "request_no": "集０５７－０００２",
+        "edition": "刊本（後印）:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4408291/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1081996",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1081996",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1081996",
+        "request_no": "３１４－０１１９",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5085239/manifest.json",
+        "extent": "8冊"
+      }
     }
   ],
   "measures": [
@@ -116,7 +170,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxwk6mpkw 與 11q37ud2h6mf4 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxwk6mpkw 與 11q37ud2h6mf4 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。",
   "description": {
     "text": "陸隴其（清）撰。十二卷。見著錄於《欽定四庫全書總目》《清史稿藝文志》《書目答問》。其著錄之文，《書目答問》作「《三魚堂文集》十二卷，《外集》六卷，《附錄》一卷」。別集之屬，所收為其人之詩文。《欽定四庫全書總目》清乾隆間館臣修；《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
     "sources": [
@@ -125,6 +179,17 @@
       "書目答問"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-25",
+  "resource_groups": {
+    "naikaku-1071899": {
+      "label": "內閣文庫藏本：清刊本（後印）（314-0118，10冊）"
+    },
+    "naikaku-1078095": {
+      "label": "內閣文庫藏本：清刊本（後印）（集057-0002，10冊）"
+    },
+    "naikaku-1081996": {
+      "label": "內閣文庫藏本：清刊本（314-0119，8冊）"
+    }
+  }
 }

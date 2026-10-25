@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 20 取自 `measure_info`「二十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 20 取自 `measure_info`「二十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。",
   "measures": [
     {
       "unit": "冊",
@@ -33,8 +33,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-25",
   "resources": [
     {
       "id": "commons",
@@ -125,6 +125,60 @@
         "nlc_fid": "411999010951",
         "edition": "明嘉靖15年[1536]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071942",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071942",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071942",
+        "request_no": "集００２－０００２",
+        "edition": "刊本（後印）:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4424422/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082637",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082637",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082637",
+        "request_no": "３１４－０１９８",
+        "edition": "刊本::明嘉靖:150000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4751385/manifest.json",
+        "extent": "12冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3611460",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3611460",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3611460",
+        "request_no": "３１２－０１２８",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3745337/manifest.json",
+        "extent": "6冊"
+      }
     }
   ],
   "resource_groups": {
@@ -142,6 +196,15 @@
     },
     "nlc-411999010951": {
       "label": "國圖藏本：明嘉靖15年[1536]"
+    },
+    "naikaku-1071942": {
+      "label": "內閣文庫藏本：明刊本（後印）（集002-0002，10冊）"
+    },
+    "naikaku-1082637": {
+      "label": "內閣文庫藏本：明嘉靖15年刊本（314-0198，12冊）"
+    },
+    "naikaku-3611460": {
+      "label": "內閣文庫藏本：明刊本（312-0128，6冊）"
     }
   },
   "related_works": [
