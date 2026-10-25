@@ -427,6 +427,7 @@ five-dynasties  song  liao-jin-yuan  ming  qing  modern
 | 春秋晉 | pre-qin |  |  |
 | 春秋吳 | pre-qin |  |  |
 | 春秋魯 | pre-qin |  |  |
+| 春秋杞 | pre-qin | 杞、𣏌 | 諸侯國 |
 | 戰國齊 | pre-qin |  |  |
 | 戰國楚 | pre-qin |  |  |
 | 戰國趙 | pre-qin |  |  |
