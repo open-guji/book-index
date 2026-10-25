@@ -81,6 +81,24 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E9%90%AB%E8%A3%9C%E9%9B%B7%E5%85%AC%E7%82%AE%E8%A3%BD%E8%97%A5%E6%80%A7%E8%A7%A3%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084102",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084102",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084102",
+        "request_no": "子０４４－００１６",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4410137/manifest.json",
+        "extent": "2冊"
+      }
     }
   ],
   "measures": [
@@ -98,18 +116,23 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "從 1evjr3ptmineo 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題明李中梓撰。凡金石部三十三種，果部十八種，穀部十一種，草部」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjr3ptmineo 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題明李中梓撰。凡金石部三十三種，果部十八種，穀部十一種，草部」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。",
   "updated_at": "2026-08-21T00:00:00-07:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-25",
   "related_works": [
     {
       "id": "d59fxzt469du",
       "relation": "related"
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1084102": {
+      "label": "內閣文庫藏本：明刊本（子044-0016，2冊）"
+    }
+  }
 }

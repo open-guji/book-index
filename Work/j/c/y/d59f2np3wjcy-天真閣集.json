@@ -53,6 +53,24 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E5%A4%A9%E7%9C%9F%E9%96%A3%E9%9B%86%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082895",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082895",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082895",
+        "request_no": "３１３－０２８５",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5084552/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "updated_at": "2026-08-19T00:00:00-07:00",
@@ -60,13 +78,18 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 14，與著錄原文（清史稿藝文志：「天真閣集」）所載之 54 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 14，與著錄原文（清史稿藝文志：「天真閣集」）所載之 54 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。",
   "description": {
     "text": "孫原湘（清）撰。五十四卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「天真閣集五十四卷，外集六卷」。本書惟《清史稿藝文志》一志著錄，別無他證。別集之屬，所收為其人之詩文。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
     "sources": [
       "清史稿藝文志"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-25",
+  "resource_groups": {
+    "naikaku-1082895": {
+      "label": "內閣文庫藏本：清刊本（313-0285，4冊）"
+    }
+  }
 }
