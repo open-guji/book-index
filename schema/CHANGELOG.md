@@ -4,6 +4,13 @@
 
 ---
 
+## 2026-10-25　Collection 加 `merged_into`／`merged_from`（墓碑；去重方案部分 6，用户 10-25 放行）
+
+- `collection.schema.json` 加 `merged_into`（Id）与 `merged_from`（MergedFrom）；`collection.md` 字段表加两行，`common.md〈并条账〉`、`derived.md〈八〉` 同步。形状照 Book 墓碑（2026-10-13）：墓碑只留 `schema_version／id／type／subtype／title／merged_into／revision／revised_at`，keeper 的 `merged_from` 记被并 id。
+- 成员关系只在成员侧，所以并 Collection 时被并者成员的 `contained_in` 改指 keeper（同项已有则合并，保留 `volume_index`／`sub_items`／`details`）；网站 `item-redirect` 读 entry 的 `merged_into`，对 Collection 同样 308（kaiyuanguji-web `item-redirect.ts` 不分类型）。
+- `scripts/audit-merge-ledger.py` 支持 `type: collection`（T/L/R 同查）。
+- 背景：正式库并条审查规则第 6 条「另立 Collection 墓碑 schema 后再并」；首批是叢書线把同一总目源记录录成两个 Collection 的 7 组。
+
 ## 2026-10-19　Work 加 `merged_basis`（草稿库墓碑的并条留痕；schema 补登，不改数据）
 
 - `schema/json/work.schema.json` 加 `merged_basis`（object：`rule`、`at`、`by` 为字符串，`author_as_written`、`indexed_by` 不限类型，不许其他键）；`common.md〈并条账〉` 与 `work.md` 字段表各补一行。

@@ -6,7 +6,8 @@
 
 检查项（任一 ERROR 即退出码 1）：
   T 墓碑：被并者只剩 schema 允许的最小字段，merged_into 指向 keeper，keeper 不是墓碑，且有 merged_from/merged_in 历史
-  L 无损：被并者的 contained_in／resources／indexed_by／authors 名，并后在 keeper 里仍找得到
+  L 无损：被并者的 contained_in／resources／indexed_by／authors 名，并后在 keeper 里仍找得到；
+         Collection 组另查：并前 contained_in 指被并者的成员（Book／Work／Collection），并后都指 keeper
   P 升格表：base→并后 promotions 里 production_id 的变化必须全部是 被并者→keeper，不得有别的变动
   R 引用：除墓碑自身 id、merged_*、index 外，活跃记录里不得再出现被并 ID
   D 草稿库（给 --draft 才查）：草稿库里指向被并 ID 的 work_id／merged_into／related_works／分类成员（须另开草稿库 PR 改指 keeper）
@@ -18,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 TOMB_OK = {'schema_version', 'type', 'subtype', 'id', 'title', 'primary_name', 'work_id',
            'revision', 'revised_at', 'updated_at', 'merged_into'}
-CLS = {'work': 'Work', 'book': 'Book', 'people': 'Entity'}
+CLS = {'work': 'Work', 'book': 'Book', 'people': 'Entity', 'collection': 'Collection'}
 
 
 def git_batch(ref, paths):
@@ -59,6 +60,9 @@ def main():
     base = git_batch(a.base, list(path_of.values()))
     err = collections.Counter(); warn = collections.Counter(); ex = collections.defaultdict(list)
 
+    def base_member(path):
+        return git_batch(a.base, [path])[path]
+
     def bad(code, msg):
         err[code] += 1
         if len(ex[code]) < 5: ex[code].append(msg)
@@ -96,6 +100,24 @@ def main():
                 if kb.get('title') != lb.get('title'): warn['Q:work.题名不同'] += 1
                 for f in ('description', 'ai_note'):
                     if lb.get(f) and str(lb[f]) not in kj: warn['Q:work.被并者' + f + '未保留'] += 1
+            if s['type'] == 'collection':
+                kj = json.dumps(keeper, ensure_ascii=False)
+                for i in lb.get('indexed_by') or []:
+                    if str(i.get('summary') or i.get('title_info') or i.get('source')) not in kj: bad('L', f"{l} 丢 indexed_by {str(i)[:80]}")
+                for x in lb.get('sources') or []:
+                    if str(x.get('id') or x.get('details') or x) not in kj: bad('L', f"{l} 丢 source {str(x)[:80]}")
+                if kb.get('title') != lb.get('title'): warn['Q:collection.题名不同'] += 1
+                if kb.get('edition') != lb.get('edition'): warn['Q:collection.版本不同'] += 1
+                members = subprocess.run(['git', '-c', 'core.quotePath=false', 'grep', '-l', '-F', l, a.base, '--',
+                                          'Book', 'Work', 'Collection'], cwd=ROOT, text=True, capture_output=True).stdout.split()
+                for m in members:
+                    m = m.split(':', 1)[1]
+                    mb = base_member(m)
+                    if not mb or l not in [(c.get('id') if isinstance(c, dict) else c) for c in mb.get('contained_in') or []]:
+                        continue
+                    cur = json.loads((ROOT / m).read_text(encoding='utf-8'))
+                    if s['keeper'] not in [(c.get('id') if isinstance(c, dict) else c) for c in cur.get('contained_in') or []]:
+                        bad('L', f"{m[-60:]} 原属 {l}，并后未指 keeper")
 
     # P 升格表
     for f in sorted(glob.glob(str(ROOT / 'promotions/*.json'))):
