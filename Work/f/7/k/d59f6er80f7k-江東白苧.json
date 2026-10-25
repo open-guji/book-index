@@ -18,7 +18,7 @@
     }
   ],
   "description": {
-    "text": "梁辰魚撰。二卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「梁辰魚江東白苧」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+    "text": "梁辰魚撰。二卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「梁辰魚江東白苧」。",
     "sources": [
       "千頃堂書目"
     ]
@@ -30,14 +30,18 @@
     {
       "unit": "卷",
       "number": 2
+    },
+    {
+      "unit": "冊",
+      "number": 2
     }
   ],
   "measure_info": "二卷",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "id": "d59f6er80f7k",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-25",
   "resources": [
     {
       "name": "维基共享资源",
@@ -76,6 +80,29 @@
         "nlc_fid": "411999026435",
         "edition": "明末[1621-1644]"
       }
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC892-2579-205137_%E6%B1%9F%E6%9D%B1%E7%99%BD%E8%96%B4_%E7%AC%AC1%E5%86%8A.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999026434",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999026434",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999026434",
+        "edition": "明末[1621-1644]"
+      }
     }
   ],
   "related_works": [
@@ -93,5 +120,27 @@
       "label": "國圖藏本：明末[1621-1644]"
     }
   },
-  "ai_note": "2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。"
+  "ai_note": "2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59f2nkpc3r5《江東白薴》 入本條。同题同首位责任者：《江東白苧》梁辰魚(朝代缺,2卷,2版本)／《江東白薴》梁辰魚(明,?卷,1版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突；flags=dyn_missing",
+  "period": "ming",
+  "period_basis": "據 authors[0].dynasty「明」",
+  "dynasty": "明",
+  "dynasty_basis": "author_propagation",
+  "additional_titles": [
+    "江東白薴"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2nkpc3r5",
+      "title": "江東白薴",
+      "at": "2026-10-25T18:40:40Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a-1：同题同首位责任者 A 档机械并",
+      "why": "同题同首位责任者：《江東白苧》梁辰魚(朝代缺,2卷,2版本)／《江東白薴》梁辰魚(明,?卷,1版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突；flags=dyn_missing",
+      "author": "梁辰魚",
+      "title_info": []
+    }
+  ],
+  "merged_from": [
+    "d59f2nkpc3r5"
+  ]
 }
