@@ -12,7 +12,9 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/il78hbqmgbugtwqq"
-      }
+      },
+      "entity_id": "hixhd2h9bpgq",
+      "name_basis": "2026-10-25 並條善後：同書重出條 d59f2n38z9xe 之同名撰人已繫此 entity，今補繫（3a-G0517）。"
     },
     {
       "name": "譚瑀",
@@ -39,9 +41,9 @@
       "summary": "共 2 個版本：清道光十三年刻本（北京大學圖書館、國家圖書館、中國科學院圖書館、南京圖書館、上海圖書館、天津圖書館）；民國十八年石印本（陝西省博物館、南京圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：bo3p1t6hszvulemg、sqofwnr6wtkqyehx\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：bo3p1t6hszvulemg、sqofwnr6wtkqyehx\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59f2n38z9xe《鄜州志》 入本條。同题同首位责任者：《[道光]鄜州志》吳鳴捷(清,5卷,2版本)／《鄜州志》吳鳴捷(清,5卷,1版本)；B 档逐组复核判同一作品：方志同一次纂修：首位修纂人同、同年刊本、卷數同，故宮著錄與總目版本記錄相並（道光十三年，吳鳴捷修）；flags=coauth_diff",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-25",
   "resources": [
     {
       "id": "nlc",
@@ -57,11 +59,47 @@
         "nlc_fid": "311998004490",
         "edition": ""
       }
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:%EF%BC%88%E5%BA%B7%E7%86%99%EF%BC%89%E9%84%9C%E5%B7%9E%E5%BF%97_-_%E5%BA%B7%E7%86%99%E4%BA%94%E5%B9%B4_%281666%29.pdf"
     }
   ],
   "resource_groups": {
     "nlc-311998004490": {
       "label": "國圖藏本："
     }
-  }
+  },
+  "juan_count": {
+    "number": 5
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 5
+    }
+  ],
+  "measure_info": "五卷",
+  "additional_titles": [
+    "鄜州志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n38z9xe",
+      "title": "鄜州志",
+      "at": "2026-10-25T20:26:15Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a-2：同题同首位责任者 B 档逐组复核并",
+      "why": "同题同首位责任者：《[道光]鄜州志》吳鳴捷(清,5卷,2版本)／《鄜州志》吳鳴捷(清,5卷,1版本)；B 档逐组复核判同一作品：方志同一次纂修：首位修纂人同、同年刊本、卷數同，故宮著錄與總目版本記錄相並（道光十三年，吳鳴捷修）；flags=coauth_diff",
+      "author": "吳鳴捷",
+      "title_info": []
+    }
+  ],
+  "merged_from": [
+    "d59f2n38z9xe"
+  ]
 }

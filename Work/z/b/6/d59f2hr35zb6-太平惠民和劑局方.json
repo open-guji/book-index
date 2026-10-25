@@ -154,17 +154,123 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4918610/manifest.json",
         "extent": "5冊"
       }
+    },
+    {
+      "name": "维基文库",
+      "types": [
+        "text"
+      ],
+      "id": "wikisource",
+      "url": "https://zh.wikisource.org/wiki/%E5%A4%AA%E5%B9%B3%E6%83%A0%E6%B0%91%E5%92%8C%E5%8A%91%E5%B1%80%E6%96%B9"
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC011-411999023271-808_%E9%87%8D%E5%88%BB%E5%A4%AA%E5%B9%B3%E6%83%A0%E6%B0%91%E5%92%8C%E5%8A%91%E5%B1%80%E6%96%B9_%E7%AC%AC1%E5%86%8A.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999023271",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999023271",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999023271",
+        "edition": "明崇禎10年[1637]"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300096965",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300096965",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300096965",
+        "edition": "刊 正保4",
+        "holder": "府中之島図石崎",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300096965/manifest"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3006755",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3006755",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3006755",
+        "request_no": "子０４０－０００１",
+        "edition": "刊本（序刊）::明崇禎:100000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4458135/manifest.json",
+        "extent": "8冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076732",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076732",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076732",
+        "request_no": "３０５－００４０",
+        "edition": "刊本::正保:040000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4918620/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076653",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076653",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076653",
+        "request_no": "３０５－００３７",
+        "edition": "刊本（後修）::明崇禎:100000:明袁本盈校",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4772055/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "measures": [
     {
       "unit": "卷",
       "number": 10
+    },
+    {
+      "unit": "冊",
+      "number": 4
     }
   ],
   "measure_info": "十卷",
   "updated_at": "2026-08-24T09:26:19.532251+00:00",
-  "ai_note": "2026-08-19 有撰人之同名組專項（卷數異者）：《太平惠民和劑局方》（陳師文）在庫中兩建（或數建）其條，題名、撰人俱同而卷數互異——依「跨志卷異即異本」之判準，乃一書之異本，今合併，卷數從著錄較備者，餘數之異存於各 indexed_by 之引文。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwj716lts 與 11q37qr2zu874 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-08-25 無斷代批次合併（plan_0.json 判、主進程執行）：《太平惠民和劑局方》：直齋解題作「庫部郎中陳師文等校正」，與 production 條撰人同；此書天下唯一（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）\n\n2026-08-25 補 `merged_from`：`1evr5e3mjd13q` 併入本條之際，merge_ib 未寫此欄（已記於 known-issues），今補——不補則來歷失載，且 E07 見同題二 id 而不知其為併。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…，校正七百八字，增損七十餘方。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "2026-08-19 有撰人之同名組專項（卷數異者）：《太平惠民和劑局方》（陳師文）在庫中兩建（或數建）其條，題名、撰人俱同而卷數互異——依「跨志卷異即異本」之判準，乃一書之異本，今合併，卷數從著錄較備者，餘數之異存於各 indexed_by 之引文。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwj716lts 與 11q37qr2zu874 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-08-25 無斷代批次合併（plan_0.json 判、主進程執行）：《太平惠民和劑局方》：直齋解題作「庫部郎中陳師文等校正」，與 production 條撰人同；此書天下唯一（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）\n\n2026-08-25 補 `merged_from`：`1evr5e3mjd13q` 併入本條之際，merge_ib 未寫此欄（已記於 known-issues），今補——不補則來歷失載，且 E07 見同題二 id 而不知其為併。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…，校正七百八字，增損七十餘方。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59f2hts8s8x《重刻太平惠民和劑局方》 入本條。同题同首位责任者：《太平惠民和劑局方》陳師文(趙宋,6/10卷,16版本)／《重刻太平惠民和劑局方》陳師文(趙宋,?卷,1版本)；B 档逐组复核判同一作品：重刻本為十卷本之明刻，可並；校正本五卷為大觀原校本，與十卷本卷數懸殊不並；flags=prefix_weak,role_diff",
   "period_upper": "song",
   "period_upper_basis": "撰人朝代作「宋」，歧而未決；諸解中最晚者為 song，無論何解皆不晚於此",
   "period": "song",
@@ -175,8 +281,8 @@
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-25",
   "loss_status": "extant",
   "loss_status_basis": "今存。，校正七百八字，增損七十餘方。」今存。",
   "resource_groups": {
@@ -192,5 +298,23 @@
     "naikaku-1083998": {
       "label": "內閣文庫藏本：室町末写本（305-0038，5冊）"
     }
-  }
+  },
+  "additional_titles": [
+    "重刻太平惠民和劑局方"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2hts8s8x",
+      "title": "重刻太平惠民和劑局方",
+      "at": "2026-10-25T20:31:09Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a-2：同题同首位责任者 B 档逐组复核并",
+      "why": "同题同首位责任者：《太平惠民和劑局方》陳師文(趙宋,6/10卷,16版本)／《重刻太平惠民和劑局方》陳師文(趙宋,?卷,1版本)；B 档逐组复核判同一作品：重刻本為十卷本之明刻，可並；校正本五卷為大觀原校本，與十卷本卷數懸殊不並；flags=prefix_weak,role_diff",
+      "author": "陳師文",
+      "title_info": []
+    }
+  ],
+  "merged_from": [
+    "d59f2hts8s8x"
+  ]
 }

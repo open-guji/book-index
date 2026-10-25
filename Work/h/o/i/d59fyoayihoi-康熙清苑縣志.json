@@ -12,7 +12,9 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/o8o3ps6km136r0fu"
-      }
+      },
+      "entity_id": "hixhd2h9bquh",
+      "name_basis": "2026-10-25 並條善後：同書重出條 d59f2n7nv2f6 之同名撰人已繫此 entity，今補繫（3a-G0576）。"
     },
     {
       "name": "郭棻",
@@ -40,9 +42,9 @@
       "summary": "共 2 個版本：清康熙十六年刻本（中國科學院圖書館、國家圖書館、天津圖書館、復旦大學圖書館、北京大學圖書館、遼寧省圖書館、南京圖書館、浙江圖書館、上海圖書館）；抄本（南京圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ub7kteulq1sadibb、yxrr61px3zdz3kwk\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ub7kteulq1sadibb、yxrr61px3zdz3kwk\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59f2n7nv2f6《清苑縣志》 入本條。同题同首位责任者：《[康熙]清苑縣志》時來敏(清,12卷,2版本)／《清苑縣志》時來敏(清,12卷,1版本)；B 档逐组复核判同一作品：方志同一次纂修：首位修纂人同、同年刊本、卷數同，故宮著錄與總目版本記錄相並（康熙十六年，時來敏修）；flags=coauth_diff",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-25",
   "resources": [
     {
       "id": "nlc",
@@ -73,6 +75,14 @@
         "nlc_fid": "312001064945",
         "edition": ""
       }
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:%E6%B8%85%E8%8B%91%E7%B8%A3%E5%BF%97_-_%E6%B0%91%E5%9C%8B%E4%BA%8C%E5%8D%81%E4%B8%89%E5%B9%B4_%281934%29.pdf"
     }
   ],
   "resource_groups": {
@@ -82,5 +92,33 @@
     "nlc-312001064945": {
       "label": "國圖藏本："
     }
-  }
+  },
+  "juan_count": {
+    "number": 12
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 12
+    }
+  ],
+  "measure_info": "十二卷卷首一卷",
+  "additional_titles": [
+    "清苑縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n7nv2f6",
+      "title": "清苑縣志",
+      "at": "2026-10-25T20:26:34Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a-2：同题同首位责任者 B 档逐组复核并",
+      "why": "同题同首位责任者：《[康熙]清苑縣志》時來敏(清,12卷,2版本)／《清苑縣志》時來敏(清,12卷,1版本)；B 档逐组复核判同一作品：方志同一次纂修：首位修纂人同、同年刊本、卷數同，故宮著錄與總目版本記錄相並（康熙十六年，時來敏修）；flags=coauth_diff",
+      "author": "時來敏",
+      "title_info": []
+    }
+  ],
+  "merged_from": [
+    "d59f2n7nv2f6"
+  ]
 }
