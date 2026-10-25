@@ -66,6 +66,42 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL02069251_%E5%94%90%E8%A9%A9%E6%89%80%EF%BC%88%E4%BA%8C%EF%BC%89.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1069679",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1069679",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1069679",
+        "request_no": "３１９－０１２４",
+        "edition": "刊本（序刊）::明万暦:340000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3672095/manifest.json",
+        "extent": "32冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083597",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083597",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083597",
+        "request_no": "３１９－０１２３",
+        "edition": "刊本（序刊）::明万暦:340000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5090466/manifest.json",
+        "extent": "20冊"
+      }
     }
   ],
   "measures": [
@@ -80,7 +116,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。",
   "description": {
     "text": "臧懋循（明）編。四十七卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》。《四庫全書存目叢書》列於集部。其著錄之文，《四庫全書存目叢書》作「《唐詩所》四十七卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -88,6 +124,14 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-25",
+  "resource_groups": {
+    "naikaku-1069679": {
+      "label": "內閣文庫藏本：明万暦34年刊本（序刊）（319-0124，32冊）"
+    },
+    "naikaku-1083597": {
+      "label": "內閣文庫藏本：明万暦34年刊本（序刊）（319-0123，20冊）"
+    }
+  }
 }
