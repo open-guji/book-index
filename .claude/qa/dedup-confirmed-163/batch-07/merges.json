@@ -1,0 +1,588 @@
+{
+ "base": "1c18582af97647fb2098fe74b1cafec068f639b6",
+ "merges": [
+  {
+   "cluster_id": "H-2000-005",
+   "type": "work",
+   "keeper": "d59fxv8iodts",
+   "losers": [
+    "d59fxyd4ukn4"
+   ],
+   "evidence": "同署清信天翁撰（同一總目 person URI admo5h75…），都是一卷；A 為痛史本，B 為宣統三年商務印書館鉛印本（即痛史初印）。「七獄」是「大獄」形近誤錄。",
+   "rule": "去重方案部分1：176 组待核判定 H-2000-005（同书）",
+   "preconditions": [
+    {
+     "id": "d59fxv8iodts",
+     "path": "Work/d/t/s/d59fxv8iodts-丁酉北闈大獄記畧.json",
+     "sha256": "5fc7c4e3a958747a9bb34cdf4f5773ef6d22c643cbd7d9de932cb7d361289276"
+    },
+    {
+     "id": "d59fxyd4ukn4",
+     "path": "Work/k/n/4/d59fxyd4ukn4-丁酉北闈七獄記畧.json",
+     "sha256": "35c74270728ea00c8bb6f90655b77f975f07f0078934aa4eceeaf6ec6e2d5ab9"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fxyd4ukn4 在 zm0492，keeper 在 zm0192——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [
+    {
+     "loser": "d59fxyd4ukn4",
+     "name": "信天翁",
+     "entity_id": "hixi8us2w128"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-2000-007",
+   "type": "work",
+   "keeper": "d59f2ndjt79c",
+   "losers": [
+    "d59fyt7eejgh"
+   ],
+   "evidence": "同為清汪曰楨撰，「日月考」「月日考」只是倒文；汪氏只有這一部二十四史月日考，稿本藏國圖、上圖（據已有知識）。B 卷數空缺，不算衝突；兩館殘存卷數不要相加改 236。",
+   "rule": "去重方案部分1：176 组待核判定 H-2000-007（同书）",
+   "preconditions": [
+    {
+     "id": "d59f2ndjt79c",
+     "path": "Work/7/9/c/d59f2ndjt79c-二十四史日月考.json",
+     "sha256": "aa4924c86619ff39f1752259381d1ec30d05a1f721fe5c633c42b143842216f6"
+    },
+    {
+     "id": "d59fyt7eejgh",
+     "path": "Work/j/g/h/d59fyt7eejgh-二十四史月日考.json",
+     "sha256": "e78653e58730c561d0766c7a08f8ea348ae18595d175d176b72b4711ae922898"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fyt7eejgh",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
+       "loser_value": "author_propagation"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C004",
+   "type": "work",
+   "keeper": "d59fyv4f3jeo",
+   "losers": [
+    "d59fyv7ogrnk"
+   ],
+   "evidence": "同為《元朝祕史》十五卷（元佚名），d59fyv7ogrnk 是地理類叢編之屬子目條（浙、遼、魯、寧、滬、國六館），保留方已含十五卷各本；此書唯一（知識）。 【抽检更正 2026-10-25：keeper 著錄為「十卷續集二卷」，被並條為「十五卷」，是同書分卷不同之傳本，非卷數全同；同書之判據為此書唯一、館藏同源。】",
+   "rule": "去重方案部分1：176 组待核判定 H-C004（同书）",
+   "preconditions": [
+    {
+     "id": "d59fyv4f3jeo",
+     "path": "Work/j/e/o/d59fyv4f3jeo-元朝祕史.json",
+     "sha256": "7de46b831e5d1c8ca27321d953af6af9b652a4dd844ac0c4f914a17424984cd4"
+    },
+    {
+     "id": "d59fyv7ogrnk",
+     "path": "Work/r/n/k/d59fyv7ogrnk-元朝祕史.json",
+     "sha256": "1ad71c7382f455d1025e166efc3b4c0d5493ae7a8939a472d6c84886b4cf46cc"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fyv7ogrnk 在 zm0264，keeper 在 zm0192——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C006",
+   "type": "work",
+   "keeper": "d59fymbljf29",
+   "losers": [
+    "d59fz72z3h1c"
+   ],
+   "evidence": "同題同撰（清佚名）同一卷；d59fymbljf29 叢編條館藏（上師大、山大）與庫內《邊疆五種》Work 館藏一致，即另一方的邊疆五種本。",
+   "rule": "去重方案部分1：176 组待核判定 H-C006（同书）",
+   "preconditions": [
+    {
+     "id": "d59fymbljf29",
+     "path": "Work/f/2/9/d59fymbljf29-烏里雅蘇臺志畧.json",
+     "sha256": "49e41c66be279f2b8df1c724553f5d79ae4fb32778dadbfb1c3612d75dcc4802"
+    },
+    {
+     "id": "d59fz72z3h1c",
+     "path": "Work/h/1/c/d59fz72z3h1c-烏里雅蘇臺志畧.json",
+     "sha256": "5109c80b6ce2f4c8f8fcbcf4a9f2ca35b1ce69f12604e37b0988a1965ff944b0"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fz72z3h1c 在 zm0282，keeper 在 zm0264——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C007",
+   "type": "work",
+   "keeper": "d59fz72z3h1d",
+   "losers": [
+    "d59fypvfj3lt"
+   ],
+   "evidence": "大金弔伐錄四卷金佚名，兩條 indexed_by 全同（同館藏六館），且 d59fz72z3h1d 已把對方源記錄 q7vgv2uo1krils52 掛為 Work 級來源，同一總目記錄重複錄入。",
+   "rule": "去重方案部分1：176 组待核判定 H-C007（同书）",
+   "preconditions": [
+    {
+     "id": "d59fz72z3h1d",
+     "path": "Work/h/1/d/d59fz72z3h1d-大金弔伐錄.json",
+     "sha256": "5aaebc235c5238a977a9e6f5e543ab1e03885ccd0e43a74f1aa46d37f4d95498"
+    },
+    {
+     "id": "d59fypvfj3lt",
+     "path": "Work/3/l/t/d59fypvfj3lt-大金弔伐錄.json",
+     "sha256": "566b98e8530720f445b4b292c95de99d7407b171c32f35061396c5a1fdece5c1"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fypvfj3lt 在 zm0191，keeper 在 zm0192——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C012",
+   "type": "work",
+   "keeper": "d59fypvewmip",
+   "losers": [
+    "d59fz72tsfsx"
+   ],
+   "evidence": "平蜀記一卷，兩條 indexed_by 全同（臺圖、社科院歷史所），d59fz72tsfsx 已掛對方源記錄 216ee2d2q6g3e2sd、wgxu4zm3u6wfzv1s，同一總目記錄重複。",
+   "rule": "去重方案部分1：176 组待核判定 H-C012（同书）",
+   "preconditions": [
+    {
+     "id": "d59fypvewmip",
+     "path": "Work/m/i/p/d59fypvewmip-平蜀記.json",
+     "sha256": "0702a761fbc8218c5b6f8b6231d4f66c081f71ee136248c125a7194755f29138"
+    },
+    {
+     "id": "d59fz72tsfsx",
+     "path": "Work/f/s/x/d59fz72tsfsx-平蜀記.json",
+     "sha256": "b5ae8a6708b90a90c6538128c2360d1c0008f382e17e85d47dd81f997bc421bc"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fz72tsfsx 在 zm0192，keeper 在 zm0191——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C016",
+   "type": "work",
+   "keeper": "d59fyn6icfls",
+   "losers": [
+    "d59fz72vcmio"
+   ],
+   "evidence": "高麗風俗記一卷清佚名；d59fyn6icfls 叢編條十一館館藏正是小方壺齋輿地叢鈔子目通用館藏（庫內千餘條同串），即另一方的小方壺齋本，庫內無第三條同題。",
+   "rule": "去重方案部分1：176 组待核判定 H-C016（同书）",
+   "preconditions": [
+    {
+     "id": "d59fyn6icfls",
+     "path": "Work/f/l/s/d59fyn6icfls-高麗風俗記.json",
+     "sha256": "60537671fcf1c85d315e2f3007f09ae79d62cbba9d1447412a4072eeaa4793a6"
+    },
+    {
+     "id": "d59fz72vcmio",
+     "path": "Work/m/i/o/d59fz72vcmio-高麗風俗記.json",
+     "sha256": "c4eacd00ade8d169b954cc40231c7bc3c1a3ddc199e833388b1a019db35fcf9b"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fz72vcmio 在 zm0282，keeper 在 zm0264——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C017",
+   "type": "work",
+   "keeper": "d59fymawkfls",
+   "losers": [
+    "d59fz72s8935"
+   ],
+   "evidence": "臺圖「庾子山（信）年譜一卷」為劉師培編《歷代名人年譜大成》稿本（臺圖）子目，另一方即歷代名人年譜大成本，同一子目兩錄；注：另有倪璠 d59fynes4vsw，是否同文另案。",
+   "rule": "去重方案部分1：176 组待核判定 H-C017（同书）",
+   "preconditions": [
+    {
+     "id": "d59fymawkfls",
+     "path": "Work/f/l/s/d59fymawkfls-庾子山年譜.json",
+     "sha256": "f0a4bbe9d648b29a604ccf263ab362778523c15600b600ff5fd23f39c1b503f0"
+    },
+    {
+     "id": "d59fz72s8935",
+     "path": "Work/9/3/5/d59fz72s8935-庾子山年譜.json",
+     "sha256": "1398d3fb72e2c414a754ff0af1ada622dad5cb27f22a03ed1448105083fc46d1"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C020",
+   "type": "work",
+   "keeper": "d59fz72suq68",
+   "losers": [
+    "d59fypvg5koy"
+   ],
+   "evidence": "孟子年譜二卷，同一總目源記錄 5j8qnhdanxyg2758（臺圖，歷代名人年譜大成子目）同時是 d59fypvg5koy 的源記錄與 d59fz72suq68 的 Work 級來源，重複錄入。",
+   "rule": "去重方案部分1：176 组待核判定 H-C020（同书）",
+   "preconditions": [
+    {
+     "id": "d59fz72suq68",
+     "path": "Work/q/6/8/d59fz72suq68-孟子年譜.json",
+     "sha256": "d46152df2c17f04b92ea8347222ef42d5df5502d3d1e53cf8129f8ef5a8b7a98"
+    },
+    {
+     "id": "d59fypvg5koy",
+     "path": "Work/k/o/y/d59fypvg5koy-孟子年譜.json",
+     "sha256": "4c769c38d5c43c7fd867a32e2a8e7f0a6226a1f874b235ec8e2b761f964c0630"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C025",
+   "type": "work",
+   "keeper": "d59f6epog6io",
+   "losers": [
+    "d59f2nkopmgy"
+   ],
+   "evidence": "故宮「重修潮陽縣志」明隆慶六年刊本、林大春修（平圖藏本）即總目[隆慶]潮陽縣志十五卷明隆慶六年刻本（北平圖書館藏）；作者同一 Entity hixhd2h9bgqv，同一修本。",
+   "rule": "去重方案部分1：176 组待核判定 H-C025（同书）",
+   "preconditions": [
+    {
+     "id": "d59f6epog6io",
+     "path": "Work/6/i/o/d59f6epog6io-潮陽縣志.json",
+     "sha256": "ad0f0321044efc67b63ae63bccdb2bba9d90ecfdbca3a49dd59e1e744be92ed3"
+    },
+    {
+     "id": "d59f2nkopmgy",
+     "path": "Work/m/g/y/d59f2nkopmgy-重修潮陽縣志.json",
+     "sha256": "67ecc6296d6abdf8b94b585eec82797aa4be79bdc4051170bf64a4096de12377"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2nkopmgy",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "小注載年號／朝代詞（「隆慶間修」等），據此定代；《千頃堂書目》為唯一著錄源，屬單一著錄志書逕定代之例",
+       "loser_value": "據 authors[0].dynasty「明」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C027",
+   "type": "work",
+   "keeper": "d59fz72zepkw",
+   "losers": [
+    "d59fypvewmiq"
+   ],
+   "evidence": "禮賢錄一卷，兩條 indexed_by 全同（天一閣、上圖），d59fz72zepkw 已掛對方源記錄 461cb1q14om4d0ji；注：另有 d59fytlur4e8（南圖）不在本案。",
+   "rule": "去重方案部分1：176 组待核判定 H-C027（同书）",
+   "preconditions": [
+    {
+     "id": "d59fz72zepkw",
+     "path": "Work/p/k/w/d59fz72zepkw-禮賢錄.json",
+     "sha256": "431c7769c5c3e3280f19bf4d98c34a9b60040b40c5b72c631c519c18222b900d"
+    },
+    {
+     "id": "d59fypvewmiq",
+     "path": "Work/m/i/q/d59fypvewmiq-禮賢錄.json",
+     "sha256": "9aba142b63ee1aacded3cafff83724a57e159cfd67296a7aaba3db838a10000c"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fypvewmiq 在 zm0191，keeper 在 zm0192——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C029",
+   "type": "work",
+   "keeper": "d59fz73nfzeo",
+   "losers": [
+    "d59fypvf7v2a"
+   ],
+   "evidence": "甲申傳信錄（明錢𠷓撰），兩條 indexed_by 全同（四組館藏），d59fz73nfzeo 已掛對方全部四條源記錄；注：庫內另有 d59fy7ronbpc、d59f2nhhj20y、d59fymckhzb6、d59f2ncl5uyo 同書未並，不在本案。",
+   "rule": "去重方案部分1：176 组待核判定 H-C029（同书）",
+   "preconditions": [
+    {
+     "id": "d59fz73nfzeo",
+     "path": "Work/z/e/o/d59fz73nfzeo-甲申傳信錄.json",
+     "sha256": "4232d746b6e05f788e398e5756e0ac65e0f0ec351107dabfe5dfde8474b24825"
+    },
+    {
+     "id": "d59fypvf7v2a",
+     "path": "Work/v/2/a/d59fypvf7v2a-甲申傳信錄.json",
+     "sha256": "155a8490c2c777a2490d002d24a71b676a2fc619ca10ee50288095c932602442"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fypvf7v2a 在 zm0191，keeper 在 zm0192——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C030",
+   "type": "work",
+   "keeper": "d59fymazot1e",
+   "losers": [
+    "d59fz7350zcw"
+   ],
+   "evidence": "遊滄浪亭記一卷清佚名；d59fymazot1e 叢編條十一館館藏即小方壺齋輿地叢鈔子目通用館藏，另一方為小方壺齋本，庫內無第三條同題。",
+   "rule": "去重方案部分1：176 组待核判定 H-C030（同书）",
+   "preconditions": [
+    {
+     "id": "d59fymazot1e",
+     "path": "Work/t/1/e/d59fymazot1e-遊滄浪亭記.json",
+     "sha256": "49a77e4f14601ddd6950a53bb8972659a879befa7228db0877cd93e9060141b0"
+    },
+    {
+     "id": "d59fz7350zcw",
+     "path": "Work/z/c/w/d59fz7350zcw-遊滄浪亭記.json",
+     "sha256": "899341a56f8d9f1576dc5cb86190cbd32817c456e19cccc0c188aad0cb69827f"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fz7350zcw 在 zm0280，keeper 在 zm0264——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C032",
+   "type": "work",
+   "keeper": "d59f2n4zpz40",
+   "losers": [
+    "d59f2n33o8ox"
+   ],
+   "evidence": "同為清光緒三十年刊本二十卷、周斯億（同一 Entity），故宮兩部（故志、贈善）各錄一條；總目即[光緒]重修曲陽縣志二十卷。",
+   "rule": "去重方案部分1：176 组待核判定 H-C032（同书）",
+   "preconditions": [
+    {
+     "id": "d59f2n4zpz40",
+     "path": "Work/z/4/0/d59f2n4zpz40-重修曲陽縣志.json",
+     "sha256": "5b58d30a3a64d89e6ffcef0004c6b0a93cdf1d5a6d5cb854d066a2ef66e08058"
+    },
+    {
+     "id": "d59f2n33o8ox",
+     "path": "Work/8/o/x/d59f2n33o8ox-曲陽縣志.json",
+     "sha256": "c1ffaf2d70fc1b3451e081ea16c4af5c47b671c20c0571ced6ad7bf6a19ad3aa"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2n33o8ox",
+     "fields": [
+      {
+       "field": "measure_info",
+       "keeper_value": "廿卷",
+       "loser_value": "二十卷"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C034",
+   "type": "work",
+   "keeper": "d59fz5wor5s0",
+   "losers": [
+    "d59fypvg5kox"
+   ],
+   "evidence": "紹興十八年同年小錄一卷，兩條 indexed_by 全同（國圖），d59fz5wor5s0 已掛對方源記錄 v4fxtnu6c56at8j2；此書唯一。",
+   "rule": "去重方案部分1：176 组待核判定 H-C034（同书）",
+   "preconditions": [
+    {
+     "id": "d59fz5wor5s0",
+     "path": "Work/5/s/0/d59fz5wor5s0-紹興十八年同年小錄.json",
+     "sha256": "0fe3e2f0977d1dfdecc7b2c716ebd8a5633b549b417e3f535d106d3539a241da"
+    },
+    {
+     "id": "d59fypvg5kox",
+     "path": "Work/k/o/x/d59fypvg5kox-紹興十八年同年小錄.json",
+     "sha256": "35e4d35db38f754e34aed63e9bf1974360e3bb36094974173bd8073969ec8af2"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C038",
+   "type": "work",
+   "keeper": "d59fz73pbeo1",
+   "losers": [
+    "d59fypveldz5"
+   ],
+   "evidence": "天水冰山錄明佚名，兩條 indexed_by 全同（六館），d59fz73pbeo1 已掛對方源記錄 qqjybeliwksc1nie；一卷與不分卷附錄一卷相容。",
+   "rule": "去重方案部分1：176 组待核判定 H-C038（同书）",
+   "preconditions": [
+    {
+     "id": "d59fz73pbeo1",
+     "path": "Work/e/o/1/d59fz73pbeo1-天水冰山錄.json",
+     "sha256": "35999fff810bba56b198c836e9eb9e76c464502ce2b904f9c9a0deccb16b569c"
+    },
+    {
+     "id": "d59fypveldz5",
+     "path": "Work/d/z/5/d59fypveldz5-天水冰山錄.json",
+     "sha256": "890ef24b0d4f73d4627c948b0ea1d94a8b9d46124aa032e731f81cd23c5c5c5c"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fypveldz5 在 zm0191，keeper 在 zm0192——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C039",
+   "type": "work",
+   "keeper": "d59fyn5c7e9s",
+   "losers": [
+    "d59fz72ys8hs"
+   ],
+   "evidence": "戎車日記一卷無撰人；d59fyn5c7e9s 叢編四本中四川省圖一本即海甸野史二十五種（清抄本，四川），與另一方海甸野史本為同一子目；注：另有明許德士撰 d59fxt75a681（沈氏家藏秘笈），是否同文另案。",
+   "rule": "去重方案部分1：176 组待核判定 H-C039（同书）",
+   "preconditions": [
+    {
+     "id": "d59fyn5c7e9s",
+     "path": "Work/e/9/s/d59fyn5c7e9s-戎車日記.json",
+     "sha256": "892f5dc5ba85d088ef2b6c22b9ba5c39980ab47e716039ec118b5001bf9f1542"
+    },
+    {
+     "id": "d59fz72ys8hs",
+     "path": "Work/8/h/s/d59fz72ys8hs-戎車日記.json",
+     "sha256": "b060913ddc1cb36c62cda1b7d5d04ce83ad67fe114b9c0f9b865227f8d7fc688"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fz72ys8hs 在 zm0192，keeper 在 zm0191——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C041",
+   "type": "work",
+   "keeper": "d59fz73dge0x",
+   "losers": [
+    "d59fypvf7v28"
+   ],
+   "evidence": "晉史乘一卷，兩條 indexed_by 全同（南圖），d59fz73dge0x 已掛對方源記錄 eisovxkyv5zcnot0。",
+   "rule": "去重方案部分1：176 组待核判定 H-C041（同书）",
+   "preconditions": [
+    {
+     "id": "d59fz73dge0x",
+     "path": "Work/e/0/x/d59fz73dge0x-晉史乘.json",
+     "sha256": "f60b1a6a960c6a6a83c2f494c8ba542dc519b95c14dfaee8c61b200c66d8d119"
+    },
+    {
+     "id": "d59fypvf7v28",
+     "path": "Work/v/2/8/d59fypvf7v28-晉史乘.json",
+     "sha256": "150eb9a8d336460021fe3b85fad728b8a1b8ba7ec32d0b99b662d46a2239ac6d"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C043",
+   "type": "work",
+   "keeper": "d59fypvfuc5d",
+   "losers": [
+    "d59fz72l1slc"
+   ],
+   "evidence": "朱子（熹）年譜一卷（臺圖，歷代名人年譜大成子目），同一源記錄 wla38lbu5dz2jhkd 兩處錄入。",
+   "rule": "去重方案部分1：176 组待核判定 H-C043（同书）",
+   "preconditions": [
+    {
+     "id": "d59fypvfuc5d",
+     "path": "Work/c/5/d/d59fypvfuc5d-朱子年譜.json",
+     "sha256": "ca43769a892ffa1eb667fc2a5377f7cf70e7d7ce67c9520c625b03ea722462eb"
+    },
+    {
+     "id": "d59fz72l1slc",
+     "path": "Work/s/l/c/d59fz72l1slc-朱子年譜.json",
+     "sha256": "248ea8f1268bbbb9f16fffb3fb3867953dd35cb0379faa0a7da39cf92d500b56"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "H-C044",
+   "type": "work",
+   "keeper": "d59fymcl4gzk",
+   "losers": [
+    "d59fz73d55hc"
+   ],
+   "evidence": "綏史三卷，均「清□□撰；清葉騰驤删節」，撰人刪節者卷數全同，叢編條與崇正叢書本為同一刪節本。",
+   "rule": "去重方案部分1：176 组待核判定 H-C044（同书）",
+   "preconditions": [
+    {
+     "id": "d59fymcl4gzk",
+     "path": "Work/g/z/k/d59fymcl4gzk-綏史.json",
+     "sha256": "34430837730f0eb6b4a3b25e6f1f702be419d6f30ceedb9a1cff084ffb6ce8ee"
+    },
+    {
+     "id": "d59fz73d55hc",
+     "path": "Work/5/h/c/d59fz73d55hc-綏史.json",
+     "sha256": "b22e14d776b255786826e70da6ccff8c6d4abc95c85a1cea97c2304a02d5e909"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fz73d55hc 在 zm0192，keeper 在 zm0191——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  }
+ ]
+}
