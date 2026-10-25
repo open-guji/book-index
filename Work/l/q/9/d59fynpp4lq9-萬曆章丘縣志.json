@@ -12,7 +12,9 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/hri7p0l2sr2n3ezl"
-      }
+      },
+      "entity_id": "hixhd2h9bi7g",
+      "name_basis": "2026-10-25 並條善後：同書重出條 d59f2njfrgg3 之同名撰人已繫此 entity，今補繫（3a-G0900）。"
     }
   ],
   "dynasty": "明",
@@ -29,9 +31,9 @@
       "summary": "共 1 個版本：明萬曆二十四年刻本（北平圖書館（藏臺圖）、山東省圖書館、北京大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：x5qliwvvf85fv1nb\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：x5qliwvvf85fv1nb\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59f2njfrgg3《章邱縣志》 入本條。同题同首位责任者：《[萬曆]章丘縣志》董復亨(明,34卷,1版本)／《章邱縣志》董復亨(明,34卷,1版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-25",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +49,47 @@
         "nlc_fid": "0690",
         "edition": "明萬曆[1573-1620]"
       }
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NCL-03586_01_%E7%AB%A0%E9%82%B1%E7%B8%A3%E5%BF%97.pdf"
     }
   ],
   "resource_groups": {
     "nlc-0690": {
       "label": "國圖藏本：明萬曆[1573-1620]"
     }
-  }
+  },
+  "juan_count": {
+    "number": 34
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 34
+    }
+  ],
+  "measure_info": "三十四卷",
+  "additional_titles": [
+    "章邱縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2njfrgg3",
+      "title": "章邱縣志",
+      "at": "2026-10-25T19:02:30Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a-1：同题同首位责任者 A 档机械并",
+      "why": "同题同首位责任者：《[萬曆]章丘縣志》董復亨(明,34卷,1版本)／《章邱縣志》董復亨(明,34卷,1版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突",
+      "author": "董復亨",
+      "title_info": []
+    }
+  ],
+  "merged_from": [
+    "d59f2njfrgg3"
+  ]
 }
