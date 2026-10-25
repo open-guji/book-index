@@ -53,6 +53,42 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E5%A0%85%E7%93%A0%E9%9B%86%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075771",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075771",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075771",
+        "request_no": "３０８－０１２３",
+        "edition": "刊本（序刊）::清康煕:290000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5049283/manifest.json",
+        "extent": "30冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079800",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079800",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079800",
+        "request_no": "子０８２－０００２",
+        "edition": "刊本（序刊）::清康煕:290000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4423844/manifest.json",
+        "extent": "34冊"
+      }
     }
   ],
   "updated_at": "2026-08-19T00:00:00-07:00",
@@ -60,13 +96,21 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 16，與著錄原文（清史稿藝文志：「堅瓠集」）所載之 66 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 16，與著錄原文（清史稿藝文志：「堅瓠集」）所載之 66 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。",
   "description": {
     "text": "褚人穫（清）撰。六十六卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「堅瓠集六十六卷」。本書惟《清史稿藝文志》一志著錄，別無他證。別集之屬，所收為其人之詩文。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
     "sources": [
       "清史稿藝文志"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-25",
+  "resource_groups": {
+    "naikaku-1075771": {
+      "label": "內閣文庫藏本：清康煕29年刊本（序刊）（308-0123，30冊）"
+    },
+    "naikaku-1079800": {
+      "label": "內閣文庫藏本：清康煕29年刊本（序刊）（子082-0002，34冊）"
+    }
+  }
 }
