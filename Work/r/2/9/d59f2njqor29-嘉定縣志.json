@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjxkpt8gmbk(韓浚)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 8 取自 `measure_info`「八冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjxkpt8gmbk(韓浚)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 8 取自 `measure_info`「八冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59fynq0zmdc《[萬曆]嘉定縣志》 入本條。同题同首位责任者：《嘉定縣志》韓濬(明,22卷,1版本)／《[萬曆]嘉定縣志》韓濬(明,22卷,1版本)；B 档逐组复核判同一作品：方志同一次纂修：首位修纂人同、同年刊本、卷數同，故宮著錄與總目版本記錄相並（萬曆，韓濬修，二十二卷）；flags=coauth_diff",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-25",
   "indexed_by": [
     {
       "source": "中國古籍總目",
@@ -41,6 +41,56 @@
       "author_info": "明韓濬修;明張應武等纂",
       "section": "史部/方志類",
       "summary": "共 1 個版本：明萬曆三十三年刊本（天一閣文物保管所、北京大學圖書館、北平圖書館（藏臺圖）、上海博物館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "[萬曆]嘉定縣志二十二卷",
+      "author_info": "明韓濬修;明張應武等纂",
+      "section": "史部/方志類/地志之屬",
+      "summary": "共 1 個版本：抄本（上海博物館、南京圖書館）"
     }
+  ],
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-0627",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0627",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0627",
+        "edition": "明萬曆[1573-1620]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-0627": {
+      "label": "國圖藏本：明萬曆[1573-1620]"
+    }
+  },
+  "additional_titles": [
+    "[萬曆]嘉定縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59fynq0zmdc",
+      "title": "[萬曆]嘉定縣志",
+      "at": "2026-10-25T20:26:11Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a-2：同题同首位责任者 B 档逐组复核并",
+      "why": "同题同首位责任者：《嘉定縣志》韓濬(明,22卷,1版本)／《[萬曆]嘉定縣志》韓濬(明,22卷,1版本)；B 档逐组复核判同一作品：方志同一次纂修：首位修纂人同、同年刊本、卷數同，故宮著錄與總目版本記錄相並（萬曆，韓濬修，二十二卷）；flags=coauth_diff",
+      "author": "韓濬、張應武",
+      "title_info": [
+        "[萬曆]嘉定縣志二十二卷"
+      ]
+    }
+  ],
+  "merged_from": [
+    "d59fynq0zmdc"
   ]
 }
