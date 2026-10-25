@@ -145,6 +145,24 @@ def main():
     cols = {}
     for f in glob.glob(str(ROOT / 'Collection/*/*/*/*.json')):
         c = json.load(open(f, encoding='utf-8')); cols[c['id']] = c
+
+    def colfix(c):
+        """Collection 墓碑（部分 6 并了 Collection 后）沿 merged_into 走到 keeper。"""
+        seen = set()
+        while c in cols and cols[c].get('merged_into') and c not in seen:
+            seen.add(c); c = cols[c]['merged_into']
+        return c
+
+    def tr_ci(r):
+        """译过 id 的记录：contained_in 再沿 Collection 墓碑走到 keeper，并去重。"""
+        if r.get('contained_in'):
+            out, have = [], set()
+            for x in r['contained_in']:
+                y = dict(x, id=colfix(x.get('id')))
+                if y['id'] not in have:
+                    have.add(y['id']); out.append(y)
+            r['contained_in'] = out
+        return r
     print(f'载入：449d409 Book 档 {len(rec)}、promotions {len(P)}、正式 Book {len(idx)}')
     if not rec or not P or not idx:
         die('载入条数为 0')
@@ -161,7 +179,7 @@ def main():
         losers = sorted(groups[kd])
         kb = rec[kd]['before']
         def tci(r):
-            return frozenset(P[c]['production_id'] if c in P else c for c in ci_ids(r))
+            return frozenset(colfix(P[c]['production_id'] if c in P else c) for c in ci_ids(r))
         kci = tci(kb)
         split = [l for l in losers if tci(rec[l]['before']) != kci]
         if not split:
@@ -201,7 +219,7 @@ def main():
             problems.append({'keeper': prom, 'why': '同 Work 已有挂同一／同版本丛书的活 Book，新建会重复，交部分 5',
                              'hits': hit[:5]}); continue
         miss = []
-        kb_t = tr_rec(kb, P, miss)
+        kb_t = tr_ci(tr_rec(kb, P, miss))
         item = {'keeper': prom, 'keeper_draft': kd, 'keeper_path': str(kpath.relative_to(ROOT)),
                 'keeper_sha256': sha(kpath), 'stays_merged': [l for l in losers if l not in split],
                 'split': [], 'warnings': []}
@@ -210,7 +228,7 @@ def main():
         for l in split:
             lb = rec[l]['before']
             lmiss = []
-            lt = lts[l] = tr_rec(lb, P, lmiss)
+            lt = lts[l] = tr_ci(tr_rec(lb, P, lmiss))
             if lmiss:
                 item['warnings'].append(f'{l}：草稿 id 未升格，原样保留 {sorted(set(lmiss))}')
             # 减法：只删 keeper 原记录里没有的项
