@@ -12,7 +12,9 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/s5a1h15hmmh8k6rm"
-      }
+      },
+      "entity_id": "hixhd2h9bgm4",
+      "name_basis": "2026-10-25 並條善後：同書重出條 d59f2nfg6adc 之同名撰人已繫此 entity，今補繫（3a-G0924）。"
     }
   ],
   "dynasty": "明",
@@ -27,11 +29,21 @@
       "author_info": "明朱權撰",
       "section": "子部/道家類/道教之屬/詩文雜著",
       "summary": "共 1 個版本：明刻本（國家圖書館、南京圖書館）"
+    },
+    {
+      "source": "四庫全書存目叢書",
+      "source_bid": "d59f2og4vke9",
+      "title_info": "《神隠》二卷",
+      "author_info": "明朱權撰",
+      "summary": "《神隠》二卷。明朱權撰。北京圖書館藏明刻本。",
+      "edition": "北京圖書館藏明刻本",
+      "volume": "第259冊",
+      "section": "子部"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：aka4szsodbkdyrjq\nauto-split:存疑未并\nE6 第 5205 批新建（hold 清零：zibu1-intake2；原 hold 原因：未处置）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：aka4szsodbkdyrjq\nauto-split:存疑未并\nE6 第 5205 批新建（hold 清零：zibu1-intake2；原 hold 原因：未处置）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59f2nfg6adc《神隠》 入本條。同题同首位责任者：《神隱》朱權(明,2卷,1版本)／《神隠》朱權(明,2卷,0版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-25",
   "resources": [
     {
       "id": "nlc",
@@ -62,6 +74,36 @@
         "nlc_fid": "411999007743",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "commons",
+      "name": "维基共享资源",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC892-412000001145-165624_%E7%A5%9E%E9%9A%B1.pdf",
+      "types": [
+        "image"
+      ],
+      "root_type": "catalog",
+      "metadata": {
+        "format": "PDF",
+        "edition": "刻本",
+        "year": "明[1368-1644]",
+        "note": "本链接为扫描册 1；不代表全书齐备。"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000001144",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000001144",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000001144",
+        "edition": "明[1368-1644]"
+      }
     }
   ],
   "resource_groups": {
@@ -71,5 +113,35 @@
     "nlc-411999007743": {
       "label": "國圖藏本：明[1368-1644]"
     }
-  }
+  },
+  "juan_count": {
+    "number": 2
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 2
+    }
+  ],
+  "measure_info": "二卷",
+  "additional_titles": [
+    "神隠"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2nfg6adc",
+      "title": "神隠",
+      "at": "2026-10-25T19:47:55Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a-1：同题同首位责任者 A 档机械并",
+      "why": "同题同首位责任者：《神隱》朱權(明,2卷,1版本)／《神隠》朱權(明,2卷,0版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突",
+      "author": "朱權",
+      "title_info": [
+        "《神隠》二卷"
+      ]
+    }
+  ],
+  "merged_from": [
+    "d59f2nfg6adc"
+  ]
 }
