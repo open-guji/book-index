@@ -35,6 +35,8 @@
 | `indexed_by` | array<IndexEntry> | 可选 | 原生 | 被目录书著录 | 见 common.md | 录入 | |
 | `related_books` | array<string> | 可选 | 原生 | 对称关联的 Book（存 id 较小一侧） | Book id 字符串数组 | 录入（V07 把关） | |
 | `related_collections` | array<string> | 可选 | 原生 | 对称关联的丛编（存 id 较小一侧） | Collection id 字符串数组；只能写丛编 id | 录入（V07 把关） | `["8rlcsybg2hi6"]` |
+| `merged_into` | string | 墓碑 | 原生 | 本丛编已并入哪一个丛编 | Collection id。**只在墓碑上**；墓碑只留 `schema_version／id／type／subtype／title／merged_into／revision／revised_at`，形同 Book 墓碑；成员侧 `contained_in` 一律改指 keeper，不得指墓碑；网站 `/item/<id>` 308 到 keeper | 并条脚本 | |
+| `merged_from` | array<string> | 可选 | 原生 | 并入本丛编的丛编 id（keeper） | id 数组 | 并条脚本 | |
 | `resources` | array<Resource> | 可选 | 原生 | 外部资源 | 见 common.md | 录入 | |
 | `sources`、`ai_note`、`todo`、`review` | — | 可选 | 原生 | 共通字段 | 见 common.md | 录入 | |
 | `revision`、`revised_at`、`updated_at` | string | `revision` 必填 | 原生 | 共通字段 | 见 common.md | bim | `"1.0.0"` |
