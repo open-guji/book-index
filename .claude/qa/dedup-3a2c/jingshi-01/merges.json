@@ -1,0 +1,840 @@
+{
+ "base": "e3f2a4d74dd34c7f84b0c22c5deab930ff39b431",
+ "merges": [
+  {
+   "cluster_id": "3a2c-J01-001",
+   "type": "work",
+   "keeper": "d59f27sxacxv",
+   "losers": [
+    "d59f27t0eqdd"
+   ],
+   "evidence": "差一字·經史：《算經要用百法》徐岳(三國魏,1卷,3著录)／《算經要用百灋》徐岳(—,1卷,1著录)；《算經要用百法》／《算經要用百灋》：差字「法／灋」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f27sxacxv",
+     "path": "Work/c/x/v/d59f27sxacxv-算經要用百法.json",
+     "sha256": "2b0dee809c079cb977c627909e78becbe4f915246929c71649940af25200eda0"
+    },
+    {
+     "id": "d59f27t0eqdd",
+     "path": "Work/q/d/d/d59f27t0eqdd-算經要用百灋.json",
+     "sha256": "9f9d0a9ee78f5302c7e97a56607ebfacf94b4b60c465b613f69742dfd38520df"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f27t0eqdd",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「三國魏」",
+       "loser_value": "撰人 Entity 之代：徐岳（三國魏）——同人名下他書 {'qin-han': 1, 'three-kingdoms': 3} 佐證一致"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f27t0eqdd 在 zm0001，keeper 在 zm0403——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f27t0eqdd": {
+     "description": {
+      "text": "徐岳撰。一卷。見著錄於《國史經籍志》。其著錄之文，《國史經籍志》作「《筭經要用百灋》一卷（徐岳）」。本書惟《國史經籍志》一志著錄，別無他證。《國史經籍志》明焦竑撰，本書之目賴之以存。",
+      "sources": [
+       "國史經籍志"
+      ]
+     },
+     "ai_note": "2026-08-24 J6 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-24 正題·異體歸正（使用者裁定：碰到異體字盡量歸併到正規繁體）：題中異體字改為正體（筭經要用百灋 → 算經要用百灋），舊題存 additional_titles 以志著錄原形。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-002",
+   "type": "work",
+   "keeper": "d59f9s1c15ag",
+   "losers": [
+    "d59f27tgyb5t"
+   ],
+   "evidence": "差一字·經史：《汲冢書釋》束皙(晉,—卷,1著录)／《汲家書釋》束皙(西晉,—卷,1著录)；《汲冢書釋》／《汲家書釋》：差字「冢／家」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f9s1c15ag",
+     "path": "Work/5/a/g/d59f9s1c15ag-汲冢書釋.json",
+     "sha256": "bba8ba37cdbc0b29ab01d61549bf56e9e0378fd9b907da6a5c5654e910fb14ea"
+    },
+    {
+     "id": "d59f27tgyb5t",
+     "path": "Work/b/5/t/d59f27tgyb5t-汲家書釋.json",
+     "sha256": "0e938d24e4de160eae248f8b9c4e89aa495872ee4e6228e47034c6cf359abfd7"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f27tgyb5t",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "2026-09-06 《補晉書經籍志》（吳士鑑）整理：《補晉書經籍志》（吳士鑑）著錄。晉（265-420）。",
+       "loser_value": "據 authors[0].dynasty「西晉」（2026-09-06 qa-sweep/weijin：本欄原引「晉」，而 authors[0].dynasty 實作「西晉」——係「晉」「三國」等籠統值細分之後本欄未隨改，非斷代錯；period 值不動，只正所引之值。）"
+      },
+      {
+       "field": "dynasty",
+       "keeper_value": "晉",
+       "loser_value": "西晉"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f27tgyb5t": {
+     "description": {
+      "text": "束皙（西晉）撰。見著錄於《補晋書藝文志》。《補晋書藝文志》列於乙部史録·雜史類。諸家按語稱其佚文見引於《書鈔》《初學記》。原書已佚。其著錄之文，《補晋書藝文志》作「汲家書釋束」。本書惟《補晋書藝文志》一志著錄，別無他證。《補晋書藝文志》清丁國鈞撰，本書之目賴之以存。",
+      "sources": [
+       "補晋書藝文志"
+      ]
+     },
+     "ai_note": "謹按云「見本書皙傳。《初學記》引皙《汲冢書鈔》，或即此」，是撰人為束皙，題名所存「束」字為其姓之殘，今補其名。　loss_status 判為 lost，據本記錄之描述／著錄語：「已亡佚」。此值為機讀所生（scripts/loss_status.py），非逐條精校，覆核時以本欄之據為準。\n\n2026-08-24 J6 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 晉志 source 正名：indexed_by.source 綴撰人以別五家補晉志（四本同題《補晉書藝文志》，非綴撰人不可辨）。source_bid 未動。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-003",
+   "type": "work",
+   "keeper": "d59f286h69z7",
+   "losers": [
+    "d59f284tjy85"
+   ],
+   "evidence": "差一字·經史：《春秋傳駁》賈思同(北魏,1卷,1著录)／《春秋傳駮》賈思同(北魏,1卷,4著录)；《春秋傳駁》／《春秋傳駮》：差字「駁／駮」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f286h69z7",
+     "path": "Work/9/z/7/d59f286h69z7-春秋傳駁.json",
+     "sha256": "d38cf1a8dae83ec1b453d92573b472c26b28da590ebfc7763078952512a3bfb0"
+    },
+    {
+     "id": "d59f284tjy85",
+     "path": "Work/y/8/5/d59f284tjy85-春秋傳駮.json",
+     "sha256": "0e1f641719b440eb1e6e4889c0a4091f415ef3bc2b73946bdcae38be9f753678"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f284tjy85",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「北魏」（2026-08-21 訂正：原標「闕」，據清史稿著錄語之朝代前綴改）",
+       "loser_value": "據 authors[0].dynasty「北魏」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f284tjy85": {
+     "ai_note": "本 work 據《玉函山房輯佚書》目錄（光緒九年長沙嫏嬛館補校刊本）新建——該叢書正編春秋類著錄「春秋傳駮一卷」，而本庫先前無同題之 work。所記止於目錄所有（題、卷數、撰人、朝代），撰人未繫 entity——目錄只給人名，繫人須另考。loss_status 記為 lost：馬氏既為之輯，其書清時已佚。本書之輯佚著錄見同目錄下 fragments/。\n\n2026-08-21 存佚判準訂正（SCHEMA〈loss_status 枚舉〉2026-08-21 訂正）：loss_status 由 lost 改為 partially_extant。本條有輯佚檔（輯家 1 家、已錄佚文 0 條、諸家所稱 0 條），是本書之文確有存世者。舊判準以「後人之輯本不改其為全佚」列為 lost，與本欄所宣之軸「本書之文今日尚存幾何」不自洽，今改。傳本斷絕之事由本條輯佚檔之存在承載，不因此喪失。\n\n2026-08-24 補著錄源：《玉函山房輯佚書》一節補入 indexed_by。本書（清馬國翰輯，光緒九年長沙嫏嬛館補校刊本）逐書著錄書名、卷數、撰人並各繫序錄，合 SCHEMA〈IndexEntry〉「本書被目錄書／志書著錄」之義，與《續修四庫全書》《清史稿·藝文志》輯佚子目同性質。舊只記於本書之輯佚檔 collectors 與整理本節，不入 indexed_by，致所繫千餘條顯為「無著錄源」。今補。（本節之 summary 現止於目錄層——馬氏每書之序錄尚未錄入整理本，俟序錄錄入後可回填。）\n\n2026-09-05 《補魏書藝文志》整理：收《補魏書藝文志》一節。本志作「賈思同　春秋傳駮十卷」。撰人相符（春秋傳駮）\n\n2026-09-05 《補魏書藝文志》深覈：卷數異文——本志作「十卷」而庫中作「一卷」。本志所本：「《魏書·賈思伯傳》：“思伯弟思同，字士明，與國子祭酒韓子熙並為侍講，授靜帝《杜氏春秋》。國子博士衞冀隆精服氏學，上書難《杜氏春秋》六十三事，思同復駮冀隆乖錯者一」。庫中之「一卷」每是清人輯本之數（馬國翰《玉函山房》之屬），本志據《隋志》原書卷數。同書異本，measure 不改，異數存此。\n\n2026-09-06 qa-sweep/nanbeichao：補 authors[0].dynasty「北魏」——period_basis 作「據 authors[0].dynasty「北魏」」而該欄本無 dynasty 一鍵，是引不存在之值為據（scan A 類）。據《玉函山房輯佚書》「北魏賈思同撰」、《補魏書藝文志》引《魏書·賈思伯傳》。原值：authors[0] 無 dynasty，dynasty_basis 作機讀標記「known_mislabel:round3(...)」。period 不動。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-004",
+   "type": "work",
+   "keeper": "d59f28kf3vgh",
+   "losers": [
+    "d59f28k2mdqe"
+   ],
+   "evidence": "差一字·經史：《邊陲利害》薛向(唐,—卷,1著录)／《邉陲利害》薛向(—,3卷,1著录)；《邉陲利害》／《邊陲利害》：差字「邉／邊」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f28kf3vgh",
+     "path": "Work/v/g/h/d59f28kf3vgh-邊陲利害.json",
+     "sha256": "a732e328c1e59b4da1e29c3c9393a47fd6953eb81c8ef15452967d8367c2c87d"
+    },
+    {
+     "id": "d59f28k2mdqe",
+     "path": "Work/d/q/e/d59f28k2mdqe-邉陲利害.json",
+     "sha256": "25adbf1d792296a3530dbf93bb7fa30a8ff6c809b42354df726ac5cfe2ff0d8f"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f28k2mdqe",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「唐」——撰人自《宋史藝文志》頂真格之首名抽出（見 authors[].name_basis），繫庫中同名唯一之 entity 而得其代。",
+       "loser_value": "撰人 Entity 之代：薛向（Entity 1j96h8rw8hykb），並經 CBDB c_personid 180263 覆驗相符"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f28k2mdqe": {
+     "description": {
+      "text": "《國史經籍志》收錄。",
+      "sources": [
+       "國史經籍志"
+      ]
+     },
+     "ai_note": "2026-08-24 隋唐 T7·焦竑孤證標記（使用者裁定）：**本條之著錄止見焦竑《國史經籍志》一源**。焦氏抄撮舊目而訛誤極多——撰人括注一葉之內可以訛遍，卷數亦每與諸志不合（本輪所見：《李淳風懸鏡》作「千卷」而舊唐志十卷、《唐春秋》作二十卷而新唐志與經義考所引唐志皆三十卷）；其孤證不足以立一書，亦不足為某書明代尚存之證（skill 坑 6）。使用者 2026-08-24 裁定：**升，但加標記備日後複核**——焦氏之誤多在撰人與卷數之細節而非「此書不存在」，條目本身立得住；日後得他源（新唐志、崇文總目、宋志）交叉核對時，以本標記批量撈出。登記見 `.claude/known-issues/S3-隋唐焦竑孤證待覆核-20260824.json`。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-005",
+   "type": "work",
+   "keeper": "d59f2gec9tds",
+   "losers": [
+    "d59f2gczksn6"
+   ],
+   "evidence": "差一字·經史：《四書講稿》傅定保(元,—卷,2著录)／《四書講槀》傅定保(元,—卷,1著录)；《四書講槀》／《四書講稿》：差字「槀／稿」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2gec9tds",
+     "path": "Work/t/d/s/d59f2gec9tds-四書講稿.json",
+     "sha256": "4317a6ad9fedfb95bd9da373e3c1d5f5be5130c310550d60c80fb8f71dee7679"
+    },
+    {
+     "id": "d59f2gczksn6",
+     "path": "Work/s/n/6/d59f2gczksn6-四書講槀.json",
+     "sha256": "981b6583a0472293e617a7f232154af72a2f572f46492c30b8c75a9bbe1b7b54"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2gczksn6",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「元」",
+       "loser_value": "仕平江路儒學，「平江路」為元代路制（宋為平江府，明為蘇州府）（2026-08-24 R3 引文定代）"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2gczksn6": {
+     "description": {
+      "text": "傅定保撰。見著錄於《經義考》。《經義考》列於四書。本書惟《經義考》一志著錄，別無他證。《經義考》清朱彝尊撰——本書之目賴之以存。",
+      "sources": [
+       "經義考"
+      ]
+     },
+     "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書四書類著錄「傅氏定（保）四書講槀」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「未見」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n標目之正：名之末字在括中。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 L4 撰人朝代回填：authors[].dynasty 原闕而其 entity 已有其代，今取之（1 處）——「核人不核書」。判據記於 authors[].dynasty_basis。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1exvgl8ujo9cr` 不同（ai_note、authors）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-006",
+   "type": "work",
+   "keeper": "d59f2gdksxky",
+   "losers": [
+    "d59f6en6ju2p"
+   ],
+   "evidence": "差一字·經史：《春秋旨要》黃澤(元,—卷,2著录)／《春秋㫖要》黄澤(—,—卷,1著录)；《春秋㫖要》／《春秋旨要》：差字「㫖／旨」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2gdksxky",
+     "path": "Work/x/k/y/d59f2gdksxky-春秋旨要.json",
+     "sha256": "ec745562cd9c8afcf09dc92855b9774e8fcd7b79905a28263c55b5bf6bbc7636"
+    },
+    {
+     "id": "d59f6en6ju2p",
+     "path": "Work/u/2/p/d59f6en6ju2p-春秋㫖要.json",
+     "sha256": "d2e888937056e382539ed7812c37dfcc4db068c2f848e5a7e60c7351708b3607"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6en6ju2p": {
+     "description": {
+      "text": "黄澤撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「黄澤春秋㫖要」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     },
+     "ai_note": "撰人切分來源：詞庫補切·庫內題名。 同名異書：庫內已有同題「春秋㫖要」而撰人各異（齊賢良()），本條撰人「黄澤」與之不合，依《千頃堂書目》著錄逕行新建。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-007",
+   "type": "work",
+   "keeper": "d59f2gh5epdu",
+   "losers": [
+    "d59f6eqhh91c"
+   ],
+   "evidence": "差一字·經史：《喪禮會經》葉起(元,—卷,2著录)／《喪禮㑹經》葉起(—,—卷,1著录)；《喪禮㑹經》／《喪禮會經》：差字「㑹／會」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2gh5epdu",
+     "path": "Work/p/d/u/d59f2gh5epdu-喪禮會經.json",
+     "sha256": "4b1b2aeddeaca6c9018adbd0e21174b40a72ab7374a3b0c0decbac32094dd499"
+    },
+    {
+     "id": "d59f6eqhh91c",
+     "path": "Work/9/1/c/d59f6eqhh91c-喪禮㑹經.json",
+     "sha256": "bed96fa56b45c06a5b7095a8aad91c33dae2583520303b0db011d3074fc1dc02"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f6eqhh91c",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「元」",
+       "loser_value": "據撰人 葉起（hixhd2h9bngj） 之 period（liao-jin-yuan）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6eqhh91c": {
+     "description": {
+      "text": "葉起撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「葉起喪禮㑹經」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-008",
+   "type": "work",
+   "keeper": "d59f2gkyr4e8",
+   "losers": [
+    "d59f6eqfal8h"
+   ],
+   "evidence": "差一字·經史：《鹵簿中道外仗圖志》曾巽申(元,10卷,1著录)／《鹵簿中道外仗圗志》曾巽申(—,10卷,1著录)；《鹵簿中道外仗圖志》／《鹵簿中道外仗圗志》：差字「圖／圗」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2gkyr4e8",
+     "path": "Work/4/e/8/d59f2gkyr4e8-鹵簿中道外仗圖志.json",
+     "sha256": "3a210cb000a72d749f468f35464f641ea895ce4a8986ae9131b15c32ea458b14"
+    },
+    {
+     "id": "d59f6eqfal8h",
+     "path": "Work/l/8/h/d59f6eqfal8h-鹵簿中道外仗圗志.json",
+     "sha256": "14a4422f0dc53314e122caa81fcbc4789c294fc822e8ba41587f6f60e724bd72"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6eqfal8h": {
+     "description": {
+      "text": "曾巽申撰。十卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「曾巽申鹵簿中道外仗圗志十卷」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     },
+     "ai_note": "撰人切分來源：又條承上。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-009",
+   "type": "work",
+   "keeper": "d59f2hhqcx6r",
+   "losers": [
+    "d59f2he4tfr9"
+   ],
+   "evidence": "差一字·經史：《論語傳贊》錢文子(南宋,10卷,1著录)／《論語傳賛》錢文子(南宋,—卷,1著录)；《論語傳賛》／《論語傳贊》：差字「賛／贊」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2hhqcx6r",
+     "path": "Work/x/6/r/d59f2hhqcx6r-論語傳贊.json",
+     "sha256": "4cc915a042e6fe6ee9c345cea87d31ee1efde3ea79e7185dfca8872567f4d363"
+    },
+    {
+     "id": "d59f2he4tfr9",
+     "path": "Work/f/r/9/d59f2he4tfr9-論語傳賛.json",
+     "sha256": "4eaeffe29f15ec604fe9ffac96249c2aaed78a0614c9a7a71d74ed6c785b60a2"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2he4tfr9",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "撰人 Entity 之代：錢文子（南宋）——同人名下他書 {'song': 1} 佐證一致",
+       "loser_value": "撰人「錢文子」庫中同名 Entity 唯一（南宋，CBDB 16223）——本條 authors 未繫 entity_id，繫人屬 B 車道，此處只定代"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2he4tfr9 在 zm0103，keeper 在 zm0001——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2he4tfr9": {
+     "description": {
+      "text": "錢文子撰。見著錄於《經義考》。《經義考》列於論語。本書惟《經義考》一志著錄，別無他證。《經義考》清朱彝尊撰——本書之目賴之以存。",
+      "sources": [
+       "經義考"
+      ]
+     },
+     "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書論語類著錄「錢氏（文子）論語傳賛」，所引宋志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志、卷、頁。以下諸欄一概不繫，非漏，是無據：\n· `period`：《經義考》各類之內雖以撰人時代為序，然此序只堪分流（實測準確率 0.9646），不堪定代。定代須依所引之志與撰人本傳逐條為之。\n· `loss_status`：朱氏判本書為「佚」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役——「某氏（某）某經注」只是姓名加題，不言其人是撰是注。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-010",
+   "type": "work",
+   "keeper": "d59f2hjgsdtu",
+   "losers": [
+    "d59f2hetsf7l"
+   ],
+   "evidence": "差一字·經史：《潛虛衍義》張行成(北宋,16卷,2著录)／《濳虛衍義》張行成(南宋,—卷,1著录)；《潛虛衍義》／《濳虛衍義》：差字「潛／濳」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2hjgsdtu",
+     "path": "Work/d/t/u/d59f2hjgsdtu-潛虛衍義.json",
+     "sha256": "db34b2a3ac5281690b49adb9a29664c8e2a43279f4fce68ee150f4eff9276ad6"
+    },
+    {
+     "id": "d59f2hetsf7l",
+     "path": "Work/f/7/l/d59f2hetsf7l-濳虛衍義.json",
+     "sha256": "709b1b2b579ea0ef0eedc4368de31b86f967512b620a73cff558db554a2c88d5"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2hetsf7l",
+     "fields": [
+      {
+       "field": "period_upper",
+       "keeper_value": "ming",
+       "loser_value": "qing"
+      },
+      {
+       "field": "period_upper_basis",
+       "keeper_value": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming",
+       "loser_value": "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "撰人 Entity 之代：張行成（北宋）——同人名下他書 {'song': 5} 佐證一致",
+       "loser_value": "知名人物：張行成，南宋易學家；且潛虛為司馬光書，衍義必在其後。（2026-08-24 R3二輪 引文定代）"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2hetsf7l 在 zm0001，keeper 在 zm0321——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2hetsf7l": {
+     "description": {
+      "text": "張行成撰。見著錄於《經義考》。《經義考》列於擬經。本書惟《經義考》一志著錄，別無他證。《經義考》清朱彝尊撰——本書之目賴之以存。",
+      "sources": [
+       "經義考"
+      ]
+     },
+     "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書擬經類著錄「張氏（行成）濳虛衍義」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「未見」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-011",
+   "type": "work",
+   "keeper": "d59f2netdyio",
+   "losers": [
+    "d59f2ncxyp6s"
+   ],
+   "evidence": "差一字·經史：《孝經宗旨》羅汝芳(明,1卷,3著录)／《孝經宗㫖》羅汝芳(明,—卷,1著录)；《孝經宗㫖》／《孝經宗旨》：差字「㫖／旨」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2netdyio",
+     "path": "Work/y/i/o/d59f2netdyio-孝經宗旨.json",
+     "sha256": "643e7a00f6948e00a8e03a809efc6db1918d486e5f7b23809c048c9600fc4219"
+    },
+    {
+     "id": "d59f2ncxyp6s",
+     "path": "Work/p/6/s/d59f2ncxyp6s-孝經宗㫖.json",
+     "sha256": "cf856d2a19ad4ce174415f0a26712512de6cb403fd9dd914029dbaa0e556969b"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2ncxyp6s",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「明」",
+       "loser_value": "嘉靖甲辰舉會試、癸丑進士；知名人物：羅汝芳，明泰州學派（2026-08-24 R3 引文定代）"
+      },
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2ncxyp6s": {
+     "description": {
+      "text": "羅汝芳撰。見著錄於《經義考》。《經義考》列於孝經。本書惟《經義考》一志著錄，別無他證。《經義考》清朱彝尊撰——本書之目賴之以存。",
+      "sources": [
+       "經義考"
+      ]
+     },
+     "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書孝經類著錄「羅氏（汝芳）孝經宗㫖」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「未見」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzkq2wg`.dynasty「明」propagate 補齊；work.dynasty 同步。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-012",
+   "type": "work",
+   "keeper": "d59f2ncywetc",
+   "losers": [
+    "d59f6em7a0oz"
+   ],
+   "evidence": "差一字·經史：《大學中庸發微》范祖幹(明,—卷,1著录)／《大學中庸發㣲》范祖幹(—,—卷,1著录)；《大學中庸發㣲》／《大學中庸發微》：差字「㣲／微」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2ncywetc",
+     "path": "Work/e/t/c/d59f2ncywetc-大學中庸發微.json",
+     "sha256": "e833e2bc6187f1163c178caa0a22a53ea714221b51df0566f53836609c72bcbd"
+    },
+    {
+     "id": "d59f6em7a0oz",
+     "path": "Work/0/o/z/d59f6em7a0oz-大學中庸發㣲.json",
+     "sha256": "22a55f9614fec0be574c1830700a7df27cb706e9f78cfb3b967ad72b5baecea1"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f6em7a0oz",
+     "fields": [
+      {
+       "field": "period_upper_basis",
+       "keeper_value": "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing",
+       "loser_value": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6em7a0oz": {
+     "description": {
+      "text": "范祖幹撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「范祖幹大學中庸發㣲」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-013",
+   "type": "work",
+   "keeper": "d59f2ndcbmkj",
+   "losers": [
+    "d59f6emog2kl"
+   ],
+   "evidence": "差一字·經史：《讀易寤言》孟化鯉(明,—卷,1著录)／《讀易䆿言》孟化鯉(—,—卷,1著录)；《讀易䆿言》／《讀易寤言》：差字「䆿／寤」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2ndcbmkj",
+     "path": "Work/m/k/j/d59f2ndcbmkj-讀易寤言.json",
+     "sha256": "15a48a16d2b052ca5e88f90e80a7181a7cc9e82adb5862bf15772aa18e167279"
+    },
+    {
+     "id": "d59f6emog2kl",
+     "path": "Work/2/k/l/d59f6emog2kl-讀易䆿言.json",
+     "sha256": "f4806dec2437e17472dc7cfd58c3d86b8e63cda5c9eb1f1bfd68198cdd5e0b6e"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f6emog2kl",
+     "fields": [
+      {
+       "field": "period_upper_basis",
+       "keeper_value": "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing",
+       "loser_value": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6emog2kl": {
+     "description": {
+      "text": "孟化鯉撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「孟化鯉讀易䆿言」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-014",
+   "type": "work",
+   "keeper": "d59f2nktpf5s",
+   "losers": [
+    "d59f2nefyrcw"
+   ],
+   "evidence": "差一字·經史：《吳中往哲記》楊循吉(明,1卷,4著录)／《吳中徃哲記》楊循吉(明,1卷,1著录)；《吳中往哲記》／《吳中徃哲記》：差字「往／徃」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2nktpf5s",
+     "path": "Work/f/5/s/d59f2nktpf5s-吳中往哲記.json",
+     "sha256": "6e8eff8669ab3cfd3d03483e8b58dfb3dde109a194ef44c7c3ada34fc6208fb7"
+    },
+    {
+     "id": "d59f2nefyrcw",
+     "path": "Work/r/c/w/d59f2nefyrcw-吳中徃哲記.json",
+     "sha256": "19e5e3150050ef514c21ddce2c3cf91d936b31c1cffca4fd49b74639e2a64077"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2nefyrcw",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「明」",
+       "loser_value": "撰人 Entity 之代：楊循吉（明）——同人名下他書 {'ming': 20} 佐證一致"
+      },
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2nefyrcw 在 zm0176，keeper 在 zm0209——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2nefyrcw": {
+     "description": {
+      "text": "楊循吉撰。一卷。見著錄於《國史經籍志》。其著錄之文，《國史經籍志》作「《吳中徃哲記》一卷（楊循吉）」。本書惟《國史經籍志》一志著錄，別無他證。《國史經籍志》明焦竑撰——本書之目賴之以存。",
+      "sources": [
+       "國史經籍志"
+      ]
+     },
+     "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzlnsji`.dynasty「明」propagate 補齊；work.dynasty 同步。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-015",
+   "type": "work",
+   "keeper": "d59f2ngwm5fk",
+   "losers": [
+    "d59f2neqw2ki"
+   ],
+   "evidence": "差一字·經史：《青郊雜著》桑紹良(明,1卷,2著录)／《靑郊雜著》桑紹良(明,1卷,1著录)；《靑郊雜著》／《青郊雜著》：差字「靑／青」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2ngwm5fk",
+     "path": "Work/5/f/k/d59f2ngwm5fk-青郊雜著.json",
+     "sha256": "8ef443b3ee8002c377fcaa9e29b0b82869fcb7ea6976b1b02f41568331fa4b0c"
+    },
+    {
+     "id": "d59f2neqw2ki",
+     "path": "Work/2/k/i/d59f2neqw2ki-靑郊雜著.json",
+     "sha256": "e5d1340e4c21a2ce221f6e1d6e8a313eb2591ee4eaab51c37a63e9bb5f3a04af"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2neqw2ki",
+     "fields": [
+      {
+       "field": "measure_info",
+       "keeper_value": "一卷",
+       "loser_value": "一卷 文韻考衷六聲會編十二卷"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2neqw2ki 在 zm0001，keeper 在 zm0144——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2neqw2ki": {
+     "description": {
+      "text": "桑紹良（明）撰。一卷 文韻考衷六聲會編十二卷；諸志所著之數有異，別作一卷。見著錄於《四庫全書存目叢書》。《四庫全書存目叢書》列於经部。其著錄之文，《四庫全書存目叢書》作「《靑郊雜著》一卷 文韻考衷六聲會編十二卷」。本書惟《四庫全書存目叢書》一志著錄，別無他證。",
+      "sources": [
+       "四庫全書存目叢書"
+      ]
+     },
+     "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-016",
+   "type": "work",
+   "keeper": "d59f2ng7bxmq",
+   "losers": [
+    "d59f6epapqmc"
+   ],
+   "evidence": "差一字·經史：《書傳會衷》曹學佺(明,10卷,4著录)／《書傳㑹衷》曹學佺(—,10卷,1著录)；《書傳㑹衷》／《書傳會衷》：差字「㑹／會」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2ng7bxmq",
+     "path": "Work/x/m/q/d59f2ng7bxmq-書傳會衷.json",
+     "sha256": "a52975f3abce555e42e389a0445eb0c576e9356be3a24c8f09df970cfa84df17"
+    },
+    {
+     "id": "d59f6epapqmc",
+     "path": "Work/q/m/c/d59f6epapqmc-書傳㑹衷.json",
+     "sha256": "c7299fcfd91b9f4dfc333aa498ccba1e9eec854023a3002dcc392f6ac2f2ba49"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6epapqmc": {
+     "description": {
+      "text": "曹學佺撰。十卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「曹學佺書傳㑹衷」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-017",
+   "type": "work",
+   "keeper": "d59f2ni7qznn",
+   "losers": [
+    "d59f6ejx6ltz"
+   ],
+   "evidence": "差一字·經史：《句股等六論》唐順之(明,1卷,2著录)／《勾股等六論》唐順之(—,1卷,1著录)；《勾股等六論》／《句股等六論》：差字「勾／句」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2ni7qznn",
+     "path": "Work/z/n/n/d59f2ni7qznn-句股等六論.json",
+     "sha256": "d957b047a84e5601d6560e5f2e985ded6019660d0af29a2849c0b3c3090d881c"
+    },
+    {
+     "id": "d59f6ejx6ltz",
+     "path": "Work/l/t/z/d59f6ejx6ltz-勾股等六論.json",
+     "sha256": "6a29b9e797d0b6844928b861f2d305f799926d83e71b7c2a60f8b25511911669"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6ejx6ltz": {
+     "description": {
+      "text": "唐順之撰。一卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「唐順之勾股等六論」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "3a2c-J01-018",
+   "type": "work",
+   "keeper": "d59f2njhbmrm",
+   "losers": [
+    "d59f6ej9gkjp"
+   ],
+   "evidence": "差一字·經史：《易學啟蒙意見》韓邦奇(明,5卷,3著录)／《易學啟䝉意見》韓邦奇(—,4卷,1著录)；《易學啟䝉意見》／《易學啟蒙意見》：差字「䝉／蒙」为异体／俗写／误字，首位责任者同一，朝代兼容，卷数同或一侧缺",
+   "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+   "preconditions": [
+    {
+     "id": "d59f2njhbmrm",
+     "path": "Work/m/r/m/d59f2njhbmrm-易學啟蒙意見.json",
+     "sha256": "7f51b046f44db42c0088fb09c974c1c4873df9498d075b31a2f88847b870dddd"
+    },
+    {
+     "id": "d59f6ej9gkjp",
+     "path": "Work/k/j/p/d59f6ej9gkjp-易學啟䝉意見.json",
+     "sha256": "fbcd180b3e11ad02d248012ffa34d28c18e12600ce1ce8b3cf948467fa3e7253"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f6ej9gkjp",
+     "fields": [
+      {
+       "field": "juan_count",
+       "keeper_value": {
+        "number": 5
+       },
+       "loser_value": {
+        "number": 4
+       }
+      },
+      {
+       "field": "measure_info",
+       "keeper_value": "五卷",
+       "loser_value": "四卷"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6ej9gkjp": {
+     "description": {
+      "text": "韓邦竒撰。四卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「韓邦竒易學啟䝉意見」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     },
+     "ai_note": "撰人原判定為「待考」／「有其人而名不可切」（撰人=None，題名=原文全句）。本輪以「撰人本名於全書他處另有獨立、完整之出現」為據自動比對解出：撰人「韓邦竒」確於本書目他處以此完整形式出現（非本條），故據以切分為 撰人「韓邦竒」＋題名「易學啟䝉意見」。\n\n2026-09-06 qa-sweep/undated：撰人欄異體歸正：「韓邦竒」→「韓邦奇」（「竒」→「奇」）。"
+    }
+   }
+  }
+ ]
+}
