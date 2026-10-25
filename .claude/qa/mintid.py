@@ -32,6 +32,7 @@ LANE_MACHINE = {
     "suitang": 2004, "song": 2005, "liaojinyuan": 2006, "ming": 2007,
     "qing": 2008, "undated": 2009,
     "silas": 2018,
+    "dedup23": 2035,   # 去重方案部分 2.3 新建作者 Entity（2026-10-25）
 }
 
 
