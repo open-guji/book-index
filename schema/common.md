@@ -280,8 +280,8 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 | 字段 | 类型 | 在哪 | 性质 | 含义 | 取值 |
 |---|---|---|---|---|---|
 | `merged_in` | array<object> | keeper（Work、Entity） | 原生 | 并条事件日志（事件，不是关系，不可派生） | 每项 `{id, title, at, by, rule, why}`；可另带 `author`、`title_info`、`indexed_by_moved[]`、`books_moved[]`、`measure_info`、`note`、`reason`。早期有 34 项只写了被并者 id 字符串 |
-| `merged_into` | string | 墓碑 | 原生 | 并入了哪一条 | 记录 id。**只在墓碑上** |
-| `merged_from` | array<string> | keeper（Work、Book） | 原生 | 并入本条的记录 id | id 数组（原 1 条字符串旧写已于 2026-10-09 改为数组） |
+| `merged_into` | string | 墓碑（Work、Book、Entity、Collection） | 原生 | 并入了哪一条 | 记录 id。**只在墓碑上** |
+| `merged_from` | array<string> | keeper（Work、Book、Collection） | 原生 | 并入本条的记录 id | id 数组（原 1 条字符串旧写已于 2026-10-09 改为数组） |
 | `merge_history` | array<object> | keeper（Work、Entity） | 原生 | 早期的并条账 | Work：`{date, merged_from, title, reason}`；Entity 见 [entity/_common.md](entity/_common.md) |
 | `merged_basis` | object | 草稿库 Work 墓碑 | 原生 | 并条留痕：保留方在正式库、按「只追加」不改时，被并方把自己的著录与作者异写留在墓碑上 | `{rule, at, by, author_as_written, indexed_by}`，`rule` 为并条口径名（如「叢書去重」「跨部查重」），`at` 为时间，`by` 为执行方；`author_as_written`、`indexed_by` 照被并方原值搬来，不设格式。**只在墓碑上** | 并条脚本 | |
 

@@ -424,6 +424,8 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 
 **Book 墓碑**（带 `merged_into` 的 Book，book-index#274 起）：`index/` 同样照列；但**不计入** Work 的 `_books`／`_edition_count`、同 Work 其他 Book 的 `_siblings`、卡片 `nb`，墓碑自身 entry 的 `_siblings` 为空，保留 `merged_into` 供 308 读取（ai-team#3，2026-10-13 Morgan 定）。
 
+**Collection 墓碑**（带 `merged_into` 的 Collection，2026-10-25 起）：`index/collections.json` 同样照列；成员侧 `contained_in` 已改指 keeper，墓碑自身没有成员，entry 保留 `merged_into` 供 308 读取。
+
 ### 8.1 Work、Book、Collection 条目
 
 | 键 | 必有／可选 | 来源字段 | 取法 |
