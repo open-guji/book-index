@@ -20,6 +20,9 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
        （否則 WARN）；無 ambiguous 之 dynasty 別名在 dynasty 內全局唯一（ERROR）        ERROR／WARN
   O01–O05、O09–O12  官職，見各函數註；O06（CBDB 碼防重）已刪；O07 併入 V01；O08 併入 E1。
   P01–P11  地名，見各函數註；P05 併入 V01、P08 coords 單獨出碼；P10 沿革段之上級於該段年份內須存在（WARN）；P11 沿革段年份須為所掛朝代起訖覆蓋（WARN）。
+  P12–P14  地名兩層（跨朝條 concept／朝代條 concrete）：P12 place_level 枚舉；P13 朝代條頂層 dynasty_ids 必填、
+       各段不換名不換級、段之朝代不出頂層所掛；P14 上級同層（朝代條之上級須朝代條且朝代相交，跨朝條之上級須跨朝條）、
+       concept_id 只許朝代條且須指跨朝條。place_level 缺省＝concept（舊「一地一條＋沿革」條）。
   I01–I12  官署（collective 且 collective_kind=官署，P3c 設計稿 §六／§十二，S 10-07 定）；
        I12 兼管官職條之 institution_ref（O14 第二步：`COL:` 占位一律 ERROR）。
        collective_kind 缺省＝未分，舊 collective 不受約束。
@@ -90,7 +93,7 @@ DATES_KEYS = {
 }
 # 源檔不許寫之派生／反向欄（無底線者；`_` 起首者由 check_v2 V01 報）
 DERIVED_NAMES = ("children", "reigns", "index_in_reign", "successors", "people", "holders",
-                 "compounds", "ancestors", "span", "same_name")
+                 "compounds", "ancestors", "span", "same_name", "concretes")
 FORBIDDEN_TOP = ("translation", "c_office_trans", "cbdb_alt_names")
 FORBIDDEN_PREFIXES = ("cbdb_", "dila_", "chgis")
 
@@ -111,7 +114,8 @@ INST_WARN_RANGE = 5
 COL_PLACEHOLDERS = frozenset()
 PLACE_LEVELS = {"國", "郡", "州", "府", "軍", "監", "路", "道", "省", "縣", "廳", "都"}
 MODERN_RELATIONS = {"同名同地", "治所今在", "轄域約當", "沿用其名而異地", "無對應"}
-PRED_KINDS = {"析出", "並入"}
+PRED_KINDS = {"析出", "並入", "改置"}
+PLACE_TIERS = {"concept", "concrete"}   # place_level：跨朝條／朝代條；缺省＝concept
 MAX_DYNASTY_DEPTH = 3
 PLACE_END_MAX = 1912
 
@@ -957,9 +961,63 @@ def _check_place(rec, reg):
         if not isinstance(p, dict) or reg.sub.get(p.get("id")) != "place":
             out.append(("P07", ERROR, f + ".id", "不存在或非 place"))
         if isinstance(p, dict) and p.get("kind") not in PRED_KINDS:
-            out.append(("P07", ERROR, f + ".kind", "須為 析出／並入：%r" % (p.get("kind"),)))
+            out.append(("P07", ERROR, f + ".kind", "須為 析出／並入／改置：%r" % (p.get("kind"),)))
     if "coords" in rec:
         out.append(("P08", ERROR, "coords", "第一期禁出現"))
+    return out + _check_place_tier(rec, reg, hist)
+
+
+def place_tier(rec):
+    return (rec or {}).get("place_level") or "concept"
+
+
+def _check_place_tier(rec, reg, hist):
+    """P12–P14：兩層。朝代條＝某朝某名某級一條，朝內上級變動拆段；換名、升降另立一條，以 predecessors 改置相接。"""
+    out = []
+    lv = rec.get("place_level")
+    if lv is not None and lv not in PLACE_TIERS:
+        return [("P12", ERROR, "place_level", "須為 concept／concrete：%r" % (lv,))]
+    tier = place_tier(rec)
+    top = rec.get("dynasty_ids")
+    if tier == "concept":
+        for k in ("dynasty_ids", "concept_id"):
+            if k in rec:
+                out.append(("P13" if k == "dynasty_ids" else "P14", ERROR, k, "跨朝條不得有（只許朝代條）"))
+    else:
+        if not (isinstance(top, list) and top):
+            out.append(("P13", ERROR, "dynasty_ids", "朝代條必填（非空數組）"))
+            top = []
+        for d in top:
+            if reg.sub.get(d) != "dynasty":
+                out.append(("P13", ERROR, "dynasty_ids", "不存在或非 dynasty：%r" % (d,)))
+        levels = set()
+        for i, h in enumerate(hist):
+            if not isinstance(h, dict):
+                continue
+            f = "history[%d]" % i
+            if nonempty_str(h.get("name")) and h["name"] != rec.get("primary_name"):
+                out.append(("P13", ERROR, f + ".name", "朝代條各段須同 primary_name（換名另立朝代條）：%r" % (h["name"],)))
+            levels.add(h.get("level"))
+            extra = [d for d in h.get("dynasty_ids") or [] if d not in top]
+            if extra:
+                out.append(("P13", ERROR, f + ".dynasty_ids", "不在頂層 dynasty_ids 內：%r" % (extra,)))
+        if len(levels) > 1:
+            out.append(("P13", ERROR, "history", "朝代條各段須同級（升降另立朝代條）：%s" % "、".join(sorted(map(str, levels)))))
+        c = rec.get("concept_id")
+        if c is not None:
+            r = reg.rec.get(c)
+            if reg.sub.get(c) != "place" or place_tier(r) != "concept":
+                out.append(("P14", ERROR, "concept_id", "須指跨朝條（place_level=concept）：%r" % (c,)))
+    for i, h in enumerate(hist):
+        hp = h.get("parent_id") if isinstance(h, dict) else None
+        if hp is None or hp == rec["id"] or reg.sub.get(hp) != "place":
+            continue
+        pr = reg.rec.get(hp) or {}
+        f = "history[%d].parent_id" % i
+        if place_tier(pr) != tier:
+            out.append(("P14", ERROR, f, "上級須同層（%s 條之上級不得為 %s 條）：%r" % (tier, place_tier(pr), hp)))
+        elif tier == "concrete" and not set(pr.get("dynasty_ids") or []) & set(top or []):
+            out.append(("P14", ERROR, f, "上級朝代條與本條朝代不相交：%r" % (hp,)))
     return out
 
 
@@ -1117,11 +1175,13 @@ def check_global(reg, canonical=None):
         if len(ids) > 1:
             for i in ids:
                 out.append((i, "K09", WARN, "primary_name", "同名同類別同朝代之 publisher %d 條，疑重複：%r" % (len(ids), k[0])))
-    # P09：同名異地組（INFO）、同名同上級疑重複（WARN）
+    # P09：同名異地組（INFO）、同名同上級疑重複（WARN）；朝代條只在同名同朝代內比
     names = {}
     for i, r in reg.of("place"):
-        names.setdefault(r.get("primary_name"), []).append(i)
-    for n, ids in names.items():
+        k = (r.get("primary_name"),) if place_tier(r) == "concept" else \
+            (r.get("primary_name"), tuple(sorted(r.get("dynasty_ids") or [])))
+        names.setdefault(k, []).append(i)
+    for (n, *_), ids in names.items():
         if len(ids) > 1:
             def ups(x):
                 return frozenset(h.get("parent_id") for h in (reg.rec[x].get("history") or [])

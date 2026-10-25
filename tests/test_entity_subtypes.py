@@ -310,6 +310,42 @@ def test_place_p10_parent_must_cover_segment():
     assert not has(place("pl", history=[h(None, None, parent_id="up")]), "P10", es.WARN, up)    # 起訖缺不查
 
 
+def test_place_two_tiers():
+    # P12–P14：跨朝條（concept，缺省）與朝代條（concrete）兩層（2026-10-25）
+    ming, qing = dyn("m", "明", 1368, 1644), dyn("q", "清", 1644, 1912)
+    h = lambda name, lv="縣", **k: dict({"start": 1368, "end": 1644, "dynasty_ids": ["m"], "name": name, "level": lv}, **k)
+    def cc(i, name="平陸縣", lv="縣", dids=("m",), hist=None, **kw):
+        return place(i, place_level="concrete", primary_name=name, dynasty_ids=list(dids),
+                     history=hist or [h(name, lv)], **kw)
+    concept = place("c0", primary_name="平陸縣", history=[h("平陸縣")])
+    up = cc("up", name="平陽府", lv="府")
+    ok = cc("pl", hist=[h("平陸縣", parent_id="up")], concept_id="c0")
+    assert codes(ok, ming, qing, up, concept, level=es.ERROR) == []
+    assert codes(concept, ming, level=es.ERROR) == []                                # 缺 place_level 即跨朝條
+    assert has(place("pl", place_level="亂"), "P12")
+    # P13
+    assert has(cc("pl", dids=()), "P13", es.ERROR, ming)                               # 朝代條缺 dynasty_ids
+    assert has(cc("pl", dids=("nope",)), "P13", es.ERROR, ming)
+    assert has(cc("pl", hist=[h("平陸縣", end=1400), h("大陽縣", start=1400)]), "P13", es.ERROR, ming)   # 換名
+    assert has(cc("pl", hist=[h("平陸縣", end=1400), h("平陸縣", "州", start=1400)]), "P13", es.ERROR, ming)  # 升降
+    assert has(cc("pl", hist=[h("平陸縣", dynasty_ids=["q"])]), "P13", es.ERROR, ming, qing)  # 段之朝代出頂層
+    assert has(place("pl", dynasty_ids=["m"]), "P13", es.ERROR, ming)                 # 跨朝條不得有頂層 dynasty_ids
+    # P14
+    assert has(cc("pl", concept_id="up"), "P14", es.ERROR, ming, up)                  # concept_id 指朝代條
+    assert has(place("pl", concept_id="c0"), "P14", es.ERROR, ming, concept)          # 跨朝條不得有 concept_id
+    assert has(cc("pl", hist=[h("平陸縣", parent_id="c0")]), "P14", es.ERROR, ming, concept)   # 上級跨層
+    assert has(place("pl", history=[h("平陸縣", parent_id="up")]), "P14", es.ERROR, ming, up)
+    upq = cc("upq", name="平陽府", lv="府", dids=("q",), hist=[dict(h("平陽府", "府"), dynasty_ids=["q"], start=1644, end=1912)])
+    assert has(cc("pl", hist=[h("平陸縣", parent_id="upq")]), "P14", es.ERROR, ming, qing, upq)  # 上級朝代不相交
+    # P07 改置
+    assert not has(cc("pl", predecessors=[{"id": "up", "kind": "改置", "year": 1400}]), "P07", es.ERROR, ming, up)
+    # P09：朝代條只在同名同朝代內比
+    a, b = cc("a"), cc("b", dids=("q",), hist=[dict(h("平陸縣"), dynasty_ids=["q"], start=1644, end=1912)])
+    assert ("P09", "INFO") not in gcodes(ming, qing, a, b)
+    assert ("P09", "INFO") in gcodes(ming, a, cc("b"))
+    assert ("P09", "INFO") not in gcodes(ming, a, concept)                           # 跨朝條與朝代條不互比
+
+
 # ---- V01（派生／反向欄位）
 def test_v01():
     assert has(dyn("x", "唐", 618, 907, children=["a"]), "V01")
