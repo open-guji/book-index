@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "juan_count": {
     "number": 14
   },
@@ -44,7 +44,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -78,6 +78,42 @@
         "edition": "刊",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200035798/manifest"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074081",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074081",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074081",
+        "request_no": "２７５－０１３３",
+        "edition": "刊本:朝鮮:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3609914/manifest.json",
+        "extent": "7冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610412",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610412",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610412",
+        "request_no": "２７５－０１３０",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3904682/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "indexed_by": [
@@ -93,6 +129,12 @@
   "resource_groups": {
     "kokusho-200035798": {
       "label": "國書·国文研大橋藏刊"
+    },
+    "naikaku-1074081": {
+      "label": "內閣文庫藏本：朝鮮刊本（275-0133，7冊）"
+    },
+    "naikaku-3610412": {
+      "label": "內閣文庫藏本：明刊本（275-0130，4冊）"
     }
   }
 }

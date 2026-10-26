@@ -36,7 +36,7 @@
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "id": "d59f6ehch4hy",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -53,12 +53,33 @@
         "waseda_id": "he20_02956",
         "edition": "平露堂"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070799",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070799",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070799",
+        "request_no": "集０８７－０００１",
+        "edition": "刊本:明:::平露堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4440916/manifest.json",
+        "extent": "199冊"
+      }
     }
   ],
   "resource_groups": {
     "waseda-he20_02956": {
       "label": "早稲田藏本：平露堂"
+    },
+    "naikaku-1070799": {
+      "label": "內閣文庫藏本：明刊本 平露堂（集087-0001，199冊）"
     }
   },
-  "ai_note": "2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。"
+  "ai_note": "2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。"
 }

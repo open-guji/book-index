@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjr27j35mo0(素爾訥等)（不同作者，故新建獨立 Work）。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 24 取自 `measure_info`「二十四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n作者部分交集（總目著錄作者:廣興、王杰；Work作者:王杰，合著差異，未改Work.authors）；卷數據總目補（Sawyer 2026-10-17，批418，Sabine口徑）",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjr27j35mo0(素爾訥等)（不同作者，故新建獨立 Work）。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 24 取自 `measure_info`「二十四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n作者部分交集（總目著錄作者:廣興、王杰；Work作者:王杰，合著差異，未改Work.authors）；卷數據總目補（Sawyer 2026-10-17，批418，Sabine口徑）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "indexed_by": [
     {
       "source": "中國古籍總目",
@@ -53,5 +53,30 @@
       "relation": "related",
       "note": "史部E另立（anon）：總目記錄「欽定學政全書」（無作者）與既有 Work 題名相同或相近而不可證同書（记录无作者、目标 Work 有作者且卷数不符／缺：不能证同作者，默认另立＋related），判為不同著作（不並）；互為相關。"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067233",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067233",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067233",
+        "request_no": "２９６－０１０７",
+        "edition": "刊本（後印）::清乾隆:580000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4912698/manifest.json",
+        "extent": "24冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1067233": {
+      "label": "內閣文庫藏本：清乾隆58年刊本（後印）（296-0107，24冊）"
+    }
+  }
 }

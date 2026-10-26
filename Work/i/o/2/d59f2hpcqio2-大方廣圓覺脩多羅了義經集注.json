@@ -18,7 +18,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-20 題名訂正專項（題名外裹書名號）：本條原題「《大方廣圓覺脩多羅了義經集注》」，書名號為匯入時隨著錄語一併攝入者，非題名之一部。庫中他條皆不以書名號入題，今去之，原題記於 original_title。\n\n2026-08-21 original_title 清雜訊：撤去「《大方廣圓覺脩多羅了義經集注》」——與 title 全同，非本條所本之書題。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-20 題名訂正專項（題名外裹書名號）：本條原題「《大方廣圓覺脩多羅了義經集注》」，書名號為匯入時隨著錄語一併攝入者，非題名之一部。庫中他條皆不以書名號入題，今去之，原題記於 original_title。\n\n2026-08-21 original_title 清雜訊：撤去「《大方廣圓覺脩多羅了義經集注》」——與 title 全同，非本條所本之書題。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -35,8 +35,8 @@
   "period_upper_basis": "撰人朝代作「宋」，歧而未決；諸解中最晚者為 song，無論何解皆不晚於此",
   "period": "song",
   "period_basis": "AMB「宋」指趙宋：所集為唐釋宗密等疏解，集注者釋元粹為南宋僧　複審採納：所集為唐宗密等疏，集注者釋元粹為南宋僧（2026-08-24 A1 medium 複審）",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "kokusho",
@@ -71,6 +71,24 @@
         "holder": "東洋大哲学堂",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300093223/manifest"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610749",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610749",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610749",
+        "request_no": "３１０－００２３",
+        "edition": "刊本::寛永:080000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3745289/manifest.json",
+        "extent": "3冊"
+      }
     }
   ],
   "resource_groups": {
@@ -79,6 +97,9 @@
     },
     "kokusho-300093223": {
       "label": "國書·東洋大哲学堂藏刊"
+    },
+    "naikaku-3610749": {
+      "label": "內閣文庫藏本：寛永8年刊本（310-0023，3冊）"
     }
   },
   "indexed_by": [

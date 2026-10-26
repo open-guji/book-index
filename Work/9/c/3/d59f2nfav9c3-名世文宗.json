@@ -48,9 +48,9 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -59,6 +59,29 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CNTS-00048004579_1_%E5%90%8D%E4%B8%96%E6%96%87%E5%AE%97.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070992",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070992",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070992",
+        "request_no": "３５９－００４８",
+        "edition": "刊本（序刊）::明万暦:070000:四川按察司",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5092727/manifest.json",
+        "extent": "12冊"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1070992": {
+      "label": "內閣文庫藏本：明万暦7年刊本（序刊） 四川按察司（359-0048，12冊）"
+    }
+  }
 }
