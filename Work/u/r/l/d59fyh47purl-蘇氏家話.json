@@ -38,7 +38,7 @@
       "summary": "共 1 個版本：明刻本（馆藏未载）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 lbxyitmaw3t5d11d（居家必備九十五種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：088c1rosv0wlcfk5\n叢書子目，卷數缺（總目未載卷數，Book 不填卷數）\n子部二串5並條 A檔（源 Work 1exp3xknzavb6《蘇氏家話》已並入；其作者寫法：蘇士潛）",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 lbxyitmaw3t5d11d（居家必備九十五種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：088c1rosv0wlcfk5\n叢書子目，卷數缺（總目未載卷數，Book 不填卷數）\n子部二串5並條 A檔（源 Work 1exp3xknzavb6《蘇氏家話》已並入；其作者寫法：蘇士潛）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "merged_in": [
     {
       "id": "1exp3xknzavb6",
@@ -49,6 +49,50 @@
       "why": "子部二串5並條 A檔"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079404",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079404",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079404",
+        "request_no": "子０８０－０００５",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4427706/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2014514440",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2014514440/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2014514440",
+        "iiif_manifest": "https://www.loc.gov/item/2014514440/manifest.json",
+        "edition": "[China] : Xu Wenlong : Wang Ruoji, [Ming dai, i.e. between 1585 and 1644] 1585"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1079404": {
+      "label": "內閣文庫藏本：明刊本（子080-0005，2冊）"
+    },
+    "loc-2014514440": {
+      "label": "美國國會圖書館藏本：[China] : Xu Wenlong : Wang Ruoji, [Ming dai, i.e. between 1585 and 1644] 1585"
+    }
+  }
 }

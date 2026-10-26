@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/ze8c1ewqbn4uvwjw"
-      }
+      },
+      "entity_id": "hixhd2h9bf74"
     }
   ],
   "dynasty": "晉",
@@ -37,14 +38,56 @@
       "summary": "共 3 個版本：（臺灣圖書館）；（臺灣圖書館）；（國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：60dw2t8doip7n6em\n經部查重試點A0010：同題同作者並條（口徑A/B檔；依據：題名歸一同、作者同名或異體、朝代卷數相容）（源 Work 1exp1yfqb8bnk《五等孝傳贊》已並入；其作者寫法：陶潛）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：60dw2t8doip7n6em\n經部查重試點A0010：同題同作者並條（口徑A/B檔；依據：題名歸一同、作者同名或異體、朝代卷數相容）（源 Work 1exp1yfqb8bnk《五等孝傳贊》已並入；其作者寫法：陶潛）\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fy3ofraww",
       "relation": "related",
       "note": "史部E存疑另立：總目記錄「孝傳」（陶潛）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（候选核对：同名未并（题名仅包含／近似而非异体，另立＋related））），按嚴口徑另立；互為相關，待並條複核。"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00715-0004",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00715-0004",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00715-0004",
+        "call_number": "107.5 00715-0004",
+        "edition": "明萬曆間仁和朱氏刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00716-0004",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00716-0004",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00716-0004",
+        "call_number": "107.5 00716-0004",
+        "edition": "明萬曆間仁和朱氏刊本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ncltw-00715-0004": {
+      "label": "臺灣國家圖書館藏本：明萬曆間仁和朱氏刊本"
+    },
+    "ncltw-00716-0004": {
+      "label": "臺灣國家圖書館藏本：明萬曆間仁和朱氏刊本"
+    }
+  }
 }

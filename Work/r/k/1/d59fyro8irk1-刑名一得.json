@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/et8tny5lnscfac7l"
-      }
+      },
+      "entity_id": "hixicmxrbx32"
     }
   ],
   "dynasty": "清",
@@ -29,7 +30,30 @@
       "summary": "共 2 個版本：清抄本（中國科學院圖書館）；清乾隆十九年刻本（徽州文化博物館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jxkvneslcuuiiyvp、ewiikogv41ljisuy\nE6 第 422 批新建（hold 清零：M-new；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-20"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jxkvneslcuuiiyvp、ewiikogv41ljisuy\nE6 第 422 批新建（hold 清零：M-new；原 hold 原因：）\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-B3841300",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=B3841300&order=rn_no&no=00607",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "B3841300",
+        "call_no": "大木-法類-獄訟-斷獄-11",
+        "edition": "鈔本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ioc-B3841300": {
+      "label": "東文研藏本：鈔本"
+    }
+  }
 }

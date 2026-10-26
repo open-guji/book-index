@@ -29,9 +29,9 @@
       "summary": "共 3 個版本：清光緒十三年京師松竹齋刻本（國家圖書館、北京大學圖書館）；清光緒十三年上海大成書局石印本（國家圖書館）；清道光十三年泰和張氏悔不讀書齋刻本（上海圖書館、北京大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6r35q0y0aezp1pq4、hpcn1ayqr157duiq、8e5fqv7zv5bdbhti\nE6 第 310 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6r35q0y0aezp1pq4、hpcn1ayqr157duiq、8e5fqv7zv5bdbhti\nE6 第 310 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +47,53 @@
         "nlc_fid": "312002096128",
         "edition": "京師松竹齋   清光緒12年[1886]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070020",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070020",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070020",
+        "request_no": "２７８－０１４４",
+        "edition": "刊本::天保:070000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4050887/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070021",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070021",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070021",
+        "request_no": "経０５０－００１８",
+        "edition": "刊本::天保:070000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4423655/manifest.json",
+        "extent": "2冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312002096128": {
       "label": "國圖藏本：京師松竹齋   清光緒12年[1886]"
+    },
+    "naikaku-1070020": {
+      "label": "內閣文庫藏本：天保7年刊本（278-0144，2冊）"
+    },
+    "naikaku-1070021": {
+      "label": "內閣文庫藏本：天保7年刊本（経050-0018，2冊）"
     }
   }
 }

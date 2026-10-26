@@ -30,7 +30,51 @@
       "summary": "共 2 個版本：明萬曆十七年自刻本（南京圖書館）；明萬曆二十二年書林安正堂劉雙松刻本（臺灣圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：qpbkih7e1haaouiy、8ap173soco8gd4l4\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 431 批新建（hold 清零：E；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：qpbkih7e1haaouiy、8ap173soco8gd4l4\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 431 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076801",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076801",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076801",
+        "request_no": "子１９３－０００４",
+        "edition": "刊本::明万暦:220000:劉氏安正堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4435360/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07647",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07647",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07647",
+        "call_number": "308 07647",
+        "edition": "明萬曆二十二年(1594)萬壽寺刊本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1076801": {
+      "label": "內閣文庫藏本：明万暦22年刊本 劉氏安正堂（子193-0004，2冊）"
+    },
+    "ncltw-07647": {
+      "label": "臺灣國家圖書館藏本：明萬曆二十二年(1594)萬壽寺刊本"
+    }
+  }
 }

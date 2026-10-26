@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/7rr9k7ztt1vwz9ih"
-      }
+      },
+      "entity_id": "hixhd2f8waln"
     }
   ],
   "dynasty": "清",
@@ -29,9 +30,9 @@
       "summary": "共 2 個版本：叢書集成初編本（南京圖書館）；靈鶼閣叢書本（上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：u8crcwsbqn561e27、qewcnc8238pnuook\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-08.tsv；原 hold 原因：auto-split:存疑未并（候选核对：卷差>1（本条2卷，目标6卷）））\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：u8crcwsbqn561e27、qewcnc8238pnuook\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-08.tsv；原 hold 原因：auto-split:存疑未并（候选核对：卷差>1（本条2卷，目标6卷）））\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,49 @@
         "nlc_fid": "001926737",
         "edition": "元和江標   清光緒22年[1896]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-24873",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/24873",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "24873",
+        "call_number": "214.5 24873",
+        "edition": "清末元和江氏刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-25182",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/25182",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "25182",
+        "call_number": "214.23 25182",
+        "edition": "清刊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-001926737": {
       "label": "國圖藏本：元和江標   清光緒22年[1896]"
+    },
+    "ncltw-24873": {
+      "label": "臺灣國家圖書館藏本：清末元和江氏刊本"
+    },
+    "ncltw-25182": {
+      "label": "臺灣國家圖書館藏本：清刊"
     }
   }
 }

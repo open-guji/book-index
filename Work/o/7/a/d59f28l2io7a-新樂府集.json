@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -30,8 +30,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基文库",
@@ -40,6 +40,63 @@
       ],
       "id": "wikisource",
       "url": "https://zh.wikisource.org/wiki/%E6%96%B0%E6%A8%82%E5%BA%9C"
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-he18_01151",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/he18/he18_01151/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "he18_01151",
+        "edition": "片山舎正, 慶安3[1650] ※"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-he18_01150",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/he18/he18_01150/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "he18_01150",
+        "edition": "写, [書写年不明]"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2532546",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2532546",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2532546",
+        "edition": "慶安3"
+      },
+      "note": "書帖（奧田松菴書）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "waseda-he18_01151": {
+      "label": "早稲田藏本：片山舎正, 慶安3[1650] ※"
+    },
+    "waseda-he18_01150": {
+      "label": "早稲田藏本：写, [書写年不明]"
+    },
+    "ndl-2532546": {
+      "label": "NDL藏本：慶安3"
+    }
+  }
 }

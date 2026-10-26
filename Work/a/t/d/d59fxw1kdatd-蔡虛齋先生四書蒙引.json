@@ -30,9 +30,9 @@
       "summary": "共 8 個版本：明崇禎二年刻本（日本大谷大學）；明嘉靖六年刻本（復旦大學圖書館、河南省圖書館、北京大學圖書館）；明崇禎八年刻本（日本龍谷大學、日本內閣文庫（國立公文書館）、日本靜嘉堂文庫、日本千葉縣立圖書館）；明萬曆十五年吴同春刻本（浙江圖書館、上海圖書館、東北師範大學圖書館、南京圖書館、清華大學圖書館、國家圖書館）；清光緒十八年蔡羣英刻本（上海圖書館、北京大學圖書館）；明萬曆間刻本（山東省圖書館）；明刻本（首都圖書館、遼寧省圖書館、北京大學圖書館、湖南省圖書館）；明大業堂刻本（復旦大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：m5tu1fg5cpxdydsy、qg34ixxura5km744、l4be7tkk51q0fute、cw8bauel8ianvsx8、phppvs5l4q5j164y、ad43ngbuwcnvy2mw、8ty0btowbberuv4l、inxbipvego4zkkct\nauto-split:存疑未并\nE6 第 526 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：m5tu1fg5cpxdydsy、qg34ixxura5km744、l4be7tkk51q0fute、cw8bauel8ianvsx8、phppvs5l4q5j164y、ad43ngbuwcnvy2mw、8ty0btowbberuv4l、inxbipvego4zkkct\nauto-split:存疑未并\nE6 第 526 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -48,11 +48,32 @@
         "nlc_fid": "411999023077",
         "edition": "明萬曆15年[1587]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070707",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070707",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070707",
+        "request_no": "２７７－００４４",
+        "edition": "刊本（序刊）::明崇禎:080000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4029943/manifest.json",
+        "extent": "15冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999023077": {
       "label": "國圖藏本：明萬曆15年[1587]"
+    },
+    "naikaku-1070707": {
+      "label": "內閣文庫藏本：明崇禎8年刊本（序刊）（277-0044，15冊）"
     }
   }
 }

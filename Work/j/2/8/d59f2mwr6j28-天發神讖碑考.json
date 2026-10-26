@@ -36,7 +36,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 1
   },
@@ -53,8 +53,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -63,6 +63,48 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-05126_%E5%A4%A9%E7%99%BC%E7%A5%9E%E8%AE%96%E7%A2%91%E8%80%83.pdf"
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101443566",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000004825",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101443566",
+        "nlk_control_no": "EOL000004825",
+        "holder": "국립중앙도서관",
+        "call_number": "古古6-08-209",
+        "edition": "新鉛活字本 民國 15[1926]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05126",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05126",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05126",
+        "call_number": "215 05126",
+        "edition": "鈔本"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "korcis-101443566": {
+      "label": "韓國國立中央圖書館數字化藏本：新鉛活字本 民國 15[1926]"
+    },
+    "ncltw-05126": {
+      "label": "臺灣國家圖書館藏本：鈔本"
+    }
+  }
 }

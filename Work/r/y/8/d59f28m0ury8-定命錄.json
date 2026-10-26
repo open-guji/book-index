@@ -59,7 +59,7 @@
       "國史經籍志"
     ]
   },
-  "ai_note": "missing_reason: 短title \"定命錄\" 唯一候选无作者 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-10 撰人字首式重出候選覆核：1evcs0qzi3pc0（撰人折入題名之異寫）併入本條（同題同撰人）。\n\n2026-08-23 B1 同名異書併池：併入 `1evr5e3mfxf1m`（定命錄）。2026-08-23 B4 異體字重出併池：併入 `1evr5e3mfxf1m`（宋史藝文志、崇文總目，題作《定命録》，2卷）。二題之別僅在異體字，歸一後全同，卷數全同（2卷）；彼條無撰人而本條作「呂道生」。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1evgpjjrrkruo` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。",
+  "ai_note": "missing_reason: 短title \"定命錄\" 唯一候选无作者 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-10 撰人字首式重出候選覆核：1evcs0qzi3pc0（撰人折入題名之異寫）併入本條（同題同撰人）。\n\n2026-08-23 B1 同名異書併池：併入 `1evr5e3mfxf1m`（定命錄）。2026-08-23 B4 異體字重出併池：併入 `1evr5e3mfxf1m`（宋史藝文志、崇文總目，題作《定命録》，2卷）。二題之別僅在異體字，歸一後全同，卷數全同（2卷）；彼條無撰人而本條作「呂道生」。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1evgpjjrrkruo` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
   "id": "d59f28m0ury8",
   "measures": [
     {
@@ -76,6 +76,22 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-C6215200",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=C6215200&order=rn_no&no=01239",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "C6215200",
+        "call_no": "雙紅堂-小說-150",
+        "edition": ""
+      }
     }
   ],
   "updated_at": "2026-08-23T00:00:00+00:00",
@@ -86,6 +102,11 @@
   "additional_titles": [
     "定命録"
   ],
-  "revision": "1.1.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "ioc-C6215200": {
+      "label": "東文研藏本：《舊小說》所收本"
+    }
+  }
 }

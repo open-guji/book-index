@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/5eb1s0akljtn0uup"
-      }
+      },
+      "entity_id": "hixhd2h9bcud"
     }
   ],
   "dynasty": "清",
@@ -37,7 +38,7 @@
       "summary": "共 1 個版本：（臺灣圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ulsnwe47i85gs28h\n同題同作者並條（作者別名與並條口徑-共用 A檔：同名；用戶 10-18 確認）（源 Work 1exp0i3z3tbsy《圓圓傳》已並入；其作者寫法：陸次雲）",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ulsnwe47i85gs28h\n同題同作者並條（作者別名與並條口徑-共用 A檔：同名；用戶 10-18 確認）（源 Work 1exp0i3z3tbsy《圓圓傳》已並入；其作者寫法：陸次雲）\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "merged_in": [
     {
       "id": "1exp0i3z3tbsy",
@@ -48,6 +49,67 @@
       "why": "同題同作者並條（作者別名與並條口徑-共用 A檔：同名；用戶 10-18 確認）"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-B2214900",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=B2214900&order=rn_no&no=00304",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "B2214900",
+        "call_no": "雙紅堂-小說-150",
+        "edition": ""
+      }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-C64419113",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=C64419113&order=rn_no&no=00320",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "C64419113",
+        "call_no": "雙紅堂-小說-151",
+        "edition": ""
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02339-0020",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02339-0020",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02339-0020",
+        "call_number": "204.26 02339-0020",
+        "edition": "鈔本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ioc-B2214900": {
+      "label": "東文研藏本：《舊小說》所收本"
+    },
+    "ioc-C64419113": {
+      "label": "東文研藏本：《中國短篇小說集》所收本"
+    },
+    "ncltw-02339-0020": {
+      "label": "臺灣國家圖書館藏本：鈔本"
+    }
+  }
 }

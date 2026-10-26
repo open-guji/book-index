@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/qz8n083us352o57t"
-      }
+      },
+      "entity_id": "hixhd2h9bene"
     }
   ],
   "dynasty": "宋",
@@ -29,7 +30,65 @@
       "summary": "共 2 個版本：清嘉慶十七年刻套印本（浙江圖書館）；清張士珩抄本（南京圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：nse2tdn88ajkf4ja、u2fg8srd4u13xaci\nE6 第 307 批新建（hold 清零：G527-M-new；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：nse2tdn88ajkf4ja、u2fg8srd4u13xaci\nE6 第 307 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 3 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_00105",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_00105/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_00105",
+        "edition": "[東京府] : 大橋操吉, 明治13[1880]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_00327",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_00327/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_00327",
+        "edition": "[大阪府] : 藤沢南岳, 明治13[1880]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_00356",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_00356/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_00356",
+        "edition": "[東京府] : 大橋操吉, 明治13[1880]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-ro12_00105": {
+      "label": "早稲田藏本：[東京府] : 大橋操吉, 明治13[1880]"
+    },
+    "waseda-ro12_00327": {
+      "label": "早稲田藏本：[大阪府] : 藤沢南岳, 明治13[1880]"
+    },
+    "waseda-ro12_00356": {
+      "label": "早稲田藏本：[東京府] : 大橋操吉, 明治13[1880]"
+    }
+  }
 }

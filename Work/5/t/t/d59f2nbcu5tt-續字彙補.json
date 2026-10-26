@@ -48,7 +48,92 @@
       "清史稿藝文志"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-100072409",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100072409",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100072409",
+        "holder": "愛知教大図",
+        "edition": "刊 寛文９",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100072409/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100163343",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100163343",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100163343",
+        "holder": "茨城県歴史",
+        "edition": "刊 寛文９",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100163343/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100215288",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100215288",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100215288",
+        "holder": "盛岡公民",
+        "edition": "刊 寛文９",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100215288/manifest"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1072166",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1072166",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1072166",
+        "request_no": "２７８－０１３７",
+        "edition": "刊本:江戸:::／印年::寛文:090000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4052263/manifest.json",
+        "extent": "7冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-100072409": {
+      "label": "國書·愛知教大図藏刊 寛文９"
+    },
+    "kokusho-100163343": {
+      "label": "國書·茨城県歴史藏刊 寛文９"
+    },
+    "kokusho-100215288": {
+      "label": "國書·盛岡公民藏刊 寛文９"
+    },
+    "naikaku-1072166": {
+      "label": "內閣文庫藏本：江戸刊本 /印年（278-0137，7冊）"
+    }
+  }
 }

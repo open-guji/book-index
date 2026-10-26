@@ -91,6 +91,42 @@
         "edition": "光緒26"
       },
       "details": "NDL 非全網公開（送信サービス限定：個人送信須 NDL 本登録，或到圖書館送信參加館／NDL 館內閱覽）"
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101175808",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000011443",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101175808",
+        "nlk_control_no": "KOL000011443",
+        "holder": "국립중앙도서관",
+        "call_number": "古2251-5",
+        "edition": "木板本 光緖 23(1897)"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101426929",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000009364",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101426929",
+        "nlk_control_no": "EOL000009364",
+        "holder": "국립중앙도서관",
+        "call_number": "古古6-24-3",
+        "edition": "新鉛活字本 光緖 23(1897)"
+      }
     }
   ],
   "related_works": [
@@ -106,17 +142,23 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "從 1evjr04ilqpkw 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 10，與著錄原文（清史稿藝文志：「元史譯文證補」）所載之 30 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+  "ai_note": "從 1evjr04ilqpkw 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 10，與著錄原文（清史稿藝文志：「元史譯文證補」）所載之 30 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
   "updated_at": "2026-08-19T00:00:00-07:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "ndl-12970772": {
       "label": "NDL藏本（送信限定）：光緒26"
+    },
+    "korcis-101175808": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 光緖 23(1897)"
+    },
+    "korcis-101426929": {
+      "label": "韓國國立中央圖書館數字化藏本：新鉛活字本 光緖 23(1897)"
     }
   }
 }

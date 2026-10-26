@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/xbafpzizw22zhax6"
-      }
+      },
+      "entity_id": "hixi8u60h29g"
     }
   ],
   "dynasty": "清",
@@ -29,7 +30,173 @@
       "summary": "共 6 個版本：四庫全書本（遼寧省圖書館）；清同治八年湖北崇文書局刻本（國家圖書館）；清乾隆五十八年魏禮焯刻本（中國科學院圖書館）；瓶花書屋叢書本（遼寧大學圖書館、遼寧省圖書館）；清同治三年浙江撫署刻本（遼寧省圖書館、浙江圖書館、天津圖書館、南京圖書館、上海圖書館）；清乾隆五年武英殿刻本（遼寧省圖書館、南京圖書館、大連市圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ltaos0fpg2yxahy7、85h4rb2ggciaaa6k、ae5d31vh0hfxx2hh、h3axphurvojgmvjy、z1vkybxv84phg0cd、2b55iyksu26clm0a\n責任者 role 異常未寫入：倪國璉釐正\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-07.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ltaos0fpg2yxahy7、85h4rb2ggciaaa6k、ae5d31vh0hfxx2hh、h3axphurvojgmvjy、z1vkybxv84phg0cd、2b55iyksu26clm0a\n責任者 role 異常未寫入：倪國璉釐正\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-07.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条、國書 3 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067276",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067276",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067276",
+        "request_no": "２９５－００５４",
+        "edition": "刊本::寛政:070000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4910791/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067452",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067452",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067452",
+        "request_no": "史０９８－０００２",
+        "edition": "刊本:清乾隆:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4429411/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610274",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610274",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610274",
+        "request_no": "２９５－００５５",
+        "edition": "刊本::寛政:070000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3670924/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100453026",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100453026",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100453026",
+        "holder": "東洋大哲学堂",
+        "edition": "刊 寛政７",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100453026/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300069148",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300069148",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300069148",
+        "holder": "同志社大",
+        "edition": "刊 寛政７",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300069148/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100065297",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100065297",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100065297",
+        "holder": "静岡県図久能",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100065297/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2606383",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2606383",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2606383",
+        "edition": "寛政6序"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-102530328",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000010284",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102530328",
+        "nlk_control_no": "EOL000010284",
+        "holder": "국립중앙도서관",
+        "call_number": "古古6-17-9",
+        "edition": "木板本 文政 9(1826)"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1067276": {
+      "label": "內閣文庫藏本：寛政7年刊本（295-0054，5冊）"
+    },
+    "naikaku-1067452": {
+      "label": "內閣文庫藏本：清乾隆刊本（史098-0002，6冊）"
+    },
+    "naikaku-3610274": {
+      "label": "內閣文庫藏本：寛政7年刊本（295-0055，6冊）"
+    },
+    "kokusho-100453026": {
+      "label": "國書·東洋大哲学堂藏刊 寛政７"
+    },
+    "kokusho-300069148": {
+      "label": "國書·同志社大藏刊 寛政７"
+    },
+    "kokusho-100065297": {
+      "label": "國書·静岡県図久能藏刊"
+    },
+    "ndl-2606383": {
+      "label": "NDL藏本：寛政6序"
+    },
+    "korcis-102530328": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 文政 9(1826)"
+    }
+  }
 }

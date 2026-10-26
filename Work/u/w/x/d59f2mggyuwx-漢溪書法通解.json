@@ -137,6 +137,57 @@
         "holder": "藝大図脇本",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100288210/manifest"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077100",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077100",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077100",
+        "request_no": "３０６－０１４１",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4919367/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-bsb00102971",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb00102971",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb00102971",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00102971/manifest",
+        "shelfmark": "L.sin. K 3",
+        "edition": "[霽雲閣?] 1750"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2014514452",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2014514452/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2014514452",
+        "iiif_manifest": "https://www.loc.gov/item/2014514452/manifest.json",
+        "edition": "清乾隆間霽雲閣刻本 1750"
+      }
     }
   ],
   "measures": [
@@ -155,20 +206,29 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "從 1evjxlss0bbwg 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3bbqpke39c(戈守智)（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjxlss0bbwg 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3bbqpke39c(戈守智)（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md §存疑升档。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条、美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "updated_at": "2026-08-09T10:40:18+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "kokusho-100215725": {
       "label": "國書·光藤益子藏刊 文政６"
     },
     "kokusho-100288210": {
       "label": "國書·藝大図脇本藏刊 文政６"
+    },
+    "naikaku-1077100": {
+      "label": "內閣文庫藏本：清刊本（306-0141，4冊）"
+    },
+    "bsb-bsb00102971": {
+      "label": "巴伐利亞州立圖書館藏本：[霽雲閣?] 1750"
+    },
+    "loc-2014514452": {
+      "label": "美國國會圖書館藏本：清乾隆間霽雲閣刻本 1750"
     }
   }
 }

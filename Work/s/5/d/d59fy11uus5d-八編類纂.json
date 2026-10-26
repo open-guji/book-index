@@ -30,7 +30,90 @@
       "summary": "共 1 個版本：明天啓間刻本（南京圖書館、青海民族大學圖書館、中國科學院圖書館、香港中央圖書館、國家圖書館、美國哈佛大學燕京圖書館、北京大學圖書館、香港大學圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6n0bq04fm74vgnhg\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 549 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6n0bq04fm74vgnhg\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 549 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-i03_01717",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i03/i03_01717/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i03_01717",
+        "edition": "天啓6[1626]序"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084511",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084511",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084511",
+        "request_no": "３６７－０００５",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3960795/manifest.json",
+        "extent": "120冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078942",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078942",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078942",
+        "request_no": "子１３１－０００１",
+        "edition": "刊本（後印）:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4487434/manifest.json",
+        "extent": "120冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-08154",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/08154",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "08154",
+        "call_number": "309 08154",
+        "edition": "明天啟間(1621-1627)原刊本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-i03_01717": {
+      "label": "早稲田藏本：天啓6[1626]序"
+    },
+    "naikaku-1084511": {
+      "label": "內閣文庫藏本：明刊本（367-0005，120冊）"
+    },
+    "naikaku-1078942": {
+      "label": "內閣文庫藏本：明刊本（後印）（子131-0001，120冊）"
+    },
+    "ncltw-08154": {
+      "label": "臺灣國家圖書館藏本：明天啟間(1621-1627)原刊本"
+    }
+  }
 }

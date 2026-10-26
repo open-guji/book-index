@@ -99,11 +99,90 @@
         "holder": "東洋大哲学堂",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300094385/manifest"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100171974",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100171974",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100171974",
+        "holder": "京都府歴彩",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100171974/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100354737",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100354737",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100354737",
+        "holder": "西厳寺",
+        "edition": "刊 慶安３",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100354737/manifest"
+      },
+      "note": "疏部單行（K16 某部）"
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2608026",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2608026",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2608026",
+        "edition": "承應2"
+      },
+      "note": "合刻本：同册另含《呉隱和尚語録》等（K19，只挂主书）"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10884",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10884",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10884",
+        "call_number": "402.58 10884",
+        "edition": "舊鈔本"
+      }
     }
   ],
   "resource_groups": {
     "kokusho-300094385": {
       "label": "國書·東洋大哲学堂藏刊 承応２"
+    },
+    "kokusho-100171974": {
+      "label": "國書·京都府歴彩藏刊"
+    },
+    "kokusho-100354737": {
+      "label": "國書·西厳寺藏刊 慶安３"
+    },
+    "ndl-2608026": {
+      "label": "NDL藏本：承應2"
+    },
+    "ncltw-10884": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
     }
   },
   "measures": [
@@ -118,7 +197,7 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxl9p5jwg 與 11q37tlqkjy80 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-22 B1 同名異書併池：併入 `1evgacnaw2uww`（蒲室集）。2026-08-21 B2 併池：併入 `1evgacnaw2uww`（補遼金元藝文志，大訢〔僧〕撰，十五卷）。「大訢」即本條「釋大」之法號全稱，同書。\n\n2026-08-22 B1 同名異書併池：併入 `1evjy6iosn11c`（蒲室集）。2026-08-21 B2 併池：併入 `1evjy6iosn11c`（中華再造善本，釋大訢撰，元至元刻本八冊）。同書。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 L3 壞名歸正：撰人舊作「釋大」，是四庫總目「元釋大撰」之脫字。《補遼金元藝文志》作「大訢（僧）」，二志互證得其全名。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ev3bd5svmha8` 不同（ai_note、authors）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxl9p5jwg 與 11q37tlqkjy80 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-22 B1 同名異書併池：併入 `1evgacnaw2uww`（蒲室集）。2026-08-21 B2 併池：併入 `1evgacnaw2uww`（補遼金元藝文志，大訢〔僧〕撰，十五卷）。「大訢」即本條「釋大」之法號全稱，同書。\n\n2026-08-22 B1 同名異書併池：併入 `1evjy6iosn11c`（蒲室集）。2026-08-21 B2 併池：併入 `1evjy6iosn11c`（中華再造善本，釋大訢撰，元至元刻本八冊）。同書。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 L3 壞名歸正：撰人舊作「釋大」，是四庫總目「元釋大撰」之脫字。《補遼金元藝文志》作「大訢（僧）」，二志互證得其全名。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ev3bd5svmha8` 不同（ai_note、authors）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "釋大（元）撰。十五卷。見著錄於《欽定四庫全書總目》《補遼金元藝文志》。其著錄之文，《補遼金元藝文志》作「元大訢（僧）蒲室集十五卷」。別集之屬，所收為其人之詩文。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -126,6 +205,6 @@
       "補遼金元藝文志"
     ]
   },
-  "revision": "1.5.0",
-  "revised_at": "2026-10-13"
+  "revision": "1.8.0",
+  "revised_at": "2026-10-26"
 }

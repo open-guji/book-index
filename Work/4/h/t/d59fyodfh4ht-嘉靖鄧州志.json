@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/fpac0i4m3tyqn575"
-      }
+      },
+      "entity_id": "hixicld509vt"
     }
   ],
   "dynasty": "明",
@@ -27,11 +28,17 @@
       "author_info": "明潘庭楠纂修",
       "section": "史部/方志類/地志之屬",
       "summary": "共 1 個版本：明嘉靖四十三年刻本（天一閣文物保管所）"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "潘廷楠鄧州志",
+      "summary": "潘廷楠鄧州志"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：r7m1x237lf3kxtqa\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：r7m1x237lf3kxtqa\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f6elq3ytk《鄧州志》 入本條。方志同修次重出：《[嘉靖]鄧州志》潘庭楠纂修（中國古籍總目） ← 《鄧州志》潘廷楠撰（千頃堂書目）。脚本初判 A同修次·同人(近形)·缺卷·年号缺。逐簇核对：潘廷楠/潘庭楠近形，嘉靖《鄧州志》同書。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -53,5 +60,25 @@
     "nlc-312001071132": {
       "label": "國圖藏本："
     }
-  }
+  },
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "additional_titles": [
+    "鄧州志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6elq3ytk",
+      "title": "鄧州志",
+      "at": "2026-10-26T13:57:04Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[嘉靖]鄧州志》潘庭楠纂修（中國古籍總目） ← 《鄧州志》潘廷楠撰（千頃堂書目）。脚本初判 A同修次·同人(近形)·缺卷·年号缺。逐簇核对：潘廷楠/潘庭楠近形，嘉靖《鄧州志》同書。",
+      "author": "潘廷楠",
+      "title_info": "潘廷楠鄧州志"
+    }
+  ],
+  "merged_from": [
+    "d59f6elq3ytk"
+  ]
 }

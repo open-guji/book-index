@@ -29,6 +29,15 @@
       "author_info": "明王懋德修;明陸鳳儀纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 1 個版本：明萬曆六年刻本（上海圖書館、國家圖書館）"
+    },
+    {
+      "source": "欽定四庫全書總目",
+      "source_bid": "d59dh3vo9af4",
+      "title_info": "《金華府志》•三十卷",
+      "author_info": "不著撰人名氏",
+      "summary": "不著撰人名氏。前列成化庚子商輅序，稱為知府周宗智撰。而志中乃載及隆、萬時事，豈後來又因宗智之本稍益以近事耶？宗智，大冶人，天順庚辰進士。",
+      "edition": "兩淮馬裕家藏本",
+      "note": "2026-10-26 自 d59f2mdiu681 移來：提要題不著撰人，書中記隆慶、萬曆間事；存目叢書據萬曆刻本影印，定為王懋德本"
     }
   ],
   "description": {
@@ -37,7 +46,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3bau4gpa80(金華府志)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3bau4gpa80(金華府志)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 去重方案方志-并 拆混記錄：自 d59f2mdiu681 移入四庫總目「金華府志三十卷」一條。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 30
   },
@@ -54,8 +63,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -79,11 +88,30 @@
         "nlc_fid": "411999018707",
         "edition": "明万历[1573-1620]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03445",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03445",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03445",
+        "call_number": "210.2 03445",
+        "edition": "明萬曆六年(1578)刊本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999018707": {
       "label": "國圖藏本：明万历[1573-1620]"
+    },
+    "ncltw-03445": {
+      "label": "臺灣國家圖書館藏本：明萬曆六年(1578)刊本"
     }
   }
 }

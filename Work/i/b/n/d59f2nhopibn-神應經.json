@@ -134,6 +134,38 @@
         "holder": "府中之島図石崎",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300096733/manifest"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ya09_01100",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ya09/ya09_01100/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ya09_01100",
+        "edition": "二条鶴屋町(京都) : 田原仁左衛門, 正保2[1645] ( )"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN1969163747",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN1969163747",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN1969163747",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN1969163747/manifest",
+        "shelfmark": "Slg. Unschuld 8957",
+        "edition": "s.l. s.a. Republican era"
+      }
     }
   ],
   "measures": [
@@ -148,7 +180,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "description": {
     "text": "陳會（明）撰。一卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》。《四庫全書存目叢書》列於子部。其著錄之文，《四庫全書存目叢書》作「《神應經》一卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -156,8 +188,8 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "kokusho-100317318": {
       "label": "國書·京大富士川藏刊 正保２"
@@ -167,6 +199,12 @@
     },
     "kokusho-300096733": {
       "label": "國書·府中之島図石崎藏刊 正保2"
+    },
+    "waseda-ya09_01100": {
+      "label": "早稲田藏本：二条鶴屋町(京都) : 田原仁左衛門, 正保2[1645] ( )"
+    },
+    "sbb-PPN1969163747": {
+      "label": "柏林國家圖書館藏本：s.l. s.a. Republican era"
     }
   }
 }

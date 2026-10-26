@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/7o80h3s4y0vgw7wl"
-      }
+      },
+      "entity_id": "hixicm8yl6ux"
     }
   ],
   "dynasty": "清",
@@ -29,7 +30,30 @@
       "summary": "共 2 個版本：清康熙間刻鈐印本（遼寧省圖書館、上海圖書館）；清影印本（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：sw2e1vmi22fg3v1u、nqpfrezs3c2062uu\n責任者 role 異常未寫入：林臯篆刻\nE6 第 481 批新建（hold 清零：s1 R-S1；原 hold 原因：secondary_roles_only）\n2026-10-17 回修（Sylvie 抽检）：責任者「林臯篆刻」原被誤切為 name=林臯篆／role=刻，已整體還原為 name=林臯／role=篆刻",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：sw2e1vmi22fg3v1u、nqpfrezs3c2062uu\n責任者 role 異常未寫入：林臯篆刻\nE6 第 481 批新建（hold 清零：s1 R-S1；原 hold 原因：secondary_roles_only）\n2026-10-17 回修（Sylvie 抽检）：責任者「林臯篆刻」原被誤切為 name=林臯篆／role=刻，已整體還原為 name=林臯／role=篆刻\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "loc",
+      "group": "loc-2014514099",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2014514099/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2014514099",
+        "iiif_manifest": "https://www.loc.gov/item/2014514099/manifest.json",
+        "edition": "清康熙五十一年鈐印本 1712"
+      }
+    }
+  ],
+  "resource_groups": {
+    "loc-2014514099": {
+      "label": "美國國會圖書館藏本：清康熙五十一年鈐印本 1712"
+    }
+  }
 }

@@ -19,6 +19,12 @@
       "author_info": "明陳繼儒撰",
       "summary": "明陳繼儒撰。其書雜錄清勝之事，取其可以銷夏，如冰荷玉帳見於諸小說家者，靡不採錄。纖仄瑣碎，亦可謂徒費心力矣。",
       "edition": "內府藏本"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "陳繼儒銷夏録四卷",
+      "summary": "陳繼儒銷夏録四卷"
     }
   ],
   "juan_count": {
@@ -40,6 +46,22 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-15308-0064_%E9%8A%B7%E5%A4%8F.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15308-0064",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15308-0064",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15308-0064",
+        "call_number": "309 15308-0064",
+        "edition": "明萬曆間(1573-1620)繡水沈氏尚白齋刊本"
+      }
     }
   ],
   "measures": [
@@ -54,13 +76,39 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（增刪坊刻前綴／集錄鈔等後綴）同首位責任者，B檔並）：併 d59f6efrnxmv《銷夏録》 入本條。近題同首位責任者：《銷夏》陳繼儒／《銷夏録》陳繼儒；同为陳繼儒撰四卷，銷夏録即銷夏，錄字有无之异\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
-    "text": "陳繼儒（明）撰。四卷。見著錄於《欽定四庫全書總目》。本書惟《欽定四庫全書總目》一志著錄，別無他證。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
+    "text": "陳繼儒（明）撰。四卷。見著錄於《欽定四庫全書總目》。",
     "sources": [
-      "欽定四庫全書總目"
+      "欽定四庫全書總目",
+      "千頃堂書目"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "additional_titles": [
+    "銷夏録"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6efrnxmv",
+      "title": "銷夏録",
+      "at": "2026-10-26T13:43:57Z",
+      "by": "A11-去重方案3b-近題前後綴",
+      "rule": "去重方案3b-近題前後綴：同 Entity 近題（增刪坊刻前綴／集錄鈔等後綴）同首位責任者，B檔並",
+      "why": "近題同首位責任者：《銷夏》陳繼儒／《銷夏録》陳繼儒；同为陳繼儒撰四卷，銷夏録即銷夏，錄字有无之异",
+      "author": "陳繼儒",
+      "title_info": "陳繼儒銷夏録四卷"
+    }
+  ],
+  "merged_from": [
+    "d59f6efrnxmv"
+  ],
+  "resource_groups": {
+    "ncltw-15308-0064": {
+      "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)繡水沈氏尚白齋刊本"
+    }
+  }
 }

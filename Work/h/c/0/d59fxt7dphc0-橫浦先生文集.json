@@ -52,9 +52,9 @@
       "summary": "共 2 個版本：明萬曆四十三年方士騏刻本（北京大學圖書館、南京圖書館、上海圖書館、國家圖書館）；明萬曆四十二年吳惟明刻本（上海圖書館、南京圖書館、北京大學圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：51a3ck12vglw56qu、6iaxnt73hoqsiv68\nauto-split:存疑未并\nE6 第 601 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：51a3ck12vglw56qu、6iaxnt73hoqsiv68\nauto-split:存疑未并\nE6 第 601 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A11-去重上图-并 併條（rule=去重细拆上图-并 B 档：总目同一 work＋题名归一同／异写＋首位责任者同一＋卷数朝代相容）：併 d59f2hq20qo2《橫浦先生文集二十卷家傳一卷施先生孟子發題一卷》 入本條。上图藏书 work_uri d1vm43hauvgyc75v 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《橫浦先生文集》施德操、張九成、張榕(宋,-卷)／《橫浦先生文集二十卷家傳一卷施先生孟子發題一卷》張九成(南宋,1卷)；橫浦先生文集二十卷（附家傳、孟子發題）；張九成撰\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -70,11 +70,82 @@
         "nlc_fid": "412000000650",
         "edition": "明萬曆43年[1615]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10453",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10453",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10453",
+        "call_number": "269 10453",
+        "edition": "明萬曆甲寅( 42年 )吳惟明刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10454",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10454",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10454",
+        "call_number": "402.53 10454",
+        "edition": "明萬曆甲寅(四十二年, 1614)吳惟明刊本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000000650": {
       "label": "國圖藏本：明萬曆43年[1615]"
+    },
+    "ncltw-10453": {
+      "label": "臺灣國家圖書館藏本：明萬曆甲寅( 42年 )吳惟明刊本"
+    },
+    "ncltw-10454": {
+      "label": "臺灣國家圖書館藏本：明萬曆甲寅(四十二年, 1614)吳惟明刊本"
     }
-  }
+  },
+  "juan_count": {
+    "number": 1
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 1
+    }
+  ],
+  "measure_info": "一卷",
+  "additional_titles": [
+    "橫浦先生文集二十卷家傳一卷施先生孟子發題一卷"
+  ],
+  "related_works": [
+    {
+      "id": "d59ezajwvda8",
+      "relation": "contains_text_of"
+    }
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2hq20qo2",
+      "title": "橫浦先生文集二十卷家傳一卷施先生孟子發題一卷",
+      "at": "2026-10-26T14:58:47Z",
+      "by": "A11-去重上图-并",
+      "rule": "去重细拆上图-并 B 档：总目同一 work＋题名归一同／异写＋首位责任者同一＋卷数朝代相容",
+      "why": "上图藏书 work_uri d1vm43hauvgyc75v 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《橫浦先生文集》施德操、張九成、張榕(宋,-卷)／《橫浦先生文集二十卷家傳一卷施先生孟子發題一卷》張九成(南宋,1卷)；橫浦先生文集二十卷（附家傳、孟子發題）；張九成撰",
+      "author": "張九成"
+    }
+  ],
+  "merged_from": [
+    "d59f2hq20qo2"
+  ]
 }

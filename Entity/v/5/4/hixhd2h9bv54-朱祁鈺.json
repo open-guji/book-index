@@ -9,16 +9,18 @@
   "external_ids": {
     "cbdb_id": 30155,
     "cbdb_match": "auto_2026-09-06",
-    "cbdb_source": "score=70.0 via=name(命中「朱祁鈺」) cand=1 work_recall=0.0 cbdb=朱祁鈺/明"
+    "cbdb_source": "score=70.0 via=name(命中「朱祁鈺」) cand=1 work_recall=0.0 cbdb=朱祁鈺/明",
+    "wikidata_id": "Q9988"
   },
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "ming",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 帝號廟號歸人：著錄作「代宗朱祁鈺」，以本書之撰人朝代定其朝，故立為「朱祁鈺」。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=30155（「朱祁鈺」明，1428–1457）。判準 score=70.0：name 命中、同期候選 1 個、著作重合 0.0。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=30155 補入空槽——別名 3 條（代宗、恭仁康定景皇帝、戾毀）；生年 1428；卒年 1457；籍貫「大興」。既有之值一概未動。",
+  "ai_note": "2026-08-24 帝號廟號歸人：著錄作「代宗朱祁鈺」，以本書之撰人朝代定其朝，故立為「朱祁鈺」。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=30155（「朱祁鈺」明，1428–1457）。判準 score=70.0：name 命中、同期候選 1 個、著作重合 0.0。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=30155 補入空槽——別名 3 條（代宗、恭仁康定景皇帝、戾毀）；生年 1428；卒年 1457；籍貫「大興」。既有之值一概未動。\n\n2026-10-25 A12 L6 帝王稱號：補廟號、帝號別名（明代宗、景泰帝、符天建道恭仁康定隆文布武顯德崇孝景皇帝），據維基百科補身份、說明；回填年號條 ruler.entity_id。 廟號代宗為南明所上（據明朝君主列表）。",
   "alt_names": [
     {
       "name": "代宗",
-      "type": "廟號"
+      "type": "廟號",
+      "ambiguous": true
     },
     {
       "name": "恭仁康定景皇帝",
@@ -36,6 +38,18 @@
       "name": "景皇帝",
       "type": "別名",
       "note": "重出條并入"
+    },
+    {
+      "name": "明代宗",
+      "type": "廟號"
+    },
+    {
+      "name": "景泰帝",
+      "type": "別名"
+    },
+    {
+      "name": "符天建道恭仁康定隆文布武顯德崇孝景皇帝",
+      "type": "諡號"
     }
   ],
   "native_place": "大興",
@@ -46,8 +60,8 @@
     "death": 1457,
     "basis": "現行字段"
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-10-14",
+  "revision": "1.0.2",
+  "revised_at": "2026-10-25",
   "merged_in": [
     {
       "id": "hixhd2h9bn32",
@@ -64,7 +78,14 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/7d5b5xhy08qw0kag"
+      },
+      {
+        "name": "維基百科",
+        "type": "url",
+        "details": "https://zh.wikipedia.org/wiki/明朝君主列表"
       }
-    ]
-  }
+    ],
+    "text": "明朝皇帝，年號景泰（1450–1457）。"
+  },
+  "title_or_office": "皇帝"
 }

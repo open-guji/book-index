@@ -214,6 +214,38 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5098013/manifest.json",
         "extent": "2冊"
       }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-B2802100",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=B2802100&order=rn_no&no=00410",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "B2802100",
+        "call_no": "史部-地理-雜記-2",
+        "edition": "刊本 嘉靖二年序"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-04055",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/04055",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "04055",
+        "call_number": "210.8 04055",
+        "edition": "明刊本"
+      }
     }
   ],
   "measures": [
@@ -229,7 +261,7 @@
       "欽定四庫全書總目"
     ]
   },
-  "ai_note": "從 1evkphu7dzf9c 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀001925），無同名 Work 故新建。 | 《四庫總目》著錄「《會稽三賦》三卷，宋王十朋撰」，爲《會稽風俗賦》《民事堂賦》《蓬萊閣賦》三篇之合編，原題「注」字爲衍文，今正。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw9bpdl34 與 11q37pyww0000 同指文淵閣寫本一實物，今併於後者。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…者，紹興中添差簽判廳之公堂也。」今存。本書收入《國立故宮博物院善本舊…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "從 1evkphu7dzf9c 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀001925），無同名 Work 故新建。 | 《四庫總目》著錄「《會稽三賦》三卷，宋王十朋撰」，爲《會稽風俗賦》《民事堂賦》《蓬萊閣賦》三篇之合編，原題「注」字爲衍文，今正。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw9bpdl34 與 11q37pyww0000 同指文淵閣寫本一實物，今併於後者。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…者，紹興中添差簽判廳之公堂也。」今存。本書收入《國立故宮博物院善本舊…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "additional_titles": [
     "會稽三賦註"
   ],
@@ -238,8 +270,8 @@
   "dynasty_basis": "据唯一 author.dynasty「南宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「南宋」自动归并",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "loss_status_basis": "今存。者，紹興中添差簽判廳之公堂也。」今存。本書收入《國立故宮博物院善本舊",
   "resource_groups": {
@@ -263,6 +295,12 @@
     },
     "naikaku-1073701": {
       "label": "內閣文庫藏本：明刊本（363-0048，2冊）"
+    },
+    "ioc-B2802100": {
+      "label": "東文研藏本：刊本 嘉靖二年序"
+    },
+    "ncltw-04055": {
+      "label": "臺灣國家圖書館藏本：明刊本"
     }
   },
   "related_works": [

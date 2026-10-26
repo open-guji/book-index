@@ -30,7 +30,51 @@
       "summary": "共 1 個版本：清乾隆三十九年刻本（中國科學院圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fcejsnmjclhqgl22\nauto-split:存疑未并\nE6 第 603 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fcejsnmjclhqgl22\nauto-split:存疑未并\nE6 第 603 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082375",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082375",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082375",
+        "request_no": "３１８－００８８",
+        "edition": "刊本（序刊）::清乾隆:390000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5089170/manifest.json",
+        "extent": "9冊"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2012402236",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2012402236/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2012402236",
+        "iiif_manifest": "https://www.loc.gov/item/2012402236/manifest.json",
+        "edition": "清乾隆三十九年刻本 1774"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1082375": {
+      "label": "內閣文庫藏本：清乾隆39年刊本（序刊）（318-0088，9冊）"
+    },
+    "loc-2012402236": {
+      "label": "美國國會圖書館藏本：清乾隆三十九年刻本 1774"
+    }
+  }
 }

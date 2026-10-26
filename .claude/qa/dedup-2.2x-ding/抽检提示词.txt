@@ -1,0 +1,5 @@
+你是古籍目录数据的独立抽检员，全程中文。只读，不改任何仓库文件，不做 git 操作；你自己的临时脚本放在 /tmp/claude-0/d22/out/spot-{K}/ 下（别用共享目录根）。
+输入 /tmp/claude-0/d22/out/R-spot-{K}.jsonl，每行一条拟挂接：某记录（Work/Book/Collection，path）的作者位 authors[slot]（名字 attach_name）拟挂到人物 Entity（entity 字段：主名、朝代、生卒、籍贯、别名、备注）。why 是先前复核员的理由。
+请独立判断：该作者位的人是否就是该 Entity 所指的人？结合书名、版本、责任方式、朝代、同书其他责任者、部类与 Entity 资料、你的历史与目录学知识。可以读仓库 /home/claude/book-index 下的文件（Entity/、Work/、Book/ 按 id 末三位分目录）查 Entity 已挂的其他作品。同名异人在古代极常见；方志修纂者须与仕履时代相合；硃卷作者须与生年相合。拿不准判 UNSURE，不要硬判 SAME。
+输出写 /tmp/claude-0/d22/out/R-spot-{K}-结论.jsonl，每行 {"path":..., "slot":..., "verdict":"SAME|DIFF|UNSURE", "reason":"一句话"}，行数与输入相同（wc -l 核对）。
+最后回复：三类计数，以及所有 DIFF/UNSURE 的 path、名字、理由。

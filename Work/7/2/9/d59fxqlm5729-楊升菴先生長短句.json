@@ -44,9 +44,9 @@
       "summary": "共 2 個版本：明刻本（國家圖書館）；明刻本（國家圖書館、湖南省圖書館、浙江圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5v16ox4mmhjq8kj3、z1a1kxvnnntyn1a5\nauto-split:存疑未并\nE6 第 604 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5v16ox4mmhjq8kj3、z1a1kxvnnntyn1a5\nauto-split:存疑未并\nE6 第 604 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -62,11 +62,51 @@
         "nlc_fid": "412000001239",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082962",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082962",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082962",
+        "request_no": "３１３－００３８",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4764082/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14871",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14871",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14871",
+        "call_number": "407.11 14871",
+        "edition": "明刊本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000001239": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1082962": {
+      "label": "內閣文庫藏本：明刊本（313-0038，2冊）"
+    },
+    "ncltw-14871": {
+      "label": "臺灣國家圖書館藏本：明刊本"
     }
   }
 }

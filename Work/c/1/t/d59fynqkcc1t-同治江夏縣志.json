@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/d6v7kccirpuldyqx"
-      }
+      },
+      "entity_id": "hixiclpf09nb"
     },
     {
       "name": "彭崧毓",
@@ -40,7 +41,71 @@
       "summary": "共 3 個版本：民國七年鉛印本（國家圖書館、武漢市圖書館）；清同治八年刻光緒七年增補本（中國科學院圖書館、復旦大學圖書館、上海圖書館）；清同治八年刻本（南京圖書館、湖北省圖書館、天津圖書館、北京大學圖書館、遼寧省圖書館、國家圖書館、上海圖書館、浙江圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：viz5uo5q02kamqh1、5zip1obviefs4tvb、a7esyxtrdjevrvyn\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：viz5uo5q02kamqh1、5zip1obviefs4tvb、a7esyxtrdjevrvyn\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2n47mm82《江夏縣志》 入本條。方志同修次重出：《[同治]江夏縣志》王庭禎修、彭崧毓纂（中國古籍總目） ← 《江夏縣志》王庭楨修（无著录（故宫等））。脚本初判 A同修次·研-方志S复核。逐簇核对：王庭楨修江夏縣志八卷，光緒七年本即總目「同治八年刻光緒七年增補本」，同一修次",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "juan_count": {
+    "number": 8
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 8
+    }
+  ],
+  "measure_info": "八卷",
+  "resources": [
+    {
+      "id": "commons",
+      "name": "维基共享资源",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC403-312001077283-26545_%E6%B1%9F%E5%A4%8F%E7%B8%A3%E8%AA%8C_%E6%B8%85%E5%90%8C%E6%B2%BB8%E5%B9%B4%281869%29_%E5%8D%B7%E4%B8%80.pdf",
+      "types": [
+        "image"
+      ],
+      "root_type": "catalog",
+      "metadata": {
+        "format": "PDF",
+        "edition": "刻本",
+        "year": "清同治8年[1869]",
+        "note": "本链接为扫描册 卷一；不代表全书齐备。"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001077283",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001077283",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001077283",
+        "edition": ""
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-312001077283": {
+      "label": "國圖藏本："
+    }
+  },
+  "additional_titles": [
+    "江夏縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n47mm82",
+      "title": "江夏縣志",
+      "at": "2026-10-26T15:00:50Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[同治]江夏縣志》王庭禎修、彭崧毓纂（中國古籍總目） ← 《江夏縣志》王庭楨修（无著录（故宫等））。脚本初判 A同修次·研-方志S复核。逐簇核对：王庭楨修江夏縣志八卷，光緒七年本即總目「同治八年刻光緒七年增補本」，同一修次",
+      "author": "王庭楨"
+    }
+  ],
+  "merged_from": [
+    "d59f2n47mm82"
+  ]
 }

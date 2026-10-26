@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/margkl8caya5pl47"
-      }
+      },
+      "entity_id": "hixhd2h9bolz"
     }
   ],
   "dynasty": "明",
@@ -27,9 +28,100 @@
       "author_info": "明龔居中撰",
       "section": "子部/醫家類/叢編之屬",
       "summary": "共 1 個版本：（上海圖書館）"
+    },
+    {
+      "source": "續修四庫全書",
+      "source_bid": "d59f2og4vksh",
+      "title_info": "《新刻痰火點雪》四卷",
+      "author_info": "明龔居中撰",
+      "summary": "《新刻痰火點雪》四卷。明龔居中撰。影印安徽省圖書館藏明書林劉大易刻本。",
+      "edition": "影印安徽省圖書館藏明書林劉大易刻本",
+      "volume": "第1005冊",
+      "section": "子部 醫家類"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：h3zvasxalyn1s2w5\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：h3zvasxalyn1s2w5\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（增刪坊刻前綴／集錄鈔等後綴）同首位責任者，A檔並）：併 d59f2ni2fymc《新刻痰火點雪》 入本條。近題同首位責任者：《痰火點雪》龔居中／《新刻痰火點雪》龔居中；同为龔居中撰四卷，新刻为坊刻套语",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "juan_count": {
+    "number": 4
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 4
+    }
+  ],
+  "measure_info": "四卷",
+  "resources": [
+    {
+      "id": "wikimedia-commons-xuxiu",
+      "name": "維基共享 續修四庫全書 PDF",
+      "short_name": "維基共享",
+      "url": "https://commons.wikimedia.org/wiki/File:%E7%BA%8C%E4%BF%AE%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E7%AC%AC1005%E5%86%8A.pdf",
+      "metadata": {
+        "volume": 1005
+      },
+      "types": [
+        "image"
+      ]
+    },
+    {
+      "name": "维基文库",
+      "types": [
+        "text"
+      ],
+      "id": "wikisource",
+      "url": "https://zh.wikisource.org/wiki/%E7%97%B0%E7%81%AB%E9%BB%9E%E9%9B%AA"
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:%E6%96%B0%E5%88%BB%E7%97%B0%E7%81%AB%E9%BB%9E%E9%9B%AA%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084155",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084155",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084155",
+        "request_no": "子０３１－０００３",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4756557/manifest.json",
+        "extent": "4冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1084155": {
+      "label": "內閣文庫藏本：明刊本（子031-0003，4冊）"
+    }
+  },
+  "additional_titles": [
+    "新刻痰火點雪"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2ni2fymc",
+      "title": "新刻痰火點雪",
+      "at": "2026-10-26T13:43:29Z",
+      "by": "A11-去重方案3b-近題前後綴",
+      "rule": "去重方案3b-近題前後綴：同 Entity 近題（增刪坊刻前綴／集錄鈔等後綴）同首位責任者，A檔並",
+      "why": "近題同首位責任者：《痰火點雪》龔居中／《新刻痰火點雪》龔居中；同为龔居中撰四卷，新刻为坊刻套语",
+      "author": "龔居中",
+      "title_info": "《新刻痰火點雪》四卷"
+    }
+  ],
+  "merged_from": [
+    "d59f2ni2fymc"
+  ]
 }

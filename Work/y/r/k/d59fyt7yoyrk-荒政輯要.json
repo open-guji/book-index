@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/7isdcc4l47tqgsal"
-      }
+      },
+      "entity_id": "hixicld7i685"
     }
   ],
   "dynasty": "清",
@@ -29,7 +30,32 @@
       "summary": "共 1 個版本：清乾隆三十三年刻本（上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：vyrnsy3d7x2re86u\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-04.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-20"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：vyrnsy3d7x2re86u\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-04.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073046",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073046",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073046",
+        "request_no": "２９５－００５１",
+        "edition": "刊本::清乾隆:330000:見山楼",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4269953/manifest.json",
+        "extent": "4冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1073046": {
+      "label": "內閣文庫藏本：清乾隆33年刊本 見山楼（295-0051，4冊）"
+    }
+  }
 }

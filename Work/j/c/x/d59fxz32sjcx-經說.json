@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/lta71a6a5iae336s"
-      }
+      },
+      "entity_id": "hixhd2h9bnu4"
     }
   ],
   "dynasty": "清",
@@ -35,9 +36,17 @@
       "author_info": "清陳宗起撰",
       "section": "叢書部/氏族類",
       "summary": "共 1 個版本：（復旦大學圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "經說八卷經遺說一卷",
+      "author_info": "",
+      "section": "叢書部/獨撰類/清代前期",
+      "summary": "共 1 個版本：（國家圖書館、武漢大學圖書館、中國科學院圖書館、南京圖書館、重慶市圖書館、天津圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：36z3fj4xwdpvh1oy\nauto-split:存疑未并\nE6 第 524 批新建（hold 清零：jyiyi；原 hold 原因：）\n查重线（串7 10-18）：同题同作者同朝代并入 1 个叢書子目新建 Work（1exp0gj629c04）",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：36z3fj4xwdpvh1oy\nauto-split:存疑未并\nE6 第 524 批新建（hold 清零：jyiyi；原 hold 原因：）\n查重线（串7 10-18）：同题同作者同朝代并入 1 个叢書子目新建 Work（1exp0gj629c04）\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第三轮：补撰人与国書子目对后同题同首位（含混合组内同首位子簇） B 档逐组复核并）：併 d59fyym6hj40《經說》 入本條。同题同首位责任者：《經說》陳宗起(清,8卷,2版本)／《經說》陳宗起(清,8卷,1版本,繼承叢書撰者)；B 档逐组复核判同一作品（flags=huibian_vs_multi）",
   "merged_in": [
     {
       "id": "1exp0gj629c04",
@@ -46,15 +55,28 @@
       "by": "串7",
       "rule": "叢書去重",
       "why": "同题同作者同朝代"
+    },
+    {
+      "id": "d59fyym6hj40",
+      "title": "經說",
+      "at": "2026-10-26T16:17:05Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a第三轮：补撰人与国書子目对后同题同首位（含混合组内同首位子簇） B 档逐组复核并",
+      "why": "同题同首位责任者：《經說》陳宗起(清,8卷,2版本)／《經說》陳宗起(清,8卷,1版本,繼承叢書撰者)；B 档逐组复核判同一作品（flags=huibian_vs_multi）",
+      "author": "陳宗起",
+      "title_info": "經說八卷經遺說一卷"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fy1i3i9ky",
       "relation": "related",
       "note": "總目子部另立（auto-split:同名未并）"
     }
+  ],
+  "merged_from": [
+    "d59fyym6hj40"
   ]
 }

@@ -40,9 +40,9 @@
       "清史稿藝文志"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-14",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nat-archives-jp",
@@ -166,6 +166,41 @@
         "waseda_id": "ri09_06255",
         "edition": ""
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN1889416541",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN1889416541",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN1889416541",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN1889416541/manifest",
+        "shelfmark": "Libri sin. N.S. 9176",
+        "edition": "鉛印本;s.l. [ca 1895]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101442528",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000010623",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101442528",
+        "nlk_control_no": "EOL000010623",
+        "holder": "국립중앙도서관",
+        "call_number": "古古6-35-2",
+        "edition": "木板本 [明治 11(1878)]"
+      }
     }
   ],
   "resource_groups": {
@@ -189,6 +224,12 @@
     },
     "waseda-ri09_06255": {
       "label": "早稲田藏本"
+    },
+    "sbb-PPN1889416541": {
+      "label": "柏林國家圖書館藏本：鉛印本;s.l. [ca 1895]"
+    },
+    "korcis-101442528": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 [明治 11(1878)]"
     }
   },
   "related_works": [

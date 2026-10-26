@@ -30,9 +30,9 @@
       "summary": "共 1 個版本：（遼寧省圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：a713kye7ovt408jy\nauto-split:存疑未并\nE6 第 523 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：a713kye7ovt408jy\nauto-split:存疑未并\nE6 第 523 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 3 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条、國書 1 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fxxkk0buo",
@@ -60,11 +60,185 @@
         "nlc_fid": "411999020481",
         "edition": "明嘉靖35年[1556]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko11_d0014",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko11/bunko11_d0014/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko11_d0014",
+        "edition": "郁文堂"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1820",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1820/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1820",
+        "edition": "[京都] : 豊雪斎道伴, [江戸初期] : ※"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1821",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1821/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1821",
+        "edition": "大阪府 : 三木美記, 明治9[1876]"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070145",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070145",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070145",
+        "request_no": "２７３－０１９８",
+        "edition": "刊本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3609923/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200014765",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200014765",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200014765",
+        "holder": "国文研",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200014765/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2557655",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2557655",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2557655",
+        "edition": "清刊(贈言堂藏板)"
+      }
+    },
+    {
+      "id": "keio",
+      "group": "keio-12031",
+      "group_role": "origin",
+      "name": "慶應義塾図書館 漢籍コレクション",
+      "short_name": "慶應",
+      "url": "https://dcollections.lib.keio.ac.jp/ja/kanseki/34-29-4-1",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "keio_record": "keioobjecthub-12031",
+        "call_no": "34-29-4-1",
+        "edition": "鄭氏聯輝堂 明萬暦28年刊(1600)",
+        "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/34-29-4-1/manifest.json"
+      }
+    },
+    {
+      "id": "nagoya-u",
+      "group": "nagoya-N004_20230901_02896",
+      "group_role": "origin",
+      "name": "名古屋大学附属図書館 古典籍",
+      "short_name": "名大",
+      "url": "https://da.adm.thers.ac.jp/item/n004-20230901-02896",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nagoya_record": "THERS_da-N004_20230901_02896",
+        "call_no": "123.3-Ma",
+        "edition": "享保九年京都今村八兵衞刊本",
+        "iiif_manifest": "https://da.adm.thers.ac.jp/iiif/1/classic_books/N004-20230901-02896/manifest.json"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101485007",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000008345",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101485007",
+        "nlk_control_no": "EOL000008345",
+        "holder": "국립중앙도서관",
+        "call_number": "古古1-23-4",
+        "edition": "木板本 慶應 (1865)"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999020481": {
       "label": "國圖藏本：明嘉靖35年[1556]"
+    },
+    "waseda-bunko11_d0014": {
+      "label": "早稲田藏本：郁文堂"
+    },
+    "waseda-bunko31_e1820": {
+      "label": "早稲田藏本：[京都] : 豊雪斎道伴, [江戸初期] : ※"
+    },
+    "waseda-bunko31_e1821": {
+      "label": "早稲田藏本：大阪府 : 三木美記, 明治9[1876]"
+    },
+    "naikaku-1070145": {
+      "label": "內閣文庫藏本：江戸刊本（273-0198，2冊）"
+    },
+    "kokusho-200014765": {
+      "label": "國書·国文研藏刊"
+    },
+    "ndl-2557655": {
+      "label": "NDL藏本：清刊(贈言堂藏板)"
+    },
+    "keio-12031": {
+      "label": "慶應藏本：鄭氏聯輝堂 明萬暦28年刊(1600)"
+    },
+    "nagoya-N004_20230901_02896": {
+      "label": "名大藏本：享保九年京都今村八兵衞刊本"
+    },
+    "korcis-101485007": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 慶應 (1865)"
     }
   }
 }

@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/vowngjdieplfbdqr"
-      }
+      },
+      "entity_id": "hixhd2h9bdrf"
     }
   ],
   "dynasty": "宋",
@@ -29,7 +30,55 @@
       "summary": "共 1 個版本：明正德間刻本（天一閣文物保管所）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4cuc4tinmpwv5oex\nauto-split:存疑未并\nE6 第 525 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4cuc4tinmpwv5oex\nauto-split:存疑未并\nE6 第 525 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nlk",
+      "group": "korcis-101116542",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000000215",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101116542",
+        "nlk_control_no": "KOL000000215",
+        "holder": "국립중앙도서관",
+        "call_number": "古貴151-2",
+        "part": "第16卷",
+        "edition": "木板本 1417"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-139778818",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL200800217",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "139778818",
+        "nlk_control_no": "KOL200800217",
+        "holder": "국립중앙도서관",
+        "call_number": "古1235-110",
+        "part": "卷1-8",
+        "edition": "木板本(未詳) [後刷]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "korcis-101116542": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 1417"
+    },
+    "korcis-139778818": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本(未詳) [後刷]"
+    }
+  }
 }

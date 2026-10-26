@@ -296,6 +296,84 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4046048/manifest.json",
         "extent": "6冊"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko11_d0276",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko11/bunko11_d0276/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko11_d0276",
+        "edition": "琴川 : 毛氏, 崇禎11[1638]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ri08_01735",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ri08/ri08_01735_0149/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ri08_01735",
+        "edition": "汲古閣, 順治13[1656]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01507",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01507",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01507",
+        "call_number": "201.2396 01507",
+        "edition": "南宋初期刊宋元明嘉靖遞修本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01508",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01508",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01508",
+        "call_number": "201.2396 01508",
+        "edition": "南宋初期刊宋元明嘉靖遞修本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01510",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01510",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01510",
+        "call_number": "201.2396 01510",
+        "edition": "明萬曆十六年(1588)南監刊本"
+      }
     }
   ],
   "measures": [
@@ -305,7 +383,7 @@
     }
   ],
   "measure_info": "五十卷",
-  "ai_note": "作者「唐李百藥撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evgpgugnlngg 合併。原註：从卷二 ambiguous 新建：unresolved　合併：題名「李百藥北齊書」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「李百藥」已見本條 authors[]），裸題「北齊書」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvzuywykg 與 11q37ozwwlc00 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-23 M2 磁鐵專項（唐隋志系）：新唐書藝文志「又北齊書」一節本繫本條，今移繫 1evcubs9rgikg。新唐志正史類此節前為「張大素後魏書一百卷」，志例之「又」承前撰人，故此二十卷本是張大素《北齊書》（舊唐志「又二十卷張大素撰」、國史經籍志「《北齊書》二十卷（張太素）」皆與之合），非李百藥五十卷本，今改繫。\n\n2026-08-24 隋唐 T5·description 補全（著錄 ≥7 源批）：所據為本條所繫著錄之引文（見 indexed_by／emendated_by，尤以四庫提要、崇文總目、直齋書錄解題之敘錄為主）及通行學術常識，未覆核原書。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…卷，正其殘闕之跡。二十四史之一，今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目著錄版本待定（版本標籤空，本 Work 有多個 Book，未入 Book）：akm10beiliq735w7、e86dy32318h0gvjg、36jsvqla7gua4x13、rsk0mpxi0ffz2a5d、s6ijtw3mwmxh1rqc、dwbno6ku8jf5wdrg、iufl14z738ltrzyx、1xqdzi5lhau63tqy、acm12qltqyfjf16g\n總目分類：史部／紀傳類／叢編之屬",
+  "ai_note": "作者「唐李百藥撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evgpgugnlngg 合併。原註：从卷二 ambiguous 新建：unresolved　合併：題名「李百藥北齊書」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「李百藥」已見本條 authors[]），裸題「北齊書」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvzuywykg 與 11q37ozwwlc00 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-23 M2 磁鐵專項（唐隋志系）：新唐書藝文志「又北齊書」一節本繫本條，今移繫 1evcubs9rgikg。新唐志正史類此節前為「張大素後魏書一百卷」，志例之「又」承前撰人，故此二十卷本是張大素《北齊書》（舊唐志「又二十卷張大素撰」、國史經籍志「《北齊書》二十卷（張太素）」皆與之合），非李百藥五十卷本，今改繫。\n\n2026-08-24 隋唐 T5·description 補全（著錄 ≥7 源批）：所據為本條所繫著錄之引文（見 indexed_by／emendated_by，尤以四庫提要、崇文總目、直齋書錄解題之敘錄為主）及通行學術常識，未覆核原書。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…卷，正其殘闕之跡。二十四史之一，今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目著錄版本待定（版本標籤空，本 Work 有多個 Book，未入 Book）：akm10beiliq735w7、e86dy32318h0gvjg、36jsvqla7gua4x13、rsk0mpxi0ffz2a5d、s6ijtw3mwmxh1rqc、dwbno6ku8jf5wdrg、iufl14z738ltrzyx、1xqdzi5lhau63tqy、acm12qltqyfjf16g\n總目分類：史部／紀傳類／叢編之屬\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "related_works": [
     {
       "id": "8rlcsybg2hhi",
@@ -341,8 +419,8 @@
   ],
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.3.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "resource_groups": {
     "nlc-411999000038": {
@@ -365,6 +443,21 @@
     },
     "naikaku-1068853": {
       "label": "內閣文庫藏本：明崇禎11年刊本 汲古閣（280-0061，6冊）"
+    },
+    "waseda-bunko11_d0276": {
+      "label": "早稲田藏本：琴川 : 毛氏, 崇禎11[1638]"
+    },
+    "waseda-ri08_01735": {
+      "label": "早稲田藏本：汲古閣, 順治13[1656]"
+    },
+    "ncltw-01507": {
+      "label": "臺灣國家圖書館藏本：南宋初期刊宋元明嘉靖遞修本"
+    },
+    "ncltw-01508": {
+      "label": "臺灣國家圖書館藏本：南宋初期刊宋元明嘉靖遞修本"
+    },
+    "ncltw-01510": {
+      "label": "臺灣國家圖書館藏本：明萬曆十六年(1588)南監刊本"
     }
   },
   "contained_in": [

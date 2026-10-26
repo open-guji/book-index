@@ -32,6 +32,13 @@
       "attested_status": "not_seen",
       "attested_status_raw": "未見",
       "attested_status_note": "此是朱彝尊所判，非本庫之判，故不改本記錄之 loss_status。四庫御製題論此書曰「所注闕佚未見者，今四庫所録往往其書尚存」——其判是十七世紀一人之見聞。「未見」尤非亡佚，是朱氏未見其書。"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "劉寔孝經集解",
+      "author_info": "字嘉秀安成人宣德庚戌進士南雄府知府",
+      "summary": "劉寔孝經集解⟨字嘉秀安成人宣德庚戌進士南雄府知府⟩"
     }
   ],
   "description": {
@@ -41,7 +48,7 @@
       "經義考"
     ]
   },
-  "ai_note": "多個同名候選均不匹配（Multiple candidates (2), none matched author '劉實': GYL52RfLC9D(蔣永修), GYL52RqFEb9(張星徽)），新建Work。 舊匹配結果為 GYL52RqFEb9（exact_title），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "多個同名候選均不匹配（Multiple candidates (2), none matched author '劉實': GYL52RfLC9D(蔣永修), GYL52RqFEb9(張星徽)），新建Work。 舊匹配結果為 GYL52RqFEb9（exact_title），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重3b-0 併條（rule=去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并）：併 d59f6er4w1s3《孝經集解》 入本條。署名异写同书：《孝經集解》劉實／劉寔：刘实／刘寔（CBDB 别名），同为明人",
   "measures": [
     {
       "unit": "卷",
@@ -60,6 +67,23 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "merged_in": [
+    {
+      "id": "d59f6er4w1s3",
+      "title": "孝經集解",
+      "at": "2026-10-26T11:37:18Z",
+      "by": "A11-去重3b-0",
+      "rule": "去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并",
+      "why": "署名异写同书：《孝經集解》劉實／劉寔：刘实／刘寔（CBDB 别名），同为明人",
+      "author": "劉寔",
+      "title_info": "劉寔孝經集解"
+    }
+  ],
+  "merged_from": [
+    "d59f6er4w1s3"
+  ]
 }

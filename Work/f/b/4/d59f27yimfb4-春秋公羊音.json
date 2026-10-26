@@ -4,11 +4,13 @@
   "title": "春秋公羊音",
   "authors": [
     {
-      "name": "江淳",
+      "name": "江惇",
       "role": "注",
       "dynasty": "東晉",
-      "entity_id": "hixhd2h9bnf6",
-      "dynasty_basis": "historical_dict:round2(江淳，江逌之弟)"
+      "entity_id": "hixhjtcybr41",
+      "dynasty_basis": "historical_dict:round2(江淳，江逌之弟)",
+      "original_name": "江淳",
+      "name_basis": "3c 誤字勘誤：同題著錄 d59f9nmjd0qw 作「江惇」，據人物考訂《春秋公羊音》撰人當作「江惇」；經獨立子代理盲判一致；原掛 Entity hixhd2h9bnf6（主名「江淳」，係同一誤字所建）改掛同題著錄所掛 hixhjtcybr41（江惇）"
     }
   ],
   "juan_count": {
@@ -40,6 +42,27 @@
       "section": "甲部經錄／春秋類",
       "section_basis": "部類自整理本推得——本志整理本以部類分檔，檔名即其類目；一書兩著者（整理本自云「互見某類」）以本條著錄引文鎖定其節",
       "title_info": "春秋公羊音一卷"
+    },
+    {
+      "source": "補晉書藝文志（文廷式）",
+      "source_bid": "d59f2o2m8hky",
+      "title_info": "春秋公羊音一卷",
+      "summary": "《隋志》作「江淳」，誤。",
+      "author_info": "見經部·春秋類。原注：徵士"
+    },
+    {
+      "source": "補晉書藝文志（黃逢元）",
+      "source_bid": "d59f2o2lx91d",
+      "title_info": "春秋公羊音一卷",
+      "summary": "見《七錄》。「江」譌作「汪」。",
+      "author_info": "見甲部經錄·春秋類。原注：江惇撰"
+    },
+    {
+      "source": "補晉書藝文志（秦榮光）",
+      "source_bid": "d59f5ilweo6h",
+      "title_info": "春秋公羊音一卷",
+      "summary": "江惇撰。據《釋文·叙錄》。　案《隋志》作「汪淳」，誤。",
+      "author_info": "見經部·春秋類"
     }
   ],
   "description": {
@@ -65,13 +88,28 @@
     }
   ],
   "loss_status": "lost",
-  "ai_note": "loss_status 判為 lost，據本記錄之描述／著錄語：「已亡佚」。此值為機讀所生（scripts/loss_status.py），非逐條精校，覆核時以本欄之據為準。\n\n2026-08-23 B1 同名異書併池：併入 `1evcpcu9zlkao`（春秋公羊音）。2026-08-23 B10（同題一方無撰人·卷數差一）：併入 `1evcpcu9zlkao`（舊唐書經籍志、補晋書藝文志，2卷，不著撰人）。題名全同、著錄異源，卷數僅差一，屬計卷之出入（并序、并目錄）而非二書。\n\n2026-08-24 J6 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1evfudu3mifi8` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-09-06 晉志 source 正名：indexed_by.source 綴撰人以別五家補晉志（四本同題《補晉書藝文志》，非綴撰人不可辨）。source_bid 未動。",
+  "ai_note": "loss_status 判為 lost，據本記錄之描述／著錄語：「已亡佚」。此值為機讀所生（scripts/loss_status.py），非逐條精校，覆核時以本欄之據為準。\n\n2026-08-23 B1 同名異書併池：併入 `1evcpcu9zlkao`（春秋公羊音）。2026-08-23 B10（同題一方無撰人·卷數差一）：併入 `1evcpcu9zlkao`（舊唐書經籍志、補晋書藝文志，2卷，不著撰人）。題名全同、著錄異源，卷數僅差一，屬計卷之出入（并序、并目錄）而非二書。\n\n2026-08-24 J6 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1evfudu3mifi8` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-09-06 晉志 source 正名：indexed_by.source 綴撰人以別五家補晉志（四本同題《補晉書藝文志》，非綴撰人不可辨）。source_bid 未動。；3c 責任者名勘誤（2026-10-25）：authors[0]「江淳」→「江惇」\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第三轮：补撰人与国書子目对后同题同首位（含混合组内同首位子簇） B 档逐组复核并）：併 d59f9nmjd0qw《春秋公羊音》 入本條。同题同首位责任者：《春秋公羊音》江惇(東晉,?卷,0版本)／《春秋公羊音》江惇(晉,?卷,0版本)；B 档逐组复核判同一作品（flags=role_diff）",
   "updated_at": "2026-08-23T00:00:00+00:00",
   "period": "jin",
   "period_basis": "據 authors[0].dynasty「東晉」（2026-09-06 qa-sweep/weijin：本欄原引「晉」，而 authors[0].dynasty 實作「東晉」——係「晉」「三國」等籠統值細分之後本欄未隨改，非斷代錯；period 值不動，只正所引之值。）",
   "dynasty": "東晉",
   "dynasty_basis": "author_propagation:唯一作者朝代",
   "loss_status_basis": "2026-08-24 J7 存佚基準登記：本欄之值出自 2026-08 之機讀（scripts/loss_status.py），據本條之描述或著錄語中之亡佚語而定，其 ai_note 自陳「非逐條精校」。J7 曾以結構化之證（著錄源含《玉函山房輯佚書》、有輯佚檔、按語有「引是書／輯存／輯得／某某輯本序」之明文）覆核全桶，**本條無此三證**，故仍其舊。欲進一步覈之，須逐條讀《三國藝文志》《補晉書藝文志》之散文體按語（S4 第三路），是本時段所餘之最大一項人工。",
-  "revision": "1.1.0",
-  "revised_at": "2026-09-06"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "merged_in": [
+    {
+      "id": "d59f9nmjd0qw",
+      "title": "春秋公羊音",
+      "at": "2026-10-26T16:16:06Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a第三轮：补撰人与国書子目对后同题同首位（含混合组内同首位子簇） B 档逐组复核并",
+      "why": "同题同首位责任者：《春秋公羊音》江惇(東晉,?卷,0版本)／《春秋公羊音》江惇(晉,?卷,0版本)；B 档逐组复核判同一作品（flags=role_diff）",
+      "author": "江惇",
+      "title_info": "春秋公羊音一卷；春秋公羊音一卷；春秋公羊音一卷"
+    }
+  ],
+  "merged_from": [
+    "d59f9nmjd0qw"
+  ]
 }

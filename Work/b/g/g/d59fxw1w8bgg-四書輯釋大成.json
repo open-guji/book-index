@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/luu46o2u38qs8gll"
-      }
+      },
+      "entity_id": "hixhd2h9be4e"
     }
   ],
   "dynasty": "元",
@@ -29,7 +30,72 @@
       "summary": "共 3 個版本：元至正二年日新書堂刻本（日本尊經閣文庫、北京大學圖書館）；元刻本（上海圖書館）；日本文化九年翻刻元至正二年日新書堂本（北京大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：md4av7r2ph2u6k6u、6zvy4sfy2nct5txm、yh1q38zqppxk8udw\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n責任者 role 異常未寫入：朱熹章句\nauto-split:存疑未并\nE6 第 526 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：md4av7r2ph2u6k6u、6zvy4sfy2nct5txm、yh1q38zqppxk8udw\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n責任者 role 異常未寫入：朱熹章句\nauto-split:存疑未并\nE6 第 526 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070649",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070649",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070649",
+        "request_no": "経０３８－００１１",
+        "edition": "刊本::文化:090000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4436249/manifest.json",
+        "extent": "14冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070667",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070667",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070667",
+        "request_no": "２７７－００３８",
+        "edition": "刊本::文化:090000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4030443/manifest.json",
+        "extent": "14冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00807",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00807",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00807",
+        "call_number": "108.8 00807",
+        "edition": "日本文化九年(清嘉慶十七年, 1812)覆刊元至正間日新書堂本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1070649": {
+      "label": "內閣文庫藏本：文化9年刊本（経038-0011，14冊）"
+    },
+    "naikaku-1070667": {
+      "label": "內閣文庫藏本：文化9年刊本（277-0038，14冊）"
+    },
+    "ncltw-00807": {
+      "label": "臺灣國家圖書館藏本：日本文化九年(清嘉慶十七年, 1812)覆刊元至正間日新書堂本"
+    }
+  }
 }

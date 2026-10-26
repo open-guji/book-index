@@ -16,7 +16,7 @@
       "欽定四庫全書總目"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3bawotdvy8(曹學佺)（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3bawotdvy8(曹學佺)（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 30
   },
@@ -51,8 +51,8 @@
   "period_basis": "據 authors[0].dynasty「明」（2026-08-13 清朝探勘：曹學佺，引文確認為同一明末人物本人著作，period因啟發式誤植為qing，訂正）",
   "dynasty": "明",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "commons",
@@ -113,6 +113,37 @@
         "nlc_fid": "312001063555",
         "edition": ""
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko19_f0070",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko19/bunko19_f0070/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko19_f0070",
+        "edition": "四川 : 四川官印刷局"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03819",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03819",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03819",
+        "call_number": "210.41 03819",
+        "edition": "明萬曆戊午(四十六年, 1618)福清林茂之金陵刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -124,6 +155,12 @@
     },
     "nlc-312001063555": {
       "label": "國圖藏本："
+    },
+    "waseda-bunko19_f0070": {
+      "label": "早稲田藏本：四川 : 四川官印刷局"
+    },
+    "ncltw-03819": {
+      "label": "臺灣國家圖書館藏本：明萬曆戊午(四十六年, 1618)福清林茂之金陵刊本"
     }
   }
 }

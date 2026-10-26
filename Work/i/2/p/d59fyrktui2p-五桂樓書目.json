@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/kp8qiwqpguwkqr7c"
-      }
+      },
+      "entity_id": "hixicmi3lbcm"
     }
   ],
   "dynasty": "清",
@@ -29,9 +30,9 @@
       "summary": "共 2 個版本：清黃安瀾抄本（浙江圖書館）；清光緒二十一年黃氏刻本（浙江圖書館、國家圖書館、上海圖書館、北京大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：y7olwkisshboi2de、dh7pwjy8ky5wulaj\nE6 第 422 批新建（hold 清零：M-new；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：y7olwkisshboi2de、dh7pwjy8ky5wulaj\nE6 第 422 批新建（hold 清零：M-new；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,29 @@
         "nlc_fid": "002318854",
         "edition": "姚江黃氏   清光緒21年[1895]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2569203",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2569203",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2569203",
+        "edition": "光緒21"
+      }
     }
   ],
   "resource_groups": {
     "nlc-002318854": {
       "label": "國圖藏本：姚江黃氏   清光緒21年[1895]"
+    },
+    "ndl-2569203": {
+      "label": "NDL藏本：光緒21"
     }
   }
 }

@@ -22,7 +22,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/t0kdm2r2m5kez2a1"
-      }
+      },
+      "entity_id": "hixhd2h9btkr"
     }
   ],
   "dynasty": "清",
@@ -37,11 +38,19 @@
       "author_info": "清趙民洽修;清許琳纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 1 個版本：清乾隆二十四年刻本（國家圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "[乾隆]臨安縣志四卷",
+      "author_info": "清趙民洽修;清許琳纂",
+      "section": "史部/方志類/地志之屬",
+      "summary": "共 1 個版本：清光緒十一年木活字印本（浙江圖書館、天津圖書館、北京大學圖書館、國家圖書館、復旦大學圖書館、上海圖書館、南京圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3ak1isnbwuorapnk\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3ak1isnbwuorapnk\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2n2gkohs《臨安縣志》 入本條。方志同修次重出：《[乾隆]臨安縣志》許琳纂、趙民洽修（中國古籍總目） ← 《臨安縣志》趙民洽纂修（中國古籍總目）。脚本初判 A同修次·同人·同卷·年号同。逐簇核对：趙民洽同，四卷，乾隆二十四年修同；故宮光緒活字本亦已掛同一總目索引。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -72,6 +81,21 @@
         "nlc_fid": "312001070282",
         "edition": ""
       }
+    },
+    {
+      "id": "commons",
+      "name": "维基共享资源",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC403-312001070282-99853_%E8%87%A8%E5%AE%89%E7%B8%A3%E8%AA%8C_%E6%B8%85%E4%B9%BE%E9%9A%8624%E5%B9%B4%281759%29_%E5%8D%B7%E4%B8%80.pdf",
+      "types": [
+        "image"
+      ],
+      "root_type": "catalog",
+      "metadata": {
+        "format": "PDF",
+        "edition": "刻本",
+        "year": "清乾隆24年[1759]",
+        "note": "本链接为扫描册 卷一；不代表全书齐备。"
+      }
     }
   ],
   "resource_groups": {
@@ -81,5 +105,33 @@
     "nlc-312001070282": {
       "label": "國圖藏本："
     }
-  }
+  },
+  "juan_count": {
+    "number": 4
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 4
+    }
+  ],
+  "measure_info": "四卷",
+  "additional_titles": [
+    "臨安縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n2gkohs",
+      "title": "臨安縣志",
+      "at": "2026-10-26T13:55:51Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[乾隆]臨安縣志》許琳纂、趙民洽修（中國古籍總目） ← 《臨安縣志》趙民洽纂修（中國古籍總目）。脚本初判 A同修次·同人·同卷·年号同。逐簇核对：趙民洽同，四卷，乾隆二十四年修同；故宮光緒活字本亦已掛同一總目索引。",
+      "author": "趙民洽",
+      "title_info": "[乾隆]臨安縣志四卷"
+    }
+  ],
+  "merged_from": [
+    "d59f2n2gkohs"
+  ]
 }

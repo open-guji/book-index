@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀002561-002572），無同名 Work 故新建。 | 從 1evkacefvjp4w 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀002561-002572），無同名 Work 故新建。 | 從 1evkacefvjp4w 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 20
   },
@@ -33,8 +33,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.3.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -142,6 +142,55 @@
         "nlc_fid": "411999032707",
         "edition": "明萬曆19年[1591]"
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3371339173",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3371339173",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3371339173",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3371339173/manifest",
+        "shelfmark": "Hirth 11",
+        "edition": "刻本 萬曆十九年 (=1591) 敘"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07648",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07648",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07648",
+        "call_number": "308 07648",
+        "edition": "明萬曆間(1573-1620)建邑書林熊氏種德堂刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07649",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07649",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07649",
+        "call_number": "308 07649",
+        "edition": "明萬曆間(1573-1620)建邑書林熊氏種德堂刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -162,6 +211,15 @@
     },
     "nlc-411999032707": {
       "label": "國圖藏本：明萬曆19年[1591]"
+    },
+    "sbb-PPN3371339173": {
+      "label": "柏林國家圖書館藏本：刻本 萬曆十九年 (=1591) 敘"
+    },
+    "ncltw-07648": {
+      "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)建邑書林熊氏種德堂刊本"
+    },
+    "ncltw-07649": {
+      "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)建邑書林熊氏種德堂刊本"
     }
   }
 }

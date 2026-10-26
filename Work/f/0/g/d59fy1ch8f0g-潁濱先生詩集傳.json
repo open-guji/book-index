@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/z0226vl4hydm2ies"
-      }
+      },
+      "entity_id": "hixhd2h9bdyf"
     }
   ],
   "dynasty": "宋",
@@ -37,7 +38,7 @@
       "summary": "共 4 個版本：明刻本（日本德山毛利氏、國家圖書館）；兩蘇經解本（馆藏未载）；（浙江圖書館、大連市圖書館）；（浙江圖書館、國家圖書館、浙江大學圖書館、北京大學圖書館、遼寧省圖書館、故宮博物院圖書館）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 7az36evvlj8s414q（兩蘇經解七種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zk62ky0brkrroipj\n經部查重並條（A檔：同題同作者同朝代，卷數差≤1）（源 Work 1exp12pcyw16o《潁濱先生詩集傳》已並入；其作者寫法：蘇轍）\n\n国图數字古籍重配挂接",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 7az36evvlj8s414q（兩蘇經解七種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zk62ky0brkrroipj\n經部查重並條（A檔：同題同作者同朝代，卷數差≤1）（源 Work 1exp12pcyw16o《潁濱先生詩集傳》已並入；其作者寫法：蘇轍）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "merged_in": [
     {
       "id": "1exp12pcyw16o",
@@ -48,8 +49,8 @@
       "why": "經部查重並條（A檔：同題同作者同朝代，卷數差≤1）"
     }
   ],
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -65,11 +66,51 @@
         "nlc_fid": "411999031045",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3609919",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3609919",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3609919",
+        "request_no": "２７３－０１９２",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3766003/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01279-0003",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01279-0003",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01279-0003",
+        "call_number": "119.2 01279-0003",
+        "edition": "明萬曆丁酉(25年, 1597)畢氏刊本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999031045": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-3609919": {
+      "label": "內閣文庫藏本：明刊本（273-0192，4冊）"
+    },
+    "ncltw-01279-0003": {
+      "label": "臺灣國家圖書館藏本：明萬曆丁酉(25年, 1597)畢氏刊本"
     }
   }
 }

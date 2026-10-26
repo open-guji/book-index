@@ -23,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/w4vcg2fnyt8uqwco"
-      }
+      },
+      "entity_id": "hixiclg0y988"
     },
     {
       "name": "黃炎",
@@ -50,9 +51,9 @@
       "summary": "共 2 個版本：孫氏瓜瑞堂抄本（上海圖書館）；明萬曆十六年刻本（國家圖書館、山東省圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4u4kux65ut7534b4、8w5l8fkc5ik8tfek\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4u4kux65ut7534b4、8w5l8fkc5ik8tfek\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2nkvkumb《上海縣志》 入本條。方志同修次重出：《[萬曆]上海縣志》張之象纂、顔洪範修、黃炎纂（中國古籍總目） ← 《上海縣志》顧洪範修（无著录（故宫等））。脚本初判 A同修次·同人(近形)·缺卷·年号同。逐簇核对：顧洪範即總目顔洪範（近形），均明萬曆十六年刊本，同修次。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -68,11 +69,56 @@
         "nlc_fid": "0633",
         "edition": "明萬曆[1573-1620]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068647",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068647",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068647",
+        "request_no": "史１６６－０００３",
+        "edition": "刊本::明万暦:160000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4751901/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-0633": {
       "label": "國圖藏本：明萬曆[1573-1620]"
+    },
+    "naikaku-1068647": {
+      "label": "內閣文庫藏本：明万暦16年刊本（史166-0003，4冊）"
     }
-  }
+  },
+  "measures": [
+    {
+      "unit": "冊",
+      "number": 2
+    }
+  ],
+  "measure_info": "二冊",
+  "additional_titles": [
+    "上海縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2nkvkumb",
+      "title": "上海縣志",
+      "at": "2026-10-26T11:09:55Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[萬曆]上海縣志》張之象纂、顔洪範修、黃炎纂（中國古籍總目） ← 《上海縣志》顧洪範修（无著录（故宫等））。脚本初判 A同修次·同人(近形)·缺卷·年号同。逐簇核对：顧洪範即總目顔洪範（近形），均明萬曆十六年刊本，同修次。",
+      "author": "顧洪範"
+    }
+  ],
+  "merged_from": [
+    "d59f2nkvkumb"
+  ]
 }

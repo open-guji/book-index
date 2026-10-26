@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/sqhrqfomylm34iyo"
-      }
+      },
+      "entity_id": "hixhd2h9bkj8"
     }
   ],
   "dynasty": "明",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：明抄本（國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：325dpizfatpjmfnc\nE6 第 421 批新建（hold 清零：M-new；原 hold 原因：）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配：新建候選經審核判為已有 Work 的另一藏本，補掛國圖影像資源（抽檢錯掛約 1–3%，已剔除可疑條）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：325dpizfatpjmfnc\nE6 第 421 批新建（hold 清零：M-new；原 hold 原因：）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配：新建候選經審核判為已有 Work 的另一藏本，補掛國圖影像資源（抽檢錯掛約 1–3%，已剔除可疑條）。\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,29 @@
         "nlc_fid": "312001072392",
         "edition": ""
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000001488",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000001488",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000001488",
+        "edition": "明[1368-1644]"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001072392": {
       "label": "國圖藏本："
+    },
+    "nlc-412000001488": {
+      "label": "國圖藏本：明[1368-1644]"
     }
   }
 }

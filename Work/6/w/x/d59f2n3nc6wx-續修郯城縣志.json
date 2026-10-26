@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志007841-007844），無同名 Work 故新建。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志007841-007844），無同名 Work 故新建。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "juan_count": {
     "number": 10
   },
@@ -34,8 +34,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "commons",
@@ -81,6 +81,23 @@
         "nlc_fid": "312001073142",
         "edition": ""
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3371341283",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3371341283",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3371341283",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3371341283/manifest",
+        "shelfmark": "Libri sin. N.S. 71",
+        "edition": "刻本 嘉慶十五年(=1810)"
+      }
     }
   ],
   "indexed_by": [
@@ -107,6 +124,9 @@
     },
     "nlc-312001073142": {
       "label": "國圖藏本："
+    },
+    "sbb-PPN3371341283": {
+      "label": "柏林國家圖書館藏本：刻本 嘉慶十五年(=1810)"
     }
   }
 }

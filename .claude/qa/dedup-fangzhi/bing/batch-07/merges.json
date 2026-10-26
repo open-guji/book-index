@@ -1,0 +1,77 @@
+{
+ "base": "1a30234fa9aae3ea31267be788d6881763ffc576",
+ "merges": [
+  {
+   "cluster_id": "方志-FX01",
+   "type": "work",
+   "keeper": "d59fynq28kjk",
+   "losers": [
+    "d59f2nl5vojm"
+   ],
+   "evidence": "方志同修次重出：《[萬曆]河間府志》張文德纂、陳士彥纂、杜應芳修（中國古籍總目） ← 《河間府志縣志》杜應芳等纂修（无著录（故宫等））。簇外线索子 agent 核：同一修次：故宮本《河間府志縣志》杜應芳等纂修、明萬曆乙卯(四十三年)刊本；總目[萬曆]河間府志十五卷 明杜應芳修、陳士彦張文德纂、明萬曆四十三年刻本。同地、同修人、同年。",
+   "rule": "去重方案研-方志：同一修次重出（逐簇子 agent 核）B 档证据并",
+   "preconditions": [
+    {
+     "id": "d59fynq28kjk",
+     "path": "Work/k/j/k/d59fynq28kjk-萬曆河間府志.json",
+     "sha256": "276f4d1355ca766261e7cda1ae3530b5696e83da1f3a5e63b7c5c0d39ef84a25"
+    },
+    {
+     "id": "d59f2nl5vojm",
+     "path": "Work/o/j/m/d59f2nl5vojm-河間府志縣志.json",
+     "sha256": "0bf9497f5560341d1a55073a55afeeb9b1a0c866e38e67078d5e4b1f62aabfac"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2nl5vojm": {
+     "description": {
+      "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 平圖007028-007041）。明萬曆乙卯(四十三年)刊本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     },
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 14 取自 `measure_info`「十四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。"
+    }
+   }
+  },
+  {
+   "cluster_id": "方志-FX02",
+   "type": "work",
+   "keeper": "d59f2msfqcjm",
+   "losers": [
+    "d59f2n66sq2o"
+   ],
+   "evidence": "方志同修次重出：《［嘉慶］延安府志》洪蕙纂（續修四庫全書） ← 《延安府志》洪蕙撰（无著录（故宫等））。簇外线索子 agent 核：同一修次：均为清洪蕙八十卷本；故宫本著录清嘉慶七年刊本，續修四庫影印清嘉慶七年刻本。同人同卷同年。keeper 取题带[嘉慶]、有 indexed_by（續修四庫）和资源的 d59f2msfqcjm；库内无总目[嘉慶]延安府志条（其余延安府志为弘治 d59fyodhcjr5、康熙 d59f2n6k7xfm、千頃堂王彦竒 d59f6enbuvb9）。",
+   "rule": "去重方案研-方志：同一修次重出（逐簇子 agent 核）B 档证据并",
+   "preconditions": [
+    {
+     "id": "d59f2msfqcjm",
+     "path": "Work/c/j/m/d59f2msfqcjm-嘉慶延安府志.json",
+     "sha256": "c65c658578876a3456f84249ca7e0022b5da60ef780ce3cbe69a0625a312cead"
+    },
+    {
+     "id": "d59f2n66sq2o",
+     "path": "Work/q/2/o/d59f2n66sq2o-延安府志.json",
+     "sha256": "f6892c68bb6db404a1d51217d6c098177f1a75287ced0f85ce6937329ac0e8fe"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2n66sq2o": {
+     "description": {
+      "text": "洪蕙（清）撰。八十卷。方志之屬。志書之體，例分疆域、建置沿革、山川、風俗、賦役、學校、秩官、選舉、人物、藝文諸門，為一方文獻之總匯。本書收入《國立故宮博物院善本舊籍》（統一編號 贈善019681-019696）。清嘉慶七年刊本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     },
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善019681-019696）。阶段 5 兜底建立。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-26 方志-并善後：資源「File:NCL-03710_%E5%BB%B6%E5%AE%89%E5%BA%9C%E5%BF%97.pdf」屬另一修次（d59f2n66sq2o Commons Book 模板：(明)楊懷纂修，明弘治甲子(十七年,1504)刊本，4冊；本Work為嘉慶七年洪蕙八十卷本。d59fyodhcjr5 已挂同一 URL），自本條摘下，改掛 d59fyodhcjr5。"
+    }
+   }
+  }
+ ]
+}

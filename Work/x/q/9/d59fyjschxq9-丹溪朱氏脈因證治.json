@@ -15,7 +15,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/lrcdmdqqbp8iedfy"
-      }
+      },
+      "entity_id": "hixhd2h9beti"
     }
   ],
   "dynasty": "元",
@@ -32,7 +33,53 @@
       "summary": "共 4 個版本：翠琅玕館叢書本（南京圖書館、上海圖書館）；清掃葉山房刻本（國家圖書館）；周氏醫學叢書本（中國科學院圖書館）；清乾隆四十年刻本（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：lp0prvb3s4uc8fry、6l814k1ul8samas0、7j6xuhyq165kz3s6、5xriueom65vsoqon\nE6 第 422 批新建（hold 清零：E；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：lp0prvb3s4uc8fry、6l814k1ul8samas0、7j6xuhyq165kz3s6、5xriueom65vsoqon\nE6 第 422 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079026",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079026",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079026",
+        "request_no": "３０１－０００４",
+        "edition": "写本::文化:130000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4112955/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079657",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079657",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079657",
+        "request_no": "子０２２－００１７",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4418933/manifest.json",
+        "extent": "3冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1079026": {
+      "label": "內閣文庫藏本：文化13年写本（301-0004，2冊）"
+    },
+    "naikaku-1079657": {
+      "label": "內閣文庫藏本：明刊本（子022-0017，3冊）"
+    }
+  }
 }

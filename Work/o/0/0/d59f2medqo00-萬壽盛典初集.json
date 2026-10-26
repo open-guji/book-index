@@ -94,6 +94,56 @@
         "nlc_fid": "412000007899",
         "edition": "清康熙54年-55年[1715-1716]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067227",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067227",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067227",
+        "request_no": "史０９６－０００１",
+        "edition": "刊本:清康煕:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4754213/manifest.json",
+        "extent": "40冊"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2014514444",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2014514444/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2014514444",
+        "iiif_manifest": "https://www.loc.gov/item/2014514444/manifest.json",
+        "edition": "清康熙五十六年內府刊本 1721"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-04570",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/04570",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "04570",
+        "call_number": "213.22 04570",
+        "edition": "清康熙五十六年(1717)內府刊初印本"
+      }
     }
   ],
   "description": {
@@ -102,14 +152,14 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1evkacoahr9c0 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwbtilnnk 與 11q37q6st9reo 同指文淵閣寫本一實物，今併於後者。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "從 1evkacoahr9c0 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwbtilnnk 與 11q37q6st9reo 同指文淵閣寫本一實物，今併於後者。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md §存疑升档。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "updated_at": "2026-08-26T05:43:16+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fyv7541z5",
@@ -123,6 +173,15 @@
     },
     "nlc-412000007899": {
       "label": "國圖藏本：清康熙54年-55年[1715-1716]"
+    },
+    "naikaku-1067227": {
+      "label": "內閣文庫藏本：清康煕刊本（史096-0001，40冊）"
+    },
+    "loc-2014514444": {
+      "label": "美國國會圖書館藏本：清康熙五十六年內府刊本 1721"
+    },
+    "ncltw-04570": {
+      "label": "臺灣國家圖書館藏本：清康熙五十六年(1717)內府刊初印本"
     }
   }
 }

@@ -30,9 +30,9 @@
       "summary": "共 1 個版本：明萬曆間刻本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5rid0sw0evvow53d",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5rid0sw0evvow53d\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nat-archives-jp",
@@ -51,11 +51,30 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3672220/manifest.json",
         "extent": "4冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09335",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09335",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09335",
+        "call_number": "401 09335",
+        "edition": "明萬曆間(1573-1620)刊本"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-3610179": {
       "label": "內閣文庫藏本：明万暦39年刊本（序刊）（312-0105，4冊）"
+    },
+    "ncltw-09335": {
+      "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)刊本"
     }
   }
 }

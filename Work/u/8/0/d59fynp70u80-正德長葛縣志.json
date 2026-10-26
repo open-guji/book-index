@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/naosq7rifz6jei0d"
-      }
+      },
+      "entity_id": "hixiclg0n0rx"
     },
     {
       "name": "李璇",
@@ -37,11 +38,17 @@
       "author_info": "明李璇修;明車明理纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 1 個版本：明正德十二年刻本（上海圖書館、國家圖書館）"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "李旋長葛縣志",
+      "summary": "李旋長葛縣志"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xtbbxta3vf85qxh8\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xtbbxta3vf85qxh8\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n国图數字古籍重配挂接\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f6em4gvsy《長葛縣志》 入本條。方志同修次重出：《[正德]長葛縣志》車明理纂、李璇修（中國古籍總目） ← 《長葛縣志》李旋撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：李旋即李璇，正德長葛縣志六卷相合",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -63,5 +70,35 @@
     "nlc-411999018692": {
       "label": "國圖藏本：明正德[1506-1521]"
     }
-  }
+  },
+  "juan_count": {
+    "number": 6
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 6
+    }
+  ],
+  "measure_info": "六卷",
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "additional_titles": [
+    "長葛縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6em4gvsy",
+      "title": "長葛縣志",
+      "at": "2026-10-26T15:03:50Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[正德]長葛縣志》車明理纂、李璇修（中國古籍總目） ← 《長葛縣志》李旋撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：李旋即李璇，正德長葛縣志六卷相合",
+      "author": "李旋",
+      "title_info": "李旋長葛縣志"
+    }
+  ],
+  "merged_from": [
+    "d59f6em4gvsy"
+  ]
 }

@@ -28,6 +28,14 @@
       "author_info": "唐釋宗密撰",
       "section": "子部/釋家類/大藏之屬",
       "summary": "共 8 個版本：明萬曆三十五年徽州吳繼勳刻（臺灣圖書館、北京市法源寺）；（馆藏未载）；明弘治九年釋本諒刻本（上海圖書館）；清康熙三年鼓山流通處刻本（遼寧省圖書館、日本東京大學東洋文化研究所）；明初刻本（國家圖書館）；明萬曆十二年續刻（馆藏未载）；清光緒十八年金陵刻經處刻本（國家圖書館、上海圖書館、北京大學圖書館、天津圖書館、南京圖書館）；明續刻（馆藏未载）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "禪那理行諸詮集（禪源諸詮集都序）二卷",
+      "author_info": "唐釋宗密撰",
+      "section": "子部/釋家類/撰述之屬/論著部",
+      "summary": "共 1 個版本：清康熙三年鼓山流通處刻本（日本東京大學東洋文化研究所）"
     }
   ],
   "description": {
@@ -36,7 +44,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-10-26 A11-去重方案3a-3 併條（rule=去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并）：併 d59fxwchd4ao《禪那理行諸詮集》 入本條。异题名同书（总目题名括注／其他题名互见）：《禪源諸詮集都序》釋宗密／《禪那理行諸詮集》釋宗密；依据：其他题名「禪源諸詮集都序」；两道子 agent 逐条复核：B「禪那理行諸詮集（禪源諸詮集都序）二卷」康熙三年鼓山刻本，A版本中亦有此本，同書\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 2
   },
@@ -159,6 +167,22 @@
         "holder": "府中之島図",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300090377/manifest"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-08916",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/08916",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "08916",
+        "call_number": "313.5 08916",
+        "edition": "五代後周廣順二年傳鈔釋智清寫卷子本"
+      }
     }
   ],
   "updated_at": "2026-08-09T09:00:59+00:00",
@@ -166,8 +190,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "kokusho-100175023": {
       "label": "國書·バークレー三井藏刊"
@@ -183,6 +207,27 @@
     },
     "nlc-411999015037": {
       "label": "國圖藏本：明初[1368-1424]"
+    },
+    "ncltw-08916": {
+      "label": "臺灣國家圖書館藏本：五代後周廣順二年傳鈔釋智清寫卷子本"
     }
-  }
+  },
+  "additional_titles": [
+    "禪那理行諸詮集"
+  ],
+  "merged_in": [
+    {
+      "id": "d59fxwchd4ao",
+      "title": "禪那理行諸詮集",
+      "at": "2026-10-26T14:16:10Z",
+      "by": "A11-去重方案3a-3",
+      "rule": "去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并",
+      "why": "异题名同书（总目题名括注／其他题名互见）：《禪源諸詮集都序》釋宗密／《禪那理行諸詮集》釋宗密；依据：其他题名「禪源諸詮集都序」；两道子 agent 逐条复核：B「禪那理行諸詮集（禪源諸詮集都序）二卷」康熙三年鼓山刻本，A版本中亦有此本，同書",
+      "author": "釋宗密",
+      "title_info": "禪那理行諸詮集（禪源諸詮集都序）二卷"
+    }
+  ],
+  "merged_from": [
+    "d59fxwchd4ao"
+  ]
 }

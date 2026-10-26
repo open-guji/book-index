@@ -63,6 +63,38 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-13385970",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/13385970",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid13385970",
+        "edition": "天保12刊"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN1749119676",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN1749119676",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN1749119676",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN1749119676/manifest",
+        "shelfmark": "Pekinger Slg. 58-3,4",
+        "edition": "刻本;[北京] [武英殿] 清雍正13 (=1735)"
+      }
     }
   ],
   "updated_at": "2026-04-29T16:51:33-07:00",
@@ -76,9 +108,17 @@
       "entity_id": "hixhjh40or9f"
     }
   ],
-  "ai_note": "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。\n\n2026-09-05 《補南齊書藝文志》整理：收《補南齊書藝文志》一節。本志作「曇摩伽陀耶舍　無量義經一卷」。庫中同題而無撰人，本志考出之，當併並回填；authors 補「曇摩伽陀耶舍」——庫中舊無撰人而本志考出之；period 補 nanbeichao\n\n總目版本待定：總目著錄版本標籤空，未入 Book（hk1s4xusr22716po、y0xg75vdw3kc4t47、f8p3ia5iclnh5etk、gdx70lyyfipb23d1、lte4uh83hcjeafu8、lpd5z8s45wkulnqa）\n總目分類：子部／釋家類",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "ai_note": "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。\n\n2026-09-05 《補南齊書藝文志》整理：收《補南齊書藝文志》一節。本志作「曇摩伽陀耶舍　無量義經一卷」。庫中同題而無撰人，本志考出之，當併並回填；authors 補「曇摩伽陀耶舍」——庫中舊無撰人而本志考出之；period 補 nanbeichao\n\n總目版本待定：總目著錄版本標籤空，未入 Book（hk1s4xusr22716po、y0xg75vdw3kc4t47、f8p3ia5iclnh5etk、gdx70lyyfipb23d1、lte4uh83hcjeafu8、lpd5z8s45wkulnqa）\n總目分類：子部／釋家類\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "period": "nanbeichao",
-  "period_basis": "2026-09-05 《補南齊書藝文志》整理：《補南齊書藝文志》著錄。齊（479-502）。"
+  "period_basis": "2026-09-05 《補南齊書藝文志》整理：《補南齊書藝文志》著錄。齊（479-502）。",
+  "resource_groups": {
+    "ndl-13385970": {
+      "label": "NDL藏本：天保12刊"
+    },
+    "sbb-PPN1749119676": {
+      "label": "柏林國家圖書館藏本：刻本;[北京] [武英殿] 清雍正13 (=1735)"
+    }
+  }
 }

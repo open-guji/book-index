@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/uijr3zsmdl0dqukp"
-      }
+      },
+      "entity_id": "hixhd2f8wai6"
     }
   ],
   "dynasty": "清",
@@ -35,9 +36,17 @@
       "author_info": "清丁晏編",
       "section": "史部/傳記類/年譜之屬",
       "summary": "共 1 個版本：（臺灣圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "晉陶靖節（潛）年譜一卷",
+      "author_info": "",
+      "section": "叢書部/獨撰類/清代前期",
+      "summary": "共 1 個版本：清道光二十三年刻（上海圖書館、遼寧省圖書館、國家圖書館、中國科學院圖書館、復旦大學圖書館、北京大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：emtcfjgk7vdmga7t、ubhq6ixovsyz5sku\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n同題同作者並條（作者別名與並條口徑-共用 A檔：同名；用戶 10-18 確認）（源 Work 1exp0i3rxzb44《晉陶靖節年譜》已並入；其作者寫法：丁晏）",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：emtcfjgk7vdmga7t、ubhq6ixovsyz5sku\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n同題同作者並條（作者別名與並條口徑-共用 A檔：同名；用戶 10-18 確認）（源 Work 1exp0i3rxzb44《晉陶靖節年譜》已並入；其作者寫法：丁晏）\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fxoxa82yo《晉陶靖節年譜》 入本條。同題：單行本《晉陶靖節年譜》丁晏（清）；《晉陶靖節年譜》（d59fxoxa82yo）为叢書子目，所屬叢書《頤志齋叢書二十二種》（8rldnj8wm48w）撰者丁晏（清）；卷數同；單行本 Work 已有同叢書版本 Book「頤志齋叢書本」\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "merged_in": [
     {
       "id": "1exp0i3rxzb44",
@@ -46,8 +55,46 @@
       "by": "串3史部",
       "rule": "同題同作者並條（作者別名與並條口徑-共用 A／B 檔）",
       "why": "同題同作者並條（作者別名與並條口徑-共用 A檔：同名；用戶 10-18 確認）"
+    },
+    {
+      "id": "d59fxoxa82yo",
+      "title": "晉陶靖節年譜",
+      "at": "2026-10-26T16:08:29Z",
+      "by": "A11-去重方案4",
+      "rule": "去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并",
+      "why": "同題：單行本《晉陶靖節年譜》丁晏（清）；《晉陶靖節年譜》（d59fxoxa82yo）为叢書子目，所屬叢書《頤志齋叢書二十二種》（8rldnj8wm48w）撰者丁晏（清）；卷數同；單行本 Work 已有同叢書版本 Book「頤志齋叢書本」",
+      "title_info": "晉陶靖節（潛）年譜一卷"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-20"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "additional_titles": [
+    "潛"
+  ],
+  "merged_from": [
+    "d59fxoxa82yo"
+  ],
+  "resources": [
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02848-013",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02848-013",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02848-013",
+        "call_number": "205.21 02848-013",
+        "edition": "清稿本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ncltw-02848-013": {
+      "label": "臺灣國家圖書館藏本：清稿本"
+    }
+  }
 }

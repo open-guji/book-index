@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/s3y1hurqzuipo83l"
-      }
+      },
+      "entity_id": "hixhd2h9bism"
     }
   ],
   "dynasty": "明",
@@ -51,9 +52,42 @@
       "author_info": "明鄭仲夔撰",
       "section": "叢書部/雜纂類/清代前期",
       "summary": "共 1 個版本：（天津圖書館、南京圖書館、廣東省中山圖書館、上海圖書館、武漢大學圖書館、國家圖書館、北京大學圖書館、復旦大學圖書館）"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "鄭仲冷賞八卷",
+      "summary": "鄭仲冷賞八卷"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ju0nrhu47xkxzzgc、fh1mj0ajreup3auc\nauto-split:存疑未并\nE6 第 543 批新建（hold 清零：jyiyi；原 hold 原因：）\n查重线（串7 10-18）：同题同作者同朝代并入 3 个叢書子目新建 Work（1exp0gjkh1qte,1exp0glalwbgi,1exp0glrdla0w）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ju0nrhu47xkxzzgc、fh1mj0ajreup3auc\nauto-split:存疑未并\nE6 第 543 批新建（hold 清零：jyiyi；原 hold 原因：）\n查重线（串7 10-18）：同题同作者同朝代并入 3 个叢書子目新建 Work（1exp0gjkh1qte,1exp0glalwbgi,1exp0glrdla0w）\n\n2026-10-26 A11-去重3b-0 併條（rule=去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并）：併 d59f6eqc67t3《冷賞》 入本條。署名异写同书：《冷賞》鄭仲／鄭仲夔：同为八卷，「郑仲」脱「夔」",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "juan_count": {
+    "number": 8
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 8
+    }
+  ],
+  "measure_info": "八卷",
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "merged_in": [
+    {
+      "id": "d59f6eqc67t3",
+      "title": "冷賞",
+      "at": "2026-10-26T11:36:00Z",
+      "by": "A11-去重3b-0",
+      "rule": "去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并",
+      "why": "署名异写同书：《冷賞》鄭仲／鄭仲夔：同为八卷，「郑仲」脱「夔」",
+      "author": "鄭仲",
+      "title_info": "鄭仲冷賞八卷"
+    }
+  ],
+  "merged_from": [
+    "d59f6eqc67t3"
+  ]
 }

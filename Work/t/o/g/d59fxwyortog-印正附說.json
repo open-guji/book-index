@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/w3yt81444gtl1mw6"
-      }
+      },
+      "entity_id": "hixhd2h9bsfa"
     }
   ],
   "dynasty": "明",
@@ -29,7 +30,87 @@
       "summary": "共 2 個版本：明萬曆間刻本（北京大學圖書館）；清抄本（北京大學圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：hmh84548o7tckwbg、the18fossf8r1bpx\nE6 第 414 批新建（hold 清零：E；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：hmh84548o7tckwbg、the18fossf8r1bpx\nE6 第 414 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-chi10_03709",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/chi10/chi10_03709/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "chi10_03709",
+        "edition": "平安(京都) : 林伊兵衛, 寳暦13[1763] ( )"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-chi10_03967",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/chi10/chi10_03967/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "chi10_03967",
+        "edition": "平安(京都) : 林伊兵衛, 寳暦13[1763] ( )"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100288234",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100288234",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100288234",
+        "holder": "藝大図脇本",
+        "edition": "刊 宝暦１３",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100288234/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100146577",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100146577",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100146577",
+        "holder": "上田図花月",
+        "edition": "写",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100146577/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-chi10_03709": {
+      "label": "早稲田藏本：平安(京都) : 林伊兵衛, 寳暦13[1763] ( )"
+    },
+    "waseda-chi10_03967": {
+      "label": "早稲田藏本：平安(京都) : 林伊兵衛, 寳暦13[1763] ( )"
+    },
+    "kokusho-100288234": {
+      "label": "國書·藝大図脇本藏刊 宝暦１３"
+    },
+    "kokusho-100146577": {
+      "label": "國書·上田図花月藏写"
+    }
+  }
 }
