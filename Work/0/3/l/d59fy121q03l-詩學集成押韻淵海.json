@@ -30,9 +30,9 @@
       "summary": "共 3 個版本：元至元六年蔡氏梅軒刻本（南京圖書館、北京大學圖書館、國家圖書館、陝西省博物館）；明初刻成化二十三年重修本（國家圖書館、中山大學圖書館、福建師範大學圖書館、復旦大學圖書館、天一閣文物保管所）；明成化十年新安余氏重刻本（美國哈佛大學燕京圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5jeebvafdkdx5fti、v34tjhiefhziav4r、v0ccr1au8jnnljtu\nauto-split:存疑未并\nE6 第 549 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5jeebvafdkdx5fti、v34tjhiefhziav4r、v0ccr1au8jnnljtu\nauto-split:存疑未并\nE6 第 549 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -78,6 +78,24 @@
         "nlc_fid": "411999012793",
         "edition": "明初[1368-1424]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3611058",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3611058",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3611058",
+        "request_no": "別０６０－００１０",
+        "edition": "刊本:元後至元::060000:蔡梅軒",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3886867/manifest.json",
+        "extent": "10冊"
+      }
     }
   ],
   "resource_groups": {
@@ -89,6 +107,9 @@
     },
     "nlc-411999012793": {
       "label": "國圖藏本：明初[1368-1424]"
+    },
+    "naikaku-3611058": {
+      "label": "內閣文庫藏本：元後至元6年刊本 蔡梅軒（別060-0010，10冊）"
     }
   }
 }

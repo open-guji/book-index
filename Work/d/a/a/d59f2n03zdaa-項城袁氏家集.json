@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "juan_count": {
     "number": 65
   },
@@ -34,8 +34,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -44,6 +44,26 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL02000204_%E9%A0%85%E5%9F%8E%E8%A2%81%E6%B0%8F%E5%AE%B6%E9%9B%86%EF%BC%88%E4%B8%80%EF%BC%89.djvu"
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2581972",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2581972",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2581972",
+        "edition": "宣統3"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "ndl-2581972": {
+      "label": "NDL藏本：宣統3"
+    }
+  }
 }

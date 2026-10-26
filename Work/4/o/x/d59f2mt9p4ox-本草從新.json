@@ -44,7 +44,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "juan_count": {
     "number": 18
   },
@@ -135,6 +135,53 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4408280/manifest.json",
         "extent": "6冊"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100209437",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100209437",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100209437",
+        "holder": "丹波篠山市青山",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100209437/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2609086",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2609086",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2609086",
+        "edition": "嘉慶11刊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2558824",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2558824",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2558824",
+        "edition": "清刊(宏徳堂藏板)"
+      }
     }
   ],
   "updated_at": "2026-08-09T10:40:18+00:00",
@@ -142,8 +189,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "ndl-2558724": {
       "label": "NDL藏本：同治9"
@@ -153,6 +200,15 @@
     },
     "naikaku-1084079": {
       "label": "內閣文庫藏本：清乾隆22年刊本（序刊） 利済堂（子044-0009，6冊）"
+    },
+    "kokusho-100209437": {
+      "label": "國書·丹波篠山市青山藏刊"
+    },
+    "ndl-2609086": {
+      "label": "NDL藏本：嘉慶11刊"
+    },
+    "ndl-2558824": {
+      "label": "NDL藏本：清刊(宏徳堂藏板)"
     }
   }
 }

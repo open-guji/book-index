@@ -26,9 +26,9 @@
       "summary": "共 1 個版本：宋大觀三年福州東禪等覺院刻（馆藏未载）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：355guoxkc71rbuec\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：唐釋希運說;唐裴休集\nE6 第 445 批新建（hold 清零：E-N-anon-clean；原 hold 原因：no_main_author）\n晋升前審計補錄：據 indexed_by.author_info 補入 希運、裴休（錄入時漏）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：355guoxkc71rbuec\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：唐釋希運說;唐裴休集\nE6 第 445 批新建（hold 清零：E-N-anon-clean；原 hold 原因：no_main_author）\n晋升前審計補錄：據 indexed_by.author_info 補入 希運、裴休（錄入時漏）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "dynasty": "唐",
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「唐」",
@@ -47,11 +47,52 @@
         "nlc_fid": "412000001083",
         "edition": "明永樂12年[1414]"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200015543",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200015543",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200015543",
+        "holder": "国文研",
+        "edition": "刊 寛永９",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200015543/manifest"
+      },
+      "note": "合刻本：同册另含《黄檗斷際禪師宛陵録》（K19，只挂主書）"
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300070919",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300070919",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300070919",
+        "holder": "立教大図",
+        "edition": "刊 寛永９",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300070919/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000001083": {
       "label": "國圖藏本：明永樂12年[1414]"
+    },
+    "kokusho-200015543": {
+      "label": "國書·国文研藏刊 寛永９"
+    },
+    "kokusho-300070919": {
+      "label": "國書·立教大図藏刊 寛永９"
     }
   }
 }

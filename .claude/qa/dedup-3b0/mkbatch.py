@@ -18,10 +18,36 @@ dc = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(dc)
 PREFIX = re.compile(r'^(\[[^\]]*\]|新刊|新刻|新鐫|新鍥|重刊|重刻|欽定|御定|御纂)')
 # 簇内卷数不相容但理由已说明者（判定.tsv 序号）：张九韶元史节要本条兼著二卷、十四卷；典论本条兼著五卷、一卷；古赋辨体十卷即八卷加外集
 EXCEPT = {3, 116, 117, 377}
+# 卷数极差＞1 而经独立复核判同书（不同版本、分卷不同、著录误记，或一侧卷数实缺）的簇
+JUAN_OK = {'3b0-010', '3b0-012', '3b0-018', '3b0-077', '3b0-102', '3b0-121', '3b0-128', '3b0-134', '3b0-142', '3b0-144', '3b0-163', '3b0-174', '3b0-189', '3b0-254', '3b0-258', '3b0-322', '3b0-339', '3b0-357', '3b0-363', '3b0-389', '3b0-411', '3b0-413'}
 PRE = re.compile(r'(齊|周|陳|燕|吳|晉|晋|梁|魏|前燕|後秦|姚秦|日|日本|美|英|延祐|淮南王|江夏王|太學博士|周太史|華陰縣知縣[^\s]*)')
 SUF = re.compile(r'(讚|輯|修|撰|等|公|氏)')
+# 独立核验判存疑而剔出者（簇号 → 理由），登 dedup-judged/3b-0.tsv 为 D
+EXCL = {'3b0-046': '柯萬源／柯蘭錡：原文无字號明文，版本不同',
+    '3b0-092': '袁寶璜／袁渭漁：原文未言同人',
+    '3b0-158': '馮登府／楊柳官：原文无联系',
+    '3b0-192': '應蘇越／蘇越：孰讹无证',
+    '3b0-206': '王德固撰一卷／王子堅編二卷：原文未言同人',
+    '3b0-209': '周應賓／周寅所：原文未言同人',
+    '3b0-385': '張氏孝友堂遺稿为三人合集，是否同书证据不足',
+    '3b0-421': '沈巽／沈士偁：原文无连接',
+    '3b0-396': '被并条 d59f2moiybk0 挂了乾隆御製文的四库提要，需先剥离错挂著录',
+    '3b0-281': '盧浙／盧容葊：原文无联系',
+    '3b0-285': 'keeper 为白文汇总本，被并为鄭注本',
+    '3b0-303': '劉紹攽／劉瀛賓：无证',
+    '3b0-309': 'keeper「管輅」归属可疑，卷数差 2'}
+
 # 人工指定规范名（本名；字號、误切、脱字者不取）：簇号 → 名
-CANON = {'3b0-362': '孫盛',
+CANON = {'3b0-133': '張華',
+    '3b0-081': '蕭應植',
+    '3b0-061': '黃閔',
+    '3b0-124': '日得烏特',
+    '3b0-064': '瞻思',
+    '3b0-201': '德麟',
+    '3b0-388': '章鶴齡',
+    '3b0-255': '黃敏求',
+    '3b0-308': '張錫嶸',
+    '3b0-362': '孫盛',
     '3b0-108': '僧伽提婆',
     '3b0-110': '僧伽提婆',
     '3b0-248': '僧伽提婆',
@@ -188,11 +214,13 @@ def main():
         # 已墓碑（别的单元先并了）则整簇跳过，下轮重算
         if any(W[i].get('merged_into') for i in ids):
             bad.append((cid, '有成员已成墓碑')); continue
+        if cid in EXCL:
+            bad.append((cid, '核验存疑：' + EXCL[cid])); continue
         neg = [r for r in prs if r['判定'] in ('D', 'X', 'K')]
         if neg:
             bad.append((cid, '簇内有 %s 对' % '/'.join(r['判定'] + r['序'] for r in neg))); continue
         js = set().union(*(juans(W[i]) for i in ids))
-        if js and max(js) - min(js) > 1 and not (set(seqs) & EXCEPT):
+        if js and max(js) - min(js) > 1 and not (set(seqs) & EXCEPT) and cid not in JUAN_OK:
             bad.append((cid, '卷数不相容 %s' % sorted(js))); continue
         # 规范名（keeper 取用此名者）：人工指定（CANON）＞CBDB 本名＞名互含里去掉朝代／官称前缀、去掉误入的角色字，或补全脱字者
         # ＞所繫 Entity 主名＞著录原文 author_info 最常见之形
@@ -216,7 +244,7 @@ def main():
             e = ent(first(W[i]).get('entity_id'))
             if e and dc.norm_name(e.get('primary_name')) in sc:
                 sc[dc.norm_name(e.get('primary_name'))] += 5
-        canon = dc.norm_name(CANON[cid]) if cid in CANON else max(sc, key=lambda n: (sc[n], len(n)))
+        canon = dc.norm_name(CANON[cid]) if cid in CANON and dc.norm_name(CANON[cid]) in vals else max(sc, key=lambda n: (sc[n], len(n)))
         assert canon in vals, (cid, canon, vals)
         ceid = None
         cands = [i for i in ids if names[i] == canon] or ids

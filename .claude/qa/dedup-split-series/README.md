@@ -14,7 +14,7 @@
 - 草稿库：被并草稿改成已升格残档（只留 schema_version／id／type／title），keeper 草稿残档的 `merged_from` 去掉拆出者。
 
 ## 工具
-`split.py --draft ../book-index-draft [--limit N] [--only 文件] [--skip 文件] --out <批目录> [--apply]`：乾跑默认，写 `plan.json`（全记录）与 `splits.json`（台账）；`--apply` 改两库、加 promotions、给新 Book 写 index/books 条目。重跑是幂等的：已拆的被并草稿已在 promotions 里，自动跳过。PR 只入 `splits.json`，`plan.json` 太大不入库。
+`split.py --draft ../book-index-draft [--limit N] [--only 文件] [--skip 文件] [--merge-existing] --out <批目录> [--apply]`：乾跑默认，写 `plan.json`（全记录）与 `splits.json`（台账）；`--apply` 改两库、加 promotions、给新 Book 写 index/books 条目。重跑是幂等的：已拆的被并草稿已在 promotions 里，自动跳过。PR 只入 `splits.json`，`plan.json` 太大不入库。
 
 ## 规模（main 204dea4eb3 重算）
 449d409 里被并 4,889 条、keeper 3,665 条。可拆 2,735 组、新建 3,755 个 Book；不拆或跳过：同 Collection 或都无 668、一侧无 Collection 59、同 Work 已有同丛书 Book 200、keeper 未升格 1。
@@ -26,4 +26,12 @@
 
 ## 批次
 - batch-01：968 组、新建 1,000 个 Book（#1280）。
-- batch-02：734 组、新建 1,000 个 Book（main a3128d5695 重跑）。
+- batch-02：734 组、新建 1,000 个 Book（#1403）。
+- batch-03：583 组、新建 1,000 个 Book（#1420；抽检 30 组判错 0）。
+- batch-04：450 组、新建 582 个 Book（main 96b8466027；新建部分至此跑完）。首版 755 个经抽检发现聚珍版书幽灵子目 8/30 组，加规则后重跑，173 条不新建（其馆藏／著录／源记录也从 keeper 剥去）。
+
+## 聚珍版书幽灵子目（batch-04 抽检后加）
+总目把武英殿聚珍版书子目在五个版次（殿本 8rldonorf7cw、福建本 8rldonor3yte、廣東本 8rldomtfn94x、浙江本 8rldonorf7cx、江西本 8rldonorf7cy）下各登一遍，但子目 edition 自注了实际所收版次（如「殿本、福建本、廣東本」）。被并者所挂版次不在自注里的，是总目重登的幽灵条目：不新建 Book，草稿照旧 merged_into keeper，从 keeper 删去那个 Collection 及其带来的 provenance／indexed_by／sources（这些是总目照抄的整套丛书馆藏），merged_from 保留供追溯，ai_note 记一行。batch-01～03 的拆分组无此类；另有 15 处活 Book（单挂一版次的独立 Book 7 个、跳过组里挂五版次的 keeper 4 个等）挂了自注之外的聚珍版次，不在本工具范围，留人工。
+
+## 并入已有 Book（`--merge-existing`）
+「同 Work 已有同丛书 Book」的 200 组不新建。加 `--merge-existing` 只跑这类组：keeper 照常剥离；被并者并入那个已有的活 Book（provenance／sources／indexed_by 取并集，写 merged_from，revision 升 major，ai_note 记一行）；草稿被并者 merged_into 改指它，不进 promotions。只在「命中目标唯一、被并者全部命中、同一 Collection 集」时做（乾跑 149 组）；其余 51 组候选不唯一或只部分命中，留人工（台账 problems）。

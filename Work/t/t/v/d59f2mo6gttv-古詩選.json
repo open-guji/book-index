@@ -57,9 +57,9 @@
       "書目答問"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -68,6 +68,60 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:SSID-11384912_%E5%8F%A4%E8%A9%A9%E9%81%B8.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070979",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070979",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070979",
+        "request_no": "３１９－００３５",
+        "edition": "刊本::文政:030000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5090181/manifest.json",
+        "extent": "11冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077608",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077608",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077608",
+        "request_no": "集０９１－０００３",
+        "edition": "刊本::文政:030000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4487673/manifest.json",
+        "extent": "11冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077234",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077234",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077234",
+        "request_no": "３１９－００３４",
+        "edition": "刊本::文政:030000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5090169/manifest.json",
+        "extent": "11冊"
+      }
     }
   ],
   "related_works": [
@@ -81,5 +135,16 @@
       "relation": "related",
       "note": "總目記錄無具名主責任者（記佚名），與既有 Work 題名相同，依錄入優先與 Sabine 規則不據題名並，另立；互為相關，待有責任者證據再議。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1070979": {
+      "label": "內閣文庫藏本：文政3年刊本（319-0035，11冊）"
+    },
+    "naikaku-1077608": {
+      "label": "內閣文庫藏本：文政3年刊本（集091-0003，11冊）"
+    },
+    "naikaku-1077234": {
+      "label": "內閣文庫藏本：文政3年刊本（319-0034，11冊）"
+    }
+  }
 }
