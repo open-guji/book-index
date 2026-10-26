@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善005126-005157），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\nGUJI-511 E1b二轮：国图数字古籍挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善005126-005157），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\nGUJI-511 E1b二轮：国图数字古籍挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
   "juan_count": {
     "number": 30
   },
@@ -34,7 +34,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -102,6 +102,22 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4410993/manifest.json",
         "extent": "13冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01911",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01911",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01911",
+        "call_number": "202.26 01911",
+        "edition": "明萬曆乙卯(四十三年, 1615)原刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -116,6 +132,9 @@
     },
     "naikaku-1067587": {
       "label": "內閣文庫藏本：明万暦43年刊本（序刊）（史029-0001，13冊）"
+    },
+    "ncltw-01911": {
+      "label": "臺灣國家圖書館藏本：明萬曆乙卯(四十三年, 1615)原刊本"
     }
   }
 }

@@ -191,6 +191,38 @@
         "iiif_manifest": "https://www.loc.gov/item/2012402389/manifest.json",
         "edition": "明崇禎間刻本 1659"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06690",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06690",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06690",
+        "call_number": "307.2 06690",
+        "edition": "明洪武間(1368-1644)張珤等刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06691",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06691",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06691",
+        "call_number": "307.2 06691",
+        "edition": "明崇禎己巳(二年, 1629)豫章朱氏寒玉館刊本"
+      }
     }
   ],
   "measures": [
@@ -200,7 +232,7 @@
     }
   ],
   "measure_info": "九卷",
-  "ai_note": "作者 \"明陶宗儀撰\" 補自《中華再造善本》目錄。 | 從 1evgc07y5ym0w 合併。原註：同名異書：已有 Work 作者為 [('', '')]，本條作者 陶宗儀（元），另建 [ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwp53sl4w 與 11q37r71r5vy8 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-25 遼金元 L5：撰人「陶宗儀」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "ai_note": "作者 \"明陶宗儀撰\" 補自《中華再造善本》目錄。 | 從 1evgc07y5ym0w 合併。原註：同名異書：已有 Work 作者為 [('', '')]，本條作者 陶宗儀（元），另建 [ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwp53sl4w 與 11q37r71r5vy8 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-25 遼金元 L5：撰人「陶宗儀」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
   "description": {
     "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 贈善003910-003915）。明洪武間張等刊本。",
     "sources": [
@@ -212,7 +244,7 @@
   "period_basis": "跨代人物從斷代志（2026-08-21 catalog_bound 專項）：撰人 dynasty [('陶宗儀', '明')] 指向 ming，而本書見於《元史藝文志》——該志斷代著錄 liao-jin-yuan 之作，其編者專為此代甄別，較機械據撰人朝代派生為可信。原判：據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resource_groups": {
     "naikaku-1084318": {
@@ -226,6 +258,12 @@
     },
     "loc-2012402389": {
       "label": "美國國會圖書館藏本：明崇禎間刻本 1659"
+    },
+    "ncltw-06690": {
+      "label": "臺灣國家圖書館藏本：明洪武間(1368-1644)張珤等刊本"
+    },
+    "ncltw-06691": {
+      "label": "臺灣國家圖書館藏本：明崇禎己巳(二年, 1629)豫章朱氏寒玉館刊本"
     }
   }
 }

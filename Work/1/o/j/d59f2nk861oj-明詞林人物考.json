@@ -143,6 +143,22 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4767729/manifest.json",
         "extent": "6冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02540",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02540",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02540",
+        "call_number": "205.1 02540",
+        "edition": "明萬曆間(1573-1620)刊本"
+      }
     }
   ],
   "description": {
@@ -154,13 +170,13 @@
       "明史藝文志"
     ]
   },
-  "ai_note": "從 1evjr0wg4v8jk 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 | 從 1evdicg05jgu8 合併。原註：舊匹配結果為 GYL53XFPpuD（author+substr），經作者校驗後判定不匹配。 來源：明史藝文志。 | 從 1evjr0wg4v8jk 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md §存疑升档。",
+  "ai_note": "從 1evjr0wg4v8jk 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 | 從 1evdicg05jgu8 合併。原註：舊匹配結果為 GYL53XFPpuD（author+substr），經作者校驗後判定不匹配。 來源：明史藝文志。 | 從 1evjr0wg4v8jk 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md §存疑升档。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-CBM0528": {
@@ -174,6 +190,9 @@
     },
     "naikaku-1068276": {
       "label": "內閣文庫藏本：明万暦32年刊本（序刊）（290-0011，6冊）"
+    },
+    "ncltw-02540": {
+      "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)刊本"
     }
   }
 }
