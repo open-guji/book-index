@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 A11-去重方案3a-2丙 併條（rule=去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并）：併 d59f6ep4gzrb《寜津縣志》 入本條。差一字·經史：《寧津縣志》王良貴(明,—卷,0著录)／《寜津縣志》王良貴(明,—卷,1著录)；《寧津縣志》／《寜津縣志》：寜為寧異體",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -42,5 +42,32 @@
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-03559_%E5%AF%A7%E6%B4%A5%E7%B8%A3%E5%BF%97.pdf"
     }
+  ],
+  "indexed_by": [
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "王良貴寜津縣志",
+      "author_info": "嘉靖間修",
+      "summary": "王良貴寜津縣志⟨嘉靖間修⟩"
+    }
+  ],
+  "additional_titles": [
+    "寜津縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6ep4gzrb",
+      "title": "寜津縣志",
+      "at": "2026-10-26T19:08:27Z",
+      "by": "A11-去重方案3a-2丙",
+      "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+      "why": "差一字·經史：《寧津縣志》王良貴(明,—卷,0著录)／《寜津縣志》王良貴(明,—卷,1著录)；《寧津縣志》／《寜津縣志》：寜為寧異體",
+      "author": "王良貴",
+      "title_info": "王良貴寜津縣志"
+    }
+  ],
+  "merged_from": [
+    "d59f6ep4gzrb"
   ]
 }
