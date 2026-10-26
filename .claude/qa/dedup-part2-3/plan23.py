@@ -154,6 +154,10 @@ def main():
         if DEITY.search(n): hold(s, '神号或托名'); continue
         if len(n) >= 3 and any(len(k) > len(loose(n)) and k.endswith(loose(n)) for k in suffixidx.get(loose(n)[-3:], ())):
             hold(s, '名为已有人物名之后缀待核'); continue   # 抽检 b01v2：赤心子＜起北赤心子
+        if '囗' in n: hold(s, '名字含缺字/分隔/括注或单字'); continue   # 丙01 抽检：沈囗（囗 U+56D7 作缺字用）
+        if re.search(re.escape(n) + r'[（(][^）)]{1,6}[）)]', s['author_info']):
+            hold(s, '原文括注另名待核'); continue   # 丙01 抽检：徐太室（學謨）＝已有徐學謨；括注多为本名／字，归 2.2 核
+        if len(n) <= 3 and n.endswith('公'): hold(s, '神号或托名'); continue   # 丙01 抽检：題宋漁陽公撰
         if (re.search(r'(軒|齋|斋|堂|閣|樓|館|室|廬|園|山房|書屋|居|亭|庵|菴)(主人)?$', n) or n.endswith('氏')) and ('題' + n) in s['author_info']:
             hold(s, '题署室名'); continue
         if DYPFX2.match(n): hold(s, '疑名前粘朝代'); continue
