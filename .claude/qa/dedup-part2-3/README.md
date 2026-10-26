@@ -44,6 +44,8 @@ python3 .claude/qa/dedup-part2-3/apply23.py /tmp/p23/plan.json .claude/qa/dedup-
 
 - spot 乙01（4000 人，人工过目 40 组＋异常名全查）：漏网缺字名〓／私用区字 9 个（含 b01 已合 2 个：吳〓生、釋大〓，本 PR 撤）、[某]、官署粘连（上海巡警總局制）、「优贡卷＋族谱」混组 → 补规则。
 
+- 复查（10-26，按 #1438「古朝代配清民国书」规则）：甲份 b00、甲02–04 无命中（甲02 命中 4 条皆明人修康熙／顺治志，规则只管元以前，不撤）；b01（不分份）乙撤 5 条外另撤 5 条（`recheck-20261026b-withdrawn.tsv`）。
+
 ## 台账
 
 `batch-NN/created.json`：每个新建 Entity 的 id、路径、名、朝代、cbdb_id、所挂作者位（work_id、path、slot、题名、role）。
