@@ -53,7 +53,7 @@
       "中國古籍總目"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fyz9s5g5c《兩粵遊草》、d59fz18tkqo1《兩粵遊草》 入本條。同題：單行本《兩粵遊草》陳第（明）；《兩粵遊草》（d59fyz9s5g5c）为叢書子目，所屬叢書《一齋集十二種》（8rldotmqx9mo）撰者陳第（明）；卷數同；單行本 Work 已有同叢書版本 Book「一齋集本」；《兩粵遊草》（d59fz18tkqo1）为叢書子目，所屬叢書《一齋集十五種》（8rldovkkykn4）撰者陳第（明）；卷數同；單行本 Work 已有同叢書版本 Book「一齋集本」",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fyz9s5g5c《兩粵遊草》、d59fz18tkqo1《兩粵遊草》 入本條。同題：單行本《兩粵遊草》陳第（明）；《兩粵遊草》（d59fyz9s5g5c）为叢書子目，所屬叢書《一齋集十二種》（8rldotmqx9mo）撰者陳第（明）；卷數同；單行本 Work 已有同叢書版本 Book「一齋集本」；《兩粵遊草》（d59fz18tkqo1）为叢書子目，所屬叢書《一齋集十五種》（8rldovkkykn4）撰者陳第（明）；卷數同；單行本 Work 已有同叢書版本 Book「一齋集本」\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 1
   },
@@ -70,7 +70,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -80,6 +80,22 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL02065101_%E5%85%A9%E7%B2%B5%E9%81%8A%E8%8D%89.djvu"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-12545",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/12545",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "12545",
+        "call_number": "402.6 12545",
+        "edition": "明萬曆辛丑(29年,1601)宛陵沈有容合刊塞曲粵草本"
+      }
     }
   ],
   "merged_in": [
@@ -105,5 +121,10 @@
   "merged_from": [
     "d59fyz9s5g5c",
     "d59fz18tkqo1"
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-12545": {
+      "label": "臺灣國家圖書館藏本：明萬曆辛丑(29年,1601)宛陵沈有容合刊塞曲粵草本"
+    }
+  }
 }

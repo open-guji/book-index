@@ -59,7 +59,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 46
   },
@@ -136,6 +136,38 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5088020/manifest.json",
         "extent": "18冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-12774",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/12774",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "12774",
+        "call_number": "402.6 12774",
+        "edition": "明天啟元年(1621)刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-12776",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/12776",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "12776",
+        "call_number": "402.6 12776",
+        "edition": "明末刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -144,6 +176,12 @@
     },
     "naikaku-1074776": {
       "label": "內閣文庫藏本：明天啓1年刊本（序刊）（317-0132，18冊）"
+    },
+    "ncltw-12774": {
+      "label": "臺灣國家圖書館藏本：明天啟元年(1621)刊本"
+    },
+    "ncltw-12776": {
+      "label": "臺灣國家圖書館藏本：明末刊本"
     }
   },
   "updated_at": "2026-08-24T00:00:00+00:00",
@@ -151,6 +189,6 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26"
 }

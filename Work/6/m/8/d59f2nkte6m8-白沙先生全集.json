@@ -16,15 +16,15 @@
       "中華再造善本"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "id": "d59f2nkte6m8",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -93,6 +93,38 @@
         "nlc_fid": "411999022845",
         "edition": "明弘治18年[1505]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11391",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11391",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11391",
+        "call_number": "402.6 11391",
+        "edition": "明嘉靖三十年(1551)新會縣刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11393",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11393",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11393",
+        "call_number": "402.6 11393",
+        "edition": "明嘉靖三十年(1551)新會縣刊萬曆元年(1573)廣東按察僉事何子明修補本"
+      }
     }
   ],
   "resource_groups": {
@@ -107,6 +139,12 @@
     },
     "nlc-411999022845": {
       "label": "國圖藏本：明弘治18年[1505]"
+    },
+    "ncltw-11391": {
+      "label": "臺灣國家圖書館藏本：明嘉靖三十年(1551)新會縣刊本"
+    },
+    "ncltw-11393": {
+      "label": "臺灣國家圖書館藏本：明嘉靖三十年(1551)新會縣刊萬曆元年(1573)廣東按察僉事何子明修補本"
     }
   },
   "indexed_by": [

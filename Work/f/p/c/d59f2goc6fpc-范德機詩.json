@@ -183,6 +183,38 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4771506/manifest.json",
         "extent": "2冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14287-0003",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14287-0003",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14287-0003",
+        "call_number": "402.58 14287-0003",
+        "edition": "明崇禎14年(1641)虞山毛氏汲古閣刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14288-0003",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14288-0003",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14288-0003",
+        "call_number": "403.258 14288-0003",
+        "edition": "明崇禎14年(1641)虞山毛氏汲古閣刊本"
+      }
     }
   ],
   "measures": [
@@ -200,13 +232,13 @@
       "補遼金元藝文志"
     ]
   },
-  "ai_note": "從 1ev3d5q0tnpxc 合併。原註：作者「元范梈撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjy6j9hqhog 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxlt4zls0 與 11q37tmxai6m8 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "ai_note": "從 1ev3d5q0tnpxc 合併。原註：作者「元范梈撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjy6j9hqhog 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxlt4zls0 與 11q37tmxai6m8 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "updated_at": "2026-08-09T09:33:12+00:00",
   "period": "liao-jin-yuan",
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-411999015225": {
@@ -220,6 +252,12 @@
     },
     "naikaku-1073806": {
       "label": "內閣文庫藏本：延文6年刊本 妙葩（集015-0012，2冊）"
+    },
+    "ncltw-14287-0003": {
+      "label": "臺灣國家圖書館藏本：明崇禎14年(1641)虞山毛氏汲古閣刊本"
+    },
+    "ncltw-14288-0003": {
+      "label": "臺灣國家圖書館藏本：明崇禎14年(1641)虞山毛氏汲古閣刊本"
     }
   }
 }

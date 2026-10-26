@@ -35,10 +35,10 @@
   "measure_info": "二十卷",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
-  "ai_note": "撰人切分來源：又條承上。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "撰人切分來源：又條承上。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "id": "d59f6el0tqtd",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -65,11 +65,30 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4412083/manifest.json",
         "extent": "2冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-12779",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/12779",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "12779",
+        "call_number": "402.6 12779",
+        "edition": "明刊本"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1077517": {
       "label": "內閣文庫藏本：明刊本（集049-0004，2冊）"
+    },
+    "ncltw-12779": {
+      "label": "臺灣國家圖書館藏本：明刊本"
     }
   }
 }
