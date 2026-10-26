@@ -34,7 +34,67 @@
       "summary": "共 2 個版本：宋嘉熙二年釋文侃徑山化城接待院刻本（馆藏未载）；明刻本（中國科學院圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6kz5suurt1aivqy1、g1efcbyj5z7zwubi\nE6 第 426 批新建（hold 清零：E；原 hold 原因：-）\n晋升前審計補錄：據 indexed_by.author_info 補入 子文（錄入時漏）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6kz5suurt1aivqy1、g1efcbyj5z7zwubi\nE6 第 426 批新建（hold 清零：E；原 hold 原因：-）\n晋升前審計補錄：據 indexed_by.author_info 補入 子文（錄入時漏）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条、NDL 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-200016091",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200016091",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200016091",
+        "holder": "国文研",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200016091/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2605959",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2605959",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2605959",
+        "edition": "暦應4 [1341]"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2575309",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2575309",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2575309",
+        "edition": "江戸刊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-200016091": {
+      "label": "國書·国文研藏刊"
+    },
+    "ndl-2605959": {
+      "label": "NDL藏本：暦應4 [1341]"
+    },
+    "ndl-2575309": {
+      "label": "NDL藏本：江戸刊"
+    }
+  }
 }

@@ -43,7 +43,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/4zs3a5i6upjmki74"
-      }
+      },
+      "entity_id": "hixhd2h9bfxs"
     }
   ],
   "dynasty": "明",
@@ -60,9 +61,9 @@
       "summary": "共 2 個版本：明萬曆三十四年增補二十八年本（北平圖書館（藏臺圖））；抄本（福建師範大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：70516ayxqxb50ffe、z11003cxjsx2uwj0\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：70516ayxqxb50ffe、z11003cxjsx2uwj0\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -78,11 +79,29 @@
         "nlc_fid": "0875",
         "edition": "明萬曆[1573-1620]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2605797",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2605797",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2605797",
+        "edition": "萬暦34序刊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-0875": {
       "label": "國圖藏本：明萬曆[1573-1620]"
+    },
+    "ndl-2605797": {
+      "label": "NDL藏本：萬暦34序刊"
     }
   }
 }

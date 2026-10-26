@@ -29,7 +29,52 @@
       "summary": "共 3 個版本：清乾隆四十五年聽月樓刻本（國家圖書館、吉林省圖書館）；清道光十一年刻本（遼寧省圖書館）；清末刻本（遼寧省圖書館、吉林省圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ah8sonre61ekwsd1、crsbomm8xk6q7dpq、yf316rewsfnp384e\nE6 第 414 批新建（hold 清零：E；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ah8sonre61ekwsd1、crsbomm8xk6q7dpq、yf316rewsfnp384e\nE6 第 414 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条、國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076786",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076786",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076786",
+        "request_no": "３０６－０２１３",
+        "edition": "刊本::明治:090000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4919648/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200016094",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200016094",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200016094",
+        "holder": "国文研唐本袖珍",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200016094/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1076786": {
+      "label": "內閣文庫藏本：明治9年刊本（306-0213，4冊）"
+    },
+    "kokusho-200016094": {
+      "label": "國書·国文研唐本袖珍藏刊"
+    }
+  }
 }

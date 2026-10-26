@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """把逐名复核结论（verdicts/*.jsonl）落成挂接清单。
   SAME＋eid：该名在 rest.jsonl 的全部作者位挂 eid，剔除 exclude 列出者；对该 eid 朝代 incompat 的一律不挂；
-  复核包未列出的作者位（more）只挂朝代 same 者。DIFF／UNSURE 整名不挂，登记。
+  复核包未列出的作者位（more）只挂朝代 same 者，多候选（R3）一律不挂。DIFF／UNSURE 整名不挂，登记。
     python3 from_verdicts.py <baseline 输出目录> <verdicts 目录> <输出前缀>"""
 import collections, glob, json, os, sys
 d0, vd, outp = sys.argv[1:4]
@@ -33,7 +33,7 @@ for n, v in V.items():
         rel = cand[v['eid']]['rel']
         if k in ex: why = '复核剔除'
         elif rel == 'incompat': why = '朝代冲突'
-        elif k not in listed[n] and rel != 'same': why = '未列出且朝代非同'
+        elif k not in listed[n] and (rel != 'same' or v['file'].startswith('R3')): why = '未列出且朝代非同或多候选'
         else:
             attach.append({'path': r['path'], 'slot': r['slot'], 'name': r['name'], 'entity_id': v['eid'], 'tier': 'R-逐名复核:' + v['file'][:-6], 'why': v.get('reason')}); c['挂'] += 1; continue
         c[why] += 1; reg.append({'path': r['path'], 'slot': r['slot'], 'name': r['name'], 'verdict': why, 'reason': v.get('reason'), 'cands': list(cand)})

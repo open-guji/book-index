@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/a3unizcme2bdkhgg"
-      }
+      },
+      "entity_id": "hixhd2h9bn0w"
     }
   ],
   "dynasty": "清",
@@ -29,7 +30,29 @@
       "summary": "共 1 個版本：清乾隆間刻本（上海圖書館、南京圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：sgkgnkidfx8ate2s\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 403 批新建（hold 清零：史部E判定表 J-anon 另立；原 hold 原因：记录无作者、目标 Work 有作者且卷数不符／缺：不能证同作者，默认另立＋related）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-20"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：sgkgnkidfx8ate2s\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 403 批新建（hold 清零：史部E判定表 J-anon 另立；原 hold 原因：记录无作者、目标 Work 有作者且卷数不符／缺：不能证同作者，默认另立＋related）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "ndl",
+      "group": "ndl-2608177",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2608177",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2608177",
+        "edition": "乾隆13重刊(六有堂藏板)"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ndl-2608177": {
+      "label": "NDL藏本：乾隆13重刊(六有堂藏板)"
+    }
+  }
 }
