@@ -15,7 +15,9 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/274jq2pdqk0vynj0"
-      }
+      },
+      "entity_id": "hixhd2h9bkia",
+      "name_basis": "2026-10-25 並條善後：同書重出條 d59f6eqieyo7 之同名撰人已繫此 entity，今補繫（3a3-d59fxsharu2o）。"
     }
   ],
   "dynasty": "明",
@@ -30,10 +32,16 @@
       "author_info": "明劉世儒繪;（像讚評林贈言）明王思任輯",
       "section": "子部/藝術類/書畫之屬/畫",
       "summary": "共 3 個版本：清康熙二十年刻本（北京大學圖書館、香港大學圖書館）；明刻本（北京大學圖書館）；明萬曆二十三年刻清初墨妙山房印本（國家圖書館、福建省圖書館、南京圖書館、上海圖書館、中國科學院圖書館、甘肅省圖書館、浙江圖書館、湖北省圖書館、北京大學圖書館、吉林市圖書館）"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "劉世儒雪湖梅譜",
+      "summary": "劉世儒雪湖梅譜"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gl7wro4dyevic6s5、o3b2id7w6q8mu2wr、7qkzwybfscae3bbe\nauto-split:存疑未并\nE6 第 4005 批新建（hold 清零：C-hold；原 hold 原因：auto-split:信息不全）\n\n国图數字古籍重配挂接\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
-  "revision": "1.2.0",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gl7wro4dyevic6s5、o3b2id7w6q8mu2wr、7qkzwybfscae3bbe\nauto-split:存疑未并\nE6 第 4005 批新建（hold 清零：C-hold；原 hold 原因：auto-split:信息不全）\n\n国图數字古籍重配挂接\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 A11-去重方案3a-3 併條（rule=去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并）：併 d59f6eqieyo7《雪湖梅譜》 入本條。异题名同书（总目题名括注／其他题名互见）：《劉雪湖梅譜》劉世儒／《雪湖梅譜》劉世儒；依据：其他题名「雪湖梅譜」；两道子 agent 逐条复核：B古籍總目「劉雪湖梅譜（雪湖梅譜）二卷像讚評林贈言二卷」，與A千頃堂「劉世儒雪湖梅譜」同書",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -112,5 +120,32 @@
     "loc-2014514661": {
       "label": "美國國會圖書館藏本：清康熙間遂園刻本 1681"
     }
-  }
+  },
+  "juan_count": {
+    "number": 4
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 4
+    }
+  ],
+  "measure_info": "四卷",
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "merged_in": [
+    {
+      "id": "d59f6eqieyo7",
+      "title": "雪湖梅譜",
+      "at": "2026-10-26T15:35:19Z",
+      "by": "A11-去重方案3a-3",
+      "rule": "去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并",
+      "why": "异题名同书（总目题名括注／其他题名互见）：《劉雪湖梅譜》劉世儒／《雪湖梅譜》劉世儒；依据：其他题名「雪湖梅譜」；两道子 agent 逐条复核：B古籍總目「劉雪湖梅譜（雪湖梅譜）二卷像讚評林贈言二卷」，與A千頃堂「劉世儒雪湖梅譜」同書",
+      "author": "劉世儒",
+      "title_info": "劉世儒雪湖梅譜"
+    }
+  ],
+  "merged_from": [
+    "d59f6eqieyo7"
+  ]
 }
