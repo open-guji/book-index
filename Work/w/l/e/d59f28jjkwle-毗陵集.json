@@ -144,6 +144,22 @@
         "nlc_fid": "411999008342",
         "edition": "清初[1644-1722]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09639",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09639",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09639",
+        "call_number": "402.42 09639",
+        "edition": "舊鈔本"
+      }
     }
   ],
   "measures": [
@@ -158,7 +174,7 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-10 撰人字首式重出候選覆核：1evcs14s5afb4（撰人折入題名之異寫）併入本條（同題同撰人）。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 1–3 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字。未覆核原書。使用者本輪之裁定是「只補頭部約 766 條」，而機械撮述之法成本極低（不費人力，且所組織者皆本條已有之信息），故不止於頭部——凡材料足以成文者（有敘錄，或諸志卷數有異同）皆補之；材料不足者（無敘錄而諸志卷數又一致）仍不生成——其 desc 止是覆述著錄，讀者從 indexed_by 一望即知，寫與不寫同。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…尚沿唐習；碑版敍事，稍見情實。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。",
+  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-10 撰人字首式重出候選覆核：1evcs14s5afb4（撰人折入題名之異寫）併入本條（同題同撰人）。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 1–3 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字。未覆核原書。使用者本輪之裁定是「只補頭部約 766 條」，而機械撮述之法成本極低（不費人力，且所組織者皆本條已有之信息），故不止於頭部——凡材料足以成文者（有敘錄，或諸志卷數有異同）皆補之；材料不足者（無敘錄而諸志卷數又一致）仍不生成——其 desc 止是覆述著錄，讀者從 indexed_by 一望即知，寫與不寫同。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…尚沿唐習；碑版敍事，稍見情實。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "emendated_by": [],
   "related_works": [],
   "description": {
@@ -169,8 +185,8 @@
       "新唐書藝文志"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "resource_groups": {
     "nlc-412000000592": {
@@ -184,6 +200,9 @@
     },
     "nlc-411999008342": {
       "label": "國圖藏本：清初[1644-1722]"
+    },
+    "ncltw-09639": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
     }
   }
 }

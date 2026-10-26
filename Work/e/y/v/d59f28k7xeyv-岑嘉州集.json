@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -46,7 +46,7 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -135,6 +135,54 @@
         "iiif_manifest": "https://www.loc.gov/item/2012402574/manifest.json",
         "edition": "明萬曆間海陽汪應臯刊本 1573"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09592",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09592",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09592",
+        "call_number": "402.42 09592",
+        "edition": "明覆刊宋書棚本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09593",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09593",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09593",
+        "call_number": "402.42 09593",
+        "edition": "明晉安鄭能瑯嬛齋刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14111-0002",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14111-0002",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14111-0002",
+        "call_number": "403.242 14111-0002",
+        "edition": "明嘉靖間(1522-1566)江都黃埻刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -152,6 +200,15 @@
     },
     "loc-2012402574": {
       "label": "美國國會圖書館藏本：明萬曆間海陽汪應臯刊本 1573"
+    },
+    "ncltw-09592": {
+      "label": "臺灣國家圖書館藏本：明覆刊宋書棚本"
+    },
+    "ncltw-09593": {
+      "label": "臺灣國家圖書館藏本：明晉安鄭能瑯嬛齋刊本"
+    },
+    "ncltw-14111-0002": {
+      "label": "臺灣國家圖書館藏本：明嘉靖間(1522-1566)江都黃埻刊本"
     }
   }
 }
