@@ -1,0 +1,125 @@
+# 去重方案部分 4：4a-B 非子目同题同卷单边对 b-01（113 组 114 条）
+
+基线 main `61fca9fa37b30014f27b81fe60cae6baccf5d5b3`。口径：`ai-team/domain/目录与资源/设计/2026-10-正式库全面去重方案/部分4-Work层无责任者与弱证据.md`（4a-α 修订节）、00 文件 Work 节 A 档、`.claude/qa/正式库并条审查规则.md`。
+
+**4a-B 规则**（批次脚本 `../mkbatch_b.py`）：同题组「一侧有一侧无」里不属叢書子目（4a-α）的、卷数相同的单边对，每对由子 agent 逐条读 Work／Book 原文判定。只收「同书」且证据类型属严格清单的：同源（同一源记录或同一叢書同一辑本）、版本馆藏（同版本名且馆藏重合）、原文自证（无责任者一侧的著录原文、提要或附注写出作者）、辑佚同本、题含作者（题名带作者名或号且吻合）。以下不并：碑刻仅凭题名的、无责任者 Work 混挂异书 Book 的、只凭记忆推断的；有责任者一侧首位责任方式为 編／輯／編輯／輯錄／纂／彙編／匯編 且证据不是辑佚同本的（复核发现这类「作者」常只是丛书编者）。分立／存疑 274 对登记在 `.claude/qa/dedup-judged/部分4-4aB.tsv`，普查白名单据此跳过。无责任者 Work 并入有责任者 Work。
+
+工具：`apply_4.py`（包装 `../dedup-confirmed-163/apply_batch.py`，复用 mergework：著录并入、Book.work_id 与引用改指、分类成员改指，被并者留墓碑、keeper 记 merged_in／merged_from）、`postfix_common.py`、`update_index.py`、`fix_draft.py`。冲突字段保留 keeper 原值，被并值入台账 `retained_alternatives`；被并者原 ai_note／description 存 `loser_original_notes`；互斥分类登记见 `分类互斥登记.tsv`。
+
+| 组 | 保留（有责任者） | 并入条数 | 保留冲突字段数 | 分类互斥处理 |
+|---|---|---:|---:|---:|
+| 4aB-d59fyv7ww6bk | 山川記（王仁俊） | 1 | 0 | 0 |
+| 4aB-d59fyljmju2p | 中經簿（荀勗） | 1 | 0 | 0 |
+| 4aB-d59fxw28pt6o | 中庸或問纂釋（朱熹） | 1 | 0 | 1 |
+| 4aB-d59fyt02y8zk | 孫詵臨海記（孫詵） | 1 | 0 | 1 |
+| 4aB-d59fyt6bp43l | 北燕錄（崔鴻） | 1 | 0 | 0 |
+| 4aB-d59fyoc2gq9s | 滿洲宗祠祭祀儀注（索寧安） | 1 | 0 | 1 |
+| 4aB-d59fyjs7tdkw | 論語馬氏訓說（馬融） | 1 | 0 | 1 |
+| 4aB-d59fyfdufvup | 欽定音韻述微（梁國治） | 1 | 2 | 1 |
+| 4aB-d59fyt7hiww0 | 御史臺記佚文（韓琬） | 1 | 0 | 0 |
+| 4aB-d59fxw29ca9u | 中庸外傳前語（顧起元） | 1 | 0 | 1 |
+| 4aB-d59fxw29ca9t | 中庸外傳畧例（顧起元） | 1 | 0 | 1 |
+| 4aB-d59fyqw5sc1s | 九經發題（唐仲友） | 1 | 0 | 1 |
+| 4aB-d59fyrs0m8e8 | 也是錄（鄧凱） | 1 | 0 | 1 |
+| 4aB-d59fy3texipt | 五經正義表（盧文弨） | 1 | 1 | 0 |
+| 4aB-d59fyljlm4g2 | 何承天說（何承天） | 1 | 0 | 0 |
+| 4aB-d59f2n9aux34 | 儀禮釋注（丁晏） | 1 | 0 | 1 |
+| 4aB-d59fykoldhxd | 列女傳佚文（劉向） | 1 | 0 | 0 |
+| 4aB-d59fyt647f28 | 前涼錄（崔鴻） | 1 | 0 | 0 |
+| 4aB-d59fyt63w6ip | 前燕錄（崔鴻） | 1 | 0 | 0 |
+| 4aB-d59fyt63kxz6 | 前趙錄（崔鴻） | 1 | 0 | 0 |
+| 4aB-d59fyt5ex728 | 劉道真錢塘記（劉道真） | 1 | 0 | 1 |
+| 4aB-d59fy5q8g4qp | 加庶編（許嘉猷） | 1 | 0 | 1 |
+| 4aB-d59fytr6py4g | 北海三考（胡元儀） | 1 | 0 | 1 |
+| 4aB-d59fykojtb7l | 十六國春秋佚文（崔鴻） | 1 | 0 | 0 |
+| 4aB-d59fyljmv2m8 | 十道記（賈耽） | 1 | 0 | 0 |
+| 4aB-d59f27ywcv7k | 古三墳（阮咸） | 1 | 0 | 1 |
+| 4aB-d59f2mrptngh | 古今文字通釋（呂世宜） | 1 | 2 | 1 |
+| 4aB-d59fyghr981u | 古文孝經孔氏傳（孔安國） | 1 | 1 | 0 |
+| 4aB-d59fyrj686bl | 吳從政襄沔記（王謨） | 1 | 0 | 1 |
+| 4aB-d59fyv5i47b6 | 吳書抄（王仁俊） | 1 | 0 | 0 |
+| 4aB-d59fypzo658i | 周公城名錄（王謨） | 1 | 0 | 1 |
+| 4aB-d59fyjs7i51c | 周易分野（費直） | 1 | 0 | 0 |
+| 4aB-d59fydktc1kw | 周易劉晝義（劉晝） | 1 | 0 | 0 |
+| 4aB-d59fxvjk1ekg | 周易古五子傳（馬國翰） | 1 | 0 | 1 |
+| 4aB-d59fyjrqyk8x | 周易馬氏傳（馬融） | 1 | 1 | 1 |
+| 4aB-d59fxt82239d | 四庫全書薈要目（乾隆間敕） | 1 | 0 | 0 |
+| 4aB-d59fyjrtggle | 國語音（馬國翰） | 1 | 0 | 1 |
+| 4aB-d59fyv8eopa9 | 地圖（王仁俊） | 1 | 0 | 0 |
+| 4aB-d59fywpf5mgw | 墨子傳（王仁俊） | 1 | 0 | 0 |
+| 4aB-d59fxsnvdmv5 | 夏小正等例（莊述祖） | 1 | 0 | 0 |
+| 4aB-d59fxsnvdmv4 | 夏小正等例文句音義（莊述祖） | 1 | 0 | 0 |
+| 4aB-d59fxsnv2ebk | 夏時明堂陰陽經（莊述祖） | 1 | 0 | 0 |
+| 4aB-d59fxsnv2ebl | 夏時說義（莊述祖） | 1 | 0 | 0 |
+| 4aB-d59fxw1lm8zk | 大學或問纂釋（朱熹） | 1 | 0 | 1 |
+| 4aB-d59fymbzl2wx | 奏事錄（歐陽脩） | 1 | 0 | 0 |
+| 4aB-d59fywp4jk01 | 姓書（王仁俊） | 1 | 0 | 0 |
+| 4aB-d59fydktna4h | 孝經馬氏注（馬融） | 1 | 1 | 0 |
+| 4aB-d59fyv7q0yde | 宣城記（王仁俊） | 1 | 0 | 0 |
+| 4aB-d59fxwfzgy6b | 家塾孝經集解（朱鴻） | 1 | 0 | 1 |
+| 4aB-d59fydku9r7l | 尚書中候馬注（馬融） | 1 | 1 | 1 |
+| 4aB-d59fyt5ajvgg | 山謙之丹陽記（山謙之） | 1 | 0 | 1 |
+| 4aB-d59fymc3bxfk | 崇文總目敍釋（歐陽脩） | 1 | 0 | 0 |
+| 4aB-d59fywpcchkw | 師曠紀（王仁俊） | 1 | 0 | 1 |
+| 4aB-d59fyv4lnitd | 康部抄（王仁俊） | 1 | 0 | 0 |
+| 4aB-d59fy3p3skqo | 廿二史考異（錢大昕） | 1 | 1 | 0 |
+| 4aB-d59fypzrwzr5 | 張氏土地記（王謨） | 1 | 0 | 1 |
+| 4aB-d59fyt68vz7k | 後燕錄（崔鴻） | 1 | 0 | 0 |
+| 4aB-d59fyt68vz7m | 後秦錄（崔鴻） | 1 | 0 | 0 |
+| 4aB-d59fyt68vz7l | 後蜀錄（崔鴻） | 1 | 0 | 0 |
+| 4aB-d59fyt68kqo1 | 後趙錄（崔鴻） | 1 | 0 | 0 |
+| 4aB-d59fyfemj8qp | 復古編（張有） | 1 | 0 | 1 |
+| 4aB-d59fxzs8ycqo | 文山先生吟嘯集（文天祥） | 1 | 0 | 1 |
+| 4aB-d59f27x0mdc2 | 明氏家訓（明岌） | 1 | 1 | 1 |
+| 4aB-d59fxw1dtbeo | 春秋左氏傳吴氏義（吳起） | 1 | 0 | 1 |
+| 4aB-d59fxx78jthe | 春秋年考（天畸人） | 1 | 0 | 1 |
+| 4aB-d59f2gcpl79e | 春秋年表（馮繼先） | 1 | 0 | 1 |
+| 4aB-d59fyljn6b5t | 晉中興徵祥說（何法盛） | 1 | 0 | 0 |
+| 4aB-d59fyut6jugw | 晉五胡指掌（張大齡） | 1 | 0 | 1 |
+| 4aB-d59fybakm51c | 月令問答（蔡邕） | 1 | 1 | 1 |
+| 4aB-d59fyt5mq4n6 | 東夷考畧（茅瑞徵） | 1 | 0 | 1 |
+| 4aB-d59fxrwrx4ao | 樹萱錄（劉壽） | 1 | 0 | 1 |
+| 4aB-d59fyljmju2q | 武陵源記（黃閔） | 1 | 0 | 0 |
+| 4aB-d59fyjrpedj4 | 毛詩馬氏注（馬融） | 1 | 0 | 1 |
+| 4aB-d59fxz3q7c3l | 水地小記（程瑤田） | 1 | 0 | 0 |
+| 4aB-d59fykoj6u4i | 水經注佚文（酈道元） | 1 | 0 | 0 |
+| 4aB-d59fymbtcc1s | 河北奉使奏草（歐陽脩） | 1 | 0 | 0 |
+| 4aB-d59fy3t900e8 | 涇野先生周易說翼（呂柟） | 1 | 0 | 0 |
+| 4aB-d59fyt7zbfuo | 淮南水利考（胡應恩） | 1 | 0 | 1 |
+| 4aB-d59fxr6eog76 | 清宮詞（吳士鑑） | 1 | 0 | 1 |
+| 4aB-d59fy7sgfg1s | 湖山雜詠（王緯） | 1 | 0 | 0 |
+| 4aB-d59fymbt13i8 | 濮議（歐陽脩） | 1 | 0 | 0 |
+| 4aB-d59fydkyn2tc | 爾雅麻氏注（麻杲） | 1 | 0 | 1 |
+| 4aB-d59f286vufi9 | 玉台新詠（徐陵） | 1 | 0 | 1 |
+| 4aB-d59f2mr4a9z6 | 王制箋（皮錫瑞） | 1 | 0 | 1 |
+| 4aB-d59fyfbtpkw0 | 王氏神仙傳（杜光庭） | 1 | 0 | 0 |
+| 4aB-d59fxw2hgge8 | 畏齋儀禮客難（龔元玠） | 1 | 0 | 1 |
+| 4aB-d59fyn4hm4g0 | 疑仙傳（王簡） | 1 | 0 | 0 |
+| 4aB-d59fyt59xede | 盛宏之荆州記（盛弘之） | 1 | 0 | 1 |
+| 4aB-d59fyt7f10jl | 祖訓錄（朱元璋） | 1 | 2 | 0 |
+| 4aB-d59fyjs0mx35 | 禮記馬氏注（馬融） | 1 | 0 | 1 |
+| 4aB-d59fypzvclq8 | 禹受地記（王謨） | 1 | 0 | 1 |
+| 4aB-d59fyfecuvwh | 程氏經說（程頤） | 1 | 0 | 1 |
+| 4aB-d59fyrjybj7k | 紀義宣城記（王謨） | 1 | 0 | 1 |
+| 4aB-d59fyi3mj1fk | 續方言補（程際盛） | 1 | 0 | 1 |
+| 4aB-d59fypzzeosg | 習鑿齒襄陽記（王謨） | 1 | 0 | 1 |
+| 4aB-d59fyff3e22q | 考古圖（呂大臨） | 1 | 0 | 1 |
+| 4aB-d59fysz4awow | 蕭子開建安記（蕭子開） | 1 | 0 | 1 |
+| 4aB-d59fyt62n8cg | 蜀錄（崔鴻） | 1 | 0 | 0 |
+| 4aB-d59fywpwmww0 | 衝波傳（王仁俊） | 1 | 0 | 0 |
+| 4aB-d59fykokr0u8 | 襄陽耆舊記佚文（習鑿齒） | 1 | 0 | 0 |
+| 4aB-d59fykojtb7k | 西吳枝乘佚文（謝肇淛） | 1 | 0 | 0 |
+| 4aB-d59fy7snx534 | 西泠仙詠（圓嶠真逸） | 2 | 0 | 1 |
+| 4aB-d59f2n8zxm2q | 詩考補注（丁晏） | 1 | 0 | 1 |
+| 4aB-d59fyi3te9dt | 詩聲類（孔廣森） | 1 | 0 | 0 |
+| 4aB-d59f2mcfi9s0 | 談往（花村看行侍者） | 1 | 0 | 1 |
+| 4aB-d59fy3q24oht | 讀舊唐書隨筆（蔡世鈸） | 1 | 0 | 0 |
+| 4aB-d59fyt72jitd | 資治通鑑節要續編（張光啓） | 1 | 0 | 0 |
+| 4aB-d59fyptoh5vl | 都門紀變百咏（復儂氏/杞廬氏） | 1 | 0 | 1 |
+| 4aB-d59fxz3u9f5t | 釋宮小記（程瑤田） | 1 | 0 | 0 |
+| 4aB-d59fy3pn5af5 | 錢法纂要（丘濬） | 1 | 1 | 1 |
+| 4aB-d59fyt70zc3k | 長陵詔敕（朱棣） | 1 | 0 | 0 |
+| 4aB-d59fybclywow | 零陵先賢傳（司馬彪） | 1 | 1 | 0 |
+| 4aB-d59f2hmealfm | 麻衣道者正易心法（麻衣道者） | 1 | 1 | 1 |
+
+验证：audit-merge-ledger（--draft 草稿库已同步）T/L/P/R/D 全 0；check_v2、check-classification、check_promo_dup、check-duplicate-audit、build_derived --check-only 全 0。B 档：逐对子 agent 核，另起独立子 agent 复核约 30%，抽检见 `抽检.md`。回滚：revert 本 PR。
