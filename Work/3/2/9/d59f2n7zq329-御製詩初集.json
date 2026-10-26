@@ -18,7 +18,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故殿035832-035847）。阶段 5 兜底建立。\n\n2026-09-06 qa-sweep/qing·C 類（entity 之 period 與 work 相牴）：撰人「宣宗」原誤繫明宣宗朱瞻基（entity `hixhd2h9bgh5`，1398–1435），廟號兩朝同名致誤——本書（period=qing）之「宣宗」實為清宣宗（道光帝），改繫 `hixhd2h9brxx`。原值：authors[0].entity_id=「hixhd2h9bgh5」，可逆。；3c 責任者名勘誤（2026-10-25）：authors[0]「宣宗」→「清宣宗」",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故殿035832-035847）。阶段 5 兜底建立。\n\n2026-09-06 qa-sweep/qing·C 類（entity 之 period 與 work 相牴）：撰人「宣宗」原誤繫明宣宗朱瞻基（entity `hixhd2h9bgh5`，1398–1435），廟號兩朝同名致誤——本書（period=qing）之「宣宗」實為清宣宗（道光帝），改繫 `hixhd2h9brxx`。原值：authors[0].entity_id=「hixhd2h9bgh5」，可逆。；3c 責任者名勘誤（2026-10-25）：authors[0]「宣宗」→「清宣宗」\n\n2026-10-26 A11-去重方案3a 併條（rule=新-异人登记-集：同题首位异人组逐组复核，误字／乱码人名、序刊注者误作撰者、合撰分挂、同人异 Entity 者按同书并；独立子代理逐对核验）：併 d59f2mye6dqa《御製詩初集》 入本條。故宮統一編號同爲故殿035832-035847、道光九年武英殿刊，是宣宗《御製詩初集》，曹振鏞等爲奉敕編者｜核验：故宮統一編號完全相同，是同一部書",
   "juan_count": {
     "number": 24
   },
@@ -26,6 +26,10 @@
     {
       "unit": "卷",
       "number": 24
+    },
+    {
+      "unit": "冊",
+      "number": 16
     }
   ],
   "measure_info": "二十四卷",
@@ -35,6 +39,32 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-10-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "period_upper": "qing",
+  "period_upper_basis": "edition_bound：所掛版本中最早者為「清道光九年武英殿刊本」——版本之年不早於成書之年，故不晚於 qing",
+  "indexed_by": [
+    {
+      "source": "國立故宮博物院善本舊籍",
+      "title_info": "御製詩初集",
+      "summary": "本書收入《國立故宮博物院善本舊籍》（統一編號 故殿035832-035847）。清道光九年武英殿刊本。",
+      "edition": "清道光九年武英殿刊本。",
+      "catalog_no": "故殿035832-035847"
+    }
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2mye6dqa",
+      "title": "御製詩初集",
+      "at": "2026-10-26T23:30:35Z",
+      "by": "A11-去重方案3a",
+      "rule": "新-异人登记-集：同题首位异人组逐组复核，误字／乱码人名、序刊注者误作撰者、合撰分挂、同人异 Entity 者按同书并；独立子代理逐对核验",
+      "why": "故宮統一編號同爲故殿035832-035847、道光九年武英殿刊，是宣宗《御製詩初集》，曹振鏞等爲奉敕編者｜核验：故宮統一編號完全相同，是同一部書",
+      "author": "曹振鏞",
+      "title_info": "御製詩初集"
+    }
+  ],
+  "merged_from": [
+    "d59f2mye6dqa"
+  ]
 }
