@@ -162,6 +162,37 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E5%BA%9A%E7%94%B3%E5%A4%96%E5%8F%B2.djvu"
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i04_01475",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i04/i04_01475_0019/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i04_01475",
+        "edition": "道光27[1847]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i04_00515",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i04/i04_00515_0019/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i04_00515",
+        "edition": ""
+      },
+      "note": "合刻：另含脚気集"
     }
   ],
   "measures": [
@@ -188,9 +219,17 @@
   "period_basis": "跨代人物從斷代志（2026-08-21 catalog_bound 專項）：撰人 dynasty [('權衡', '明')] 指向 ming，而本書見於《元史藝文志》——該志斷代著錄 liao-jin-yuan 之作，其編者專為此代甄別，較機械據撰人朝代派生為可信。原判：據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-22 B3 併池（異志同卷數・一方省撰人）：1evgpgvm81bls 併入本條。二者同題、同卷數，而分見二志，其一省撰人——志書連書省撰人之跨志形態。本條撰人之 role 非注／傳／疏，非原典與注本之別。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-22 B3 併池（異志同卷數・一方省撰人）：1evgpgvm81bls 併入本條。二者同題、同卷數，而分見二志，其一省撰人——志書連書省撰人之跨志形態。本條撰人之 role 非注／傳／疏，非原典與注本之別。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
   "period_upper": "ming",
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "waseda-i04_01475": {
+      "label": "早稲田藏本：道光27[1847]"
+    },
+    "waseda-i04_00515": {
+      "label": "早稲田藏本"
+    }
+  }
 }

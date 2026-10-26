@@ -52,6 +52,11 @@ ADJ = {frozenset(x) for x in [('先秦', '秦'), ('秦', '漢'), ('先秦', '漢
                               ('唐', '五代'), ('五代', '宋'), ('五代', '遼'), ('宋', '遼'), ('宋', '金'), ('遼', '金'), ('宋', '元'), ('金', '元'), ('元', '明'), ('明', '清'), ('清', '民國')]}
 
 
+ANCIENT = {'先秦', '秦', '漢', '三國', '晉', '十六國', '南北朝', '隋', '唐', '五代', '宋', '遼', '金', '元'}
+REIGN_T = re.compile(r'^\[(民國|順治|康熙|雍正|乾隆|嘉慶|道光|咸豐|同治|光緒|宣統)\]')
+MODERN_T = re.compile(r'泰西|新史|報告|聯合會|學堂|章程')
+
+
 def coarse2(d):
     if not d: return None
     d = d.strip().replace('张', '張')
@@ -250,6 +255,9 @@ def main():
             if len(yrs) >= 2 and max(yrs) - min(yrs) > lim:
                 for s in ss: hold(s, '组内著作年代相距逾80年', '%d-%d' % (min(yrs), max(yrs)))   # 抽检 spot1：孙谦康熙／乾隆
                 continue
+        if c in ANCIENT and all(REIGN_T.match(s['title'] or '') or MODERN_T.search(s['title'] or '') for s in ss):
+            for s in ss: hold(s, '古朝代配清民国书待核')   # 抽检 乙03：金鍾麟撰→金·鍾麟、秦夏聲纂［民國］慶雲縣志：姓被切作朝代
+            continue
         dys = collections.Counter(s['dynasty'] for s in ss if s['dynasty'])
         plan.append({'name': n, 'dynasty': dys.most_common(1)[0][0] if dys else None, 'cd': c,
                      'cbdb': None, 'cbdb_cand': cbc[0]['id'] if len(cbc) == 1 else None, 'cbdb_n': len(cbc),
