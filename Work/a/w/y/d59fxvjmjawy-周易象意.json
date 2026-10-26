@@ -30,8 +30,8 @@
       "summary": "共 3 個版本：清乾隆六年玉壺堂刻本（國家圖書館、日本內閣文庫（國立公文書館）、美國哈佛大學燕京圖書館）；清道光八年王宜載等刻本（山東省圖書館）；抄本（日本九州大學）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：rk4ewjroanhsc33r、x1c4ybnsuvj82k2y、86gtmgc1obvsgdwa\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n主責任者「王世業」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nE6 第 344 批新建（hold 清零：E-N-anon-clean；原 hold 原因：no_main_author）\n朝代補寫：總目題名行各版本一致為「清」，補 Work.dynasty、authors[0].dynasty\n朝代更正：上文「朝代…不一致，未寫 dynasty／period」一句已不適用（題名行各版本朝代一致），已補寫\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.1.0",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：rk4ewjroanhsc33r、x1c4ybnsuvj82k2y、86gtmgc1obvsgdwa\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n主責任者「王世業」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nE6 第 344 批新建（hold 清零：E-N-anon-clean；原 hold 原因：no_main_author）\n朝代補寫：總目題名行各版本一致為「清」，補 Work.dynasty、authors[0].dynasty\n朝代更正：上文「朝代…不一致，未寫 dynasty／period」一句已不適用（題名行各版本朝代一致），已補寫\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -51,11 +51,32 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3964674/manifest.json",
         "extent": "10冊"
       }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101454105",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000011721",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101454105",
+        "nlk_control_no": "EOL000011721",
+        "holder": "국립중앙도서관",
+        "call_number": "古古1-60-85",
+        "edition": "筆寫本 [刊寫年未詳]"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1069932": {
       "label": "內閣文庫藏本：清乾隆6年刊本（序刊） 玉壺堂（273-0101，10冊）"
+    },
+    "korcis-101454105": {
+      "label": "韓國國立中央圖書館數字化藏本：筆寫本 [刊寫年未詳]"
     }
   }
 }
