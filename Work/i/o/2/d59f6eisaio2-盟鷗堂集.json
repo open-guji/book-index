@@ -44,10 +44,10 @@
   "measure_info": "十四卷",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無明確朝代線索，period 留 null 不猜",
-  "ai_note": "原「黄承□盟鷗堂集」撰人提取失敗（缺字經查證黄承玄字履常、號與參，秀水人，萬曆十四年進士，巡撫福建右副都御史，與按語及juan_n\"十四卷\"完全吻合，缺字確證為「玄」）。按語無年號/朝代詞，period留null。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "原「黄承□盟鷗堂集」撰人提取失敗（缺字經查證黄承玄字履常、號與參，秀水人，萬曆十四年進士，巡撫福建右副都御史，與按語及juan_n\"十四卷\"完全吻合，缺字確證為「玄」）。按語無年號/朝代詞，period留null。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "id": "d59f6eisaio2",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -74,11 +74,30 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4430691/manifest.json",
         "extent": "16冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-12818",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/12818",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "12818",
+        "call_number": "402.6 12818",
+        "edition": "明崇禎元年(1628)檇李黃氏家刊本"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1077565": {
       "label": "內閣文庫藏本：明崇禎1年刊本（序刊）（集049-0024，16冊）"
+    },
+    "ncltw-12818": {
+      "label": "臺灣國家圖書館藏本：明崇禎元年(1628)檇李黃氏家刊本"
     }
   }
 }
