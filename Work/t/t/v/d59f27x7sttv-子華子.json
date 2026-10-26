@@ -172,6 +172,38 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4920027/manifest.json",
         "extent": "2冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06930",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06930",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06930",
+        "call_number": "308 06930",
+        "edition": "明嘉靖二十三年(1544)上饒歐陽清刊五子書本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06931",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06931",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06931",
+        "call_number": "308 06931",
+        "edition": "日本延享四年(1747)刊本"
+      }
     }
   ],
   "measures": [
@@ -186,7 +218,7 @@
   "period_basis": "據 authors[0].dynasty「晉」",
   "dynasty": "晉",
   "dynasty_basis": "author_propagation:唯一作者朝代",
-  "ai_note": "2026-08-21 舊題撰人專項：著錄語作「《子華子》十卷（（自言程氏名本，字子華，晉國人。舊本題晉人程本撰。按程本之名見於」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-22 B1 同名異書併池：併入 `1evkananvbsow`（子華子）。2026-08-21 B2 併池：併入 `1evkananvbsow`（故宮善本著錄，程本撰，一卷，日本刊本）。同書之後世日本刊本。\n\n2026-08-22 B1 同名異書併池：併入 `1evr5e3mj1shb`（子華子）。2026-08-21 B2 併池：併入 `1evr5e3mj1shb`（直齋書錄解題，無撰人，十卷）。同書。本條 authors[0] 原記「人程本」，乃四庫提要「舊本題晉人程本撰」一語截去「晉」字之殘，逕正為「程本」。\n\n2026-08-24 J5 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ev3bbv02jqps` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "ai_note": "2026-08-21 舊題撰人專項：著錄語作「《子華子》十卷（（自言程氏名本，字子華，晉國人。舊本題晉人程本撰。按程本之名見於」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-22 B1 同名異書併池：併入 `1evkananvbsow`（子華子）。2026-08-21 B2 併池：併入 `1evkananvbsow`（故宮善本著錄，程本撰，一卷，日本刊本）。同書之後世日本刊本。\n\n2026-08-22 B1 同名異書併池：併入 `1evr5e3mj1shb`（子華子）。2026-08-21 B2 併池：併入 `1evr5e3mj1shb`（直齋書錄解題，無撰人，十卷）。同書。本條 authors[0] 原記「人程本」，乃四庫提要「舊本題晉人程本撰」一語截去「晉」字之殘，逕正為「程本」。\n\n2026-08-24 J5 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ev3bbv02jqps` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
   "description": {
     "text": "程本（晉）舊題撰。二卷；諸志所著之數有異，別作十卷。見著錄於《宋史藝文志》《欽定四庫全書總目》《國史經籍志》《直齋書錄解題》。",
     "sources": [
@@ -196,7 +228,7 @@
       "直齋書錄解題"
     ]
   },
-  "revision": "1.4.0",
+  "revision": "1.5.0",
   "revised_at": "2026-10-26",
   "resource_groups": {
     "waseda-ro13_03029": {
@@ -210,6 +242,12 @@
     },
     "naikaku-1077162": {
       "label": "內閣文庫藏本：延享5年刊本（307-0010，2冊）"
+    },
+    "ncltw-06930": {
+      "label": "臺灣國家圖書館藏本：明嘉靖二十三年(1544)上饒歐陽清刊五子書本"
+    },
+    "ncltw-06931": {
+      "label": "臺灣國家圖書館藏本：日本延享四年(1747)刊本"
     }
   }
 }

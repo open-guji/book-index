@@ -59,7 +59,7 @@
       "中國古籍總目"
     ]
   },
-  "ai_note": "同名異書：已有 Work 作者為 [('李繼本', '元')]，本條作者 李延興（元），另建 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重3b-0 併條（rule=去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并）：併 d59f2gplr30h《一山文集》 入本條。署名异写同书：《一山文集》李延興／李繼本：李继本为李延兴字（CBDB、原文）",
+  "ai_note": "同名異書：已有 Work 作者為 [('李繼本', '元')]，本條作者 李延興（元），另建 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重3b-0 併條（rule=去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并）：併 d59f2gplr30h《一山文集》 入本條。署名异写同书：《一山文集》李延興／李繼本：李继本为李延兴字（CBDB、原文）\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
   "id": "d59f2gglfim8",
   "measures": [
     {
@@ -73,7 +73,7 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -177,6 +177,38 @@
         "nlc_fid": "411999008832",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11027",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11027",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11027",
+        "call_number": "402.58 11027",
+        "edition": "明景泰癸酉(四年, 1453)侯官教諭黎公穎校刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11028",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11028",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11028",
+        "call_number": "402.58 11028",
+        "edition": "舊鈔本"
+      }
     }
   ],
   "resource_groups": {
@@ -185,6 +217,12 @@
     },
     "nlc-411999008832": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "ncltw-11027": {
+      "label": "臺灣國家圖書館藏本：明景泰癸酉(四年, 1453)侯官教諭黎公穎校刊本"
+    },
+    "ncltw-11028": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
     }
   },
   "merged_in": [

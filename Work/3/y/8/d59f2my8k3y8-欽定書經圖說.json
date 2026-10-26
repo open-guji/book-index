@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 | 從 1evke4sd43dvk 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evkad30enjls(孫家鼐)（不同作者，故新建獨立 Work）。 | 從 1evkpvck1e4u8 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善028378-028393）。阶段 5 兜底建立。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 16 取自 `measure_info`「十六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 | 從 1evke4sd43dvk 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evkad30enjls(孫家鼐)（不同作者，故新建獨立 Work）。 | 從 1evkpvck1e4u8 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善028378-028393）。阶段 5 兜底建立。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 16 取自 `measure_info`「十六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -37,7 +37,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -81,6 +81,22 @@
         "shelfmark": "Libri sin. N.S. 9214",
         "edition": "[北京] [内府] 光緒三十一年校印 [=1905]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00224",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00224",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00224",
+        "call_number": "102.2 00224",
+        "edition": "清光緒三十一年(1905)內府朱墨石印本"
+      }
     }
   ],
   "resource_groups": {
@@ -89,6 +105,9 @@
     },
     "sbb-PPN3370706598": {
       "label": "柏林國家圖書館藏本：[北京] [内府] 光緒三十一年校印 [=1905]"
+    },
+    "ncltw-00224": {
+      "label": "臺灣國家圖書館藏本：清光緒三十一年(1905)內府朱墨石印本"
     }
   },
   "indexed_by": [

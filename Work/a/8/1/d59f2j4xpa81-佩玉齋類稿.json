@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故庫028659-028660），無同名 Work 故新建。　entity_id 補繫：本條之撰人楊翮與庫中人物記錄（1j96hhvcrjvgz）同名，而該人物之 works 已列本條，是二者本相繫而作品側漏繫，今補。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxo19jlkw 與 11q37trm32xa8 同指文淵閣寫本一實物，今併於後者。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故庫028659-028660），無同名 Work 故新建。　entity_id 補繫：本條之撰人楊翮與庫中人物記錄（1j96hhvcrjvgz）同名，而該人物之 works 已列本條，是二者本相繫而作品側漏繫，今補。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxo19jlkw 與 11q37trm32xa8 同指文淵閣寫本一實物，今併於後者。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
   "juan_count": {
     "number": 10
   },
@@ -60,8 +60,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -70,6 +70,46 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-11052_%E4%BD%A9%E7%8E%89%E9%BD%8B%E9%A1%9E%E7%A8%BF.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11051",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11051",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11051",
+        "call_number": "402.58 11051",
+        "edition": "清代舊鈔本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11052",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11052",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11052",
+        "call_number": "402.58 11052",
+        "edition": "鈔本"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-11051": {
+      "label": "臺灣國家圖書館藏本：清代舊鈔本"
+    },
+    "ncltw-11052": {
+      "label": "臺灣國家圖書館藏本：鈔本"
+    }
+  }
 }
