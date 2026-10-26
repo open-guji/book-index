@@ -187,6 +187,42 @@
         "ndl_record": "pid2609380",
         "edition": "乾隆52刊(洞〓艸堂藏版)"
       }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101153341",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000010570",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101153341",
+        "nlk_control_no": "KOL000010570",
+        "holder": "국립중앙도서관",
+        "call_number": "古221-65",
+        "edition": "木板本 乾隆 52(1787)"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-102528214",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000009341",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102528214",
+        "nlk_control_no": "EOL000009341",
+        "holder": "국립중앙도서관",
+        "call_number": "古古6-20-45",
+        "edition": "木板本 乾隆 52(1787)"
+      }
     }
   ],
   "resource_groups": {
@@ -207,6 +243,12 @@
     },
     "ndl-2609380": {
       "label": "NDL藏本：乾隆52刊(洞〓艸堂藏版)"
+    },
+    "korcis-101153341": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 乾隆 52(1787)"
+    },
+    "korcis-102528214": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 乾隆 52(1787)"
     }
   },
   "updated_at": "2026-08-23T06:04:29.719957+00:00",
@@ -224,7 +266,7 @@
     }
   ],
   "measure_info": "一百卷",
-  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（一百卷），今據以補。\n\n2026-08-22 B3 併池（藏本條重出）：1evkpvj3sde68 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 0→1）併入本條。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目分類：史部／史評類／叢編之屬\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（一百卷），今據以補。\n\n2026-08-22 B3 併池（藏本條重出）：1evkpvj3sde68 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 0→1）併入本條。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目分類：史部／史評類／叢編之屬\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3韩越续 馆藏挂接：按确定档补挂 韓國國中 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3韩越续-KORCIS存疑與越南余量-20261026.md。",
   "period_upper": "qing",
   "period_upper_basis": "edition_bound：所掛版本中最早者為「清光緒十九年廣雅書局刊本」——版本之年不早於成書之年，故不晚於 qing",
   "description": {
@@ -233,6 +275,6 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "revision": "1.4.0",
+  "revision": "1.5.0",
   "revised_at": "2026-10-26"
 }
