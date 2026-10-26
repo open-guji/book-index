@@ -30,9 +30,9 @@
       "summary": "共 1 個版本：清康熙間刻本（南京圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2m8z5ttunc8y4osl",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2m8z5ttunc8y4osl\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "kokusho",
@@ -81,6 +81,40 @@
         "edition": "江戸寫",
         "iiif_manifest": "https://dl.ndl.go.jp/api/iiif/2536106/manifest.json"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100411005",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100411005",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100411005",
+        "holder": "江戸東京博",
+        "edition": "刊 文政７",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100411005/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200012254",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200012254",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200012254",
+        "holder": "国文研日本漢詩文",
+        "edition": "刊 文政７",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200012254/manifest"
+      }
     }
   ],
   "resource_groups": {
@@ -92,6 +126,12 @@
     },
     "ndl-2536106": {
       "label": "NDL藏本：江戸寫"
+    },
+    "kokusho-100411005": {
+      "label": "國書·江戸東京博藏刊 文政７"
+    },
+    "kokusho-200012254": {
+      "label": "國書·国文研日本漢詩文藏刊 文政７"
     }
   }
 }

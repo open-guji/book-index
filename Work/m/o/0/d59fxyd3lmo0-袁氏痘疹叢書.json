@@ -30,9 +30,9 @@
       "summary": "共 2 個版本：明刻本（美國哈佛大學燕京圖書館）；明書林雙峯堂刻本（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gxnwvpcnleq48rqx、aj315sp36s1ti58d\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gxnwvpcnleq48rqx、aj315sp36s1ti58d\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -48,11 +48,31 @@
         "nlc_fid": "411999011513",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300096889",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300096889",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300096889",
+        "holder": "府中之島図石崎",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300096889/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999011513": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "kokusho-300096889": {
+      "label": "國書·府中之島図石崎藏刊"
     }
   }
 }
