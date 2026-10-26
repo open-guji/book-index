@@ -79,11 +79,29 @@
         "nlc_fid": "411999032759",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ni07_02288",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ni07/ni07_02288/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ni07_02288",
+        "edition": ""
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999032759": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "waseda-ni07_02288": {
+      "label": "早稲田藏本"
     }
   },
   "measures": [
@@ -98,13 +116,13 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/ming H 類撰人名訂正：撰人「西洋人高一志」→「高一志」。據見 authors[].name_basis。\n\n總目版本待定：總目著錄版本標籤空，未入 Book（i67a3ca0qibvp2x1）\n總目分類：子部／天文算法類／推步之屬／天文",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/ming H 類撰人名訂正：撰人「西洋人高一志」→「高一志」。據見 authors[].name_basis。\n\n總目版本待定：總目著錄版本標籤空，未入 Book（i67a3ca0qibvp2x1）\n總目分類：子部／天文算法類／推步之屬／天文\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
   "description": {
     "text": "西洋人高一志（明）撰。二卷。見著錄於《欽定四庫全書總目》。本書惟《欽定四庫全書總目》一志著錄，別無他證。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26"
 }
