@@ -30,7 +30,7 @@
       "summary": "共 6 個版本：（國家圖書館）；（北京師範大學圖書館）；（國家圖書館、上海圖書館）；（南京圖書館、國家圖書館、上海圖書館）；（上海圖書館、國家圖書館）；（國家圖書館、南京圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：dk1rda6uyhzl2i0p、2ndshfzxzqpcq52s、zvl0yd71s61uvrnq、ds2tsvq5hir3zsce、jjxan24kpf8wrgw5、a2blkq8q0lkex4ao\nauto-split:存疑未并\nE6 第 602 批新建（hold 清零：jyiyi；原 hold 原因：）",
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：dk1rda6uyhzl2i0p、2ndshfzxzqpcq52s、zvl0yd71s61uvrnq、ds2tsvq5hir3zsce、jjxan24kpf8wrgw5、a2blkq8q0lkex4ao\nauto-split:存疑未并\nE6 第 602 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条、國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
   "related_works": [
     {
       "id": "d59fxw2r4phc",
@@ -38,6 +38,51 @@
       "note": "晋升前去重复核（集部复核池）：題名相近，未能確認同書，另立互鏈。"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610212",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610212",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610212",
+        "request_no": "３１４－０１５０",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3610512/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300092332",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300092332",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300092332",
+        "holder": "東洋大哲学堂",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300092332/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-3610212": {
+      "label": "內閣文庫藏本：清刊本（314-0150，4冊）"
+    },
+    "kokusho-300092332": {
+      "label": "國書·東洋大哲学堂藏刊"
+    }
+  }
 }

@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/1vt2tq4z6hz8k8no"
-      }
+      },
+      "entity_id": "hixhd2h9bh17"
     }
   ],
   "dynasty": "元",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：清光緒十七年池陽周氏刻（中國科學院圖書館、天津圖書館、遼寧省圖書館、南京圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：bqis0asaoaxgq4oj\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：bqis0asaoaxgq4oj\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,53 @@
         "nlc_fid": "411999024246",
         "edition": "明嘉靖元年[1522]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075917",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075917",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075917",
+        "request_no": "３０３－００７５",
+        "edition": "刊本::寛永:090000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4431894/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084281",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084281",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084281",
+        "request_no": "３０３－００８３",
+        "edition": "刊本::寛永:090000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4916656/manifest.json",
+        "extent": "2冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999024246": {
       "label": "國圖藏本：明嘉靖元年[1522]"
+    },
+    "naikaku-1075917": {
+      "label": "內閣文庫藏本：寛永9年刊本（303-0075，2冊）"
+    },
+    "naikaku-1084281": {
+      "label": "內閣文庫藏本：寛永9年刊本（303-0083，2冊）"
     }
   }
 }

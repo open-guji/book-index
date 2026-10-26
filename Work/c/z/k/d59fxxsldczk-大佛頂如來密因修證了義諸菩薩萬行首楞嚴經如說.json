@@ -29,9 +29,9 @@
       "summary": "共 1 個版本：明天啓間弘覺山房刻本（湖北省圖書館、北京師範大學圖書館、浙江圖書館、上海圖書館、中國人民大學圖書館、美國哈佛大學燕京圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：tvxej0sphq3fmsaj\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：tvxej0sphq3fmsaj\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +47,32 @@
         "nlc_fid": "412000001119",
         "edition": "明天啓[1621-1627]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076493",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076493",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076493",
+        "request_no": "３１０－０００８",
+        "edition": "刊本（序刊）::明天啓:040000:弘覚山房",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4766873/manifest.json",
+        "extent": "5冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000001119": {
       "label": "國圖藏本：明天啓[1621-1627]"
+    },
+    "naikaku-1076493": {
+      "label": "內閣文庫藏本：明天啓4年刊本（序刊） 弘覚山房（310-0008，5冊）"
     }
   }
 }

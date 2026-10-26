@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/tge70gunk1z42kp7"
-      }
+      },
+      "entity_id": "hixhd2h9be4h"
     }
   ],
   "dynasty": "明",
@@ -29,7 +30,32 @@
       "summary": "共 2 個版本：明天啓七年刻本（重慶市圖書館、湖南省社會科學院圖書館、浙江圖書館、日本內閣文庫（國立公文書館）、蘇州市圖書館、吉林省社會科學院圖書館、大連市圖書館、安徽省博物館、河南省圖書館、上海圖書館、吉林市圖書館、南京師範大學圖書館）；明萬曆間刻本（日本御茶之水圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：84f2po3g4lccgnjz、h65gfp2d4yiyojj5\nauto-split:存疑未并\nE6 第 526 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：84f2po3g4lccgnjz、h65gfp2d4yiyojj5\nauto-split:存疑未并\nE6 第 526 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071609",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071609",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071609",
+        "request_no": "２７７－０２０４",
+        "edition": "刊本（序刊）::明天啓:070000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4045033/manifest.json",
+        "extent": "8冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1071609": {
+      "label": "內閣文庫藏本：明天啓7年刊本（序刊）（277-0204，8冊）"
+    }
+  }
 }

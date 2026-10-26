@@ -29,14 +29,78 @@
       "summary": "共 1 個版本：（馆藏未载）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：atg037g5gr7oufx4\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：atg037g5gr7oufx4\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fywpmyk1u",
       "relation": "related",
       "note": "釋家類深度查重：同題異作者（或對方未署責任者），未並，待核"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078209",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078209",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078209",
+        "request_no": "３１０－０１２３",
+        "edition": "刊本::天和:020000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5054951/manifest.json",
+        "extent": "11冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610711",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610711",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610711",
+        "request_no": "３１０－０１２２",
+        "edition": "刊本:南北朝:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3744697/manifest.json",
+        "extent": "14冊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2608794",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2608794",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2608794",
+        "edition": "天和2"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1078209": {
+      "label": "內閣文庫藏本：天和2年刊本（310-0123，11冊）"
+    },
+    "naikaku-3610711": {
+      "label": "內閣文庫藏本：南北朝刊本（310-0122，14冊）"
+    },
+    "ndl-2608794": {
+      "label": "NDL藏本：天和2"
+    }
+  }
 }

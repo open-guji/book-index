@@ -9,9 +9,9 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "qing",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-08-24 帝號廟號歸人：著錄作「文宗」，以本書之撰人朝代定其朝，故立為「清文宗」。\n\n2026-10-14 并入 hixi5v87lfcw「奕詝」，其 ai_note：2026-10-14 帝王人審補證(Simone 結論，Soren 裁)：建檔。清文宗（咸豐帝）。",
-  "revision": "1.0.1",
-  "revised_at": "2026-10-14",
+  "ai_note": "2026-08-24 帝號廟號歸人：著錄作「文宗」，以本書之撰人朝代定其朝，故立為「清文宗」。\n\n2026-10-14 并入 hixi5v87lfcw「奕詝」，其 ai_note：2026-10-14 帝王人審補證(Simone 結論，Soren 裁)：建檔。清文宗（咸豐帝）。\n\n2026-10-25 A12 L6 帝王稱號：補廟號、帝號別名（文宗、咸豐帝、協天翊運執中垂謨懋德振武聖孝淵恭端仁寬敏莊儉顯皇帝），據維基百科補身份、說明；回填年號條 ruler.entity_id。",
+  "revision": "1.0.2",
+  "revised_at": "2026-10-25",
   "dates": {
     "birth": 1831,
     "death": 1861,
@@ -22,12 +22,26 @@
       "name": "奕詝",
       "type": "別名",
       "note": "重出條并入"
+    },
+    {
+      "name": "文宗",
+      "type": "廟號",
+      "ambiguous": true
+    },
+    {
+      "name": "咸豐帝",
+      "type": "別名"
+    },
+    {
+      "name": "協天翊運執中垂謨懋德振武聖孝淵恭端仁寬敏莊儉顯皇帝",
+      "type": "諡號"
     }
   ],
   "external_ids": {
     "cbdb_id": 65878,
     "cbdb_match": "manual",
-    "cbdb_source": "CBDB person.php?id=65878（Simone 帝王人審補證，快照＋網頁雙證）"
+    "cbdb_source": "CBDB person.php?id=65878（Simone 帝王人審補證，快照＋網頁雙證）",
+    "wikidata_id": "Q334452"
   },
   "merged_in": [
     {
@@ -38,5 +52,16 @@
       "rule": "帝王重出并入（Soren 核查）",
       "why": "咸豐：奕詝"
     }
-  ]
+  ],
+  "title_or_office": "皇帝",
+  "description": {
+    "text": "清朝皇帝，年號咸豐（1851–1861）。",
+    "sources": [
+      {
+        "name": "維基百科",
+        "type": "url",
+        "details": "https://zh.wikipedia.org/wiki/清朝君主列表"
+      }
+    ]
+  }
 }

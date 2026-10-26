@@ -38,7 +38,7 @@
       "summary": "共 6 個版本：清光緒間陝西教育圖書社鉛印本（國家圖書館、復旦大學圖書館）；明刻本（臺灣圖書館、天津圖書館、中國科學院圖書館、湖北省圖書館、國家圖書館、南京圖書館、遼寧省圖書館、上海圖書館、北京大學圖書館）；明刻朱墨套印本（遼寧省圖書館、天津圖書館、山東省圖書館）；明末清初刻本（北京大學圖書館）；明萬曆間刻本（臺灣圖書館、日本尊經閣文庫、日本內閣文庫（國立公文書館））；國粹叢書本（馆藏未载）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 4vu8l2inwsrr0luu（國粹叢書四十九種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pt7sl2bikltyhjrj\n同題同作者併條（集部串6，作者別名與並條口徑-共用 A檔：同名）（源 Work 1exopc44phb7q《李氏焚書》已並入；其作者寫法：李贄）\n\n国图數字古籍重配挂接",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 4vu8l2inwsrr0luu（國粹叢書四十九種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pt7sl2bikltyhjrj\n同題同作者併條（集部串6，作者別名與並條口徑-共用 A檔：同名）（源 Work 1exopc44phb7q《李氏焚書》已並入；其作者寫法：李贄）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
   "merged_in": [
     {
       "id": "1exopc44phb7q",
@@ -49,8 +49,8 @@
       "why": "同題同作者併條（集部串6，作者別名與並條口徑-共用 A檔：同名）"
     }
   ],
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -66,11 +66,53 @@
         "nlc_fid": "411999023181",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082094",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082094",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082094",
+        "request_no": "３１７－００９０",
+        "edition": "刊本:明万暦:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5087776/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3609866",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3609866",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3609866",
+        "request_no": "３１７－００９５",
+        "edition": "刊本:明万暦:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3896399/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999023181": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1082094": {
+      "label": "內閣文庫藏本：明万暦刊本（317-0090，5冊）"
+    },
+    "naikaku-3609866": {
+      "label": "內閣文庫藏本：明万暦刊本（317-0095，4冊）"
     }
   }
 }

@@ -29,9 +29,9 @@
       "summary": "共 2 個版本：明萬曆二十二年南京吏部陳所蘊冰玉堂刻本（北京師範大學圖書館、北京大學圖書館、北京市文物局、國家圖書館、南京圖書館、天一閣文物保管所、浙江圖書館、中山大學圖書館、重慶市北碚區圖書館）；明刻本（上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：l47nddp04dp2r1b8、uzgvz0jrpn7dfpuf\nE6 第 301 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：l47nddp04dp2r1b8、uzgvz0jrpn7dfpuf\nE6 第 301 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +47,53 @@
         "nlc_fid": "411999015409",
         "edition": "明萬曆22年[1594]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074875",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074875",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074875",
+        "request_no": "経００１－０００７",
+        "edition": "刊本（序刊）::明万暦:220000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4749787/manifest.json",
+        "extent": "8冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074903",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074903",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074903",
+        "request_no": "２７３－００１３",
+        "edition": "刊本::文政:120000:窪木氏息耕堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3992183/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999015409": {
       "label": "國圖藏本：明萬曆22年[1594]"
+    },
+    "naikaku-1074875": {
+      "label": "內閣文庫藏本：明万暦22年刊本（序刊）（経001-0007，8冊）"
+    },
+    "naikaku-1074903": {
+      "label": "內閣文庫藏本：文政12年刊本 窪木氏息耕堂（273-0013，4冊）"
     }
   }
 }

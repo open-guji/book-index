@@ -29,9 +29,9 @@
       "summary": "共 8 個版本：明嘉靖三十二年釋圓通募刻本（上海圖書館、華東師範大學圖書館、蘇州市西園寺）；明隆慶四年刻本（中國科學院圖書館）；明嘉靖三十二年釋宗儀等募刻本（馆藏未载）；明萬曆二年張孟賢刻本（中國人民大學圖書館）；明萬曆十七年至清乾隆間刻（臺灣圖書館、北京市法源寺）；明嘉靖三十二年淮陰道人張孟賢刻本（臺灣圖書館）；明刻本（國家圖書館）；明崇禎十年刻本（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：sicdv53lqnubvog5、ho4ylmmr5mv8vbf4、80o4lz0l6mixjcwe、khfgjsww2zujp6jd、wk1m4moibuxehfmf、83tiqthttjwlymub、yuktq1qtauupuxgv、wxizqtjzmcw14z3v\n各版本分類不一，取多數：{\"basis\": \"S\", \"l1\": \"\\u5b50\\u90e8\", \"l2\": \"\\u91cb\\u5bb6\\u985e\", \"l3\": \"\\u5927\\u85cf\\u4e4b\\u5c6c\", \"l4\": \"\", \"source\": \"\\u4e2d\\u570b\\u53e4\\u7c4d\\u7e3d\\u76ee\"} | {\"basis\": \"S\", \"l1\": \"\\u5b50\\u90e8\", \"l2\": \"\\u91cb\\u5bb6\\u985e\", \"l3\": \"\\u64b0\\u8ff0\\u4e4b\\u5c6c\", \"l4\": \"\\u8ad6\\u8457\\u90e8\", \"source\": \"\\u4e2d\\u570b\\u53e4\\u7c4d\\u7e3d\\u76ee\"}\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：sicdv53lqnubvog5、ho4ylmmr5mv8vbf4、80o4lz0l6mixjcwe、khfgjsww2zujp6jd、wk1m4moibuxehfmf、83tiqthttjwlymub、yuktq1qtauupuxgv、wxizqtjzmcw14z3v\n各版本分類不一，取多數：{\"basis\": \"S\", \"l1\": \"\\u5b50\\u90e8\", \"l2\": \"\\u91cb\\u5bb6\\u985e\", \"l3\": \"\\u5927\\u85cf\\u4e4b\\u5c6c\", \"l4\": \"\", \"source\": \"\\u4e2d\\u570b\\u53e4\\u7c4d\\u7e3d\\u76ee\"} | {\"basis\": \"S\", \"l1\": \"\\u5b50\\u90e8\", \"l2\": \"\\u91cb\\u5bb6\\u985e\", \"l3\": \"\\u64b0\\u8ff0\\u4e4b\\u5c6c\", \"l4\": \"\\u8ad6\\u8457\\u90e8\", \"source\": \"\\u4e2d\\u570b\\u53e4\\u7c4d\\u7e3d\\u76ee\"}\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +47,51 @@
         "nlc_fid": "412000001805",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100354615",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100354615",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100354615",
+        "holder": "西厳寺",
+        "edition": "刊 寛永２０",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100354615/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100447927",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100447927",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100447927",
+        "holder": "東洋大哲学堂",
+        "edition": "刊 寛永２０",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100447927/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000001805": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "kokusho-100354615": {
+      "label": "國書·西厳寺藏刊 寛永２０"
+    },
+    "kokusho-100447927": {
+      "label": "國書·東洋大哲学堂藏刊 寛永２０"
     }
   }
 }
