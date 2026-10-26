@@ -51,13 +51,13 @@
       "明史藝文志"
     ]
   },
-  "ai_note": "從 1evdibz827zeo 合併。原註：舊匹配結果為 GYL52mwYcr3（author+substr），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 A 档机械并）：併 d59f6etonthg《古今韻㑹小補》 入本條。同题同首位责任者：《古今韻會小補》方日升(明,?卷,0版本)／《古今韻㑹小補》方日升(明,?卷,0版本)；题名归一后相同（简繁异体），首位责任者同名、朝代兼容、卷数上限差≤1或一侧缺、无丛编分体子目缺卷、著作领域不冲突",
+  "ai_note": "從 1evdibz827zeo 合併。原註：舊匹配結果為 GYL52mwYcr3（author+substr），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 A 档机械并）：併 d59f6etonthg《古今韻㑹小補》 入本條。同题同首位责任者：《古今韻會小補》方日升(明,?卷,0版本)／《古今韻㑹小補》方日升(明,?卷,0版本)；题名归一后相同（简繁异体），首位责任者同名、朝代兼容、卷数上限差≤1或一侧缺、无丛编分体子目缺卷、著作领域不冲突\n\n2026-10-26 C3韩越续 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3韩越续-KORCIS存疑與越南余量-20261026.md。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "additional_titles": [
     "古今韻㑹小補"
@@ -76,5 +76,30 @@
   ],
   "merged_from": [
     "d59f6etonthg"
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nlk",
+      "group": "korcis-102455772",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000002541",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102455772",
+        "nlk_control_no": "EOL000002541",
+        "holder": "국립중앙도서관",
+        "call_number": "古古5-15-64",
+        "edition": "木板本 [刊寫年未詳]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "korcis-102455772": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 [刊寫年未詳]"
+    }
+  }
 }

@@ -42,14 +42,14 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 1，與著錄原文（清史稿藝文志：「莊子因」）所載之 6 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 名大 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 1，與著錄原文（清史稿藝文志：「莊子因」）所載之 6 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 名大 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3韩越续 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3韩越续-KORCIS存疑與越南余量-20261026.md。",
   "description": {
     "text": "林雲銘（清）撰。六卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「莊子因六卷，讀莊子法一卷」。本書惟《清史稿藝文志》一志著錄，別無他證。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
     "sources": [
       "清史稿藝文志"
     ]
   },
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -159,6 +159,24 @@
         "edition": "獨見附標補義莊子因 寬政九年滄浪居藏版本",
         "iiif_manifest": "https://da.adm.thers.ac.jp/iiif/1/classic_books/N004-20230901-02970/manifest.json"
       }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101145817",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000013310",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101145817",
+        "nlk_control_no": "KOL000013310",
+        "holder": "국립중앙도서관",
+        "call_number": "古1264-24",
+        "edition": "木板本 1797"
+      }
     }
   ],
   "resource_groups": {
@@ -179,6 +197,9 @@
     },
     "nagoya-N004_20230901_02970": {
       "label": "名大藏本：獨見附標補義莊子因 寬政九年滄浪居藏版本"
+    },
+    "korcis-101145817": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 1797"
     }
   }
 }

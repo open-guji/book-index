@@ -200,6 +200,24 @@
         "nlc_fid": "411999028270",
         "edition": "明正統10年[1445]"
       }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101419260",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000002197",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101419260",
+        "nlk_control_no": "EOL000002197",
+        "holder": "국립중앙도서관",
+        "call_number": "古古5-79-다15",
+        "edition": "木板本 乾隆 36(1771)"
+      }
     }
   ],
   "measures": [
@@ -232,11 +250,11 @@
       ]
     }
   ],
-  "ai_note": "合併：題名「戴良九靈山房集」撰人折入題首（來源：國史經籍志），與本條同書（撰人「戴良」已見本條 authors[]），裸題「九靈山房集」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxnwn641s 與 11q37trf93x8g 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 遼金元 L5：撰人「戴良」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-09-06 qa-sweep/ming A 類重立據：period_basis 引 authors[0].dynasty「明」而實錄非之，重立其據（見 period_basis）。",
+  "ai_note": "合併：題名「戴良九靈山房集」撰人折入題首（來源：國史經籍志），與本條同書（撰人「戴良」已見本條 authors[]），裸題「九靈山房集」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxnwn641s 與 11q37trf93x8g 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 遼金元 L5：撰人「戴良」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-09-06 qa-sweep/ming A 類重立據：period_basis 引 authors[0].dynasty「明」而實錄非之，重立其據（見 period_basis）。\n\n2026-10-26 C3韩越续 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3韩越续-KORCIS存疑與越南余量-20261026.md。",
   "dynasty": "元末明初",
   "dynasty_basis": "author_propagation（2026-09-06 qa-sweep/ming A 類重propagate：authors[0].dynasty 已作「元末明初」而本欄仍留「明」，同步之。原值：明）",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-411999013382": {
       "label": "國圖藏本：明正统10年[1445]"
@@ -246,6 +264,9 @@
     },
     "nlc-411999028270": {
       "label": "國圖藏本：明正統10年[1445]"
+    },
+    "korcis-101419260": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 乾隆 36(1771)"
     }
   }
 }

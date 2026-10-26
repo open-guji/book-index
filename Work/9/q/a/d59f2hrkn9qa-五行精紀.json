@@ -18,7 +18,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 6 取自 `measure_info`「六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 6 取自 `measure_info`「六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 C3韩越续 馆藏挂接：按确定档补挂 韓國國中 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3韩越续-KORCIS存疑與越南余量-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -48,8 +48,8 @@
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《直齋書錄解題》（南宋陳振孫（1249）），故不晚於 song",
   "period": "song",
   "period_basis": "南宋直齋書錄解題著錄，廖中為南宋命理家，非劉宋　複審採納：廖中見南宋直齋著錄，命理之學屬趙宋非劉宋（2026-08-24 A1 medium 複審）",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -88,6 +88,43 @@
         "nlc_fid": "411999013122",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101125959",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000021672",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101125959",
+        "nlk_control_no": "KOL000021672",
+        "holder": "국립중앙도서관",
+        "call_number": "한古朝19-39-1-6",
+        "part": "卷1-34",
+        "edition": "木板本 [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101126034",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000000585",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101126034",
+        "nlk_control_no": "KOL000000585",
+        "holder": "국립중앙도서관",
+        "call_number": "古貴1495-19",
+        "edition": "金屬活字本(乙亥字) [刊寫年未詳]"
+      }
     }
   ],
   "resource_groups": {
@@ -96,6 +133,12 @@
     },
     "nlc-411999013122": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "korcis-101125959": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 [刊寫年未詳]"
+    },
+    "korcis-101126034": {
+      "label": "韓國國立中央圖書館數字化藏本：金屬活字本(乙亥字) [刊寫年未詳]"
     }
   }
 }

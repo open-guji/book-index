@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-06 qa-sweep/qing·A 類（基準句與實錄相牴）：period_basis 所引之值與 authors[0].dynasty 之實錄不符，今隨實錄改，period 不動。據：本條 authors[0].dynasty_basis 自書「synonym:民國->中華民國」——朝代名同義正規化改了 dynasty 而未回改 period_basis；「民國」與「中華民國」所指同一代，斷代（period=modern）不因之而異。原值：period_basis=「據 authors[0].dynasty「民國」」。\n\n總目分類：史部／紀傳類／叢編之屬",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-06 qa-sweep/qing·A 類（基準句與實錄相牴）：period_basis 所引之值與 authors[0].dynasty 之實錄不符，今隨實錄改，period 不動。據：本條 authors[0].dynasty_basis 自書「synonym:民國->中華民國」——朝代名同義正規化改了 dynasty 而未回改 period_basis；「民國」與「中華民國」所指同一代，斷代（period=modern）不因之而異。原值：period_basis=「據 authors[0].dynasty「民國」」。\n\n總目分類：史部／紀傳類／叢編之屬\n\n2026-10-26 C3韩越续 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3韩越续-KORCIS存疑與越南余量-20261026.md。",
   "juan_count": {
     "number": 257
   },
@@ -38,8 +38,8 @@
   "updated_at": "2026-08-08T11:51:57+00:00",
   "period": "modern",
   "period_basis": "據 authors[0].dynasty「中華民國」",
-  "revision": "1.0.2",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基文库",
@@ -56,6 +56,25 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:SSID-12546963_%E6%96%B0%E5%85%83%E5%8F%B2.pdf"
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101175847",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000011445",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101175847",
+        "nlk_control_no": "KOL000011445",
+        "holder": "국립중앙도서관",
+        "call_number": "古2251-7",
+        "part": "卷1-6, 7-12, 13-20, 21-26, 27, 28, 29, 30-31, 32-33, 34- 37, 38-40, 41-42, 43-45, 46-48, 49-51, 52-54, 55-58, 91-94, 95-97, 98-103, 104-107, 108-112, 113-118, 119-123, 124-130, 137-139, 140-144, 145-150, 151-155, 156-160, 161-165, 168-169, 170-173, 174-177, 178-183, 184-188, 189-192, 193-197, 198-203, 204-210, 211-216, 217-223, 224-229, 230-233, 234-238, 239-243, 244-248, 249-252, 253-257",
+        "edition": "新鉛活字本 [刊寫年未詳]"
+      }
     }
   ],
   "indexed_by": [
@@ -67,5 +86,10 @@
       "section": "史部/紀傳類/叢編之屬",
       "summary": "共 1 個版本：（湖北省圖書館、天津圖書館、復旦大學圖書館、浙江圖書館、國家圖書館、南京圖書館、遼寧省圖書館、上海圖書館、山東省圖書館、北京大學圖書館）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "korcis-101175847": {
+      "label": "韓國國立中央圖書館數字化藏本：新鉛活字本 [刊寫年未詳]"
+    }
+  }
 }
