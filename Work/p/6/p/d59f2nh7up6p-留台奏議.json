@@ -118,6 +118,22 @@
       "types": [
         "image"
       ]
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-04860",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/04860",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "04860",
+        "call_number": "212.2 04860",
+        "edition": "明萬曆三十三年(1605)原刊本"
+      }
     }
   ],
   "updated_at": "2026-08-24T00:00:00+00:00",
@@ -125,7 +141,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，A檔並）：併 d59f2ngcy77k《明留臺奏議》 入本條。近題同首位責任者：《留台奏議》朱吾弼／《明留臺奏議》朱吾弼；明志《明留臺奏議》二十卷與四庫《留台奏議》二十卷同為萬曆三十三年刻本",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，A檔並）：併 d59f2ngcy77k《明留臺奏議》 入本條。近題同首位責任者：《留台奏議》朱吾弼／《明留臺奏議》朱吾弼；明志《明留臺奏議》二十卷與四庫《留台奏議》二十卷同為萬曆三十三年刻本\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
   "description": {
     "text": "朱吾弼（明）編、李雲鵠（明）編、蕭如松（明）編。二十卷。見著錄於《欽定四庫全書總目》。",
     "sources": [
@@ -135,7 +151,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "additional_titles": [
     "明留臺奏議"
@@ -154,5 +170,10 @@
   ],
   "merged_from": [
     "d59f2ngcy77k"
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-04860": {
+      "label": "臺灣國家圖書館藏本：明萬曆三十三年(1605)原刊本"
+    }
+  }
 }
