@@ -10,7 +10,7 @@ def jrel(aj,js):
     return '差1' if min(abs(a-b) for a in aj for b in js)<=1 else '悬殊'
 out=[]; skip=collections.Counter()
 for g in groups:
-    if g['判定']!='未判' or g['类别']!='一侧有一侧无': continue
+    if g['判定']!='未判' or g['类别'] not in ('一侧有一侧无','同首位'): continue
     ids=g['ids'].split(',')
     fs={i:feat(i) for i in ids}
     named=[f for f in fs.values() if f['fa']]; anon=[f for f in fs.values() if not f['fa']]
@@ -21,7 +21,7 @@ for g in groups:
     losers=[]; ev=[]
     for f in anon:
         w=W[f['id']]
-        if w.get('authors'): skip['anon 有佚名类authors']+=1; continue
+        if w.get('authors') and '【獨撰子目补撰人】' not in (w.get('ai_note') or ''): skip['anon 有佚名类authors']+=1; continue
         if not f['congshu']: skip['anon 非叢書子目']+=1; continue
         if not f['cols'] or f['nbooks']==0: skip['anon 无丛书book']+=1; continue
         cols=[C[c[0]] for c in f['cols']]
