@@ -78,6 +78,7 @@ class Names:
         self.children = collections.defaultdict(set)      # dynasty／office／官署 parent_id 反查；place 沿革上級
         self.reigns = collections.defaultdict(set)        # dynasty -> reign
         self.compounds = collections.defaultdict(set)     # office base_office_id 反查
+        self.concretes = collections.defaultdict(set)     # place 朝代條 concept_id 反查
         self.subordinates = collections.defaultdict(set)  # 官署 superiors 反查
         self.members = collections.defaultdict(set)       # 官署 group_ids 反查
         self.offices = collections.defaultdict(set)       # office.institution_ref 反查
@@ -110,6 +111,9 @@ class Names:
                     p = rid(h.get('parent_id')) if isinstance(h, dict) else None
                     if p in E and p != i:
                         self.children[p].add(i)
+                c = rid(d.get('concept_id'))
+                if c in E and c != i:
+                    self.concretes[c].add(i)
             if is_institution(d):
                 for s in d.get('superiors') or []:
                     sid = rid(s.get('id')) if isinstance(s, dict) else None
@@ -149,7 +153,12 @@ class Names:
 
     def place_card(self, i):
         d = self.E[i]
-        return _clean({'id': i, 'name': d.get('primary_name'), **(self.span(d) or {})})
+        return _clean({'id': i, 'name': d.get('primary_name'), **(self.span(d) or {}),
+                       'dynasties': [self.name(x) for x in _ids(d.get('dynasty_ids')) if self.name(x)]})
+
+    def place_order(self, x):
+        sp = self.span(self.E[x]) or {}
+        return (sp.get('start') is None, sp.get('start') or 0, x)
 
     def people_card(self, i):
         d = self.E[i]
@@ -218,6 +227,9 @@ class Names:
             ch = self.children.get(eid)
             if ch:
                 v['_children'] = self.cards(ch, self.place_card)
+            cc = self.concretes.get(eid)
+            if cc:
+                v['_concretes'] = self.cards(cc, self.place_card, key=self.place_order)
             sp = self.span(d)
             if sp:
                 v['_span'] = sp
@@ -316,6 +328,8 @@ class Names:
     def _place_cand(self, i, d, via, amb, segs):
         hist = [h for h in d.get('history') or [] if isinstance(h, dict)]
         c = {'id': i, 'subtype': 'place', 'primary_name': d['primary_name'], 'via': via,
+             'place_level': 'concrete' if d.get('place_level') == 'concrete' else None,
+             'dynasties': [self.name(x) for x in _ids(d.get('dynasty_ids')) if self.name(x)],
              'level': hist[-1].get('level') if hist else None,
              'start': min((h['start'] for h in hist if isinstance(h.get('start'), int)), default=None),
              'end': max((h['end'] for h in hist if isinstance(h.get('end'), int)), default=None),
@@ -357,7 +371,11 @@ class Names:
                     stack.extend(up.get(x, ()))
             anc[i] = seen
         for v in out.values():
-            mark_default(v, anc)
+            cs = [c for c in v if c.get('place_level') != 'concrete']   # 朝代條按朝代挑，不標 default
+            if len(cs) == 1 and len(v) > 1:
+                cs[0]['default'] = True                                 # 只一條跨朝條，其餘皆朝代條
+            else:
+                mark_default(cs, anc)
         self.n_place = len(places)
         return out
 
