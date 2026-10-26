@@ -15,12 +15,19 @@
       "source_bid": "d59f2mel8d1c",
       "title_info": "梁有譽梁比部集八卷",
       "summary": "梁有譽梁比部集八卷"
+    },
+    {
+      "source": "明史藝文志",
+      "source_bid": "d59f2mox0000",
+      "title_info": "梁有誉《比部集》八卷",
+      "summary": "樑有譽《比部集》八卷"
     }
   ],
   "description": {
-    "text": "梁有譽撰。八卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「梁有譽梁比部集八卷」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+    "text": "梁有譽撰。八卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「梁有譽梁比部集八卷」。",
     "sources": [
-      "千頃堂書目"
+      "千頃堂書目",
+      "明史藝文志"
     ]
   },
   "juan_count": {
@@ -35,8 +42,30 @@
   "measure_info": "八卷",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
-  "ai_note": "撰人切分來源：又條承上。",
+  "ai_note": "撰人切分來源：又條承上。\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，A檔並）：併 d59f2nguqqdd《比部集》 入本條。近題同首位責任者：《梁比部集》梁有譽／《比部集》梁有譽；「梁」為梁有譽之姓，千頃堂《梁比部集》八卷與明志《比部集》八卷相合",
   "id": "d59f6egc9lhc",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-01"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "period": "ming",
+  "period_basis": "據 authors[0].dynasty「明」",
+  "dynasty": "明",
+  "dynasty_basis": "author_propagation",
+  "additional_titles": [
+    "比部集"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2nguqqdd",
+      "title": "比部集",
+      "at": "2026-10-26T14:28:45Z",
+      "by": "A11-去重方案3b-近題前後綴",
+      "rule": "去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，A檔並",
+      "why": "近題同首位責任者：《梁比部集》梁有譽／《比部集》梁有譽；「梁」為梁有譽之姓，千頃堂《梁比部集》八卷與明志《比部集》八卷相合",
+      "author": "梁有譽",
+      "title_info": "梁有誉《比部集》八卷"
+    }
+  ],
+  "merged_from": [
+    "d59f2nguqqdd"
+  ]
 }

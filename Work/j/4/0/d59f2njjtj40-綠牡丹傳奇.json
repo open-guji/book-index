@@ -17,15 +17,15 @@
       "中華再造善本"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
   "id": "d59f2njjtj40",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.2",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基文库",
@@ -42,6 +42,22 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL06386372_%E7%B6%A0%E7%89%A1%E4%B8%B9%E5%82%B3%E5%A5%87.djvu"
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-D8405600",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=D8405600&order=rn_no&no=01787",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "D8405600",
+        "call_no": "雙紅堂-戲曲-123",
+        "edition": "覆雨衡堂本"
+      }
     }
   ],
   "related_works": [
@@ -50,5 +66,10 @@
       "relation": "related",
       "note": "總目記錄無具名主責任者（記佚名），與既有 Work 題名相同，依錄入優先與 Sabine 規則不據題名並，另立；互為相關，待有責任者證據再議。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "ioc-D8405600": {
+      "label": "東文研藏本：《奢摩他室曲叢》所收本（覆雨衡堂本）"
+    }
+  }
 }

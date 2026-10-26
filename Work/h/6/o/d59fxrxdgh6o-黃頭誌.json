@@ -30,9 +30,9 @@
       "summary": "共 1 個版本：四生譜本（馆藏未载）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ae6m52mcfhmyesyi\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ae6m52mcfhmyesyi\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -48,11 +48,31 @@
         "nlc_fid": "312001045673",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3343781495",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3343781495",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3343781495",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3343781495/manifest",
+        "shelfmark": "Libri sin. N.S. 763-1",
+        "edition": "刻本;[China] 經綸堂 梓 康熙丙申 (=1716)"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001045673": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "sbb-PPN3343781495": {
+      "label": "柏林國家圖書館藏本：刻本;[China] 經綸堂 梓 康熙丙申 (=1716)"
     }
   }
 }

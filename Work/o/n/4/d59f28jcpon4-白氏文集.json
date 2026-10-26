@@ -370,6 +370,71 @@
         "waseda_id": "he16_03345",
         "edition": "[京都] : 松栢堂, 明暦3[1657]"
       }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-D7163600",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=D7163600&order=rn_no&no=01680",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "D7163600",
+        "call_no": "貴重-36",
+        "edition": "那波道圓活字印本 元和中"
+      }
+    },
+    {
+      "id": "shoryobu",
+      "group": "shoryobu-1000074300000",
+      "group_role": "origin",
+      "name": "宮内庁書陵部 図書寮文庫",
+      "short_name": "書陵部",
+      "url": "https://shoryobu.kunaicho.go.jp/Toshoryo/Detail/1000074300000",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "shoryobu_id": "1000074300000",
+        "call_no": "557 ・ 21",
+        "edition": "明版, 明 嘉靖17年, 呉郡伍忠光"
+      }
+    },
+    {
+      "id": "shoryobu",
+      "group": "shoryobu-1000134260000",
+      "group_role": "origin",
+      "name": "宮内庁書陵部 図書寮文庫",
+      "short_name": "書陵部",
+      "url": "https://shoryobu.kunaicho.go.jp/Toshoryo/Detail/1000134260000",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "shoryobu_id": "1000134260000",
+        "call_no": "454 ・ 11",
+        "edition": "木活, 元和"
+      }
+    },
+    {
+      "id": "keio",
+      "group": "keio-12355",
+      "group_role": "origin",
+      "name": "慶應義塾図書館 漢籍コレクション",
+      "short_name": "慶應",
+      "url": "https://dcollections.lib.keio.ac.jp/ja/kanseki/110x-430-30-1",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "keio_record": "keioobjecthub-12355",
+        "call_no": "110X-430-30-1",
+        "edition": "那波活所 元和4年跋刊(1618) 古活字",
+        "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/110X-430-30-1/manifest.json"
+      }
     }
   ],
   "authors": [
@@ -380,7 +445,7 @@
       "entity_id": "hixhd2h9bfak"
     }
   ],
-  "ai_note": "作者「唐白居易撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjy5h30f4lc 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 索引中尚有同名異書：31hyr5d6fotci()（不同作者，故新建獨立 Work）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 3 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。",
+  "ai_note": "作者「唐白居易撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjy5h30f4lc 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 索引中尚有同名異書：31hyr5d6fotci()（不同作者，故新建獨立 Work）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 3 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条、書陵部 2 条、慶應 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
   "description": {
     "text": "本書收入《中華再造善本》唐宋編（ZHSY000318）。宋刻本。",
     "sources": [
@@ -392,8 +457,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.4.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-411999031032": {
       "label": "國圖藏本：明嘉靖17年[1538]"
@@ -454,6 +519,18 @@
     },
     "waseda-he16_03345": {
       "label": "早稲田藏本：[京都] : 松栢堂, 明暦3[1657]"
+    },
+    "ioc-D7163600": {
+      "label": "東文研藏本：那波道圓活字印本 元和中"
+    },
+    "shoryobu-1000074300000": {
+      "label": "書陵部藏本：明版, 明 嘉靖17年, 呉郡伍忠光"
+    },
+    "shoryobu-1000134260000": {
+      "label": "書陵部藏本：木活, 元和"
+    },
+    "keio-12355": {
+      "label": "慶應藏本：那波活所 元和4年跋刊(1618) 古活字"
     }
   }
 }
