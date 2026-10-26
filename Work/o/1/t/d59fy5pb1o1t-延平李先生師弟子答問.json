@@ -41,8 +41,8 @@
       "summary": "共 10 個版本：清光緒五年刻本（天津圖書館）；清光緒二年延平府署刻本（北京大學圖書館、長春市圖書館、遼寧省圖書館）；朱子遺書本（馆藏未载）；西京清麓叢書本（馆藏未载）；明正德間李習刻本（北京大學圖書館）；清乾隆十三年刻本（馆藏未载）；清康熙四十五年周元文刻乾隆十三年李騰暉重修本（南京圖書館）；清光緒九年刻本（國家圖書館）；復性書院叢刊本（馆藏未载）；清光緒五年張國正刻本（國家圖書館、南京圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：y47nad3fmk1kbvcz、zxwyii6ndjwksyyb、khojjhs8kttib7zv、gqc1arztwd471z44、vewes826iyq8p0xe、gd3lhtled8u167oy、r24ki4dp6gwlfvjh、hj3w6pyo2bdpuuss、08hf0n0vwa7l2l7z、erej7v575fjqixxd\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 10 批新建（hold 清零：子部E机械落地b2:E-M-new；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。",
-  "revision": "1.2.0",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：y47nad3fmk1kbvcz、zxwyii6ndjwksyyb、khojjhs8kttib7zv、gqc1arztwd471z44、vewes826iyq8p0xe、gd3lhtled8u167oy、r24ki4dp6gwlfvjh、hj3w6pyo2bdpuuss、08hf0n0vwa7l2l7z、erej7v575fjqixxd\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 10 批新建（hold 清零：子部E机械落地b2:E-M-new；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条、國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -74,6 +74,76 @@
         "waseda_id": "ro13_01078",
         "edition": "正保4[1647]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610806",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610806",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610806",
+        "request_no": "２９８－０１６７",
+        "edition": "刊本::正保:040000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3636280/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610974",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610974",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610974",
+        "request_no": "２９８－０１７０",
+        "edition": "写本:江戸初:::林羅山",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3744951/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200021556",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200021556",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200021556",
+        "holder": "国文研",
+        "edition": "刊 正保４",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200021556/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100452820",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100452820",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100452820",
+        "holder": "東洋大哲学堂",
+        "edition": "刊 正保４",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100452820/manifest"
+      }
     }
   ],
   "resource_groups": {
@@ -82,6 +152,18 @@
     },
     "waseda-ro13_01078": {
       "label": "早稲田藏本：正保4[1647]"
+    },
+    "naikaku-3610806": {
+      "label": "內閣文庫藏本：正保4年刊本（298-0167，2冊）"
+    },
+    "naikaku-3610974": {
+      "label": "內閣文庫藏本：江戸初写本 林羅山（298-0170，2冊）"
+    },
+    "kokusho-200021556": {
+      "label": "國書·国文研藏刊 正保４"
+    },
+    "kokusho-100452820": {
+      "label": "國書·東洋大哲学堂藏刊 正保４"
     }
   }
 }

@@ -32,9 +32,9 @@
       "summary": "共 2 個版本：明萬曆二年支秉中刻本（國家圖書館）；抄本（黑龍江省圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fzqjuzau2mz23zng、ifkjcxgywlknrtpp\nE6 第 424 批新建（hold 清零：E；原 hold 原因：-）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fzqjuzau2mz23zng、ifkjcxgywlknrtpp\nE6 第 424 批新建（hold 清零：E；原 hold 原因：-）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -50,11 +50,53 @@
         "nlc_fid": "411999016544",
         "edition": "明万历二年[1574]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079502",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079502",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079502",
+        "request_no": "子０４８－００２０",
+        "edition": "刊本（序刊）::明万暦:020000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4756709/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079834",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079834",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079834",
+        "request_no": "３０４－００７０",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4917426/manifest.json",
+        "extent": "3冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999016544": {
       "label": "國圖藏本：明万历二年[1574]"
+    },
+    "naikaku-1079502": {
+      "label": "內閣文庫藏本：明万暦2年刊本（序刊）（子048-0020，2冊）"
+    },
+    "naikaku-1079834": {
+      "label": "內閣文庫藏本：江戸写本（304-0070，3冊）"
     }
   }
 }
