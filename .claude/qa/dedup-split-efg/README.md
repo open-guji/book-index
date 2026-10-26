@@ -20,3 +20,4 @@ open-guji-core/book_index_json `library_data/上海圖書館古籍聯合目錄�
 ## 批次
 - batch-01（样本）：20 个原 Book，新建 83 个。门禁：build_derived --check-only fatal 0（dangling Book.work_id 4 为 main 既有，非本批）；check_v2 103 档 ERROR 0；check_schema 无 book 类 ERROR（Work／Entity 既有）；check-classification 0；check_promo_dup 0；check-duplicate-audit PASS。
   抽检（独立子 agent，全检 20 个原 Book／103 档）：拆错、归错 Collection、provenance 分错、字段误改、索引错均 0；拆后每个（Work, Collection）只一个 Book。小瑕 6 处已改工具后重落：新档文件名只用题名（不带旧版本名）、ai_note 区分「各源記錄標注一致」与「聚簇代表記錄」、滤掉总目解析杂质「磧砂延聖院刻」。待议：子目版本标注与所挂版次相合时是否保留 edition_type／publication_info（现一律去、记 ai_note）。
+- batch-02：225 个原 Book，新建 538 个（main 026eda1）。门禁：check_v2 763 档 ERROR 0；check_schema 无 book 类 ERROR；check-classification 0；check_promo_dup 0；check-duplicate-audit PASS；build_derived --check-only fatal 0、dangling 0。
