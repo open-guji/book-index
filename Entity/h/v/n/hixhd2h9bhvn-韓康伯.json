@@ -4,7 +4,7 @@
   "primary_name": "韓康伯",
   "dynasty": "東晉",
   "period_basis": "據 dynasty「東晉」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條；去其指向不存在之 work 的懸空繫連 1 條（原值：[{\"work_id\": \"1ex3wl5bkm7sx\", \"role\": \"注\"}]）。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ssrrv6o。\n\n2026-09-06 《補晉書經籍志》（吳士鑑）整理：收《繫辭注》(d59f9s18wruq)。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條；去其指向不存在之 work 的懸空繫連 1 條（原值：[{\"work_id\": \"1ex3wl5bkm7sx\", \"role\": \"注\"}]）。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ssrrv6o。\n\n2026-09-06 《補晉書經籍志》（吳士鑑）整理：收《繫辭注》(d59f9s18wruq)。\n\nA12 非作者人物 正史列傳 M3（晉）：補別名 韓伯（2026-10-26）。已併入 hixhd2h9bguy「韓伯」（同人，名伯字康伯）。",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "period": "jin",
   "alt_names": [
@@ -16,6 +16,11 @@
     {
       "name": "康伯",
       "type": "字"
+    },
+    {
+      "name": "韓伯",
+      "type": "別名",
+      "note": "本名"
     }
   ],
   "subtype": "people",
@@ -27,6 +32,10 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/pgi67y6dxbetsv3j"
+      },
+      {
+        "name": "《晉書·韓伯傳》",
+        "details": "卷075"
       }
     ]
   },
@@ -35,6 +44,23 @@
     "death": 380,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "external_ids": {
+    "cbdb_id": 432778,
+    "cbdb_match": "auto",
+    "cbdb_source": "name_exact+dy_match+unique",
+    "wikidata_id": "Q65886497"
+  },
+  "merged_in": [
+    {
+      "id": "hixhd2h9bguy",
+      "primary_name": "韓伯",
+      "at": "2026-10-26",
+      "by": "A12-正史列傳M3",
+      "rule": "同人：名伯字康伯",
+      "why": "《晉書·韓伯傳》：韓伯字康伯；兩條所繫《周易繫辭注》《韓康伯集》《周易繫辭韓康伯注》同為晉太常韓康伯之書，判同人"
+    }
+  ],
+  "title_or_office": "吏部尚書"
 }
