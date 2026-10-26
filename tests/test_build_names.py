@@ -179,3 +179,27 @@ def test_mark_default_rules():
     c = [{'id': 'x', 'via': '去通名', 'level': '縣'}, {'id': 'z', 'via': '去通名', 'level': '縣'}]
     names.mark_default(c, {})
     assert not any(x.get('default') for x in c)                   # 最低一級兩條 → 不標
+
+
+def test_place_concrete_tier(tmp_path):
+    """地名兩層：朝代條 concept_id 反查成跨朝條之 `_concretes`；鍵表候選帶 place_level／dynasties，朝代條不標 default。"""
+    root = str(tmp_path / 'repo')
+    seg = lambda s, e, n, lv='縣', **k: dict({'start': s, 'end': e, 'name': n, 'level': lv}, **k)
+    pl = [
+        ent(DY_NS, 'dynasty', '北宋', dates={'start': 960, 'end': 1127}),
+        ent(DY_MING, 'dynasty', '明', dates={'start': 1368, 'end': 1644}),
+        ent('e00000pc01', 'place', '平陸縣', history=[seg(960, 1644, '平陸縣')]),
+        ent('e00000pc02', 'place', '平陸縣', place_level='concrete', dynasty_ids=[DY_MING], concept_id='e00000pc01',
+            history=[seg(1368, 1644, '平陸縣', dynasty_ids=[DY_MING])]),
+        ent('e00000pc03', 'place', '平陸縣', place_level='concrete', dynasty_ids=[DY_NS], concept_id='e00000pc01',
+            history=[seg(960, 1127, '平陸縣', dynasty_ids=[DY_NS])]),
+    ]
+    for d in pl:
+        S.put(root, 'Entity', d)
+    _, P = build(root)
+    cc = P['entry/e00000pc01.json']['_concretes']
+    assert [(x['id'], x['dynasties']) for x in cc] == [('e00000pc03', ['北宋']), ('e00000pc02', ['明'])]   # 按起年
+    k = P['place_keys.json']['keys']['平陸縣']
+    assert {c['id']: c.get('place_level') for c in k} == {'e00000pc01': None, 'e00000pc02': 'concrete',
+                                                          'e00000pc03': 'concrete'}
+    assert [c['id'] for c in k if c.get('default')] == ['e00000pc01']
