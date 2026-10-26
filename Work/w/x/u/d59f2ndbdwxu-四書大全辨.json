@@ -13,7 +13,7 @@
       "role": "撰"
     }
   ],
-  "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書四書類著錄「張氏（自烈）四書大全辨」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「存」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzl1bg1`.dynasty「明」propagate 補齊；work.dynasty 同步。",
+  "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書四書類著錄「張氏（自烈）四書大全辨」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「存」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzl1bg1`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "indexed_by": [
     {
       "source": "經義考",
@@ -49,6 +49,52 @@
   },
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074268",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074268",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074268",
+        "request_no": "２７７－０１７７",
+        "edition": "刊本（序刊）::清順治:080000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3610504/manifest.json",
+        "extent": "28冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071407",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071407",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071407",
+        "request_no": "経０６７－０００２",
+        "edition": "刊本（序刊）::清順治:080000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4427573/manifest.json",
+        "extent": "50冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1074268": {
+      "label": "內閣文庫藏本：清順治8年刊本（序刊）（277-0177，28冊）"
+    },
+    "naikaku-1071407": {
+      "label": "內閣文庫藏本：清順治8年刊本（序刊）（経067-0002，50冊）"
+    }
+  }
 }
