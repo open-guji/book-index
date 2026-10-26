@@ -29,6 +29,14 @@
       "edition": "北京圖書館藏明嘉靖十六年司馬泰刻本",
       "volume": "第75冊",
       "section": "集部"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "半洲稿四卷（北寓稿、南行稿、西征稿、東巡稿各一卷）",
+      "author_info": "明蔡經撰",
+      "section": "集部/別集類/明代之屬",
+      "summary": "共 1 個版本：明嘉靖十六年司馬泰刻本（國家圖書館）"
     }
   ],
   "juan_count": {
@@ -58,6 +66,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL02062212_%E5%8D%8A%E6%B4%B2%E7%A8%BF%EF%BC%88%E4%BA%8C%EF%BC%89.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999022286",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999022286",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999022286",
+        "edition": "明嘉靖16年[1537]"
+      }
     }
   ],
   "measures": [
@@ -72,7 +95,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a：同题同首位责任者逐组复核并（3c 改名后转入））：併 d59fxt07vgn5《半洲稿》 入本條。同题同首位责任者（3c 勘误后）：《半洲稿》張經(明,4卷,欽定四庫全書總目/四庫全書存目叢書)；《半洲稿》張經(明,?卷,中國古籍總目)；逐组复核判同一作品：同題同撰人，各志／總目分别著錄之同書",
   "description": {
     "text": "張經（明）撰。四卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》。《四庫全書存目叢書》列於集部。其著錄之文，《四庫全書存目叢書》作「《半洲稿》四卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -80,6 +103,28 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "nlc-411999022286": {
+      "label": "國圖藏本：明嘉靖16年[1537]"
+    }
+  },
+  "merged_in": [
+    {
+      "id": "d59fxt07vgn5",
+      "title": "半洲稿",
+      "at": "2026-10-26T10:40:17Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a：同题同首位责任者逐组复核并（3c 改名后转入）",
+      "why": "同题同首位责任者（3c 勘误后）：《半洲稿》張經(明,4卷,欽定四庫全書總目/四庫全書存目叢書)；《半洲稿》張經(明,?卷,中國古籍總目)；逐组复核判同一作品：同題同撰人，各志／總目分别著錄之同書",
+      "author": "張經",
+      "title_info": [
+        "半洲稿四卷（北寓稿、南行稿、西征稿、東巡稿各一卷）"
+      ]
+    }
+  ],
+  "merged_from": [
+    "d59fxt07vgn5"
+  ]
 }
