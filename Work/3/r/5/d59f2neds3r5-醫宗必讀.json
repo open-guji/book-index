@@ -28,7 +28,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（A7 转交 NDL）。",
   "juan_count": {
     "number": 10
   },
@@ -172,6 +172,21 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4254559/manifest.json",
         "extent": "18冊"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2605556",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2605556",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2605556",
+        "edition": "貞享4序"
+      }
     }
   ],
   "updated_at": "2026-08-09T10:41:40+00:00",
@@ -179,8 +194,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "kokusho-100232428": {
       "label": "國書·研医会図藏刊 貞享４"
@@ -199,6 +214,9 @@
     },
     "naikaku-1082803": {
       "label": "內閣文庫藏本：貞享4年刊本（301-0048，18冊）"
+    },
+    "ndl-2605556": {
+      "label": "NDL藏本：貞享4序"
     }
   }
 }
