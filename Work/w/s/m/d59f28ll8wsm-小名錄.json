@@ -111,11 +111,30 @@
         "nlc_fid": "411999013172",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i04_00139",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i04/i04_00139_0020/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i04_00139",
+        "edition": "嘉慶11[1806]序"
+      },
+      "note": "合刻：另含藥譜、異疾志、大藏治病藥"
     }
   ],
   "resource_groups": {
     "nlc-411999013172": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "waseda-i04_00139": {
+      "label": "早稲田藏本：嘉慶11[1806]序"
     }
   },
   "measures": [
@@ -125,7 +144,7 @@
     }
   ],
   "measure_info": "二卷",
-  "ai_note": "從 31hyr5d6dte16 合併。原註：作者「唐陸龜蒙撰」補自《國立故宮博物院善本舊籍》目錄。　合併：題名「陸龜蒙小名錄」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「陸龜蒙」已見本條 authors[]），裸題「小名錄」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwxiicrnk 與 11q37rtheghs0 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…隋，而此本無隋人。殆非完書矣。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\nE史 426跨批同題待判並入（Sabine 10-16 批）：總目記錄 6qbx3i5pappyul8v 同題同作者同朝",
+  "ai_note": "從 31hyr5d6dte16 合併。原註：作者「唐陸龜蒙撰」補自《國立故宮博物院善本舊籍》目錄。　合併：題名「陸龜蒙小名錄」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「陸龜蒙」已見本條 authors[]），裸題「小名錄」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwxiicrnk 與 11q37rtheghs0 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…隋，而此本無隋人。殆非完書矣。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\nE史 426跨批同題待判並入（Sabine 10-16 批）：總目記錄 6qbx3i5pappyul8v 同題同作者同朝\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
   "updated_at": "2026-08-09T09:00:59+00:00",
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「唐」",
@@ -152,7 +171,7 @@
       "新唐書藝文志"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant"
 }
