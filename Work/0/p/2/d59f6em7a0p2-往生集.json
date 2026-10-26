@@ -35,10 +35,10 @@
   "measure_info": "三卷",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
-  "ai_note": "撰人切分來源：又條承上。 同名異書：庫內已有同題「往生集」而撰人各異（非濁(遼)），本條撰人「祩宏」與之不合，依《千頃堂書目》著錄逕行新建。",
+  "ai_note": "撰人切分來源：又條承上。 同名異書：庫內已有同題「往生集」而撰人各異（非濁(遼)），本條撰人「祩宏」與之不合，依《千頃堂書目》著錄逕行新建。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
   "id": "d59f6em7a0p2",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -47,8 +47,70 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:WZLib-DB-527461_%E5%BE%80%E7%94%9F%E9%9B%86%E4%B8%89%E5%8D%B7%E9%99%84%E4%B8%80%E5%8D%B7.pdf"
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100354776",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100354776",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100354776",
+        "holder": "西厳寺",
+        "edition": "刊 承応１",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100354776/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200011917",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200011917",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200011917",
+        "holder": "国文研",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200011917/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300092680",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300092680",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300092680",
+        "holder": "東洋大哲学堂",
+        "edition": "刊 承応１",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300092680/manifest"
+      }
     }
   ],
   "period": "ming",
-  "period_basis": "據撰人 祩宏（hixhd2h9bkj6） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）"
+  "period_basis": "據撰人 祩宏（hixhd2h9bkj6） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）",
+  "resource_groups": {
+    "kokusho-100354776": {
+      "label": "國書·西厳寺藏刊 承応１"
+    },
+    "kokusho-200011917": {
+      "label": "國書·国文研藏刊"
+    },
+    "kokusho-300092680": {
+      "label": "國書·東洋大哲学堂藏刊 承応１"
+    }
+  }
 }
