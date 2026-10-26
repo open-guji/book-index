@@ -54,15 +54,15 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 lane-B 併條（rule=I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一））：併 d59f2nitwu0x《像抄》 入本條。同題同撰人而**題止異體字之異**：「像鈔」對「像抄」。keeper 繫 欽定四庫全書總目；被併者繫 四庫全書存目叢書。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 lane-B 併條（rule=I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一））：併 d59f2nitwu0x《像抄》 入本條。同題同撰人而**題止異體字之異**：「像鈔」對「像抄」。keeper 繫 欽定四庫全書總目；被併者繫 四庫全書存目叢書。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "錢一本（明）撰。六卷。見著錄於《欽定四庫全書總目》。本書惟《欽定四庫全書總目》一志著錄，別無他證。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -71,6 +71,22 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-00099_%E5%83%8F%E6%8A%84.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00099",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00099",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00099",
+        "call_number": "101.2 00099",
+        "edition": "明萬曆四十一年(1613)毘陵錢氏原刊本"
+      }
     }
   ],
   "additional_titles": [
@@ -85,5 +101,10 @@
       "rule": "I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一）",
       "why": "同題同撰人而**題止異體字之異**：「像鈔」對「像抄」。keeper 繫 欽定四庫全書總目；被併者繫 四庫全書存目叢書。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-00099": {
+      "label": "臺灣國家圖書館藏本：明萬曆四十一年(1613)毘陵錢氏原刊本"
+    }
+  }
 }
