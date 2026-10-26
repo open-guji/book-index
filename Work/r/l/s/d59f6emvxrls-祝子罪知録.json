@@ -71,7 +71,7 @@
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "id": "d59f6emvxrls",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -146,6 +146,22 @@
       ],
       "id": "wikisource",
       "url": "https://zh.wikisource.org/wiki/%E7%A5%9D%E5%AD%90%E7%BD%AA%E7%9F%A5%E9%8C%84"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07022",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07022",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07022",
+        "call_number": "308 07022",
+        "edition": "明萬曆間(1573-1620)刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -154,6 +170,9 @@
     },
     "nlc-411999030950": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "ncltw-07022": {
+      "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)刊本"
     }
   },
   "period": "ming",
@@ -175,7 +194,7 @@
       "title_info": "《祝子罪知》•七卷；《祝子罪知錄》十卷；《祝子罪知錄》十卷"
     }
   ],
-  "ai_note": "2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（增刪坊刻前綴／集錄鈔等後綴）同首位責任者，B檔並）：併 d59f2nkd5u69《祝子罪知》 入本條。近題同首位責任者：《祝子罪知録》祝允明／《祝子罪知》祝允明；祝子罪知条内已挂续修与存目祝子罪知錄十卷，二者同书",
+  "ai_note": "2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（增刪坊刻前綴／集錄鈔等後綴）同首位責任者，B檔並）：併 d59f2nkd5u69《祝子罪知》 入本條。近題同首位責任者：《祝子罪知録》祝允明／《祝子罪知》祝允明；祝子罪知条内已挂续修与存目祝子罪知錄十卷，二者同书\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "merged_from": [
     "d59f2nkd5u69"
   ]

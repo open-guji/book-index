@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-06 qa-sweep/song·G 類淨題撞庫得正條，逐條裁併：併入 `d59f2hs2fsow`《臨川先生文集一百卷目錄》。據：source（二卷，目錄）與 keeper（四十冊）皆王安石《臨川先生文集》，同書。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 40 取自 `measure_info`「四十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-06 qa-sweep/song·G 類淨題撞庫得正條，逐條裁併：併入 `d59f2hs2fsow`《臨川先生文集一百卷目錄》。據：source（二卷，目錄）與 keeper（四十冊）皆王安石《臨川先生文集》，同書。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 40 取自 `measure_info`「四十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,7 +31,7 @@
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "merge_history": [
     {
@@ -246,6 +246,54 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3746249/manifest.json",
         "extent": "12冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10150",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10150",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10150",
+        "call_number": "402.52 10150",
+        "edition": "宋紹興辛未(二十一年, 1151)提舉兩浙西路常平茶鹽王珏刊宋元明初遞修本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10151",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10151",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10151",
+        "call_number": "402.52 10151",
+        "edition": "宋紹興辛未(二十一年, 1151)提舉兩浙西路常平茶鹽王珏刊宋元明初遞修本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10152",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10152",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10152",
+        "call_number": "402.52 10152",
+        "edition": "明嘉靖三十九年(1560)何遷撫州刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -284,6 +332,15 @@
     },
     "naikaku-3611287": {
       "label": "內閣文庫藏本：明嘉靖25年刊本（315-0077，12冊）"
+    },
+    "ncltw-10150": {
+      "label": "臺灣國家圖書館藏本：宋紹興辛未(二十一年, 1151)提舉兩浙西路常平茶鹽王珏刊宋元明初遞修本"
+    },
+    "ncltw-10151": {
+      "label": "臺灣國家圖書館藏本：宋紹興辛未(二十一年, 1151)提舉兩浙西路常平茶鹽王珏刊宋元明初遞修本"
+    },
+    "ncltw-10152": {
+      "label": "臺灣國家圖書館藏本：明嘉靖三十九年(1560)何遷撫州刊本"
     }
   },
   "indexed_by": [
