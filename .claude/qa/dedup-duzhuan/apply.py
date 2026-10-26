@@ -38,7 +38,7 @@ for it in plan:
     if not au.get('dynasty'): au.pop('dynasty', None)
     eid = it.get('entity_id') if it.get('entity_id') in live else None
     if eid: au['entity_id'] = eid
-    au['role_basis'] = '總目叢書部獨撰類子目不另題撰人，據所屬叢書《%s》（%s）撰者著錄' % (it['col_title'], it['col_id'])
+    au['role_basis'] = '總目叢書部獨撰類子目不另題撰人，據所屬叢書《%s》（%s）撰者著錄' % (it['col_title'], it['col_id']) + ('；責任方式據題名括注' if au['role'] != '撰' else '')
     d['authors'] = [au]
     old = d.get('revision')
     d['revision'] = bump(old); d['revised_at'] = TODAY

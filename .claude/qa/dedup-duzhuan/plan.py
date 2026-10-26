@@ -89,6 +89,12 @@ PERIOD_OK = {'民國以來': {'清', '民國'}, '清代後期': {'清', '民國'
 LATE = {'明', '清', '民國'}
 BIO_T = re.compile(r'年譜|行狀|行述|行實|行略|墓誌|墓表|神道碑|事略|事狀|家傳|別傳|傳略|附錄|祭文|輓|挽[詩詞聯]|誄|哀[辭詞]|題詞|贈言|壽[言序詩]|紀念|遺事|祠記|褒榮|恩榮|誥[命敕]')
 
+BRK = re.compile(r'［([^］]*[校補注][^］]*)］')
+def brole(t):
+    # 題名帶「［校正］」「［校補］」等（羣書拾補之類）：是撰者對他書的校補，責任方式照括注
+    m = BRK.search(t or '')
+    return m.group(1) if m else '撰'
+
 plan = []; held = []
 def hold(c, why, extra=''):
     held.append((c['id'], c['title'], c['colname'] or '', why, extra))
@@ -144,7 +150,7 @@ for c in cands:
             if ok and (not ename.get(n) or e in ename[n]): eid, basis = e, '全库该名唯一人物'
     plan.append(dict(id=c['id'], path=c['path'], title=c['title'], revision=c['revision'],
                      col_id=cd['id'], col_title=cd.get('title'), col_path=cpath,
-                     author=dict(name=au['name'], role='撰', dynasty=dy), col_role=au.get('role'),
+                     author=dict(name=au['name'], role=brole(c['title']), dynasty=dy), col_role=au.get('role'),
                      entity_id=eid, entity_basis=basis, same_title_same_author=same, mixed_title=bool(diff)))
 
 json.dump(plan, open(a.out + '/plan.json', 'w'), ensure_ascii=False, indent=1)
