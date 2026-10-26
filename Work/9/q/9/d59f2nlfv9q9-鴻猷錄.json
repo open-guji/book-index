@@ -95,6 +95,51 @@
       "types": [
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-0270",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0270",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0270",
+        "edition": "明嘉靖[1522-1566]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999016506",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999016506",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999016506",
+        "edition": "明萬曆4年[1576]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999004572",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999004572",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999004572",
+        "edition": "明[1368-1644]"
+      }
     }
   ],
   "measures": [
@@ -110,12 +155,23 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1evkag1zvs4jk 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "從 1evkag1zvs4jk 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "nlc-0270": {
+      "label": "國圖藏本：明嘉靖[1522-1566]"
+    },
+    "nlc-411999016506": {
+      "label": "國圖藏本：明萬曆4年[1576]"
+    },
+    "nlc-411999004572": {
+      "label": "國圖藏本：明[1368-1644]"
+    }
+  }
 }

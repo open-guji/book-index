@@ -47,7 +47,23 @@
   "juan_count": {
     "number": 118
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-003289996",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=003289996",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "003289996",
+        "edition": "清康熙15年[1676]"
+      }
+    }
+  ],
   "measures": [
     {
       "unit": "卷",
@@ -62,19 +78,24 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "從 1evjxo1jlzwn4 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3be7vs0u0w(汪琬)（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjxo1jlzwn4 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3be7vs0u0w(汪琬)（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。",
   "updated_at": "2026-08-09T10:40:18+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fyf8vw16o",
       "relation": "related",
       "note": "P11 批1b（Sabine 重判）：總目題名「鈍庵前後類稿六十二卷」與候選 Work「鈍翁前後類稿」題名有別，判為不同著作（不並）；互為相關。（形近待核或分集／別書，原书未核）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-003289996": {
+      "label": "國圖藏本：清康熙15年[1676]"
+    }
+  }
 }
