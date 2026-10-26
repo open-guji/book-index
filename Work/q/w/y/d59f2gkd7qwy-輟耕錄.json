@@ -36,7 +36,7 @@
       "欽定四庫全書總目"
     ]
   },
-  "ai_note": "missing_reason: 作者冲突 work=陶宗儀 vs anno=元陶九成 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-20 磁鐵拆解專項（全域，卷數定其一）：「《輟耕錄》•三十卷」一節原繫於磁鐵條（`1ev3bck38rt34`），庫中同題之 work 不止一個，然唯本條之卷數與之合，且本條非磁鐵，故歸本條並補其著錄。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "missing_reason: 作者冲突 work=陶宗儀 vs anno=元陶九成 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-20 磁鐵拆解專項（全域，卷數定其一）：「《輟耕錄》•三十卷」一節原繫於磁鐵條（`1ev3bck38rt34`），庫中同題之 work 不止一個，然唯本條之卷數與之合，且本條非磁鐵，故歸本條並補其著錄。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 3 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
   "id": "d59f2gkd7qwy",
   "measures": [
     {
@@ -50,8 +50,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -67,11 +67,125 @@
         "nlc_fid": "411999025535",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko11_d0008",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko11/bunko11_d0008/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko11_d0008",
+        "edition": "承応元[1652]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i05_00003",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i05/i05_00003/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i05_00003",
+        "edition": "[京都] : 中野是誰, 承応元[1652]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i05_01907",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i05/i05_01907/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i05_01907",
+        "edition": "[京都] : 中野是誰, 承応元[1652]"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100354684",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100354684",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100354684",
+        "holder": "西厳寺",
+        "edition": "刊 承応１",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100354684/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200011939",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200011939",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200011939",
+        "holder": "国文研",
+        "edition": "刊 承応１",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200011939/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200020699",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200020699",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200020699",
+        "holder": "国文研鵜飼",
+        "edition": "刊 承応１",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200020699/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999025535": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "waseda-bunko11_d0008": {
+      "label": "早稲田藏本：承応元[1652]"
+    },
+    "waseda-i05_00003": {
+      "label": "早稲田藏本：[京都] : 中野是誰, 承応元[1652]"
+    },
+    "waseda-i05_01907": {
+      "label": "早稲田藏本：[京都] : 中野是誰, 承応元[1652]"
+    },
+    "kokusho-100354684": {
+      "label": "國書·西厳寺藏刊 承応１"
+    },
+    "kokusho-200011939": {
+      "label": "國書·国文研藏刊 承応１"
+    },
+    "kokusho-200020699": {
+      "label": "國書·国文研鵜飼藏刊 承応１"
     }
   }
 }

@@ -7,7 +7,7 @@ import argparse, glob, hashlib, json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 import jio  # noqa: E402
-TODAY = '2026-10-25'
+TODAY = '2026-10-26'
 ap = argparse.ArgumentParser(); ap.add_argument('plan'); ap.add_argument('batch')
 ap.add_argument('--ids'); ap.add_argument('--skip-ids'); ap.add_argument('--start', type=int, default=0); ap.add_argument('--count', type=int)
 ap.add_argument('--apply', action='store_true')
@@ -39,12 +39,17 @@ for it in plan:
     eid = it.get('entity_id') if it.get('entity_id') in live else None
     if eid: au['entity_id'] = eid
     au['role_basis'] = '總目叢書部獨撰類子目不另題撰人，據所屬叢書《%s》（%s）撰者著錄' % (it['col_title'], it['col_id']) + ('；責任方式據題名括注' if au['role'] != '撰' else '')
+    if it.get('reviewed'):
+        cn = [x.get('name') for x in json.load(open(os.path.join(jio.ROOT, it['col_path']))).get('authors') or [] if x.get('name')]
+        if au['name'] not in cn and len(cn) == 1:
+            au['original_name'] = cn[0]; au['name_basis'] = '叢書著錄作「%s」，逐條覆核改正' % cn[0]
+        au['role_basis'] = '總目叢書部獨撰類子目不另題撰人；據所屬叢書《%s》（%s）責任者著錄並逐條覆核：%s' % (it['col_title'], it['col_id'], it['reviewed'])
     d['authors'] = [au]
     old = d.get('revision')
     d['revision'] = bump(old); d['revised_at'] = TODAY
     jio.addnote(d, '【獨撰子目补撰人】據所屬叢書《%s》（%s）撰者%s%s補 authors%s（%s）' % (
         it['col_title'], it['col_id'], au['name'], '（%s）' % au['dynasty'] if au.get('dynasty') else '',
-        '；entity_id 依據：' + it['entity_basis'] if eid else '', TODAY))
+        ('；entity_id 依據：' + it['entity_basis'] if eid else '') + ('；逐條覆核' if it.get('reviewed') else ''), TODAY))
     if a.apply: jio.save(it['path'], d, fmt)
     done.append(dict(id=it['id'], path=it['path'], sha256_before=hashlib.sha256(raw).hexdigest(), revision_before=old,
                      author=au, col_id=it['col_id'], col_title=it['col_title'], entity_basis=it.get('entity_basis') if eid else None))

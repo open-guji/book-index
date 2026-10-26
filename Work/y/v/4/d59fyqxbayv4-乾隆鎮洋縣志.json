@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/pav7hib8zifoqads"
-      }
+      },
+      "entity_id": "hixicmxp59cj"
     },
     {
       "name": "金鴻",
@@ -39,7 +40,32 @@
       "summary": "共 2 個版本：清乾隆十年刻本（中國科學院圖書館、南京圖書館、上海圖書館、天津圖書館）；清抄本（遼寧省圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：hrqd2vdxhabfr3sz、lxmejsf7wp5ovpsn\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-20"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：hrqd2vdxhabfr3sz、lxmejsf7wp5ovpsn\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068656",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068656",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068656",
+        "request_no": "史１６５－０００６",
+        "edition": "刊本（序刊）::清乾隆:090000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4760259/manifest.json",
+        "extent": "10冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1068656": {
+      "label": "內閣文庫藏本：清乾隆9年刊本（序刊）（史165-0006，10冊）"
+    }
+  }
 }

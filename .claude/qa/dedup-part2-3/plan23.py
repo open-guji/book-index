@@ -27,7 +27,7 @@ T2S = opencc.OpenCC('t2s')
 EXTRA = str.maketrans('髙寜啓啟爲衆敎峯煕熈彜彞誌', '高寧启启为众教峰熙熙彝彝志')
 URI = re.compile(r'entity/person/(\w+)')
 ANON = re.compile(r'^(佚名|闕名|缺名|無名氏?|失名|不著撰人|不著撰者|不題撰人|不詳|撰者不詳|未詳|不詳纂修人|不詳撰人|撰人不詳)$|^□+$')
-BROKEN = re.compile(r'[□&;；,，、 ]|\?|？|⿰|⿱|⿲|⿳|⿴|⿵|⿶|⿷|⿸|⿹|⿺|⿻|（|）|\(|\)')
+BROKEN = re.compile(r'[□〓\[\]【】&;；,，、 \ue000-\uf8ff]|\?|？|⿰|⿱|⿲|⿳|⿴|⿵|⿶|⿷|⿸|⿹|⿺|⿻|（|）|\(|\)')
 ORG4 = re.compile(r'(局|館|会|會|公司|廳|院|社|處|部|府|衙門|學堂|學校|委員會|書店|書莊|銀號|總號|藥號|藥房|署|司|所|廠|營|堂|書院|政府|議會|大學|中學|小學|女學|省|報|股|室|團|組|監|科|大臣|會員|留學生|編輯|調查)$')
 ORG3 = re.compile(r'(局|館|社|院|監|部|處|廳|衙門|公司|書莊|銀號|藥號)$')
 PLACEHOLDER = re.compile(r'不詳|不著|名氏|未詳|闕名|佚名')
@@ -50,6 +50,11 @@ C2 = [('趙宋', '宋'), ('北宋', '宋'), ('南宋', '宋'), ('宋末', '宋')
       ('西周', '先秦'), ('東周', '先秦'), ('周', '先秦'), ('春秋', '先秦'), ('戰國', '先秦'), ('先秦', '先秦'), ('商', '先秦'), ('殷', '先秦'), ('夏', '先秦'), ('上古', '先秦')]
 ADJ = {frozenset(x) for x in [('先秦', '秦'), ('秦', '漢'), ('先秦', '漢'), ('漢', '三國'), ('三國', '晉'), ('晉', '十六國'), ('晉', '南北朝'), ('十六國', '南北朝'), ('南北朝', '隋'), ('隋', '唐'),
                               ('唐', '五代'), ('五代', '宋'), ('五代', '遼'), ('宋', '遼'), ('宋', '金'), ('遼', '金'), ('宋', '元'), ('金', '元'), ('元', '明'), ('明', '清'), ('清', '民國')]}
+
+
+ANCIENT = {'先秦', '秦', '漢', '三國', '晉', '十六國', '南北朝', '隋', '唐', '五代', '宋', '遼', '金', '元'}
+REIGN_T = re.compile(r'^\[(民國|順治|康熙|雍正|乾隆|嘉慶|道光|咸豐|同治|光緒|宣統)\]')
+MODERN_T = re.compile(r'泰西|新史|報告|聯合會|學堂|章程')
 
 
 def coarse2(d):
@@ -149,12 +154,22 @@ def main():
         if n != n.strip() or BROKEN.search(n) or len(n) < 2: hold(s, '名字含缺字/分隔/括注或单字'); continue
         if (len(n) >= 4 and ORG4.search(n)) or (len(n) == 3 and ORG3.search(n)) or loose(n) in othernames: hold(s, '机构或非人物专名'); continue
         if len(n) >= 4 and '·' not in n and GARBLE.fullmatch(n) and not n.startswith('釋'): hold(s, '疑名字粘连责任方式'); continue
-        if len(n) >= 3 and n[-1] in '藏並等':
+        if len(n) >= 3 and n[-1] in '藏並等' or (len(n) >= 5 and re.search(r'(局制|鹽使|運使|按察使|布政使)$', n)):   # 乙01 抽检：上海巡警總局制
             hold(s, '疑名字粘连责任方式'); continue
         if DEITY.search(n): hold(s, '神号或托名'); continue
+        if '囗' in n: hold(s, '名字含缺字/分隔/括注或单字'); continue   # 丙01 抽检：沈囗（囗 U+56D7 作缺字用）
+        if re.search(re.escape(n) + r'[（(][^）)]{1,6}[）)]', s['author_info']):
+            hold(s, '原文括注另名待核'); continue   # 丙01 抽检：徐太室（學謨）＝已有徐學謨；括注多为本名／字，归 2.2 核
+        if len(n) <= 3 and n.endswith('公'): hold(s, '神号或托名'); continue   # 丙01 抽检：題宋漁陽公撰
+        if re.search('(宋宋|唐唐|明明|元元|金金|漢漢|晉晉|魏魏|梁梁|陳陳|周周|齊齊|吳吳)' + re.escape(n), s['author_info']):
+            hold(s, '朝代字与姓重叠被切'); continue   # 抽检 b02：「宋宋爲仁撰」切成爲仁
         if len(n) >= 3 and any(len(k) > len(loose(n)) and k.endswith(loose(n)) for k in suffixidx.get(loose(n)[-3:], ())):
             hold(s, '名为已有人物名之后缀待核'); continue   # 抽检 b01v2：赤心子＜起北赤心子
-        if (re.search(r'(軒|齋|斋|堂|閣|樓|館|室|廬|園|山房|書屋|居|亭|庵|菴)(主人)?$', n) or n.endswith('氏')) and ('題' + n) in s['author_info']:
+        if '囗' in n: hold(s, '名字含缺字/分隔/括注或单字'); continue   # 丙01 抽检：沈囗（囗 U+56D7 作缺字用）
+        if re.search(re.escape(n) + r'[（(][^）)]{1,6}[）)]', s['author_info']):
+            hold(s, '原文括注另名待核'); continue   # 丙01 抽检：徐太室（學謨）＝已有徐學謨；括注多为本名／字，归 2.2 核
+        if len(n) <= 3 and n.endswith('公'): hold(s, '神号或托名'); continue   # 丙01 抽检：題宋漁陽公撰
+        if (re.search(r'(軒|齋|斋|堂|閣|樓|館|室|廬|園|山房|書屋|居|亭|庵|菴)(主人)?$', n) or n.endswith('氏')) and re.search('題[^;；|]{0,3}' + re.escape(n), s['author_info']):   # 抽检 b02：題清掄花館主人
             hold(s, '题署室名'); continue
         if DYPFX2.match(n): hold(s, '疑名前粘朝代'); continue
         ai = s['author_info']
@@ -224,7 +239,8 @@ def main():
             continue
         if len(ss) >= 2:
             ts = [s['title'] or '' for s in ss]
-            if any('硃卷' in t for t in ts) and not all('硃卷' in t for t in ts):
+            EXAM = re.compile(r'硃卷|貢卷|試卷|闈墨')   # 乙01 抽检：彭飛熊、季學英等「優貢卷」＋族谱，同硃卷
+            if any(EXAM.search(t) for t in ts) and not all(EXAM.search(t) for t in ts):
                 for s in ss: hold(s, '硃卷与他书同名待核')   # 抽检 spot1：张二铭、张家俊皆硃卷＋谱／志异人
                 continue
             pu = [s for s in ss if '譜' in (s['title'] or '') or '乘' in (s['title'] or '')]
@@ -235,9 +251,13 @@ def main():
                     for s in ss: hold(s, '谱牒异地或刊年相距逾40年', '/'.join(sorted(prov)))   # 抽检 spot2：左逢原山西／湖南
                     continue
             yrs = [min(y) for y in (eras.years(s['title'] + ' ' + s['summary']) for s in ss) if y]
-            if len(yrs) >= 2 and max(yrs) - min(yrs) > 80:
+            lim = 60 if any(re.search(r'譜|志|乘', t) for t in ts) else 80   # 抽检 b02：張元澧 1765 谱／1834 志
+            if len(yrs) >= 2 and max(yrs) - min(yrs) > lim:
                 for s in ss: hold(s, '组内著作年代相距逾80年', '%d-%d' % (min(yrs), max(yrs)))   # 抽检 spot1：孙谦康熙／乾隆
                 continue
+        if c in ANCIENT and all(REIGN_T.match(s['title'] or '') or MODERN_T.search(s['title'] or '') for s in ss):
+            for s in ss: hold(s, '古朝代配清民国书待核')   # 抽检 乙03：金鍾麟撰→金·鍾麟、秦夏聲纂［民國］慶雲縣志：姓被切作朝代
+            continue
         dys = collections.Counter(s['dynasty'] for s in ss if s['dynasty'])
         plan.append({'name': n, 'dynasty': dys.most_common(1)[0][0] if dys else None, 'cd': c,
                      'cbdb': None, 'cbdb_cand': cbc[0]['id'] if len(cbc) == 1 else None, 'cbdb_n': len(cbc),

@@ -30,9 +30,9 @@
       "summary": "共 3 個版本：清嘉慶十二年刻本（國家圖書館）；民國十八年鉛印本（南京圖書館）；清嘉慶二十年日新堂刻本（國家圖書館、南京圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：dk4v60ke0v8vo7rg、uo7eyfb2effurmjy、2a86fp3f1k1brrkv\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：dk4v60ke0v8vo7rg、uo7eyfb2effurmjy、2a86fp3f1k1brrkv\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -48,11 +48,32 @@
         "nlc_fid": "412000003649",
         "edition": "清嘉慶20年[1815]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075259",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075259",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075259",
+        "request_no": "３０８－０１３３",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5044961/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000003649": {
       "label": "國圖藏本：清嘉慶20年[1815]"
+    },
+    "naikaku-1075259": {
+      "label": "內閣文庫藏本：清刊本（308-0133，4冊）"
     }
   }
 }

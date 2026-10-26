@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/8lv5lhpvgvwx8w0g"
-      }
+      },
+      "entity_id": "hixhgyrw4xti"
     }
   ],
   "dynasty": "明",
@@ -29,7 +30,31 @@
       "summary": "共 5 個版本：清刻本（南京圖書館、天津圖書館）；明天啓元年自刻本（浙江圖書館、中山大學圖書館、重慶市圖書館、衢州市博物館（文管會））；明天啓間金陵陳龍山經房刻本（浙江圖書館）；明崇禎九年姑蘇季蘭庭刻本（南京圖書館）；清光緒間刻本（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ma3ylb2ubom2m7vk、kwcuxxwoyu850d1g、ctf04cow6c52w22y、kf40acud7f2y2ibv、uemqvyrkpx4y7ofe",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ma3ylb2ubom2m7vk、kwcuxxwoyu850d1g、ctf04cow6c52w22y、kf40acud7f2y2ibv、uemqvyrkpx4y7ofe\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-300093254",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300093254",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300093254",
+        "holder": "東洋大哲学堂",
+        "edition": "刊 寛文６",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300093254/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-300093254": {
+      "label": "國書·東洋大哲学堂藏刊 寛文６"
+    }
+  }
 }

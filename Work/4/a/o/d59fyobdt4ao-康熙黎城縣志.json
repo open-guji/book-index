@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/cyu3rs87vxwztex7"
-      }
+      },
+      "entity_id": "hixicm8y9y7m"
     },
     {
       "name": "李御",
@@ -22,7 +23,9 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/7u8zt92py5pethb5"
-      }
+      },
+      "entity_id": "hixhd2h9br56",
+      "name_basis": "2026-10-25 並條善後：同書重出條 d59f2n5wt4ox 之同名撰人已繫此 entity，今補繫（3b0-106）。"
     },
     {
       "name": "程大夏",
@@ -32,7 +35,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/juybuy3aln0hm7oj"
-      }
+      },
+      "entity_id": "hixhd2h9bslh"
     }
   ],
   "dynasty": "清",
@@ -49,9 +53,9 @@
       "summary": "共 1 個版本：清康熙二十五年刻本（天津圖書館、北京大學圖書館、山西省圖書館、南京圖書館、國家圖書館、遼寧省圖書館、中國科學院圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：rau8tvyk8qwdg04b\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：rau8tvyk8qwdg04b\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。\n\n2026-10-26 A11-去重3b-0 併條（rule=去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并）：併 d59f2n5wt4ox《黎城縣志》 入本條。署名异写同书：《黎城縣志》李御／李吉：康熙志 author_info「李御、李吉纂」",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -73,5 +77,34 @@
     "nlc-312001074725": {
       "label": "國圖藏本："
     }
-  }
+  },
+  "juan_count": {
+    "number": 4
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 4
+    }
+  ],
+  "measure_info": "四卷",
+  "period_upper": "qing",
+  "period_upper_basis": "edition_bound：所掛版本中最早者為「清康熙廿三年刊本」——版本之年不早於成書之年，故不晚於 qing",
+  "additional_titles": [
+    "黎城縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n5wt4ox",
+      "title": "黎城縣志",
+      "at": "2026-10-26T11:31:59Z",
+      "by": "A11-去重3b-0",
+      "rule": "去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并",
+      "why": "署名异写同书：《黎城縣志》李御／李吉：康熙志 author_info「李御、李吉纂」",
+      "author": "李御"
+    }
+  ],
+  "merged_from": [
+    "d59f2n5wt4ox"
+  ]
 }

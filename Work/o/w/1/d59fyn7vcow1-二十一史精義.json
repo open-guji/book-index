@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/pcr7xijkun6sud1n"
-      }
+      },
+      "entity_id": "hixicm905dg0"
     }
   ],
   "dynasty": "清",
@@ -29,7 +30,53 @@
       "summary": "共 1 個版本：清乾隆二十八年刻本（上海圖書館、國家圖書館、北京大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5wiix21m136aamce\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 440 批新建（hold 清零：串3余量；原 hold 原因：hold）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5wiix21m136aamce\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 440 批新建（hold 清零：串3余量；原 hold 原因：hold）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067718",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067718",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067718",
+        "request_no": "史１１８－０００８",
+        "edition": "刊本（序刊）::清乾隆:260000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4752289/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073266",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073266",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073266",
+        "request_no": "２９８－０００８",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4213854/manifest.json",
+        "extent": "6冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1067718": {
+      "label": "內閣文庫藏本：清乾隆26年刊本（序刊）（史118-0008，6冊）"
+    },
+    "naikaku-1073266": {
+      "label": "內閣文庫藏本：江戸写本（298-0008，6冊）"
+    }
+  }
 }

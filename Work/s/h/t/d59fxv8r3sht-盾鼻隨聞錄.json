@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/zugs0p1z35bfpccd"
-      }
+      },
+      "entity_id": "hixi8us4rgaw"
     },
     {
       "name": "沈懋良",
@@ -22,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/jxk2th6ui8b0ezum"
-      }
+      },
+      "entity_id": "hixicm8ziwfm"
     }
   ],
   "dynasty": "清",
@@ -39,7 +41,67 @@
       "summary": "共 6 個版本：清咸豐四年刻本（國家圖書館、上海圖書館、南京圖書館）；清光緒元年不懼無悶齋刻本（北京大學圖書館、南京圖書館、國家圖書館）；清抄本（遼寧省圖書館、國家圖書館、北京大學圖書館）；清抄本（上海圖書館）；清抄本（上海圖書館）；清抄本（南京圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：flv7en3dxxcn3elm、gwxil0ekkmf0xp0a、rtw1vfmdk1ndzaah、f3ne3154utc51bl3、48jg38h1lpw3dcd1、by215ih7n0eoelr8",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：flv7en3dxxcn3elm、gwxil0ekkmf0xp0a、rtw1vfmdk1ndzaah、f3ne3154utc51bl3、48jg38h1lpw3dcd1、by215ih7n0eoelr8\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-200014048",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200014048",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200014048",
+        "holder": "国文研",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200014048/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2602273",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2602273",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2602273",
+        "edition": "同治11寫"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2602275",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2602275",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2602275",
+        "edition": "[製作年不明]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-200014048": {
+      "label": "國書·国文研藏刊"
+    },
+    "ndl-2602273": {
+      "label": "NDL藏本：同治11寫"
+    },
+    "ndl-2602275": {
+      "label": "NDL藏本：[製作年不明]"
+    }
+  }
 }

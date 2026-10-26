@@ -57,6 +57,36 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:ZHSY000585_%E6%96%B0%E5%A2%9E%E9%9F%B3%E7%BE%A9%E9%87%8B%E6%96%87%E5%8F%A4%E4%BB%8A%E6%AD%B7%E4%BB%A3%E5%8D%81%E5%85%AB%E5%8F%B2%E7%95%A5_%E4%BA%8C%E5%86%8A_%E5%85%83%E6%9B%BE%E5%85%88%E4%B9%8B%E6%92%B0_%E5%85%83%E5%88%BB%E6%9C%AC.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-1122",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=1122",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "1122",
+        "edition": "元至正[1341-1368]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999008863",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999008863",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999008863",
+        "edition": "明[1368-1644]"
+      }
     }
   ],
   "measures": [
@@ -74,12 +104,20 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "從 1evjxk05h76dc 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 | 從 1evkaifcpqwow 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 | 從 1evjy67vaciyo 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjxk05h76dc 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 | 從 1evkaifcpqwow 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 | 從 1evjy67vaciyo 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。",
   "updated_at": "2026-08-09T09:33:12+00:00",
   "period": "liao-jin-yuan",
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "nlc-1122": {
+      "label": "國圖藏本：元至正[1341-1368]"
+    },
+    "nlc-411999008863": {
+      "label": "國圖藏本：明[1368-1644]"
+    }
+  }
 }

@@ -49,9 +49,9 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59fxzh9gutc《新刊醫學集成》 入本條。同题同首位责任者：《醫學集成》傅滋(明,12卷,0版本)／《新刊醫學集成》傅滋(明,12卷,1版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-25",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59fxzh9gutc《新刊醫學集成》 入本條。同题同首位责任者：《醫學集成》傅滋(明,12卷,0版本)／《新刊醫學集成》傅滋(明,12卷,1版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -60,6 +60,42 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:SSID-12691284_%E9%86%AB%E5%AD%B8%E9%9B%86%E6%88%90.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076127",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076127",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076127",
+        "request_no": "３０１－０１４１",
+        "edition": "写本:江戸:::躋寿館",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4915000/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079770",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079770",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079770",
+        "request_no": "子０２７－０００５",
+        "edition": "刊本::明正徳:110000:日新堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4420902/manifest.json",
+        "extent": "6冊"
+      }
     }
   ],
   "additional_titles": [
@@ -74,12 +110,18 @@
       "rule": "去重方案部分3a-1：同题同首位责任者 A 档机械并",
       "why": "同题同首位责任者：《醫學集成》傅滋(明,12卷,0版本)／《新刊醫學集成》傅滋(明,12卷,1版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突",
       "author": "傅滋",
-      "title_info": [
-        "新刊醫學集成十二卷"
-      ]
+      "title_info": "新刊醫學集成十二卷"
     }
   ],
   "merged_from": [
     "d59fxzh9gutc"
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1076127": {
+      "label": "內閣文庫藏本：江戸写本 躋寿館（301-0141，6冊）"
+    },
+    "naikaku-1079770": {
+      "label": "內閣文庫藏本：明正徳11年刊本 日新堂（子027-0005，6冊）"
+    }
+  }
 }
