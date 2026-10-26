@@ -64,6 +64,24 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL02059319_%E5%84%92%E5%87%BD%E6%95%B8%E9%A1%9E%EF%BC%88%E4%B8%89%EF%BC%89.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084565",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084565",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084565",
+        "request_no": "３６７－００５８",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5065754/manifest.json",
+        "extent": "12冊"
+      }
     }
   ],
   "measures": [
@@ -79,12 +97,17 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1evkps5ph9t6o 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善006201-006224）。阶段 5 兜底建立。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "從 1evkps5ph9t6o 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善006201-006224）。阶段 5 兜底建立。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "naikaku-1084565": {
+      "label": "內閣文庫藏本：明刊本（367-0058，12冊）"
+    }
+  }
 }

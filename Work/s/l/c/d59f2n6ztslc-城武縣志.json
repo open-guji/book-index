@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志006247-006252）。阶段 5 兜底建立。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志006247-006252）。阶段 5 兜底建立。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "juan_count": {
     "number": 10
   },
@@ -34,8 +34,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "commons",
@@ -66,6 +66,24 @@
         "nlc_fid": "312001070448",
         "edition": ""
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1072451",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1072451",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1072451",
+        "request_no": "史１８５－０００８",
+        "edition": "刊本（序刊）::清康煕:410000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4762660/manifest.json",
+        "extent": "12冊"
+      }
     }
   ],
   "indexed_by": [
@@ -81,6 +99,9 @@
   "resource_groups": {
     "nlc-312001070448": {
       "label": "國圖藏本："
+    },
+    "naikaku-1072451": {
+      "label": "內閣文庫藏本：清康煕41年刊本（序刊）（史185-0008，12冊）"
     }
   }
 }
