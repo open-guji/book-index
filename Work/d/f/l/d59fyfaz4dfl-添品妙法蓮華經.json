@@ -22,7 +22,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/f065q1mc4jdtzcgk"
-      }
+      },
+      "entity_id": "hixhd2h9bu5d"
     }
   ],
   "dynasty": "隋",
@@ -39,9 +40,9 @@
       "summary": "共 1 個版本：北宋寫金粟山廣惠禪院大藏經本（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：s8401yehl3v7idnd\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：s8401yehl3v7idnd\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -57,11 +58,32 @@
         "nlc_fid": "ZHCH0097",
         "edition": "金皇統九年[1149]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076064",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076064",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076064",
+        "request_no": "３０９－０２１１",
+        "edition": "刊本::明万暦:360000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4766867/manifest.json",
+        "extent": "2冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-ZHCH0097": {
       "label": "國圖藏本：金皇統九年[1149]"
+    },
+    "naikaku-1076064": {
+      "label": "內閣文庫藏本：明万暦36年刊本（309-0211，2冊）"
     }
   }
 }

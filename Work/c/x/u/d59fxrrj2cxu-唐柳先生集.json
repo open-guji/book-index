@@ -30,7 +30,175 @@
       "summary": "共 1 個版本：明萬曆間刻本（天津圖書館、上海圖書館、山東省圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ets8t1djva1bf8p1\n責任者 role 異常未寫入：張敦頤音辯\nauto-split:存疑未并\nE6 第 603 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ets8t1djva1bf8p1\n責任者 role 異常未寫入：張敦頤音辯\nauto-split:存疑未并\nE6 第 603 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-he16_02627",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/he16/he16_02627/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "he16_02627",
+        "edition": "万暦29[1601]序"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082050",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082050",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082050",
+        "request_no": "３１５－０００２",
+        "edition": "刊本:朝鮮:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5085689/manifest.json",
+        "extent": "12冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082081",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082081",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082081",
+        "request_no": "３１５－０００６",
+        "edition": "刊本（序刊）::明万暦:290000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4754763/manifest.json",
+        "extent": "8冊"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101121204",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000000389",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101121204",
+        "nlk_control_no": "KOL000000389",
+        "holder": "국립중앙도서관",
+        "call_number": "일산貴3747-92",
+        "part": "卷1-50",
+        "edition": "其他 [1444]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-139800604",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL200900017",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "139800604",
+        "nlk_control_no": "KOL200900017",
+        "holder": "국립중앙도서관",
+        "call_number": "古貴3747-314",
+        "part": "卷37",
+        "edition": "[世宗年間(1433-1438)]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-301055291",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL202100004",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "301055291",
+        "nlk_control_no": "KOL202100004",
+        "holder": "국립중앙도서관",
+        "call_number": "古3710-59",
+        "part": "卷42",
+        "edition": "金屬活字本(甲寅字) [中宗18(1523)]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09746",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09746",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09746",
+        "call_number": "402.42 09746",
+        "edition": "明萬曆二十九年(1601)刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09747",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09747",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09747",
+        "call_number": "402.42 09747",
+        "edition": "明萬曆二十九年(1601)刊本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-he16_02627": {
+      "label": "早稲田藏本：万暦29[1601]序"
+    },
+    "naikaku-1082050": {
+      "label": "內閣文庫藏本：朝鮮刊本（315-0002，12冊）"
+    },
+    "naikaku-1082081": {
+      "label": "內閣文庫藏本：明万暦29年刊本（序刊）（315-0006，8冊）"
+    },
+    "korcis-101121204": {
+      "label": "韓國國立中央圖書館數字化藏本：其他 [1444]"
+    },
+    "korcis-139800604": {
+      "label": "韓國國立中央圖書館數字化藏本：[世宗年間(1433-1438)]"
+    },
+    "korcis-301055291": {
+      "label": "韓國國立中央圖書館數字化藏本：金屬活字本(甲寅字) [中宗18(1523)]"
+    },
+    "ncltw-09746": {
+      "label": "臺灣國家圖書館藏本：明萬曆二十九年(1601)刊本"
+    },
+    "ncltw-09747": {
+      "label": "臺灣國家圖書館藏本：明萬曆二十九年(1601)刊本"
+    }
+  }
 }

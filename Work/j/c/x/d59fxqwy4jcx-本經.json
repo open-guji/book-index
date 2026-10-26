@@ -15,7 +15,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/mkbz1f5a4lcqzyym"
-      }
+      },
+      "entity_id": "hixhd2h9bsi0"
     }
   ],
   "dynasty": "明",
@@ -32,7 +33,67 @@
       "summary": "共 2 個版本：抄本（中醫科學院）；芷園醫種本（馆藏未载）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zye15hayu2nx4z7j、uqia88d8wvk84sjv\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zye15hayu2nx4z7j、uqia88d8wvk84sjv\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条、NDL 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（第二轮）。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-100315990",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100315990",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100315990",
+        "holder": "京大富士川",
+        "edition": "写",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00003569/manifest.json"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2536853",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2536853",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2536853",
+        "edition": "寛保3"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2535950",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2535950",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2535950",
+        "edition": "寛政11"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-100315990": {
+      "label": "國書·京大富士川藏写"
+    },
+    "ndl-2536853": {
+      "label": "NDL藏本：寛保3"
+    },
+    "ndl-2535950": {
+      "label": "NDL藏本：寛政11"
+    }
+  }
 }

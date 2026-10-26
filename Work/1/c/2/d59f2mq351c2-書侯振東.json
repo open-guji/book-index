@@ -13,7 +13,24 @@
       "name_basis": "2026-09-06 qa-sweep/qing·F 類（撰人名不在 entity 之名／別名）：剝去衍字符。原文尾綴一豎槓符號，係著錄斷句符之殘留，非姓名之一部。 原值：「胡天游|」。"
     }
   ],
-  "resources": [],
+  "resources": [
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-C6375800",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=C6375800&order=rn_no&no=01546",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "C6375800",
+        "call_no": "雙紅堂-小說-150",
+        "edition": ""
+      }
+    }
+  ],
   "related_works": [
     {
       "id": "d59f2og5taf4",
@@ -25,7 +42,12 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-06",
-  "ai_note": "2026-09-06 qa-sweep/qing·F 類：撰人名由「胡天游|」正為「胡天游」。剝去衍字符。原文尾綴一豎槓符號，係著錄斷句符之殘留，非姓名之一部。"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "ai_note": "2026-09-06 qa-sweep/qing·F 類：撰人名由「胡天游|」正為「胡天游」。剝去衍字符。原文尾綴一豎槓符號，係著錄斷句符之殘留，非姓名之一部。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
+  "resource_groups": {
+    "ioc-C6375800": {
+      "label": "東文研藏本：《舊小說》所收本"
+    }
+  }
 }

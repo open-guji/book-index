@@ -15,7 +15,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/0juabbc3pnqtb4te"
-      }
+      },
+      "entity_id": "hixicm3bdp4e"
     }
   ],
   "dynasty": "明",
@@ -32,9 +33,9 @@
       "summary": "共 5 個版本：明萬曆間刻本（國家圖書館）；清抄本（國家圖書館）；清光緒二年戚星齋抄本（南京圖書館）；清光緒三十一年陸起風抄本（山西省圖書館）；清道光二十二年刻本（山東中醫藥大學圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：qgsp3k1wm6i7fo4e、ha7si1hff2a4qms2、kmsvr7axpedkqua3、pruh5er2pqzyxx5y、vrwejphlbsuio4ch\nE6 第 422 批新建（hold 清零：E；原 hold 原因：-）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：qgsp3k1wm6i7fo4e、ha7si1hff2a4qms2、kmsvr7axpedkqua3、pruh5er2pqzyxx5y、vrwejphlbsuio4ch\nE6 第 422 批新建（hold 清零：E；原 hold 原因：-）\n\n国图數字古籍重配挂接\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -65,6 +66,21 @@
         "nlc_fid": "411999030493",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999005749",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999005749",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999005749",
+        "edition": "明万历[1573-1620]"
+      }
     }
   ],
   "resource_groups": {
@@ -73,6 +89,9 @@
     },
     "nlc-411999030493": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "nlc-411999005749": {
+      "label": "國圖藏本：明万历[1573-1620]"
     }
   }
 }

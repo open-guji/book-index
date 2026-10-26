@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/m0ddpcwog744t02r"
-      }
+      },
+      "entity_id": "hixiclg3re86"
     },
     {
       "name": "姚學甲",
@@ -22,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/0gzc7llka4iiatuo"
-      }
+      },
+      "entity_id": "hixhd2h9bpt3"
     },
     {
       "name": "姚學瑛",
@@ -32,7 +34,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/hhny6ww0ws6oh78k"
-      }
+      },
+      "entity_id": "hixicld76xur"
     }
   ],
   "dynasty": "清",
@@ -49,9 +52,9 @@
       "summary": "共 1 個版本：清乾隆三十五年刻本（國家圖書館、南京圖書館、山西省圖書館、浙江圖書館、天津圖書館、北京大學圖書館、中國科學院圖書館、湖北省圖書館、上海圖書館、遼寧省圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：srsqeo2a840ud2ft\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：srsqeo2a840ud2ft\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2n6nnjeq《潞安府志》 入本條。方志同修次重出：《[乾隆]潞安府志》張淑渠修、姚學甲纂、姚學瑛修（中國古籍總目） ← 《潞安府志》姚學英等修（无著录（故宫等））。脚本初判 A同修次·研-方志S复核。逐簇核对：姚學英即姚學瑛，乾隆三十五年刻潞安府志，故宮本存三十八卷\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。\n\n2026-10-26 C3续 更正：臺灣國圖資源中 1 條為合作館藏本（影像經臺灣國圖平臺發佈），label 與 metadata.holder 改寫實際藏館。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -67,11 +70,58 @@
         "nlc_fid": "312001074674",
         "edition": ""
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-000000003149363083",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/000000003149363083",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "000000003149363083",
+        "call_number": "000000003149363083",
+        "edition": "清乾隆三十五年(1770)刻四十三年(1778)補刻本",
+        "holder": "美國柏克萊加州大學東亞圖書館"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001074674": {
       "label": "國圖藏本："
+    },
+    "ncltw-000000003149363083": {
+      "label": "美國柏克萊加州大學東亞圖書館藏本：清乾隆三十五年(1770)刻四十三年(1778)補刻本"
     }
-  }
+  },
+  "juan_count": {
+    "number": 38
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 38
+    }
+  ],
+  "measure_info": "存三十八卷卷首一卷",
+  "additional_titles": [
+    "潞安府志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n6nnjeq",
+      "title": "潞安府志",
+      "at": "2026-10-26T15:01:46Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[乾隆]潞安府志》張淑渠修、姚學甲纂、姚學瑛修（中國古籍總目） ← 《潞安府志》姚學英等修（无著录（故宫等））。脚本初判 A同修次·研-方志S复核。逐簇核对：姚學英即姚學瑛，乾隆三十五年刻潞安府志，故宮本存三十八卷",
+      "author": "姚學英"
+    }
+  ],
+  "merged_from": [
+    "d59f2n6nnjeq"
+  ]
 }

@@ -30,7 +30,7 @@
       "summary": "共 5 個版本：明抄本（臺北“故宮博物院”）；清抄本（上海圖書館）；清初抄本（上海圖書館）；清趙怡抄本（四川省圖書館）；清末抄本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：x3df2fhvhhm0l47k、kld0q0sa6kv1ihfe、rjgtewikx6ou2dkl、7ojndifypie38k8w、1xy2czzshadmaa03\nauto-split:存疑未并\nE6 第 601 批新建（hold 清零：jyiyi；原 hold 原因：）",
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：x3df2fhvhhm0l47k、kld0q0sa6kv1ihfe、rjgtewikx6ou2dkl、7ojndifypie38k8w、1xy2czzshadmaa03\nauto-split:存疑未并\nE6 第 601 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
   "related_works": [
     {
       "id": "d59fxwv0qccg",
@@ -38,6 +38,93 @@
       "note": "晋升前去重复核（集部复核池）：題名相近，未能確認同書，另立互鏈。"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-100338085",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100338085",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100338085",
+        "holder": "大高洋司",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100338085/manifest"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101166760",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000013737",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101166760",
+        "nlk_control_no": "KOL000013737",
+        "holder": "국립중앙도서관",
+        "call_number": "승계古3717-114",
+        "edition": "筆寫本 [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101166851",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000013741",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101166851",
+        "nlk_control_no": "KOL000013741",
+        "holder": "국립중앙도서관",
+        "call_number": "승계古3717-118",
+        "edition": "筆寫本 [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101166911",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000013743",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101166911",
+        "nlk_control_no": "KOL000013743",
+        "holder": "국립중앙도서관",
+        "call_number": "승계古3717-120",
+        "edition": "筆寫本 [刊寫年未詳]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-100338085": {
+      "label": "國書·大高洋司藏刊"
+    },
+    "korcis-101166760": {
+      "label": "韓國國立中央圖書館數字化藏本：筆寫本 [刊寫年未詳]"
+    },
+    "korcis-101166851": {
+      "label": "韓國國立中央圖書館數字化藏本：筆寫本 [刊寫年未詳]"
+    },
+    "korcis-101166911": {
+      "label": "韓國國立中央圖書館數字化藏本：筆寫本 [刊寫年未詳]"
+    }
+  }
 }

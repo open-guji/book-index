@@ -9,7 +9,7 @@ def load(i):
     return json.load(open(p[0], encoding='utf-8'))
 ap = argparse.ArgumentParser(); ap.add_argument('cand'); ap.add_argument('out')
 ap.add_argument('--bulei', nargs='+'); ap.add_argument('--n', type=int, default=20); ap.add_argument('--offset', type=int, default=0)
-ap.add_argument('--base', default=''); ap.add_argument('--exclude', help='每行一个 Work id，命中即跳过整组')
+ap.add_argument('--base', default=''); ap.add_argument('--rule', default=RULE); ap.add_argument('--exclude', help='每行一个 Work id，命中即跳过整组')
 a = ap.parse_args()
 ex = set(open(a.exclude).read().split()) if a.exclude else set()
 cs = [c for c in json.load(open(a.cand, encoding='utf-8')) if (not a.bulei or c['bulei'] in a.bulei)
@@ -18,12 +18,13 @@ cs.sort(key=lambda c: c['key'])
 cs = cs[a.offset:a.offset + a.n]
 groups = []
 for c in cs:
-    ev = '同題：單行本《%s》%s（%s）；%s' % (c['keeper_title'], c['author'], c['dyn'] or '朝代缺', '；'.join(c['evidence']))
+    head = '同題同署名同 Entity：保留《%s》%s（%s）；%s' if a.rule != RULE else '同題：單行本《%s》%s（%s）；%s'
+    ev = head % (c['keeper_title'], c['author'], c['dyn'] or '朝代缺', '；'.join(c['evidence']))
     notes = {}
     for l in c['losers']:
         d = load(l); notes[l] = {'ai_note': d.get('ai_note'), 'description': (d.get('description') or {}).get('text') if isinstance(d.get('description'), dict) else d.get('description')}
     groups.append({'case_id': c['keeper'], 'cluster_id': '4a-%s' % c['keeper'], 'type': 'work', 'keeper': c['keeper'], 'losers': c['losers'],
-                   'keeper_source': '去重方案部分4 一侧无责任者扫描（book-index %s）' % a.base, 'evidence': ev, 'rule': RULE, 'why': ev,
+                   'keeper_source': '去重方案部分4 一侧无责任者扫描（book-index %s）' % a.base, 'evidence': ev, 'rule': a.rule, 'why': ev,
                    'loser_original_notes': notes})
 os.makedirs(a.out, exist_ok=True)
 json.dump({'groups': groups}, open(os.path.join(a.out, 'batch.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

@@ -44,7 +44,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 7
   },
@@ -61,8 +61,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -119,6 +119,53 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5095402/manifest.json",
         "extent": "4冊"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-he16_00812",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/he16/he16_00812/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "he16_00812",
+        "edition": "嘉靖36[1557]跋"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11980",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11980",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11980",
+        "call_number": "402.6 11980",
+        "edition": "明嘉靖甲午(13年,1534)延平刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11981",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11981",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11981",
+        "call_number": "402.6 11981",
+        "edition": "明嘉靖丁巳(36年,1557)嚴州知府宿應麟刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -130,6 +177,15 @@
     },
     "naikaku-1082745": {
       "label": "內閣文庫藏本：明嘉靖36年刊本（跋刊）（360-0142，4冊）"
+    },
+    "waseda-he16_00812": {
+      "label": "早稲田藏本：嘉靖36[1557]跋"
+    },
+    "ncltw-11980": {
+      "label": "臺灣國家圖書館藏本：明嘉靖甲午(13年,1534)延平刊本"
+    },
+    "ncltw-11981": {
+      "label": "臺灣國家圖書館藏本：明嘉靖丁巳(36年,1557)嚴州知府宿應麟刊本"
     }
   }
 }

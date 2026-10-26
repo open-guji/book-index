@@ -23,6 +23,34 @@
       "attested_status_raw": "佚",
       "attested_status_note": "此是朱彝尊所判，非本庫之判，故不改本記錄之 loss_status。四庫御製題論此書曰「所注闕佚未見者，今四庫所録往往其書尚存」——其判是十七世紀一人之見聞。「未見」尤非亡佚，是朱氏未見其書。",
       "note": "《經義考》標目「蔡氏（謨）禮記音」與庫題《禮記音》題式不同而是一書，見 jyk_yi1_hold_tables.py 之裁"
+    },
+    {
+      "source": "補晉書藝文志（文廷式）",
+      "source_bid": "d59f2o2m8hky",
+      "title_info": "禮記音二卷",
+      "summary": "禮記音二卷",
+      "author_info": "見經部·禮類"
+    },
+    {
+      "source": "補晉書藝文志（黃逢元）",
+      "source_bid": "d59f2o2lx91d",
+      "title_info": "禮記音二卷",
+      "summary": "見《七錄》。",
+      "author_info": "見甲部經錄·禮類。原注：蔡謨撰"
+    },
+    {
+      "source": "補晉書經籍志（吳士鑑）",
+      "source_bid": "d59f2o2larya",
+      "title_info": "禮記音二卷",
+      "summary": "見《隋志》。《釋文・序錄》有《禮記音》。",
+      "author_info": "見甲部經錄·禮類"
+    },
+    {
+      "source": "補晉書藝文志（秦榮光）",
+      "source_bid": "d59f5ilweo6h",
+      "title_info": "禮記音二卷",
+      "summary": "蔡謨撰。",
+      "author_info": "見經部·禮類禮記之屬"
     }
   ],
   "description": {
@@ -34,11 +62,13 @@
   },
   "authors": [
     {
-      "name": "蔡讚",
+      "name": "蔡謨",
       "role": "注",
       "dynasty": "東晉",
-      "entity_id": "hixhd2h9bnfd",
-      "dynasty_basis": "entity_propagation_r2:1j96kefxo6328"
+      "entity_id": "hixhd2h9bn88",
+      "dynasty_basis": "entity_propagation_r2:1j96kefxo6328",
+      "original_name": "蔡讚",
+      "name_basis": "3c 誤字勘誤：同題著錄 d59f9nmj1s77 作「蔡謨」，據人物考訂《禮記音》撰人當作「蔡謨」；經獨立子代理盲判一致；原掛 Entity hixhd2h9bnfd（主名「蔡讚」，係同一誤字所建）改掛同題著錄所掛 hixhd2h9bn88（蔡謨）"
     }
   ],
   "juan_count": {
@@ -59,13 +89,28 @@
     }
   ],
   "loss_status": "lost",
-  "ai_note": "loss_status 判為 lost，據本記錄之描述／著錄語：「已亡佚」。此值為機讀所生（scripts/loss_status.py），非逐條精校，覆核時以本欄之據為準。\n\n2026-08-24 J6 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 晉志 source 正名：indexed_by.source 綴撰人以別五家補晉志（四本同題《補晉書藝文志》，非綴撰人不可辨）。source_bid 未動。",
+  "ai_note": "loss_status 判為 lost，據本記錄之描述／著錄語：「已亡佚」。此值為機讀所生（scripts/loss_status.py），非逐條精校，覆核時以本欄之據為準。\n\n2026-08-24 J6 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 晉志 source 正名：indexed_by.source 綴撰人以別五家補晉志（四本同題《補晉書藝文志》，非綴撰人不可辨）。source_bid 未動。；3c 責任者名勘誤（2026-10-25）：authors[0]「蔡讚」→「蔡謨」\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第三轮：补撰人与国書子目对后同题同首位（含混合组内同首位子簇） B 档逐组复核并）：併 d59f9nmj1s77《禮記音》 入本條。同题同首位责任者：《禮記音》蔡謨(東晉,?卷,0版本)／《禮記音》蔡謨(晉,?卷,0版本)；B 档逐组复核判同一作品（flags=role_diff）",
   "updated_at": "2026-08-08T18:18:57+00:00",
   "period": "jin",
   "period_basis": "據 authors[0].dynasty「東晉」（2026-09-06 qa-sweep/weijin：本欄原引「晉」，而 authors[0].dynasty 實作「東晉」——係「晉」「三國」等籠統值細分之後本欄未隨改，非斷代錯；period 值不動，只正所引之值。）",
   "dynasty": "東晉",
   "dynasty_basis": "author_propagation:唯一作者朝代",
   "loss_status_basis": "2026-08-24 J7 存佚基準登記：本欄之值出自 2026-08 之機讀（scripts/loss_status.py），據本條之描述或著錄語中之亡佚語而定，其 ai_note 自陳「非逐條精校」。J7 曾以結構化之證（著錄源含《玉函山房輯佚書》、有輯佚檔、按語有「引是書／輯存／輯得／某某輯本序」之明文）覆核全桶，**本條無此三證**，故仍其舊。欲進一步覈之，須逐條讀《三國藝文志》《補晉書藝文志》之散文體按語（S4 第三路），是本時段所餘之最大一項人工。",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-06"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "merged_in": [
+    {
+      "id": "d59f9nmj1s77",
+      "title": "禮記音",
+      "at": "2026-10-26T16:15:54Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a第三轮：补撰人与国書子目对后同题同首位（含混合组内同首位子簇） B 档逐组复核并",
+      "why": "同题同首位责任者：《禮記音》蔡謨(東晉,?卷,0版本)／《禮記音》蔡謨(晉,?卷,0版本)；B 档逐组复核判同一作品（flags=role_diff）",
+      "author": "蔡謨",
+      "title_info": "禮記音二卷；禮記音二卷；禮記音二卷；禮記音二卷"
+    }
+  ],
+  "merged_from": [
+    "d59f9nmj1s77"
+  ]
 }

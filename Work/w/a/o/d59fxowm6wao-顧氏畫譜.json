@@ -29,7 +29,53 @@
       "summary": "共 1 個版本：明萬曆三十一年刻本（天津圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4qyndj0qjmq8a32i\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4qyndj0qjmq8a32i\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079400",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079400",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079400",
+        "request_no": "子０６１－０００４",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4756866/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101564254",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000015081",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101564254",
+        "nlk_control_no": "KOL000015081",
+        "holder": "국립중앙도서관",
+        "call_number": "古4570-3",
+        "edition": "1926"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1079400": {
+      "label": "內閣文庫藏本：明刊本（子061-0004，2冊）"
+    },
+    "korcis-101564254": {
+      "label": "韓國國立中央圖書館數字化藏本：1926"
+    }
+  }
 }

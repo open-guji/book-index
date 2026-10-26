@@ -28,7 +28,7 @@
       "國史經籍志"
     ]
   },
-  "ai_note": "从卷二 ambiguous 新建：unresolved\n\n2026-08-08 同名異書核對：海鵬為真實作者，非形訛；四庫全書總目提要引《玉海》宋《兩朝志》明確載海鵬《忠經》。海鵬與馬融撰《忠經》是兩部源流不同之同名書（馬融本為偽題漢馬融），故不併。已置海鵬 entity_id=null（原錯誤關聯1j96hfvnmujnk）。",
+  "ai_note": "从卷二 ambiguous 新建：unresolved\n\n2026-08-08 同名異書核對：海鵬為真實作者，非形訛；四庫全書總目提要引《玉海》宋《兩朝志》明確載海鵬《忠經》。海鵬與馬融撰《忠經》是兩部源流不同之同名書（馬融本為偽題漢馬融），故不併。已置海鵬 entity_id=null（原錯誤關聯1j96hfvnmujnk）。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "id": "d59f2psg5xq9",
   "measures": [
     {
@@ -40,8 +40,8 @@
   "updated_at": "2026-08-09",
   "period_upper": "ming",
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "commons",
@@ -57,6 +57,65 @@
         "year": "1434 明宣德9年",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05443",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05443",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05443",
+        "call_number": "301 05443",
+        "edition": "明嘉靖三十三年(1554)霍氏刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15286-0012",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15286-0012",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15286-0012",
+        "call_number": "301.1 15286-0012",
+        "edition": "明末武林何氏刊本配補清刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15340-0075",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15340-0075",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15340-0075",
+        "call_number": "301.1 15340-0075",
+        "edition": "明刊本"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-05443": {
+      "label": "臺灣國家圖書館藏本：明嘉靖三十三年(1554)霍氏刊本"
+    },
+    "ncltw-15286-0012": {
+      "label": "臺灣國家圖書館藏本：明末武林何氏刊本配補清刊本"
+    },
+    "ncltw-15340-0075": {
+      "label": "臺灣國家圖書館藏本：明刊本"
+    }
+  }
 }

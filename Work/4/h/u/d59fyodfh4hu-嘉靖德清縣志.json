@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/bvhywashxwwx2kcv"
-      }
+      },
+      "entity_id": "hixhd2h9behl"
     },
     {
       "name": "方日乾",
@@ -37,9 +38,46 @@
       "author_info": "明方日乾修;明陳霆纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 1 個版本：明嘉靖四年刻十六年增刻本（上海圖書館）"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "陳實德清縣志",
+      "author_info": "靖靖乙酉修邑人",
+      "summary": "陳實德清縣志⟨靖靖乙酉修邑人⟩"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：aqx5gpj07ohlxtj7\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：aqx5gpj07ohlxtj7\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f6etguvwi《德清縣志》 入本條。方志同修次重出：《[嘉靖]德清縣志》陳霆纂、方日乾修（中國古籍總目） ← 《德清縣志》陳實撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：千頃堂「陳實德清縣志·嘉靖乙酉修邑人」十卷，嘉靖乙酉即嘉靖四年，與總目[嘉靖]德清縣志十卷（陳霆纂，邑人）年、卷、籍貫俱合，「實」為「霆」之訛。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "juan_count": {
+    "number": 10
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 10
+    }
+  ],
+  "measure_info": "十卷",
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "additional_titles": [
+    "德清縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6etguvwi",
+      "title": "德清縣志",
+      "at": "2026-10-26T15:00:13Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[嘉靖]德清縣志》陳霆纂、方日乾修（中國古籍總目） ← 《德清縣志》陳實撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：千頃堂「陳實德清縣志·嘉靖乙酉修邑人」十卷，嘉靖乙酉即嘉靖四年，與總目[嘉靖]德清縣志十卷（陳霆纂，邑人）年、卷、籍貫俱合，「實」為「霆」之訛。",
+      "author": "陳實",
+      "title_info": "陳實德清縣志"
+    }
+  ],
+  "merged_from": [
+    "d59f6etguvwi"
+  ]
 }

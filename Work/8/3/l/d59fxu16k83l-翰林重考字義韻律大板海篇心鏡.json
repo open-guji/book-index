@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/b8riti5cjcjeh6xo"
-      }
+      },
+      "entity_id": "hixi5j4n6bt1"
     }
   ],
   "dynasty": "明",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：明萬曆間書林葉天熹刻本（中國科學院圖書館、北京大學圖書館、南京圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：lsxixbrjwz65ee07\n全版本無撰，取訂者\nE6 第 310 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：lsxixbrjwz65ee07\n全版本無撰，取訂者\nE6 第 310 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（A7 转交 NDL）。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,47 @@
         "nlc_fid": "411999024765",
         "edition": "明萬曆24年[1596]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ho04_00756",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ho04/ho04_00756/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ho04_00756",
+        "edition": "葉天熹, 万暦24[1596]"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2610223",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2610223",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2610223",
+        "edition": "萬暦24"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999024765": {
       "label": "國圖藏本：明萬曆24年[1596]"
+    },
+    "waseda-ho04_00756": {
+      "label": "早稲田藏本：葉天熹, 万暦24[1596]"
+    },
+    "ndl-2610223": {
+      "label": "NDL藏本：萬暦24"
     }
   }
 }

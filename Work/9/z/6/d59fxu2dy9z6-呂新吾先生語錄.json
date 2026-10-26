@@ -30,7 +30,71 @@
       "summary": "共 1 個版本：清嘉慶元年刻本（上海圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：w0kmgob2ihsk7g0j",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：w0kmgob2ihsk7g0j\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-ro13_03353",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro13/ro13_03353/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro13_03353",
+        "edition": "商邱 : 陳氏, 嘉慶元[1796]"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077819",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077819",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077819",
+        "request_no": "２９９－００５７",
+        "edition": "刊本::万延:010000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4215556/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082869",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082869",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082869",
+        "request_no": "２９９－００５６",
+        "edition": "刊本::万延:010000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4914259/manifest.json",
+        "extent": "3冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-ro13_03353": {
+      "label": "早稲田藏本：商邱 : 陳氏, 嘉慶元[1796]"
+    },
+    "naikaku-1077819": {
+      "label": "內閣文庫藏本：万延1年刊本（299-0057，5冊）"
+    },
+    "naikaku-1082869": {
+      "label": "內閣文庫藏本：万延1年刊本（299-0056，3冊）"
+    }
+  }
 }

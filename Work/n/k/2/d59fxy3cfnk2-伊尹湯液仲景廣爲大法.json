@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/qicrnlh0tjbpl7kb"
-      }
+      },
+      "entity_id": "hixhd2h9betg"
     }
   ],
   "dynasty": "元",
@@ -29,7 +30,73 @@
       "summary": "共 1 個版本：明刻本（天一閣文物保管所）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jlt3qtdk2dejnomz\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jlt3qtdk2dejnomz\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条、國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079662",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079662",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079662",
+        "request_no": "子０２５－０００８",
+        "edition": "刊本（跋刊）::明嘉靖:130000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4756515/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079810",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079810",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079810",
+        "request_no": "３００－０２１３",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4106982/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100315098",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100315098",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100315098",
+        "holder": "京大富士川",
+        "edition": "写",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00000837/manifest.json"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1079662": {
+      "label": "內閣文庫藏本：明嘉靖13年刊本（跋刊）（子025-0008，3冊）"
+    },
+    "naikaku-1079810": {
+      "label": "內閣文庫藏本：江戸写本（300-0213，3冊）"
+    },
+    "kokusho-100315098": {
+      "label": "國書·京大富士川藏写"
+    }
+  }
 }

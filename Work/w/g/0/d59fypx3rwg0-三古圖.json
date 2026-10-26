@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/muzkyrtpzxo1f0o2"
-      }
+      },
+      "entity_id": "hixhd2h9butw"
     }
   ],
   "dynasty": "清",
@@ -29,9 +30,9 @@
       "summary": "共 2 個版本：明萬曆二十八至三十年吳萬化刻清乾隆十七年天都黃氏亦政堂重印本（國家圖書館、上海圖書館）；明萬曆二十八至三十年吳萬化刻本（揚州市圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：nw31ui2erxt4f8q7、r7nu3xve7mhovmxu\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 431 批新建（hold 清零：N-anon-clean；原 hold 原因：anonymous_author）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：nw31ui2erxt4f8q7、r7nu3xve7mhovmxu\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 431 批新建（hold 清零：N-anon-clean；原 hold 原因：anonymous_author）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,31 @@
         "nlc_fid": "312001033773",
         "edition": "天都黃晟亦政堂   清乾隆17年[1752]"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300097271",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300097271",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300097271",
+        "holder": "府中之島図石崎",
+        "edition": "刊 乾隆17",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300097271/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001033773": {
       "label": "國圖藏本：天都黃晟亦政堂   清乾隆17年[1752]"
+    },
+    "kokusho-300097271": {
+      "label": "國書·府中之島図石崎藏刊 乾隆17"
     }
   }
 }

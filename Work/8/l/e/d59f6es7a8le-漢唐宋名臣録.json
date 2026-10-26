@@ -38,8 +38,8 @@
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "id": "d59f6es7a8le",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-16",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "commons",
@@ -91,15 +91,34 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4411045/manifest.json",
         "extent": "5冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02500",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02500",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02500",
+        "call_number": "205.1 02500",
+        "edition": "明萬曆丙午(三十四年, 1606)刊本"
+      }
     }
   ],
-  "ai_note": "2026-10-16 GUJI-511 內閣余量批1 S4朝代核：著者「李廷機」朝代 空→明。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "2026-10-16 GUJI-511 內閣余量批1 S4朝代核：著者「李廷機」朝代 空→明。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "resource_groups": {
     "naikaku-1067843": {
       "label": "內閣文庫藏本：明万暦34年刊本（序刊）（287-0135，5冊）"
     },
     "naikaku-1068131": {
       "label": "內閣文庫藏本：明万暦34年刊本（序刊）（史067-0012，5冊）"
+    },
+    "ncltw-02500": {
+      "label": "臺灣國家圖書館藏本：明萬曆丙午(三十四年, 1606)刊本"
     }
   }
 }

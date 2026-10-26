@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3bekij83r4(竇常)（不同作者，故新建獨立 Work）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3bekij83r4(竇常)（不同作者，故新建獨立 Work）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "commons",
@@ -63,11 +63,49 @@
         "nlc_fid": "2374",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14154-0004",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14154-0004",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14154-0004",
+        "call_number": "403.242 14154-0004",
+        "edition": "明末虞山毛氏汲古閣刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14482",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14482",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14482",
+        "call_number": "403.4 14482",
+        "edition": "明末虞山毛氏汲古閣刊唐人詩集四種本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-2374": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "ncltw-14154-0004": {
+      "label": "臺灣國家圖書館藏本：明末虞山毛氏汲古閣刊本"
+    },
+    "ncltw-14482": {
+      "label": "臺灣國家圖書館藏本：明末虞山毛氏汲古閣刊唐人詩集四種本"
     }
   }
 }

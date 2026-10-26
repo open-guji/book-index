@@ -161,6 +161,38 @@
         "nlc_fid": "411999032685",
         "edition": "明萬曆23年[1595]"
       }
+    },
+    {
+      "id": "shoryobu",
+      "group": "shoryobu-1000055670000",
+      "group_role": "origin",
+      "name": "宮内庁書陵部 図書寮文庫",
+      "short_name": "書陵部",
+      "url": "https://shoryobu.kunaicho.go.jp/Toshoryo/Detail/1000055670000",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "shoryobu_id": "1000055670000",
+        "call_no": "200 ・ 43",
+        "edition": "明版, 明 万暦"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-08114",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/08114",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "08114",
+        "call_number": "309 08114",
+        "edition": "明萬曆乙未(二十三年, 1595)維揚彭氏刊己未(四十七年, 1619)修補本"
+      }
     }
   ],
   "measures": [
@@ -175,7 +207,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwyswyuww 與 11q37s0eng8w0 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwyswyuww 與 11q37s0eng8w0 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 書陵部 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "彭大翼（明）撰。二百二十八卷；諸志所著之數有異，別作二百四十卷。見著錄於《欽定四庫全書總目》《明史藝文志》。其著錄之文，《明史藝文志》作「彭大翼《山堂肆考》二百四十卷」。《欽定四庫全書總目》清乾隆間館臣修；《明史藝文志》清張廷玉等修——本書之目賴之以存。",
     "sources": [
@@ -183,8 +215,8 @@
       "明史藝文志"
     ]
   },
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "naikaku-1077890": {
       "label": "內閣文庫藏本：明刊本（後修）（子127-0002，80冊）"
@@ -197,6 +229,12 @@
     },
     "nlc-411999032685": {
       "label": "國圖藏本：明萬曆23年[1595]"
+    },
+    "shoryobu-1000055670000": {
+      "label": "書陵部藏本：明版, 明 万暦"
+    },
+    "ncltw-08114": {
+      "label": "臺灣國家圖書館藏本：明萬曆乙未(二十三年, 1595)維揚彭氏刊己未(四十七年, 1619)修補本"
     }
   }
 }

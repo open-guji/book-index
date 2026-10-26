@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/lin5jv7dik8ub0r4"
-      }
+      },
+      "entity_id": "hixi5jyp2ul6"
     }
   ],
   "dynasty": "清",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：清嘉慶三年朱氏刻本（上海圖書館、南京圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：qhahjb3jvaibakq4\nauto-split:存疑未并\nE6 第 4002 批新建（hold 清零：J-near；原 hold 原因：auto-split:近名未并）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：qhahjb3jvaibakq4\nauto-split:存疑未并\nE6 第 4002 批新建（hold 清零：J-near；原 hold 原因：auto-split:近名未并）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,31 @@
         "nlc_fid": "411999028613",
         "edition": "清嘉慶3年[1798]"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100288105",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100288105",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100288105",
+        "holder": "藝大図脇本",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100288105/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999028613": {
       "label": "國圖藏本：清嘉慶3年[1798]"
+    },
+    "kokusho-100288105": {
+      "label": "國書·藝大図脇本藏刊"
     }
   }
 }

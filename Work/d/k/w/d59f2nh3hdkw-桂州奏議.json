@@ -16,11 +16,15 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-25 明代輪 S7 前置：本條著錄來源（國立故宮博物院善本舊籍，統一編號見 indexed_by.catalog_no）原僅存於 description 之散文，今結構化補入 indexed_by（機械抽取，未增未減）。\n\n2026-08-25 合流追改：並行車道（J32 補撰內容之述）於本條升格後改其 draft 墓碑，所改欄位 ['description']。墓碑是凍結快照且 sweep 不動它，故其改不會自行到達正身——今追寫入本條並 bump revision。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 12 取自 `measure_info`「十二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-25 明代輪 S7 前置：本條著錄來源（國立故宮博物院善本舊籍，統一編號見 indexed_by.catalog_no）原僅存於 description 之散文，今結構化補入 indexed_by（機械抽取，未增未減）。\n\n2026-08-25 合流追改：並行車道（J32 補撰內容之述）於本條升格後改其 draft 墓碑，所改欄位 ['description']。墓碑是凍結快照且 sweep 不動它，故其改不會自行到達正身——今追寫入本條並 bump revision。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 12 取自 `measure_info`「十二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 A11-去重方案3a-2丙 併條（rule=去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并）：併 d59f2njd9jwh《桂洲奏議》 入本條。差一字·經史：《桂州奏議》夏言(明,—卷,1著录)／《桂洲奏議》夏言(明,21卷,3著录)；《桂州奏議》／《桂洲奏議》：桂州為桂洲誤字（夏言號桂洲）",
   "measures": [
     {
       "unit": "冊",
       "number": 12
+    },
+    {
+      "unit": "卷",
+      "number": 21
     }
   ],
   "measure_info": "十二冊",
@@ -37,8 +41,138 @@
       "summary": "本書收入《國立故宮博物院善本舊籍》（統一編號 平圖014384-014395）。明嘉靖間刊本。",
       "edition": "明嘉靖間刊本。",
       "catalog_no": "平圖014384-014395"
+    },
+    {
+      "source": "欽定四庫全書總目",
+      "source_bid": "d59dh3vo9af4",
+      "title_info": "《桂洲奏議》•二十一卷",
+      "author_info": "明夏言撰",
+      "summary": "明夏言撰。言有《南宮奏稿》，已著錄。是編又益以諫垣所上，分為二十一卷。乃言入閣之後，巡撫江西副都御史王暐等所刊，事在嘉靖十八年。後暐以事獲罪，主其獄者即言也。言以《論南北郊分祀》受知世宗，遂被擢用。史稱其奏定典禮，多可采者。今核其所論，實惟議禮一事，有關典制沿革。故錄其《南宮奏稿》，而此集則別存其目焉。",
+      "edition": "安徽巡撫采進本"
+    },
+    {
+      "source": "國史經籍志",
+      "source_bid": "d59f2nl40936",
+      "title_info": "《桂洲奏議》二十卷",
+      "summary": "《桂洲奏議》二十卷（夏言）",
+      "author_info": "夏言"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "桂洲奏議二十卷外集二卷桂洲集四卷",
+      "author_info": "明夏言撰",
+      "section": "史部/詔令奏議類/奏議之屬",
+      "summary": "共 2 個版本：明刻本（重慶市圖書館、南京圖書館、北京大學圖書館）；明嘉靖二十五年刻本（清華大學圖書館、天津圖書館）"
     }
   ],
-  "revision": "1.0.1",
-  "revised_at": "2026-08-24"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "juan_count": {
+    "number": 21
+  },
+  "resources": [
+    {
+      "id": "shidianguji-jiajingershitianruch",
+      "name": "识典古籍",
+      "url": "https://www.shidianguji.com/book/HY1964",
+      "metadata": {
+        "edition": "嘉靖二十年(1541)田汝成刻本",
+        "version": "v6",
+        "total_page": 1837,
+        "paragraph_count": 18600,
+        "check_type": "AI整理"
+      },
+      "types": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "shidianguji-qianlongzhonglishuyu",
+      "name": "识典古籍",
+      "url": "https://www.shidianguji.com/book/NA04056",
+      "metadata": {
+        "edition": "乾隆忠禮書院刊本",
+        "version": "v3",
+        "total_page": 2075,
+        "paragraph_count": 19365,
+        "check_type": "AI整理"
+      },
+      "types": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NCL-04743_01_%E6%A1%82%E6%B4%B2%E5%A5%8F%E8%AD%B0.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067174",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067174",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067174",
+        "request_no": "史０５５－０００２",
+        "edition": "刊本（序刊）::明嘉靖:200000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4751004/manifest.json",
+        "extent": "12冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067560",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067560",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067560",
+        "request_no": "２８７－００３９",
+        "edition": "刊本（序刊）:清乾隆:::忠礼書院",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4301937/manifest.json",
+        "extent": "10冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1067174": {
+      "label": "內閣文庫藏本：明嘉靖20年刊本（序刊）（史055-0002，12冊）"
+    },
+    "naikaku-1067560": {
+      "label": "內閣文庫藏本：清乾隆刊本（序刊） 忠礼書院（287-0039，10冊）"
+    }
+  },
+  "additional_titles": [
+    "桂洲奏議"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2njd9jwh",
+      "title": "桂洲奏議",
+      "at": "2026-10-26T16:58:03Z",
+      "by": "A11-去重方案3a-2丙",
+      "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+      "why": "差一字·經史：《桂州奏議》夏言(明,—卷,1著录)／《桂洲奏議》夏言(明,21卷,3著录)；《桂州奏議》／《桂洲奏議》：桂州為桂洲誤字（夏言號桂洲）",
+      "author": "夏言",
+      "title_info": "《桂洲奏議》•二十一卷；《桂洲奏議》二十卷；桂洲奏議二十卷外集二卷桂洲集四卷"
+    }
+  ],
+  "merged_from": [
+    "d59f2njd9jwh"
+  ]
 }

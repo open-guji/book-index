@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/tqojx1aoye754eo2"
-      }
+      },
+      "entity_id": "hixiclg00jo9"
     },
     {
       "name": "袁業泗",
@@ -22,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/qgfef4fduofwoe6w"
-      }
+      },
+      "entity_id": "hixhgyrw4xgo"
     }
   ],
   "dynasty": "明",
@@ -37,11 +39,17 @@
       "author_info": "明袁業泗修;明劉庭蕙等纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 3 個版本：抄本（福建師範大學圖書館）；明萬曆四十一年刻本（南京圖書館、上海圖書館）；清抄本（國家圖書館）"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "閔夢得漳州府志",
+      "summary": "閔夢得漳州府志"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pmqnuyis1pm88twx、qapbfyt53l8ag616、dzl70xpa0vdiyten\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pmqnuyis1pm88twx、qapbfyt53l8ag616、dzl70xpa0vdiyten\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f6ei14vet《漳州府志》 入本條。方志同修次重出：《[萬曆]漳州府志》劉庭蕙纂、袁業泗修（中國古籍總目） ← 《漳州府志》閔夢得撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：萬曆四十一年漳州府志三十八卷由閔夢得修，千頃堂條與總目[萬曆]三十八卷同修次（另一[萬曆]三十三卷本為萬曆元年羅青霄修，不涉）",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -57,11 +65,62 @@
         "nlc_fid": "411999011850",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1072900",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1072900",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1072900",
+        "request_no": "史１５０－０００６",
+        "edition": "刊本（序刊）::明万暦:410000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4761512/manifest.json",
+        "extent": "12冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999011850": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "naikaku-1072900": {
+      "label": "內閣文庫藏本：明万暦41年刊本（序刊）（史150-0006，12冊）"
     }
-  }
+  },
+  "juan_count": {
+    "number": 38
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 38
+    }
+  ],
+  "measure_info": "三十八卷",
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "additional_titles": [
+    "漳州府志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6ei14vet",
+      "title": "漳州府志",
+      "at": "2026-10-26T15:01:44Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[萬曆]漳州府志》劉庭蕙纂、袁業泗修（中國古籍總目） ← 《漳州府志》閔夢得撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：萬曆四十一年漳州府志三十八卷由閔夢得修，千頃堂條與總目[萬曆]三十八卷同修次（另一[萬曆]三十三卷本為萬曆元年羅青霄修，不涉）",
+      "author": "閔夢得",
+      "title_info": "閔夢得漳州府志"
+    }
+  ],
+  "merged_from": [
+    "d59f6ei14vet"
+  ]
 }

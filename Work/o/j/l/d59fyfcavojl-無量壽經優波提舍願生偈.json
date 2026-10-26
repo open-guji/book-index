@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/erajuhvs4vhqv54h"
-      }
+      },
+      "entity_id": "hixhjhavlgxw"
     },
     {
       "name": "婆藪槃豆",
@@ -34,7 +35,71 @@
       "summary": "共 1 個版本：（馆藏未载）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fb0gxp2v714zph1h\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n責任者 role 異常未寫入：婆藪盤豆菩薩造\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）\n晋升前審計補錄：據 indexed_by.author_info 補入 婆藪槃豆（錄入時漏）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fb0gxp2v714zph1h\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n責任者 role 異常未寫入：婆藪盤豆菩薩造\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）\n晋升前審計補錄：據 indexed_by.author_info 補入 婆藪槃豆（錄入時漏）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-100447756",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100447756",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100447756",
+        "holder": "東洋大哲学堂",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100447756/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100447761",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100447761",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100447761",
+        "holder": "東洋大哲学堂",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100447761/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200012370",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200012370",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200012370",
+        "holder": "国文研",
+        "edition": "刊 寛永１７",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200012370/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-100447756": {
+      "label": "國書·東洋大哲学堂藏刊"
+    },
+    "kokusho-100447761": {
+      "label": "國書·東洋大哲学堂藏刊"
+    },
+    "kokusho-200012370": {
+      "label": "國書·国文研藏刊 寛永１７"
+    }
+  }
 }

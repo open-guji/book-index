@@ -44,7 +44,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59fy10c8936《新鐫諸子拔萃》 入本條。同题同首位责任者：《諸子拔萃》李雲翔(明,8卷,0版本)／《新鐫諸子拔萃》李雲翔(明,8卷,2版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59fy10c8936《新鐫諸子拔萃》 入本條。同题同首位责任者：《諸子拔萃》李雲翔(明,8卷,0版本)／《新鐫諸子拔萃》李雲翔(明,8卷,2版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "李雲翔（明）編。八卷。見著錄於《欽定四庫全書總目》。",
     "sources": [
@@ -52,8 +52,8 @@
       "中國古籍總目"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -62,6 +62,38 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-07695_%E8%AB%B8%E5%AD%90%E6%8B%94%E8%90%83.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07694",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07694",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07694",
+        "call_number": "308 07694",
+        "edition": "明天啟七年(1627)金陵余氏等刊朱墨套印本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07695",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07695",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07695",
+        "call_number": "308 07695",
+        "edition": "明天啟七年(1627)金陵余氏等刊朱墨套印本"
+      }
     }
   ],
   "additional_titles": [
@@ -76,12 +108,18 @@
       "rule": "去重方案部分3a-1：同题同首位责任者 A 档机械并",
       "why": "同题同首位责任者：《諸子拔萃》李雲翔(明,8卷,0版本)／《新鐫諸子拔萃》李雲翔(明,8卷,2版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突",
       "author": "李雲翔",
-      "title_info": [
-        "新鐫諸子拔萃八卷"
-      ]
+      "title_info": "新鐫諸子拔萃八卷"
     }
   ],
   "merged_from": [
     "d59fy10c8936"
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-07694": {
+      "label": "臺灣國家圖書館藏本：明天啟七年(1627)金陵余氏等刊朱墨套印本"
+    },
+    "ncltw-07695": {
+      "label": "臺灣國家圖書館藏本：明天啟七年(1627)金陵余氏等刊朱墨套印本"
+    }
+  }
 }

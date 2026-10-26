@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 24 取自 `measure_info`「二十四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 24 取自 `measure_info`「二十四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -30,8 +30,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -40,6 +40,69 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-15402_%E7%9C%89%E5%85%AC%E5%8D%81%E7%A8%AE%E8%97%8F%E6%9B%B8.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082330",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082330",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082330",
+        "request_no": "３７０－００４７",
+        "edition": "刊本（序刊）:明崇禎:明崇禎:090000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/592301/manifest.json",
+        "extent": "24冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1087616",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1087616",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1087616",
+        "request_no": "集０４６－０００２",
+        "edition": "刊本（序刊）::明崇禎:090000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/617748/manifest.json",
+        "extent": "19冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15402",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15402",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15402",
+        "call_number": "503 15402",
+        "edition": "明崇禎丙子（9年）刊本"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1082330": {
+      "label": "內閣文庫藏本：明崇禎9年刊本（序刊）（370-0047，24冊）"
+    },
+    "naikaku-1087616": {
+      "label": "內閣文庫藏本：明崇禎9年刊本（序刊）（集046-0002，19冊）"
+    },
+    "ncltw-15402": {
+      "label": "臺灣國家圖書館藏本：明崇禎丙子（9年）刊本"
+    }
+  }
 }

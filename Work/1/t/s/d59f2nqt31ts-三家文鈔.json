@@ -27,6 +27,14 @@
       "title_info": "三家文鈔",
       "summary": "《三家文鈔》三十二卷。⟨宋犖編刻。侯方域八卷，汪琬十二卷，魏禧十二卷。近人編輯《國朝二十四家古文》尤草草。⟩",
       "author_info": "犖編刻"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "國朝三家文鈔",
+      "author_info": "清宋犖、清許汝霖編",
+      "section": "集部/總集類/叢編之屬/分體",
+      "summary": "共 1 個版本：清康熙三十三年刻本（遼寧省圖書館、國家圖書館、湖北省圖書館、北京大學圖書館）"
     }
   ],
   "measures": [
@@ -42,12 +50,71 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1evke3ji7v37k 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 12，與著錄原文（清史稿藝文志：「三家文鈔」）所載之 32 卷不合，今據原文訂正。",
+  "ai_note": "從 1evke3ji7v37k 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 12，與著錄原文（清史稿藝文志：「三家文鈔」）所載之 32 卷不合，今據原文訂正。\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，B檔並）：併 d59fxrsv4wlc《國朝三家文鈔》 入本條。近題同首位責任者：《三家文鈔》宋犖／《國朝三家文鈔》宋犖；乙國朝三家文鈔為清康熙三十三年刻本，甲三十二卷 books 含康熙三十三年商丘宋氏刊本，同刻互見\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "updated_at": "2026-08-19T00:00:00-07:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-312002090425",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312002090425",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312002090425",
+        "edition": "清康熙33年[1694]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-16883",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/16883",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "16883",
+        "call_number": "403.27 16883",
+        "edition": "清康熙三十三年(1694)商丘宋氏刊本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-312002090425": {
+      "label": "國圖藏本：清康熙33年[1694]"
+    },
+    "ncltw-16883": {
+      "label": "臺灣國家圖書館藏本：清康熙三十三年(1694)商丘宋氏刊本"
+    }
+  },
+  "additional_titles": [
+    "國朝三家文鈔"
+  ],
+  "merged_in": [
+    {
+      "id": "d59fxrsv4wlc",
+      "title": "國朝三家文鈔",
+      "at": "2026-10-26T14:25:57Z",
+      "by": "A11-去重方案3b-近題前後綴",
+      "rule": "去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，B檔並",
+      "why": "近題同首位責任者：《三家文鈔》宋犖／《國朝三家文鈔》宋犖；乙國朝三家文鈔為清康熙三十三年刻本，甲三十二卷 books 含康熙三十三年商丘宋氏刊本，同刻互見",
+      "author": "宋犖、許汝霖",
+      "title_info": "國朝三家文鈔"
+    }
+  ],
+  "merged_from": [
+    "d59fxrsv4wlc"
+  ]
 }

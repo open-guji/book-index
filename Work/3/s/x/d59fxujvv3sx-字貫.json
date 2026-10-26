@@ -30,7 +30,73 @@
       "summary": "共 2 個版本：日本刻本（遼寧省圖書館、上海圖書館）；清乾隆四十年刻本（江西省圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：x10qch0giv3rupks、aq50t4jf3fjyoggm\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 310 批新建（hold 清零：G527-M-new；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：x10qch0giv3rupks、aq50t4jf3fjyoggm\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 310 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条、國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070253",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070253",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070253",
+        "request_no": "２７８－０１２２",
+        "edition": "刊本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4051852/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070262",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070262",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070262",
+        "request_no": "経０４８－０００３",
+        "edition": "刊本::清乾隆:400000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4755164/manifest.json",
+        "extent": "40冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100072406",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100072406",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100072406",
+        "holder": "愛知教大図",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100072406/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1070253": {
+      "label": "內閣文庫藏本：江戸刊本（278-0122，10冊）"
+    },
+    "naikaku-1070262": {
+      "label": "內閣文庫藏本：清乾隆40年刊本（経048-0003，40冊）"
+    },
+    "kokusho-100072406": {
+      "label": "國書·愛知教大図藏刊"
+    }
+  }
 }

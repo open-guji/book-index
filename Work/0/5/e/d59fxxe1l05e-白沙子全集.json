@@ -30,9 +30,9 @@
       "summary": "共 2 個版本：清乾隆三十六年陳氏碧玉樓刻本（北京大學圖書館、南京圖書館、國家圖書館、復旦大學圖書館、遼寧省圖書館）；清乾隆三十六年陳氏碧玉樓刻清末印本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：cp4rjo41vcp66qfh、l11ye77qfraqo3qa\nauto-split:存疑未并\nE6 第 601 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：cp4rjo41vcp66qfh、l11ye77qfraqo3qa\nauto-split:存疑未并\nE6 第 601 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -63,6 +63,73 @@
         "nlc_fid": "411999022844",
         "edition": "清順治12年[1655]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-he16_01084",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/he16/he16_01084/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "he16_01084",
+        "edition": "万暦40[1612]序"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610403",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610403",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610403",
+        "request_no": "３１６－０１１１",
+        "edition": "刊本（序刊）::明万暦:400000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3765371/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074041",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074041",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074041",
+        "request_no": "集０１７－００１１",
+        "edition": "刊本（序刊）::明万暦:400000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4435647/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11394",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11394",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11394",
+        "call_number": "402.6 11394",
+        "edition": "明萬曆壬子(四十年, 1612)新會何熊祥刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -71,6 +138,18 @@
     },
     "nlc-411999022844": {
       "label": "國圖藏本：清順治12年[1655]"
+    },
+    "waseda-he16_01084": {
+      "label": "早稲田藏本：万暦40[1612]序"
+    },
+    "naikaku-3610403": {
+      "label": "內閣文庫藏本：明万暦40年刊本（序刊）（316-0111，10冊）"
+    },
+    "naikaku-1074041": {
+      "label": "內閣文庫藏本：明万暦40年刊本（序刊）（集017-0011，10冊）"
+    },
+    "ncltw-11394": {
+      "label": "臺灣國家圖書館藏本：明萬曆壬子(四十年, 1612)新會何熊祥刊本"
     }
   }
 }

@@ -48,6 +48,22 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-C6343700",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=C6343700&order=rn_no&no=01430",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "C6343700",
+        "call_no": "雙紅堂-小說-150",
+        "edition": ""
+      }
     }
   ],
   "measures": [
@@ -62,13 +78,18 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目版本待定：總目著錄版本標籤空，未入 Book（dlgkiq47d7idzx3y、rm43wensq0e0yxe1、zyhlzaz6g62vuu6g、nz1hx761f7r0glaq、nycwsu8567kagxro、vp6qcp2lav6e662j、y32f0w3m8k2rsqoa）\n總目分類：子部／小說類／文言之屬／筆記",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目版本待定：總目著錄版本標籤空，未入 Book（dlgkiq47d7idzx3y、rm43wensq0e0yxe1、zyhlzaz6g62vuu6g、nz1hx761f7r0glaq、nycwsu8567kagxro、vp6qcp2lav6e662j、y32f0w3m8k2rsqoa）\n總目分類：子部／小說類／文言之屬／筆記\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
   "description": {
     "text": "楊儀（明）撰。二卷。見著錄於《欽定四庫全書總目》。本書惟《欽定四庫全書總目》一志著錄，別無他證。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "ioc-C6343700": {
+      "label": "東文研藏本：《舊小說》所收本"
+    }
+  }
 }

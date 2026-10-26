@@ -45,7 +45,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目版本「空」（6omj5jwb85x5d1bp）版本標籤為空，不證同庫內任一 Book，未入 Book，僅 Work 層掛 indexed_by（Sawyer 2026-10-16，批404空標籤并）",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目版本「空」（6omj5jwb85x5d1bp）版本標籤為空，不證同庫內任一 Book，未入 Book，僅 Work 層掛 indexed_by（Sawyer 2026-10-16，批404空標籤并）\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 1
   },
@@ -62,8 +62,8 @@
   "dynasty_basis": "据唯一 author.dynasty「南宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「南宋」自动归并",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基文库",
@@ -86,6 +86,54 @@
         "edition": "舊鈔本",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02158-0001",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02158-0001",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02158-0001",
+        "call_number": "204.251 02158-0001",
+        "edition": "舊鈔本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02160-0002",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02160-0002",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02160-0002",
+        "call_number": "204.251 02160-0002",
+        "edition": "舊鈔本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02163-0002",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02163-0002",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02163-0002",
+        "call_number": "204.251 02163-0002",
+        "edition": "清順德李氏鈔本"
+      }
     }
   ],
   "related_works": [
@@ -94,5 +142,16 @@
       "relation": "related",
       "note": "史部E另立（anon）：總目記錄「竊憤錄」（無作者）與既有 Work 題名相同或相近而不可證同書（记录无作者、目标 Work 有作者且卷数不符／缺：不能证同作者，默认另立＋related），判為不同著作（不並）；互為相關。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-02158-0001": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
+    },
+    "ncltw-02160-0002": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
+    },
+    "ncltw-02163-0002": {
+      "label": "臺灣國家圖書館藏本：清順德李氏鈔本"
+    }
+  }
 }

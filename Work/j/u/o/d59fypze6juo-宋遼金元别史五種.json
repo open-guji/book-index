@@ -15,7 +15,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/duz7o25du7vcbo4u"
-      }
+      },
+      "entity_id": "hixi8u5xnxdz"
     }
   ],
   "dynasty": "清",
@@ -32,7 +33,32 @@
       "summary": "共 1 個版本：清乾隆嘉慶間南沙席氏掃葉山房刻本（遼寧省圖書館、南京圖書館、上海圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：df800cdet6qb4bad\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 431 批新建（hold 清零：N-anon-clean；原 hold 原因：anonymous_author）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-20"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：df800cdet6qb4bad\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 431 批新建（hold 清零：N-anon-clean；原 hold 原因：anonymous_author）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067648",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067648",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067648",
+        "request_no": "史０４１－０００３",
+        "edition": "刊本:清:::掃葉山房",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4424489/manifest.json",
+        "extent": "60冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1067648": {
+      "label": "內閣文庫藏本：清刊本 掃葉山房（史041-0003，60冊）"
+    }
+  }
 }

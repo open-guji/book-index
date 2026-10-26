@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/dm5edaoxbk0svxep"
-      }
+      },
+      "entity_id": "hixhd2h9buiy"
     }
   ],
   "dynasty": "清",
@@ -37,7 +38,7 @@
       "summary": "共 2 個版本：清乾隆五十二年刻本（湖南省圖書館）；清嘉慶九年集腋軒刻本（中國社會科學院圖書館）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 rlfje0tn818cbu6t（一瓻筆存一百十三種（存一百六種））\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3t7e15dxdl1lxhyq\n同題同作者併條（集部串6，作者別名與並條口徑-共用 A檔：同名）（源 Work 1exopc3vvpq82《百美新詠》已並入；其作者寫法：顏希源）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 rlfje0tn818cbu6t（一瓻筆存一百十三種（存一百六種））\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3t7e15dxdl1lxhyq\n同題同作者併條（集部串6，作者別名與並條口徑-共用 A檔：同名）（源 Work 1exopc3vvpq82《百美新詠》已並入；其作者寫法：顏希源）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "merged_in": [
     {
       "id": "1exopc3vvpq82",
@@ -48,8 +49,8 @@
       "why": "同題同作者併條（集部串6，作者別名與並條口徑-共用 A檔：同名）"
     }
   ],
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -65,11 +66,69 @@
         "nlc_fid": "312001202723",
         "edition": "清嘉慶間[1796-1820]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-he18_04884",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/he18/he18_04884/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "he18_04884",
+        "edition": "集腋軒, 嘉慶10[1805]跋 シュウエキケン"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070898",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070898",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070898",
+        "request_no": "３５８－０１６９",
+        "edition": "刊本（跋刊）::清嘉慶:100000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5092290/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-25802",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/25802",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "25802",
+        "call_number": "205.174 25802",
+        "edition": "清乾隆57年(1792)刊本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001202723": {
       "label": "國圖藏本：清嘉慶間[1796-1820]"
+    },
+    "waseda-he18_04884": {
+      "label": "早稲田藏本：集腋軒, 嘉慶10[1805]跋 シュウエキケン"
+    },
+    "naikaku-1070898": {
+      "label": "內閣文庫藏本：清嘉慶10年刊本（跋刊）（358-0169，4冊）"
+    },
+    "ncltw-25802": {
+      "label": "臺灣國家圖書館藏本：清乾隆57年(1792)刊本"
     }
   }
 }

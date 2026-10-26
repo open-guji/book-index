@@ -40,9 +40,9 @@
       "清史稿藝文志"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -51,6 +51,46 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:IOC.UTokyo-016847_%E6%AA%A2%E9%A9%97%E5%90%88%E5%8F%83%E4%B8%80%E5%8D%B7_%E5%86%8A%E4%B8%80.pdf"
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-B3892200",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=B3892200&order=rn_no&no=00778",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "B3892200",
+        "call_no": "大木-法類-獄訟-檢驗-11",
+        "edition": "鈔本"
+      }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-B3891900",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=B3891900&order=rn_no&no=00773",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "B3891900",
+        "call_no": "大木-法類-獄訟-檢驗-8",
+        "edition": ""
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "ioc-B3892200": {
+      "label": "東文研藏本：鈔本"
+    },
+    "ioc-B3891900": {
+      "label": "東文研藏本"
+    }
+  }
 }

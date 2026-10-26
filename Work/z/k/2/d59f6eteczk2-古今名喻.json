@@ -6,7 +6,9 @@
     {
       "name": "吳仕期",
       "role": "撰",
-      "entity_id": "hixhd2h9bkgz"
+      "entity_id": "hixhd2h9bkgz",
+      "dynasty": "明",
+      "dynasty_basis": "早稲田挂接盲检（A4）交来疑误，3c 串核：總目著錄「明吳仕期輯」，朝代原缺"
     }
   ],
   "indexed_by": [
@@ -44,8 +46,8 @@
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "id": "d59f6eteczk2",
-  "revision": "1.3.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -105,6 +107,75 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5390761/manifest.json",
         "extent": "4冊"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i03_01891",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i03/i03_01891/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i03_01891",
+        "edition": ""
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101117157",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000021361",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101117157",
+        "nlk_control_no": "KOL000021361",
+        "holder": "국립중앙도서관",
+        "call_number": "한古朝16-34",
+        "edition": "其他 [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101189813",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000021328",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101189813",
+        "nlk_control_no": "KOL000021328",
+        "holder": "국립중앙도서관",
+        "call_number": "한古朝93-60",
+        "edition": "木板本 [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101202353",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000016514",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101202353",
+        "nlk_control_no": "KOL000016514",
+        "holder": "국립중앙도서관",
+        "call_number": "일산古032-41",
+        "edition": "金屬活字本 [刊寫年未詳]"
+      }
     }
   ],
   "resource_groups": {
@@ -116,9 +187,23 @@
     },
     "naikaku-1084640": {
       "label": "內閣文庫藏本：明万暦5年刊本（序刊）（367-0106，4冊）"
+    },
+    "waseda-i03_01891": {
+      "label": "早稲田藏本"
+    },
+    "korcis-101117157": {
+      "label": "韓國國立中央圖書館數字化藏本：其他 [刊寫年未詳]"
+    },
+    "korcis-101189813": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 [刊寫年未詳]"
+    },
+    "korcis-101202353": {
+      "label": "韓國國立中央圖書館數字化藏本：金屬活字本 [刊寫年未詳]"
     }
   },
   "period": "ming",
-  "period_basis": "據撰人 吳仕期（hixhd2h9bkgz） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）",
-  "ai_note": "2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目分類：子部／類書類／類編之屬／專編（與正式庫分類並存，未改 Work 分類）"
+  "period_basis": "據作品朝代「明」（早稲田挂接盲检（A4）交来疑误，3c 串核）",
+  "ai_note": "2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目分類：子部／類書類／類編之屬／專編（與正式庫分類並存，未改 Work 分類）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。；早稲田挂接盲检（A4）交来疑误，3c 串核（2026-10-26）：dynasty「」→「明」；作品朝代「」→「明」\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "dynasty": "明",
+  "dynasty_basis": "manual：早稲田挂接盲检（A4）交来疑误，3c 串核：總目著錄「明吳仕期輯」，朝代原缺"
 }

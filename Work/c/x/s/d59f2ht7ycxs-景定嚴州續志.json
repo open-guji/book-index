@@ -67,6 +67,53 @@
       "types": [
         "image"
       ]
+    },
+    {
+      "id": "commons",
+      "name": "维基共享资源",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC403-312001070731-30174_%E6%99%AF%E5%AE%9A%E5%9A%B4%E5%B7%9E%E7%BA%8C%E5%BF%97_%E6%B8%85%E5%85%89%E7%B7%9222%E5%B9%B4%281896%29_%E5%8D%B7%E4%B8%80.pdf",
+      "types": [
+        "image"
+      ],
+      "root_type": "catalog",
+      "metadata": {
+        "format": "PDF",
+        "edition": "刻本",
+        "publisher": "桐廬袁昶",
+        "year": "清光緒22年[1896]",
+        "note": "本链接为扫描册 卷一；不代表全书齐备。"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001070731",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001070731",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001070731",
+        "edition": ""
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03268",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03268",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03268",
+        "call_number": "210.2 03268",
+        "edition": "傳鈔四庫全書本"
+      }
     }
   ],
   "measures": [
@@ -87,9 +134,31 @@
       "欽定四庫全書總目"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…詔及升府省劄，體裁視他志稍殊。」今存。…」），而 loss_status 未填，今據以補為 extant。",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-06",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…詔及升府省劄，體裁視他志稍殊。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2huumz29《景定嚴州續志》 入本條。方志同修次重出：《景定嚴州續志》鄭瑤撰、方仁榮撰（欽定四庫全書總目） ← 《景定嚴州續志》錢可則修（无著录（故宫等））。脚本初判 A同修次·研-方志S复核。逐簇核对：景定嚴州續志僅此一修次，故宮四庫本（錢可則修）與四庫總目鄭瑤方仁榮撰同書\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
-  "loss_status_basis": "今存。詔及升府省劄，體裁視他志稍殊。」今存。"
+  "loss_status_basis": "今存。詔及升府省劄，體裁視他志稍殊。」今存。",
+  "resource_groups": {
+    "nlc-312001070731": {
+      "label": "國圖藏本："
+    },
+    "ncltw-03268": {
+      "label": "臺灣國家圖書館藏本：傳鈔四庫全書本"
+    }
+  },
+  "merged_in": [
+    {
+      "id": "d59f2huumz29",
+      "title": "景定嚴州續志",
+      "at": "2026-10-26T15:00:33Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《景定嚴州續志》鄭瑤撰、方仁榮撰（欽定四庫全書總目） ← 《景定嚴州續志》錢可則修（无著录（故宫等））。脚本初判 A同修次·研-方志S复核。逐簇核对：景定嚴州續志僅此一修次，故宮四庫本（錢可則修）與四庫總目鄭瑤方仁榮撰同書",
+      "author": "錢可則"
+    }
+  ],
+  "merged_from": [
+    "d59f2huumz29"
+  ]
 }

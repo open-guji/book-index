@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/3rlugy9ydcikwtkl"
-      }
+      },
+      "entity_id": "hixhd2h9bh1z"
     }
   ],
   "dynasty": "元",
@@ -37,9 +38,9 @@
       "summary": "共 1 個版本：（馆藏未载）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5gsmys0txwswz2a2、tpgae6vtspxjzes6\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5gsmys0txwswz2a2、tpgae6vtspxjzes6\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -70,6 +71,42 @@
         "nlc_fid": "008432449",
         "edition": "元延祐元年[1314]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075613",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075613",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075613",
+        "request_no": "子１９６－００４５",
+        "edition": "刊本（序刊）::明嘉靖:340000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4426777/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101117963",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000012393",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101117963",
+        "nlk_control_no": "KOL000012393",
+        "holder": "국립중앙도서관",
+        "call_number": "古1788-18",
+        "edition": "木板本 [刊寫年未詳]"
+      }
     }
   ],
   "resource_groups": {
@@ -78,6 +115,12 @@
     },
     "nlc-008432449": {
       "label": "國圖藏本：元延祐元年[1314]"
+    },
+    "naikaku-1075613": {
+      "label": "內閣文庫藏本：明嘉靖34年刊本（序刊）（子196-0045，2冊）"
+    },
+    "korcis-101117963": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 [刊寫年未詳]"
     }
   }
 }

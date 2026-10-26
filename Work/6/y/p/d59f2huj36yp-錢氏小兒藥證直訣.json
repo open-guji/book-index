@@ -44,11 +44,88 @@
         "holder": "東大図",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100452273/manifest"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300097183",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300097183",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300097183",
+        "holder": "府中之島図石崎",
+        "edition": "刊 \t[清代]",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300097183/manifest"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06147",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06147",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06147",
+        "call_number": "304.4 06147",
+        "edition": "宋刊大字本配補清昭文張氏雙芙閣影鈔清陳世傑仿宋刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06148",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06148",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06148",
+        "call_number": "304.4 06148",
+        "edition": "明刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06149",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06149",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06149",
+        "call_number": "304.4 06149",
+        "edition": "明起秀堂重刊本"
+      }
     }
   ],
   "resource_groups": {
     "kokusho-100452273": {
       "label": "國書·東大図藏刊 ［康熙中］"
+    },
+    "kokusho-300097183": {
+      "label": "國書·府中之島図石崎藏刊 \t[清代]"
+    },
+    "ncltw-06147": {
+      "label": "臺灣國家圖書館藏本：宋刊大字本配補清昭文張氏雙芙閣影鈔清陳世傑仿宋刊本"
+    },
+    "ncltw-06148": {
+      "label": "臺灣國家圖書館藏本：明刊本"
+    },
+    "ncltw-06149": {
+      "label": "臺灣國家圖書館藏本：明起秀堂重刊本"
     }
   },
   "authors": [
@@ -60,7 +137,7 @@
       "dynasty_basis": "entity_propagation_r2:1j98p1a960tts"
     }
   ],
-  "ai_note": "作者 \"宋錢乙撰\" 補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkap913ez9c 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。",
+  "ai_note": "作者 \"宋錢乙撰\" 補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkap913ez9c 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故觀013906-013907）。日本影鈔清道光間起秀堂仿宋本。",
     "sources": [
@@ -72,6 +149,6 @@
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13"
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26"
 }

@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/6tugzeabd1huv5o8"
-      }
+      },
+      "entity_id": "hixhd2h9btwk"
     }
   ],
   "dynasty": "唐",
@@ -29,7 +30,51 @@
       "summary": "共 2 個版本：民國二年北京刻經處刻本（上海圖書館、黑龍江省圖書館、吉林市圖書館）；民國七年金陵刻經處刻本（南京圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：uoyq4caatjg7dvfy、6c5wid7e8ej8dohz",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：uoyq4caatjg7dvfy、6c5wid7e8ej8dohz\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-300093733",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300093733",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300093733",
+        "holder": "東洋大哲学堂",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300093733/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100414637",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100414637",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100414637",
+        "holder": "同志社大",
+        "edition": "刊 延宝８",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100414637/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-300093733": {
+      "label": "國書·東洋大哲学堂藏刊"
+    },
+    "kokusho-100414637": {
+      "label": "國書·同志社大藏刊 延宝８"
+    }
+  }
 }

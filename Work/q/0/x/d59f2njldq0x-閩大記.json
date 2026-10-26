@@ -48,9 +48,9 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目分類：史部／方志類／地志之屬（與正式庫分類並存，未改 Work 分類）",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目分類：史部／方志類／地志之屬（與正式庫分類並存，未改 Work 分類）\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -59,6 +59,26 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NLC892-412000013000-382872_%E9%96%A9%E5%A4%A7%E8%A8%98_%E8%90%AC%E6%9B%86_%E4%BA%94%E5%8D%81%E4%BA%94%E5%8D%B7_%E7%AC%AC1%E5%86%8A.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000013000",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000013000",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000013000",
+        "edition": "清[1644-1911]"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-412000013000": {
+      "label": "國圖藏本：清[1644-1911]"
+    }
+  }
 }

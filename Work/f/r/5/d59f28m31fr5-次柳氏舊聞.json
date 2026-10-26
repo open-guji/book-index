@@ -31,6 +31,22 @@
       "source_bid": "d59f2hl0cmio",
       "title_info": "李德裕次柳氏舊聞",
       "summary": "李德裕次柳氏舊聞一卷"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "次柳氏舊聞（明皇十七事）一卷考異一卷",
+      "author_info": "唐李德裕撰;（考異）葉德輝撰",
+      "section": "子部/小說類/叢編之屬",
+      "summary": "共 2 個版本：（南京圖書館、北京大學圖書館、上海圖書館）；（上海圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "次柳氏舊聞一卷",
+      "author_info": "唐李德裕撰",
+      "section": "子部/小說類/叢編之屬",
+      "summary": "共 2 個版本：（臺灣圖書館、國家圖書館、武漢大學圖書館、北京大學圖書館、上海圖書館）；（中國科學院圖書館、國家圖書館、上海圖書館、天津圖書館、遼寧省圖書館、南京圖書館、湖北省圖書館、北京大學圖書館）"
     }
   ],
   "juan_count": {
@@ -115,6 +131,38 @@
         "format": "DjVu",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i04_00139",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i04/i04_00139_0005/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i04_00139",
+        "edition": "嘉慶11[1806]序"
+      },
+      "note": "合刻：叢書零冊，另含他書"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15308-0036",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15308-0036",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15308-0036",
+        "call_number": "204.242 15308-0036",
+        "edition": "明萬曆間(1573-1620)繡水沈氏尚白齋刊本"
+      }
     }
   ],
   "measures": [
@@ -136,9 +184,19 @@
       "indexed_by_moved": [
         "新唐書藝文志"
       ]
+    },
+    {
+      "id": "d59fxrotoi68",
+      "title": "次柳氏舊聞",
+      "at": "2026-10-26T14:58:19Z",
+      "by": "A11-去重上图-并",
+      "rule": "去重细拆上图-并 B 档：总目同一 work＋题名归一同／异写＋首位责任者同一＋卷数朝代相容",
+      "why": "上图藏书 work_uri u3kqsn8cmw88a5xz 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《次柳氏舊聞》李德裕(唐,1卷)／《次柳氏舊聞》葉德輝、李德裕(民國,-卷)；同为一卷，李德裕撰，葉德輝为校刊者",
+      "author": "葉德輝、李德裕",
+      "title_info": "次柳氏舊聞（明皇十七事）一卷考異一卷；次柳氏舊聞一卷"
     }
   ],
-  "ai_note": "合併：題名「李德裕次柳氏舊聞」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「李德裕」已見本條 authors[]），裸題「次柳氏舊聞」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwzbjru9s 與 11q37s4d184xs 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 1–3 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字。未覆核原書。使用者本輪之裁定是「只補頭部約 766 條」，而機械撮述之法成本極低（不費人力，且所組織者皆本條已有之信息），故不止於頭部——凡材料足以成文者（有敘錄，或諸志卷數有異同）皆補之；材料不足者（無敘錄而諸志卷數又一致）仍不生成——其 desc 止是覆述著錄，讀者從 indexed_by 一望即知，寫與不寫同。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…說，以告德裕，德裕因追憶錄進。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。",
+  "ai_note": "合併：題名「李德裕次柳氏舊聞」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「李德裕」已見本條 authors[]），裸題「次柳氏舊聞」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwzbjru9s 與 11q37s4d184xs 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 1–3 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字。未覆核原書。使用者本輪之裁定是「只補頭部約 766 條」，而機械撮述之法成本極低（不費人力，且所組織者皆本條已有之信息），故不止於頭部——凡材料足以成文者（有敘錄，或諸志卷數有異同）皆補之；材料不足者（無敘錄而諸志卷數又一致）仍不生成——其 desc 止是覆述著錄，讀者從 indexed_by 一望即知，寫與不寫同。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…說，以告德裕，德裕因追憶錄進。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 A11-去重上图-并 併條（rule=去重细拆上图-并 B 档：总目同一 work＋题名归一同／异写＋首位责任者同一＋卷数朝代相容）：併 d59fxrotoi68《次柳氏舊聞》 入本條。上图藏书 work_uri u3kqsn8cmw88a5xz 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《次柳氏舊聞》李德裕(唐,1卷)／《次柳氏舊聞》葉德輝、李德裕(民國,-卷)；同为一卷，李德裕撰，葉德輝为校刊者\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
   "description": {
@@ -149,7 +207,21 @@
       "新唐書藝文志"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24",
-  "loss_status": "extant"
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
+  "loss_status": "extant",
+  "resource_groups": {
+    "waseda-i04_00139": {
+      "label": "早稲田藏本：嘉慶11[1806]序"
+    },
+    "ncltw-15308-0036": {
+      "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)繡水沈氏尚白齋刊本"
+    }
+  },
+  "additional_titles": [
+    "明皇十七事"
+  ],
+  "merged_from": [
+    "d59fxrotoi68"
+  ]
 }

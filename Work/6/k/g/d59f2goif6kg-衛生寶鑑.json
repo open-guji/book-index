@@ -154,6 +154,38 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4496474/manifest.json",
         "extent": "10冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05964",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05964",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05964",
+        "call_number": "304.1 05964",
+        "edition": "明永樂十五年(1417)太醫院判韓夷刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05966",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05966",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05966",
+        "call_number": "304.1 05966",
+        "edition": "明初葉閩刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -171,6 +203,12 @@
     },
     "naikaku-1079667": {
       "label": "內閣文庫藏本：明成化16年刊本（序刊） 李果（子025-0012，10冊）"
+    },
+    "ncltw-05964": {
+      "label": "臺灣國家圖書館藏本：明永樂十五年(1417)太醫院判韓夷刊本"
+    },
+    "ncltw-05966": {
+      "label": "臺灣國家圖書館藏本：明初葉閩刊本"
     }
   },
   "updated_at": "2026-08-09T09:33:12+00:00",
@@ -178,9 +216,9 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 lane-B 併條（rule=I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一））：併 d59f6egzd5ok《衞生寶鑑》 入本條。同題同撰人而**題止異體字之異**：「衛生寶鑑」對「衞生寶鑑」。keeper 繫 補遼金元藝文志／元史藝文志；被併者繫 千頃堂書目。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
-  "revision": "1.4.0",
-  "revised_at": "2026-10-14",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 lane-B 併條（rule=I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一））：併 d59f6egzd5ok《衞生寶鑑》 入本條。同題同撰人而**題止異體字之異**：「衛生寶鑑」對「衞生寶鑑」。keeper 繫 補遼金元藝文志／元史藝文志；被併者繫 千頃堂書目。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-26",
   "additional_titles": [
     "衞生寶鑑"
   ],

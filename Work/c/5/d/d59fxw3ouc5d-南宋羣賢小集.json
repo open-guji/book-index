@@ -23,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/ddbyu01m3v5hkzkl"
-      }
+      },
+      "entity_id": "hixi5fivkq3p"
     }
   ],
   "dynasty": "宋",
@@ -40,7 +41,7 @@
       "summary": "共 2 個版本：清趙氏小山堂抄本（北京大學圖書館）；清嘉慶六年石門顧氏讀畫齋刻本（上海圖書館、南京圖書館、國家圖書館、遼寧省圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：nkobs55cx2rhy5ar、u8hl4nmzjyvs6f3w\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 709 批新建（hold 清零：jiexi191；原 hold 原因：解析不全(卷数/题名缺)）",
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：nkobs55cx2rhy5ar、u8hl4nmzjyvs6f3w\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 709 批新建（hold 清零：jiexi191；原 hold 原因：解析不全(卷数/题名缺)）\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "related_works": [
     {
       "id": "d59fxw3pgt8h",
@@ -53,6 +54,48 @@
       "note": "同批新建的同題 Work（作者不同或缺），依錄入優先不並，互為相關，待核同書再議。"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14204",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14204",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14204",
+        "call_number": "403.251 14204",
+        "edition": "宋嘉定至景定間(1208-1264)臨安府陳解元宅書籍鋪遞刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14206",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14206",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14206",
+        "call_number": "403.251 14206",
+        "edition": "舊鈔本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ncltw-14204": {
+      "label": "臺灣國家圖書館藏本：宋嘉定至景定間(1208-1264)臨安府陳解元宅書籍鋪遞刊本"
+    },
+    "ncltw-14206": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
+    }
+  }
 }

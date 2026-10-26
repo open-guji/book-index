@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """去重方案 3a-2乙（集部别集名异写）：由 判定.tsv 的「并」对成簇，生成 apply_batch 用的 batch.json。
 
-    mkbatch.py <批次目录> [--sample N] [--skip 已做批次目录,...] [--max 300]
+    mkbatch.py <批次目录> [--sample N] [--skip 已做批次目录,...] [--max 300] [--r2 判定-r2.tsv]
+
+--r2：第二轮细查结果（按原 a_id、b_id 覆盖第一轮判定）；给了它就把全部判定的两端映射到当前活 id
+（顺 merged_into 走），已同条的对丢掉，不再需要 --skip。
 
 成簇规则：只取判「并」的边做并查集；簇内任两条之间若另有「分立／存疑」边，整簇不并（防 詩集—集—文集 串并）。
 每簇成员须在当前工作树里仍活（无 merged_into），否则跳过。
@@ -32,10 +35,29 @@ def book_counts(ids):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('out'); ap.add_argument('--sample', type=int); ap.add_argument('--max', type=int, default=300)
-    ap.add_argument('--skip', default=''); ap.add_argument('--seed', type=int, default=25)
+    ap.add_argument('--skip', default=''); ap.add_argument('--seed', type=int, default=25); ap.add_argument('--r2')
     a = ap.parse_args()
     rows = list(csv.DictReader(open(os.path.join(HERE, '判定.tsv'), encoding='utf-8'), delimiter='\t'))
     print('载入判定', len(rows), '对'); assert rows
+    if a.r2:
+        r2 = {(r['a_id'], r['b_id']): r for r in csv.DictReader(open(a.r2, encoding='utf-8'), delimiter='\t')}
+        def live(i):
+            for _ in range(20):
+                d = load(i)
+                if d is None or not d.get('merged_into'):
+                    return i if d else None
+                i = d['merged_into']
+        lv = {}
+        for r in rows:
+            o = r2.get((r['a_id'], r['b_id']))
+            if o:
+                r.update({'判定': o['判定'], '依据': '〔第二轮细查：%s〕%s' % (o['判定来源'], o['依据'])})
+            for k in ('a_id', 'b_id'):
+                if r[k] not in lv:
+                    lv[r[k]] = live(r[k])
+                r[k] = lv[r[k]]
+        rows = [r for r in rows if r['a_id'] and r['b_id'] and r['a_id'] != r['b_id']]
+        print('第二轮覆盖', len(r2), '对；映射活 id 后余', len(rows), '对，其中并', sum(r['判定'] == '并' for r in rows))
     par = {}
     def f(x):
         while par.setdefault(x, x) != x:
@@ -82,7 +104,7 @@ def main():
         groups.append({
             'case_id': 'Y%04d' % (len(groups) + 1), 'cluster_id': '3a2yi-' + keeper, 'type': 'work',
             'keeper': keeper, 'losers': losers,
-            'keeper_source': '去重方案 3a-2乙 集部别集名异写候选（细拆脚本 near_title_alias.py）＋逐条子 agent 判定（.claude/qa/dedup-3a2yi/判定.tsv）',
+            'keeper_source': '去重方案 3a-2乙 集部别集名异写候选（细拆脚本 near_title_alias.py）＋逐条子 agent 判定（.claude/qa/dedup-3a2yi/判定.tsv%s）' % ('、判定-r2.tsv' if a.r2 else ''),
             'evidence': ev, 'rule': '去重方案 3a-2乙：别集名异写 B 档证据并（口径见 ai-team 3a-2乙-别集名异写口径.md）', 'why': ev,
             'loser_original_notes': {l: {k: recs[l][k] for k in ('description', 'ai_note') if recs[l].get(k)} for l in losers}})
     os.makedirs(a.out, exist_ok=True)

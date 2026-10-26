@@ -234,6 +234,71 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4408231/manifest.json",
         "extent": "10冊"
       }
+    },
+    {
+      "id": "keio",
+      "group": "keio-13356",
+      "group_role": "origin",
+      "name": "慶應義塾図書館 漢籍コレクション",
+      "short_name": "慶應",
+      "url": "https://dcollections.lib.keio.ac.jp/ja/kanseki/110x-134-16-1",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "keio_record": "keioobjecthub-13356",
+        "call_no": "110X-134-16-1",
+        "edition": "明成化18年跋刊(1482)",
+        "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/110X-134-16-1/manifest.json"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11275",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11275",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11275",
+        "call_number": "402.6 11275",
+        "edition": "明正德庚辰(十五年, 1520)姑蘇顧璘等刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11277",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11277",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11277",
+        "call_number": "402.6 11277",
+        "edition": "明嘉靖二十年(1541)蜀藩刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11278",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11278",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11278",
+        "call_number": "402.6 11278",
+        "edition": "明嘉靖辛酉(四十年, 1561)浙江按察副使范惟一刊本"
+      }
     }
   ],
   "measures": [
@@ -249,7 +314,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1evkan1q03k74 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-10 撰人字首式重出候選覆核：1evgqec0u18u8（撰人折入題名之異寫）併入本條（同題同撰人）。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxqo86mtc 與 11q37tx07r37k 同指文淵閣寫本一實物，今併於後者。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "從 1evkan1q03k74 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-10 撰人字首式重出候選覆核：1evgqec0u18u8（撰人折入題名之異寫）併入本條（同題同撰人）。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxqo86mtc 與 11q37tx07r37k 同指文淵閣寫本一實物，今併於後者。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 慶應 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "updated_at": "2026-08-10",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
@@ -257,8 +322,8 @@
   "dynasty_basis": "author_propagation",
   "emendated_by": [],
   "related_works": [],
-  "revision": "1.2.0",
-  "revised_at": "2026-10-16",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "merged_in": [
     {
       "id": "d59f6ehv7d39",
@@ -299,6 +364,18 @@
     },
     "naikaku-1082995": {
       "label": "內閣文庫藏本：明正徳15年刊本（跋刊）（集017-0002，10冊）"
+    },
+    "keio-13356": {
+      "label": "慶應藏本：明成化18年跋刊(1482)"
+    },
+    "ncltw-11275": {
+      "label": "臺灣國家圖書館藏本：明正德庚辰(十五年, 1520)姑蘇顧璘等刊本"
+    },
+    "ncltw-11277": {
+      "label": "臺灣國家圖書館藏本：明嘉靖二十年(1541)蜀藩刊本"
+    },
+    "ncltw-11278": {
+      "label": "臺灣國家圖書館藏本：明嘉靖辛酉(四十年, 1561)浙江按察副使范惟一刊本"
     }
   }
 }

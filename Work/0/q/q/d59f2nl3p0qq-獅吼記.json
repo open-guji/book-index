@@ -16,15 +16,15 @@
       "中華再造善本"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "id": "d59f2nl3p0qq",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基文库",
@@ -41,6 +41,38 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL06386248_%E7%8D%85%E5%90%BC%E8%A8%98.djvu"
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-D8392000",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=D8392000&order=rn_no&no=01748",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "D8392000",
+        "call_no": "雙紅堂-戲曲-13",
+        "edition": "石印本 民國□年"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15175-0049",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15175-0049",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15175-0049",
+        "call_number": "407.22 15175-0049",
+        "edition": "明虞山毛氏汲古閣刊清代修補本"
+      }
     }
   ],
   "indexed_by": [
@@ -59,5 +91,13 @@
       "relation": "related",
       "note": "總目記錄無具名主責任者（記佚名），與既有 Work 題名相同，依錄入優先與 Sabine 規則不據題名並，另立；互為相關，待有責任者證據再議。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "ioc-D8392000": {
+      "label": "東文研藏本：石印本 民國□年"
+    },
+    "ncltw-15175-0049": {
+      "label": "臺灣國家圖書館藏本：明虞山毛氏汲古閣刊清代修補本"
+    }
+  }
 }

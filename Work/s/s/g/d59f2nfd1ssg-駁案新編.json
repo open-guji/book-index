@@ -75,6 +75,38 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:SSID-12933626_%E9%A7%81%E6%A1%88%E6%96%B0%E7%B7%A8_%E9%A7%81%E6%A1%88%E7%BA%8C%E7%B7%A8_2.pdf"
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-B3851900",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=B3851900&order=rn_no&no=00642",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "B3851900",
+        "call_no": "大木-法類-例案-17",
+        "edition": "刊本 乾隆中"
+      }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-B3852000",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=B3852000&order=rn_no&no=00648",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "B3852000",
+        "call_no": "大木-法類-例案-22",
+        "edition": ""
+      }
     }
   ],
   "updated_at": "2026-08-19T00:00:00-07:00",
@@ -82,7 +114,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 19，非諸志所著之任一數（清史稿藝文志作三十九卷；續修四庫全書作三十二卷），係匯入時解析所誤。今取諸源中著錄最多者（同數則取志源較早、較確者）為 三十二 卷，餘數之異存於各 indexed_by 之引文。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 19，非諸志所著之任一數（清史稿藝文志作三十九卷；續修四庫全書作三十二卷），係匯入時解析所誤。今取諸源中著錄最多者（同數則取志源較早、較確者）為 三十二 卷，餘數之異存於各 indexed_by 之引文。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
   "description": {
     "text": "全士潮（清）編。三十二卷；諸志所著之數有異，別作三十九卷。見著錄於《清史稿藝文志》《續修四庫全書》。《續修四庫全書》列於史部 史部。其著錄之文，《續修四庫全書》作「《駁案新編》三十二卷」。《清史稿藝文志》民國趙爾巽等修；《續修四庫全書》一九九五年影印——本書之目賴之以存。",
     "sources": [
@@ -90,6 +122,14 @@
       "續修四庫全書"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "ioc-B3851900": {
+      "label": "東文研藏本：刊本 乾隆中"
+    },
+    "ioc-B3852000": {
+      "label": "東文研藏本"
+    }
+  }
 }

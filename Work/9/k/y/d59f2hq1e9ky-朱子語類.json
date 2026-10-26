@@ -273,6 +273,91 @@
         "nlc_fid": "411999008576",
         "edition": "明成化9年[1473]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro13_02939",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro13/ro13_02939/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro13_02939",
+        "edition": "二条通衣店(京師) : 風月堂, 寛政3[1791] ( )"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-102605175",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL200400114",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102605175",
+        "nlk_control_no": "KOL200400114",
+        "holder": "국립중앙도서관",
+        "call_number": "古貴1252-209",
+        "part": "卷130",
+        "edition": "金屬活字本(丙子字) [明宗年間(1546~1567)"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-301055273",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL202100002",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "301055273",
+        "nlk_control_no": "KOL202100002",
+        "holder": "국립중앙도서관",
+        "call_number": "古1252-240",
+        "part": "卷64",
+        "edition": "金屬活字本(丙辰字) 宣祖 8(1575)"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05478",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05478",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05478",
+        "call_number": "301 05478",
+        "edition": "明成化九年(1473)江西藩司覆刊宋咸淳六年(1270)導江黎氏本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05480",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05480",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05480",
+        "call_number": "301 05480",
+        "edition": "明成化九年(1473)江西藩司覆刊宋咸淳六年(1270)導江黎氏刊本"
+      }
     }
   ],
   "measures": [
@@ -283,7 +368,7 @@
   ],
   "measure_info": "一百四十卷",
   "updated_at": "2026-08-24T09:26:05.823978+00:00",
-  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwfio91q8 與 11q37qhjx3j0g 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G6 撰人名污染正名：撰人「咸淳庚午導江黎靖德」正為「黎靖德」。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…十六卷，刊於饒州，曰《饒錄》。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwfio91q8 與 11q37qhjx3j0g 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G6 撰人名污染正名：撰人「咸淳庚午導江黎靖德」正為「黎靖德」。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…十六卷，刊於饒州，曰《饒錄》。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "period_upper": "song",
   "period_upper_basis": "撰人朝代作「宋」，歧而未決；諸解中最晚者為 song，無論何解皆不晚於此",
   "period": "song",
@@ -295,8 +380,8 @@
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.5.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.8.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "loss_status_basis": "今存。十六卷，刊於饒州，曰《饒錄》。」今存。",
   "resource_groups": {
@@ -326,6 +411,21 @@
     },
     "nlc-411999008576": {
       "label": "國圖藏本：明成化9年[1473]"
+    },
+    "waseda-ro13_02939": {
+      "label": "早稲田藏本：二条通衣店(京師) : 風月堂, 寛政3[1791] ( )"
+    },
+    "korcis-102605175": {
+      "label": "韓國國立中央圖書館數字化藏本：金屬活字本(丙子字) [明宗年間(1546~1567)"
+    },
+    "korcis-301055273": {
+      "label": "韓國國立中央圖書館數字化藏本：金屬活字本(丙辰字) 宣祖 8(1575)"
+    },
+    "ncltw-05478": {
+      "label": "臺灣國家圖書館藏本：明成化九年(1473)江西藩司覆刊宋咸淳六年(1270)導江黎氏本"
+    },
+    "ncltw-05480": {
+      "label": "臺灣國家圖書館藏本：明成化九年(1473)江西藩司覆刊宋咸淳六年(1270)導江黎氏刊本"
     }
   },
   "related_works": [

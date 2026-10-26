@@ -270,6 +270,37 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5046528/manifest.json",
         "extent": "50冊"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko11_d0284",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko11/bunko11_d0284/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko11_d0284",
+        "edition": ""
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01626",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01626",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01626",
+        "call_number": "201.258 01626",
+        "edition": "明洪武三年(1370)刊嘉靖間南監修補本"
+      }
     }
   ],
   "measures": [
@@ -288,7 +319,7 @@
       "國史經籍志"
     ]
   },
-  "ai_note": "從 1evgpgvaqfvuo 合併。原註：missing_reason: 作者冲突 work=宋濂等奉敕 vs anno=宋濓 作者「明宋濂撰」補自《國立故宮博物院善本舊籍》目錄。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-16 作者欄黏連訂正：原著錄作「宋濂等奉敕」，係官銜／年號／合著之辭與人名黏連，今剝為「宋濂」，role 記「奉敕撰」以存敕修之實。依據：明洪武敕修《元史》，總裁官宋濂。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw0a7cwzk 與 11q37p2t5jj0g 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目著錄版本待定（版本標籤空，本 Work 有多個 Book，未入 Book）：2wzph70w4piulcns\n總目分類：史部／紀傳類／叢編之屬",
+  "ai_note": "從 1evgpgvaqfvuo 合併。原註：missing_reason: 作者冲突 work=宋濂等奉敕 vs anno=宋濓 作者「明宋濂撰」補自《國立故宮博物院善本舊籍》目錄。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-16 作者欄黏連訂正：原著錄作「宋濂等奉敕」，係官銜／年號／合著之辭與人名黏連，今剝為「宋濂」，role 記「奉敕撰」以存敕修之實。依據：明洪武敕修《元史》，總裁官宋濂。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw0a7cwzk 與 11q37p2t5jj0g 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目著錄版本待定（版本標籤空，本 Work 有多個 Book，未入 Book）：2wzph70w4piulcns\n總目分類：史部／紀傳類／叢編之屬\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "related_works": [
     {
       "id": "8rlcsybg2hhi",
@@ -300,8 +331,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-16",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-CBM0337": {
       "label": "國圖藏本：內府   明[1368-1644]"
@@ -326,6 +357,12 @@
     },
     "naikaku-1067947": {
       "label": "內閣文庫藏本：明万暦30年刊本 北監（320-0046，50冊）"
+    },
+    "waseda-bunko11_d0284": {
+      "label": "早稲田藏本"
+    },
+    "ncltw-01626": {
+      "label": "臺灣國家圖書館藏本：明洪武三年(1370)刊嘉靖間南監修補本"
     }
   },
   "contained_in": [

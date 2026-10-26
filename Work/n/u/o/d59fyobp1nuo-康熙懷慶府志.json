@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/6ecy8hjfygg7exz1"
-      }
+      },
+      "entity_id": "hixicm3dvlgo"
     },
     {
       "name": "蕭瑞苞",
@@ -22,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/hcwh8hjsq3fs30t2"
-      }
+      },
+      "entity_id": "hixicm920ss0"
     },
     {
       "name": "劉維世",
@@ -32,7 +34,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/70lr5r6lcgca4h15"
-      }
+      },
+      "entity_id": "hixicm3cxvto"
     }
   ],
   "dynasty": "清",
@@ -49,7 +52,32 @@
       "summary": "共 1 個版本：清康熙三十四年刻本（上海圖書館、北京大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5j6tdtfse60qqhgq\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5j6tdtfse60qqhgq\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1072981",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1072981",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1072981",
+        "request_no": "史１５４－０００１",
+        "edition": "刊本（序刊）::清康煕:340000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4753028/manifest.json",
+        "extent": "12冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1072981": {
+      "label": "內閣文庫藏本：清康煕34年刊本（序刊）（史154-0001，12冊）"
+    }
+  }
 }

@@ -55,6 +55,38 @@
         "year": "民國25[1936]",
         "note": "本链接为扫描册 1；不代表全书齐备。"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11152",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11152",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11152",
+        "call_number": "402.6 11152",
+        "edition": "明崇禎己卯十二年(1639)閩漳魏呈潤刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14314-0007",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14314-0007",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14314-0007",
+        "call_number": "403.26 14314-0007",
+        "edition": "明隆慶間(1567-1572)刊本"
+      }
     }
   ],
   "measures": [
@@ -69,13 +101,21 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-19 同題異撰人專項（二）：本條與 `1evkpxr1u97nk` 同題《王忠文公集》、同卷數 24，撰人分作「王禕」「王褘」，僅一字之差（或一名含於另一名、或冠以朝代），乃一名之異寫或形訛，非二人二書。今併，正名取「王禕」，異名之著錄並存於 indexed_by。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-19 同題異撰人專項（二）：本條與 `1evkpxr1u97nk` 同題《王忠文公集》、同卷數 24，撰人分作「王禕」「王褘」，僅一字之差（或一名含於另一名、或冠以朝代），乃一名之異寫或形訛，非二人二書。今併，正名取「王禕」，異名之著錄並存於 indexed_by。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故庫028812-028829）。清乾隆間寫文淵閣四庫全書本。",
     "sources": [
       "國立故宮博物院善本舊籍"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "ncltw-11152": {
+      "label": "臺灣國家圖書館藏本：明崇禎己卯十二年(1639)閩漳魏呈潤刊本"
+    },
+    "ncltw-14314-0007": {
+      "label": "臺灣國家圖書館藏本：明隆慶間(1567-1572)刊本"
+    }
+  }
 }

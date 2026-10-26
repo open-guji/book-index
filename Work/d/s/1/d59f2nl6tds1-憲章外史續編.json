@@ -16,7 +16,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjr090ih0xs(許重熙)（不同作者，故新建獨立 Work）。　entity_id 補繫：本條之撰人許重熙與庫中人物記錄（1j96hjwlxz6kp）同名，而該人物之 works 已列本條，是二者本相繫而作品側漏繫，今補。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 6，與著錄原文（續修四庫全書：「憲章外史續編」）所載之 14 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjr090ih0xs(許重熙)（不同作者，故新建獨立 Work）。　entity_id 補繫：本條之撰人許重熙與庫中人物記錄（1j96hjwlxz6kp）同名，而該人物之 works 已列本條，是二者本相繫而作品側漏繫，今補。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 6，與著錄原文（續修四庫全書：「憲章外史續編」）所載之 14 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 14
   },
@@ -45,8 +45,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -70,11 +70,49 @@
         "nlc_fid": "0261",
         "edition": "明崇禎[1628-1644]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01922",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01922",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01922",
+        "call_number": "202.26 01922",
+        "edition": "明崇禎六年(1633)刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01923",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01923",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01923",
+        "call_number": "202.26 01923",
+        "edition": "明崇禎六年(1633)刊本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-0261": {
       "label": "國圖藏本：明崇禎[1628-1644]"
+    },
+    "ncltw-01922": {
+      "label": "臺灣國家圖書館藏本：明崇禎六年(1633)刊本"
+    },
+    "ncltw-01923": {
+      "label": "臺灣國家圖書館藏本：明崇禎六年(1633)刊本"
     }
   }
 }

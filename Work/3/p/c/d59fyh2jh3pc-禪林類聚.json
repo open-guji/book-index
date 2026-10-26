@@ -40,9 +40,9 @@
       "summary": "共 2 個版本：明永樂十五年刻本（北京大學圖書館）；明初刻本（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4h3o5e8uyms7dd4f、n1pc8bpfw1wpgr5g\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4h3o5e8uyms7dd4f、n1pc8bpfw1wpgr5g\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条、國書 3 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 慶應 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.6.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -73,6 +73,140 @@
         "nlc_fid": "007438335",
         "edition": "慶安2年（清順治6年）[1649]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i17_00380",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i17/i17_00380/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i17_00380",
+        "edition": "寛永8[1631]"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610560",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610560",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610560",
+        "request_no": "３１０－０１７０",
+        "edition": "刊本:江戸初:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3743997/manifest.json",
+        "extent": "20冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100231904",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100231904",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100231904",
+        "holder": "書陵部蔵",
+        "edition": "刊 大徳１１",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100231904/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100137157",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100137157",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100137157",
+        "holder": "熊本大教育",
+        "edition": "刊 寛永８",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100137157/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100151726",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100151726",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100151726",
+        "holder": "バークレー三井",
+        "edition": "刊 寛永８",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100151726/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2605545",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2605545",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2605545",
+        "edition": "貞治6 [1367]"
+      }
+    },
+    {
+      "id": "keio",
+      "group": "keio-16851",
+      "group_role": "origin",
+      "name": "慶應義塾図書館 漢籍コレクション",
+      "short_name": "慶應",
+      "url": "https://dcollections.lib.keio.ac.jp/ja/kanseki/110x-7-19-1",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "keio_record": "keioobjecthub-16851",
+        "call_no": "110X-7-19-1",
+        "edition": "京 臨川寺 釈東岡希杲 貞治6年刊(1367) 逓修 五山版",
+        "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/110X-7-19-1/manifest.json"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101418333",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000001862",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101418333",
+        "nlk_control_no": "EOL000001862",
+        "holder": "국립중앙도서관",
+        "call_number": "古古1-75-306",
+        "edition": "木板本 萬治 2(1695)"
+      }
     }
   ],
   "resource_groups": {
@@ -81,6 +215,30 @@
     },
     "nlc-007438335": {
       "label": "國圖藏本：慶安2年（清順治6年）[1649]"
+    },
+    "waseda-i17_00380": {
+      "label": "早稲田藏本：寛永8[1631]"
+    },
+    "naikaku-3610560": {
+      "label": "內閣文庫藏本：江戸初刊本（310-0170，20冊）"
+    },
+    "kokusho-100231904": {
+      "label": "國書·書陵部蔵藏刊 大徳１１"
+    },
+    "kokusho-100137157": {
+      "label": "國書·熊本大教育藏刊 寛永８"
+    },
+    "kokusho-100151726": {
+      "label": "國書·バークレー三井藏刊 寛永８"
+    },
+    "ndl-2605545": {
+      "label": "NDL藏本：貞治6 [1367]"
+    },
+    "keio-16851": {
+      "label": "慶應藏本：京 臨川寺 釈東岡希杲 貞治6年刊(1367) 逓修 五山版"
+    },
+    "korcis-101418333": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 萬治 2(1695)"
     }
   }
 }

@@ -30,7 +30,49 @@
       "summary": "共 2 個版本：清乾隆三十九年古俊樓刻光緒十二年修補本（湖北省圖書館）；清乾隆三十九年古俊樓刻本（湖北省圖書館、國家圖書館、中國科學院圖書館、北京大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：lm78ag27j6ir1yie、lk5osyoz3s5xkx51",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：lm78ag27j6ir1yie、lk5osyoz3s5xkx51\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "loc",
+      "group": "loc-2012402498",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2012402498/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2012402498",
+        "iiif_manifest": "https://www.loc.gov/item/2012402498/manifest.json",
+        "edition": "清乾隆39年古俊樓校刊本 1774"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01205",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01205",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01205",
+        "call_number": "109.8 01205",
+        "edition": "舊鈔本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "loc-2012402498": {
+      "label": "美國國會圖書館藏本：清乾隆39年古俊樓校刊本 1774"
+    },
+    "ncltw-01205": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
+    }
+  }
 }

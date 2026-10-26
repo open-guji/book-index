@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀004200），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀004200），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 4
   },
@@ -33,8 +33,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "commons",
@@ -50,6 +50,47 @@
         "year": "民國28[1939]",
         "note": "本链接为扫描册 1；不代表全书齐备。"
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3371340481",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3371340481",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3371340481",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3371340481/manifest",
+        "shelfmark": "Libri sin. 73",
+        "edition": "刻本;涵遠齋 梓行 萬曆辛丑 (=1601) 序"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06184",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06184",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06184",
+        "call_number": "304.4 06184",
+        "edition": "明萬曆間(1573-1620)新安吳勉學刊古今醫統正脈全書本"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "sbb-PPN3371340481": {
+      "label": "柏林國家圖書館藏本：刻本;涵遠齋 梓行 萬曆辛丑 (=1601) 序"
+    },
+    "ncltw-06184": {
+      "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)新安吳勉學刊古今醫統正脈全書本"
+    }
+  }
 }

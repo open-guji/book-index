@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/pcw4bcyjp46ib263"
-      }
+      },
+      "entity_id": "hixhd2h9bekc"
     },
     {
       "name": "李鼎祚",
@@ -22,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/5zpjd83dijek76ty"
-      }
+      },
+      "entity_id": "hixhd2h9biqa"
     }
   ],
   "dynasty": "明",
@@ -47,7 +49,7 @@
       "summary": "共 1 個版本：（天津圖書館、山東省圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jwxh4upv3p3bud6m、joda2hodyv6mfekw、iyjjxw0l76qf0ze3\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 521 批新建（hold 清零：jyiyi；原 hold 原因：）\n第 3003 批追加版本，源記錄：gkkpfegvwedwjglm\n經部查重並條（A檔：同題同作者同朝代，卷數差≤1）（源 Work 1exp0gja4ce84《易傳》已並入；其作者寫法：李鼎祚）",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jwxh4upv3p3bud6m、joda2hodyv6mfekw、iyjjxw0l76qf0ze3\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 521 批新建（hold 清零：jyiyi；原 hold 原因：）\n第 3003 批追加版本，源記錄：gkkpfegvwedwjglm\n經部查重並條（A檔：同題同作者同朝代，卷數差≤1）（源 Work 1exp0gja4ce84《易傳》已並入；其作者寫法：李鼎祚）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "merged_in": [
     {
       "id": "1exp0gja4ce84",
@@ -58,6 +60,50 @@
       "why": "經部查重並條（A檔：同題同作者同朝代，卷數差≤1）"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610463",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610463",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610463",
+        "request_no": "２７３－００３１",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3771870/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00015",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00015",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00015",
+        "call_number": "101.2 00015",
+        "edition": "明海鹽胡震亨刊秘冊彙函本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-3610463": {
+      "label": "內閣文庫藏本：明刊本（273-0031，5冊）"
+    },
+    "ncltw-00015": {
+      "label": "臺灣國家圖書館藏本：明海鹽胡震亨刊秘冊彙函本"
+    }
+  }
 }

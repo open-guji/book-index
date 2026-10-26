@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/reb5qozhwa0wwrxm"
-      }
+      },
+      "entity_id": "hixhd2h9bdyx"
     }
   ],
   "dynasty": "元",
@@ -29,7 +30,69 @@
       "summary": "共 1 個版本：（復旦大學圖書館、山東省圖書館、天津圖書館、遼寧省圖書館、南京圖書館、浙江圖書館、國家圖書館、中國科學院圖書館、湖北省圖書館、北京大學圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 km8m7uuxvsic8hh3（文淵閣四庫全書三千四百六十一種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：oubvyxuqyxawz14g",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 km8m7uuxvsic8hh3（文淵閣四庫全書三千四百六十一種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：oubvyxuqyxawz14g\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 慶應 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "keio",
+      "group": "keio-17032",
+      "group_role": "origin",
+      "name": "慶應義塾図書館 漢籍コレクション",
+      "short_name": "慶應",
+      "url": "https://dcollections.lib.keio.ac.jp/ja/kanseki/224-36-4-1",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "keio_record": "keioobjecthub-17032",
+        "call_no": "224-36-4-1",
+        "edition": "汲古閣 明末刊",
+        "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/224-36-4-1/manifest.json"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11183",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11183",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11183",
+        "call_number": "402.6 11183",
+        "edition": "明末虞山毛氏汲古閣刊元十家詩集本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14282-0008",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14282-0008",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14282-0008",
+        "call_number": "403.258 14282-0008",
+        "edition": "明崇禎戊寅(11年,1638)虞山毛氏汲古閣刊本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "keio-17032": {
+      "label": "慶應藏本：汲古閣 明末刊"
+    },
+    "ncltw-11183": {
+      "label": "臺灣國家圖書館藏本：明末虞山毛氏汲古閣刊元十家詩集本"
+    },
+    "ncltw-14282-0008": {
+      "label": "臺灣國家圖書館藏本：明崇禎戊寅(11年,1638)虞山毛氏汲古閣刊本"
+    }
+  }
 }
