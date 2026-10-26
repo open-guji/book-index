@@ -18,7 +18,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L5：撰人「陶宗儀」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-09-06 qa-sweep/liaojinyuan A 類「基準句之陳舊」：period_basis 舊句作「據 authors[0].dynasty「元」」，而該欄實作「元末明初」——2026-08-25「L5 斷代歸一（遼金元輪）」把撰人之代由「元」細化為「元末明初」而未同改本句。今止改所引之值使與實錄相符；「元末明初」仍在 liao-jin-yuan 之內（本庫既例：宋末元初／元末明初之人繫本期），period 不改。原值：period_basis「據 authors[0].dynasty「元」」。\n\n2026-09-06 qa-sweep/liaojinyuan：頂層 dynasty 由「元」隨 authors[0].dynasty 改「元末明初」。二欄本應相符，而索引之 dynasty 取頂層（PITFALLS 坑 10、11）；本輪改撰人之代時漏改此欄，今補。原值：dynasty「元」。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L5：撰人「陶宗儀」之代由「明」歸一為「元末明初」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-09-06 qa-sweep/liaojinyuan A 類「基準句之陳舊」：period_basis 舊句作「據 authors[0].dynasty「元」」，而該欄實作「元末明初」——2026-08-25「L5 斷代歸一（遼金元輪）」把撰人之代由「元」細化為「元末明初」而未同改本句。今止改所引之值使與實錄相符；「元末明初」仍在 liao-jin-yuan 之內（本庫既例：宋末元初／元末明初之人繫本期），period 不改。原值：period_basis「據 authors[0].dynasty「元」」。\n\n2026-09-06 qa-sweep/liaojinyuan：頂層 dynasty 由「元」隨 authors[0].dynasty 改「元末明初」。二欄本應相符，而索引之 dynasty 取頂層（PITFALLS 坑 10、11）；本輪改撰人之代時漏改此欄，今補。原值：dynasty「元」。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A11-去重3b-0 併條（rule=去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并）：併 d59f6efg45j5《遊志續編》 入本條。署名异写同书：《遊志續編》陶宗儀／陶九成：陶九成为陶宗仪字",
   "measures": [
     {
       "unit": "冊",
@@ -32,8 +32,8 @@
   "period_basis": "據 authors[0].dynasty「元末明初」",
   "dynasty": "元末明初",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -99,5 +99,30 @@
     "nlc-411999029198": {
       "label": "國圖藏本：清[1644-1911]"
     }
-  }
+  },
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "indexed_by": [
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "陶九成遊志續編",
+      "summary": "陶九成遊志續編"
+    }
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6efg45j5",
+      "title": "遊志續編",
+      "at": "2026-10-26T11:31:37Z",
+      "by": "A11-去重3b-0",
+      "rule": "去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并",
+      "why": "署名异写同书：《遊志續編》陶宗儀／陶九成：陶九成为陶宗仪字",
+      "author": "陶九成",
+      "title_info": "陶九成遊志續編"
+    }
+  ],
+  "merged_from": [
+    "d59f6efg45j5"
+  ]
 }

@@ -33,8 +33,8 @@
       "summary": "共 8 個版本：清道光二十三年刻本（成都中醫藥大學圖書館、黑龍江中醫藥大學圖書館）；清康熙元年刻本（上海中醫藥大學圖書館）；清同治六年經濟堂刻本（石河子大學醫學院圖書館、中醫科學院）；清光緒二年大道堂刻本（成都中醫藥大學圖書館）；明末刻本（中醫科學院、中國科學院圖書館、浙江醫科大學圖書館、山西省圖書館）；清光緒十二年刻本（中國科學院圖書館）；清光緒元年全茂堂刻本（成都中醫藥大學圖書館、河南中醫學院圖書館）；明萬曆十九年刻本（上海圖書館、天津市醫學科學技術信息研究所、天津中醫藥大學第一附屬醫院圖書館、天津市衛生職工醫學院）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：uygj3ixa5pohq61s、iqgenb0chtdbyn85、yx0hukgmpe5sj5s4、gmsqt5pi1z4bk46j、zsx1j5o6y5tuhvit、55o4hfc7jrc4061a、u0tp3spiplrfmi2q、ogna63ug2tjdo12v\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.1.0",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：uygj3ixa5pohq61s、iqgenb0chtdbyn85、yx0hukgmpe5sj5s4、gmsqt5pi1z4bk46j、zsx1j5o6y5tuhvit、55o4hfc7jrc4061a、u0tp3spiplrfmi2q、ogna63ug2tjdo12v\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（第二轮）。",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -72,6 +72,38 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4914936/manifest.json",
         "extent": "3冊"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100222524",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100222524",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100222524",
+        "holder": "筑波大図",
+        "edition": "刊 元和６",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100222524/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2605794",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2605794",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2605794",
+        "edition": "元和6 [1620]"
+      }
     }
   ],
   "resource_groups": {
@@ -80,6 +112,12 @@
     },
     "naikaku-1084041": {
       "label": "內閣文庫藏本：江戸写本（301-0119，3冊）"
+    },
+    "kokusho-100222524": {
+      "label": "國書·筑波大図藏刊 元和６"
+    },
+    "ndl-2605794": {
+      "label": "NDL藏本：元和6 [1620]"
     }
   }
 }
