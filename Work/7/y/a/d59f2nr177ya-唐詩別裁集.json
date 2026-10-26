@@ -42,14 +42,14 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 10，與著錄原文（清史稿藝文志：「唐詩別裁集」）所載之 30 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 10，與著錄原文（清史稿藝文志：「唐詩別裁集」）所載之 30 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "description": {
     "text": "沈德潛（清）編。三十卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「唐詩別裁集三十卷」。本書惟《清史稿藝文志》一志著錄，別無他證。別集之屬，所收為其人之詩文。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
     "sources": [
       "清史稿藝文志"
     ]
   },
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -89,6 +89,42 @@
         "waseda_id": "bunko17_w0077",
         "edition": "授受堂"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077292",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077292",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077292",
+        "request_no": "３５８－０００５",
+        "edition": "刊本（序刊）::清康煕:560000:教忠堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5091138/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077293",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077293",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077293",
+        "request_no": "３５８－０００６",
+        "edition": "刊本（序刊）::清乾隆:280000:教忠堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5091146/manifest.json",
+        "extent": "10冊"
+      }
     }
   ],
   "resource_groups": {
@@ -97,6 +133,12 @@
     },
     "waseda-bunko17_w0077": {
       "label": "早稲田藏本：授受堂"
+    },
+    "naikaku-1077292": {
+      "label": "內閣文庫藏本：清康煕56年刊本（序刊） 教忠堂（358-0005，10冊）"
+    },
+    "naikaku-1077293": {
+      "label": "內閣文庫藏本：清乾隆28年刊本（序刊） 教忠堂（358-0006，10冊）"
     }
   }
 }
