@@ -61,6 +61,24 @@
         "nlc_fid": "411999032061",
         "edition": "明萬曆42年[1614]"
       }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101205963",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000023720",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101205963",
+        "nlk_control_no": "KOL000023720",
+        "holder": "국립중앙도서관",
+        "call_number": "한古朝21-107",
+        "edition": "木板本 [刊寫年未詳]"
+      }
     }
   ],
   "measures": [
@@ -75,7 +93,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 C3韩越续 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3韩越续-KORCIS存疑與越南余量-20261026.md。",
   "description": {
     "text": "陳實原（明）編。十卷。見著錄於《欽定四庫全書總目》《明史藝文志》。其著錄之文，《明史藝文志》作「陳實《大藏一覽》十卷」。《欽定四庫全書總目》清乾隆間館臣修；《明史藝文志》清張廷玉等修——本書之目賴之以存。",
     "sources": [
@@ -83,11 +101,14 @@
       "明史藝文志"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-411999032061": {
       "label": "國圖藏本：明萬曆42年[1614]"
+    },
+    "korcis-101205963": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 [刊寫年未詳]"
     }
   }
 }

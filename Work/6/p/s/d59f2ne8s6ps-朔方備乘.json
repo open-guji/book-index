@@ -97,6 +97,42 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E6%9C%94%E6%96%B9%E5%82%99%E4%B9%98%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101124314",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000015635",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101124314",
+        "nlk_control_no": "KOL000015635",
+        "holder": "국립중앙도서관",
+        "call_number": "古6901-2",
+        "edition": "木板本(未詳) 光緖7(1881)"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101214816",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000017137",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101214816",
+        "nlk_control_no": "KOL000017137",
+        "holder": "국립중앙도서관",
+        "call_number": "한古朝64-13",
+        "edition": "新鉛活字本 [刊寫年未詳]"
+      }
     }
   ],
   "description": {
@@ -107,12 +143,20 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "從 1evjr1u6cg4xs 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。\nai_note: 本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 15，非諸志所著之任一數（清史稿藝文志作八十五卷；續修四庫全書作六十八卷；續修四庫全書作六十八卷），係匯入時解析所誤。今取諸源中著錄最多者（同數則取志源較早、較確者）為 六十八 卷，餘數之異存於各 indexed_by 之引文。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjr1u6cg4xs 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。\nai_note: 本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 15，非諸志所著之任一數（清史稿藝文志作八十五卷；續修四庫全書作六十八卷；續修四庫全書作六十八卷），係匯入時解析所誤。今取諸源中著錄最多者（同數則取志源較早、較確者）為 六十八 卷，餘數之異存於各 indexed_by 之引文。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 C3韩越续 馆藏挂接：按确定档补挂 韓國國中 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3韩越续-KORCIS存疑與越南余量-20261026.md。",
   "updated_at": "2026-08-19T00:00:00-07:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "korcis-101124314": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本(未詳) 光緖7(1881)"
+    },
+    "korcis-101214816": {
+      "label": "韓國國立中央圖書館數字化藏本：新鉛活字本 [刊寫年未詳]"
+    }
+  }
 }
