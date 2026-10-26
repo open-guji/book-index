@@ -1,0 +1,74 @@
+===== 3b-064 work d59fy9ep4ikg <- ['d59fy9eota0x']
+== 逐欄 diff（keeper | d59fy9eota0x）==
+** ai_note            "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：wjj7a2f4dl1egcfr\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 426 批新建（hold 清零：E；原 hold 原因：-）\n查重线（跨部查重 | "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3njwjs7xeiyjo8vj、csbxc5rydw0axq8p\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 426 批新建（hold 清零：E；原 hol
+** authors            [{"name": "闍那崛多", "role": "譯", "dynasty": "隋", "entity_id": "hixhd2h9bu5d"}] | [{"name": "釋闍那崛多", "role": "譯", "dynasty": "隋", "source": {"name": "中國古籍總目", "type": "url", "details": "http://data.library.sh.cn/entity/person/f065q1
+   dynasty            "隋" | "隋"
+   dynasty_basis      "author_propagation" | "author_propagation"
+** id                 "d59fy9ep4ikg" | "d59fy9eota0x"
+** indexed_by         [{"source": "中國古籍總目", "source_bid": "d59frnrt4lxc", "title_info": "佛說希有校量功德經一卷", "author_info": "隋釋閣那崛多譯", "section": "子部/釋家類/大藏之屬", "summary": "共 1 個 | [{"source": "中國古籍總目", "source_bid": "d59frnrt4lxc", "title_info": "佛說希有挍量功德經一卷", "author_info": "隋釋闍那崛多譯", "section": "子部/釋家類/大藏之屬", "summary": "共 2 個
+** merged_from        ["d59fydymwd1c"] | null
+** merged_in          [{"id": "1exoboy6oxfd0", "title": "佛說希有校量功德經", "at": "2026-10-19T04:07:07", "by": "跨部查重", "rule": "跨部查重", "why": "同题同作者同朝代；作者异写（别名/同人ID）"}, {"id": "1e | [{"id": "1exp565mloyrm", "title": "希有挍量功德經", "at": "2026-10-19T04:07:07", "by": "跨部查重", "rule": "跨部查重", "why": "同题同作者同朝代"}]
+   period             "sui-tang" | "sui-tang"
+   period_basis       "據 authors[0].dynasty「隋」" | "據 authors[0].dynasty「隋」"
+** resource_groups    {"nlc-ZHCH0181": {"label": "國圖藏本：金皇統九年[1149]"}} | null
+** resources          [{"id": "nlc", "group": "nlc-ZHCH0181", "group_role": "origin", "name": "中華古籍資源庫（國家圖書館）", "short_name": "國圖", "url": "http://read.nlc.cn/allSearch/sea | null
+** revised_at         "2026-10-25" | "2026-10-19"
+** revision           "1.2.0" | "1.0.0"
+   schema_version     1 | 1
+** title              "佛說希有校量功德經" | "佛說希有挍量功德經"
+   type               "work" | "work"
+
+== 將動之處 ==
+  **分類（zongmu）：被併者 d59fy9eota0x 在 zm0525，keeper 在 zm0524——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  Book.work_id 改指 keeper  ×3
+      ('993sbv43ya', 'd59fy9eota0x')
+      ('9957d1joqo', 'd59fy9eota0x')
+      ('9958i04qv5', 'd59fy9eota0x')
+  分類成員行改指／刪（classification/zongmu/members/zm0525.json）  ×1
+      ('zm0525', 2325)
+  著錄移入 keeper  ×2
+      ('d59fy9eota0x', '中國古籍總目', '佛說希有挍量功德經一卷')
+      ('d59fy9eota0x', '中國古籍總目', '希有挍量功德經一卷')
+
+已併：d59fy9ep4ikg <- d59fy9eota0x
+善後：著錄 2 節、他條關係 0 條記錄、存儲側引用改指 3 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-065 work d59f6eq4oirq <- ['d59f6ssrrvm0']
+== 逐欄 diff（keeper | d59f6ssrrvm0）==
+** ai_note            "撰人切分來源：又條承上。" | "2026-08-31 HBCC對比明史藝文志正向缺口項5：HBCC《中國歷代典籍總目》entryId 10016023003118，著錄「金丹祕旨一卷(明)張三豐撰」，本庫查無對應獨立記錄（撰人／題名交叉比對後判非既有記錄），據以建檔，未覆核原書。本庫明史藝文志目前查無collated_editi
+** authors            [{"name": "張三丰", "role": "撰", "entity_id": "hixhgyrw4vmm"}] | [{"name": "張三豐", "dynasty": "明", "role": "撰", "entity_id": "hixhgyrw4vmm"}]
+** description        {"text": "張三丰撰。一卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「張三丰金丹秘㫖一卷」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]} | null
+** dynasty            null | "明"
+** dynasty_basis      null | "據唯一 author dynasty「明」"
+** id                 "d59f6eq4oirq" | "d59f6ssrrvm0"
+** indexed_by         [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "張三丰金丹秘㫖一卷", "summary": "張三丰金丹秘㫖一卷"}] | [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "金丹祕旨一卷(明)張三豐撰", "summary": "金丹祕旨一卷(明)張三豐撰"}]
+   juan_count         {"number": 1} | {"number": 1}
+   measure_info       "一卷" | "一卷"
+   measures           [{"unit": "卷", "number": 1}] | [{"unit": "卷", "number": 1}]
+** period_upper       "qing" | "ming"
+** period_upper_basis "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜" | "catalog_bound：唯一著錄源《明史藝文志》（清張廷玉等，著錄明代著述），故不晚於 ming"
+** revised_at         "2026-09-01" | "2026-08-31"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+** title              "金丹秘㫖" | "金丹祕旨"
+   type               "work" | "work"
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f6eq4oirq',)
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×2
+      ('d59f6ssrrvm0', 'period_upper', 'qing', 'ming')
+      ('d59f6ssrrvm0', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜', 'catalog_bound：唯一著錄源《明史藝文志》（清張廷玉等，著錄明代著述），故不晚於 ming')
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f6ssrrvm0', 'dynasty', '明')
+      ('d59f6ssrrvm0', 'dynasty_basis', '據唯一 author dynasty「明」')
+  著錄移入 keeper  ×1
+      ('d59f6ssrrvm0', '明史藝文志', '金丹祕旨一卷(明)張三豐撰')
+
+已併：d59f6eq4oirq <- d59f6ssrrvm0
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+promotions 文件改动： 0
