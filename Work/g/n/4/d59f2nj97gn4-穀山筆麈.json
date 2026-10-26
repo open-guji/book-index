@@ -30,6 +30,16 @@
       "edition": "影印中國科學院圖書館藏明萬曆于緯刻本",
       "volume": "第1128冊",
       "section": "子部 雑家類"
+    },
+    {
+      "source": "四庫全書存目叢書",
+      "source_bid": "d59f2og4vke9",
+      "title_info": "《穀山筆塵》十八卷",
+      "author_info": "明于慎行撰",
+      "summary": "《穀山筆塵》十八卷。明于慎行撰。中國科學院圖書館藏明萬曆于緯刻本。",
+      "edition": "中國科學院圖書館藏明萬曆于緯刻本",
+      "volume": "第87冊",
+      "section": "子部"
     }
   ],
   "description": {
@@ -89,6 +99,65 @@
         "nlc_fid": "411999015768",
         "edition": "明天啓5年[1625]"
       }
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC892-1366-209828_%E7%A9%80%E5%B1%B1%E7%AD%86%E5%A1%B5_%E7%AC%AC1%E5%86%8A.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-1366",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=1366",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "1366",
+        "edition": "明天啟[1621-1627]"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075688",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075688",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075688",
+        "request_no": "３０７－００７８",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4920107/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079789",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079789",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079789",
+        "request_no": "子０７０－０００７",
+        "edition": "刊本（序刊）::明万暦:410000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4415783/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
@@ -101,14 +170,32 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3a-2丁 併條（rule=去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并）：併 d59f2nhlwdfm《穀山筆塵》 入本條。题名只差一字（— 误字：塵麈形近，同于慎行十八卷于緯刻本）。《穀山筆塵》于慎行(18卷)／《穀山筆麈》于慎行(18卷)；首位责任者同一，朝代兼容，著作领域不冲突",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fz4wngpa8",
       "relation": "related",
       "note": "總目子部另立（auto-split:同名未并）"
     }
+  ],
+  "additional_titles": [
+    "穀山筆塵"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2nhlwdfm",
+      "title": "穀山筆塵",
+      "at": "2026-10-26T13:49:49Z",
+      "by": "A11-去重方案3a-2丁",
+      "rule": "去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并",
+      "why": "题名只差一字（— 误字：塵麈形近，同于慎行十八卷于緯刻本）。《穀山筆塵》于慎行(18卷)／《穀山筆麈》于慎行(18卷)；首位责任者同一，朝代兼容，著作领域不冲突",
+      "author": "于慎行",
+      "title_info": "《穀山筆塵》十八卷"
+    }
+  ],
+  "merged_from": [
+    "d59f2nhlwdfm"
   ]
 }
