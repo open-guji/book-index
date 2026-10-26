@@ -29,9 +29,10 @@
 - batch-02：734 组、新建 1,000 个 Book（#1403）。
 - batch-03：583 组、新建 1,000 个 Book（#1420；抽检 30 组判错 0）。
 - batch-04：450 组、新建 582 个 Book（main 96b8466027；新建部分至此跑完）。首版 755 个经抽检发现聚珍版书幽灵子目 8/30 组，加规则后重跑，173 条不新建（其馆藏／著录／源记录也从 keeper 剥去）。
+- batch-05（`--merge-existing`）：147 组，被并者并入同 Work 已挂该叢書版次的已有 Book，不新建（台北故宫文淵閣本总目条并入故宫善本旧籍的文淵閣本为主）。抽检 30 组判错 1（老子道德經：王弼注并进河上公注，同 Work 挂两种注本），全批另查出 3 组并错目标（傅子一卷与五卷辑本、泊宅編三卷与十卷且目标本身混挂金華叢書三版次、續方言目标是 keeper 的孪生副本），这 4 组 `--skip batch-05/skip-manual.txt` 留人工；另 49 组候选不唯一或只部分命中，留人工。keeper 一侧同挂摛藻堂、同 Work 另有故宫善本旧籍摛藻堂本 Book 的跨源重复（如 993sw6sbnl 与 988g4tlcss）不在本工具范围，交部分 5。
 
 ## 聚珍版书幽灵子目（batch-04 抽检后加）
 总目把武英殿聚珍版书子目在五个版次（殿本 8rldonorf7cw、福建本 8rldonor3yte、廣東本 8rldomtfn94x、浙江本 8rldonorf7cx、江西本 8rldonorf7cy）下各登一遍，但子目 edition 自注了实际所收版次（如「殿本、福建本、廣東本」）。被并者所挂版次不在自注里的，是总目重登的幽灵条目：不新建 Book，草稿照旧 merged_into keeper，从 keeper 删去那个 Collection 及其带来的 provenance／indexed_by／sources（这些是总目照抄的整套丛书馆藏），merged_from 保留供追溯，ai_note 记一行。batch-01～03 的拆分组无此类；另有 15 处活 Book（单挂一版次的独立 Book 7 个、跳过组里挂五版次的 keeper 4 个等）挂了自注之外的聚珍版次，不在本工具范围，留人工。
 
 ## 并入已有 Book（`--merge-existing`）
-「同 Work 已有同丛书 Book」的 200 组不新建。加 `--merge-existing` 只跑这类组：keeper 照常剥离；被并者并入那个已有的活 Book（provenance／sources／indexed_by 取并集，写 merged_from，revision 升 major，ai_note 记一行）；草稿被并者 merged_into 改指它，不进 promotions。只在「命中目标唯一、被并者全部命中、同一 Collection 集」时做（乾跑 149 组）；其余 51 组候选不唯一或只部分命中，留人工（台账 problems）。
+「同 Work 已有同丛书 Book」的 200 组不新建。加 `--merge-existing` 只跑这类组：keeper 照常剥离；被并者并入那个已有的活 Book（provenance／sources／indexed_by 取并集，写 merged_from，revision 升 major，ai_note 记一行）；草稿被并者 merged_into 改指它，不进 promotions。只在「命中目标唯一、被并者全部命中、同一 Collection 集」时做（batch-05）；其余 49 组（及 batch-05 抽检挑出的 4 组）候选不唯一或只部分命中，留人工（台账 problems）。

@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志006531-006532）。阶段 5 兜底建立。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志006531-006532）。阶段 5 兜底建立。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "juan_count": {
     "number": 10
   },
@@ -34,8 +34,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "indexed_by": [
     {
       "source": "中國古籍總目",
@@ -69,11 +69,31 @@
         "nlc_fid": "412000014010",
         "edition": "清康熙11年[1672]"
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3371390160",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3371390160",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3371390160",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3371390160/manifest",
+        "shelfmark": "Libri sin. N.S. 137",
+        "edition": "刻本;[China] 康熙壬子年 (=1672)"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000014010": {
       "label": "國圖藏本：清康熙11年[1672]"
+    },
+    "sbb-PPN3371390160": {
+      "label": "柏林國家圖書館藏本：刻本;[China] 康熙壬子年 (=1672)"
     }
   }
 }

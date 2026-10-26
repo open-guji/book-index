@@ -16,11 +16,15 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，B檔並）：併 d59f2pwlolj6《盧綸詩集》 入本條。近題同首位責任者：《唐盧綸詩集》盧綸／《盧綸詩集》盧綸；甲收明正德十年劉成德刻本，乙即「明正德乙亥(十年)河中劉成德編刊本」，同一刻本兩邊互見",
   "measures": [
     {
       "unit": "冊",
       "number": 1
+    },
+    {
+      "unit": "卷",
+      "number": 10
     }
   ],
   "measure_info": "一冊",
@@ -30,8 +34,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -99,5 +103,50 @@
     "kokusho-100175892": {
       "label": "國書·岩国徴古藏刊"
     }
-  }
+  },
+  "juan_count": {
+    "number": 10
+  },
+  "period_upper": "sui-tang",
+  "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《新唐書藝文志》（宋歐陽修等（1060），著錄唐代著述），故不晚於 sui-tang",
+  "indexed_by": [
+    {
+      "source": "新唐書藝文志",
+      "source_bid": "d59f2hl0cmio",
+      "title_info": "盧綸詩集",
+      "summary": "盧綸詩集十卷"
+    },
+    {
+      "source": "崇文總目",
+      "source_bid": "d59f2hqc0c1t",
+      "title_info": "盧綸詩集十卷",
+      "summary": "盧綸詩集十卷"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "盧綸詩集三卷",
+      "author_info": "唐盧綸撰",
+      "section": "集部/別集類/唐五代之屬",
+      "summary": "共 1 個版本：明正德十年劉成德刻本（國家圖書館）"
+    }
+  ],
+  "additional_titles": [
+    "盧綸詩集"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2pwlolj6",
+      "title": "盧綸詩集",
+      "at": "2026-10-26T14:27:13Z",
+      "by": "A11-去重方案3b-近題前後綴",
+      "rule": "去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，B檔並",
+      "why": "近題同首位責任者：《唐盧綸詩集》盧綸／《盧綸詩集》盧綸；甲收明正德十年劉成德刻本，乙即「明正德乙亥(十年)河中劉成德編刊本」，同一刻本兩邊互見",
+      "author": "盧綸",
+      "title_info": "盧綸詩集；盧綸詩集十卷；盧綸詩集三卷"
+    }
+  ],
+  "merged_from": [
+    "d59f2pwlolj6"
+  ]
 }
