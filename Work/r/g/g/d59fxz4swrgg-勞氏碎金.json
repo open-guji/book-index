@@ -50,9 +50,9 @@
       "summary": "共 2 個版本：清宣統元年吳氏雙照樓鉛印本（國家圖書館、上海圖書館）；丁丑叢編本（國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：is2v6v7s71iibtb1、dlzofjzs0ywrqamb\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：is2v6v7s71iibtb1、dlzofjzs0ywrqamb\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -68,11 +68,29 @@
         "nlc_fid": "411999024426",
         "edition": "清宣統元年[1909]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2541495",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2541495",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2541495",
+        "edition": "宣統元"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999024426": {
       "label": "國圖藏本：清宣統元年[1909]"
+    },
+    "ndl-2541495": {
+      "label": "NDL藏本：宣統元"
     }
   }
 }

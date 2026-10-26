@@ -29,8 +29,8 @@
       "summary": "共 1 個版本：（上海圖書館、寧夏壽佛寺、南京圖書館、福州市雪峰崇聖寺、蘇州市西園寺、重慶市慈雲寺、青島市湛山寺、南陽市水帘寺、國家圖書館、哈爾濱市極樂寺、大同市吉祥寺）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4u2hxa683rug7wtd\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。",
-  "revision": "1.1.0",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4u2hxa683rug7wtd\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条、國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -47,11 +47,52 @@
         "waseda_id": "ha04_03630",
         "edition": ""
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610963",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610963",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610963",
+        "request_no": "３１０－００３８",
+        "edition": "刊本::元文:020000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3669903/manifest.json",
+        "extent": "50冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100449044",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100449044",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100449044",
+        "holder": "東洋大哲学堂",
+        "edition": "刊 元文３",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100449044/manifest"
+      }
     }
   ],
   "resource_groups": {
     "waseda-ha04_03630": {
       "label": "早稲田藏本"
+    },
+    "naikaku-3610963": {
+      "label": "內閣文庫藏本：元文2年刊本（310-0038，50冊）"
+    },
+    "kokusho-100449044": {
+      "label": "國書·東洋大哲学堂藏刊 元文３"
     }
   }
 }

@@ -30,9 +30,9 @@
       "summary": "共 2 個版本：明嘉靖十三年刻萬曆四年增修本（上海圖書館）；明正德二年曹來旬刻本（國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ejb81ucrk3ftokdd、wrltnewzkaadqwmp\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-05.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ejb81ucrk3ftokdd、wrltnewzkaadqwmp\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-05.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -48,11 +48,53 @@
         "nlc_fid": "411999005640",
         "edition": "明正德2年[1507]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070636",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070636",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070636",
+        "request_no": "史０６６－０００９",
+        "edition": "刊本（序刊）::明崇禎:050000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4489867/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610006",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610006",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610006",
+        "request_no": "２８７－００６１",
+        "edition": "刊本（序刊）::明万暦:290000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3636165/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999005640": {
       "label": "國圖藏本：明正德2年[1507]"
+    },
+    "naikaku-1070636": {
+      "label": "內閣文庫藏本：明崇禎5年刊本（序刊）（史066-0009，4冊）"
+    },
+    "naikaku-3610006": {
+      "label": "內閣文庫藏本：明万暦29年刊本（序刊）（287-0061，4冊）"
     }
   }
 }
