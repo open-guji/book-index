@@ -144,6 +144,42 @@
         "edition": "刊",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200014002/manifest"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073920",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073920",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073920",
+        "request_no": "２７３－０１５１",
+        "edition": "刊本:朝鮮:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3550379/manifest.json",
+        "extent": "16冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074119",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074119",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074119",
+        "request_no": "経００５－０００８",
+        "edition": "刊本:朝鮮:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4434857/manifest.json",
+        "extent": "9冊"
+      }
     }
   ],
   "resource_groups": {
@@ -155,6 +191,12 @@
     },
     "kokusho-200014002": {
       "label": "國書·国文研松野藏刊"
+    },
+    "naikaku-1073920": {
+      "label": "內閣文庫藏本：朝鮮刊本（273-0151，16冊）"
+    },
+    "naikaku-1074119": {
+      "label": "內閣文庫藏本：朝鮮刊本（経005-0008，9冊）"
     }
   },
   "measures": [
@@ -169,7 +211,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-16 作者欄黏連訂正：原著錄作「胡廣等奉敕」，係官銜／年號／合著之辭與人名黏連，今剝為「胡廣」，role 記「奉敕撰」以存敕修之實。依據：明永樂敕修五經四書大全，總裁官胡廣。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvlebpczk 與 11q37o08ssgsg 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-16 作者欄黏連訂正：原著錄作「胡廣等奉敕」，係官銜／年號／合著之辭與人名黏連，今剝為「胡廣」，role 記「奉敕撰」以存敕修之實。依據：明永樂敕修五經四書大全，總裁官胡廣。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvlebpczk 與 11q37o08ssgsg 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "description": {
     "text": "胡廣（明）奉敕撰。十卷。見著錄於《欽定四庫全書總目》《明史藝文志》《國史經籍志》《經義考》。《經義考》列於書。其著錄之文，《明史藝文志》作「永樂中敕修《書傳大全》十卷胡廣等纂」。",
     "sources": [
@@ -179,7 +221,7 @@
       "經義考"
     ]
   },
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "related_works": [
     {

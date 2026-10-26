@@ -14,9 +14,9 @@
   "dynasty_basis": "author_propagation",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
-  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（外館丙第二批：含缺字〓/□(标题或作者待还原)）建條；源記錄：000007705910。\n作者「焦〓」→无匹配\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（外館丙第二批：含缺字〓/□(标题或作者待还原)）建條；源記錄：000007705910。\n作者「焦〓」→无匹配\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "ndl",
@@ -32,11 +32,32 @@
         "ndl_record": "pid14363731",
         "edition": "寛保元"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071564",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071564",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071564",
+        "request_no": "３６０－０１１０",
+        "edition": "刊本::寛保:010000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5095099/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
     "ndl-14363731": {
       "label": "NDL藏本：寛保元"
+    },
+    "naikaku-1071564": {
+      "label": "內閣文庫藏本：寛保1年刊本（360-0110，4冊）"
     }
   }
 }

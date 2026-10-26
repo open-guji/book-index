@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "juan_count": {
     "number": 3
   },
@@ -44,8 +44,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "commons",
@@ -61,6 +61,42 @@
         "year": "1368-1644 明",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070099",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070099",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070099",
+        "request_no": "２７５－０１１７",
+        "edition": "刊本:朝鮮:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3561244/manifest.json",
+        "extent": "7冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610411",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610411",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610411",
+        "request_no": "２７５－０１１５",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3894128/manifest.json",
+        "extent": "7冊"
+      }
     }
   ],
   "indexed_by": [
@@ -72,5 +108,13 @@
       "section": "經部/四書類/論語/傳說之屬",
       "summary": "共 4 個版本：四書集註大全本（馆藏未载）；四庫全書本（馆藏未载）；四書大全本（南京圖書館）；增訂四書集註大全本（馆藏未载）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1070099": {
+      "label": "內閣文庫藏本：朝鮮刊本（275-0117，7冊）"
+    },
+    "naikaku-3610411": {
+      "label": "內閣文庫藏本：清刊本（275-0115，7冊）"
+    }
+  }
 }
