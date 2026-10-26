@@ -75,8 +75,8 @@
       "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/q2q7qdf14s10v0m7&from=evidence"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：q2q7qdf14s10v0m7\n責任者一致性：總目 contMap 與題名行 dclabel 在「dynasty」上不一致，取 contMap；題名行：清顧夢麟、清楊彝輯\n\n2026-10-26 A6续-上圖 馆藏挂接：按确定档补挂 上圖 1 条（书目页）。依据见 book-index-manager docs/馆藏资源挂接/报告/A6续-上图Book层挂接-20261026.md。",
-  "revision": "1.1.0",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：q2q7qdf14s10v0m7\n責任者一致性：總目 contMap 與題名行 dclabel 在「dynasty」上不一致，取 contMap；題名行：清顧夢麟、清楊彝輯\n\n2026-10-26 A6续-上圖 馆藏挂接：按确定档补挂 上圖 1 条（书目页）。依据见 book-index-manager docs/馆藏资源挂接/报告/A6续-上图Book层挂接-20261026.md。\n\n2026-10-26 A5续 馆藏挂接：按确定档补挂 全國漢籍 1 条（书目页）。依据见 book_index_json library_data/_匹配/全国漢籍/A5续-挂接-20261026/README.md。",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -96,11 +96,32 @@
         "edition": "明崇禎十三年刻本",
         "extent": "14"
       }
+    },
+    {
+      "id": "kanseki",
+      "group": "kanseki-FA019705-0023012",
+      "group_role": "origin",
+      "name": "全國漢籍データベース",
+      "short_name": "全國漢籍",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA019705/tagged/0023012.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA019705/tagged/0023012.dat",
+        "institution": "京大人文研 東方",
+        "edition": "崇禎十三年 刊本 吳門張氏",
+        "extent": "20册"
+      }
     }
   ],
   "resource_groups": {
     "shlib-ndu65p1rgfgmctpz": {
       "label": "上海圖書館藏本書目：明崇禎十三年刻本"
+    },
+    "kanseki-FA019705-0023012": {
+      "label": "全國漢籍DB著錄：京大人文研 東方藏本：崇禎十三年 刊本 吳門張氏"
     }
   }
 }
