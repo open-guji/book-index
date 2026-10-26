@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 11 取自 `measure_info`「十一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 11 取自 `measure_info`「十一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -36,8 +36,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "indexed_by": [
     {
       "source": "中國古籍總目",
@@ -47,5 +47,49 @@
       "section": "經部/易類/傳說之屬",
       "summary": "共 5 個版本：清豫章東邑書林王氏刻本（湖北省圖書館）；二年刻官板五經大全本（日本鹿兒島大學）；清康熙五十年郁郁堂刻本（國家圖書館、北京師範大學圖書館）；明刻本（上海圖書館）；明萬曆間刻明末改竄印本（上海圖書館、北京大學圖書館、國家圖書館）"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-100141671",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100141671",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100141671",
+        "holder": "南丹市博小出（園部町旧蔵）",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100141671/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100160338",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100160338",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100160338",
+        "holder": "上田図花春",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100160338/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-100141671": {
+      "label": "國書·南丹市博小出（園部町旧蔵）藏刊"
+    },
+    "kokusho-100160338": {
+      "label": "國書·上田図花春藏刊"
+    }
+  }
 }

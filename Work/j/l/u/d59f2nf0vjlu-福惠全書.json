@@ -42,14 +42,14 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 12，與著錄原文（清史稿藝文志：「福惠全書」）所載之 32 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 12，與著錄原文（清史稿藝文志：「福惠全書」）所載之 32 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
   "description": {
     "text": "黃六鴻（清）撰。三十二卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「福惠全書三十二卷」。本書惟《清史稿藝文志》一志著錄，別無他證。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
     "sources": [
       "清史稿藝文志"
     ]
   },
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -89,6 +89,57 @@
         "waseda_id": "wa04_06473",
         "edition": "詩山堂, 嘉永3[1850]序"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300098395",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300098395",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300098395",
+        "holder": "府中之島図石崎",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300098395/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100259307",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100259307",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100259307",
+        "holder": "北大図",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100259307/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100453048",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100453048",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100453048",
+        "holder": "東洋大哲学堂",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100453048/manifest"
+      }
     }
   ],
   "resource_groups": {
@@ -97,6 +148,15 @@
     },
     "waseda-wa04_06473": {
       "label": "早稲田藏本：詩山堂, 嘉永3[1850]序"
+    },
+    "kokusho-300098395": {
+      "label": "國書·府中之島図石崎藏刊"
+    },
+    "kokusho-100259307": {
+      "label": "國書·北大図藏刊"
+    },
+    "kokusho-100453048": {
+      "label": "國書·東洋大哲学堂藏刊"
     }
   }
 }
