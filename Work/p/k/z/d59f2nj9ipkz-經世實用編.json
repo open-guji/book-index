@@ -55,14 +55,14 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "從 1evdic82j36yo 合併。原註：舊匹配結果為 GYL54NLSJCf（author+substr），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "從 1evdic82j36yo 合併。原註：舊匹配結果為 GYL54NLSJCf（author+substr），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md §存疑升档。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -78,11 +78,53 @@
         "nlc_fid": "CBM1204",
         "edition": "明萬曆[1573-1620]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068379",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068379",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068379",
+        "request_no": "子０１４－００１１",
+        "edition": "刊本（序刊）::明万暦:320000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4407781/manifest.json",
+        "extent": "16冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068421",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068421",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068421",
+        "request_no": "２９４－００２１",
+        "edition": "刊本（序刊）::明万暦:320000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4306271/manifest.json",
+        "extent": "10冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-CBM1204": {
       "label": "國圖藏本：明萬曆[1573-1620]"
+    },
+    "naikaku-1068379": {
+      "label": "內閣文庫藏本：明万暦32年刊本（序刊）（子014-0011，16冊）"
+    },
+    "naikaku-1068421": {
+      "label": "內閣文庫藏本：明万暦32年刊本（序刊）（294-0021，10冊）"
     }
   }
 }
