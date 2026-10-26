@@ -36,7 +36,7 @@
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "id": "d59f6efmzdhe",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -53,12 +53,52 @@
         "ndl_record": "pid2609019",
         "edition": "享保19"
       }
+    },
+    {
+      "id": "kyoto-rmda",
+      "group": "kyoto-RB00004731",
+      "group_role": "origin",
+      "name": "京都大学貴重資料デジタルアーカイブ",
+      "short_name": "京大",
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/item/rb00004731",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kyoto_record": "RB00004731",
+        "call_no": "ハ/38",
+        "edition": "中國刊本",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00004731/manifest.json"
+      }
+    },
+    {
+      "id": "kyoto-rmda",
+      "group": "kyoto-RB00004732",
+      "group_role": "origin",
+      "name": "京都大学貴重資料デジタルアーカイブ",
+      "short_name": "京大",
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/item/rb00004732",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kyoto_record": "RB00004732",
+        "call_no": "ハ/41",
+        "edition": "享保元年 和刻本",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00004732/manifest.json"
+      }
     }
   ],
   "resource_groups": {
     "ndl-2609019": {
       "label": "NDL藏本：享保19"
+    },
+    "kyoto-RB00004731": {
+      "label": "京大藏本：中國刊本"
+    },
+    "kyoto-RB00004732": {
+      "label": "京大藏本：享保元年 和刻本"
     }
   },
-  "ai_note": "2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。"
+  "ai_note": "2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 A9续-京大 馆藏挂接：按确定档补挂 京大 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9续-京大贵重挂接-20261026.md。"
 }
