@@ -38,7 +38,7 @@
       "summary": "共 1 個版本：（天津圖書館、日本京都大學人文科學研究所、中國科學院圖書館、北京大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576 P4）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2axffbryig73tdpc、l0qjemb4hgo26uv4、6xr5dg5sg5aiqjcz、uuq3hss0maaagosw、2us8wp1ezk4snhzh\n查重线（跨部查重 10-19）：同题同作者或近题同作者（逐对复核同书）并入 1 个 Work（1exoksmhmnn5u）",
+  "ai_note": "F 道（overview#576 P4）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2axffbryig73tdpc、l0qjemb4hgo26uv4、6xr5dg5sg5aiqjcz、uuq3hss0maaagosw、2us8wp1ezk4snhzh\n查重线（跨部查重 10-19）：同题同作者或近题同作者（逐对复核同书）并入 1 个 Work（1exoksmhmnn5u）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
   "merged_in": [
     {
       "id": "1exoksmhmnn5u",
@@ -49,6 +49,70 @@
       "why": "同题同作者同朝代"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-100145376",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100145376",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100145376",
+        "holder": "酒田光丘",
+        "edition": "刊 元文５",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100145376/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200023227",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200023227",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200023227",
+        "holder": "国文研田安",
+        "edition": "刊 元文５",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200023227/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300048392",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300048392",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300048392",
+        "holder": "広島大図",
+        "edition": "刊 元文５",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300048392/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-100145376": {
+      "label": "國書·酒田光丘藏刊 元文５"
+    },
+    "kokusho-200023227": {
+      "label": "國書·国文研田安藏刊 元文５"
+    },
+    "kokusho-300048392": {
+      "label": "國書·広島大図藏刊 元文５"
+    }
+  }
 }

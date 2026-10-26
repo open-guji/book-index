@@ -28,6 +28,13 @@
       "title_info": "廷俊泊川文集五卷",
       "author_info": "字用章，樂平人，僧",
       "summary": "元廷俊（字用章，樂平人，僧）泊川文集五卷"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "僧廷俊洎川文集",
+      "author_info": "字用章樂平人",
+      "summary": "僧廷俊洎川文集⟨字用章樂平人⟩"
     }
   ],
   "description": {
@@ -49,7 +56,27 @@
   "period_basis": "跨代人物從斷代志（2026-08-21 catalog_bound 專項）：撰人 dynasty [('廷俊', '明')] 指向 ming，而本書見於《補遼金元藝文志》——該志斷代著錄 liao-jin-yuan 之作，其編者專為此代甄別，較機械據撰人朝代派生為可信。原判：據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 同步 draft 之改正：本條升格時（並行會話 `2a4d0f5b14`，遼金元 4,421 條）所用之 draft 快照是陳舊之本，本會話 L1–L7 之改（authors）未入。今自 draft `1evdie3mvyqdc` 之現本取回。",
-  "revision": "1.1.0",
-  "revised_at": "2026-08-25"
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 同步 draft 之改正：本條升格時（並行會話 `2a4d0f5b14`，遼金元 4,421 條）所用之 draft 快照是陳舊之本，本會話 L1–L7 之改（authors）未入。今自 draft `1evdie3mvyqdc` 之現本取回。\n\n2026-10-26 A11-去重方案3a-2丁 併條（rule=去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并）：併 d59f6eh3qhaf《洎川文集》 入本條。题名只差一字（— 误字：洎泊形近；廷俊均五卷）。《泊川文集》廷俊(5卷)／《洎川文集》廷俊(5卷)；首位责任者同一，朝代兼容，著作领域不冲突",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無明確朝代線索，period 留 null 不猜",
+  "additional_titles": [
+    "洎川文集"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6eh3qhaf",
+      "title": "洎川文集",
+      "at": "2026-10-26T11:05:21Z",
+      "by": "A11-去重方案3a-2丁",
+      "rule": "去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并",
+      "why": "题名只差一字（— 误字：洎泊形近；廷俊均五卷）。《泊川文集》廷俊(5卷)／《洎川文集》廷俊(5卷)；首位责任者同一，朝代兼容，著作领域不冲突",
+      "author": "廷俊",
+      "title_info": "僧廷俊洎川文集"
+    }
+  ],
+  "merged_from": [
+    "d59f6eh3qhaf"
+  ]
 }

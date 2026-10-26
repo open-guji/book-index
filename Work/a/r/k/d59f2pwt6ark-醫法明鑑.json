@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-22 B3 併池（藏本條重出）：1evkpye9rgow0 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 0→1）併入本條。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-22 B3 併池（藏本條重出）：1evkpye9rgow0 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 0→1）併入本條。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 3 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
   "measures": [
     {
       "unit": "冊",
@@ -29,6 +29,64 @@
   "period_upper": "qing",
   "period_upper_basis": "edition_bound：所掛版本中最早者為「日本江戶間鈔本」——版本之年不早於成書之年，故不晚於 qing",
   "indexed_by": [],
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1420",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1420/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1420",
+        "edition": "二条通玉屋町(京都) : 村上平楽寺, 慶安4[1651] ( )"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1421",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1421/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1421",
+        "edition": "[京都] : 福森兵左衛門, 延寳3[1675]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1419",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1419/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1419",
+        "edition": "寛永5[1628]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-bunko31_e1420": {
+      "label": "早稲田藏本：二条通玉屋町(京都) : 村上平楽寺, 慶安4[1651] ( )"
+    },
+    "waseda-bunko31_e1421": {
+      "label": "早稲田藏本：[京都] : 福森兵左衛門, 延寳3[1675]"
+    },
+    "waseda-bunko31_e1419": {
+      "label": "早稲田藏本：寛永5[1628]"
+    }
+  }
 }

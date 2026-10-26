@@ -30,9 +30,9 @@
       "summary": "共 3 個版本：叢書集成初編本（馆藏未载）；指海本（馆藏未载）；武林掌故叢編本（馆藏未载）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jj1fiklw7e8xu65w、a55vvfommnwhko8x、lke3aiahl5fek0z3\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-06.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jj1fiklw7e8xu65w、a55vvfommnwhko8x、lke3aiahl5fek0z3\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-06.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -48,11 +48,31 @@
         "nlc_fid": "312001060460",
         "edition": ""
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100287921",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100287921",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100287921",
+        "holder": "藝大図脇本",
+        "edition": "刊 光緒７",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100287921/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001060460": {
       "label": "國圖藏本："
+    },
+    "kokusho-100287921": {
+      "label": "國書·藝大図脇本藏刊 光緒７"
     }
   }
 }

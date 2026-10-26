@@ -23,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/s5yd6xktt4ubzkh2"
-      }
+      },
+      "entity_id": "hixi8u5v60zl"
     }
   ],
   "dynasty": "宋",
@@ -48,9 +49,9 @@
       "summary": "共 1 個版本：五雅本（馆藏未载）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：7zy21f4a5h02e512、0pknaymntinsfaik、k0vfp7mdziysr4hy、xbrbrib3q2ujren3、kz276s835ihi6zsx、zedhvusfa8zbciwe、l57g1rr81wupwbc1、zpvo7b1g5jzq2sgp、qahk7mt0fzx5o30f、qgv2wi2bhdzjg8ly、mwazwrwtgna4zfb5、12gxcsfwelflq3pj、zxniaudkq2wux7pv\nauto-split:存疑未并\nE6 第 522 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59fxw0na58h《新刊爾雅翼》 入本條。同题同首位责任者：《爾雅翼》羅願(宋,32卷,20版本)／《新刊爾雅翼》羅願(宋,32卷,4版本)；B 档逐组复核判同一作品：同為羅願爾雅翼三十二卷，新刊為坊刻套語；flags=coauth_diff",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-25",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：7zy21f4a5h02e512、0pknaymntinsfaik、k0vfp7mdziysr4hy、xbrbrib3q2ujren3、kz276s835ihi6zsx、zedhvusfa8zbciwe、l57g1rr81wupwbc1、zpvo7b1g5jzq2sgp、qahk7mt0fzx5o30f、qgv2wi2bhdzjg8ly、mwazwrwtgna4zfb5、12gxcsfwelflq3pj、zxniaudkq2wux7pv\nauto-split:存疑未并\nE6 第 522 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59fxw0na58h《新刊爾雅翼》 入本條。同题同首位责任者：《爾雅翼》羅願(宋,32卷,20版本)／《新刊爾雅翼》羅願(宋,32卷,4版本)；B 档逐组复核判同一作品：同為羅願爾雅翼三十二卷，新刊為坊刻套語；flags=coauth_diff\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（第二轮）。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -111,6 +112,41 @@
         "nlc_fid": "312002089128",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3609935",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3609935",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3609935",
+        "request_no": "２７５－０２０８",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3904010/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100067500",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100067500",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100067500",
+        "holder": "西尾市岩瀬",
+        "edition": "写",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100067500/manifest"
+      }
     }
   ],
   "resource_groups": {
@@ -122,6 +158,12 @@
     },
     "nlc-411999015466": {
       "label": "國圖藏本：明天啓[1621-1627]"
+    },
+    "naikaku-3609935": {
+      "label": "內閣文庫藏本：明刊本（275-0208，4冊）"
+    },
+    "kokusho-100067500": {
+      "label": "國書·西尾市岩瀬藏写"
     }
   },
   "additional_titles": [
@@ -136,9 +178,7 @@
       "rule": "去重方案部分3a-2：同题同首位责任者 B 档逐组复核并",
       "why": "同题同首位责任者：《爾雅翼》羅願(宋,32卷,20版本)／《新刊爾雅翼》羅願(宋,32卷,4版本)；B 档逐组复核判同一作品：同為羅願爾雅翼三十二卷，新刊為坊刻套語；flags=coauth_diff",
       "author": "羅願",
-      "title_info": [
-        "新刊爾雅翼三十二卷"
-      ]
+      "title_info": "新刊爾雅翼三十二卷"
     }
   ],
   "merged_from": [

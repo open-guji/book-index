@@ -30,7 +30,93 @@
       "summary": "共 9 個版本：清光緒十九年抄本（國家圖書館）；陳士鐸所述醫書三種本（馆藏未载）；清康熙三十七年宏道堂刻本（陝西省圖書館）；清光緒二十五年輔文堂刻本（河南中醫學院圖書館）；清文成書局刻本（上海市中醫文獻館）；清大經堂刻本（河南省圖書館）；清聚賢堂刻本（雲南省圖書館、中醫科學院、天津醫科大學圖書館、山東省圖書館）；清乾隆五十五年陳鳳輝大雅堂刻本（南京圖書館、上海圖書館、北京大學圖書館、重慶市圖書館、中國科學院圖書館）；清緯文堂刻本（南京圖書館、遼寧中醫藥大學圖書館、廣州中山醫科大學圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xgc4fkycxnde08gb、pmntdeelinragkcw、tdc41dcez464eyuu、5dd3pt1sh1pfjblm、tx0p8eptt3jdaxki、udhyzn7xxaqk2t84、klbtzq468ucuz732、b7zft72pauqvr7ej、61f8k121hgcqn42w\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xgc4fkycxnde08gb、pmntdeelinragkcw、tdc41dcez464eyuu、5dd3pt1sh1pfjblm、tx0p8eptt3jdaxki、udhyzn7xxaqk2t84、klbtzq468ucuz732、b7zft72pauqvr7ej、61f8k121hgcqn42w\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条、國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075637",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075637",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075637",
+        "request_no": "３０４－０１５５",
+        "edition": "写本::文化:050000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4917609/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075638",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075638",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075638",
+        "request_no": "３０４－０１５９",
+        "edition": "刊本（序刊）::清乾隆:550000:大雅堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4917623/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100243531",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100243531",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100243531",
+        "holder": "慶大富士川",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100243531/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100317356",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100317356",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100317356",
+        "holder": "京大富士川",
+        "edition": "刊",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00004430/manifest.json"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1075637": {
+      "label": "內閣文庫藏本：文化5年写本（304-0155，6冊）"
+    },
+    "naikaku-1075638": {
+      "label": "內閣文庫藏本：清乾隆55年刊本（序刊） 大雅堂（304-0159，6冊）"
+    },
+    "kokusho-100243531": {
+      "label": "國書·慶大富士川藏刊"
+    },
+    "kokusho-100317356": {
+      "label": "國書·京大富士川藏刊"
+    }
+  }
 }

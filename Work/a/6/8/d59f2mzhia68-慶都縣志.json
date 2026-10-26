@@ -17,13 +17,17 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-10-26 A11-去重方案3a-2丁 併條（rule=去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并）：併 d59f2n7oss1s《望都縣志》 入本條。题名只差一字（— 改称：慶都改望都，同為康熙十七年李天璣六卷）。《慶都縣志》李天璣(6卷)／《望都縣志》李天璣(6卷)；首位责任者同一，朝代兼容，著作领域不冲突",
   "juan_count": {
     "number": 6
   },
   "measures": [
     {
       "unit": "冊",
+      "number": 6
+    },
+    {
+      "unit": "卷",
       "number": 6
     }
   ],
@@ -34,8 +38,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -44,6 +48,43 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:SSID-10116098_%E6%85%B6%E9%83%BD%E7%B8%A3%E8%AA%8C_%E5%85%A8.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001064955",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001064955",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001064955",
+        "edition": ""
+      }
     }
+  ],
+  "resource_groups": {
+    "nlc-312001064955": {
+      "label": "國圖藏本："
+    }
+  },
+  "additional_titles": [
+    "望都縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n7oss1s",
+      "title": "望都縣志",
+      "at": "2026-10-26T11:09:17Z",
+      "by": "A11-去重方案3a-2丁",
+      "rule": "去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并",
+      "why": "题名只差一字（— 改称：慶都改望都，同為康熙十七年李天璣六卷）。《慶都縣志》李天璣(6卷)／《望都縣志》李天璣(6卷)；首位责任者同一，朝代兼容，著作领域不冲突",
+      "author": "李天璣"
+    }
+  ],
+  "merged_from": [
+    "d59f2n7oss1s"
   ]
 }

@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/imjfejs14z5iitf1"
-      }
+      },
+      "entity_id": "hixhd2h9bfa5"
     },
     {
       "name": "江榕",
@@ -47,8 +48,8 @@
       "summary": "共 2 個版本：清光緒十一年淮南書局刻本（上海圖書館、南京圖書館）；清光緒十一年淮南書局刻十二年增刻本（國家圖書館、上海圖書館、浙江圖書館、天津圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jwb83hbof2k0x36h、fvueilv354ak7prt\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-05.tsv；原 hold 原因：auto-split:存疑未并（候选核对：卷差>1（本条4卷，目标1卷）））\n第 440 批追加版本，源記錄：ubyoelydu062ps4i、cj21fqc6sqkgly7k\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。",
-  "revision": "1.2.0",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jwb83hbof2k0x36h、fvueilv354ak7prt\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-05.tsv；原 hold 原因：auto-split:存疑未并（候选核对：卷差>1（本条4卷，目标1卷）））\n第 440 批追加版本，源記錄：ubyoelydu062ps4i、cj21fqc6sqkgly7k\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -95,6 +96,24 @@
         "waseda_id": "i13_00741",
         "edition": "長門蔵版局"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067875",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067875",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067875",
+        "request_no": "２８７－００２５",
+        "edition": "刊本::安政:020000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4281304/manifest.json",
+        "extent": "5冊"
+      }
     }
   ],
   "resource_groups": {
@@ -106,6 +125,9 @@
     },
     "waseda-i13_00741": {
       "label": "早稲田藏本：長門蔵版局"
+    },
+    "naikaku-1067875": {
+      "label": "內閣文庫藏本：安政2年刊本（287-0025，5冊）"
     }
   }
 }

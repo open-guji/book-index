@@ -30,8 +30,8 @@
       "summary": "共 2 個版本：（南京圖書館、湖南省圖書館、美國哈佛大學燕京圖書館）；茶書二十七種本（馆藏未载）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：o1xnhugeztlebmgv、hud0dst0cqxpefiq\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。",
-  "revision": "1.2.0",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：o1xnhugeztlebmgv、hud0dst0cqxpefiq\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -93,6 +93,57 @@
         "waseda_id": "wo09_03697",
         "edition": "皇都(京都) : 小川源兵衛, 文化元[1804]跋 ( )"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076121",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076121",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076121",
+        "request_no": "３０６－０２６２",
+        "edition": "刊本（後印）::文化:010000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4919815/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076793",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076793",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076793",
+        "request_no": "３０６－０２７１",
+        "edition": "刊本（序刊）::文化:010000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4919836/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2535960",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2535960",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2535960",
+        "edition": "文化元跋"
+      }
     }
   ],
   "resource_groups": {
@@ -107,6 +158,15 @@
     },
     "waseda-wo09_03697": {
       "label": "早稲田藏本：皇都(京都) : 小川源兵衛, 文化元[1804]跋 ( )"
+    },
+    "naikaku-1076121": {
+      "label": "內閣文庫藏本：文化1年刊本（後印）（306-0262，3冊）"
+    },
+    "naikaku-1076793": {
+      "label": "內閣文庫藏本：文化1年刊本（序刊）（306-0271，3冊）"
+    },
+    "ndl-2535960": {
+      "label": "NDL藏本：文化元跋"
     }
   }
 }

@@ -29,6 +29,14 @@
       "edition": "北京圖書館藏明萬曆自刻歸雲別集本",
       "volume": "第179冊",
       "section": "子部"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "姓觽十卷",
+      "author_info": "明陳士元撰",
+      "section": "史部/傳記類/姓名之屬",
+      "summary": "共 4 個版本：歸雲别集本（馆藏未载）；抄本（臺灣圖書館）；叢書集成初編本（馆藏未载）；湖北叢書本（馆藏未载）"
     }
   ],
   "juan_count": {
@@ -125,7 +133,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重上图-并 併條（rule=去重细拆上图-并 B 档：总目同一 work＋题名归一同／异写＋首位责任者同一＋卷数朝代相容）：併 d59fymo3nocg《姓觽》 入本條。上图藏书 work_uri 32zyb5nib6tasyto 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《姓觿》陳士元(明,10卷)／《姓觽》陳士元(明,-卷)；觿／觽异体；同为十卷",
   "description": {
     "text": "陳士元（明）撰。十卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》。《四庫全書存目叢書》列於子部。其著錄之文，《四庫全書存目叢書》作「《姓觿》十卷 附錄一卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -133,8 +141,8 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-002305579": {
       "label": "國圖藏本：應城吳毓梅   清道光13年[1833]"
@@ -142,5 +150,23 @@
     "nlc-1501": {
       "label": "國圖藏本：清[1644-1911]"
     }
-  }
+  },
+  "additional_titles": [
+    "姓觽"
+  ],
+  "merged_in": [
+    {
+      "id": "d59fymo3nocg",
+      "title": "姓觽",
+      "at": "2026-10-26T11:29:50Z",
+      "by": "A11-去重上图-并",
+      "rule": "去重细拆上图-并 B 档：总目同一 work＋题名归一同／异写＋首位责任者同一＋卷数朝代相容",
+      "why": "上图藏书 work_uri 32zyb5nib6tasyto 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《姓觿》陳士元(明,10卷)／《姓觽》陳士元(明,-卷)；觿／觽异体；同为十卷",
+      "author": "陳士元",
+      "title_info": "姓觽十卷"
+    }
+  ],
+  "merged_from": [
+    "d59fymo3nocg"
+  ]
 }

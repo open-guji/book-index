@@ -30,9 +30,9 @@
       "summary": "共 1 個版本：（安徽省圖書館、江西省圖書館、四川大學圖書館、廣東省中山圖書館、國家圖書館、華東師範大學圖書館、浙江大學圖書館）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 lu1qyq1eb0e2acrp（培遠堂全集二十種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：u3ihxdg6228nfgrz\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 lu1qyq1eb0e2acrp（培遠堂全集二十種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：u3ihxdg6228nfgrz\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md §存疑升档。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -78,6 +78,60 @@
         "nlc_fid": "411999021137",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082154",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082154",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082154",
+        "request_no": "３１５－００６４",
+        "edition": "刊本::清乾隆:060000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5085986/manifest.json",
+        "extent": "12冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074505",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074505",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074505",
+        "request_no": "３１５－００６１",
+        "edition": "刊本:明天順:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3672307/manifest.json",
+        "extent": "15冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083669",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083669",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083669",
+        "request_no": "集００５－０００２",
+        "edition": "刊本（序刊）::明万暦:150000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4432227/manifest.json",
+        "extent": "24冊"
+      }
     }
   ],
   "resource_groups": {
@@ -89,6 +143,15 @@
     },
     "nlc-411999021137": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1082154": {
+      "label": "內閣文庫藏本：清乾隆6年刊本（315-0064，12冊）"
+    },
+    "naikaku-1074505": {
+      "label": "內閣文庫藏本：明天順刊本（315-0061，15冊）"
+    },
+    "naikaku-1083669": {
+      "label": "內閣文庫藏本：明万暦15年刊本（序刊）（集005-0002，24冊）"
     }
   }
 }

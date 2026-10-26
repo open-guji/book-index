@@ -30,7 +30,51 @@
       "summary": "共 2 個版本：明成化十八年春德堂刻本（北京大學圖書館、南京圖書館、臺灣圖書館）；明正德十年胡韶刻本（上海中醫藥大學圖書館、中醫科學院、北京市文物局、南京圖書館、山東省圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：yru64blscy38h6ha、t5jgenc4d0a4twid\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：yru64blscy38h6ha、t5jgenc4d0a4twid\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-300096927",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300096927",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300096927",
+        "holder": "府中之島図石崎",
+        "edition": "刊 成化18",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300096927/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100385539",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100385539",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100385539",
+        "holder": "京大図",
+        "edition": "刊",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00013364/manifest.json"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-300096927": {
+      "label": "國書·府中之島図石崎藏刊 成化18"
+    },
+    "kokusho-100385539": {
+      "label": "國書·京大図藏刊"
+    }
+  }
 }
