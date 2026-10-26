@@ -17,8 +17,12 @@ for f in glob.glob(os.path.join(jio.ROOT, 'Entity', '*', '*', '*', '*.json')):
     if d.get('subtype') == 'people' and not d.get('merged_into'): live[d['id']] = 1
 done = skip = 0
 for it in items:
-    d, fmt = jio.load(it['path'])
-    au = d['authors'][it['slot']]
+    try:
+        d, fmt = jio.load(it['path'])
+    except FileNotFoundError:
+        skip += 1; print('跳过（文件已不在）', it['path']); continue
+    aus = d.get('authors') or []
+    au = aus[it['slot']] if it['slot'] < len(aus) and isinstance(aus[it['slot']], dict) else {}
     if au.get('name') != it['name'] or au.get('entity_id') or it['entity_id'] not in live or d.get('merged_into'):
         skip += 1; print('跳过', it['path'], it['slot']); continue
     au['entity_id'] = it['entity_id']
