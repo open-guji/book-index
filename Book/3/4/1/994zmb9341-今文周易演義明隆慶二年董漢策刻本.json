@@ -89,7 +89,74 @@
       "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/5jxszxex7ikhj5zz&from=evidence"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：5jxszxex7ikhj5zz",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-21"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：5jxszxex7ikhj5zz\n\n2026-10-26 A6续-上圖 馆藏挂接：按确定档补挂 上圖 1 条（书目页）。依据见 book-index-manager docs/馆藏资源挂接/报告/A6续-上图Book层挂接-20261026.md。\n\n2026-10-26 A5续 馆藏挂接：按确定档补挂 全國漢籍 2 条（书目页）。依据见 book_index_json library_data/_匹配/全国漢籍/A5续-挂接-20261026/README.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "shlib",
+      "group": "shlib-keiy4x43gvsa9cpr",
+      "group_role": "origin",
+      "name": "上海圖書館古籍書目",
+      "short_name": "上圖",
+      "url": "https://gj.library.sh.cn/org/info/shl?uri=http://data.library.sh.cn/gj/resource/instance/keiy4x43gvsa9cpr",
+      "types": [
+        "catalog"
+      ],
+      "details": "上海圖書館館藏書目頁（著錄版本、版式、序跋、批校；無線上影像）",
+      "metadata": {
+        "shlib_instance": "keiy4x43gvsa9cpr",
+        "shlib_work": "foxmirznaopubhj1",
+        "edition": "明隆慶二年刻本",
+        "extent": "12"
+      }
+    },
+    {
+      "id": "kanseki",
+      "group": "kanseki-FANAIKAKU-1003029",
+      "group_role": "origin",
+      "name": "全國漢籍データベース",
+      "short_name": "全國漢籍",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FANAIKAKU/tagged/1003029.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FANAIKAKU/tagged/1003029.dat",
+        "institution": "公文書館",
+        "edition": "明隆慶二年序 刊 董漢策",
+        "extent": "6册"
+      }
+    },
+    {
+      "id": "kanseki",
+      "group": "kanseki-FANAIKAKU-1003030",
+      "group_role": "origin",
+      "name": "全國漢籍データベース",
+      "short_name": "全國漢籍",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FANAIKAKU/tagged/1003030.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FANAIKAKU/tagged/1003030.dat",
+        "institution": "公文書館",
+        "edition": "明隆慶二年序 刊 董漢策",
+        "extent": "6册"
+      }
+    }
+  ],
+  "resource_groups": {
+    "shlib-keiy4x43gvsa9cpr": {
+      "label": "上海圖書館藏本書目：明隆慶二年刻本"
+    },
+    "kanseki-FANAIKAKU-1003029": {
+      "label": "全國漢籍DB著錄：公文書館藏本：明隆慶二年序 刊 董漢策"
+    },
+    "kanseki-FANAIKAKU-1003030": {
+      "label": "全國漢籍DB著錄：公文書館藏本：明隆慶二年序 刊 董漢策"
+    }
+  }
 }

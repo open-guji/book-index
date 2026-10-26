@@ -103,7 +103,75 @@
       "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/2x5x7jd75r1cn0gr&from=evidence"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：2x5x7jd75r1cn0gr",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-21"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：2x5x7jd75r1cn0gr\n\n2026-10-26 A6续-上圖 馆藏挂接：按确定档补挂 上圖 1 条（书目页）。依据见 book-index-manager docs/馆藏资源挂接/报告/A6续-上图Book层挂接-20261026.md。\n\n2026-10-26 A5续 馆藏挂接：按确定档补挂 全國漢籍 2 条（书目页）。依据见 book_index_json library_data/_匹配/全国漢籍/A5续-挂接-20261026/README.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "shlib",
+      "group": "shlib-f4jfz7e3elktns8b",
+      "group_role": "origin",
+      "name": "上海圖書館古籍書目",
+      "short_name": "上圖",
+      "url": "https://gj.library.sh.cn/org/info/shl?uri=http://data.library.sh.cn/gj/resource/instance/f4jfz7e3elktns8b",
+      "types": [
+        "catalog"
+      ],
+      "details": "上海圖書館館藏書目頁（著錄版本、版式、序跋、批校；無線上影像）",
+      "metadata": {
+        "shlib_instance": "f4jfz7e3elktns8b",
+        "shlib_work": "zd6yo3g7m6vmfbmw",
+        "edition": "清光緒14年(1888) 刻本",
+        "publisher": "南海孔氏",
+        "extent": "20冊"
+      }
+    },
+    {
+      "id": "kanseki",
+      "group": "kanseki-FA011962-C5913100",
+      "group_role": "origin",
+      "name": "全國漢籍データベース",
+      "short_name": "全國漢籍",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA011962/tagged/C5913100.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA011962/tagged/C5913100.dat",
+        "institution": "東大東文研",
+        "edition": "光緒十四年 南海孔氏三十有三萬卷堂 據孫忠愍侯祠堂舊校景宋本重刊",
+        "extent": "一百六十卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "group": "kanseki-FA011962-C5913200",
+      "group_role": "origin",
+      "name": "全國漢籍データベース",
+      "short_name": "全國漢籍",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA011962/tagged/C5913200.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA011962/tagged/C5913200.dat",
+        "institution": "東大東文研",
+        "edition": "光緒十四年 南海孔氏三十有三萬卷堂 據孫忠愍侯祠堂舊校景宋本重刊",
+        "extent": "一百六十卷"
+      }
+    }
+  ],
+  "resource_groups": {
+    "shlib-f4jfz7e3elktns8b": {
+      "label": "上海圖書館藏本書目：清光緒14年(1888) 刻本"
+    },
+    "kanseki-FA011962-C5913100": {
+      "label": "全國漢籍DB著錄：東大東文研藏本：光緒十四年 南海孔氏三十有三萬卷堂 據孫忠愍侯祠堂舊校景宋本重刊"
+    },
+    "kanseki-FA011962-C5913200": {
+      "label": "全國漢籍DB著錄：東大東文研藏本：光緒十四年 南海孔氏三十有三萬卷堂 據孫忠愍侯祠堂舊校景宋本重刊"
+    }
+  }
 }

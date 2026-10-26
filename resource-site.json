@@ -310,6 +310,30 @@
       "priority": 23,
       "start_date": "2026-10-26",
       "notes": "A6續 上圖 Book 層掛接（2026-10-26）：只在版本與既有 Book 明確吻合（A6「年同」檔，另按卷數／出版者／版本類型／年號從嚴剔除）者，往 Book 層追加 types=[catalog] 書目頁連結；Work 層不寫（K5）。id=shlib，group=shlib-<instance>，metadata.shlib_instance／shlib_work。詳情頁對雲端為瑞數 JS 反爬，鏈接以上圖開放數據頁 data.library.sh.cn/gj/resource/instance/<id> 核驗。口徑見 book-index-manager docs/馆藏资源挂接/报告/A6续-上图Book层挂接-20261026.md。total＝library_data 已抓記錄數。"
+    },
+    {
+      "id": "zinbun-toho",
+      "name": "京都大學人文科學研究所 東方學デジタル圖書館",
+      "type": "collection",
+      "description": "京大人文研東アジア人文情報學研究センター所藏漢籍善本（含十三經注疏、寶卷、江南製造局譯書等）的逐卷全本影像，僅 http",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/db-machine/toho/html/top.html",
+      "total": 724,
+      "imported": 278,
+      "status": "in_progress",
+      "priority": 24,
+      "notes": "2026-10-26 A5續（全國漢籍 DB 帶影像部分）：館方目錄 384 部＋子目共 724 頁，其中 702 頁有逐卷影像；對現庫匹配確定與人工複核後掛 Work 層 278 項（273 個 Work）。total＝目錄頁數。"
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "type": "catalog",
+      "description": "京大人文研「全國漢籍データベース」：日本各館所藏漢籍聯合書目（無影像），僅 http",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki",
+      "total": 296182,
+      "imported": 259,
+      "status": "in_progress",
+      "priority": 25,
+      "notes": "2026-10-26 A5續：只在庫內已有、同藏館同版本的 Book 上追加書目頁（catalog）259 項（230 個 Book，另 5 項超 K9）；Work 層不寫。全部記錄去向與不掛原因見 book_index_json library_data/_匹配/全国漢籍/A5续-挂接-20261026/。total＝library_data 已抓記錄數（四庫題名檢索所得，非全庫）。"
     }
   ]
 }

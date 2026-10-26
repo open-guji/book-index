@@ -35,9 +35,9 @@
       "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/8vcmxn0lnihcc0ee&from=evidence"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：8vcmxn0lnihcc0ee\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-15",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：8vcmxn0lnihcc0ee\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A5续 馆藏挂接：按确定档补挂 全國漢籍 1 条（书目页）。依据见 book_index_json library_data/_匹配/全国漢籍/A5续-挂接-20261026/README.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nat-archives-jp",
@@ -56,11 +56,32 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5086803/manifest.json",
         "extent": "10冊"
       }
+    },
+    {
+      "id": "kanseki",
+      "group": "kanseki-FANAIKAKU-4350010",
+      "group_role": "origin",
+      "name": "全國漢籍データベース",
+      "short_name": "全國漢籍",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FANAIKAKU/tagged/4350010.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FANAIKAKU/tagged/4350010.dat",
+        "institution": "公文書館",
+        "edition": "明 周廷用 明嘉靖十年 刊",
+        "extent": "九卷"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1072208": {
       "label": "內閣文庫藏本：明嘉靖10年刊本（316-0128，10冊）"
+    },
+    "kanseki-FANAIKAKU-4350010": {
+      "label": "全國漢籍DB著錄：公文書館藏本：明 周廷用 明嘉靖十年 刊"
     }
   }
 }

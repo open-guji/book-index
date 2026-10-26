@@ -560,6 +560,21 @@
         "holder": "長野県大図",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100190141/manifest"
       }
+    },
+    {
+      "id": "zinbun-toho",
+      "group": "zinbun-toho-D055",
+      "group_role": "origin",
+      "name": "京都大學人文科學研究所 東方學デジタル圖書館",
+      "short_name": "京大人文研",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/db-machine/toho/html/D055menu.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "toho_id": "D055",
+        "edition": "梁蕭統輯 唐李善呂延濟劉良張銑李周翰呂向注 寛永二年據直江氏活字印本重活字印"
+      }
     }
   ],
   "authors": [
@@ -571,7 +586,7 @@
       "dynasty_basis": "entity_propagation:1j96keogmtds0"
     }
   ],
-  "ai_note": "作者 \"梁蕭統輯\" 補自《中華再造善本》目錄。 | 從 1evkps4grizuo 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善005924-005947）。阶段 5 兜底建立。\n\n2026-08-21 B1 同名異書併池：併入 `1evgqfysdcnwg`（文選）。《文選》蕭統三十卷本：國史志撰人作「好勁大子」，係「昭明太子」之形訛。今併。（六十卷之李善注本另為一條，其注家有其創作，依判準不與原本相併。）\n\n2026-08-23 M2 磁鐵專項（唐隋志系）：舊唐書經籍志「《文選》六十卷」一節本繫本條，今移繫 1evkpqrd5fxmo。舊唐志總集類「《文選》六十卷李善注」，是李善注本——依 SCHEMA〈同題二條〉六，注家有其創作，注本與原典本為二物；庫中正有《文選李善注》六十卷 1evkpqrd5fxmo，今改繫。\n\nN1 併條（2026-08-24）：src「昭明文選」無 Book 亦無著錄源，而本條即隋志總集類《文選》三十卷「梁昭明太子撰」一節所繫之條，且已繫 25 部實物。二者同書異題，今併，src 之 description（蕭統編、李善注之敘）隨併。**併後須 resweep**：全庫 217 條《文選》單篇文之 collected_in 原指 src，已一併改指本條。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1evcmocs9vtog` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-08-26 補整理本：本條之整理本（61 檔）一直留在 draft 之孤懸目錄 `1evi5uod20l4w/collated_edition`——該 draft 條目早於「南北朝 N1 清賬」（9aa35029a88）刪去而資產目錄未隨之遷，其 collated_edition_index 之 work_id 正指本條。今遷入 production。\n\n2026-09-05 《補南北史藝文志》整理：收《補南北史藝文志》一節，本志繫梁代（502-557），作「蕭統　文選三十卷」。本志作三十卷，正合《文選》原本之數；庫中 `d59f2870u874` 之隋志、舊唐志著錄皆三十卷，而 `d59f286t1ama` 乃六十卷之李善注本，非一書。撰人昭明太子即蕭統。\n\n2026-10-15 Elias（Selene GUJI-89 空Work同名判重規格，Sabine 口徑）：d59f286t1ama《文選》（昭明太子，六十卷李善注本）為注本，注≠本經，不并，互注。",
+  "ai_note": "作者 \"梁蕭統輯\" 補自《中華再造善本》目錄。 | 從 1evkps4grizuo 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善005924-005947）。阶段 5 兜底建立。\n\n2026-08-21 B1 同名異書併池：併入 `1evgqfysdcnwg`（文選）。《文選》蕭統三十卷本：國史志撰人作「好勁大子」，係「昭明太子」之形訛。今併。（六十卷之李善注本另為一條，其注家有其創作，依判準不與原本相併。）\n\n2026-08-23 M2 磁鐵專項（唐隋志系）：舊唐書經籍志「《文選》六十卷」一節本繫本條，今移繫 1evkpqrd5fxmo。舊唐志總集類「《文選》六十卷李善注」，是李善注本——依 SCHEMA〈同題二條〉六，注家有其創作，注本與原典本為二物；庫中正有《文選李善注》六十卷 1evkpqrd5fxmo，今改繫。\n\nN1 併條（2026-08-24）：src「昭明文選」無 Book 亦無著錄源，而本條即隋志總集類《文選》三十卷「梁昭明太子撰」一節所繫之條，且已繫 25 部實物。二者同書異題，今併，src 之 description（蕭統編、李善注之敘）隨併。**併後須 resweep**：全庫 217 條《文選》單篇文之 collected_in 原指 src，已一併改指本條。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1evcmocs9vtog` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-08-26 補整理本：本條之整理本（61 檔）一直留在 draft 之孤懸目錄 `1evi5uod20l4w/collated_edition`——該 draft 條目早於「南北朝 N1 清賬」（9aa35029a88）刪去而資產目錄未隨之遷，其 collated_edition_index 之 work_id 正指本條。今遷入 production。\n\n2026-09-05 《補南北史藝文志》整理：收《補南北史藝文志》一節，本志繫梁代（502-557），作「蕭統　文選三十卷」。本志作三十卷，正合《文選》原本之數；庫中 `d59f2870u874` 之隋志、舊唐志著錄皆三十卷，而 `d59f286t1ama` 乃六十卷之李善注本，非一書。撰人昭明太子即蕭統。\n\n2026-10-15 Elias（Selene GUJI-89 空Work同名判重規格，Sabine 口徑）：d59f286t1ama《文選》（昭明太子，六十卷李善注本）為注本，注≠本經，不并，互注。\n\n2026-10-26 A5续 馆藏挂接：按确定档补挂 京大人文研東方 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A5续-全国漢籍東方學デジタル圖書館挂接-20261026.md。",
   "description": {
     "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 贈善005924-005947）。清崇文書局覆刊清胡克家覆宋本。",
     "sources": [
@@ -585,8 +600,8 @@
   "additional_titles": [
     "昭明文選"
   ],
-  "revision": "1.2.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-412004001485": {
       "label": "國圖藏本：北宋[960-1127]   [递修年不详]"
@@ -677,6 +692,9 @@
     },
     "kokusho-100190141": {
       "label": "國書·長野県大図藏刊 寛文２"
+    },
+    "zinbun-toho-D055": {
+      "label": "京大人文研東方學デジタル圖書館藏本：梁蕭統輯 唐李善呂延濟劉良張銑李周翰呂向注 寛永二年據直江氏活字印本重活字印"
     }
   }
 }
