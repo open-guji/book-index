@@ -74,7 +74,7 @@
       "書目答問"
     ]
   },
-  "ai_note": "同名異書：已有 Work 作者為 [('官撰', '清')]，本條作者 司農司（元），另建 | 從 1evgq0jdibh1c 合併。原註：从卷二 ambiguous 新建：unresolved 作者「元司農司撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjy69cjvbwg 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-14 lane-B 併條（rule=同書異題著錄併入）：併 d59f2goqul8h《農桑輯要》 入本條。GUJI-188 Sabine 判：同一部《農桑輯要》，作者統一司農司 hixhd2h9bkwh\n\n2026-10-14 lane-B 併條（rule=同書異題著錄併入）：併 d59f2gd64s1t《至元農桑輯要書》 入本條。GUJI-188 Sabine 判（置信略低）：至元農桑輯要書＝農桑輯要",
+  "ai_note": "同名異書：已有 Work 作者為 [('官撰', '清')]，本條作者 司農司（元），另建 | 從 1evgq0jdibh1c 合併。原註：从卷二 ambiguous 新建：unresolved 作者「元司農司撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjy69cjvbwg 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-14 lane-B 併條（rule=同書異題著錄併入）：併 d59f2goqul8h《農桑輯要》 入本條。GUJI-188 Sabine 判：同一部《農桑輯要》，作者統一司農司 hixhd2h9bkwh\n\n2026-10-14 lane-B 併條（rule=同書異題著錄併入）：併 d59f2gd64s1t《至元農桑輯要書》 入本條。GUJI-188 Sabine 判（置信略低）：至元農桑輯要書＝農桑輯要\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "id": "d59f2gpusyrk",
   "measures": [
     {
@@ -229,6 +229,23 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3358708039",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3358708039",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3358708039",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3358708039/manifest",
+        "shelfmark": "Pekinger Slg. 36",
+        "edition": "刻本 延祐三年 (=1316)序"
+      }
     }
   ],
   "updated_at": "2026-08-26T05:43:16+00:00",
@@ -236,8 +253,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-411999000142": {
       "label": "國圖藏本：清乾隆[1736-1795]"
@@ -247,6 +264,9 @@
     },
     "ndl-2607474": {
       "label": "NDL藏本：乾隆42"
+    },
+    "sbb-PPN3358708039": {
+      "label": "柏林國家圖書館藏本：刻本 延祐三年 (=1316)序"
     }
   },
   "contained_in": [

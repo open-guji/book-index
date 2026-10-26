@@ -80,6 +80,25 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E7%89%A7%E4%BB%A4%E6%9B%B8%E8%BC%AF%E8%A6%81%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-bsb11178837",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb11178837",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb11178837",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb11178837/manifest",
+        "shelfmark": "4 L.sin. E 2-1",
+        "volume_count": 10,
+        "edition": "[S.l.] Hubei chong wen shu ju 1869"
+      },
+      "details": "多冊本，站方分 10 條著錄；此處鏈接其中排序最前一條（bsb11178837），其餘各冊見站方"
     }
   ],
   "description": {
@@ -90,13 +109,13 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "從 1evjr1yvfbpj4 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 索引中尚有同名異書：31hyr4yqv6n3z(徐致初)。\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 13，與著錄原文（續修四庫全書：「牧令書輯要」）所載之 10 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n作者部分交集（總目著錄作者:丁日昌、徐棟；Work作者:徐棟，合著差異，未改Work.authors）（Sawyer 2026-10-17，批418，Sabine口徑）\n\n2026-10-26 A11-去重3b-0 併條（rule=去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并）：併 d59f2nhu0fls《牧令書輯要》 入本條。署名异写同书：《牧令書輯要》徐棟／徐致初：徐致初为徐栋字（CBDB）",
+  "ai_note": "從 1evjr1yvfbpj4 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 索引中尚有同名異書：31hyr4yqv6n3z(徐致初)。\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 13，與著錄原文（續修四庫全書：「牧令書輯要」）所載之 10 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n作者部分交集（總目著錄作者:丁日昌、徐棟；Work作者:徐棟，合著差異，未改Work.authors）（Sawyer 2026-10-17，批418，Sabine口徑）\n\n2026-10-26 A11-去重3b-0 併條（rule=去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并）：併 d59f2nhu0fls《牧令書輯要》 入本條。署名异写同书：《牧令書輯要》徐棟／徐致初：徐致初为徐栋字（CBDB）\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "updated_at": "2026-08-19T00:00:00-07:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "related_works": [
     {
@@ -119,5 +138,10 @@
   ],
   "merged_from": [
     "d59f2nhu0fls"
-  ]
+  ],
+  "resource_groups": {
+    "bsb-bsb11178837": {
+      "label": "巴伐利亞州立圖書館藏本：[S.l.] Hubei chong wen shu ju 1869"
+    }
+  }
 }

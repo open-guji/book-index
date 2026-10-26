@@ -15,14 +15,14 @@
       "中華再造善本"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 索引中尚有同名異書：31hyr4yqsoqtn()（不同作者，故新建獨立 Work）。\n\n2026-10-10 #541 誤並拆分：輯者「敬齋」原誤繫「應是」，摘除 entity_id。「敬齋」是蔡德晉、吳高增、應是三人共有之別號，不能憑別名繫連；本書為滿文乾隆五十七年（1792）富氏刻本，而應是卒於 1727 年，與本書年代不合。待人審實際撰人後再繫。\n\n2026-10-26 A11-去重3b-0 併條（rule=去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并）：併 d59fxygmn56p《三合便覽》 入本條。署名异写同书：《三合便覽》敬齋／敬齋公：敬斋／敬斋公",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 索引中尚有同名異書：31hyr4yqsoqtn()（不同作者，故新建獨立 Work）。\n\n2026-10-10 #541 誤並拆分：輯者「敬齋」原誤繫「應是」，摘除 entity_id。「敬齋」是蔡德晉、吳高增、應是三人共有之別號，不能憑別名繫連；本書為滿文乾隆五十七年（1792）富氏刻本，而應是卒於 1727 年，與本書年代不合。待人審實際撰人後再繫。\n\n2026-10-26 A11-去重3b-0 併條（rule=去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并）：併 d59fxygmn56p《三合便覽》 入本條。署名异写同书：《三合便覽》敬齋／敬齋公：敬斋／敬斋公\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "id": "d59f2mxhegoz",
   "updated_at": "2026-08-09T10:40:18+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "indexed_by": [
     {
@@ -48,5 +48,29 @@
   ],
   "merged_from": [
     "d59fxygmn56p"
-  ]
+  ],
+  "resources": [
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3306131989",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3306131989",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3306131989",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3306131989/manifest",
+        "shelfmark": "4° @39099 ROA",
+        "edition": "刻本 [Abkai wehiyehe i šanyan singgeri aniya"
+      }
+    }
+  ],
+  "resource_groups": {
+    "sbb-PPN3306131989": {
+      "label": "柏林國家圖書館藏本：刻本 [Abkai wehiyehe i šanyan singgeri aniya"
+    }
+  }
 }
