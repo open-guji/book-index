@@ -158,6 +158,24 @@
         "nlc_fid": "411999009267",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-102381866",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000017388",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102381866",
+        "nlk_control_no": "KOL000017388",
+        "holder": "국립중앙도서관",
+        "call_number": "한古朝23-10",
+        "edition": "筆寫本 [刊寫年未詳]"
+      }
     }
   ],
   "measures": [
@@ -167,7 +185,7 @@
     }
   ],
   "measure_info": "二十卷",
-  "ai_note": "作者「元曉山老人撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjr4vb8ffnk 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 索引中尚有同名異書：1ev3bbo0vy2gw();1evgbzv16fbb4()。 | 從 1evgbzv16fbb4 合併。原註：元史藝文志失名 作者「元曉山老人撰」補自《國立故宮博物院善本舊籍》目錄。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-21 舊題撰人專項：著錄語作「舊題元曉山老人撰，不知其姓名。前有大德七年自序。錢曾《讀書敏求記」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "作者「元曉山老人撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evjr4vb8ffnk 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 索引中尚有同名異書：1ev3bbo0vy2gw();1evgbzv16fbb4()。 | 從 1evgbzv16fbb4 合併。原註：元史藝文志失名 作者「元曉山老人撰」補自《國立故宮博物院善本舊籍》目錄。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-21 舊題撰人專項：著錄語作「舊題元曉山老人撰，不知其姓名。前有大德七年自序。錢曾《讀書敏求記」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
   "description": {
     "text": "曉山老人（元）舊題撰。二十卷。見著錄於《欽定四庫全書總目》《續修四庫全書》《四庫全書存目叢書》《元史藝文志》。《續修四庫全書》列於子部 術數類；《四庫全書存目叢書》列於子部。",
     "sources": [
@@ -185,14 +203,17 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-2635": {
       "label": "國圖藏本：[出版年不詳]"
     },
     "nlc-411999009267": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "korcis-102381866": {
+      "label": "韓國國立中央圖書館數字化藏本：筆寫本 [刊寫年未詳]"
     }
   }
 }

@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-15 lane-B 併條（rule=A）：併 d59f2hpf8f0h《胡氏春秋傳》 入本條。GUJI-405 题名前后置之异(Selene/Sabine)\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（A7 转交 NDL）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-15 lane-B 併條（rule=A）：併 d59f2hpf8f0h《胡氏春秋傳》 入本條。GUJI-405 题名前后置之异(Selene/Sabine)\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（A7 转交 NDL）。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,7 +31,7 @@
   "dynasty_basis": "据唯一 author.dynasty「南宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「南宋」自动归并",
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -148,6 +148,63 @@
         "ndl_record": "pid753853",
         "edition": "[1---]"
       }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101121892",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000000413",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101121892",
+        "nlk_control_no": "KOL000000413",
+        "holder": "국립중앙도서관",
+        "call_number": "일산貴1235-14",
+        "part": "卷21-23",
+        "edition": "金屬活字本(乙亥字) 燕山君 9(1503)"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-102385134",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000017938",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102385134",
+        "nlk_control_no": "KOL000017938",
+        "holder": "국립중앙도서관",
+        "call_number": "한古朝07-5",
+        "part": "卷1-30",
+        "edition": "木板本 [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-139782793",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL200700740",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "139782793",
+        "nlk_control_no": "KOL200700740",
+        "holder": "국립중앙도서관",
+        "call_number": "古1235-108",
+        "part": "卷14-20",
+        "edition": "金屬活字本(乙亥字) [中宗年間(1506-1544)]"
+      }
     }
   ],
   "resource_groups": {
@@ -165,6 +222,15 @@
     },
     "ndl-753853": {
       "label": "NDL藏本：[1---]"
+    },
+    "korcis-101121892": {
+      "label": "韓國國立中央圖書館數字化藏本：金屬活字本(乙亥字) 燕山君 9(1503)"
+    },
+    "korcis-102385134": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 [刊寫年未詳]"
+    },
+    "korcis-139782793": {
+      "label": "韓國國立中央圖書館數字化藏本：金屬活字本(乙亥字) [中宗年間(1506-1544)]"
     }
   },
   "contained_in": [
