@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '../../../..'))
 sys.path[:0] = [os.path.join(ROOT, '.claude/qa')]
 import backrefs  # noqa: E402
-TODAY = '2026-10-25'
+TODAY = datetime.date.today().isoformat()
 SKIP = {'schema_version', 'id', 'type', 'title', 'work_id', 'revision', 'revised_at', 'updated_at', 'ai_note', 'edition',
         'contained_in', 'resources', 'sources', 'indexed_by', 'provenance', 'resource_groups', 'merged_from', 'merged_into'}
 
@@ -57,7 +57,9 @@ def main():
             pre.append({'id': l, 'path': lr, 'sha256': base_sha(lr)})
             for f in ('contained_in', 'resources', 'sources', 'indexed_by', 'provenance'):
                 for x in d.get(f) or []:
-                    if x not in (k.get(f) or []): k.setdefault(f, []).append(x)
+                    if x in (k.get(f) or []): continue
+                    if f == 'contained_in' and x.get('id') in {c.get('id') for c in k.get(f) or []}: continue  # 同一 Collection 不重复挂
+                    k.setdefault(f, []).append(x)
             for gk, gv in (d.get('resource_groups') or {}).items():
                 k.setdefault('resource_groups', {}).setdefault(gk, gv)
             notes[l] = {f: d[f] for f in ('title', 'edition', 'dating', 'juan_count', 'ai_note') if f in d}
