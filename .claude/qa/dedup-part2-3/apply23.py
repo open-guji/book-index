@@ -11,7 +11,7 @@ QA = os.path.dirname(HERE)
 sys.path.insert(0, QA)
 import jio, mintid  # noqa: E402
 
-TODAY = '2026-10-25'
+TODAY = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-7))).strftime('%Y-%m-%d')   # 洛杉矶日期（夏令时）
 ap = argparse.ArgumentParser(); ap.add_argument('plan'); ap.add_argument('out')
 ap.add_argument('--start', type=int, default=0); ap.add_argument('--count', type=int); ap.add_argument('--pick')
 ap.add_argument('--share', help='分份并行：i/n，只取 int(md5(名).hexdigest(),16) %% n == i 的组（同名不同朝代的组同在一份）')
@@ -51,7 +51,8 @@ for g in groups:
 print('可执行 %d 组，跳过 %d 组' % (len(ok), len(skipped)))
 for r in skipped[:20]: print('  跳过', *r)
 
-ids = mintid.mint('Entity', 'dedup23', len(ok)) if a.apply else ['(待鑄%d)' % i for i in range(len(ok))]
+lane = {1: 'dedup23乙', 2: 'dedup23丙'}.get(si if a.share and sn == 3 else 0, 'dedup23')   # 三份各用一车道，免并行同秒撞号
+ids = mintid.mint('Entity', lane, len(ok)) if a.apply else ['(待鑄%d)' % i for i in range(len(ok))]
 ledger = []
 for (g, docs), eid in zip(ok, ids):
     titles = []
