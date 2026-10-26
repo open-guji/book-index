@@ -17,11 +17,15 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 B 档逐组复核并）：併 d59f6emc9tds《毓慶勲懿集》 入本條。同题同首位责任者：《毓慶勳懿集》郭良(明,?卷,1版本)／《毓慶勲懿集》郭良(?,?卷,0版本)；B 档逐组复核判同一作品（flags=role_diff）",
   "measures": [
     {
       "unit": "冊",
       "number": 4
+    },
+    {
+      "unit": "卷",
+      "number": 8
     }
   ],
   "measure_info": "四冊",
@@ -31,8 +35,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -62,5 +66,36 @@
     "nlc-0424": {
       "label": "國圖藏本：明正德[1506-1521]"
     }
-  }
+  },
+  "juan_count": {
+    "number": 8
+  },
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "indexed_by": [
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "郭良毓慶勲懿集",
+      "summary": "郭良毓慶勲懿集"
+    }
+  ],
+  "additional_titles": [
+    "毓慶勲懿集"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6emc9tds",
+      "title": "毓慶勲懿集",
+      "at": "2026-10-26T14:49:59Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 B 档逐组复核并",
+      "why": "同题同首位责任者：《毓慶勳懿集》郭良(明,?卷,1版本)／《毓慶勲懿集》郭良(?,?卷,0版本)；B 档逐组复核判同一作品（flags=role_diff）",
+      "author": "郭良",
+      "title_info": "郭良毓慶勲懿集"
+    }
+  ],
+  "merged_from": [
+    "d59f6emc9tds"
+  ]
 }
