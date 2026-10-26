@@ -1,0 +1,528 @@
+[
+ {
+  "mid": "M09",
+  "work": "d59f2hez3gg2",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "國史經籍志",
+    "title_info": "《河南志》二十卷",
+    "author_info": "宋敏求",
+    "summary": "《河南志》二十卷（宋敏求）",
+    "verdict": "留"
+   },
+   {
+    "idx": 1,
+    "source": "中國古籍總目",
+    "title_info": "[宋]河南志不分卷",
+    "author_info": "宋宋敏求纂修",
+    "summary": "共3版本：清全唐文纂修館抄本（國圖）；抄本（中科院）；藕香零拾本（鄭州）",
+    "verdict": "移出到 d59f2n4yh0xs（元河南志，徐松輯本）"
+   }
+  ],
+  "books": {
+   "keep": [],
+   "move": [
+    {
+     "book": "9951gr8lj4",
+     "target": "d59f2n4yh0xs",
+     "reason": "藕香零拾本即繆荃孫刊《元河南志》四卷（徐松自《永樂大典》輯出），與 d59f2n4yh0xs 的 Book 9952v2mps0（元河南志藕香零拾本）同一本子；總目著「不分卷」是著錄差異"
+    },
+    {
+     "book": "9951gqxczk",
+     "target": "d59f2n4yh0xs",
+     "reason": "清全唐文纂修館抄本就是徐松在全唐文館時從《永樂大典》抄出的河南志，即《元河南志》的底本（徐松當時以為是宋敏求書，總目沿用其題）；宋敏求二十卷原書已佚，世無傳本"
+    },
+    {
+     "book": "9951gqxczl",
+     "target": "d59f2n4yh0xs",
+     "reason": "與上兩本同屬總目同一條「[宋]河南志不分卷」，不分卷、抄本，應同是大典輯本系統；隨本條著錄一起移"
+    }
+   ]
+  },
+  "resources": [
+   {
+    "url": "https://zh.wikisource.org/wiki/%E6%B2%B3%E5%8D%97%E5%BF%97",
+    "from": "d59f2hjmenlt",
+    "target": "d59f2n4yh0xs",
+    "reason": "维基文库頁就是徐松大典輯本（元佚名撰），不是宋敏求二十卷原書"
+   }
+  ],
+  "move": [
+   {
+    "indexed_by": [
+     1
+    ],
+    "books": [
+     "9951gr8lj4",
+     "9951gqxczk",
+     "9951gqxczl"
+    ],
+    "resources": [],
+    "target": "d59f2n4yh0xs",
+    "reason": "宋敏求《河南志》二十卷早佚，傳世「河南志」都是徐松從《永樂大典》輯出的本子，繆荃孫考定為元人據宋志重修，刊入藕香零拾題《元河南志》。總目把大典輯本分成兩條（[宋]河南志不分卷，宋敏求纂修；元河南志四卷，元□□撰、清徐松輯），實是同一文本。庫內已有 d59f2n4yh0xs《元河南志》（徐松，四卷，含藕香零拾本、光緒三十四年刻本），三個 Book 與總目著錄併入該條。"
+   }
+  ],
+  "field_fixes": {
+   "d59f2hez3gg2.indexed_by": "刪第1條（總目[宋]河南志不分卷），移到 d59f2n4yh0xs.indexed_by，加 note「總目題宋宋敏求纂修，實為徐松大典輯本，即元河南志」",
+   "d59f2hez3gg2.description/authors/juan_count/measure_info": "不受影響（description 只據國史經籍志，二十卷、宋敏求都對），不改",
+   "d59f2hez3gg2.ai_note": "追記：總目大典輯本著錄與 Book 9951gr8lj4/9951gqxczk/9951gqxczl 移到 d59f2n4yh0xs；本條只是佚書宋敏求《河南志》二十卷",
+   "Book 9951gr8lj4/9951gqxczk/9951gqxczl.work_id": "d59f2hez3gg2 → d59f2n4yh0xs；title「[宋]河南志」可留總目原題，ai_note 註「實即元河南志（徐松大典輯本）」",
+   "d59f2hjmenlt.resources": "维基文库「河南志」頁（Header 作 佚名（元）、collector 徐松、notes「一說為宋宋敏求著」，已核原頁）→ 移到 d59f2n4yh0xs",
+   "d59f2n4yh0xs.authors（可選）": "徐松 role「撰」→「輯」，並可加 {name:佚名, role:撰, dynasty:元}；總目作「元□□撰;清徐松輯」"
+  },
+  "then_merge": {
+   "keeper": "d59f2hez3gg2",
+   "losers": [
+    "d59f2hjmenlt"
+   ],
+   "reason": "拆完後兩條都是佚書宋敏求《河南志》二十卷：keeper 有國史經籍志、entity 宋敏求；loser 有宋志、直齋（直齋明說「宋敏求撰」）。合併後 keeper 的 description sources 補宋史藝文志、直齋書錄解題。loser 的 authors 是空陣列（宋志頂真格專項清空的），以 keeper 的宋敏求為準"
+  },
+  "confidence": "高",
+  "confidence_note": "藕香零拾本與维基文库頁屬元河南志，證據確鑿；兩個抄本靠「大典輯本只有徐松這一個系統、宋敏求原書已佚」推定，沒有逐本目驗，屬中高"
+ },
+ {
+  "mid": "M10",
+  "work": "d59f2mdb18n4",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "欽定四庫全書總目",
+    "title_info": "《河南通志》•八十卷",
+    "author_info": null,
+    "summary": "王士俊等監修，雍正九年田文鏡承命排纂，文鏡歿後王士俊成書",
+    "verdict": "留"
+   },
+   {
+    "idx": 1,
+    "source": "明史藝文志",
+    "title_info": "鄒守愚《河南通志》四十五卷",
+    "author_info": null,
+    "summary": "鄒守愚《河南通志》四十五卷（嘉靖志）",
+    "verdict": "刪（重複）：d59f2ndji2v8 已有同一條"
+   },
+   {
+    "idx": 2,
+    "source": "國史經籍志",
+    "title_info": "《河南通志》四十五卷",
+    "author_info": null,
+    "summary": "《河南通志》四十五卷（嘉靖志）",
+    "verdict": "刪（重複）：d59f2ndji2v8 已有同一條"
+   },
+   {
+    "idx": 3,
+    "source": "中國古籍總目",
+    "title_info": "[雍正]河南通志八十卷",
+    "author_info": "清田文鏡等修;清孫灝等纂",
+    "summary": "共6版本：雍正十三年刻本及道光、同治、光緒遞修本，清抄本",
+    "verdict": "留"
+   },
+   {
+    "idx": 4,
+    "source": "中國古籍總目",
+    "title_info": "[雍正]河南通志八十卷",
+    "author_info": "清田文鏡等修;清孫灝等纂",
+    "summary": "文淵閣四庫全書本",
+    "verdict": "留"
+   }
+  ],
+  "books": {
+   "keep": [
+    "988g67jbpf",
+    "988fznv5ky",
+    "9951ilewow",
+    "994xp3dxxd",
+    "9951il3o5c",
+    "9951il3o5d",
+    "988g1bhhck",
+    "9951iksflt",
+    "9951iksfls",
+    "988g8cbpcd",
+    "9974gsfl77",
+    "988fzhmepz"
+   ],
+   "move": []
+  },
+  "resources": [
+   {
+    "url": "https://www.shidianguji.com/book/HY0122",
+    "target": "d59fynr6i6m8",
+    "reason": "识典 metadata.edition「順治十七年刻本」，屬順治志（賈漢復修、沈荃纂，五十卷），不是雍正志"
+   },
+   {
+    "url": "https://www.shidianguji.com/book/HY4295",
+    "target": "d59fynr6i6m8",
+    "reason": "识典 metadata.edition「順治十七年(1660)刻本」，同上"
+   }
+  ],
+  "move": [
+   {
+    "indexed_by": [
+     1,
+     2
+    ],
+    "books": [],
+    "resources": [],
+    "target": "d59f2ndji2v8",
+    "reason": "嘉靖鄒守愚四十五卷，d59f2ndji2v8（鄒守愚，四十五卷）已有完全相同的明史藝文志、國史經籍志兩條，本條這兩條是 2026-08-26「雙向鏈回補」重新補回的重複，直接刪"
+   },
+   {
+    "indexed_by": [],
+    "books": [],
+    "resources": [
+     "https://www.shidianguji.com/book/HY0122",
+     "https://www.shidianguji.com/book/HY4295"
+    ],
+    "target": "d59fynr6i6m8",
+    "reason": "[順治]河南通志（總目著錄、順治十七年刻本 Book 9946t4srup），兩個识典資源都標順治十七年刻本"
+   }
+  ],
+  "field_fixes": {
+   "d59f2mdb18n4.description.sources": "[欽定四庫全書總目, 明史藝文志, 國史經籍志, 中國古籍總目] → [欽定四庫全書總目, 中國古籍總目]；text 可改「田文鏡（清）等修，王士俊監修成書，孫灝、顧棟高等纂。八十卷。雍正十三年刻，有道光、同治、光緒遞修本及四庫全書本。」",
+   "d59f2mdb18n4.related_works[d59f2ndji2v8].note": "現值兩句方向相反、重複；改成一句「同題異書：彼條係明嘉靖鄒守愚修四十五卷，本條係清雍正田文鏡、王士俊修八十卷」",
+   "d59f2mdb18n4.authors（可選）": "現只有田文鏡（修）；可補 王士俊（監修，entity hixhd2h9bf40）、孫灝（纂），與總目、四庫提要一致",
+   "d59f2mdb18n4.ai_note": "追記：刪明史、國史經籍志鄒守愚四十五卷兩條重複著錄；識典順治本兩條資源移 d59fynr6i6m8",
+   "d59fynr6i6m8.resources": "加兩條识典（HY0122、HY4295），id 照原值",
+   "未動": "nlc fid 312001063374（edition 空）、Book 9974gsfl77（nlc 312001063393，國圖未著錄責任者）無法判定修次，留原處"
+  },
+  "then_merge": {
+   "keeper": "d59f2mdb18n4",
+   "losers": [
+    "d59fyfebap6o"
+   ],
+   "reason": "FS0064 已併 d59f2n6eaf41。另有 d59fyfebap6o「［雍正］河南通志八十卷」（總目，田文鏡、王士俊等修，孫灝、顧棟高等纂，3 個 Book）是同一修次，不在原簇裡，建議一併併入 keeper（作者可從它補王士俊、顧棟高）"
+  },
+  "confidence": "高",
+  "confidence_note": ""
+ },
+ {
+  "mid": "M11",
+  "work": "d59f2md9sagw",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "欽定四庫全書總目",
+    "title_info": "《畿輔通志》•一百二十卷",
+    "author_info": null,
+    "summary": "李衛等監修；雍正七年唐執玉延田易等纂，雍正志",
+    "verdict": "留"
+   }
+  ],
+  "books": {
+   "keep": [
+    "988fz7mtc2"
+   ],
+   "move": [
+    {
+     "book": "988g7w3d36",
+     "target": "d59f2n79i5fk",
+     "reason": "清宣統二年北洋官報兼印刷局石印本（故宮 贈善014127-014366）是同治志（李鴻章修、黃彭年纂，三百卷）的石印本；d59f2n79i5fk 已有同一版本的另一部故宮藏本 988g5nk4y3"
+    }
+   ]
+  },
+  "resources": [],
+  "move": [
+   {
+    "indexed_by": [],
+    "books": [
+     "988g7w3d36"
+    ],
+    "resources": [],
+    "target": "d59f2n79i5fk",
+    "reason": "宣統石印本與作者「黃彭年總纂」都來自這一部故宮藏本，屬同治十年修、光緒十年刻的畿輔通志（三百卷首一卷）。d59f2n79i5fk（李鴻章修，續修四庫、故宮同治刻本與宣統石印本）就是這一修次"
+   }
+  ],
+  "field_fixes": {
+   "d59f2md9sagw.authors": "[黃彭年 總纂 (hixhd2h9boln)] → [李衛 等監修 清 (entity hixhd2h9bo6n)]，可加 唐執玉（修）、陳儀、田易（纂），照總目「清唐執玉、李衞修;清陳儀、田易纂」",
+   "d59f2md9sagw.description": "「本書收入《國立故宮博物院善本舊籍》（統一編號 贈善014127-014366）。清宣統庚戌二年北洋官報兼印刷局石印本。」→「唐執玉、李衛等修，陳儀、田易等纂。一百二十卷。雍正七年奉詔重修，雍正十三年成書刊行，收入四庫全書。」sources 補 欽定四庫全書總目",
+   "d59f2md9sagw.ai_note": "「作者清黃彭年總纂補自故宮目錄」一句加註：該作者屬宣統石印本（同治志），隨 Book 988g7w3d36 移出",
+   "juan_count/measure_info": "一百二十卷，與雍正志相符，不改",
+   "d59f2n79i5fk.authors（可選）": "可補 黃彭年（纂，entity hixhd2h9boln）"
+  },
+  "then_merge": [
+   {
+    "keeper": "d59f2md9sagw",
+    "losers": [
+     "d59f2n6dz6kg"
+    ],
+    "reason": "拆完後兩條都是雍正志一百二十卷（唐執玉、李衛修）：本條有四庫總目、维基文库四庫本、识典雍正十三年刻本、文淵閣 Book；d59f2n6dz6kg 有總目[雍正]兩條、雍正十三年刊本與四庫寫本 Book。keeper 取有提要和資源的這條"
+   },
+   {
+    "keeper": "d59f2n79i5fk",
+    "losers": [
+     "d59fynqkyt4w"
+    ],
+    "reason": "同治志兩條（三百卷首一卷，李鴻章修、黃彭年纂）同一修次：d59f2n79i5fk 有續修四庫和故宮兩本，d59fynqkyt4w 有總目三個版本。這一併超出 M11 範圍，供原計劃參考"
+   }
+  ],
+  "confidence": "高",
+  "confidence_note": ""
+ },
+ {
+  "mid": "M12",
+  "work": "d59f2mpupmo0",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "國史經籍志",
+    "title_info": "《順天府志》六卷",
+    "author_info": null,
+    "summary": "《順天府志》六卷（已標 misattached）",
+    "verdict": "移出到 d59f2nl0vvur（萬曆順天府志，謝傑撰、沈應文續成，六卷）"
+   }
+  ],
+  "books": {
+   "keep": [
+    "988g40vitc"
+   ],
+   "move": []
+  },
+  "resources": [],
+  "move": [
+   {
+    "indexed_by": [
+     0
+    ],
+    "books": [],
+    "resources": [],
+    "target": "d59f2nl0vvur",
+    "reason": "焦竑《國史經籍志》成書於萬曆中後期，明代刻行的順天府志六卷只有萬曆二十一年（1593）謝傑撰、沈應文續成的這一部；明史藝文志也作「沈應文《順天府志》六卷」。d59f2nl0vvur 就是此本（明史、存目叢書、四庫總目、萬曆刻本 Book），還沒有國史經籍志條。移過去時去掉 misattached 標記"
+   }
+  ],
+  "field_fixes": {
+   "d59f2mpupmo0.juan_count/measures/measure_info": "6／[卷 6]／「六卷」都出自國史經籍志 → 刪去（剩下的光緒本為一百三十卷附錄一卷，若併入 d59fyoykhou9 則以 keeper 為準）",
+   "d59f2mpupmo0.description": "刪掉國史經籍志的句子；改為「張之洞等纂（光緒順天府志）。本書收入《國立故宮博物院善本舊籍》（統一編號 贈善014481-014544）。清光緒刊本。」sources 清空",
+   "d59f2mpupmo0.authors[0].role": "「纂修」→「纂」（光緒志由萬青黎、周家楣修，張之洞、繆荃孫纂）",
+   "d59f2nl0vvur.indexed_by": "加國史經籍志「《順天府志》六卷」一條，不帶 misattached；description sources 補國史經籍志",
+   "Book 988g40vitc": "edition「清光緒壬寅二十八年刊本」是故宮著錄原文，不改；dating.year 1875 與「二十八年」(1902) 不合，應改 1902 或標存疑（光緒志通行為十二年刻、十五年重印）"
+  },
+  "then_merge": {
+   "keeper": "d59fyoykhou9",
+   "losers": [
+    "d59f2mpupmo0"
+   ],
+   "reason": "拆完後只剩張之洞與故宮藏光緒刊本，屬光緒順天府志（一百三十卷附錄一卷）；d59fyoykhou9 有總目、稿本和光緒十二年刻本、识典與國圖資源。另外 d59f2myjheyo（周家楣修，故宮清光緒十二年刊本兩部）也屬這一修次，可一起併入"
+  },
+  "confidence": "中",
+  "confidence_note": "國史經籍志條移萬曆志的把握高。併入光緒志的把握中：故宮題「光緒壬寅二十八年刊本」，與通行的十二年刻、十五年重印不符，可能是後印或著錄有誤，最好先看故宮書影確認是不是一百三十卷的光緒志"
+ },
+ {
+  "mid": "M13",
+  "work": "d59f2ngj6ygw",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "宋史藝文志",
+    "title_info": "《桂林志》",
+    "author_info": null,
+    "summary": "江文叔《桂林志》一卷（現標 misattached，標反了）",
+    "verdict": "留（去掉 misattached）"
+   },
+   {
+    "idx": 1,
+    "source": "明史藝文志",
+    "title_info": "陳璉《桂林志》三十卷",
+    "author_info": null,
+    "summary": "陳璉《桂林志》三十卷",
+    "verdict": "移出到 d59f6esa3dhe（陳璉桂林志三十卷）"
+   },
+   {
+    "idx": 2,
+    "source": "直齋書錄解題",
+    "title_info": "《桂林志》一卷",
+    "author_info": null,
+    "summary": "靜江教授江文叔編，乾道五年張維為帥，不分卷次",
+    "verdict": "留"
+   },
+   {
+    "idx": 3,
+    "source": "宋史藝文志補",
+    "title_info": "桂林志二十七卷",
+    "author_info": null,
+    "summary": "江文叔撰",
+    "verdict": "留（同一撰人同一書，卷數歧異記入 note）"
+   }
+  ],
+  "books": {
+   "keep": [],
+   "move": []
+  },
+  "resources": [],
+  "move": [
+   {
+    "indexed_by": [
+     1
+    ],
+    "books": [],
+    "resources": [],
+    "target": "d59f6esa3dhe",
+    "reason": "陳璉是明人（1370–1454），明史著錄三十卷，與 d59f6esa3dhe（千頃堂「陳璉桂林志」，陳璉，三十卷）同書。本條保留南宋江文叔乾道本：宋志、直齋、宋志補三條都題江文叔"
+   }
+  ],
+  "field_fixes": {
+   "d59f2ngj6ygw.indexed_by[0]": "刪 misattached / misattached_note（2026-09-05 已判宋志為真源，但標記沒摘）",
+   "d59f2ngj6ygw.indexed_by[3].note": "加「宋志一卷、直齋言不分卷次，此作二十七卷，卷數歧異，撰人同為江文叔，留」",
+   "d59f2ngj6ygw.dynasty": "「明」(dynasty_basis gazetteer_propagation) → 「南宋」，basis 改「據撰人江文叔（entity hixhd2h9bo8o，南宋）」；period song 不變",
+   "d59f2ngj6ygw.description": "「江文叔撰。見著錄於《宋史藝文志》《明史藝文志》《宋史藝文志補》《直齋書錄解題》……」→ 去掉《明史藝文志》；可改「南宋江文叔撰。乾道五年靜江府教授江文叔編，直齋稱其撰次疏略、不分卷次。宋志作一卷，宋史藝文志補作二十七卷。已佚。」sources 去 明史藝文志",
+   "d59f2ngj6ygw.ai_note": "追記：2026-09-05 說已摘的 3 條實際仍在；本次只移出明史陳璉條，直齋、宋志補屬江文叔書，留",
+   "d59f6esa3dhe": "indexed_by 加明史藝文志一條；authors[0].dynasty 補「明」；description sources 補明史藝文志（三十卷由明史得證）"
+  },
+  "then_merge": {
+   "keeper": null,
+   "losers": [],
+   "reason": "不併：d59f2ngj6ygw（南宋江文叔）與 d59f6esa3dhe（明陳璉）是異書。另外 d59fynpi9ds1「[宣德]桂林郡志三十二卷，明陳璉纂修、吳惠增補」可能就是陳璉桂林志的增補本，但題名、卷數都不同，沒有證據，不併，可在 d59f6esa3dhe 掛 related"
+  },
+  "confidence": "高",
+  "confidence_note": ""
+ },
+ {
+  "mid": "M14",
+  "work": "d59f2mdiu681",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "欽定四庫全書總目",
+    "title_info": "《金華府志》•三十卷",
+    "author_info": "不著撰人名氏",
+    "summary": "前列成化庚子商輅序，稱為知府周宗智撰，而志中載及隆、萬時事",
+    "verdict": "移出到 d59f2nfdd5oh（萬曆金華府志，王懋德修、陸鳳儀纂，三十卷）"
+   }
+  ],
+  "books": {
+   "keep": [
+    "988g5bp4b7"
+   ],
+   "move": []
+  },
+  "resources": [],
+  "move": [
+   {
+    "indexed_by": [
+     0
+    ],
+    "books": [],
+    "resources": [],
+    "target": "d59f2nfdd5oh",
+    "reason": "提要說書中載有隆慶、萬曆時事，又不提清代，不可能是康熙張藎志；三十卷而且有成化周宗智序，跟萬曆六年王懋德修、陸鳳儀纂的三十卷本相合（萬曆志因周宗智本續修）。《四庫全書存目叢書》以北圖藏萬曆刻本影印收入這一存目書，題「明王懋德纂」，d59f2nfdd5oh 已繫此存目叢書條和總目萬曆六年刻本"
+   }
+  ],
+  "field_fixes": {
+   "d59f2mdiu681.description": "「張蓋（清）修。三十卷。見著錄於《欽定四庫全書總目》……」→「張藎（清）修，沈麟趾等纂。三十卷。康熙二十二年刻。本書收入《國立故宮博物院善本舊籍》（清康熙二十三年刊本）。」sources 清空或改故宮；順手改正誤字張蓋→張藎",
+   "d59f2mdiu681.juan_count/measure_info": "三十卷與康熙志相符，不改",
+   "d59f2nfdd5oh.indexed_by": "加四庫總目條，note「提要題不著撰人，存目叢書據萬曆刻本定為王懋德纂」；description sources 補欽定四庫全書總目",
+   "d59f2mdiu681.ai_note": "追記：四庫總目「不著撰人」三十卷條屬萬曆志，移 d59f2nfdd5oh"
+  },
+  "then_merge": {
+   "keeper": "d59fyobj45j6",
+   "losers": [
+    "d59f2mdiu681"
+   ],
+   "reason": "拆完後本條是康熙張藎修三十卷（识典康熙22年刊本、故宮康熙二十三年刊本），與 d59fyobj45j6「[康熙]金華府志三十卷，張藎修、沈麟趾纂」同一修次。keeper 取 d59fyobj45j6，因為它帶總目和三個 Book、纂者 entity；也可反過來取 d59f2mdiu681。原計劃要判的 d59f2nfdd5oh 是萬曆志，不併。d59fyfdxvhfk（康熙志一卷摘抄本）維持分立互鏈"
+  },
+  "confidence": "中",
+  "confidence_note": "移出四庫條的把握高（隆萬事、不著撰人，與康熙志不合）。歸萬曆王懋德本的把握中：根據是存目叢書收入時的版本認定和三十卷相合，沒有直接核對四庫進呈本"
+ },
+ {
+  "mid": "M15",
+  "work": "d59f2hg0v66a",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "國史經籍志",
+    "title_info": "《和州志》八卷",
+    "author_info": "劉禹錫",
+    "summary": "《和州志》八卷（劉禹錫）",
+    "verdict": "留"
+   },
+   {
+    "idx": 1,
+    "source": "書目答問",
+    "title_info": "和州志",
+    "author_info": "《亳州志》《永清縣志》《天門縣志》（剖分錯誤）",
+    "summary": "《和州志》《亳州志》《永清縣志》《天門縣志》⟨章學誠⟩",
+    "verdict": "移出到 d59fyns9iuip（[乾隆]和州志，章學誠）"
+   }
+  ],
+  "books": {
+   "keep": [],
+   "move": []
+  },
+  "resources": [],
+  "move": [
+   {
+    "indexed_by": [
+     1
+    ],
+    "books": [],
+    "resources": [],
+    "target": "d59fyns9iuip",
+    "reason": "書目答問此條列的是章學誠所修四志，和州志是乾隆章學誠志，與國史經籍志所載八卷本無關。庫中章學誠和州志有四條（d59fyns9iuip 纂、d59fz18ku3gg、d59fz18q54ow、d59fz18aj9j5，都是三卷），挑有版本（章氏遺書本）且責任方式為「纂」的 d59fyns9iuip"
+   }
+  ],
+  "field_fixes": {
+   "d59f2hg0v66a.description": "去掉書目答問的句子和來源 → 「劉禹錫撰。八卷。見著錄於《國史經籍志》。其著錄之文作「《和州志》八卷（劉禹錫）」。本書惟《國史經籍志》一志著錄，別無他證。」sources 只留國史經籍志",
+   "書目答問條移入時": "author_info 由剖分錯的「《亳州志》《永清縣志》《天門縣志》」改「章學誠」；summary 照舊",
+   "d59f2hg0v66a.authors / period（存疑，不動）": "所繫 entity hixhd2h9biij 是北宋同名人劉禹錫（CBDB 17574，1097–1144，安福人），不是唐代那位（hixhd2h9bfa9）。國史經籍志這一條到底指誰沒有證據，所以 entity 與 period=song 都先不動，只記下待考"
+  },
+  "then_merge": {
+   "keeper": null,
+   "losers": [],
+   "reason": "本條不併。另外章學誠和州志四條（d59fyns9iuip、d59fz18ku3gg、d59fz18q54ow、d59fz18aj9j5）是重出，可另併到 d59fyns9iuip，不在本條範圍"
+  },
+  "confidence": "高",
+  "confidence_note": "移出書目答問條的把握高；劉禹錫 entity 歸屬屬於另一個問題，存疑不動"
+ },
+ {
+  "mid": "M16",
+  "work": "d59f2ndy648w",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "清史稿藝文志",
+    "title_info": "攝山志",
+    "author_info": null,
+    "summary": "攝山志八卷。陳毅撰。",
+    "verdict": "留"
+   },
+   {
+    "idx": 1,
+    "source": "國史經籍志",
+    "title_info": "《攝山志》二卷",
+    "author_info": "金鑾",
+    "summary": "《攝山志》二卷（金鑾）",
+    "verdict": "移出到 d59f6emste6a（金鑾攝山志）"
+   }
+  ],
+  "books": {
+   "keep": [
+    "9956cmizgh"
+   ],
+   "move": []
+  },
+  "resources": [],
+  "move": [
+   {
+    "indexed_by": [
+     1
+    ],
+    "books": [],
+    "resources": [],
+    "target": "d59f6emste6a",
+    "reason": "金鑾是明人（entity hixhd2h9bnu2，明），他的二卷本《攝山志》在萬曆時已著錄於焦竑書，與清乾隆陳毅八卷本是同題的兩部書。d59f6emste6a（千頃堂「金鑾攝山志」，二卷）就是這部明志"
+   }
+  ],
+  "field_fixes": {
+   "d59f2ndy648w.description": "「陳毅（清）撰。八卷；諸志所著之數有異，別作二卷。見著錄於《清史稿藝文志》《國史經籍志》……」→「陳毅（清）撰，汪志伊刪補。八卷首一卷。乾隆五十五年蘇州府署刻。見著錄於《清史稿藝文志》。」sources 只留清史稿藝文志",
+   "d59f2ndy648w.resources": "全部留下：commons Harvard v.2 已核原頁，是陳毅八卷乾隆五十五年本；國書、內閣文庫都是乾隆55刊本；國圖 312001072105 未標版本，留原處",
+   "d59f6emste6a": "indexed_by 加國史經籍志條；authors[0].dynasty 補「明」；period 補 ming（據撰人）；description sources 補國史經籍志（二卷由此得證）",
+   "d59f2ndy648w.ai_note": "追記：2026-09-06 記的誤掛國史經籍志金鑾條，本次移到 d59f6emste6a"
+  },
+  "then_merge": {
+   "keeper": null,
+   "losers": [],
+   "reason": "不併：研-方志已判 C 分立（清陳毅八卷 vs 明金鑾二卷），拆完後兩條各歸其書"
+  },
+  "confidence": "高",
+  "confidence_note": ""
+ }
+]
