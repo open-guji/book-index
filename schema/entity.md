@@ -15,7 +15,7 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 | [`dynasty`](entity/dynasty.md) | 朝代／政权 | 139 | 139 | 趙宋 `hixi1ubjrxgo`、北宋 `hixi1ubk35zj` |
 | [`reign`](entity/reign.md) | 年号 | 734 | 734 | 萬曆 `hixi1ubqbwu9` |
 | [`office`](entity/office.md) | 官职（概念条＋每朝具体条两层） | 0 | 1,839 | 知縣（概念）`1jb8ajoi8crnk`、知縣（趙宋）`1jb8ajoiggxs0` |
-| [`place`](entity/place.md) | 地名（一地一条＋沿革） | 0 | 921 | 河南府 `1jb8kgdh3pseq`、開封府 `1jb8lqn358dfk` |
+| [`place`](entity/place.md) | 地名（两层：跨朝条一地一条＋沿革；朝代条某朝某名某级一条） | 0 | 921 | 河南府 `1jb8kgdh3pseq`、開封府 `1jb8lqn358dfk` |
 | [`seal`](entity/seal.md) | 印章（官印、私印、鑒藏印、齋館印；见[seal](entity/seal.md)） | 见[seal](entity/seal.md)示例 | 0 | 文淵閣寶 |
 | [`publisher`](entity/publisher.md) | 出版社／刻书机构（家刻、坊刻、寺觀、藩府、现代出版社；官署与书院**不在此**，仍是 collective；见[publisher](entity/publisher.md)） | 0（GUJI-539 试建中） | 0 | 汲古閣、中華書局 |
 
@@ -55,7 +55,7 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 | [entity/dynasty.md](entity/dynasty.md) | dynasty（朝代／政权） | 规范朝代名、`parent_id` 上下级、起讫 |
 | [entity/reign.md](entity/reign.md) | reign（年号） | 所属朝代、帝王、起讫 |
 | [entity/office.md](entity/office.md) | office（官职） | 概念条＋每朝具体条两层；复合官职、官类、品秩 |
-| [entity/place.md](entity/place.md) | place（地名） | 一地一条＋沿革；今地对照、前身 |
+| [entity/place.md](entity/place.md) | place（地名） | 两层：跨朝条（一地一条＋沿革）与朝代条；今地对照、前身 |
 | [entity/seal.md](entity/seal.md) | seal（印章） | 印文、类别、印主、印影；与 `Book.provenance[].seal_marks`、book-index-asset 仓的关系 |
 | [entity/publisher.md](entity/publisher.md) | publisher（出版社／刻书机构） | 家刻、坊刻、寺觀、藩府、现代出版社；归属规则与 1900 前后边界 |
 
@@ -90,7 +90,7 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 | D1–D3 | dynasty（D3 另含 reign、office、place） | [entity/dynasty.md](entity/dynasty.md) |
 | R1 | reign | [entity/reign.md](entity/reign.md) |
 | O01–O12 | office（O12 为通用 `alt_names.type` 码） | [entity/office.md](entity/office.md) |
-| P01–P11 | place | [entity/place.md](entity/place.md) |
+| P01–P14 | place | [entity/place.md](entity/place.md) |
 | I01–I12 | 官署（I12 为 office 的 `institution_ref`） | [entity/collective.md](entity/collective.md)、[entity/office.md](entity/office.md) |
 | S01–S06 | seal | [entity/seal.md](entity/seal.md) |
 | K01–K09 | publisher | [entity/publisher.md](entity/publisher.md) |
