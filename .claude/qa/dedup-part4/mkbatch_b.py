@@ -3,7 +3,8 @@
 用法：mkbatch_b.py <输出目录> <结果.tsv>... [--base sha]；同时把分立／存疑写入 <输出目录>/judged.tsv（dedup-judged 格式）"""
 import glob, json, os, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
-OK = {'同源', '版本馆藏', '自证', '自證', '辑佚同本', '题含作者', '題含作者'}
+OK = {'同源', '版本馆藏', '版本館藏', '自证', '自證', '辑佚同本', '輯佚同本', '题含作者', '題含作者'}
+EDROLE = {'編', '輯', '編輯', '輯錄', '纂', '彙編', '匯編'}
 RULE = '去重方案部分4a-B：同题、卷数相同、一侧无责任者，逐条子 agent 核得实质证据（同源／版本馆藏／原文自证／题含作者名号／同一辑佚本）后 B 档并'
 args = [a for a in sys.argv[1:] if not a.startswith('--')]
 base = sys.argv[sys.argv.index('--base') + 1] if '--base' in sys.argv else ''
@@ -21,6 +22,9 @@ for f in files:
         v = v.replace('書', '书').replace('異', '异')
         if (a, n) in seen: continue
         seen.add((a, n))
+        role = ((load(n).get('authors') or [{}])[0] or {}).get('role') or ''
+        if v == '同书' and kind in OK and role in EDROLE and kind not in ('辑佚同本', '輯佚同本'):
+            v, why = '存疑', '有责任者一侧首位责任方式为「%s」，或只是丛书编者（复核口径：此类不并）；原判：%s' % (role, why)
         if v == '同书' and kind in OK:
             if load(a).get('merged_into') or load(n).get('merged_into'): continue
             groups.setdefault(n, []).append((a, kind, why))

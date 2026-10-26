@@ -13,7 +13,7 @@
 - 名字撞已有人物的「姓＋字号」也算撞名；名尾粘「藏／並／等」不建。
 - 占位名（佚名等）、缺字名（□、&）、机构名不建，登记。
 输出：plan.json（每组一项）、held.tsv（不建登记）、stats.json。"""
-import argparse, collections, glob, json, os, re, sqlite3, sys
+import argparse, collections, csv, glob, json, os, re, sqlite3, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 QA = os.path.dirname(HERE)
 ROOT = os.path.abspath(os.path.join(QA, '..', '..'))
@@ -140,6 +140,10 @@ def main():
         if len(dy) == 1 and s['name'].startswith(dy) and (dy + s['name']) not in s['author_info']:
             s['dynasty'] = None
     held = []; st = collections.Counter()
+    withdrawn = set()   # 各批抽检／复查撤回过的名字：重跑时不再新建，免把判过 DUP／错名的人又建回来
+    for f in glob.glob(os.path.join(HERE, '*', '撤出*.tsv')) + glob.glob(os.path.join(HERE, 'recheck-*withdrawn.tsv')):
+        rows = list(csv.DictReader(open(f, encoding='utf-8'), delimiter='\t'))
+        withdrawn |= {r.get('name') for r in rows if r.get('name')}
     def hold(s, why, detail=''):
         held.append((s['path'], s['slot'], s['name'], s['dynasty'] or '', why, detail)); st['不建:' + why] += 1
 
@@ -153,6 +157,7 @@ def main():
     for s in slots:
         n = s['name']
         if ANON.search(n): st['占位名(不计)'] += 1; continue
+        if n in withdrawn: hold(s, '已撤回待核'); continue
         if PLACEHOLDER.search(n): st['占位名(不计)'] += 1; continue
         if n != n.strip() or BROKEN.search(n) or len(n) < 2: hold(s, '名字含缺字/分隔/括注或单字'); continue
         if (len(n) >= 4 and ORG4.search(n)) or (len(n) == 3 and ORG3.search(n)) or loose(n) in othernames: hold(s, '机构或非人物专名'); continue
