@@ -45,9 +45,9 @@
   "period_upper_basis": "catalog_bound：《中國通俗小說書目》明清講史部自標所收之代，故不晚於 qing",
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（S5 缺值補齊，J19）",
-  "ai_note": "2026-08-25 J19：work.dynasty 缺值，據 authors[0].dynasty「明」補齊。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-15",
+  "ai_note": "2026-08-25 J19：work.dynasty 缺值，據 authors[0].dynasty「明」補齊。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -74,11 +74,30 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3670050/manifest.json",
         "extent": "2冊"
       }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-D8623800",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=D8623800&order=rn_no&no=04439",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "D8623800",
+        "call_no": "雙紅堂-小說-21",
+        "edition": "刊本 明"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-3611274": {
       "label": "內閣文庫藏本：明刊本（308-0249，2冊）"
+    },
+    "ioc-D8623800": {
+      "label": "東文研藏本：刊本 明"
     }
   }
 }

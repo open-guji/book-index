@@ -46,6 +46,22 @@
         "format": "PDF",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-B2225600",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=B2225600&order=rn_no&no=00322",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "B2225600",
+        "call_no": "雙紅堂-小說-152",
+        "edition": ""
+      }
     }
   ],
   "updated_at": "2026-08-24T00:00:00+00:00",
@@ -62,6 +78,12 @@
   "dynasty_basis": "author_propagation:唯一作者朝代",
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「唐」——撰人自《宋史藝文志》頂真格之首名抽出（見 authors[].name_basis），繫庫中同名唯一之 entity 而得其代。",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "ioc-B2225600": {
+      "label": "東文研藏本：《唐開元小說六種》所收本"
+    }
+  },
+  "ai_note": "2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。"
 }

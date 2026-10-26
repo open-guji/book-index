@@ -57,9 +57,9 @@
       "entity_id": "hixhd2h9bdqp"
     }
   ],
-  "ai_note": "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。\n\n2026-09-06 qa-sweep/song·G 類淨題撞庫得正條，逐條裁併：併入 `d59f2hukndoh`《資治通鑑二百九十四卷目錄》。據：source（三十卷目錄）與 keeper（二百九十四卷，直齋）皆司馬光《資治通鑑》，同書，二百九十四卷為定製之數。\n\n2026-09-06 qa-sweep/song·補撰人（原繫此書之 entity 已據 G 類淨題撞庫併入之 source 補全）：keeper 原 authors 為空，併入之 source 有撰人「司馬光」（entity_id `hixhd2h9bdqp`），今據以補，成單向邊（entity 指書而書不指人）之因即此欄闕如，今補之而合。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目著錄版本待定（版本標籤空，本 Work 有多個 Book，未入 Book）：vsh2zpxk7fqa5drb、e4ut7ebjq8wv43up\n總目分類：史部／編年類／叢編之屬",
-  "revision": "1.3.0",
-  "revised_at": "2026-10-16",
+  "ai_note": "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。\n\n2026-09-06 qa-sweep/song·G 類淨題撞庫得正條，逐條裁併：併入 `d59f2hukndoh`《資治通鑑二百九十四卷目錄》。據：source（三十卷目錄）與 keeper（二百九十四卷，直齋）皆司馬光《資治通鑑》，同書，二百九十四卷為定製之數。\n\n2026-09-06 qa-sweep/song·補撰人（原繫此書之 entity 已據 G 類淨題撞庫併入之 source 補全）：keeper 原 authors 為空，併入之 source 有撰人「司馬光」（entity_id `hixhd2h9bdqp`），今據以補，成單向邊（entity 指書而書不指人）之因即此欄闕如，今補之而合。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目著錄版本待定（版本標籤空，本 Work 有多個 Book，未入 Book）：vsh2zpxk7fqa5drb、e4ut7ebjq8wv43up\n總目分類：史部／編年類／叢編之屬\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条、美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "merge_history": [
     {
       "merged_from": "d59f2hukndoh",
@@ -317,6 +317,39 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4899284/manifest.json",
         "extent": "143冊"
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3371340295",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3371340295",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3371340295",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3371340295/manifest",
+        "shelfmark": "Libri sin. 38/58",
+        "edition": "刻本;s.l. 天啟五年 (=1625)序"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2014514219",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2014514219/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2014514219",
+        "iiif_manifest": "https://www.loc.gov/item/2014514219/manifest.json",
+        "edition": "[China : publisher not identified, Ming Wanli jian, between 1573 and 1620] 1573"
+      }
     }
   ],
   "resource_groups": {
@@ -361,6 +394,12 @@
     },
     "naikaku-1067730": {
       "label": "內閣文庫藏本：天保7年刊本 /印年（283-0009，143冊）"
+    },
+    "sbb-PPN3371340295": {
+      "label": "柏林國家圖書館藏本：刻本;s.l. 天啟五年 (=1625)序"
+    },
+    "loc-2014514219": {
+      "label": "美國國會圖書館藏本：[China : publisher not identified, Ming Wanli jian, between 1573 and 1620] 1573"
     }
   }
 }

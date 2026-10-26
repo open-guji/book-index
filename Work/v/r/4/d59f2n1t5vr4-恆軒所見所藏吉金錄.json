@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀005392-005393），無同名 Work 故新建。\n\n2026-08-21 缺字訂正之連帶：庫中另有一條 `1evkamqa1ywao`（二冊，�軒所見所藏吉金錄），同題同撰人，出同一部《國立故宮博物院善本舊籍》目錄。二條之所以未在匯入時去重，是**各自的缺字寫法不同**——一條首字作 U+FFFD 替換符，一條作私用區 PUA 字元，故彼此比對不上，各建一條。8/17 訂正 PUA 那條、8/21 訂正 U+FFFD 那條，題名遂相同而暴露此重出。今併，原條撤；其著錄 0 條、實物 0 部歸本條，原題存於 additional_titles。\n\n2026-09-06 qa-sweep/qing·F 類：撰人名由「吳大徵」正為「吳大澂」。「徵」疑「澂」之形訛——本條《恆軒所見所藏吉金錄》，「恆軒」正是吳大澂本人之號（entity alt_names 已載），此書乃其著名金石著作，非另有一「吳大徵」其人。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀005392-005393），無同名 Work 故新建。\n\n2026-08-21 缺字訂正之連帶：庫中另有一條 `1evkamqa1ywao`（二冊，�軒所見所藏吉金錄），同題同撰人，出同一部《國立故宮博物院善本舊籍》目錄。二條之所以未在匯入時去重，是**各自的缺字寫法不同**——一條首字作 U+FFFD 替換符，一條作私用區 PUA 字元，故彼此比對不上，各建一條。8/17 訂正 PUA 那條、8/21 訂正 U+FFFD 那條，題名遂相同而暴露此重出。今併，原條撤；其著錄 0 條、實物 0 部歸本條，原題存於 additional_titles。\n\n2026-09-06 qa-sweep/qing·F 類：撰人名由「吳大徵」正為「吳大澂」。「徵」疑「澂」之形訛——本條《恆軒所見所藏吉金錄》，「恆軒」正是吳大澂本人之號（entity alt_names 已載），此書乃其著名金石著作，非另有一「吳大徵」其人。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "juan_count": {
     "number": 0
   },
@@ -38,7 +38,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -78,6 +78,23 @@
         "ndl_record": "pid2567941",
         "edition": "光緒11序刊"
       }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-bsb11128984",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb11128984",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb11128984",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb11128984/manifest",
+        "shelfmark": "4 L.sin. K 230-1/4",
+        "edition": "[S.l.] 1872"
+      }
     }
   ],
   "indexed_by": [
@@ -96,6 +113,9 @@
     },
     "ndl-2567941": {
       "label": "NDL藏本：光緒11序刊"
+    },
+    "bsb-bsb11128984": {
+      "label": "巴伐利亞州立圖書館藏本：[S.l.] 1872"
     }
   }
 }
