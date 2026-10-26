@@ -35,7 +35,131 @@
       "summary": "共 1 個版本：（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fky1plwmhmp3mdjf\nE6 第 428 批新建（hold 清零：E；原 hold 原因：-）\n晋升前審計補錄：據 indexed_by.author_info 補入 守堅（錄入時漏）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fky1plwmhmp3mdjf\nE6 第 428 批新建（hold 清零：E；原 hold 原因：-）\n晋升前審計補錄：據 indexed_by.author_info 補入 守堅（錄入時漏）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条、國書 3 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077053",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077053",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077053",
+        "request_no": "子１９５－００１６",
+        "edition": "刊本::慶長:180000:妙心寺",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/636119/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610644",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610644",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610644",
+        "request_no": "３１１－００１８",
+        "edition": "刊本::慶長:180000:妙心寺",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3745541/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100175971",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100175971",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100175971",
+        "holder": "西尾市岩瀬",
+        "edition": "刊 慶長１８",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100175971/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200021555",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200021555",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200021555",
+        "holder": "国文研",
+        "edition": "刊 寛永１７",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200021555/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300094306",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300094306",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300094306",
+        "holder": "東洋大哲学堂",
+        "edition": "刊 寛永１７",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300094306/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2607085",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2607085",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2607085",
+        "edition": "慶長18 [1613]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1077053": {
+      "label": "內閣文庫藏本：慶長18年刊本 妙心寺（子195-0016，3冊）"
+    },
+    "naikaku-3610644": {
+      "label": "內閣文庫藏本：慶長18年刊本 妙心寺（311-0018，3冊）"
+    },
+    "kokusho-100175971": {
+      "label": "國書·西尾市岩瀬藏刊 慶長１８"
+    },
+    "kokusho-200021555": {
+      "label": "國書·国文研藏刊 寛永１７"
+    },
+    "kokusho-300094306": {
+      "label": "國書·東洋大哲学堂藏刊 寛永１７"
+    },
+    "ndl-2607085": {
+      "label": "NDL藏本：慶長18 [1613]"
+    }
+  }
 }

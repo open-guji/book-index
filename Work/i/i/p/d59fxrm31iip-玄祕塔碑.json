@@ -30,7 +30,47 @@
       "summary": "共 1 個版本：清末石印本（天津圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：blsimcfdaxi82m8x\nE6 第 481 批新建（hold 清零：s1 R-S1；原 hold 原因：secondary_roles_only）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：blsimcfdaxi82m8x\nE6 第 481 批新建（hold 清零：s1 R-S1；原 hold 原因：secondary_roles_only）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "ndl",
+      "group": "ndl-2533149",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2533149",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2533149",
+        "edition": "清刊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2541102",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2541102",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2541102",
+        "edition": "清拓"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ndl-2533149": {
+      "label": "NDL藏本：清刊"
+    },
+    "ndl-2541102": {
+      "label": "NDL藏本：清拓"
+    }
+  }
 }
