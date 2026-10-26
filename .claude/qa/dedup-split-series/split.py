@@ -411,7 +411,7 @@ def main():
                                      'keeper': want[x['id']][0], 'draft': want[x['id']][1], 'other': h})
         plan = [it for it in plan if it['keeper'] not in bad]
         stat['源记录撞别的正式 Book，跳过组'] = len(bad)
-        stat['拆的组'] = len(plan); stat['新建 Book'] = sum(len(it['split']) for it in plan)
+        stat['拆的组'] = len(plan); stat['新建 Book'] = sum(1 for it in plan for x in it['split'] if not x.get('merge_into'))
     # 铸 id
     used = set(idx)
     ts = int(time.time()); seq = 0
@@ -537,7 +537,8 @@ def main():
             shards[rel][s['id']] = B.index_entry(s['record'], 'Book', s['path'])
     shards = {k: dict(sorted(v.items())) for k, v in shards.items()}
     B.write_index(str(ROOT), shards)
-    print('已写：keeper', len(plan), '新 Book', sum(len(it['split']) for it in plan), 'promotions 分片', len(promo_add))
+    print('已写：keeper', len(plan), '新 Book', sum(1 for it in plan for x in it['split'] if not x.get('merge_into')),
+          '并入已有 Book', len(tcache), 'promotions 分片', len(promo_add))
 
 
 if __name__ == '__main__':

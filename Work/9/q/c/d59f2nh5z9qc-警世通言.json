@@ -82,6 +82,54 @@
         "waseda_id": "he21_04250",
         "edition": "天啓4[1624]序"
       }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-D8621700",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=D8621700&order=rn_no&no=04445",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "D8621700",
+        "call_no": "雙紅堂-小說-28",
+        "edition": "王氏三桂堂刊本 明"
+      }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-D8621800",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=D8621800&order=rn_no&no=04446",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "D8621800",
+        "call_no": "雙紅堂-小說-29",
+        "edition": "北京馬氏據王氏三桂堂刊本鈔 民國十七年"
+      }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-D8621501",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=D8621501&order=rn_no&no=04436",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "D8621501",
+        "call_no": "仁井田-集-N4038",
+        "edition": "王氏三桂堂刊本 天啟四年序"
+      }
     }
   ],
   "updated_at": "2026-08-23T00:00:00-07:00",
@@ -91,14 +139,23 @@
   "period_upper_basis": "catalog_bound：《中國通俗小說書目》明清小說部自標所收之代，故不晚於 qing",
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
-  "ai_note": "2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzkq2w0`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-09-06 qa-sweep/ming M 類（loss_status 空白而 description 稱今存）：loss_status（原空白）→「extant」。據見 loss_status_basis。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-14",
+  "ai_note": "2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzkq2w0`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-09-06 qa-sweep/ming M 類（loss_status 空白而 description 稱今存）：loss_status（原空白）→「extant」。據見 loss_status_basis。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "loss_status_basis": "2026-09-06 qa-sweep/ming M 類（loss_status 空白而 description 稱今存）：description 自陳「今存三本」（金陵兼善堂本、衍慶堂二刻本、三桂堂王振華刊本），現存且不止一本。原值：loss_status=None（空白）。",
   "resource_groups": {
     "waseda-he21_04250": {
       "label": "早稲田藏本：天啓4[1624]序"
+    },
+    "ioc-D8621700": {
+      "label": "東文研藏本：王氏三桂堂刊本 明"
+    },
+    "ioc-D8621800": {
+      "label": "東文研藏本：北京馬氏據王氏三桂堂刊本鈔 民國十七年"
+    },
+    "ioc-D8621501": {
+      "label": "東文研藏本：王氏三桂堂刊本 天啟四年序"
     }
   }
 }

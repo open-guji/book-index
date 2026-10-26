@@ -639,6 +639,56 @@
         "waseda_id": "ro13_01714",
         "edition": "[京都] : 寿文堂, 安永3[1774]"
       }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-bsb00093229",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb00093229",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb00093229",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00093229/manifest",
+        "shelfmark": "L.sin. C 649",
+        "edition": "寳誥堂 Kangxi (1662-1722)"
+      }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-C4514300",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=C4514300&order=rn_no&no=00830",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "C4514300",
+        "call_no": "大木-子部-儒家類-6",
+        "edition": "刊本 嘉靖六年"
+      }
+    },
+    {
+      "id": "keio",
+      "group": "keio-13318",
+      "group_role": "origin",
+      "name": "慶應義塾図書館 漢籍コレクション",
+      "short_name": "慶應",
+      "url": "https://dcollections.lib.keio.ac.jp/ja/kanseki/132x-21-4-1",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "keio_record": "keioobjecthub-13318",
+        "call_no": "132X-21-4-1",
+        "edition": "朝鮮刊",
+        "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/132X-21-4-1/manifest.json"
+      }
     }
   ],
   "measures": [
@@ -661,9 +711,9 @@
       "直齋書錄解題"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G6 撰人名污染正名：撰人「朱子與呂祖謙同」拆分正名。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…、而切於日用者，以為此編云云。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 3 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
-  "revision": "1.4.0",
-  "revised_at": "2026-10-14",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G6 撰人名污染正名：撰人「朱子與呂祖謙同」拆分正名。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…、而切於日用者，以為此編云云。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 3 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条、慶應 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
+  "revision": "1.6.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "loss_status_basis": "今存。、而切於日用者，以為此編云云。」今存。",
   "resource_groups": {
@@ -762,6 +812,15 @@
     },
     "waseda-ro13_01714": {
       "label": "早稲田藏本：[京都] : 寿文堂, 安永3[1774]"
+    },
+    "bsb-bsb00093229": {
+      "label": "巴伐利亞州立圖書館藏本：寳誥堂 Kangxi (1662-1722)"
+    },
+    "ioc-C4514300": {
+      "label": "東文研藏本：刊本 嘉靖六年"
+    },
+    "keio-13318": {
+      "label": "慶應藏本：朝鮮刊"
     }
   },
   "related_works": [

@@ -42,15 +42,15 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 16，與著錄原文（清史稿藝文志：「焦山志」）所載之 26 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 16，與著錄原文（清史稿藝文志：「焦山志」）所載之 26 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条、美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "description": {
     "text": "吳雲（清）撰。二十六卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「焦山志二十六卷」。本書惟《清史稿藝文志》一志著錄，別無他證。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
     "sources": [
       "清史稿藝文志"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -74,11 +74,50 @@
         "nlc_fid": "312001072119",
         "edition": ""
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN1047633841",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN1047633841",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN1047633841",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN1047633841/manifest",
+        "shelfmark": "Libri sin. N.S. 189",
+        "edition": "刻本;[China] 同治甲戌 (=1874)"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2011457060",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2011457060/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2011457060",
+        "iiif_manifest": "https://www.loc.gov/item/2011457060/manifest.json",
+        "edition": "[China : s.n.], Qing Tongzhi 13 nian [1875] 1875"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001072119": {
       "label": "國圖藏本："
+    },
+    "sbb-PPN1047633841": {
+      "label": "柏林國家圖書館藏本：刻本;[China] 同治甲戌 (=1874)"
+    },
+    "loc-2011457060": {
+      "label": "美國國會圖書館藏本：[China : s.n.], Qing Tongzhi 13 nian [1875] 1875"
     }
   }
 }
