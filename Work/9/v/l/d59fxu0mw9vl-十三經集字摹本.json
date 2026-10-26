@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/aj35t9ldu81gxrwp"
-      }
+      },
+      "entity_id": "hixi5jsi7eq6"
     }
   ],
   "dynasty": "清",
@@ -29,9 +30,9 @@
       "summary": "共 5 個版本：清上海掃葉山房刻本（遼寧省圖書館）；清道光二十九年江右彭氏刻本（湖北省圖書館、浙江圖書館、北京大學圖書館）；清光緒十八年桂垣書局重刻本（天津圖書館）；清末刻本（北京大學圖書館、天津圖書館）；清同治光緒間刻本（天津圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gdo2xc4l6hcbcx75、msyt24vxefcvy5el、lgp5li53pcpc5b8s、u5sciztu2gj3s1z6、e7b7ww8cx4b340bs\nE6 第 308 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gdo2xc4l6hcbcx75、msyt24vxefcvy5el、lgp5li53pcpc5b8s、u5sciztu2gj3s1z6、e7b7ww8cx4b340bs\nE6 第 308 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n国图數字古籍重配挂接\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,31 @@
         "nlc_fid": "312002093069",
         "edition": "清道光[1821-1850]"
       }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-bsb11129333",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb11129333",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb11129333",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb11129333/manifest",
+        "shelfmark": "L.sin. C 646-1/8",
+        "edition": "京都 [北京] 琉璃廠 Xianfeng 2 [1852]"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312002093069": {
       "label": "國圖藏本：清道光[1821-1850]"
+    },
+    "bsb-bsb11129333": {
+      "label": "巴伐利亞州立圖書館藏本：京都 [北京] 琉璃廠 Xianfeng 2 [1852]"
     }
   }
 }

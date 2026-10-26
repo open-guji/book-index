@@ -70,6 +70,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E7%B7%A8%E5%B9%B4%E9%80%9A%E8%BC%89%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2566993",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2566993",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2566993",
+        "edition": "民國25"
+      }
     }
   ],
   "authors": [
@@ -81,7 +96,7 @@
       "dynasty_basis": "entity_propagation_r2:1j967da978dgw"
     }
   ],
-  "ai_note": "作者 \"宋章衡撰\" 補自《中華再造善本》目錄。 | 從 1evjr0a5y84xs 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…—卷數之異，歷代殘闕與傳鈔之跡。今存。本書收入《續修四庫全書》第33…」），而 loss_status 未填，今據以補為 extant。",
+  "ai_note": "作者 \"宋章衡撰\" 補自《中華再造善本》目錄。 | 從 1evjr0a5y84xs 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…—卷數之異，歷代殘闕與傳鈔之跡。今存。本書收入《續修四庫全書》第33…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（A7 转交 NDL）。",
   "description": {
     "text": "《編年通載》，北宋章衡撰。諸志所著卷數不一：《宋史藝文志》、《續修四庫全書》著十卷；《國史經籍志》著十五卷——卷數之異，歷代殘闕與傳鈔之跡。今存。本書收入《續修四庫全書》第336冊（史部）。",
     "sources": [
@@ -96,8 +111,13 @@
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
-  "loss_status_basis": "今存。—卷數之異，歷代殘闕與傳鈔之跡。今存。本書收入《續修四庫全書》第33"
+  "loss_status_basis": "今存。—卷數之異，歷代殘闕與傳鈔之跡。今存。本書收入《續修四庫全書》第33",
+  "resource_groups": {
+    "ndl-2566993": {
+      "label": "NDL藏本：民國25"
+    }
+  }
 }

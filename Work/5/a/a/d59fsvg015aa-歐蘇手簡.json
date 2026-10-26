@@ -7,21 +7,23 @@
     {
       "name": "歐陽修",
       "role": "撰",
-      "dynasty": "宋"
+      "dynasty": "宋",
+      "entity_id": "hixhd2h9bdye"
     },
     {
       "name": "蘇軾",
       "role": "撰",
-      "dynasty": "宋"
+      "dynasty": "宋",
+      "entity_id": "hixhd2h9bdqq"
     }
   ],
   "dynasty": "宋",
   "dynasty_basis": "author_propagation",
   "period": "song",
   "period_basis": "據 authors[0].dynasty「宋」",
-  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007715235。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-25",
+  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007715235。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "ndl",
@@ -52,6 +54,58 @@
         "waseda_id": "bunko01_01698",
         "edition": "京都府 : 博文堂"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-14123394",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/14123394",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid14123394",
+        "edition": "正保2 [1645]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-102600493",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL200100622",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102600493",
+        "nlk_control_no": "KOL200100622",
+        "holder": "국립중앙도서관",
+        "call_number": "古377-65",
+        "part": "卷1-4",
+        "edition": "[壬亂前後]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-139779145",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL200800126",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "139779145",
+        "nlk_control_no": "KOL200800126",
+        "holder": "국립중앙도서관",
+        "call_number": "古377-67",
+        "edition": "筆寫本(未詳) [刊寫年未詳]"
+      }
     }
   ],
   "resource_groups": {
@@ -60,6 +114,15 @@
     },
     "waseda-bunko01_01698": {
       "label": "早稲田藏本：京都府 : 博文堂"
+    },
+    "ndl-14123394": {
+      "label": "NDL藏本：正保2 [1645]"
+    },
+    "korcis-102600493": {
+      "label": "韓國國立中央圖書館數字化藏本：[壬亂前後]"
+    },
+    "korcis-139779145": {
+      "label": "韓國國立中央圖書館數字化藏本：筆寫本(未詳) [刊寫年未詳]"
     }
   }
 }

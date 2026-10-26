@@ -11,7 +11,8 @@
       "source": {
         "name": "中國古籍總目",
         "type": "url"
-      }
+      },
+      "entity_id": "hixhd2h9bnkj"
     }
   ],
   "dynasty": "元",
@@ -28,9 +29,9 @@
       "summary": "共 3 個版本：明末刻本（首都圖書館、天津圖書館、山東大學圖書館、國家博物館）；清初刻本（上海圖書館、安徽大學圖書館、國家圖書館、湖南省圖書館）；明末郁郁堂刻本（國家圖書館、南京圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：bpnu0bp2fq43diew、a1zy308xg3ho1nu5、dxz5gs82u3znh48y\nE6 第 4 批新建（hold 清零：子部E机械落地b3:E-M-new；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：bpnu0bp2fq43diew、a1zy308xg3ho1nu5、dxz5gs82u3znh48y\nE6 第 4 批新建（hold 清零：子部E机械落地b3:E-M-new；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -46,11 +47,69 @@
         "nlc_fid": "411999030566",
         "edition": "清初[1644-1722]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-he21_02667",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/he21/he21_02667/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "he21_02667",
+        "edition": "郁郁堂"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-000000575200011640",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/000000575200011640",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "000000575200011640",
+        "call_number": "000000575200011640",
+        "holder": "美國柏克萊加州大學東亞圖書館",
+        "edition": "明末芥子園刻本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-000000575242361650",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/000000575242361650",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "000000575242361650",
+        "call_number": "000000575242361650",
+        "holder": "美國柏克萊加州大學東亞圖書館",
+        "edition": "明末郁郁堂刻清初文盛堂得版印本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999030566": {
       "label": "國圖藏本：清初[1644-1722]"
+    },
+    "waseda-he21_02667": {
+      "label": "早稲田藏本：郁郁堂"
+    },
+    "ncltw-000000575200011640": {
+      "label": "美國柏克萊加州大學東亞圖書館藏本：明末芥子園刻本"
+    },
+    "ncltw-000000575242361650": {
+      "label": "美國柏克萊加州大學東亞圖書館藏本：明末郁郁堂刻清初文盛堂得版印本"
     }
   }
 }

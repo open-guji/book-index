@@ -232,6 +232,37 @@
         "waseda_id": "ro12_00250",
         "edition": "文化7[1810]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i04_01919",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i04/i04_01919_0802/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i04_01919",
+        "edition": "[市島節斎(写)], [書写年不明] ( )"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2011457332",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2011457332/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2011457332",
+        "iiif_manifest": "https://www.loc.gov/item/2011457332/manifest.json",
+        "edition": "清乾隆間馬氏叢書樓刻本 1740"
+      }
     }
   ],
   "resource_groups": {
@@ -252,6 +283,12 @@
     },
     "waseda-ro12_00250": {
       "label": "早稲田藏本：文化7[1810]"
+    },
+    "waseda-i04_01919": {
+      "label": "早稲田藏本：[市島節斎(写)], [書写年不明] ( )"
+    },
+    "loc-2011457332": {
+      "label": "美國國會圖書館藏本：清乾隆間馬氏叢書樓刻本 1740"
     }
   },
   "measures": [
@@ -266,7 +303,7 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-10 撰人字首式重出候選覆核：1evcs0b3uj01s（撰人折入題名之異寫）併入本條（同題同撰人）。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvxo2zwg0 與 11q37otd9cx6o 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-21 B1 同名異書併池：併入 `1evr5e3mfaxyb`（五經文字）。《五經文字》唐張參撰：另一條（崇文總目，三卷）之著錄詳述「張叅拜詔與儒官校正經典……」，與本條張參生平全合，同書；其撰人欄「者略而不」實為著錄原文句末「非緣經見者，略而不集」之殘片，匯入時誤植為撰人，非真有此人。今併，不留「者略而不」為別名。\n\n2026-08-22 B3 併池（異志同卷數・一方省撰人）：1evr5e3mjzi1l 併入本條。二者同題、同卷數，而分見二志，其一省撰人——志書連書省撰人之跨志形態。本條撰人之 role 非注／傳／疏，非原典與注本之別。\n\n2026-08-24 隋唐 T5·description 補全（著錄 ≥7 源批）：所據為本條所繫著錄之引文（見 indexed_by／emendated_by，尤以四庫提要、崇文總目、直齋書錄解題之敘錄為主）及通行學術常識，未覆核原書。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ev3ba8ui7o5c` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…集」，是專為經典正字而作之字書，今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-10 撰人字首式重出候選覆核：1evcs0b3uj01s（撰人折入題名之異寫）併入本條（同題同撰人）。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvxo2zwg0 與 11q37otd9cx6o 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-21 B1 同名異書併池：併入 `1evr5e3mfaxyb`（五經文字）。《五經文字》唐張參撰：另一條（崇文總目，三卷）之著錄詳述「張叅拜詔與儒官校正經典……」，與本條張參生平全合，同書；其撰人欄「者略而不」實為著錄原文句末「非緣經見者，略而不集」之殘片，匯入時誤植為撰人，非真有此人。今併，不留「者略而不」為別名。\n\n2026-08-22 B3 併池（異志同卷數・一方省撰人）：1evr5e3mjzi1l 併入本條。二者同題、同卷數，而分見二志，其一省撰人——志書連書省撰人之跨志形態。本條撰人之 role 非注／傳／疏，非原典與注本之別。\n\n2026-08-24 隋唐 T5·description 補全（著錄 ≥7 源批）：所據為本條所繫著錄之引文（見 indexed_by／emendated_by，尤以四庫提要、崇文總目、直齋書錄解題之敘錄為主）及通行學術常識，未覆核原書。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ev3ba8ui7o5c` 不同（indexed_by）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…集」，是專為經典正字而作之字書，今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "period_upper": "song",
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《直齋書錄解題》（南宋陳振孫（1249）），故不晚於 song",
   "description": {
@@ -282,7 +319,7 @@
       "直齋書錄解題"
     ]
   },
-  "revision": "1.5.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.7.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant"
 }

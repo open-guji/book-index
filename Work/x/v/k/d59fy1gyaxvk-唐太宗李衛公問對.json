@@ -28,9 +28,91 @@
       "author_info": "唐李靖撰",
       "section": "子部/兵家類",
       "summary": "共 3 個版本：校正武經七書本（馆藏未载）；武經七書本（馆藏未载）；清陳氏稽瑞樓抄本（上海圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "唐太宗李衛公問對三卷",
+      "author_info": "",
+      "section": "子部/兵家類",
+      "summary": "共 19 個版本：（南京大學圖書館、山東大學圖書館、天津圖書館、北京大學圖書館、哈爾濱市圖書館、廣東省中山圖書館）；（天津圖書館）；（臺灣圖書館、上海圖書館）；（馆藏未载）；（馆藏未载）；（軍事科學院圖書館）；（蘇州市圖書館、浙江圖書館、上海圖書館、上海師範大學圖書館、國家圖書館）；（北京大學圖書館）；（東北師範大學圖書館、錦州師範學院圖書館）；（臺灣圖書館）；（臺灣圖書館）；（齊齊哈爾市圖書館）；（國家圖書館）；（北京大學圖書館）；（臺灣圖書館）；（日本靜嘉堂文庫）；（國家圖書館、福建省圖書館、重慶市圖書館、山東省圖書館、南京圖書館、廣東省中山圖書館、上海圖書館、浙江大學圖書館、遼寧省圖書館）；（北京大學圖書館、上海圖書館）；（上海圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fdhdhx7vopfiqllm、scsj84tmqiafjmy5、zz8jick66dm161qn\nauto-split:存疑未并\nE6 第 553 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fdhdhx7vopfiqllm、scsj84tmqiafjmy5、zz8jick66dm161qn\nauto-split:存疑未并\nE6 第 553 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 A4串-去重国書线索 併條（rule=去重线索（国書等日本馆藏）：同题、著者相合或一侧无著者而著录互证，B 档逐对判＋独立复核并）：併 d59fxxgcb280《唐太宗李衛公問對》 入本條。《唐太宗李衛公問對》同题同书：总目同为三卷、同部类子部兵家類，来源同为总目，李靖托名为通行著录\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-bunko19_f0103",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko19/bunko19_f0103/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko19_f0103",
+        "edition": "[出版地不明 : 出版者不明] [ : ]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1919",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1919/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1919",
+        "edition": "正保3[1646]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05775-0004",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05775-0004",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05775-0004",
+        "call_number": "302.1 05775-0004",
+        "edition": "明嘉靖辛卯(10年,1531)施恆齋刊本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-bunko19_f0103": {
+      "label": "早稲田藏本：[出版地不明 : 出版者不明] [ : ]"
+    },
+    "waseda-bunko31_e1919": {
+      "label": "早稲田藏本：正保3[1646]"
+    },
+    "ncltw-05775-0004": {
+      "label": "臺灣國家圖書館藏本：明嘉靖辛卯(10年,1531)施恆齋刊本"
+    }
+  },
+  "merged_in": [
+    {
+      "id": "d59fxxgcb280",
+      "title": "唐太宗李衛公問對",
+      "at": "2026-10-26T13:42:51Z",
+      "by": "A4串-去重国書线索",
+      "rule": "去重线索（国書等日本馆藏）：同题、著者相合或一侧无著者而著录互证，B 档逐对判＋独立复核并",
+      "why": "《唐太宗李衛公問對》同题同书：总目同为三卷、同部类子部兵家類，来源同为总目，李靖托名为通行著录",
+      "author": "佚名",
+      "title_info": "唐太宗李衛公問對三卷"
+    }
+  ],
+  "merged_from": [
+    "d59fxxgcb280"
+  ]
 }

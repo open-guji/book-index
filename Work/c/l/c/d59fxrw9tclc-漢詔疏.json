@@ -30,8 +30,8 @@
       "summary": "共 1 個版本：明天啓間刻本（復旦大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：q6fhs7we0jpyurd7\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.1.0",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：q6fhs7we0jpyurd7\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 慶應 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -69,6 +69,39 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3638575/manifest.json",
         "extent": "6冊"
       }
+    },
+    {
+      "id": "keio",
+      "group": "keio-13305",
+      "group_role": "origin",
+      "name": "慶應義塾図書館 漢籍コレクション",
+      "short_name": "慶應",
+      "url": "https://dcollections.lib.keio.ac.jp/ja/kanseki/71-36-6-1",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "keio_record": "keioobjecthub-13305",
+        "call_no": "71-36-6-1",
+        "edition": "明天啓1年序刊(1621)",
+        "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/71-36-6-1/manifest.json"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-04654",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/04654",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "04654",
+        "call_number": "213.6 04654",
+        "edition": "明天啟間(1621-1627)原刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -77,6 +110,12 @@
     },
     "naikaku-3609985": {
       "label": "內閣文庫藏本：明刊本（後修）（287-0017，6冊）"
+    },
+    "keio-13305": {
+      "label": "慶應藏本：明天啓1年序刊(1621)"
+    },
+    "ncltw-04654": {
+      "label": "臺灣國家圖書館藏本：明天啟間(1621-1627)原刊本"
     }
   }
 }

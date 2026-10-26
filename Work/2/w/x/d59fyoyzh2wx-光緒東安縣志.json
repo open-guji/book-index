@@ -23,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/c9z8lxzj1gm5kqzo"
-      }
+      },
+      "entity_id": "hixicld7tew5"
     },
     {
       "name": "謝蘭階",
@@ -33,7 +34,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/833mk4wrbimbkv0y"
-      }
+      },
+      "entity_id": "hixicm92n9rg"
     }
   ],
   "dynasty": "清",
@@ -50,9 +52,9 @@
       "summary": "共 1 個版本：清光緒元年刻本（湖南省圖書館、湖北省圖書館、浙江圖書館、南京圖書館、國家圖書館、天津圖書館、上海圖書館、中國科學院圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：dxndhshb54k5n5mk\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：dxndhshb54k5n5mk\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -68,11 +70,33 @@
         "nlc_fid": "312001074344",
         "edition": ""
       }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-bsb11328005",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb11328005",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb11328005",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb11328005/manifest",
+        "shelfmark": "4 L.sin. D 339-B I,297,1",
+        "volume_count": 2,
+        "edition": "[S.l.] 1876"
+      },
+      "details": "多冊本，站方分 2 條著錄；此處鏈接其中排序最前一條（bsb11328005），其餘各冊見站方"
     }
   ],
   "resource_groups": {
     "nlc-312001074344": {
       "label": "國圖藏本："
+    },
+    "bsb-bsb11328005": {
+      "label": "巴伐利亞州立圖書館藏本：[S.l.] 1876"
     }
   }
 }

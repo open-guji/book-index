@@ -143,6 +143,54 @@
         "nlc_fid": "312001070674",
         "edition": ""
       }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-B2791600",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=B2791600&order=rn_no&no=00413",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "B2791600",
+        "call_no": "雙紅堂-小說-150",
+        "edition": ""
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-04095",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/04095",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "04095",
+        "call_number": "210.8 04095",
+        "edition": "烏絲欄舊鈔本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-04096",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/04096",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "04096",
+        "call_number": "210.8 04096",
+        "edition": "舊鈔本"
+      }
     }
   ],
   "resource_groups": {
@@ -151,6 +199,15 @@
     },
     "nlc-312001070674": {
       "label": "國圖藏本："
+    },
+    "ioc-B2791600": {
+      "label": "東文研藏本：《舊小說》所收本"
+    },
+    "ncltw-04095": {
+      "label": "臺灣國家圖書館藏本：烏絲欄舊鈔本"
+    },
+    "ncltw-04096": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
     }
   },
   "measures": [
@@ -165,7 +222,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw9wj5lvk 與 11q37q05cdp1c 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
+  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw9wj5lvk 與 11q37q05cdp1c 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "厲鶚（清）撰。二卷；諸志所著之數有異，別作四卷。見著錄於《欽定四庫全書總目》《清史稿藝文志》。諸家按語稱其佚文見引於《通志》。其著錄之文，《清史稿藝文志》作「東城雜記四卷」。《欽定四庫全書總目》清乾隆間館臣修；《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
     "sources": [
@@ -173,6 +230,6 @@
       "清史稿藝文志"
     ]
   },
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24"
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26"
 }

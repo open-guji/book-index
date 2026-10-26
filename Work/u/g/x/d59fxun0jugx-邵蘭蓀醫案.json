@@ -15,7 +15,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/d0434zfvu8adffbf"
-      }
+      },
+      "entity_id": "hixico71d5sf"
     }
   ],
   "dynasty": "清",
@@ -30,11 +31,19 @@
       "author_info": "清邵蘭蓀撰;曹炳章輯",
       "section": "子部/醫家類/醫案醫話之屬/清",
       "summary": "共 5 個版本：抄本（馆藏未载）；珍本醫書集成本（馆藏未载）；稿本（浙江中醫藥大學圖書館）；中國醫學大成本（馆藏未载）；（上海圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "邵氏醫案",
+      "author_info": "清邵蘭蓀撰",
+      "section": "子部/醫家類/叢編之屬",
+      "summary": "共 1 個版本：（上海圖書館、四川省圖書館、國家圖書館、遼寧省圖書館、中國醫學科學院、中醫科學院、浙江圖書館、山東省圖書館、重慶市圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pzhjt3bojn6xs1sg、f0qx44aq3kfl1i5f、suyfs5aldyxgbefw、5raqkzmma84pxov3\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n第 4006 批追加版本，源記錄：mpy2dbxzdo8slfof\n\n2026-10-21 重出审计 WORK-0131：并入 d59fxuytdts0；保留墓碑，迁移存储侧引用。原字段异说与逐组依据见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-21",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pzhjt3bojn6xs1sg、f0qx44aq3kfl1i5f、suyfs5aldyxgbefw、5raqkzmma84pxov3\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n第 4006 批追加版本，源記錄：mpy2dbxzdo8slfof\n\n2026-10-21 重出审计 WORK-0131：并入 d59fxuytdts0；保留墓碑，迁移存储侧引用。原字段异说与逐组依据见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json。\n\n2026-10-26 A11-去重方案3a-3 併條（rule=去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并）：併 d59fxun1ssn5《邵氏醫案》 入本條。异题名同书（总目题名括注／其他题名互见）：《邵蘭蓀醫案》邵蘭蓀／《邵氏醫案》邵蘭蓀；依据：其他题名「邵氏醫案」；两道子 agent 逐条复核：總目「邵蘭蓀醫案（邵氏醫案）」，B《邵氏醫案》叢編本，同為邵蘭蓀",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "merged_in": [
     {
       "id": "d59fxuytdts0",
@@ -43,6 +52,19 @@
       "by": "duplicate-audit-2026-10-21",
       "rule": "同作同源覆核",
       "why": "WORK-0131；逐组证据与原字段差异见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json"
+    },
+    {
+      "id": "d59fxun1ssn5",
+      "title": "邵氏醫案",
+      "at": "2026-10-26T15:37:00Z",
+      "by": "A11-去重方案3a-3",
+      "rule": "去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并",
+      "why": "异题名同书（总目题名括注／其他题名互见）：《邵蘭蓀醫案》邵蘭蓀／《邵氏醫案》邵蘭蓀；依据：其他题名「邵氏醫案」；两道子 agent 逐条复核：總目「邵蘭蓀醫案（邵氏醫案）」，B《邵氏醫案》叢編本，同為邵蘭蓀",
+      "author": "邵蘭蓀",
+      "title_info": "邵氏醫案"
     }
+  ],
+  "merged_from": [
+    "d59fxun1ssn5"
   ]
 }

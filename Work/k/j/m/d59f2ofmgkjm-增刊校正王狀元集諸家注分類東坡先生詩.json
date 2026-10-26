@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-25 有斷代諸桶收尾：本條著錄來源（國立故宮博物院善本舊籍，統一編號見 indexed_by.catalog_no）原僅存於 description 之散文，今結構化補入 indexed_by（機械抽取，未增未減）。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 24 取自 `measure_info`「二十四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-25 有斷代諸桶收尾：本條著錄來源（國立故宮博物院善本舊籍，統一編號見 indexed_by.catalog_no）原僅存於 description 之散文，今結構化補入 indexed_by（機械抽取，未增未減）。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 24 取自 `measure_info`「二十四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -48,8 +48,8 @@
       "summary": "共 1 個版本：元刻本（北京大學圖書館）"
     }
   ],
-  "revision": "1.2.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -73,11 +73,68 @@
         "nlc_fid": "412004001307",
         "edition": "宋[960-1279]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10191",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10191",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10191",
+        "call_number": "402.52 10191",
+        "edition": "元盧陵坊刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10192",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10192",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10192",
+        "call_number": "402.52 10192",
+        "edition": "明成化間汪氏誠意齋集書堂刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10193",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10193",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10193",
+        "call_number": "402.52 10193",
+        "edition": "明成化間汪氏誠意齋集書堂刊本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412004001307": {
       "label": "國圖藏本：宋[960-1279]"
+    },
+    "ncltw-10191": {
+      "label": "臺灣國家圖書館藏本：元盧陵坊刊本"
+    },
+    "ncltw-10192": {
+      "label": "臺灣國家圖書館藏本：明成化間汪氏誠意齋集書堂刊本"
+    },
+    "ncltw-10193": {
+      "label": "臺灣國家圖書館藏本：明成化間汪氏誠意齋集書堂刊本"
     }
   },
   "related_works": [

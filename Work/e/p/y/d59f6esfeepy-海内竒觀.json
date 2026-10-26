@@ -56,8 +56,8 @@
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "id": "d59f6esfeepy",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "wikimedia-commons-xuxiu",
@@ -156,6 +156,38 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4764977/manifest.json",
         "extent": "3冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03878",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03878",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03878",
+        "call_number": "210.51 03878",
+        "edition": "明萬曆三十八年(1610)錢塘楊氏夷白堂刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03879",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03879",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03879",
+        "call_number": "210.51 03879",
+        "edition": "明萬曆三十八年(1610)錢塘楊氏夷白堂刊本"
+      }
     }
   ],
   "period": "ming",
@@ -177,6 +209,12 @@
     },
     "naikaku-1073032": {
       "label": "內閣文庫藏本：明万暦37年刊本（序刊） 夷白堂（史197-0018，3冊）"
+    },
+    "ncltw-03878": {
+      "label": "臺灣國家圖書館藏本：明萬曆三十八年(1610)錢塘楊氏夷白堂刊本"
+    },
+    "ncltw-03879": {
+      "label": "臺灣國家圖書館藏本：明萬曆三十八年(1610)錢塘楊氏夷白堂刊本"
     }
   },
   "additional_titles": [
@@ -191,13 +229,10 @@
       "rule": "去重方案部分3a-1：同题同首位责任者 A 档机械并",
       "why": "同题同首位责任者：《海内竒觀》楊爾曾(朝代缺,10卷,1版本)／《新鐫海內奇觀》楊爾曾(明,10卷,2版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突；flags=dyn_missing",
       "author": "楊爾曾",
-      "title_info": [
-        "《新鐫海內奇觀》十卷",
-        "新鐫海内奇觀十卷"
-      ]
+      "title_info": "《新鐫海內奇觀》十卷；新鐫海内奇觀十卷"
     }
   ],
-  "ai_note": "2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59f2njqdiwy《新鐫海內奇觀》 入本條。同题同首位责任者：《海内竒觀》楊爾曾(朝代缺,10卷,1版本)／《新鐫海內奇觀》楊爾曾(明,10卷,2版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突；flags=dyn_missing",
+  "ai_note": "2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59f2njqdiwy《新鐫海內奇觀》 入本條。同题同首位责任者：《海内竒觀》楊爾曾(朝代缺,10卷,1版本)／《新鐫海內奇觀》楊爾曾(明,10卷,2版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突；flags=dyn_missing\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "merged_from": [
     "d59f2njqdiwy"
   ]

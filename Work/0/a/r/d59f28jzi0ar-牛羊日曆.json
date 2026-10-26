@@ -45,8 +45,8 @@
   "dynasty_basis": "author_propagation:唯一作者朝代",
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「唐」——撰人自《宋史藝文志》頂真格之首名抽出（見 authors[].name_basis），繫庫中同名唯一之 entity 而得其代。",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "additional_titles": [
     "劉軻牛羊日曆"
   ],
@@ -60,7 +60,7 @@
       "why": "被并方繫於新唐書藝文志，正条繫於宋史藝文志、直齋書錄解題；两侧所繫之志互不相交（ev1_disjoint），卷数集合相容（ev2_state=同），撰人「劉軻」与正条撰人相合，判为撰人黏题首致同书重出，逕并。"
     }
   ],
-  "ai_note": "2026-09-09 A-并条 併條（rule=A-撰人黏題首致撞庫失效）：併 d59f2pzaregx《劉軻牛羊日曆》 入本條。被并方繫於新唐書藝文志，正条繫於宋史藝文志、直齋書錄解題；两侧所繫之志互不相交（ev1_disjoint），卷数集合相容（ev2_state=同），撰人「劉軻」与正条撰人相合，判为撰人黏题首致同书重出，逕并。\n\n卷數據總目補（記錄一卷；目標Work原無卷數）（Sawyer 2026-10-17，批417，Sabine口徑）",
+  "ai_note": "2026-09-09 A-并条 併條（rule=A-撰人黏題首致撞庫失效）：併 d59f2pzaregx《劉軻牛羊日曆》 入本條。被并方繫於新唐書藝文志，正条繫於宋史藝文志、直齋書錄解題；两侧所繫之志互不相交（ev1_disjoint），卷数集合相容（ev2_state=同），撰人「劉軻」与正条撰人相合，判为撰人黏题首致同书重出，逕并。\n\n卷數據總目補（記錄一卷；目標Work原無卷數）（Sawyer 2026-10-17，批417，Sabine口徑）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "resources": [
     {
       "id": "commons",
@@ -106,6 +106,38 @@
         "nlc_fid": "411999016336",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i04_01777",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i04/i04_01777_0005/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i04_01777",
+        "edition": "光緒22-宣統2[1896-1910]"
+      },
+      "note": "合刻：另含東観奏記"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07256",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07256",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07256",
+        "call_number": "308 07256",
+        "edition": "舊鈔本"
+      }
     }
   ],
   "resource_groups": {
@@ -114,6 +146,12 @@
     },
     "nlc-411999016336": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "waseda-i04_01777": {
+      "label": "早稲田藏本：光緒22-宣統2[1896-1910]"
+    },
+    "ncltw-07256": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
     }
   },
   "juan_count": {

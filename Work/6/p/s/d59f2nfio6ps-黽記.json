@@ -124,6 +124,38 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4756117/manifest.json",
         "extent": "4冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05659",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05659",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05659",
+        "call_number": "301 05659",
+        "edition": "明萬曆間(1573-1620)原刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05660",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05660",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05660",
+        "call_number": "301 05660",
+        "edition": "明萬曆間(1573-1620)原刊本"
+      }
     }
   ],
   "measures": [
@@ -138,7 +170,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "錢一本（明）撰。四卷。見著錄於《欽定四庫全書總目》《明史藝文志》《四庫全書存目叢書》。《四庫全書存目叢書》列於子部。其著錄之文，《明史藝文志》作「錢一本《黽記》四卷」。《欽定四庫全書總目》清乾隆間館臣修；《明史藝文志》清張廷玉等修——本書之目賴之以存。",
     "sources": [
@@ -147,14 +179,20 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "naikaku-1077818": {
       "label": "內閣文庫藏本：明万暦41年刊本（序刊）（299-0113，4冊）"
     },
     "naikaku-1082868": {
       "label": "內閣文庫藏本：明万暦41年刊本（序刊）（子009-0006，4冊）"
+    },
+    "ncltw-05659": {
+      "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)原刊本"
+    },
+    "ncltw-05660": {
+      "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)原刊本"
     }
   }
 }

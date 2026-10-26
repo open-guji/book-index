@@ -52,7 +52,7 @@
       "明史藝文志"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 222，非諸志所著之任一數（欽定四庫全書總目作二百二十卷；明史藝文志作一百卷），係匯入時解析所誤。今取諸源中著錄最多者（同數則取志源較早、較確者）為 二百二十 卷，餘數之異存於各 indexed_by 之引文。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 222，非諸志所著之任一數（欽定四庫全書總目作二百二十卷；明史藝文志作一百卷），係匯入時解析所誤。今取諸源中著錄最多者（同數則取志源較早、較確者）為 二百二十 卷，餘數之異存於各 indexed_by 之引文。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 220
   },
@@ -72,8 +72,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -118,6 +118,54 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4405798/manifest.json",
         "extent": "40冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03104",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03104",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03104",
+        "call_number": "207 03104",
+        "edition": "明萬曆乙卯(四十三年, 1615)平湖馬氏原刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03105",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03105",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03105",
+        "call_number": "207 03105",
+        "edition": "明萬曆乙卯(四十三年, 1615)平湖馬氏刊鈔補本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03106",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03106",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03106",
+        "call_number": "207 03106",
+        "edition": "明萬曆乙卯(四十三年, 1615)平湖馬氏刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -126,6 +174,15 @@
     },
     "naikaku-1069905": {
       "label": "內閣文庫藏本：明万暦43年刊本（序刊）（史078-0003，40冊）"
+    },
+    "ncltw-03104": {
+      "label": "臺灣國家圖書館藏本：明萬曆乙卯(四十三年, 1615)平湖馬氏原刊本"
+    },
+    "ncltw-03105": {
+      "label": "臺灣國家圖書館藏本：明萬曆乙卯(四十三年, 1615)平湖馬氏刊鈔補本"
+    },
+    "ncltw-03106": {
+      "label": "臺灣國家圖書館藏本：明萬曆乙卯(四十三年, 1615)平湖馬氏刊本"
     }
   }
 }

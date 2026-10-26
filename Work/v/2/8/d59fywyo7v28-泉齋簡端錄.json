@@ -21,9 +21,9 @@
       "summary": "共 1 個版本：（中國科學院圖書館、青海省圖書館、福建省圖書館、北京大學圖書館、故宮博物院圖書館、寧夏回族自治區圖書館）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 dtg7trpi1fknkskn（邵文莊公經史全書五種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：myuh6fzjidp055uf\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n【獨撰子目补撰人】據所屬叢書《邵文莊公經史全書五種》（8rldoray0p38）撰者邵寶（明）補 authors（2026-10-25）",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-25",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 dtg7trpi1fknkskn（邵文莊公經史全書五種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：myuh6fzjidp055uf\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n【獨撰子目补撰人】據所屬叢書《邵文莊公經史全書五種》（8rldoray0p38）撰者邵寶（明）補 authors（2026-10-25）\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -39,11 +39,49 @@
         "nlc_fid": "411999007497",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2014514508",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2014514508/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2014514508",
+        "iiif_manifest": "https://www.loc.gov/item/2014514508/manifest.json",
+        "edition": "崇禎間刻本 1632"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01226",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01226",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01226",
+        "call_number": "109 01226",
+        "edition": "明秦榛重刊本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999007497": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "loc-2014514508": {
+      "label": "美國國會圖書館藏本：崇禎間刻本 1632"
+    },
+    "ncltw-01226": {
+      "label": "臺灣國家圖書館藏本：明秦榛重刊本"
     }
   }
 }

@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/8e206corqy07tdp2"
-      }
+      },
+      "entity_id": "hixi8u5yaegv"
     }
   ],
   "dynasty": "明",
@@ -29,9 +30,9 @@
       "summary": "共 4 個版本：明崇禎間胡氏十竹齋刻彩色套印本（中國科學院圖書館、北京大學圖書館、南京圖書館、國家圖書館、遼寧省圖書館、國家博物館）；清嘉慶二十二年繡水王氏芥子園刻彩色套印本（國家圖書館、上海圖書館）；清末校經山房刻彩色套印本（國家圖書館）；清光緒五年元和邱氏刻彩色套印本（北京大學圖書館、國家圖書館、南京圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：mpc2cgw8yyaa211q、td2fgnny0v0d8owj、reb52o67ochi7zcb、3ln647xbw5ckhud6\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 4002 批新建（hold 清零：J-diffauth；原 hold 原因：auto-split:同题异作者未并）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：mpc2cgw8yyaa211q、td2fgnny0v0d8owj、reb52o67ochi7zcb、3ln647xbw5ckhud6\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 4002 批新建（hold 清零：J-diffauth；原 hold 原因：auto-split:同题异作者未并）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,65 @@
         "nlc_fid": "412000001564",
         "edition": "明崇禎[1628-1644]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-9893846",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/9893846",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid9893846",
+        "edition": "[天啓崇禎年間刊 (後印)]"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2578311",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2578311",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2578311",
+        "edition": "光緒5"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-9893768",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/9893768",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid9893768",
+        "edition": "[天啓崇禎年間刊 (後印)]"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000001564": {
       "label": "國圖藏本：明崇禎[1628-1644]"
+    },
+    "ndl-9893846": {
+      "label": "NDL藏本：[天啓崇禎年間刊 (後印)]"
+    },
+    "ndl-2578311": {
+      "label": "NDL藏本：光緒5"
+    },
+    "ndl-9893768": {
+      "label": "NDL藏本：[天啓崇禎年間刊 (後印)]"
     }
   }
 }

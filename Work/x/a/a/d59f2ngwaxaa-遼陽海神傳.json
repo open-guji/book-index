@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀003535），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-25 明代輪 S7 前置：本條著錄來源（國立故宮博物院善本舊籍，統一編號見 indexed_by.catalog_no）原僅存於 description 之散文，今結構化補入 indexed_by（機械抽取，未增未減）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀003535），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-25 明代輪 S7 前置：本條著錄來源（國立故宮博物院善本舊籍，統一編號見 indexed_by.catalog_no）原僅存於 description 之散文，今結構化補入 indexed_by（機械抽取，未增未減）。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 1
   },
@@ -42,8 +42,8 @@
       "catalog_no": "故觀003535"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "commons",
@@ -59,6 +59,65 @@
         "year": "1544 明嘉靖23年",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-C6343100",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=C6343100&order=rn_no&no=01421",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "C6343100",
+        "call_no": "雙紅堂-小說-150",
+        "edition": ""
+      }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-C6441989",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=C6441989&order=rn_no&no=01440",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "C6441989",
+        "call_no": "雙紅堂-小說-151",
+        "edition": ""
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15246-0033",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15246-0033",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15246-0033",
+        "call_number": "310.23 15246-0033",
+        "edition": "明嘉靖甲辰(23年, 1544)雲間陸氏儼山書院刊本"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "ioc-C6343100": {
+      "label": "東文研藏本：《舊小說》所收本"
+    },
+    "ioc-C6441989": {
+      "label": "東文研藏本：《中國短篇小說集》所收本"
+    },
+    "ncltw-15246-0033": {
+      "label": "臺灣國家圖書館藏本：明嘉靖甲辰(23年, 1544)雲間陸氏儼山書院刊本"
+    }
+  }
 }

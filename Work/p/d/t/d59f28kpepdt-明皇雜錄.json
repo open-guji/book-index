@@ -134,6 +134,22 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-B1680300",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=B1680300&order=rn_no&no=00157",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "B1680300",
+        "call_no": "雙紅堂-小說-150",
+        "edition": ""
+      }
     }
   ],
   "measures": [
@@ -143,7 +159,7 @@
     }
   ],
   "measure_info": "二卷",
-  "ai_note": "從 31hyr5d6di5i8 合併。原註：作者「唐鄭處誨撰」補自《國立故宮博物院善本舊籍》目錄。　loss_status 判為 partially_extant，據：「今本無此一條，然則亦有所有佚脫，非完帙矣」。本值經逐條精讀，非機讀批次。　合併：題名「鄭處誨明皇雜錄」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「鄭處誨」已見本條 authors[]），裸題「明皇雜錄」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwzfnqbr4 與 11q37s4m2heyo 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 補全（著錄 ≥7 源批）：所據為本條所繫著錄之引文（見 indexed_by／emendated_by，尤以四庫提要、崇文總目、直齋書錄解題、經義考之敘錄為主）及通行學術常識，未覆核原書。",
+  "ai_note": "從 31hyr5d6di5i8 合併。原註：作者「唐鄭處誨撰」補自《國立故宮博物院善本舊籍》目錄。　loss_status 判為 partially_extant，據：「今本無此一條，然則亦有所有佚脫，非完帙矣」。本值經逐條精讀，非機讀批次。　合併：題名「鄭處誨明皇雜錄」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「鄭處誨」已見本條 authors[]），裸題「明皇雜錄」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwzfnqbr4 與 11q37s4m2heyo 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 補全（著錄 ≥7 源批）：所據為本條所繫著錄之引文（見 indexed_by／emendated_by，尤以四庫提要、崇文總目、直齋書錄解題、經義考之敘錄為主）及通行學術常識，未覆核原書。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
   "loss_status": "partially_extant",
   "updated_at": "2026-08-09T09:00:59+00:00",
   "period": "sui-tang",
@@ -173,6 +189,11 @@
       "新唐書藝文志"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "ioc-B1680300": {
+      "label": "東文研藏本：《舊小說》所收本"
+    }
+  }
 }

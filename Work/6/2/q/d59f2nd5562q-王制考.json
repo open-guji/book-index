@@ -13,7 +13,7 @@
       "role": "撰"
     }
   ],
-  "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書禮記類著錄「李氏黼王制考」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「未見」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n標目之正：姓名連書。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzkeud1`.dynasty「明」propagate 補齊；work.dynasty 同步。",
+  "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書禮記類著錄「李氏黼王制考」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「未見」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n標目之正：姓名連書。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzkeud1`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-10-26 A11-去重方案3a-2甲 併條（rule=去重方案3a-2甲：近題（增刪坊刻前綴／集錄鈔等後綴）同首位責任者，B檔並）：併 d59f2nhh7toh《新刊王制考》 入本條。近題同首位責任者：《王制考》李黼／《新刊王制考》李黼；四庫存目《王制考》四卷即存目叢書影印之《新刊王制考》四卷（後條兼收），經義考作一卷，同撰人李黼",
   "indexed_by": [
     {
       "source": "經義考",
@@ -26,21 +26,41 @@
       "attested_status": "not_seen",
       "attested_status_raw": "未見",
       "attested_status_note": "此是朱彝尊所判，非本庫之判，故不改本記錄之 loss_status。四庫御製題論此書曰「所注闕佚未見者，今四庫所録往往其書尚存」——其判是十七世紀一人之見聞。「未見」尤非亡佚，是朱氏未見其書。"
+    },
+    {
+      "source": "四庫全書存目叢書",
+      "source_bid": "d59f2og4vke9",
+      "title_info": "《新刊王制考》四卷",
+      "author_info": "明李黼輯",
+      "summary": "《新刊王制考》四卷。明李黼輯。北京圖書館藏明刻本。",
+      "edition": "北京圖書館藏明刻本",
+      "volume": "第177冊",
+      "section": "子部"
+    },
+    {
+      "source": "欽定四庫全書總目",
+      "source_bid": "d59dh3vo9af4",
+      "title_info": "《王制考》·四卷",
+      "author_info": "明李黼撰",
+      "summary": "明李黼撰。黼無錫人。是書采經史中有關制度者，以《周禮》、《禮記》、《春秋左傳》、《國語》凡先王之法類聚於前，以《史記》、《漢書》以下凡後世之法類聚於後，統為七十四篇。自序謂他日下陳場屋，上對明廷，蓋為舉業對策設也。其書成於正德中，本四卷，朱彝尊《經義考》誤作一卷。且此書雜采經史，自分門類，非疏解《禮記》之王制。彝尊列之《禮記》，亦為失考，蓋彝尊原注未見，特循其名而錄之，故有此失也。然此本實出自《曝書亭》，或藏收浩繁，自不及檢歟？抑得此本時已在《經義考》後也。",
+      "edition": "浙江朱彝尊家曝書亭藏本"
     }
   ],
   "period": "ming",
   "period_basis": "據撰人「李黼」（entity `1j967avzkeud1`，代「明」）。本條 authors 舊有其名而未繫 entity，今補繫，遂得其代。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "description": {
-    "text": "李黼撰。見著錄於《經義考》。《經義考》列於禮記。本書惟《經義考》一志著錄，別無他證。《經義考》清朱彝尊撰——本書之目賴之以存。",
+    "text": "李黼撰。見著錄於《經義考》。《經義考》列於禮記。",
     "sources": [
-      "經義考"
+      "經義考",
+      "四庫全書存目叢書",
+      "欽定四庫全書總目"
     ]
   },
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -49,6 +69,62 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:Tianyige-330000-1705-0006658_%E7%8E%8B%E5%88%B6%E8%80%83%E5%9B%9B%E5%8D%B7_%E6%98%8E%E6%9D%8E%E9%BB%BC%E6%92%B0_%E6%98%8E%E6%AD%A3%E5%BE%B7%E5%88%BB%E6%9C%AC.pdf"
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:CADAL02058612_%E6%96%B0%E5%88%8A%E7%8E%8B%E5%88%B6%E8%80%83%EF%BC%88%E4%BA%8C%EF%BC%89.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999021545",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999021545",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999021545",
+        "edition": "明[1368-1644]"
+      }
     }
+  ],
+  "juan_count": {
+    "number": 4
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 4
+    }
+  ],
+  "measure_info": "四卷",
+  "resource_groups": {
+    "nlc-411999021545": {
+      "label": "國圖藏本：明[1368-1644]"
+    }
+  },
+  "additional_titles": [
+    "新刊王制考"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2nhh7toh",
+      "title": "新刊王制考",
+      "at": "2026-10-26T11:44:30Z",
+      "by": "A11-去重方案3a-2甲",
+      "rule": "去重方案3a-2甲：近題（增刪坊刻前綴／集錄鈔等後綴）同首位責任者，B檔並",
+      "why": "近題同首位責任者：《王制考》李黼／《新刊王制考》李黼；四庫存目《王制考》四卷即存目叢書影印之《新刊王制考》四卷（後條兼收），經義考作一卷，同撰人李黼",
+      "author": "李黼",
+      "title_info": "《新刊王制考》四卷；《王制考》·四卷"
+    }
+  ],
+  "merged_from": [
+    "d59f2nhh7toh"
   ]
 }

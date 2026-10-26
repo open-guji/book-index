@@ -30,9 +30,9 @@
       "summary": "共 6 個版本：明桐花館刻本（臺灣圖書館）；明嘉靖間朱廷立紫蓉精舍刻藍印本（上海圖書館）；王立相刻本（北京師範大學圖書館）；明刻本（上海師範大學圖書館、北京師範大學圖書館、成都杜甫草堂）；明萬曆五年蘇民懷桐花館刻本（國家圖書館）；明遺安草堂刻本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：tua3u7cva1djyw7p、y7s155f2siw7nqv5、zrodt6lffrezdqmw、myhbrkavsynmi8s3、ny1b02yt7psuwxma、rv3iq5760olxo3rr",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-08",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：tua3u7cva1djyw7p、y7s155f2siw7nqv5、zrodt6lffrezdqmw、myhbrkavsynmi8s3、ny1b02yt7psuwxma、rv3iq5760olxo3rr\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fxwsog9og",
@@ -49,5 +49,91 @@
       "relation": "related",
       "note": "晋升前去重复核（集部复核池）：題名相近，未能確認同書，另立互鏈。"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nlk",
+      "group": "korcis-102502719",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000013751",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102502719",
+        "nlk_control_no": "KOL000013751",
+        "holder": "국립중앙도서관",
+        "call_number": "의산古3717-128",
+        "edition": "筆寫本 [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-102503240",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000013753",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102503240",
+        "nlk_control_no": "KOL000013753",
+        "holder": "국립중앙도서관",
+        "call_number": "의산古3717-130",
+        "edition": "筆寫本 [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-296644061",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL201400218",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "296644061",
+        "nlk_control_no": "KOL201400218",
+        "holder": "국립중앙도서관",
+        "call_number": "古3717-215",
+        "edition": "筆寫本(未詳) [發行年不明]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09549",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09549",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09549",
+        "call_number": "402.42 09549",
+        "edition": "明桐花館刊本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "korcis-102502719": {
+      "label": "韓國國立中央圖書館數字化藏本：筆寫本 [刊寫年未詳]"
+    },
+    "korcis-102503240": {
+      "label": "韓國國立中央圖書館數字化藏本：筆寫本 [刊寫年未詳]"
+    },
+    "korcis-296644061": {
+      "label": "韓國國立中央圖書館數字化藏本：筆寫本(未詳) [發行年不明]"
+    },
+    "ncltw-09549": {
+      "label": "臺灣國家圖書館藏本：明桐花館刊本"
+    }
+  }
 }

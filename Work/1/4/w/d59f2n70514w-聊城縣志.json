@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志006309-006312）。阶段 5 兜底建立。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志006309-006312）。阶段 5 兜底建立。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2ndvczcw《聊城縣志》 入本條。方志同修次重出：《聊城縣志》何一傑纂修（中國古籍總目） ← 《聊城縣志》傅以漸撰（清史稿藝文志）。脚本初判 A同修次·研-方志S复核。逐簇核对：康熙二年聊城縣志四卷何一傑修、傅以漸纂，內閣文庫本亦著傅以漸、康熙2年序、4卷，與清史稿條同書。",
   "juan_count": {
     "number": 4
   },
@@ -34,8 +34,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -44,6 +44,24 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%EF%BC%88%E5%BA%B7%E7%86%99%EF%BC%89%E8%81%8A%E5%9F%8E%E7%B8%A3%E5%BF%97_-_%E5%BA%B7%E7%86%99%E4%BA%8C%E5%B9%B4_%281663%29.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1072452",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1072452",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1072452",
+        "request_no": "史１８５－００１０",
+        "edition": "刊本（序刊）::清康煕:020000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4762690/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "indexed_by": [
@@ -54,6 +72,32 @@
       "author_info": "清何一傑纂修",
       "section": "史部/方志類",
       "summary": "共 1 個版本：清康熙癸卯(二年)刊本（上海圖書館、國家圖書館、天津圖書館、南京圖書館、山東省圖書館、湖北省圖書館、遼寧省圖書館、中國科學院圖書館、北京大學圖書館）"
+    },
+    {
+      "source": "清史稿藝文志",
+      "source_bid": "d59f2mp0flz4",
+      "title_info": "聊城縣志",
+      "summary": "聊城縣志四卷。傅以漸撰。"
     }
+  ],
+  "resource_groups": {
+    "naikaku-1072452": {
+      "label": "內閣文庫藏本：清康煕2年刊本（序刊）（史185-0010，4冊）"
+    }
+  },
+  "merged_in": [
+    {
+      "id": "d59f2ndvczcw",
+      "title": "聊城縣志",
+      "at": "2026-10-26T15:02:33Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《聊城縣志》何一傑纂修（中國古籍總目） ← 《聊城縣志》傅以漸撰（清史稿藝文志）。脚本初判 A同修次·研-方志S复核。逐簇核对：康熙二年聊城縣志四卷何一傑修、傅以漸纂，內閣文庫本亦著傅以漸、康熙2年序、4卷，與清史稿條同書。",
+      "author": "傅以漸",
+      "title_info": "聊城縣志"
+    }
+  ],
+  "merged_from": [
+    "d59f2ndvczcw"
   ]
 }

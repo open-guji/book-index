@@ -197,6 +197,103 @@
         "waseda_id": "ru05_03051",
         "edition": "康煕39[1700]序"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko08_b0063",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko08/bunko08_b0063/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko08_b0063",
+        "edition": "写, [書写年不明]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i04_03159_b053",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i04/i04_03159_b053/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i04_03159_b053",
+        "edition": "[漆山天童(写)], [書写年不明] ( )"
+      },
+      "note": "摘抄"
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2557195",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2557195",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2557195",
+        "edition": "江戸寫"
+      }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-bsb00093730",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb00093730",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb00093730",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00093730/manifest",
+        "shelfmark": "4 L.sin. D 99",
+        "edition": "S.l. s.n. Vorwort 1700"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3371339688",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3371339688",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3371339688",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3371339688/manifest",
+        "shelfmark": "Hirth 87",
+        "edition": "刻本;水天閣 康熙庚辰 (=1700) 序"
+      }
+    },
+    {
+      "id": "utokyo-da",
+      "group": "utokyo-4551131f_3f3b_49a1_7b5a_600686265b9f",
+      "group_role": "origin",
+      "name": "東京大学デジタルアーカイブポータル",
+      "short_name": "東大",
+      "url": "https://da.dl.itc.u-tokyo.ac.jp/portal/assets/4551131f-3f3b-49a1-7b5a-600686265b9f",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "utokyo_record": "utokyo_da-4551131f_3f3b_49a1_7b5a_600686265b9f",
+        "call_no": "D1:190",
+        "edition": "康煕39 [1700] 序",
+        "iiif_manifest": "https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/4551131f-3f3b-49a1-7b5a-600686265b9f/manifest"
+      }
     }
   ],
   "resource_groups": {
@@ -220,6 +317,24 @@
     },
     "waseda-ru05_03051": {
       "label": "早稲田藏本：康煕39[1700]序"
+    },
+    "waseda-bunko08_b0063": {
+      "label": "早稲田藏本：写, [書写年不明]"
+    },
+    "waseda-i04_03159_b053": {
+      "label": "早稲田藏本：[漆山天童(写)], [書写年不明] ( )"
+    },
+    "ndl-2557195": {
+      "label": "NDL藏本：江戸寫"
+    },
+    "bsb-bsb00093730": {
+      "label": "巴伐利亞州立圖書館藏本：S.l. s.n. Vorwort 1700"
+    },
+    "sbb-PPN3371339688": {
+      "label": "柏林國家圖書館藏本：刻本;水天閣 康熙庚辰 (=1700) 序"
+    },
+    "utokyo-4551131f_3f3b_49a1_7b5a_600686265b9f": {
+      "label": "東大藏本：康煕39 [1700] 序"
     }
   },
   "updated_at": "2026-08-19T00:00:00-07:00",
@@ -227,7 +342,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 16，非諸志所著之任一數（清史稿藝文志作二十六卷；續修四庫全書作二十八卷），係匯入時解析所誤。今取諸源中著錄最多者（同數則取志源較早、較確者）為 二十八 卷，餘數之異存於各 indexed_by 之引文。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 16，非諸志所著之任一數（清史稿藝文志作二十六卷；續修四庫全書作二十八卷），係匯入時解析所誤。今取諸源中著錄最多者（同數則取志源較早、較確者）為 二十八 卷，餘數之異存於各 indexed_by 之引文。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（A7 转交 NDL）。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条、柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東大 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
   "description": {
     "text": "屈大均（清）撰。二十八卷；諸志所著之數有異，別作二十六卷。見著錄於《清史稿藝文志》《續修四庫全書》。《續修四庫全書》列於史部 史部。其著錄之文，《續修四庫全書》作「《廣東新語》二十八卷」。《清史稿藝文志》民國趙爾巽等修；《續修四庫全書》一九九五年影印——本書之目賴之以存。",
     "sources": [
@@ -235,6 +350,6 @@
       "續修四庫全書"
     ]
   },
-  "revision": "1.5.0",
-  "revised_at": "2026-10-25"
+  "revision": "1.9.0",
+  "revised_at": "2026-10-26"
 }

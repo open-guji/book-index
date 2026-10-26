@@ -128,11 +128,67 @@
         "nlc_fid": "411999014117",
         "edition": "清雍正2年[1724]"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999016144",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999016144",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999016144",
+        "edition": "明成化6年[1470]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10949",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10949",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10949",
+        "call_number": "402.58 10949",
+        "edition": "影鈔明成化己丑(五年, 1469)許氏南康刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10950",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10950",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10950",
+        "call_number": "402.58 10950",
+        "edition": "十萬卷樓藍格鈔本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999014117": {
       "label": "國圖藏本：清雍正2年[1724]"
+    },
+    "nlc-411999016144": {
+      "label": "國圖藏本：明成化6年[1470]"
+    },
+    "ncltw-10949": {
+      "label": "臺灣國家圖書館藏本：影鈔明成化己丑(五年, 1469)許氏南康刊本"
+    },
+    "ncltw-10950": {
+      "label": "臺灣國家圖書館藏本：十萬卷樓藍格鈔本"
     }
   },
   "measures": [
@@ -147,7 +203,7 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxm526wow 與 11q37tnpnjfgg 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 無斷代批次合併（plan_2.json 判、主進程執行）：圭塘小稿：許有壬專集，書名獨一無二；draft（國史經籍志）無撰人（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）\n\n2026-08-25 補 `merged_from`：`1evgqe23abh1c` 併入本條之際，merge_ib 未寫此欄（已記於 known-issues），今補——不補則來歷失載，且 E07 見同題二 id 而不知其為併。",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxm526wow 與 11q37tnpnjfgg 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 無斷代批次合併（plan_2.json 判、主進程執行）：圭塘小稿：許有壬專集，書名獨一無二；draft（國史經籍志）無撰人（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）\n\n2026-08-25 補 `merged_from`：`1evgqe23abh1c` 併入本條之際，merge_ib 未寫此欄（已記於 known-issues），今補——不補則來歷失載，且 E07 見同題二 id 而不知其為併。\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "許有壬（元）撰。十三卷；諸志所著之數有異，別作三十卷、十卷。見著錄於《欽定四庫全書總目》《補遼金元藝文志》《元史藝文志》。其著錄之文，《元史藝文志》作「元許有壬圭塘小稿三十卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -156,8 +212,8 @@
       "元史藝文志"
     ]
   },
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "additional_titles": [
     "圭塘小藁"
   ]

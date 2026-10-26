@@ -16,15 +16,15 @@
       "中華再造善本"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 名大 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "id": "d59f2njarncy",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -129,6 +129,55 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3746160/manifest.json",
         "extent": "3冊"
       }
+    },
+    {
+      "id": "nagoya-u",
+      "group": "nagoya-N004_20230901_02875",
+      "group_role": "origin",
+      "name": "名古屋大学附属図書館 古典籍",
+      "short_name": "名大",
+      "url": "https://da.adm.thers.ac.jp/item/n004-20230901-02875",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nagoya_record": "THERS_da-N004_20230901_02875",
+        "call_no": "082-So",
+        "edition": "文久三年刊本 闕卷第二第三",
+        "iiif_manifest": "https://da.adm.thers.ac.jp/iiif/1/classic_books/N004-20230901-02875/manifest.json"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11111",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11111",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11111",
+        "call_number": "402.6 11111",
+        "edition": "明洪武八年(1375)刊鈔補本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11112",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11112",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11112",
+        "call_number": "402.6 11112",
+        "edition": "明洪武十年(1377)刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -149,6 +198,15 @@
     },
     "naikaku-3610378": {
       "label": "內閣文庫藏本：明洪武10年刊本（314-0013，3冊）"
+    },
+    "nagoya-N004_20230901_02875": {
+      "label": "名大藏本：文久三年刊本 闕卷第二第三"
+    },
+    "ncltw-11111": {
+      "label": "臺灣國家圖書館藏本：明洪武八年(1375)刊鈔補本"
+    },
+    "ncltw-11112": {
+      "label": "臺灣國家圖書館藏本：明洪武十年(1377)刊本"
     }
   },
   "indexed_by": [

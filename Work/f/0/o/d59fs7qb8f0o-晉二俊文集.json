@@ -31,9 +31,9 @@
       "summary": "共 4 個版本：明末刻本（國家圖書館）；明正德十四年陸元大刻本（北京大學圖書館、南京圖書館、上海圖書館、國家圖書館）；清影宋抄本（國家圖書館）；明萬曆間瑞桃堂刻本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：uealwo6b0t2zpgiy、0fgkrlxkoifqlxg3、pm6sk3osjh558f87、3ss72mukminsqmzj\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：uealwo6b0t2zpgiy、0fgkrlxkoifqlxg3、pm6sk3osjh558f87、3ss72mukminsqmzj\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -79,6 +79,74 @@
         "nlc_fid": "411999023039",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077446",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077446",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077446",
+        "request_no": "集０６４－０００２",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4413951/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071111",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071111",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071111",
+        "request_no": "３１４－０１９０",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4751287/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14478",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14478",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14478",
+        "call_number": "403.4 14478",
+        "edition": "明萬曆間(1573-1620)新安汪士賢校刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14480",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14480",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14480",
+        "call_number": "403.4 14480",
+        "edition": "明末徐日曦校刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -90,6 +158,18 @@
     },
     "nlc-411999023039": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1077446": {
+      "label": "內閣文庫藏本：明刊本（集064-0002，4冊）"
+    },
+    "naikaku-1071111": {
+      "label": "內閣文庫藏本：明刊本（314-0190，4冊）"
+    },
+    "ncltw-14478": {
+      "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)新安汪士賢校刊本"
+    },
+    "ncltw-14480": {
+      "label": "臺灣國家圖書館藏本：明末徐日曦校刊本"
     }
   }
 }

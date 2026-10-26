@@ -40,9 +40,9 @@
       "清史稿藝文志"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -51,6 +51,45 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:SSID-12696978_%E9%9A%A8%E6%81%AF%E5%B1%85%E9%A3%B2%E9%A3%9F%E8%AD%9C.pdf"
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2536311",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2536311",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2536311",
+        "edition": "咸豐11序刊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-16539",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/16539",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "16539",
+        "call_number": "308 16539",
+        "edition": "清咸豐十一年(1861)刊本"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "ndl-2536311": {
+      "label": "NDL藏本：咸豐11序刊"
+    },
+    "ncltw-16539": {
+      "label": "臺灣國家圖書館藏本：清咸豐十一年(1861)刊本"
+    }
+  }
 }

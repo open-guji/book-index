@@ -20,6 +20,25 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078791",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078791",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078791",
+        "request_no": "３０６－００２７",
+        "edition": "刊本::明治:140000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4919203/manifest.json",
+        "extent": "2冊"
+      },
+      "note": "墨迹／書帖"
     }
   ],
   "related_works": [
@@ -33,7 +52,12 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "naikaku-1078791": {
+      "label": "內閣文庫藏本：明治14年刊本（306-0027，2冊）"
+    }
+  }
 }

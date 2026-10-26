@@ -195,6 +195,41 @@
         "waseda_id": "chi03_01987",
         "edition": ""
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100288203",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100288203",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100288203",
+        "holder": "藝大図脇本",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100288203/manifest"
+      },
+      "note": "合刻本：同部另含《書苑補益》（詹景鳳，K19，只挂主书）"
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-bsb00075873",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb00075873",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb00075873",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00075873/manifest",
+        "shelfmark": "4 L.sin. K 165-1",
+        "edition": "金陵 [= 南京] 1591"
+      }
     }
   ],
   "measures": [
@@ -204,7 +239,7 @@
     }
   ],
   "measure_info": "十卷",
-  "ai_note": "作者 \"明王世貞輯\" 補自《四庫全書存目叢書》目錄。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。",
+  "ai_note": "作者 \"明王世貞輯\" 補自《四庫全書存目叢書》目錄。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
@@ -217,8 +252,8 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.2.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-411999028972": {
       "label": "國圖藏本：明萬曆19年[1591]"
@@ -237,6 +272,12 @@
     },
     "waseda-chi03_01987": {
       "label": "早稲田藏本"
+    },
+    "kokusho-100288203": {
+      "label": "國書·藝大図脇本藏刊"
+    },
+    "bsb-bsb00075873": {
+      "label": "巴伐利亞州立圖書館藏本：金陵 [= 南京] 1591"
     }
   }
 }

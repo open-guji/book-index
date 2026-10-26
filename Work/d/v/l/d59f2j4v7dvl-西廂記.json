@@ -22,7 +22,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjy74f1njsw(王德信關漢卿)（不同作者，故新建獨立 Work）。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 6 取自 `measure_info`「六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-02 lane-B 併條（rule=T64同書重條）：併 d59f2j5992bl《西廂記》 入本條。西廂記×2：題同；撰人王實甫＝王德信（元；再造善本條 ai_note「元王德信（實甫）撰，關漢卿續其第五本」），關漢卿續為再造善本條所載之役；版本同為凌氏朱墨套印本（故宮條「明烏程凌氏刊朱墨套印本」、再造善本條「明淩濛初刻朱墨套印本」）。保留 d59f2j4v7dvl（authors 帶 entity_id，繫 Book 2 部）。\n\n2026-10-02 T64 善後：併入之再造善本條（王德信撰、關漢卿續）所載「關漢卿續」之役，補入 authors（未繫 entity_id，同原條）；「王德信」即王實甫（entity 已併）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evjy74f1njsw(王德信關漢卿)（不同作者，故新建獨立 Work）。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 6 取自 `measure_info`「六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-02 lane-B 併條（rule=T64同書重條）：併 d59f2j5992bl《西廂記》 入本條。西廂記×2：題同；撰人王實甫＝王德信（元；再造善本條 ai_note「元王德信（實甫）撰，關漢卿續其第五本」），關漢卿續為再造善本條所載之役；版本同為凌氏朱墨套印本（故宮條「明烏程凌氏刊朱墨套印本」、再造善本條「明淩濛初刻朱墨套印本」）。保留 d59f2j4v7dvl（authors 帶 entity_id，繫 Book 2 部）。\n\n2026-10-02 T64 善後：併入之再造善本條（王德信撰、關漢卿續）所載「關漢卿續」之役，補入 authors（未繫 entity_id，同原條）；「王德信」即王實甫（entity 已併）。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -36,8 +36,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基文库",
@@ -99,6 +99,39 @@
         "nlc_fid": "411999009364",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-bsb00080558",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb00080558",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb00080558",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00080558/manifest",
+        "shelfmark": "Cod.sin. 11",
+        "edition": "貫華堂 1733"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15175-0020",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15175-0020",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15175-0020",
+        "call_number": "407.22 15175-0020",
+        "edition": "明虞山毛氏汲古閣刊清代修補本"
+      }
     }
   ],
   "indexed_by": [
@@ -130,6 +163,12 @@
     },
     "nlc-411999009364": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "bsb-bsb00080558": {
+      "label": "巴伐利亞州立圖書館藏本：貫華堂 1733"
+    },
+    "ncltw-15175-0020": {
+      "label": "臺灣國家圖書館藏本：明虞山毛氏汲古閣刊清代修補本"
     }
   },
   "related_works": [

@@ -208,6 +208,55 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4432620/manifest.json",
         "extent": "18冊"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100232432",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100232432",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100232432",
+        "holder": "研医会図",
+        "edition": "刊 寛文１１",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100232432/manifest"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06036",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06036",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06036",
+        "call_number": "304.1 06036",
+        "edition": "明嘉靖十五年(1536)河南藩署刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06038",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06038",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06038",
+        "call_number": "304.1 06038",
+        "edition": "明隆慶六年(1572)山東布政使施篤臣刊本"
+      }
     }
   ],
   "measures": [
@@ -222,7 +271,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-21 B1 同名異書併池：併入 `1evgq4csg5z40`（丹溪心法附餘）。2026-08-21 B2 併池：併入 `1evgq4csg5z40`（國史經籍志，無撰人，二十四卷）。同書。\n\n2026-08-21 B1 同名異書併池：併入 `1evgc025hi8lc`（丹溪心法附餘）。2026-08-21 B2 併池：併入 `1evgc025hi8lc`（元史藝文志，題朱震亨撰，二十四卷）。本條四庫提要明言此書乃方廣「因程用光所訂朱震亨丹溪心法……乃削其附錄，獨存一家之言」所另撰，成書於嘉靖丙申，朱震亨（歿於至正十八年）不可能親撰此書，元史藝文志之撰人歸屬乃承本書冠名「丹溪心法」而誤植，非撰人有誤，卷數全合，同書。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-21 B1 同名異書併池：併入 `1evgq4csg5z40`（丹溪心法附餘）。2026-08-21 B2 併池：併入 `1evgq4csg5z40`（國史經籍志，無撰人，二十四卷）。同書。\n\n2026-08-21 B1 同名異書併池：併入 `1evgc025hi8lc`（丹溪心法附餘）。2026-08-21 B2 併池：併入 `1evgc025hi8lc`（元史藝文志，題朱震亨撰，二十四卷）。本條四庫提要明言此書乃方廣「因程用光所訂朱震亨丹溪心法……乃削其附錄，獨存一家之言」所另撰，成書於嘉靖丙申，朱震亨（歿於至正十八年）不可能親撰此書，元史藝文志之撰人歸屬乃承本書冠名「丹溪心法」而誤植，非撰人有誤，卷數全合，同書。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "方廣（明）撰。二十四卷。見著錄於《欽定四庫全書總目》《明史藝文志》《四庫全書存目叢書》《國史經籍志》《元史藝文志》。《四庫全書存目叢書》列於子部。",
     "sources": [
@@ -233,8 +282,8 @@
       "元史藝文志"
     ]
   },
-  "revision": "1.3.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-411999020638": {
       "label": "國圖藏本：明嘉靖[1522-1566]"
@@ -253,6 +302,15 @@
     },
     "naikaku-1079709": {
       "label": "內閣文庫藏本：明嘉靖15年刊本（序刊）（子025-0015，18冊）"
+    },
+    "kokusho-100232432": {
+      "label": "國書·研医会図藏刊 寛文１１"
+    },
+    "ncltw-06036": {
+      "label": "臺灣國家圖書館藏本：明嘉靖十五年(1536)河南藩署刊本"
+    },
+    "ncltw-06038": {
+      "label": "臺灣國家圖書館藏本：明隆慶六年(1572)山東布政使施篤臣刊本"
     }
   }
 }

@@ -49,9 +49,9 @@
       "summary": "共 1 個版本：（復旦大學圖書館、山東省圖書館、天津圖書館、遼寧省圖書館、南京圖書館、浙江圖書館、國家圖書館、中國科學院圖書館、湖北省圖書館、北京大學圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：mxugyztsdb7acm0o、jy5vhhkcjkap2k84、laefwr7qpzckt28h、ue50q6l55slpadtc、i1z0fqqjgampavyv、wm24bi7p3gduqtiw、4oe7qllwksp8256i、ildbe2o1tgifu5em、kdc8lg8bk1w46p0q、gtypr2g1fcu1ufn7、vl7fkt0p2qraxh1x、qeb6uk175gk1itay、5qksa0wb1u0k2gju、b1dsu7n0f5hleoig、wssxp01lb4txygw4\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 549 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59fyfeuc6bl《古今事文類聚前集》 入本條。同题同首位责任者：《新編古今事文類聚前集》祝穆(宋,60卷,14版本)／《古今事文類聚前集》祝穆(宋,60卷,3版本)；B 档逐组复核判同一作品：新編冠語，同為祝穆前後續別集，另一側合刻富大用新集外集；flags=prefix_weak,coauth_diff,role_diff",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-25",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：mxugyztsdb7acm0o、jy5vhhkcjkap2k84、laefwr7qpzckt28h、ue50q6l55slpadtc、i1z0fqqjgampavyv、wm24bi7p3gduqtiw、4oe7qllwksp8256i、ildbe2o1tgifu5em、kdc8lg8bk1w46p0q、gtypr2g1fcu1ufn7、vl7fkt0p2qraxh1x、qeb6uk175gk1itay、5qksa0wb1u0k2gju、b1dsu7n0f5hleoig、wssxp01lb4txygw4\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 549 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59fyfeuc6bl《古今事文類聚前集》 入本條。同题同首位责任者：《新編古今事文類聚前集》祝穆(宋,60卷,14版本)／《古今事文類聚前集》祝穆(宋,60卷,3版本)；B 档逐组复核判同一作品：新編冠語，同為祝穆前後續別集，另一側合刻富大用新集外集；flags=prefix_weak,coauth_diff,role_diff\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-NDL丛书合刻-20261026.md。",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -67,11 +67,85 @@
         "nlc_fid": "411999028311",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2609931",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2609931",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2609931",
+        "edition": "寛文6 [1666]"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3343782505",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3343782505",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3343782505",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3343782505/manifest",
+        "shelfmark": "Libri sin. 535/546",
+        "edition": "刻本;積秀堂 藏板 乾隆癸未 (=1763) 重鐫"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-11892781",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/11892781",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid11892781",
+        "edition": "[元和年間]"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-11892578",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/11892578",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid11892578",
+        "edition": "[元和年間]"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999028311": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "ndl-2609931": {
+      "label": "NDL藏本：寛文6 [1666]"
+    },
+    "sbb-PPN3343782505": {
+      "label": "柏林國家圖書館藏本：刻本;積秀堂 藏板 乾隆癸未 (=1763) 重鐫"
+    },
+    "ndl-11892781": {
+      "label": "NDL藏本：[元和年間]"
+    },
+    "ndl-11892578": {
+      "label": "NDL藏本：[元和年間]"
     }
   },
   "additional_titles": [

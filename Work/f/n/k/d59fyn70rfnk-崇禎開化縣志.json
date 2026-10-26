@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/2o3w2uj8j3sm7ked"
-      }
+      },
+      "entity_id": "hixicld4p1i3"
     },
     {
       "name": "朱朝藩",
@@ -22,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/ezx57en36gul6d03"
-      }
+      },
+      "entity_id": "hixicm3bdp4g"
     }
   ],
   "dynasty": "明",
@@ -37,10 +39,17 @@
       "author_info": "明朱朝藩修;明汪慶百纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 1 個版本：明崇禎四年刻本（日本國會圖書館）"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "汪慶伯開化縣志",
+      "author_info": "崇禎辛未修邑人",
+      "summary": "汪慶伯開化縣志⟨崇禎辛未修邑人⟩"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pok0k0dsu13po83u\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 440 批新建（hold 清零：串3余量；原 hold 原因：hold）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.1.0",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pok0k0dsu13po83u\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 440 批新建（hold 清零：串3余量；原 hold 原因：hold）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f6etm5x4x《開化縣志》 入本條。方志同修次重出：《[崇禎]開化縣志》汪慶百纂、朱朝藩修（中國古籍總目） ← 《開化縣志》汪慶伯撰（千頃堂書目）。脚本初判 A同修次·同人(近形)·同卷·年号同。逐簇核对：汪慶伯=汪慶百，崇禎四年辛未修十卷，同修次。",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -63,5 +72,33 @@
     "ndl-2606894": {
       "label": "NDL藏本：崇禎4刊"
     }
-  }
+  },
+  "juan_count": {
+    "number": 10
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 10
+    }
+  ],
+  "measure_info": "十卷",
+  "additional_titles": [
+    "開化縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6etm5x4x",
+      "title": "開化縣志",
+      "at": "2026-10-26T13:57:51Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[崇禎]開化縣志》汪慶百纂、朱朝藩修（中國古籍總目） ← 《開化縣志》汪慶伯撰（千頃堂書目）。脚本初判 A同修次·同人(近形)·同卷·年号同。逐簇核对：汪慶伯=汪慶百，崇禎四年辛未修十卷，同修次。",
+      "author": "汪慶伯",
+      "title_info": "汪慶伯開化縣志"
+    }
+  ],
+  "merged_from": [
+    "d59f6etm5x4x"
+  ]
 }

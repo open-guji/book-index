@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/yd6uplljpf81k8gv"
-      }
+      },
+      "entity_id": "hixicm3boxrh"
     }
   ],
   "indexed_by": [
@@ -25,9 +26,9 @@
       "summary": "共 6 個版本：明刻本（北京大學圖書館）；清刻本（上海圖書館、國家圖書館）；清乾隆五十三年刻本（國家圖書館）；明繡本（國家圖書館）；明刻本（國家圖書館、北京大學圖書館）；清道光八年正醫抄本（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：rmrtbuclzt2p4mgs、5wees8ke2ruoi13w、3aq6jxljg32j2q7l、hxniw1vu0szmkv6w、v5rczplrhuyksglt、bmq2q048p1crsnsd\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n主責任者「釋法燈」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：rmrtbuclzt2p4mgs、5wees8ke2ruoi13w、3aq6jxljg32j2q7l、hxniw1vu0szmkv6w、v5rczplrhuyksglt、bmq2q048p1crsnsd\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n主責任者「釋法燈」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "dynasty": "明",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
@@ -37,5 +38,69 @@
       "relation": "related",
       "note": "釋家類深度查重：同題異作者（或對方未署責任者），未並，待核"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3376909938",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3376909938",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3376909938",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3376909938/manifest",
+        "shelfmark": "Pander F 634/635",
+        "edition": "刻本 [Qing-Dynastie 1644-1911]"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3376910227",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3376910227",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3376910227",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3376910227/manifest",
+        "shelfmark": "Pander F 639/641",
+        "edition": "刻本 s.a."
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3376910235",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3376910235",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3376910235",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3376910235/manifest",
+        "shelfmark": "Pander F 642/644",
+        "edition": "刻本 s.a."
+      }
+    }
+  ],
+  "resource_groups": {
+    "sbb-PPN3376909938": {
+      "label": "柏林國家圖書館藏本：刻本 [Qing-Dynastie 1644-1911]"
+    },
+    "sbb-PPN3376910227": {
+      "label": "柏林國家圖書館藏本：刻本 s.a."
+    },
+    "sbb-PPN3376910235": {
+      "label": "柏林國家圖書館藏本：刻本 s.a."
+    }
+  }
 }

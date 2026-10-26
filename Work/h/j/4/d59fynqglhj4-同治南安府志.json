@@ -23,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/vctu6w8iavpyqh23"
-      }
+      },
+      "entity_id": "hixicm3ffs61"
     },
     {
       "name": "黃鳴珂",
@@ -33,7 +34,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/gcefqrzpx7uyppdn"
-      }
+      },
+      "entity_id": "hixico73jtne"
     }
   ],
   "dynasty": "清",
@@ -48,11 +50,17 @@
       "author_info": "清黄鳴珂修;清石景芬、徐福炘纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 1 個版本：清同治七年刻本（中國科學院圖書館、國家圖書館、上海圖書館、湖北省圖書館、天津圖書館、浙江圖書館、南京圖書館、江西省圖書館、山東省圖書館）"
+    },
+    {
+      "source": "清史稿藝文志",
+      "source_bid": "d59f2mp0flz4",
+      "title_info": "南安府志",
+      "summary": "南安府志三十二卷。黃鳴珂修。杭州府志四十卷。馬鐸修。杭州府志一百十卷。鄭枟修。嘉興府志十六卷。吳永芳修。嘉興府志八十卷。伊湯安修。嘉興府志九十卷。許瑤光修。湖錄一百五卷。鄭元慶撰。"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2bi2ul2ty55ipdhb\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2bi2ul2ty55ipdhb\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2ndnvabm《南安府志》 入本條。方志同修次重出：《[同治]南安府志》石景芬纂、徐福炘纂、黃鳴珂修（中國古籍總目） ← 《南安府志》鄭元慶撰（清史稿藝文志）。脚本初判 A同修次·同人·同卷·年号缺。逐簇核对：清史稿「南安府志三十二卷 黃鳴珂修」即同治黃鳴珂修本；loser 撰人鄭元慶係切分錯配。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -74,5 +82,33 @@
     "nlc-312001077230": {
       "label": "國圖藏本："
     }
-  }
+  },
+  "juan_count": {
+    "number": 32
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 32
+    }
+  ],
+  "measure_info": "三十二卷",
+  "additional_titles": [
+    "南安府志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2ndnvabm",
+      "title": "南安府志",
+      "at": "2026-10-26T11:51:48Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[同治]南安府志》石景芬纂、徐福炘纂、黃鳴珂修（中國古籍總目） ← 《南安府志》鄭元慶撰（清史稿藝文志）。脚本初判 A同修次·同人·同卷·年号缺。逐簇核对：清史稿「南安府志三十二卷 黃鳴珂修」即同治黃鳴珂修本；loser 撰人鄭元慶係切分錯配。",
+      "author": "鄭元慶",
+      "title_info": "南安府志"
+    }
+  ],
+  "merged_from": [
+    "d59f2ndnvabm"
+  ]
 }

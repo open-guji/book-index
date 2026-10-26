@@ -44,7 +44,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目版本待定（正式庫尚無 Book）：總目著錄版本標籤空，未入 Book（3tjvna5n73cf4lqh、weofhstalaz2o66e）\n總目分類：史部／雜史類／叢編之屬",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目版本待定（正式庫尚無 Book）：總目著錄版本標籤空，未入 Book（3tjvna5n73cf4lqh、weofhstalaz2o66e）\n總目分類：史部／雜史類／叢編之屬\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條善後：所關聯之 d59fy3oyhji8 已併入 d59f2nef11j6，關係改指（按規範方向落筆）。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 3
   },
@@ -61,8 +61,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -71,13 +71,34 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL02047700_%E7%9A%87%E6%9C%9D%E5%B9%B3%E5%90%B3%E9%8C%84.djvu"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02342-0001",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02342-0001",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02342-0001",
+        "call_number": "204.26 02342-0001",
+        "edition": "鈔本"
+      }
     }
   ],
   "related_works": [
     {
-      "id": "d59fy3oyhji8",
+      "id": "d59f2nef11j6",
       "relation": "related",
       "note": "史部E存疑另立：總目記錄「平吳錄」（吳寬）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（缺卷数（记录卷数非单一N卷或目标无卷数））），按嚴口徑另立；互為相關，待並條複核。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-02342-0001": {
+      "label": "臺灣國家圖書館藏本：鈔本"
+    }
+  }
 }

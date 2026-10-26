@@ -6,16 +6,21 @@
   "dynasty": "北周",
   "period": "nanbeichao",
   "dynasty_basis": "2026-09-05 《補周書藝文志》整理：《補周書藝文志》著錄，北周（557-581）。",
-  "ai_note": "2026-09-05 《補周書藝文志》整理：據《補周書藝文志》新建。庫中另有同名者 ['hixhd2h9bpl4']，代不相容（[None]），別是一人。\n\n2026-09-05 誤建 entity 併治：併入誤建之同名 entity `hixhd2h9bpl4`。前輪整理腳本遇庫中同名而 dynasty 為 None 者，誤判「代不相容，別是一人」而別建；然 dynasty=None 乃**未考定**，非「不相容」，不可據以斷為二人。今併之，移入 works 1 部。",
+  "ai_note": "2026-09-05 《補周書藝文志》整理：據《補周書藝文志》新建。庫中另有同名者 ['hixhd2h9bpl4']，代不相容（[None]），別是一人。\n\n2026-09-05 誤建 entity 併治：併入誤建之同名 entity `hixhd2h9bpl4`。前輪整理腳本遇庫中同名而 dynasty 為 None 者，誤判「代不相容，別是一人」而別建；然 dynasty=None 乃**未考定**，非「不相容」，不可據以斷為二人。今併之，移入 works 1 部。\n\n2026-10-26 A12 L6 帝王稱號：補廟號、帝號別名（北周明帝），據維基百科補身份、說明、生卒；回填年號條 ruler.entity_id。 帝號通稱據本庫年號條說明補；維基中文條目未讀，廟號、諡號全稱多待補。",
   "id": "hixhjeq2oiyp",
-  "revision": "1.0.1",
-  "revised_at": "2026-10-14",
+  "revision": "1.0.2",
+  "revised_at": "2026-10-26",
   "period_basis": "據 dynasty「北周」自動歸併",
   "alt_names": [
     {
       "name": "宇文毓",
       "type": "別名",
       "note": "重出條并入"
+    },
+    {
+      "name": "北周明帝",
+      "type": "別名",
+      "note": "通稱"
     }
   ],
   "merged_in": [
@@ -34,7 +39,19 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/lhwd178ywhqskyfa"
+      },
+      {
+        "name": "維基百科",
+        "type": "url",
+        "details": "https://en.wikipedia.org/wiki/Northern_Zhou"
       }
-    ]
+    ],
+    "text": "北周皇帝，年號武成（559–560）。"
+  },
+  "title_or_office": "皇帝",
+  "dates": {
+    "birth": 534,
+    "death": 560,
+    "basis": "維基百科"
   }
 }

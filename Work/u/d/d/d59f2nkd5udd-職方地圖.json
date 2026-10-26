@@ -20,12 +20,19 @@
       "source_bid": "d59f2mox0000",
       "title_info": "陈组绶《职方地图》三卷",
       "summary": "陳組綬《職方地圖》三卷"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "陳組綬明職方地圖",
+      "summary": "陳組綬明職方地圖"
     }
   ],
   "description": {
-    "text": "陳組綬（明）撰。三卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「陳組綬《職方地圖》三卷」。本書惟《明史藝文志》一志著錄，別無他證。《明史藝文志》清張廷玉等修——本書之目賴之以存。",
+    "text": "陳組綬（明）撰。三卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「陳組綬《職方地圖》三卷」。",
     "sources": [
-      "明史藝文志"
+      "明史藝文志",
+      "千頃堂書目"
     ]
   },
   "measures": [
@@ -35,12 +42,76 @@
     }
   ],
   "measure_info": "三卷",
-  "ai_note": "從 1evkagrwom328 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evkagrwom328 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，A檔並）：併 d59f6en18su8《明職方地圖》 入本條。近題同首位責任者：《職方地圖》陳組綬／《明職方地圖》陳組綬；千頃堂《明職方地圖》與明志《職方地圖》均三卷，陳組綬撰\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067546",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067546",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067546",
+        "request_no": "史１２０－００１１",
+        "edition": "刊本（序刊）::明崇禎:090000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4752497/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-04165",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/04165",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "04165",
+        "call_number": "211.2 04165",
+        "edition": "明崇禎丙子(九年, 1636)原刊本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1067546": {
+      "label": "內閣文庫藏本：明崇禎9年刊本（序刊）（史120-0011，3冊）"
+    },
+    "ncltw-04165": {
+      "label": "臺灣國家圖書館藏本：明崇禎丙子(九年, 1636)原刊本"
+    }
+  },
+  "additional_titles": [
+    "明職方地圖"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6en18su8",
+      "title": "明職方地圖",
+      "at": "2026-10-26T14:27:24Z",
+      "by": "A11-去重方案3b-近題前後綴",
+      "rule": "去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，A檔並",
+      "why": "近題同首位責任者：《職方地圖》陳組綬／《明職方地圖》陳組綬；千頃堂《明職方地圖》與明志《職方地圖》均三卷，陳組綬撰",
+      "author": "陳組綬",
+      "title_info": "陳組綬明職方地圖"
+    }
+  ],
+  "merged_from": [
+    "d59f6en18su8"
+  ]
 }

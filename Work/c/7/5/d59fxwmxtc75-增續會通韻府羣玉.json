@@ -30,8 +30,8 @@
       "summary": "共 1 個版本：清刻本（南京圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：i2otd38a1362w37d\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 3 批新建（hold 清零：子部E机械落地b1:E-M-new；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.1.0",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：i2otd38a1362w37d\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 3 批新建（hold 清零：子部E机械落地b1:E-M-new；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（第二轮）。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -69,6 +69,89 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3948721/manifest.json",
         "extent": "25冊"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2606898",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2606898",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2606898",
+        "edition": "寛永2 [1625]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101153731",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000057920",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101153731",
+        "nlk_control_no": "KOL000057920",
+        "holder": "국립중앙도서관",
+        "call_number": "한古朝41-67",
+        "edition": "肅宗 43(1717)"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101153746",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000025910",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101153746",
+        "nlk_control_no": "KOL000025910",
+        "holder": "국립중앙도서관",
+        "call_number": "古朝41-67-2",
+        "edition": "金屬活字本(戊申字) 1717"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07939",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07939",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07939",
+        "call_number": "309 07939",
+        "edition": "日本寬永二年(1625)刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07940",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07940",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07940",
+        "call_number": "309 07940",
+        "edition": "清康熙五十六年(1717)朝鮮校書館活字本"
+      }
     }
   ],
   "resource_groups": {
@@ -77,6 +160,21 @@
     },
     "naikaku-1084790": {
       "label": "內閣文庫藏本：延宝3年刊本（366-0033，25冊）"
+    },
+    "ndl-2606898": {
+      "label": "NDL藏本：寛永2 [1625]"
+    },
+    "korcis-101153731": {
+      "label": "韓國國立中央圖書館數字化藏本：肅宗 43(1717)"
+    },
+    "korcis-101153746": {
+      "label": "韓國國立中央圖書館數字化藏本：金屬活字本(戊申字) 1717"
+    },
+    "ncltw-07939": {
+      "label": "臺灣國家圖書館藏本：日本寬永二年(1625)刊本"
+    },
+    "ncltw-07940": {
+      "label": "臺灣國家圖書館藏本：清康熙五十六年(1717)朝鮮校書館活字本"
     }
   }
 }

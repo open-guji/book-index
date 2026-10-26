@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/k3okgp61jyiscjjg"
-      }
+      },
+      "entity_id": "hixi5jsi7eqf"
     }
   ],
   "dynasty": "清",
@@ -27,9 +28,53 @@
       "author_info": "清徐元潤撰",
       "section": "史部/金石考古類/金之屬",
       "summary": "共 4 個版本：甲戌叢編本（馆藏未载）；蜕學翁遺集本（馆藏未载）；清抄本（上海圖書館）；美術叢書本（馆藏未载）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "銅僊傳一卷",
+      "author_info": "",
+      "section": "叢書部/獨撰類/清代前期",
+      "summary": "共 1 個版本：（北京大學圖書館、國家圖書館、蘇州市圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：q1jpbkl4gyrj2y21、pv1er5wa1wsetc2b、60w7lulyj5lbglnw、c6p6jlcei4pyixm2\nE6 第 422 批新建（hold 清零：M-new；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：q1jpbkl4gyrj2y21、pv1er5wa1wsetc2b、60w7lulyj5lbglnw、c6p6jlcei4pyixm2\nE6 第 422 批新建（hold 清零：M-new；原 hold 原因：）\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fywydx14w《銅僊傳》 入本條。同題：單行本《銅僊傳》徐元潤（清）；《銅僊傳》（d59fywydx14w）为叢書子目，所屬叢書《蛻學翁遺集五種》（8rldoraxe804）撰者徐元潤（清）；卷數同",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-312001043347",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=312001043347",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001043347",
+        "edition": "清[1644-1911]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-312001043347": {
+      "label": "國圖藏本：清[1644-1911]"
+    }
+  },
+  "merged_in": [
+    {
+      "id": "d59fywydx14w",
+      "title": "銅僊傳",
+      "at": "2026-10-26T17:42:44Z",
+      "by": "A11-去重方案4",
+      "rule": "去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并",
+      "why": "同題：單行本《銅僊傳》徐元潤（清）；《銅僊傳》（d59fywydx14w）为叢書子目，所屬叢書《蛻學翁遺集五種》（8rldoraxe804）撰者徐元潤（清）；卷數同",
+      "title_info": "銅僊傳一卷"
+    }
+  ],
+  "merged_from": [
+    "d59fywydx14w"
+  ]
 }

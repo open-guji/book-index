@@ -29,7 +29,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-22 B3 併池（藏本條重出）：1evkq3ou2wp34 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 0→5）併入本條。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-22 B3 併池（藏本條重出）：1evkq3ou2wp34 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 0→5）併入本條。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 20
   },
@@ -48,8 +48,8 @@
   "dynasty_basis": "author_propagation",
   "period_upper": "ming",
   "period_upper_basis": "edition_bound：所掛版本中最早者為「明永樂五年內府刊本」——版本之年不早於成書之年，故不晚於 ming",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -118,6 +118,54 @@
         "nlc_fid": "412000000469",
         "edition": "明永樂3年[1405]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07588",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07588",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07588",
+        "call_number": "308 07588",
+        "edition": "明永樂五年(1407)內府刊小字本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07592",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07592",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07592",
+        "call_number": "308 07592",
+        "edition": "明永樂五年(1407)內府刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07593",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07593",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07593",
+        "call_number": "308 07593",
+        "edition": "明永樂五年(1407)內府刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -132,6 +180,15 @@
     },
     "nlc-412000000469": {
       "label": "國圖藏本：明永樂3年[1405]"
+    },
+    "ncltw-07588": {
+      "label": "臺灣國家圖書館藏本：明永樂五年(1407)內府刊小字本"
+    },
+    "ncltw-07592": {
+      "label": "臺灣國家圖書館藏本：明永樂五年(1407)內府刊本"
+    },
+    "ncltw-07593": {
+      "label": "臺灣國家圖書館藏本：明永樂五年(1407)內府刊本"
     }
   },
   "related_works": [

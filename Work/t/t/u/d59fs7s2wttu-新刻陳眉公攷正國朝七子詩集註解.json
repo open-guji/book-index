@@ -25,6 +25,18 @@
         "details": "http://data.library.sh.cn/entity/person/vekkomnkocd456a7"
       },
       "entity_id": "hixhd2h9be8z"
+    },
+    {
+      "name": "陳繼儒",
+      "role": "句解",
+      "dynasty": "明",
+      "role_basis": "據本條著錄補（日本館藏本另題此人，逐條覆核）：中國古籍總目「明李攀龍、明王世貞撰;明陳繼儒句解;明李士安補注」"
+    },
+    {
+      "name": "李士安",
+      "role": "補注",
+      "dynasty": "明",
+      "role_basis": "據本條著錄補（日本館藏本另題此人，逐條覆核）：中國古籍總目「明李攀龍、明王世貞撰;明陳繼儒句解;明李士安補注」"
     }
   ],
   "dynasty": "明",
@@ -41,7 +53,107 @@
       "summary": "共 1 個版本：明刻本（北京大學圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：cg8k3mhd1s8yv28y",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-08"
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：cg8k3mhd1s8yv28y\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n【馆藏线索补著者】日本館藏（國書／內閣／NDL）本另題陳繼儒（句解）、李士安（補注），本條著錄亦載，逐條覆核後補入 authors（2026-10-26）",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e2042",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e2042/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e2042",
+        "edition": "元禄2[1689]跋"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e2043",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e2043/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e2043",
+        "edition": "皇都(京都) : 梅村三郎兵衛, 延享4[1747] ( )"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100453541",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100453541",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100453541",
+        "holder": "東洋大哲学堂",
+        "edition": "刊 延享４",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100453541/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200012233",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200012233",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200012233",
+        "holder": "国文研日本漢詩文",
+        "edition": "刊 延享４",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200012233/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300095004",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300095004",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300095004",
+        "holder": "府中之島図石崎",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300095004/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-bunko31_e2042": {
+      "label": "早稲田藏本：元禄2[1689]跋"
+    },
+    "waseda-bunko31_e2043": {
+      "label": "早稲田藏本：皇都(京都) : 梅村三郎兵衛, 延享4[1747] ( )"
+    },
+    "kokusho-100453541": {
+      "label": "國書·東洋大哲学堂藏刊 延享４"
+    },
+    "kokusho-200012233": {
+      "label": "國書·国文研日本漢詩文藏刊 延享４"
+    },
+    "kokusho-300095004": {
+      "label": "國書·府中之島図石崎藏刊"
+    }
+  }
 }

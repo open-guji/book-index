@@ -176,6 +176,94 @@
         "nlc_fid": "411999008528",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068009",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068009",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068009",
+        "request_no": "２８７－００７７",
+        "edition": "刊本::文化:070000:；刊本::文政:120000:／印年:明治:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4904074/manifest.json",
+        "extent": "4冊"
+      },
+      "note": "合刻本：同册另含《魏鄭公諫續錄》（翟思忠，K19，只挂主书）"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1069920",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1069920",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1069920",
+        "request_no": "２８７－００８８",
+        "edition": "刊本::享和:020000:尾張藩",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4169686/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1069927",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1069927",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1069927",
+        "request_no": "２８７－００８２",
+        "edition": "刊本::文化:070000:；刊本::文政:120000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4276932/manifest.json",
+        "extent": "4冊"
+      },
+      "note": "合刻本：同册另含《魏鄭公諫續錄》（翟思忠，K19，只挂主书）"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02678",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02678",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02678",
+        "call_number": "205.24 02678",
+        "edition": "舊鈔本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02680",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02680",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02680",
+        "call_number": "205.24 02680",
+        "edition": "傳鈔明嘉靖丙午(二十五年, 1546)句吳華雲重刊本"
+      }
     }
   ],
   "measures": [
@@ -190,7 +278,7 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw463jp4w 與 11q37ph4megao 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…書二百餘篇，此乃所錄魏徵事蹟。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。",
+  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw463jp4w 與 11q37ph4megao 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…書二百餘篇，此乃所錄魏徵事蹟。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "《魏鄭公諫錄》五卷，唐王方慶撰。《宋史藝文志》、《欽定四庫全書總目》、《國史經籍志》所著卷數一致（五卷）。《欽定四庫全書總目》敘曰：「唐王方慶撰。方慶名綝，以字行，其先自丹陽徙咸陽。武后時，官至鸞台侍郎、同鳳閣鸞台平章事。終於太子左庶子，封石泉縣公。諡曰貞。事蹟具《新唐書》本傳。此書前題“尚書吏部郎中”，蓋高宗時所居官。而本傳不載，則史文脫略也。《傳》稱方慶博學練朝章，著書二百餘篇，此乃所錄魏徵事蹟。」今存。",
     "sources": [
@@ -200,8 +288,8 @@
       "直齋書錄解題"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "resource_groups": {
     "nlc-0398": {
@@ -212,6 +300,21 @@
     },
     "nlc-411999008528": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "naikaku-1068009": {
+      "label": "內閣文庫藏本：文化7年刊本 ;刊本（287-0077，4冊）"
+    },
+    "naikaku-1069920": {
+      "label": "內閣文庫藏本：享和2年刊本 尾張藩（287-0088，2冊）"
+    },
+    "naikaku-1069927": {
+      "label": "內閣文庫藏本：文化7年刊本 ;刊本（287-0082，4冊）"
+    },
+    "ncltw-02678": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
+    },
+    "ncltw-02680": {
+      "label": "臺灣國家圖書館藏本：傳鈔明嘉靖丙午(二十五年, 1546)句吳華雲重刊本"
     }
   }
 }

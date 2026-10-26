@@ -11,7 +11,8 @@
       "source": {
         "name": "中國古籍總目",
         "type": "url"
-      }
+      },
+      "entity_id": "hixicm3c066x"
     },
     {
       "name": "謝君惠",
@@ -37,9 +38,82 @@
       "author_info": "明謝君惠修;明黄尚賢纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 3 個版本：明崇禎四年刻本（日本尊經閣文庫）；抄本（湖北省圖書館）；清抄本（國家圖書館）"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "謝君恵梧州府志",
+      "summary": "謝君恵梧州府志"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：e7b7u1jy3dob33ra\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 430 批新建（hold 清零：J-yiyi另立补朝代；原 hold 原因：tier=存疑）\n第 440 批追加版本，源記錄：ho5wm5aj03mgoi0q、q2cvp7cyijs3kj3e",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：e7b7u1jy3dob33ra\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 430 批新建（hold 清零：J-yiyi另立补朝代；原 hold 原因：tier=存疑）\n第 440 批追加版本，源記錄：ho5wm5aj03mgoi0q、q2cvp7cyijs3kj3e\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f6eih1z40《梧州府志》 入本條。方志同修次重出：《[崇禎]梧州府志》黃尚賢纂、謝君惠修（中國古籍總目） ← 《梧州府志》謝君恵撰（千頃堂書目）。脚本初判 A同修次·同人(近形)·同卷·年号缺。逐簇核对：謝君恵/謝君惠異體，二十卷，同修次（崇禎）。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "juan_count": {
+    "number": 20
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 20
+    }
+  ],
+  "measure_info": "二十卷",
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "resources": [
+    {
+      "id": "commons",
+      "name": "维基共享资源",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC892-412000013003-382908_%E6%A2%A7%E5%B7%9E%E5%BA%9C%E5%BF%97_%E5%B4%87%E7%A6%8E_%E4%BA%8C%E5%8D%81%E5%8D%B7_%E7%AC%AC1%E5%86%8A.pdf",
+      "types": [
+        "image"
+      ],
+      "root_type": "catalog",
+      "metadata": {
+        "format": "PDF",
+        "edition": "抄本",
+        "year": "清初[1644-1722]",
+        "note": "本链接为扫描册 第1冊；不代表全书齐备。"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000013003",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000013003",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000013003",
+        "edition": "清初[1644-1722]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-412000013003": {
+      "label": "國圖藏本：清初[1644-1722]"
+    }
+  },
+  "additional_titles": [
+    "梧州府志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6eih1z40",
+      "title": "梧州府志",
+      "at": "2026-10-26T11:57:20Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[崇禎]梧州府志》黃尚賢纂、謝君惠修（中國古籍總目） ← 《梧州府志》謝君恵撰（千頃堂書目）。脚本初判 A同修次·同人(近形)·同卷·年号缺。逐簇核对：謝君恵/謝君惠異體，二十卷，同修次（崇禎）。",
+      "author": "謝君恵",
+      "title_info": "謝君恵梧州府志"
+    }
+  ],
+  "merged_from": [
+    "d59f6eih1z40"
+  ]
 }

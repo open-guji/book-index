@@ -37,7 +37,7 @@
       "中國古籍總目"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59fy7s4kfeo《杭州上天竺講寺誌》 入本條。同题同首位责任者：《杭州上天竺講寺誌》釋廣賓(明,15卷,2版本)／《杭州上天竺講寺誌》釋廣賓(清,15卷,2版本)；B 档逐组复核判同一作品：同一順治三年刻本與武林掌故叢編本，釋廣賓十五卷；flags=dyn_gap1,related_pend",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59fy7s4kfeo《杭州上天竺講寺誌》 入本條。同题同首位责任者：《杭州上天竺講寺誌》釋廣賓(明,15卷,2版本)／《杭州上天竺講寺誌》釋廣賓(清,15卷,2版本)；B 档逐组复核判同一作品：同一順治三年刻本與武林掌故叢編本，釋廣賓十五卷；flags=dyn_gap1,related_pend\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 15
   },
@@ -54,8 +54,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -64,6 +64,22 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-03850_%E6%9D%AD%E5%B7%9E%E4%B8%8A%E5%A4%A9%E7%AB%BA%E8%AC%9B%E5%AF%BA%E8%AA%8C.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03850",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03850",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03850",
+        "call_number": "210.43 03850",
+        "edition": "明崇禎間(1628-1644)刊本"
+      }
     }
   ],
   "merged_in": [
@@ -75,12 +91,15 @@
       "rule": "去重方案部分3a-2：同题同首位责任者 B 档逐组复核并",
       "why": "同题同首位责任者：《杭州上天竺講寺誌》釋廣賓(明,15卷,2版本)／《杭州上天竺講寺誌》釋廣賓(清,15卷,2版本)；B 档逐组复核判同一作品：同一順治三年刻本與武林掌故叢編本，釋廣賓十五卷；flags=dyn_gap1,related_pend",
       "author": "釋廣賓",
-      "title_info": [
-        "杭州上天竺講寺誌十五卷"
-      ]
+      "title_info": "杭州上天竺講寺誌十五卷"
     }
   ],
   "merged_from": [
     "d59fy7s4kfeo"
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-03850": {
+      "label": "臺灣國家圖書館藏本：明崇禎間(1628-1644)刊本"
+    }
+  }
 }

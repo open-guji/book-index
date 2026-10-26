@@ -92,6 +92,91 @@
         "nlc_fid": "001945406",
         "edition": "武英殿   清乾隆間[1736-1795]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i02_00130",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i02/i02_00130/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i02_00130",
+        "edition": "[広州] : 広東書局, 同治7[1868]"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067930",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067930",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067930",
+        "request_no": "史１１４－０００１",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4754595/manifest.json",
+        "extent": "112冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067620",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067620",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067620",
+        "request_no": "３５７－０００６",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5046970/manifest.json",
+        "extent": "112冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067571",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067571",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067571",
+        "request_no": "２９７－００６０",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4913122/manifest.json",
+        "extent": "144冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05001",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05001",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05001",
+        "call_number": "214 05001",
+        "edition": "清乾隆間(1736-1795)四庫館批改底稿本"
+      }
     }
   ],
   "sources": [],
@@ -151,9 +236,9 @@
     "四庫提要",
     "欽定四庫全書總目提要"
   ],
-  "revision": "1.5.0",
-  "revised_at": "2026-10-24",
-  "ai_note": "2026-08-23 related_works 整飭：題名同步 1 處、(id,relation) 重複去 0 條。題名依 SCHEMA〈關聯詞表〉「應與目標 Work 的 title 保持一致」鏡射目標之現題；去重只去單側冗餘，雙向之對稱未動（反向側逐條驗過皆只一條）。按：production 無校驗在管（chk 只跑 draft），此二事遂積至 51／43。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ev3bdiaqrwn4` 已併入 `d59f2gf26igx`（《論範》：四庫提要「題元進士歐陽起鳴撰」，與 production 條撰人同），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ev3bcjpgrpxc` 已併入 `d59f2hf4394w`（《張氏可書》一卷：四庫提要謂不詳撰人而稱引為「張氏」，清史稿條著撰人張知甫，同題同卷），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ev3bbfapa39c` 已併入 `d59f2ni4xukk`（《名公書判清明集》：輯宋元人判語之書，題名獨一，明張四維校刻；十七卷本與十四卷本同書），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ev3bavg72olc` 已併入 `d59f2nej34ld`（《海道經》一卷：二條皆不著撰人，同題同卷，四庫總目與四庫存目所指為一），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ev3bal0qrv28` 已併入 `d59f2nfizfgj`（《忠傳》：四庫總目云「載於《永樂大典》中……不著撰人」，四庫存目叢書條亦「影印永樂大典本」「明□□撰」（即不著撰人）——），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-09-06 撰人欄原作「紀昀等」，「等」謂不止一人而非名之一部，今取主名「紀昀」；「等」之義存於 indexed_by 之著錄原文。（做秦榮光本《補晉書藝文志》寫庫時所見）\n\n2026-10-19 GUJI-240 上線前清理：description 之「乾隆五十四年（1789）武英殿刊本初次行世」本陶湘《故宮殿本書目》之誤，殿本乾隆六十年十一月刊竣（崔富章考）。資源去識典二條、CText 全文（版本不清），去 IA「siku-zongmutiyao」40 冊（缺冊十六至二十，OCR 不可讀，用戶確認為萬有文庫本，已移至 96mmyltp1c）。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "revision": "1.8.0",
+  "revised_at": "2026-10-26",
+  "ai_note": "2026-08-23 related_works 整飭：題名同步 1 處、(id,relation) 重複去 0 條。題名依 SCHEMA〈關聯詞表〉「應與目標 Work 的 title 保持一致」鏡射目標之現題；去重只去單側冗餘，雙向之對稱未動（反向側逐條驗過皆只一條）。按：production 無校驗在管（chk 只跑 draft），此二事遂積至 51／43。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ev3bdiaqrwn4` 已併入 `d59f2gf26igx`（《論範》：四庫提要「題元進士歐陽起鳴撰」，與 production 條撰人同），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ev3bcjpgrpxc` 已併入 `d59f2hf4394w`（《張氏可書》一卷：四庫提要謂不詳撰人而稱引為「張氏」，清史稿條著撰人張知甫，同題同卷），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ev3bbfapa39c` 已併入 `d59f2ni4xukk`（《名公書判清明集》：輯宋元人判語之書，題名獨一，明張四維校刻；十七卷本與十四卷本同書），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ev3bavg72olc` 已併入 `d59f2nej34ld`（《海道經》一卷：二條皆不著撰人，同題同卷，四庫總目與四庫存目所指為一），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1ev3bal0qrv28` 已併入 `d59f2nfizfgj`（《忠傳》：四庫總目云「載於《永樂大典》中……不著撰人」，四庫存目叢書條亦「影印永樂大典本」「明□□撰」（即不著撰人）——），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-09-06 撰人欄原作「紀昀等」，「等」謂不止一人而非名之一部，今取主名「紀昀」；「等」之義存於 indexed_by 之著錄原文。（做秦榮光本《補晉書藝文志》寫庫時所見）\n\n2026-10-19 GUJI-240 上線前清理：description 之「乾隆五十四年（1789）武英殿刊本初次行世」本陶湘《故宮殿本書目》之誤，殿本乾隆六十年十一月刊竣（崔富章考）。資源去識典二條、CText 全文（版本不清），去 IA「siku-zongmutiyao」40 冊（缺冊十六至二十，OCR 不可讀，用戶確認為萬有文庫本，已移至 96mmyltp1c）。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
   "period": "qing",
   "period_basis": "補 period（2026-08-25）：《欽定四庫全書》一系，清乾隆間敕修，紀昀等總其事。本條無 period 者，以其升格在 period 欄設立之前。",
   "updated_at": "2026-08-26T00:00:00+00:00",
@@ -172,6 +257,21 @@
     },
     "nlc-001945406": {
       "label": "國圖藏本：武英殿   清乾隆間[1736-1795]"
+    },
+    "waseda-i02_00130": {
+      "label": "早稲田藏本：[広州] : 広東書局, 同治7[1868]"
+    },
+    "naikaku-1067930": {
+      "label": "內閣文庫藏本：清刊本（史114-0001，112冊）"
+    },
+    "naikaku-1067620": {
+      "label": "內閣文庫藏本：清刊本（357-0006，112冊）"
+    },
+    "naikaku-1067571": {
+      "label": "內閣文庫藏本：清刊本（297-0060，144冊）"
+    },
+    "ncltw-05001": {
+      "label": "臺灣國家圖書館藏本：清乾隆間(1736-1795)四庫館批改底稿本"
     }
   }
 }

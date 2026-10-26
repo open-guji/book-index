@@ -189,6 +189,53 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3670046/manifest.json",
         "extent": "8冊"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1991",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1991/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1991",
+        "edition": "平安(京都) : 松月堂, ( )"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09924",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09924",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09924",
+        "call_number": "402.43 09924",
+        "edition": "明末海虞毛氏汲古閣刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14152-0001",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14152-0001",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14152-0001",
+        "call_number": "403.242 14152-0001",
+        "edition": "明末虞山毛氏汲古閣刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -200,6 +247,15 @@
     },
     "naikaku-3611384": {
       "label": "內閣文庫藏本：江戸刊本（312-0211，8冊）"
+    },
+    "waseda-bunko31_e1991": {
+      "label": "早稲田藏本：平安(京都) : 松月堂, ( )"
+    },
+    "ncltw-09924": {
+      "label": "臺灣國家圖書館藏本：明末海虞毛氏汲古閣刊本"
+    },
+    "ncltw-14152-0001": {
+      "label": "臺灣國家圖書館藏本：明末虞山毛氏汲古閣刊本"
     }
   },
   "measures": [
@@ -214,7 +270,7 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx7o4203k 與 11q37spvv1ips 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 1–3 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字。未覆核原書。使用者本輪之裁定是「只補頭部約 766 條」，而機械撮述之法成本極低（不費人力，且所組織者皆本條已有之信息），故不止於頭部——凡材料足以成文者（有敘錄，或諸志卷數有異同）皆補之；材料不足者（無敘錄而諸志卷數又一致）仍不生成——其 desc 止是覆述著錄，讀者從 indexed_by 一望即知，寫與不寫同。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…詩文贊為三十卷，則嶽亦誤記矣。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59fxu8ftr0h《禪月集》 入本條。同题同首位责任者：《禪月集》釋貫休(唐,10/25卷,14版本)／《禪月集》釋貫休(五代,25卷,2版本)；B 档逐组复核判同一作品：釋貫休禪月集二十五卷，同書；flags=dyn_gap1",
+  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx7o4203k 與 11q37spvv1ips 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 1–3 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字。未覆核原書。使用者本輪之裁定是「只補頭部約 766 條」，而機械撮述之法成本極低（不費人力，且所組織者皆本條已有之信息），故不止於頭部——凡材料足以成文者（有敘錄，或諸志卷數有異同）皆補之；材料不足者（無敘錄而諸志卷數又一致）仍不生成——其 desc 止是覆述著錄，讀者從 indexed_by 一望即知，寫與不寫同。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…詩文贊為三十卷，則嶽亦誤記矣。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59fxu8ftr0h《禪月集》 入本條。同题同首位责任者：《禪月集》釋貫休(唐,10/25卷,14版本)／《禪月集》釋貫休(五代,25卷,2版本)；B 档逐组复核判同一作品：釋貫休禪月集二十五卷，同書；flags=dyn_gap1\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "《禪月集》二十五卷，唐釋貫休撰。《欽定四庫全書總目》、《書目答問》所著卷數一致（二十五卷）。《欽定四庫全書總目》敘曰：「唐釋貫休撰。貫休字德隱，姓姜氏，蘭谿人。舊本題曰梁人。案貫休初以乾寧三年依荊帥成汭。後曆游高季興、錢鏐間。晚乃入蜀依王建。至乾德癸未卒，年八十一。終身實未入梁，舊本誤也。陶岳《五代史補》稱貫休《西嶽集》四十卷，吳融序之。然集末載其門人曇域後序，編次歌詩文贊為三十卷，則嶽亦誤記矣。」今存。",
     "sources": [
@@ -223,8 +279,8 @@
       "直齋書錄解題"
     ]
   },
-  "revision": "1.4.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.6.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "merged_in": [
     {
@@ -235,9 +291,7 @@
       "rule": "去重方案部分3a-2：同题同首位责任者 B 档逐组复核并",
       "why": "同题同首位责任者：《禪月集》釋貫休(唐,10/25卷,14版本)／《禪月集》釋貫休(五代,25卷,2版本)；B 档逐组复核判同一作品：釋貫休禪月集二十五卷，同書；flags=dyn_gap1",
       "author": "釋貫休",
-      "title_info": [
-        "禪月集二十五卷補遺一卷"
-      ]
+      "title_info": "禪月集二十五卷補遺一卷"
     }
   ],
   "merged_from": [

@@ -30,7 +30,70 @@
       "summary": "共 7 個版本：清嘉慶九年姑蘇博古堂刻本（天津圖書館）；清乾隆二十八年檢香齋刻本（上海圖書館）；清道光二十四年瞻雲閣刻本（北京大學圖書館、上海圖書館）；清光華堂重刻本（上海圖書館）；清乾隆間清妙軒刻本（上海圖書館）；清寶寧堂刻本（長春市圖書館）；清乾隆七年綠蔭堂刻本（國家圖書館、南京圖書館、吉林省圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：nu7wgkzczw48uvsq、5eyxdttblg8yzvcv、6jehoigrsbpj1aqo、nw1ibcf3tlsfx8ne、fc2qo3rd0qrrk2yz、6nl1hu2knjivibxv、c7jyldbblicl8sav\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 9 批新建（hold 清零：DE另立；原 hold 原因：near_dup:d59f2muel7up(prod) 類腋補遺 sim=1.00｜本条 類腋）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：nu7wgkzczw48uvsq、5eyxdttblg8yzvcv、6jehoigrsbpj1aqo、nw1ibcf3tlsfx8ne、fc2qo3rd0qrrk2yz、6nl1hu2knjivibxv、c7jyldbblicl8sav\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 9 批新建（hold 清零：DE另立；原 hold 原因：near_dup:d59f2muel7up(prod) 類腋補遺 sim=1.00｜本条 類腋）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条、美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-i03_00471",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i03/i03_00471/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i03_00471",
+        "edition": "[蘇州] : 緑蔭堂, 乾隆7-30[1742-1765]序"
+      }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-BV040109363",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb00080041",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb00080041",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00080041/manifest",
+        "shelfmark": "L.sin. A 8-1/14",
+        "volume_count": 4,
+        "edition": "[S.l.] 1744"
+      },
+      "details": "多冊本，站方分 4 條著錄；此處鏈接其中排序最前一條（bsb00080041），其餘各冊見站方"
+    },
+    {
+      "id": "loc",
+      "group": "loc-2014514013",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2014514013/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2014514013",
+        "iiif_manifest": "https://www.loc.gov/item/2014514013/manifest.json",
+        "edition": "[China : publisher not identified, Qing Qianlong yi you, 30 nian, 1765] 1765"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-i03_00471": {
+      "label": "早稲田藏本：[蘇州] : 緑蔭堂, 乾隆7-30[1742-1765]序"
+    },
+    "bsb-BV040109363": {
+      "label": "巴伐利亞州立圖書館藏本：[S.l.] 1744"
+    },
+    "loc-2014514013": {
+      "label": "美國國會圖書館藏本：[China : publisher not identified, Qing Qianlong yi you, 30 nian, 1765] 1765"
+    }
+  }
 }

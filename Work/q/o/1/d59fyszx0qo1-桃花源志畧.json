@@ -23,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/na84tcy7ov1i0xd3"
-      }
+      },
+      "entity_id": "hixicld76xqe"
     }
   ],
   "dynasty": "清",
@@ -40,9 +41,9 @@
       "summary": "共 2 個版本：清道光二十六年刻光緒十七年胡氏研經堂重修本（南京圖書館、國家圖書館、浙江圖書館、上海圖書館）；清道光二十六年刻本（南京圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：q3hgkabsv5i83q7b、tlkli2w185vwf2za\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 421 批新建（hold 清零：M-new；原 hold 原因：）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：q3hgkabsv5i83q7b、tlkli2w185vwf2za\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 421 批新建（hold 清零：M-new；原 hold 原因：）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -58,11 +59,30 @@
         "nlc_fid": "312001063551",
         "edition": ""
       }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2011457112",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2011457112/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2011457112",
+        "iiif_manifest": "https://www.loc.gov/item/2011457112/manifest.json",
+        "edition": "[China : s.n., Qing Daoguang 26 nian, 1846] 1846"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001063551": {
       "label": "國圖藏本："
+    },
+    "loc-2011457112": {
+      "label": "美國國會圖書館藏本：[China : s.n., Qing Daoguang 26 nian, 1846] 1846"
     }
   }
 }

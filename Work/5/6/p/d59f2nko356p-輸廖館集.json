@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 A11-去重方案3a-2丁 併條（rule=去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并）：併 d59f6egbn4e8《輸寥館集》 入本條。题名只差一字（— 误字：寥廖形近，千頃堂無卷數，著者范允臨唯此一集）。《輸廖館集》范允臨()／《輸寥館集》范允臨()；首位责任者同一，朝代兼容，著作领域不冲突\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -56,11 +56,38 @@
         "nlc_fid": "2261",
         "edition": "清初[1644-1722]"
       }
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:CADAL02117269_%E8%BC%B8%E5%AF%A5%E9%A4%A8%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89.djvu"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-12916",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/12916",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "12916",
+        "call_number": "402.6 12916",
+        "edition": "清順治間(1644-1661)吳趨范氏刊乾隆19年(1754)修補本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-2261": {
       "label": "國圖藏本：清初[1644-1722]"
+    },
+    "ncltw-12916": {
+      "label": "臺灣國家圖書館藏本：清順治間(1644-1661)吳趨范氏刊乾隆19年(1754)修補本"
     }
   },
   "indexed_by": [
@@ -71,6 +98,33 @@
       "author_info": "明范允臨撰",
       "section": "集部/別集類/明代之屬",
       "summary": "共 3 個版本：明萬曆間刻本（上海圖書館）；清順治間刻本（上海圖書館）；清順治間吳趨范氏刻乾隆十九年補修本（臺灣圖書館）"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "范允臨輸寥館集",
+      "author_info": "字長倩華亭人",
+      "summary": "范允臨輸寥館集⟨字長倩華亭人⟩"
     }
+  ],
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "additional_titles": [
+    "輸寥館集"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6egbn4e8",
+      "title": "輸寥館集",
+      "at": "2026-10-26T14:19:00Z",
+      "by": "A11-去重方案3a-2丁",
+      "rule": "去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并",
+      "why": "题名只差一字（— 误字：寥廖形近，千頃堂無卷數，著者范允臨唯此一集）。《輸廖館集》范允臨()／《輸寥館集》范允臨()；首位责任者同一，朝代兼容，著作领域不冲突",
+      "author": "范允臨",
+      "title_info": "范允臨輸寥館集"
+    }
+  ],
+  "merged_from": [
+    "d59f6egbn4e8"
   ]
 }

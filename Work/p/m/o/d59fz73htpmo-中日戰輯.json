@@ -38,7 +38,7 @@
       "summary": "共 1 個版本：清光緒二十二年上海書局石印本（浙江圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：tllyfdhlm0utasvm、n68ic41jdqdv45gy\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 431 批新建（hold 清零：N-anon-clean；原 hold 原因：anonymous_author）\n第 440 批追加版本，源記錄：j2323h6u543s25cj\n同題同作者並條（作者別名與並條口徑-共用 A檔：同名；用戶 10-18 確認）（源 Work 1exp0i3zqlngm《中日戰輯》已並入；其作者寫法：王炳耀）",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：tllyfdhlm0utasvm、n68ic41jdqdv45gy\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 431 批新建（hold 清零：N-anon-clean；原 hold 原因：anonymous_author）\n第 440 批追加版本，源記錄：j2323h6u543s25cj\n同題同作者並條（作者別名與並條口徑-共用 A檔：同名；用戶 10-18 確認）（源 Work 1exp0i3zqlngm《中日戰輯》已並入；其作者寫法：王炳耀）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
   "merged_in": [
     {
       "id": "1exp0i3zqlngm",
@@ -49,6 +49,50 @@
       "why": "同題同作者並條（作者別名與並條口徑-共用 A檔：同名；用戶 10-18 確認）"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-20"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-monjo27_d0065",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/monjo27/monjo27_d0065/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "monjo27_d0065",
+        "edition": "写, [書写年不明]"
+      },
+      "note": "存巻1-3（抄本）"
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101123692",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000015614",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101123692",
+        "nlk_control_no": "KOL000015614",
+        "holder": "국립중앙도서관",
+        "call_number": "古6908-9",
+        "edition": "石版本(石印) 光緖 22(1896)"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-monjo27_d0065": {
+      "label": "早稲田藏本：写, [書写年不明]"
+    },
+    "korcis-101123692": {
+      "label": "韓國國立中央圖書館數字化藏本：石版本(石印) 光緖 22(1896)"
+    }
+  }
 }

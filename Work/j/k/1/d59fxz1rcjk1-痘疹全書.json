@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/agawbwwahvcwte65"
-      }
+      },
+      "entity_id": "hixhd2h9bolm"
     }
   ],
   "dynasty": "明",
@@ -29,7 +30,53 @@
       "summary": "共 1 個版本：明刻本（北京大學圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5p5re7gqumilln1n\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5p5re7gqumilln1n\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083970",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083970",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083970",
+        "request_no": "３０４－００６６",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4917418/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079744",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079744",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079744",
+        "request_no": "３０４－００５９",
+        "edition": "写本::文政:030000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4917413/manifest.json",
+        "extent": "2冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1083970": {
+      "label": "內閣文庫藏本：江戸写本（304-0066，2冊）"
+    },
+    "naikaku-1079744": {
+      "label": "內閣文庫藏本：文政3年写本（304-0059，2冊）"
+    }
+  }
 }

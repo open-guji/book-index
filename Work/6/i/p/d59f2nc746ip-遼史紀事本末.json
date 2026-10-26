@@ -75,6 +75,41 @@
       "types": [
         "image"
       ]
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101175599",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000011426",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101175599",
+        "nlk_control_no": "KOL000011426",
+        "holder": "국립중앙도서관",
+        "call_number": "古2247-9",
+        "part": "卷1-16",
+        "edition": "石版本 光緖 25(1899)"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15854",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15854",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15854",
+        "call_number": "203.25 15854",
+        "edition": "清光緒二十九年(1903)李氏栘鄂樓刊本"
+      }
     }
   ],
   "description": {
@@ -83,7 +118,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1evkao5s8uigw 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：31hyr4yqszzba(李有棠)（不同作者，故新建獨立 Work）。 | 從 1evkpyq7v8a9s 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀011291-011294）。阶段 5 兜底建立。\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 12，與著錄原文（清史稿藝文志：「遼史紀事本末」）所載之 40 卷不合，今據原文訂正。",
+  "ai_note": "從 1evkao5s8uigw 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：31hyr4yqszzba(李有棠)（不同作者，故新建獨立 Work）。 | 從 1evkpyq7v8a9s 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀011291-011294）。阶段 5 兜底建立。\n\n2026-08-19 卷數欄全庫比對：本條 juan_count 原作 12，與著錄原文（清史稿藝文志：「遼史紀事本末」）所載之 40 卷不合，今據原文訂正。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "related_works": [
     {
       "id": "d59f2gosq0ht",
@@ -95,6 +130,14 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "korcis-101175599": {
+      "label": "韓國國立中央圖書館數字化藏本：石版本 光緖 25(1899)"
+    },
+    "ncltw-15854": {
+      "label": "臺灣國家圖書館藏本：清光緒二十九年(1903)李氏栘鄂樓刊本"
+    }
+  }
 }

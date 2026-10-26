@@ -174,6 +174,30 @@
         "nlc_fid": "411999013154",
         "edition": "明萬曆45年[1617]"
       }
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:SSID-13028904_%E7%A8%8B%E6%B0%8F%E6%BC%94%E8%95%83%E9%9C%B2_1.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07115",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07115",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07115",
+        "call_number": "308 07115",
+        "edition": "明嘉靖辛亥(三十年, 1551)新安程煦校刊本"
+      }
     }
   ],
   "measures": [
@@ -191,14 +215,14 @@
       "欽定四庫全書總目"
     ]
   },
-  "ai_note": "從 1evkaovo8negw 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwssjy874 與 11q37ri6ojxfk 同指文淵閣寫本一實物，今併於後者。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…，誤以仲舒為小說家。其論良是。」今存。本書收入《國立故宮博物院善本舊…」），而 loss_status 未填，今據以補為 extant。",
+  "ai_note": "從 1evkaovo8negw 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwssjy874 與 11q37ri6ojxfk 同指文淵閣寫本一實物，今併於後者。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…，誤以仲舒為小說家。其論良是。」今存。本書收入《國立故宮博物院善本舊…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-26 A11-去重方案3a-2丁 併條（rule=去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并）：併 d59f2hpu7t34《程氏演蕃露》 入本條。题名只差一字（— 通用：繁蕃通用，宋刻本題程氏演蕃露十六卷）。《程氏演蕃露》程大昌(16卷)／《程氏演繁露》程大昌(16卷)；首位责任者同一，朝代兼容，著作领域不冲突\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "updated_at": "2026-08-09T08:58:29+00:00",
   "dynasty": "南宋",
   "dynasty_basis": "据唯一 author.dynasty「南宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「南宋」自动归并",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "loss_status_basis": "今存。，誤以仲舒為小說家。其論良是。」今存。本書收入《國立故宮博物院善本舊",
   "resource_groups": {
@@ -219,6 +243,26 @@
     },
     "nlc-411999013154": {
       "label": "國圖藏本：明萬曆45年[1617]"
+    },
+    "ncltw-07115": {
+      "label": "臺灣國家圖書館藏本：明嘉靖辛亥(三十年, 1551)新安程煦校刊本"
     }
-  }
+  },
+  "additional_titles": [
+    "程氏演蕃露"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2hpu7t34",
+      "title": "程氏演蕃露",
+      "at": "2026-10-26T11:06:57Z",
+      "by": "A11-去重方案3a-2丁",
+      "rule": "去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并",
+      "why": "题名只差一字（— 通用：繁蕃通用，宋刻本題程氏演蕃露十六卷）。《程氏演蕃露》程大昌(16卷)／《程氏演繁露》程大昌(16卷)；首位责任者同一，朝代兼容，著作领域不冲突",
+      "author": "程大昌"
+    }
+  ],
+  "merged_from": [
+    "d59f2hpu7t34"
+  ]
 }

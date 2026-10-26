@@ -14,6 +14,14 @@
       "source_bid": "d59f2hl0cmio",
       "title_info": "希運傳心法要",
       "summary": "希運傳心法要一卷"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "筠州黃檗山斷際禪師傳心法要一卷",
+      "author_info": "唐釋希運說;唐裴休集",
+      "section": "子部/釋家類/大藏之屬",
+      "summary": "共 1 個版本：宋大觀三年福州東禪等覺院刻（馆藏未载）"
     }
   ],
   "id": "d59f2q56pjpd",
@@ -33,7 +41,109 @@
       "name_basis": "2026-08-27 HBCC反向比對衍生審核（任務A，C/D類）：候選原無此撰人，據本條（新唐志原文，HBCC獨立佐證）補。未覆核原書、未與他志互證。"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-08-27",
-  "ai_note": "2026-08-27 HBCC反向比對衍生審核（任務A，C類）：新唐書藝文志候選「希運傳心法要」（HBCC entry_id 10012021002668：傳心法要 1卷 希運撰 (唐)裴休編 亦見《新唐書·藝文志》）。候選僅列裴休（編），本書即黄檗希運禪師語錄，裴休編集成書，希運為原述者，今補列（role=述）。未覆核原書。"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "ai_note": "2026-08-27 HBCC反向比對衍生審核（任務A，C類）：新唐書藝文志候選「希運傳心法要」（HBCC entry_id 10012021002668：傳心法要 1卷 希運撰 (唐)裴休編 亦見《新唐書·藝文志》）。候選僅列裴休（編），本書即黄檗希運禪師語錄，裴休編集成書，希運為原述者，今補列（role=述）。未覆核原書。\n\n2026-10-26 A11-去重上图-并 併條（rule=去重细拆上图-并 B 档：总目同一 work＋题名归一同／异写＋首位责任者同一＋卷数朝代相容）：併 d59fygnt4wsg《筠州黃檗山斷際禪師傳心法要》 入本條。上图藏书 work_uri fkaol7auqhgr0s1a 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《傳心法要》裴休、希運(-,-卷)／《筠州黃檗山斷際禪師傳心法要》希運、裴休(唐,-卷)；傳心法要即筠州黃檗山斷際禪師傳心法要；希運述、裴休集",
+  "dynasty": "唐",
+  "period": "sui-tang",
+  "period_basis": "據 authors[0].dynasty「唐」",
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-412000001083",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000001083",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000001083",
+        "edition": "明永樂12年[1414]"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200015543",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200015543",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200015543",
+        "holder": "国文研",
+        "edition": "刊 寛永９",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200015543/manifest"
+      },
+      "note": "合刻本：同册另含《黄檗斷際禪師宛陵録》（K19，只挂主書）"
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300070919",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300070919",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300070919",
+        "holder": "立教大図",
+        "edition": "刊 寛永９",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300070919/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2537819",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2537819",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2537819",
+        "edition": "寛永9"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-412000001083": {
+      "label": "國圖藏本：明永樂12年[1414]"
+    },
+    "kokusho-200015543": {
+      "label": "國書·国文研藏刊 寛永９"
+    },
+    "kokusho-300070919": {
+      "label": "國書·立教大図藏刊 寛永９"
+    },
+    "ndl-2537819": {
+      "label": "NDL藏本：寛永9"
+    }
+  },
+  "additional_titles": [
+    "筠州黃檗山斷際禪師傳心法要"
+  ],
+  "merged_in": [
+    {
+      "id": "d59fygnt4wsg",
+      "title": "筠州黃檗山斷際禪師傳心法要",
+      "at": "2026-10-26T14:57:05Z",
+      "by": "A11-去重上图-并",
+      "rule": "去重细拆上图-并 B 档：总目同一 work＋题名归一同／异写＋首位责任者同一＋卷数朝代相容",
+      "why": "上图藏书 work_uri fkaol7auqhgr0s1a 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《傳心法要》裴休、希運(-,-卷)／《筠州黃檗山斷際禪師傳心法要》希運、裴休(唐,-卷)；傳心法要即筠州黃檗山斷際禪師傳心法要；希運述、裴休集",
+      "author": "希運、裴休",
+      "title_info": "筠州黃檗山斷際禪師傳心法要一卷"
+    }
+  ],
+  "merged_from": [
+    "d59fygnt4wsg"
+  ]
 }
