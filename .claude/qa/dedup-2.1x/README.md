@@ -10,7 +10,7 @@
 5. `promotions/2d.json` 一处 production_id 指被并沈璟条，改指 keeper。索引用 `dedup-confirmed-163/update_index.py` 只刷本批条目。
 
 ## 结果
-- 并 **325 组，被并 332 条**（判定表可并 316 组＋线索 9 组；孔鮒一组 A12 L5 已于同日先并，合 main 时取其版本、出台账），作者位全部改指 keeper；摘混挂作者位 7 处、改切分错误作者位 6 处。台账 `merges.json`，逐组补字段与改指明细 `report.json`。
+- 并 **324 组，被并 331 条**（判定表可并 315 组＋线索 9 组；孔鮒、鬻熊两组 A12 已于同日先并，合 main 时取其版本、出台账），作者位全部改指 keeper；摘混挂作者位 7 处、改切分错误作者位 6 处。台账 `merges.json`，逐组补字段与改指明细 `report.json`。
 - 门禁：check_v2 ERROR 0；check-classification 0；audit-merge-ledger T/L/P/R/D 全 0（草稿库无指向被并者的引用）；check_promo_dup 0；check-duplicate-audit PASS；legacy-scan 全 0。
 - 分立／分立倾向／存疑登记 `../dedup-judged/2.1续.tsv`（每条一行）；`scripts/dedup-census.py` 的「E 人物重名」加一行「其中全员已登记判定」。本批后普查：同名组 1,506→**1,207**，其中 1,180 组全员已登记，未判 27 组。
 
