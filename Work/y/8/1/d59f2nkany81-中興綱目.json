@@ -17,15 +17,15 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善005984-005995），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n卷數據總目補（記錄十卷；目標Work原無卷數）（Sawyer 2026-10-17，批417，Sabine口徑）",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善005984-005995），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n卷數據總目補（記錄十卷；目標Work原無卷數）（Sawyer 2026-10-17，批417，Sabine口徑）\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "id": "d59f2nkany81",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -34,6 +34,22 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-01823_%E4%B8%AD%E8%88%88%E7%B6%B1%E7%9B%AE.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01823",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01823",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01823",
+        "call_number": "202.1 01823",
+        "edition": "清初鈔本"
+      }
     }
   ],
   "indexed_by": [
@@ -49,5 +65,10 @@
   "juan_count": {
     "number": 10,
     "unit": "卷"
+  },
+  "resource_groups": {
+    "ncltw-01823": {
+      "label": "臺灣國家圖書館藏本：清初鈔本"
+    }
   }
 }

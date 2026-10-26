@@ -28,7 +28,7 @@
       "國史經籍志"
     ]
   },
-  "ai_note": "从卷二 ambiguous 新建：unresolved [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-24 隋唐 T7·焦竑孤證標記（使用者裁定）：**本條之著錄止見焦竑《國史經籍志》一源**。焦氏抄撮舊目而訛誤極多——撰人括注一葉之內可以訛遍，卷數亦每與諸志不合（本輪所見：《李淳風懸鏡》作「千卷」而舊唐志十卷、《唐春秋》作二十卷而新唐志與經義考所引唐志皆三十卷）；其孤證不足以立一書，亦不足為某書明代尚存之證（skill 坑 6）。使用者 2026-08-24 裁定：**升，但加標記備日後複核**——焦氏之誤多在撰人與卷數之細節而非「此書不存在」，條目本身立得住；日後得他源（新唐志、崇文總目、宋志）交叉核對時，以本標記批量撈出。登記見 `.claude/known-issues/S3-隋唐焦竑孤證待覆核-20260824.json`。",
+  "ai_note": "从卷二 ambiguous 新建：unresolved [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-24 隋唐 T7·焦竑孤證標記（使用者裁定）：**本條之著錄止見焦竑《國史經籍志》一源**。焦氏抄撮舊目而訛誤極多——撰人括注一葉之內可以訛遍，卷數亦每與諸志不合（本輪所見：《李淳風懸鏡》作「千卷」而舊唐志十卷、《唐春秋》作二十卷而新唐志與經義考所引唐志皆三十卷）；其孤證不足以立一書，亦不足為某書明代尚存之證（skill 坑 6）。使用者 2026-08-24 裁定：**升，但加標記備日後複核**——焦氏之誤多在撰人與卷數之細節而非「此書不存在」，條目本身立得住；日後得他源（新唐志、崇文總目、宋志）交叉核對時，以本標記批量撈出。登記見 `.claude/known-issues/S3-隋唐焦竑孤證待覆核-20260824.json`。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "id": "d59f28lpazur",
   "measures": [
     {
@@ -42,8 +42,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "commons",
@@ -59,6 +59,27 @@
         "year": "1940",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15246-0094",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15246-0094",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15246-0094",
+        "call_number": "310.23 15246-0094",
+        "edition": "明嘉靖甲辰(二十三年, 1544)雲間陸氏儼山書院刊本"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-15246-0094": {
+      "label": "臺灣國家圖書館藏本：明嘉靖甲辰(二十三年, 1544)雲間陸氏儼山書院刊本"
+    }
+  }
 }

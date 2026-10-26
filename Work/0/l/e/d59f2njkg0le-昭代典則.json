@@ -141,11 +141,49 @@
         "nlc_fid": "411999019121",
         "edition": "明万历二十八年[1600]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-000000000272024096",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/000000000272024096",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "000000000272024096",
+        "call_number": "000000000272024096",
+        "edition": "清乾隆二十一年(1756)刻本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01906",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01906",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01906",
+        "call_number": "202.26 01906",
+        "edition": "明萬曆庚子(二十八年, 1600)金陵周曰校刊本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999019121": {
       "label": "國圖藏本：明万历二十八年[1600]"
+    },
+    "ncltw-000000000272024096": {
+      "label": "臺灣國家圖書館藏本：清乾隆二十一年(1756)刻本"
+    },
+    "ncltw-01906": {
+      "label": "臺灣國家圖書館藏本：明萬曆庚子(二十八年, 1600)金陵周曰校刊本"
     }
   },
   "measures": [
@@ -160,7 +198,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n朝代缺（記錄或目標Work一側缺朝代），按作者同＋題名同＋卷數相符並（Sawyer 2026-10-16，批416，Sabine口徑）",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n朝代缺（記錄或目標Work一側缺朝代），按作者同＋題名同＋卷數相符並（Sawyer 2026-10-16，批416，Sabine口徑）\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "黃光昇（明）撰。二十八卷；諸志所著之數有異，別作二十六卷。見著錄於《欽定四庫全書總目》《明史藝文志》《國史經籍志》《續修四庫全書》《四庫全書存目叢書》。《續修四庫全書》列於史部 史部；《四庫全書存目叢書》列於史部。",
     "sources": [
@@ -171,6 +209,6 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26"
 }

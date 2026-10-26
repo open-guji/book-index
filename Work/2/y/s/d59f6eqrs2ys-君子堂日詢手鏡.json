@@ -39,9 +39,9 @@
   "period": "ming",
   "period_basis": "小注載年號／朝代詞（「字伯雨烏程人嘉靖中貢士時任横州判官君子堂在署中」等），據此定代；《千頃堂書目》為唯一著錄源，屬單一著錄志書逕定代之例",
   "id": "d59f6eqrs2ys",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-01",
-  "ai_note": "2026-09-06 qa-sweep/ming L 類誤繫解之：撰人「王濟」之 entity 繫連解除（原繫 hixhd2h9bija）。據見 authors[].name_basis。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "ai_note": "2026-09-06 qa-sweep/ming L 類誤繫解之：撰人「王濟」之 entity 繫連解除（原繫 hixhd2h9bija）。據見 authors[].name_basis。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "resources": [
     {
       "id": "commons",
@@ -57,6 +57,46 @@
         "year": "1368-1644 明",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05300-0042",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05300-0042",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05300-0042",
+        "call_number": "204.26 05300-0042",
+        "edition": "明藍格鈔本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15240-0008",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15240-0008",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15240-0008",
+        "call_number": "210.8 15240-0008",
+        "edition": "明嘉靖間(1522-1566)長洲顧氏刊本"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-05300-0042": {
+      "label": "臺灣國家圖書館藏本：明藍格鈔本"
+    },
+    "ncltw-15240-0008": {
+      "label": "臺灣國家圖書館藏本：明嘉靖間(1522-1566)長洲顧氏刊本"
+    }
+  }
 }
