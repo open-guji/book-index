@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 32 取自 `measure_info`「三十二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 32 取自 `measure_info`「三十二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -30,8 +30,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -40,6 +40,39 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:SSID-12339013_%E5%8F%A4%E9%80%B8%E5%8F%A2%E6%9B%B8_%E8%AB%96%E8%AA%9E_4.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1081945",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1081945",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1081945",
+        "request_no": "別０３８－０００１",
+        "edition": "刊本::清光緒:100000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/591508/manifest.json",
+        "extent": "50冊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2552988",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2552988",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2552988",
+        "edition": "光緒8-10"
+      }
     }
   ],
   "related_works": [
@@ -48,5 +81,13 @@
       "relation": "related",
       "note": "史部E存疑另立：總目記錄「古逸叢書目」（黎庶昌）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（缺卷数（记录卷数非单一N卷或目标无卷数））），按嚴口徑另立；互為相關，待並條複核。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1081945": {
+      "label": "內閣文庫藏本：清光緒10年刊本（別038-0001，50冊）"
+    },
+    "ndl-2552988": {
+      "label": "NDL藏本：光緒8-10"
+    }
+  }
 }

@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 28 取自 `measure_info`「二十八冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 28 取自 `measure_info`「二十八冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -30,7 +30,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "indexed_by": [
     {
@@ -57,11 +57,110 @@
         "waseda_id": "i12_00016",
         "edition": "建邑 : 余氏"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073687",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073687",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073687",
+        "request_no": "経０２９－０００２",
+        "edition": "刊本::清康煕:350000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4438793/manifest.json",
+        "extent": "64冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073904",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073904",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073904",
+        "request_no": "別００３－０００１",
+        "edition": "刊本::明万暦:330000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4247438/manifest.json",
+        "extent": "108冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610441",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610441",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610441",
+        "request_no": "２７５－０２５２",
+        "edition": "刊本::明成化:070000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3742165/manifest.json",
+        "extent": "56冊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2609368",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2609368",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2609368",
+        "edition": "承應2刊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2545461",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2545461",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2545461",
+        "edition": "[明前期]"
+      }
     }
   ],
   "resource_groups": {
     "waseda-i12_00016": {
       "label": "早稲田藏本：建邑 : 余氏"
+    },
+    "naikaku-1073687": {
+      "label": "內閣文庫藏本：清康煕35年刊本（経029-0002，64冊）"
+    },
+    "naikaku-1073904": {
+      "label": "內閣文庫藏本：明万暦33年刊本（別003-0001，108冊）"
+    },
+    "naikaku-3610441": {
+      "label": "內閣文庫藏本：明成化7年刊本（275-0252，56冊）"
+    },
+    "ndl-2609368": {
+      "label": "NDL藏本：承應2刊"
+    },
+    "ndl-2545461": {
+      "label": "NDL藏本：[明前期]"
     }
   }
 }

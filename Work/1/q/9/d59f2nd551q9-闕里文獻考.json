@@ -108,6 +108,21 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4418039/manifest.json",
         "extent": "8冊"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2607641",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2607641",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2607641",
+        "edition": "乾隆27序刊"
+      }
     }
   ],
   "description": {
@@ -116,7 +131,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1evkpuphfud4w 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善024494-024501）。阶段 5 兜底建立。\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（一百卷），今據以補。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "從 1evkpuphfud4w 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善024494-024501）。阶段 5 兜底建立。\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（一百卷），今據以補。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "updated_at": "2026-08-20T00:00:00-07:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
@@ -132,14 +147,17 @@
     }
   ],
   "measure_info": "一百卷",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "naikaku-1070728": {
       "label": "內閣文庫藏本：清乾隆27年刊本（序刊）（287-0065，12冊）"
     },
     "naikaku-1068740": {
       "label": "內閣文庫藏本：清乾隆27年刊本（序刊）（史066-0011，8冊）"
+    },
+    "ndl-2607641": {
+      "label": "NDL藏本：乾隆27序刊"
     }
   }
 }
