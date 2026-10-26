@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善006006-006008）。阶段 5 兜底建立。 | 從 1evka9k1cehog 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-09-06 qa-sweep/song·G 類淨題撞庫得正條，逐條裁併：併入 `d59f2hs1tblu`《歐陽文忠公集一百五十三卷年譜一卷附錄》。據：source（五卷，年譜附錄）與 keeper（存卷一二五至一三三凡九卷）皆歐陽修《歐陽文忠公集》，同書殘本與全本之別。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善006006-006008）。阶段 5 兜底建立。 | 從 1evka9k1cehog 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-09-06 qa-sweep/song·G 類淨題撞庫得正條，逐條裁併：併入 `d59f2hs1tblu`《歐陽文忠公集一百五十三卷年譜一卷附錄》。據：source（五卷，年譜附錄）與 keeper（存卷一二五至一三三凡九卷）皆歐陽修《歐陽文忠公集》，同書殘本與全本之別。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
   "juan_count": {
     "number": 8
   },
@@ -34,8 +34,8 @@
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "merge_history": [
     {
       "merged_from": "d59f2hs1tblu",
@@ -255,6 +255,43 @@
         "nlc_fid": "411999014049",
         "edition": "明天順6年[1462]"
       }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101484631",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000055009",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101484631",
+        "nlk_control_no": "KOL000055009",
+        "holder": "국립중앙도서관",
+        "call_number": "古3747-299",
+        "edition": "[明宗年間(1546-1567)]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-102353970",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000000590",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102353970",
+        "nlk_control_no": "KOL000000590",
+        "holder": "국립중앙도서관",
+        "call_number": "古貴3747-252",
+        "part": "卷132",
+        "edition": "金屬活字本(甲寅字) 中宗 25(1530)"
+      }
     }
   ],
   "resource_groups": {
@@ -296,6 +333,12 @@
     },
     "nlc-411999014049": {
       "label": "國圖藏本：明天順6年[1462]"
+    },
+    "korcis-101484631": {
+      "label": "韓國國立中央圖書館數字化藏本：[明宗年間(1546-1567)]"
+    },
+    "korcis-102353970": {
+      "label": "韓國國立中央圖書館數字化藏本：金屬活字本(甲寅字) 中宗 25(1530)"
     }
   },
   "indexed_by": [

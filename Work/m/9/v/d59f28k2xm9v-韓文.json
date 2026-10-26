@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-22 B3 併池（藏本條重出）：1evkpvhp7m5mo 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 1→2）併入本條。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 20 取自 `measure_info`「二十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-22 B3 併池（藏本條重出）：1evkpvhp7m5mo 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 1→2）併入本條。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 20 取自 `measure_info`「二十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -50,7 +50,7 @@
   ],
   "period_upper": "ming",
   "period_upper_basis": "edition_bound：所掛版本中最早者為「明嘉靖三十五年莫如士寧國刊韓柳文本」——版本之年不早於成書之年，故不晚於 ming",
-  "revision": "1.4.0",
+  "revision": "1.5.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -161,6 +161,24 @@
       }
     },
     {
+      "id": "nlk",
+      "group": "korcis-102583228",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000055627",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102583228",
+        "nlk_control_no": "KOL000055627",
+        "holder": "국립중앙도서관",
+        "call_number": "古3747-66",
+        "edition": "筆寫本 [1932]"
+      }
+    },
+    {
       "id": "ncl-tw",
       "group": "ncltw-09683",
       "group_role": "origin",
@@ -227,6 +245,9 @@
     },
     "naikaku-1083580": {
       "label": "內閣文庫藏本：天保10年刊本（集003-0001，6冊）"
+    },
+    "korcis-102583228": {
+      "label": "韓國國立中央圖書館數字化藏本：筆寫本 [1932]"
     },
     "ncltw-09683": {
       "label": "臺灣國家圖書館藏本：明嘉靖丁酉(十六年, 1537)南平游居敬寧國刊韓柳文合集本"
