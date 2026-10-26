@@ -1,0 +1,83 @@
+{
+ "base": "22cd9ed32eb0690529426bd252936724c7b77aef",
+ "merges": [
+  {
+   "cluster_id": "3b-064",
+   "type": "work",
+   "keeper": "d59fy9ep4ikg",
+   "losers": [
+    "d59fy9eota0x"
+   ],
+   "evidence": "署名异写同书：《佛說希有校量功德經》釋闍那崛多／闍那崛多：同一 Entity，署名带不带「釋」之异，题名挍／校异写，一卷隋譯相合（重扫）",
+   "rule": "去重单元 3b：题名相同、首位责任者已繫同一 Entity 而署名异写（名／字號／异体／帝号），逐条核原文为同一书，B 档并",
+   "preconditions": [
+    {
+     "id": "d59fy9ep4ikg",
+     "path": "Work/i/k/g/d59fy9ep4ikg-佛說希有校量功德經.json",
+     "sha256": "f315abd025c9606eba8958784125b16084dad62156b475f9670d34bb8c659dce"
+    },
+    {
+     "id": "d59fy9eota0x",
+     "path": "Work/a/0/x/d59fy9eota0x-佛說希有挍量功德經.json",
+     "sha256": "7ce0095f84fe394bf8db9a0f060cf3586f68913fcdcb635e0e9dc1fb7804c3bf"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fy9eota0x 在 zm0525，keeper 在 zm0524——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59fy9eota0x": {
+     "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3njwjs7xeiyjo8vj、csbxc5rydw0axq8p\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 426 批新建（hold 清零：E；原 hold 原因：-）\n查重线（跨部查重 10-19）：同题同作者或近题同作者（逐对复核同书）并入 1 个 Work（1exp565mloyrm）"
+    }
+   }
+  },
+  {
+   "cluster_id": "3b-065",
+   "type": "work",
+   "keeper": "d59f6eq4oirq",
+   "losers": [
+    "d59f6ssrrvm0"
+   ],
+   "evidence": "署名异写同书：《金丹秘旨》張三丰／張三豐：同一 Entity，丰／豐异写，一卷相合；明史藝文志据千頃堂（重扫）",
+   "rule": "去重单元 3b：题名相同、首位责任者已繫同一 Entity 而署名异写（名／字號／异体／帝号），逐条核原文为同一书，B 档并",
+   "preconditions": [
+    {
+     "id": "d59f6eq4oirq",
+     "path": "Work/i/r/q/d59f6eq4oirq-金丹秘㫖.json",
+     "sha256": "482088f3b6fd7fb1c8676cb44f3ad8f1f276f02523b764cd0c441292d6116712"
+    },
+    {
+     "id": "d59f6ssrrvm0",
+     "path": "Work/v/m/0/d59f6ssrrvm0-金丹祕旨.json",
+     "sha256": "54743b13ba87ee20a647b251010d6383636446fdea186d6ea4593204fd878c00"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f6ssrrvm0",
+     "fields": [
+      {
+       "field": "period_upper",
+       "keeper_value": "qing",
+       "loser_value": "ming"
+      },
+      {
+       "field": "period_upper_basis",
+       "keeper_value": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+       "loser_value": "catalog_bound：唯一著錄源《明史藝文志》（清張廷玉等，著錄明代著述），故不晚於 ming"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6ssrrvm0": {
+     "ai_note": "2026-08-31 HBCC對比明史藝文志正向缺口項5：HBCC《中國歷代典籍總目》entryId 10016023003118，著錄「金丹祕旨一卷(明)張三豐撰」，本庫查無對應獨立記錄（撰人／題名交叉比對後判非既有記錄），據以建檔，未覆核原書。本庫明史藝文志目前查無collated_edition，僅能憑全庫既有索引交叉核對，book-text此路不通（第十二輪已確認）。"
+    }
+   }
+  }
+ ]
+}
