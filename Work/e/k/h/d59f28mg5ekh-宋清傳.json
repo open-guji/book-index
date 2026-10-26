@@ -20,6 +20,22 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-C6203600",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=C6203600&order=rn_no&no=01198",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "C6203600",
+        "call_no": "雙紅堂-小說-150",
+        "edition": ""
+      }
     }
   ],
   "related_works": [
@@ -33,7 +49,12 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "ioc-C6203600": {
+      "label": "東文研藏本：《舊小說》所收本"
+    }
+  }
 }
