@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善015832-015835）。阶段 5 兜底建立。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善015832-015835）。阶段 5 兜底建立。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2n6t9t6p《清河縣志》 入本條。方志同修次重出：《清河縣志》錢啟文撰（无著录（故宫等）） ← 《清河縣志》盧士傑纂修（无著录（故宫等））。脚本初判 B同修次·同年号同卷·无同名。逐簇核对：兩故宮本皆康熙五十七年十八卷，keeper已掛總目[康熙]清河縣志十八卷（盧士傑纂修、錢啟文續修）之Book，同修次。",
   "juan_count": {
     "number": 18
   },
@@ -34,6 +34,42 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-312001063776",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001063776",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001063776",
+        "edition": ""
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-312001063776": {
+      "label": "國圖藏本："
+    }
+  },
+  "merged_in": [
+    {
+      "id": "d59f2n6t9t6p",
+      "title": "清河縣志",
+      "at": "2026-10-26T14:28:18Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《清河縣志》錢啟文撰（无著录（故宫等）） ← 《清河縣志》盧士傑纂修（无著录（故宫等））。脚本初判 B同修次·同年号同卷·无同名。逐簇核对：兩故宮本皆康熙五十七年十八卷，keeper已掛總目[康熙]清河縣志十八卷（盧士傑纂修、錢啟文續修）之Book，同修次。",
+      "author": "盧士傑"
+    }
+  ],
+  "merged_from": [
+    "d59f2n6t9t6p"
+  ]
 }
