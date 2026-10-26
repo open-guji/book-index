@@ -15,7 +15,8 @@
     },
     {
       "name": "太祖",
-      "type": "別名"
+      "type": "廟號",
+      "ambiguous": true
     },
     {
       "name": "康帝",
@@ -45,6 +46,24 @@
       "name": "明太祖注",
       "type": "別名",
       "note": "著錄原形"
+    },
+    {
+      "name": "洪武帝",
+      "type": "別名"
+    },
+    {
+      "name": "欽明啟運俊德成功統天大孝高皇帝",
+      "type": "諡號"
+    },
+    {
+      "name": "朱重八",
+      "type": "別名",
+      "note": "本名"
+    },
+    {
+      "name": "朱興宗",
+      "type": "別名",
+      "note": "曾用名"
     }
   ],
   "dynasty": "明",
@@ -58,7 +77,7 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "ming",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-08-24 帝王 entity 重出歸併：併入「明太祖」（`1jcf5151293b4`）。本日補 entity 之際，以廟號「明太祖」別立一條，而庫中早有以本名「朱元璋」立者，遂成一人兩目。**庫中帝王之例，宋明以前用本名（趙佶、朱元璋、曹丕、蕭衍），清代用廟號（清高宗、清聖祖）**，本條從前者，廟號入 alt_names。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=30148 補入空槽——籍貫「江寧」。既有之值一概未動。\n\n2026-09-06 qa-sweep/ming H 類撰人名訂正：補入 work d59f2nfu7ymb《尚書洪範》——其撰人名舊作「明太祖注」（拆字／黏連／異體之形），今剝正為「明太祖」，改繫本記錄。改名之前已撞庫。\n\n2026-09-06 qa-sweep/ming H 類黏連續清：補入 work d59f6elxwwe9《祖訓》——原誤繫幽靈 entity hixhgyrw4w1c「明太祖」，改繫本記錄。",
+  "ai_note": "2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-08-24 帝王 entity 重出歸併：併入「明太祖」（`1jcf5151293b4`）。本日補 entity 之際，以廟號「明太祖」別立一條，而庫中早有以本名「朱元璋」立者，遂成一人兩目。**庫中帝王之例，宋明以前用本名（趙佶、朱元璋、曹丕、蕭衍），清代用廟號（清高宗、清聖祖）**，本條從前者，廟號入 alt_names。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=30148 補入空槽——籍貫「江寧」。既有之值一概未動。\n\n2026-09-06 qa-sweep/ming H 類撰人名訂正：補入 work d59f2nfu7ymb《尚書洪範》——其撰人名舊作「明太祖注」（拆字／黏連／異體之形），今剝正為「明太祖」，改繫本記錄。改名之前已撞庫。\n\n2026-09-06 qa-sweep/ming H 類黏連續清：補入 work d59f6elxwwe9《祖訓》——原誤繫幽靈 entity hixhgyrw4w1c「明太祖」，改繫本記錄。\n\n2026-10-25 A12 L6 帝王稱號：補廟號、帝號別名（太祖(改類型)、洪武帝、欽明啟運俊德成功統天大孝高皇帝、朱重八、朱興宗），據維基百科補身份、說明；回填年號條 ruler.entity_id。",
   "native_place": "江寧",
   "native_place_entity_id": "hixi5whkr37x",
   "native_place_basis": "CBDB 30148 index_addr（2026-09-06 CBDB enrich）",
@@ -93,15 +112,22 @@
     "death": 1398,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.1.1",
+  "revised_at": "2026-10-25",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/rb4uqyyj7tr47pdw"
+      },
+      {
+        "name": "維基百科",
+        "type": "url",
+        "details": "https://zh.wikipedia.org/wiki/朱元璋"
       }
-    ]
-  }
+    ],
+    "text": "明朝皇帝，年號洪武（1368–1398）。朱世珍（追尊仁祖）之子。"
+  },
+  "title_or_office": "皇帝"
 }

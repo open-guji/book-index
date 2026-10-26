@@ -30,9 +30,9 @@
       "summary": "共 3 個版本：明萬曆間刻本（中國科學院圖書館、南京圖書館）；明萬曆間刻本（中國科學院圖書館、國家圖書館、南京圖書館）；明萬曆間刻本（清華大學圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：i0kqjtcoycy70r34、7tjf8hz2primk8hh、yu8vlbjtls1keezt\nauto-split:存疑未并\nE6 第 601 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：i0kqjtcoycy70r34、7tjf8hz2primk8hh、yu8vlbjtls1keezt\nauto-split:存疑未并\nE6 第 601 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -48,11 +48,32 @@
         "nlc_fid": "412000001233",
         "edition": "明萬曆[1573-1620]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077592",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077592",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077592",
+        "request_no": "集０５０－００１６",
+        "edition": "刊本（序刊）::明万暦:280000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4487196/manifest.json",
+        "extent": "12冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000001233": {
       "label": "國圖藏本：明萬曆[1573-1620]"
+    },
+    "naikaku-1077592": {
+      "label": "內閣文庫藏本：明万暦28年刊本（序刊）（集050-0016，12冊）"
     }
   }
 }

@@ -30,9 +30,9 @@
       "summary": "共 8 個版本：清同文堂刻本（上海辭書出版社圖書館、首都圖書館、山東大學圖書館、國家圖書館）；清經綸堂刻本（南京圖書館、國家圖書館）；清雍正十年存心齋刻本（南開大學圖書館）；清康熙間刻本（湖南省圖書館、國家圖書館、北京市文物局）；清濟美堂刻本（遼寧省圖書館）；清刻本（、吉林省圖書館）；清文經堂刻本（首都圖書館、國家圖書館）；清維新堂刻本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：owsukgxcouxwi2z7、iy048ivmh77e5im8、kf3z6eljsqxbb31s、go4atw7flre33x1j、p2ka2a25inr65c2t、7g8sg4s2vg4gtts2、nrddty0noxdmg6xd、3krnm5z6qkxeo6g8\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：owsukgxcouxwi2z7、iy048ivmh77e5im8、kf3z6eljsqxbb31s、go4atw7flre33x1j、p2ka2a25inr65c2t、7g8sg4s2vg4gtts2、nrddty0noxdmg6xd、3krnm5z6qkxeo6g8\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -63,6 +63,21 @@
         "nlc_fid": "312001045637",
         "edition": "清康熙間[1662-1722]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2608034",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2608034",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2608034",
+        "edition": "康煕54序刊"
+      }
     }
   ],
   "resource_groups": {
@@ -71,6 +86,9 @@
     },
     "nlc-312001045637": {
       "label": "國圖藏本：清康熙間[1662-1722]"
+    },
+    "ndl-2608034": {
+      "label": "NDL藏本：康煕54序刊"
     }
   }
 }

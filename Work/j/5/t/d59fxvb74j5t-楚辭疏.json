@@ -44,9 +44,9 @@
       "summary": "共 7 個版本：明末緝柳齋刻本（中共中央黨校圖書館、山東省圖書館、國家圖書館、上海圖書館、遼寧省圖書館、浙江圖書館、南京圖書館、天津圖書館、復旦大學圖書館、北京大學圖書館）；明學山堂刻本（上海圖書館、國家圖書館）；清康熙四十四年有文堂刻本（國家圖書館、北京大學圖書館）；明末緝柳齋刻天章閣印本（北京師範大學圖書館）；清康熙二十四年刻本（南京圖書館）；明刻本（北京大學圖書館、國家圖書館）；明末緝柳齋刻後印本（上海圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：uccztjfkyynkpn2o、0ogfc044ucz35gqs、g42l7be2jb2767pw、bdo1o0na3ryi780b、z5sba8wrmyw6ttu7、j8ykjlt47ch6ejzr、3r7n8uv5fxhi4w0o\nauto-split:存疑未并\nE6 第 607 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：uccztjfkyynkpn2o、0ogfc044ucz35gqs、g42l7be2jb2767pw、bdo1o0na3ryi780b、z5sba8wrmyw6ttu7、j8ykjlt47ch6ejzr、3r7n8uv5fxhi4w0o\nauto-split:存疑未并\nE6 第 607 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -62,11 +62,32 @@
         "nlc_fid": "411999032369",
         "edition": "明末[1621-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610218",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610218",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610218",
+        "request_no": "３１２－０１０７",
+        "edition": "刊本:明末:::緝柳斎",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3672224/manifest.json",
+        "extent": "2冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999032369": {
       "label": "國圖藏本：明末[1621-1644]"
+    },
+    "naikaku-3610218": {
+      "label": "內閣文庫藏本：明末刊本 緝柳斎（312-0107，2冊）"
     }
   }
 }

@@ -11,7 +11,8 @@
     },
     {
       "name": "神宗",
-      "type": "別名"
+      "type": "廟號",
+      "ambiguous": true
     },
     {
       "name": "范天合道哲肅敦簡光文章武安仁止孝顯皇帝",
@@ -24,13 +25,26 @@
     {
       "name": "顯帝",
       "type": "別名"
+    },
+    {
+      "name": "明神宗",
+      "type": "廟號"
+    },
+    {
+      "name": "萬曆帝",
+      "type": "別名"
+    },
+    {
+      "name": "範天合道哲肅敦簡光文章武安仁止孝顯皇帝",
+      "type": "諡號"
     }
   ],
   "dynasty": "明",
   "external_ids": {
     "cbdb_id": 30162,
     "cbdb_match": "auto",
-    "cbdb_source": "name_exact+dy_match+unique"
+    "cbdb_source": "name_exact+dy_match+unique",
+    "wikidata_id": "Q10061"
   },
   "updated_at": "2026-08-08T11:51:58+00:00",
   "period": "ming",
@@ -38,12 +52,23 @@
   "native_place": "大興",
   "native_place_entity_id": "hixi5whl2brk",
   "native_place_basis": "CBDB 30162 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=30162 補入空槽——籍貫「大興」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=30162 補入空槽——籍貫「大興」。既有之值一概未動。\n\n2026-10-25 A12 L6 帝王稱號：補廟號、帝號別名（神宗(改類型)、明神宗、萬曆帝、範天合道哲肅敦簡光文章武安仁止孝顯皇帝），據維基百科補身份、說明；回填年號條 ruler.entity_id。",
   "dates": {
     "birth": 1563,
     "death": 1620,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.0.1",
+  "revised_at": "2026-10-25",
+  "title_or_office": "皇帝",
+  "description": {
+    "text": "明朝皇帝，年號萬曆（1573–1620）。明穆宗朱載坖之子。",
+    "sources": [
+      {
+        "name": "維基百科",
+        "type": "url",
+        "details": "https://zh.wikipedia.org/wiki/明神宗"
+      }
+    ]
+  }
 }

@@ -182,6 +182,90 @@
         "nlc_fid": "411999031628",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_01611",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_01611/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_01611",
+        "edition": "福建 : 吉澄, 嘉靖38[1559]序"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_00076",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_00076/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_00076",
+        "edition": "丹波 : 篠山藩, 寛政4[1792]序"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078497",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078497",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078497",
+        "request_no": "２９８－０２９５",
+        "edition": "刊本（序刊）::寛政:040000:篠山藩",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4914113/manifest.json",
+        "extent": "60冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075807",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075807",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075807",
+        "request_no": "２９８－０２９４",
+        "edition": "刊本（序刊）::寛政:040000:篠山藩",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4914035/manifest.json",
+        "extent": "60冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075808",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075808",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075808",
+        "request_no": "２９９－０００２",
+        "edition": "刊本（後印）::寛政:040000:篠山藩",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4914164/manifest.json",
+        "extent": "60冊"
+      }
     }
   ],
   "measures": [
@@ -196,7 +280,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwgdrxa80 與 11q37qjwtc1kw 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-08 lane-B 併條（rule=I-撰人名異體字致查重失效之重出（題全同而撰人之生值相異））：併 d59f2ncqs8ow《大學衍義補》 入本條。《大學衍義補》**題逐字全同，而撰人之名止異體之異**：['邱濬'] 對 ['丘濬']。keeper 繫 欽定四庫全書總目／國史經籍志／書目答問；被併者繫 經義考。**scan 之 I 檢組鍵取 authors 之生值**，故撰人寫法一異即分作二組，同書遂不相見（scan.py 之 VARIANTS 表雖用於 F 檢之人名，I 檢之組鍵卻不用）。依坑 51 抽十二組逐條讀，假陽性 0——其最自明者為《字林音義》：**補宋書藝文志自己的兩節，一作「吴恭」一作「吳恭」**，同一部志裡同一個人的兩種寫法。　二者各繫不同 entity（hixhd2h9be7k），是 **entity 一人二目**——與坑 60 之「名同而人異」方向相反而同源：字形之異使同一人在庫中立了兩目。書當併而人之併屬 A 道，故撤其項而不改指。\n\n2026-09-08 協調者代 lane-B 收尾其「宣告而未執行之併」：自被併之 d59f2ncqs8ow 移入 resources 1 項——**keeper 所無而被併者有者，移入而後刪，不令其隨檔而失**。其餘欄（period_upper 於 keeper 已有確切 period 者）不取，冗而無益。at=2026-09-08T03:02:49+00:00\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwgdrxa80 與 11q37qjwtc1kw 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-08 lane-B 併條（rule=I-撰人名異體字致查重失效之重出（題全同而撰人之生值相異））：併 d59f2ncqs8ow《大學衍義補》 入本條。《大學衍義補》**題逐字全同，而撰人之名止異體之異**：['邱濬'] 對 ['丘濬']。keeper 繫 欽定四庫全書總目／國史經籍志／書目答問；被併者繫 經義考。**scan 之 I 檢組鍵取 authors 之生值**，故撰人寫法一異即分作二組，同書遂不相見（scan.py 之 VARIANTS 表雖用於 F 檢之人名，I 檢之組鍵卻不用）。依坑 51 抽十二組逐條讀，假陽性 0——其最自明者為《字林音義》：**補宋書藝文志自己的兩節，一作「吴恭」一作「吳恭」**，同一部志裡同一個人的兩種寫法。　二者各繫不同 entity（hixhd2h9be7k），是 **entity 一人二目**——與坑 60 之「名同而人異」方向相反而同源：字形之異使同一人在庫中立了兩目。書當併而人之併屬 A 道，故撤其項而不改指。\n\n2026-09-08 協調者代 lane-B 收尾其「宣告而未執行之併」：自被併之 d59f2ncqs8ow 移入 resources 1 項——**keeper 所無而被併者有者，移入而後刪，不令其隨檔而失**。其餘欄（period_upper 於 keeper 已有確切 period 者）不取，冗而無益。at=2026-09-08T03:02:49+00:00\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "description": {
     "text": "邱濬（明）撰。一百六十卷。見著錄於《欽定四庫全書總目》《國史經籍志》《書目答問》。其著錄之文，《國史經籍志》作「《大學衍義補》一百六十卷（丘濬」。《欽定四庫全書總目》清乾隆間館臣修；《國史經籍志》明焦竑撰——本書之目賴之以存。",
     "sources": [
@@ -205,8 +289,8 @@
       "書目答問"
     ]
   },
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "merged_in": [
     {
       "id": "d59f2ncqs8ow",
@@ -235,6 +319,21 @@
     },
     "nlc-411999031628": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "waseda-ro12_01611": {
+      "label": "早稲田藏本：福建 : 吉澄, 嘉靖38[1559]序"
+    },
+    "waseda-ro12_00076": {
+      "label": "早稲田藏本：丹波 : 篠山藩, 寛政4[1792]序"
+    },
+    "naikaku-1078497": {
+      "label": "內閣文庫藏本：寛政4年刊本（序刊） 篠山藩（298-0295，60冊）"
+    },
+    "naikaku-1075807": {
+      "label": "內閣文庫藏本：寛政4年刊本（序刊） 篠山藩（298-0294，60冊）"
+    },
+    "naikaku-1075808": {
+      "label": "內閣文庫藏本：寛政4年刊本（後印） 篠山藩（299-0002，60冊）"
     }
   }
 }

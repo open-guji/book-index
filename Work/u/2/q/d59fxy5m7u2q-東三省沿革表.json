@@ -29,9 +29,9 @@
       "summary": "共 1 個版本：清宣統元年徐氏退耕堂刻本（天津圖書館、上海圖書館、南京圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：hkt4hgocuqrfhdpg\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：hkt4hgocuqrfhdpg\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +47,29 @@
         "nlc_fid": "312001075740",
         "edition": ""
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2567888",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2567888",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2567888",
+        "edition": "宣統元序"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001075740": {
       "label": "國圖藏本："
+    },
+    "ndl-2567888": {
+      "label": "NDL藏本：宣統元序"
     }
   }
 }

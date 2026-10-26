@@ -14,7 +14,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '../../../..'))
 sys.path[:0] = [os.path.join(ROOT, '.claude/qa')]
 import backrefs  # noqa: E402
-TODAY = '2026-10-25'
+TODAY = datetime.date.today().isoformat()
+SKIP = {'schema_version', 'id', 'type', 'title', 'work_id', 'revision', 'revised_at', 'updated_at', 'ai_note', 'edition',
+        'contained_in', 'resources', 'sources', 'indexed_by', 'provenance', 'resource_groups', 'merged_from', 'merged_into'}
 
 
 def path_of(i):
@@ -53,12 +55,23 @@ def main():
             lr = path_of(l); d = json.load(open(os.path.join(ROOT, lr), encoding='utf-8'))
             assert not d.get('merged_into') and d['work_id'] == k['work_id'], (l, d.get('work_id'), k['work_id'])
             pre.append({'id': l, 'path': lr, 'sha256': base_sha(lr)})
-            for f in ('contained_in', 'resources'):
+            for f in ('contained_in', 'resources', 'sources', 'indexed_by', 'provenance'):
                 for x in d.get(f) or []:
-                    if x not in (k.get(f) or []): k.setdefault(f, []).append(x)
+                    if x in (k.get(f) or []): continue
+                    if f == 'contained_in' and x.get('id') in {c.get('id') for c in k.get(f) or []}: continue  # 同一 Collection 不重复挂
+                    k.setdefault(f, []).append(x)
             for gk, gv in (d.get('resource_groups') or {}).items():
                 k.setdefault('resource_groups', {}).setdefault(gk, gv)
             notes[l] = {f: d[f] for f in ('title', 'edition', 'dating', 'juan_count', 'ai_note') if f in d}
+            if g.get('copy_missing'):  # 部分 5b 平圖：keeper 缺的单值欄从被并者补入，两边都有而不同的记台账
+                for f, v in d.items():
+                    if f in SKIP: continue
+                    if f not in k: k[f] = v
+                    elif k[f] != v: notes[l].setdefault('conflicts', {})[f] = v
+            if g.get('tag_provenance') and d.get('edition') and d.get('edition') != k.get('edition'):
+                for x in k.get('provenance') or []:
+                    if x in (d.get('provenance') or []) and g['tag_provenance'] not in (x.get('notes') or ''):
+                        x['notes'] = ((x.get('notes') or '') + ('；' if x.get('notes') else '') + g['tag_provenance'] + d['edition'])
             k.setdefault('merged_from', [])
             if l not in k['merged_from']: k['merged_from'].append(l)
             t = {'schema_version': d.get('schema_version', 1), 'id': l, 'type': 'book', 'title': d.get('title'),
