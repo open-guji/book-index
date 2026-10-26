@@ -111,12 +111,38 @@
       "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/311fpn5mdboznk5c&from=evidence"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：sc428nhtttausugb、311fpn5mdboznk5c\n責任者一致性：總目 contMap 與題名行 dclabel 在「name」上不一致，取 contMap；題名行：朝鮮金正喜撰\n拆分（2026-10-26，去重方案拆回-二）：E／F／G 道聚簇把同一子目在不同叢書版次的總目記錄並成一條（原 994xanc934，同挂 2 個 Collection），按源記錄所屬叢書實例（總目 series_id）拆開；本條只屬 8rldonorqfwh（民國十八年紹興墨潤堂書苑影印清光緒間會稽趙氏刻本），版本以該 Collection 為準。同時拆出的另見 Collection 8rldonorqfwi 下同 Work 之 Book。原 edition「光緒六年刻」及 edition_type,publication_info 各源記錄子目版本標注一致，但不能代表各叢書版次，已去，版本以所挂 Collection 為準。總目子目版本標注：光緒六年刻。",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：sc428nhtttausugb、311fpn5mdboznk5c\n責任者一致性：總目 contMap 與題名行 dclabel 在「name」上不一致，取 contMap；題名行：朝鮮金正喜撰\n拆分（2026-10-26，去重方案拆回-二）：E／F／G 道聚簇把同一子目在不同叢書版次的總目記錄並成一條（原 994xanc934，同挂 2 個 Collection），按源記錄所屬叢書實例（總目 series_id）拆開；本條只屬 8rldonorqfwh（民國十八年紹興墨潤堂書苑影印清光緒間會稽趙氏刻本），版本以該 Collection 為準。同時拆出的另見 Collection 8rldonorqfwi 下同 Work 之 Book。原 edition「光緒六年刻」及 edition_type,publication_info 各源記錄子目版本標注一致，但不能代表各叢書版次，已去，版本以所挂 Collection 為準。總目子目版本標注：光緒六年刻。\n\n2026-10-26 A6续-上圖 馆藏挂接：按确定档补挂 上圖 1 条（书目页）。依据见 book-index-manager docs/馆藏资源挂接/报告/A6续-上图Book层挂接-20261026.md。",
   "contained_in": [
     {
       "id": "8rldonorqfwh"
     }
   ],
-  "revision": "2.0.0",
-  "revised_at": "2026-10-26"
+  "revision": "2.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "shlib",
+      "group": "shlib-o4nwok7ldghekgoo",
+      "group_role": "origin",
+      "name": "上海圖書館古籍書目",
+      "short_name": "上圖",
+      "url": "https://gj.library.sh.cn/org/info/shl?uri=http://data.library.sh.cn/gj/resource/instance/o4nwok7ldghekgoo",
+      "types": [
+        "catalog"
+      ],
+      "details": "上海圖書館館藏書目頁（著錄版本、版式、序跋、批校；無線上影像）",
+      "metadata": {
+        "shlib_instance": "o4nwok7ldghekgoo",
+        "shlib_work": "l1y44fr607nstptw",
+        "edition": "清光緒6年(1880) 刻本",
+        "publisher": "會稽趙氏",
+        "extent": "1冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "shlib-o4nwok7ldghekgoo": {
+      "label": "上海圖書館藏本書目：清光緒6年(1880) 刻本"
+    }
+  }
 }
