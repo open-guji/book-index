@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/wqhuyg7cqivjvy66"
-      }
+      },
+      "entity_id": "hixicm3bdp2a"
     }
   ],
   "dynasty": "明",
@@ -29,8 +30,8 @@
       "summary": "共 1 個版本：明刻本（日本東京大學東洋文化研究所）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：w4joj3lmhs88z64x\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.1.0",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：w4joj3lmhs88z64x\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -68,6 +69,22 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3743456/manifest.json",
         "extent": "2冊"
       }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-D8624000",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=D8624000&order=rn_no&no=04481",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "D8624000",
+        "call_no": "雙紅堂-小說-142",
+        "edition": "刊本 明"
+      }
     }
   ],
   "resource_groups": {
@@ -76,6 +93,9 @@
     },
     "naikaku-3611079": {
       "label": "內閣文庫藏本：江戸初写本（300-0054，2冊）"
+    },
+    "ioc-D8624000": {
+      "label": "東文研藏本：刊本 明"
     }
   }
 }

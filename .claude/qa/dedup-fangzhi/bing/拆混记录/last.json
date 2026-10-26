@@ -1,0 +1,30 @@
+{
+ "merges": [
+  {
+   "keeper": "d59fynq28kjk",
+   "losers": ["d59f2nl5vojm"],
+   "reason": "同一修次：故宮本《河間府志縣志》杜應芳等纂修、明萬曆乙卯(四十三年)刊本；總目[萬曆]河間府志十五卷 明杜應芳修、陳士彦張文德纂、明萬曆四十三年刻本。同地、同修人、同年。",
+   "loser_resources_ok": true,
+   "notes": "被并条无 resources。题作「府志縣志」是故宫著录题（府志含属县志），非另一书；14冊与內閣文庫本15冊之差属装订冊数，被并条无卷数，不冲突。库内嘉靖本 d59f2nf66osh、康熙本 d59fyobs61a9 不相干。"
+  },
+  {
+   "keeper": "d59f2msfqcjm",
+   "losers": ["d59f2n66sq2o"],
+   "reason": "同一修次：均为清洪蕙八十卷本；故宫本著录清嘉慶七年刊本，續修四庫影印清嘉慶七年刻本。同人同卷同年。keeper 取题带[嘉慶]、有 indexed_by（續修四庫）和资源的 d59f2msfqcjm；库内无总目[嘉慶]延安府志条（其余延安府志为弘治 d59fyodhcjr5、康熙 d59f2n6k7xfm、千頃堂王彦竒 d59f6enbuvb9）。",
+   "loser_resources_ok": true,
+   "notes": "被并条 resources 已空（2026-10-26 已把弘治本 NCL-03710 PDF 摘下改挂 d59fyodhcjr5），无资源要搬。可把被并条的故宫著录（贈善019681-019696、清嘉慶七年刊本）并入 keeper，additional_titles 加「延安府志」。keeper 的國圖 312001065721 资源 edition 为空，版本未能核实。"
+  }
+ ],
+ "split": {
+  "work": "d59f2nfx13pc",
+  "expect_title_info": "汾州府志",
+  "source": "書目答問",
+  "target": "d59fyo9ebrwg",
+  "new_description_text": "孔天胤（明）撰。八卷。見著錄於《明史藝文志》。本書惟《明史藝文志》一志著錄，別無他證。《明史藝文志》清張廷玉等修——本書之目賴之以存。",
+  "new_description_sources": ["明史藝文志"]
+ },
+ "unsure": [
+  "split 目标：書目答問「《汾州府志》⟨戴震⟩」只注戴震，未注卷数年号；库中戴震所纂汾州府志只有乾隆三十六年本 d59fyo9ebrwg（戴震纂、孫和相修），所以移入该条。另两条明本（王道一萬曆 d59f2njfg7ib、王緝 d59f6eg534zk）与戴震无关。",
+  "d59f2nfx13pc 移出后只剩明史藝文志一个来源，无版本、无资源；孔天胤八卷本现存与否未查。"
+ ]
+}

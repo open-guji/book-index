@@ -35,7 +35,13 @@ def fa(m):
     return None if n in ANON else n
 DYN = {'清': {'清'}, '明': {'明'}}
 NUM = re.compile(r'[〇零一二三四五六七八九十百千]+(種|卷|集|冊)|不分卷|存')
-def ctnorm(t): return cen.norm(NUM.sub('', t or ''))
+# 同一丛书的异称（Collection 题名改写或丛书改名重印）：文淵閣本、薈要摛藻堂本；黃奭《漢學堂叢書》即《黃氏逸書考》
+ALIAS = {'欽定四庫全書文淵閣本': '文淵閣四庫全書', '欽定四庫全書薈要摛藻堂本': '摛藻堂四庫全書薈要', '黃氏逸書考附': '漢學堂叢書', '黃氏逸書考': '漢學堂叢書'}
+# 同名而编者不同的两部丛书（10-26 抽检：朱當㴐《國朝典故》明抄本与鄧士龍《國朝典故》明刻本）
+SAME_NAME_DIFF = [('朱當⿰淚丏', '鄧士龍')]
+def ctnorm(t):
+    n = cen.norm(NUM.sub('', t or ''))
+    return ALIAS.get(n, n)
 out, judged, skip = [], [], collections.Counter()
 for g in G:
     by = collections.defaultdict(list)
@@ -62,6 +68,8 @@ for g in G:
             skip['朝代不一'] += 1; judged.append((ms, 'D', '子目責任者朝代不一（%s）' % '／'.join(sorted(dys)))); continue
         cas = {norm_name(c['author']) for m in ms for c in m['bookcolinfo'] if c and c.get('author')} - set(ANON) - {''}
         cts = {ctnorm(c['title']) for m in ms for c in m['bookcolinfo'] if c}
+        if any({a, b} <= cas for a, b in SAME_NAME_DIFF):
+            skip['同名异编丛书'] += 1; judged.append((ms, 'D', '所屬叢書同名而編者不同（%s），非同一叢書之不同版次' % '／'.join(sorted(cas)))); continue
         if len(pk) < 2 or len(cts) != 1:
             skip['丛书题名归一后不一或过短'] += 1; judged.append((ms, 'D', '所屬叢書題名歸一後不一（%s），疑非同一叢書' % '／'.join(sorted(cts)))); continue
         js = set()

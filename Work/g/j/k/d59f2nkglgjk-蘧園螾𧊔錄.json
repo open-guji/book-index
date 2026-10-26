@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 平圖013391-013400），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 平圖013391-013400），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。\n\n2026-10-26 A11-去重方案3a-2丁 併條（rule=去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并）：併 d59f2nj4iwoy《蘧園螾@錄》 入本條。题名只差一字（— 误字：@為缺字，同為崇禎八年洛陽王氏悠然堂刊本）。《蘧園螾@錄》王建極()／《蘧園螾𧊔錄》王建極(40卷)；首位责任者同一，朝代兼容，著作领域不冲突",
   "juan_count": {
     "number": 40
   },
@@ -25,6 +25,10 @@
     {
       "unit": "卷",
       "number": 40
+    },
+    {
+      "unit": "冊",
+      "number": 10
     }
   ],
   "measure_info": "四十卷",
@@ -34,8 +38,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -44,6 +48,53 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-07707_01_%E8%98%A7%E5%9C%92%E8%9E%BE%F0%A7%8A%94%E9%8C%84.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-CBM2517",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=CBM2517",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "CBM2517",
+        "edition": "明崇禎[1628-1644]"
+      }
     }
+  ],
+  "resource_groups": {
+    "nlc-CBM2517": {
+      "label": "國圖藏本：明崇禎[1628-1644]"
+    }
+  },
+  "indexed_by": [
+    {
+      "source": "國立故宮博物院善本舊籍",
+      "title_info": "蘧園螾@錄",
+      "summary": "本書收入《國立故宮博物院善本舊籍》（統一編號 平圖013391-013400）。明崇禎八年洛陽王氏悠然堂刊本。",
+      "edition": "明崇禎八年洛陽王氏悠然堂刊本。",
+      "catalog_no": "平圖013391-013400"
+    }
+  ],
+  "additional_titles": [
+    "蘧園螾@錄"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2nj4iwoy",
+      "title": "蘧園螾@錄",
+      "at": "2026-10-26T14:18:23Z",
+      "by": "A11-去重方案3a-2丁",
+      "rule": "去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并",
+      "why": "题名只差一字（— 误字：@為缺字，同為崇禎八年洛陽王氏悠然堂刊本）。《蘧園螾@錄》王建極()／《蘧園螾𧊔錄》王建極(40卷)；首位责任者同一，朝代兼容，著作领域不冲突",
+      "author": "王建極",
+      "title_info": "蘧園螾@錄"
+    }
+  ],
+  "merged_from": [
+    "d59f2nj4iwoy"
   ]
 }

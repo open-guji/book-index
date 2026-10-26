@@ -5,7 +5,8 @@
   "authors": [
     {
       "name": "張邦竒",
-      "role": "撰"
+      "role": "撰",
+      "entity_id": "hixhd2h9bepc"
     }
   ],
   "indexed_by": [
@@ -34,9 +35,34 @@
   "measure_info": "四十六卷",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
-  "ai_note": "撰人切分來源：又條承上。\n\n2026-09-06 撰人書名切分訂正：撰人「張邦」→「張邦竒」（題不改）。《張文定公文選》以諡名集，撰人必是張邦竒。著錄原文作「張邦張文定公文選」，「竒」字當是傳鈔或匯入時脫落——本書目他處著錄其集正作「張邦竒」。 撰人之名訂正而**不繫 entity**——目錄只給人名，繫到具體的人須另考（skill〈繫連寧缺毋濫〉）；本書原繫之 `張邦` 是切分所生之假名，名下混著同姓數人，不可留。",
+  "ai_note": "撰人切分來源：又條承上。\n\n2026-09-06 撰人書名切分訂正：撰人「張邦」→「張邦竒」（題不改）。《張文定公文選》以諡名集，撰人必是張邦竒。著錄原文作「張邦張文定公文選」，「竒」字當是傳鈔或匯入時脫落——本書目他處著錄其集正作「張邦竒」。 撰人之名訂正而**不繫 entity**——目錄只給人名，繫到具體的人須另考（skill〈繫連寧缺毋濫〉）；本書原繫之 `張邦` 是切分所生之假名，名下混著同姓數人，不可留。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "id": "d59f6eo8y0w4",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-01",
-  "updated_at": "2026-09-06T00:00:00+00:00"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "updated_at": "2026-09-06T00:00:00+00:00",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083158",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083158",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083158",
+        "request_no": "集０２１－０００８",
+        "edition": "刊本（序刊）::明嘉靖:290000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4407878/manifest.json",
+        "extent": "10冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1083158": {
+      "label": "內閣文庫藏本：明嘉靖29年刊本（序刊）（集021-0008，10冊）"
+    }
+  }
 }

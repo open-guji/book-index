@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/ekmb51423ei7gu35"
-      }
+      },
+      "entity_id": "hixhd2h9bt0b"
     }
   ],
   "dynasty": "清",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：清咸豐六年秀水高均儒寫刻本（上海圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4xsex6n33qsxmsl2\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4xsex6n33qsxmsl2\n\n国图數字古籍重配挂接\n\n2026-10-26 A11-去重3b-0 併條（rule=去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并）：併 d59fxp6furk2《跛奚年譜》 入本條。署名异写同书：《跛奚年譜》葉錫麟／葉葆：两条总目 author_info 全同",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -53,5 +54,20 @@
     "nlc-312001007607": {
       "label": "國圖藏本：秀水高均儒   清咸豐6年[1856]"
     }
-  }
+  },
+  "merged_in": [
+    {
+      "id": "d59fxp6furk2",
+      "title": "跛奚年譜",
+      "at": "2026-10-26T11:31:21Z",
+      "by": "A11-去重3b-0",
+      "rule": "去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并",
+      "why": "署名异写同书：《跛奚年譜》葉錫麟／葉葆：两条总目 author_info 全同",
+      "author": "葉錫麟",
+      "title_info": "跛奚年譜一卷"
+    }
+  ],
+  "merged_from": [
+    "d59fxp6furk2"
+  ]
 }

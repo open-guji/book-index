@@ -1,0 +1,84 @@
+{
+ "base": "f3d8d8ff6470bfd7c96d3b4d2f160203baedcf9d",
+ "merges": [
+  {
+   "cluster_id": "tail-1",
+   "type": "book",
+   "keeper": "994074cjy9",
+   "losers": [
+    "9940eahszk"
+   ],
+   "evidence": "两条 Book ai_note、源记录、indexed_by 完全相同",
+   "rule": "部分6附收尾",
+   "preconditions": [
+    {
+     "id": "994074cjy9",
+     "path": "Book/j/y/9/994074cjy9-續方言.json",
+     "sha256": "f29179eee3f2eb8657551319d4b6e4acf7cc47944e40fbc52993c7e8dfb1ce3a"
+    },
+    {
+     "id": "9940eahszk",
+     "path": "Book/s/z/k/9940eahszk-續方言.json",
+     "sha256": "ec9d4cf4c2ba04c071c6ff2cec76ddf1f30a4969ee2ae8864e99c28a68e61cee"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "tail-2",
+   "type": "work",
+   "keeper": "d59f2gpsb2f4",
+   "losers": [
+    "d59f2gpmdk3k"
+   ],
+   "evidence": "四庫提要原文；3a-3 b-09 判定",
+   "rule": "3a-3 口径补并",
+   "preconditions": [
+    {
+     "id": "d59f2gpsb2f4",
+     "path": "Work/2/f/4/d59f2gpsb2f4-鶴年詩集.json",
+     "sha256": "f9316d232bc7a73dd3c68360f02804039d4bb7bdfd1b32af431c502d2a0a52fa"
+    },
+    {
+     "id": "d59f2gpmdk3k",
+     "path": "Work/k/3/k/d59f2gpmdk3k-丁鶴年詩集.json",
+     "sha256": "6490cc65e996eb768a5e75a18abdbe7ee431d51d617b64d1623f34c9f5ecd28e"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2gpmdk3k",
+     "fields": [
+      {
+       "field": "measure_info",
+       "keeper_value": "三卷",
+       "loser_value": "一冊"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "著錄原文自書撰人朝代：《欽定四庫全書總目》「元丁鶴年撰」",
+       "loser_value": "據 authors[0].dynasty「元」"
+      },
+      {
+       "field": "dynasty",
+       "keeper_value": "明",
+       "loser_value": "元"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [
+    {
+     "loser": "d59f2gpmdk3k",
+     "name": "丁鶴年",
+     "entity_id": "hixhd2h9bmih"
+    }
+   ],
+   "loser_original_notes": {}
+  }
+ ]
+}

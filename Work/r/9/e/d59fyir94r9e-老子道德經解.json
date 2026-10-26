@@ -30,7 +30,85 @@
       "summary": "共 6 個版本：明玉溪菩提菴刻本（南京圖書館）；清光緒十二年金陵刻經處刻本（天津圖書館、南京圖書館、南京大學圖書館、上海圖書館、北京大學圖書館）；清貝氏千墨葊抄本（湖南省圖書館）；清光緒元年道山同慶社刻本（上海圖書館）；明刻本（國家圖書館）；民國八年刻本（天津圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：esg1oy5lwadpvxbq、4srdpe02fvlbofzf、atwjks8vn72qb13r、2d7z735fn4d1hrn0、zdi8fnb2ghkufqkq、5nzltt2fq880dvju\nauto-split:存疑未并\nE6 第 552 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：esg1oy5lwadpvxbq、4srdpe02fvlbofzf、atwjks8vn72qb13r、2d7z735fn4d1hrn0、zdi8fnb2ghkufqkq、5nzltt2fq880dvju\nauto-split:存疑未并\nE6 第 552 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-ro13_01644",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro13/ro13_01644/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro13_01644",
+        "edition": "[京都] : 上村次郎右衛門"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro13_02974",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro13/ro13_02974/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro13_02974",
+        "edition": "[南京] : 金陵刻経処, 光緒12[1886]"
+      },
+      "note": "合刻：另含觀老莊影響論"
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2565981",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2565981",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2565981",
+        "edition": "明刊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09056",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09056",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09056",
+        "call_number": "312.1 09056",
+        "edition": "明玉溪菩提庵刊本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-ro13_01644": {
+      "label": "早稲田藏本：[京都] : 上村次郎右衛門"
+    },
+    "waseda-ro13_02974": {
+      "label": "早稲田藏本：[南京] : 金陵刻経処, 光緒12[1886]"
+    },
+    "ndl-2565981": {
+      "label": "NDL藏本：明刊"
+    },
+    "ncltw-09056": {
+      "label": "臺灣國家圖書館藏本：明玉溪菩提庵刊本"
+    }
+  }
 }

@@ -56,9 +56,9 @@
       "清史稿藝文志"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -67,6 +67,63 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL02021383_%E6%80%9D%E8%A3%9C%E8%80%81%E4%BA%BA%E8%87%AA%E8%A8%82%E5%B9%B4%E8%AD%9C.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-001897049",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=001897049",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "001897049",
+        "edition": "吳門潘氏   清咸豐5年[1855]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-001897052",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=001897052",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "001897052",
+        "edition": "吳門潘儀鳳   清同治2年[1863]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02848-064",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02848-064",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02848-064",
+        "call_number": "205.21 02848-064",
+        "edition": "清稿本"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-001897049": {
+      "label": "國圖藏本：吳門潘氏   清咸豐5年[1855]"
+    },
+    "nlc-001897052": {
+      "label": "國圖藏本：吳門潘儀鳳   清同治2年[1863]"
+    },
+    "ncltw-02848-064": {
+      "label": "臺灣國家圖書館藏本：清稿本"
+    }
+  }
 }

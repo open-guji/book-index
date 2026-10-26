@@ -16,7 +16,73 @@
     }
   ],
   "dynasty": "朝鮮",
-  "ai_note": "2026-10-25 去重 4c 复核：據國圖著錄新建（國圖 Book 9979895f7s）；同題既有 Work d59fywozuzup 為他書，不併。依據：朝鮮高用厚等輯《正氣錄》（高敬命父子事蹟），与清張世坤編同题异书；库中无高用厚、高由厚",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-26"
+  "ai_note": "2026-10-25 去重 4c 复核：據國圖著錄新建（國圖 Book 9979895f7s）；同題既有 Work d59fywozuzup 為他書，不併。依據：朝鮮高用厚等輯《正氣錄》（高敬命父子事蹟），与清張世坤編同题异书；库中无高用厚、高由厚\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（第二轮）。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-100385524",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100385524",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100385524",
+        "holder": "京大図",
+        "edition": "刊 宣祖３２",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00013307/manifest.json"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101164215",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000022941",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101164215",
+        "nlk_control_no": "KOL000022941",
+        "holder": "국립중앙도서관",
+        "call_number": "한古朝57-가11",
+        "edition": "木板本 1617"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-102383269",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000009182",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102383269",
+        "nlk_control_no": "KOL000009182",
+        "holder": "국립중앙도서관",
+        "call_number": "古3649-64",
+        "edition": "木板本 [刊寫年未詳]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-100385524": {
+      "label": "國書·京大図藏刊 宣祖３２"
+    },
+    "korcis-101164215": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 1617"
+    },
+    "korcis-102383269": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 [刊寫年未詳]"
+    }
+  }
 }

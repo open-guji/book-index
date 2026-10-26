@@ -28,16 +28,65 @@
       "author_info": "明鄭汝璧撰",
       "section": "史部/傳記類/總傳之屬",
       "summary": "共 4 個版本：明萬曆七年漳州知府曹銑刻藍印本（臺灣圖書館）；邈園叢書本（馆藏未载）；玄覽堂叢書本（馆藏未载）；明萬曆四十七年刻本（故宮博物院圖書館）"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "鄭汝璧帝后紀畧",
+      "summary": "鄭汝璧帝后紀畧"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：8pi85vbrcxqkqofd、o04hjxgqrr5i82th、yjgcxgp4r65c3yt0、sxgq6od4li1m4km2\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-04.tsv；原 hold 原因：auto-split:存疑未并（缺朝代））",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：8pi85vbrcxqkqofd、o04hjxgqrr5i82th、yjgcxgp4r65c3yt0、sxgq6od4li1m4km2\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-04.tsv；原 hold 原因：auto-split:存疑未并（缺朝代））\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，A檔並）：併 d59f6ejvmf40《帝后紀畧》 入本條。近題同首位責任者：《皇明帝后紀畧》鄭汝璧／《帝后紀畧》鄭汝璧；總目《皇明帝后紀畧》一卷與千頃堂《帝后紀畧》同為鄭汝璧撰，僅朝代冠稱之異，千頃堂不著卷\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fyn63zima",
       "relation": "related",
       "note": "auto-split:近名/疑同書未并（皇明帝后紀畧）"
     }
-  ]
+  ],
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "additional_titles": [
+    "帝后紀畧"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6ejvmf40",
+      "title": "帝后紀畧",
+      "at": "2026-10-26T14:27:31Z",
+      "by": "A11-去重方案3b-近題前後綴",
+      "rule": "去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，A檔並",
+      "why": "近題同首位責任者：《皇明帝后紀畧》鄭汝璧／《帝后紀畧》鄭汝璧；總目《皇明帝后紀畧》一卷與千頃堂《帝后紀畧》同為鄭汝璧撰，僅朝代冠稱之異，千頃堂不著卷",
+      "author": "鄭汝璧",
+      "title_info": "鄭汝璧帝后紀畧"
+    }
+  ],
+  "merged_from": [
+    "d59f6ejvmf40"
+  ],
+  "resources": [
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02478",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02478",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02478",
+        "call_number": "205.1 02478",
+        "edition": "明萬曆己卯(七年, 1579)漳州知府曹銑刊藍印本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ncltw-02478": {
+      "label": "臺灣國家圖書館藏本：明萬曆己卯(七年, 1579)漳州知府曹銑刊藍印本"
+    }
+  }
 }

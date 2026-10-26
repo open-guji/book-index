@@ -49,7 +49,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 18，非諸志所著之任一數（清史稿藝文志作四十八卷；書目答問作四十二卷），係匯入時解析所誤。今取諸源中著錄最多者（同數則取志源較早、較確者）為 四十二 卷，餘數之異存於各 indexed_by 之引文。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 18，非諸志所著之任一數（清史稿藝文志作四十八卷；書目答問作四十二卷），係匯入時解析所誤。今取諸源中著錄最多者（同數則取志源較早、較確者）為 四十二 卷，餘數之異存於各 indexed_by 之引文。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "description": {
     "text": "程瑤田（清）撰。四十二卷；諸志所著之數有異，別作四十八卷。見著錄於《清史稿藝文志》《書目答問》。其著錄之文，《書目答問》作「《通藝錄》四十二卷」。《清史稿藝文志》民國趙爾巽等修；《書目答問》清張之洞撰——本書之目賴之以存。",
     "sources": [
@@ -57,6 +57,31 @@
       "書目答問"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1086063",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1086063",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1086063",
+        "request_no": "３６９－００４３",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/611049/manifest.json",
+        "extent": "20冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1086063": {
+      "label": "內閣文庫藏本：清刊本（369-0043，20冊）"
+    }
+  }
 }

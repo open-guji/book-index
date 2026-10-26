@@ -30,9 +30,9 @@
       "summary": "共 1 個版本：（復旦大學圖書館、山東省圖書館、天津圖書館、遼寧省圖書館、南京圖書館、浙江圖書館、國家圖書館、中國科學院圖書館、湖北省圖書館、北京大學圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 km8m7uuxvsic8hh3（文淵閣四庫全書三千四百六十一種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：eysi04dtv6ojjo5s\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 km8m7uuxvsic8hh3（文淵閣四庫全書三千四百六十一種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：eysi04dtv6ojjo5s\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n国图數字古籍重配挂接\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。\n\n2026-10-26 C3续 更正：臺灣國圖資源中 1 條為合作館藏本（影像經臺灣國圖平臺發佈），label 與 metadata.holder 改寫實際藏館。",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -78,6 +78,57 @@
         "nlc_fid": "412004001534",
         "edition": "元至正元年[1341]"
       }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2012402168",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2012402168/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2012402168",
+        "iiif_manifest": "https://www.loc.gov/item/2012402168/manifest.json",
+        "edition": "[China : s.n., Song dai, between 960 and 1279] 960"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101161454",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000026205",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101161454",
+        "nlk_control_no": "KOL000026205",
+        "holder": "국립중앙도서관",
+        "call_number": "한古朝43-나12",
+        "edition": "其他 [1761]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00000000PL2687C417",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00000000PL2687C417",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00000000PL2687C417",
+        "call_number": "00000000PL2687C417",
+        "edition": "明天啟間刻本",
+        "holder": "美國柏克萊加州大學東亞圖書館"
+      }
     }
   ],
   "resource_groups": {
@@ -89,6 +140,15 @@
     },
     "nlc-412004001534": {
       "label": "國圖藏本：元至正元年[1341]"
+    },
+    "loc-2012402168": {
+      "label": "美國國會圖書館藏本：[China : s.n., Song dai, between 960 and 1279] 960"
+    },
+    "korcis-101161454": {
+      "label": "韓國國立中央圖書館數字化藏本：其他 [1761]"
+    },
+    "ncltw-00000000PL2687C417": {
+      "label": "美國柏克萊加州大學東亞圖書館藏本：明天啟間刻本"
     }
   }
 }

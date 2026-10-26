@@ -36,9 +36,17 @@
       "author_info": "宋宋慈撰",
       "section": "史部/政書類/刑法之屬/檢驗",
       "summary": "共 1 個版本：格致叢書本（國家圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "洗冤錄一卷",
+      "author_info": "宋宋慈撰",
+      "section": "史部/政書類/叢編之屬",
+      "summary": "共 1 個版本：（國家圖書館、北京市文物局）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jgkxcb6ncnyv4xkp\nE6 第 422 批新建（hold 清零：M-new；原 hold 原因：）\n同題同首位責任者並條（依據：同名）；史部草稿內深度查重 shi/dedupe-a（源 Work 1exodcj5x9iiq《新刻洗寃錄》已並入；其作者寫法：宋慈）",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jgkxcb6ncnyv4xkp\nE6 第 422 批新建（hold 清零：M-new；原 hold 原因：）\n同題同首位責任者並條（依據：同名）；史部草稿內深度查重 shi/dedupe-a（源 Work 1exodcj5x9iiq《新刻洗寃錄》已並入；其作者寫法：宋慈）\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 B 档逐组复核并）：併 d59fyt7jpkow《洗冤錄》 入本條。同题同首位责任者：《洗寃錄》宋慈(宋,1/2卷,2版本)／《洗冤錄》宋慈(宋,1卷,1版本)；B 档逐组复核判同一作品（flags=juan_mixed）\n\n2026-10-26 A8 馆藏挂接：按确定档补挂（原挂被并者 d59fyt7jpkow，随并移入） 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "merged_in": [
     {
       "id": "1exodcj5x9iiq",
@@ -47,8 +55,68 @@
       "by": "串史部查重A",
       "rule": "同題同首位責任者並條（作者別名與並條口徑-共用 A／B 檔）",
       "why": "同題同首位責任者並條（依據：同名）；史部草稿內深度查重 shi/dedupe-a"
+    },
+    {
+      "id": "d59fyt7jpkow",
+      "title": "洗冤錄",
+      "at": "2026-10-26T14:50:02Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 B 档逐组复核并",
+      "why": "同题同首位责任者：《洗寃錄》宋慈(宋,1/2卷,2版本)／《洗冤錄》宋慈(宋,1卷,1版本)；B 档逐组复核判同一作品（flags=juan_mixed）",
+      "author": "宋慈",
+      "title_info": "洗冤錄一卷"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-20"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-300055979",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300055979",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300055979",
+        "holder": "千葉大古医書",
+        "edition": "刊 乾隆４９",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300055979/manifest"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3303598975",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3303598975",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3303598975",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3303598975/manifest",
+        "shelfmark": "Libri sin. 741",
+        "edition": "刻本;[China] 本衙藏板 (據扉頁) 乾隆丁酉 (=1777)"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-300055979": {
+      "label": "國書·千葉大古医書藏刊 乾隆４９"
+    },
+    "sbb-PPN3303598975": {
+      "label": "柏林國家圖書館藏本：刻本;[China] 本衙藏板 (據扉頁) 乾隆丁酉 (=1777)"
+    }
+  },
+  "additional_titles": [
+    "洗冤錄"
+  ],
+  "merged_from": [
+    "d59fyt7jpkow"
+  ]
 }

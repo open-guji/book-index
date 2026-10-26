@@ -56,6 +56,58 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL02055846_%E5%8F%A4%E5%99%A8%E5%85%B7%E5%90%8D.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078423",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078423",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078423",
+        "request_no": "３０６－０２３５",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4771932/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075997",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075997",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075997",
+        "request_no": "３０６－０２３３",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4771922/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15299-0040",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15299-0040",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15299-0040",
+        "call_number": "215.2 15299-0040",
+        "edition": "明萬曆31年(1603）錢塘胡氏刊本"
+      }
     }
   ],
   "measures": [
@@ -70,13 +122,24 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "胡文煥（明）編。二卷。見著錄於《欽定四庫全書總目》。本書惟《欽定四庫全書總目》一志著錄，別無他證。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "naikaku-1078423": {
+      "label": "內閣文庫藏本：明刊本（306-0235，3冊）"
+    },
+    "naikaku-1075997": {
+      "label": "內閣文庫藏本：明刊本（306-0233，2冊）"
+    },
+    "ncltw-15299-0040": {
+      "label": "臺灣國家圖書館藏本：明萬曆31年(1603）錢塘胡氏刊本"
+    }
+  }
 }

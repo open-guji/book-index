@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/vtuewoan6mvzanpo"
-      }
+      },
+      "entity_id": "hixicm8xypkz"
     },
     {
       "name": "勒德洪",
@@ -40,9 +41,9 @@
       "summary": "共 5 個版本：清抄本（國家圖書館、華東師範大學圖書館）；清乾隆間内府刻本（故宮博物院圖書館）；清抄本（浙江圖書館）；清内府抄本（南京博物院圖書館）；清抄本（浙江圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：w7g7m8squo0eokpt、e7mefgdxhu3pk8hk、myla36dkezy72ltn、ytcp2pz3ppo7rtwj、7dkwejby3c6tl4dm\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：w7g7m8squo0eokpt、e7mefgdxhu3pk8hk、myla36dkezy72ltn、ytcp2pz3ppo7rtwj、7dkwejby3c6tl4dm\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -58,11 +59,30 @@
         "nlc_fid": "412000001292",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01969",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01969",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01969",
+        "call_number": "202.3 01969",
+        "edition": "鈔本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000001292": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "ncltw-01969": {
+      "label": "臺灣國家圖書館藏本：鈔本"
     }
   }
 }

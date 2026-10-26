@@ -30,7 +30,49 @@
       "summary": "共 8 個版本：（國家圖書館、湖南省圖書館、北京大學圖書館、浙江圖書館、上海圖書館）；（天津圖書館、遼寧省圖書館、國家圖書館、湖北省圖書館、中國科學院圖書館）；（國家圖書館）；（中國科學院圖書館）；清抄本（國家圖書館）；清木活字印本（上海圖書館）；午夢堂集本（馆藏未载）；清乾隆二十三年吴江葉氏刻本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：joehjocvqjssebzl、ffwdnq0a3bvmk61x、3xuqk75b2irjly0d、w8ycbb31eywvel82\nE3 第 42 批追加（规则层入簇·追加）：新增 4 个 Book，總目分类「集部/曲類/雜劇之屬」，源記錄：0vjst7bv5fkfxvhz、l26l7uti44hq63iy、mv6m4mdnnlqv5rgj、qt8qmztqzuxk620u；分类未改。",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-08"
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：joehjocvqjssebzl、ffwdnq0a3bvmk61x、3xuqk75b2irjly0d、w8ycbb31eywvel82\nE3 第 42 批追加（规则层入簇·追加）：新增 4 个 Book，總目分类「集部/曲類/雜劇之屬」，源記錄：0vjst7bv5fkfxvhz、l26l7uti44hq63iy、mv6m4mdnnlqv5rgj、qt8qmztqzuxk620u；分类未改。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-D8414500",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=D8414500&order=rn_no&no=01743",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "D8414500",
+        "call_no": "雙紅堂-戲曲-2",
+        "edition": "刊本 崇禎九年序"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14527-0010",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14527-0010",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14527-0010",
+        "call_number": "402.6 14527-0010",
+        "edition": "明崇禎間(1628-1644)刊本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ioc-D8414500": {
+      "label": "東文研藏本：刊本 崇禎九年序"
+    },
+    "ncltw-14527-0010": {
+      "label": "臺灣國家圖書館藏本：明崇禎間(1628-1644)刊本"
+    }
+  }
 }

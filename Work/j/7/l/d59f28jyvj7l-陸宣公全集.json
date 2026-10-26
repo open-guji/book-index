@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 10 取自 `measure_info`「十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 10 取自 `measure_info`「十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -30,8 +30,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -40,6 +40,69 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-09678_%E9%99%B8%E5%AE%A3%E5%85%AC%E5%85%A8%E9%9B%86.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1072026",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1072026",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1072026",
+        "request_no": "３１３－０３９１",
+        "edition": "刊本（序刊）::明崇禎:010000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4755922/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101413417",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000000050",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101413417",
+        "nlk_control_no": "EOL000000050",
+        "holder": "국립중앙도서관",
+        "call_number": "古古3-75-3",
+        "edition": "木板本 [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09678",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09678",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09678",
+        "call_number": "402.42 09678",
+        "edition": "明崇禎元年(1628)宣城湯氏刊本"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1072026": {
+      "label": "內閣文庫藏本：明崇禎1年刊本（序刊）（313-0391，6冊）"
+    },
+    "korcis-101413417": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 [刊寫年未詳]"
+    },
+    "ncltw-09678": {
+      "label": "臺灣國家圖書館藏本：明崇禎元年(1628)宣城湯氏刊本"
+    }
+  }
 }

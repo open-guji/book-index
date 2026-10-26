@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/fwbaq8xiq38t2zfq"
-      }
+      },
+      "entity_id": "hixi8u5rqf25"
     },
     {
       "name": "呂一靜",
@@ -22,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/gbjmfsxc40kvtbf5"
-      }
+      },
+      "entity_id": "hixicld4dsyj"
     }
   ],
   "dynasty": "明",
@@ -37,10 +39,16 @@
       "author_info": "明呂一靜修;明康大和等纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 2 個版本：抄本（福建師範大學圖書館）；明萬曆三年刻本（日本內閣文庫（國立公文書館））"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "唐太和興化府志",
+      "summary": "唐太和興化府志"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：y8yfybn6k1bvd851、rilecqoco7u4ulxo\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.1.0",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：y8yfybn6k1bvd851、rilecqoco7u4ulxo\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f6eld0001《興化府志》 入本條。方志同修次重出：《[萬曆]興化府志》康大和纂、呂一靜修（中國古籍總目） ← 《興化府志》唐太和撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：千頃堂「唐太和」為康大和之訛，興化府志二十六卷，與總目[萬曆]興化府志二十六卷同。",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -66,5 +74,35 @@
     "naikaku-1072897": {
       "label": "內閣文庫藏本：明万暦3年刊本（序刊）（史150-0003，10冊）"
     }
-  }
+  },
+  "juan_count": {
+    "number": 26
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 26
+    }
+  ],
+  "measure_info": "二十六卷",
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "additional_titles": [
+    "興化府志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6eld0001",
+      "title": "興化府志",
+      "at": "2026-10-26T15:02:59Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[萬曆]興化府志》康大和纂、呂一靜修（中國古籍總目） ← 《興化府志》唐太和撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：千頃堂「唐太和」為康大和之訛，興化府志二十六卷，與總目[萬曆]興化府志二十六卷同。",
+      "author": "唐太和",
+      "title_info": "唐太和興化府志"
+    }
+  ],
+  "merged_from": [
+    "d59f6eld0001"
+  ]
 }

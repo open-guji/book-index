@@ -1,0 +1,704 @@
+[
+ {
+  "mid": "M01",
+  "work": "d59f2n7golxc",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "中國古籍總目",
+    "title_info": "[乾隆]永順府志十二卷首一卷",
+    "author_info": "清張天如等纂修",
+    "summary": "抄本（湖南省圖書館）",
+    "verdict": "留"
+   },
+   {
+    "idx": 1,
+    "source": "中國古籍總目",
+    "title_info": "[同治]永順府志十二卷首一卷",
+    "author_info": "清張天如原本;清魏式曾增修;清郭鑑襄增纂",
+    "summary": "清乾隆二十八年刻同治十二年增刻本（北大、上圖、天圖）",
+    "verdict": "移出到 NEW（[同治]永順府志）"
+   },
+   {
+    "idx": 2,
+    "source": "中國古籍總目",
+    "title_info": "[乾隆]永順府志十二卷首一卷",
+    "author_info": "清張天如等纂修",
+    "summary": "清乾隆二十八年刊本（湖北、北大、科圖、天圖、南圖、國圖、浙圖）",
+    "verdict": "留"
+   }
+  ],
+  "books": {
+   "keep": [
+    "9951ger3sw",
+    "988fzgop35"
+   ],
+   "move": [
+    {
+     "book": "9951h8enep",
+     "target": "NEW",
+     "reason": "[同治]永順府志，魏式曾增修、郭鑑襄增纂，同治十二年增刻本，屬同治增修修次"
+    }
+   ]
+  },
+  "resources": [],
+  "resources_not_moved": [
+   {
+    "url": "https://commons.wikimedia.org/wiki/File:（乾隆）永順府志_-_乾隆二十八年_(1763).pdf",
+    "reason": "文件名標乾隆二十八年，屬本條，留"
+   },
+   {
+    "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001075538",
+    "reason": "國圖 edition 空，無法判是乾隆原刻還是同治增刻印本；存疑，不動"
+   }
+  ],
+  "move": [
+   {
+    "indexed_by": [
+     1
+    ],
+    "books": [
+     "9951h8enep"
+    ],
+    "target": "NEW",
+    "new_work": {
+     "title": "[同治]永順府志",
+     "authors": [
+      {
+       "name": "張天如",
+       "role": "原本",
+       "dynasty": "清",
+       "entity_id": "hixhd2h9bqc2"
+      },
+      {
+       "name": "魏式曾",
+       "role": "增修",
+       "dynasty": "清",
+       "entity_id": "hixiclt4x2ow"
+      },
+      {
+       "name": "郭鑑襄",
+       "role": "增纂",
+       "dynasty": "清"
+      }
+     ],
+     "juan": 12,
+     "measure_info": "十二卷首一卷",
+     "section": "史部/方志類/地志之屬",
+     "description": "清魏式曾增修、郭鑑襄增纂，以乾隆張天如《永順府志》舊版增刻而成，十二卷首一卷，有清乾隆二十八年刻同治十二年增刻本。",
+     "related_works": [
+      {
+       "id": "d59f2n7golxc",
+       "relation": "related",
+       "note": "所據之乾隆原修本"
+      }
+     ]
+    },
+    "reason": "增修者、增刻年（同治十二年）俱異，是同治增修修次；庫內無 [同治]永順府志 Work（grep 魏式曾 只有 [同治]永順縣志、[同治]直隸澧州志），故新建。"
+   }
+  ],
+  "field_fixes": {
+   "d59f2n7golxc.indexed_by": "刪第1條（同治增修本）",
+   "d59f2n7golxc.authors/juan_count/measure_info/description": "不受影響（張天如纂修、十二卷卷首一卷、故宮乾隆二十八年刊本），不改",
+   "Book 9951h8enep.work_id": "d59f2n7golxc → 新 Work；可補 authors 張天如（原本）",
+   "Book 9951h8enep.publication_info.year": "1763 → 1873（同治十二年增刻；或保留 1763 加 details 注明）",
+   "d59f2n7golxc.ai_note": "追記拆出同治增修本"
+  },
+  "then_merge": {
+   "keeper": "d59f2n7golxc",
+   "losers": [
+    "d59f2ndo6iv5"
+   ],
+   "reason": "拆後 keeper 純為乾隆張天如修十二卷本；d59f2ndo6iv5 繫清史稿「永順府志十二卷。張天如修」，同修次，可按原計劃併。併前把 loser 的撰人「戴震」視為誤配（清史稿原文為張天如修），不帶入 keeper。"
+  },
+  "confidence": "高"
+ },
+ {
+  "mid": "M02",
+  "work": "d59f2nkqwa9s",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "中國古籍總目",
+    "title_info": "[康熙]泰安州志四卷",
+    "author_info": "明任弘烈原本;清鄒文郁增修;清朱衣點增纂",
+    "summary": "抄本（上海圖書館）",
+    "verdict": "留（隨本條併入 keeper d59fyoao7nr5）"
+   },
+   {
+    "idx": 1,
+    "source": "中國古籍總目",
+    "title_info": "[萬曆]泰安州志六卷",
+    "author_info": "明任弘烈修;明段廷選纂",
+    "summary": "明萬曆三十一年刻本（天一閣、國圖）；抄本（國圖）",
+    "verdict": "移出到 NEW（[萬曆]泰安州志）"
+   }
+  ],
+  "books": {
+   "keep": [
+    "9951df28e8",
+    "988g505c78",
+    "988g59tp1e"
+   ],
+   "move": [
+    {
+     "book": "9951hwr5s0",
+     "target": "NEW",
+     "reason": "[萬曆]泰安州志六卷抄本，任弘烈修段廷選纂"
+    },
+    {
+     "book": "9951hwfx8h",
+     "target": "NEW",
+     "reason": "[萬曆]泰安州志六卷明萬曆三十一年刻本"
+    }
+   ]
+  },
+  "resources": [
+   {
+    "url": "https://commons.wikimedia.org/wiki/File:%EF%BC%88%E8%90%AC%E6%9B%86%EF%BC%89%E6%B3%B0%E5%AE%89%E5%B7%9E%E5%BF%97.pdf",
+    "target": "NEW",
+    "reason": "文件名「（萬曆）泰安州志」，屬萬曆修次"
+   },
+   {
+    "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000001414",
+    "target": "NEW",
+    "reason": "國圖 edition「明万历[1573-1620]」，屬萬曆修次（連同 resource_groups 的 nlc-412000001414 一併搬）"
+   }
+  ],
+  "move": [
+   {
+    "indexed_by": [
+     1
+    ],
+    "books": [
+     "9951hwr5s0",
+     "9951hwfx8h"
+    ],
+    "resources": [
+     "commons （萬曆）泰安州志.pdf",
+     "nlc 412000001414"
+    ],
+    "target": "NEW",
+    "new_work": {
+     "title": "[萬曆]泰安州志",
+     "authors": [
+      {
+       "name": "任弘烈",
+       "role": "修",
+       "dynasty": "明",
+       "entity_id": "hixhd2h9boq5"
+      },
+      {
+       "name": "段廷選",
+       "role": "纂",
+       "dynasty": "明"
+      }
+     ],
+     "juan": 6,
+     "measure_info": "六卷",
+     "section": "史部/方志類/地志之屬",
+     "description": "明任弘烈修、段廷選纂，六卷，有明萬曆三十一年刻本（天一閣、國家圖書館）及抄本。清康熙間鄒文郁據之增修為四卷本（見 d59fyoao7nr5）。",
+     "related_works": [
+      {
+       "id": "d59fyoao7nr5",
+       "relation": "related",
+       "note": "清康熙鄒文郁增修本"
+      },
+      {
+       "id": "d59f2njx8qgz",
+       "relation": "related",
+       "note": "同題異修：明弘治胡瑄修李錦纂十卷本"
+      }
+     ]
+    },
+    "reason": "修纂人、卷數（六卷對四卷）、年代俱異。庫內泰安州志僅 d59f2nkqwa9s、d59fyoao7nr5（康熙）、d59f2njx8qgz（弘治李錦），無萬曆條，故新建。"
+   }
+  ],
+  "field_fixes": {
+   "d59f2nkqwa9s.indexed_by": "刪第1條（萬曆）",
+   "d59f2nkqwa9s.juan_count/measures/measure_info": "6／六卷 → 4／四卷（六卷是萬曆本卷數；故宮康熙九年重刊本與總目康熙四卷本同修次）。併入 keeper 後此欄以 keeper 為準亦可",
+   "d59f2nkqwa9s.period/dynasty": "ming／明（author_propagation 自任弘烈）→ qing／清（康熙增修本）",
+   "d59f2nkqwa9s.resources": "摘去 commons 萬曆 pdf 與 nlc 412000001414，刪 resource_groups.nlc-412000001414",
+   "Book 9951hwr5s0、9951hwfx8h.work_id": "→ 新 Work",
+   "d59f2nkqwa9s.ai_note": "追記拆出萬曆修次"
+  },
+  "not_moved_note": "keeper d59fyoao7nr5 上的內閣文庫 1073282（『明万暦31年刊本（序刊）』4冊）可能是萬曆六卷本，也可能是萬曆刻康熙增刻本（總目把康熙本著作「明萬曆三十一年刻清康熙十年增刻本」，四卷）。只憑 4 冊和萬曆序年無法區分，存疑，不動，建議看影像卷數後再定。",
+  "then_merge": {
+   "keeper": "d59fyoao7nr5",
+   "losers": [
+    "d59f2nkqwa9s"
+   ],
+   "reason": "拆後 d59f2nkqwa9s 剩總目康熙四卷抄本著錄、故宮清康熙九年重刊本、民國廿五年刊本，與 keeper（康熙四卷：萬曆刻康熙十年增刻本、民國二十五年鉛印本）同為鄒文郁增修本，按原計劃併。"
+  },
+  "confidence": "高"
+ },
+ {
+  "mid": "M03",
+  "work": "d59f2mdaq03k",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "欽定四庫全書總目",
+    "title_info": "《湖廣通志》•一百二十卷",
+    "author_info": "邁柱等監修",
+    "summary": "雍正十一年邁柱等奉詔纂輯，湖南北合為一書（通行本）",
+    "verdict": "留"
+   },
+   {
+    "idx": 1,
+    "source": "明史藝文志",
+    "title_info": "魏裳《湖廣通志》九十八卷",
+    "author_info": "魏裳",
+    "summary": "魏裳《湖廣通志》九十八卷（2026-08-26 雙向鏈回補）",
+    "verdict": "刪（重複）：d59f2ncywf0g（明魏裳九十八卷）已有同一 source_bid 的同條著錄；明史整理本一側的反鏈改指 d59f2ncywf0g"
+   }
+  ],
+  "books": {
+   "keep": [
+    "988g88w3cz",
+    "988g4xyoee",
+    "988g3wtfrg"
+   ],
+   "move": []
+  },
+  "resources": [
+   {
+    "url": "https://www.shidianguji.com/book/HY0170",
+    "target": "d59fyobpzdhd",
+    "reason": "识典 metadata.edition「康熙二十三年刻本」，是徐國相修八十卷本（[康熙]湖廣通志），不是雍正志"
+   }
+  ],
+  "move": [
+   {
+    "indexed_by": [
+     1
+    ],
+    "target": "d59f2ncywf0g",
+    "action": "刪（目標已有同文著錄）",
+    "reason": "明修魏裳本，另書；J15 已拆出到 d59f2ncywf0g，08-26 回補又把明史條掛回本條"
+   },
+   {
+    "resources": [
+     "shidianguji HY0170"
+    ],
+    "target": "d59fyobpzdhd",
+    "reason": "康熙二十三年刻本屬康熙修次"
+   }
+  ],
+  "field_fixes": {
+   "d59f2mdaq03k.indexed_by": "刪第1條（明史魏裳）",
+   "d59f2mdaq03k.description": "「夏力恕（清）纂。一百二十卷。見著錄於《欽定四庫全書總目》。諸家按語稱其佚文見引於《通志》。諸志按語言其亡佚。…本書之目賴之以存。」→ 改寫為：「清邁柱等監修、夏力恕等纂，一百二十卷首一卷，雍正十一年成，合湖南、湖北為一書。有清雍正十一年刻本、四庫全書本。」（原文「佚文見引」「亡佚」不實，本書今存）",
+   "d59f2mdaq03k.resources": "摘 shidianguji HY0170 改掛 d59fyobpzdhd；commons 文淵閣四庫全書_0533冊 與 Book 988g4xyoee 的資源重複，可順手刪（非混入，可選）",
+   "d59f2mdaq03k.authors": "不改（夏力恕纂、邁柱監修屬雍正志）",
+   "d59f2mdaq03k.ai_note": "追記：刪明史魏裳重複著錄、识典康熙本改掛"
+  },
+  "then_merge": {
+   "keeper": "d59fyma3jd35",
+   "losers": [
+    "d59f2mdaq03k"
+   ],
+   "reason": "拆後兩條都是雍正邁柱修、夏力恕纂一百二十卷本（雍正十一年刻本、四庫本），按原計劃併；併後 keeper 可吸收四庫提要、故宮三 Book、wikisource 資源。"
+  },
+  "confidence": "高（识典一項中高：只據 metadata.edition 判康熙本）"
+ },
+ {
+  "mid": "M04",
+  "work": "d59f2mqhhybl",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "書目答問",
+    "title_info": "《鳳臺縣志》",
+    "author_info": "李兆洛",
+    "summary": "李兆洛",
+    "verdict": "移出到 d59f2ndsv30h（［嘉慶］鳳臺縣志，李兆洛）"
+   }
+  ],
+  "books": {
+   "keep": [
+    "988g6xr9c0"
+   ],
+   "move": []
+  },
+  "resources": [],
+  "move": [
+   {
+    "indexed_by": [
+     0
+    ],
+    "target": "d59f2ndsv30h",
+    "reason": "書目答問所列鳳臺縣志署李兆洛，是嘉慶十九年安徽鳳臺李兆洛纂修本；d59f2ndsv30h 已有清史稿、續修四庫、總目嘉慶本著錄，加上本條即可。本條實為山西鳳臺（澤州）林荔修乾隆志，與李兆洛無涉。"
+   }
+  ],
+  "field_fixes": {
+   "d59f2mqhhybl.indexed_by": "移出唯一一條後為空",
+   "d59f2mqhhybl.description": "「林荔（清）修。見著錄於《書目答問》。本書惟《書目答問》一志著錄…今存版本 1 種」→「清林荔修，有清乾隆四十八年（癸卯）刊本（故宮）。」sources 改「國立故宮博物院善本舊籍」",
+   "d59f2ndsv30h.indexed_by": "加書目答問條（source_bid d59f2nfowtfm）；description 的「見著錄於」可補《書目答問》",
+   "Book 988g6xr9c0": "留本條：林荔修，乾隆癸卯（四十八年）是序年，總目作四十九年刻，同一修次",
+   "d59f2mqhhybl.ai_note": "追記書目答問條改繫嘉慶李兆洛志"
+  },
+  "then_merge": {
+   "keeper": "d59fyo9e0jcx",
+   "losers": [
+    "d59f2mqhhybl"
+   ],
+   "reason": "拆後本條只剩林荔修乾隆志（故宮本），與 keeper [乾隆]鳳臺縣志（林荔修、姚學甲纂，乾隆四十九年刻）同修次，按原計劃併。清單所疑 d59f2n5x4d8h 已於 2026-10-26 併入 d59fyo9e0jcx（姚學甲纂修，乾隆四十九年故宮本），不再另處理。d59fyo9e0jcw（亢愫，乾隆三十八年四卷）是另一修次，不併。"
+  },
+  "confidence": "高"
+ },
+ {
+  "mid": "M05",
+  "work": "d59f2nje79c0",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "明史藝文志",
+    "title_info": "陸釴《山東通志》四十卷",
+    "author_info": "陸釴",
+    "summary": "陸釴《山東通志》四十卷",
+    "verdict": "留"
+   },
+   {
+    "idx": 1,
+    "source": "國史經籍志",
+    "title_info": "《山東通志》四十卷",
+    "author_info": "陸釴",
+    "summary": "四十卷（陸釴）",
+    "verdict": "留"
+   },
+   {
+    "idx": 2,
+    "source": "欽定四庫全書總目",
+    "title_info": "《山東通志》•三十六卷",
+    "author_info": "（無）",
+    "summary": "只有題名卷數，08-26 雙向鏈回補",
+    "verdict": "刪（重複）：屬雍正岳濬三十六卷本，d59f2nuuuvi9 已有同 source_bid 的完整總目條；總目整理本一側反鏈改指 d59f2nuuuvi9"
+   },
+   {
+    "idx": 3,
+    "source": "四庫全書存目叢書",
+    "title_info": "《山東通志》四十卷",
+    "author_info": "明陸鈛等纂修",
+    "summary": "山東省圖書館藏明嘉靖刻本",
+    "verdict": "留"
+   }
+  ],
+  "books": {
+   "keep": [
+    "988g4v5jic"
+   ],
+   "move": []
+  },
+  "resources": [],
+  "resources_note": "四庫本 wikisource、识典 HY4192（康熙）、commons 0541冊 已於 2026-10-26 方志-并善後摘走；現存兩條內閣文庫均為明嘉靖12年刊本，屬本條，留。",
+  "move": [
+   {
+    "indexed_by": [
+     2
+    ],
+    "target": "d59f2nuuuvi9",
+    "action": "刪（目標已有）",
+    "reason": "三十六卷是雍正七年岳濬修、乾隆元年成之本，非嘉靖陸釴四十卷本"
+   }
+  ],
+  "field_fixes": {
+   "d59f2nje79c0.indexed_by": "刪第2條（總目三十六卷）",
+   "d59f2nje79c0.juan_count/measures": "36 → 40",
+   "d59f2nje79c0.measure_info": "三十六卷 → 四十卷",
+   "d59f2nje79c0.description": "「陸釴（明）等纂修。三十六卷；諸志所著之數有異，別作四十卷。…諸家按語稱其佚文見引於《通志》。…」→「明陸釴等纂修，四十卷，嘉靖十二年刊。見著錄於《明史藝文志》《國史經籍志》，《四庫全書存目叢書》影印山東省圖書館藏明嘉靖刻本。」（去掉三十六卷和不實的佚文句）",
+   "d59f2nje79c0.ai_note": "追記刪總目三十六卷條"
+  },
+  "then_merge": {
+   "keeper": "d59fyod5srnm",
+   "losers": [
+    "d59f2nje79c0",
+    "d59f6eq2t3ib"
+   ],
+   "reason": "拆後 d59f2nje79c0 純為嘉靖陸釴四十卷本（明史、國史經籍志、存目叢書、故宮嘉靖癸巳刊本、內閣文庫嘉靖12年本），與 keeper [嘉靖]山東通志四十卷同修次；d59f6eq2t3ib 千頃堂「陸鉞山東通志」四十卷，陸鉞為陸釴之訛（總目提要亦作「陸釴鉞」），一併按原計劃併入。"
+  },
+  "confidence": "高"
+ },
+ {
+  "mid": "M06",
+  "work": "d59f2gikadxc",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "欽定四庫全書總目",
+    "title_info": "《天臺山志》•一卷",
+    "author_info": "不著撰人名氏",
+    "summary": "元順帝時人作，兩淮鹽政采進本",
+    "verdict": "留"
+   },
+   {
+    "idx": 1,
+    "source": "明史藝文志",
+    "title_info": "僧傳燈《天台山志》二十九卷",
+    "author_info": "僧傳燈",
+    "summary": "僧傳燈《天臺山志》二十九卷",
+    "verdict": "移出到 d59f6em6ys5i（天台山方外志，傳燈）"
+   },
+   {
+    "idx": 2,
+    "source": "元史藝文志",
+    "title_info": "天台山志一卷",
+    "author_info": "（無）",
+    "summary": "元天台山志一卷",
+    "verdict": "留"
+   },
+   {
+    "idx": 3,
+    "source": "四庫全書存目叢書",
+    "title_info": "《天台山志》一卷",
+    "author_info": "闕名",
+    "summary": "涵芬樓影印明正統道藏本",
+    "verdict": "留"
+   }
+  ],
+  "books": {
+   "keep": [],
+   "move": []
+  },
+  "resources": [],
+  "resources_note": "wikisource「天台山志」、识典 DZ0603（涵芬樓影印正統道藏本）均是道藏一卷本，留。",
+  "move": [
+   {
+    "indexed_by": [
+     1
+    ],
+    "target": "d59f6em6ys5i",
+    "reason": "傳燈所撰即《天台山方外志》三十卷（萬曆癸卯成）；d59f6em6ys5i 所繫四庫總目提要引錢希言語「有門法師名傳燈…嘗撰《天臺山志》」，正是明史以「天台山志」稱之的同一書。卷數二十九對三十為著錄差，可在 note 記「明史作二十九卷」。"
+   }
+  ],
+  "field_fixes": {
+   "d59f2gikadxc.indexed_by": "刪第1條",
+   "d59f2gikadxc.juan_count/measure_info": "不變（1／一卷）",
+   "d59f2gikadxc.description": "「諸志不著撰人。一卷；諸志所著之數有異，別作二十九卷。見著錄於《欽定四庫全書總目》《明史藝文志》《元史藝文志》。其著錄之文，《明史藝文志》作「僧傳燈《天臺山志》二十九卷」…」→「不著撰人，一卷。四庫總目據書中稱前至元，定為元順帝時人作。見著錄於《欽定四庫全書總目》《元史藝文志》，有明正統道藏本。」sources 去「明史藝文志」",
+   "d59f2gikadxc.dynasty": "「明」（dynasty_basis=gazetteer_propagation，很可能由明史條帶來）→ 刪去或改「元」，併條時與 keeper 一起定；keeper d59fz734pqtc 總目作「明□□撰」，與提要「元人」相左，此項低信心，只報不改亦可",
+   "d59f6em6ys5i.indexed_by": "加明史藝文志條（source_bid d59f2mox0000，note「明史作《天台山志》二十九卷」）",
+   "d59f2gikadxc.ai_note": "追記明史傳燈條改繫天台山方外志"
+  },
+  "then_merge": {
+   "keeper": "d59fz734pqtc",
+   "losers": [
+    "d59f2gikadxc"
+   ],
+   "reason": "拆後兩條都是道藏所收一卷本《天台山志》（不著撰人；keeper 為總目道藏本、道藏舉要本），按原計劃併；併後 keeper 吸收四庫提要、元史志、存目叢書和兩條文本資源。"
+  },
+  "confidence": "高（dynasty 一項低）"
+ },
+ {
+  "mid": "M07",
+  "work": "d59fyp0ieuip",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "中國古籍總目",
+    "title_info": "[康熙]東阿縣志十二卷",
+    "author_info": "清劉沛先原修;清劉廷瑾增修;蘇日增增纂",
+    "summary": "清康熙四年刻五十四年增刻本（國圖、科圖、山東省圖）",
+    "verdict": "留"
+   },
+   {
+    "idx": 1,
+    "source": "中國古籍總目",
+    "title_info": "[康熙]東阿縣志十二卷",
+    "author_info": "清劉沛先修;清王吉臣纂",
+    "summary": "清康熙四年刻本（國圖、山東師大）",
+    "verdict": "移出到 NEW（康熙四年原修本）"
+   }
+  ],
+  "books": {
+   "keep": [
+    "99484fvjls",
+    "988fzdvk7q"
+   ],
+   "move": [
+    {
+     "book": "99484fkb29",
+     "target": "NEW",
+     "reason": "清康熙四年刻本，劉沛先修、王吉臣纂，原修修次"
+    }
+   ]
+  },
+  "resources": [],
+  "resources_not_moved": [
+   {
+    "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001070553",
+    "reason": "國圖兩本都藏，edition 空，判不出是四年刻本還是五十四年增刻本；存疑，不動"
+   }
+  ],
+  "move": [
+   {
+    "indexed_by": [
+     1
+    ],
+    "books": [
+     "99484fkb29"
+    ],
+    "target": "NEW",
+    "new_work": {
+     "title": "[康熙]東阿縣志",
+     "authors": [
+      {
+       "name": "劉沛先",
+       "role": "修",
+       "dynasty": "清",
+       "entity_id": "hixicm3cxvsb"
+      },
+      {
+       "name": "王吉臣",
+       "role": "纂",
+       "dynasty": "清"
+      }
+     ],
+     "juan": 12,
+     "measure_info": "十二卷",
+     "section": "史部/方志類/地志之屬",
+     "description": "清劉沛先修、王吉臣纂，十二卷，康熙四年刻本（國家圖書館、山東師範大學圖書館藏）。康熙五十四年劉廷瑾、蘇日增據之增修增刻（見 d59fyp0ieuip）。",
+     "related_works": [
+      {
+       "id": "d59fyp0ieuip",
+       "relation": "related",
+       "note": "康熙五十四年增修本"
+      }
+     ]
+    },
+    "reason": "清單定康熙四年原修與五十四年增修為兩個修次；原修本纂者王吉臣、無增修人，版本只有四年刻本。庫內東阿縣志各條：d59f6ehoym83 為明謝秉秀四卷，d59fyozpds02 為道光志，均不合，故新建。此條原是 1exp05o4w68e8（10-18 同題同作者併入），新建後可把 1exp05o4w68e8 的 merged_into 改指新 Work。"
+   }
+  ],
+  "field_fixes": {
+   "d59fyp0ieuip.indexed_by": "刪第1條",
+   "d59fyp0ieuip.authors": "不改（劉沛先原修、劉廷瑾增修、蘇日增增纂，屬增修本）；蘇日增 dynasty \"\" 可補「清」（非本次必要）",
+   "d59fyp0ieuip.title": "可改作「[康熙]東阿縣志」不變，但 description 宜補「康熙五十四年增修本」以與新條區分；新條可加 additional_titles 或 note 標「康熙四年本」",
+   "d59fyp0ieuip.merged_in[1exp05o4w68e8]": "該被併條是原修本（劉沛先、王吉臣），拆出後移到新 Work 的 merged_in；Work 1exp05o4w68e8（若有重定向檔）merged_into 改指新 Work",
+   "d59fyp0ieuip.ai_note": "追記拆出康熙四年原修本",
+   "Book 99484fkb29.work_id": "→ 新 Work"
+  },
+  "then_merge": {
+   "keeper": "d59fyp0ieuip",
+   "losers": [],
+   "reason": "不再併：d59f2n4ehu6a（故宮康熙五十四年刊本）已併入本條，且正屬增修本，留下；新原修本無可併的同修次條。"
+  },
+  "confidence": "中（原修／增修是否另立 Work 是口徑問題，清單已定拆；證據本身清楚）"
+ },
+ {
+  "mid": "M08",
+  "work": "d59f2n023y0w",
+  "indexed_by_list": [
+   {
+    "idx": 0,
+    "source": "中國古籍總目",
+    "title_info": "[乾隆]盛京通志四十八卷首一卷",
+    "author_info": "清宋筠等修;清魏樞等纂",
+    "summary": "清抄本（哈師大）；乾隆元年刻本；乾隆元年刻咸豐二年雷以誠校補印本",
+    "verdict": "留"
+   },
+   {
+    "idx": 1,
+    "source": "中國古籍總目",
+    "title_info": "[雍正]盛京通志三十三卷首一卷",
+    "author_info": "清呂耀曾、王河修;清魏樞等纂",
+    "summary": "清雍正十二年抄本（國家圖書館）",
+    "verdict": "移出到 NEW（[雍正]盛京通志）"
+   },
+   {
+    "idx": 2,
+    "source": "清史稿藝文志",
+    "title_info": "盛京通志",
+    "author_info": "雷以誠等修",
+    "summary": "盛京通志四十八卷。雷以誠等修。",
+    "verdict": "留（咸豐二年雷以諴補修之乾隆元年四十八卷本）"
+   }
+  ],
+  "books": {
+   "keep": [
+    "9951fqptz4",
+    "9951fq3cw1",
+    "9951fqelfk",
+    "988g4n1de2"
+   ],
+   "move": [
+    {
+     "book": "9951isa4n4",
+     "target": "NEW",
+     "reason": "[雍正]盛京通志三十三卷首一卷，雍正十二年抄本，呂耀曾、王河修"
+    }
+   ]
+  },
+  "resources": [],
+  "resources_not_moved": [
+   {
+    "url": "https://commons.wikimedia.org/wiki/File:WUL-ru06_00437_盛京通志_05.pdf",
+    "reason": "早稻田藏本，文件名無版本年；未核影像，存疑，不動"
+   },
+   {
+    "url": "http://read.nlc.cn/...fid=312001075766",
+    "reason": "edition 空，存疑，不動"
+   },
+   {
+    "url": "https://www.shidianguji.com/book/HY4097",
+    "reason": "咸豐二年補修刻本，屬本條，留"
+   }
+  ],
+  "move": [
+   {
+    "indexed_by": [
+     1
+    ],
+    "books": [
+     "9951isa4n4"
+    ],
+    "target": "NEW",
+    "new_work": {
+     "title": "[雍正]盛京通志",
+     "authors": [
+      {
+       "name": "呂耀曾",
+       "role": "修",
+       "dynasty": "清",
+       "entity_id": "hixi5jam8u17"
+      },
+      {
+       "name": "王河",
+       "role": "修",
+       "dynasty": "清"
+      },
+      {
+       "name": "魏樞",
+       "role": "纂",
+       "dynasty": "清",
+       "entity_id": "hixhd2h9bdwj"
+      }
+     ],
+     "juan": 33,
+     "measure_info": "三十三卷首一卷",
+     "section": "史部/方志類/地志之屬",
+     "description": "清呂耀曾、王河修，魏樞等纂，三十三卷首一卷，雍正十二年成，有清雍正十二年抄本（國家圖書館）。乾隆元年宋筠等據之續修為四十八卷刊行（見 d59f2n023y0w）。",
+     "related_works": [
+      {
+       "id": "d59f2n023y0w",
+       "relation": "related",
+       "note": "乾隆元年宋筠修四十八卷本"
+      }
+     ]
+    },
+    "reason": "修者（呂耀曾、王河對宋筠）、卷數（三十三對四十八）、年份（雍正十二年對乾隆元年）俱異；庫內盛京通志各條為康熙（伊把漢、d59f2my8vchs）、乾隆十三年汪由敦（d59fynrtlqte）、乾隆四十四/四十九年阿桂（d59f2ntt35s1、d59fynrtlqtd、d59fyfesrzlu），grep 呂耀曾／[雍正]盛京 無他條，故新建。"
+   }
+  ],
+  "field_fixes": {
+   "d59f2n023y0w.indexed_by": "刪第1條（雍正）",
+   "d59f2n023y0w.authors": "魏樞「等纂」不改；可補宋筠（修）於前，非必要",
+   "d59f2n023y0w.measures": "{冊,48} 是故宮冊數，與卷數 48 巧合並存，可留；juan_count 48、measure_info 四十八卷 不變（可補「首一卷」）",
+   "d59f2n023y0w.description": "不受影響（故宮乾隆元年刊咸豐二年雷以諴修補本），不改",
+   "d59f2n023y0w.ai_note": "追記拆出雍正志",
+   "Book 9951isa4n4.work_id": "→ 新 Work"
+  },
+  "then_merge": {
+   "keeper": "d59f2n023y0w",
+   "losers": [],
+   "reason": "d59f2ntteebk 已於 2026-10-26 併入本條（清史稿雷以誠修四十八卷），拆後不再有可併條；新雍正志亦無同修次條。"
+  },
+  "confidence": "高"
+ }
+]

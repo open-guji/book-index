@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/5wa9hrzjh3pmv3fr"
-      }
+      },
+      "entity_id": "hixhd2h9bclu"
     }
   ],
   "dynasty": "清",
@@ -37,7 +38,48 @@
       "summary": "共 1 個版本：武林掌故叢編本（馆藏未载）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 fh3c44flj5szo8zd（長恩閣叢書十四種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：wr10mqmo8i42l4hj\n第 440 批追加版本，源記錄：cgphj2rtnft1u6gd",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 fh3c44flj5szo8zd（長恩閣叢書十四種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：wr10mqmo8i42l4hj\n第 440 批追加版本，源記錄：cgphj2rtnft1u6gd\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-i04_00604",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i04/i04_00604_0034/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i04_00604",
+        "edition": ""
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01938",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01938",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01938",
+        "call_number": "202.26 01938",
+        "edition": "清同治丙寅(五年, 1866)非見齋鈔本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-i04_00604": {
+      "label": "早稲田藏本"
+    },
+    "ncltw-01938": {
+      "label": "臺灣國家圖書館藏本：清同治丙寅(五年, 1866)非見齋鈔本"
+    }
+  }
 }

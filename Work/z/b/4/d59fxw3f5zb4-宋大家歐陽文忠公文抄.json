@@ -29,8 +29,8 @@
       "summary": "共 1 個版本：明刻本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：v7oldx2ooxij8gg4\nE6 第 121 批新建（hold 清零：P11-B无主责任者；原 hold 原因：no_main_author）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.1.0",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：v7oldx2ooxij8gg4\nE6 第 121 批新建（hold 清零：P11-B无主责任者；原 hold 原因：no_main_author）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -47,11 +47,54 @@
         "ndl_record": "pid14119978",
         "edition": "江戸"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083256",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083256",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083256",
+        "request_no": "３１３－０３８６",
+        "edition": "刊本::慶応:010000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5084818/manifest.json",
+        "extent": "14冊"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-139778957",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL200800080",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "139778957",
+        "nlk_control_no": "KOL200800080",
+        "holder": "국립중앙도서관",
+        "call_number": "古3747-310",
+        "part": "卷9",
+        "edition": "筆寫本(未詳) [刊寫年未詳]"
+      }
     }
   ],
   "resource_groups": {
     "ndl-14119978": {
       "label": "NDL藏本：江戸"
+    },
+    "naikaku-1083256": {
+      "label": "內閣文庫藏本：慶応1年刊本（313-0386，14冊）"
+    },
+    "korcis-139778957": {
+      "label": "韓國國立中央圖書館數字化藏本：筆寫本(未詳) [刊寫年未詳]"
     }
   }
 }

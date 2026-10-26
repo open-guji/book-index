@@ -30,9 +30,9 @@
       "summary": "共 9 個版本：清道光二十年釋達受抄本（上海圖書館）；清同治三年刻本（吉林省圖書館）；清同治三年昭慶經房刻本（上海圖書館）；明刻本（國家圖書館）；明成化十七年刻本（上海圖書館）；明永樂十六年宋福順等刻本（國家圖書館）；明刻本（國家圖書館）；清順治間刻本（南京圖書館）；明賈福江覆刻元至治間鄭道堅本（臺灣圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xbyk5437kz1zt6wy、ozibv6o8py8iqxcw、vsqmequvw774f1yy、0qtxkunwzqk68s5p、1884s57xc1dd3txj、7v7oic3v6uzrv1e8、8oiy2pwywjrw2363、yq7wofi48myjgzwh、4lwhxu0u3ua7duoy\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xbyk5437kz1zt6wy、ozibv6o8py8iqxcw、vsqmequvw774f1yy、0qtxkunwzqk68s5p、1884s57xc1dd3txj、7v7oic3v6uzrv1e8、8oiy2pwywjrw2363、yq7wofi48myjgzwh、4lwhxu0u3ua7duoy\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -78,6 +78,40 @@
         "nlc_fid": "412000001103",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077182",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077182",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077182",
+        "request_no": "子１９６－００１９",
+        "edition": "刊本（序刊）::明万暦:260000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4427707/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-08910",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/08910",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "08910",
+        "call_number": "311.5 08910",
+        "edition": "明賈福江覆刊元至治間鄭道堅本"
+      }
     }
   ],
   "resource_groups": {
@@ -89,6 +123,12 @@
     },
     "nlc-412000001103": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1077182": {
+      "label": "內閣文庫藏本：明万暦26年刊本（序刊）（子196-0019，2冊）"
+    },
+    "ncltw-08910": {
+      "label": "臺灣國家圖書館藏本：明賈福江覆刊元至治間鄭道堅本"
     }
   }
 }

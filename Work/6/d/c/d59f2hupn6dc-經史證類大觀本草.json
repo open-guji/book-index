@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 7 取自 `measure_info`「七冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 7 取自 `measure_info`「七冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（A7 转交 NDL）。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -125,6 +125,100 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3895698/manifest.json",
         "extent": "10冊"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2555838",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2555838",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2555838",
+        "edition": "光緒覆元刊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2607663",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2607663",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2607663",
+        "edition": "安永4"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2012402240",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2012402240/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2012402240",
+        "iiif_manifest": "https://www.loc.gov/item/2012402240/manifest.json",
+        "edition": "[Korea : s.n., 18--?] 18uu"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2012402737",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2012402737/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2012402737",
+        "iiif_manifest": "https://www.loc.gov/item/2012402737/manifest.json",
+        "edition": "[Kyōto] : Mochizuki Sōgen, An'ei 4 [1775] 1775"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06212",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06212",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06212",
+        "call_number": "304.5 06212",
+        "edition": "元大德壬寅(六年, 1302)宗文書院刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06213",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06213",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06213",
+        "call_number": "304.5 06213",
+        "edition": "元大德壬寅(六年, 1302)宗文書院刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -142,6 +236,24 @@
     },
     "naikaku-3610967": {
       "label": "內閣文庫藏本：朝鮮刊本（304-0289，10冊）"
+    },
+    "ndl-2555838": {
+      "label": "NDL藏本：光緒覆元刊"
+    },
+    "ndl-2607663": {
+      "label": "NDL藏本：安永4"
+    },
+    "loc-2012402240": {
+      "label": "美國國會圖書館藏本：[Korea : s.n., 18--?] 18uu"
+    },
+    "loc-2012402737": {
+      "label": "美國國會圖書館藏本：[Kyōto] : Mochizuki Sōgen, An'ei 4 [1775] 1775"
+    },
+    "ncltw-06212": {
+      "label": "臺灣國家圖書館藏本：元大德壬寅(六年, 1302)宗文書院刊本"
+    },
+    "ncltw-06213": {
+      "label": "臺灣國家圖書館藏本：元大德壬寅(六年, 1302)宗文書院刊本"
     }
   }
 }

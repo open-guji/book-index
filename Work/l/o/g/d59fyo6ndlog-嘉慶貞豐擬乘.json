@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/3qqd7ow3xrvf8tgo"
-      }
+      },
+      "entity_id": "hixicm913344"
     },
     {
       "name": "陳勰",
@@ -39,9 +40,9 @@
       "summary": "共 2 個版本：清嘉慶十五年聚星堂刻本（國家圖書館、上海圖書館、南京圖書館）；抄本（南京大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jkdiz4m4z8ji18xi、jtrk1ijqrkpda1qn\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jkdiz4m4z8ji18xi、jtrk1ijqrkpda1qn\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n国图數字古籍重配挂接\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -57,11 +58,49 @@
         "nlc_fid": "411999028350",
         "edition": "清嘉慶15年[1810]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03339",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03339",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03339",
+        "call_number": "210.2 03339",
+        "edition": "舊鈔本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03340",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03340",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03340",
+        "call_number": "210.2 03340",
+        "edition": "清道光間(1821-1850)鈔本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999028350": {
       "label": "國圖藏本：清嘉慶15年[1810]"
+    },
+    "ncltw-03339": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
+    },
+    "ncltw-03340": {
+      "label": "臺灣國家圖書館藏本：清道光間(1821-1850)鈔本"
     }
   }
 }

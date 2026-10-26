@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 10 取自 `measure_info`「十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 10 取自 `measure_info`「十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -71,6 +71,39 @@
         "nlc_fid": "411999021547",
         "edition": "清康熙20年[1681]"
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3348762790",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3348762790",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3348762790",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3348762790/manifest",
+        "shelfmark": "Hirth 7",
+        "edition": "刻本;廣州 味經堂 藏版 咸豐丙辰 (=1856)"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05675",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05675",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05675",
+        "call_number": "301 05675",
+        "edition": "清康熙辛酉(二十年, 1681)繁昌縣刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -79,6 +112,12 @@
     },
     "nlc-411999021547": {
       "label": "國圖藏本：清康熙20年[1681]"
+    },
+    "sbb-PPN3348762790": {
+      "label": "柏林國家圖書館藏本：刻本;廣州 味經堂 藏版 咸豐丙辰 (=1856)"
+    },
+    "ncltw-05675": {
+      "label": "臺灣國家圖書館藏本：清康熙辛酉(二十年, 1681)繁昌縣刊本"
     }
   },
   "indexed_by": [

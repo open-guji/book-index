@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/02iobaycgji8fx7y"
-      }
+      },
+      "entity_id": "hixicm3c065i"
     }
   ],
   "dynasty": "明",
@@ -27,10 +28,16 @@
       "author_info": "明陸柬纂修",
       "section": "史部/方志類/地志之屬",
       "summary": "共 2 個版本：抄本（湖南省圖書館）；明隆慶元年刻本（日本國會圖書館）"
+    },
+    {
+      "source": "明史藝文志",
+      "source_bid": "d59f2mox0000",
+      "title_info": "陆东《宝庆府志》五卷",
+      "summary": "陸東《寶慶府志》五卷"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：txymjl7tqzax8pcy、4yfd65rovmzko8zr\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.2.0",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：txymjl7tqzax8pcy、4yfd65rovmzko8zr\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2nemiqkj《寶慶府志》 入本條。方志同修次重出：《[隆慶]寶慶府志》陸柬纂修（中國古籍總目） ← 《寶慶府志》陸東撰（明史藝文志）。脚本初判 A同修次·研-方志S复核。逐簇核对：明史陸東即陸柬（形近），五卷相合，同為隆慶寶慶府志",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -71,5 +78,33 @@
     "ndl-2605673": {
       "label": "NDL藏本：隆慶元刊"
     }
-  }
+  },
+  "juan_count": {
+    "number": 5
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 5
+    }
+  ],
+  "measure_info": "五卷",
+  "additional_titles": [
+    "寶慶府志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2nemiqkj",
+      "title": "寶慶府志",
+      "at": "2026-10-26T14:59:39Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[隆慶]寶慶府志》陸柬纂修（中國古籍總目） ← 《寶慶府志》陸東撰（明史藝文志）。脚本初判 A同修次·研-方志S复核。逐簇核对：明史陸東即陸柬（形近），五卷相合，同為隆慶寶慶府志",
+      "author": "陸東",
+      "title_info": "陆东《宝庆府志》五卷"
+    }
+  ],
+  "merged_from": [
+    "d59f2nemiqkj"
+  ]
 }

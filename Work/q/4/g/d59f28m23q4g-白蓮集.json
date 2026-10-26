@@ -50,7 +50,7 @@
       "直齋書錄解題"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故庫024711-024714）。阶段 5 兜底建立。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx7ngyfwg 與 11q37sptkmvb4 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·版本著錄語之改寫（有著錄源者）：本條原 desc 是版本著錄語（「本書收入《國立故宮博物院善本舊籍》…」之形）——過了五十字之門檻而一個字都沒說這本書是什麼（skill 坑 17）。今於其前補一段據所繫著錄機械撮述之文（撰人、卷數、諸志異同、敘錄之要點），**原版本語留於其後**——版本之記於有實物之書自是要緊，非可刪者。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故庫024711-024714）。阶段 5 兜底建立。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx7ngyfwg 與 11q37sptkmvb4 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·版本著錄語之改寫（有著錄源者）：本條原 desc 是版本著錄語（「本書收入《國立故宮博物院善本舊籍》…」之形）——過了五十字之門檻而一個字都沒說這本書是什麼（skill 坑 17）。今於其前補一段據所繫著錄機械撮述之文（撰人、卷數、諸志異同、敘錄之要點），**原版本語留於其後**——版本之記於有實物之書自是要緊，非可刪者。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 10
   },
@@ -173,6 +173,54 @@
         "nlc_fid": "411999016742",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09922",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09922",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09922",
+        "call_number": "402.43 09922",
+        "edition": "明末上黨馮氏鈔本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09923",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09923",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09923",
+        "call_number": "402.43 09923",
+        "edition": "明末海虞毛氏汲古閣刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14152-0003",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14152-0003",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14152-0003",
+        "call_number": "403.242 14152-0003",
+        "edition": "明末虞山毛氏汲古閣刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -184,6 +232,15 @@
     },
     "nlc-411999016742": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "ncltw-09922": {
+      "label": "臺灣國家圖書館藏本：明末上黨馮氏鈔本"
+    },
+    "ncltw-09923": {
+      "label": "臺灣國家圖書館藏本：明末海虞毛氏汲古閣刊本"
+    },
+    "ncltw-14152-0003": {
+      "label": "臺灣國家圖書館藏本：明末虞山毛氏汲古閣刊本"
     }
   },
   "updated_at": "2026-08-24T00:00:00+00:00",
@@ -191,6 +248,6 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.3.0",
-  "revised_at": "2026-10-24"
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26"
 }

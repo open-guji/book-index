@@ -13,7 +13,7 @@
 - 名字撞已有人物的「姓＋字号」也算撞名；名尾粘「藏／並／等」不建。
 - 占位名（佚名等）、缺字名（□、&）、机构名不建，登记。
 输出：plan.json（每组一项）、held.tsv（不建登记）、stats.json。"""
-import argparse, collections, glob, json, os, re, sqlite3, sys
+import argparse, collections, csv, glob, json, os, re, sqlite3, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 QA = os.path.dirname(HERE)
 ROOT = os.path.abspath(os.path.join(QA, '..', '..'))
@@ -50,6 +50,14 @@ C2 = [('趙宋', '宋'), ('北宋', '宋'), ('南宋', '宋'), ('宋末', '宋')
       ('西周', '先秦'), ('東周', '先秦'), ('周', '先秦'), ('春秋', '先秦'), ('戰國', '先秦'), ('先秦', '先秦'), ('商', '先秦'), ('殷', '先秦'), ('夏', '先秦'), ('上古', '先秦')]
 ADJ = {frozenset(x) for x in [('先秦', '秦'), ('秦', '漢'), ('先秦', '漢'), ('漢', '三國'), ('三國', '晉'), ('晉', '十六國'), ('晉', '南北朝'), ('十六國', '南北朝'), ('南北朝', '隋'), ('隋', '唐'),
                               ('唐', '五代'), ('五代', '宋'), ('五代', '遼'), ('宋', '遼'), ('宋', '金'), ('遼', '金'), ('宋', '元'), ('金', '元'), ('元', '明'), ('明', '清'), ('清', '民國')]}
+
+
+ANCIENT = {'先秦', '秦', '漢', '三國', '晉', '十六國', '南北朝', '隋', '唐', '五代', '宋', '遼', '金', '元'}
+REIGN_T = re.compile(r'^\[(民國|順治|康熙|雍正|乾隆|嘉慶|道光|咸豐|同治|光緒|宣統)\]')
+MODERN_T = re.compile(r'泰西|新史|報告|聯合會|學堂|章程')
+
+
+DYALIAS = {'北宋': '宋', '南宋': '宋', '趙宋': '宋', '晋': '晉', '西漢': '漢', '東漢': '漢', '兩漢': '漢', '三國魏': '魏', '西晉': '晉', '東晉': '晉'}
 
 
 def coarse2(d):
@@ -132,6 +140,10 @@ def main():
         if len(dy) == 1 and s['name'].startswith(dy) and (dy + s['name']) not in s['author_info']:
             s['dynasty'] = None
     held = []; st = collections.Counter()
+    withdrawn = set()   # 各批抽检／复查撤回过的名字：重跑时不再新建，免把判过 DUP／错名的人又建回来
+    for f in glob.glob(os.path.join(HERE, '*', '撤出*.tsv')) + glob.glob(os.path.join(HERE, 'recheck-*withdrawn.tsv')):
+        rows = list(csv.DictReader(open(f, encoding='utf-8'), delimiter='\t'))
+        withdrawn |= {r.get('name') for r in rows if r.get('name')}
     def hold(s, why, detail=''):
         held.append((s['path'], s['slot'], s['name'], s['dynasty'] or '', why, detail)); st['不建:' + why] += 1
 
@@ -145,6 +157,7 @@ def main():
     for s in slots:
         n = s['name']
         if ANON.search(n): st['占位名(不计)'] += 1; continue
+        if n in withdrawn: hold(s, '已撤回待核'); continue
         if PLACEHOLDER.search(n): st['占位名(不计)'] += 1; continue
         if n != n.strip() or BROKEN.search(n) or len(n) < 2: hold(s, '名字含缺字/分隔/括注或单字'); continue
         if (len(n) >= 4 and ORG4.search(n)) or (len(n) == 3 and ORG3.search(n)) or loose(n) in othernames: hold(s, '机构或非人物专名'); continue
@@ -160,6 +173,9 @@ def main():
             hold(s, '朝代字与姓重叠被切'); continue   # 抽检 b02：「宋宋爲仁撰」切成爲仁
         if len(n) >= 3 and any(len(k) > len(loose(n)) and k.endswith(loose(n)) for k in suffixidx.get(loose(n)[-3:], ())):
             hold(s, '名为已有人物名之后缀待核'); continue   # 抽检 b01v2：赤心子＜起北赤心子
+        if (len(n) == 3 and n.endswith('氏')) or (len(n) == 2 and n[0] == n[1]): hold(s, '神号或托名'); continue   # 丙03 抽检：道先氏、蹇蹇
+        if s['dynasty'] and not any(x in s['author_info'] for x in {s['dynasty'], DYALIAS.get(s['dynasty'], s['dynasty'])}):
+            hold(s, '作者位朝代不见于原文待核'); continue   # 丙03 抽检：原文「趙曜纂」无朝代，作者位却作清
         if (re.search(r'(軒|齋|斋|堂|閣|樓|館|室|廬|園|山房|書屋|居|亭|庵|菴)(主人)?$', n) or n.endswith('氏')) and re.search('題[^;；|]{0,3}' + re.escape(n), s['author_info']):   # 抽检 b02：題清掄花館主人
             hold(s, '题署室名'); continue
         if DYPFX2.match(n): hold(s, '疑名前粘朝代'); continue
@@ -246,6 +262,9 @@ def main():
             if len(yrs) >= 2 and max(yrs) - min(yrs) > lim:
                 for s in ss: hold(s, '组内著作年代相距逾80年', '%d-%d' % (min(yrs), max(yrs)))   # 抽检 spot1：孙谦康熙／乾隆
                 continue
+        if c in ANCIENT and all(REIGN_T.match(s['title'] or '') or MODERN_T.search(s['title'] or '') for s in ss):
+            for s in ss: hold(s, '古朝代配清民国书待核')   # 抽检 乙03：金鍾麟撰→金·鍾麟、秦夏聲纂［民國］慶雲縣志：姓被切作朝代
+            continue
         dys = collections.Counter(s['dynasty'] for s in ss if s['dynasty'])
         plan.append({'name': n, 'dynasty': dys.most_common(1)[0][0] if dys else None, 'cd': c,
                      'cbdb': None, 'cbdb_cand': cbc[0]['id'] if len(cbc) == 1 else None, 'cbdb_n': len(cbc),

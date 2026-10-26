@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/gfn85xs5w8ydtlo6"
-      }
+      },
+      "entity_id": "hixhd2h9bns1"
     },
     {
       "name": "趙希弁",
@@ -49,8 +50,8 @@
       "summary": "共 16 個版本：清光緒十年長沙王氏刻本（國家圖書館）；清抄本（大連市圖書館、湖南省圖書館、國家圖書館、浙江大學圖書館、北京大學圖書館、上海圖書館）；清光緒六年會稽章氏刻本（山東省圖書館、國家圖書館）；明范氏臥雲山房抄本（北京大學圖書館）；清龍池山房抄本（南京圖書館）；清嘉慶二十四年汪氏藝芸書舍刻本（國家圖書館、北京大學圖書館、上海圖書館、湖南省圖書館）；宋淳祐九年黎安朝袁州刻修補本（臺北“故宮博物院”）；續古逸叢書本（馆藏未载）；清抄本（國家圖書館）；清康熙六十一年陳師曾刻本（上海圖書館、北京大學圖書館、國家圖書館）；養和堂叢書本（馆藏未载）；明抄本（國家圖書館）；四部叢刊三編本（馆藏未载）；四庫全書本（馆藏未载）；清抄本（國家圖書館）；清初錢氏述古堂抄本（南京圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：n6sr0p4lqu8vnhb3、qlxwcfc52hviq7ll、vennvxwhnsr56yar、7sz1v64cp1wsdgqc、2q2klozzvghv1ix3、2gq2rs5l0wutd3zz、u4agu3tgrhk6shxp、mixpncystod8gmlt、gae3kkeljhol8705、0dsjk6qlag6dpecn、a7gguodtkn5xu78p、712ysq5db7eb42kl、bq8qtnk15zswoah7、n1jmdseohp1vh41m、c5ae2mepti6pq1fu、mheqthtld6t2empl\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-11.tsv；原 hold 原因：auto-split:存疑未并（作者仅部分交集（合著增减）））\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.3.0",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：n6sr0p4lqu8vnhb3、qlxwcfc52hviq7ll、vennvxwhnsr56yar、7sz1v64cp1wsdgqc、2q2klozzvghv1ix3、2gq2rs5l0wutd3zz、u4agu3tgrhk6shxp、mixpncystod8gmlt、gae3kkeljhol8705、0dsjk6qlag6dpecn、a7gguodtkn5xu78p、712ysq5db7eb42kl、bq8qtnk15zswoah7、n1jmdseohp1vh41m、c5ae2mepti6pq1fu、mheqthtld6t2empl\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-11.tsv；原 hold 原因：auto-split:存疑未并（作者仅部分交集（合著增减）））\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -196,6 +197,21 @@
         "ndl_record": "pid2609885",
         "edition": "光緒6"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2609673",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2609673",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2609673",
+        "edition": "康煕61序"
+      }
     }
   ],
   "resource_groups": {
@@ -225,6 +241,9 @@
     },
     "ndl-2609885": {
       "label": "NDL藏本：光緒6"
+    },
+    "ndl-2609673": {
+      "label": "NDL藏本：康煕61序"
     }
   }
 }

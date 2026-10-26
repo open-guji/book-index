@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 名大 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -47,8 +47,8 @@
   "dynasty_basis": "据唯一 author.dynasty「南宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「南宋」自动归并",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.6.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -87,6 +87,74 @@
         "waseda_id": "ro12_03337",
         "edition": "崇正堂, 康煕35[1696]"
       }
+    },
+    {
+      "id": "loc",
+      "group": "loc-74898907",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/74898907/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "74898907",
+        "iiif_manifest": "https://www.loc.gov/item/74898907/manifest.json",
+        "shelfmark": "PL2465 .N7 1895",
+        "edition": "Hubei : Guan shu chu, Qing Guangxu 21 nian [1895] 1895"
+      }
+    },
+    {
+      "id": "nagoya-u",
+      "group": "nagoya-N004_20230901_02893",
+      "group_role": "origin",
+      "name": "名古屋大学附属図書館 古典籍",
+      "short_name": "名大",
+      "url": "https://da.adm.thers.ac.jp/item/n004-20230901-02893",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nagoya_record": "THERS_da-N004_20230901_02893",
+        "call_no": "123.2-Sy",
+        "edition": "享保九年京都今村八兵衞刊本",
+        "iiif_manifest": "https://da.adm.thers.ac.jp/iiif/1/classic_books/N004-20230901-02893/manifest.json"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101137892",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000013000",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101137892",
+        "nlk_control_no": "KOL000013000",
+        "holder": "국립중앙도서관",
+        "call_number": "古1232-25",
+        "edition": "木板本 寬文 4(1664)"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01276-0002",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01276-0002",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01276-0002",
+        "call_number": "102.1 01276-0002",
+        "edition": "明蘇州翻刻司禮監本"
+      }
     }
   ],
   "resource_groups": {
@@ -95,6 +163,18 @@
     },
     "waseda-ro12_03337": {
       "label": "早稲田藏本：崇正堂, 康煕35[1696]"
+    },
+    "loc-74898907": {
+      "label": "美國國會圖書館藏本：Hubei : Guan shu chu, Qing Guangxu 21 nian [1895] 1895"
+    },
+    "nagoya-N004_20230901_02893": {
+      "label": "名大藏本：享保九年京都今村八兵衞刊本"
+    },
+    "korcis-101137892": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 寬文 4(1664)"
+    },
+    "ncltw-01276-0002": {
+      "label": "臺灣國家圖書館藏本：明蘇州翻刻司禮監本"
     }
   },
   "indexed_by": [

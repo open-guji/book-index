@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/aat8chb6lge5ysl0"
-      }
+      },
+      "entity_id": "hixicm3boxmq"
     }
   ],
   "dynasty": "明",
@@ -29,8 +30,8 @@
       "summary": "共 2 個版本：清抄本（上海圖書館）；明萬曆四十年何敬塘刻本（浙江圖書館、中國科學院上海分院、蘇州市圖書館、安徽省博物館、中華醫學會上海分會圖書館、臺灣圖書館、中國科學院圖書館、中醫科學院）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fxlh3ecx8bc32q1h、cimyohj5lwvapem2\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条、國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.1.0",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fxlh3ecx8bc32q1h、cimyohj5lwvapem2\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条、國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -103,6 +104,22 @@
         "edition": "刊 天和３",
         "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00001055/manifest.json"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06080",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06080",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06080",
+        "call_number": "304.1 06080",
+        "edition": "明萬曆壬子(四十年, 1612)新安羅氏刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -117,6 +134,9 @@
     },
     "kokusho-100317220": {
       "label": "國書·京大富士川藏刊 天和３"
+    },
+    "ncltw-06080": {
+      "label": "臺灣國家圖書館藏本：明萬曆壬子(四十年, 1612)新安羅氏刊本"
     }
   }
 }

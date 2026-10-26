@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀004206），無同名 Work 故新建。 | 從 1evkam5hmyd4w 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀004206），無同名 Work 故新建。 | 從 1evkam5hmyd4w 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 1
   },
@@ -33,8 +33,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "commons",
@@ -67,11 +67,50 @@
         "holder": "府中之島図石崎",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300096863/manifest"
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3371340562",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3371340562",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3371340562",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3371340562/manifest",
+        "shelfmark": "Libri sin. 73-6-8-1",
+        "edition": "刻本;涵遠齋 梓行 萬曆辛丑 (=1601) 序"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06010",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06010",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06010",
+        "call_number": "304.1 06010",
+        "edition": "明末葉刊本"
+      }
     }
   ],
   "resource_groups": {
     "kokusho-300096863": {
       "label": "國書·府中之島図石崎藏刊 "
+    },
+    "sbb-PPN3371340562": {
+      "label": "柏林國家圖書館藏本：刻本;涵遠齋 梓行 萬曆辛丑 (=1601) 序"
+    },
+    "ncltw-06010": {
+      "label": "臺灣國家圖書館藏本：明末葉刊本"
     }
   },
   "related_works": [

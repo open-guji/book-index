@@ -54,9 +54,9 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 lane-B 併條（rule=I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一））：併 d59f6erftcsn《經世要畧》 入本條。同題同撰人而**題止異體字之異**：「經世要略」對「經世要畧」。keeper 繫 明史藝文志；被併者繫 千頃堂書目。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。\n\n總目分類：史部／傳記類／總傳之屬（與正式庫分類並存，未改 Work 分類）",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 lane-B 併條（rule=I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一））：併 d59f6erftcsn《經世要畧》 入本條。同題同撰人而**題止異體字之異**：「經世要略」對「經世要畧」。keeper 繫 明史藝文志；被併者繫 千頃堂書目。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。\n\n總目分類：史部／傳記類／總傳之屬（與正式庫分類並存，未改 Work 分類）\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -65,6 +65,22 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-02522_%E7%B6%93%E4%B8%96%E8%A6%81%E7%95%A5.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02522",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02522",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02522",
+        "call_number": "205.1 02522",
+        "edition": "明萬曆庚戌(三十八年, 1610)豫章萬氏刊本"
+      }
     }
   ],
   "additional_titles": [
@@ -79,5 +95,10 @@
       "rule": "I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一）",
       "why": "同題同撰人而**題止異體字之異**：「經世要略」對「經世要畧」。keeper 繫 明史藝文志；被併者繫 千頃堂書目。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-02522": {
+      "label": "臺灣國家圖書館藏本：明萬曆庚戌(三十八年, 1610)豫章萬氏刊本"
+    }
+  }
 }

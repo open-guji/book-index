@@ -34,15 +34,15 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 13，與著錄原文（清史稿藝文志：「李文忠公全集」）所載之 163 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 13，與著錄原文（清史稿藝文志：「李文忠公全集」）所載之 163 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
   "description": {
     "text": "李鴻章（清）撰。一百六十三卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「李文忠公全集一百六十三卷」。本書惟《清史稿藝文志》一志著錄，別無他證。別集之屬，所收為其人之詩文。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
     "sources": [
       "清史稿藝文志"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -51,6 +51,24 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:SSID-12406051_%E6%9D%8E%E6%96%87%E5%BF%A0%E5%85%AC%E5%85%A8%E9%9B%86_1.pdf"
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101447945",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000005237",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101447945",
+        "nlk_control_no": "EOL000005237",
+        "holder": "국립중앙도서관",
+        "call_number": "古古10-10-나3",
+        "edition": "影印本 民國 10[1921]"
+      }
     }
   ],
   "related_works": [
@@ -59,5 +77,10 @@
       "relation": "related",
       "note": "P11 批1b（Sabine 重判）：總目題名「李文忠公遺集八卷」與候選 Work「李文忠公全集」題名有別，判為不同著作（不並）；互為相關。（形近待核或分集／別書，原书未核）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "korcis-101447945": {
+      "label": "韓國國立中央圖書館數字化藏本：影印本 民國 10[1921]"
+    }
+  }
 }

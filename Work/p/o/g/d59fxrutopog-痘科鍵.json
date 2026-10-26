@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/7wadyelpb3gqf043"
-      }
+      },
+      "entity_id": "hixicld4p1fk"
     }
   ],
   "dynasty": "明",
@@ -29,8 +30,8 @@
       "summary": "共 3 個版本：清道光十一年徐林蔭堂刻本（浙江省中醫藥研究院、南京圖書館、南通市圖書館、上海交通大學醫學院圖書館）；清刻本（國家圖書館、上海圖書館、中醫科學院）；清抄本（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zh7rn4387nehc1xu、fob26asovbe31ron、tgqpeuoc1zf775up\nE6 第 422 批新建（hold 清零：E；原 hold 原因：-）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.2.0",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zh7rn4387nehc1xu、fob26asovbe31ron、tgqpeuoc1zf775up\nE6 第 422 批新建（hold 清零：E；原 hold 原因：-）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-NDL丛书合刻-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -98,6 +99,37 @@
         "edition": "刊 安永６",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300139852/manifest"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2608145",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2608145",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2608145",
+        "edition": "安永6"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06098",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06098",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06098",
+        "call_number": "304.1 06098",
+        "edition": "日本享保十五年(1730)石倉屋喜兵衛刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -112,6 +144,12 @@
     },
     "kokusho-300139852": {
       "label": "國書·大阪樟蔭大図藏刊 安永６"
+    },
+    "ndl-2608145": {
+      "label": "NDL藏本：安永6"
+    },
+    "ncltw-06098": {
+      "label": "臺灣國家圖書館藏本：日本享保十五年(1730)石倉屋喜兵衛刊本"
     }
   }
 }

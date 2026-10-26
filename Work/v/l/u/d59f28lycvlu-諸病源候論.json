@@ -37,6 +37,21 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4756300/manifest.json",
         "extent": "14冊"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ya09_00136",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ya09/ya09_00136/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ya09_00136",
+        "edition": "[京都] : 梅村弥右衛門, 正保2[1645]"
+      }
     }
   ],
   "authors": [
@@ -47,7 +62,7 @@
       "entity_id": "hixhd2h9bhjj"
     }
   ],
-  "ai_note": "作者「隋巢元方等撰」補自《國立故宮博物院善本舊籍》目錄。 [sui-tang-round1: dynasty null->隋; 據唯一 author.dynasty「隋」補全]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（五十卷），今據以補。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "作者「隋巢元方等撰」補自《國立故宮博物院善本舊籍》目錄。 [sui-tang-round1: dynasty null->隋; 據唯一 author.dynasty「隋」補全]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（五十卷），今據以補。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
   "updated_at": "2026-08-20T00:00:00-07:00",
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「隋」",
@@ -63,11 +78,14 @@
     }
   ],
   "measure_info": "五十卷",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "naikaku-1079602": {
       "label": "內閣文庫藏本：江戸初写本（子022-0001，14冊）"
+    },
+    "waseda-ya09_00136": {
+      "label": "早稲田藏本：[京都] : 梅村弥右衛門, 正保2[1645]"
     }
   }
 }

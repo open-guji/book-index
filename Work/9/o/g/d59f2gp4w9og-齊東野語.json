@@ -129,6 +129,96 @@
         "edition": "日本鈔本",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NJlib-0110661-0001_%E9%BD%8A%E6%9D%B1%E5%9F%9C%E8%AA%9E%E4%BA%8C%E5%8D%81%E5%8D%B7.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-1337",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=1337",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "1337",
+        "edition": "明正德[1506-1521]"
+      }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-BV040641270",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb00079101",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb00079101",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00079101/manifest",
+        "shelfmark": "4 L.sin. D 301-1/5",
+        "volume_count": 2,
+        "edition": "[常熟] 汲古閣 Anfang 17 Jh"
+      },
+      "details": "多冊本，站方分 2 條著錄；此處鏈接其中排序最前一條（bsb00079101），其餘各冊見站方"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07347",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07347",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07347",
+        "call_number": "308 07347",
+        "edition": "明正德十年(1515)鳳陽知府胡文璧刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07350",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07350",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07350",
+        "call_number": "308 07350",
+        "edition": "翻刻稗海本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07351",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07351",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07351",
+        "call_number": "308 07351",
+        "edition": "日本鈔本"
+      }
     }
   ],
   "measures": [
@@ -138,7 +228,7 @@
     }
   ],
   "measure_info": "二十卷",
-  "ai_note": "作者「宋周密撰」補自《國立故宮博物院善本舊籍》目錄。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwvgmjmyo 與 11q37ro9u2z28 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n\n\n2026-09-06 Z 類訂正（協調者代辦，坑 40／55；本桶之道已收工）：原 `period_upper_basis` 取《補遼金元藝文志》為 catalog_bound 之界，然**此類志是清末民初人對前代書目之回溯重建，成書在清而非其所補之代**；以志名所繫之朝代立界，等於把該志「所補者為某代」之範圍主張，當作獨立之斷代證據——循環論據（同坑 22）。原值 period_upper=liao-jin-yuan，原 basis「catalog_bound：所繫諸志中最緊者為《補遼金元藝文志》（清人補遼金元，斷代），」。今改依《國史經籍志》→ ming。",
+  "ai_note": "作者「宋周密撰」補自《國立故宮博物院善本舊籍》目錄。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwvgmjmyo 與 11q37ro9u2z28 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n\n\n2026-09-06 Z 類訂正（協調者代辦，坑 40／55；本桶之道已收工）：原 `period_upper_basis` 取《補遼金元藝文志》為 catalog_bound 之界，然**此類志是清末民初人對前代書目之回溯重建，成書在清而非其所補之代**；以志名所繫之朝代立界，等於把該志「所補者為某代」之範圍主張，當作獨立之斷代證據——循環論據（同坑 22）。原值 period_upper=liao-jin-yuan，原 basis「catalog_bound：所繫諸志中最緊者為《補遼金元藝文志》（清人補遼金元，斷代），」。今改依《國史經籍志》→ ming。\n\n2026-10-26 A11-去重方案3a-2丁 併條（rule=去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并）：併 d59f2j59vjeq《齊東埜語》 入本條。题名只差一字（— 异体：埜為野古字，同二十卷）。《齊東野語》周密(20卷)／《齊東埜語》周密(20卷)；首位责任者同一，朝代兼容，著作领域不冲突\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "updated_at": "2026-08-24T12:07:52.814481+00:00",
   "period_upper": "ming",
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑，萬曆間），故不晚於 ming",
@@ -153,8 +243,8 @@
       "國史經籍志"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fyd6nwqv5",
@@ -166,5 +256,39 @@
       "relation": "related",
       "note": "史部E存疑另立：總目記錄「齊東野語摘抄」（周密）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（候选核对：朝代不同（宋≠宋末元初））），按嚴口徑另立；互為相關，待並條複核。"
     }
+  ],
+  "resource_groups": {
+    "nlc-1337": {
+      "label": "國圖藏本：明正德[1506-1521]"
+    },
+    "bsb-BV040641270": {
+      "label": "巴伐利亞州立圖書館藏本：[常熟] 汲古閣 Anfang 17 Jh"
+    },
+    "ncltw-07347": {
+      "label": "臺灣國家圖書館藏本：明正德十年(1515)鳳陽知府胡文璧刊本"
+    },
+    "ncltw-07350": {
+      "label": "臺灣國家圖書館藏本：翻刻稗海本"
+    },
+    "ncltw-07351": {
+      "label": "臺灣國家圖書館藏本：日本鈔本"
+    }
+  },
+  "additional_titles": [
+    "齊東埜語"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2j59vjeq",
+      "title": "齊東埜語",
+      "at": "2026-10-26T11:05:49Z",
+      "by": "A11-去重方案3a-2丁",
+      "rule": "去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并",
+      "why": "题名只差一字（— 异体：埜為野古字，同二十卷）。《齊東野語》周密(20卷)／《齊東埜語》周密(20卷)；首位责任者同一，朝代兼容，著作领域不冲突",
+      "author": "周密"
+    }
+  ],
+  "merged_from": [
+    "d59f2j59vjeq"
   ]
 }

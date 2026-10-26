@@ -89,6 +89,38 @@
         "nlc_fid": "411999009557",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09914",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09914",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09914",
+        "call_number": "402.42 09914",
+        "edition": "舊鈔本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09915",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09915",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09915",
+        "call_number": "402.42 09915",
+        "edition": "傳鈔黃丕烈藏本"
+      }
     }
   ],
   "authors": [
@@ -100,14 +132,14 @@
       "name_basis": "2026-08-24 補繫 entity：本條 authors 舊有名「羅隱」而無 entity_id，今繫 `1j96h024mpyio`——庫中 primary_name 同之者唯一。其代「唐」與本書已定之代「sui-tang」相合。"
     }
   ],
-  "ai_note": "作者 \"唐羅隱撰\" 補自《國立故宮博物院善本舊籍》目錄。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]",
+  "ai_note": "作者 \"唐羅隱撰\" 補自《國立故宮博物院善本舊籍》目錄。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-411999029341": {
       "label": "國圖藏本：清嘉庆十二年[1807]"
@@ -117,6 +149,12 @@
     },
     "nlc-411999009557": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "ncltw-09914": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
+    },
+    "ncltw-09915": {
+      "label": "臺灣國家圖書館藏本：傳鈔黃丕烈藏本"
     }
   }
 }

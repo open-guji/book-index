@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/0xzkn8nzwyq6dz6a"
-      }
+      },
+      "entity_id": "hixhd2h9begn"
     }
   ],
   "dynasty": "明",
@@ -27,10 +28,18 @@
       "author_info": "明李日華撰;明魯重民補",
       "section": "史部/地理類/總志之屬",
       "summary": "共 1 個版本：四六全書本（中國科學院圖書館、南京圖書館、上海圖書館、遼寧省圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "輿圖摘要十五卷",
+      "author_info": "",
+      "section": "叢書部/獨撰類/明代",
+      "summary": "共 1 個版本：（北京師範大學圖書館、南京圖書館、北京大學圖書館、山東省圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：wcpsmekvo8zph2l4\nE6 第 421 批新建（hold 清零：M-new；原 hold 原因：）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.2.0",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：wcpsmekvo8zph2l4\nE6 第 421 批新建（hold 清零：M-new；原 hold 原因：）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fyxn6yz9c《輿圖摘要》 入本條。同題：單行本《輿圖摘要》李日華（明）；《輿圖摘要》（d59fyxn6yz9c）为叢書子目，所屬叢書《四六全書五種》（8rldoryj26mb）撰者李日華（明）；卷數同；單行本 Work 已有同叢書版本 Book「四六全書本」",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -65,6 +74,23 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4752493/manifest.json",
         "extent": "4冊"
       }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2001530412",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2001530412/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2001530412",
+        "iiif_manifest": "https://www.loc.gov/item/2001530412/manifest.json",
+        "shelfmark": "DS706.5",
+        "edition": "[China] : Liu you tang, [Ming Chongzhen i.e. between 1628 and 1644] 1628"
+      }
     }
   ],
   "resource_groups": {
@@ -73,6 +99,23 @@
     },
     "naikaku-1068145": {
       "label": "內閣文庫藏本：明刊本（史120-0010，4冊）"
+    },
+    "loc-2001530412": {
+      "label": "美國國會圖書館藏本：[China] : Liu you tang, [Ming Chongzhen i.e. between 1628 and 1644] 1628"
     }
-  }
+  },
+  "merged_in": [
+    {
+      "id": "d59fyxn6yz9c",
+      "title": "輿圖摘要",
+      "at": "2026-10-26T18:19:23Z",
+      "by": "A11-去重方案4",
+      "rule": "去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并",
+      "why": "同題：單行本《輿圖摘要》李日華（明）；《輿圖摘要》（d59fyxn6yz9c）为叢書子目，所屬叢書《四六全書五種》（8rldoryj26mb）撰者李日華（明）；卷數同；單行本 Work 已有同叢書版本 Book「四六全書本」",
+      "title_info": "輿圖摘要十五卷"
+    }
+  ],
+  "merged_from": [
+    "d59fyxn6yz9c"
+  ]
 }

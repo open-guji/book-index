@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/a0y5qeigk5wtjajh"
-      }
+      },
+      "entity_id": "hixicm3b2gok"
     },
     {
       "name": "汪佃",
@@ -38,11 +39,17 @@
       "author_info": "明夏玉麟等修;明汪佃等纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 1 個版本：明嘉靖二十年刻本（上海圖書館、天一閣文物保管所）"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "汪鈿建寧府志",
+      "summary": "汪鈿建寧府志"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：lparzo5mgloh0p8h\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：lparzo5mgloh0p8h\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f6eoz5yiu《建寧府志》 入本條。方志同修次重出：《[嘉靖]建寧府志》夏玉麟修、汪佃纂（中國古籍總目） ← 《建寧府志》汪鈿撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：千頃堂汪鈿即汪佃（形近），建寧府志二十一卷，與總目[嘉靖]建寧府志二十一卷同。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -64,5 +71,35 @@
     "nlc-312001076938": {
       "label": "國圖藏本："
     }
-  }
+  },
+  "juan_count": {
+    "number": 21
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 21
+    }
+  ],
+  "measure_info": "二十一卷",
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "additional_titles": [
+    "建寧府志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6eoz5yiu",
+      "title": "建寧府志",
+      "at": "2026-10-26T15:00:08Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[嘉靖]建寧府志》夏玉麟修、汪佃纂（中國古籍總目） ← 《建寧府志》汪鈿撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：千頃堂汪鈿即汪佃（形近），建寧府志二十一卷，與總目[嘉靖]建寧府志二十一卷同。",
+      "author": "汪鈿",
+      "title_info": "汪鈿建寧府志"
+    }
+  ],
+  "merged_from": [
+    "d59f6eoz5yiu"
+  ]
 }

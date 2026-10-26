@@ -34,9 +34,9 @@
       "summary": "共 6 個版本：明萬曆十二年王民順刻四十一年李延大重修本（天津圖書館、北京大學圖書館、山東省圖書館）；明萬曆十二年王民順刻本（國家圖書館、遼寧省圖書館）；明萬曆四十四年謝正蒙刻本（遼寧省圖書館、上海圖書館、國家圖書館、湖北省圖書館）；明刻本（北京大學圖書館、南京圖書館、山東省圖書館、國家圖書館、上海圖書館）；明天啓四年顧懋光刻本（南京圖書館、上海圖書館）；明萬曆二十八年蔣杰、柳希點刻本（大連市圖書館、雲南省圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：34hh05cf51kt6kyx、q7exvyv7qbisxmuz、kkchf0co5qc0f4wq、cf5d3ls6a3i7qksz、rpv6zcpynkfzuann、mjn3mp5dc2q0eatc\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-14",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：34hh05cf51kt6kyx、q7exvyv7qbisxmuz、kkchf0co5qc0f4wq、cf5d3ls6a3i7qksz、rpv6zcpynkfzuann、mjn3mp5dc2q0eatc\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -151,6 +151,54 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4423447/manifest.json",
         "extent": "4冊"
       }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-D7130401",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=D7130401&order=rn_no&no=01678",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "D7130401",
+        "call_no": "仁井田-集-N4003",
+        "edition": "新會鄧一新刊本 嘉靖十五年序"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09484",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09484",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09484",
+        "call_number": "402.42 09484",
+        "edition": "明覆成化九年(1473)韶州刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09487",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09487",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09487",
+        "call_number": "402.42 09487",
+        "edition": "明萬曆十二年(1584)曲江縣刊四十一年(1613)李延大修補本"
+      }
     }
   ],
   "resource_groups": {
@@ -174,6 +222,15 @@
     },
     "naikaku-1071089": {
       "label": "內閣文庫藏本：明刊本（集001-0016，4冊）"
+    },
+    "ioc-D7130401": {
+      "label": "東文研藏本：新會鄧一新刊本 嘉靖十五年序"
+    },
+    "ncltw-09484": {
+      "label": "臺灣國家圖書館藏本：明覆成化九年(1473)韶州刊本"
+    },
+    "ncltw-09487": {
+      "label": "臺灣國家圖書館藏本：明萬曆十二年(1584)曲江縣刊四十一年(1613)李延大修補本"
     }
   }
 }

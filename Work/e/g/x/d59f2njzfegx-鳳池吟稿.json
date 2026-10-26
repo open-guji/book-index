@@ -174,6 +174,69 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4763209/manifest.json",
         "extent": "4冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000000748",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000000748",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000000748",
+        "edition": "明[1368-1644]"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2012402002",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2012402002/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2012402002",
+        "iiif_manifest": "https://www.loc.gov/item/2012402002/manifest.json",
+        "edition": "[China : s.n.], Ming Wanli 45 nian [1617] 1617"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11136",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11136",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11136",
+        "call_number": "402.6 11136",
+        "edition": "明萬曆丁巳(四十五年, 1617)高郵王百祥校刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11137",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11137",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11137",
+        "call_number": "402.6 11137",
+        "edition": "明萬曆丁巳(四十五年, 1617)高郵王百祥校刊本"
+      }
     }
   ],
   "measures": [
@@ -188,7 +251,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxorax8u8 與 11q37tt61oj5s 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 lane-B 併條（rule=I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一））：併 d59f6et9ofeq《鳯池吟稿》 入本條。同題同撰人而**題止異體字之異**：「鳳池吟稿」對「鳯池吟稿」。keeper 繫 欽定四庫全書總目／明史藝文志；被併者繫 千頃堂書目。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhxorax8u8 與 11q37tt61oj5s 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 lane-B 併條（rule=I-題名異體字致查重失效之重出（scan 之 I 檢組鍵未過異體歸一））：併 d59f6et9ofeq《鳯池吟稿》 入本條。同題同撰人而**題止異體字之異**：「鳳池吟稿」對「鳯池吟稿」。keeper 繫 欽定四庫全書總目／明史藝文志；被併者繫 千頃堂書目。**scan 之 I 檢組鍵取 (title, authors) 之生值而未過異體歸一**（scan.py 本有 VARIANTS 表 43 對，然只用在 F 檢之人名一側），故此類同書從未被報為一組——本道以該表加標點正規化重掃全庫方見。依坑 51 抽驗二十六組（千頃堂批十二、非該批十四）逐條讀，假陽性一（且是判準取捨之異，非誤認），遂逕併。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "汪廣洋（明）撰。十卷。見著錄於《欽定四庫全書總目》《明史藝文志》。其著錄之文，《明史藝文志》作「汪廣洋《鳳池吟稿》十卷」。《欽定四庫全書總目》清乾隆間館臣修；《明史藝文志》清張廷玉等修——本書之目賴之以存。",
     "sources": [
@@ -196,8 +259,8 @@
       "明史藝文志"
     ]
   },
-  "revision": "1.2.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-26",
   "additional_titles": [
     "鳯池吟稿"
   ],
@@ -220,6 +283,18 @@
     },
     "naikaku-1083161": {
       "label": "內閣文庫藏本：明万暦45年刊本（序刊）（313-0022，4冊）"
+    },
+    "nlc-412000000748": {
+      "label": "國圖藏本：明[1368-1644]"
+    },
+    "loc-2012402002": {
+      "label": "美國國會圖書館藏本：[China : s.n.], Ming Wanli 45 nian [1617] 1617"
+    },
+    "ncltw-11136": {
+      "label": "臺灣國家圖書館藏本：明萬曆丁巳(四十五年, 1617)高郵王百祥校刊本"
+    },
+    "ncltw-11137": {
+      "label": "臺灣國家圖書館藏本：明萬曆丁巳(四十五年, 1617)高郵王百祥校刊本"
     }
   }
 }
