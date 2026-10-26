@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 6 取自 `measure_info`「六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 6 取自 `measure_info`「六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.6.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -256,6 +256,89 @@
         "waseda_id": "i13_01040",
         "edition": "芝神明前(東都) : 和泉屋吉兵衛, 嘉永6[1853] ( )"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko11_d0232",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko11/bunko11_d0232/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko11_d0232",
+        "edition": "平安(京都) : 星文堂, 嘉永6[1853]跋 ( )"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610572",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610572",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610572",
+        "request_no": "３０８－０１１２",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3669508/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101456458",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000011967",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101456458",
+        "nlk_control_no": "EOL000011967",
+        "holder": "국립중앙도서관",
+        "call_number": "古古1-13-87",
+        "edition": "筆寫本 [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07699",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07699",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07699",
+        "call_number": "308 07699",
+        "edition": "明天啟甲子(四年, 1624)松陵陸氏原刊朱墨套印本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07702",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07702",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07702",
+        "call_number": "308 07702",
+        "edition": "明天啟甲子(四年, 1624)松陵陸氏原刊朱墨套印本"
+      }
     }
   ],
   "resource_groups": {
@@ -297,6 +380,21 @@
     },
     "waseda-i13_01040": {
       "label": "早稲田藏本：芝神明前(東都) : 和泉屋吉兵衛, 嘉永6[1853] ( )"
+    },
+    "waseda-bunko11_d0232": {
+      "label": "早稲田藏本：平安(京都) : 星文堂, 嘉永6[1853]跋 ( )"
+    },
+    "naikaku-3610572": {
+      "label": "內閣文庫藏本：江戸写本（308-0112，2冊）"
+    },
+    "korcis-101456458": {
+      "label": "韓國國立中央圖書館數字化藏本：筆寫本 [刊寫年未詳]"
+    },
+    "ncltw-07699": {
+      "label": "臺灣國家圖書館藏本：明天啟甲子(四年, 1624)松陵陸氏原刊朱墨套印本"
+    },
+    "ncltw-07702": {
+      "label": "臺灣國家圖書館藏本：明天啟甲子(四年, 1624)松陵陸氏原刊朱墨套印本"
     }
   }
 }

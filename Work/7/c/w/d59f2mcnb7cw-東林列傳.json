@@ -149,6 +149,42 @@
         "nlc_fid": "411999012428",
         "edition": "清初[1644-1722]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068064",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068064",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068064",
+        "request_no": "２９０－００３１",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4907096/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068343",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068343",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068343",
+        "request_no": "史０７３－００１４",
+        "edition": "刊本::清康煕:500000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4753973/manifest.json",
+        "extent": "10冊"
+      }
     }
   ],
   "resource_groups": {
@@ -157,6 +193,12 @@
     },
     "nlc-411999012428": {
       "label": "國圖藏本：清初[1644-1722]"
+    },
+    "naikaku-1068064": {
+      "label": "內閣文庫藏本：江戸写本（290-0031，10冊）"
+    },
+    "naikaku-1068343": {
+      "label": "內閣文庫藏本：清康煕50年刊本（史073-0014，10冊）"
     }
   },
   "measures": [
@@ -171,7 +213,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw59m04jk 與 11q37pkxn9on4 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw59m04jk 與 11q37pkxn9on4 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。",
   "description": {
     "text": "陳鼎（清）撰。二十四卷。見著錄於《欽定四庫全書總目》《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「東林列傳二十四卷，留溪外傳十八卷」。《欽定四庫全書總目》清乾隆間館臣修；《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
     "sources": [
@@ -179,6 +221,6 @@
       "清史稿藝文志"
     ]
   },
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24"
+  "revision": "1.3.0",
+  "revised_at": "2026-10-25"
 }

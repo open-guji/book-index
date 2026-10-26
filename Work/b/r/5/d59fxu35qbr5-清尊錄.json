@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/0osi72ab3bx5q87k"
-      }
+      },
+      "entity_id": "hixiclg00jkc"
     }
   ],
   "dynasty": "宋",
@@ -37,7 +38,7 @@
       "summary": "共 2 個版本：五朝小說本（馆藏未载）；說郛本（馆藏未载）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 66cdbsm3ldfm56pu（楚州叢書第一集二十三種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：r2v5r8wajq4k00s6\n子部四并条 A档 同題同作者（源 Work 1exp2tg5twrnt《清尊錄》已並入；其作者寫法：廉布）",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 66cdbsm3ldfm56pu（楚州叢書第一集二十三種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：r2v5r8wajq4k00s6\n子部四并条 A档 同題同作者（源 Work 1exp2tg5twrnt《清尊錄》已並入；其作者寫法：廉布）\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "merged_in": [
     {
       "id": "1exp2tg5twrnt",
@@ -48,6 +49,48 @@
       "why": "子部四并条 A档 同題同作者"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-C6315400",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=C6315400&order=rn_no&no=01374",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "C6315400",
+        "call_no": "雙紅堂-小說-150",
+        "edition": ""
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15246-0097",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15246-0097",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15246-0097",
+        "call_number": "310.23 15246-0097",
+        "edition": "明嘉靖甲辰(23年, 1544)雲間陸氏儼山書院刊本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ioc-C6315400": {
+      "label": "東文研藏本：《舊小說》所收本"
+    },
+    "ncltw-15246-0097": {
+      "label": "臺灣國家圖書館藏本：明嘉靖甲辰(23年, 1544)雲間陸氏儼山書院刊本"
+    }
+  }
 }

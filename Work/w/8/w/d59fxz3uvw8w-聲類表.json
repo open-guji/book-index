@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/788i1hdmffbbn0v6"
-      }
+      },
+      "entity_id": "hixhd2f8waj2"
     }
   ],
   "dynasty": "清",
@@ -27,9 +28,53 @@
       "author_info": "清戴震撰",
       "section": "經部/小學類/音韻之屬/等韻",
       "summary": "共 4 個版本：微波榭叢書本（馆藏未载）；安徽叢書本（馆藏未载）；清宣統三年成都刻本（天津圖書館）；民國十二年渭南嚴氏成都刻本（湖北省圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "聲類表九卷首一卷",
+      "author_info": "",
+      "section": "叢書部/獨撰類/清代前期",
+      "summary": "共 1 個版本：（湖北省圖書館、遼寧省圖書館、浙江圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xdopgntveh37rnkq、l12348b8tv6s35d4、46wh7gnratukkpnc、ztjhoinkm6l2u5r6\nauto-split:存疑未并\nE6 第 522 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xdopgntveh37rnkq、l12348b8tv6s35d4、46wh7gnratukkpnc、ztjhoinkm6l2u5r6\nauto-split:存疑未并\nE6 第 522 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fyy9jdhj4《聲類表》 入本條。同題：單行本《聲類表》戴震（清）；《聲類表》（d59fyy9jdhj4）为叢書子目，所屬叢書《戴氏遺書十三種》（8rldoskxc45c）撰者戴震（清）；卷數同",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-ho04_00043",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ho04/ho04_00043/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ho04_00043",
+        "edition": "写, [書写年不明]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-ho04_00043": {
+      "label": "早稲田藏本：写, [書写年不明]"
+    }
+  },
+  "merged_in": [
+    {
+      "id": "d59fyy9jdhj4",
+      "title": "聲類表",
+      "at": "2026-10-26T13:55:22Z",
+      "by": "A11-去重方案4",
+      "rule": "去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并",
+      "why": "同題：單行本《聲類表》戴震（清）；《聲類表》（d59fyy9jdhj4）为叢書子目，所屬叢書《戴氏遺書十三種》（8rldoskxc45c）撰者戴震（清）；卷數同",
+      "title_info": "聲類表九卷首一卷"
+    }
+  ],
+  "merged_from": [
+    "d59fyy9jdhj4"
+  ]
 }

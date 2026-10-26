@@ -412,6 +412,8 @@ def _chain_cycle(start, nxt_of):
 
 def _check_office(rec, reg):
     out = []
+    if rec.get("merged_into"):   # 墓碑只留 _common.md〈merged_into〉規定的欄位，不查 office 欄位
+        return out
     lvl = rec.get("office_level")
     if lvl not in OFFICE_LEVELS:
         out.append(("O01", ERROR, "office_level", "須為 concept／concrete：%r" % (lvl,)))

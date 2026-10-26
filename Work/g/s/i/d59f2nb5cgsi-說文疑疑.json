@@ -49,7 +49,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 1，與著錄原文（清史稿藝文志：「說文疑疑」）所載之 2 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 1，與著錄原文（清史稿藝文志：「說文疑疑」）所載之 2 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
   "description": {
     "text": "孔廣居（清）撰。二卷。見著錄於《清史稿藝文志》《書目答問》。其著錄之文，《清史稿藝文志》作「《說文疑疑》二卷」。《清史稿藝文志》民國趙爾巽等修；《書目答問》清張之洞撰——本書之目賴之以存。",
     "sources": [
@@ -57,8 +57,8 @@
       "書目答問"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "commons",
@@ -104,6 +104,39 @@
         "nlc_fid": "412000002791",
         "edition": "清嘉慶7年[1802]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073886",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073886",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073886",
+        "request_no": "２７８－００６６",
+        "edition": "刊本::清嘉慶:070000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4044862/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ho04_00621",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ho04/ho04_00621_0003/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ho04_00621",
+        "edition": "長洲 : 張氏儀許廬, 光緒13[1887]序"
+      }
     }
   ],
   "resource_groups": {
@@ -112,6 +145,12 @@
     },
     "nlc-412000002791": {
       "label": "國圖藏本：清嘉慶7年[1802]"
+    },
+    "naikaku-1073886": {
+      "label": "內閣文庫藏本：清嘉慶7年刊本（278-0066，2冊）"
+    },
+    "waseda-ho04_00621": {
+      "label": "早稲田藏本：長洲 : 張氏儀許廬, 光緒13[1887]序"
     }
   }
 }

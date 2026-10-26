@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/j8qqrgh8strf0u0t"
-      }
+      },
+      "entity_id": "hixhd2h9bf3a"
     }
   ],
   "dynasty": "明",
@@ -29,7 +30,50 @@
       "summary": "共 1 個版本：明萬曆間刻本（山東省圖書館、上海圖書館、北京大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：aleyve5ykip04p7c",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：aleyve5ykip04p7c\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（A7 转交 NDL）。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068265",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068265",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068265",
+        "request_no": "２８４－００８８",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4281266/manifest.json",
+        "extent": "24冊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2555696",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2555696",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2555696",
+        "edition": "明刊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1068265": {
+      "label": "內閣文庫藏本：明刊本（284-0088，24冊）"
+    },
+    "ndl-2555696": {
+      "label": "NDL藏本：明刊"
+    }
+  }
 }

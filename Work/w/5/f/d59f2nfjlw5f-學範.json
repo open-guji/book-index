@@ -168,6 +168,52 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-07601_%E5%AD%B8%E7%AC%B5.pdf"
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i05_01227",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i05/i05_01227/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i05_01227",
+        "edition": "[京都] : 上村次郎右衛門, 明暦2[1656]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i17_00077",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i17/i17_00077/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i17_00077",
+        "edition": "[京都] : 上村次郎右衛門, 明暦2[1656]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07601",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07601",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07601",
+        "call_number": "308 07601",
+        "edition": "明刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -182,6 +228,15 @@
     },
     "nlc-412000001588": {
       "label": "國圖藏本：明永樂2年[1404]"
+    },
+    "waseda-i05_01227": {
+      "label": "早稲田藏本：[京都] : 上村次郎右衛門, 明暦2[1656]"
+    },
+    "waseda-i17_00077": {
+      "label": "早稲田藏本：[京都] : 上村次郎右衛門, 明暦2[1656]"
+    },
+    "ncltw-07601": {
+      "label": "臺灣國家圖書館藏本：明刊本"
     }
   },
   "measures": [
@@ -203,14 +258,14 @@
       "國史經籍志"
     ]
   },
-  "ai_note": "從 1evdibxlkh2ww 合併。原註：標題與現有Work匹配但作者不同（Title match but author mismatch: entry='趙古則' vs work='趙捴謙' (GYL56kBfTRy)），判定為同名異書，新建獨立Work。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-21 B1 同名異書併池：併入 `1evgpn4wm3qww`（學範）。《學範》趙撝謙（一名趙古則，又作趙捴謙）撰：本條明史藝文志已作「趙古則《學範》六卷」，另一條（國史經籍志）撰人作「逋撝謙」——「逋」疑「趙」之訛，末二字「撝謙」全同，卷數六卷與明志本條全合。今併。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-25 A11-去重确认案 併條（rule=去重确认案（163 案）：研究 JC-011）：併 d59f2nighmo0《學笵》、d59f6epcl5vk《趙氏學範》 入本條。四库提要明确分六门，存目丛书二卷明刻本，千顷堂赵氏学范为同作者；二卷/六篇与志书六卷保存各来源不互相覆盖。",
+  "ai_note": "從 1evdibxlkh2ww 合併。原註：標題與現有Work匹配但作者不同（Title match but author mismatch: entry='趙古則' vs work='趙捴謙' (GYL56kBfTRy)），判定為同名異書，新建獨立Work。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-21 B1 同名異書併池：併入 `1evgpn4wm3qww`（學範）。《學範》趙撝謙（一名趙古則，又作趙捴謙）撰：本條明史藝文志已作「趙古則《學範》六卷」，另一條（國史經籍志）撰人作「逋撝謙」——「逋」疑「趙」之訛，末二字「撝謙」全同，卷數六卷與明志本條全合。今併。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-25 A11-去重确认案 併條（rule=去重确认案（163 案）：研究 JC-011）：併 d59f2nighmo0《學笵》、d59f6epcl5vk《趙氏學範》 入本條。四库提要明确分六门，存目丛书二卷明刻本，千顷堂赵氏学范为同作者；二卷/六篇与志书六卷保存各来源不互相覆盖。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "updated_at": "2026-08-21T00:00:00+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.4.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.6.0",
+  "revised_at": "2026-10-26",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "additional_titles": [
@@ -226,9 +281,7 @@
       "rule": "去重确认案（163 案）：研究 JC-011",
       "why": "四库提要明确分六门，存目丛书二卷明刻本，千顷堂赵氏学范为同作者；二卷/六篇与志书六卷保存各来源不互相覆盖。",
       "author": "趙撝謙",
-      "title_info": [
-        "《學笵》二卷"
-      ]
+      "title_info": "《學笵》二卷"
     },
     {
       "id": "d59f6epcl5vk",
@@ -238,9 +291,7 @@
       "rule": "去重确认案（163 案）：研究 JC-011",
       "why": "四库提要明确分六门，存目丛书二卷明刻本，千顷堂赵氏学范为同作者；二卷/六篇与志书六卷保存各来源不互相覆盖。",
       "author": "趙古則",
-      "title_info": [
-        "趙古則趙氏學範"
-      ]
+      "title_info": "趙古則趙氏學範"
     }
   ],
   "merged_from": [

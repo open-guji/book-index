@@ -17,7 +17,7 @@
       "中華再造善本"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "id": "d59f2hqqzq4h",
   "measures": [
     {
@@ -31,8 +31,8 @@
   "dynasty_basis": "据唯一 author.dynasty「南宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「南宋」自动归并",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -131,6 +131,108 @@
         "nlc_fid": "411999002262",
         "edition": "明成化[1465-1487]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082841",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082841",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082841",
+        "request_no": "集００９－０００９",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4771358/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082842",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082842",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082842",
+        "request_no": "集００９－００１０",
+        "edition": "刊本（跋刊）::寛政:080000:聴雨精舎",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/626743/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083328",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083328",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083328",
+        "request_no": "３１３－０４０８",
+        "edition": "刊本（跋刊）::寛政:080000:聴雨精舎",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5084892/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10427",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10427",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10427",
+        "call_number": "402.53 10427",
+        "edition": "明初期覆元至正乙巳(二十五年, 1362)沙陽豫章書院刋本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10428",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10428",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10428",
+        "call_number": "402.53 10428",
+        "edition": "明刊十一行本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-10429",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/10429",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "10429",
+        "call_number": "402.53 10429",
+        "edition": "明嘉靖甲寅(三十三年, 1554)閩沙謝鸞重刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -151,6 +253,24 @@
     },
     "nlc-411999002262": {
       "label": "國圖藏本：明成化[1465-1487]"
+    },
+    "naikaku-1082841": {
+      "label": "內閣文庫藏本：明刊本（集009-0009，2冊）"
+    },
+    "naikaku-1082842": {
+      "label": "內閣文庫藏本：寛政8年刊本（跋刊） 聴雨精舎（集009-0010，5冊）"
+    },
+    "naikaku-1083328": {
+      "label": "內閣文庫藏本：寛政8年刊本（跋刊） 聴雨精舎（313-0408，5冊）"
+    },
+    "ncltw-10427": {
+      "label": "臺灣國家圖書館藏本：明初期覆元至正乙巳(二十五年, 1362)沙陽豫章書院刋本"
+    },
+    "ncltw-10428": {
+      "label": "臺灣國家圖書館藏本：明刊十一行本"
+    },
+    "ncltw-10429": {
+      "label": "臺灣國家圖書館藏本：明嘉靖甲寅(三十三年, 1554)閩沙謝鸞重刊本"
     }
   },
   "indexed_by": [

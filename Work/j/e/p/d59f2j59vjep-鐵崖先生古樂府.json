@@ -16,15 +16,15 @@
       "（所繫實物之版本著錄）"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L6 desc 補全：本條之 description 非人所撰，是據所繫著錄之引文（或所繫實物之版本著錄）機械組織而成，未覆核原書。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L6 desc 補全：本條之 description 非人所撰，是據所繫著錄之引文（或所繫實物之版本著錄）機械組織而成，未覆核原書。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。\n\n2026-10-26 C3续 更正：臺灣國圖資源中 1 條為合作館藏本（影像經臺灣國圖平臺發佈），label 與 metadata.holder 改寫實際藏館。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
   "id": "d59f2j59vjep",
   "updated_at": "2026-08-09T09:33:12+00:00",
   "period": "liao-jin-yuan",
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.6.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基文库",
@@ -86,6 +86,73 @@
         "nlc_fid": "411999018363",
         "edition": "明成化五年[1469]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610174",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610174",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610174",
+        "request_no": "３１３－００３２",
+        "edition": "刊本::明正統:010000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3669895/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-000PL2694Y33T51469",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/000PL2694Y33T51469",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "000PL2694Y33T51469",
+        "call_number": "000PL2694Y33T51469",
+        "edition": "清康熙三十三年(1694)詹氏寶墨堂刻本",
+        "holder": "美國柏克萊加州大學東亞圖書館"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11086",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11086",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11086",
+        "call_number": "402.58 11086",
+        "edition": "元至正末年刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11088",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11088",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11088",
+        "call_number": "402.58 11088",
+        "edition": "明初刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -97,6 +164,18 @@
     },
     "nlc-411999018363": {
       "label": "國圖藏本：明成化五年[1469]"
+    },
+    "naikaku-3610174": {
+      "label": "內閣文庫藏本：明正統1年刊本（313-0032，4冊）"
+    },
+    "ncltw-000PL2694Y33T51469": {
+      "label": "美國柏克萊加州大學東亞圖書館藏本：清康熙三十三年(1694)詹氏寶墨堂刻本"
+    },
+    "ncltw-11086": {
+      "label": "臺灣國家圖書館藏本：元至正末年刊本"
+    },
+    "ncltw-11088": {
+      "label": "臺灣國家圖書館藏本：明初刊本"
     }
   },
   "indexed_by": [

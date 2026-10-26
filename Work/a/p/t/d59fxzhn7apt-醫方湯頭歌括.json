@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/og21zlwo7pavds7v"
-      }
+      },
+      "entity_id": "hixhd2h9bm8f"
     }
   ],
   "dynasty": "清",
@@ -29,7 +30,71 @@
       "summary": "共 4 個版本：清同治八年醉六堂刻本（南京圖書館）；增訂本草備要本（馆藏未载）；清刻本（國家圖書館）；清道光七年刻本（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5kjt3thtj4schiqa、yum4oc0dhozf4oyx、sveuugvl4wcsj6wa、4b0o6svnjxwj3cnf\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5kjt3thtj4schiqa、yum4oc0dhozf4oyx、sveuugvl4wcsj6wa、4b0o6svnjxwj3cnf\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（第二轮）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-100317225",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100317225",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100317225",
+        "holder": "京大富士川",
+        "edition": "刊 享保９",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00001171/manifest.json"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100335476",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100335476",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100335476",
+        "holder": "九大医図",
+        "edition": "刊 享保９",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100335476/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300097023",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300097023",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300097023",
+        "holder": "府中之島図石崎",
+        "edition": "刊 [清代]",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300097023/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-100317225": {
+      "label": "國書·京大富士川藏刊 享保９"
+    },
+    "kokusho-100335476": {
+      "label": "國書·九大医図藏刊 享保９"
+    },
+    "kokusho-300097023": {
+      "label": "國書·府中之島図石崎藏刊 [清代]"
+    }
+  }
 }

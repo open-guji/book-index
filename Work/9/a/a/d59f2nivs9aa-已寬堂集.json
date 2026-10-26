@@ -58,6 +58,40 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-12170_%E5%B7%B2%E5%AF%AC%E5%A0%82%E9%9B%86.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1069615",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1069615",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1069615",
+        "request_no": "３１６－０１５２",
+        "edition": "刊本（序刊）::明万暦:400000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5087045/manifest.json",
+        "extent": "7冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-12170",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/12170",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "12170",
+        "call_number": "402.6 12170",
+        "edition": "明萬曆戊戌(26年;1598)穎川陳氏家刊本"
+      }
     }
   ],
   "measures": [
@@ -72,7 +106,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "陳鎏（明）撰。四卷；諸志所著之數有異，別作二卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》。《四庫全書存目叢書》列於集部。其著錄之文，《四庫全書存目叢書》作「《已寬堂集》二卷」。別集之屬，所收為其人之詩文。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -80,6 +114,14 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "naikaku-1069615": {
+      "label": "內閣文庫藏本：明万暦40年刊本（序刊）（316-0152，7冊）"
+    },
+    "ncltw-12170": {
+      "label": "臺灣國家圖書館藏本：明萬曆戊戌(26年;1598)穎川陳氏家刊本"
+    }
+  }
 }

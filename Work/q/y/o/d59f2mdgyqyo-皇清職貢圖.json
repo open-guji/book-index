@@ -103,6 +103,54 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E6%96%87%E6%B7%B5%E9%96%A3%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8_0594%E5%86%8A.djvu"
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ni16_02242",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ni16/ni16_02242/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ni16_02242",
+        "edition": "乾隆26[1761]序"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3376912017",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3376912017",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3376912017",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3376912017/manifest",
+        "shelfmark": "Libri sin. N.S. 948",
+        "edition": "刻本;[China] 清乾隆乙未年(1775)後"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2014514116",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2014514116/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2014514116",
+        "iiif_manifest": "https://www.loc.gov/item/2014514116/manifest.json",
+        "edition": "清乾隆間武英殿刻本 1751"
+      }
     }
   ],
   "measures": [
@@ -112,7 +160,7 @@
     }
   ],
   "measure_info": "九卷",
-  "ai_note": "作者「清傅恆等奉敕撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkpxzlnt05c 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故薈004246-004254）。阶段 5 兜底建立。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw7akev40 與 11q37q16uf2f4 同指文淵閣寫本一實物，今併於後者。",
+  "ai_note": "作者「清傅恆等奉敕撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkpxzlnt05c 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故薈004246-004254）。阶段 5 兜底建立。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw7akev40 與 11q37q16uf2f4 同指文淵閣寫本一實物，今併於後者。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条、美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "description": {
     "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故薈004246-004254）。清乾隆間寫四庫薈要本。",
     "sources": [
@@ -124,6 +172,17 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "waseda-ni16_02242": {
+      "label": "早稲田藏本：乾隆26[1761]序"
+    },
+    "sbb-PPN3376912017": {
+      "label": "柏林國家圖書館藏本：刻本;[China] 清乾隆乙未年(1775)後"
+    },
+    "loc-2014514116": {
+      "label": "美國國會圖書館藏本：清乾隆間武英殿刻本 1751"
+    }
+  }
 }

@@ -15,7 +15,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/uio5ligsggd37yti"
-      }
+      },
+      "entity_id": "hixhd2h9bodm"
     }
   ],
   "indexed_by": [
@@ -28,13 +29,13 @@
       "summary": "共 1 個版本：錫山先哲叢刻本（馆藏未载）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：so3ie63dl54kjwvt、tsh6wulh7soovkat\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n2026-10-13 修正：華允誠（1588–1648）為明人，總目題名行「清」誤，據 Marlowe 審計改明\n第 7 批追加版本，源記錄：\n\n国图數字古籍重配挂接",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：so3ie63dl54kjwvt、tsh6wulh7soovkat\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n2026-10-13 修正：華允誠（1588–1648）為明人，總目題名行「清」誤，據 Marlowe 審計改明\n第 7 批追加版本，源記錄：\n\n国图數字古籍重配挂接\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -65,6 +66,22 @@
         "nlc_fid": "312001014779",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2014514298",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2014514298/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2014514298",
+        "iiif_manifest": "https://www.loc.gov/item/2014514298/manifest.json",
+        "edition": "鈔本 1620"
+      }
     }
   ],
   "resource_groups": {
@@ -73,6 +90,9 @@
     },
     "nlc-312001014779": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "loc-2014514298": {
+      "label": "美國國會圖書館藏本：鈔本 1620"
     }
   }
 }

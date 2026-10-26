@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/aat8chb6lge5ysl0"
-      }
+      },
+      "entity_id": "hixicm3boxmq"
     }
   ],
   "dynasty": "明",
@@ -29,7 +30,113 @@
       "summary": "共 2 個版本：清抄本（上海圖書館）；明萬曆四十年何敬塘刻本（浙江圖書館、中國科學院上海分院、蘇州市圖書館、安徽省博物館、中華醫學會上海分會圖書館、臺灣圖書館、中國科學院圖書館、中醫科學院）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fxlh3ecx8bc32q1h、cimyohj5lwvapem2\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fxlh3ecx8bc32q1h、cimyohj5lwvapem2\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条、國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076009",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076009",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076009",
+        "request_no": "３０１－０１２１",
+        "edition": "刊本::天和:030000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4914940/manifest.json",
+        "extent": "12冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077722",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077722",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077722",
+        "request_no": "３０１－０１１６",
+        "edition": "刊本::天和:030000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4914913/manifest.json",
+        "extent": "14冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079092",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079092",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079092",
+        "request_no": "子０２９－００１１",
+        "edition": "刊本（序刊）::明万暦:400000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4421877/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100317220",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100317220",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100317220",
+        "holder": "京大富士川",
+        "edition": "刊 天和３",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00001055/manifest.json"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06080",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06080",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06080",
+        "call_number": "304.1 06080",
+        "edition": "明萬曆壬子(四十年, 1612)新安羅氏刊本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1076009": {
+      "label": "內閣文庫藏本：天和3年刊本（301-0121，12冊）"
+    },
+    "naikaku-1077722": {
+      "label": "內閣文庫藏本：天和3年刊本（301-0116，14冊）"
+    },
+    "naikaku-1079092": {
+      "label": "內閣文庫藏本：明万暦40年刊本（序刊）（子029-0011，10冊）"
+    },
+    "kokusho-100317220": {
+      "label": "國書·京大富士川藏刊 天和３"
+    },
+    "ncltw-06080": {
+      "label": "臺灣國家圖書館藏本：明萬曆壬子(四十年, 1612)新安羅氏刊本"
+    }
+  }
 }

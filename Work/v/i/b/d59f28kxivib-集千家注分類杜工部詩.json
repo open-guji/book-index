@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 16 取自 `measure_info`「十六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 16 取自 `measure_info`「十六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md §存疑升档。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -30,8 +30,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.6.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -100,6 +100,106 @@
         "ndl_record": "pid2607059",
         "edition": "永和2"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3611447",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3611447",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3611447",
+        "request_no": "集００２－０００４",
+        "edition": "刊本:元:::広勤書堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3745843/manifest.json",
+        "extent": "14冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077587",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077587",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077587",
+        "request_no": "別０５５－０００３",
+        "edition": "刊本:南北朝:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4051821/manifest.json",
+        "extent": "7冊"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2014514276",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2014514276/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2014514276",
+        "iiif_manifest": "https://www.loc.gov/item/2014514276/manifest.json",
+        "edition": "元廣勤書堂刻本 1204"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09525",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09525",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09525",
+        "call_number": "402.42 09525",
+        "edition": "元至正八年(1348)積慶堂覆皇慶元年(1312)建安余氏勤有堂刊葉氏廣勤書堂印本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09526",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09526",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09526",
+        "call_number": "402.42 09526",
+        "edition": "元至正八年(1348)積慶堂覆皇慶元年(1312)建安余氏勤有堂刊葉氏廣勤書堂印本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09527",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09527",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09527",
+        "call_number": "402.42 09527",
+        "edition": "元至正八年(1348)積慶堂覆皇慶元年(1312)建安余氏勤有堂刊葉氏廣勤書堂印本"
+      }
     }
   ],
   "resource_groups": {
@@ -114,6 +214,24 @@
     },
     "ndl-2607059": {
       "label": "NDL藏本：永和2"
+    },
+    "naikaku-3611447": {
+      "label": "內閣文庫藏本：元刊本 広勤書堂（集002-0004，14冊）"
+    },
+    "naikaku-1077587": {
+      "label": "內閣文庫藏本：南北朝刊本（別055-0003，7冊）"
+    },
+    "loc-2014514276": {
+      "label": "美國國會圖書館藏本：元廣勤書堂刻本 1204"
+    },
+    "ncltw-09525": {
+      "label": "臺灣國家圖書館藏本：元至正八年(1348)積慶堂覆皇慶元年(1312)建安余氏勤有堂刊葉氏廣勤書堂印本"
+    },
+    "ncltw-09526": {
+      "label": "臺灣國家圖書館藏本：元至正八年(1348)積慶堂覆皇慶元年(1312)建安余氏勤有堂刊葉氏廣勤書堂印本"
+    },
+    "ncltw-09527": {
+      "label": "臺灣國家圖書館藏本：元至正八年(1348)積慶堂覆皇慶元年(1312)建安余氏勤有堂刊葉氏廣勤書堂印本"
     }
   },
   "indexed_by": [

@@ -65,6 +65,41 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-991051310849707356",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb00075872",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb00075872",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00075872/manifest",
+        "shelfmark": "4 L.sin. K 125#Beibd.2",
+        "volume_count": 2,
+        "edition": "[常熟] 汲古閣 [1630]"
+      },
+      "details": "多冊本，站方分 2 條著錄；此處鏈接其中排序最前一條（bsb00075872），其餘各冊見站方"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06756-0017",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06756-0017",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06756-0017",
+        "call_number": "307.28 06756-0017",
+        "edition": "明萬曆18至19年(1590-1591)王元貞金陵刊本"
+      }
     }
   ],
   "measures": [
@@ -77,7 +112,15 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "nanbeichao",
   "period_basis": "據 authors[0].dynasty「南朝陳」",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24",
-  "ai_note": "2026-09-06 qa-sweep/nanbeichao：period_basis 所引之值陳舊——引 authors[0].dynasty 作「陳」，而該欄經 2026-08-24 N4 朝代名歸一後實作「南朝陳」，引值與實錄不符（scan A 類）。今更引值使相符。period 不動：「南朝陳」仍屬 nanbeichao，斷代未變。原句：「據 authors[0].dynasty「陳」」。"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "ai_note": "2026-09-06 qa-sweep/nanbeichao：period_basis 所引之值陳舊——引 authors[0].dynasty 作「陳」，而該欄經 2026-08-24 N4 朝代名歸一後實作「南朝陳」，引值與實錄不符（scan A 類）。今更引值使相符。period 不動：「南朝陳」仍屬 nanbeichao，斷代未變。原句：「據 authors[0].dynasty「陳」」。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "resource_groups": {
+    "bsb-991051310849707356": {
+      "label": "巴伐利亞州立圖書館藏本：[常熟] 汲古閣 [1630]"
+    },
+    "ncltw-06756-0017": {
+      "label": "臺灣國家圖書館藏本：明萬曆18至19年(1590-1591)王元貞金陵刊本"
+    }
+  }
 }

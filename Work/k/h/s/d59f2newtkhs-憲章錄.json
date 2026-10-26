@@ -141,6 +141,76 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E6%86%B2%E7%AB%A0%E9%8C%84%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068358",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068358",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068358",
+        "request_no": "２８４－００６０",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4901283/manifest.json",
+        "extent": "20冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068434",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068434",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068434",
+        "request_no": "史０２９－０００４",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4425595/manifest.json",
+        "extent": "8冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610309",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610309",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610309",
+        "request_no": "２８４－００５７",
+        "edition": "刊本（序刊）::明万暦:020000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3735098/manifest.json",
+        "extent": "20冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01903",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01903",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01903",
+        "call_number": "202.26 01903",
+        "edition": "明萬曆二年(1574)平湖陸光宅刊本"
+      }
     }
   ],
   "measures": [
@@ -160,12 +230,26 @@
       "國史經籍志"
     ]
   },
-  "ai_note": "從 1evggvuilndhc 合併。原註：[CADAL02091118-fix 2026-04-20] OCR 纠错 \"憲黃錄\"→\"憲章錄\" [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evggvuilndhc 合併。原註：[CADAL02091118-fix 2026-04-20] OCR 纠错 \"憲黃錄\"→\"憲章錄\" [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "naikaku-1068358": {
+      "label": "內閣文庫藏本：明刊本（284-0060，20冊）"
+    },
+    "naikaku-1068434": {
+      "label": "內閣文庫藏本：明刊本（史029-0004，8冊）"
+    },
+    "naikaku-3610309": {
+      "label": "內閣文庫藏本：明万暦2年刊本（序刊）（284-0057，20冊）"
+    },
+    "ncltw-01903": {
+      "label": "臺灣國家圖書館藏本：明萬曆二年(1574)平湖陸光宅刊本"
+    }
+  }
 }

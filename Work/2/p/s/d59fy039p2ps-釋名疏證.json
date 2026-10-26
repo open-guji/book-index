@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/55on0g1a8ph1txqg"
-      }
+      },
+      "entity_id": "hixhd2f8wamd"
     }
   ],
   "dynasty": "清",
@@ -29,9 +30,9 @@
       "summary": "共 3 個版本：融經館叢書本（馆藏未载）；經訓堂叢書本（馆藏未载）；清光緒二十二年思賢書局刻本（北京大學圖書館、南京圖書館、浙江圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ptzjmkrokmszh14u、xk8f6pvq3uik0ejr、2pgiqj1opb8zjcab\nauto-split:存疑未并\nE6 第 522 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ptzjmkrokmszh14u、xk8f6pvq3uik0ejr、2pgiqj1opb8zjcab\nauto-split:存疑未并\nE6 第 522 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -77,6 +78,24 @@
         "nlc_fid": "312002089248",
         "edition": "鎮江畢沅   清乾隆54年[1789]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073829",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073829",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073829",
+        "request_no": "２７８－００３４",
+        "edition": "刊本::清乾隆:550000:経訓堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4038127/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
@@ -88,6 +107,9 @@
     },
     "nlc-312002089248": {
       "label": "國圖藏本：鎮江畢沅   清乾隆54年[1789]"
+    },
+    "naikaku-1073829": {
+      "label": "內閣文庫藏本：清乾隆55年刊本 経訓堂（278-0034，4冊）"
     }
   }
 }

@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/qchq3ye4ok6chtsu"
-      }
+      },
+      "entity_id": "hixhd2h9bd42"
     }
   ],
   "dynasty": "清",
@@ -29,7 +30,52 @@
       "summary": "共 6 個版本：清道光二十一年疁城裘盂居刻本（南京圖書館）；清光緒十年吳門掃葉山房刻本（天津圖書館）；清光緒三年兩勉疆齋刻本（南京圖書館、國家圖書館）；清乾隆五年刻本（上海中醫藥大學圖書館、重慶市圖書館、首都圖書館、遼寧省圖書館、國家圖書館）；清雍正元年抄本（浙江省中醫藥研究院）；清光緒九年河莊蔣氏宗祠刻本（上海圖書館、山東中醫藥大學圖書館、南京圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：sv5gc0ko57ae2gbd、5os6kvrltn8uzfqw、sp8xa0wwe7qyedw4、7w7vof5gh8yy6sxu、egrzrq75nlfacxbt、s11yq0vr0m3k3ft5\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：sv5gc0ko57ae2gbd、5os6kvrltn8uzfqw、sp8xa0wwe7qyedw4、7w7vof5gh8yy6sxu、egrzrq75nlfacxbt、s11yq0vr0m3k3ft5\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-300097108",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300097108",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300097108",
+        "holder": "府中之島図石崎",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300097108/manifest"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079822",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079822",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079822",
+        "request_no": "子０５０－０００７",
+        "edition": "刊本::清嘉慶:070000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4414821/manifest.json",
+        "extent": "2冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-300097108": {
+      "label": "國書·府中之島図石崎藏刊"
+    },
+    "naikaku-1079822": {
+      "label": "內閣文庫藏本：清嘉慶7年刊本（子050-0007，2冊）"
+    }
+  }
 }

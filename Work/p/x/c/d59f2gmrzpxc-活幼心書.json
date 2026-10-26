@@ -84,6 +84,40 @@
         "ndl_record": "pid2567915",
         "edition": "江戸寫"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078842",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078842",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078842",
+        "request_no": "３０３－０２９９",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4917304/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05967",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05967",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05967",
+        "call_number": "304.1 05967",
+        "edition": "元天曆己巳(二年, 1329)刊鈔補本"
+      }
     }
   ],
   "updated_at": "2026-08-19T00:00:00-07:00",
@@ -91,12 +125,18 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-19 同題異撰人專項（二）：本條與 `1evgq5in7wzy8` 同題《活幼心書》、同卷數 2，撰人分作「曾世榮」「魯世榮」，僅一字之差（或一名含於另一名、或冠以朝代），乃一名之異寫或形訛，非二人二書。今併，正名取「曾世榮」，異名之著錄並存於 indexed_by。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-19 同題異撰人專項（二）：本條與 `1evgq5in7wzy8` 同題《活幼心書》、同卷數 2，撰人分作「曾世榮」「魯世榮」，僅一字之差（或一名含於另一名、或冠以朝代），乃一名之異寫或形訛，非二人二書。今併，正名取「曾世榮」，異名之著錄並存於 indexed_by。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "ndl-2567915": {
       "label": "NDL藏本：江戸寫"
+    },
+    "naikaku-1078842": {
+      "label": "內閣文庫藏本：江戸写本（303-0299，3冊）"
+    },
+    "ncltw-05967": {
+      "label": "臺灣國家圖書館藏本：元天曆己巳(二年, 1329)刊鈔補本"
     }
   }
 }

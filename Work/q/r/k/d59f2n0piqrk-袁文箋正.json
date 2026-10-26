@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-06 qa-sweep/qing·G 類重出併條（坑28）：`d59f2myth0cg`（\"袁文箋正十六卷附補注\"） 併入本條——皆同一撰人（entity_id 相同）之同書異刻／異目著錄，剝去卷數殘綴後題名相同（「奏議一卷首」「附錄」「續集」「補遺」「卷首」之屬皆版本著錄語綴於題末，非別書）。indexed_by／resources 已去重併入，Books 已改指本條，被併者之記錄檔與索引項刪去，其 entity.works 之對應項移除。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-06 qa-sweep/qing·G 類重出併條（坑28）：`d59f2myth0cg`（\"袁文箋正十六卷附補注\"） 併入本條——皆同一撰人（entity_id 相同）之同書異刻／異目著錄，剝去卷數殘綴後題名相同（「奏議一卷首」「附錄」「續集」「補遺」「卷首」之屬皆版本著錄語綴於題末，非別書）。indexed_by／resources 已去重併入，Books 已改指本條，被併者之記錄檔與索引項刪去，其 entity.works 之對應項移除。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
   "juan_count": {
     "number": 16
   },
@@ -33,8 +33,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "indexed_by": [
     {
       "source": "國立故宮博物院善本舊籍",
@@ -65,6 +65,26 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:SSID-12459774_%E8%A2%81%E6%96%87%E7%AE%8B%E6%AD%A3_1.pdf"
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i04_00595",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i04/i04_00595_0041/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i04_00595",
+        "edition": "光緒5[1879]序"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "waseda-i04_00595": {
+      "label": "早稲田藏本：光緒5[1879]序"
+    }
+  }
 }

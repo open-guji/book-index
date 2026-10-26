@@ -8,7 +8,8 @@
     "御選古文淵鑑",
     "禦選古文淵鑒",
     "古文淵鑒",
-    "御選古文淵鑒"
+    "御選古文淵鑒",
+    "古香齋古文淵鑑"
   ],
   "authors": [
     {
@@ -37,7 +38,7 @@
       "《四庫全書總目》"
     ]
   },
-  "ai_note": "從 ghost ID 31hyr4yqzv76w（dedup v3 Phase 3d 删除合併目標的合併 bug 遺留孤兒引用）恢復新建主 Work。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhy0x7mf40 與 11q37upzwy9ds 同指文淵閣寫本一實物，今併於後者。",
+  "ai_note": "從 ghost ID 31hyr4yqzv76w（dedup v3 Phase 3d 删除合併目標的合併 bug 遺留孤兒引用）恢復新建主 Work。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhy0x7mf40 與 11q37upzwy9ds 同指文淵閣寫本一實物，今併於後者。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 A11-去重方案3a-3 併條（rule=去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并）：併 d59f2n6a8c1s《古香齋古文淵鑑》 入本條。异题名同书（总目题名括注／其他题名互见）：《御選古文淵鑑》徐乾學／《古香齋古文淵鑑》徐乾學；依据：其他题名「古文淵鑒」；两道子 agent 逐条复核：A《古香齋古文淵鑑》所附四庫為《御選古文淵鑒》六十四卷，B同題六十四卷徐乾學等編，古香齋為版本題名\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
@@ -48,8 +49,8 @@
       "number": 64
     }
   ],
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -65,11 +66,172 @@
         "nlc_fid": "411999032250",
         "edition": "清康熙49年[1710]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070975",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070975",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070975",
+        "request_no": "３５９－００９３",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5093364/manifest.json",
+        "extent": "39冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1072115",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1072115",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1072115",
+        "request_no": "集０７８－０００１",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4491397/manifest.json",
+        "extent": "48冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083473",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083473",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083473",
+        "request_no": "３５９－００９０",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5093272/manifest.json",
+        "extent": "32冊"
+      }
+    },
+    {
+      "id": "wikisource-siku",
+      "name": "维基文库（四庫全書本）",
+      "url": "https://zh.wikisource.org/wiki/御選古文淵鑒_(四庫全書本)",
+      "types": [
+        "text"
+      ]
+    },
+    {
+      "id": "shidianguji-sikuquanshuben",
+      "name": "识典古籍",
+      "url": "https://www.shidianguji.com/book/SK3296",
+      "metadata": {
+        "edition": "四庫全書本",
+        "version": "v2",
+        "total_page": 5938,
+        "paragraph_count": 12839,
+        "check_type": "AI整理"
+      },
+      "types": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101122335",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000009518",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101122335",
+        "nlk_control_no": "KOL000009518",
+        "holder": "국립중앙도서관",
+        "call_number": "古3704-2-1-36",
+        "part": "卷1-4, 6, 13-18, 25-30, 36",
+        "edition": "其他 [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101418942",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000002083",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101418942",
+        "nlk_control_no": "EOL000002083",
+        "holder": "국립중앙도서관",
+        "call_number": "古古5-73-3",
+        "edition": "[康熙年間 (1662-1723)]"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999032250": {
       "label": "國圖藏本：清康熙49年[1710]"
+    },
+    "naikaku-1070975": {
+      "label": "內閣文庫藏本：清刊本（359-0093，39冊）"
+    },
+    "naikaku-1072115": {
+      "label": "內閣文庫藏本：清刊本（集078-0001，48冊）"
+    },
+    "naikaku-1083473": {
+      "label": "內閣文庫藏本：清刊本（359-0090，32冊）"
+    },
+    "korcis-101122335": {
+      "label": "韓國國立中央圖書館數字化藏本：其他 [刊寫年未詳]"
+    },
+    "korcis-101418942": {
+      "label": "韓國國立中央圖書館數字化藏本：[康熙年間 (1662-1723)]"
     }
-  }
+  },
+  "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
+  "indexed_by": [
+    {
+      "source": "清史稿藝文志",
+      "source_bid": "d59f2mp0flz4",
+      "title_info": "古文淵鑒",
+      "summary": "古文淵鑒六十四卷。康熙二十四年，徐乾學等奉敕編。"
+    },
+    {
+      "source": "欽定四庫全書總目",
+      "source_bid": "d59dh3vo9af4",
+      "title_info": "《御選古文淵鑒》•六十四卷",
+      "author_info": "康熙二十四年，聖祖仁皇帝御選，內閣學士徐乾學等奉敕編注",
+      "summary": "康熙二十四年，聖祖仁皇帝御選，內閣學士徐乾學等奉敕編注。所錄上起《春秋左傳》，下迨於宋，用真德秀《文章正宗》例。而睿鑒精深，別裁至當，不同德秀之拘迂。名物訓詁，各有箋釋，用李善注《文選》例。而考證明確，詳略得宜，不同善之煩碎。每篇各有評點，用樓昉《古文標注》例。而批導窾要，闡發精微，不同昉之簡略。備載前人評語，用王霆震《古文集成》例。而蒐羅賅備，去取謹嚴，不同霆震之蕪雜。諸臣附論，各列其名，用五臣注《文選》例。而夙承聖訓，語見根源，不同五臣之疏陋。至於甲乙品題，親揮奎藻，別百家之工拙，窮三准之精微，則自有總集以來，歷代帝王未聞斯著，無可援以為例者。蓋聖人之心無不通，聖人之道無不備。非惟功隆德盛，上軼唐虞，即乙鑒之餘，品題文藝，亦詞苑之金桴，儒林之玉律也。雖帝堯之煥乎文章，何以加哉！"
+    }
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n6a8c1s",
+      "title": "古香齋古文淵鑑",
+      "at": "2026-10-26T15:19:48Z",
+      "by": "A11-去重方案3a-3",
+      "rule": "去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并",
+      "why": "异题名同书（总目题名括注／其他题名互见）：《御選古文淵鑑》徐乾學／《古香齋古文淵鑑》徐乾學；依据：其他题名「古文淵鑒」；两道子 agent 逐条复核：A《古香齋古文淵鑑》所附四庫為《御選古文淵鑒》六十四卷，B同題六十四卷徐乾學等編，古香齋為版本題名",
+      "author": "徐乾學",
+      "title_info": "古文淵鑒；《御選古文淵鑒》•六十四卷"
+    }
+  ],
+  "merged_from": [
+    "d59f2n6a8c1s"
+  ]
 }

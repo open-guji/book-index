@@ -29,7 +29,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "juan_count": {
     "number": 6
   },
@@ -99,6 +99,74 @@
         "nlc_fid": "411999019388",
         "edition": "明萬曆[1573-1620]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079576",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079576",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079576",
+        "request_no": "子０７３－０００６",
+        "edition": "刊本（序刊）::明万暦:430000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4417703/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610813",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610813",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610813",
+        "request_no": "３０７－０２５８",
+        "edition": "刊本（序刊）:明万暦43年:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3744071/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05278",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05278",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05278",
+        "call_number": "216.2 05278",
+        "edition": "明萬曆末年原刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05279",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05279",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05279",
+        "call_number": "216.2 05279",
+        "edition": "明萬曆末年原刊本"
+      }
     }
   ],
   "updated_at": "2026-08-24T00:00:00+00:00",
@@ -106,14 +174,26 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.2",
-  "revised_at": "2026-09-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-1389": {
       "label": "國圖藏本：明萬曆[1573-1620]"
     },
     "nlc-411999019388": {
       "label": "國圖藏本：明萬曆[1573-1620]"
+    },
+    "naikaku-1079576": {
+      "label": "內閣文庫藏本：明万暦43年刊本（序刊）（子073-0006，6冊）"
+    },
+    "naikaku-3610813": {
+      "label": "內閣文庫藏本：明万暦43年刊本（序刊）（307-0258，6冊）"
+    },
+    "ncltw-05278": {
+      "label": "臺灣國家圖書館藏本：明萬曆末年原刊本"
+    },
+    "ncltw-05279": {
+      "label": "臺灣國家圖書館藏本：明萬曆末年原刊本"
     }
   }
 }

@@ -103,6 +103,38 @@
         "nlc_fid": "312002098779",
         "edition": "壽陽祁寯藻   清道光19年[1839]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_02890",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_02890_0041/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_02890",
+        "edition": "粤東書局, 同治12[1873]"
+      }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-bsb11304397",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb11304397",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb11304397",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb11304397/manifest",
+        "shelfmark": "L.sin. A 130-1/7",
+        "edition": "[S.l.] 1782"
+      }
     }
   ],
   "resource_groups": {
@@ -111,6 +143,12 @@
     },
     "nlc-312002098779": {
       "label": "國圖藏本：壽陽祁寯藻   清道光19年[1839]"
+    },
+    "waseda-ro12_02890": {
+      "label": "早稲田藏本：粤東書局, 同治12[1873]"
+    },
+    "bsb-bsb11304397": {
+      "label": "巴伐利亞州立圖書館藏本：[S.l.] 1782"
     }
   },
   "measures": [
@@ -120,7 +158,7 @@
     }
   ],
   "measure_info": "四十卷",
-  "ai_note": "作者「南唐徐鍇撰」補自《國立故宮博物院善本舊籍》目錄。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvxj6mtj4 與 11q37ot1eca2o 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+  "ai_note": "作者「南唐徐鍇撰」補自《國立故宮博物院善本舊籍》目錄。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvxj6mtj4 與 11q37ot1eca2o 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "updated_at": "2026-08-09T08:00:56+00:00",
   "period": "five-dynasties",
   "period_basis": "據 authors[0].dynasty「南唐」",
@@ -133,6 +171,6 @@
       "書目答問"
     ]
   },
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13"
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26"
 }

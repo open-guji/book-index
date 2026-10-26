@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/8gu6hkkixnn1kmne"
-      }
+      },
+      "entity_id": "hixicld6982v"
     }
   ],
   "dynasty": "清",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：清乾隆三十二年刻本（北京大學圖書館、南京圖書館、國家圖書館、湖北省圖書館、天津圖書館、復旦大學圖書館、中國科學院圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3sr0u6bca3lal0ka\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3sr0u6bca3lal0ka\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2n7gdddt《碭山縣志》 入本條。方志同修次重出：《[乾隆]碭山縣志》劉王璦纂修（中國古籍總目） ← 《碭山縣志》劉玉璦纂修（无著录（故宫等））。脚本初判 A同修次·同人(近形)·同卷·年号同。逐簇核对：劉玉璦即劉王璦（近形），乾隆三十二年刊十四卷，同修次。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,59 @@
         "nlc_fid": "312001068135",
         "edition": ""
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068473",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068473",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068473",
+        "request_no": "史１６８－００１０",
+        "edition": "刊本::清乾隆:320000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4752162/manifest.json",
+        "extent": "6冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001068135": {
       "label": "國圖藏本："
+    },
+    "naikaku-1068473": {
+      "label": "內閣文庫藏本：清乾隆32年刊本（史168-0010，6冊）"
     }
-  }
+  },
+  "juan_count": {
+    "number": 14
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 14
+    }
+  ],
+  "measure_info": "十四卷",
+  "additional_titles": [
+    "碭山縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n7gdddt",
+      "title": "碭山縣志",
+      "at": "2026-10-26T13:54:55Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[乾隆]碭山縣志》劉王璦纂修（中國古籍總目） ← 《碭山縣志》劉玉璦纂修（无著录（故宫等））。脚本初判 A同修次·同人(近形)·同卷·年号同。逐簇核对：劉玉璦即劉王璦（近形），乾隆三十二年刊十四卷，同修次。",
+      "author": "劉玉璦"
+    }
+  ],
+  "merged_from": [
+    "d59f2n7gdddt"
+  ]
 }

@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-24 J7 版本著錄語補其內容（坑 #17）：本條之 description 原止版本著錄語（「本書收入《…》。某某刊本」），五十餘字而未言其書為何。今於其前補一節內容之述，原版本語仍留其後——版本語是實錄，不可刪。所補之文據通行學術常識與本條所繫之著錄、Book，**未覆核原書**。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-24 J7 版本著錄語補其內容（坑 #17）：本條之 description 原止版本著錄語（「本書收入《…》。某某刊本」），五十餘字而未言其書為何。今於其前補一節內容之述，原版本語仍留其後——版本語是實錄，不可刪。所補之文據通行學術常識與本條所繫之著錄、Book，**未覆核原書**。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。",
   "measures": [
     {
       "unit": "冊",
@@ -47,8 +47,8 @@
   "period_basis": "據 authors[0].dynasty「東晉」（2026-09-06 qa-sweep/weijin：本欄原引「晉」，而 authors[0].dynasty 實作「東晉」——係「晉」「三國」等籠統值細分之後本欄未隨改，非斷代錯；period 值不動，只正所引之值。）",
   "dynasty": "東晉",
   "dynasty_basis": "author_propagation:唯一作者朝代",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-25",
   "resources": [
     {
       "name": "维基共享资源",
@@ -447,6 +447,54 @@
         "waseda_id": "he16_03405",
         "edition": "[京都] : 武村三郎兵衛, 寛文4[1664]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610182",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610182",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610182",
+        "request_no": "３１４－０１７４",
+        "edition": "刊本（跋刊）::明万暦:070000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3746366/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko17_w0100",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko17/bunko17_w0100/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko17_w0100",
+        "edition": "二条通冨小路西江入町(京) : 橘枝堂, 宝暦11[1761] ( )"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-he16_02097",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/he16/he16_02097/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "he16_02097",
+        "edition": "皇都(京都) : 広文堂, 文政13[1830] ( )"
+      }
     }
   ],
   "resource_groups": {
@@ -527,6 +575,15 @@
     },
     "waseda-he16_03405": {
       "label": "早稲田藏本：[京都] : 武村三郎兵衛, 寛文4[1664]"
+    },
+    "naikaku-3610182": {
+      "label": "內閣文庫藏本：明万暦7年刊本（跋刊）（314-0174，2冊）"
+    },
+    "waseda-bunko17_w0100": {
+      "label": "早稲田藏本：二条通冨小路西江入町(京) : 橘枝堂, 宝暦11[1761] ( )"
+    },
+    "waseda-he16_02097": {
+      "label": "早稲田藏本：皇都(京都) : 広文堂, 文政13[1830] ( )"
     }
   }
 }

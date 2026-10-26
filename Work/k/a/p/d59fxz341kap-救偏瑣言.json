@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/b8hqokm6eojpr852"
-      }
+      },
+      "entity_id": "hixhd2h9bj78"
     }
   ],
   "dynasty": "清",
@@ -29,7 +30,68 @@
       "summary": "共 8 個版本：清嘉慶五年繡文堂刻本（山東省圖書館、中醫科學院）；清康熙間刻本（國家圖書館、蘇州中醫醫院、甘肅省圖書館、廣東省中山圖書館）；清刻本（河南省圖書館、南京圖書館、山東省圖書館、廣州中醫藥大學圖書館、北京大學圖書館）；清嘉慶元年刻本（中醫科學院、上海中醫藥大學圖書館、天津圖書館、黑龍江中醫藥大學圖書館、國家圖書館、山東省圖書館）；清刻遺經堂重修本（南京圖書館）；清嘉慶十二年晉祁書業堂刻本（湖北中醫學院圖書館、中國科學院圖書館、中醫科學院）；清順治間刻本（國家圖書館、上海圖書館、湖南中醫學院圖書館、山東省圖書館）；清道光二十一年大文堂刻本（中醫科學院、湖南中醫學院圖書館、河南省圖書館、南京圖書館、上海圖書館、廣東省中山圖書館、華西醫科大學圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：iixubtievjan5ked、q2jp558dlay4jif3、ha1akudzbuynvrkh、ybflu2m7z7kyxvge、xsxdblej7xai8vk5、1ucevtriwfkrrpe8、lj7hktnd0ycxin7m、060qrwmyiz442yg3\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：iixubtievjan5ked、q2jp558dlay4jif3、ha1akudzbuynvrkh、ybflu2m7z7kyxvge、xsxdblej7xai8vk5、1ucevtriwfkrrpe8、lj7hktnd0ycxin7m、060qrwmyiz442yg3\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 越南漢喃 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-ya09_00587",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ya09/ya09_00587/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ya09_00587",
+        "edition": "恵廸堂"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2607440",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2607440",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2607440",
+        "edition": "寶暦8"
+      }
+    },
+    {
+      "id": "nomfoundation",
+      "group": "nom-NLVNPF-0749",
+      "group_role": "origin",
+      "name": "Vietnamese Nôm Preservation Foundation 數字圖書館",
+      "short_name": "越南漢喃",
+      "url": "https://lib.nomfoundation.org/collection/1/volume/932/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nom_book_id": "NLVNPF-0749",
+        "holder": "越南國家圖書館",
+        "call_number": "R.2005",
+        "edition": "刻本（1881）",
+        "volumes": 4
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-ya09_00587": {
+      "label": "早稲田藏本：恵廸堂"
+    },
+    "ndl-2607440": {
+      "label": "NDL藏本：寶暦8"
+    },
+    "nom-NLVNPF-0749": {
+      "label": "越南國家圖書館藏本：刻本（1881）"
+    }
+  }
 }

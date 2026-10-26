@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/af1g6kewod2fv11i"
-      }
+      },
+      "entity_id": "hixiclg2toia"
     },
     {
       "name": "崔懋",
@@ -22,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/7z8vi002ur7z7j84"
-      }
+      },
+      "entity_id": "hixiclg3g5lo"
     }
   ],
   "dynasty": "清",
@@ -39,9 +41,9 @@
       "summary": "共 1 個版本：清康熙三十二年刻本（湖北省圖書館、上海圖書館、南京圖書館、北京大學圖書館、國家圖書館、天津圖書館、山東省圖書館、中國科學院圖書館、復旦大學圖書館、浙江圖書館、遼寧省圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6ca488hg8njnyy1s\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6ca488hg8njnyy1s\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2n7k47wh《新城縣志》 入本條。方志同修次重出：《[康熙]新城縣志》嚴濂曾纂、崔懋修（中國古籍總目） ← 《新城縣志》孫元衡纂修（无著录（故宫等））。脚本初判 B同修次·同年号同卷·无同名。逐簇核对：總目[康熙]新城縣志十四卷首一卷康熙三十二年刻本（山東新城）；故宮本同年同卷另附續志二卷，孫元衡為續志編者（曾在新城刻蕭亭詩選），係同一修次附續志之本，非異地。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -57,11 +59,58 @@
         "nlc_fid": "312001060032",
         "edition": ""
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3371340880",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3371340880",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3371340880",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3371340880/manifest",
+        "shelfmark": "Libri sin. N.S. 10",
+        "edition": "刻本;[China] 康熙三十二年 (=1693)"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001060032": {
       "label": "國圖藏本："
+    },
+    "sbb-PPN3371340880": {
+      "label": "柏林國家圖書館藏本：刻本;[China] 康熙三十二年 (=1693)"
     }
-  }
+  },
+  "juan_count": {
+    "number": 14
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 14
+    }
+  ],
+  "measure_info": "十四卷卷首一卷續志二卷",
+  "additional_titles": [
+    "新城縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n7k47wh",
+      "title": "新城縣志",
+      "at": "2026-10-26T11:56:30Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[康熙]新城縣志》嚴濂曾纂、崔懋修（中國古籍總目） ← 《新城縣志》孫元衡纂修（无著录（故宫等））。脚本初判 B同修次·同年号同卷·无同名。逐簇核对：總目[康熙]新城縣志十四卷首一卷康熙三十二年刻本（山東新城）；故宮本同年同卷另附續志二卷，孫元衡為續志編者（曾在新城刻蕭亭詩選），係同一修次附續志之本，非異地。",
+      "author": "孫元衡"
+    }
+  ],
+  "merged_from": [
+    "d59f2n7k47wh"
+  ]
 }

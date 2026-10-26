@@ -33,9 +33,9 @@
       "summary": "共 3 個版本：明大雅堂刻本（臺灣圖書館）；明刻本（臺灣圖書館）；明萬曆間刻抄補本（臺灣圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3f1z0l0ss7rfbi8n、xqd4ccr35gcuwaxi、13rvv8yczyprb2sl\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 543 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3f1z0l0ss7rfbi8n、xqd4ccr35gcuwaxi、13rvv8yczyprb2sl\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 543 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案3a-3 併條（rule=去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并）：併 d59f2nj6pkhu《大雅堂訂正枕中十書》 入本條。异题名同书（总目题名括注／其他题名互见）：《枕中十書》李贄／《大雅堂訂正枕中十書》李贄；依据：其他题名「大雅堂訂正枕中十書」；两道子 agent 逐条复核：B古籍總目「枕中十書（大雅堂訂正枕中十書）十卷」含明大雅堂刻本，即A故宮藏大雅堂刊本，同為李贄編\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -51,11 +51,74 @@
         "nlc_fid": "411999018481",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NCL-07621_%E5%A4%A7%E9%9B%85%E5%A0%82%E8%A8%82%E6%AD%A3%E6%9E%95%E4%B8%AD%E5%8D%81%E6%9B%B8.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-1394",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=1394",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "1394",
+        "edition": "明萬曆[1573-1620]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07620",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07620",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07620",
+        "call_number": "308 07620",
+        "edition": "明大雅堂刊本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999018481": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "ncltw-07620": {
+      "label": "臺灣國家圖書館藏本：明大雅堂刊本"
     }
-  }
+  },
+  "measures": [
+    {
+      "unit": "冊",
+      "number": 6
+    }
+  ],
+  "measure_info": "六冊",
+  "merged_in": [
+    {
+      "id": "d59f2nj6pkhu",
+      "title": "大雅堂訂正枕中十書",
+      "at": "2026-10-26T15:48:56Z",
+      "by": "A11-去重方案3a-3",
+      "rule": "去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并",
+      "why": "异题名同书（总目题名括注／其他题名互见）：《枕中十書》李贄／《大雅堂訂正枕中十書》李贄；依据：其他题名「大雅堂訂正枕中十書」；两道子 agent 逐条复核：B古籍總目「枕中十書（大雅堂訂正枕中十書）十卷」含明大雅堂刻本，即A故宮藏大雅堂刊本，同為李贄編",
+      "author": "李贄"
+    }
+  ],
+  "merged_from": [
+    "d59f2nj6pkhu"
+  ]
 }

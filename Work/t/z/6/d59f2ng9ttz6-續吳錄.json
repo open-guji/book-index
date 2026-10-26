@@ -28,12 +28,21 @@
       "author_info": "明劉鳳撰",
       "section": "史部/傳記類/總傳之屬",
       "summary": "共 1 個版本：清抄本（天津圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "續吳錄二卷",
+      "author_info": "",
+      "section": "叢書部/獨撰類/明代",
+      "summary": "共 1 個版本：（中國科學院圖書館、南京圖書館、臺灣圖書館）"
     }
   ],
   "description": {
-    "text": "劉鳳（明）撰。二卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「劉鳳《續吳錄》二卷，《吳郡考》二卷」。本書惟《明史藝文志》一志著錄，別無他證。《明史藝文志》清張廷玉等修——本書之目賴之以存。",
+    "text": "劉鳳（明）撰。二卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「劉鳳《續吳錄》二卷，《吳郡考》二卷」。",
     "sources": [
-      "明史藝文志"
+      "明史藝文志",
+      "中國古籍總目"
     ]
   },
   "measures": [
@@ -48,9 +57,9 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目分類：史部／傳記類／總傳之屬（與正式庫分類並存，未改 Work 分類）",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目分類：史部／傳記類／總傳之屬（與正式庫分類並存，未改 Work 分類）\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fz06pzzsx《續吳錄》 入本條。同題：單行本《續吳錄》劉鳳（明）；《續吳錄》（d59fz06pzzsx）为叢書子目，所屬叢書《劉侍御全集十五種》（8rldouj7wzy8）撰者劉鳳（明）；卷數同",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -59,6 +68,41 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E5%8F%A2%E6%9B%B8%E9%9B%86%E6%88%90%E4%B8%89%E7%B7%A8085.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-08400",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/08400",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "08400",
+        "call_number": "310.21 08400",
+        "edition": "明刊本"
+      }
     }
+  ],
+  "resource_groups": {
+    "ncltw-08400": {
+      "label": "臺灣國家圖書館藏本：明刊本"
+    }
+  },
+  "merged_in": [
+    {
+      "id": "d59fz06pzzsx",
+      "title": "續吳錄",
+      "at": "2026-10-26T18:18:49Z",
+      "by": "A11-去重方案4",
+      "rule": "去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并",
+      "why": "同題：單行本《續吳錄》劉鳳（明）；《續吳錄》（d59fz06pzzsx）为叢書子目，所屬叢書《劉侍御全集十五種》（8rldouj7wzy8）撰者劉鳳（明）；卷數同",
+      "title_info": "續吳錄二卷"
+    }
+  ],
+  "merged_from": [
+    "d59fz06pzzsx"
   ]
 }

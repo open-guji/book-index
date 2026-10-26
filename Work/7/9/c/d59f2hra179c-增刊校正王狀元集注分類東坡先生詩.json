@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 13 取自 `measure_info`「十三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 3 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 13 取自 `measure_info`「十三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 3 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
-  "revision": "1.4.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.6.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -135,6 +135,116 @@
         "ndl_record": "pid2576452",
         "edition": "[1---]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083818",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083818",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083818",
+        "request_no": "３１２－０２３４",
+        "edition": "刊本:朝鮮:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3532961/manifest.json",
+        "extent": "16冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3611466",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3611466",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3611466",
+        "request_no": "３１２－０２３５",
+        "edition": "刊本:慶長:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3670008/manifest.json",
+        "extent": "26冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3611467",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3611467",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3611467",
+        "request_no": "３１２－０２３７",
+        "edition": "刊本::明暦:020000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3670098/manifest.json",
+        "extent": "27冊"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101136108",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000028210",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101136108",
+        "nlk_control_no": "KOL000028210",
+        "holder": "국립중앙도서관",
+        "call_number": "古朝45-나20",
+        "edition": "木板本 [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101478593",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000049610",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101478593",
+        "nlk_control_no": "KOL000049610",
+        "holder": "국립중앙도서관",
+        "call_number": "古3717-200",
+        "part": "卷12-13",
+        "edition": "木活字本(訓鍊都監字) [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101484623",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000055008",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101484623",
+        "nlk_control_no": "KOL000055008",
+        "holder": "국립중앙도서관",
+        "call_number": "古貴3717-206",
+        "part": "卷11~12",
+        "edition": "金屬活字本(初鑄甲寅字) [世宗 32~成宗 1(1450~1470)]"
+      }
     }
   ],
   "indexed_by": [
@@ -165,6 +275,24 @@
     },
     "ndl-2576452": {
       "label": "NDL藏本：[1---]"
+    },
+    "naikaku-1083818": {
+      "label": "內閣文庫藏本：朝鮮刊本（312-0234，16冊）"
+    },
+    "naikaku-3611466": {
+      "label": "內閣文庫藏本：慶長刊本（312-0235，26冊）"
+    },
+    "naikaku-3611467": {
+      "label": "內閣文庫藏本：明暦2年刊本（312-0237，27冊）"
+    },
+    "korcis-101136108": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 [刊寫年未詳]"
+    },
+    "korcis-101478593": {
+      "label": "韓國國立中央圖書館數字化藏本：木活字本(訓鍊都監字) [刊寫年未詳]"
+    },
+    "korcis-101484623": {
+      "label": "韓國國立中央圖書館數字化藏本：金屬活字本(初鑄甲寅字) [世宗 32~成宗 1(1450~1470)]"
     }
   },
   "related_works": [

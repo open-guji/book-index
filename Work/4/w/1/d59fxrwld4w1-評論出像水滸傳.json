@@ -14,7 +14,8 @@
       "source": {
         "name": "中國古籍總目",
         "type": "url"
-      }
+      },
+      "entity_id": "hixhd2h9bnkj"
     }
   ],
   "dynasty": "元",
@@ -31,9 +32,9 @@
       "summary": "共 5 個版本：清光緒十年上海石印本（馆藏未载）；清順治十四年醉畊堂刻本（東北師範大學圖書館、國家圖書館、哈爾濱市圖書館、吉林省圖書館、黑龍江省圖書館、上海圖書館、北京大學圖書館）；清光緒十二年上海同文書局石印本（國家圖書館、南京圖書館、上海圖書館）；清善成堂刻本（南京圖書館）；清刻本（錦州市圖書館、遼寧大學圖書館、南京圖書館、北京大學圖書館、瀋陽市圖書館、遼寧省圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：nsrqgiws2h7d06t1、53pkxn7wxr12vylt、5zbxnteqkyt4ej85、6s0zucvqysc8nllo、86hyxfgfces1wo64\nauto-split:存疑未并\nE6 第 544 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：nsrqgiws2h7d06t1、53pkxn7wxr12vylt、5zbxnteqkyt4ej85、6s0zucvqysc8nllo、86hyxfgfces1wo64\nauto-split:存疑未并\nE6 第 544 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -49,11 +50,32 @@
         "nlc_fid": "411999023787",
         "edition": "清顺治十四年[1657]"
       }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101168349",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000013811",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101168349",
+        "nlk_control_no": "KOL000013811",
+        "holder": "국립중앙도서관",
+        "call_number": "古3730-18",
+        "edition": "石版本(石印) [刊寫年未詳]"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999023787": {
       "label": "國圖藏本：清顺治十四年[1657]"
+    },
+    "korcis-101168349": {
+      "label": "韓國國立中央圖書館數字化藏本：石版本(石印) [刊寫年未詳]"
     }
   }
 }

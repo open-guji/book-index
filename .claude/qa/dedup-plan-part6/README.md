@@ -32,3 +32,19 @@ check_v2（569＋23 档）ERROR 0；check_schema ERROR 0；check-classification 
 
 ## 抽检（独立子 agent，10-25）
 7/7 组全检：均为同一源记录除 id 外逐字相同，错并 0。并前挂被并者的 573 个成员全部核过：contained_in 恰一条 keeper、无重复、其余字段未变；promotions 只改 2 处 production_id；工作树里被并 id 只剩墓碑自身与 keeper 的 merged_from。
+
+## batch-03：同一实物的总目条对手建条 2 组（并，10-26）
+部分 5 线程查出、部分6 附件漏配（附件只把手建条和影印本配了对）。依据是同一实物：两套都是孤本写本，今藏臺北故宮。
+
+| 案 | keeper（手建，引用多、带影像） | 被并（总目叢書线条） |
+|---|---|---|
+| COL6-08 | 8rlb6yi1ecqo 欽定四庫全書·文淵閣本 | 8rldp1yeqrk0 文淵閣四庫全書三千四百六十一種·清乾隆間内府寫本 |
+| COL6-09 | 8rlb6yk66qdc 欽定四庫全書薈要·摛藻堂本 | 8rldo48qtsld 摛藻堂四庫全書薈要四百六十八種·清乾隆三十八年内府寫本 |
+
+被并题名记入 keeper 的 additional_titles；总目的 indexed_by、sources、edition 并入；COL6-08 的 authors、publication_info 改取总目值（`prefer_loser`，原值在台账）；keeper 的 ai_note 记并条来历。3,797 个成员 Book 的 contained_in 改指 keeper，promotions 改 2 处。
+与「拆回丛书版次错并的 Book」线程（dedup-split-series）对齐：它的 #1280 先合，本批从其后的 main 重跑；它的 split.py 已改为沿 Collection 墓碑走到 keeper。
+门禁：check_v2（3,801 档）、check_schema、分类、升格、重出审计、audit-merge-ledger（--draft）T/L/P/R/D 全 0。
+抽检（独立子 agent，全检）：2/2 组并对；3,797 个成员逐个比对，contained_in 只换 id、其余字段未变；无残留引用。据其意见补修：文淵閣 keeper 的 dating 随 publication_info 改为乾隆（basis 注明来历），ai_note 日期笔误更正。另报：并后同一 Work 在文淵閣下挂两个以上 Book 2,485 个、摛藻堂 297 个（总目子目 Book 与手建 Book 同一实物重复），交部分 5。
+
+## batch-04：文津閣、文溯閣、文瀾閣三阁本（并，10-26）
+按 batch-03 的教训顺查孤本写本：三阁本也各有总目叢書线条（只建外壳、无成员）与手建条两份，馆藏一致（国图／甘肃省馆／浙江馆）。保留手建条（COL6-10 8rlb6yibp6o0←8rldp8m9of7l；COL6-11 8rlb6yirb1ts←8rldp8m9znr6；COL6-12 8rlb6yj1lvr4←8rldp8m9d6o6），编纂者改取总目「永瑢、紀昀 纂修」，promotions 3 处。无成员档改动。门禁全 0；子 agent 全检 3/3 并对，据其意见统一作者顺序。

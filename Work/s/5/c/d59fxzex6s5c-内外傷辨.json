@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/xu0m4utllwng485h"
-      }
+      },
+      "entity_id": "hixhd2h9bh14"
     }
   ],
   "dynasty": "金",
@@ -37,9 +38,9 @@
       "summary": "共 1 個版本：（四川省圖書館、中國科學院圖書館、甘肅省圖書館、復旦大學圖書館、湖北省圖書館、天津圖書館、遼寧省圖書館、上海圖書館、國家圖書館、浙江圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：nfno34t2wtr8dqw5、s4r11ulikcldqun7、554luch5bma07lkj、6urm1335h1lmfa80、sohkt7pjb483d70z、u4k6zqq03uhupgvz、4srljtz7163xhn32\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-25 A11-去重确认案 併條（rule=去重确认案（163 案）：研究 MR-H2000-001）：併 d59fy3s5cvep《内外傷辨》 入本條。两侧题名及三卷范围相同；第一责任者为同一李杲，上图person URI完全相同；两份原始author_info都明确金李杲撰。叢書子目自称来自叢書集成初編，独立一侧保存七种版本。子目authors写宋与其自己原著录相冲突，是归代字段问题，不是另一宋人同名著作。判同依据是题名、责任实体、朝代原文、卷数及子目层级的组合，并非source_bid或摘要相等。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-25",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：nfno34t2wtr8dqw5、s4r11ulikcldqun7、554luch5bma07lkj、6urm1335h1lmfa80、sohkt7pjb483d70z、u4k6zqq03uhupgvz、4srljtz7163xhn32\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-25 A11-去重确认案 併條（rule=去重确认案（163 案）：研究 MR-H2000-001）：併 d59fy3s5cvep《内外傷辨》 入本條。两侧题名及三卷范围相同；第一责任者为同一李杲，上图person URI完全相同；两份原始author_info都明确金李杲撰。叢書子目自称来自叢書集成初編，独立一侧保存七种版本。子目authors写宋与其自己原著录相冲突，是归代字段问题，不是另一宋人同名著作。判同依据是题名、责任实体、朝代原文、卷数及子目层级的组合，并非source_bid或摘要相等。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "merged_in": [
     {
       "id": "d59fy3s5cvep",
@@ -49,12 +50,34 @@
       "rule": "去重确认案（163 案）：研究 MR-H2000-001",
       "why": "两侧题名及三卷范围相同；第一责任者为同一李杲，上图person URI完全相同；两份原始author_info都明确金李杲撰。叢書子目自称来自叢書集成初編，独立一侧保存七种版本。子目authors写宋与其自己原著录相冲突，是归代字段问题，不是另一宋人同名著作。判同依据是题名、责任实体、朝代原文、卷数及子目层级的组合，并非source_bid或摘要相等。",
       "author": "李杲",
-      "title_info": [
-        "内外傷辨三卷"
-      ]
+      "title_info": "内外傷辨三卷"
     }
   ],
   "merged_from": [
     "d59fy3s5cvep"
-  ]
+  ],
+  "resources": [
+    {
+      "id": "sbb",
+      "group": "sbb-PPN337134035X",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN337134035X",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN337134035X",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN337134035X/manifest",
+        "shelfmark": "Libri sin. 71",
+        "edition": "刻本;涵遠齋 梓行 萬曆辛丑 (=1601) 序"
+      }
+    }
+  ],
+  "resource_groups": {
+    "sbb-PPN337134035X": {
+      "label": "柏林國家圖書館藏本：刻本;涵遠齋 梓行 萬曆辛丑 (=1601) 序"
+    }
+  }
 }

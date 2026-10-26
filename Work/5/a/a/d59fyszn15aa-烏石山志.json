@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/zab1u0hggz5jc5cd"
-      }
+      },
+      "entity_id": "hixiclg1vyu3"
     },
     {
       "name": "郭柏蒼",
@@ -40,9 +41,9 @@
       "summary": "共 2 個版本：清光緒九年刻本（國家圖書館、上海圖書館、南京圖書館）；清道光二十二年于麓古天開圖書樓刻本（浙江圖書館、國家圖書館、天津圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gx57g42lcjwi8d5i、3p7a71orw6uw2j27\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 421 批新建（hold 清零：M-new；原 hold 原因：）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gx57g42lcjwi8d5i、3p7a71orw6uw2j27\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 421 批新建（hold 清零：M-new；原 hold 原因：）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -58,11 +59,30 @@
         "nlc_fid": "312001076826",
         "edition": ""
       }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2011457086",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2011457086/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2011457086",
+        "iiif_manifest": "https://www.loc.gov/item/2011457086/manifest.json",
+        "edition": "[China] : Lu gu tian gai tu hua lou, Qing Daoguang ren yin [22 nian, 1842 ] 1842"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001076826": {
       "label": "國圖藏本："
+    },
+    "loc-2011457086": {
+      "label": "美國國會圖書館藏本：[China] : Lu gu tian gai tu hua lou, Qing Daoguang ren yin [22 nian, 1842 ] 1842"
     }
   }
 }

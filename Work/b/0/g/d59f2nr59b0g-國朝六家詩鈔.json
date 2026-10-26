@@ -55,9 +55,9 @@
       "書目答問"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -81,11 +81,51 @@
         "nlc_fid": "312002090580",
         "edition": "清乾隆32年[1767]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083494",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083494",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083494",
+        "request_no": "３５９－００１１",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5092453/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2012402931",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2012402931/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2012402931",
+        "iiif_manifest": "https://www.loc.gov/item/2012402931/manifest.json",
+        "edition": "[China : publisher not identified], Qing Jiaqing gui hai [1803] 1803"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312002090580": {
       "label": "國圖藏本：清乾隆32年[1767]"
+    },
+    "naikaku-1083494": {
+      "label": "內閣文庫藏本：清刊本（359-0011，2冊）"
+    },
+    "loc-2012402931": {
+      "label": "美國國會圖書館藏本：[China : publisher not identified], Qing Jiaqing gui hai [1803] 1803"
     }
   }
 }

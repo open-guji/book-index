@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/hs5m1vtj52htjq4c"
-      }
+      },
+      "entity_id": "hixhd2h9beej"
     }
   ],
   "dynasty": "明",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：影印明刻本（上海圖書館、山東省圖書館、湖北省圖書館、四川省圖書館、國家圖書館、甘肅省圖書館、遼寧省圖書館、中國科學院圖書館、天津圖書館、北京大學圖書館、南京圖書館、復旦大學圖書館、浙江圖書館）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 evajj6j0j20xz3eq（四部叢刊三百八種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：th4ps32uswipboy1\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 evajj6j0j20xz3eq（四部叢刊三百八種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：th4ps32uswipboy1\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -62,6 +63,76 @@
         "nlc_fid": "412000002288",
         "edition": "明嘉靖8年[1529]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077227",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077227",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077227",
+        "request_no": "集０８６－０００１",
+        "edition": "刊本（跋刊）::明嘉靖:060000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4500859/manifest.json",
+        "extent": "20冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083748",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083748",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083748",
+        "request_no": "３６２－００５０",
+        "edition": "刊本（後印）::明嘉靖:060000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4263690/manifest.json",
+        "extent": "20冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083749",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083749",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083749",
+        "request_no": "３６２－００４９",
+        "edition": "刊本（跋刊）::明嘉靖:060000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5097423/manifest.json",
+        "extent": "20冊"
+      }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-D7861500",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=D7861500&order=rn_no&no=01717",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "D7861500",
+        "call_no": "大木-集部-總集類-30",
+        "edition": "刊本 正德五年序"
+      }
     }
   ],
   "resource_groups": {
@@ -70,6 +141,18 @@
     },
     "nlc-412000002288": {
       "label": "國圖藏本：明嘉靖8年[1529]"
+    },
+    "naikaku-1077227": {
+      "label": "內閣文庫藏本：明嘉靖6年刊本（跋刊）（集086-0001，20冊）"
+    },
+    "naikaku-1083748": {
+      "label": "內閣文庫藏本：明嘉靖6年刊本（後印）（362-0050，20冊）"
+    },
+    "naikaku-1083749": {
+      "label": "內閣文庫藏本：明嘉靖6年刊本（跋刊）（362-0049，20冊）"
+    },
+    "ioc-D7861500": {
+      "label": "東文研藏本：刊本 正德五年序"
     }
   }
 }

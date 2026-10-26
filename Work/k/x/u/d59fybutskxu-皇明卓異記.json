@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/p2bqe06cj0krgcgz"
-      }
+      },
+      "entity_id": "hixicm3boxmr"
     }
   ],
   "dynasty": "明",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：明天啓間刻本（國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5rln3yej005cm03o\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5rln3yej005cm03o\n\n国图數字古籍重配挂接\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -62,6 +63,22 @@
         "nlc_fid": "411999030232",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-02284",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/02284",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "02284",
+        "call_number": "204.26 02284",
+        "edition": "明天啟間(1621-1627)刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -70,6 +87,9 @@
     },
     "nlc-411999030232": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "ncltw-02284": {
+      "label": "臺灣國家圖書館藏本：明天啟間(1621-1627)刊本"
     }
   }
 }

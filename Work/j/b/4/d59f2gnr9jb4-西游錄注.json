@@ -56,11 +56,30 @@
         "nlc_fid": "412000003304",
         "edition": "清光緒[1875-1908]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-04017",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/04017",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "04017",
+        "call_number": "210.6 04017",
+        "edition": "綠格稿本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000003304": {
       "label": "國圖藏本：清光緒[1875-1908]"
+    },
+    "ncltw-04017": {
+      "label": "臺灣國家圖書館藏本：綠格稿本"
     }
   },
   "description": {
@@ -70,7 +89,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "從 1evjr1t2sqrcw 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（一卷），今據以補。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjr1t2sqrcw 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（一卷），今據以補。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "updated_at": "2026-08-20T00:00:00-07:00",
   "period": "liao-jin-yuan",
   "period_basis": "據 authors[0].dynasty「元」",
@@ -86,6 +105,6 @@
     }
   ],
   "measure_info": "一卷",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26"
 }

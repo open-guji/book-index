@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/kbiuebpcaujxov2d"
-      }
+      },
+      "entity_id": "hixi5eks7m7e"
     }
   ],
   "dynasty": "清",
@@ -27,9 +28,32 @@
       "author_info": "清鮑東里撰",
       "section": "史部/史鈔類/通代之屬",
       "summary": "共 1 個版本：釀齋訓蒙雜編本（馆藏未载）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "歷代國號總括歌一卷",
+      "author_info": "",
+      "section": "叢書部/獨撰類/清代前期",
+      "summary": "共 1 個版本：（雲南省圖書館、北京大學圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zwpzsdbofgnmd8g5",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-20"
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zwpzsdbofgnmd8g5\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α2：同一首位 Entity、同題同署名組（多為同一作者自著叢書各版次之子目），叢書首位撰者為本人、同叢書無同題兩條、全組已知卷數全同，A 档机械并）：併 d59fyyju6ygw《歷代國號總括歌》 入本條。同題同署名同 Entity：保留《歷代國號總括歌》鮑東里（清）；《歷代國號總括歌》（d59fyyju6ygw）为叢書子目，所屬叢書《釀齋訓蒙雜編五種》（8rldosvpmvi9）撰者鮑東里；全组卷數1",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "merged_in": [
+    {
+      "id": "d59fyyju6ygw",
+      "title": "歷代國號總括歌",
+      "at": "2026-10-26T19:04:54Z",
+      "by": "A11-去重方案4",
+      "rule": "去重方案部分4a-α2：同一首位 Entity、同題同署名組（多為同一作者自著叢書各版次之子目），叢書首位撰者為本人、同叢書無同題兩條、全組已知卷數全同，A 档机械并",
+      "why": "同題同署名同 Entity：保留《歷代國號總括歌》鮑東里（清）；《歷代國號總括歌》（d59fyyju6ygw）为叢書子目，所屬叢書《釀齋訓蒙雜編五種》（8rldosvpmvi9）撰者鮑東里；全组卷數1",
+      "author": "鮑東里",
+      "title_info": "歷代國號總括歌一卷"
+    }
+  ],
+  "merged_from": [
+    "d59fyyju6ygw"
+  ]
 }

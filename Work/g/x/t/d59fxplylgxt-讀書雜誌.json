@@ -38,9 +38,9 @@
       "summary": "共 10 個版本：清同治九年金陵書局刻本（哈爾濱市圖書館、國家圖書館、南京圖書館、遼寧省圖書館、吉林省圖書館、上海圖書館、吉林大學圖書館、北京大學圖書館、鞍山市圖書館、黑龍江省圖書館）；清咸豐七年高郵王氏刻本（馆藏未载）；清末民國初上海文瑞樓石印本（北京大學圖書館）；清道光十一年王氏刻本（黑龍江省圖書館、遼寧中醫藥大學圖書館、遼寧大學圖書館、上海圖書館、遼寧省圖書館）；清嘉慶十七年至道光十一年刻本（國家圖書館、上海圖書館）；清光緒二十年上海醉六堂石印本（大慶市圖書館、南京圖書館、北京大學圖書館）；清嘉慶二十二年刻本（中國科學院圖書館）；高郵王氏四種本（馆藏未载）；清嘉慶十七年至道光十一年刻本（國家圖書館）；稿本（國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：s4hxbtu4knzjljve、u8yjelsz6kpc7aux、8icvyrf475xf5cwa、4f3icjpwvm3a1xzq\nauto-split:存疑未并\nE6 第 523 批新建（hold 清零：jyiyi；原 hold 原因：）\n第 524 批追加版本，源記錄：j0yba1emo5xj7kp7\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：s4hxbtu4knzjljve、u8yjelsz6kpc7aux、8icvyrf475xf5cwa、4f3icjpwvm3a1xzq\nauto-split:存疑未并\nE6 第 523 批新建（hold 清零：jyiyi；原 hold 原因：）\n第 524 批追加版本，源記錄：j0yba1emo5xj7kp7\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -86,6 +86,40 @@
         "nlc_fid": "412000003622",
         "edition": "清嘉慶17年-道光12年[1812-1832]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i05_01125",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i05/i05_01125/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i05_01125",
+        "edition": "杭州 : 愛日軒, [道光12(1832)]"
+      }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-BV040469277",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb11166064",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb11166064",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb11166064/manifest",
+        "shelfmark": "4 L.sin. Aa 47-1/4,7",
+        "volume_count": 4,
+        "edition": "[南京] 金陵書局 1870"
+      },
+      "details": "多冊本，站方分 4 條著錄；此處鏈接其中排序最前一條（bsb11166064），其餘各冊見站方"
     }
   ],
   "resource_groups": {
@@ -97,6 +131,12 @@
     },
     "nlc-412000003622": {
       "label": "國圖藏本：清嘉慶17年-道光12年[1812-1832]"
+    },
+    "waseda-i05_01125": {
+      "label": "早稲田藏本：杭州 : 愛日軒, [道光12(1832)]"
+    },
+    "bsb-BV040469277": {
+      "label": "巴伐利亞州立圖書館藏本：[南京] 金陵書局 1870"
     }
   },
   "merged_in": [

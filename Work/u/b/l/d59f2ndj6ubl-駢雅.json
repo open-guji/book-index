@@ -13,7 +13,7 @@
       "role": "撰"
     }
   ],
-  "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書擬經類著錄「朱氏（謀㙔）駢雅」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「存」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n**撰人近名待覈**：庫中另有同題之《駢雅》繫「朱謀瑋」（1evgor9cvu7ls），與本條撰人「朱謀㙔」只一字之差。本條無前代志可資對勘（無志之異、無卷數之異可比），故不敢遽併——併之則以甲之書繫乙之名，不可逆；別建則至多多一條可考之記錄，後之覈者併之未晚。庫規亦云「不得批量合併」。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j96a9eeqg8hs`.dynasty「明」propagate 補齊；work.dynasty 同步。",
+  "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書擬經類著錄「朱氏（謀㙔）駢雅」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「存」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n**撰人近名待覈**：庫中另有同題之《駢雅》繫「朱謀瑋」（1evgor9cvu7ls），與本條撰人「朱謀㙔」只一字之差。本條無前代志可資對勘（無志之異、無卷數之異可比），故不敢遽併——併之則以甲之書繫乙之名，不可逆；別建則至多多一條可考之記錄，後之覈者併之未晚。庫規亦云「不得批量合併」。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j96a9eeqg8hs`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-10-26 A11-去重3b-0 併條（rule=去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并）：併 d59f2ng136ro《駢雅》、d59f2njj72f5《駢雅》 入本條。署名异写同书：《駢雅》朱謀㙔／朱謀瑋：朱谋㙔／朱谋玮（同 Entity）；《駢雅》朱謀㙔／朱謀土岙韋：同上；《駢雅》朱謀瑋／朱謀土岙韋：同上",
   "indexed_by": [
     {
       "source": "經義考",
@@ -34,6 +34,27 @@
       "author_info": "明朱謀㙔撰",
       "section": "經部/小學類/訓詁之屬/羣雅",
       "summary": "共 7 個版本：抄本（中國人民大學圖書館）；四庫全書本（馆藏未载）；清抄本（國家圖書館）；澤古齋重鈔本（馆藏未载）；明萬曆十七年朱統鍡玄湛堂刻本（國家圖書館）；借月山房彙鈔本（馆藏未载）；明萬曆間刻本（泰州市圖書館、浙江圖書館）"
+    },
+    {
+      "source": "國史經籍志",
+      "source_bid": "d59f2nl40936",
+      "title_info": "《駢雅》七卷",
+      "summary": "《駢雅》七卷（朱謀瑋）",
+      "author_info": "朱謀瑋"
+    },
+    {
+      "source": "欽定四庫全書總目",
+      "source_bid": "d59dh3vo9af4",
+      "title_info": "《駢雅》·七卷",
+      "author_info": "明朱謀《土韋》撰",
+      "summary": "明朱謀《土韋》撰。謀《土韋》有《周易象通》，已著錄。此書皆刺取古書文句典奧者，依《爾雅》體例，分章訓釋。自《釋詁》、《釋訓》以至《蟲》、《魚》、《鳥》、《獸》，凡二十篇，其說以為聯二為一，駢異為同，故名曰《駢雅》。謀《土韋》淹通典籍，其《一齋書目》所載，往往為諸家所未窺。故徵引注博，頗具條理，非鄉塾陋儒捃拾殘剩者可比。中間如藻井乃屋上方井，刻為藻文，《西京賦》注引《風俗通》，訓義甚明，而謀《土韋》以為刻扉之屬，改易舊文，殊為未確。又謂都禦史為大司憲，詹事為端尹，乃流俗之稱，亦乏典據。至如《釋天》內之歲陽、月名，《釋地》內之五丘、四荒、太平、太蒙、丹穴、空桐之類，皆《爾雅》所已具。更為複引，尤病冗蕪。然奇文僻字，搜輯良多；擷其膏腴，於詞章要不為無補也。",
+      "edition": "浙江巡撫采進本"
+    },
+    {
+      "source": "明史藝文志",
+      "source_bid": "d59f2mox0000",
+      "title_info": "朱谋韦《骈雅》七卷",
+      "summary": "朱謀鵒韋《駢雅》七卷"
     }
   ],
   "period_upper": "qing",
@@ -42,15 +63,19 @@
   "period_basis": "知名人物：朱謀㙔為明寧藩宗室，萬曆間理石城王府事，《駢雅》作者（2026-08-24 R3 引文定代）",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "description": {
-    "text": "朱謀㙔撰。見著錄於《經義考》。《經義考》列於擬經。本書惟《經義考》一志著錄，別無他證。《經義考》清朱彝尊撰——本書之目賴之以存。",
+    "text": "朱謀㙔撰。見著錄於《經義考》。《經義考》列於擬經。",
     "sources": [
-      "經義考"
+      "經義考",
+      "中國古籍總目",
+      "國史經籍志",
+      "欽定四庫全書總目",
+      "明史藝文志"
     ]
   },
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基文库",
@@ -74,6 +99,170 @@
         "year": "明萬曆[1573-1620]",
         "note": "本链接为扫描册 1；不代表全书齐备。"
       }
+    },
+    {
+      "id": "commons",
+      "name": "维基共享资源",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC511-004031012010688-3562_%E9%A7%A2%E9%9B%85.pdf",
+      "types": [
+        "image"
+      ],
+      "root_type": "catalog",
+      "metadata": {
+        "format": "PDF",
+        "edition": "貴州省圖書館 2010年11月",
+        "publisher": "商務印書館",
+        "year": "1936",
+        "note": "本链接为扫描册 1；不代表全书齐备。"
+      }
+    },
+    {
+      "id": "wikisource-siku",
+      "name": "维基文库（四庫全書本）",
+      "url": "https://zh.wikisource.org/wiki/駢雅_(四庫全書本)",
+      "types": [
+        "text"
+      ]
+    },
+    {
+      "id": "shidianguji-sikuquanshuben",
+      "name": "识典古籍",
+      "url": "https://www.shidianguji.com/book/SK0623",
+      "metadata": {
+        "edition": "四庫全書本",
+        "version": "v3",
+        "total_page": 134,
+        "paragraph_count": 436,
+        "check_type": "粗校"
+      },
+      "types": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "shidianguji-mingwanlikeben",
+      "name": "识典古籍",
+      "url": "https://www.shidianguji.com/book/NGJ892411999030423152925",
+      "metadata": {
+        "edition": "明萬曆刻本",
+        "version": "v1",
+        "total_page": 146,
+        "paragraph_count": 913,
+        "check_type": "AI整理"
+      },
+      "types": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "shidianguji-zhutongweixuanzhanta",
+      "name": "识典古籍",
+      "url": "https://www.shidianguji.com/book/NGJ89241199902375546372",
+      "metadata": {
+        "edition": "朱統鍡玄湛堂明萬曆15年刻本",
+        "version": "v1",
+        "total_page": 152,
+        "paragraph_count": 924,
+        "check_type": "AI整理"
+      },
+      "types": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999014657",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999014657",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999014657",
+        "edition": "清[1644-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999023755",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999023755",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999023755",
+        "edition": "明萬曆15年[1587]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999030423",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999030423",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999030423",
+        "edition": "明萬曆[1573-1620]"
+      }
     }
+  ],
+  "juan_count": {
+    "number": 7
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 7
+    }
+  ],
+  "measure_info": "七卷",
+  "resource_groups": {
+    "nlc-411999014657": {
+      "label": "國圖藏本：清[1644-1911]"
+    },
+    "nlc-411999023755": {
+      "label": "國圖藏本：明萬曆15年[1587]"
+    },
+    "nlc-411999030423": {
+      "label": "國圖藏本：明萬曆[1573-1620]"
+    }
+  },
+  "merged_in": [
+    {
+      "id": "d59f2ng136ro",
+      "title": "駢雅",
+      "at": "2026-10-26T11:38:07Z",
+      "by": "A11-去重3b-0",
+      "rule": "去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并",
+      "why": "署名异写同书：《駢雅》朱謀㙔／朱謀瑋：朱谋㙔／朱谋玮（同 Entity）；《駢雅》朱謀㙔／朱謀土岙韋：同上；《駢雅》朱謀瑋／朱謀土岙韋：同上",
+      "author": "朱謀瑋",
+      "title_info": "《駢雅》七卷"
+    },
+    {
+      "id": "d59f2njj72f5",
+      "title": "駢雅",
+      "at": "2026-10-26T11:38:07Z",
+      "by": "A11-去重3b-0",
+      "rule": "去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并",
+      "why": "署名异写同书：《駢雅》朱謀㙔／朱謀瑋：朱谋㙔／朱谋玮（同 Entity）；《駢雅》朱謀㙔／朱謀土岙韋：同上；《駢雅》朱謀瑋／朱謀土岙韋：同上",
+      "author": "朱謀土岙韋",
+      "title_info": "《駢雅》·七卷；朱谋韦《骈雅》七卷"
+    }
+  ],
+  "merged_from": [
+    "d59f2ng136ro",
+    "d59f2njj72f5"
   ]
 }

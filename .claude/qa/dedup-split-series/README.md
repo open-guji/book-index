@@ -1,0 +1,50 @@
+# 拆回丛书版次错并的 Book（去重方案部分 6 附）
+
+方案：ai-team `domain/目录与资源/设计/2026-10-正式库全面去重方案/部分6-Collection丛书与文本迁移.md` 第四节第 1 条。
+
+## 成因
+草稿库提交 `449d40913f2`（2026-10-19「跨部查重 Book 层：同 Work 同版本重复 Book 并条」）把各叢書版次里的同一子目（同 Work、`edition` 同为空或同写「道光本」之类）当成同版本并成一条：被并者留草稿墓碑，keeper 随后升格。于是一个正式 Book 同时带着几个丛书版次（或几部不同丛书）的馆藏、著录、源记录和 `contained_in`。一个 Book 是一个具体版本，应拆。
+
+## 口径
+- 只拆「被并者所挂 Collection（按 promotions 译成正式 id）与 keeper 不同」的；与 keeper 同挂一个 Collection 的继续并着。
+- 同一组里挂同一 Collection 的几个被并者（同一丛书版次的同一子目、源记录不同）合成一个新 Book，其余草稿 `merged_into` 新 Book，新 Book 记 `merged_from`。
+- **不拆**：一侧本来没有 Collection 的组（抽检发现多是总目「叢編之屬」单条与该丛书子目，实为同一版本，10-19 并对了）；同 Work 已有别的活 Book 挂同一 Collection、同题同版本名 Collection 或同一实物的跨源 Collection（文淵閣 8rldp1yeqrk0≡8rlb6yi1ecqo、摛藻堂 8rldo48qtsld≡8rlb6yk66qdc）的组（新建会重复，交部分 5）。这些组都记在各批 `splits.json` 的 `problems`。
+- 新 Book＝被并草稿并前原记录（取自 `449d40913f2^`），草稿 id 按 promotions 译成正式 id，`work_id` 取 keeper 现值，`revision` 1.0.0，ai_note 加来历；promotions 加「被并草稿 → 新 Book」。
+- keeper 做减法：只删来自被并者的 provenance／indexed_by／sources／contained_in／merged_from 项，10-19 后别人的改动原样保留；keeper 自己原挂、升格时因 Collection 未升格而没带进来的 Collection 补回。10-19 查重线原说明保留，另加一行拆分说明。`revision` 升 major（schema/common.md：同 Work 下并／拆 Book）。
+- 草稿库：被并草稿改成已升格残档（只留 schema_version／id／type／title），keeper 草稿残档的 `merged_from` 去掉拆出者。
+
+## 工具
+`split.py --draft ../book-index-draft [--limit N] [--only 文件] [--skip 文件] [--merge-existing] --out <批目录> [--apply]`：乾跑默认，写 `plan.json`（全记录）与 `splits.json`（台账）；`--apply` 改两库、加 promotions、给新 Book 写 index/books 条目。重跑是幂等的：已拆的被并草稿已在 promotions 里，自动跳过。PR 只入 `splits.json`，`plan.json` 太大不入库。
+
+## 规模（main 204dea4eb3 重算）
+449d409 里被并 4,889 条、keeper 3,665 条。可拆 2,735 组、新建 3,755 个 Book；不拆或跳过：同 Collection 或都无 668、一侧无 Collection 59、同 Work 已有同丛书 Book 200、keeper 未升格 1。
+另有约 385 个非查重线来源（E/F/G 道版本补录把多个源记录合成一个 Book）的跨版次多挂，不在本工具范围，另串研究。
+
+## 抽检（独立子 agent）
+- 第一轮 20 组判错 5 组（25%），停批：「一侧无 Collection」3 组不该拆、同 Collection 的被并者拆成了两个 2 组。已改口径。
+- 第二轮 62 组（22 组落地＋40 组计划）：拆分判断判错 0；落地数据与原记录逐字段一致；新 Book 与跨源旧 Book 同一实物 3 组（文淵閣／摛藻堂两套 Collection），已加跨源等价规则跳过；revision 改 major。
+
+## 批次
+- batch-01：968 组、新建 1,000 个 Book（#1280）。
+- batch-02：734 组、新建 1,000 个 Book（#1403）。
+- batch-03：583 组、新建 1,000 个 Book（#1420；抽检 30 组判错 0）。
+- batch-04：450 组、新建 582 个 Book（main 96b8466027；新建部分至此跑完）。首版 755 个经抽检发现聚珍版书幽灵子目 8/30 组，加规则后重跑，173 条不新建（其馆藏／著录／源记录也从 keeper 剥去）。
+- batch-05（`--merge-existing`）：147 组，被并者并入同 Work 已挂该叢書版次的已有 Book，不新建（台北故宫文淵閣本总目条并入故宫善本旧籍的文淵閣本为主）。抽检 30 组判错 1（老子道德經：王弼注并进河上公注，同 Work 挂两种注本），全批另查出 3 组并错目标（傅子一卷与五卷辑本、泊宅編三卷与十卷且目标本身混挂金華叢書三版次、續方言目标是 keeper 的孪生副本），这 4 组 `--skip batch-05/skip-manual.txt` 留人工；另 49 组候选不唯一或只部分命中，留人工。keeper 一侧同挂摛藻堂、同 Work 另有故宫善本旧籍摛藻堂本 Book 的跨源重复（如 993sw6sbnl 与 988g4tlcss）不在本工具范围，交部分 5。
+
+## 聚珍版书幽灵子目（batch-04 抽检后加）
+总目把武英殿聚珍版书子目在五个版次（殿本 8rldonorf7cw、福建本 8rldonor3yte、廣東本 8rldomtfn94x、浙江本 8rldonorf7cx、江西本 8rldonorf7cy）下各登一遍，但子目 edition 自注了实际所收版次（如「殿本、福建本、廣東本」）。被并者所挂版次不在自注里的，是总目重登的幽灵条目：不新建 Book，草稿照旧 merged_into keeper，从 keeper 删去那个 Collection 及其带来的 provenance／indexed_by／sources（这些是总目照抄的整套丛书馆藏），merged_from 保留供追溯，ai_note 记一行。batch-01～03 的拆分组无此类；另有 15 处活 Book（单挂一版次的独立 Book 7 个、跳过组里挂五版次的 keeper 4 个等）挂了自注之外的聚珍版次，不在本工具范围，留人工。
+
+## 并入已有 Book（`--merge-existing`）
+「同 Work 已有同丛书 Book」的 200 组不新建。加 `--merge-existing` 只跑这类组：keeper 照常剥离；被并者并入那个已有的活 Book（provenance／sources／indexed_by 取并集，写 merged_from，revision 升 major，ai_note 记一行）；草稿被并者 merged_into 改指它，不进 promotions。只在「命中目标唯一、被并者全部命中、同一 Collection 集」时做（batch-05）；其余 49 组（及 batch-05 抽检挑出的 4 组）候选不唯一或只部分命中，留人工（台账 problems）。
+
+## 留人工组的逐组方案（batch-06，`--manual`）
+batch-05 留人工的 49 组＋skip 4 组由独立 agent 逐组研究（`batch-06/manual.json`，基线 main 0bb846c325f），每个被并草稿给去向：`new` 新建、Book id 并入该 Book、`stay` 留 keeper。`stay` 分两种：幽灵子目（同聚珍版书规则，从 keeper 剥去所挂 Collection 及带来的馆藏／著录／源记录）；以及 keeper 自身原挂印次是幽灵（四部叢刊底本 edition 自注「初次印本」或「二次印本、縮印本」，keeper 原挂的不在其中）时，keeper 改以这个被并者为本版次，剥去 keeper 原记录独有的 Collection／馆藏／著录／源记录。
+`split.py --manual batch-06/manual.json` 只做方案里「可做」的组，不走自动判定。
+- 结果：49 组；新建 24 Book、并入已有 Book 57 条、幽灵子目 31 条、keeper 改本版次 10 组。
+- 存疑 3 组不动：牧齋有學集 9945aa5iwx、9945awmm0w（自注与所挂印次自相矛盾）、說文解字繫傳 9945amy96o（无自注）。
+- 續方言 994074cjy9 跳过：要先把孪生副本 9940eahszk 并成墓碑。
+- 抽检（独立 agent，12 组）判错 0。方案里另记「交部分5」的重复（玉函山房 keeper 与同挂湘遠堂本的孪生 Book 14 组；文淵閣本 988g13db7k≡988g0zmgow 已由 #1545 并）、唐宋叢書三条同题 Collection 是否同一版次、泊宅編三卷与十卷是否同书，均未动。
+
+## batch-07：收尾（2026-10-26）
+- 續方言 994074cjy9：孪生副本 9940eahszk（同源记录、同著录，多挂 8rldobgkn283）先用 `dedup-confirmed-163/apply_batch.py` 并成墓碑，再按 batch-06 方案拆出挂藝海珠塵 8rldobgkn283 的草稿 11sodzmt9ooi5 为新 Book。
+- 丁鶴年詩集 d59f2gpmdk3k：3a-2乙 先拆后并原想按编次与丁鶴年集互换，但执行前 3a-3 已把丁鶴年集／海巢集／鶴年詩集按「一卷／三卷为编次分合」并为 d59f2gpsb2f4；d59f2gpmdk3k 下全是四庫所云「此本題《丁鶴年先生集》」各本，按 3a-3 同一口径整条并入 d59f2gpsb2f4。

@@ -16,6 +16,12 @@
       "source_bid": "d59f2mp1zsox",
       "title_info": "鄭元祐遂昌山人雜錄一卷",
       "summary": "元鄭元祐遂昌山人雜錄一卷"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "鄭元祐遂昌山人襍録",
+      "summary": "鄭元祐遂昌山人襍録"
     }
   ],
   "juan_count": {
@@ -34,15 +40,16 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 B 档逐组复核并）：併 d59f6ehdeu4g《遂昌山人襍録》 入本條。同题同首位责任者：《遂昌山人雜錄》鄭元祐(元,1/2卷,6版本)／《遂昌山人襍録》鄭元祐(?,?卷,0版本)；B 档逐组复核判同一作品（flags=juan_mixed）\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
-    "text": "鄭元祐（元）撰。一卷。見著錄於《補遼金元藝文志》。其著錄之文，《補遼金元藝文志》作「元鄭元祐遂昌山人雜錄一卷」。本書惟《補遼金元藝文志》一志著錄，別無他證。",
+    "text": "鄭元祐（元）撰。一卷。見著錄於《補遼金元藝文志》。其著錄之文，《補遼金元藝文志》作「元鄭元祐遂昌山人雜錄一卷」。",
     "sources": [
-      "補遼金元藝文志"
+      "補遼金元藝文志",
+      "千頃堂書目"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -66,11 +73,50 @@
         "nlc_fid": "411999018644",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-08357",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/08357",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "08357",
+        "call_number": "310.21 08357",
+        "edition": "舊鈔本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999018644": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "ncltw-08357": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
     }
-  }
+  },
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "additional_titles": [
+    "遂昌山人襍録"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6ehdeu4g",
+      "title": "遂昌山人襍録",
+      "at": "2026-10-26T14:52:33Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 B 档逐组复核并",
+      "why": "同题同首位责任者：《遂昌山人雜錄》鄭元祐(元,1/2卷,6版本)／《遂昌山人襍録》鄭元祐(?,?卷,0版本)；B 档逐组复核判同一作品（flags=juan_mixed）",
+      "author": "鄭元祐",
+      "title_info": "鄭元祐遂昌山人襍録"
+    }
+  ],
+  "merged_from": [
+    "d59f6ehdeu4g"
+  ]
 }

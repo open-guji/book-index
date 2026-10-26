@@ -20,7 +20,60 @@
       "summary": "共 2 個版本：抄本（馆藏未载）；清乾隆二十一年刻本（浙江圖書館、國家圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：qvzow8gsoibl4rsi、t01plt46lymmvjmp\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：清傅𡒍纂修\nE6 第 431 批新建（hold 清零：N-anon-clean；原 hold 原因：anonymous_author）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：qvzow8gsoibl4rsi、t01plt46lymmvjmp\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：清傅𡒍纂修\nE6 第 431 批新建（hold 清零：N-anon-clean；原 hold 原因：anonymous_author）\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2n4p3wn4《鎮安府志》 入本條。方志同修次重出：《[乾隆]鎮安府志》佚名撰（中國古籍總目） ← 《鎮安府志》傅聚纂修（无著录（故宫等））。脚本初判 B同修次·同年号同卷·无同名。逐簇核对：傅聚=傅𡒍，乾隆二十一年八卷，同修次（keeper作者「佚名」宜改傅𡒍）。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "juan_count": {
+    "number": 8
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 8
+    }
+  ],
+  "measure_info": "八卷",
+  "period": "qing",
+  "period_basis": "據 authors[0].dynasty「清」",
+  "dynasty": "清",
+  "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-312001079139",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001079139",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001079139",
+        "edition": ""
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-312001079139": {
+      "label": "國圖藏本："
+    }
+  },
+  "additional_titles": [
+    "鎮安府志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n4p3wn4",
+      "title": "鎮安府志",
+      "at": "2026-10-26T13:57:32Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[乾隆]鎮安府志》佚名撰（中國古籍總目） ← 《鎮安府志》傅聚纂修（无著录（故宫等））。脚本初判 B同修次·同年号同卷·无同名。逐簇核对：傅聚=傅𡒍，乾隆二十一年八卷，同修次（keeper作者「佚名」宜改傅𡒍）。",
+      "author": "傅聚"
+    }
+  ],
+  "merged_from": [
+    "d59f2n4p3wn4"
+  ]
 }

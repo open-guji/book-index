@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/0aqt406gng2rfxuy"
-      }
+      },
+      "entity_id": "hixhd2h9bnqg"
     }
   ],
   "dynasty": "宋",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：（上海圖書館）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 a5a4zatfmapkw8to（霞房叢鈔十六種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：dhhkma2hgi58q7v7\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 a5a4zatfmapkw8to（霞房叢鈔十六種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：dhhkma2hgi58q7v7\n\n国图數字古籍重配挂接\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（增刪坊刻前綴／集錄鈔等後綴）同首位責任者，B檔並）：併 d59f2hstwohs《靖康紀聞錄》 入本條。近題同首位責任者：《靖康紀聞》丁特起／《靖康紀聞錄》丁特起；同为丁特起撰，靖康紀聞錄即靖康紀聞\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -62,6 +63,53 @@
         "nlc_fid": "411999023482",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "name": "维基文库",
+      "types": [
+        "text"
+      ],
+      "id": "wikisource",
+      "url": "https://zh.wikisource.org/wiki/%E9%9D%96%E5%BA%B7%E7%B4%80%E8%81%9E"
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC892-0292-205375_%E9%9D%96%E5%BA%B7%E7%B4%80%E8%81%9E%E9%8C%84.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-0292",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0292",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0292",
+        "edition": "[出版年不詳]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05307-0001",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05307-0001",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05307-0001",
+        "call_number": "204.251 05307-0001",
+        "edition": "穴硯齋鈔本"
+      }
     }
   ],
   "resource_groups": {
@@ -70,6 +118,33 @@
     },
     "nlc-411999023482": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "ncltw-05307-0001": {
+      "label": "臺灣國家圖書館藏本：穴硯齋鈔本"
     }
-  }
+  },
+  "measures": [
+    {
+      "unit": "冊",
+      "number": 1
+    }
+  ],
+  "measure_info": "一冊",
+  "additional_titles": [
+    "靖康紀聞錄"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2hstwohs",
+      "title": "靖康紀聞錄",
+      "at": "2026-10-26T13:46:13Z",
+      "by": "A11-去重方案3b-近題前後綴",
+      "rule": "去重方案3b-近題前後綴：同 Entity 近題（增刪坊刻前綴／集錄鈔等後綴）同首位責任者，B檔並",
+      "why": "近題同首位責任者：《靖康紀聞》丁特起／《靖康紀聞錄》丁特起；同为丁特起撰，靖康紀聞錄即靖康紀聞",
+      "author": "丁特起"
+    }
+  ],
+  "merged_from": [
+    "d59f2hstwohs"
+  ]
 }

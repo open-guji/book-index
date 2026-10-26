@@ -25,7 +25,50 @@
       "summary": "共 5 個版本：清康熙六十年刻本（國家圖書館）；清同治七年慈母堂刻本（上海圖書館、國家圖書館）；清嘉慶元年刻本（國家圖書館、北京大學圖書館）；清嘉慶二十三年刻本（國家圖書館）；清同治十年刻本（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：571kz8jd6rpvbhwm、gdwdcvq74oae2v8t、au1jdqpdynmi11wz、qt6h2yb2lohqr2yb、lpix7su8yzynzq8o\n主責任者「沙守信」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nE6 第 2 批新建（hold 清零：子部E机械落地b2:E-M-new；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：571kz8jd6rpvbhwm、gdwdcvq74oae2v8t、au1jdqpdynmi11wz、qt6h2yb2lohqr2yb、lpix7su8yzynzq8o\n主責任者「沙守信」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nE6 第 2 批新建（hold 清零：子部E机械落地b2:E-M-new；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-bunko19_f0250",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko19/bunko19_f0250/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko19_f0250",
+        "edition": "[出版地不明 : 出版者不明], 嘉慶元年 [1796] [ : ], [1796]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101186033",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000012299",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101186033",
+        "nlk_control_no": "KOL000012299",
+        "holder": "국립중앙도서관",
+        "call_number": "古1882-5",
+        "edition": "木板本 同治 7(1868)"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-bunko19_f0250": {
+      "label": "早稲田藏本：[出版地不明 : 出版者不明], 嘉慶元年 [1796] [ : ], [1796]"
+    },
+    "korcis-101186033": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 同治 7(1868)"
+    }
+  }
 }

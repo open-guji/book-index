@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/0vwqk424m1hzjax0"
-      }
+      },
+      "entity_id": "hixhd2h9bf9k"
     }
   ],
   "dynasty": "唐",
@@ -29,9 +30,9 @@
       "summary": "共 4 個版本：明萬曆六年釋明得刻本（馆藏未载）；明成化十六年釋昭海募刻本（國家圖書館）；明萬曆間刻本（山西師範大學圖書館）；明萬曆間明肅皇太后李氏刻本（上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gzockd06knw4atnb、b8kbsdg3i8qdisxp、wx70zyoyzgjpnsfb、pse4fh1i00d3j42z\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gzockd06knw4atnb、b8kbsdg3i8qdisxp、wx70zyoyzgjpnsfb、pse4fh1i00d3j42z\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,107 @@
         "nlc_fid": "412000001079",
         "edition": "明成化16年[1480]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko05_00412",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko05/bunko05_00412/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko05_00412",
+        "edition": "[京都] : 飯田氏忠兵衛, 寛文6[1666]"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300083132",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300083132",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300083132",
+        "holder": "静嘉堂作成",
+        "edition": "刊 漢文６",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300083132/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300092675",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300092675",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300092675",
+        "holder": "東洋大哲学堂",
+        "edition": "刊 寛文６",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300092675/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2539402",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2539402",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2539402",
+        "edition": ""
+      }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-bsb11024406",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb11024406",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb11024406",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb11024406/manifest",
+        "shelfmark": "L.sin. C 198",
+        "edition": "[S.l. s.n.] Wanli 6 [1578]"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000001079": {
       "label": "國圖藏本：明成化16年[1480]"
+    },
+    "waseda-bunko05_00412": {
+      "label": "早稲田藏本：[京都] : 飯田氏忠兵衛, 寛文6[1666]"
+    },
+    "kokusho-300083132": {
+      "label": "國書·静嘉堂作成藏刊 漢文６"
+    },
+    "kokusho-300092675": {
+      "label": "國書·東洋大哲学堂藏刊 寛文６"
+    },
+    "ndl-2539402": {
+      "label": "NDL藏本："
+    },
+    "bsb-bsb11024406": {
+      "label": "巴伐利亞州立圖書館藏本：[S.l. s.n.] Wanli 6 [1578]"
     }
   }
 }

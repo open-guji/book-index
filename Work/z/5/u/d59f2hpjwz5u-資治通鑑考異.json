@@ -159,6 +159,76 @@
         "nlc_fid": "411999013016",
         "edition": "明嘉靖23年24年[1544-1545]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073343",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073343",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073343",
+        "request_no": "２８３－００２０",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4900305/manifest.json",
+        "extent": "8冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3602601",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3602601",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3602601",
+        "request_no": "２８３－００１９",
+        "edition": "刊本::明万暦:140000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3637352/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101427077",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000009383",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101427077",
+        "nlk_control_no": "EOL000009383",
+        "holder": "국립중앙도서관",
+        "call_number": "古古6-20-39",
+        "edition": "[刊寫年未詳]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01733",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01733",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01733",
+        "call_number": "202.1 01733",
+        "edition": "明嘉靖二十四年(1545)孔天胤杭州刊本"
+      }
     }
   ],
   "measures": [
@@ -176,15 +246,15 @@
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
-  "ai_note": "2026-08-21 直齋編年類《考異》三十卷一節原誤繫《資治通鑑目錄》，今改繫本條。\n\n2026-08-21 文淵閣四庫本雙錄歸併之遺：本條 books 原含 `11qkhw0klxou8`，該 Book（清乾隆間寫文淵閣四庫全書本）已於雙錄歸併時併入其孿生條而刪，本側之引用未同步移除，今去之。所併入之孿生條仍在本條 books 內，無信息損失。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…壽及《太清記》、《唐曆》之類。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n總目著錄版本待定（版本標籤空，本 Work 有多個 Book，未入 Book）：17ks5holsoybhusd\n總目分類：史部／編年類／叢編之屬\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "2026-08-21 直齋編年類《考異》三十卷一節原誤繫《資治通鑑目錄》，今改繫本條。\n\n2026-08-21 文淵閣四庫本雙錄歸併之遺：本條 books 原含 `11qkhw0klxou8`，該 Book（清乾隆間寫文淵閣四庫全書本）已於雙錄歸併時併入其孿生條而刪，本側之引用未同步移除，今去之。所併入之孿生條仍在本條 books 內，無信息損失。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…壽及《太清記》、《唐曆》之類。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n總目著錄版本待定（版本標籤空，本 Work 有多個 Book，未入 Book）：17ks5holsoybhusd\n總目分類：史部／編年類／叢編之屬\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "《資治通鑑考異》三十卷，北宋司馬光撰。《欽定四庫全書總目》敘曰：「宋司馬光撰。此書於元豐七年隨《通鑒》同奏上。高似孫《緯略》載：“光編集《通鑒》，有一事用三四出處纂成者。”《文獻通考》載：“司馬康所述有司馬彪、荀悅、袁宏、崔鴻、蕭方等，李延壽及《太清記》、《唐曆》之類。」今存。",
     "sources": [
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "loss_status_basis": "今存。壽及《太清記》、《唐曆》之類。」今存。",
   "resource_groups": {
@@ -196,6 +266,18 @@
     },
     "nlc-411999013016": {
       "label": "國圖藏本：明嘉靖23年24年[1544-1545]"
+    },
+    "naikaku-1073343": {
+      "label": "內閣文庫藏本：明刊本（283-0020，8冊）"
+    },
+    "naikaku-3602601": {
+      "label": "內閣文庫藏本：明万暦14年刊本（283-0019，4冊）"
+    },
+    "korcis-101427077": {
+      "label": "韓國國立中央圖書館數字化藏本：[刊寫年未詳]"
+    },
+    "ncltw-01733": {
+      "label": "臺灣國家圖書館藏本：明嘉靖二十四年(1545)孔天胤杭州刊本"
     }
   }
 }

@@ -28,7 +28,146 @@
       "summary": "共 1 個版本：清光緒十五年上海讀史堂刻本（天津圖書館、南京圖書館、北京大學圖書館、遼寧省圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：r3bw20stk4sn65jb\nauto-split:存疑未并\nE6 第 952 批新建（hold 清零：J-near；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：r3bw20stk4sn65jb\nauto-split:存疑未并\nE6 第 952 批新建（hold 清零：J-near；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 3 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "ndl",
+      "group": "ndl-2583500",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2583500",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2583500",
+        "edition": "光緒15"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ri05_15688",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ri05/ri05_15688/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ri05_15688",
+        "edition": ""
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko17_w0198",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko17/bunko17_w0198/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko17_w0198",
+        "edition": "芝三島町(江戸) : 山中市兵衛, 天保15[1844]序 ( )"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i04_03163",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i04/i04_03163_0217/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i04_03163",
+        "edition": "東京 : 水野書店, 大正8[1919]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101435219",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000009989",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101435219",
+        "nlk_control_no": "EOL000009989",
+        "holder": "국립중앙도서관",
+        "call_number": "古古6-14-150",
+        "edition": "木活字本 [刊寫年未詳]"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-102529510",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000009738",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102529510",
+        "nlk_control_no": "EOL000009738",
+        "holder": "국립중앙도서관",
+        "call_number": "古古6-10-7",
+        "edition": "木板本 明治 29(1896)"
+      }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-102529516",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000009739",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "102529516",
+        "nlk_control_no": "EOL000009739",
+        "holder": "국립중앙도서관",
+        "call_number": "古古6-10-11",
+        "edition": "木板本 嘉永 1(1848)"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ndl-2583500": {
+      "label": "NDL藏本：光緒15"
+    },
+    "waseda-ri05_15688": {
+      "label": "早稲田藏本"
+    },
+    "waseda-bunko17_w0198": {
+      "label": "早稲田藏本：芝三島町(江戸) : 山中市兵衛, 天保15[1844]序 ( )"
+    },
+    "waseda-i04_03163": {
+      "label": "早稲田藏本：東京 : 水野書店, 大正8[1919]"
+    },
+    "korcis-101435219": {
+      "label": "韓國國立中央圖書館數字化藏本：木活字本 [刊寫年未詳]"
+    },
+    "korcis-102529510": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 明治 29(1896)"
+    },
+    "korcis-102529516": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 嘉永 1(1848)"
+    }
+  }
 }

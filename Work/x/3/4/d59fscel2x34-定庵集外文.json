@@ -30,7 +30,48 @@
       "summary": "共 2 個版本：清同治元年魏錫曾抄本（國家圖書館）；清同治七年海豐吳重熹過錄高平祁氏抄本（臺灣圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：syxyyijszaupm84q、unx4aqqe3m3i0uqf",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-08"
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：syxyyijszaupm84q、unx4aqqe3m3i0uqf\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-411999026789",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999026789",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999026789",
+        "edition": "清同治元年[1862]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-13401",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/13401",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "13401",
+        "call_number": "402.7 13401",
+        "edition": "清同治戊辰(7年,1868)海豐吳重熹過鈔高平祁氏本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-411999026789": {
+      "label": "國圖藏本：清同治元年[1862]"
+    },
+    "ncltw-13401": {
+      "label": "臺灣國家圖書館藏本：清同治戊辰(7年,1868)海豐吳重熹過鈔高平祁氏本"
+    }
+  }
 }

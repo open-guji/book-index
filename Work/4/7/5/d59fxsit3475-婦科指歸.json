@@ -29,7 +29,51 @@
       "summary": "共 2 個版本：曾氏醫書四種本（馆藏未载）；解經書屋抄本（南京中醫藥大學圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4fgdf0oiqx0lwv3v、2jjw5na8y2w1hagc\nE6 第 422 批新建（hold 清零：E；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4fgdf0oiqx0lwv3v、2jjw5na8y2w1hagc\nE6 第 422 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-300097122",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300097122",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300097122",
+        "holder": "府中之島図石崎",
+        "edition": "刊 \t[清代]",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300097122/manifest"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN1881477150",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN1881477150",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN1881477150",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN1881477150/manifest",
+        "shelfmark": "Slg. Unschuld 8448",
+        "edition": "s.l. Late Qing, early republican era"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-300097122": {
+      "label": "國書·府中之島図石崎藏刊 \t[清代]"
+    },
+    "sbb-PPN1881477150": {
+      "label": "柏林國家圖書館藏本：s.l. Late Qing, early republican era"
+    }
+  }
 }

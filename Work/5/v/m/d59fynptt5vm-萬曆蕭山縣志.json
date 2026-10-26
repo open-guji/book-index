@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/17gdvx1glm52m4hh"
-      }
+      },
+      "entity_id": "hixhgyrw4v0n"
     },
     {
       "name": "戴文明",
@@ -22,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/5qqoqsi3gub5z165"
-      }
+      },
+      "entity_id": "hixicld4p1ef"
     }
   ],
   "dynasty": "明",
@@ -37,11 +39,18 @@
       "author_info": "明劉會修;明戴文明等纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 1 個版本：明萬曆十七年刻本（上海圖書館、天一閣文物保管所、國家圖書館）"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "劉㑹蕭山縣志",
+      "author_info": "萬厯己丑修邑令",
+      "summary": "劉㑹蕭山縣志⟨萬厯己丑修邑令⟩"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gsb7vtqb31c58r6y\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gsb7vtqb31c58r6y\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n国图數字古籍重配挂接\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f6eknps00《蕭山縣志》 入本條。方志同修次重出：《[萬曆]蕭山縣志》劉會修、戴文明纂（中國古籍總目） ← 《蕭山縣志》劉會撰（千頃堂書目）。脚本初判 B同修次·同年号同卷·无同名。逐簇核对：劉㑹=劉會，萬曆十七年己丑修六卷，同修次。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -63,5 +72,33 @@
     "nlc-411999018705": {
       "label": "國圖藏本：明万历[1573-1620]"
     }
-  }
+  },
+  "juan_count": {
+    "number": 6
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 6
+    }
+  ],
+  "measure_info": "六卷",
+  "additional_titles": [
+    "蕭山縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6eknps00",
+      "title": "蕭山縣志",
+      "at": "2026-10-26T13:56:20Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[萬曆]蕭山縣志》劉會修、戴文明纂（中國古籍總目） ← 《蕭山縣志》劉會撰（千頃堂書目）。脚本初判 B同修次·同年号同卷·无同名。逐簇核对：劉㑹=劉會，萬曆十七年己丑修六卷，同修次。",
+      "author": "劉會",
+      "title_info": "劉㑹蕭山縣志"
+    }
+  ],
+  "merged_from": [
+    "d59f6eknps00"
+  ]
 }

@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/fp5dzv6g01el1u1k"
-      }
+      },
+      "entity_id": "hixi8u647wqm"
     }
   ],
   "dynasty": "清",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：清道光二十七年靈石楊氏刻光緒七年增修本（上海圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zdf131qqjzh7jh3d\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zdf131qqjzh7jh3d\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n国图數字古籍重配挂接\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,31 @@
         "nlc_fid": "312001048746",
         "edition": "清光緒7年[1881]"
       }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-bsb11128985",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb11128985",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb11128985",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb11128985/manifest",
+        "shelfmark": "4 L.sin. K 306-1/4",
+        "edition": "[S.l.] 1826"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001048746": {
       "label": "國圖藏本：清光緒7年[1881]"
+    },
+    "bsb-bsb11128985": {
+      "label": "巴伐利亞州立圖書館藏本：[S.l.] 1826"
     }
   }
 }

@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/s34vlvxwbnz84q0j"
-      }
+      },
+      "entity_id": "hixhd2h9bip6"
     }
   ],
   "dynasty": "清",
@@ -29,7 +30,67 @@
       "summary": "共 8 個版本：清春明堂刻本（成都中醫藥大學圖書館、蘇州中醫醫院、甘肅省圖書館、國家圖書館、安徽省圖書館）；清道光六年英德堂刻本（中醫科學院、河南省圖書館、國家圖書館、湖北省圖書館、中華醫學會上海分會圖書館）；清康熙五十八年刻本（北京中醫藥大學圖書館、山東中醫藥大學圖書館、上海圖書館、北京大學圖書館、浙江圖書館、長春中醫藥大學圖書館、陝西中醫學院圖書館）；清武林山壽堂刻本（南京圖書館、國家圖書館）；清乾隆四十九年金閶書業堂刻本（上海中醫藥大學圖書館、首都圖書館、山東省圖書館、國家圖書館、南京圖書館、浙江圖書館、北京大學圖書館）；清光緒十一年張紹棠味古齋刻本（國家圖書館、南京圖書館）；清順治十二年刻本（國家圖書館）；清道光十五年務本堂刻本（南京圖書館、陝西中醫學院圖書館、湖北中醫學院圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：q6j60vdotjvru3cz、5f5k52q01qpcskvt、zphvf1zasmq0pfox、5xev60h4c1um07jp、hupksqaz1ht2ur2v、iqgry24f5jpplu4r、2uw5enef7fb58slm、phuuymecvtf8do8x\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：q6j60vdotjvru3cz、5f5k52q01qpcskvt、zphvf1zasmq0pfox、5xev60h4c1um07jp、hupksqaz1ht2ur2v、iqgry24f5jpplu4r、2uw5enef7fb58slm、phuuymecvtf8do8x\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条、NDL 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-300096683",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300096683",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300096683",
+        "holder": "府中之島図石崎",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300096683/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2605921",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2605921",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2605921",
+        "edition": "康煕58序刊(武林山壽堂藏版)"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2556324",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2556324",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2556324",
+        "edition": "清刊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-300096683": {
+      "label": "國書·府中之島図石崎藏刊"
+    },
+    "ndl-2605921": {
+      "label": "NDL藏本：康煕58序刊(武林山壽堂藏版)"
+    },
+    "ndl-2556324": {
+      "label": "NDL藏本：清刊"
+    }
+  }
 }

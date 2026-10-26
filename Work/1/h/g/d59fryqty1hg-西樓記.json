@@ -30,7 +30,66 @@
       "summary": "共 3 個版本：（北京大學圖書館、重慶市圖書館、天津圖書館、南京圖書館、華東師範大學圖書館、湖南省圖書館、國家圖書館、四川省圖書館）；（臺灣圖書館、遼寧省圖書館）；（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：l0wqahkel2v7dvq6、zk1isvr5ke22bya8、ym3m27ygfi8i7en3\n朝代據總目題名行",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-08"
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：l0wqahkel2v7dvq6、zk1isvr5ke22bya8、ym3m27ygfi8i7en3\n朝代據總目題名行\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。\n\n2026-10-26 C3续-臺灣國圖存疑＋越南漢喃 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3续-臺灣國圖存疑與越南漢喃挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-411999002237",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999002237",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999002237",
+        "edition": "明[1368-1644]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999009434",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999009434",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999009434",
+        "edition": "1917"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15175-0037",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15175-0037",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15175-0037",
+        "call_number": "407.22 15175-0037",
+        "edition": "明虞山毛氏汲古閣刊清代修補本"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-411999002237": {
+      "label": "國圖藏本：明[1368-1644]"
+    },
+    "nlc-411999009434": {
+      "label": "國圖藏本：1917"
+    },
+    "ncltw-15175-0037": {
+      "label": "臺灣國家圖書館藏本：明虞山毛氏汲古閣刊清代修補本"
+    }
+  }
 }

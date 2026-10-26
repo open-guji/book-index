@@ -25,12 +25,21 @@
       "author_info": "明謝鐸、明黃孔昭輯",
       "section": "集部/總集類/郡邑之屬",
       "summary": "共 2 個版本：清抄本（國家圖書館）；明成化十八年建陽書坊刻本（國家圖書館）"
+    },
+    {
+      "source": "國史經籍志",
+      "source_bid": "d59f2nl40936",
+      "title_info": "《赤城集》六卷",
+      "summary": "《赤城集》六卷（謝鐸）",
+      "author_info": "謝鐸"
     }
   ],
   "description": {
-    "text": "謝鐸（明）撰。六卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「謝鐸赤城詩集」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+    "text": "謝鐸（明）撰。六卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「謝鐸赤城詩集」。",
     "sources": [
-      "千頃堂書目"
+      "千頃堂書目",
+      "中國古籍總目",
+      "國史經籍志"
     ]
   },
   "juan_count": {
@@ -47,8 +56,8 @@
   "period": "ming",
   "period_basis": "小注載年號／朝代詞（「輯夲郡人詩起宋宣和間迄明永樂時」等），據此定代；《千頃堂書目》為唯一著錄源，屬單一著錄志書逕定代之例",
   "id": "d59f6emegh6q",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -87,6 +96,40 @@
         "nlc_fid": "411999027933",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071569",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071569",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071569",
+        "request_no": "３５８－００７８",
+        "edition": "刊本（跋刊）::明弘治:150000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5091610/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-14418",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/14418",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "14418",
+        "call_number": "403.3 14418",
+        "edition": "鈔本"
+      }
     }
   ],
   "resource_groups": {
@@ -95,6 +138,34 @@
     },
     "nlc-411999027933": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "naikaku-1071569": {
+      "label": "內閣文庫藏本：明弘治15年刊本（跋刊）（358-0078，4冊）"
+    },
+    "ncltw-14418": {
+      "label": "臺灣國家圖書館藏本：鈔本"
     }
-  }
+  },
+  "ai_note": "2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 A11-去重方案3a-2乙 併條（rule=去重方案 3a-2乙：别集名异写 B 档证据并（口径见 ai-team 3a-2乙-别集名异写口径.md））：併 d59f2nff8kjl《赤城集》 入本條。集部别集名异写（同首位责任者，题名只差集名后缀）：《赤城集》謝鐸(明,0版本)／《赤城詩集》謝鐸(明,2版本)；逐条子 agent 判并——赤城詩集|赤城集：a 總目「赤城詩集六卷」（謝鐸、黃孔昭輯）存世本，b 僅焦志「《赤城集》六卷（謝鐸）」，卷數相合；注意此書實為郡邑總集。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "period_upper": "ming",
+  "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming",
+  "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
+  "additional_titles": [
+    "赤城集"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2nff8kjl",
+      "title": "赤城集",
+      "at": "2026-10-26T11:59:37Z",
+      "by": "A11-去重方案3a-2乙",
+      "rule": "去重方案 3a-2乙：别集名异写 B 档证据并（口径见 ai-team 3a-2乙-别集名异写口径.md）",
+      "why": "集部别集名异写（同首位责任者，题名只差集名后缀）：《赤城集》謝鐸(明,0版本)／《赤城詩集》謝鐸(明,2版本)；逐条子 agent 判并——赤城詩集|赤城集：a 總目「赤城詩集六卷」（謝鐸、黃孔昭輯）存世本，b 僅焦志「《赤城集》六卷（謝鐸）」，卷數相合；注意此書實為郡邑總集。",
+      "author": "謝鐸",
+      "title_info": "《赤城集》六卷"
+    }
+  ],
+  "merged_from": [
+    "d59f2nff8kjl"
+  ]
 }

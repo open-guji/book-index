@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/012cd20qbuuqmzbj"
-      }
+      },
+      "entity_id": "hixi5isyefks"
     }
   ],
   "dynasty": "清",
@@ -29,9 +30,9 @@
       "summary": "共 2 個版本：清同治十年崇文書局刻本（國家圖書館）；清同治九年金陵提署刻本（天津圖書館、國家圖書館、上海圖書館、南京圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6h5h7go0ui8r64c0、x2ywdwfg4hl477eq\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-01.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6h5h7go0ui8r64c0、x2ywdwfg4hl477eq\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-01.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,29 @@
         "nlc_fid": "312001094186",
         "edition": ""
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ru05_00110",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ru05/ru05_00110/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ru05_00110",
+        "edition": ""
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001094186": {
       "label": "國圖藏本："
+    },
+    "waseda-ru05_00110": {
+      "label": "早稲田藏本"
     }
   }
 }

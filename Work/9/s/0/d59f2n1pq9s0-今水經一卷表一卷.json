@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀001721），無同名 Work 故新建。\n\n2026-09-06 qa-sweep/qing·G 類重出併條（坑28）：`d59f2mdo57gg`（\"今水經\"） 併入本條——皆同一撰人（entity_id 相同）之同書異刻／異目著錄，剝去卷數殘綴後題名相同（「奏議一卷首」「附錄」「續集」「補遺」「卷首」之屬皆版本著錄語綴於題末，非別書）。indexed_by／resources 已去重併入，Books 已改指本條，被併者之記錄檔與索引項刪去，其 entity.works 之對應項移除。\n\n2026-09-08 題之截斷（G-多節之題其末節卷數被剝入 measure_info 而題遂截斷）：原題作「今水經一卷表」，補作「今水經一卷表一卷」。**病不在著錄而在匯入**：本條之題是多節之著錄行（「甲書N卷乙書N卷丙書N卷」），匯入時有一手把**末節之卷數**當成了全書之卷數剝進 `measure_info`，題遂斷在一個收不了尾的節名上（本條之末節作「表」，其卷數即被剝之「一卷」）。據本條所繫 Book 之完題補足——Book 與 Work 同出一次匯入，其題未被剝，是同一實物之著錄，故此是**從原文**，非臆補。 **`measure_info`／`juan_count` 未動**：其值（`一卷`）確是末節之卷數，不誤，惟其**位**不當——那兩欄說的是全書之量，而此值只是一節之量。改之須先定「多節之書其 juan_count 當作何」（諸節之和？主節之數？抑或留空），此是體例之事，非本批所得專，另具狀。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀001721），無同名 Work 故新建。\n\n2026-09-06 qa-sweep/qing·G 類重出併條（坑28）：`d59f2mdo57gg`（\"今水經\"） 併入本條——皆同一撰人（entity_id 相同）之同書異刻／異目著錄，剝去卷數殘綴後題名相同（「奏議一卷首」「附錄」「續集」「補遺」「卷首」之屬皆版本著錄語綴於題末，非別書）。indexed_by／resources 已去重併入，Books 已改指本條，被併者之記錄檔與索引項刪去，其 entity.works 之對應項移除。\n\n2026-09-08 題之截斷（G-多節之題其末節卷數被剝入 measure_info 而題遂截斷）：原題作「今水經一卷表」，補作「今水經一卷表一卷」。**病不在著錄而在匯入**：本條之題是多節之著錄行（「甲書N卷乙書N卷丙書N卷」），匯入時有一手把**末節之卷數**當成了全書之卷數剝進 `measure_info`，題遂斷在一個收不了尾的節名上（本條之末節作「表」，其卷數即被剝之「一卷」）。據本條所繫 Book 之完題補足——Book 與 Work 同出一次匯入，其題未被剝，是同一實物之著錄，故此是**從原文**，非臆補。 **`measure_info`／`juan_count` 未動**：其值（`一卷`）確是末節之卷數，不誤，惟其**位**不當——那兩欄說的是全書之量，而此值只是一節之量。改之須先定「多節之書其 juan_count 當作何」（諸節之和？主節之數？抑或留空），此是體例之事，非本批所得專，另具狀。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 拆混记录后复核并）：併 d59fxu434pvk《今水經》 入本條。《今水經》黃宗羲一卷（表一卷）：四庫、知不足齋本与总目各版本记录同书；混入的黃錫齡注本已于 #1298 拆出，薛鳳昌编二卷本即梨洲遺著彙刊本（一卷加表一卷）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
   "id": "d59f2n1pq9s0",
   "measures": [
     {
@@ -30,8 +30,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-06",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "indexed_by": [
     {
       "source": "欽定四庫全書總目",
@@ -56,6 +56,22 @@
       "edition": "北京圖書館藏清乾隆四十二年孔繼涵家鈔本",
       "volume": "第224冊",
       "section": "史部"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "今水經一卷",
+      "author_info": "清黃宗羲撰",
+      "section": "史部/地理類/山水志之屬/水",
+      "summary": "共 15 個版本：清抄本（南京圖書館）；清乾隆四十二年孔繼涵抄本（國家圖書館）；清咸豐十一年翁曾源抄本（常熟市圖書館）；清光緒二十年湖南章經濟堂刻本（南京圖書館、國家圖書館）；清抄本（天津圖書館）；清一角山樓主人抄本（遼寧省圖書館）；梨洲遺著彙刊本（浙江圖書館）；清咸豐七年翁同書抄本（國家圖書館）；崇文書局彙刻書本（北京師範大學圖書館）；黃梨洲遺書本（上海圖書館）；清抄本（山東省圖書館）；清光緒六年會稽章氏刻本（國家圖書館）；叢書集成初編本（馆藏未载）；明辨齋叢書本（馆藏未载）；知不足齋叢書本（遼寧省圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "今水經二卷",
+      "author_info": "清黄宗義撰;清薛鳳昌編",
+      "section": "史部/地理類/山水志之屬/水",
+      "summary": "共 1 個版本：清宣統二年上海時中書局鉛印本（南京圖書館）"
     }
   ],
   "resources": [
@@ -100,18 +116,119 @@
       "types": [
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999007465",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999007465",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999007465",
+        "edition": "清乾隆42年[1777]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999012260",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999012260",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999012260",
+        "edition": "清咸豐7年[1857]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001071350",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001071350",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001071350",
+        "edition": ""
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ru05_00142",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ru05/ru05_00142/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ru05_00142",
+        "edition": "会稽 : 章氏, 光緒6[1880]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ru05_02986",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ru05/ru05_02986/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ru05_02986",
+        "edition": "乾隆38[1773]跋"
+      }
     }
   ],
   "merged_in": [
     {
       "id": "d59f2mdo57gg"
-    }
-  ],
-  "related_works": [
+    },
     {
       "id": "d59fxu434pvk",
-      "relation": "related",
-      "note": "史部E存疑另立：總目記錄「今水經」（黃宗羲）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（缺卷数（记录卷数非单一N卷或目标无卷数））），按嚴口徑另立；互為相關，待並條複核。"
+      "title": "今水經",
+      "at": "2026-10-25T21:32:30Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a-2：同题同首位责任者 拆混记录后复核并",
+      "why": "《今水經》黃宗羲一卷（表一卷）：四庫、知不足齋本与总目各版本记录同书；混入的黃錫齡注本已于 #1298 拆出，薛鳳昌编二卷本即梨洲遺著彙刊本（一卷加表一卷）",
+      "author": "黃宗羲",
+      "title_info": "今水經一卷；今水經二卷"
     }
+  ],
+  "resource_groups": {
+    "nlc-411999007465": {
+      "label": "國圖藏本：清乾隆42年[1777]"
+    },
+    "nlc-411999012260": {
+      "label": "國圖藏本：清咸豐7年[1857]"
+    },
+    "nlc-312001071350": {
+      "label": "國圖藏本："
+    },
+    "waseda-ru05_00142": {
+      "label": "早稲田藏本：会稽 : 章氏, 光緒6[1880]"
+    },
+    "waseda-ru05_02986": {
+      "label": "早稲田藏本：乾隆38[1773]跋"
+    }
+  },
+  "additional_titles": [
+    "今水經"
+  ],
+  "merged_from": [
+    "d59fxu434pvk"
   ]
 }

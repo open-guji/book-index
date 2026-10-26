@@ -137,6 +137,7 @@ def main():
     for f in listing:
         for p, v in refs_in(json.loads((ROOT / f).read_text(encoding='utf-8')), targets):
             if p == ('id',) or p == ('merged_into',) or p[0] in ('merged_from', 'merged_in'): continue
+            if p[0] == 'indexed_by' and p[-1] == 'merged_from': continue  # 著录条目的来历标记（历史并条账），不改指
             bad('R', f'{f[-70:]} {"/".join(p)}={v}')
 
     # D 草稿库

@@ -44,6 +44,10 @@
     {
       "unit": "回",
       "number": 38
+    },
+    {
+      "unit": "冊",
+      "number": 6
     }
   ],
   "measure_info": "十二卷三十八回",
@@ -63,6 +67,37 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL3008531_%E5%8D%81%E4%BA%8C%E6%A8%93%EF%BC%88%E4%B8%8B%EF%BC%89.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000001068",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000001068",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000001068",
+        "edition": "清順治[1644-1661]"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2014514004",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2014514004/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2014514004",
+        "iiif_manifest": "https://www.loc.gov/item/2014514004/manifest.json",
+        "edition": "[China] : Bao ning tang, Qing Jiaqing 9 nian [1804] 1804"
+      }
     }
   ],
   "updated_at": "2026-08-23T00:00:00-07:00",
@@ -70,6 +105,34 @@
   "period_basis": "著錄原文自書撰人朝代：《中國通俗小說書目》「\n清李漁撰」",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：《中國通俗小說書目》明清小說部自標所收之代，故不晚於 qing",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "dynasty": "清",
+  "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
+  "resource_groups": {
+    "nlc-412000001068": {
+      "label": "國圖藏本：清順治[1644-1661]"
+    },
+    "loc-2014514004": {
+      "label": "美國國會圖書館藏本：[China] : Bao ning tang, Qing Jiaqing 9 nian [1804] 1804"
+    }
+  },
+  "additional_titles": [
+    "覺世名言"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2mxvg54w",
+      "title": "覺世名言",
+      "at": "2026-10-26T14:55:38Z",
+      "by": "A11-去重方案3a-3",
+      "rule": "去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并",
+      "why": "异题名同书（著录原文自证）：《十二樓》李漁／《覺世名言》李漁；依据：一名「十二樓十二卷(一名覺世名言，共三十八回)」；两道子 agent 逐条复核：通俗小說書目：「十二樓十二卷(一名覺世名言，共三十八回)」，同李漁撰",
+      "author": "李漁"
+    }
+  ],
+  "ai_note": "2026-10-26 A11-去重方案3a-3 併條（rule=去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并）：併 d59f2mxvg54w《覺世名言》 入本條。异题名同书（著录原文自证）：《十二樓》李漁／《覺世名言》李漁；依据：一名「十二樓十二卷(一名覺世名言，共三十八回)」；两道子 agent 逐条复核：通俗小說書目：「十二樓十二卷(一名覺世名言，共三十八回)」，同李漁撰",
+  "merged_from": [
+    "d59f2mxvg54w"
+  ]
 }

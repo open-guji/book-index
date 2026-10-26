@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/7w20zi08y0qrogsp"
-      }
+      },
+      "entity_id": "hixicmi3wjuc"
     }
   ],
   "dynasty": "隋",
@@ -53,7 +54,7 @@
       "summary": "共 1 個版本：清康熙三年嘉興楞嚴寺刻（臺灣圖書館、北京市法源寺）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：7o07o4pk0hhvy6f4、ovk6keccujqlbpnn\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-12.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n查重线（跨部查重 10-19）：同题同作者（含别名/省称/同人）并入 2 个 Work（1exokzoy8ccua,1exp3gbl18lc0）\n查重线（跨部查重 10-19）：同题同作者或近题同作者（逐对复核同书）并入 1 个 Work（1exobwvtq47b6）\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：7o07o4pk0hhvy6f4、ovk6keccujqlbpnn\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-12.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n查重线（跨部查重 10-19）：同题同作者（含别名/省称/同人）并入 2 个 Work（1exokzoy8ccua,1exp3gbl18lc0）\n查重线（跨部查重 10-19）：同题同作者或近题同作者（逐对复核同书）并入 1 个 Work（1exobwvtq47b6）\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "merged_in": [
     {
       "id": "1exokzoy8ccua",
@@ -80,8 +81,8 @@
       "why": "同题同作者同朝代"
     }
   ],
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -112,6 +113,22 @@
         "nlc_fid": "ZHCH0757",
         "edition": "金皇統九年[1149]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09008",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09008",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09008",
+        "call_number": "311.9 09008",
+        "edition": "鈔本"
+      }
     }
   ],
   "resource_groups": {
@@ -120,6 +137,9 @@
     },
     "nlc-ZHCH0757": {
       "label": "國圖藏本：金皇統九年[1149]"
+    },
+    "ncltw-09008": {
+      "label": "臺灣國家圖書館藏本：鈔本"
     }
   }
 }

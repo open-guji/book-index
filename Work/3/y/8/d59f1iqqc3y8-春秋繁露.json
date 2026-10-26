@@ -353,6 +353,69 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3950270/manifest.json",
         "extent": "5冊"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_02890",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_02890_0014/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_02890",
+        "edition": "[広州] : 粤東書局, 同治12[1873]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00660",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00660",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00660",
+        "call_number": "106.22 00660",
+        "edition": "明正統間刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00662",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00662",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00662",
+        "call_number": "106.22 00662",
+        "edition": "影鈔明嘉靖甲寅(三十三年, 1554)刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00663",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00663",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00663",
+        "call_number": "106.22 00663",
+        "edition": "明萬曆間勾餘胡維新刊本配補舊鈔本"
+      }
     }
   ],
   "emendated_by": [
@@ -379,7 +442,7 @@
   "updated_at": "2026-08-21T00:00:00-07:00",
   "period": "qin-han",
   "period_basis": "據 authors[0].dynasty「西漢」（原作籠統「漢」，2026-08-11 據所繫 Entity 之精確朝代同步訂正）",
-  "ai_note": "2026-08-08 同名異書核對 batch10：合併 src_work_id=1evr5e3mjd117（春秋繁露）。本組 title=春秋繁露，有 author 條之作者=董仲舒，noauthor 條 1evr5e3mjd117 為志書連書省撰人體例（直齋書錄解題），判定同書。共移入 1 個 indexed_by 記錄。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvtj6hjwg 與 11q37oiomhse8 同指文淵閣寫本一實物，今併於後者。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "2026-08-08 同名異書核對 batch10：合併 src_work_id=1evr5e3mjd117（春秋繁露）。本組 title=春秋繁露，有 author 條之作者=董仲舒，noauthor 條 1evr5e3mjd117 為志書連書省撰人體例（直齋書錄解題），判定同書。共移入 1 個 indexed_by 記錄。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvtj6hjwg 與 11q37oiomhse8 同指文淵閣寫本一實物，今併於後者。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "related_works": [
     {
       "id": "d59fxw14rfnl",
@@ -392,8 +455,8 @@
       "note": "總目子部另立（auto-split:同名未并）"
     }
   ],
-  "revision": "1.1.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-312001054788": {
       "label": "國圖藏本：明嘉靖33年[1554]"
@@ -424,6 +487,18 @@
     },
     "naikaku-1074391": {
       "label": "內閣文庫藏本：明天啓5年刊本（序刊） 花斎（275-0010，5冊）"
+    },
+    "waseda-ro12_02890": {
+      "label": "早稲田藏本：[広州] : 粤東書局, 同治12[1873]"
+    },
+    "ncltw-00660": {
+      "label": "臺灣國家圖書館藏本：明正統間刊本"
+    },
+    "ncltw-00662": {
+      "label": "臺灣國家圖書館藏本：影鈔明嘉靖甲寅(三十三年, 1554)刊本"
+    },
+    "ncltw-00663": {
+      "label": "臺灣國家圖書館藏本：明萬曆間勾餘胡維新刊本配補舊鈔本"
     }
   },
   "contained_in": [

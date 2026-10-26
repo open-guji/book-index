@@ -131,11 +131,87 @@
         "nlc_fid": "411999015545",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2535682",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2535682",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2535682",
+        "edition": "明刊"
+      },
+      "note": "合刻本：同册另含《北戸録》（段公路）（K19，只挂主书）"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15246-0006",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15246-0006",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15246-0006",
+        "call_number": "210.8 15246-0006",
+        "edition": "明嘉靖甲辰(23年, 1544)雲間陸氏儼山書院刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15275-0012",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15275-0012",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15275-0012",
+        "call_number": "210.8 15275-0012",
+        "edition": "明萬曆間(1573-1620)金陵荊山書林刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15299-0015",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15299-0015",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15299-0015",
+        "call_number": "210.8 15299-0015",
+        "edition": "明萬曆31年(1603）錢塘胡氏刊本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999015545": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "ndl-2535682": {
+      "label": "NDL藏本：明刊"
+    },
+    "ncltw-15246-0006": {
+      "label": "臺灣國家圖書館藏本：明嘉靖甲辰(23年, 1544)雲間陸氏儼山書院刊本"
+    },
+    "ncltw-15275-0012": {
+      "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)金陵荊山書林刊本"
+    },
+    "ncltw-15299-0015": {
+      "label": "臺灣國家圖書館藏本：明萬曆31年(1603）錢塘胡氏刊本"
     }
   },
   "measures": [
@@ -146,7 +222,7 @@
   ],
   "measure_info": "一卷",
   "updated_at": "2026-08-08T18:18:57+00:00",
-  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwa39dreo 與 11q37q0n8c9og 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 遼金元 L5：撰人「朱輔」之代由「明」歸一為「宋」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ev3basfcopog` 不同（ai_note、authors）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。",
+  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwa39dreo 與 11q37q0n8c9og 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 遼金元 L5：撰人「朱輔」之代由「明」歸一為「宋」（核人不核書，隨其 entity）。判據見 authors[].dynasty_basis。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1ev3basfcopog` 不同（ai_note、authors）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "period": "liao-jin-yuan",
   "period_basis": "跨代人物從斷代志（2026-08-21 catalog_bound 專項）：撰人 dynasty [('朱輔', '明')] 指向 ming，而本書見於《補遼金元藝文志》——該志斷代著錄 liao-jin-yuan 之作，其編者專為此代甄別，較機械據撰人朝代派生為可信。原判：據 authors[0].dynasty「明」（規則1 粗粒度自消歧；2026-08-21 補派生專項）",
   "description": {
@@ -156,6 +232,6 @@
       "補遼金元藝文志"
     ]
   },
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13"
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26"
 }

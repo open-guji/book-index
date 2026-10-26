@@ -36,7 +36,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md §存疑升档。",
   "juan_count": {
     "number": 10
   },
@@ -53,8 +53,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -78,11 +78,74 @@
         "nlc_fid": "312002090411",
         "edition": "明天啟間[1621-1627]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083399",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083399",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083399",
+        "request_no": "３５９－００７５",
+        "edition": "刊本（序刊）::明天啓:030000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4423106/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071490",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071490",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071490",
+        "request_no": "３５９－００７３",
+        "edition": "刊本::慶応:030000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5093176/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1083397",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1083397",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1083397",
+        "request_no": "３５９－００７４",
+        "edition": "刊本::慶応:030000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5093178/manifest.json",
+        "extent": "2冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312002090411": {
       "label": "國圖藏本：明天啟間[1621-1627]"
+    },
+    "naikaku-1083399": {
+      "label": "內閣文庫藏本：明天啓3年刊本（序刊）（359-0075，5冊）"
+    },
+    "naikaku-1071490": {
+      "label": "內閣文庫藏本：慶応3年刊本（359-0073，2冊）"
+    },
+    "naikaku-1083397": {
+      "label": "內閣文庫藏本：慶応3年刊本（359-0074，2冊）"
     }
   }
 }

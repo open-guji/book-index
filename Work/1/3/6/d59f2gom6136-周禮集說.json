@@ -58,7 +58,7 @@
       "經義考"
     ]
   },
-  "ai_note": "同名異書：已有 Work 作者為 [('', ''), ('', '')]，本條作者 陳友仁（元），另建 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "同名異書：已有 Work 作者為 [('', ''), ('', '')]，本條作者 陳友仁（元），另建 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "id": "d59f2gom6136",
   "measures": [
     {
@@ -78,8 +78,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "commons",
@@ -125,6 +125,56 @@
         "nlc_fid": "411999004788",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074307",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074307",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074307",
+        "request_no": "２７３－０２７２",
+        "edition": "刊本（跋刊）::明成化:100000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3943211/manifest.json",
+        "extent": "13冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00360",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00360",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00360",
+        "call_number": "104.12 00360",
+        "edition": "明成化甲午(十年, 1474)福建巡撫張瑄刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00361",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00361",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00361",
+        "call_number": "104.12 00361",
+        "edition": "明成化甲午(十年, 1474)福建巡撫張瑄刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -133,6 +183,15 @@
     },
     "nlc-411999004788": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1074307": {
+      "label": "內閣文庫藏本：明成化10年刊本（跋刊）（273-0272，13冊）"
+    },
+    "ncltw-00360": {
+      "label": "臺灣國家圖書館藏本：明成化甲午(十年, 1474)福建巡撫張瑄刊本"
+    },
+    "ncltw-00361": {
+      "label": "臺灣國家圖書館藏本：明成化甲午(十年, 1474)福建巡撫張瑄刊本"
     }
   }
 }

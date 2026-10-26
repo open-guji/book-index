@@ -16,15 +16,15 @@
       "中華再造善本"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 A11-去重方案3a-2乙 併條（rule=去重方案 3a-2乙：别集名异写 B 档证据并（口径见 ai-team 3a-2乙-别集名异写口径.md））：併 d59fxzoy0xs0《太史升菴全集》 入本條。集部别集名异写（同首位责任者，题名只差集名后缀）：《太史升菴文集》楊慎(明,11版本)／《太史升菴全集》楊慎(明,4版本)；逐条子 agent 判并——太史升菴文集|太史升菴全集：a太史升菴文集八十一卷目錄四卷與b太史升菴全集八十一卷目錄二卷均題明楊有仁輯，主卷數均八十一卷，兩側總目無反證\n\n2026-10-26 R3 馆藏挂接（随 3a-2乙 并条由 d59fxzoy0xs0 转来）：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "id": "d59f2nl24u0w",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -78,6 +78,73 @@
         "nlc_fid": "411999007783",
         "edition": "明萬曆10年[1582]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082307",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082307",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082307",
+        "request_no": "３１６－０００２",
+        "edition": "刊本（序刊）::明万暦:100000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4750144/manifest.json",
+        "extent": "24冊"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-he16_00170",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/he16/he16_00170_0001/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "he16_00170",
+        "edition": "新都 : 養拙山房, 乾隆60[1795]"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1081977",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1081977",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1081977",
+        "request_no": "３１７－０００２",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5087128/manifest.json",
+        "extent": "20冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11817",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11817",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11817",
+        "call_number": "402.6 11817",
+        "edition": "明萬曆十年(1582)四川巡撫張士佩刊本"
+      }
     }
   ],
   "indexed_by": [
@@ -88,6 +155,14 @@
       "author_info": "明楊慎撰;明楊有仁輯",
       "section": "集部/別集類/明代之屬",
       "summary": "共 9 個版本：明萬曆二十九年王藩臣、蕭如松刻本（北京大學圖書館、國家圖書館、上海圖書館、南京圖書館、浙江圖書館）；明刻本（國家圖書館、上海圖書館、南京圖書館）；明萬曆十年張士佩刻二十年余一龍修補本（臺灣圖書館）；明萬曆十年張士佩刻本（國家圖書館、北京大學圖書館、復旦大學圖書館、上海圖書館、浙江圖書館）；明刻本（上海圖書館）；明萬曆間刻本（國家圖書館）；明刻本（上海圖書館）；明崇禎十二年陳宗器刻本（山東師範大學圖書館）；四庫全書本（馆藏未载）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "太史升菴全集八十一卷目錄二卷",
+      "author_info": "明楊慎撰;明楊有仁輯",
+      "section": "集部/別集類/明代之屬",
+      "summary": "共 4 個版本：明陳大科刻清宮偉鏐重修本（吉林大學圖書館）；明陳大科刻本（上海圖書館、復旦大學圖書館、北京大學圖書館、南京圖書館）；明萬曆二十四年莊誠刻本（天一閣文物保管所）；清乾隆六十年新都周氏養拙山房刻本（北京大學圖書館、南京圖書館、復旦大學圖書館、國家圖書館）"
     }
   ],
   "resource_groups": {
@@ -99,6 +174,33 @@
     },
     "nlc-411999007783": {
       "label": "國圖藏本：明萬曆10年[1582]"
+    },
+    "naikaku-1082307": {
+      "label": "內閣文庫藏本：明万暦10年刊本（序刊）（316-0002，24冊）"
+    },
+    "naikaku-1081977": {
+      "label": "內閣文庫藏本：明刊本（317-0002，20冊）"
+    },
+    "ncltw-11817": {
+      "label": "臺灣國家圖書館藏本：明萬曆十年(1582)四川巡撫張士佩刊本"
     }
-  }
+  },
+  "additional_titles": [
+    "太史升菴全集"
+  ],
+  "merged_in": [
+    {
+      "id": "d59fxzoy0xs0",
+      "title": "太史升菴全集",
+      "at": "2026-10-26T13:31:29Z",
+      "by": "A11-去重方案3a-2乙",
+      "rule": "去重方案 3a-2乙：别集名异写 B 档证据并（口径见 ai-team 3a-2乙-别集名异写口径.md）",
+      "why": "集部别集名异写（同首位责任者，题名只差集名后缀）：《太史升菴文集》楊慎(明,11版本)／《太史升菴全集》楊慎(明,4版本)；逐条子 agent 判并——太史升菴文集|太史升菴全集：a太史升菴文集八十一卷目錄四卷與b太史升菴全集八十一卷目錄二卷均題明楊有仁輯，主卷數均八十一卷，兩側總目無反證",
+      "author": "楊慎",
+      "title_info": "太史升菴全集八十一卷目錄二卷"
+    }
+  ],
+  "merged_from": [
+    "d59fxzoy0xs0"
+  ]
 }

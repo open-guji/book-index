@@ -55,7 +55,7 @@ check_readers() {
   for root in "$BIM" "$WEB"; do
     [ -d "$root" ] || { RESULTS+=("未验|V4|目录不存在：$root"); continue; }
     for p in "${pats[@]}"; do
-      git -C "$root" grep -InE "$p" -- . ':!*.md' ':!*.json' ':!*lock*' ':!tests/**' ':!**/tests/**' ':!**/__tests__/**' ':!**/fixtures/**' ':!**/e2e/**' ':!*.test.*' ':!*.spec.*' 2>/dev/null \
+      git -C "$root" grep -InE "$p" -- . ':!*.md' ':!*.json' ':!*.tsv' ':!*.csv' ':!*lock*' ':!tests/**' ':!**/tests/**' ':!**/__tests__/**' ':!**/fixtures/**' ':!**/e2e/**' ':!*.test.*' ':!*.spec.*' 2>/dev/null \
         | grep -vE '^[^:]+:[0-9]+:[[:space:]]*(#|//|\*|/\*|"""|<!--)' | sed "s|^|$(basename "$root")/|"
     done
   done | sort -u >"$log.raw"
