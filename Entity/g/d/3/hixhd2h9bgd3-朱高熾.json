@@ -7,7 +7,8 @@
   "alt_names": [
     {
       "name": "仁宗",
-      "type": "別名"
+      "type": "廟號",
+      "ambiguous": true
     },
     {
       "name": "敬天體道純誠至德弘文欽武章聖達孝昭皇帝",
@@ -23,15 +24,20 @@
     },
     {
       "name": "明仁宗",
-      "type": "別名",
+      "type": "廟號",
       "note": "重出條并入"
+    },
+    {
+      "name": "洪熙帝",
+      "type": "別名"
     }
   ],
   "dynasty": "明",
   "external_ids": {
     "cbdb_id": 30152,
     "cbdb_match": "auto",
-    "cbdb_source": "name_exact+dy_match+unique"
+    "cbdb_source": "name_exact+dy_match+unique",
+    "wikidata_id": "Q9972"
   },
   "updated_at": "2026-08-08T11:51:58+00:00",
   "period": "ming",
@@ -39,22 +45,28 @@
   "native_place": "大興",
   "native_place_entity_id": "hixi5whl2brk",
   "native_place_basis": "CBDB 30152 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=30152 補入空槽——籍貫「大興」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=30152 補入空槽——籍貫「大興」。既有之值一概未動。\n\n2026-10-25 A12 L6 帝王稱號：補廟號、帝號別名（仁宗(改類型)、明仁宗(改類型)、洪熙帝），據維基百科補身份、說明；回填年號條 ruler.entity_id。",
   "dates": {
     "birth": 1378,
     "death": 1425,
     "basis": "現行字段"
   },
-  "revision": "1.1.1",
-  "revised_at": "2026-10-14",
+  "revision": "1.1.2",
+  "revised_at": "2026-10-25",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/olvs1qfkj4u2lh4b"
+      },
+      {
+        "name": "維基百科",
+        "type": "url",
+        "details": "https://zh.wikipedia.org/wiki/明朝君主列表"
       }
-    ]
+    ],
+    "text": "明朝皇帝，年號洪熙（1425）。"
   },
   "merged_in": [
     {
@@ -65,5 +77,6 @@
       "rule": "帝王重出并入（Soren 核查）",
       "why": "全朝帝王并入：明仁宗→朱高熾（Soren 清单）"
     }
-  ]
+  ],
+  "title_or_office": "皇帝"
 }
