@@ -152,6 +152,22 @@
         "holder": "東洋大哲学堂",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300001138/manifest"
       }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-C6034400",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=C6034400&order=rn_no&no=01001",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "C6034400",
+        "call_no": "雙紅堂-小說-150",
+        "edition": ""
+      }
     }
   ],
   "measures": [
@@ -178,9 +194,9 @@
   "period_basis": "據 authors[0].dynasty「五代」",
   "dynasty": "五代",
   "dynasty_basis": "據唯一五代 author.dynasty「五代」補全",
-  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwzqlz1ts 與 11q37s5c0qosg 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-21 舊題撰人專項：著錄語作「劉孝標注往往摘其牴牾，要不以是謂不出義慶手也。故今仍從舊本，題為仁裕撰焉。開元天」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwzqlz1ts 與 11q37s5c0qosg 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-21 舊題撰人專項：著錄語作「劉孝標注往往摘其牴牾，要不以是謂不出義慶手也。故今仍從舊本，題為仁裕撰焉。開元天」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "kokusho-100135806": {
       "label": "國書·金沢図稼堂藏刊 寛永１６"
@@ -193,6 +209,9 @@
     },
     "kokusho-300001138": {
       "label": "國書·東洋大哲学堂藏刊"
+    },
+    "ioc-C6034400": {
+      "label": "東文研藏本：《舊小說》所收本"
     }
   }
 }

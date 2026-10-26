@@ -37,8 +37,8 @@
       "summary": "共 7 個版本：清耕餘樓刻本（南京圖書館、國家圖書館、北京大學圖書館）；元刻本（浙江圖書館、北京大學圖書館、國家圖書館）；明刻本（福建省圖書館、上海圖書館、國家圖書館）；清初抄本（南京圖書館）；宋紹定二年積德堂刻本（國家圖書館）；元刻遞修本（吉林省圖書館）；宋紹定二年積德堂刻元至元重修本（山東省博物館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xglfgcxnx1zrn2wv、yzacqgygnxs2fpot、e41wcin5n0akamav、znniscx3pdtttosu、lqyhqts4nphogfzb、qqi6ruach3n65461、ryj3khknqaeua86w\nauto-split:存疑未并\nE6 第 548 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59fy10m7ugy《慈溪黃氏日抄分類》 入本條。同题同首位责任者：《慈溪黃氏日鈔分類》黃震(宋,97卷,7版本)／《慈溪黃氏日抄分類》黃震(宋,97卷,7版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.2.0",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xglfgcxnx1zrn2wv、yzacqgygnxs2fpot、e41wcin5n0akamav、znniscx3pdtttosu、lqyhqts4nphogfzb、qqi6ruach3n65461、ryj3khknqaeua86w\nauto-split:存疑未并\nE6 第 548 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59fy10m7ugy《慈溪黃氏日抄分類》 入本條。同题同首位责任者：《慈溪黃氏日鈔分類》黃震(宋,97卷,7版本)／《慈溪黃氏日抄分類》黃震(宋,97卷,7版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条、美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -121,6 +121,39 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3635831/manifest.json",
         "extent": "25冊"
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3343781193",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3343781193",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3343781193",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3343781193/manifest",
+        "shelfmark": "Libri sin. 381/384",
+        "edition": "刻本;[China] 乾隆 32 (=1767)"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2014514360",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2014514360/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2014514360",
+        "iiif_manifest": "https://www.loc.gov/item/2014514360/manifest.json",
+        "edition": "明正德十四年書林龔氏重刊本 1519"
+      }
     }
   ],
   "resource_groups": {
@@ -138,6 +171,12 @@
     },
     "naikaku-3610591": {
       "label": "內閣文庫藏本：明正徳刊本（後印）（298-0286，25冊）"
+    },
+    "sbb-PPN3343781193": {
+      "label": "柏林國家圖書館藏本：刻本;[China] 乾隆 32 (=1767)"
+    },
+    "loc-2014514360": {
+      "label": "美國國會圖書館藏本：明正德十四年書林龔氏重刊本 1519"
     }
   },
   "additional_titles": [

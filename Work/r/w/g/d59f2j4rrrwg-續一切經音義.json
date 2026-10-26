@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→遼; 據 author.dynasty 集合補「遼」]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 5 取自 `measure_info`「五冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→遼; 據 author.dynasty 集合補「遼」]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 5 取自 `measure_info`「五冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,7 +31,7 @@
   "period_basis": "據 authors[0].dynasty「遼」",
   "dynasty": "遼",
   "dynasty_basis": "author_propagation",
-  "revision": "1.4.0",
+  "revision": "1.5.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -91,6 +91,23 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5054631/manifest.json",
         "extent": "5冊"
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3348763177",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3348763177",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3348763177",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3348763177/manifest",
+        "shelfmark": "Hirth 92a",
+        "edition": "刊;三條通 [京都] 弘通所 [前田嘉右衛門] 延享 3 [1746]"
+      }
     }
   ],
   "resource_groups": {
@@ -102,6 +119,9 @@
     },
     "naikaku-1076596": {
       "label": "內閣文庫藏本：延享2年刊本（310-0040，5冊）"
+    },
+    "sbb-PPN3348763177": {
+      "label": "柏林國家圖書館藏本：刊;三條通 [京都] 弘通所 [前田嘉右衛門] 延享 3 [1746]"
     }
   }
 }
