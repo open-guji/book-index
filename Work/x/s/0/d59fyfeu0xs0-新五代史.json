@@ -29,9 +29,9 @@
       "summary": "共 1 個版本：（馆藏未载）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 km8m7uuxvsic8hh3（文淵閣四庫全書三千四百六十一種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：753yj8cbxyuabwgv\n責任者 role 異常未寫入：孫人龍考證、王文考證\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 km8m7uuxvsic8hh3（文淵閣四庫全書三千四百六十一種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：753yj8cbxyuabwgv\n責任者 role 異常未寫入：孫人龍考證、王文考證\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +47,69 @@
         "nlc_fid": "411999024480",
         "edition": "明崇禎3年[1630]"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200020741",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200020741",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200020741",
+        "holder": "国文研鵜飼",
+        "edition": "刊 文化１０",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200020741/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300095362",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300095362",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300095362",
+        "holder": "府中之島図石崎",
+        "edition": "刊 ［順治１３］",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300095362/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2600969",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2600969",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2600969",
+        "edition": "光緒元"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999024480": {
       "label": "國圖藏本：明崇禎3年[1630]"
+    },
+    "kokusho-200020741": {
+      "label": "國書·国文研鵜飼藏刊 文化１０"
+    },
+    "kokusho-300095362": {
+      "label": "國書·府中之島図石崎藏刊 ［順治１３］"
+    },
+    "ndl-2600969": {
+      "label": "NDL藏本：光緒元"
     }
   }
 }
