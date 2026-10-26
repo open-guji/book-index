@@ -42,14 +42,14 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\nGUJI-511 E1b 国图挂接 69行/51Work\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\nGUJI-511 E1b 国图挂接 69行/51Work\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "description": {
     "text": "虞集（元）撰。六卷。見著錄於《元史藝文志》。其著錄之文，《元史藝文志》作「元虞集翰林珠玉六卷」。本書惟《元史藝文志》一志著錄，別無他證。",
     "sources": [
       "元史藝文志"
     ]
   },
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -107,6 +107,21 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3789831/manifest.json",
         "extent": "4冊"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2537832",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2537832",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2537832",
+        "edition": "享保14寫"
+      }
     }
   ],
   "resource_groups": {
@@ -118,6 +133,9 @@
     },
     "naikaku-3610873": {
       "label": "內閣文庫藏本：元刊本（別058-0003，4冊）"
+    },
+    "ndl-2537832": {
+      "label": "NDL藏本：享保14寫"
     }
   }
 }

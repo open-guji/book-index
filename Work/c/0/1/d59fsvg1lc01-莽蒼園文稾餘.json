@@ -14,9 +14,9 @@
   "dynasty_basis": "author_propagation",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
-  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007686442。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國書 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007686442。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國書 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "kokusho",
@@ -51,6 +51,21 @@
         "edition": "刊",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100393486/manifest"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-14363487",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/14363487",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid14363487",
+        "edition": "嘉永4序木活字印"
+      }
     }
   ],
   "resource_groups": {
@@ -59,6 +74,9 @@
     },
     "kokusho-100393486": {
       "label": "國書·九大木活字本藏刊"
+    },
+    "ndl-14363487": {
+      "label": "NDL藏本：嘉永4序木活字印"
     }
   }
 }
