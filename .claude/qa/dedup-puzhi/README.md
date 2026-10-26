@@ -1,0 +1,84 @@
+# 新-譜志余：族谱、方志及其他「譜／志」结尾同题组余量判定（2026-10-26）
+
+第二轮细拆单元「新-譜志余」（ai-team 去重方案目录 `细拆-20261026/README.md`）：题名以譜／家乘／宗支／世系或志结尾、非叢書子目的未判同题组。基线 book-index main `01a34f231d`（重算后仍 658 组、3,865 条 Work）。
+
+## 做法
+
+1. 每组按现有 related 互链与全部 `dedup-judged/*.tsv` 求连通分量，只判跨分量的对。
+2. 族谱（含家乘、宗支、世系）：用研-族谱 `zupu_pairs.py` 的口径（`脚本/zupu2.py` 只把题名范围从「譜」扩到家乘等）：地望不同 C、同族异修 S（各修各算）、证据不足 D。192 组。
+3. 方志：研-方志 `fangzhi_judge.py`。纯 C/D 的直接取机判。
+4. 其余 625 对（方志 A/B/E 候选、方志存疑 D、非方志的「志」、年谱、琴譜菊譜等谱录、机判不到的对）交 7 个子 agent 逐对读著录判（`逐对判定/`）：C 390、D 141、SAME 75、E 19。首位责任者两侧都挂了不同 entity 且名不同的，先机判 C。
+5. 判 SAME 与 E 的 94 对交另两个独立 agent 从严复核（`复核/`）：SAME 确认 53，改存疑 21、改分立 1（瑞州府志康熙增補鈔本，FZ0250 先例）；E 确认 18，改 C 1（攸縣志）。只凭常识把不同修纂人对上、误字推测、年号冲突的一律不并。
+6. 分立登记抽检：逐对判的 C/D 抽 160 对（30%）＋机判行抽 76 对（5%），独立 agent 审 236 对：同意 227、应并 1（玉環廳志，复核已确认并）、改码 8（4 对族谱 D→C异修，4 对方志 C→D），异质 0.4%，已按改判写入。
+
+## 结果
+
+- 并条 53 组（batch-01，本表下方），被并 53 条 Work，keeper 取总目著录一侧。台账 `batch-01/merges.json`。
+- 续修／增修互链 18 对（`batch-01/E-互链.tsv`，`link_e.py`，按 V07 落小 id 侧）。
+- 登记 `../dedup-judged/新-譜志余.tsv` 1,652 行：C分立 1,364、C异修 52、C续修 9、D存疑 227（被并者已换成 keeper；另补 3 行承接研-方志、3a-3 里指向本批被并者的对）。
+- 普查复跑：本单元 658 组全部「已判」。
+
+## 留给别的单元／待看
+
+- 存疑不并、但可能同书的：兩廣鹽法志、兩淮鹽法志（清史稿只录修者）、江陰縣志（黄浦／黄傅）、開沙志（[康熙]／[宣統] 同人同卷）、西域諸國志、福寧州志、宗聖志、增城荔枝譜。需要书影或原书卷数才能定。
+- 撰人误切（下一条撰者挂到本条）：兩廣鹽法志 陳銓、兩淮鹽法志 龐際雲、玉環廳志被并者的周永年／盛百二（已随并条成墓碑）、平樂府志被并者 鄭珍／莫友芝（同）。前两条未改，交 3c 同类处理。
+- 宣化府志：d59fynrjm5fl（乾隆八年）下挂着「乾隆八年修二十二年訂補重刊本」，宜改挂到 d59fynrjm5fk（二十二年本）。
+- 方志修、纂分录并条时，被并者的修纂人 entity 未补进 keeper（apply 报「被併者撰人帶 entity_id 而 keeper 無」17 处，见 merges.json dropped_author_entities），交责任层补。
+
+## 并条清单
+
+| 簇 | 保留 | 被并 | 题 |
+|---|---|---|---|
+| 新-譜志余-PZ01 | d59f27vp6arm | d59f9nmkx7gj | 《大單于志》 |
+| 新-譜志余-PZ02 | d59fxu3nu39d | d59f2q65o3y9 | 《建炎進退志》 |
+| 新-譜志余-PZ03 | d59fyt7a17up | d59f2pwdvoch | 《新斠注地理志》 |
+| 新-譜志余-PZ04 | d59f285jgnb6 | d59f2pxz03r5 | 《荊南地志》 |
+| 新-譜志余-PZ05 | d59f27x6jvnn | d59f9uwju3gg | 《華陽國志》 |
+| 新-譜志余-PZ06 | d59fy3py2lfl | d59f2q466rk0 | 《補宋書刑法志》 |
+| 新-譜志余-PZ07 | d59fy3t24sg0 | d59f2q3te1a8 | 《補晉兵志》 |
+| 新-譜志余-PZ08 | d59f27vv3t38 | d59f9uwh0yki | 《陳留人物志》 |
+| 新-譜志余-PZ09 | d59fyevoszr4 | d59fyfgr0ge8 | 《三峯和尚年譜》 |
+| 新-譜志余-PZ10 | d59f2me0083l | d59f2ntvl24h | 《二樓小志》 |
+| 新-譜志余-PZ11 | d59fynrnzh1d | d59f2n2odm2p | 《仙遊縣志》 |
+| 新-譜志余-PZ12 | d59fyoyy84qp | d59f2n42mtj6 | 《佛坪廳志》 |
+| 新-譜志余-PZ13 | d59fyob6bf9d | d59f2mzdrfnk | 《內鄉縣志》 |
+| 新-譜志余-PZ14 | d59f2nglouf4 | d59f2nhvvz0j | 《南京都察院志》 |
+| 新-譜志余-PZ15 | d59f2qa5vr40 | d59f2hpiz9j5 | 《四明志》 |
+| 新-譜志余-PZ16 | d59fyode86bl | d59f2nkxg9vk | 《固安縣志》 |
+| 新-譜志余-PZ17 | d59f2mzkxw5e | d59f2n7o6ayq | 《安肅縣志》 |
+| 新-譜志余-PZ18 | d59fyoa6f4sh | d59f2n6r35ds | 《宜黃縣志》 |
+| 新-譜志余-PZ19 | d59fynrjm5fk | d59f2mzuxhj6 | 《宣化府志》 |
+| 新-譜志余-PZ20 | d59f2mzpb7r4 | d59f2n6jlgci | 《寧州志》 |
+| 新-譜志余-PZ21 | d59fynq43zsy | d59f6ektnabo | 《寶應縣志》 |
+| 新-譜志余-PZ22 | d59f2ngh0a9s | d59f6elojs3m | 《山東鹽法志》 |
+| 新-譜志余-PZ23 | d59f2n6v58g2 | d59f2ndoszya | 《平樂府志》 |
+| 新-譜志余-PZ24 | d59f27wh9nnm | d59f27v2p7nk | 《文章志》 |
+| 新-譜志余-PZ25 | d59fynptt5vk | d59f6ejb0r9i | 《新城縣志》 |
+| 新-譜志余-PZ26 | d59fxrw7mozk | d59f2hgm3b41 | 《暌車志》 |
+| 新-譜志余-PZ27 | d59f2n56l729 | d59f2n56l72a | 《朝邑縣後志》 |
+| 新-譜志余-PZ28 | d59f2mzdg742 | d59f2n75g2dc | 《桐柏縣志》 |
+| 新-譜志余-PZ29 | d59f2n6dz6kh | d59f2md9sagx | 《江南通志》 |
+| 新-譜志余-PZ30 | d59fynr74npd | d59fypvsyayq | 《海州志》 |
+| 新-譜志余-PZ31 | d59f2neumx35 | d59f2njjiaki | 《漕運通志》 |
+| 新-譜志余-PZ32 | d59f27wly7sw | d59f9uwr0jya | 《災異志》 |
+| 新-譜志余-PZ33 | d59f2n7c01s2 | d59f2ndpfh1d | 《玉環廳志》 |
+| 新-譜志余-PZ34 | d59f286v7yf7 | d59f9uww0cna | 《竹譜》 |
+| 新-譜志余-PZ35 | d59f2ngbp98h | d59f2ngqderl | 《舊京詞林志》 |
+| 新-譜志余-PZ36 | d59fy3qmqccg | d59f2nbuxxc2 | 《補梁疆域志》 |
+| 新-譜志余-PZ37 | d59fxp6rejnm | d59fxt3yq5tt | 《陳勾山年譜》 |
+| 新-譜志余-PZ38 | d59fyocwfncw | d59f2n7ffnr6 | 《高郵州志》 |
+| 新-譜志余-PZ39 | d59f2nkjptz6 | d59f6ektyiv8 | 《高郵州志》 |
+| 新-譜志余-PZ40 | d59fyoytut4w | d59f2ndtssn5 | 《黃岩縣志》 |
+| 新-譜志余-PZ41 | d59fyobdt4ao | d59f2n2an669 | 《黎城縣志》 |
+| 新-譜志余-PZ42 | d59fymaqmxa8 | d59fypvyvta8 | 《中部縣鄉土志》 |
+| 新-譜志余-PZ43 | d59f2ptjt24h | d59fajc851xh | 《張騫出關志》 |
+| 新-譜志余-PZ44 | d59fyja1v8xs | d59f2gmxx88x | 《清微仙譜》 |
+| 新-譜志余-PZ45 | d59f27y5ighv | d59f9ux8hude | 《老子玄譜》 |
+| 新-譜志余-PZ46 | d59f28ljzymd | d59f2q3glb7k | 《還冤志》 |
+| 新-譜志余-PZ47 | d59fxr261erk | d59fxrns80zm | 《青在堂翎毛花卉譜》 |
+| 新-譜志余-PZ48 | d59fxr25q680 | d59fxrns80zk | 《青在堂草上花卉譜》 |
+| 新-譜志余-PZ49 | d59fxr1kt9tt | d59f2mtwsow0 | 《周懶予先生圍棋譜》 |
+| 新-譜志余-PZ50 | d59f27w0q2v7 | d59f9uwh0ykh | 《楚國先賢志》 |
+| 新-譜志余-PZ51 | d59f2nfb6dj4 | d59f2mzsqtqa | 《駐粵八旗志》 |
+| 新-譜志余-PZ52 | d59f2ofvigao | d59f2q96ly4g | 《說文解字韻譜》 |
+| 新-譜志余-PZ53 | d59fxxl7f4ld | d59f6et3qx36 | 《韻譜》 |
