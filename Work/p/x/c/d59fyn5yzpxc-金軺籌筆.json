@@ -20,14 +20,72 @@
       "summary": "共 1 個版本：（國家圖書館、首都圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：0jw12ef1pucmy5ec\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：清□□撰\n責任者名含缺字／組字，待人工補\nauto-split:存疑未并\nE6 第 442 批新建（hold 清零：串3余量另立；原 hold 原因：E:anonymous_author）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：0jw12ef1pucmy5ec\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：清□□撰\n責任者名含缺字／組字，待人工補\nauto-split:存疑未并\nE6 第 442 批新建（hold 清零：串3余量另立；原 hold 原因：E:anonymous_author）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-NDL丛书合刻-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fypu2iubm",
       "relation": "related",
       "note": "auto-split:同題撞庫未并（金軺籌筆）"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "ndl",
+      "group": "ndl-12970871",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/12970871",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid12970871",
+        "edition": "光緒9刊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2602655",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2602655",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2602655",
+        "edition": "光緒刊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2602659",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2602659",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2602659",
+        "edition": "光緒13序刊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ndl-12970871": {
+      "label": "NDL藏本：光緒9刊"
+    },
+    "ndl-2602655": {
+      "label": "NDL藏本：光緒刊"
+    },
+    "ndl-2602659": {
+      "label": "NDL藏本：光緒13序刊"
+    }
+  }
 }
