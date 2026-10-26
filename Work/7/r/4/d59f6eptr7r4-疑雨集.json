@@ -44,10 +44,10 @@
   "measure_info": "六卷",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無明確朝代線索，period 留 null 不猜",
-  "ai_note": "原「王彦□疑雨集」撰人提取失敗（缺字已查實為\"泓\"，字次回，金壇人，官華亭教授，明末清初著名詩人，《疑雨集》為其代表作，多來源交叉印證；經核與production無重出）。按語無年號，不可定period。",
+  "ai_note": "原「王彦□疑雨集」撰人提取失敗（缺字已查實為\"泓\"，字次回，金壇人，官華亭教授，明末清初著名詩人，《疑雨集》為其代表作，多來源交叉印證；經核與production無重出）。按語無年號，不可定period。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
   "id": "d59f6eptr7r4",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -56,6 +56,28 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E5%8F%A2%E6%9B%B8%E9%9B%86%E6%88%90%E7%BA%8C%E7%B7%A8%EF%BC%88%E5%8F%B0%EF%BC%89172.pdf"
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200012277",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200012277",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200012277",
+        "holder": "国文研日本漢詩文",
+        "edition": "刊 宣統１",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200012277/manifest"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "kokusho-200012277": {
+      "label": "國書·国文研日本漢詩文藏刊 宣統１"
+    }
+  }
 }
