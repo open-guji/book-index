@@ -57,6 +57,9 @@ REIGN_T = re.compile(r'^\[(民國|順治|康熙|雍正|乾隆|嘉慶|道光|咸�
 MODERN_T = re.compile(r'泰西|新史|報告|聯合會|學堂|章程')
 
 
+DYALIAS = {'北宋': '宋', '南宋': '宋', '趙宋': '宋', '晋': '晉', '西漢': '漢', '東漢': '漢', '兩漢': '漢', '三國魏': '魏', '西晉': '晉', '東晉': '晉'}
+
+
 def coarse2(d):
     if not d: return None
     d = d.strip().replace('张', '張')
@@ -165,10 +168,9 @@ def main():
             hold(s, '朝代字与姓重叠被切'); continue   # 抽检 b02：「宋宋爲仁撰」切成爲仁
         if len(n) >= 3 and any(len(k) > len(loose(n)) and k.endswith(loose(n)) for k in suffixidx.get(loose(n)[-3:], ())):
             hold(s, '名为已有人物名之后缀待核'); continue   # 抽检 b01v2：赤心子＜起北赤心子
-        if '囗' in n: hold(s, '名字含缺字/分隔/括注或单字'); continue   # 丙01 抽检：沈囗（囗 U+56D7 作缺字用）
-        if re.search(re.escape(n) + r'[（(][^）)]{1,6}[）)]', s['author_info']):
-            hold(s, '原文括注另名待核'); continue   # 丙01 抽检：徐太室（學謨）＝已有徐學謨；括注多为本名／字，归 2.2 核
-        if len(n) <= 3 and n.endswith('公'): hold(s, '神号或托名'); continue   # 丙01 抽检：題宋漁陽公撰
+        if (len(n) == 3 and n.endswith('氏')) or (len(n) == 2 and n[0] == n[1]): hold(s, '神号或托名'); continue   # 丙03 抽检：道先氏、蹇蹇
+        if s['dynasty'] and not any(x in s['author_info'] for x in {s['dynasty'], DYALIAS.get(s['dynasty'], s['dynasty'])}):
+            hold(s, '作者位朝代不见于原文待核'); continue   # 丙03 抽检：原文「趙曜纂」无朝代，作者位却作清
         if (re.search(r'(軒|齋|斋|堂|閣|樓|館|室|廬|園|山房|書屋|居|亭|庵|菴)(主人)?$', n) or n.endswith('氏')) and re.search('題[^;；|]{0,3}' + re.escape(n), s['author_info']):   # 抽检 b02：題清掄花館主人
             hold(s, '题署室名'); continue
         if DYPFX2.match(n): hold(s, '疑名前粘朝代'); continue

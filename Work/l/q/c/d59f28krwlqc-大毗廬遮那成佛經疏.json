@@ -28,7 +28,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（A7 转交 NDL）。",
   "juan_count": {
     "number": 20
   },
@@ -52,6 +52,21 @@
       "types": [
         "image"
       ]
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2610606",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2610606",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2610606",
+        "edition": "元和2"
+      }
     }
   ],
   "updated_at": "2026-08-09T09:00:59+00:00",
@@ -59,6 +74,11 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "ndl-2610606": {
+      "label": "NDL藏本：元和2"
+    }
+  }
 }
