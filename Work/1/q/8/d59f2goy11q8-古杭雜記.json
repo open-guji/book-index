@@ -40,7 +40,7 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 lane-C M 類：loss_status None→extant，據本條 description 自陳：「文志》作「元李有古杭雜記四卷」。今存版本 1 種，各見所繫之 Boo」",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-07 lane-C M 類：loss_status None→extant，據本條 description 自陳：「文志》作「元李有古杭雜記四卷」。今存版本 1 種，各見所繫之 Boo」\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "李有（元）撰。四卷。見著錄於《補遼金元藝文志》《元史藝文志》。其著錄之文，《補遼金元藝文志》作「元李有古杭雜記四卷」。今存版本 1 種，各見所繫之 Book 條。",
     "sources": [
@@ -48,8 +48,8 @@
       "元史藝文志"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "resources": [
     {
@@ -66,6 +66,27 @@
         "year": "1939",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15246-0101",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15246-0101",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15246-0101",
+        "call_number": "210.8 15246-0101",
+        "edition": "明嘉靖甲辰(23年, 1544)雲間陸氏儼山書院刊本"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-15246-0101": {
+      "label": "臺灣國家圖書館藏本：明嘉靖甲辰(23年, 1544)雲間陸氏儼山書院刊本"
+    }
+  }
 }

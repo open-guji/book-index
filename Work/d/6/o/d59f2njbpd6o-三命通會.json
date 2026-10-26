@@ -152,6 +152,22 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4919180/manifest.json",
         "extent": "12冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06589",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06589",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06589",
+        "call_number": "306.5 06589",
+        "edition": "明萬曆戊寅(六年, 1578)刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -160,6 +176,9 @@
     },
     "naikaku-1076363": {
       "label": "內閣文庫藏本：清雍正13年刊本（序刊）（305-0295，12冊）"
+    },
+    "ncltw-06589": {
+      "label": "臺灣國家圖書館藏本：明萬曆戊寅(六年, 1578)刊本"
     }
   },
   "measures": [
@@ -169,7 +188,7 @@
     }
   ],
   "measure_info": "十二卷",
-  "ai_note": "作者「明萬民英撰」補自《國立故宮博物院善本舊籍》目錄。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwnqoyuww 與 11q37r3pzs54w 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目分類：子部／術數類／命相之屬／命書\n\n總目版本待定（庫中現僅有文淵閣本）：總目著錄版本標籤空，未入 Book（kqqmfp65b65kd0ns、3isxbjc7qjchbllk、spk3jye7u3rfdb0w）\n總目分類：子部／術數類／命相之屬／命書\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "ai_note": "作者「明萬民英撰」補自《國立故宮博物院善本舊籍》目錄。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwnqoyuww 與 11q37r3pzs54w 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目分類：子部／術數類／命相之屬／命書\n\n總目版本待定（庫中現僅有文淵閣本）：總目著錄版本標籤空，未入 Book（kqqmfp65b65kd0ns、3isxbjc7qjchbllk、spk3jye7u3rfdb0w）\n總目分類：子部／術數類／命相之屬／命書\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
@@ -181,6 +200,6 @@
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26"
 }
