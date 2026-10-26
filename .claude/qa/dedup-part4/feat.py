@@ -21,28 +21,26 @@ def dyn(w):
 def juan(x):
     j=x.get('juan_count')
     return j.get('number') if isinstance(j,dict) else None
+CN=dict(zip('〇零一二兩三四五六七八九',[0,0,1,2,2,3,4,5,6,7,8,9]))
+def cnum(t):
+    n=cur=0
+    for ch in t:
+        if ch in CN: cur=CN[ch]
+        elif ch in '十百千':
+            n+=(cur or 1)*{'十':10,'百':100,'千':1000}[ch]; cur=0
+    return n+cur or None
+TJ=re.compile(r'([〇零一二兩三四五六七八九十百千]+)卷')
+def tijuan(x):   # 題下（indexed_by.title_info）首个「N卷」，补 juan_count 缺时的卷数悬殊判断（4a-α乙 抽检发现）
+    s=set()
+    for i in x.get('indexed_by') or []:
+        m=TJ.search((i.get('title_info') or '') if isinstance(i,dict) else '')
+        if m: s.add(cnum(m.group(1)))
+    return s-{None}
 def srcids(x):
     s=set(SRC.findall(x.get('ai_note') or ''))
     for r in x.get('sources') or []:
         if isinstance(r,dict) and r.get('id') and re.fullmatch(r'[0-9a-z]{16}',r['id']): s.add(r['id'])
     return s
-CNUM={'一':1,'二':2,'兩':2,'三':3,'四':4,'五':5,'六':6,'七':7,'八':8,'九':9,'十':10,'百':100,'〇':0,'零':0}
-def cnum(s):
-    n=cur=0
-    for ch in s:
-        v=CNUM[ch]
-        if v in (10,100): n+=(cur or 1)*v; cur=0
-        else: cur=cur*10+v if cur else v
-    return n+cur
-def tijuan(w):
-    """indexed_by.title_info 里紧跟题名的「N卷」（juan_count 缺时补判卷数悬殊；4a-α乙 复盘：采雨山房詩十卷總名←子目一卷）"""
-    t=w.get('title') or ''; out=set()
-    for x in w.get('indexed_by') or []:
-        ti=x.get('title_info') or ''
-        if not ti.startswith(t): continue
-        m=re.match(r'([一二兩三四五六七八九十百〇零]+)卷',ti[len(t):])
-        if m: out.add(cnum(m.group(1)))
-    return out
 def feat(wid):
     w=W[wid]; bs=books_of.get(wid,[])
     cols=[]
