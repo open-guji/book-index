@@ -12,7 +12,7 @@ python3 .claude/qa/dedup-part2-3/apply23.py /tmp/p23/plan.json .claude/qa/dedup-
 
 依赖：`pip install opencc`；CBDB 用 open-guji-core/cbdb-archive 的 20260919 版（`--cbdb` 指路径）。
 **分份并行**（2.3 甲／乙／丙）：apply23.py 加 `--share i/3`，按 `int(md5(名).hexdigest(),16) % 3` 取份（甲 0、乙 1、丙 2；同名不同朝代同在一份）；各份只建、只回填本份名字。台账目录用 `batch-甲NN`／`batch-乙NN`／`batch-丙NN` 区分。
-每批都从最新 main 重跑 plan23.py 再 apply（冲突一律重跑，不手解）。id 用 `mintid.py` 车道 `dedup23`（machine 2035）。
+每批都从最新 main 重跑 plan23.py 再 apply（冲突一律重跑，不手解）。id 用 `mintid.py` 车道 `dedup23`（machine 2035）；`--share 1/3`、`2/3` 自动改用 `dedup23乙`（2039）、`dedup23丙`（2043）——三份同车道时并行同一秒鑄号会撞 id（mint 只查本地文件）。
 
 ## 口径（2026-10-25 重算后修订）
 
