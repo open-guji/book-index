@@ -16,11 +16,15 @@
       "（所繫實物之版本著錄）"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L6 desc 補全：本條之 description 非人所撰，是據所繫著錄之引文（或所繫實物之版本著錄）機械組織而成，未覆核原書。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L6 desc 補全：本條之 description 非人所撰，是據所繫著錄之引文（或所繫實物之版本著錄）機械組織而成，未覆核原書。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 4 取自 `measure_info`「四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 A11-去重方案3a-2丙 併條（rule=去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并）：併 d59f2gg64w02《書蔡傳音釋》 入本條。差一字·經史：《書集傳音釋》鄒季友(元,—卷,0著录)／《書蔡傳音釋》鄒季友(元,6卷,3著录)；《書集傳音釋》／《書蔡傳音釋》：蔡傳即書集傳，同鄒季友音釋",
   "measures": [
     {
       "unit": "冊",
       "number": 4
+    },
+    {
+      "unit": "卷",
+      "number": 6
     }
   ],
   "measure_info": "四冊",
@@ -30,8 +34,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -85,6 +89,21 @@
         "nlc_fid": "412000000010",
         "edition": "明初[1368-1424]"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999023065",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999023065",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999023065",
+        "edition": "清[1644-1911]"
+      }
     }
   ],
   "resource_groups": {
@@ -97,5 +116,53 @@
     "nlc-412000000010": {
       "label": "國圖藏本：明初[1368-1424]"
     }
-  }
+  },
+  "juan_count": {
+    "number": 6
+  },
+  "indexed_by": [
+    {
+      "source": "補遼金元藝文志",
+      "source_bid": "d59f2mp1zsox",
+      "title_info": "鄒季友書蔡傳音釋六卷",
+      "summary": "元鄒季友書蔡傳音釋六卷"
+    },
+    {
+      "source": "元史藝文志",
+      "source_bid": "d59f2mp1zsoz",
+      "title_info": "《書蔡傳音釋》六卷",
+      "author_info": "彭澤人",
+      "summary": "元鄒季友（彭澤人）書蔡傳音釋六卷"
+    },
+    {
+      "source": "經義考",
+      "source_bid": "d59f2mel8d1d",
+      "title_info": "《尚書蔡傳音釋》（鄒季友）",
+      "summary": "六卷\n黄虞稷曰季友字晉昭鄱陽人書傳㑹選多采用其書",
+      "section": "書",
+      "juan": "卷八十六",
+      "page": "KR2n0011_WYG_086-23b",
+      "attested_status": "extant",
+      "attested_status_raw": "存",
+      "attested_status_note": "此是朱彝尊所判，非本庫之判，故不改本記錄之 loss_status。四庫御製題論此書曰「所注闕佚未見者，今四庫所録往往其書尚存」——其判是十七世紀一人之見聞。「未見」尤非亡佚，是朱氏未見其書。"
+    }
+  ],
+  "additional_titles": [
+    "書蔡傳音釋"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2gg64w02",
+      "title": "書蔡傳音釋",
+      "at": "2026-10-26T19:05:49Z",
+      "by": "A11-去重方案3a-2丙",
+      "rule": "去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并",
+      "why": "差一字·經史：《書集傳音釋》鄒季友(元,—卷,0著录)／《書蔡傳音釋》鄒季友(元,6卷,3著录)；《書集傳音釋》／《書蔡傳音釋》：蔡傳即書集傳，同鄒季友音釋",
+      "author": "鄒季友",
+      "title_info": "鄒季友書蔡傳音釋六卷；《書蔡傳音釋》六卷；《尚書蔡傳音釋》（鄒季友）"
+    }
+  ],
+  "merged_from": [
+    "d59f2gg64w02"
+  ]
 }
