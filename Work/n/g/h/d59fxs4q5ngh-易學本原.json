@@ -33,8 +33,8 @@
       "summary": "共 4 個版本：四庫全書本（馆藏未载）；明正德九年平陽府李滄刻本（浙江圖書館、上海圖書館、重慶市圖書館）；明嘉靖十三年蘇祐刻本（北京大學圖書館、上海圖書館）；清乾隆間刻嘉慶七年印本（南京圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：eqbpqvee8r4gceu8、sxx865lx6v0fnvlz、53biu8mcf4zo8swb、5sgioixwfo5ntsxx\nE6 第 301 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.1.0",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：eqbpqvee8r4gceu8、sxx865lx6v0fnvlz、53biu8mcf4zo8swb、5sgioixwfo5ntsxx\nE6 第 301 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（第二轮）。",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -54,11 +54,29 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3876861/manifest.json",
         "extent": "4冊"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-14487882",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/14487882",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid14487882",
+        "edition": "江戸末期寫"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-3610490": {
       "label": "內閣文庫藏本：元禄10年刊本（273-0073，4冊）"
+    },
+    "ndl-14487882": {
+      "label": "NDL藏本：江戸末期寫"
     }
   }
 }
