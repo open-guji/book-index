@@ -35,10 +35,10 @@
   "measure_info": "十六卷",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
-  "ai_note": "撰人切分來源：又條承上。",
+  "ai_note": "撰人切分來源：又條承上。\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。",
   "id": "d59f6eku9rep",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -47,6 +47,26 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NLC892-CBM0268-367553_%E7%A5%80%E6%88%8E%E5%A5%8F%E8%AD%B0_%E2%96%A1%E2%96%A1%E5%8D%B7_%E7%AC%AC1%E5%86%8A.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-CBM0268",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=CBM0268",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "CBM0268",
+        "edition": "明崇禎[1627-1644]"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "nlc-CBM0268": {
+      "label": "國圖藏本：明崇禎[1627-1644]"
+    }
+  }
 }

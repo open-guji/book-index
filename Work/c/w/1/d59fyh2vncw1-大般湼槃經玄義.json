@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/r2qe5i8bcp6o1n67"
-      }
+      },
+      "entity_id": "hixhd2h9btz8"
     }
   ],
   "dynasty": "唐",
@@ -37,7 +38,7 @@
       "summary": "共 5 個版本：明永樂十八年至正統五年刻（馆藏未载）；明永樂間刻（馆藏未载）；明崇禎十一年刻（臺灣圖書館、北京市法源寺）；（馆藏未载）；（日本龍谷大學）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2d6onma0w437gviy、rlb28i3d1blhbsi2\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）\n總目版本待定（庫內已有 Book 11soe57eu4ooz、11soe57eu4op0：明萬曆十年□仁德刻本、清光緒八年金陵刻經處刻本）：總目著錄版本標籤空，未入 Book，只作 Work 級來源（第 801 批；y2nn4vgl5p2o2mne）；總目分類：子部／釋家類／大藏之屬\n查重线（跨部查重 10-19）：同题同作者或近题同作者（逐对复核同书）并入 1 个 Work（1exokzohq0iki）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2d6onma0w437gviy、rlb28i3d1blhbsi2\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）\n總目版本待定（庫內已有 Book 11soe57eu4ooz、11soe57eu4op0：明萬曆十年□仁德刻本、清光緒八年金陵刻經處刻本）：總目著錄版本標籤空，未入 Book，只作 Work 級來源（第 801 批；y2nn4vgl5p2o2mne）；總目分類：子部／釋家類／大藏之屬\n查重线（跨部查重 10-19）：同题同作者或近题同作者（逐对复核同书）并入 1 个 Work（1exokzohq0iki）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
   "merged_in": [
     {
       "id": "1exokzohq0iki",
@@ -48,8 +49,8 @@
       "why": "同题同作者同朝代"
     }
   ],
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -65,11 +66,51 @@
         "nlc_fid": "ZHCH1100",
         "edition": "金皇統九年[1149]"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200012498",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200012498",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200012498",
+        "holder": "国文研",
+        "edition": "刊 明暦２",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200012498/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100097621",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100097621",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100097621",
+        "holder": "大阪公大中百舌鳥図",
+        "edition": "刊 明暦２",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100097621/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-ZHCH1100": {
       "label": "國圖藏本：金皇統九年[1149]"
+    },
+    "kokusho-200012498": {
+      "label": "國書·国文研藏刊 明暦２"
+    },
+    "kokusho-100097621": {
+      "label": "國書·大阪公大中百舌鳥図藏刊 明暦２"
     }
   }
 }

@@ -4,7 +4,8 @@
   "type": "work",
   "title": "大明仁孝皇后内訓",
   "additional_titles": [
-    "仁孝文皇后内訓"
+    "仁孝文皇后内訓",
+    "大明仁孝皇后內訓"
   ],
   "authors": [
     {
@@ -28,9 +29,9 @@
       "summary": "共 5 個版本：女四書本（馆藏未载）；明嘉靖間内府刻本（美國哈佛大學燕京圖書館、國家圖書館）；明楚府正心書院刻本（國家圖書館）；明刻本（國家圖書館）；閨門必讀本（馆藏未载）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2062nhm2marl6y4s、qtmjs63lvd5tldmk、uc7jjphmi6lxik04、00vo5ft17ptcxg4f、bkwvw83diswxzski\n主責任者「徐儀華」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nauto-split:存疑未并\nE6 第 548 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2062nhm2marl6y4s、qtmjs63lvd5tldmk、uc7jjphmi6lxik04、00vo5ft17ptcxg4f、bkwvw83diswxzski\n主責任者「徐儀華」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nauto-split:存疑未并\nE6 第 548 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 A4串-去重国書线索 併條（rule=去重线索（国書等日本馆藏）：同题、著者相合或一侧无著者而著录互证，B 档逐对判＋独立复核并）：併 d59f2njq2a69《大明仁孝皇后內訓》 入本條。《大明仁孝皇后内訓》同题同书：甲题名即标仁孝皇后，与乙徐氏相合，同一卷，永乐内府本互证",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -61,6 +62,21 @@
         "nlc_fid": "411999017218",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ro09_01056",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro09/ro09_01056/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro09_01056",
+        "edition": "横山町(東都) : 出雲寺万次郎, 天保3[1832] ( )"
+      }
     }
   ],
   "resource_groups": {
@@ -69,6 +85,34 @@
     },
     "nlc-411999017218": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "waseda-ro09_01056": {
+      "label": "早稲田藏本：横山町(東都) : 出雲寺万次郎, 天保3[1832] ( )"
     }
-  }
+  },
+  "juan_count": {
+    "number": 1
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 1
+    }
+  ],
+  "measure_info": "一卷",
+  "period": "ming",
+  "period_basis": "題冠國號斷代：本書題作《大明仁孝皇后內訓》，冠以「大明」。「大」「皇」冠於國號者，乃當代人自稱其朝之辭（如《皇宋登科録》《大清會典》），非後世追稱之語；即令作下限讀，其書亦不得早於明之立。故下限落在 ming。而本書原有上限亦 ming（edition_bound：所掛版本中最早者為「明永樂五年內府刊本」——版本之年不早於成書之年）。上下限既合，其代乃定，作 ming。",
+  "merged_in": [
+    {
+      "id": "d59f2njq2a69",
+      "title": "大明仁孝皇后內訓",
+      "at": "2026-10-26T13:42:58Z",
+      "by": "A4串-去重国書线索",
+      "rule": "去重线索（国書等日本馆藏）：同题、著者相合或一侧无著者而著录互证，B 档逐对判＋独立复核并",
+      "why": "《大明仁孝皇后内訓》同题同书：甲题名即标仁孝皇后，与乙徐氏相合，同一卷，永乐内府本互证"
+    }
+  ],
+  "merged_from": [
+    "d59f2njq2a69"
+  ]
 }

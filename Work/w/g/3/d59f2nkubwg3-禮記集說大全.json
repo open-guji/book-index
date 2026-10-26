@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "juan_count": {
     "number": 30
   },
@@ -39,8 +39,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -79,6 +79,75 @@
         "nlc_fid": "411999015437",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100141672",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100141672",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100141672",
+        "holder": "南丹市博小出（園部町旧蔵）",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100141672/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100160337",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100160337",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100160337",
+        "holder": "上田図花春",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100160337/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100212609",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100212609",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100212609",
+        "holder": "韓国中央図",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100212609/manifest"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074370",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074370",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074370",
+        "request_no": "２７４－００１４",
+        "edition": "刊本:朝鮮嘉靖:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3944269/manifest.json",
+        "extent": "27冊"
+      }
     }
   ],
   "resource_groups": {
@@ -87,6 +156,18 @@
     },
     "nlc-411999015437": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "kokusho-100141672": {
+      "label": "國書·南丹市博小出（園部町旧蔵）藏刊"
+    },
+    "kokusho-100160337": {
+      "label": "國書·上田図花春藏刊"
+    },
+    "kokusho-100212609": {
+      "label": "國書·韓国中央図藏刊"
+    },
+    "naikaku-1074370": {
+      "label": "內閣文庫藏本：朝鮮嘉靖刊本（274-0014，27冊）"
     }
   },
   "indexed_by": [

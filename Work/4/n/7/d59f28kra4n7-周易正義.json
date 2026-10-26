@@ -28,7 +28,7 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 1–3 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字。未覆核原書。使用者本輪之裁定是「只補頭部約 766 條」，而機械撮述之法成本極低（不費人力，且所組織者皆本條已有之信息），故不止於頭部——凡材料足以成文者（有敘錄，或諸志卷數有異同）皆補之；材料不足者（無敘錄而諸志卷數又一致）仍不生成——其 desc 止是覆述著錄，讀者從 indexed_by 一望即知，寫與不寫同。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 1–3 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字。未覆核原書。使用者本輪之裁定是「只補頭部約 766 條」，而機械撮述之法成本極低（不費人力，且所組織者皆本條已有之信息），故不止於頭部——凡材料足以成文者（有敘錄，或諸志卷數有異同）皆補之；材料不足者（無敘錄而諸志卷數又一致）仍不生成——其 desc 止是覆述著錄，讀者從 indexed_by 一望即知，寫與不寫同。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
   "measure_info": "十三卷",
   "measures": [
     {
@@ -42,8 +42,8 @@
       "直齋書錄解題"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -59,11 +59,31 @@
         "nlc_fid": "411999022045",
         "edition": "明永樂2年[1404]"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300090291",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300090291",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300090291",
+        "holder": "府中之島図",
+        "edition": "刊 昭和１０",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300090291/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999022045": {
       "label": "國圖藏本：明永樂2年[1404]"
+    },
+    "kokusho-300090291": {
+      "label": "國書·府中之島図藏刊 昭和１０"
     }
   }
 }

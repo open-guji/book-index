@@ -10,20 +10,28 @@
   },
   "authors": [
     {
-      "name": "紀昀等",
-      "role": "編",
-      "dynasty": "清"
+      "name": "永瑢",
+      "role": "纂修",
+      "dynasty": "清",
+      "entity_id": "hixhd2h9brqb"
+    },
+    {
+      "name": "紀昀",
+      "role": "纂修",
+      "dynasty": "清",
+      "entity_id": "hixhd2h9bcl2"
     }
   ],
   "publication_info": {
-    "year": "清",
-    "details": ""
+    "year": "1736-1795",
+    "details": "抄錄者：内府"
   },
   "dating": {
     "era": "清",
+    "reign": "乾隆",
     "certainty": "attested",
     "source": "catalog",
-    "basis": "出版著錄「清」"
+    "basis": "《中國古籍總目》著錄「清乾隆間内府寫本」（并入 8rldp1yeqrk0 时改取，原 basis：出版著錄「清」）"
   },
   "current_location": {
     "name": "臺灣國立故宮博物院"
@@ -111,13 +119,20 @@
       }
     }
   ],
-  "sources": [],
+  "sources": [
+    {
+      "id": "qzqsj6wjnqiyjk51",
+      "name": "中國古籍總目（上圖聯合目錄）",
+      "type": "url",
+      "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/qzqsj6wjnqiyjk51&from=evidence"
+    }
+  ],
   "related_books": [],
   "juan_count": {
     "number": 0,
     "description": ""
   },
-  "ai_note": "待找具體影印件資源：(1) 臺灣商務印書館 1982-1986 景印文淵閣四庫全書 1500 冊精裝；(2) 迪志文化 1999 文淵閣四庫全書電子版（167 張 CD-ROM 原版）。已有 wikimedia commons 上的散冊掃描影像作為現存可訪問資源。\n2026-10-09 S 格式修正：authors[].role 原作英文「author」、責任方式混在 name 中，拆為 name＋role（overview#496 A2）。",
+  "ai_note": "待找具體影印件資源：(1) 臺灣商務印書館 1982-1986 景印文淵閣四庫全書 1500 冊精裝；(2) 迪志文化 1999 文淵閣四庫全書電子版（167 張 CD-ROM 原版）。已有 wikimedia commons 上的散冊掃描影像作為現存可訪問資源。\n2026-10-09 S 格式修正：authors[].role 原作英文「author」、責任方式混在 name 中，拆為 name＋role（overview#496 A2）。\n2026-10-26 去重方案部分6（COL6-08）：并入总目叢書线条 8rldp1yeqrk0「文淵閣四庫全書三千四百六十一種」（源記錄 qzqsj6wjnqiyjk51，總目著錄子目 3534 種，館藏臺北故宮），同一实物；其著录、来源、版本並入本条，编纂者与出版信息改取总目（原值见 .claude/qa/dedup-plan-part6/batch-03/merges.json）。",
   "contains": [
     {
       "type": "preface",
@@ -210,10 +225,11 @@
       "note": "文字早於定本《總目》（屬「閣本提要」階段），文淵/文津/文溯三閣互有歧異。研究參吳格、廖申白《文淵、文溯、文津三閣書前提要文字比勘》。"
     }
   ],
-  "revision": "1.0.5",
-  "revised_at": "2026-10-09",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "additional_titles": [
-    "欽定四庫全書·文渊阁本"
+    "欽定四庫全書·文渊阁本",
+    "文淵閣四庫全書三千四百六十一種"
   ],
   "count": {
     "juan": 79309,
@@ -224,5 +240,17 @@
   },
   "related_collections": [
     "8rlcsybg2hi6"
+  ],
+  "edition": "清乾隆間内府寫本",
+  "indexed_by": [
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "文淵閣四庫全書三千四百六十一種",
+      "summary": "文淵閣四庫全書三千四百六十一種｜清永瑢、紀昀等纂修｜清乾隆間内府寫本｜臺北“故宮博物院”"
+    }
+  ],
+  "merged_from": [
+    "8rldp1yeqrk0"
   ]
 }

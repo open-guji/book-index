@@ -39,8 +39,8 @@
   "period": "ming",
   "period_basis": "小注載年號／朝代詞（「字景周呉江人成化乙酉舉人南京國子監學正别有鱸鄉集」等），據此定代；《千頃堂書目》為唯一著錄源，屬單一著錄志書逕定代之例",
   "id": "d59f6esogah2",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -56,12 +56,33 @@
         "nlc_fid": "411999011187",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1069420",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1069420",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1069420",
+        "request_no": "集０５９－００２２",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/632706/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999011187": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1069420": {
+      "label": "內閣文庫藏本：明刊本（集059-0022，4冊）"
     }
   },
-  "ai_note": "2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。"
+  "ai_note": "2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。"
 }

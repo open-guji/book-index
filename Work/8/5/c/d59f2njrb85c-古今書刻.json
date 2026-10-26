@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n總目分類：史部／目錄類／叢編之屬",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n總目分類：史部／目錄類／叢編之屬\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "juan_count": {
     "number": 2
   },
@@ -34,8 +34,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nat-archives-jp",
@@ -54,11 +54,29 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4754907/manifest.json",
         "extent": "2冊"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2569270",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2569270",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2569270",
+        "edition": "光緒32"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1067618": {
       "label": "內閣文庫藏本：明刊本（史115-0011，2冊）"
+    },
+    "ndl-2569270": {
+      "label": "NDL藏本：光緒32"
     }
   },
   "indexed_by": [

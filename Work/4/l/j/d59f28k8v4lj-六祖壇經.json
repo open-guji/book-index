@@ -35,7 +35,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
   "juan_count": {
     "number": 1
   },
@@ -67,6 +67,72 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NLC511-15041756-75809_%E5%85%AD%E7%A5%96%E5%A3%87%E7%B6%93.pdf"
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1090",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1090/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1090",
+        "edition": "三条通菱屋町(京都) : ふ屋林伝左衛門尉, 万治2[1659] ( )"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200022334",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200022334",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200022334",
+        "holder": "国文研",
+        "edition": "刊 寛永１１",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200022334/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100097371",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100097371",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100097371",
+        "holder": "大阪公大中百舌鳥図",
+        "edition": "刊 寛永８",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100097371/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100174705",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100174705",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100174705",
+        "holder": "真福寺大須文庫",
+        "edition": "写",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100174705/manifest"
+      }
     }
   ],
   "updated_at": "2026-08-24T00:00:00+00:00",
@@ -74,6 +140,20 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "waseda-bunko31_e1090": {
+      "label": "早稲田藏本：三条通菱屋町(京都) : ふ屋林伝左衛門尉, 万治2[1659] ( )"
+    },
+    "kokusho-200022334": {
+      "label": "國書·国文研藏刊 寛永１１"
+    },
+    "kokusho-100097371": {
+      "label": "國書·大阪公大中百舌鳥図藏刊 寛永８"
+    },
+    "kokusho-100174705": {
+      "label": "國書·真福寺大須文庫藏写"
+    }
+  }
 }

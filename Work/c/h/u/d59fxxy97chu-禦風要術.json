@@ -25,7 +25,52 @@
       "summary": "共 1 個版本：（湖北省圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xjxdub6lv8fpr13g\n主責任者「白爾特」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nE6 第 408 批新建（hold 清零：E；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xjxdub6lv8fpr13g\n主責任者「白爾特」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nE6 第 408 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条、國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084669",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084669",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084669",
+        "request_no": "３１２－００５３",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5055705/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100234944",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100234944",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100234944",
+        "holder": "東北大和算",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100234944/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1084669": {
+      "label": "內閣文庫藏本：清刊本（312-0053，2冊）"
+    },
+    "kokusho-100234944": {
+      "label": "國書·東北大和算藏刊"
+    }
+  }
 }

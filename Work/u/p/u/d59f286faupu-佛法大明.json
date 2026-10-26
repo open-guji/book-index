@@ -31,9 +31,55 @@
   "juan_count": {
     "number": 20
   },
-  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（二十卷），今據以補。",
+  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（二十卷），今據以補。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "period": "nanbeichao",
   "period_basis": "據 authors[0].dynasty「南朝宋」（規則1 粗粒度自消歧；2026-08-21 補派生專項）",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076416",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076416",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076416",
+        "request_no": "３１１－００３７",
+        "edition": "刊本:元和:::；刊本:寛永:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4766953/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079250",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079250",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079250",
+        "request_no": "別０４３－０００９",
+        "edition": "刊本:元和:::；刊本:寛永:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3564805/manifest.json",
+        "extent": "5冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1076416": {
+      "label": "內閣文庫藏本：元和刊本 ;刊本（311-0037，3冊）"
+    },
+    "naikaku-1079250": {
+      "label": "內閣文庫藏本：元和刊本 ;刊本（別043-0009，5冊）"
+    }
+  }
 }

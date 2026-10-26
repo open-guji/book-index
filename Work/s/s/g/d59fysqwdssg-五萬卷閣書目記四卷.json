@@ -29,9 +29,9 @@
       "summary": "共 1 個版本：代耕堂全集本（馆藏未载）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：56edvjabsdvx0anh\nE6 第 422 批新建（hold 清零：M-new；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：56edvjabsdvx0anh\nE6 第 422 批新建（hold 清零：M-new；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +47,29 @@
         "nlc_fid": "001947680",
         "edition": "華清官舍   清光緒30年[1904]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2540484",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2540484",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2540484",
+        "edition": "光緒30"
+      }
     }
   ],
   "resource_groups": {
     "nlc-001947680": {
       "label": "國圖藏本：華清官舍   清光緒30年[1904]"
+    },
+    "ndl-2540484": {
+      "label": "NDL藏本：光緒30"
     }
   }
 }

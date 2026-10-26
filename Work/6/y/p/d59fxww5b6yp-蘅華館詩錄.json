@@ -30,7 +30,50 @@
       "summary": "共 4 個版本：清光緒十九年鉛印弢園叢書本（國家圖書館）；清光緒十六鉛印弢園叢書本（國家圖書館）；清光緒六至九年鉛印弢園叢書本（國家圖書館）；稿本（日本京都大學人文科學研究所）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pxq7s31x3ru3vu3m、cbly85kcfs5h16u7、3nb58pd5qnjhoglo、whdu1vlinaihdway\nE6 第 101 批新建（hold 清零：p11b1；原 hold 原因：title_contains）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pxq7s31x3ru3vu3m、cbly85kcfs5h16u7、3nb58pd5qnjhoglo、whdu1vlinaihdway\nE6 第 101 批新建（hold 清零：p11b1；原 hold 原因：title_contains）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-bunko11_d0181",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko11/bunko11_d0181/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko11_d0181",
+        "edition": "[東京府] : 山中喜太郎, 明治14[1881]"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082619",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082619",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082619",
+        "request_no": "３１３－０３３１",
+        "edition": "刊本::明治:140000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5084698/manifest.json",
+        "extent": "2冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-bunko11_d0181": {
+      "label": "早稲田藏本：[東京府] : 山中喜太郎, 明治14[1881]"
+    },
+    "naikaku-1082619": {
+      "label": "內閣文庫藏本：明治14年刊本（313-0331，2冊）"
+    }
+  }
 }
