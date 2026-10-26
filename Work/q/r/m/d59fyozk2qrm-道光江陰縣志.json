@@ -23,7 +23,9 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/3mlvncg1cybkp17r"
-      }
+      },
+      "entity_id": "hixhd2h9bu8f",
+      "name_basis": "2026-10-25 並條善後：同書重出條 d59f2n77mq68 之同名撰人已繫此 entity，今補繫（方志-FS0061）。"
     },
     {
       "name": "李兆洛",
@@ -47,7 +49,38 @@
       "summary": "共 1 個版本：清道光二十年刻本（中國科學院圖書館、天津圖書館、復旦大學圖書館、上海圖書館、國家圖書館、山東省圖書館、北京大學圖書館、浙江圖書館、南京圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3n7jk4wtmw0isf1l\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n主責任者「周仲簡」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3n7jk4wtmw0isf1l\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n主責任者「周仲簡」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2n77mq68《江陰縣志》 入本條。方志同修次重出：《[道光]江陰縣志》周仲簡纂、陳延恩修、李兆洛纂（中國古籍總目） ← 《江陰縣志》陳延恩修（无著录（故宫等））。脚本初判 A同修次·研-方志S复核。逐簇核对：同為陳延恩修、李兆洛纂道光二十年江陰縣志；故宮二十八卷首一卷與總目二十四卷之異屬著錄差異",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "juan_count": {
+    "number": 28
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 28
+    }
+  ],
+  "measure_info": "二十八卷卷首一卷",
+  "period": "qing",
+  "period_basis": "據 authors[0].dynasty「清」",
+  "dynasty": "清",
+  "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
+  "additional_titles": [
+    "江陰縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n77mq68",
+      "title": "江陰縣志",
+      "at": "2026-10-26T15:01:08Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[道光]江陰縣志》周仲簡纂、陳延恩修、李兆洛纂（中國古籍總目） ← 《江陰縣志》陳延恩修（无著录（故宫等））。脚本初判 A同修次·研-方志S复核。逐簇核对：同為陳延恩修、李兆洛纂道光二十年江陰縣志；故宮二十八卷首一卷與總目二十四卷之異屬著錄差異",
+      "author": "陳延恩"
+    }
+  ],
+  "merged_from": [
+    "d59f2n77mq68"
+  ]
 }

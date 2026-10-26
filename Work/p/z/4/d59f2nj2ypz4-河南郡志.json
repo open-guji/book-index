@@ -20,12 +20,19 @@
       "source_bid": "d59f2mox0000",
       "title_info": "乔缙《河南郡志》四十二卷",
       "summary": "喬縉《河南郡志》四十二卷"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "陳宣河南郡志",
+      "summary": "陳宣河南郡志"
     }
   ],
   "description": {
-    "text": "喬縉（明）撰。四十二卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「喬縉《河南郡志》四十二卷」。本書惟《明史藝文志》一志著錄，別無他證。《明史藝文志》清張廷玉等修——本書之目賴之以存。",
+    "text": "喬縉（明）撰。四十二卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「喬縉《河南郡志》四十二卷」。",
     "sources": [
-      "明史藝文志"
+      "明史藝文志",
+      "千頃堂書目"
     ]
   },
   "measures": [
@@ -40,7 +47,72 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f6efczs3m《河南郡志》 入本條。方志同修次重出：《河南郡志》喬縉撰（明史藝文志） ← 《河南郡志》陳宣撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：弘治河南郡志四十二卷陳宣修、喬縉纂（國圖、NDL著錄均同：陳宣修、卷末喬縉序），兩條同書。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "resources": [
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC892-411999018691-86810_%E6%B2%B3%E5%8D%97%E9%83%A1%E5%BF%97_%E7%AC%AC1%E5%86%8A.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999018691",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999018691",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999018691",
+        "edition": "明弘治[1488-1505]"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2606246",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2606246",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2606246",
+        "edition": "弘治12序刊萬暦補刊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-411999018691": {
+      "label": "國圖藏本：明弘治[1488-1505]"
+    },
+    "ndl-2606246": {
+      "label": "NDL藏本：弘治12序刊萬暦補刊"
+    }
+  },
+  "merged_in": [
+    {
+      "id": "d59f6efczs3m",
+      "title": "河南郡志",
+      "at": "2026-10-26T15:01:20Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《河南郡志》喬縉撰（明史藝文志） ← 《河南郡志》陳宣撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：弘治河南郡志四十二卷陳宣修、喬縉纂（國圖、NDL著錄均同：陳宣修、卷末喬縉序），兩條同書。",
+      "author": "陳宣",
+      "title_info": "陳宣河南郡志"
+    }
+  ],
+  "merged_from": [
+    "d59f6efczs3m"
+  ]
 }
