@@ -32,6 +32,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-15343-0082_%E9%8C%A2%E5%AD%90%E6%B8%AC%E8%AA%9E.pdf"
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i12_00026",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i12/i12_00026/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i12_00026",
+        "edition": "華苹館, 万暦43[1615]跋"
+      }
     }
   ],
   "measures": [
@@ -46,13 +61,18 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批2_核对报告.md。",
   "description": {
     "text": "錢琦（明）撰。二卷。見著錄於《欽定四庫全書總目》。本書惟《欽定四庫全書總目》一志著錄，別無他證。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-25",
+  "resource_groups": {
+    "waseda-i12_00026": {
+      "label": "早稲田藏本：華苹館, 万暦43[1615]跋"
+    }
+  }
 }
