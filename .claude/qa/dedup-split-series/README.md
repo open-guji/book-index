@@ -36,3 +36,11 @@
 
 ## 并入已有 Book（`--merge-existing`）
 「同 Work 已有同丛书 Book」的 200 组不新建。加 `--merge-existing` 只跑这类组：keeper 照常剥离；被并者并入那个已有的活 Book（provenance／sources／indexed_by 取并集，写 merged_from，revision 升 major，ai_note 记一行）；草稿被并者 merged_into 改指它，不进 promotions。只在「命中目标唯一、被并者全部命中、同一 Collection 集」时做（batch-05）；其余 49 组（及 batch-05 抽检挑出的 4 组）候选不唯一或只部分命中，留人工（台账 problems）。
+
+## 留人工组的逐组方案（batch-06，`--manual`）
+batch-05 留人工的 49 组＋skip 4 组由独立 agent 逐组研究（`batch-06/manual.json`，基线 main 0bb846c325f），每个被并草稿给去向：`new` 新建、Book id 并入该 Book、`stay` 留 keeper。`stay` 分两种：幽灵子目（同聚珍版书规则，从 keeper 剥去所挂 Collection 及带来的馆藏／著录／源记录）；以及 keeper 自身原挂印次是幽灵（四部叢刊底本 edition 自注「初次印本」或「二次印本、縮印本」，keeper 原挂的不在其中）时，keeper 改以这个被并者为本版次，剥去 keeper 原记录独有的 Collection／馆藏／著录／源记录。
+`split.py --manual batch-06/manual.json` 只做方案里「可做」的组，不走自动判定。
+- 结果：49 组；新建 24 Book、并入已有 Book 57 条、幽灵子目 31 条、keeper 改本版次 10 组。
+- 存疑 3 组不动：牧齋有學集 9945aa5iwx、9945awmm0w（自注与所挂印次自相矛盾）、說文解字繫傳 9945amy96o（无自注）。
+- 續方言 994074cjy9 跳过：要先把孪生副本 9940eahszk 并成墓碑。
+- 抽检（独立 agent，12 组）判错 0。方案里另记「交部分5」的重复（玉函山房 keeper 与同挂湘遠堂本的孪生 Book 14 组；文淵閣本 988g13db7k≡988g0zmgow 已由 #1545 并）、唐宋叢書三条同题 Collection 是否同一版次、泊宅編三卷与十卷是否同书，均未动。

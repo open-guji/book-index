@@ -8,26 +8,7 @@ git fetch -q origin main
 MB=$(git merge-base HEAD origin/main)
 C=$(git merge-tree --write-tree --name-only HEAD origin/main 2>/dev/null | grep '^CONFLICT' | sed 's/.*Merge conflict in //' || true)
 [ -z "$C" ] && { echo 无冲突; git merge -q --no-edit origin/main; exit 0; }
-IDS=$(python3 - "$B" "$MB" <<'PY'
-import sys, json, subprocess, re
-B, MB = sys.argv[1], sys.argv[2]
-batch = json.load(open(B + '/batch.json'))
-mine = {i: g['keeper'] for g in batch['groups'] for i in [g['keeper'], *g['losers']]}
-out = set()
-for line in sys.stdin.read().split('\n'):
-    p = line.strip()
-    if p.startswith('Work/'):
-        i = p.split('/')[-1][:12]
-        if i in mine: out.add(i)
-    elif p.startswith('Book/'):
-        for rev in (MB, 'origin/main', 'HEAD'):
-            try:
-                w = json.loads(subprocess.check_output(['git', 'show', f'{rev}:{p}'], stderr=subprocess.DEVNULL)).get('work_id')
-                if w in mine: out.add(w)
-            except Exception: pass
-print(' '.join(out))
-PY
-<<< "$C")
+IDS=$(printf "%s\n" "$C" | python3 .claude/qa/dedup-subitem/conflict_ids.py $B $MB)
 [ -n "$IDS" ] && python3 .claude/qa/dedup-subitem/drop_groups.py $B $MB $IDS && git add -A && git commit -qm "子目-甲1：撤出与他线撞车的组" -m "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01KkP9NxgDPHhn6JrmtZvRRD"
 git merge --no-edit origin/main >/dev/null 2>&1 || true

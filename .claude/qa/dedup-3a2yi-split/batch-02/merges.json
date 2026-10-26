@@ -1,0 +1,142 @@
+{
+ "base": "1d126365374ea394b5c01096cd7154881247834d",
+ "merges": [
+  {
+   "cluster_id": "3a2ding-split-1",
+   "type": "work",
+   "keeper": "d59f2gokx2wx",
+   "losers": [
+    "d59f2j5ai0ht"
+   ],
+   "evidence": "a 拆後只剩十卷外集一卷本（花溪沈氏本及其覆刊、影印），與 b 留下的十卷外集一卷本同編次（總目「松雪齋集（松雪齋文集）十卷外集一卷」括注互見，兩邊都有花溪沈氏本）；b 著錄與 Book 多，整條並入 b",
+   "rule": "3a-2丁先拆后并",
+   "preconditions": [
+    {
+     "id": "d59f2gokx2wx",
+     "path": "Work/2/w/x/d59f2gokx2wx-松雪齋集.json",
+     "sha256": "065d6e04e39929a660fb79b1784d567e85dabb174735b87cb003803810446e84"
+    },
+    {
+     "id": "d59f2j5ai0ht",
+     "path": "Work/0/h/t/d59f2j5ai0ht-松雪齋文集.json",
+     "sha256": "2d6b19353b22363f989acc559610af8da01aadb00f7fd71d9a6ffcfb9fa60fae"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2j5ai0ht",
+     "fields": [
+      {
+       "field": "measure_info",
+       "keeper_value": "十卷外集一卷",
+       "loser_value": "十卷外集一卷 八冊"
+      },
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "naikaku-1083756": {
+         "label": "內閣文庫藏本：明万暦42年刊本（跋刊）（集015-0002，2冊）"
+        },
+        "naikaku-1082369": {
+         "label": "內閣文庫藏本：清刊本（316-0041，4冊）"
+        }
+       },
+       "loser_value": {
+        "nlc-411999012449": {
+         "label": "國圖藏本：明正德六年[1511]"
+        },
+        "nlc-412000000701": {
+         "label": "國圖藏本：清[1644-1911]"
+        },
+        "nlc-411999010983": {
+         "label": "國圖藏本：明初[1368-1424]"
+        },
+        "nlc-411999022837": {
+         "label": "國圖藏本：明正德6年[1511]"
+        },
+        "nlc-411999013354": {
+         "label": "國圖藏本：明初[1368-1424]"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "3a2ding-split-2",
+   "type": "work",
+   "keeper": "d59fsf1p0zk6",
+   "losers": [
+    "d59fxqm9jzsy"
+   ],
+   "evidence": "總目 a 條括注又名明列「權文公詩集」，四庫提要言劉本僅存詩賦十卷；b 只有一組十卷詩集，整條並入 a",
+   "rule": "3a-2丁先拆后并",
+   "preconditions": [
+    {
+     "id": "d59fsf1p0zk6",
+     "path": "Work/z/k/6/d59fsf1p0zk6-新刊權文公文集.json",
+     "sha256": "4757a334b1f3e2583ba5403717063db836144b9cd48181716794d974eae63c81"
+    },
+    {
+     "id": "d59fxqm9jzsy",
+     "path": "Work/z/s/y/d59fxqm9jzsy-權文公詩集.json",
+     "sha256": "787c96eb64f210d538e19dd213cfe6e194897ed12f598926947ba4f7d79f3a83"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fxqm9jzsy 在 zm0679，keeper 在 zm0668——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "3a2ding-split-3",
+   "type": "work",
+   "keeper": "d59f28m9wnpj",
+   "losers": [
+    "d59f28kvyosl"
+   ],
+   "evidence": "a 只有五卷本；四庫「儲光羲詩五卷」引直齋即 b 所掛直齋「儲光羲集五卷」同條，總目 b 條括注「儲光羲詩集」互見，同為五卷詩集；b 剝出唐志七十卷、宋志二卷後整條並入 b",
+   "rule": "3a-2丁先拆后并",
+   "preconditions": [
+    {
+     "id": "d59f28m9wnpj",
+     "path": "Work/n/p/j/d59f28m9wnpj-儲光羲集.json",
+     "sha256": "43285ea8c8d0d76e1ce310a607bbe81e818846577ea42d3a8eb1972dd01ca91d"
+    },
+    {
+     "id": "d59f28kvyosl",
+     "path": "Work/o/s/l/d59f28kvyosl-儲光羲詩.json",
+     "sha256": "14f5b324d6aa9e63601375f6b2c65ee1dfd0f69832f924d7ed401a080c9b39e9"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f28kvyosl",
+     "fields": [
+      {
+       "field": "period_upper",
+       "keeper_value": "sui-tang",
+       "loser_value": "qing"
+      },
+      {
+       "field": "period_upper_basis",
+       "keeper_value": "catalog_bound：所繫諸志中最緊者為《新唐書藝文志》（宋歐陽修等（1060），著錄唐代著述），故不晚於 sui-tang",
+       "loser_value": "catalog_bound：所繫諸志中最緊者為《欽定四庫全書總目》（清紀昀等（1782）），故不晚於 qing"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f28kvyosl 在 zm0666，keeper 在 zm0668——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  }
+ ]
+}

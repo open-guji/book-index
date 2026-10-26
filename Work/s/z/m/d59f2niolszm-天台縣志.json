@@ -31,41 +31,7 @@
   "juan_count": {
     "number": 20
   },
-  "resources": [
-    {
-      "id": "shidianguji-kangxiershierkeben",
-      "name": "识典古籍",
-      "url": "https://www.shidianguji.com/book/HY0166",
-      "metadata": {
-        "edition": "康熙二十二年刻本",
-        "version": "v15",
-        "total_page": 1438,
-        "paragraph_count": 2839,
-        "has_translation": true,
-        "check_type": "粗校"
-      },
-      "types": [
-        "text",
-        "image"
-      ]
-    },
-    {
-      "id": "shidianguji-qingkangxikeben",
-      "name": "识典古籍",
-      "url": "https://www.shidianguji.com/book/NLG312001074579",
-      "metadata": {
-        "edition": "清康熙23年[1684]刻本",
-        "version": "v3",
-        "total_page": 1136,
-        "paragraph_count": 10471,
-        "check_type": "AI整理"
-      },
-      "types": [
-        "text",
-        "image"
-      ]
-    }
-  ],
+  "resources": [],
   "measures": [
     {
       "unit": "卷",
@@ -78,7 +44,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\nC1b 迁移遗留，按总目改正\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f6efq3qx1《天台縣志》 入本條。方志同修次重出：《天台縣志》張宏代撰（欽定四庫全書總目） ← 《天台縣志》胡來聘撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：四庫所收即張宏代原本經胡來聘萬曆乙卯續修之二十卷本，與千頃堂胡來聘萬曆乙卯修本為同一修次",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\nC1b 迁移遗留，按总目改正\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f6efq3qx1《天台縣志》 入本條。方志同修次重出：《天台縣志》張宏代撰（欽定四庫全書總目） ← 《天台縣志》胡來聘撰（千頃堂書目）。脚本初判 A同修次·研-方志S复核。逐簇核对：四庫所收即張宏代原本經胡來聘萬曆乙卯續修之二十卷本，與千頃堂胡來聘萬曆乙卯修本為同一修次\n\n2026-10-26 方志-并善後：資源「HY0166」屬另一修次（d59f2niolszm 本Work為明萬曆張宏代/胡來聘二十卷本；識典標「康熙二十二年刻本」即趙廷錫康熙二十三年刻本（22年序）），自本條摘下，改掛 d59fyoalpreo。\n\n2026-10-26 方志-并善後：資源「NLG312001074579」屬另一修次（d59f2niolszm 識典標「清康熙23年刻本」，且即國圖 312001074579，該 fid 已挂在 d59fyoalpreo），自本條摘下，改掛 d59fyoalpreo。",
   "description": {
     "text": "張宏代（明）撰。二十卷。見著錄於《欽定四庫全書總目》。",
     "sources": [
@@ -86,7 +52,7 @@
       "千頃堂書目"
     ]
   },
-  "revision": "1.1.0",
+  "revision": "1.1.2",
   "revised_at": "2026-10-26",
   "merged_in": [
     {
