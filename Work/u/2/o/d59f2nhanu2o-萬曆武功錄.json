@@ -105,6 +105,24 @@
         "ndl_record": "pid2603026",
         "edition": "[製作年不明]"
       }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101213282",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=KOL000003296",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101213282",
+        "nlk_control_no": "KOL000003296",
+        "holder": "국립중앙도서관",
+        "call_number": "古2520-19",
+        "edition": "新鉛活字本 民國 24[1935]"
+      }
     }
   ],
   "updated_at": "2026-08-09T10:41:40+00:00",
@@ -112,12 +130,15 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（A7 转交 NDL）。",
-  "revision": "1.1.0",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（A7 转交 NDL）。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resource_groups": {
     "ndl-2603026": {
       "label": "NDL藏本：[製作年不明]"
+    },
+    "korcis-101213282": {
+      "label": "韓國國立中央圖書館數字化藏本：新鉛活字本 民國 24[1935]"
     }
   }
 }

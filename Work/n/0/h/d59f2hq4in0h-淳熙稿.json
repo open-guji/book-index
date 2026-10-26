@@ -46,7 +46,7 @@
       "summary": "共 2 個版本：四庫全書本（馆藏未载）；清乾隆間翰林院紅格抄本（國家圖書館）"
     }
   ],
-  "ai_note": "清史稿藝文志匹配：書名精確匹配但無作者資訊可驗證（無作者，唯一候選）。 | 從 1evkpgys4pvr4 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故庫026788-026799），無同名 Work 故新建。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…“昌父志操文詞，皆非流輩所及。」今存。本書收入《國立故宮博物院善本舊…」），而 loss_status 未填，今據以補為 extant。",
+  "ai_note": "清史稿藝文志匹配：書名精確匹配但無作者資訊可驗證（無作者，唯一候選）。 | 從 1evkpgys4pvr4 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故庫026788-026799），無同名 Work 故新建。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…“昌父志操文詞，皆非流輩所及。」今存。本書收入《國立故宮博物院善本舊…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
   "measures": [
     {
       "unit": "卷",
@@ -92,11 +92,32 @@
         "nlc_fid": "411999029420",
         "edition": "清乾隆[1736-1795]"
       }
+    },
+    {
+      "id": "nlk",
+      "group": "korcis-101476378",
+      "group_role": "origin",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "short_name": "韓國國中",
+      "url": "https://www.nl.go.kr/NL/contents/search.do?srchTarget=total&kwd=EOL000007594",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "korcis_rec_key": "101476378",
+        "nlk_control_no": "EOL000007594",
+        "holder": "국립중앙도서관",
+        "call_number": "古古5-76-나13",
+        "edition": "木板本 [刊寫年未詳]"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999029420": {
       "label": "國圖藏本：清乾隆[1736-1795]"
+    },
+    "korcis-101476378": {
+      "label": "韓國國立中央圖書館數字化藏本：木板本 [刊寫年未詳]"
     }
   },
   "description": {
@@ -111,8 +132,8 @@
   "dynasty_basis": "据唯一 author.dynasty「南宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「南宋」自动归并",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "loss_status_basis": "今存。“昌父志操文詞，皆非流輩所及。」今存。本書收入《國立故宮博物院善本舊",
   "contained_in": [
