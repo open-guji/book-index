@@ -3,7 +3,8 @@
 set -e
 N=$1; K=$2; R=$3; KEEP=$4; Q=.claude/qa; D=$Q/dedup-3a3/$N; LOG=$KEEP/../apply-$N.log
 git fetch -q origin main && git checkout -q -f -B claude/dedup-3a3-$N origin/main
-rm -rf $Q/dedup-3a3 && cp -r $KEEP/dedup-3a3 $Q/
+cp -r $KEEP/dedup-3a3/*.py $KEEP/dedup-3a3/*.sh $Q/dedup-3a3/
+cp $KEEP/audit-merge-ledger.py scripts/audit-merge-ledger.py
 python3 $Q/dedup-3a3/filter_live.py $R $D $K
 python3 $Q/dedup-3a3/apply_3a3.py $D/batch.json --apply > $LOG 2>&1 || { tail $LOG; exit 2; }
 python3 $Q/dedup-confirmed-163/postfix_common.py $D --apply | tail -1
