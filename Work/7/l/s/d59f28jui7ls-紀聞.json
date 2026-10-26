@@ -47,7 +47,7 @@
       "國史經籍志"
     ]
   },
-  "ai_note": "从卷二 ambiguous 新建：unresolved\n\n2026-08-18 全庫同名異書核對：本組4條中3條分見國史經籍志、宋史藝文志、崇文總目，撰人皆唐牛肅，卷數皆十卷，確係同書重出，逕併為一，補撰人。第4條（直齋書錄解題「《紀聞》一卷。集賢殿修撰李復圭審言撰」，`1evr5e3mjd12u`）撰人卷數皆異，經核對原文確為另一人另一書，非同書，未予合併。本庫無牛肅同名 entity，未繫。\n\n2026-09-09 A-并条 併條（rule=A-撰人黏題首致撞庫失效）：併 d59f2q2k4n41《牛肅紀聞》 入本條。被并方繫於新唐書藝文志，正条繫於國史經籍志、宋史藝文志、崇文總目；两侧所繫之志互不相交（ev1_disjoint），卷数集合相容（ev2_state=同），撰人「牛肅」与正条撰人相合，判为撰人黏题首致同书重出，逕并。",
+  "ai_note": "从卷二 ambiguous 新建：unresolved\n\n2026-08-18 全庫同名異書核對：本組4條中3條分見國史經籍志、宋史藝文志、崇文總目，撰人皆唐牛肅，卷數皆十卷，確係同書重出，逕併為一，補撰人。第4條（直齋書錄解題「《紀聞》一卷。集賢殿修撰李復圭審言撰」，`1evr5e3mjd12u`）撰人卷數皆異，經核對原文確為另一人另一書，非同書，未予合併。本庫無牛肅同名 entity，未繫。\n\n2026-09-09 A-并条 併條（rule=A-撰人黏題首致撞庫失效）：併 d59f2q2k4n41《牛肅紀聞》 入本條。被并方繫於新唐書藝文志，正条繫於國史經籍志、宋史藝文志、崇文總目；两侧所繫之志互不相交（ev1_disjoint），卷数集合相容（ev2_state=同），撰人「牛肅」与正条撰人相合，判为撰人黏题首致同书重出，逕并。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "id": "d59f28jui7ls",
   "measures": [
     {
@@ -61,8 +61,8 @@
   "dynasty_basis": "author_propagation:唯一作者朝代",
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「唐」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -71,6 +71,22 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-08492_%E7%B4%80%E8%81%9E.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-08492",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/08492",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "08492",
+        "call_number": "310.22 08492",
+        "edition": "鈔本"
+      }
     }
   ],
   "additional_titles": [
@@ -85,5 +101,10 @@
       "rule": "A-撰人黏題首致撞庫失效",
       "why": "被并方繫於新唐書藝文志，正条繫於國史經籍志、宋史藝文志、崇文總目；两侧所繫之志互不相交（ev1_disjoint），卷数集合相容（ev2_state=同），撰人「牛肅」与正条撰人相合，判为撰人黏题首致同书重出，逕并。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-08492": {
+      "label": "臺灣國家圖書館藏本：鈔本"
+    }
+  }
 }

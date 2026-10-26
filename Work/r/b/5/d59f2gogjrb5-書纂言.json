@@ -119,11 +119,30 @@
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100095553/manifest",
         "note": "注本已核（R3-4b）：國書IIIF著者为注者、影像抽核为注本，与所挂注本 Work 相符"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00186",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00186",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00186",
+        "call_number": "102.2 00186",
+        "edition": "明嘉靖己酉(二十八年, 1549)顧應祥滇中刊本"
+      }
     }
   ],
   "resource_groups": {
     "kokusho-100095553": {
       "label": "國書·函館中央図藏写"
+    },
+    "ncltw-00186": {
+      "label": "臺灣國家圖書館藏本：明嘉靖己酉(二十八年, 1549)顧應祥滇中刊本"
     }
   },
   "measures": [
@@ -141,13 +160,13 @@
       "補遼金元藝文志"
     ]
   },
-  "ai_note": "從 1evke30mv3qps 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvl270d1c 與 11q37nzlnzbi8 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3a-3 併條（rule=去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并）：併 d59fxx7uefi8《今文尚書纂言》 入本條。异题名同书（总目题名括注／其他题名互见）：《書纂言》吳澄／《今文尚書纂言》吳澄；依据：其他题名「書纂言」；两道子 agent 逐条复核：B古籍總目「今文尚書纂言（書纂言）四卷」，同為吳澄撰四卷",
+  "ai_note": "從 1evke30mv3qps 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvl270d1c 與 11q37nzlnzbi8 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3a-3 併條（rule=去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并）：併 d59fxx7uefi8《今文尚書纂言》 入本條。异题名同书（总目题名括注／其他题名互见）：《書纂言》吳澄／《今文尚書纂言》吳澄；依据：其他题名「書纂言」；两道子 agent 逐条复核：B古籍總目「今文尚書纂言（書纂言）四卷」，同為吳澄撰四卷\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "updated_at": "2026-08-09T09:33:12+00:00",
   "period": "liao-jin-yuan",
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "additional_titles": [
     "今文尚書纂言"

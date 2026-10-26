@@ -136,6 +136,22 @@
         "edition": "朝鮮舊鈔本",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03163",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03163",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03163",
+        "call_number": "209 03163",
+        "edition": "朝鮮舊鈔本"
+      }
     }
   ],
   "measures": [
@@ -150,7 +166,7 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-24 隋唐 T5·description 補全（著錄 ≥7 源批）：所據為本條所繫著錄之引文（見 indexed_by／emendated_by，尤以四庫提要、崇文總目、直齋書錄解題之敘錄為主）及通行學術常識，未覆核原書。",
+  "ai_note": "[sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-08-24 隋唐 T5·description 補全（著錄 ≥7 源批）：所據為本條所繫著錄之引文（見 indexed_by／emendated_by，尤以四庫提要、崇文總目、直齋書錄解題之敘錄為主）及通行學術常識，未覆核原書。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "《歲華紀麗》四卷，舊本題唐韓鄂撰。鄂為韓休之弟殿中丞倩之曾孫（據《唐書·宰相世系表》）。以四時節候分門隸事，各編為駢句，略如《北堂書鈔》《白氏六帖》之體，是為時令類書之祖。**傳本聚訟**：兩《唐志》《宋志》《書錄解題》皆著其名而久無傳本，今本出胡震亨《秘冊函》所刻，王士禎《居易錄》疑其偽造；然錢曾《讀書敏求記》言舊抄本卷終闕字數行、又失末葉，與李中麓所藏宋刻脫落正同，則其出宋本可信（四庫提要）。",
     "sources": [
@@ -163,6 +179,11 @@
       "直齋書錄解題"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "ncltw-03163": {
+      "label": "臺灣國家圖書館藏本：朝鮮舊鈔本"
+    }
+  }
 }

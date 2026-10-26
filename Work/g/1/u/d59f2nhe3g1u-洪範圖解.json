@@ -108,11 +108,49 @@
         "nlc_fid": "411999023533",
         "edition": "明正德16年[1521]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05623-0003",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05623-0003",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05623-0003",
+        "call_number": "306.1 05623-0003",
+        "edition": "明正嘉間(1506-1566)原刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-06442",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/06442",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "06442",
+        "call_number": "306.1 06442",
+        "edition": "明正德辛巳(十六年, 1521)朝邑知縣王道刊本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999023533": {
       "label": "國圖藏本：明正德16年[1521]"
+    },
+    "ncltw-05623-0003": {
+      "label": "臺灣國家圖書館藏本：明正嘉間(1506-1566)原刊本"
+    },
+    "ncltw-06442": {
+      "label": "臺灣國家圖書館藏本：明正德辛巳(十六年, 1521)朝邑知縣王道刊本"
     }
   },
   "measures": [
@@ -127,7 +165,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "韓邦奇（明）撰。二卷；諸志所著之數有異，別作一卷。見著錄於《欽定四庫全書總目》《國史經籍志》《四庫全書存目叢書》《經義考》。《四庫全書存目叢書》列於子部；《經義考》列於擬經。經注之屬。",
     "sources": [
@@ -137,6 +175,6 @@
       "經義考"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26"
 }
