@@ -45,8 +45,8 @@
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "id": "d59f6erw1p1f",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -73,12 +73,32 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4902181/manifest.json",
         "extent": "6冊"
       }
+    },
+    {
+      "id": "keio",
+      "group": "keio-13237",
+      "group_role": "origin",
+      "name": "慶應義塾図書館 漢籍コレクション",
+      "short_name": "慶應",
+      "url": "https://dcollections.lib.keio.ac.jp/ja/kanseki/42-34-8-1",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "keio_record": "keioobjecthub-13237",
+        "call_no": "42-34-8-1",
+        "edition": "鬱岡山房蔵版 清刊",
+        "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/42-34-8-1/manifest.json"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1068573": {
       "label": "內閣文庫藏本：清刊本（285-0037，6冊）"
+    },
+    "keio-13237": {
+      "label": "慶應藏本：鬱岡山房蔵版 清刊"
     }
   },
-  "ai_note": "2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目分類：史部／紀事本末類／通代之屬（與正式庫分類並存，未改 Work 分類）"
+  "ai_note": "2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目分類：史部／紀事本末類／通代之屬（與正式庫分類並存，未改 Work 分類）\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 慶應 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。"
 }
