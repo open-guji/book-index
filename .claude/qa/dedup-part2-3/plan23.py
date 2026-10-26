@@ -152,9 +152,11 @@ def main():
         if len(n) >= 3 and n[-1] in '藏並等':
             hold(s, '疑名字粘连责任方式'); continue
         if DEITY.search(n): hold(s, '神号或托名'); continue
+        if re.search('(宋宋|唐唐|明明|元元|金金|漢漢|晉晉|魏魏|梁梁|陳陳|周周|齊齊|吳吳)' + re.escape(n), s['author_info']):
+            hold(s, '朝代字与姓重叠被切'); continue   # 抽检 b02：「宋宋爲仁撰」切成爲仁
         if len(n) >= 3 and any(len(k) > len(loose(n)) and k.endswith(loose(n)) for k in suffixidx.get(loose(n)[-3:], ())):
             hold(s, '名为已有人物名之后缀待核'); continue   # 抽检 b01v2：赤心子＜起北赤心子
-        if (re.search(r'(軒|齋|斋|堂|閣|樓|館|室|廬|園|山房|書屋|居|亭|庵|菴)(主人)?$', n) or n.endswith('氏')) and ('題' + n) in s['author_info']:
+        if (re.search(r'(軒|齋|斋|堂|閣|樓|館|室|廬|園|山房|書屋|居|亭|庵|菴)(主人)?$', n) or n.endswith('氏')) and re.search('題[^;；|]{0,3}' + re.escape(n), s['author_info']):   # 抽检 b02：題清掄花館主人
             hold(s, '题署室名'); continue
         if DYPFX2.match(n): hold(s, '疑名前粘朝代'); continue
         ai = s['author_info']
@@ -235,7 +237,8 @@ def main():
                     for s in ss: hold(s, '谱牒异地或刊年相距逾40年', '/'.join(sorted(prov)))   # 抽检 spot2：左逢原山西／湖南
                     continue
             yrs = [min(y) for y in (eras.years(s['title'] + ' ' + s['summary']) for s in ss) if y]
-            if len(yrs) >= 2 and max(yrs) - min(yrs) > 80:
+            lim = 60 if any(re.search(r'譜|志|乘', t) for t in ts) else 80   # 抽检 b02：張元澧 1765 谱／1834 志
+            if len(yrs) >= 2 and max(yrs) - min(yrs) > lim:
                 for s in ss: hold(s, '组内著作年代相距逾80年', '%d-%d' % (min(yrs), max(yrs)))   # 抽检 spot1：孙谦康熙／乾隆
                 continue
         dys = collections.Counter(s['dynasty'] for s in ss if s['dynasty'])
