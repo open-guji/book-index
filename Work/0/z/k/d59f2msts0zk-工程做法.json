@@ -48,7 +48,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。　撰人「等」字剝離：著錄作「允禮等」，「等」謂允禮及其他未具名之纂修者，非姓名之一部，今剝離作「允禮」。著錄原有「等」字，是本書尚有未具名之纂修者，待補。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。　撰人「等」字剝離：著錄作「允禮等」，「等」謂允禮及其他未具名之纂修者，非姓名之一部，今剝離作「允禮」。著錄原有「等」字，是本書尚有未具名之纂修者，待補。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。",
   "juan_count": {
     "number": 74
   },
@@ -92,6 +92,42 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E5%B7%A5%E7%A8%8B%E5%81%9A%E6%B3%95%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067513",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067513",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067513",
+        "request_no": "２９７－００２０",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4912868/manifest.json",
+        "extent": "18冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070041",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070041",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070041",
+        "request_no": "史１１２－０００７",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4754358/manifest.json",
+        "extent": "76冊"
+      }
     }
   ],
   "updated_at": "2026-08-24T00:00:00+00:00",
@@ -99,13 +135,21 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-25",
   "related_works": [
     {
       "id": "d59fyv7hws8w",
       "relation": "related",
       "note": "史部E另立（anon）：總目記錄「工程做法」（無作者）與既有 Work 題名相同或相近而不可證同書（记录无作者、目标 Work 有作者且卷数不符／缺：不能证同作者，默认另立＋related），判為不同著作（不並）；互為相關。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1067513": {
+      "label": "內閣文庫藏本：清刊本（297-0020，18冊）"
+    },
+    "naikaku-1070041": {
+      "label": "內閣文庫藏本：清刊本（史112-0007，76冊）"
+    }
+  }
 }
