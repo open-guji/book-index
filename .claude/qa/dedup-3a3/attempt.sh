@@ -11,6 +11,7 @@ python3 $Q/dedup-confirmed-163/postfix_common.py $D --apply | tail -1
 python3 $Q/dedup-confirmed-163/update_index.py $D | tail -1 | cut -c1-40
 G=$(python3 -c "import json;print(len(json.load(open('$D/batch.json'))['groups']))")
 python3 $Q/dedup-3a3/mkreadme.py $D "$N（$G 组）"
+[ -n "$EXTRA" ] && bash $EXTRA $D
 git add -A . && git commit -qm "去重方案 3a-3：一名／又名自证异题同书 $N（$G 组）
 
 Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
