@@ -23,11 +23,30 @@
   "native_place": "崑山州",
   "native_place_entity_id": "hixi5whkr37s",
   "native_place_basis": "CBDB 33392 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=33392 補入空槽——籍貫「崑山州」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=33392 補入空槽——籍貫「崑山州」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixhd2h9bfl0，補入／訂正：description.sources←hixhd2h9bfl0。",
   "dates": {
     "birth": 1316,
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/qs5u07cxzkx5cx6u"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixhd2h9bfl0",
+      "primary_name": "袁華",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "據史實：崑山袁華（1316-?）元末明初人，著《耕學齋詩集》，玉山雅集中人；兩cbdb（214226／33392）為重出；被并条 hixhd2h9bfl0 另有 cbdb_id 214226（keeper 為 33392；CBDB 一人兩號或誤配，待 2.4 覆核）"
+    }
+  ]
 }

@@ -13,7 +13,7 @@
   "dynasty": "元",
   "native_place_basis": "CBDB 111878 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「元」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=111878 補入空槽——籍貫「金華」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6elphhqc。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=111878 補入空槽——籍貫「金華」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6elphhqc。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8us4rgad，補入／訂正：description.sources←hixi8us4rgad。",
   "period": "liao-jin-yuan",
   "schema_version": 1,
   "alt_names": [
@@ -25,5 +25,24 @@
   "subtype": "people",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/6nt4ug8uljx2b3ue"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8us4rgad",
+      "primary_name": "鄭謐",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "cbdb 111878 元人撰《注郭璞葬書》，《劉江東家藏善本葬書註釋》即鄭謐注《葬書》之刻本，同書異錄"
+    }
+  ]
 }

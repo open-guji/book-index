@@ -31,7 +31,7 @@
   "dynasty_basis": "cbdb:index_year=1112→北宋",
   "period": "song",
   "period_basis": "据 dynasty「北宋」自动归并",
-  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=14228 補入空槽——籍貫「宣城」。既有之值一概未動。",
+  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=14228 補入空槽——籍貫「宣城」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u5qspeu、hixhd2h9bm39，補入／訂正：description.sources←hixi8u5qspeu。",
   "native_place": "宣城",
   "native_place_entity_id": "hixi5whl2br5",
   "native_place_basis": "CBDB 14228 index_addr（2026-09-06 CBDB enrich）",
@@ -50,7 +50,30 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/bwy0mokgo7h62nk7"
+      },
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/wdv1totdxtutfu1w"
       }
     ]
-  }
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u5qspeu",
+      "primary_name": "周少隱",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "據史實：周紫芝字少隱，號竹坡，撰《竹坡老人詩話》《楚辭贅說》，皆宋；兩條皆即宋周紫芝（字少隱，cbdb 14228），《楚辭贅說》即《竹坡楚辭贅說》，并入周紫芝正條（抽檢意見）"
+    },
+    {
+      "id": "hixhd2h9bm39",
+      "primary_name": "周少隱",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "據史實：周紫芝字少隱，號竹坡，撰《竹坡老人詩話》《楚辭贅說》，皆宋；兩條皆即宋周紫芝（字少隱，cbdb 14228），《楚辭贅說》即《竹坡楚辭贅說》，并入周紫芝正條（抽檢意見）"
+    }
+  ]
 }

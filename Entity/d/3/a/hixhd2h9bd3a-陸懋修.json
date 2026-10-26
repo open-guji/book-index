@@ -28,7 +28,7 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "qing",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=81292 補入空槽——籍貫「元和」。既有之值一概未動。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=81292 補入空槽——籍貫「元和」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u5s1nn1，補入／訂正：description.sources←hixi8u5s1nn1。",
   "native_place": "元和",
   "native_place_entity_id": "hixi5wnd9m2t",
   "native_place_basis": "CBDB 81292 index_addr（2026-09-06 CBDB enrich）",
@@ -45,7 +45,22 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/01b5h2z7qodwgt2l"
+      },
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/dveb4c1yj2cmyhry"
       }
     ]
-  }
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u5s1nn1",
+      "primary_name": "陸懋修",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "據史實：清元和陸懋修（cbdb 81292）著《世補齋文集》《嶺上白雲集》；《世樸齋文集》即「世補齋」之訛，另條無時代信息不衝突"
+    }
+  ]
 }

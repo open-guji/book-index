@@ -11,7 +11,7 @@
   },
   "dynasty": "明",
   "dynasty_basis": "CBDB 692696 c_dy=19（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=692696 補入空槽——朝代「明」。既有之值一概未動。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=692696 補入空槽——籍貫「固始」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=692696 補入空槽——朝代「明」。既有之值一概未動。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=692696 補入空槽——籍貫「固始」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u65guyt，補入／訂正：period←hixi8u65guyt；description.sources←hixi8u65guyt。",
   "native_place": "固始",
   "native_place_entity_id": "hixi636g7ll5",
   "native_place_basis": "CBDB 692696 index_addr（2026-09-06 CBDB enrich）",
@@ -24,5 +24,32 @@
   ],
   "updated_at": "2026-09-09T18:02:50Z",
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "period": "ming",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/e8ab8dpwgsiscmth"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u65guyt",
+      "primary_name": "黃甲",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "同書異錄：《鳯巖山房全稿》與《鳳巖山房文草》齋名相同，皆明"
+    }
+  ],
+  "alt_names": [
+    {
+      "name": "黃甲",
+      "type": "別稱",
+      "note": "并入重出人物条（hixi8u65guyt）；见 2.1续-黃甲-A"
+    }
+  ]
 }

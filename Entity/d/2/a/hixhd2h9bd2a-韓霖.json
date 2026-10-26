@@ -16,7 +16,26 @@
   "native_place": "蕭山",
   "native_place_entity_id": "hixi5whkfuoc",
   "native_place_basis": "CBDB 675025 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=675025 補入空槽——籍貫「蕭山」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=675025 補入空槽——籍貫「蕭山」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8us3ii81，補入／訂正：description.sources←hixi8us3ii81。",
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/ho4crvktelwe4ttv"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8us3ii81",
+      "primary_name": "韓霖",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "同書異錄：兩條皆繫《慎守要錄》（另條兼《守圉全書》，明末韓霖所著）；清條 cbdb 675025 籍貫蕭山疑為誤配"
+    }
+  ]
 }

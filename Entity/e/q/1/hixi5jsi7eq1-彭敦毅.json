@@ -17,10 +17,29 @@
     "cbdb_match": "manual",
     "cbdb_source": "name_exact+snapshot_unique+dynasty_ok（Simone 快照同名唯一）"
   },
-  "ai_note": "批B-人物（GUJI-114）：史部／子部總目責任者未建檔、出現≥2部（2部，如《訒庵詩文稿》）；CBDB 89343 據 name 接口候選＋時代吻合判定，待人審。",
+  "ai_note": "批B-人物（GUJI-114）：史部／子部總目責任者未建檔、出現≥2部（2部，如《訒庵詩文稿》）；CBDB 89343 據 name 接口候選＋時代吻合判定，待人審。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u5ujjx6，補入／訂正：description.sources←hixi8u5ujjx6。",
   "review": {
     "status": "unreviewed"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-14"
+  "revised_at": "2026-10-14",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/uudcfg16l4tzzo46"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u5ujjx6",
+      "primary_name": "彭敦毅",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "A建檔注明言其著錄含《訒庵詩文稿》，即B所繫之書（同書異錄），A為清彭敦毅1873–1919（cbdb 89343）"
+    }
+  ]
 }

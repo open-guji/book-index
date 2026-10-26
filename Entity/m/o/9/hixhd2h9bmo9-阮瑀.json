@@ -16,11 +16,30 @@
   "period_basis": "據 dynasty「三國魏」自動歸併",
   "native_place": "尉氏",
   "native_place_basis": "CBDB 29613 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=29613 補入空槽——籍貫「尉氏」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=29613 補入空槽——籍貫「尉氏」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixhd2h9bnoh，補入／訂正：description.sources←hixhd2h9bnoh。",
   "dates": {
     "death": 212,
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/rabcmvjzbyvnenu3"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixhd2h9bnoh",
+      "primary_name": "阮瑀",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "阮瑀字元瑜，《阮瑀集》與《魏阮元瑜集》為同一人集；建安七子漢末魏初人，東漢／三國魏只是斷代歸屬之別"
+    }
+  ]
 }

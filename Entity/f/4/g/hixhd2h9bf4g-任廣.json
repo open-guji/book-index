@@ -23,8 +23,27 @@
   "native_place": "丹稜",
   "native_place_entity_id": "hixi636giu4m",
   "native_place_basis": "CBDB 30845 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=30845 補入空槽——籍貫「丹稜」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=30845 補入空槽——籍貫「丹稜」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u5ujjv0，補入／訂正：description.sources←hixi8u5ujjv0。",
   "revision": "1.0.0",
   "revised_at": "2026-10-07",
-  "dynasty_basis": "synonym:period=song"
+  "dynasty_basis": "synonym:period=song",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/p25g78eajt0l35vz"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u5ujjv0",
+      "primary_name": "任廣",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "同書異錄：兩邊皆有《呂涇野先生校正中秘元本》與《書敘指南》，宋人任廣（cbdb 30845）"
+    }
+  ]
 }

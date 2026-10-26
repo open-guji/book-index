@@ -25,9 +25,28 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "five-dynasties",
   "period_basis": "據 dynasty「南唐」自動歸併",
-  "ai_note": "2026-08-24 斷代收窄：本 entity 新收 1 部 work 之繫（撰人自著錄語／宋志頂真格抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-04 「坑32」批次逐條核查：新收 1 部 work 之繫（據別集類「人名＋集」書名體例補其撰人而回填反向）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=12237 補入空槽——籍貫「豫章」。既有之值一概未動。\n\n2026-09-07 lane-B 併條善後：所繫 d59f2gcez4sg 已併入 d59f2q3ackqo，而本 entity 之繫係該批入庫誤加，今撤其項而不改指（改指即把誤繫轉嫁 keeper）。撤去 1 項。",
+  "ai_note": "2026-08-24 斷代收窄：本 entity 新收 1 部 work 之繫（撰人自著錄語／宋志頂真格抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-04 「坑32」批次逐條核查：新收 1 部 work 之繫（據別集類「人名＋集」書名體例補其撰人而回填反向）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=12237 補入空槽——籍貫「豫章」。既有之值一概未動。\n\n2026-09-07 lane-B 併條善後：所繫 d59f2gcez4sg 已併入 d59f2q3ackqo，而本 entity 之繫係該批入庫誤加，今撤其項而不改指（改指即把誤繫轉嫁 keeper）。撤去 1 項。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u63wo6y，補入／訂正：description.sources←hixi8u63wo6y。",
   "revision": "1.0.0",
   "revised_at": "2026-09-04",
   "native_place": "豫章",
-  "native_place_basis": "CBDB 12237 index_addr（2026-09-06 CBDB enrich）"
+  "native_place_basis": "CBDB 12237 index_addr（2026-09-06 CBDB enrich）",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/be8x7xlb817hbj4t"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u63wo6y",
+      "primary_name": "徐鍇",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "據史實：《徐鍇詩》即南唐徐鍇（cbdb 12237，楚金）詩，總目題「宋」係易代著錄；《說文繫傳》撰者同一人"
+    }
+  ]
 }

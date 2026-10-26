@@ -28,7 +28,7 @@
   "native_place": "臨海",
   "native_place_entity_id": "hixi4ui5u4uf",
   "native_place_basis": "CBDB 28459 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=28459 補入空槽——籍貫「臨海」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=28459 補入空槽——籍貫「臨海」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u5puzte，補入／訂正：description.sources←hixi8u5puzte。",
   "dates": {
     "birth": 1314,
     "death": 1370,
@@ -37,6 +37,22 @@
   "revision": "1.0.0",
   "revised_at": "2026-10-07",
   "description": {
-    "sources": []
-  }
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/jiocjs1fk1uw7vdq"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u5puzte",
+      "primary_name": "陳基",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "兩條皆繫《夷白齋稿》（另《夷白集》），即元末明初臨海陳基（1314-1370，CBDB 28459）；另條中《味清堂詩鈔》作者位清，疑誤聚"
+    }
+  ]
 }

@@ -27,11 +27,30 @@
   "native_place": "吳江",
   "native_place_entity_id": "hixi5whkr37t",
   "native_place_basis": "CBDB 74020 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=74020 補入空槽——籍貫「吳江」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=74020 補入空槽——籍貫「吳江」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8us3tqsb，補入／訂正：description.sources←hixi8us3tqsb。",
   "dates": {
     "death": 1652,
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/i14woz8tikv52r00"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8us3tqsb",
+      "primary_name": "朱天麟",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "據史實：《朱文靖公觀論》以諡「文靖」題名，即南明大學士朱天麟（cbdb 74020，卒1652）"
+    }
+  ]
 }

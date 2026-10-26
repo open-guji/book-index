@@ -237,12 +237,22 @@ def census(root, draft=None, whitelist=None):
         if name:
             by_name[name].append(eid)
     erows = []
+    # 人物同名组已登记判定（分立／存疑）的条目：.claude/qa/dedup-judged/2.1续.tsv 第 2 列
+    pj = os.path.join(root, '.claude', 'qa', 'dedup-judged', '2.1续.tsv')
+    judged_people = set()
+    if os.path.exists(pj):
+        for line in open(pj, encoding='utf-8'):
+            c = line.rstrip('\n').split('\t')
+            if len(c) > 1 and not line.startswith('#'):
+                judged_people.add(c[1])
     for name, ids in by_name.items():
         if len(ids) > 1:
             cited = [i for i in ids if author_refs[i]]
             erep['同名组'] += 1
             if len(cited) > 1:
                 erep['  其中两条以上被作者引用'] += 1
+            if all(i in judged_people for i in ids):
+                erep['  其中全员已登记判定（dedup-judged/2.1续）'] += 1
             erows.append((name, len(ids), len(cited), ','.join(sorted(ids))))
     rep['E 人物重名'] = dict(erep)
     detail['人物重名'] = (('主名键', '条数', '被引条数', 'ids'), sorted(erows))

@@ -24,6 +24,11 @@
     {
       "name": "育齋",
       "type": "號"
+    },
+    {
+      "name": "高穀",
+      "type": "別稱",
+      "note": "并入重出人物条（hixhd2h9bup9）；见 2.1续-高穀-A"
     }
   ],
   "external_ids": {
@@ -32,7 +37,35 @@
     "cbdb_source": "name_match+dy_filter+unique",
     "wikidata_id": "Q15051726"
   },
-  "ai_note": "2026-09-26 D9-链接清零：Entity.works[] 移除對 《高文毅公集》(d59f6eh7639f) 之舊邊——現查該書 authors[] 已無「高榖」其名（書已改繫他人或原繫本屬誤植），單向死鏈，依 rule D9-oneway-刪舊邊 清理。",
+  "ai_note": "2026-09-26 D9-链接清零：Entity.works[] 移除對 《高文毅公集》(d59f6eh7639f) 之舊邊——現查該書 authors[] 已無「高榖」其名（書已改繫他人或原繫本屬誤植），單向死鏈，依 rule D9-oneway-刪舊邊 清理。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixhd2h9bup9，補入／訂正：dynasty←hixhd2h9bup9；period←hixhd2h9bup9；dates←hixhd2h9bup9；description.sources←hixhd2h9bup9。",
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "dynasty": "明",
+  "dynasty_basis": "author_propagation:所繫 work 之 authors[].dynasty 作「明」",
+  "period": "ming",
+  "period_basis": "據 dynasty「明」自動歸併",
+  "dates": {
+    "birth": 1391,
+    "death": 1460,
+    "basis": "現行字段"
+  },
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/64mu5s22rx3b1e86"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixhd2h9bup9",
+      "primary_name": "高穀",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "字號全同（世用、克用、文毅、育齋），一條 cbdb 67546，另條生卒 1391–1460 相合"
+    }
+  ]
 }

@@ -24,7 +24,7 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "qing",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=84554 補入空槽——籍貫「休寧」。既有之值一概未動。",
+  "ai_note": "2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=84554 補入空槽——籍貫「休寧」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u5yaegv，補入／訂正：description.sources←hixi8u5yaegv。",
   "native_place": "休寧",
   "native_place_entity_id": "hixi4ui65ddz",
   "native_place_basis": "CBDB 84554 index_addr（2026-09-06 CBDB enrich）",
@@ -34,5 +34,24 @@
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/8e206corqy07tdp2"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u5yaegv",
+      "primary_name": "胡正言",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 线索复核（本串独立判定）",
+      "why": "同書異錄：兩條皆掛十竹齋《翎毛譜》（《十竹齋畫譜之翎毛譜》），明條另有《十竹齋書畫譜》《胡氏篆草》，皆休寧胡正言（1584–1674，cbdb 84554）；研究判存疑，本串複核改并"
+    }
+  ]
 }
