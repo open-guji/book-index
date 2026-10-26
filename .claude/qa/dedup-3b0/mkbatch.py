@@ -18,6 +18,8 @@ dc = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(dc)
 PREFIX = re.compile(r'^(\[[^\]]*\]|新刊|新刻|新鐫|新鍥|重刊|重刻|欽定|御定|御纂)')
 # 簇内卷数不相容但理由已说明者（判定.tsv 序号）：张九韶元史节要本条兼著二卷、十四卷；典论本条兼著五卷、一卷；古赋辨体十卷即八卷加外集
 EXCEPT = {3, 116, 117, 377}
+# 卷数极差＞1 而经独立复核判同书（不同版本、分卷不同、著录误记，或一侧卷数实缺）的簇
+JUAN_OK = {'3b0-010', '3b0-012', '3b0-018', '3b0-077', '3b0-102', '3b0-121', '3b0-128', '3b0-134', '3b0-142', '3b0-144', '3b0-163', '3b0-174', '3b0-189', '3b0-254', '3b0-258', '3b0-322', '3b0-339', '3b0-357', '3b0-363', '3b0-389', '3b0-411', '3b0-413'}
 PRE = re.compile(r'(齊|周|陳|燕|吳|晉|晋|梁|魏|前燕|後秦|姚秦|日|日本|美|英|延祐|淮南王|江夏王|太學博士|周太史|華陰縣知縣[^\s]*)')
 SUF = re.compile(r'(讚|輯|修|撰|等|公|氏)')
 # 独立核验判存疑而剔出者（簇号 → 理由），登 dedup-judged/3b-0.tsv 为 D
@@ -218,7 +220,7 @@ def main():
         if neg:
             bad.append((cid, '簇内有 %s 对' % '/'.join(r['判定'] + r['序'] for r in neg))); continue
         js = set().union(*(juans(W[i]) for i in ids))
-        if js and max(js) - min(js) > 1 and not (set(seqs) & EXCEPT):
+        if js and max(js) - min(js) > 1 and not (set(seqs) & EXCEPT) and cid not in JUAN_OK:
             bad.append((cid, '卷数不相容 %s' % sorted(js))); continue
         # 规范名（keeper 取用此名者）：人工指定（CANON）＞CBDB 本名＞名互含里去掉朝代／官称前缀、去掉误入的角色字，或补全脱字者
         # ＞所繫 Entity 主名＞著录原文 author_info 最常见之形

@@ -58,6 +58,23 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E6%99%AF%E5%BE%B7%E9%8E%AE%E9%99%B6%E9%8C%84%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100288244",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100288244",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100288244",
+        "holder": "藝大図脇本",
+        "edition": "刊 光緒１７",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100288244/manifest"
+      }
     }
   ],
   "updated_at": "2026-08-09T10:40:18+00:00",
@@ -72,7 +89,12 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 去重 2.2续-乙抽检：撰者藍浦（浮梁人，字濱南）原誤繫 hixhd2h9bd7m 張玉田（湘潭人，字藍浦），字號撞名，撤去 entity_id。",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 去重 2.2续-乙抽检：撰者藍浦（浮梁人，字濱南）原誤繫 hixhd2h9bd7m 張玉田（湘潭人，字藍浦），字號撞名，撤去 entity_id。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "kokusho-100288244": {
+      "label": "國書·藝大図脇本藏刊 光緒１７"
+    }
+  }
 }
