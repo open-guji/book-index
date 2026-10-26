@@ -16,7 +16,7 @@
       "（所繫實物之版本著錄）"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L6 desc 補全：本條之 description 非人所撰，是據所繫著錄之引文（或所繫實物之版本著錄）機械組織而成，未覆核原書。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L6 desc 補全：本條之 description 非人所撰，是據所繫著錄之引文（或所繫實物之版本著錄）機械組織而成，未覆核原書。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 3 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
   "measures": [
     {
       "unit": "冊",
@@ -33,8 +33,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -58,11 +58,66 @@
         "nlc_fid": "1123",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ri08_01705",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ri08/ri08_01705/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ri08_01705",
+        "edition": ""
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko11_d0257",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko11/bunko11_d0257/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko11_d0257",
+        "edition": "富小路夷川上ル町(皇都) : 岩垣善兵衛, 寛保3[1743] ( ) : ※"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-i13_00557",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i13/i13_00557_0001/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i13_00557",
+        "edition": "御幸町通姉小路北(亰) : 五車楼, 元治元[1864] ( )"
+      },
+      "note": "存卷1-2"
     }
   ],
   "resource_groups": {
     "nlc-1123": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "waseda-ri08_01705": {
+      "label": "早稲田藏本"
+    },
+    "waseda-bunko11_d0257": {
+      "label": "早稲田藏本：富小路夷川上ル町(皇都) : 岩垣善兵衛, 寛保3[1743] ( ) : ※"
+    },
+    "waseda-i13_00557": {
+      "label": "早稲田藏本：御幸町通姉小路北(亰) : 五車楼, 元治元[1864] ( )"
     }
   }
 }
