@@ -17,13 +17,17 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2n7i8sn5《肅寧縣志》 入本條。方志同修次重出：《肅寧縣志》談有典纂（无著录（故宫等）） ← 《肅寧縣志》尹侃等纂修（无著录（故宫等））。脚本初判 B同修次·同年号同卷·无同名。逐簇核对：肅寧同乾隆、十卷，尹侃修、談有典纂為同一修次，十九/二十一年為刊年著錄之差。",
   "juan_count": {
     "number": 10
   },
   "measures": [
     {
       "unit": "冊",
+      "number": 10
+    },
+    {
+      "unit": "卷",
       "number": 10
     }
   ],
@@ -34,6 +38,57 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "commons",
+      "name": "维基共享资源",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC403-312001065442-97924_%E8%82%85%E5%AF%A7%E7%B8%A3%E8%AA%8C_%E6%B8%85%E4%B9%BE%E9%9A%8621%E5%B9%B4%281756%29_%E5%8D%B7%E4%BA%8C.pdf",
+      "types": [
+        "image"
+      ],
+      "root_type": "catalog",
+      "metadata": {
+        "format": "PDF",
+        "edition": "刻本",
+        "year": "清乾隆21年[1756]",
+        "note": "本链接为扫描册 卷二；不代表全书齐备。"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001065442",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001065442",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001065442",
+        "edition": ""
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-312001065442": {
+      "label": "國圖藏本："
+    }
+  },
+  "merged_in": [
+    {
+      "id": "d59f2n7i8sn5",
+      "title": "肅寧縣志",
+      "at": "2026-10-26T13:55:42Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《肅寧縣志》談有典纂（无著录（故宫等）） ← 《肅寧縣志》尹侃等纂修（无著录（故宫等））。脚本初判 B同修次·同年号同卷·无同名。逐簇核对：肅寧同乾隆、十卷，尹侃修、談有典纂為同一修次，十九/二十一年為刊年著錄之差。",
+      "author": "尹侃"
+    }
+  ],
+  "merged_from": [
+    "d59f2n7i8sn5"
+  ]
 }
