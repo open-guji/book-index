@@ -150,6 +150,58 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5390451/manifest.json",
         "extent": "12冊"
       }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-BV037407476",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb00061904",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb00061904",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00061904/manifest",
+        "shelfmark": "4 L.sin. D 296-1/4",
+        "volume_count": 6,
+        "edition": "[福建] Vorwort 1621"
+      },
+      "details": "多冊本，站方分 6 條著錄；此處鏈接其中排序最前一條（bsb00061904），其餘各冊見站方"
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3343670782",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3343670782",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3343670782",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3343670782/manifest",
+        "shelfmark": "34895",
+        "edition": "刻本 康熙丙午 (=1666)"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2012402480",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2012402480/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2012402480",
+        "iiif_manifest": "https://www.loc.gov/item/2012402480/manifest.json",
+        "edition": "明天啟間刻本 1621"
+      }
     }
   ],
   "measures": [
@@ -164,7 +216,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条、柏林國圖 1 条、美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "description": {
     "text": "廖用賢（明）編。二十二卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》。《四庫全書存目叢書》列於子部。其著錄之文，《四庫全書存目叢書》作「《尚友錄》二十二卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -172,8 +224,8 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-15",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-002306719": {
       "label": "國圖藏本：清雍正4年[1726]"
@@ -189,6 +241,15 @@
     },
     "naikaku-1068271": {
       "label": "內閣文庫藏本：明天啓1年刊本（序刊）（367-0063，12冊）"
+    },
+    "bsb-BV037407476": {
+      "label": "巴伐利亞州立圖書館藏本：[福建] Vorwort 1621"
+    },
+    "sbb-PPN3343670782": {
+      "label": "柏林國家圖書館藏本：刻本 康熙丙午 (=1666)"
+    },
+    "loc-2012402480": {
+      "label": "美國國會圖書館藏本：明天啟間刻本 1621"
     }
   },
   "related_works": [

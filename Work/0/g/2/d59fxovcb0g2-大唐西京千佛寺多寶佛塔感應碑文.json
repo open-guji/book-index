@@ -14,6 +14,11 @@
         "details": "http://data.library.sh.cn/entity/person/1jyallm3l8b15ghr"
       },
       "entity_id": "hixicabcxc04"
+    },
+    {
+      "name": "顏真卿",
+      "role": "書",
+      "dynasty": "唐"
     }
   ],
   "dynasty": "唐",
@@ -30,7 +35,29 @@
       "summary": "共 2 個版本：民國三十七年上海商務印書館影印本（上海圖書館）；民國間影印宋拓本（南京圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：meoqnbz3gqpdkeml、y1ffz8ucenzmsh7x",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：meoqnbz3gqpdkeml、y1ffz8ucenzmsh7x\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-NDL新书建条-20261026.md。 2026-10-26 資源 A7-NDL：據 NDL 藏本著錄與複核補著者「唐顏真卿書」。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "ndl",
+      "group": "ndl-2541103",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2541103",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2541103",
+        "edition": "明拓"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ndl-2541103": {
+      "label": "NDL藏本：明拓"
+    }
+  }
 }

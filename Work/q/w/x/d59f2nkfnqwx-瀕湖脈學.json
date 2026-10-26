@@ -120,6 +120,57 @@
         "holder": "府中之島図森田",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300091867/manifest"
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3303598819",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3303598819",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3303598819",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3303598819/manifest",
+        "shelfmark": "Libri sin. 671-1",
+        "edition": "刻本;[China] [癸卯 (=萬曆癸卯 =1603)]"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN174194113X",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN174194113X",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN174194113X",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN174194113X/manifest",
+        "shelfmark": "Slg. Unschuld 8019",
+        "edition": "s.l. 光緒廿十年歲次壬寅暮春月 (1840)"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN174947705X",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN174947705X",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN174947705X",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN174947705X/manifest",
+        "shelfmark": "Slg. Unschuld 8154",
+        "edition": "s.l. Early republican era"
+      }
     }
   ],
   "measures": [
@@ -134,7 +185,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwkj4nz0g 與 11q37qvfhh81s 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目分類：子部／醫家類",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwkj4nz0g 與 11q37qvfhh81s 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目分類：子部／醫家類\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "description": {
     "text": "李時珍（明）撰。一卷。見著錄於《欽定四庫全書總目》《明史藝文志》。其著錄之文，《明史藝文志》作「李時珍《瀕湖脈學》一卷，《奇經八脈考》一卷時珍《本草綱目》一書，用力深入，詳《方伎傳》」。《欽定四庫全書總目》清乾隆間館臣修；《明史藝文志》清張廷玉等修——本書之目賴之以存。",
     "sources": [
@@ -142,14 +193,23 @@
       "明史藝文志"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "kokusho-100382031": {
       "label": "國書·東北大狩野マイクロ藏刊"
     },
     "kokusho-300091867": {
       "label": "國書·府中之島図森田藏刊 正徳４"
+    },
+    "sbb-PPN3303598819": {
+      "label": "柏林國家圖書館藏本：刻本;[China] [癸卯 (=萬曆癸卯 =1603)]"
+    },
+    "sbb-PPN174194113X": {
+      "label": "柏林國家圖書館藏本：s.l. 光緒廿十年歲次壬寅暮春月 (1840)"
+    },
+    "sbb-PPN174947705X": {
+      "label": "柏林國家圖書館藏本：s.l. Early republican era"
     }
   },
   "related_works": [

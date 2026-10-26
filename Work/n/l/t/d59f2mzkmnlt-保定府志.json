@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evdicj99elfk(張欽);1evkaozajaha8(馮惟敏);1evkarnhinbpc(馮惟敏)（不同作者，故新建獨立 Work）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evdicj99elfk(張欽);1evkaozajaha8(馮惟敏);1evkarnhinbpc(馮惟敏)（不同作者，故新建獨立 Work）。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2n7ohji9《保定府志》 入本條。方志同修次重出：《保定府志》郭棻纂輯（中國古籍總目） ← 《保定府志》紀宏謨修（无著录（故宫等））。脚本初判 A同修次·研-方志S复核。逐簇核对：紀宏謨修／郭棻纂，均清康熙十九年刻，故宮本存十九卷為殘本，與總目[康熙]保定府志二十九卷同一修次",
   "juan_count": {
     "number": 29
   },
@@ -24,6 +24,10 @@
     {
       "unit": "冊",
       "number": 29
+    },
+    {
+      "unit": "卷",
+      "number": 19
     }
   ],
   "measure_info": "二十九卷",
@@ -33,8 +37,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -43,6 +47,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL01034732_%E4%BF%9D%E5%AE%9A%E5%BA%9C%E5%BF%97.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001064940",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001064940",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001064940",
+        "edition": ""
+      }
     }
   ],
   "indexed_by": [
@@ -54,5 +73,24 @@
       "section": "史部/方志類/地志之屬",
       "summary": "共 1 個版本：清康熙十九年刻本（北京大學圖書館、保定市圖書館、湖北省圖書館、天津圖書館、南京圖書館、國家圖書館、上海圖書館、中國科學院圖書館、浙江圖書館）"
     }
+  ],
+  "resource_groups": {
+    "nlc-312001064940": {
+      "label": "國圖藏本："
+    }
+  },
+  "merged_in": [
+    {
+      "id": "d59f2n7ohji9",
+      "title": "保定府志",
+      "at": "2026-10-26T14:58:42Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《保定府志》郭棻纂輯（中國古籍總目） ← 《保定府志》紀宏謨修（无著录（故宫等））。脚本初判 A同修次·研-方志S复核。逐簇核对：紀宏謨修／郭棻纂，均清康熙十九年刻，故宮本存十九卷為殘本，與總目[康熙]保定府志二十九卷同一修次",
+      "author": "紀宏謨"
+    }
+  ],
+  "merged_from": [
+    "d59f2n7ohji9"
   ]
 }

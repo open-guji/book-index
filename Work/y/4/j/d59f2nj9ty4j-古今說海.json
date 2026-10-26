@@ -146,6 +146,42 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3324298/manifest.json",
         "extent": "20冊"
       }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-BV037264681",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb00061844",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb00061844",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00061844/manifest",
+        "shelfmark": "L.sin. Aa 13-1/5",
+        "volume_count": 4,
+        "edition": "儼山書院; 1821"
+      },
+      "details": "多冊本，站方分 4 條著錄；此處鏈接其中排序最前一條（bsb00061844），其餘各冊見站方"
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN1047636441",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN1047636441",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN1047636441",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN1047636441/manifest",
+        "shelfmark": "Libri sin. N.S. 256",
+        "edition": "刻本;[China] 嘉靖甲辰 (=1544) [清道光元年 (1821)重刊]"
+      }
     }
   ],
   "resource_groups": {
@@ -160,6 +196,12 @@
     },
     "naikaku-1084455": {
       "label": "內閣文庫藏本：明嘉靖23年刊本（序刊） 儼山書院（370-0003，20冊）"
+    },
+    "bsb-BV037264681": {
+      "label": "巴伐利亞州立圖書館藏本：儼山書院; 1821"
+    },
+    "sbb-PPN1047636441": {
+      "label": "柏林國家圖書館藏本：刻本;[China] 嘉靖甲辰 (=1544) [清道光元年 (1821)重刊]"
     }
   },
   "measures": [
@@ -174,7 +216,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwx6x0hds 與 11q37rsil6osg 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwx6x0hds 與 11q37rsil6osg 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条、柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "description": {
     "text": "陸楫（明）編。一百四十二卷；諸志所著之數有異，別作百四十二卷。見著錄於《欽定四庫全書總目》《明史藝文志》《國史經籍志》。諸家按語稱其佚文見引於《御覽》。《欽定四庫全書總目》清乾隆間館臣修；《明史藝文志》清張廷玉等修——本書之目賴之以存。",
     "sources": [
@@ -183,6 +225,6 @@
       "國史經籍志"
     ]
   },
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26"
 }
