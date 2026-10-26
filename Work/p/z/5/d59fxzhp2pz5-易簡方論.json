@@ -15,7 +15,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/8padi7t25zvtvaab"
-      }
+      },
+      "entity_id": "hixhd2h9bj7f"
     }
   ],
   "dynasty": "清",
@@ -30,9 +31,107 @@
       "author_info": "清程履新撰",
       "section": "子部/醫家類/方論之屬/驗方",
       "summary": "共 4 個版本：清嘉慶二十二年石韞玉獨學廬刻本（南京圖書館、上海圖書館、中國科學院圖書館、中醫科學院）；清文會堂刻本（上海中醫藥大學圖書館）；清道光二十四年求我齋刻本（中醫科學院、吉林省圖書館）；清康熙三十二年刻本（上海圖書館、南京圖書館、廣東省中山圖書館、北京醫科大學圖書館）"
+    },
+    {
+      "source": "清史稿藝文志",
+      "source_bid": "d59f2mp0flz4",
+      "title_info": "程氏易簡方論",
+      "summary": "程氏易簡方論六卷。程履新撰。"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：0ok4spmzldjbvw74、xthh8z0g4jsh4wom、cgkujklrety3m30j、373fq3gylqu8201v\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：0ok4spmzldjbvw74、xthh8z0g4jsh4wom、cgkujklrety3m30j、373fq3gylqu8201v\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A11-去重方案3a-3 併條（rule=去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并）：併 d59f2nic4741《程氏易簡方論》 入本條。异题名同书（总目题名括注／其他题名互见）：《易簡方論》程履新／《程氏易簡方論》程履新；依据：其他题名「程氏易簡方論」；两道子 agent 逐条复核：B古籍總目「易簡方論（程氏易簡方論）六卷首一卷」，同為程履新撰六卷",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076643",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076643",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076643",
+        "request_no": "３０５－００２６",
+        "edition": "刊本::清嘉慶:220000:独学廬",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4918551/manifest.json",
+        "extent": "12冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076648",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076648",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076648",
+        "request_no": "３０５－００３２",
+        "edition": "写本:江戸:::医学館",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4918574/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079606",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079606",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079606",
+        "request_no": "子０２２－０００７",
+        "edition": "刊本（序刊）::清康煕:320000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4756308/manifest.json",
+        "extent": "12冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1076643": {
+      "label": "內閣文庫藏本：清嘉慶22年刊本 独学廬（305-0026，12冊）"
+    },
+    "naikaku-1076648": {
+      "label": "內閣文庫藏本：江戸写本 医学館（305-0032，2冊）"
+    },
+    "naikaku-1079606": {
+      "label": "內閣文庫藏本：清康煕32年刊本（序刊）（子022-0007，12冊）"
+    }
+  },
+  "juan_count": {
+    "number": 6
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 6
+    }
+  ],
+  "measure_info": "六卷",
+  "merged_in": [
+    {
+      "id": "d59f2nic4741",
+      "title": "程氏易簡方論",
+      "at": "2026-10-26T11:17:18Z",
+      "by": "A11-去重方案3a-3",
+      "rule": "去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并",
+      "why": "异题名同书（总目题名括注／其他题名互见）：《易簡方論》程履新／《程氏易簡方論》程履新；依据：其他题名「程氏易簡方論」；两道子 agent 逐条复核：B古籍總目「易簡方論（程氏易簡方論）六卷首一卷」，同為程履新撰六卷",
+      "author": "程履新",
+      "title_info": "程氏易簡方論"
+    }
+  ],
+  "merged_from": [
+    "d59f2nic4741"
+  ]
 }

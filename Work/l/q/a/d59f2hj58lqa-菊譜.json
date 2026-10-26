@@ -36,7 +36,7 @@
       "直齋書錄解題"
     ]
   },
-  "ai_note": "missing_reason: 短title \"菊譜\" 唯一候选无作者\n\n2026-08-15 全庫同名異書核對：併入 1evr5e3mklz5f（直齋書錄解題「彭城劉蒙撰」一卷本），撰人相同，卷數異（一卷／二卷，蓋不同志書著錄之異），確係同書，逕併，刪除該條。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。",
+  "ai_note": "missing_reason: 短title \"菊譜\" 唯一候选无作者\n\n2026-08-15 全庫同名異書核對：併入 1evr5e3mklz5f（直齋書錄解題「彭城劉蒙撰」一卷本），撰人相同，卷數異（一卷／二卷，蓋不同志書著錄之異），確係同書，逕併，刪除該條。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
   "id": "d59f2hj58lqa",
   "measures": [
     {
@@ -50,8 +50,8 @@
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基文库",
@@ -60,6 +60,44 @@
       ],
       "id": "wikisource",
       "url": "https://zh.wikisource.org/wiki/%E5%8A%89%E6%B0%8F%E8%8F%8A%E8%AD%9C"
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2537175",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2537175",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2537175",
+        "edition": "江戸寫"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2536149",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2536149",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2536149",
+        "edition": "明刊"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "ndl-2537175": {
+      "label": "NDL藏本：江戸寫"
+    },
+    "ndl-2536149": {
+      "label": "NDL藏本：明刊"
+    }
+  }
 }

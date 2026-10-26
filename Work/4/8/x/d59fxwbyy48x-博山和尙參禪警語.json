@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/0z6azhnqjkccyk5g"
-      }
+      },
+      "entity_id": "hixi5fstaomw"
     },
     {
       "name": "成正",
@@ -34,7 +35,49 @@
       "summary": "共 3 個版本：清光緒間刻本（天津圖書館）；清光緒三十四年江天寺刻本（上海圖書館、北京大學圖書館、遼寧大學圖書館、國家圖書館、天津圖書館）；明萬曆間刻本（臺灣圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：js3x2v47333bib2h、2wn5d8olyg2u4sy6、jiq6xj33vyejs3ab\n晋升前審計補錄：據 indexed_by.author_info 補入 成正（錄入時漏）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：js3x2v47333bib2h、2wn5d8olyg2u4sy6、jiq6xj33vyejs3ab\n晋升前審計補錄：據 indexed_by.author_info 補入 成正（錄入時漏）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-200009058",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200009058",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200009058",
+        "holder": "国文研",
+        "edition": "刊 慶安３",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200009058/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2537693",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2537693",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2537693",
+        "edition": "慶安3"
+      }
+    }
+  ],
+  "resource_groups": {
+    "kokusho-200009058": {
+      "label": "國書·国文研藏刊 慶安３"
+    },
+    "ndl-2537693": {
+      "label": "NDL藏本：慶安3"
+    }
+  }
 }

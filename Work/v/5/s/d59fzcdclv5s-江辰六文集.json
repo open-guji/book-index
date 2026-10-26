@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/6fepok8x4ezbmfli"
-      }
+      },
+      "entity_id": "hixi23ukyfwp"
     }
   ],
   "dynasty": "清",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：元至元間杭州路餘杭大普寧寺刻;民國三十年鉛印（四川省圖書館、南京圖書館、國家圖書館、復旦大學圖書館、上海圖書館、甘肅省圖書館、湖北省圖書館、浙江圖書館）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 p0zo28d2hirdh5c4（黔南叢書六十一種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：v3frru701fwsyo3k\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 p0zo28d2hirdh5c4（黔南叢書六十一種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：v3frru701fwsyo3k\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,32 @@
         "nlc_fid": "411999007780",
         "edition": "清康熙[1662-1722]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077681",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077681",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077681",
+        "request_no": "集０５４－０００５",
+        "edition": "刊本:清:::政在堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4773726/manifest.json",
+        "extent": "16冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999007780": {
       "label": "國圖藏本：清康熙[1662-1722]"
+    },
+    "naikaku-1077681": {
+      "label": "內閣文庫藏本：清刊本 政在堂（集054-0005，16冊）"
     }
   }
 }

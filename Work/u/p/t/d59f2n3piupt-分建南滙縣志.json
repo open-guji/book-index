@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志008086-008089），無同名 Work 故新建。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志008086-008089），無同名 Work 故新建。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "juan_count": {
     "number": 16
   },
@@ -34,8 +34,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "indexed_by": [
     {
       "source": "中國古籍總目",
@@ -45,5 +45,30 @@
       "section": "史部/方志類/地志之屬",
       "summary": "共 2 個版本：清雍正十三年刻本（湖北省圖書館、南京圖書館、國家圖書館、上海圖書館、北京大學圖書館）；抄本（上海博物館）"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073557",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073557",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073557",
+        "request_no": "史１６６－０００５",
+        "edition": "刊本（序刊）::清雍正:130000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4751916/manifest.json",
+        "extent": "4冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1073557": {
+      "label": "內閣文庫藏本：清雍正13年刊本（序刊）（史166-0005，4冊）"
+    }
+  }
 }

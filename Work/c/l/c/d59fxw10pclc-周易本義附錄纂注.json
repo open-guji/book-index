@@ -30,7 +30,113 @@
       "summary": "共 4 個版本：（北京大學圖書館）；（遼寧省圖書館、首都圖書館、上海圖書館、國家圖書館、湖北省圖書館、北京大學圖書館）；（北京大學圖書館）；（天津圖書館、首都圖書館、國家圖書館、中國科學院圖書館、上海圖書館、北京師範大學圖書館、北京大學圖書館、復旦大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5g2mvle46zkjabg6、e8qi84u1dr8tisn8、joy3riq62xyrhwvs、u6yv8eknddu4qlts\nauto-split:存疑未并\nE6 第 523 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5g2mvle46zkjabg6、e8qi84u1dr8tisn8、joy3riq62xyrhwvs、u6yv8eknddu4qlts\nauto-split:存疑未并\nE6 第 523 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070319",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070319",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070319",
+        "request_no": "２７３－００２１",
+        "edition": "刊本::文化:110000:；印年:::／印年:明治:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4019039/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070321",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070321",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070321",
+        "request_no": "２７３－００２５",
+        "edition": "刊本::文化:110000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4019861/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074905",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074905",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074905",
+        "request_no": "経００１－０００３",
+        "edition": "刊本::文化:110000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/2317418/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2608039",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2608039",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2608039",
+        "edition": "文化11刊(官版)"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100095536",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100095536",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100095536",
+        "holder": "函館中央図",
+        "edition": "刊 文化１１",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100095536/manifest"
+      },
+      "note": "合刻本：同册另含《易學啓蒙翼傳》（K19，只挂主书）"
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1070319": {
+      "label": "內閣文庫藏本：文化11年刊本 ;印年（273-0021，4冊）"
+    },
+    "naikaku-1070321": {
+      "label": "內閣文庫藏本：文化11年刊本（273-0025，4冊）"
+    },
+    "naikaku-1074905": {
+      "label": "內閣文庫藏本：文化11年刊本（経001-0003，4冊）"
+    },
+    "ndl-2608039": {
+      "label": "NDL藏本：文化11刊(官版)"
+    },
+    "kokusho-100095536": {
+      "label": "國書·函館中央図藏刊 文化１１"
+    }
+  }
 }

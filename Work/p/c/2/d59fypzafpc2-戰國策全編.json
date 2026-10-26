@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/ntjvo8dmbw35qyxp"
-      }
+      },
+      "entity_id": "hixhd2h9bepo"
     }
   ],
   "dynasty": "明",
@@ -29,7 +30,53 @@
       "summary": "共 1 個版本：明崇禎間刻本（上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2krzt70hi4ceuwdc\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 431 批新建（hold 清零：N-anon-clean；原 hold 原因：anonymous_author）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-20"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2krzt70hi4ceuwdc\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 431 批新建（hold 清零：N-anon-clean；原 hold 原因：anonymous_author）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070331",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070331",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070331",
+        "request_no": "２８６－０１４２",
+        "edition": "刊本:明末:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4272639/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070632",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070632",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070632",
+        "request_no": "史０４５－０００５",
+        "edition": "刊本:明末:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4751793/manifest.json",
+        "extent": "6冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1070331": {
+      "label": "內閣文庫藏本：明末刊本（286-0142，10冊）"
+    },
+    "naikaku-1070632": {
+      "label": "內閣文庫藏本：明末刊本（史045-0005，6冊）"
+    }
+  }
 }

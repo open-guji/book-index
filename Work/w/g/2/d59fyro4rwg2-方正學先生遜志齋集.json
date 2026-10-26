@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/n8a5gbpcpub0x43g"
-      }
+      },
+      "entity_id": "hixhd2h9ber6"
     }
   ],
   "dynasty": "明",
@@ -37,7 +38,7 @@
       "summary": "共 9 個版本：清宣統元年黃巖九峯精舍刻本（國家圖書館）；清康熙三十七年刻本（北京大學圖書館、國家圖書館）；清同治十二年吳縣孫氏刻本（南京圖書館、天津圖書館、國家圖書館）；清宣統元年黃巖九峯精舍刻本（國家圖書館）；明崇禎十六年張紹謙刻本（南京圖書館、中國科學院圖書館、復旦大學圖書館、北京大學圖書館、國家圖書館）；清道光二十六年義烏陳氏刻本（國家圖書館、南京圖書館）；明刻清康熙四十四年修補本（南京圖書館）；明萬曆四十年丁賓等刻清方忠祁重修本（浙江圖書館）；明萬曆四十年丁賓等刻本（國家圖書館、遼寧省圖書館、南京圖書館）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 1w522s5lb8awl67h（四部備要三百一種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6xhmv2xbyzp3ymyo\n同題同作者併條（集部串6，作者別名與並條口徑-共用 A檔：同名）（源 Work 1exopc3ztqpds《方正學先生遜志齋集》已並入；其作者寫法：方孝孺）",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 1w522s5lb8awl67h（四部備要三百一種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6xhmv2xbyzp3ymyo\n同題同作者併條（集部串6，作者別名與並條口徑-共用 A檔：同名）（源 Work 1exopc3ztqpds《方正學先生遜志齋集》已並入；其作者寫法：方孝孺）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
   "merged_in": [
     {
       "id": "1exopc3ztqpds",
@@ -48,6 +49,52 @@
       "why": "同題同作者併條（集部串6，作者別名與並條口徑-共用 A檔：同名）"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-20"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082507",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082507",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082507",
+        "request_no": "３１６－００９６",
+        "edition": "刊本（序刊）::明崇禎:150000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5086592/manifest.json",
+        "extent": "8冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082508",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082508",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082508",
+        "request_no": "３１６－００９７",
+        "edition": "刊本（序刊）::清康煕:370000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5086600/manifest.json",
+        "extent": "12冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1082507": {
+      "label": "內閣文庫藏本：明崇禎15年刊本（序刊）（316-0096，8冊）"
+    },
+    "naikaku-1082508": {
+      "label": "內閣文庫藏本：清康煕37年刊本（序刊）（316-0097，12冊）"
+    }
+  }
 }

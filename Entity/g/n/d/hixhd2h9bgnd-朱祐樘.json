@@ -7,7 +7,8 @@
   "alt_names": [
     {
       "name": "孝宗",
-      "type": "別名"
+      "type": "廟號",
+      "ambiguous": true
     },
     {
       "name": "弘治",
@@ -24,13 +25,26 @@
     {
       "name": "達天明道純識中正聖文神武至仁大德敬皇帝",
       "type": "諡號"
+    },
+    {
+      "name": "明孝宗",
+      "type": "廟號"
+    },
+    {
+      "name": "弘治帝",
+      "type": "別名"
+    },
+    {
+      "name": "建天明道誠純中正聖文神武至仁大德敬皇帝",
+      "type": "諡號"
     }
   ],
   "dynasty": "明",
   "external_ids": {
     "cbdb_id": 30157,
     "cbdb_match": "auto",
-    "cbdb_source": "name_exact+dy_match+unique"
+    "cbdb_source": "name_exact+dy_match+unique",
+    "wikidata_id": "Q9994"
   },
   "updated_at": "2026-08-08T11:51:58+00:00",
   "period": "ming",
@@ -38,12 +52,23 @@
   "native_place": "大興",
   "native_place_entity_id": "hixi5whl2brk",
   "native_place_basis": "CBDB 30157 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=30157 補入空槽——籍貫「大興」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=30157 補入空槽——籍貫「大興」。既有之值一概未動。\n\n2026-10-25 A12 L6 帝王稱號：補廟號、帝號別名（孝宗(改類型)、明孝宗、弘治帝、建天明道誠純中正聖文神武至仁大德敬皇帝），據維基百科補身份、說明；回填年號條 ruler.entity_id。 維基百科云《明史》諡號首字作「達」，實為「建」，兩形並存。",
   "dates": {
     "birth": 1470,
     "death": 1505,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.0.1",
+  "revised_at": "2026-10-25",
+  "title_or_office": "皇帝",
+  "description": {
+    "text": "明朝皇帝，年號弘治（1488–1505）。明憲宗朱見深之子。",
+    "sources": [
+      {
+        "name": "維基百科",
+        "type": "url",
+        "details": "https://zh.wikipedia.org/wiki/明孝宗"
+      }
+    ]
+  }
 }

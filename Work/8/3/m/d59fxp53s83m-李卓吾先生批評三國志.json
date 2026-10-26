@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/rq1vipae1sbsbjze"
-      }
+      },
+      "entity_id": "hixhd2h9bhu4"
     }
   ],
   "dynasty": "明",
@@ -29,9 +30,9 @@
       "summary": "共 5 個版本：抄本（北京大學圖書館）；清康熙間吳郡綠蔭堂刻本（中國社會科學院文學研究所、首都圖書館）；明末書林藜光樓植槐堂刻本（國家圖書館）；明刻本（南京圖書館）；明建陽吳觀明刻本（北京大學圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：0kg7p2arp7tpsnrl、778kdps85k1wfzz4、5dfay5xqiyyiewpx、g6l0dx5axm00q3ln、utgv3pm7isuerc7l\nE6 第 4 批新建（hold 清零：子部E机械落地b3:E-M-new；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：0kg7p2arp7tpsnrl、778kdps85k1wfzz4、5dfay5xqiyyiewpx、g6l0dx5axm00q3ln、utgv3pm7isuerc7l\nE6 第 4 批新建（hold 清零：子部E机械落地b3:E-M-new；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,30 @@
         "nlc_fid": "411999025021",
         "edition": "明末[1621-1644]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-he21_03536",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/he21/he21_03536/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "he21_03536",
+        "edition": "呉郡 : 緑蔭堂"
+      },
+      "note": "殘本（缺第73-77回）"
     }
   ],
   "resource_groups": {
     "nlc-411999025021": {
       "label": "國圖藏本：明末[1621-1644]"
+    },
+    "waseda-he21_03536": {
+      "label": "早稲田藏本：呉郡 : 緑蔭堂"
     }
   }
 }

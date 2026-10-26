@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/702a4izlhbu3d5fa"
-      }
+      },
+      "entity_id": "hixicld50a0b"
     }
   ],
   "dynasty": "明",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：明胡氏文會堂刻本（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：udhsxggk4143dy5h\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：udhsxggk4143dy5h\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,32 @@
         "nlc_fid": "411999029941",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077729",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077729",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077729",
+        "request_no": "３０１－０１３０",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4914977/manifest.json",
+        "extent": "2冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999029941": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1077729": {
+      "label": "內閣文庫藏本：江戸写本（301-0130，2冊）"
     }
   }
 }

@@ -30,7 +30,129 @@
       "summary": "共 1 個版本：明成化三年熊氏種德堂刻本（中醫科學院）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：p8b52rvwmoypa212\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：p8b52rvwmoypa212\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-ya09_01168",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ya09/ya09_01168/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ya09_01168",
+        "edition": ""
+      },
+      "note": "存卷7-12"
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300086135",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300086135",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300086135",
+        "holder": "府中之島図",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300086135/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300096795",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300096795",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300096795",
+        "holder": "府中之島図石崎",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300096795/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100380873",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100380873",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100380873",
+        "holder": "京大図",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100380873/manifest"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082729",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082729",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082729",
+        "request_no": "３０２－０００９",
+        "edition": "刊本::明成化:030000:熊氏種徳堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4449055/manifest.json",
+        "extent": "10冊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2605826",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2605826",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2605826",
+        "edition": "大永8 [1528]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-ya09_01168": {
+      "label": "早稲田藏本"
+    },
+    "kokusho-300086135": {
+      "label": "國書·府中之島図藏刊"
+    },
+    "kokusho-300096795": {
+      "label": "國書·府中之島図石崎藏刊"
+    },
+    "kokusho-100380873": {
+      "label": "國書·京大図藏刊"
+    },
+    "naikaku-1082729": {
+      "label": "內閣文庫藏本：明成化3年刊本 熊氏種徳堂（302-0009，10冊）"
+    },
+    "ndl-2605826": {
+      "label": "NDL藏本：大永8 [1528]"
+    }
+  }
 }

@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/a7dhcnm8k3l73ju7"
-      }
+      },
+      "entity_id": "hixiclg0y97q"
     },
     {
       "name": "陳建",
@@ -22,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/slh9sz7w1qoltniq"
-      }
+      },
+      "entity_id": "hixhd2h9berk"
     }
   ],
   "dynasty": "明",
@@ -39,9 +41,9 @@
       "summary": "共 3 個版本：明末五車樓刻本（中國科學院圖書館）；明末刻本（北京大學圖書館、國家圖書館、浙江圖書館）；明末天德堂刻本（上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6fcdrhmto2er1wlm、818pqxmj801gg1f4、hacx6niorgs5qy72\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6fcdrhmto2er1wlm、818pqxmj801gg1f4、hacx6niorgs5qy72\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -57,11 +59,53 @@
         "nlc_fid": "411999030952",
         "edition": "明末[1621-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068436",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068436",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068436",
+        "request_no": "２８４－００８３",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4901444/manifest.json",
+        "extent": "14冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073550",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073550",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073550",
+        "request_no": "２８４－００８２",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4279748/manifest.json",
+        "extent": "16冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999030952": {
       "label": "國圖藏本：明末[1621-1644]"
+    },
+    "naikaku-1068436": {
+      "label": "內閣文庫藏本：明刊本（284-0083，14冊）"
+    },
+    "naikaku-1073550": {
+      "label": "內閣文庫藏本：明刊本（284-0082，16冊）"
     }
   }
 }

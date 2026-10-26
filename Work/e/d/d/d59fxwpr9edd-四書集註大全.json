@@ -38,7 +38,7 @@
       "summary": "共 1 個版本：明末清初吴門德馨堂刻本（武漢大學圖書館、清華大學圖書館、日本東京大學東洋文化研究所、上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4ylv72tm7jf635x6、yoa5qiayh05v5tkf、frpz0kvjdr06ulg5、a2xk4xpkaevqdjmy、1gax0ery216lhqm7、x0lutjcc58fdrprn、peysrjwaa8rgpksu、qginr12gfikczjyo、swv3qplf7l1d3uoz、44qz38i82sid5qcd、yumlxy3unhwjcpl5、xfepim1zjyeyavta\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 3006 批新建（hold 清零：C；原 hold 原因：auto-split:near_dup）\n經部查重並條（A檔：同題同作者同朝代，卷數差≤1）（源 Work 1exok2o7s83k4《四書集註大全》已並入；其作者寫法：徐汧、胡廣）\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：4ylv72tm7jf635x6、yoa5qiayh05v5tkf、frpz0kvjdr06ulg5、a2xk4xpkaevqdjmy、1gax0ery216lhqm7、x0lutjcc58fdrprn、peysrjwaa8rgpksu、qginr12gfikczjyo、swv3qplf7l1d3uoz、44qz38i82sid5qcd、yumlxy3unhwjcpl5、xfepim1zjyeyavta\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 3006 批新建（hold 清零：C；原 hold 原因：auto-split:near_dup）\n經部查重並條（A檔：同題同作者同朝代，卷數差≤1）（源 Work 1exok2o7s83k4《四書集註大全》已並入；其作者寫法：徐汧、胡廣）\n\n国图數字古籍重配挂接\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "merged_in": [
     {
       "id": "1exok2o7s83k4",
@@ -49,8 +49,8 @@
       "why": "經部查重並條（A檔：同題同作者同朝代，卷數差≤1）"
     }
   ],
-  "revision": "1.2.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -81,6 +81,40 @@
         "nlc_fid": "411999015452",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074266",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074266",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074266",
+        "request_no": "２７７－００４０",
+        "edition": "刊本:寛永:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4030674/manifest.json",
+        "extent": "21冊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2609342",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2609342",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2609342",
+        "edition": "萬治2"
+      },
+      "note": "附《四書註者考》（日人江村撰）"
     }
   ],
   "resource_groups": {
@@ -89,6 +123,12 @@
     },
     "nlc-411999015452": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1074266": {
+      "label": "內閣文庫藏本：寛永刊本（277-0040，21冊）"
+    },
+    "ndl-2609342": {
+      "label": "NDL藏本：萬治2"
     }
   }
 }
