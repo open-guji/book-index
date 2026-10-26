@@ -280,10 +280,23 @@
       "description": "臺灣國家圖書館古籍影像檢索（善本古籍數位化影像，含合作館影像）",
       "url": "https://rbook.ncl.edu.tw/NCLSearch/",
       "total": 34900,
-      "imported": 6959,
+      "imported": 7684,
       "status": "in_progress",
       "priority": 22,
-      "notes": "2026-10-26 C3：匹配引擎 ncltw 確定檔掛 Work 層 6,959 項／5,268 條（分 4 批 PR 寫入，imported 為四批合計）；url 用按書號的 GET 檢索 OtherSearch/1/Identifier_BookNo/{書號}（詳情頁鏈接帶會話令牌）；total＝library_data 已抓記錄數（有影像 12,989）。"
+      "notes": "2026-10-26 C3：匹配引擎 ncltw 確定檔掛 Work 層 6,959 項／5,268 條（分 4 批 PR 寫入）；2026-10-26 C3續：存疑檔逐條初判、從嚴複核、全量盲檢後再掛 725 項，imported 為合計；合作館（柏克萊等）藏本 label 與 metadata.holder 寫實際藏館；url 用按書號的 GET 檢索 OtherSearch/1/Identifier_BookNo/{書號}（詳情頁鏈接帶會話令牌）；total＝library_data 已抓記錄數（有影像 12,989）。"
+    },
+    {
+      "id": "nomfoundation",
+      "name": "Vietnamese Nôm Preservation Foundation 數字圖書館",
+      "type": "collection",
+      "description": "越南漢喃遺產保存會數字圖書館（越南國家圖書館、勝嚴寺、普仁寺藏漢喃古籍影像）",
+      "url": "https://lib.nomfoundation.org/",
+      "total": 1455,
+      "imported": 15,
+      "status": "in_progress",
+      "priority": 22,
+      "start_date": "2026-10-26",
+      "notes": "C3續（2026-10-26）：只掛有責任者、題名與庫內 Work 全等、著者相合的中國原著越南刻本／寫本 15 部（逐部初判＋盲檢）；group=nom-<書號>，url=首冊頁，metadata.nom_book_id／holder／call_number／volumes。越南人自撰書庫內多無 Work，未掛。total＝library_data 已抓卷數。"
     }
   ]
 }
