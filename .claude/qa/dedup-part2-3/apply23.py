@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """去重方案部分 2.3：按 plan23.py 的 plan.json 新建人物 Entity，并把对应 Work 作者位的 entity_id 指过去。
 
-    python3 apply23.py <plan.json> <台账目录> [--start N --count M | --pick 名单.txt] [--apply]
+    python3 apply23.py <plan.json> <台账目录> [--share i/n] [--start N --count M | --pick 名单.txt] [--apply]
 
 不加 --apply 只核对、印计划。逐位重验：Work 非墓碑、作者位名未变、尚无 entity_id；任一位不合则整组跳过。
 id 用 mintid.py（车道 dedup23＝machine 2035）。Work 只设 authors[slot].entity_id，别的不动（同 2.2 apply_attach.py）。"""
@@ -14,10 +14,16 @@ import jio, mintid  # noqa: E402
 TODAY = '2026-10-25'
 ap = argparse.ArgumentParser(); ap.add_argument('plan'); ap.add_argument('out')
 ap.add_argument('--start', type=int, default=0); ap.add_argument('--count', type=int); ap.add_argument('--pick')
+ap.add_argument('--share', help='分份并行：i/n，只取 int(md5(名).hexdigest(),16) %% n == i 的组（同名不同朝代的组同在一份）')
 ap.add_argument('--apply', action='store_true')
 a = ap.parse_args()
 plan = json.load(open(a.plan, encoding='utf-8'))
 print('载入计划 %d 组' % len(plan)); assert plan
+if a.share:
+    import hashlib
+    si, sn = map(int, a.share.split('/'))
+    plan = [g for g in plan if int(hashlib.md5(g['name'].encode('utf-8')).hexdigest(), 16) % sn == si]
+    print('分份 %d/%d：%d 组' % (si, sn, len(plan)))
 if a.pick:
     want = [l.rstrip('\n').split('\t') for l in open(a.pick, encoding='utf-8') if l.strip()]
     key = {(g['name'], g['dynasty'] or ''): g for g in plan}
@@ -26,12 +32,16 @@ else:
     groups = plan[a.start:a.start + a.count] if a.count else plan[a.start:]
 
 ok, skipped = [], []
+cache = {}   # 同一 Work 可有多个新建作者位：同一份内存对象，最后各写一次（b01 首版曾因逐组读写互相覆盖，丢 723 位）
+def load(rel):
+    if rel not in cache: cache[rel] = jio.load(rel)
+    return cache[rel]
 for g in groups:
     bad = None; docs = []
     for s in g['slots']:
         p = os.path.join(jio.ROOT, s['path'])
         if not os.path.exists(p): bad = '文件已不在 ' + s['path']; break
-        d, fmt = jio.load(s['path'])
+        d, fmt = load(s['path'])
         au = (d.get('authors') or [None] * (s['slot'] + 1))[s['slot']] if len(d.get('authors') or []) > s['slot'] else None
         if d.get('merged_into'): bad = 'Work 已成墓碑 ' + s['id']; break
         if not isinstance(au, dict) or au.get('name') != s['name'] or au.get('entity_id'): bad = '作者位已变 %s#%d' % (s['id'], s['slot']); break
@@ -75,10 +85,17 @@ for (g, docs), eid in zip(ok, ids):
         jio.save(rel, rec, (2, '\n'))
         for s, d, fmt in docs:
             d['authors'][s['slot']]['entity_id'] = eid
-            jio.save(s['path'], d, fmt)
     ledger.append({'entity_id': eid, 'path': rel, 'name': g['name'], 'dynasty': g['dynasty'], 'cbdb_id': g['cbdb'] and g['cbdb']['id'],
                    'slots': [{'work_id': s['id'], 'path': s['path'], 'slot': s['slot'], 'title': s['title'], 'role': s['role']} for s, _, _ in docs]})
 
+if a.apply:
+    touched = {s['path'] for x in ledger for s in x['slots']}
+    for rel in touched: jio.save(rel, *cache[rel])
+    miss = 0
+    for x in ledger:   # 写后逐位复核
+        for s in x['slots']:
+            if jio.load(s['path'])[0]['authors'][s['slot']].get('entity_id') != x['entity_id']: miss += 1
+    print('写回 Work %d 部；复核作者位缺 entity_id：%d' % (len(touched), miss)); assert miss == 0
 os.makedirs(a.out, exist_ok=True)
 if a.apply:
     json.dump(ledger, open(os.path.join(a.out, 'created.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

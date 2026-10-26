@@ -95,6 +95,42 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E6%96%87%E6%B7%B5%E9%96%A3%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8_0179%E5%86%8A.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073789",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073789",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073789",
+        "request_no": "経０７１－０００３",
+        "edition": "刊本::清乾隆:130000:万巻楼；刊本::清乾隆:140000:万巻楼",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/2852014/manifest.json",
+        "extent": "24冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074024",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074024",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074024",
+        "request_no": "２７５－０１０７",
+        "edition": "刊本::清乾隆:130000:万巻楼；刊本::清乾隆:140000:万巻楼",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3967553/manifest.json",
+        "extent": "24冊"
+      }
     }
   ],
   "measures": [
@@ -109,7 +145,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvtb5r1fk 與 11q37oi8dj2f4 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvtb5r1fk 與 11q37oi8dj2f4 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。",
   "description": {
     "text": "顧棟高（清）撰。五十卷。見著錄於《欽定四庫全書總目》《清史稿藝文志》《書目答問》。諸志按語言其亡佚。其著錄之文，《書目答問》作「《春秋大事表》五十卷，《輿圖》一卷，《附錄》一卷」。《欽定四庫全書總目》清乾隆間館臣修；《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
     "sources": [
@@ -118,13 +154,21 @@
       "書目答問"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-25",
   "related_works": [
     {
       "id": "d59fxx82ilmp",
       "relation": "related",
       "note": "總目經部另立（auto-split:同名无主责任者未并）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1073789": {
+      "label": "內閣文庫藏本：清乾隆13年刊本 万巻楼;刊本（経071-0003，24冊）"
+    },
+    "naikaku-1074024": {
+      "label": "內閣文庫藏本：清乾隆13年刊本 万巻楼;刊本（275-0107，24冊）"
+    }
+  }
 }
