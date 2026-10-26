@@ -218,6 +218,57 @@
         "holder": "府中之島図森田",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300091765/manifest"
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3303598827",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3303598827",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3303598827",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3303598827/manifest",
+        "shelfmark": "Libri sin. 671-2,1",
+        "edition": "刻本;[China] 金閶書業堂 康熙戊申 (=1668)"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN1799835383",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN1799835383",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN1799835383",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN1799835383/manifest",
+        "shelfmark": "Slg. Unschuld 8357",
+        "edition": "s.l. Early republican era"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN1931325855",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN1931325855",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN1931325855",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN1931325855/manifest",
+        "shelfmark": "Slg. Unschuld 8846",
+        "edition": "s.l. s.a. Republican era"
+      }
     }
   ],
   "measures": [
@@ -235,7 +286,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwkwkt1j4 與 11q37qwf6wgzk 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwkwkt1j4 與 11q37qwf6wgzk 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "description": {
     "text": "張登（清）撰。一卷。見著錄於《欽定四庫全書總目》《清史稿藝文志》。《欽定四庫全書總目》清乾隆間館臣修；《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
     "sources": [
@@ -243,8 +294,8 @@
       "清史稿藝文志"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-411999014860": {
       "label": "國圖藏本：清[1644-1911]"
@@ -269,6 +320,15 @@
     },
     "kokusho-300091765": {
       "label": "國書·府中之島図森田藏刊"
+    },
+    "sbb-PPN3303598827": {
+      "label": "柏林國家圖書館藏本：刻本;[China] 金閶書業堂 康熙戊申 (=1668)"
+    },
+    "sbb-PPN1799835383": {
+      "label": "柏林國家圖書館藏本：s.l. Early republican era"
+    },
+    "sbb-PPN1931325855": {
+      "label": "柏林國家圖書館藏本：s.l. s.a. Republican era"
     }
   }
 }

@@ -464,6 +464,25 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4030977/manifest.json",
         "extent": "13冊"
       }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-BV041895661",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb11178821",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb11178821",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb11178821/manifest",
+        "shelfmark": "4 L.sin. D 364-1/7",
+        "volume_count": 2,
+        "edition": "成都 成都書局 1871"
+      },
+      "details": "多冊本，站方分 2 條著錄；此處鏈接其中排序最前一條（bsb11178821），其餘各冊見站方"
     }
   ],
   "measures": [
@@ -473,7 +492,7 @@
     }
   ],
   "measure_info": "六十五卷",
-  "ai_note": "作者 \"晉陳壽撰\" 補自《中華再造善本》目錄。 | 從 1evjy6457x7uo 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。\n\n2026-08-10 疑似重出.md 覆核：1evfuufd8zeo0 併入本條（同題同撰人同卷數，志書著錄之重出）。\n\n2026-08-20 磁鐵拆解專項（全域，卷數定其一）：整理本原以本 work 之 id 兼繫下列 1 節，各以卷數定其主，今各歸之：《《蜀國志》十五卷》→《蜀國志》`1evcs0bbr7fgg`。\n\n2026-08-20：刪 loss_status。原值 lost 與本條實況相違——今轄 17 Book，含《百衲本二十四史》宋紹熙刊本、元大德十年池州路儒學刻本（《中華再造善本》金元編 ZHSY000546）、武英殿本、四庫文淵閣本，皆傳世刻本而非輯本。《三國志》為二十四史之一，傳世不絕。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvzlyle68 與 11q37oywtfn5s 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J3(7) Entity 併池後現形之重出（形：輯本後綴）：併入之條是《玉函山房輯佚書》目錄所立之輯本條，其題綴「佚文」「一卷補遺」——輯本非別書（同 J3(2)-乙 形丁：臨海異物志佚文、陳留耆舊傳佚文已如此併）。　二條同繫一人（陳壽）而題有長短，取著錄源多者為主條。（併入者 id 1ewsa4axmg0ph，題「三國志佚文」）\n\n輯佚檔：本書之輯佚著錄置於 fragments/三國志.json（併條所遷）。\n\n2026-08-24 J4 單篇文 description 補全：本條之 description 為新撰。所據為本篇所收之總集（見 sources）及通行之學術常識——篇題、體裁、本事與繫年出諸家文選注（李善注、五臣注）與史傳之通說，**未覆核原書**。本批之立，是因 check_article.py 六項判準中本桶單篇文五項全備而唯缺此欄。\n\n2026-08-24 J7 存佚覆核：loss_status 由「（無值）」改 partially_extant，據見 loss_status_basis。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evcml226ooow` 已併入 `d59f27xz9pmq`（論三國志：隋志、國史經籍志作「何常侍撰」，補晉志定為何琦，同為九卷），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-09-06 《補晉書藝文志》（文廷式）整理：收《補晉書藝文志》（文廷式撰）一節，作「陳壽　三國志六十五卷」。撰人相符（本志「陳壽」／庫「陳壽」），時代相容（西晉）；庫題「三國志」\n\n2026-09-06 晉志 source 正名：indexed_by.source 綴撰人以別五家補晉志（四本同題《補晉書藝文志》，非綴撰人不可辨）。source_bid 未動。\n\n2026-09-06 《補晉書藝文志》（黃逢元）整理：收《補晉書藝文志》（黃逢元撰）一節，作「陳壽　三國志六十五卷　序録一卷」。撰人相符（本志「陳壽」／庫「陳壽」），時代相容（西晉）；庫題「三國志」\n\n2026-09-06 《補晉書藝文志》（黃逢元）深覈：卷數異文——本志作「六十五卷　序録一卷」而庫中作「六十五卷」。黃逢元多本《隋志》《兩唐志》《七錄》而擇一，庫中之數或本他志。同書異本，measure 不改，異數存此。\n\n2026-09-06 《補晉書經籍志》（吳士鑑）整理：收《補晉書經籍志》（吳士鑑撰）一節，作「陳壽　三國志六十五卷」。題、撰人（陳壽）俱合，朝代相容；庫條見隋書經籍志、舊唐書經籍志、新唐書藝文志\n\n2026-10-15 Elias 併條（rule=GUJI-89 空Work同名判重）：併 d59f9uwc15vo《三國志》 入本條。同名空Work(無作者、0 Book/0 資源，唯一著錄補晉書藝文志三國志六十五卷)，Selene 規格，Sabine 口徑，卷數65＝65\n\nE史 426跨批同題待判並入（Sabine 10-16 批）：總目記錄 bv2m4hu57kk6xqkz、mg7yu5ute4f6dhgc、jl0juxrapvvkbb6v、q7kmnwt0q8jai5dy、g3tt6tp1ntl7ro6d、s2cbsnptmu0o55se、0vo1c6azge3aqxvp、1pxmn80zmf876y1s、7b0n2irbsimp8pxq、cpzxkrqpx40f2k64、fk7jixpn3ye2asqs、aftwq0vsh8oq0be4、34a3vfe3saw757p7、quo8zn84vhcc0mli、rfk788fiu7tsgv3k、hk74g7hdlt7evjcw、czkhny0nxgeadxua、vlnabopsm4nvc11i、6xmbe3agnbrjtag3、3vhsm7l8kr3xe5f8、7u575afkd7u3fu75、qcs5l2fcn8eqwkgs、z8yejzuma53hh702、za86qk5le0ng4ljb、vq2odgvoje3dibxl、t3wypcdrdzgozlgb、34gm5qy1jnhdgd5l、atuwm6mk81dutur5、eoii0kmpswzwn4yv、s1x0hopwzkj7qwnq、yhq6xh35i6sunqco 同題同作者，朝代僅大朝與分期寫法差異（Sabine 10-16 裁）\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目著錄版本待定（版本標籤空，本 Work 有多個 Book，未入 Book）：f7shv1anypol18nq、qut341wialc64mfw、51p3w8rfpmmajm2z、rlqo7hvtssq85iup、4r6py4726xyayoct、xwrw1ugfuhv3xuza、0lyufga7gktm0ty7、iuap5gzko4ef8ohr、w0sk7n06c7imkm8e、r8rt1vm35ro3z1us、thetbt2wwzajhgrt、yx3wxa3n8orv3fuk、hge7upk6yv62uk38、g262vtefr3dnga20、nmld7gtks0i4ppbu、igvup1o820zfewbu、lk7mge4pxdhb2vsr\n總目分類：史部／紀傳類／叢編之屬",
+  "ai_note": "作者 \"晉陳壽撰\" 補自《中華再造善本》目錄。 | 從 1evjy6457x7uo 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。\n\n2026-08-10 疑似重出.md 覆核：1evfuufd8zeo0 併入本條（同題同撰人同卷數，志書著錄之重出）。\n\n2026-08-20 磁鐵拆解專項（全域，卷數定其一）：整理本原以本 work 之 id 兼繫下列 1 節，各以卷數定其主，今各歸之：《《蜀國志》十五卷》→《蜀國志》`1evcs0bbr7fgg`。\n\n2026-08-20：刪 loss_status。原值 lost 與本條實況相違——今轄 17 Book，含《百衲本二十四史》宋紹熙刊本、元大德十年池州路儒學刻本（《中華再造善本》金元編 ZHSY000546）、武英殿本、四庫文淵閣本，皆傳世刻本而非輯本。《三國志》為二十四史之一，傳世不絕。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvzlyle68 與 11q37oywtfn5s 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J3(7) Entity 併池後現形之重出（形：輯本後綴）：併入之條是《玉函山房輯佚書》目錄所立之輯本條，其題綴「佚文」「一卷補遺」——輯本非別書（同 J3(2)-乙 形丁：臨海異物志佚文、陳留耆舊傳佚文已如此併）。　二條同繫一人（陳壽）而題有長短，取著錄源多者為主條。（併入者 id 1ewsa4axmg0ph，題「三國志佚文」）\n\n輯佚檔：本書之輯佚著錄置於 fragments/三國志.json（併條所遷）。\n\n2026-08-24 J4 單篇文 description 補全：本條之 description 為新撰。所據為本篇所收之總集（見 sources）及通行之學術常識——篇題、體裁、本事與繫年出諸家文選注（李善注、五臣注）與史傳之通說，**未覆核原書**。本批之立，是因 check_article.py 六項判準中本桶單篇文五項全備而唯缺此欄。\n\n2026-08-24 J7 存佚覆核：loss_status 由「（無值）」改 partially_extant，據見 loss_status_basis。\n\n2026-08-25 跨庫併之善後：本條所引之 draft id `1evcml226ooow` 已併入 `d59f27xz9pmq`（論三國志：隋志、國史經籍志作「何常侍撰」，補晉志定為何琦，同為九卷），今改指之。原引用是 apply_merges.py 跨庫分支之遺漏——repoint_all 只掃 draft，production 側未改。\n\n2026-09-06 《補晉書藝文志》（文廷式）整理：收《補晉書藝文志》（文廷式撰）一節，作「陳壽　三國志六十五卷」。撰人相符（本志「陳壽」／庫「陳壽」），時代相容（西晉）；庫題「三國志」\n\n2026-09-06 晉志 source 正名：indexed_by.source 綴撰人以別五家補晉志（四本同題《補晉書藝文志》，非綴撰人不可辨）。source_bid 未動。\n\n2026-09-06 《補晉書藝文志》（黃逢元）整理：收《補晉書藝文志》（黃逢元撰）一節，作「陳壽　三國志六十五卷　序録一卷」。撰人相符（本志「陳壽」／庫「陳壽」），時代相容（西晉）；庫題「三國志」\n\n2026-09-06 《補晉書藝文志》（黃逢元）深覈：卷數異文——本志作「六十五卷　序録一卷」而庫中作「六十五卷」。黃逢元多本《隋志》《兩唐志》《七錄》而擇一，庫中之數或本他志。同書異本，measure 不改，異數存此。\n\n2026-09-06 《補晉書經籍志》（吳士鑑）整理：收《補晉書經籍志》（吳士鑑撰）一節，作「陳壽　三國志六十五卷」。題、撰人（陳壽）俱合，朝代相容；庫條見隋書經籍志、舊唐書經籍志、新唐書藝文志\n\n2026-10-15 Elias 併條（rule=GUJI-89 空Work同名判重）：併 d59f9uwc15vo《三國志》 入本條。同名空Work(無作者、0 Book/0 資源，唯一著錄補晉書藝文志三國志六十五卷)，Selene 規格，Sabine 口徑，卷數65＝65\n\nE史 426跨批同題待判並入（Sabine 10-16 批）：總目記錄 bv2m4hu57kk6xqkz、mg7yu5ute4f6dhgc、jl0juxrapvvkbb6v、q7kmnwt0q8jai5dy、g3tt6tp1ntl7ro6d、s2cbsnptmu0o55se、0vo1c6azge3aqxvp、1pxmn80zmf876y1s、7b0n2irbsimp8pxq、cpzxkrqpx40f2k64、fk7jixpn3ye2asqs、aftwq0vsh8oq0be4、34a3vfe3saw757p7、quo8zn84vhcc0mli、rfk788fiu7tsgv3k、hk74g7hdlt7evjcw、czkhny0nxgeadxua、vlnabopsm4nvc11i、6xmbe3agnbrjtag3、3vhsm7l8kr3xe5f8、7u575afkd7u3fu75、qcs5l2fcn8eqwkgs、z8yejzuma53hh702、za86qk5le0ng4ljb、vq2odgvoje3dibxl、t3wypcdrdzgozlgb、34gm5qy1jnhdgd5l、atuwm6mk81dutur5、eoii0kmpswzwn4yv、s1x0hopwzkj7qwnq、yhq6xh35i6sunqco 同題同作者，朝代僅大朝與分期寫法差異（Sabine 10-16 裁）\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n總目著錄版本待定（版本標籤空，本 Work 有多個 Book，未入 Book）：f7shv1anypol18nq、qut341wialc64mfw、51p3w8rfpmmajm2z、rlqo7hvtssq85iup、4r6py4726xyayoct、xwrw1ugfuhv3xuza、0lyufga7gktm0ty7、iuap5gzko4ef8ohr、w0sk7n06c7imkm8e、r8rt1vm35ro3z1us、thetbt2wwzajhgrt、yx3wxa3n8orv3fuk、hge7upk6yv62uk38、g262vtefr3dnga20、nmld7gtks0i4ppbu、igvup1o820zfewbu、lk7mge4pxdhb2vsr\n總目分類：史部／紀傳類／叢編之屬\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "description": {
     "text": "陳壽（西晉）撰。六十五卷；諸志所著之數有異，別作一卷、三十卷、三卷。見著錄於《隋書經籍志》《舊唐書經籍志》《新唐書藝文志》《宋史藝文志》《欽定四庫全書總目》《崇文總目》《補晋書藝文志》《書目答問》《直齋書錄解題》《玉函山房輯佚書》。《補晋書藝文志》列於乙部史録·正史類；《玉函山房輯佚書》列於補編·子編·十三經漢注。原書散佚，今有輯本存其文。",
     "sources": [
@@ -511,8 +530,8 @@
   ],
   "loss_status": "partially_extant",
   "loss_status_basis": "2026-08-24 J7 存佚覆核（SCHEMA〈loss_status 枚舉〉2026-08-21 訂正：凡有文存世即 partially_extant，一字不存方為 lost）。本條之據：本條之著錄源含《玉函山房輯佚書》——清馬國翰確嘗輯之，是其文有存者。舊值「（無值）」係機讀所生（其 ai_note 自陳「非逐條精校」），今以結構化之證改判。",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-16",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-412004000354": {
       "label": "國圖藏本：宋[960-1279]   [递修年不详]"
@@ -561,6 +580,9 @@
     },
     "naikaku-1068701": {
       "label": "內閣文庫藏本：明万暦28年刊本（後修） 北監（280-0011，13冊）"
+    },
+    "bsb-BV041895661": {
+      "label": "巴伐利亞州立圖書館藏本：成都 成都書局 1871"
     }
   },
   "contained_in": [

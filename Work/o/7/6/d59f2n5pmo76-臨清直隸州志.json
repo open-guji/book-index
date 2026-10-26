@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善016894-016904）。阶段 5 兜底建立。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59fyns3lc76《[乾隆]臨清直隸州志》 入本條。同题同首位责任者：《臨清直隸州志》張度(清,11卷,2版本)／《[乾隆]臨清直隸州志》張度(清,11卷,1版本)；B 档逐组复核判同一作品：方志同一次纂修：首位修纂人同、同年刊本、卷數同，故宮著錄與總目版本記錄相並（乾隆，張度修，十一卷首一卷）；flags=coauth_diff",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善016894-016904）。阶段 5 兜底建立。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-2：同题同首位责任者 B 档逐组复核并）：併 d59fyns3lc76《[乾隆]臨清直隸州志》 入本條。同题同首位责任者：《臨清直隸州志》張度(清,11卷,2版本)／《[乾隆]臨清直隸州志》張度(清,11卷,1版本)；B 档逐组复核判同一作品：方志同一次纂修：首位修纂人同、同年刊本、卷數同，故宮著錄與總目版本記錄相並（乾隆，張度修，十一卷首一卷）；flags=coauth_diff\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条、美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "juan_count": {
     "number": 11
   },
@@ -33,8 +33,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -58,11 +58,50 @@
         "nlc_fid": "312001070514",
         "edition": ""
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3371389839",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3371389839",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3371389839",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3371389839/manifest",
+        "shelfmark": "Libri sin. N.S. 107",
+        "edition": "刻本;[China] [乾隆五十年 (=1785)]"
+      }
+    },
+    {
+      "id": "loc",
+      "group": "loc-2011457197",
+      "group_role": "origin",
+      "name": "美國國會圖書館數字館藏",
+      "short_name": "美國國會",
+      "url": "https://www.loc.gov/item/2011457197/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2011457197",
+        "iiif_manifest": "https://www.loc.gov/item/2011457197/manifest.json",
+        "edition": "[China] : [publisher not identified], Qing Qianlong jian, between 1782 and 1785] 1782"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001070514": {
       "label": "國圖藏本："
+    },
+    "sbb-PPN3371389839": {
+      "label": "柏林國家圖書館藏本：刻本;[China] [乾隆五十年 (=1785)]"
+    },
+    "loc-2011457197": {
+      "label": "美國國會圖書館藏本：[China] : [publisher not identified], Qing Qianlong jian, between 1782 and 1785] 1782"
     }
   },
   "indexed_by": [
