@@ -126,6 +126,21 @@
         "nlc_fid": "411999009490",
         "edition": "清[1644-1911]"
       }
+    },
+    {
+      "id": "zinbun-toho",
+      "group": "zinbun-toho-A046",
+      "group_role": "origin",
+      "name": "京都大學人文科學研究所 東方學デジタル圖書館",
+      "short_name": "京大人文研",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/db-machine/toho/html/A046menu.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "toho_id": "A046",
+        "edition": "清梅鴛撰 鈔本"
+      }
     }
   ],
   "measures": [
@@ -146,7 +161,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A5续 馆藏挂接：按确定档补挂 京大人文研東方 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A5续-全国漢籍東方學デジタル圖書館挂接-20261026.md。",
   "description": {
     "text": "梅鷟（明）撰。五卷。見著錄於《欽定四庫全書總目》《續修四庫全書》《四庫全書存目叢書》。《續修四庫全書》列於经部 書類；《四庫全書存目叢書》列於经部。本書為《偽古文尚書》之注釋，其文附原典以行。《欽定四庫全書總目》清乾隆間館臣修；《續修四庫全書》一九九五年影印——本書之目賴之以存。",
     "sources": [
@@ -155,14 +170,17 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-411999020822": {
       "label": "國圖藏本：清[1644-1911]"
     },
     "nlc-411999009490": {
       "label": "國圖藏本：清[1644-1911]"
+    },
+    "zinbun-toho-A046": {
+      "label": "京大人文研東方學デジタル圖書館藏本：清梅鴛撰 鈔本"
     }
   }
 }

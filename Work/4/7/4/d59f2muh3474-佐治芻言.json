@@ -28,7 +28,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/qing·F 類：撰人名由「英傅蘭雅譯」正為「傅蘭雅」。剝國別前綴與役字後綴，entity 已正確繫連。",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/qing·F 類：撰人名由「英傅蘭雅譯」正為「傅蘭雅」。剝國別前綴與役字後綴，entity 已正確繫連。\n\n2026-10-26 A5续 馆藏挂接：按确定档补挂 京大人文研東方 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A5续-全国漢籍東方學デジタル圖書館挂接-20261026.md。",
   "juan_count": {
     "number": 1
   },
@@ -60,6 +60,22 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E4%BD%90%E6%B2%BB%E8%8A%BB%E8%A8%80.djvu"
+    },
+    {
+      "id": "zinbun-toho",
+      "group": "zinbun-toho-E123",
+      "group_role": "origin",
+      "name": "京都大學人文科學研究所 東方學デジタル圖書館",
+      "short_name": "京大人文研",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/db-machine/toho/html/E123menu.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "toho_id": "E123",
+        "kanseki_record": "data/FA019705/tagged/0970020.dat",
+        "edition": "光緒中江南製造局刊排印本"
+      }
     }
   ],
   "updated_at": "2026-08-24T00:00:00+00:00",
@@ -67,13 +83,18 @@
   "period_upper_basis": "collection_bound：本書收入《續修四庫全書》——其書收錄止於辛亥（1911）以前之著作，故不晚於 qing",
   "period": "qing",
   "period_basis": "傅蘭雅（John Fryer）譯，清末江南製造總局刻本（2026-08-24 R3 引文定代）",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fyt7f10jk",
       "relation": "related",
       "note": "總目子部另立（auto-split:同名未并）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "zinbun-toho-E123": {
+      "label": "京大人文研東方學デジタル圖書館藏本：光緒中江南製造局刊排印本"
+    }
+  }
 }

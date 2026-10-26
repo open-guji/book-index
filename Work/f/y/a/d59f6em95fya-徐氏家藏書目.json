@@ -35,10 +35,10 @@
   "measure_info": "七卷",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
-  "ai_note": "同名異書：庫內已有同題「徐氏家藏書目」而撰人各異（徐囗藏并(明)），本條撰人「徐𤊹」與之不合，依《千頃堂書目》著錄逕行新建。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "同名異書：庫內已有同題「徐氏家藏書目」而撰人各異（徐囗藏并(明)），本條撰人「徐𤊹」與之不合，依《千頃堂書目》著錄逕行新建。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A5续 馆藏挂接：按确定档补挂 京大人文研東方 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A5续-全国漢籍東方學デジタル圖書館挂接-20261026.md。",
   "id": "d59f6em95fya",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fyv5qjlz4",
@@ -61,11 +61,30 @@
         "nlc_fid": "002318634",
         "edition": "[出版年不詳]"
       }
+    },
+    {
+      "id": "zinbun-toho",
+      "group": "zinbun-toho-B014",
+      "group_role": "origin",
+      "name": "京都大學人文科學研究所 東方學デジタル圖書館",
+      "short_name": "京大人文研",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/db-machine/toho/html/B014menu.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "toho_id": "B014",
+        "edition": "明徐𤊹撰 光緒十七年江陰繆氏藝風堂鈔本",
+        "kanseki_record": "data/FA019705/tagged/0282025.dat"
+      }
     }
   ],
   "resource_groups": {
     "nlc-002318634": {
       "label": "國圖藏本：[出版年不詳]"
+    },
+    "zinbun-toho-B014": {
+      "label": "京大人文研東方學デジタル圖書館藏本：明徐𤊹撰 光緒十七年江陰繆氏藝風堂鈔本"
     }
   }
 }
