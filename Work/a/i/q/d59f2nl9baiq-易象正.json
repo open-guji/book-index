@@ -141,11 +141,30 @@
         "nlc_fid": "002057812",
         "edition": "清康熙32年[1693]"
       }
+    },
+    {
+      "id": "shoryobu",
+      "group": "shoryobu-1000067060000",
+      "group_role": "origin",
+      "name": "宮内庁書陵部 図書寮文庫",
+      "short_name": "書陵部",
+      "url": "https://shoryobu.kunaicho.go.jp/Toshoryo/Detail/1000067060000",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "shoryobu_id": "1000067060000",
+        "call_no": "401 ・ 50",
+        "edition": "明版"
+      }
     }
   ],
   "resource_groups": {
     "nlc-002057812": {
       "label": "國圖藏本：清康熙32年[1693]"
+    },
+    "shoryobu-1000067060000": {
+      "label": "書陵部藏本：明版"
     }
   },
   "juan_count": {
@@ -163,7 +182,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvirfk83k 與 11q37nvi1cutc 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvirfk83k 與 11q37nvi1cutc 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 書陵部 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
   "description": {
     "text": "黃道周（明）撰。十六卷；諸志所著之數有異，別作十四卷。見著錄於《欽定四庫全書總目》《明史藝文志》《經義考》。《經義考》列於易。其著錄之文，《明史藝文志》作「黃道周《易象正》十四卷，《三易洞璣》十六卷」。《欽定四庫全書總目》清乾隆間館臣修；《明史藝文志》清張廷玉等修——本書之目賴之以存。",
     "sources": [
@@ -172,8 +191,8 @@
       "經義考"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fxxl4lzpc",
