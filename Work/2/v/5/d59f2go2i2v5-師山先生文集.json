@@ -10,7 +10,7 @@
       "entity_id": "hixhd2h9be2a"
     }
   ],
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 | 從 1evkaj5l3aoe8 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n先拆后并（2026-10-26，去重方案 3a-2乙）：本条混挂不同编次，留「八卷遺文五卷附錄一卷本」，其余拆出：「十一卷本（元至正刻系）」→d59g2lb08ie2；「九卷本」→d59g2lb08ie3",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 | 從 1evkaj5l3aoe8 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n先拆后并（2026-10-26，去重方案 3a-2乙）：本条混挂不同编次，留「八卷遺文五卷附錄一卷本」，其余拆出：「十一卷本（元至正刻系）」→d59g2lb08ie2；「九卷本」→d59g2lb08ie3\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "id": "d59f2go2i2v5",
   "measures": [
     {
@@ -24,7 +24,7 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "2.0.0",
+  "revision": "2.1.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -94,6 +94,38 @@
         "nlc_fid": "411999009498",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11014",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11014",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11014",
+        "call_number": "402.58 11014",
+        "edition": "明嘉靖十四年(1535)鄭氏家塾刊後代修補本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-11016",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/11016",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "11016",
+        "call_number": "402.58 11016",
+        "edition": "明嘉靖十四年(1535)鄭氏家塾刊後代修補本"
+      }
     }
   ],
   "resource_groups": {
@@ -108,6 +140,12 @@
     },
     "nlc-411999009498": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "ncltw-11014": {
+      "label": "臺灣國家圖書館藏本：明嘉靖十四年(1535)鄭氏家塾刊後代修補本"
+    },
+    "ncltw-11016": {
+      "label": "臺灣國家圖書館藏本：明嘉靖十四年(1535)鄭氏家塾刊後代修補本"
     }
   },
   "juan_count": {

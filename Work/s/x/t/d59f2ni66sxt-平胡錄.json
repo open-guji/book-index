@@ -57,8 +57,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fz4bayk8w《平胡錄》 入本條。同題：單行本《平胡錄》陸深（明）；《平胡錄》（d59fz4bayk8w）为叢書子目，所屬叢書《儼山外集八帙二十四種》（8rldoyocjim9）撰者陸深（明）；卷數同；單行本 Work 已有同叢書版本 Book「儼山外集本」",
-  "revision": "1.1.0",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fz4bayk8w《平胡錄》 入本條。同題：單行本《平胡錄》陸深（明）；《平胡錄》（d59fz4bayk8w）为叢書子目，所屬叢書《儼山外集八帙二十四種》（8rldoyocjim9）撰者陸深（明）；卷數同；單行本 Work 已有同叢書版本 Book「儼山外集本」\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -76,6 +76,22 @@
         "year": "1937",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15264-0026",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15264-0026",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15264-0026",
+        "call_number": "204.26 15264-0026",
+        "edition": "明萬曆丁巳（45年;1617）江西巡按陳于庭刊本"
+      }
     }
   ],
   "merged_in": [
@@ -91,5 +107,10 @@
   ],
   "merged_from": [
     "d59fz4bayk8w"
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-15264-0026": {
+      "label": "臺灣國家圖書館藏本：明萬曆丁巳（45年;1617）江西巡按陳于庭刊本"
+    }
+  }
 }

@@ -66,6 +66,22 @@
         "year": "1831",
         "note": "链接指向单个扫描文件；全书齐备情况未核。"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15299-0044",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15299-0044",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15299-0044",
+        "call_number": "308 15299-0044",
+        "edition": "明萬曆31年(1603）錢塘胡氏刊本"
+      }
     }
   ],
   "measures": [
@@ -80,12 +96,12 @@
   "period_upper_basis": "撰人朝代作「宋」，歧而未決；諸解中最晚者為 song，無論何解皆不晚於此",
   "authenticity": "forged",
   "authenticity_basis": "《欽定四庫全書總目》：「其書雜抄說部之文，漫無條理，命名亦不雅馴。蓋書賈所依託，曹溶不考，誤收入《學海類編》也。」",
-  "ai_note": "2026-08-21 真偽專項：據上引判語標 `authenticity: forged`。判準見 SCHEMA〈authenticity〉——所斷之語須指向本書，且非否定句、非泛論、非說他書。",
+  "ai_note": "2026-08-21 真偽專項：據上引判語標 `authenticity: forged`。判準見 SCHEMA〈authenticity〉——所斷之語須指向本書，且非否定句、非泛論、非說他書。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "dynasty": "趙宋",
   "period": "song",
   "period_basis": "2026-08-25 period未定批次 3.1：撰人「太平老人」（entity 1j96heqm0ulmo）已定代「宋」，且與本條 period_upper（song）相容，據以定代。",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "dynasty_basis": "author_propagation:authors 已判「趙宋」",
   "related_works": [
     {
@@ -93,5 +109,10 @@
       "relation": "related",
       "note": "總目子部另立（auto-split:同名未并）"
     }
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-15299-0044": {
+      "label": "臺灣國家圖書館藏本：明萬曆31年(1603）錢塘胡氏刊本"
+    }
+  }
 }

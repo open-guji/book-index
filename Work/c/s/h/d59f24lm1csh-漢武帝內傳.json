@@ -120,6 +120,38 @@
         "call_no": "雙紅堂-小說-150",
         "edition": ""
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15286-0026",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15286-0026",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15286-0026",
+        "call_number": "310.23 15286-0026",
+        "edition": "明末武林何氏刊本配補清刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15340-0059",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15340-0059",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15340-0059",
+        "call_number": "310.23 15340-0059",
+        "edition": "明刊本"
+      }
     }
   ],
   "measures": [
@@ -138,8 +170,8 @@
   "updated_at": "2026-08-21T00:00:00-07:00",
   "period": "qin-han",
   "period_basis": "據 authors[0].dynasty「東漢」（原作籠統「漢」，2026-08-11 據所繫 Entity 之精確朝代同步訂正）",
-  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx1t7ovls 與 11q37sbk4th4w 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題漢班固撰。《隋志》著錄二卷，不注撰人，《宋志》亦注曰不知」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，A檔並）：併 d59fxrwy5v5s《武帝内傳》 入本條。近題同首位責任者：《漢武帝內傳》班固／《武帝内傳》班固；漢武帝內傳一卷與武帝内傳一卷相合\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
-  "revision": "1.2.0",
+  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx1t7ovls 與 11q37sbk4th4w 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題漢班固撰。《隋志》著錄二卷，不注撰人，《宋志》亦注曰不知」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，A檔並）：併 d59fxrwy5v5s《武帝内傳》 入本條。近題同首位責任者：《漢武帝內傳》班固／《武帝内傳》班固；漢武帝內傳一卷與武帝内傳一卷相合\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "dynasty": "漢",
   "dynasty_basis": "author_propagation",
@@ -164,6 +196,12 @@
   "resource_groups": {
     "ioc-C6144400": {
       "label": "東文研藏本：《舊小說》所收本"
+    },
+    "ncltw-15286-0026": {
+      "label": "臺灣國家圖書館藏本：明末武林何氏刊本配補清刊本"
+    },
+    "ncltw-15340-0059": {
+      "label": "臺灣國家圖書館藏本：明刊本"
     }
   }
 }
