@@ -19,6 +19,7 @@ def wide(s):
     return _wc[s]
 
 ap = argparse.ArgumentParser(); ap.add_argument('out'); ap.add_argument('--skip-ids', nargs='*', default=[])
+ap.add_argument('--reviewed', nargs='*', default=[], help='逐条复核表（work_id、判定、名、责任方式、朝代、理由）；判「补」者绕过剔除规则，照表写')
 a = ap.parse_args(); os.makedirs(a.out, exist_ok=True)
 R = jio.ROOT
 def rp(p): return os.path.relpath(p, R)
@@ -96,6 +97,32 @@ def brole(t):
     return m.group(1) if m else '撰'
 
 plan = []; held = []
+reviewed = {}
+for f in a.reviewed:
+    for l in open(f):
+        r = l.rstrip('\n').split('\t')
+        if len(r) >= 5 and r[1] == '补' and r[2].strip(): reviewed[r[0]] = dict(name=r[2].strip(), role=r[3].strip() or '撰', dynasty=r[4].strip(), why=r[5].strip() if len(r) > 5 else '')
+
+def entity_for(n, dy, ev_ent):
+    if len(ev_ent) == 1:
+        e = next(iter(ev_ent))
+        if rel(dy, ent[e].get('dynasty')) in ('same', 'unk'): return e, '同题同名他书已挂'
+    es = name_ent.get(n, {})
+    if len(es) == 1 and len(ename.get(n, ())) <= 1:
+        e = next(iter(es))
+        ok = all(rel(dy, d) in ('same', 'unk') for d in es[e] | {ent[e].get('dynasty') or ''})
+        if ok and (not ename.get(n) or e in ename[n]): return e, '全库该名唯一人物'
+    return None, None
+
+def same_title(c, n):
+    same = diff = 0; ev_ent = set(); others = []
+    for wid, al in bytitle.get(tkey(c['title']), []):
+        if wide(n) in {wide(x[0]) for x in al}:
+            same += 1; ev_ent |= {x[2] for x in al if wide(x[0]) == wide(n) and x[2] in ent}
+        else:
+            diff += 1; others.append((wid, al))
+    return same, diff, ev_ent, others
+
 def hold(c, why, extra=''):
     held.append((c['id'], c['title'], c['colname'] or '', why, extra))
 for c in cands:
@@ -105,6 +132,14 @@ for c in cands:
     cc = col.get(c['rec'])
     if not cc: hold(c, 'H-找不到Collection'); continue
     cpath, cd = cc
+    rv = reviewed.get(c['id'])
+    if rv:
+        n = nm(rv['name']); same, diff, ev_ent, _ = same_title(c, n); eid, basis = entity_for(n, rv['dynasty'], ev_ent)
+        au = dict(name=rv['name'], role=rv['role'], dynasty=rv['dynasty'])
+        plan.append(dict(id=c['id'], path=c['path'], title=c['title'], revision=c['revision'],
+                         col_id=cd['id'], col_title=cd.get('title'), col_path=cpath, author=au, col_role=None,
+                         entity_id=eid, entity_basis=basis, same_title_same_author=same, mixed_title=bool(diff), reviewed=rv['why']))
+        continue
     caus = [x for x in cd.get('authors') or [] if (x.get('name') or '').strip()]
     if not caus: hold(c, 'H-丛书无撰人'); continue
     if caus[0].get('role') not in ZHUAN:
@@ -124,30 +159,13 @@ for c in cands:
     if cd_ and ((c['per'] in PERIOD_OK and cd_ not in PERIOD_OK[c['per']]) or (c['per'] == '明代以前' and cd_ in LATE)):
         hold(c, 'H-撰者朝代与子目时段不合', '%s/%s' % (c['per'], dy)); continue
     # 同题他书
-    same = diff = 0; ev_ent = set(); others = []
-    for wid, al in bytitle.get(tkey(c['title']), []):
-        names = {wide(x[0]) for x in al}
-        if wide(n) in names:
-            same += 1
-            ev_ent |= {x[2] for x in al if wide(x[0]) == wide(n) and x[2] in ent}
-        else:
-            diff += 1; others.append((wid, al))
+    same, diff, ev_ent, others = same_title(c, n)
     if diff and not same:
         ci = idx(coarse(dy))
         early = any(idx(coarse(x[1])) is not None and ci is not None and idx(coarse(x[1])) < ci for _, al in others for x in al)
         txt = '; '.join(wid + ':' + '、'.join(sorted({x[0] + '/' + (x[1] or '') for x in al})) for wid, al in others[:6])
         hold(c, 'H-同题他书撰人更早(疑辑注钞)' if early else 'H-同题他书撰人不同(同代或后)', txt); continue
-    # entity：①同题同名他书已挂且唯一；②全库该名作者位只对应一个活人物、朝代相容、人物名索引也唯一
-    eid = None; basis = None
-    if len(ev_ent) == 1:
-        e = next(iter(ev_ent))
-        if rel(dy, ent[e].get('dynasty')) in ('same', 'unk'): eid, basis = e, '同题同名他书已挂'
-    if not eid:
-        es = name_ent.get(n, {})
-        if len(es) == 1 and len(ename.get(n, ())) <= 1:
-            e = next(iter(es))
-            ok = all(rel(dy, d) in ('same', 'unk') for d in es[e] | {ent[e].get('dynasty') or ''})
-            if ok and (not ename.get(n) or e in ename[n]): eid, basis = e, '全库该名唯一人物'
+    eid, basis = entity_for(n, dy, ev_ent)
     plan.append(dict(id=c['id'], path=c['path'], title=c['title'], revision=c['revision'],
                      col_id=cd['id'], col_title=cd.get('title'), col_path=cpath,
                      author=dict(name=au['name'], role=brole(c['title']), dynasty=dy), col_role=au.get('role'),
