@@ -26,6 +26,9 @@ MACHINE = 2027          # 本串铸 id 用；全库 Book 实测未用（2026-10-
 TODAY = '2026-10-25'
 CHA = '查重线（Book 层 2026-10-19）'
 # 同一实物的跨源 Collection（总目叢書线录的 vs 早期手建的；10-25 抽检发现），查「已有同丛书 Book」时视同一个
+# 武英殿聚珍版書一百三十八種五个版次（子目 edition 自注用的简称）
+JUZHEN = {'8rldonorf7cw': '殿本', '8rldonor3yte': '福建本', '8rldomtfn94x': '廣東本',
+          '8rldonorf7cx': '浙江本', '8rldonorf7cy': '江西本'}
 SAME_COL = [{'8rldp1yeqrk0', '8rlb6yi1ecqo'},   # 文淵閣四庫全書（臺北故宮）
             {'8rldo48qtsld', '8rlb6yk66qdc'}]   # 摛藻堂四庫全書薈要
 
@@ -136,6 +139,8 @@ def main():
     ap.add_argument('--limit', type=int, help='本批最多新建多少个 Book（按 keeper 正式 id 排序取前面的组）')
     ap.add_argument('--out', default=str(pathlib.Path(__file__).parent / 'plan'))
     ap.add_argument('--apply', action='store_true')
+    ap.add_argument('--merge-existing', action='store_true',
+                    help='只做「同 Work 已有同丛书活 Book」的组：剥离照常，被并者并入那个已有 Book，不新建')
     a = ap.parse_args()
     draft = pathlib.Path(a.draft).resolve()
 
@@ -175,6 +180,8 @@ def main():
     skip = set(open(a.skip).read().split()) if a.skip else set()
 
     plan, stat, problems = [], collections.Counter(), []
+    tcache = {}                 # --merge-existing：被并入的已有 Book
+    targets_used_as_keeper = set()
     for kd in sorted(groups, key=lambda k: P.get(k, {}).get('production_id') or 'zzzz' + k):
         losers = sorted(groups[kd])
         kb = rec[kd]['before']
@@ -182,6 +189,20 @@ def main():
             return frozenset(colfix(P[c]['production_id'] if c in P else c) for c in ci_ids(r))
         kci = tci(kb)
         split = [l for l in losers if tci(rec[l]['before']) != kci]
+        # 抽检（10-26 batch-04）：总目把聚珍版书子目在五个版次下都登了一遍，子目 edition 自注实际所收版次
+        # （如「殿本、福建本、廣東本」）；自注不含的版次下那条是幽灵子目，不新建，照旧并在 keeper，只删 keeper 上那个 Collection
+        ghosts = {}
+        for l in split:
+            ed = rec[l]['before'].get('edition') or ''
+            if any(x in ed for x in JUZHEN.values()):
+                g = [c for c in tci(rec[l]['before']) if c in JUZHEN and JUZHEN[c] not in ed]
+                if g:
+                    ghosts[l] = g
+        if ghosts:
+            split = [l for l in split if l not in ghosts]
+            if not split:
+                problems.append({'keeper_draft': kd, 'why': '被并者都是聚珍幽灵子目，不新建；keeper 上的幽灵 Collection 留人工删',
+                                 'ghosts': ghosts}); continue
         if not split:
             stat['同 Collection 或都无，不动'] += 1; continue
         if not kci or any(not tci(rec[l]['before']) for l in split):
@@ -214,10 +235,19 @@ def main():
                     eq = set().union(*[g for g in SAME_COL if c in g]) | {c}
                     if eq & cs or (cols.get(c, {}).get('edition') and ckey(c) in {ckey(x) for x in cs if x != c}):
                         hit.append((l, c, i))
+        target = None
         if hit:
-            stat['同 Work 已有同丛书 Book，跳过组'] += 1
-            problems.append({'keeper': prom, 'why': '同 Work 已有挂同一／同版本丛书的活 Book，新建会重复，交部分 5',
-                             'hits': hit[:5]}); continue
+            tg = {h[2] for h in hit}
+            if (a.merge_existing and len(tg) == 1 and {h[0] for h in hit} == set(split)
+                    and len({tci(rec[l]['before']) for l in split}) == 1 and next(iter(tg)) not in targets_used_as_keeper):
+                target = next(iter(tg))
+            else:
+                stat['同 Work 已有同丛书 Book，跳过组'] += 1
+                problems.append({'keeper': prom, 'why': '同 Work 已有挂同一／同版本丛书的活 Book，新建会重复'
+                                 + ('；候选不唯一或只部分命中，留人工' if a.merge_existing else '，交 --merge-existing'),
+                                 'hits': hit[:5]}); continue
+        elif a.merge_existing:
+            continue
         miss = []
         kb_t = tr_ci(tr_rec(kb, P, miss))
         item = {'keeper': prom, 'keeper_draft': kd, 'keeper_path': str(kpath.relative_to(ROOT)),
@@ -225,7 +255,7 @@ def main():
                 'split': [], 'warnings': []}
         newK = copy.deepcopy(K)
         lts = {}
-        for l in split:
+        for l in split + sorted(ghosts):   # 幽灵子目也做减法（馆藏／著录是整套丛书照抄，不属 keeper 版次），只是不新建
             lb = rec[l]['before']
             lmiss = []
             lt = lts[l] = tr_ci(tr_rec(lb, P, lmiss))
@@ -245,7 +275,10 @@ def main():
             rm_ci = [c for c in lt.get('contained_in') or [] if c.get('id') not in kci]
             newK['contained_in'], m4 = remove_once(newK.get('contained_in') or [], rm_ci, lambda x: x.get('id'))
             mf = newK.get('merged_from') or []
-            if l in mf:
+            if l in ghosts:
+                if l not in mf:
+                    item['warnings'].append(f'merged_from 里无 {l}')
+            elif l in mf:
                 newK['merged_from'] = [x for x in mf if x != l]
             elif 'merged_from' in newK:
                 item['warnings'].append(f'merged_from 里无 {l}')
@@ -254,12 +287,37 @@ def main():
                     item['warnings'].append(f'{l}：keeper 里找不到 {len(m)} 条 {nm}（升格时未带入，照拆）')
             if m4:
                 item['warnings'].append(f'{l}：keeper contained_in 里无 {[c.get("id") for c in m4]}（升格时未带入）')
+        for l, g in ghosts.items():
+            rm = [c for c in g if c not in kci]
+            if rm:
+                item['warnings'].append(f'{l}：聚珍幽灵子目（edition 自注不含 {[JUZHEN[c] for c in rm]}），不新建，仍并在 keeper；keeper 删其所挂 {rm} 与带来的馆藏／著录／源记录')
         # 新 Book：被并者按所挂 Collection 分组，同一 Collection 的几条（同一丛书版次的同一子目）并成一个
         sub = collections.defaultdict(list)
         for l in split:
             sub[tci(rec[l]['before'])].append(l)
         for cset in sorted(sub, key=lambda c: sorted(sub[c])[0]):
             ls = sorted(sub[cset]); l = ls[0]; lb = rec[l]['before']
+            if target:
+                # 并入已有活 Book：只并馆藏／著录／源记录，contained_in 已同（或同一实物的跨源 Collection），不动
+                if target not in tcache:
+                    tp = idx[target]
+                    tcache[target] = {'path': str(tp.relative_to(ROOT)), 'sha256': sha(tp),
+                                      'record': json.loads(tp.read_text(encoding='utf-8')), 'from': []}
+                T = tcache[target]['record']
+                for x in ls:
+                    xt = lts[x]
+                    for k, key in (('provenance', lambda y: y.get('source')), ('sources', lambda y: y.get('id')),
+                                   ('indexed_by', lambda y: json.dumps(y, ensure_ascii=False, sort_keys=True))):
+                        have = {key(y) for y in T.get(k) or []}
+                        add = [y for y in xt.get(k) or [] if key(y) not in have]
+                        if add:
+                            T[k] = (T.get(k) or []) + add
+                    T['merged_from'] = (T.get('merged_from') or []) + [x]
+                    tcache[target]['from'].append(x)
+                item['split'].append({'draft': l, 'also': ls[1:], 'draft_path': rec[l]['path'],
+                                      'also_paths': [rec[x]['path'] for x in ls[1:]], 'merge_into': target, 'srcs': [lts[x] for x in ls],
+                                      'id': target, 'path': tcache[target]['path'], 'collections': sorted(cset)})
+                continue
             nb = copy.deepcopy(lts[l])
             for x in ls[1:]:
                 xt = lts[x]
@@ -289,7 +347,14 @@ def main():
         note = newK.get('ai_note', '')
         lines = note.split('\n')
         keep_lines = list(lines)   # 10-19 查重线原说明保留作留痕
-        keep_lines.append(f'拆分（2026-10-25，去重方案部分 6 附）：10-19 查重线误并的不同叢書版次子目已拆出另立 Book（{",".join(sorted(x for s in item["split"] for x in [s["draft"]] + s["also"]))}）')
+        if target:
+            keep_lines.append(f'拆分（2026-10-26，去重方案部分 6 附）：10-19 查重线误并的不同叢書版次子目（{",".join(sorted(x for s in item["split"] for x in [s["draft"]] + s["also"]))}）'
+                              f'已剥出，并入同 Work 已挂该叢書版次的 Book {target}')
+        else:
+            keep_lines.append(f'拆分（2026-10-25，去重方案部分 6 附）：10-19 查重线误并的不同叢書版次子目已拆出另立 Book（{",".join(sorted(x for s in item["split"] for x in [s["draft"]] + s["also"]))}）')
+        gci = sorted({c for g in ghosts.values() for c in g if c not in kci})
+        if gci:
+            keep_lines[-1] += f'；聚珍版书子目 edition 自注不收的版次 {",".join(gci)} 为总目重登的幽灵条目，不另立，删去所挂及其带来的馆藏／著录／源记录（草稿仍并于本条）'
         newK['ai_note'] = '\n'.join(keep_lines)
         if not newK.get('merged_from'):
             newK.pop('merged_from', None)
@@ -309,7 +374,7 @@ def main():
             if not own <= have:
                 item['warnings'].append(f'减后 {k} 缺 keeper 原有项 {sorted(own - have)[:3]}')
             for s in item['split']:
-                extra = {x.get(key) for x in s['record'].get(k) or []} - own
+                extra = {x.get(key) for r in ([s['record']] if 'record' in s else s['srcs']) for x in r.get(k) or []} - own
                 if extra & have:
                     item['warnings'].append(f'减后 {k} 仍含 {s["draft"]} 独有项')
         rv = K.get('revision', '1.0.0').split('.')
@@ -320,7 +385,9 @@ def main():
             break
         if item['split']:
             plan.append(item)
-            stat['拆的组'] += 1; stat['新建 Book'] += len(item['split'])
+            stat['拆的组'] += 1
+            stat['聚珍幽灵子目（不新建）'] += len(ghosts)
+            stat['并入已有 Book' if target else '新建 Book'] += len(item['split'])
             if item['warnings']:
                 stat['有警告的组'] += 1
         if a.limit and stat['新建 Book'] >= a.limit:
@@ -328,7 +395,7 @@ def main():
 
     # 查新 Book 的源记录是否已在正式库另有 Book（他人已补建）
     want = {s['record']['sources'][0]['id']: (it['keeper'], s['draft'])
-            for it in plan for s in it['split'] if s['record'].get('sources')}
+            for it in plan for s in it['split'] if 'record' in s and s['record'].get('sources')}
     hits = subprocess.run(['rg', '-l', '-F', '-f', '/dev/stdin', '--glob', '*.json', 'Book'], cwd=ROOT,
                           input='\n'.join(want) + '\n', text=True, capture_output=True).stdout.split()
     kset = {it['keeper_path'] for it in plan}
@@ -348,8 +415,25 @@ def main():
     # 铸 id
     used = set(idx)
     ts = int(time.time()); seq = 0
+    keepers = {it['keeper'] for it in plan}
+    bad_t = [t for t in tcache if t in keepers]
+    if bad_t:
+        plan = [it for it in plan if not any(s.get('merge_into') in bad_t for s in it['split'])]
+        for t in bad_t:
+            tcache.pop(t)
+        problems.append({'why': '并入目标本身是本批 keeper，跳过', 'targets': bad_t})
+    for t, c in tcache.items():
+        r = c['record']
+        r['ai_note'] = (r.get('ai_note', '') + '\n' if r.get('ai_note') else '') + (
+            f'并入（2026-10-26，去重方案部分 6 附）：10-19 查重线误并入别条的同丛书同子目草稿 {",".join(c["from"])}'
+            f'（并前原记录见草稿库 {COMMIT[:11]}^）与本条同一实物，馆藏／著录／源记录并入本条')
+        rv = r.get('revision', '1.0.0').split('.')
+        r['revision'] = f'{int(rv[0]) + 1}.0.0'
+        r['revised_at'] = TODAY
     for it in plan:
         for s in it['split']:
+            if s.get('merge_into'):
+                continue
             while True:
                 if seq > 255:
                     ts += 1; seq = 0
@@ -368,15 +452,17 @@ def main():
     ledger = [{'keeper': it['keeper'], 'keeper_draft': it['keeper_draft'], 'keeper_path': it['keeper_path'],
                'keeper_sha256_before': it['keeper_sha256'], 'stays_merged': it['stays_merged'],
                'split': [{'draft': s['draft'], 'also_merged': s['also'], 'new_id': s['id'], 'path': s['path'], 'contained_in': s['collections'],
-                          'edition': s['record'].get('edition', ''),
-                          'sources': [x.get('id') for x in s['record'].get('sources') or []]} for s in it['split']],
+                          'merge_into_existing': bool(s.get('merge_into')),
+                          'edition': (s.get('record') or {}).get('edition', ''),
+                          'sources': [x.get('id') for x in (s.get('record') or {}).get('sources') or []]} for s in it['split']],
                'warnings': [w for w in it['warnings'] if '草稿 id 未升格' not in w or 'contained_in' in w]}
               for it in plan]
     (out / 'splits.json').write_text(json.dumps({'commit': COMMIT, 'base': git(['rev-parse', 'HEAD'], ROOT).decode().strip(),
                                                 'stat': stat, 'problems': problems, 'splits': ledger},
                                                ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     (out / 'plan.json').write_text(json.dumps({'commit': COMMIT, 'base': git(['rev-parse', 'HEAD'], ROOT).decode().strip(),
-                                              'stat': stat, 'problems': problems, 'groups': plan},
+                                              'stat': stat, 'problems': problems, 'groups': plan,
+                                              'targets': tcache},
                                              ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     print(dict(stat)); print('问题', len(problems))
     if not a.apply:
@@ -390,11 +476,18 @@ def main():
             die('keeper 已变：' + it['keeper_path'])
         kp.write_text(jdump(it['keeper_record']), encoding='utf-8')
         for s in it['split']:
+            if s.get('merge_into'):
+                continue
             p = ROOT / s['path']; p.parent.mkdir(parents=True, exist_ok=True)
             if p.exists():
                 die('新档已存在：' + s['path'])
             p.write_text(jdump(s['record']), encoding='utf-8')
             promo_add[s['draft'][-2:]][s['draft']] = {'production_id': s['id'], 'type': 'book', 'promoted_at': now}
+    for t, c in tcache.items():
+        tp = ROOT / c['path']
+        if sha(tp) != c['sha256']:
+            die('并入目标已变：' + c['path'])
+        tp.write_text(jdump(c['record']), encoding='utf-8')
     for sh, add in promo_add.items():
         f = ROOT / f'promotions/{sh}.json'
         d = json.loads(f.read_text(encoding='utf-8'))
@@ -425,6 +518,10 @@ def main():
             ld = json.loads(lp.read_text(encoding='utf-8'))
             if ld.get('merged_into') not in (it['keeper'], it['keeper_draft']):
                 die(f'草稿 {s["draft"]} merged_into 已变：{ld.get("merged_into")}')
+            if s.get('merge_into'):
+                ld['merged_into'] = s['id']
+                lp.write_text(jdump(ld), encoding='utf-8')
+                continue
             stub = {'schema_version': ld['schema_version'], 'id': ld['id'], 'type': ld['type'], 'title': ld['title']}
             lp.write_text(jdump(stub), encoding='utf-8')
     sys.path.insert(0, str(ROOT / 'build'))
@@ -432,6 +529,8 @@ def main():
     shards = {}
     for it in plan:
         for s in it['split']:
+            if s.get('merge_into'):
+                continue
             rel = f"index/books/{B.shard_of(s['id']):x}.json"
             if rel not in shards:
                 shards[rel] = json.loads((ROOT / rel).read_text(encoding='utf-8'))

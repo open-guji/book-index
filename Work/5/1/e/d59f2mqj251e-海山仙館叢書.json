@@ -19,7 +19,7 @@
       "entity_id": "hixhd2h9bdkd"
     }
   ],
-  "ai_note": "作者「清潘仕成編」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evke5n1ktmv4 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evincuk1rnk0()（不同作者，故新建獨立 Work）。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "作者「清潘仕成編」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evke5n1ktmv4 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evincuk1rnk0()（不同作者，故新建獨立 Work）。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "description": {
     "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 贈善037527-037632）。清道光二十五年至咸豐元年番禺潘氏刊本。",
     "sources": [
@@ -31,8 +31,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -56,11 +56,29 @@
         "nlc_fid": "312001191761",
         "edition": "番禺潘氏   清光緒間[1875-1908]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2581119",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2581119",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2581119",
+        "edition": "道光29刊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001191761": {
       "label": "國圖藏本：番禺潘氏   清光緒間[1875-1908]"
+    },
+    "ndl-2581119": {
+      "label": "NDL藏本：道光29刊"
     }
   }
 }

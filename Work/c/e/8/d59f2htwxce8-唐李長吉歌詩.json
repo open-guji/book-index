@@ -18,7 +18,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -32,8 +32,8 @@
   "period_upper_basis": "撰人朝代作「宋」，歧而未決；諸解中最晚者為 song，無論何解皆不晚於此",
   "period": "song",
   "period_basis": "題「唐李長吉歌詩」，所箋為唐李賀詩，箋注者必在唐後，故「宋」指趙宋；吳正子為南宋箋注家（2026-08-24 R3 引文定代）",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "indexed_by": [
     {
       "source": "中國古籍總目",
@@ -43,5 +43,51 @@
       "section": "集部/別集類/唐五代之屬",
       "summary": "共 2 個版本：元刻本（臺灣圖書館）；明張明澂堂刻本（中國科學院圖書館）"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082767",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082767",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082767",
+        "request_no": "３１２－０１９３",
+        "edition": "刊本::文政:010000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5083420/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3611381",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3611381",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3611381",
+        "request_no": "３１２－０１９２",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3745546/manifest.json",
+        "extent": "2冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1082767": {
+      "label": "內閣文庫藏本：文政1年刊本（312-0193，3冊）"
+    },
+    "naikaku-3611381": {
+      "label": "內閣文庫藏本：江戸写本（312-0192，2冊）"
+    }
+  }
 }

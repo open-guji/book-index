@@ -30,9 +30,9 @@
       "summary": "共 1 個版本：明萬曆四十六年余獻可居仁堂刻本（遼寧省圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：e822bgexpwg13qjq\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：e822bgexpwg13qjq\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "kokusho",
@@ -67,6 +67,21 @@
         "holder": "賀茂真淵記念",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300087451/manifest"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-14363620",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/14363620",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid14363620",
+        "edition": "江戸"
+      }
     }
   ],
   "resource_groups": {
@@ -75,6 +90,9 @@
     },
     "kokusho-300087451": {
       "label": "國書藏本：刊（賀茂真淵記念）"
+    },
+    "ndl-14363620": {
+      "label": "NDL藏本：江戸"
     }
   }
 }
