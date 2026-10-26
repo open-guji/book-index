@@ -39,11 +39,19 @@
       "author_info": "元王德信、元關漢卿撰",
       "section": "集部/曲類/雜劇之屬",
       "summary": "共 6 個版本：清刻本（上海圖書館）；清乾隆三十二年松陵周氏琴香堂刻本（國家圖書館）；清雍正十一年刻本（國家圖書館）；清康熙五十九年芥子園刻巾箱本（中國科學院圖書館、南京圖書館）；清康熙五十九年懷永堂刻巾箱本（華東師範大學圖書館、遼寧省圖書館、上海圖書館、國家圖書館）；清雍正十一年成裕堂刻巾箱本（國家圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "增像第六才子書四卷",
+      "author_info": "元王實甫撰;清金聖歎評",
+      "section": "集部/曲類/雜劇之屬",
+      "summary": "共 1 個版本：清光緒十年廣州刻朱墨套印本（香港大學圖書館、香港中文大學圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：8uhehvb4t7uc6ct3、858q67iietyep6mb、qeeocjhadp3tpbbf、0stdubnqrckz08ka、tfqfxugm66z7qgq2、n6bpmfh6pi8pgaaw",
-  "revision": "1.0.1",
-  "revised_at": "2026-10-14",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：8uhehvb4t7uc6ct3、858q67iietyep6mb、qeeocjhadp3tpbbf、0stdubnqrckz08ka、tfqfxugm66z7qgq2、n6bpmfh6pi8pgaaw\n\n2026-10-26 A11-去重方案3a-3 併條（rule=去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并）：併 d59fs72f9mgx《增像第六才子書》 入本條。异题名同书（总目题名括注／其他题名互见）：《繪像第六才子書》關漢卿／《增像第六才子書》王實甫；依据：其他题名「增像第六才子書」；两道子 agent 逐条复核：A其他題名《增像第六才子書》，B「增像第六才子書四卷 清金聖歎評」與A繪像第六才子書同為金批西廂記，卷數差屬分卷",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "merged_in": [
     {
       "id": "1exlbsyugbvnk",
@@ -52,9 +60,62 @@
       "by": "elias",
       "rule": "GUJI-122 PR-1b（draft#363 A→B 併入之正式庫補記）",
       "why": "draft#363 已將 A 併入 B 並刪 A 檔；正式庫補記被併 A 之 id／題名於 merged_in，並依 Sabine 說明將異題入 additional_titles、異寫入 ai_note。"
+    },
+    {
+      "id": "d59fs72f9mgx",
+      "title": "增像第六才子書",
+      "at": "2026-10-26T15:21:59Z",
+      "by": "A11-去重方案3a-3",
+      "rule": "去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并",
+      "why": "异题名同书（总目题名括注／其他题名互见）：《繪像第六才子書》關漢卿／《增像第六才子書》王實甫；依据：其他题名「增像第六才子書」；两道子 agent 逐条复核：A其他題名《增像第六才子書》，B「增像第六才子書四卷 清金聖歎評」與A繪像第六才子書同為金批西廂記，卷數差屬分卷",
+      "author": "王實甫",
+      "title_info": "增像第六才子書四卷"
     }
   ],
   "additional_titles": [
     "增像第六才子書"
+  ],
+  "resources": [
+    {
+      "id": "ndl",
+      "group": "ndl-14365522",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/14365522",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid14365522",
+        "edition": "光緒15"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko01_01710",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko01/bunko01_01710/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko01_01710",
+        "edition": "[上海] : 上海書局, 光緒16[1890]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ndl-14365522": {
+      "label": "NDL藏本：光緒15"
+    },
+    "waseda-bunko01_01710": {
+      "label": "早稲田藏本：[上海] : 上海書局, 光緒16[1890]"
+    }
+  },
+  "merged_from": [
+    "d59fs72f9mgx"
   ]
 }
