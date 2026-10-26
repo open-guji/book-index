@@ -52,9 +52,9 @@
       "summary": "共 1 個版本：明刻本（國家圖書館、臺灣圖書館、中國社會科學院文學研究所）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3sfrsaowdezcov5n\nauto-split:存疑未并\nE6 第 606 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：3sfrsaowdezcov5n\nauto-split:存疑未并\nE6 第 606 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 A11-去重方案3a 併條（rule=新-异人登记-集：同题首位异人组逐组复核，误字／乱码人名、序刊注者误作撰者、合撰分挂、同人异 Entity 者按同书并；独立子代理逐对核验）：併 d59f2j4pwcn5《重刻訂正元本批點畫意北西廂》 入本條。王德信即王實甫，两条均为明刻《重刻訂正元本批點畫意北西廂》，后者附關漢卿、元稹（會真記）合著录，著录更全｜核验：書名長而全同，王德信即王實甫",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -85,6 +85,21 @@
         "nlc_fid": "411999027147",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-2501",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=2501",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "2501",
+        "edition": "明[1368-1644)"
+      }
     }
   ],
   "resource_groups": {
@@ -94,5 +109,26 @@
     "nlc-411999027147": {
       "label": "國圖藏本：明[1368-1644]"
     }
-  }
+  },
+  "measures": [
+    {
+      "unit": "冊",
+      "number": 2
+    }
+  ],
+  "measure_info": "二冊",
+  "merged_in": [
+    {
+      "id": "d59f2j4pwcn5",
+      "title": "重刻訂正元本批點畫意北西廂",
+      "at": "2026-10-26T23:32:43Z",
+      "by": "A11-去重方案3a",
+      "rule": "新-异人登记-集：同题首位异人组逐组复核，误字／乱码人名、序刊注者误作撰者、合撰分挂、同人异 Entity 者按同书并；独立子代理逐对核验",
+      "why": "王德信即王實甫，两条均为明刻《重刻訂正元本批點畫意北西廂》，后者附關漢卿、元稹（會真記）合著录，著录更全｜核验：書名長而全同，王德信即王實甫",
+      "author": "王實甫"
+    }
+  ],
+  "merged_from": [
+    "d59f2j4pwcn5"
+  ]
 }
