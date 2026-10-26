@@ -16,15 +16,15 @@
       "中華再造善本"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 索引中尚有同名異書：1ev3barpck0lc(胡宗憲)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 索引中尚有同名異書：1ev3barpck0lc(胡宗憲)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-26 A11-去重文淵閣Work 併條（rule=文淵閣／薈要同题 Book 挂多个 Work 清理：同一部书（题名异写或加欽定/御定等前缀、责任者相同或一侧缺），两路子 agent 独立判定一致或高置信抽检通过）：併 d59f2nju4d1f《籌海圖編》 入本條。臺北故宮《文淵閣四庫全書》／《摛藻堂四庫全書薈要》同一子目的旧 Book（988）与总目 Book（993/994）分挂 d59f2nju4d1f《籌海圖編》、d59f2njwb18k《籌海圖編》；判定：同一部《籌海圖編》十三卷，胡宗憲／鄭若曾為題署異說",
   "id": "d59f2njwb18k",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nat-archives-jp",
@@ -61,6 +61,179 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4223302/manifest.json",
         "extent": "19冊"
       }
+    },
+    {
+      "id": "wikisource-siku",
+      "name": "维基文库（四庫全書本）",
+      "url": "https://zh.wikisource.org/wiki/籌海圖編_(四庫全書本)",
+      "types": [
+        "text"
+      ]
+    },
+    {
+      "id": "shidianguji-sikuquanshuben",
+      "name": "识典古籍",
+      "url": "https://www.shidianguji.com/book/SK1044",
+      "metadata": {
+        "edition": "四庫全書本",
+        "version": "v11",
+        "total_page": 1650,
+        "paragraph_count": 3081,
+        "check_type": "粗校"
+      },
+      "types": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "shidianguji-huweijimingtianqikeb",
+      "name": "识典古籍",
+      "url": "https://www.shidianguji.com/book/NGJ892411999026869158513",
+      "metadata": {
+        "edition": "胡維極明天啓4年刻本",
+        "version": "v1",
+        "total_page": 1346,
+        "paragraph_count": 9334,
+        "check_type": "AI整理"
+      },
+      "types": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "id": "shidianguji-mingjiajingkeben",
+      "name": "识典古籍",
+      "url": "https://www.shidianguji.com/book/NGJ89241199902182975534",
+      "metadata": {
+        "edition": "明嘉靖41年刻本",
+        "version": "v1",
+        "total_page": 1141,
+        "paragraph_count": 8883,
+        "check_type": "AI整理"
+      },
+      "types": [
+        "text",
+        "image"
+      ]
+    },
+    {
+      "name": "Internet Archive",
+      "id": "internet-archive",
+      "url": "https://archive.org/details/06041954.cn",
+      "types": [
+        "image"
+      ]
+    },
+    {
+      "id": "commons",
+      "name": "维基共享资源",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC892-411999026869-158513_%E7%B1%8C%E6%B5%B7%E5%9C%96%E7%B7%A8_%E7%AC%AC1%E5%86%8A.pdf",
+      "types": [
+        "image"
+      ],
+      "root_type": "catalog",
+      "metadata": {
+        "format": "PDF",
+        "edition": "刻本",
+        "year": "胡維極明天啓4年[1624]",
+        "note": "本链接为扫描册 第1冊；不代表全书齐备。"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999026869",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999026869",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999026869",
+        "edition": "明天啓4年[1624]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999021829",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999021829",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999021829",
+        "edition": "明嘉靖41年[1562]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999005540",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999005540",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999005540",
+        "edition": "明嘉靖41年[1562]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-000000000030344233",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/000000000030344233",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "000000000030344233",
+        "call_number": "000000000030344233",
+        "edition": "明天啟四年(1624)胡維極刻本",
+        "holder": "美國柏克萊加州大學東亞圖書館"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03778",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03778",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03778",
+        "call_number": "210.3 03778",
+        "edition": "明天啟甲子(四年, 1624)新安胡氏重刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-03780",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/03780",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "03780",
+        "call_number": "210.3 03780",
+        "edition": "明天啟甲子(四年, 1624)新安胡氏重刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -79,6 +252,45 @@
       "author_info": "明鄭若曾撰",
       "section": "史部/政書類/軍政之屬/江防海防",
       "summary": "共 3 個版本：清康熙三十二年鄭起泓刻本（國家圖書館）；明隆慶六年刻本（北京大學圖書館、上海圖書館、清華大學圖書館）；抄本（南京圖書館）"
+    },
+    {
+      "source": "欽定四庫全書總目",
+      "source_bid": "d59dh3vo9af4",
+      "title_info": "《籌海圖編》•十三卷",
+      "author_info": "明胡宗憲撰",
+      "summary": "明胡宗憲撰。宗憲字汝貞，號梅林，績溪人。嘉靖戊戌進士，官至兵部尚書，督師剿倭寇，以言官論劾，下獄瘐死。萬曆初，追復原官，諡襄懋。事蹟具《明史》本傳。是書首載《輿地全圖》、《沿海沙山圖》，次載《王官使倭略》、《倭國入貢事略》、《倭國事略》、次載廣東、福建、浙江、直隸、登萊五省《沿海郡縣圖》、《倭變圖》、《兵防官考》及事宜，次載《倭患總編》、《年表》，次載《寇跡分合圖譜》，次載《大捷考》，次載《遇難殉節考》，次載《經略考》。《明史》稱趙文華督察浙江軍務，宗憲深附之。總督張經破倭於王江涇，文華盡掩經功歸宗憲，經遂得罪。又陷撫臣李天寵。文華還朝，力薦宗憲，遂擢顯秩。宗憲又因文華結納嚴嵩，以為內援。其喜功名而尚權詐，誠有如《傳贊》所雲“奢黷蒙垢”者。書中載胡松撰《王江涇捷事略》，專述宗憲之功，不及張經，與本傳符合。是其攘功之實證。然其他若載嘉靖三十四年五月平望之捷，陸涇壩之捷，十一月後屯之捷，清風嶺之捷，三十五年仙居之捷，七月乍浦之捷，十一月龕山之捷，及金塘、淮揚、甯台溫之捷。又紀剿徐海及擒王直始末，大端與《明史》紀傳均相符合。則宗憲之保障東南，尚不為無功。《經略考》三卷內凡會哨、鄰援、招撫、城守、團結、保甲、宣諭、間諜、貢道、互市及一切海船、兵仗、戎器、火器無不周密。又若唐順之、張時徹、俞大猷、茅坤、戚繼光諸條議，是書亦靡不具載。於明代海防，亦雲詳備。蓋其人雖不醇，其才則固一世之雄也。",
+      "edition": "安徽巡撫采進本"
+    },
+    {
+      "source": "明史藝文志",
+      "source_bid": "d59f2mox0000",
+      "title_info": "胡宗宪《筹海图编》十三卷",
+      "summary": "胡宗憲《籌海圖編》十三卷"
     }
+  ],
+  "juan_count": {
+    "number": 13
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 13
+    }
+  ],
+  "measure_info": "十三卷",
+  "merged_in": [
+    {
+      "id": "d59f2nju4d1f",
+      "title": "籌海圖編",
+      "at": "2026-10-26T20:01:50Z",
+      "by": "A11-去重文淵閣Work",
+      "rule": "文淵閣／薈要同题 Book 挂多个 Work 清理：同一部书（题名异写或加欽定/御定等前缀、责任者相同或一侧缺），两路子 agent 独立判定一致或高置信抽检通过",
+      "why": "臺北故宮《文淵閣四庫全書》／《摛藻堂四庫全書薈要》同一子目的旧 Book（988）与总目 Book（993/994）分挂 d59f2nju4d1f《籌海圖編》、d59f2njwb18k《籌海圖編》；判定：同一部《籌海圖編》十三卷，胡宗憲／鄭若曾為題署異說",
+      "author": "胡宗憲",
+      "title_info": "《籌海圖編》•十三卷；胡宗宪《筹海图编》十三卷"
+    }
+  ],
+  "merged_from": [
+    "d59f2nju4d1f"
   ]
 }
