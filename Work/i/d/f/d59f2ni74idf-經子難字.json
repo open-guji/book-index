@@ -79,6 +79,22 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-01022_%E7%B6%93%E5%AD%90%E9%9B%A3%E5%AD%97.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-01022",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/01022",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "01022",
+        "call_number": "110.2 01022",
+        "edition": "明山陰祁氏淡生堂藍格鈔本"
+      }
     }
   ],
   "measures": [
@@ -93,7 +109,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fyxb79qf4《經子難字》 入本條。同題：單行本《經子難字》楊慎（明）；《經子難字》（d59fyxb79qf4）为叢書子目，所屬叢書《楊升庵雜著十一種》（8rldorn8yebl）撰者楊慎（明）；卷數同；單行本 Work 已有同叢書版本 Book「楊升庵雜著本」",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-25 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fyxb79qf4《經子難字》 入本條。同題：單行本《經子難字》楊慎（明）；《經子難字》（d59fyxb79qf4）为叢書子目，所屬叢書《楊升庵雜著十一種》（8rldorn8yebl）撰者楊慎（明）；卷數同；單行本 Work 已有同叢書版本 Book「楊升庵雜著本」\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "楊慎（明）撰。二卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》《經義考》。《四庫全書存目叢書》列於经部；《經義考》列於羣經。其著錄之文，《四庫全書存目叢書》作「《經子難字》二卷」。《欽定四庫全書總目》清乾隆間館臣修；《經義考》清朱彝尊撰——本書之目賴之以存。",
     "sources": [
@@ -102,8 +118,8 @@
       "經義考"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "merged_in": [
     {
       "id": "d59fyxb79qf4",
@@ -117,5 +133,10 @@
   ],
   "merged_from": [
     "d59fyxb79qf4"
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-01022": {
+      "label": "臺灣國家圖書館藏本：明山陰祁氏淡生堂藍格鈔本"
+    }
+  }
 }

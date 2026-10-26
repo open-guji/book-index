@@ -54,7 +54,7 @@
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "id": "d59f6el14zd3",
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -64,11 +64,27 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-07391_%E8%B1%AB%E7%AB%A0%E6%BC%AB%E6%8A%84.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07391",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07391",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07391",
+        "call_number": "308 07391",
+        "edition": "明嘉靖間(1522-1566)刊儼山外集本"
+      }
     }
   ],
   "period": "ming",
   "period_basis": "據撰人 陸深（hixhd2h9bea4） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）",
-  "ai_note": "朝代缺（記錄或目標Work一側缺朝代），按作者同＋題名同＋卷數相符並（Sawyer 2026-10-16，批416，Sabine口徑）\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 B 档逐组复核并）：併 d59fz4bac35t《豫章漫抄》 入本條。同题同首位责任者：《豫章漫抄》陸深(明,1/4卷,8版本)／《豫章漫抄》陸深(明,4卷,1版本,繼承叢書撰者)；B 档逐组复核判同一作品（flags=juan_mixed）",
+  "ai_note": "朝代缺（記錄或目標Work一側缺朝代），按作者同＋題名同＋卷數相符並（Sawyer 2026-10-16，批416，Sabine口徑）\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 B 档逐组复核并）：併 d59fz4bac35t《豫章漫抄》 入本條。同题同首位责任者：《豫章漫抄》陸深(明,1/4卷,8版本)／《豫章漫抄》陸深(明,4卷,1版本,繼承叢書撰者)；B 档逐组复核判同一作品（flags=juan_mixed）\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "merged_in": [
     {
       "id": "d59fz4bac35t",
@@ -83,5 +99,10 @@
   ],
   "merged_from": [
     "d59fz4bac35t"
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-07391": {
+      "label": "臺灣國家圖書館藏本：明嘉靖間(1522-1566)刊儼山外集本"
+    }
+  }
 }

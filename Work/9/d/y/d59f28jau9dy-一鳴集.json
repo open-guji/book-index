@@ -46,7 +46,7 @@
     }
   ],
   "measure_info": "三十卷",
-  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（三十卷），今據以補。\n\n2026-09-09 A-并条 併條（rule=A-撰人黏題首致撞庫失效）：併 d59f2qa8ovsw《司空圖一鳴集》 入本條。被并方繫於國史經籍志、新唐書藝文志，正条繫於宋史藝文志、崇文總目、直齋書錄解題；两侧所繫之志互不相交（ev1_disjoint），卷数集合相容（ev2_state=同），撰人「司空圖」与正条撰人相合，判为撰人黏题首致同书重出，逕并。",
+  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（三十卷），今據以補。\n\n2026-09-09 A-并条 併條（rule=A-撰人黏題首致撞庫失效）：併 d59f2qa8ovsw《司空圖一鳴集》 入本條。被并方繫於國史經籍志、新唐書藝文志，正条繫於宋史藝文志、崇文總目、直齋書錄解題；两侧所繫之志互不相交（ev1_disjoint），卷数集合相容（ev2_state=同），撰人「司空圖」与正条撰人相合，判为撰人黏题首致同书重出，逕并。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "authors": [
     {
       "name": "司空圖",
@@ -60,8 +60,8 @@
   "dynasty_basis": "author_propagation:唯一作者朝代",
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「唐」——撰人自《宋史藝文志》頂真格之首名抽出（見 authors[].name_basis），繫庫中同名唯一之 entity 而得其代。",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -70,6 +70,22 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-09906_%E4%B8%80%E9%B3%B4%E9%9B%86.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-09906",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/09906",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "09906",
+        "call_number": "402.42 09906",
+        "edition": "鈔本"
+      }
     }
   ],
   "additional_titles": [
@@ -84,5 +100,10 @@
       "rule": "A-撰人黏題首致撞庫失效",
       "why": "被并方繫於國史經籍志、新唐書藝文志，正条繫於宋史藝文志、崇文總目、直齋書錄解題；两侧所繫之志互不相交（ev1_disjoint），卷数集合相容（ev2_state=同），撰人「司空圖」与正条撰人相合，判为撰人黏题首致同书重出，逕并。"
     }
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-09906": {
+      "label": "臺灣國家圖書館藏本：鈔本"
+    }
+  }
 }

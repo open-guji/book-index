@@ -16,7 +16,7 @@
       "（所繫實物之版本著錄）"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L6 desc 補全：本條之 description 非人所撰，是據所繫著錄之引文（或所繫實物之版本著錄）機械組織而成，未覆核原書。\n\n2026-09-06 qa-sweep/liaojinyuan G 類撞題所得：d59f2j4j14ox《選詩補注八卷補遺二卷續編》併入本條（同書重出）。d59f2j4j14ox 之題乃著錄語（卷數／附錄／目錄／續編等）與正題黏連而成之誤（PITFALLS 坑 5〈題名孤證繫〉同型之反相——非題名孤證繫錯書，而是正題被自己的卷數附件字樣拖長）。 indexed_by 移入：國立故宮博物院善本舊籍。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-25 遼金元 L6 desc 補全：本條之 description 非人所撰，是據所繫著錄之引文（或所繫實物之版本著錄）機械組織而成，未覆核原書。\n\n2026-09-06 qa-sweep/liaojinyuan G 類撞題所得：d59f2j4j14ox《選詩補注八卷補遺二卷續編》併入本條（同書重出）。d59f2j4j14ox 之題乃著錄語（卷數／附錄／目錄／續編等）與正題黏連而成之誤（PITFALLS 坑 5〈題名孤證繫〉同型之反相——非題名孤證繫錯書，而是正題被自己的卷數附件字樣拖長）。 indexed_by 移入：國立故宮博物院善本舊籍。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -33,8 +33,8 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "indexed_by": [
     {
       "source": "國立故宮博物院善本舊籍",
@@ -229,6 +229,54 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5090933/manifest.json",
         "extent": "7冊"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-13701",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/13701",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "13701",
+        "call_number": "403.1 13701",
+        "edition": "明宣德甲寅(9年,1434)吉安知府陳本深刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-13704",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/13704",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "13704",
+        "call_number": "403.1 13704",
+        "edition": "明宣德甲寅(9年,1434)吉安知府陳本深刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-13706",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/13706",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "13706",
+        "call_number": "403.1 13706",
+        "edition": "明刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -261,6 +309,15 @@
     },
     "naikaku-1077281": {
       "label": "內閣文庫藏本：文政3年刊本（319-0152，7冊）"
+    },
+    "ncltw-13701": {
+      "label": "臺灣國家圖書館藏本：明宣德甲寅(9年,1434)吉安知府陳本深刊本"
+    },
+    "ncltw-13704": {
+      "label": "臺灣國家圖書館藏本：明宣德甲寅(9年,1434)吉安知府陳本深刊本"
+    },
+    "ncltw-13706": {
+      "label": "臺灣國家圖書館藏本：明刊本"
     }
   }
 }
