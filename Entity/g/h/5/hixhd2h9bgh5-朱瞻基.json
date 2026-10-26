@@ -7,7 +7,8 @@
   "alt_names": [
     {
       "name": "宣宗",
-      "type": "別名"
+      "type": "廟號",
+      "ambiguous": true
     },
     {
       "name": "宣德",
@@ -41,6 +42,10 @@
       "name": "宣宗皇帝",
       "type": "別名",
       "note": "重出條并入"
+    },
+    {
+      "name": "宣德帝",
+      "type": "別名"
     }
   ],
   "dynasty": "明",
@@ -54,25 +59,31 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "ming",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 7 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-08-24 帝王 entity 重出歸併：併入「明宣宗」（`1jcf51512961e`）。本日補 entity 之際，以廟號「明宣宗」別立一條，而庫中早有以本名「朱瞻基」立者，遂成一人兩目。**庫中帝王之例，宋明以前用本名（趙佶、朱元璋、曹丕、蕭衍），清代用廟號（清高宗、清聖祖）**，本條從前者，廟號入 alt_names。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=30153 補入空槽——籍貫「大興」。既有之值一概未動。\n\n2026-09-06 qa-sweep/qing·C 類：移出 `d59f2n7zq32a`、`d59f2n7zq329`、`d59f2n801blt`、`d59f2nmvojr5`、`d59f2n80nsox`、`d59f2n82j7y8`——皆撰人「宣宗」而實指清宣宗（道光帝），2026-08-24 因庫中尚無「清宣宗」entity 而誤繫至本條（明宣宗，1398–1435），今改繫 `hixhd2h9brxx`。",
+  "ai_note": "2026-08-24 補繫 entity：新收 7 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-08-24 帝王 entity 重出歸併：併入「明宣宗」（`1jcf51512961e`）。本日補 entity 之際，以廟號「明宣宗」別立一條，而庫中早有以本名「朱瞻基」立者，遂成一人兩目。**庫中帝王之例，宋明以前用本名（趙佶、朱元璋、曹丕、蕭衍），清代用廟號（清高宗、清聖祖）**，本條從前者，廟號入 alt_names。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=30153 補入空槽——籍貫「大興」。既有之值一概未動。\n\n2026-09-06 qa-sweep/qing·C 類：移出 `d59f2n7zq32a`、`d59f2n7zq329`、`d59f2n801blt`、`d59f2nmvojr5`、`d59f2n80nsox`、`d59f2n82j7y8`——皆撰人「宣宗」而實指清宣宗（道光帝），2026-08-24 因庫中尚無「清宣宗」entity 而誤繫至本條（明宣宗，1398–1435），今改繫 `hixhd2h9brxx`。\n\n2026-10-25 A12 L6 帝王稱號：補廟號、帝號別名（宣宗(改類型)、宣德帝），據維基百科補身份、說明；回填年號條 ruler.entity_id。 維基百科生卒作 1399–1435，與現行 1398–1435 不同，未改。",
   "native_place": "大興",
   "native_place_entity_id": "hixi5whl2brk",
   "native_place_basis": "CBDB 30153 index_addr（2026-09-06 CBDB enrich）",
-  "revised_at": "2026-10-14",
+  "revised_at": "2026-10-25",
   "dates": {
     "birth": 1398,
     "death": 1435,
     "basis": "現行字段"
   },
-  "revision": "1.1.1",
+  "revision": "1.1.2",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/67r70xg6iyrnkgdi"
+      },
+      {
+        "name": "維基百科",
+        "type": "url",
+        "details": "https://zh.wikipedia.org/wiki/明宣宗"
       }
-    ]
+    ],
+    "text": "明朝皇帝，年號宣德（1426–1435）。明仁宗朱高熾之子。"
   },
   "merged_in": [
     {
@@ -91,5 +102,6 @@
       "rule": "帝王重出并入（Soren 核查）",
       "why": "全朝帝王并入：宣宗皇帝(明)→朱瞻基（Soren 清单）"
     }
-  ]
+  ],
+  "title_or_office": "皇帝"
 }
