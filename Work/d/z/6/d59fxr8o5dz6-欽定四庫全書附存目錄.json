@@ -30,9 +30,9 @@
       "summary": "共 4 個版本：清乾隆間刻本（浙江圖書館）；清乾隆五十八年自刻本（上海圖書館）；清光緒七年心矩齋抄本（國家圖書館）；清光緒十年學海堂刻本（浙江圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xexcdhtnnx1bot2b、e27omxqy7vp4pddo、xmwuddcmpl41r2lr、718ec6c6bqymn8kl\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xexcdhtnnx1bot2b、e27omxqy7vp4pddo、xmwuddcmpl41r2lr、718ec6c6bqymn8kl\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-NDL丛书合刻-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -63,6 +63,21 @@
         "nlc_fid": "001945404",
         "edition": "心矩齋   清光緒7年[1881]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2608150",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2608150",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2608150",
+        "edition": "乾隆58跋刊"
+      }
     }
   ],
   "resource_groups": {
@@ -71,6 +86,9 @@
     },
     "nlc-001945404": {
       "label": "國圖藏本：心矩齋   清光緒7年[1881]"
+    },
+    "ndl-2608150": {
+      "label": "NDL藏本：乾隆58跋刊"
     }
   }
 }
