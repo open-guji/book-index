@@ -279,6 +279,36 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4033810/manifest.json",
         "extent": "15冊"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-13386799",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/13386799",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid13386799",
+        "edition": "江戸刊(鹿角山房藏版)"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2560035",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2560035",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2560035",
+        "edition": "光緒9"
+      }
     }
   ],
   "updated_at": "2026-08-09T10:41:40+00:00",
@@ -286,8 +316,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
-  "revision": "1.3.0",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 2 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resource_groups": {
     "kokusho-300052751": {
@@ -328,6 +358,12 @@
     },
     "naikaku-1070076": {
       "label": "內閣文庫藏本：天明7年刊本 ;（278-0096，15冊）"
+    },
+    "ndl-13386799": {
+      "label": "NDL藏本：江戸刊(鹿角山房藏版)"
+    },
+    "ndl-2560035": {
+      "label": "NDL藏本：光緒9"
     }
   },
   "related_works": [
