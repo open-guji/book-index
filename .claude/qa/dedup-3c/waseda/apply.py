@@ -36,6 +36,7 @@ for typ, i, aops, wdyn, basis in OPS:
             if op is None:
                 log.append('刪 authors「%s」' % a['name']); continue
             for k, v in op.items():
+                if a.get(k) == v: continue
                 if k == 'role' and a.get('role') == v: continue
                 if k == 'entity_id' and a.get('entity_id') not in (None, 'hixiclpep14k'): continue
                 log.append('%s「%s」→「%s」' % (k, a.get(k, ''), v)); a[k] = v
