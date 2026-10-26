@@ -38,7 +38,7 @@
       "summary": "共 2 個版本：清小琅嬛館刻本（上海圖書館）；清康熙間刻本（南京圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ncou5lsrlxzabwwy、j2reqrfssh34sem7、s4tlyh327yl628lc、qolp7h1x3ve5cg5g\nE6 第 442 批新建（hold 清零：串3余量另立；原 hold 原因：E:none）\n子部二串5並條 A檔（源 Work 1exp3065h80zm《廣治平畧》已並入；其作者寫法：蔡方炳）",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ncou5lsrlxzabwwy、j2reqrfssh34sem7、s4tlyh327yl628lc、qolp7h1x3ve5cg5g\nE6 第 442 批新建（hold 清零：串3余量另立；原 hold 原因：E:none）\n子部二串5並條 A檔（源 Work 1exp3065h80zm《廣治平畧》已並入；其作者寫法：蔡方炳）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
   "merged_in": [
     {
       "id": "1exp3065h80zm",
@@ -49,6 +49,46 @@
       "why": "子部二串5並條 A檔"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-i13_00673",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/i13/i13_00673/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "i13_00673",
+        "edition": "漁古山房"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2580663",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2580663",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2580663",
+        "edition": "清刊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-i13_00673": {
+      "label": "早稲田藏本：漁古山房"
+    },
+    "ndl-2580663": {
+      "label": "NDL藏本：清刊"
+    }
+  }
 }

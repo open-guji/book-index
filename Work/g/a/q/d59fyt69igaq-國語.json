@@ -11,7 +11,8 @@
       "source": {
         "name": "中國古籍總目",
         "type": "url"
-      }
+      },
+      "entity_id": "hixhd2f8waln"
     }
   ],
   "dynasty": "清",
@@ -28,7 +29,53 @@
       "summary": "共 5 個版本：清同治八年湖北崇文書局刻本（國家圖書館、上海圖書館、北京大學圖書館、南京圖書館）；袖珍古書讀本本（北京大學圖書館）；清光緒二年成都尊經書院刻本（南京圖書館、國家圖書館）；清光緒三年永康胡氏退補齋刻本（國家圖書館）；四部備要本（大連市圖書館、遼寧省圖書館、南京圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：khf20ewmtac1de3h、cjpa5xvk0lyp3ppl、o62gz81bryorwb8s、a3oqtrpixq0df4ar、zg4bnkgukzb2ufkh\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-03.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-20"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：khf20ewmtac1de3h、cjpa5xvk0lyp3ppl、o62gz81bryorwb8s、a3oqtrpixq0df4ar、zg4bnkgukzb2ufkh\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-03.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068387",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068387",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068387",
+        "request_no": "２８６－０１１７",
+        "edition": "刊本::文化:010000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4903466/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070630",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070630",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070630",
+        "request_no": "史０４５－０００２",
+        "edition": "刊本::清嘉慶:050000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4408244/manifest.json",
+        "extent": "2冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1068387": {
+      "label": "內閣文庫藏本：文化1年刊本（286-0117，6冊）"
+    },
+    "naikaku-1070630": {
+      "label": "內閣文庫藏本：清嘉慶5年刊本（史045-0002，2冊）"
+    }
+  }
 }

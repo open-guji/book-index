@@ -30,7 +30,73 @@
       "summary": "共 4 個版本：明萬曆二十五年刻本（首都圖書館、泰州市圖書館、天一閣文物保管所）；明萬曆二十六年刻本（日本東京大學東洋文化研究所）；明崇禎二年刻本（日本內閣文庫（國立公文書館））；明萬曆二十六年書林徐可久刻本（上海圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：c0jvm24x0ushrdps、s0nmo4k6eprnvy6y、uvsb0uaib2hkaee7、pw53fs2ie2ivv8bg\nauto-split:存疑未并\nE6 第 601 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：c0jvm24x0ushrdps、s0nmo4k6eprnvy6y、uvsb0uaib2hkaee7、pw53fs2ie2ivv8bg\nauto-split:存疑未并\nE6 第 601 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条、國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071665",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071665",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071665",
+        "request_no": "３１４－００１９",
+        "edition": "刊本（序刊）::明万暦:250000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4756053/manifest.json",
+        "extent": "8冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073740",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073740",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073740",
+        "request_no": "集０１０－００１１",
+        "edition": "刊本（序刊）::明崇禎:020000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/626751/manifest.json",
+        "extent": "8冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100366144",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100366144",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100366144",
+        "holder": "東北大狩野マイクロ",
+        "edition": "写",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100366144/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1071665": {
+      "label": "內閣文庫藏本：明万暦25年刊本（序刊）（314-0019，8冊）"
+    },
+    "naikaku-1073740": {
+      "label": "內閣文庫藏本：明崇禎2年刊本（序刊）（集010-0011，8冊）"
+    },
+    "kokusho-100366144": {
+      "label": "國書·東北大狩野マイクロ藏写"
+    }
+  }
 }

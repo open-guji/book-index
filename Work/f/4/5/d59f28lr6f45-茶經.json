@@ -278,6 +278,38 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4919813/manifest.json",
         "extent": "2冊"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-wo09_03874",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/wo09/wo09_03874/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "wo09_03874",
+        "edition": "京都 : 竹苞楼, 天保15[1844]"
+      },
+      "note": "合刻本：同册另含顾元庆茶谱、茶谱外集及茶经外集、水辨等（K19，只挂主书）"
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-wo09_04033",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/wo09/wo09_04033/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "wo09_04033",
+        "edition": "京都 : 辻本仁兵衛, 天保15[1844]"
+      },
+      "note": "合刻本：同册另含顾元庆茶谱、茶谱外集及茶经外集、水辨等（K19，只挂主书）"
     }
   ],
   "measures": [
@@ -308,12 +340,10 @@
       "rule": "去重方案部分3a-1：同题同首位责任者 A 档机械并",
       "why": "同题同首位责任者：《茶經》陸羽(唐,1/3卷,50版本)／《新刻茶經》陸羽(唐,2卷,3版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突",
       "author": "陸羽",
-      "title_info": [
-        "新刻茶經二卷"
-      ]
+      "title_info": "新刻茶經二卷"
     }
   ],
-  "ai_note": "合併：題名「陸羽茶經」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「陸羽」已見本條 authors[]），裸題「茶經」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwqtaq03k 與 11q37rdkmxeyo 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…載之小說家，作三卷，與今本同。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n總目版本待定（庫中現僅有文淵閣本）：總目著錄版本標籤空，未入 Book（b6ikegezn4fqf6a5、j60d3bg3l0tablk0、wnzq4vluwgkm53aj、mbgul0vq8p8fc5gl、qo0vnmhio6obvflh、ylkj64i7fvpho78g、kho4u4xytbz6x4qf、gi46deecxtptjd3j、n8ghqbvv5v2mxq1n、djocbib2sm5aoaza、vs5nrxj5cvveo2od、gxswxcwko420yrse、0oah7ok6irp1mzht、1q7nqpy6eaumsnme、v3knxnwt8oaxjmod、5t50tcacmdghxo60、rgksfut0p1nko3es、0e03lgxaauotg225、0lcxptefcw1gmora、1rqnosft403q0vnc、k5rfqapqb0nqsqav、f64d23hc7vehve7a、a63dptpb65ptb6j2、tb7u3b5rmpovicmp、v4epx4464as2m5b7、0bsukvolxgppfj3m、16f4radw3zpl5zwb、2ogewce3ysaduzzr、4wxsne8a2gk5tfn3、6rt80es6h4f24uw3、ktxcxfxe5u05xooy、b3dodgb0ge7ociz6、dkd7bj18t32xemv4、hjoe5ykum0rbv4xk、7mmd88rwt4nn0zf2、imjnrl2g43ef06ir、ld1xsnzk6matifi0、rec8oyxo3kgijq4u）\n總目分類：子部／譜錄類／飲食之屬／茶\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59fyay001kx《新刻茶經》 入本條。同题同首位责任者：《茶經》陸羽(唐,1/3卷,50版本)／《新刻茶經》陸羽(唐,2卷,3版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突",
+  "ai_note": "合併：題名「陸羽茶經」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「陸羽」已見本條 authors[]），裸題「茶經」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwqtaq03k 與 11q37rdkmxeyo 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…載之小說家，作三卷，與今本同。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n總目版本待定（庫中現僅有文淵閣本）：總目著錄版本標籤空，未入 Book（b6ikegezn4fqf6a5、j60d3bg3l0tablk0、wnzq4vluwgkm53aj、mbgul0vq8p8fc5gl、qo0vnmhio6obvflh、ylkj64i7fvpho78g、kho4u4xytbz6x4qf、gi46deecxtptjd3j、n8ghqbvv5v2mxq1n、djocbib2sm5aoaza、vs5nrxj5cvveo2od、gxswxcwko420yrse、0oah7ok6irp1mzht、1q7nqpy6eaumsnme、v3knxnwt8oaxjmod、5t50tcacmdghxo60、rgksfut0p1nko3es、0e03lgxaauotg225、0lcxptefcw1gmora、1rqnosft403q0vnc、k5rfqapqb0nqsqav、f64d23hc7vehve7a、a63dptpb65ptb6j2、tb7u3b5rmpovicmp、v4epx4464as2m5b7、0bsukvolxgppfj3m、16f4radw3zpl5zwb、2ogewce3ysaduzzr、4wxsne8a2gk5tfn3、6rt80es6h4f24uw3、ktxcxfxe5u05xooy、b3dodgb0ge7ociz6、dkd7bj18t32xemv4、hjoe5ykum0rbv4xk、7mmd88rwt4nn0zf2、imjnrl2g43ef06ir、ld1xsnzk6matifi0、rec8oyxo3kgijq4u）\n總目分類：子部／譜錄類／飲食之屬／茶\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59fyay001kx《新刻茶經》 入本條。同题同首位责任者：《茶經》陸羽(唐,1/3卷,50版本)／《新刻茶經》陸羽(唐,2卷,3版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 2 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
   "description": {
@@ -327,8 +357,8 @@
       "新唐書藝文志"
     ]
   },
-  "revision": "1.3.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "resource_groups": {
     "nlc-411999030210": {
@@ -354,6 +384,12 @@
     },
     "naikaku-1076119": {
       "label": "內閣文庫藏本：江戸刊本（306-0260，2冊）"
+    },
+    "waseda-wo09_03874": {
+      "label": "早稲田藏本：京都 : 竹苞楼, 天保15[1844]"
+    },
+    "waseda-wo09_04033": {
+      "label": "早稲田藏本：京都 : 辻本仁兵衛, 天保15[1844]"
     }
   },
   "additional_titles": [

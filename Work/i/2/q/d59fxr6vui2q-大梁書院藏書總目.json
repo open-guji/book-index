@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/jfsijs8eubumnmwq"
-      }
+      },
+      "entity_id": "hixi5eks7m8l"
     }
   ],
   "dynasty": "清",
@@ -29,7 +30,29 @@
       "summary": "共 1 個版本：清光緒二十四年刻本（國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：lo2pkx5hvey7y28w",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：lo2pkx5hvey7y28w\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（第二轮）。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "ndl",
+      "group": "ndl-2540454",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2540454",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2540454",
+        "edition": "光緒24序刊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ndl-2540454": {
+      "label": "NDL藏本：光緒24序刊"
+    }
+  }
 }

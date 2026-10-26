@@ -7,14 +7,77 @@
     {
       "name": "陳翊九",
       "role": "輯",
-      "dynasty": "明"
+      "dynasty": "明",
+      "entity_id": "hixiclg0y97i"
     }
   ],
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
-  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007715599。",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-09"
+  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007715599。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-bunko06_01080",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko06/bunko06_01080/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko06_01080",
+        "edition": "心斎橋通南久宝寺町(大阪) : 崇高堂, 天明8[1788] ( )"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200014067",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200014067",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200014067",
+        "holder": "国文研",
+        "edition": "刊 天明８",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200014067/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300097929",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300097929",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300097929",
+        "holder": "府中之島図石崎",
+        "edition": "刊 寛文１１",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300097929/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-bunko06_01080": {
+      "label": "早稲田藏本：心斎橋通南久宝寺町(大阪) : 崇高堂, 天明8[1788] ( )"
+    },
+    "kokusho-200014067": {
+      "label": "國書·国文研藏刊 天明８"
+    },
+    "kokusho-300097929": {
+      "label": "國書·府中之島図石崎藏刊 寛文１１"
+    }
+  }
 }

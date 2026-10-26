@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/agi34woicnqcdv8d"
-      }
+      },
+      "entity_id": "hixicm3bdp3h"
     }
   ],
   "dynasty": "明",
@@ -29,7 +30,32 @@
       "summary": "共 1 個版本：明萬曆間刻本（日本內閣文庫（國立公文書館）、復旦大學圖書館、日本尊經閣文庫）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：1i0v5g86w7cbkj7d\nE6 第 304 批新建（hold 清零：G527-M-new；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：1i0v5g86w7cbkj7d\nE6 第 304 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070148",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070148",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070148",
+        "request_no": "２７３－０２０６",
+        "edition": "刊本:明末:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3960119/manifest.json",
+        "extent": "4冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1070148": {
+      "label": "內閣文庫藏本：明末刊本（273-0206，4冊）"
+    }
+  }
 }

@@ -7,12 +7,14 @@
     {
       "name": "李通玄撰",
       "role": "撰",
-      "dynasty": "唐"
+      "dynasty": "唐",
+      "entity_id": "hixicabcxc0p"
     },
     {
       "name": "志寧釐經合",
       "role": "撰",
-      "dynasty": "唐"
+      "dynasty": "唐",
+      "entity_id": "hixicabcxc0d"
     }
   ],
   "indexed_by": [
@@ -25,9 +27,9 @@
       "summary": "共 1 個版本：明萬曆十九年聊城傅光宅刻（臺灣圖書館、北京市法源寺）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：72asl5a8tw2bc6mg\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n責任者 role 異常未寫入：李通玄撰論、釋實叉難陀譯經、釋志寧釐經合論\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：唐釋實叉難陀譯經;唐李通玄撰論;唐釋志寧釐經合論\nE6 第 445 批新建（hold 清零：E-N-anon-clean；原 hold 原因：no_main_author）\n晋升前審計補錄：據 indexed_by.author_info 補入 李通玄撰、志寧釐經合（錄入時漏）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：72asl5a8tw2bc6mg\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n責任者 role 異常未寫入：李通玄撰論、釋實叉難陀譯經、釋志寧釐經合論\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：唐釋實叉難陀譯經;唐李通玄撰論;唐釋志寧釐經合論\nE6 第 445 批新建（hold 清零：E-N-anon-clean；原 hold 原因：no_main_author）\n晋升前審計補錄：據 indexed_by.author_info 補入 李通玄撰、志寧釐經合（錄入時漏）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fyh3j25mp",
@@ -53,11 +55,31 @@
         "nlc_fid": "ZHCH1057",
         "edition": "金皇統九年[1149]"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300093503",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300093503",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300093503",
+        "holder": "東洋大哲学堂",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300093503/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-ZHCH1057": {
       "label": "國圖藏本：金皇統九年[1149]"
+    },
+    "kokusho-300093503": {
+      "label": "國書·東洋大哲学堂藏刊"
     }
   }
 }

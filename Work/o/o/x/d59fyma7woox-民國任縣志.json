@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/dmfvwcxqm37w87lc"
-      }
+      },
+      "entity_id": "hixicabbd5du"
     },
     {
       "name": "劉書旂",
@@ -22,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/zcr5rgmm4p3prpaq"
-      }
+      },
+      "entity_id": "hixhd2h9bp4q"
     },
     {
       "name": "陳智",
@@ -32,7 +34,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/se8q1sjz2mfybee0"
-      }
+      },
+      "entity_id": "hixicabbzmfm"
     },
     {
       "name": "王億年",
@@ -42,7 +45,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/bosj3wl35za6q4nw"
-      }
+      },
+      "entity_id": "hixhd2h9bs4d"
     }
   ],
   "indexed_by": [
@@ -55,9 +59,9 @@
       "summary": "共 1 個版本：清宣統二年修民國四年續修鉛印本（北京大學圖書館、上海圖書館、國家圖書館、中國科學院圖書館、湖北省圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：yhrl87kymdoakf75\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n主責任者「謝昺麟」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nauto-split:存疑未并\nE6 第 442 批新建（hold 清零：串3余量另立；原 hold 原因：E:tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：yhrl87kymdoakf75\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n主責任者「謝昺麟」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nauto-split:存疑未并\nE6 第 442 批新建（hold 清零：串3余量另立；原 hold 原因：E:tier=存疑）\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2n5jdxc1《任縣志》、d59f2n6sykn4《任縣志》 入本條。方志同修次重出：《[民國]任縣志》謝昺麟修、劉書旂續纂、陳智纂、王億年續修（中國古籍總目） ← 《任縣志》劉書旂撰（无著录（故宫等））、《任縣志》王億年修（无著录（故宫等））。脚本初判 A同修次·同人·同卷·年号同；B同修次·同年号同卷·无同名。逐簇核对：兩條故宮本均為民國四年據宣統二年謝昺麟原修續補鉛印本八卷，劉書旂、王億年皆見總目續纂／續修。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -79,5 +83,46 @@
     "nlc-312001063818": {
       "label": "國圖藏本："
     }
-  }
+  },
+  "juan_count": {
+    "number": 8
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 8
+    }
+  ],
+  "measure_info": "八卷",
+  "period": "qing",
+  "period_basis": "據 authors[0].dynasty「清」",
+  "dynasty": "清",
+  "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
+  "additional_titles": [
+    "任縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n5jdxc1",
+      "title": "任縣志",
+      "at": "2026-10-26T11:10:20Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[民國]任縣志》謝昺麟修、劉書旂續纂、陳智纂、王億年續修（中國古籍總目） ← 《任縣志》劉書旂撰（无著录（故宫等））、《任縣志》王億年修（无著录（故宫等））。脚本初判 A同修次·同人·同卷·年号同；B同修次·同年号同卷·无同名。逐簇核对：兩條故宮本均為民國四年據宣統二年謝昺麟原修續補鉛印本八卷，劉書旂、王億年皆見總目續纂／續修。",
+      "author": "劉書旂"
+    },
+    {
+      "id": "d59f2n6sykn4",
+      "title": "任縣志",
+      "at": "2026-10-26T11:10:20Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[民國]任縣志》謝昺麟修、劉書旂續纂、陳智纂、王億年續修（中國古籍總目） ← 《任縣志》劉書旂撰（无著录（故宫等））、《任縣志》王億年修（无著录（故宫等））。脚本初判 A同修次·同人·同卷·年号同；B同修次·同年号同卷·无同名。逐簇核对：兩條故宮本均為民國四年據宣統二年謝昺麟原修續補鉛印本八卷，劉書旂、王億年皆見總目續纂／續修。",
+      "author": "王億年"
+    }
+  ],
+  "merged_from": [
+    "d59f2n5jdxc1",
+    "d59f2n6sykn4"
+  ]
 }

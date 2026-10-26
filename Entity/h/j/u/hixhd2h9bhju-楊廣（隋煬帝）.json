@@ -7,7 +7,8 @@
   "alt_names": [
     {
       "name": "世祖",
-      "type": "廟號"
+      "type": "廟號",
+      "ambiguous": true
     },
     {
       "name": "明皇帝",
@@ -30,6 +31,10 @@
       "name": "隋煬帝",
       "type": "別名",
       "note": "重出條并入"
+    },
+    {
+      "name": "隋世祖",
+      "type": "廟號"
     }
   ],
   "dynasty": "隋",
@@ -43,14 +48,14 @@
   "period_basis": "據 dynasty「隋」自動歸併",
   "native_place": "洛陽",
   "native_place_basis": "CBDB 30957 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=30957 補入空槽——籍貫「洛陽」。既有之值一概未動。\n\n2026-10-16 GUJI-383 帝王抽檢（Sylvie，評論12873）：同人雙條 hixhd2h9bufq 隋煬帝 并入本條（Sidney 執行；同朝同廟號、生卒一致，留帶生卒與 cbdb 之一方），Work 引用已改指。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=30957 補入空槽——籍貫「洛陽」。既有之值一概未動。\n\n2026-10-16 GUJI-383 帝王抽檢（Sylvie，評論12873）：同人雙條 hixhd2h9bufq 隋煬帝 并入本條（Sidney 執行；同朝同廟號、生卒一致，留帶生卒與 cbdb 之一方），Work 引用已改指。\n\n2026-10-26 A12 L6 帝王稱號：補廟號、帝號別名（隋世祖），據維基百科補身份、說明；回填年號條 ruler.entity_id。",
   "dates": {
     "birth": 580,
     "death": 618,
     "basis": "現行字段"
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-10-16",
+  "revision": "1.0.2",
+  "revised_at": "2026-10-26",
   "merged_in": [
     {
       "id": "hixhd2h9brk2",
@@ -68,5 +73,10 @@
       "rule": "帝王同人双条并条（Sylvie 抽检）",
       "why": "同人：同朝同庙号帝王，生卒/在位一致，保留带生卒与cbdb之一方；GUJI-383 评论12873"
     }
-  ]
+  ],
+  "title_or_office": "皇帝",
+  "description": {
+    "text": "隋朝皇帝，年號大業（605–618）。",
+    "sources": []
+  }
 }

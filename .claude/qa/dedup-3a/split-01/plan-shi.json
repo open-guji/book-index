@@ -1,0 +1,126 @@
+[
+  {
+    "gid": "G0534",
+    "work": "d59fxu434pvk",
+    "indexed_by_list": [
+      {"idx": 0, "source": "中國古籍總目", "title_info": "今水經一卷", "author_info": "清黃宗羲撰", "summary": "共15版本（孔繼涵抄本、翁同書抄本、知不足齋叢書本、梨洲遺著彙刊本等）", "verdict": "留"},
+      {"idx": 1, "source": "中國古籍總目", "title_info": "今水經注要覽三卷", "author_info": "清黃宗羲撰;清黃錫齡注", "summary": "共1版本：清嘉慶二年刻本（國家圖書館）", "verdict": "移出（黃錫齡注本，另立新 Work）"},
+      {"idx": 2, "source": "中國古籍總目", "title_info": "今水經二卷", "author_info": "清黄宗義撰;清薛鳳昌編", "summary": "共1版本：清宣統二年上海時中書局鉛印本（南京圖書館）", "verdict": "留（非他書：即梨洲遺著彙刊本）"}
+    ],
+    "keep_indexed_by": [0, 2],
+    "books_list": {
+      "keep": ["995444v0u8", "995444v0u9", "993d4ck16o", "995443m2o0", "995443m2o1", "995442d4hs", "994398b5z4", "99436r1am8", "995443xb7k", "995443xb7l", "995442od1c", "993mtx3h8g", "9954448jr4", "99406lxjwh", "995442zlkw", "995442zlkx", "9956ar3q4g", "994g1lrrpc", "995444jsao", "995444jsap", "99438g7t34", "995443au4g", "9954421vy9"],
+      "move": ["9955zzq801"]
+    },
+    "move": [
+      {
+        "indexed_by": [1],
+        "books": ["9955zzq801"],
+        "target": "NEW",
+        "new_work": {
+          "title": "今水經注要覽",
+          "authors": [
+            {"name": "黃宗羲", "role": "撰", "dynasty": "清", "entity_id": "hixhd2f8wait"},
+            {"name": "黃錫齡", "role": "注", "dynasty": "清", "source": {"name": "中國古籍總目", "type": "url", "details": "http://data.library.sh.cn/entity/person/cms1kwr14f21b4ig"}}
+          ],
+          "juan": 3,
+          "measure_info": "三卷",
+          "section": "史部/地理類/山水志之屬/水",
+          "description": "清黃錫齡就黃宗羲《今水經》加注之本，三卷，有清嘉慶二年刻本（國家圖書館藏）。",
+          "related_works": [
+            {"id": "d59fxu434pvk", "relation": "related", "note": "所注之原書《今水經》（併條後以 keeper 為準）"},
+            {"id": "d59fyt0b2f40", "relation": "related", "note": "黃錫齡《水經要覽》一卷（小方壺齋輿地叢鈔本），疑為本書之節本，未證同，不併"}
+          ]
+        },
+        "reason": "題名、卷數（三卷對一卷表一卷）、責任方式（黃錫齡注）俱異，是後人注本，不是黃宗羲原書的又一版本。庫內查無「今水經注要覽」Work；黃錫齡名下只有 d59fyt0b2f40《水經要覽》一卷（小方壺齋輿地叢鈔本），卷數不同，可能是節本但無證據，所以不併入，只掛 related。"
+      }
+    ],
+    "not_moved": [
+      {
+        "indexed_by": [2],
+        "books": ["9956ar3q4g"],
+        "reason": "薛鳳昌是《梨洲遺著彙刊》的編者，該彙刊正是清宣統二年（1910）上海時中書局鉛印。所以「今水經二卷，薛鳳昌編，宣統二年上海時中書局鉛印本」就是梨洲遺著彙刊本（第0條已經列出梨洲遺著彙刊本·浙江圖書館，Book 995443m2o0 也是這個本子）。「二卷」即一卷加表一卷。不是他書，留下。"
+      }
+    ],
+    "field_fixes": {
+      "d59fxu434pvk.indexed_by": "刪去第1條（今水經注要覽三卷）；第2條保留，可在 note 註明「即梨洲遺著彙刊本，薛鳳昌為彙刊編者」",
+      "d59fxu434pvk.ai_note": "追記：拆出黃錫齡《今水經注要覽》三卷（indexed_by 1、Book 9955zzq801）入新 Work；薛鳳昌編宣統二年時中書局本是梨洲遺著彙刊本，留下",
+      "Book 9956ar3q4g.authors[0].name": "「黃宗義」改「黃宗羲」（總目形近誤字）；薛鳳昌的 role「編」是叢編編者，可加 note「梨洲遺著彙刊編者」",
+      "Book 9956ar3q4g.edition": "可補作「清宣統二年上海時中書局鉛印本（梨洲遺著彙刊本）」",
+      "Book 9955zzq801.work_id": "改指新 Work《今水經注要覽》",
+      "authors/juan/measure_info/description": "d59fxu434pvk 沒有 juan/measure_info/description，authors 只有黃宗羲，不受混入影響，不用改"
+    },
+    "then_merge": {"keeper": "d59f2n1pq9s0", "losers": ["d59fxu434pvk"]},
+    "then_merge_reason": "拆完後兩條都是黃宗羲《今水經》一卷表一卷：d59f2n1pq9s0 的四庫總目（浙江巡撫采進本）、存目叢書（孔繼涵家鈔本）、知不足齋本，和 d59fxu434pvk 的總目15版本（含孔繼涵抄本、知不足齋叢書本）重合，是同一部書。選 d59f2n1pq9s0 當 keeper，因為它帶 entity_id、四庫提要，也有既往併條歷史。併後建議：title 由「今水經一卷表一卷」改「今水經」（卷數入 measure_info「一卷表一卷」），刪去它 related_works 裡指向 d59fxu434pvk 的那條。原先「卷上限差>1」是混入的注本「三卷」造成的；薛本「二卷」是一卷加表一卷，合起來看不矛盾。",
+    "note": "後續併條候選（不在本組，供參考）：d59fyutfwyrl《今水經》（叢書子目，所屬黃梨洲遺書七種附一種，今水經一卷表一卷，作者缺），可一併併入 keeper；1exp0i3rxo2km 已併。d59f2msijhfl《今水經表》一卷（續修四庫，知不足齋本）、d59fyt5fjo5d《考定今水經表》（陳震補正稿本）是單篇或補正本，不動。"
+  },
+  {
+    "gid": "G0610",
+    "work": "d59f2mdca6tc",
+    "indexed_by_list": [
+      {"idx": 0, "source": "欽定四庫全書總目", "title_info": "《雲南通志》•三十卷", "summary": "鄂爾泰等監修，雍正七年奉詔纂輯，乾隆元年書成", "verdict": "留"},
+      {"idx": 1, "source": "國史經籍志", "source_bid": "d59f2nl40936", "title_info": "《雲南通志》十七卷", "summary": "《雲南通志》十七卷", "verdict": "移出（明修本）"},
+      {"idx": 2, "source": "中國古籍總目", "title_info": "[乾隆]雲南通志三十卷首一卷", "author_info": "清鄂爾泰、尹繼善修;清靖道謨纂", "summary": "清乾隆元年刻本；四庫全書本", "verdict": "留"}
+    ],
+    "keep_indexed_by": [0, 2],
+    "books_list": {
+      "keep": ["988g4b6cqu", "9946tken0h", "9946tkpvk0"],
+      "move": ["9979895f9f"]
+    },
+    "move": [
+      {
+        "indexed_by": [1],
+        "books": [],
+        "target": "d59f2ncxc8hs",
+        "new_work": null,
+        "reason": "焦竑《國史經籍志》成書於明萬曆年間，不可能著錄乾隆志，所以十七卷之本必是明修本，即隆慶（萬曆四年刻）《雲南通志》十七卷（鄒應龍修、李元陽纂）。d59f2ncxc8hs 已有同一條著錄（source_bid d59f2nl40936，title_info「《雲南通志》十七卷」，文字完全一樣），還有總目「[隆慶]雲南通志十七卷 明鄒應龍修;明李元陽纂」，所以在本條刪掉即可，不必再加到目標條（避免重複）。這條是 2026-08-26「雙向鏈回補」機械回填誤繫的，同類錯誤（明史藝文志那條）09-06 已經去掉。"
+      },
+      {
+        "indexed_by": [],
+        "books": ["9979895f9f"],
+        "target": "d59f2n7qzfup",
+        "new_work": null,
+        "reason": "Book 9979895f9f 題「[康熙]雲南通志」，國圖版本項「清康熙[1662-1722]」，是 2026-10-25 國圖重配時「同題改掛最接近」掛來的，跟乾隆志不是一書。d59f2n7qzfup《雲南通志》三十卷（范承勳等修；總目「[康熙]雲南通志三十卷首一卷 清范承勳、王繼文修;清吳自肅、丁煒纂」，康熙三十年刻本）就是康熙志，題名、纂修年代都對得上，改掛過去。"
+      }
+    ],
+    "field_fixes": {
+      "d59f2mdca6tc.indexed_by": "刪去第1條（國史經籍志《雲南通志》十七卷）",
+      "d59f2mdca6tc.description.sources": "去掉「國史經籍志」，改成 [\"欽定四庫全書總目\", \"中國古籍總目\"]",
+      "d59f2mdca6tc.description.text": "原文「諸家按語稱其佚文見引於《通志》」是套板誤生的，跟本書（現存的乾隆志）不符。建議改作：「清鄂爾泰、尹繼善修，靖道謨纂。三十卷，首一卷。雍正七年奉詔纂輯，乾隆元年書成。見著錄於《欽定四庫全書總目》《中國古籍總目》。」",
+      "d59f2mdca6tc.authors": "可依總目與併入的 d59fynrf8tts 補「尹繼善／修／清」「靖道謨／纂／清」（現在只有鄂爾泰）；非必須",
+      "d59f2mdca6tc.measure_info/juan": "維持三十卷（juan 30）；merged_in 理由裡寫的「17/30卷」的17來自被移出的國史經籍志條，移出後就只剩30卷",
+      "Book 9979895f9f.work_id": "由 d59f2mdca6tc 改指 d59f2n7qzfup",
+      "d59f2mdca6tc.ai_note": "追記：去掉國史經籍志十七卷條（明修本，正主 d59f2ncxc8hs 已經有了）；康熙志 Book 9979895f9f 改掛 d59f2n7qzfup"
+    },
+    "then_merge": null,
+    "then_merge_reason": "本組 d59fynrf8tts 已在 2026-10-25 併入 d59f2mdca6tc（merged_into 已寫），不用再併。",
+    "note": "後續併條候選（不在本組）：d59fyff676yo《［乾隆］雲南通志》（文淵閣四庫叢書子目，鄂爾泰修，三十卷）、d59f2n7qzfuq《雲南通志》存二十九卷（尹繼善修，故宮，清乾隆丙辰元年刊本），都是同一部乾隆志，可併入 d59f2mdca6tc；請下一輪查重處理。另外 Book 988g4b6cqu 屬文淵閣四庫，跟 d59fyff676yo 名下的四庫子目可能重出，併的時候順手核一下。"
+  },
+  {
+    "gid": "G0005",
+    "work": "d59fyro6c35s",
+    "indexed_by_list": [
+      {"idx": 0, "source": "中國古籍總目", "title_info": "晉畧二卷", "section": "史部/史評類/議論之屬", "summary": "共3版本：（上海圖書館）；（國家圖書館）；（國家圖書館）", "verdict": "留（但跟第3條重複）"},
+      {"idx": 1, "source": "中國古籍總目", "title_info": "晉畧六十五卷附序目一卷", "section": "叢書部/雜纂類/民國以來", "summary": "叢書子目，15館", "verdict": "留"},
+      {"idx": 2, "source": "中國古籍總目", "title_info": "晉畧六十五卷附序目一卷", "section": "叢書部/雜纂類/民國以來", "summary": "叢書子目，7館", "verdict": "留"},
+      {"idx": 3, "source": "中國古籍總目", "title_info": "晉畧二卷", "section": "史部/史評類/叢編之屬", "summary": "共3版本：（上海圖書館）；（國家圖書館）；（國家圖書館）", "verdict": "留"},
+      {"idx": 4, "source": "清史稿藝文志", "title_info": "晉略", "summary": "晉略六十卷。周濟撰。", "verdict": "留"},
+      {"idx": 5, "source": "書目答問", "title_info": "晉略", "summary": "《晉略》六十卷。周濟。道光十九年刻本。", "verdict": "留"},
+      {"idx": 6, "source": "中國古籍總目", "title_info": "晉畧六十六卷", "section": "史部/雜史類/事實之屬", "summary": "四部備要本；光緒二年味雋齋刻本；道光十八年刻本；稿本", "verdict": "留"}
+    ],
+    "keep_indexed_by": [1, 2, 3, 4, 5, 6],
+    "books_list": {
+      "keep": ["9955zy61a8", "994amuy7ls", "9955zyh9ts", "9956aizk00", "99542fzqww", "9955zxusqo", "9955zxusqp", "994bhpvsw1"],
+      "move": []
+    },
+    "move": [],
+    "field_fixes": {
+      "d59fyro6c35s.indexed_by": "第0條（晉畧二卷，史評類議論之屬）和第3條（晉畧二卷，史評類叢編之屬）的題名、撰者、版本數、館藏完全相同，同出那3條源記錄（g1a0p40y10781k8e、o1aym0phn0gc6070、fo4w8zetrgl3gyai），是重複著錄。建議刪第0條，留第3條（叢編之屬，跟庫內其他史論彙函子目的寫法一致）。這只是去重，不是拆分",
+      "d59fyro6c35s.measure_info/juan": "現在是「六十卷」（juan 60，取清史稿、書目答問的說法）；現存各本（道光十八年刻本、味雋齋本、四部備要本）都作六十六卷，也就是六十五卷附序目一卷。建議改 measure_info「六十五卷序目一卷」、juan 65，在 note 註明清史稿、書目答問作六十卷。可選，不影響拆分",
+      "Book 9956aizk00.edition": "現在是空的。它的源記錄就是史論彙函甲編那3條，上圖藏本對應史論彙函甲編的稿本；可補作「史論彙函甲編本」，拿不準就不動"
+    },
+    "then_merge": null,
+    "then_merge_reason": "d59f2ntqa0w1 已在 2026-10-25 併入 d59fyro6c35s，不用再併。",
+    "note": "結論：不拆。理由：(1)「晉畧二卷」3個版本（上圖1、國圖2）正好對上《史論彙函甲編二十六種》在庫的3個本子（稿本，上海圖書館；光緒二十九年申江開文書局石印本，國家圖書館；清末石印本，國家圖書館；見 Work d59fypskiscg），可見是史論彙函甲編裡的子目，是從周濟《晉略》摘出論贊的節本，Book 99542fzqww「晉畧一卷 史論彙函甲編本」也是同一來源（總目一處作一卷，一處作二卷）。(2) 庫內慣例：史論彙函甲編的其他子目都掛在原書 Work 下，沒有另立，例如《十七史商榷二卷》在 d59f2nbzmhhd（一百卷）、《廿二史劄記四卷》在 d59f2mqgk8oy、《唐鑑二卷》在 d59f2hpi1jwg，它們的 indexed_by 也都有一條「史部/史評類/叢編之屬，共3版本：國圖、上圖、國圖」。摘錄節本不另立 Work，是按這個慣例；如果要整體改成選本另立，應該把26種一起處理，不該只動這一條。所以本條只做 indexed_by 去重。"
+  }
+]

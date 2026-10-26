@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/v8yxj3dmf347jg22"
-      }
+      },
+      "entity_id": "hixicabbd5cp"
     }
   ],
   "indexed_by": [
@@ -25,14 +26,39 @@
       "summary": "共 6 個版本：新輯各國政治藝學全書本（北京大學圖書館）；清光緒二十三年湖南新學書局刻本（南京圖書館）；清咸豐六年上海墨海書院刻本（北京大學圖書館、國家圖書館、南京圖書館）；清光緒七年上海益智書局刻本（遼寧省圖書館、南京圖書館、山東省圖書館、天津圖書館）；清光緒二十年弢園刻本（北京大學圖書館）；西史匯函正續編九種本（馆藏未载）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fqurqaillossy31z、dx4p7mj6naaf2tbc、ggvfagpfhpqkz1ez、ursmkyqhjwz4lr3j、h34sjv8kdjzpjvox、5oto535s3yel5nfd\n主責任者「託馬斯米爾納」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：fqurqaillossy31z、dx4p7mj6naaf2tbc、ggvfagpfhpqkz1ez、ursmkyqhjwz4lr3j、h34sjv8kdjzpjvox、5oto535s3yel5nfd\n主責任者「託馬斯米爾納」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fy1hasfls",
       "relation": "related",
       "note": "總目子部另立（auto-split:同名未并）"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084633",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084633",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084633",
+        "request_no": "３１１－０３０２",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5055550/manifest.json",
+        "extent": "2冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1084633": {
+      "label": "內閣文庫藏本：清刊本（311-0302，2冊）"
+    }
+  }
 }

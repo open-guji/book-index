@@ -157,9 +157,23 @@ def cap(w):
 def lower(w):
     x=xiuci(w)
     if x[0]=='修' and x[1]: return ORD.get(DYN_OF.get(x[1]))
+    # 无修次年号时取修纂人朝代（故宫、总目记录的 authors[].dynasty）；史志书目条不取
+    if kind(w) in ('G', 'Z'):
+        ds = [ORD[a[2]] for a in w['authors'] if a[2] in ORD]
+        if ds: return min(ds)
     return None
+BIBS = set(CAP) | {'補遼金元藝文志'}
+def same_bib(a, b):
+    sa, sb = set(a['sources']), set(b['sources'])
+    return len(sa) == 1 and sa == sb and sa <= BIBS
 def ystart(r): return R[r][0] if r in R else None
+try:
+    sys.path.insert(0, os.path.join(os.environ.get('BOOK_INDEX', '.'), '.claude/qa'))
+    from scan import VARIANTS
+except Exception:
+    VARIANTS = {}
 def fuzzy(sa,sb):
+    sa = {x.translate(VARIANTS) for x in sa}; sb = {x.translate(VARIANTS) for x in sb}
     for x in sa:
         for y in sb:
             if x==y: return 'eq'
@@ -191,6 +205,15 @@ def judge(a,b):
     ca,cb=cap(a),cap(b); la,lb=lower(a),lower(b)
     if not sh and ((ca is not None and lb is not None and lb>ca) or (cb is not None and la is not None and la>cb)):
         return 'C异修次·书目断代'
+    if not sh and sa and sb and same_bib(a, b):
+        return 'C异修次·同目分条'
+    # 故宫等记录的刊年比总目修次年晚 5 年以上，且修纂人对不上：故宫那条是后修之本
+    if not sh and sa and sb and {kind(a), kind(b)} == {'G', 'Z'}:
+        g, z = (a, b) if kind(a) == 'G' else (b, a)
+        xg, xz = xiuci(g), xiuci(z)
+        yg = xg[2]; yz = xz[2] or (ystart(xz[1]) if xz[0] == '修' and xz[1] else None)
+        if xg[0] == '版' and xz[0] == '修' and yg and yz and yg - yz > 5 and not (xz[2] is None and xg[1] == xz[1]):
+            return 'C异修次·后刊异人'
     if sh == 'near' and xa[2] and xb[2] and abs(xa[2] - xb[2]) > 3:
         return 'D存疑·近形名远年'
     if sh:

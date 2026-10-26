@@ -16,7 +16,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/q5hfvi6y63gqu08o"
-      }
+      },
+      "entity_id": "hixicm3b2gkw"
     }
   ],
   "dynasty": "宋",
@@ -33,7 +34,71 @@
       "summary": "共 1 個版本：刻本（上海圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6c6jwta1s0mvi3wt\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6c6jwta1s0mvi3wt\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078179",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078179",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078179",
+        "request_no": "３１０－０１２０",
+        "edition": "刊本:寛永:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5054931/manifest.json",
+        "extent": "7冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610989",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610989",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610989",
+        "request_no": "３１０－０１１６",
+        "edition": "刊本:寛永:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3743848/manifest.json",
+        "extent": "15冊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2544139",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2544139",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2544139",
+        "edition": "[寛永年間] 活字印"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1078179": {
+      "label": "內閣文庫藏本：寛永刊本（310-0120，7冊）"
+    },
+    "naikaku-3610989": {
+      "label": "內閣文庫藏本：寛永刊本（310-0116，15冊）"
+    },
+    "ndl-2544139": {
+      "label": "NDL藏本：[寛永年間] 活字印"
+    }
+  }
 }

@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/lkqf830ltaz27i2t"
-      }
+      },
+      "entity_id": "hixiclg0bs3t"
     }
   ],
   "dynasty": "明",
@@ -29,9 +30,9 @@
       "summary": "共 3 個版本：清光緒二十一年希樸齋刻本（上海圖書館）；清刻本（北京大學圖書館）；清初刻本（國家圖書館、北京大學圖書館、中國科學院圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：7snytq32yw8wz1jo、tf6ygz4grue5ouu0、zr7punsx452bdpgv\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n各版本分類不一，取多數：{\"basis\": \"S\", \"l1\": \"\\u5b50\\u90e8\", \"l2\": \"\\u5929\\u6587\\u7b97\\u6cd5\\u985e\", \"l3\": \"\\u63a8\\u6b65\\u4e4b\\u5c6c\", \"l4\": \"\\u66c6\\u6cd5\", \"source\": \"\\u4e2d\\u570b\\u53e4\\u7c4d\\u7e3d\\u76ee\"} | {\"basis\": \"S\", \"l1\": \"\\u5b50\\u90e8\", \"l2\": \"\\u8853\\u6578\\u985e\", \"l3\": \"\\u9670\\u967d\\u4e94\\u884c\\u4e4b\\u5c6c\", \"l4\": \"\\u8acf\\u5409\\u901a\\u66f8\", \"source\": \"\\u4e2d\\u570b\\u53e4\\u7c4d\\u7e3d\\u76ee\"}\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：7snytq32yw8wz1jo、tf6ygz4grue5ouu0、zr7punsx452bdpgv\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n各版本分類不一，取多數：{\"basis\": \"S\", \"l1\": \"\\u5b50\\u90e8\", \"l2\": \"\\u5929\\u6587\\u7b97\\u6cd5\\u985e\", \"l3\": \"\\u63a8\\u6b65\\u4e4b\\u5c6c\", \"l4\": \"\\u66c6\\u6cd5\", \"source\": \"\\u4e2d\\u570b\\u53e4\\u7c4d\\u7e3d\\u76ee\"} | {\"basis\": \"S\", \"l1\": \"\\u5b50\\u90e8\", \"l2\": \"\\u8853\\u6578\\u985e\", \"l3\": \"\\u9670\\u967d\\u4e94\\u884c\\u4e4b\\u5c6c\", \"l4\": \"\\u8acf\\u5409\\u901a\\u66f8\", \"source\": \"\\u4e2d\\u570b\\u53e4\\u7c4d\\u7e3d\\u76ee\"}\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,51 @@
         "nlc_fid": "411999015735",
         "edition": "清初[1644-1722]"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100237273",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100237273",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100237273",
+        "holder": "東北大和算",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100237273/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100237761",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100237761",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100237761",
+        "holder": "東北大和算",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100237761/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999015735": {
       "label": "國圖藏本：清初[1644-1722]"
+    },
+    "kokusho-100237273": {
+      "label": "國書·東北大和算藏刊"
+    },
+    "kokusho-100237761": {
+      "label": "國書·東北大和算藏刊"
     }
   }
 }

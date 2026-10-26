@@ -23,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/tge70gunk1z42kp7"
-      }
+      },
+      "entity_id": "hixhd2h9be4h"
     }
   ],
   "dynasty": "明",
@@ -38,11 +39,23 @@
       "author_info": "明胡宗憲修;明薛應旂等纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 1 個版本：明嘉靖四十年刻本（浙江圖書館、上海圖書館、南京圖書館、北平圖書館（藏臺圖））"
+    },
+    {
+      "source": "明史藝文志",
+      "source_bid": "d59f2mox0000",
+      "title_info": "薛应旂《浙江通志》七十二卷",
+      "summary": "薛應旂《浙江通志》七十二卷"
+    },
+    {
+      "source": "國史經籍志",
+      "source_bid": "d59f2nl40936",
+      "title_info": "《浙江通志》七十二卷",
+      "summary": "《浙江通志》七十二卷"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jzvo06fbon26pkdx\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 442 批新建（hold 清零：串3余量另立；原 hold 原因：E:tier=存疑）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jzvo06fbon26pkdx\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 442 批新建（hold 清零：串3余量另立；原 hold 原因：E:tier=存疑）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2ndarfur《浙江通志》 入本條。方志同修次重出：《[嘉靖]浙江通志》胡宗憲修、薛應旂纂（中國古籍總目） ← 《浙江通志》薛應旂撰、胡宗憲修（明史藝文志/國史經籍志）。脚本初判 A同修次·同人·同卷·年号缺。逐簇核对：明史藝文志薛應旂七十二卷即總目[嘉靖]浙江通志胡宗憲修薛應旂纂，嘉靖四十年刻。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -73,6 +86,41 @@
         "nlc_fid": "CBM0823",
         "edition": "明嘉靖[1522-1566]"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100095692",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100095692",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100095692",
+        "edition": "写",
+        "holder": "函館中央図",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100095692/manifest"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1067608",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1067608",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1067608",
+        "request_no": "史１２７－０００１",
+        "edition": "刊本（序刊）::明嘉靖:400000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4758542/manifest.json",
+        "extent": "16冊"
+      }
     }
   ],
   "resource_groups": {
@@ -82,5 +130,37 @@
     "nlc-CBM0823": {
       "label": "國圖藏本：明嘉靖[1522-1566]"
     }
-  }
+  },
+  "juan_count": {
+    "number": 72
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 72
+    },
+    {
+      "unit": "冊",
+      "number": 20
+    }
+  ],
+  "measure_info": "七十二卷",
+  "additional_titles": [
+    "浙江通志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2ndarfur",
+      "title": "浙江通志",
+      "at": "2026-10-26T11:58:57Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[嘉靖]浙江通志》胡宗憲修、薛應旂纂（中國古籍總目） ← 《浙江通志》薛應旂撰、胡宗憲修（明史藝文志/國史經籍志）。脚本初判 A同修次·同人·同卷·年号缺。逐簇核对：明史藝文志薛應旂七十二卷即總目[嘉靖]浙江通志胡宗憲修薛應旂纂，嘉靖四十年刻。",
+      "author": "薛應旂、胡宗憲",
+      "title_info": "薛应旂《浙江通志》七十二卷；《浙江通志》七十二卷"
+    }
+  ],
+  "merged_from": [
+    "d59f2ndarfur"
+  ]
 }
