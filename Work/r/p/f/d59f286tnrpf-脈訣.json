@@ -118,6 +118,23 @@
         "call_number": "304.1 06246-0001",
         "edition": "日本萬治元年(1658)武村市兵衛刊本"
       }
+    },
+    {
+      "id": "kyoto-rmda",
+      "group": "kyoto-RB00005301",
+      "group_role": "origin",
+      "name": "京都大学貴重資料デジタルアーカイブ",
+      "short_name": "京大",
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/item/rb00005301",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kyoto_record": "RB00005301",
+        "call_no": "ミ/5",
+        "edition": "和刻本",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00005301/manifest.json"
+      }
     }
   ],
   "authors": [
@@ -130,12 +147,12 @@
       "dynasty_basis": " N4 朝代名歸一（2026-08-24 南北朝斷代收尾）：本欄之值是志書著錄語之簡稱，於 period=nanbeichao 之桶內無歧義（南朝四代之單字國號在本桶即指南朝之宋齊梁陳，「後魏」「後周」「後齊」即北魏北周北齊），今依 SCHEMA〈規範朝代名完整枚舉〉歸一。原值可於本欄之 dynasty_basis 與所繫著錄之引文覆按。\n\n2026-09-06 qa-sweep/nanbeichao：訂正，舊作「南朝宋」。崔嘉彥（號紫虛道人／希範）為南宋醫家，江西南康人，精於脈診，撰《脈訣》（又名《崔氏脈訣》《崔真人脈訣》），成書於南宋淳熙十六年（1189）。（WebSearch：a-hospital.com「崔嘉彦」條、began.cn「宋代·脈訣」條）"
     }
   ],
-  "ai_note": "作者「宋崔嘉彥撰」補自《國立故宮博物院善本舊籍》目錄。\n\nN4 朝代名歸一（2026-08-24）：崔嘉彥「宋」→「南朝宋」。N4 朝代名歸一（2026-08-24 南北朝斷代收尾）：本欄之值是志書著錄語之簡稱，於 period=nanbeichao 之桶內無歧義（南朝四代之單字國號在本桶即指南朝之宋齊梁陳，「後魏」「後周」「後齊」即北魏北周北齊），今依 SCHEMA〈規範朝代名完整枚舉〉歸一。原值可於本欄之 dynasty_basis 與所繫著錄之引文覆按。\n\n2026-09-06 qa-sweep/nanbeichao：斷代訂正（scan D 類：period_upper「jin」早於 period「nanbeichao」，二者矛盾）：period 由 nanbeichao 改 song，authors[0].dynasty 由「南朝宋」改「南宋」，撤 period_upper。撰人崔嘉彥實為南宋醫家（號紫虛道人，江西南康人），撰《脈訣》成書於南宋淳熙十六年（1189），WebSearch 核實（a-hospital.com、began.cn 兩處独立來源相印證）。病源：舊 period_upper 誤取《補晉書藝文志》（清人回溯重建，成書於清非晉）為「不晚於 jin」之界（與 R 類 d59f286jzev7 同病），2026-08-22「C1」批次據此誤界，在「宋」之劉宋／趙宋兩解中排除趙宋而定為劉宋（nanbeichao），適與史實相反。entity hixhd2h9bq5t（崔嘉彥）名下唯本條一書，同步改其 dynasty／period（規程三·(b)）。原值：period=nanbeichao；authors[0].dynasty=「南朝宋」；period_upper=「jin」；period_basis 與 period_upper_basis 詳見本段前之改前引句，可逆。\n\n2026-09-06 晉志 source 正名：indexed_by.source 綴撰人以別五家補晉志（四本同題《補晉書藝文志》，非綴撰人不可辨）。source_bid 未動。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59fykohxvy8《新刻脈訣》 入本條。同题同首位责任者：《脈訣》崔嘉彥(南宋,1/2卷,12版本)／《新刻脈訣》崔嘉彥(宋,1卷,3版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東大 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。\n先拆后并（2026-10-26，去重方案 3a-3）：本条混挂不同编次，留「崔嘉彥脈訣一卷」，其余拆出：「張仲景脈訣一卷」→d59g2m1eq4g1；「崇文總目脉訣二卷」→d59g2m1eq4g2；「王叔和脈訣一卷」→d59f2pzkqzup\n\n2026-10-26 A11-去重方案3a-3 併條（rule=去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并；先拆后并）：併 d59fyaychjb6《新刻脈訣》 入本條。异题名同书（先拆后并：先把混入的同名别书著录拆出）：《脈訣》／《新刻脈訣》；總目新刻脈訣一卷「□真人寉紫虚撰」即崔紫虛嘉彥，A已有同題《新刻脈訣》Book 9943pwkiyp；A著錄、藏本多",
+  "ai_note": "作者「宋崔嘉彥撰」補自《國立故宮博物院善本舊籍》目錄。\n\nN4 朝代名歸一（2026-08-24）：崔嘉彥「宋」→「南朝宋」。N4 朝代名歸一（2026-08-24 南北朝斷代收尾）：本欄之值是志書著錄語之簡稱，於 period=nanbeichao 之桶內無歧義（南朝四代之單字國號在本桶即指南朝之宋齊梁陳，「後魏」「後周」「後齊」即北魏北周北齊），今依 SCHEMA〈規範朝代名完整枚舉〉歸一。原值可於本欄之 dynasty_basis 與所繫著錄之引文覆按。\n\n2026-09-06 qa-sweep/nanbeichao：斷代訂正（scan D 類：period_upper「jin」早於 period「nanbeichao」，二者矛盾）：period 由 nanbeichao 改 song，authors[0].dynasty 由「南朝宋」改「南宋」，撤 period_upper。撰人崔嘉彥實為南宋醫家（號紫虛道人，江西南康人），撰《脈訣》成書於南宋淳熙十六年（1189），WebSearch 核實（a-hospital.com、began.cn 兩處独立來源相印證）。病源：舊 period_upper 誤取《補晉書藝文志》（清人回溯重建，成書於清非晉）為「不晚於 jin」之界（與 R 類 d59f286jzev7 同病），2026-08-22「C1」批次據此誤界，在「宋」之劉宋／趙宋兩解中排除趙宋而定為劉宋（nanbeichao），適與史實相反。entity hixhd2h9bq5t（崔嘉彥）名下唯本條一書，同步改其 dynasty／period（規程三·(b)）。原值：period=nanbeichao；authors[0].dynasty=「南朝宋」；period_upper=「jin」；period_basis 與 period_upper_basis 詳見本段前之改前引句，可逆。\n\n2026-09-06 晉志 source 正名：indexed_by.source 綴撰人以別五家補晉志（四本同題《補晉書藝文志》，非綴撰人不可辨）。source_bid 未動。\n\n2026-10-25 A11-去重方案3a 併條（rule=去重方案部分3a-1：同题同首位责任者 A 档机械并）：併 d59fykohxvy8《新刻脈訣》 入本條。同题同首位责任者：《脈訣》崔嘉彥(南宋,1/2卷,12版本)／《新刻脈訣》崔嘉彥(宋,1卷,3版本)；题名归一后相同（简繁异体、去括注、去坊刻套语前缀），首位责任者同名、朝代兼容、卷数差≤1或一侧缺、著作领域不冲突\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東大 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。\n先拆后并（2026-10-26，去重方案 3a-3）：本条混挂不同编次，留「崔嘉彥脈訣一卷」，其余拆出：「張仲景脈訣一卷」→d59g2m1eq4g1；「崇文總目脉訣二卷」→d59g2m1eq4g2；「王叔和脈訣一卷」→d59f2pzkqzup\n\n2026-10-26 A11-去重方案3a-3 併條（rule=去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并；先拆后并）：併 d59fyaychjb6《新刻脈訣》 入本條。异题名同书（先拆后并：先把混入的同名别书著录拆出）：《脈訣》／《新刻脈訣》；總目新刻脈訣一卷「□真人寉紫虚撰」即崔紫虛嘉彥，A已有同題《新刻脈訣》Book 9943pwkiyp；A著錄、藏本多\n\n2026-10-26 A9续-京大 馆藏挂接：按确定档补挂 京大 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9续-京大贵重挂接-20261026.md。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period_upper_basis": "2026-09-06 qa-sweep/nanbeichao：撤——舊值「jin」出於同一 catalog_bound 誤讀（見 period_basis 訂正之按）：《補晉書藝文志》（清文廷式撰）成書於清，不是晉，不能作「不晚於晉」之界（本輪已在 R 類另條 d59f286jzev7《春秋三傳評》見此病，記 inbox pit）。本條撰人既已確考為南宋人，period_upper 之設計本為早代存疑之用，此處不再需要，撤之。",
   "period": "song",
   "period_basis": "撰人崔嘉彥為南宋醫家（號紫虛道人），撰《脈訣》成書於南宋淳熙十六年（1189）。崔嘉彥（號紫虛道人／希範）為南宋醫家，江西南康人，精於脈診，撰《脈訣》（又名《崔氏脈訣》《崔真人脈訣》），成書於南宋淳熙十六年（1189）。（WebSearch：a-hospital.com「崔嘉彦」條、began.cn「宋代·脈訣」條）（2026-09-06 qa-sweep/nanbeichao 訂正：period 由 nanbeichao 改 song，全條移出本道。舊據作「撰人朝代「宋」有歧義，而上限 jin 排除其晚解，故必 nanbeichao」——所引之上限「jin」本身即誤（見下），且「宋」之歧義（劉宋／趙宋）未經史實覆核逕以誤界排除趙宋一解，適得其反：崔嘉彥實是南宋（趙宋）人，「上限 jin」纔是不成立的那一端。）",
-  "revision": "2.1.0",
+  "revision": "2.2.0",
   "revised_at": "2026-10-26",
   "related_works": [
     {
@@ -189,6 +206,9 @@
     },
     "ncltw-06246-0001": {
       "label": "臺灣國家圖書館藏本：日本萬治元年(1658)武村市兵衛刊本"
+    },
+    "kyoto-RB00005301": {
+      "label": "京大藏本：和刻本"
     }
   },
   "juan_count": {

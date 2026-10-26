@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志013670-013697）。阶段 5 兜底建立。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志013670-013697）。阶段 5 兜底建立。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-26 A9续-京大 馆藏挂接：按确定档补挂 京大 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9续-京大贵重挂接-20261026.md。",
   "juan_count": {
     "number": 30
   },
@@ -33,8 +33,8 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "indexed_by": [
     {
       "source": "中國古籍總目",
@@ -68,11 +68,31 @@
         "nlc_fid": "312001084562",
         "edition": ""
       }
+    },
+    {
+      "id": "kyoto-rmda",
+      "group": "kyoto-RB00008723",
+      "group_role": "origin",
+      "name": "京都大学貴重資料デジタルアーカイブ",
+      "short_name": "京大",
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/item/rb00008723",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kyoto_record": "RB00008723",
+        "call_no": "5-86/ウ/1貴",
+        "edition": "康煕30 刊本",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00008723/manifest.json"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001084562": {
       "label": "國圖藏本："
+    },
+    "kyoto-RB00008723": {
+      "label": "京大藏本：康煕30 刊本"
     }
   }
 }
