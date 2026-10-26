@@ -54,3 +54,10 @@ python3 .claude/qa/dedup-part2-3/apply23.py /tmp/p23/plan.json .claude/qa/dedup-
 
 `batch-NN/created.json`：每个新建 Entity 的 id、路径、名、朝代、cbdb_id、所挂作者位（work_id、path、slot、题名、role）。
 回滚：删去该批 Entity 档，并把所列作者位的 `entity_id` 去掉。
+
+## 收口（2026-10-26）
+
+甲（batch-01、甲02–04）、乙（乙01–03）、丙（丙01–03）三份连同样本 batch-00，合计在库新建人物约 34,476 人／38,507 作者位（#1495 按丙03 两条新规则复查全部已合批次后的数）。
+plan23 现在读各批 `撤出*.tsv` 与 `recheck-*withdrawn.tsv`，撤回过的名字重跑时登记「已撤回待核」，不再新建，以免把判过 DUP／错名的人又建回来。
+收口时重跑仍可建约百组，多为部分作者位被撤后剩下的边角（如「是中國民」「石嚴逸叟」），不再批量建，留待人工或 2.4。
+
