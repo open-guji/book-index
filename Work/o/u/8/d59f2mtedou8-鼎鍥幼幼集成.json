@@ -40,7 +40,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "juan_count": {
     "number": 6
   },
@@ -109,6 +109,60 @@
         "edition": "刊",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300097162/manifest"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079513",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079513",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079513",
+        "request_no": "３０４－００１６",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4917368/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078143",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078143",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078143",
+        "request_no": "３０４－００２５",
+        "edition": "刊本::文化:110000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4439603/manifest.json",
+        "extent": "12冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079395",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079395",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079395",
+        "request_no": "子０４８－０００３",
+        "edition": "刊本（序刊）::清乾隆:150000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4491230/manifest.json",
+        "extent": "12冊"
+      }
     }
   ],
   "updated_at": "2026-08-24T00:00:00+00:00",
@@ -116,11 +170,20 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resource_groups": {
     "kokusho-300097162": {
       "label": "國書·府中之島図石崎藏刊"
+    },
+    "naikaku-1079513": {
+      "label": "內閣文庫藏本：清刊本（304-0016，6冊）"
+    },
+    "naikaku-1078143": {
+      "label": "內閣文庫藏本：文化11年刊本（304-0025，12冊）"
+    },
+    "naikaku-1079395": {
+      "label": "內閣文庫藏本：清乾隆15年刊本（序刊）（子048-0003，12冊）"
     }
   }
 }

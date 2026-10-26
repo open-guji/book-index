@@ -60,6 +60,24 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:CADAL01026192_%E6%96%B0%E8%88%8A%E5%94%90%E6%9B%B8%E5%90%88%E9%88%94.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070526",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070526",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070526",
+        "request_no": "２９０－０１０８",
+        "edition": "刊本（序刊）::清雍正:110000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4314005/manifest.json",
+        "extent": "80冊"
+      }
     }
   ],
   "related_works": [
@@ -73,7 +91,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 10，與著錄原文（清史稿藝文志：「新舊唐書合鈔」）所載之 260 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 10，與著錄原文（清史稿藝文志：「新舊唐書合鈔」）所載之 260 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "description": {
     "text": "沈炳震（清）撰。二百六十卷。見著錄於《清史稿藝文志》《書目答問》。其著錄之文，《書目答問》作「《新舊唐書合鈔》二百六十卷」。本書為《舊唐書》之注釋，其文附原典以行。《清史稿藝文志》民國趙爾巽等修；《書目答問》清張之洞撰——本書之目賴之以存。",
     "sources": [
@@ -81,6 +99,11 @@
       "書目答問"
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "naikaku-1070526": {
+      "label": "內閣文庫藏本：清雍正11年刊本（序刊）（290-0108，80冊）"
+    }
+  }
 }

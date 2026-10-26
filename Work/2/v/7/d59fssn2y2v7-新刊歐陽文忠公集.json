@@ -25,13 +25,13 @@
       "summary": "共 3 個版本：明正德元年日新書堂刻本（國家圖書館、天津圖書館、上海圖書館）；明洪武十九年廬陵陳斐刻本（香港大學圖書館、臺灣圖書館）；明初刻本（上海圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pgyx0o06eyo0y5d3、3au71x8tehqo78oy、hilmha8v53jarku1\nE6 第 52 批新建（hold 清零：A1存疑·作者无交集·题名不同；原 hold 原因：tier=存疑）\nE6 第 52 批審後（draft#154）：原誤記為佚名，已按總目原串重解析責任者",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pgyx0o06eyo0y5d3、3au71x8tehqo78oy、hilmha8v53jarku1\nE6 第 52 批新建（hold 清零：A1存疑·作者无交集·题名不同；原 hold 原因：tier=存疑）\nE6 第 52 批審後（draft#154）：原誤記為佚名，已按總目原串重解析責任者\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "dynasty": "宋",
   "dynasty_basis": "author_propagation",
   "period": "song",
   "period_basis": "據 authors[0].dynasty「宋」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -62,6 +62,24 @@
         "nlc_fid": "411999022689",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074458",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074458",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074458",
+        "request_no": "３１５－００５１",
+        "edition": "刊本::明正徳:010000:日新書堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4750706/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
@@ -70,6 +88,9 @@
     },
     "nlc-411999022689": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1074458": {
+      "label": "內閣文庫藏本：明正徳1年刊本 日新書堂（315-0051，4冊）"
     }
   }
 }
