@@ -1,6 +1,6 @@
 # 去重细拆单元子目-甲2：第 2 批（A 档 300 簇）
 
-基线 main `b64e8d90af6d7c1bb07bc920b9aac4f8b8ef89da`。口径：`ai-team/domain/目录与资源/设计/2026-10-正式库全面去重方案/细拆-并行单元-20261025.md`（子目-甲2 行）、00 文件 Work 节 A 档、`.claude/qa/正式库并条审查规则.md`。
+基线 main `ff31ab81f65cff8e02a9b2ceef2a7d09e01eb368`。口径：`ai-team/domain/目录与资源/设计/2026-10-正式库全面去重方案/细拆-并行单元-20261025.md`（子目-甲2 行）、00 文件 Work 节 A 档、`.claude/qa/正式库并条审查规则.md`。
 
 **规则**（候选脚本 `../cand.py`）：叢書线（GUJI-526）按《總目》丛书版本记录各建一条子目 Work，同一丛书几个版次里的同一子目被建成多条。同题组（`scripts/dedup-census.py` 口径：去括注、异体归一）里，`ai_note`「所屬叢書記錄 X（丛书题名）」的丛书题名去卷数、种数后相同、而丛书记录不同的子目 Work 互并。另须：Book 所属 Collection 的首位撰者一致（不一致的丛书撰者写法不同簇另行逐条核，不在本批）；簇内首位责任者不矛盾（至多一种）、朝代不矛盾、卷数差≤1 或缺；同一丛书记录内同题两条的簇（疑异篇）、单字泛称题名（首／序／跋等，多为卷首卷末）不并，登记于 `../../dedup-judged/子目-甲2.tsv`；**跳过** 4a-α 清单（`../dedup-part4/候选/4a-alpha-*.json`）里的 Work，那些簇由 4a-α 并入同作者单行本。keeper：有责任者＞Book 多＞有非叢書部著录＞id 早。
 
@@ -11,7 +11,6 @@
 | jia2-d59fz4b6a03l | 一隅草堂菊說（計楠） | 一隅草堂稿外集 | 1 | 0 | 0 |
 | jia2-d59fz4b7iy9s | 僦月龕草（計楠） | 一隅草堂稿外集 | 1 | 0 | 0 |
 | jia2-d59fz4b6l8n4 | 古桃州寓草（計楠） | 一隅草堂稿外集 | 1 | 0 | 0 |
-| jia2-d59fz4b6l8n5 | 墨餘贅藳（計楠） | 一隅草堂稿外集 | 1 | 0 | 0 |
 | jia2-d59fz4b7u6td | 夢香閣詩（計楠） | 一隅草堂稿外集 | 1 | 0 | 0 |
 | jia2-d59fz4b6wh6o | 如如居近草（計楠） | 一隅草堂稿外集 | 1 | 0 | 0 |
 | jia2-d59fz4b7u6tc | 客麈醫話（計楠） | 一隅草堂稿外集 | 1 | 0 | 0 |
@@ -308,5 +307,6 @@
 | jia2-d59fy8vdnmyp | 問卜（無責任者） | 寫心雜劇 | 1 | 0 | 0 |
 | jia2-d59fy8vfj280 | 悼花（無責任者） | 寫心雜劇 | 1 | 0 | 0 |
 | jia2-d59fy8vewl4x | 月夜談禪（無責任者） | 寫心雜劇 | 1 | 0 | 0 |
+| jia2-d59fy8vdyvi8 | 湖山小隱（無責任者） | 寫心雜劇 | 1 | 0 | 0 |
 
 验证：audit-merge-ledger（--draft 草稿库已同步）T/L/P/R/D 全 0；check_v2、check-classification、check_promo_dup、check-duplicate-audit、build_derived --check-only 全 0。抽检见 `抽检.md`。回滚：revert 本 PR。
