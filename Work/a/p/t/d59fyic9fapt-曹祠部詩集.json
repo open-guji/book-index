@@ -30,9 +30,9 @@
       "summary": "共 4 個版本：（國家圖書館）；（國家圖書館）；（國家圖書館）；（遼寧省圖書館、上海圖書館、北京大學圖書館、天津圖書館、山東省圖書館、南京圖書館、國家圖書館、復旦大學圖書館、湖北省圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6q73bcthccrfpvna、iidliqwvn52kya4r、7ab3alo71mmyos6t、yq01gdhgc381ttvw\nauto-split:存疑未并\nE6 第 901 批新建（hold 清零：總集類；原 hold 原因：tier=存疑）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6q73bcthccrfpvna、iidliqwvn52kya4r、7ab3alo71mmyos6t、yq01gdhgc381ttvw\nauto-split:存疑未并\nE6 第 901 批新建（hold 清零：總集類；原 hold 原因：tier=存疑）\n\n国图數字古籍重配挂接\n\n2026-10-26 A11-去重方案3a-2丁 併條（rule=去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并）：併 d59f28llvdvq《唐祠部詩集》 入本條。题名只差一字（— 误字：B所屬唐詩百名家全集本Book即題「曹祠部詩集」，唐為朝代冠稱之誤）。《唐祠部詩集》曹鄴()／《曹祠部詩集》曹鄴()；首位责任者同一，朝代兼容，著作领域不冲突",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -48,11 +48,44 @@
         "nlc_fid": "1592",
         "edition": "明嘉靖[1522-1566]"
       }
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NCL-09880_%E5%94%90%E7%A5%A0%E9%83%A8%E8%A9%A9%E9%9B%86.pdf"
     }
   ],
   "resource_groups": {
     "nlc-1592": {
       "label": "國圖藏本：明嘉靖[1522-1566]"
     }
-  }
+  },
+  "measures": [
+    {
+      "unit": "冊",
+      "number": 1
+    }
+  ],
+  "measure_info": "一冊",
+  "additional_titles": [
+    "唐祠部詩集"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f28llvdvq",
+      "title": "唐祠部詩集",
+      "at": "2026-10-26T11:04:09Z",
+      "by": "A11-去重方案3a-2丁",
+      "rule": "去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并",
+      "why": "题名只差一字（— 误字：B所屬唐詩百名家全集本Book即題「曹祠部詩集」，唐為朝代冠稱之誤）。《唐祠部詩集》曹鄴()／《曹祠部詩集》曹鄴()；首位责任者同一，朝代兼容，著作领域不冲突",
+      "author": "曹鄴",
+      "title_info": []
+    }
+  ],
+  "merged_from": [
+    "d59f28llvdvq"
+  ]
 }
