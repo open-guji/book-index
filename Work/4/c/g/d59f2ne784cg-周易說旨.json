@@ -63,8 +63,8 @@
   "period_basis": "撰人朝代闕，而所著錄之志唯一且為斷代志（其所著錄者九成以上是該代之作，此比例以庫中資料自驗），故據之：明史藝文志",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] [ming-round1: author(羅倫) dynasty null→明 (依 Entity)]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 A 档机械并）：併 d59f2ncsnoci《周易説㫖》 入本條。同题同首位责任者：《周易説㫖》羅倫(明,?卷,0版本)／《周易說旨》羅倫(明,4卷,1版本)；题名归一后相同（简繁异体），首位责任者同名、朝代兼容、卷数上限差≤1或一侧缺、无丛编分体子目缺卷、著作领域不冲突",
-  "revision": "1.1.0",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] [ming-round1: author(羅倫) dynasty null→明 (依 Entity)]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 A 档机械并）：併 d59f2ncsnoci《周易説㫖》 入本條。同题同首位责任者：《周易説㫖》羅倫(明,?卷,0版本)／《周易說旨》羅倫(明,4卷,1版本)；题名归一后相同（简繁异体），首位责任者同名、朝代兼容、卷数上限差≤1或一侧缺、无丛编分体子目缺卷、著作领域不冲突\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -74,6 +74,22 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-00075_%E5%91%A8%E6%98%93%E8%AA%AA%E6%97%A8.pdf"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00075",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00075",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00075",
+        "call_number": "101.2 00075",
+        "edition": "明萬曆辛卯(十九年, 1591)南昌知府何懋官刊本"
+      }
     }
   ],
   "period_upper": "qing",
@@ -95,5 +111,10 @@
   ],
   "merged_from": [
     "d59f2ncsnoci"
-  ]
+  ],
+  "resource_groups": {
+    "ncltw-00075": {
+      "label": "臺灣國家圖書館藏本：明萬曆辛卯(十九年, 1591)南昌知府何懋官刊本"
+    }
+  }
 }

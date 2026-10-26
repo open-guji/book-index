@@ -151,11 +151,30 @@
         "nlc_fid": "1355",
         "edition": "明嘉靖[1522-1566]"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07023",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07023",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07023",
+        "call_number": "308 07023",
+        "edition": "明嘉靖戊戌(十七年, 1538)新安謝鎰刊本"
+      }
     }
   ],
   "resource_groups": {
     "nlc-1355": {
       "label": "國圖藏本：明嘉靖[1522-1566]"
+    },
+    "ncltw-07023": {
+      "label": "臺灣國家圖書館藏本：明嘉靖戊戌(十七年, 1538)新安謝鎰刊本"
     }
   },
   "measures": [
@@ -170,7 +189,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fywyx9qtd《雅述》、d59fyzn7cum8《雅述》 入本條。同題：單行本《雅述》王廷相（明）；《雅述》（d59fywyx9qtd）为叢書子目，所屬叢書《王氏家藏集五種》（8rldorayn66b）撰者王廷相（明）；卷數同；《雅述》（d59fyzn7cum8）为叢書子目，所屬叢書《王浚川所著書九種》（8rldotzgug3o）撰者王廷相（明）；卷數同；單行本 Work 已有同叢書版本 Book「王浚川所著書本」",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fywyx9qtd《雅述》、d59fyzn7cum8《雅述》 入本條。同題：單行本《雅述》王廷相（明）；《雅述》（d59fywyx9qtd）为叢書子目，所屬叢書《王氏家藏集五種》（8rldorayn66b）撰者王廷相（明）；卷數同；《雅述》（d59fyzn7cum8）为叢書子目，所屬叢書《王浚川所著書九種》（8rldotzgug3o）撰者王廷相（明）；卷數同；單行本 Work 已有同叢書版本 Book「王浚川所著書本」\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "description": {
     "text": "王廷相（明）撰。二卷。見著錄於《欽定四庫全書總目》《續修四庫全書》《四庫全書存目叢書》。《續修四庫全書》列於子部 儒家類；《四庫全書存目叢書》列於子部。《欽定四庫全書總目》清乾隆間館臣修；《續修四庫全書》一九九五年影印——本書之目賴之以存。",
     "sources": [
@@ -179,7 +198,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-10-26",
   "merged_in": [
     {

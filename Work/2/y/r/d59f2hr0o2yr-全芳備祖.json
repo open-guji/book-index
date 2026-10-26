@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 6 取自 `measure_info`「六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案3a-2丁 併條（rule=去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并）：併 d59f2hjq5i4g《全芳僃祖》 入本條。题名只差一字（— 异体：僃為備之異體，同陳景沂全芳備祖）。《全芳僃祖》陳景沂()／《全芳備祖》陳景沂()；首位责任者同一，朝代兼容，著作领域不冲突\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 6 取自 `measure_info`「六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案3a-2丁 併條（rule=去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，B 档证据并）：併 d59f2hjq5i4g《全芳僃祖》 入本條。题名只差一字（— 异体：僃為備之異體，同陳景沂全芳備祖）。《全芳僃祖》陳景沂()／《全芳備祖》陳景沂()；首位责任者同一，朝代兼容，著作领域不冲突\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 美國國會 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,7 +31,7 @@
   "dynasty_basis": "据本轮人工资料 author.dynasty「南宋」补全",
   "period": "song",
   "period_basis": "据本轮人工资料 author.dynasty「南宋」自动归并",
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -80,6 +80,54 @@
         "iiif_manifest": "https://www.loc.gov/item/2012402251/manifest.json",
         "edition": "鈔本 1256"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07885",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07885",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07885",
+        "call_number": "309 07885",
+        "edition": "烏絲欄舊鈔本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07886",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07886",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07886",
+        "call_number": "309 07886",
+        "edition": "舊鈔本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07888",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07888",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07888",
+        "call_number": "309 07888",
+        "edition": "鈔本"
+      }
     }
   ],
   "resource_groups": {
@@ -88,6 +136,15 @@
     },
     "loc-2012402251": {
       "label": "美國國會圖書館藏本：鈔本 1256"
+    },
+    "ncltw-07885": {
+      "label": "臺灣國家圖書館藏本：烏絲欄舊鈔本"
+    },
+    "ncltw-07886": {
+      "label": "臺灣國家圖書館藏本：舊鈔本"
+    },
+    "ncltw-07888": {
+      "label": "臺灣國家圖書館藏本：鈔本"
     }
   },
   "indexed_by": [
