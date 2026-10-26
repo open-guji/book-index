@@ -36,12 +36,31 @@
   "native_place": "富順",
   "native_place_entity_id": "hixi6kezzi11",
   "native_place_basis": "CBDB 68648 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=68648 補入空槽——籍貫「富順」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=68648 補入空槽——籍貫「富順」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u5s1ni6，補入／訂正：description.sources←hixi8u5s1ni6。",
   "dates": {
     "birth": 1858,
     "death": 1931,
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/loen59rc1ugjkeuj"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u5s1ni6",
+      "primary_name": "宋育仁",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "據史實：富順宋育仁（cbdb 68648，1858–1931）著《庸書》《采風記》《問琴閣詩錄》，乙方即其人，清末民初跨代"
+    }
+  ]
 }

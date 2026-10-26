@@ -26,7 +26,26 @@
   "native_place": "江都",
   "native_place_entity_id": "hixi4ui65ddt",
   "native_place_basis": "CBDB 551004 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=551004 補入空槽——籍貫「江都」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=551004 補入空槽——籍貫「江都」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u5tx2rb，補入／訂正：description.sources←hixi8u5tx2rb。",
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/ka48g3hm3zi7egtr"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u5tx2rb",
+      "primary_name": "王光魯",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "A 清江都 cbdb551004 名下《閱史約書》《古今官制沿革圖》作者位明，與 B 明人同期；據史實王光魯明末清初江都人撰《想當然》傳奇"
+    }
+  ]
 }

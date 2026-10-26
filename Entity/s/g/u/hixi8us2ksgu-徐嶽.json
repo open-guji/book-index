@@ -15,10 +15,45 @@
       }
     ]
   },
-  "ai_note": "子部二串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/t1nhmfem61d4kf7m）新建；著錄 2 處，同 uri 視為同一人；未對接 CBDB。",
+  "ai_note": "子部二串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/t1nhmfem61d4kf7m）新建；著錄 2 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixhd2h9bnkb，補入／訂正：period←hixhd2h9bnkb。",
   "review": {
     "status": "unreviewed"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "revised_at": "2026-10-19",
+  "period": "three-kingdoms",
+  "period_basis": "據 dynasty「三國魏」自動歸併",
+  "merged_in": [
+    {
+      "id": "hixhd2h9bqll",
+      "primary_name": "徐嶽",
+      "at": "2026-10-08",
+      "by": "D4-Entity清账",
+      "rule": "keeper: cbdb>朝代与CBDB相容/生卒>作品数>较早id",
+      "why": "P4b 疑似重复人物（批3）：同一部书：《數術記遺》↔《術數記遺》"
+    },
+    {
+      "id": "hixhjeq3m8le",
+      "primary_name": "徐岳",
+      "at": "2026-10-08",
+      "by": "D4-Entity清账",
+      "rule": "keeper: cbdb>朝代/生卒相容>著作数>较早id（P4b 判准）",
+      "why": "#483 P4b 尾巴批2：徐嶽即徐岳（異體）；《九章算術》入《補周書藝文志》因北周甄鸞注"
+    },
+    {
+      "id": "hixhd2h9bnkb",
+      "primary_name": "徐岳",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（部分同／把握中；可并）",
+      "why": "據史實：徐岳為漢末魏初算學家（注《九章算經》、撰《數術記遺》），漢代條所繫《五曹筭經》《周髀筭經》同屬算經，判同人；清《見聞錄》作者時代相隔，另為一人"
+    }
+  ],
+  "alt_names": [
+    {
+      "name": "徐岳",
+      "type": "別稱",
+      "note": "并入重出人物条（hixhd2h9bnkb）；见 2.1续-徐岳-A"
+    }
+  ]
 }

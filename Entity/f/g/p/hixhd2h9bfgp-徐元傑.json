@@ -20,6 +20,11 @@
     {
       "name": "梅野",
       "type": "號"
+    },
+    {
+      "name": "徐元杰",
+      "type": "別稱",
+      "note": "并入重出人物条（hixi8u647wq0）；见 2.1续-徐元傑-A"
     }
   ],
   "dynasty": "南宋",
@@ -35,12 +40,31 @@
   "native_place": "上饒",
   "native_place_entity_id": "hixi61e9ds74",
   "native_place_basis": "CBDB 22002 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=22002 補入空槽——籍貫「上饒」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=22002 補入空槽——籍貫「上饒」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u647wq0，補入／訂正：description.sources←hixi8u647wq0。",
   "dates": {
     "birth": 1193,
     "death": 1245,
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/vwddc7vh0cq5ej61"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u647wq0",
+      "primary_name": "徐元杰",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "同書異錄：A繫《楳埜集》、B繫《楳野集》（埜野同字），A為南宋上饒徐元傑號梅野（cbdb 22002），同為宋代"
+    }
+  ]
 }

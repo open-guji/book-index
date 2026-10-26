@@ -48,6 +48,11 @@
     {
       "name": "香山老人",
       "type": "別名"
+    },
+    {
+      "name": "彭啓豐",
+      "type": "別稱",
+      "note": "并入重出人物条（hixi8u5uuse6）；见 2.1续-彭啟豐-A"
     }
   ],
   "dynasty": "清",
@@ -63,12 +68,31 @@
   "native_place": "長洲",
   "native_place_entity_id": "hixi5whkfuo2",
   "native_place_basis": "CBDB 56860 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=56860 補入空槽——籍貫「長洲」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=56860 補入空槽——籍貫「長洲」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u5uuse6，補入／訂正：description.sources←hixi8u5uuse6。",
   "dates": {
     "birth": 1701,
     "death": 1784,
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/6pi63iu8nr56ct5i"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u5uuse6",
+      "primary_name": "彭啓豐",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "清長洲彭啟豐（1701–1784，cbdb 56860）號芝庭，著《芝庭文稿》；B所繫《芝庭詩集》《芝庭詩稿》以同號名集，同代"
+    }
+  ]
 }

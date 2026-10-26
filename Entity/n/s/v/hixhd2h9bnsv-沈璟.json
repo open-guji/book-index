@@ -41,7 +41,7 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "ming",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=136037 補入空槽——籍貫「吳江」。既有之值一概未動。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=136037 補入空槽——籍貫「吳江」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi23ur76rn，補入／訂正：description.sources←hixi23ur76rn。",
   "native_place": "吳江",
   "native_place_entity_id": "hixi5whkr37t",
   "native_place_basis": "CBDB 136037 index_addr（2026-09-06 CBDB enrich）",
@@ -51,5 +51,24 @@
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/zo0ebbn0nsssk3er"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi23ur76rn",
+      "primary_name": "沈璟",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并（先读证据栏，有拆分／改挂说明的先处理））",
+      "why": "B 名下《義俠記》《墜釵記》《埋劍記》《增定南九宮曲譜》皆明吳江沈璟之作，與 A 同人；B 所掛 cbdb79545（卒1816）及《雲巢詩鈔》屬清代同名者，應拆出；被并条 hixi23ur76rn 另有 cbdb_id 79545（keeper 為 136037；CBDB 一人兩號或誤配，待 2.4 覆核）"
+    }
+  ]
 }

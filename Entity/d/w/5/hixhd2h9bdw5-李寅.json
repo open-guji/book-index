@@ -12,7 +12,7 @@
   "dynasty": "清",
   "native_place_basis": "CBDB 77126 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=77126 補入空槽——籍貫「咸陽」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6esq0h6p、d59f6ekz9k3o。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=77126 補入空槽——籍貫「咸陽」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6esq0h6p、d59f6ekz9k3o。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u62npzs，補入／訂正：description.sources←hixi8u62npzs。",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "period": "qing",
   "alt_names": [
@@ -29,5 +29,24 @@
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/q4qh57pyx2hzr3vn"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u62npzs",
+      "primary_name": "李寅",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "清咸陽李寅掛《視彼亭詩存》，明條掛《視彼堂詩存》，題名僅亭／堂之異，同書異錄，明代標注疑誤"
+    }
+  ]
 }

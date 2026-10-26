@@ -7,7 +7,7 @@
   "updated_at": "2026-08-25T00:00:00+00:00",
   "dynasty": "秦",
   "period_basis": "據 dynasty「秦」自動歸併（2026-08-24 補）",
-  "ai_note": "2026-08-11：孔鮒卒於秦二世元年（前209），未及見漢，dynasty「漢」有誤，訂正為「秦」。\n2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-08-25 孤懸 entity 普查（前綴污染）：庫中別有一孤懸條「楚孔鮒」（1j96hfot2b4e8），乃志文之銜位、地望、道號、僧號或黏連之字「楚」冠於本名之上而成，其名截去前綴即本條之名，且無所繫之 work，本非別人。今去其條，存其著錄形於 alt_names。",
+  "ai_note": "2026-08-11：孔鮒卒於秦二世元年（前209），未及見漢，dynasty「漢」有誤，訂正為「秦」。\n2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-08-25 孤懸 entity 普查（前綴污染）：庫中別有一孤懸條「楚孔鮒」（1j96hfot2b4e8），乃志文之銜位、地望、道號、僧號或黏連之字「楚」冠於本名之上而成，其名截去前綴即本條之名，且無所繫之 work，本非別人。今去其條，存其著錄形於 alt_names。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8us1n2vm，補入／訂正：description.sources←hixi8us1n2vm。",
   "period": "qin-han",
   "alt_names": [
     {
@@ -17,5 +17,24 @@
     }
   ],
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/hbj4ma1npkm7454p"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8us1n2vm",
+      "primary_name": "孔鮒",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "同书异录：乙方《孔叢》即甲方舊題撰之《孔叢子》，秦漢之际孔鮒"
+    }
+  ]
 }

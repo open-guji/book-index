@@ -17,10 +17,29 @@
     "cbdb_match": "manual",
     "cbdb_source": "name_exact+dy_ok+work_title_hit(河上易注)；唯一性未驗（name接口只回一條）"
   },
-  "ai_note": "批B-人物（GUJI-114）：史部／子部總目責任者未建檔、出現≥2部（3部，如《謙裕齋全集》）；CBDB 56872 據 name 接口候選＋時代吻合判定，待人審。",
+  "ai_note": "批B-人物（GUJI-114）：史部／子部總目責任者未建檔、出現≥2部（3部，如《謙裕齋全集》）；CBDB 56872 據 name 接口候選＋時代吻合判定，待人審。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u5scw3x，補入／訂正：description.sources←hixi8u5scw3x。",
   "review": {
     "status": "unreviewed"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-14"
+  "revised_at": "2026-10-14",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/wv9z5t8h1v49wzcn"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u5scw3x",
+      "primary_name": "黎世序",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "cbdb 56872 條建檔注稱據「3部，如《謙裕齋全集》」建檔，另條正繫此書"
+    }
+  ]
 }

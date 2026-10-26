@@ -33,10 +33,29 @@
   "dynasty_basis": "L5 斷代歸一（2026-08-25 遼金元輪）：本欄舊作「元」，而其書之著錄源《欽定四庫全書總目》作「宋某某」。二說皆非全誤——其人是**過渡期人物**，生於前朝而書成於後朝（或反之）。庫中本有「宋末元初」一值正為此設，今歸之。確證：其人名下之 work 同時分居 liao-jin-yuan×7／song×1 諸桶。",
   "period": "liao-jin-yuan",
   "period_basis": "synonym",
-  "ai_note": "[ljy-round1: period null→liao-jin-yuan; 據 dynasty=元 派生]\n2026-08-24 補繫 entity：新收 3 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-08-25 遼金元 L5：dynasty 由「元」歸一為「宋末元初」。判據見 dynasty_basis。其名下 work 之 authors[].dynasty 同步。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=20316 補入空槽——籍貫「建陽」。既有之值一概未動。",
+  "ai_note": "[ljy-round1: period null→liao-jin-yuan; 據 dynasty=元 派生]\n2026-08-24 補繫 entity：新收 3 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-08-25 遼金元 L5：dynasty 由「元」歸一為「宋末元初」。判據見 dynasty_basis。其名下 work 之 authors[].dynasty 同步。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=20316 補入空槽——籍貫「建陽」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8us1ybfz，補入／訂正：description.sources←hixi8us1ybfz。",
   "native_place": "建陽",
   "native_place_entity_id": "hixi4ugtrl6w",
   "native_place_basis": "CBDB 20316 index_addr（2026-09-06 CBDB enrich）",
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/4yarl861c7rav8y1"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8us1ybfz",
+      "primary_name": "劉應李",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "同書異錄：兩條皆編《新編事文類聚翰墨全書／大全》，宋末元初建陽劉應李（cbdb 20316）"
+    }
+  ]
 }

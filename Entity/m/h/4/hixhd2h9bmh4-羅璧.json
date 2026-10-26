@@ -31,12 +31,31 @@
   "native_place": "丹徒",
   "native_place_entity_id": "hixi5whkr37u",
   "native_place_basis": "CBDB 112837 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=112837 補入空槽——籍貫「丹徒」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=112837 補入空槽——籍貫「丹徒」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8us3tqn8，補入／訂正：description.sources←hixi8us3tqn8。",
   "dates": {
     "birth": 1244,
     "death": 1309,
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/cmxr0ktuc0b72fzn"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8us3tqn8",
+      "primary_name": "羅璧",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "元條《識遺》與宋條《羅氏識遺》同書異錄（羅璧宋末元初丹徒人）"
+    }
+  ]
 }

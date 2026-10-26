@@ -13,7 +13,7 @@
   "dynasty": "東漢",
   "native_place_basis": "CBDB 33691 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「東漢」自動歸併",
-  "ai_note": "2026-08-24 新收 6 部 work 之繫——其 authors 作「名＋字」連書之形，本是一人，故歸之，不別建 entity。\n2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——去其指向不存在之 work 的懸空繫連 2 條（原值：[{\"work_id\": \"d59f27sbfqww\", \"role\": \"注\"}, {\"work_id\": \"d59f27skhmo0\", \"role\": \"注\"}]）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=33691 補入空槽——籍貫「吳縣」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator：works 中 d59f27sbfqww 已併入 d59f27sbqzgg（keeper 之 merged_in 載之），keeper 已在列，去其重。\n\n2026-09-06 qa-sweep/coordinator：works 中 d59f27skhmo0 已併入 d59f27sp66td（keeper 之 merged_in 載之），keeper 已在列，去其重。\n\n2026-10-16 庫缺實體處置（Stella GUJI-395 分流表）：補別名「陸氏」（ambiguous）。庫中另有裸條 hixhoj36to1u「陸氏」（無生平、無作品繫連），**未併**，是否併入陸績待核。",
+  "ai_note": "2026-08-24 新收 6 部 work 之繫——其 authors 作「名＋字」連書之形，本是一人，故歸之，不別建 entity。\n2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——去其指向不存在之 work 的懸空繫連 2 條（原值：[{\"work_id\": \"d59f27sbfqww\", \"role\": \"注\"}, {\"work_id\": \"d59f27skhmo0\", \"role\": \"注\"}]）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=33691 補入空槽——籍貫「吳縣」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator：works 中 d59f27sbfqww 已併入 d59f27sbqzgg（keeper 之 merged_in 載之），keeper 已在列，去其重。\n\n2026-09-06 qa-sweep/coordinator：works 中 d59f27skhmo0 已併入 d59f27sp66td（keeper 之 merged_in 載之），keeper 已在列，去其重。\n\n2026-10-16 庫缺實體處置（Stella GUJI-395 分流表）：補別名「陸氏」（ambiguous）。庫中另有裸條 hixhoj36to1u「陸氏」（無生平、無作品繫連），**未併**，是否併入陸績待核。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8us3tqql，補入／訂正：description.sources←hixi8us3tqql。",
   "period": "qin-han",
   "schema_version": 1,
   "subtype": "people",
@@ -30,6 +30,25 @@
       "type": "簡稱",
       "ambiguous": true,
       "note": "易類書中「陸氏」多指陸績（《周易注》）；姓氏稱法，亦可指他陸姓人"
+    }
+  ],
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/olqjm3apvue10rwz"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8us3tqql",
+      "primary_name": "陸績",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "同書異錄：《周易陸氏述》／《陸氏周易述》同書，作品 period 均三國；另條「吳」誤歸五代"
     }
   ]
 }

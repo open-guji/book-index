@@ -17,7 +17,41 @@
   "native_place": "濱州",
   "native_place_entity_id": "hixi6kqi7evi",
   "native_place_basis": "CBDB 63339 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=63339 補入空槽——籍貫「濱州」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=63339 補入空槽——籍貫「濱州」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixhd2h9bt70、hixi8us3tqmf，補入／訂正：description.sources←hixi8us3tqmf。",
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/h554aomoufqc866z"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixhd2h9bt70",
+      "primary_name": "薛鳯翔",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "《牡丹史》即《亳州牡丹史》，《亳州牡丹表》《牡丹八書》皆其分篇，同書異錄（明亳州薛鳳翔）；被并条 hixhd2h9bt70 另有 cbdb_id 422901（keeper 為 63339；CBDB 一人兩號或誤配，待 2.4 覆核）"
+    },
+    {
+      "id": "hixi8us3tqmf",
+      "primary_name": "薛鳳翔",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "《牡丹史》即《亳州牡丹史》，《亳州牡丹表》《牡丹八書》皆其分篇，同書異錄（明亳州薛鳳翔）；被并条 hixhd2h9bt70 另有 cbdb_id 422901（keeper 為 63339；CBDB 一人兩號或誤配，待 2.4 覆核）"
+    }
+  ],
+  "alt_names": [
+    {
+      "name": "薛鳯翔",
+      "type": "別稱",
+      "note": "并入重出人物条（hixhd2h9bt70）；见 2.1续-薛鳳翔-A"
+    }
+  ]
 }

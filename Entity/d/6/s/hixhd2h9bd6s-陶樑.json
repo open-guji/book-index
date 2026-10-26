@@ -24,6 +24,15 @@
     {
       "name": "鳧香",
       "type": "號"
+    },
+    {
+      "name": "陶樑",
+      "type": "異寫"
+    },
+    {
+      "name": "陶梁",
+      "type": "別稱",
+      "note": "并入重出人物条（hixi8u5ylmvp）；见 2.1续-陶梁-A"
     }
   ],
   "dynasty": "清",
@@ -39,12 +48,31 @@
   "native_place": "長洲",
   "native_place_entity_id": "hixi5whkfuo2",
   "native_place_basis": "CBDB 54247 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=54247 補入空槽——籍貫「長洲」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=54247 補入空槽——籍貫「長洲」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u5ylmvp，補入／訂正：description.sources←hixi8u5ylmvp。",
   "dates": {
     "birth": 1772,
     "death": 1857,
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/2omnm6ka1xuwrcbu"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u5ylmvp",
+      "primary_name": "陶梁",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "清長洲陶梁（1772-1857，CBDB 54247）編《國朝畿輔詩傳》，另條輯《燕南二俊詩鈔》（著錄作陶樑），同為燕南畿輔詩選"
+    }
+  ]
 }

@@ -29,10 +29,29 @@
   "dynasty_basis": "author_propagation:round1",
   "period": "liao-jin-yuan",
   "period_basis": "synonym",
-  "ai_note": "[ljy-round1: period null→liao-jin-yuan; 據 dynasty=元 派生]\n2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=44260 補入空槽——籍貫「德興」。既有之值一概未動。",
+  "ai_note": "[ljy-round1: period null→liao-jin-yuan; 據 dynasty=元 派生]\n2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=44260 補入空槽——籍貫「德興」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8us29jya，補入／訂正：description.sources←hixi8us29jya。",
   "native_place": "德興",
   "native_place_entity_id": "hixi4ui65de6",
   "native_place_basis": "CBDB 44260 index_addr（2026-09-06 CBDB enrich）",
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/r47utg08lfpd0lip"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8us29jya",
+      "primary_name": "祝泌",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "宋條《康節先生觀物篇解》《皇極經世理數鈐》即元條《皇極經世觀物篇解》《皇極經世書鈐》，同書異錄（祝泌宋元之際德興人）"
+    }
+  ]
 }

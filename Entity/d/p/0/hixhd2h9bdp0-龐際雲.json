@@ -20,6 +20,11 @@
     {
       "name": "致福",
       "type": "別名"
+    },
+    {
+      "name": "龐際云",
+      "type": "別稱",
+      "note": "并入重出人物条（hixi8u647wtt）；见 2.1续-龐際雲-A"
     }
   ],
   "dynasty": "清",
@@ -34,12 +39,31 @@
   "period_basis": "據 dynasty「清」自動歸併",
   "native_place": "寧津",
   "native_place_basis": "CBDB 65120 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=65120 補入空槽——籍貫「寧津」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=65120 補入空槽——籍貫「寧津」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u647wtt，補入／訂正：description.sources←hixi8u647wtt。",
   "dates": {
     "birth": 1823,
     "death": 1886,
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/d3sk391pn16umrdi"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u647wtt",
+      "primary_name": "龐際云",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "別名「十五芝山房」（cbdb 65120）與另條《十五芝山房詩文》相合，皆清"
+    }
+  ]
 }

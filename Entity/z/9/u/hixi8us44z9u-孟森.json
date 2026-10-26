@@ -16,10 +16,30 @@
       }
     ]
   },
-  "ai_note": "子部二串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/km3rvi64jjz7vz1f）新建；著錄 4 處，同 uri 視為同一人；未對接 CBDB。該 uri 下著錄之名／朝代不一，取多數。",
+  "ai_note": "子部二串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/km3rvi64jjz7vz1f）新建；著錄 4 處，同 uri 視為同一人；未對接 CBDB。該 uri 下著錄之名／朝代不一，取多數。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi5fstaomd，補入／訂正：dates←hixi5fstaomd。",
   "review": {
     "status": "unreviewed"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "revised_at": "2026-10-19",
+  "dates": {
+    "basis": "CBDB 生卒（批B-人物）",
+    "birth": 1868,
+    "death": 1938
+  },
+  "external_ids": {
+    "cbdb_id": 83989,
+    "cbdb_match": "manual",
+    "cbdb_source": "name_exact+dy_ok+era_consistent(董小宛考)；無書名旁證，唯一性未驗（name接口只回一條）"
+  },
+  "merged_in": [
+    {
+      "id": "hixi5fstaomd",
+      "primary_name": "孟森",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 线索复核（本串独立判定）",
+      "why": "cbdb 83989 孟森（1868–1938，史學家）無作品條與民國孟森條同人：後者所著《橫波夫人考》《紀文襄公見鬼事》《科場案》諸考（順天闈、河南山東山西闈）即《心史叢刊》，《廣西邊事旁記》《地方自治淺說》亦孟森早年著述；研究判存疑，本串複核改并"
+    }
+  ]
 }

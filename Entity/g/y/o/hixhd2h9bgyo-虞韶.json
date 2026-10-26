@@ -23,7 +23,26 @@
   "native_place": "建安",
   "native_place_entity_id": "hixi5wnd9m2w",
   "native_place_basis": "CBDB 109911 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=109911 補入空槽——籍貫「建安」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=109911 補入空槽——籍貫「建安」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8us44zbe，補入／訂正：description.sources←hixi8us44zbe。",
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/yvjung4hffs7bbuu"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8us44zbe",
+      "primary_name": "虞韶",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
+      "why": "元虞韶《小學日記故事》與明條《新刊明解圖像小學日記故事》同書，明係刊本年代"
+    }
+  ]
 }

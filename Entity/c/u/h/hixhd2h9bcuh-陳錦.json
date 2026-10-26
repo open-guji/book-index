@@ -20,7 +20,7 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "qing",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=58824 補入空槽——籍貫「遼東都指揮使司」。既有之值一概未動。",
+  "ai_note": "2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=58824 補入空槽——籍貫「遼東都指揮使司」。既有之值一概未動。\n\n2026-10-26 去重 2.1续：並入同人重出條 hixi8u5so4k2、hixi8u5x1g6j，補入／訂正：description.sources←hixi8u5so4k2。",
   "native_place": "遼東都指揮使司",
   "native_place_entity_id": "hixi5watwgly",
   "native_place_basis": "CBDB 58824 index_addr（2026-09-06 CBDB enrich）",
@@ -29,5 +29,32 @@
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "中國古籍總目",
+        "type": "url",
+        "details": "http://data.library.sh.cn/entity/person/xtrkm1xw6ufmnoh0"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixi8u5so4k2",
+      "primary_name": "陳錦",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "三條同繫《補勤詩存》《勤餘文牘》系列（首續編／續編）；首條 cbdb 58824（卒1652、遼東）為清初陳錦，與補勤詩存撰者不合，疑誤配"
+    },
+    {
+      "id": "hixi8u5x1g6j",
+      "primary_name": "陳錦",
+      "at": "2026-10-26",
+      "by": "A11-去重2.1续",
+      "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
+      "why": "三條同繫《補勤詩存》《勤餘文牘》系列（首續編／續編）；首條 cbdb 58824（卒1652、遼東）為清初陳錦，與補勤詩存撰者不合，疑誤配"
+    }
+  ]
 }
