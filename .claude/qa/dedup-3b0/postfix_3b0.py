@@ -11,7 +11,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
 TODAY = '2026-10-25'
 # 被并条的同名撰人误繫他人 Entity，postfix_common 照搬到 keeper 者：撤回（簇号 → 撰人名）
 UNDO_COMMON = {'3b0-029': '王畹'}
-SKIP_CID = {'3b0-007', '3b0-042', '3b0-203', '3b0-293', '3b0-294', '3b0-366', '3b0-385', '3b0-435'}
+SKIP_CID = {'3b0-255', '3b0-095', '3b0-091', '3b0-136', '3b0-204', '3b0-217', '3b0-161', '3b0-356', '3b0-381', '3b0-007', '3b0-042', '3b0-203', '3b0-293', '3b0-294', '3b0-366', '3b0-385', '3b0-435'}
 def path(kind, i): return glob.glob(f'{ROOT}/{kind}/{i[-3]}/{i[-2]}/{i[-1]}/{i}-*.json')[0]
 def norm(x): return x if isinstance(x, str) else x.get('name')
 def bump(f, j, level):
