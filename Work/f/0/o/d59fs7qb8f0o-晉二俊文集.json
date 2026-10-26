@@ -31,9 +31,9 @@
       "summary": "共 4 個版本：明末刻本（國家圖書館）；明正德十四年陸元大刻本（北京大學圖書館、南京圖書館、上海圖書館、國家圖書館）；清影宋抄本（國家圖書館）；明萬曆間瑞桃堂刻本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：uealwo6b0t2zpgiy、0fgkrlxkoifqlxg3、pm6sk3osjh558f87、3ss72mukminsqmzj\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：uealwo6b0t2zpgiy、0fgkrlxkoifqlxg3、pm6sk3osjh558f87、3ss72mukminsqmzj\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -79,6 +79,42 @@
         "nlc_fid": "411999023039",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077446",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077446",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077446",
+        "request_no": "集０６４－０００２",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4413951/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071111",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071111",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071111",
+        "request_no": "３１４－０１９０",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4751287/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
@@ -90,6 +126,12 @@
     },
     "nlc-411999023039": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1077446": {
+      "label": "內閣文庫藏本：明刊本（集064-0002，4冊）"
+    },
+    "naikaku-1071111": {
+      "label": "內閣文庫藏本：明刊本（314-0190，4冊）"
     }
   }
 }

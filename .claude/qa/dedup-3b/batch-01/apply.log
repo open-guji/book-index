@@ -1,0 +1,1898 @@
+===== 3b-001 work d59f2869okxu <- ['d59f286q85q8']
+== 逐欄 diff（keeper | d59f286q85q8）==
+** ai_note            "\n\n2026-09-05 《補南北史藝文志》整理：收《補南北史藝文志》一節，本志繫梁代（502-557），作「梁武帝　通史六百卷」。梁武帝《通史》，本志作六百卷，庫條兼載隋志四百八十卷、舊唐志六百二卷，卷數雖有出入而書一；庫中另一條止本於《國史經籍志》，今繫其兼收隋、唐二志者。\n\n2026 | "[QA2026-04-20] title 含可疑字符: \"右遼、金、元通史\"，可能是解析错误\n[QA-fix 2026-04-20] \"右遼、金、元通史\" → \"通史\" (去除 parser 误粘前一类\"右XX\"标签)\n\nN4 撰人朝代回填（2026-08-24）：autho
+** authors            [{"name": "梁武帝", "role": "撰", "dynasty": "南朝梁", "name_basis": "2026-08-24 隋志注文逐題抽撰人：《隋書經籍志》之注多作「梁有《甲》N卷，某撰；《乙》N卷，某撰。亡」——一注而列數書，各繫其撰人。前此抽名者取一節之通語，故《灶經》 | [{"name": "武帝", "role": "撰", "dynasty": "南朝梁", "entity_id": "hixhd2h9bdol", "dynasty_basis": "N4 機械回填（2026-08-24 南北朝斷代收尾）：本欄原闕，今取其所繫 entity `1j967afja
+** description        null | {"text": "《國史經籍志》收錄。", "sources": ["國史經籍志"]}
+** dynasty            "南朝梁" | null
+** dynasty_basis      "author_propagation:唯一作者朝代" | null
+** emendated_by       [{"source": "隋書經籍志考證", "source_bid": "d59f2mp0flz6", "title_info": "通史四百八十卷", "summary": "通史四百八十卷 梁武帝撰。起三皇, 梁。\n梁武帝有《周易大義》,見經部易類。\n《梁書·蕭子顯傳》:高祖 從容謂子顯曰 | null
+** id                 "d59f2869okxu" | "d59f286q85q8"
+** indexed_by         [{"source": "隋書經籍志", "source_bid": "d59f28nmafwh", "title_info": "《通史》四百八十卷", "summary": "《通史》四百八十卷梁武帝撰。起三皇；訖梁。"}, {"source": "舊唐書經籍志", "source_bid":  | [{"source": "國史經籍志", "source_bid": "d59f2nl40936", "title_info": "《通史》六百二卷", "summary": "《通史》六百二卷（梁武帝撰。起三皇，訖梁。）", "author_info": "梁武帝撰。起三皇，訖梁。"}]
+** juan_count         {"number": 480} | {"number": 602}
+** measure_info       "四百八十卷" | "六百零二卷"
+** measures           [{"unit": "卷", "number": 480}] | [{"unit": "卷", "number": 602}]
+   period             "nanbeichao" | "nanbeichao"
+** period_basis       "據 authors[0].dynasty「南朝梁」——撰人自《隋書經籍志》注文逐題抽出（見 authors[].name_basis）。本條原上限 sui-tang，今得撰人，定作 nanbeichao。" | "撰人 Entity 之代：武帝（南朝梁）——同人名下他書 {'nanbeichao': 16} 佐證一致"
+** period_upper       null | "ming"
+** period_upper_basis null | "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming"
+   revised_at         "2026-08-24" | "2026-08-24"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "通史" | "通史"
+   type               "work" | "work"
+** updated_at         "2026-08-24T00:00:00+00:00" | "2026-08-23T00:00:00-07:00"
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×3
+      ('d59f286q85q8', 'juan_count', {'number': 480}, {'number': 602})
+      ('d59f286q85q8', 'measure_info', '四百八十卷', '六百零二卷')
+      ('d59f286q85q8', 'period_basis', '據 authors[0].dynasty「南朝梁」——撰人自《隋書經籍志》注文逐題抽出（見 authors[].name_basis）。本條原上限 sui-tang，今得撰人，定作 nanbeichao。', "撰人 Entity 之代：武帝（南朝梁）——同人名下他書 {'nanbeichao': 16} 佐證一致")
+  分類成員行改指／刪（classification/zongmu/members/zm0176.json）  ×1
+      ('zm0176', 3887)
+  欄位搬遷（keeper 原無）  ×3
+      ('d59f286q85q8', 'measures', [{'unit': '卷', 'number': 602}])
+      ('d59f286q85q8', 'period_upper', 'ming')
+      ('d59f286q85q8', 'period_upper_basis', 'catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming')
+  著錄移入 keeper  ×1
+      ('d59f286q85q8', '國史經籍志', '《通史》六百二卷')
+
+已併：d59f2869okxu <- d59f286q85q8
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-002 work d59f99gorvgn <- ['d59f285byy9t']
+== 逐欄 diff（keeper | d59f285byy9t）==
+** ai_note            "2026-09-05 《補梁書藝文志》整理：據《補梁書藝文志》（徐仁甫撰）新建。原文「武帝　碁法一卷」。新建之由：庫中無同題。" | null
+** authors            [{"name": "蕭衍", "role": "撰", "dynasty": "南朝梁", "entity_id": "hixhd2h9bdol"}] | [{"name": "梁武帝", "role": "撰", "dynasty": "南朝梁", "name_basis": "2026-08-24 隋志注文逐題抽撰人：《隋書經籍志》之注多作「梁有《甲》N卷，某撰；《乙》N卷，某撰。亡」——一注而列數書，各繫其撰人。前此抽名者取一節之通語，故《灶經》
+** dynasty            null | "南朝梁"
+** dynasty_basis      null | "author_propagation:唯一作者朝代"
+** emendated_by       null | [{"source": "隋書經籍志考證", "source_bid": "d59f2mp0flz6", "title_info": "《棋法》一卷", "summary": "碁法一卷 梁武帝撰\n《梁書》本紀:帝六藝備開,碁登逸品。\n《通志藝文略》藝術類:梁武《碁評》一卷,梁武《基法》一卷。\
+** id                 "d59f99gorvgn" | "d59f285byy9t"
+** indexed_by         [{"source": "補梁書藝文志", "source_bid": "d59f2o2koav5", "title_info": "碁法一卷", "summary": "碁法一卷"}] | [{"source": "隋書經籍志", "source_bid": "d59f28nmafwh", "title_info": "《棋法》一卷", "summary": "《棋法》一卷梁武帝撰。"}]
+** juan_count         null | {"number": 1}
+   measure_info       "一卷" | "一卷"
+** measures           null | [{"unit": "卷", "number": 1}]
+   period             "nanbeichao" | "nanbeichao"
+** period_basis       "2026-09-05 《補梁書藝文志》整理：《補梁書藝文志》著錄。梁（502-557）。" | "據 authors[0].dynasty「南朝梁」——撰人自《隋書經籍志》注文逐題抽出（見 authors[].name_basis）。本條原上限 sui-tang，今得撰人，定作 nanbeichao。"
+** revised_at         "2026-09-05" | "2026-08-24"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+** title              "碁法" | "棋法"
+   type               "work" | "work"
+** updated_at         null | "2026-08-24T00:00:00+00:00"
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f285byy9t', 'period_basis', '2026-09-05 《補梁書藝文志》整理：《補梁書藝文志》著錄。梁（502-557）。', '據 authors[0].dynasty「南朝梁」——撰人自《隋書經籍志》注文逐題抽出（見 authors[].name_basis）。本條原上限 sui-tang，今得撰人，定作 nanbeichao。')
+  欄位搬遷（keeper 原無）  ×5
+      ('d59f285byy9t', 'juan_count', {'number': 1})
+      ('d59f285byy9t', 'emendated_by', [{'source': '隋書經籍志考證', 'source_bid': 'd59f2mp0flz6', 'title_info': '《棋法》一卷', 'summary': '碁法一卷 梁武帝撰\n《梁書》本紀:帝六藝備開,碁登逸品。\n《通志藝文略》藝術類:梁武《碁評》一卷,梁武《基法》一卷。\n案《藝文類聚》七十四有梁武帝《圍棋賦》,疑即是書。或别\n有言圍棋之法,或碁勢、碁圖、碁譜之類。'}])
+      ('d59f285byy9t', 'measures', [{'unit': '卷', 'number': 1}])
+      ('d59f285byy9t', 'dynasty', '南朝梁')
+      ('d59f285byy9t', 'dynasty_basis', 'author_propagation:唯一作者朝代')
+  著錄移入 keeper  ×1
+      ('d59f285byy9t', '隋書經籍志', '《棋法》一卷')
+
+已併：d59f99gorvgn <- d59f285byy9t
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-004 work d59f2nkru03m <- ['d59f2nk1atj6']
+== 逐欄 diff（keeper | d59f2nk1atj6）==
+** ai_note            "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 5 取自 `me | "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 12 取自 `m
+** authors            [{"name": "朱元璋", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bgd5"}] | [{"name": "明太祖", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bgd5", "name_basis": "2026-08-24 新建 entity `1jcf5151293b4` 並繫之——庫中舊無其人，說見該 entity 
+** description        {"text": "本書收入《國立故宮博物院善本舊籍》（統一編號 平圖013408-013412）。明萬曆間南京禮部刊本。", "sources": ["國立故宮博物院善本舊籍"]} | {"text": "本書收入《國立故宮博物院善本舊籍》（統一編號 贈善001803-001814）。明萬曆十年直隸巡撫姚士觀校刊本。", "sources": ["國立故宮博物院善本舊籍"]}
+   dynasty            "明" | "明"
+   dynasty_basis      "author_propagation" | "author_propagation"
+** id                 "d59f2nkru03m" | "d59f2nk1atj6"
+** measure_info       "五冊" | "十二冊"
+** measures           [{"unit": "冊", "number": 5}] | [{"unit": "冊", "number": 12}]
+   period             "ming" | "ming"
+   period_basis       "據 authors[0].dynasty「明」" | "據 authors[0].dynasty「明」"
+** related_works      [{"id": "d59fxwscl91c", "relation": "related", "note": "晋升前去重复核（集部复核池）：題名相近，未能確認同書，另立互鏈。"}] | null
+** resource_groups    {"nlc-1719": {"label": "國圖藏本：明嘉靖[1522-1566]"}, "nlc-411999019833": {"label": "國圖藏本：明萬曆10年[1582]"}, "nlc-412000000749": {"label": "國圖藏本：明[1368-1644]"}} | {"nlc-411999010960": {"label": "國圖藏本：明萬曆10年[1582]"}}
+** resources          [{"name": "维基共享资源", "types": ["image"], "id": "commons", "url": "https://commons.wikimedia.org/wiki/File:NCL-11108_%E9%AB%98%E7%9A%87%E5%B8%9D%E5%BE%A | [{"name": "维基共享资源", "types": ["image"], "id": "commons", "url": "https://commons.wikimedia.org/wiki/File:NCL-11108_%E9%AB%98%E7%9A%87%E5%B8%9D%E5%BE%A
+   revised_at         "2026-10-24" | "2026-10-24"
+** revision           "1.2.0" | "1.1.0"
+   schema_version     1 | 1
+   title              "高皇帝御製文集" | "高皇帝御製文集"
+   type               "work" | "work"
+** updated_at         "2026-08-09T10:41:40+00:00" | "2026-08-24T00:00:00+00:00"
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×2
+      ('d59f2nk1atj6', 'measure_info', '五冊', '十二冊')
+      ('d59f2nk1atj6', 'resource_groups', {'nlc-1719': {'label': '國圖藏本：明嘉靖[1522-1566]'}, 'nlc-411999019833': {'label': '國圖藏本：明萬曆10年[1582]'}, 'nlc-412000000749': {'label': '國圖藏本：明[1368-1644]'}}, {'nlc-411999010960': {'label': '國圖藏本：明萬曆10年[1582]'}})
+  Book.work_id 改指 keeper  ×2
+      ('988fz1pb18', 'd59f2nk1atj6')
+      ('988g5bdvra', 'd59f2nk1atj6')
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f2nk1atj6', 'measures', [{'unit': '冊', 'number': 12}])
+      ('d59f2nk1atj6', 'resources', [{'id': 'nlc', 'group': 'nlc-411999010960', 'group_role': 'origin', 'name': '中華古籍資源庫（國家圖書館）', 'short_name': '國圖', 'url': 'http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999010960', 'types': ['image'], 'metadata': {'nlc_fid': '411999010960', 'edition': '明萬曆10年[1582]'}}])
+
+已併：d59f2nkru03m <- d59f2nk1atj6
+善後：著錄 0 節、他條關係 0 條記錄、存儲側引用改指 2 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-005 work d59f2nbcixa8 <- ['d59f2myrll36']
+== 逐欄 diff（keeper | d59f2myrll36）==
+** ai_note            "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法— | "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊
+** authors            [{"name": "潘祖廕", "role": "撰", "dynasty": "清", "entity_id": "hixhd2h9bckk"}] | [{"name": "潘祖蔭", "role": "撰", "dynasty": "清", "entity_id": "hixhd2h9bckk"}]
+** description        {"text": "潘祖廕（清）撰。二卷。見著錄於《清史稿藝文志》《續修四庫全書》。《續修四庫全書》列於史部 史部。其著錄之文，《續修四庫全書》作「《攀古樓彝器款識》二卷」。《清史稿藝文志》民國趙爾巽等修；《續修四庫全書》一九九五年影印——本書之目賴之以存。", "sources": ["清史稿藝文 | {"text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故觀004082）。清同治十一年吳縣潘氏滂喜齋京師刊本。", "sources": ["國立故宮博物院善本舊籍"]}
+   dynasty            "清" | "清"
+   dynasty_basis      "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」" | "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+** id                 "d59f2nbcixa8" | "d59f2myrll36"
+** indexed_by         [{"source": "清史稿藝文志", "source_bid": "d59f2mp0flz4", "title_info": "攀古樓彝器款識", "summary": "攀古樓彝器款識》二卷。潘祖廕撰。"}, {"source": "續修四庫全書", "source_bid": "d59f2 | [{"source": "中國古籍總目", "source_bid": "d59frnrt4lxc", "title_info": "攀古廔彝器款識二卷", "author_info": "清潘祖蔭撰", "section": "史部/金石考古類/金之屬", "summary": "共 1 個版本：
+** juan_count         {"number": 2} | {"number": 2, "unit": "卷"}
+** measure_info       "二卷" | "一冊"
+** measures           [{"unit": "卷", "number": 2}] | [{"unit": "冊", "number": 1}]
+   period             "qing" | "qing"
+   period_basis       "據 authors[0].dynasty「清」" | "據 authors[0].dynasty「清」"
+** related_works      null | [{"id": "d59fyt6g2fpd", "relation": "related", "note": "史部E存疑另立：總目記錄「攀古廔款識目」（潘祖蔭）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（缺卷数（记录卷数非单一N卷或目标无卷数））），按嚴口徑另立；互為相關，待並條複核
+** resource_groups    {"nlc-312001049964": {"label": "國圖藏本：潘祖蔭滂喜齋   清同治11年[1872]"}} | {"nlc-412000003364": {"label": "國圖藏本：清同治11年[1872]"}}
+** resources          [{"name": "Internet Archive", "id": "internet-archive", "url": "https://archive.org/details/02090798.cn", "types": ["image"]}, {"id": "wikimedia-commo | [{"name": "维基共享资源", "types": ["image"], "id": "commons", "url": "https://commons.wikimedia.org/wiki/File:Tianyige-330000-1705-0018133_%E6%94%80%E5%8F%
+   revised_at         "2026-10-13" | "2026-10-13"
+   revision           "1.1.0" | "1.1.0"
+   schema_version     1 | 1
+** title              "攀古樓彝器款識" | "攀古廔彝器款識"
+   type               "work" | "work"
+** updated_at         "2026-08-09T10:40:18+00:00" | "2026-08-23T07:44:49.274135+00:00"
+
+== 將動之處 ==
+  **分類（zongmu）：被併者 d59f2myrll36 在 zm0290，keeper 在 zm0176——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×3
+      ('d59f2myrll36', 'measure_info', '二卷', '一冊')
+      ('d59f2myrll36', 'resource_groups', {'nlc-312001049964': {'label': '國圖藏本：潘祖蔭滂喜齋   清同治11年[1872]'}}, {'nlc-412000003364': {'label': '國圖藏本：清同治11年[1872]'}})
+      ('d59f2myrll36', 'juan_count', {'number': 2}, {'number': 2, 'unit': '卷'})
+  Book.work_id 改指 keeper  ×3
+      ('988g4g65fu', 'd59f2myrll36')
+      ('99555zdvy8', 'd59f2myrll36')
+      ('9955707w1t', 'd59f2myrll36')
+  related_works add（本 keeper）  ×1
+      ('d59f2nbcixa8', {'id': 'd59fyt6g2fpd', 'relation': 'related', 'note': '史部E存疑另立：總目記錄「攀古廔款識目」（潘祖蔭）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（缺卷数（记录卷数非单一N卷或目标无卷数））），按嚴口徑另立；互為相關，待並條複核。', 'from': 'd59f2myrll36'})
+  分類成員行改指／刪（classification/zongmu/members/zm0290.json）  ×1
+      ('zm0290', 160)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f2myrll36', 'measures', [{'unit': '冊', 'number': 1}])
+      ('d59f2myrll36', 'resources', [{'name': '维基共享资源', 'types': ['image'], 'id': 'commons', 'url': 'https://commons.wikimedia.org/wiki/File:Tianyige-330000-1705-0018133_%E6%94%80%E5%8F%A4%E5%BB%94%E5%BD%9D%E5%99%A8%E6%AC%BE%E8%AD%98%E4%BA%8C%E5%8D%B7_%E6%B8%85%E6%BD%98%E7%A5%96%E8%94%AD%E6%92%B0_%E6%B8%85%E5%90%8C%E6%B2%BB%E5%88%BB%E6%9C%AC.pdf'}, {'id': 'nlc', 'group': 'nlc-412000003364', 'group_role': 'origin', 'name': '中華古籍資源庫（國家圖書館）', 'short_name': '國圖', 'url': 'http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000003364', 'types': ['image'], 'metadata': {'nlc_fid': '412000003364', 'edition': '清同治11年[1872]'}}])
+  著錄移入 keeper  ×2
+      ('d59f2myrll36', '中國古籍總目', '攀古廔彝器款識二卷')
+      ('d59f2myrll36', '中國古籍總目', '攀古廔彝器款識不分卷')
+
+已併：d59f2nbcixa8 <- d59f2myrll36
+善後：著錄 2 節、他條關係 0 條記錄、存儲側引用改指 3 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-006 work d59f2nfg6a68 <- ['d59f6endf210']
+== 逐欄 diff（keeper | d59f6endf210）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題明李攀龍編，唐汝詢注，蔣一葵直解。攀龍有《詩學事類》，汝詢」，所題之人即本條 authors[0]，故其 role 由「編」改標「舊題編」 | "撰人切分來源：又條承上。 同名異書：庫內已有同題「唐詩選」而撰人各異（王褒(元)、李攀龍(明)），本條撰人「李于鱗」與之不合，依《千頃堂書目》著錄逕行新建。"
+** authors            [{"name": "李攀龍", "role": "舊題編", "dynasty": "明", "entity_id": "hixhd2h9bf59", "role_basis": "據著錄語「舊本題明李攀龍編，唐汝詢注，蔣一葵直解。攀龍有《詩學事類》，汝詢」——所題之撰人不確，非謂本書偽。見 SC | [{"name": "李于鱗", "role": "撰", "entity_id": "hixhd2h9bf59"}]
+** description        {"text": "李攀龍（明）舊題編。七卷。見著錄於《欽定四庫全書總目》《續修四庫全書》。《續修四庫全書》列於集部 集部。其著錄之文，《續修四庫全書》作「《唐詩選》七卷」。《欽定四庫全書總目》清乾隆間館臣修；《續修四庫全書》一九九五年影印——本書之目賴之以存。", "sources": ["欽定四 | {"text": "李于鱗撰。七卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「李于鱗唐詩選七卷」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "明" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2nfg6a68" | "d59f6endf210"
+** indexed_by         [{"source": "欽定四庫全書總目", "source_bid": "d59dh3vo9af4", "title_info": "《唐詩選》•七卷", "author_info": "舊本題明李攀龍編", "summary": "舊本題明李攀龍編，唐汝詢注，蔣一葵直解。攀龍有《詩學事類》，汝 | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "李于鱗唐詩選七卷", "summary": "李于鱗唐詩選七卷"}]
+   juan_count         {"number": 7} | {"number": 7}
+   measure_info       "七卷" | "七卷"
+   measures           [{"unit": "卷", "number": 7}] | [{"unit": "卷", "number": 7}]
+   period             "ming" | "ming"
+** period_basis       "據 authors[0].dynasty「明」" | "據撰人 李于鱗（hixhd2h9bkkl） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）"
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+** related_works      [{"id": "d59fxwsgc3k1", "relation": "related", "note": "晋升前去重复核（集部复核池）：題名相近，未能確認同書，另立互鏈。"}, {"id": "d59fxxf3nyf6", "relation": "related", "note": "晋升前 | [{"id": "d59fyfa9irk1", "relation": "related", "note": "總目記錄無具名主責任者（記佚名），與既有 Work 題名相同，依錄入優先與 Sabine 規則不據題名並，另立；互為相關，待有責任者證據再議。"}]
+** resource_groups    {"kokusho-100244101": {"label": "國書·阪大懐徳堂藏刊 寛政５"}, "kokusho-100338519": {"label": "國書·一橋大青木藏刊 文化１４"}, "kokusho-100339825": {"label": "國書·京都府歴彩藏刊 弘化２"} | null
+** resources          [{"id": "shidianguji-keben", "name": "识典古籍", "url": "https://www.shidianguji.com/book/CADAL02068799", "metadata": {"edition": "刻本", "version": "v3", " | null
+** revised_at         "2026-10-16" | "2026-10-07"
+** revision           "1.7.0" | "1.1.0"
+   schema_version     1 | 1
+   title              "唐詩選" | "唐詩選"
+   type               "work" | "work"
+** updated_at         "2026-08-21T00:00:00-07:00" | null
+
+== 將動之處 ==
+  **分類（zongmu）：被併者 d59f6endf210 在 zm0676，keeper 在 zm0681——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f6endf210', 'period_basis', '據 authors[0].dynasty「明」', '據撰人 李于鱗（hixhd2h9bkkl） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）')
+  related_works add（本 keeper）  ×1
+      ('d59f2nfg6a68', {'id': 'd59fyfa9irk1', 'relation': 'related', 'note': '總目記錄無具名主責任者（記佚名），與既有 Work 題名相同，依錄入優先與 Sabine 規則不據題名並，另立；互為相關，待有責任者證據再議。', 'from': 'd59f6endf210'})
+  分類成員行改指／刪（classification/zongmu/members/zm0676.json）  ×1
+      ('zm0676', 770)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f6endf210', 'period_upper', 'qing')
+      ('d59f6endf210', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×1
+      ('d59f6endf210', '千頃堂書目', '李于鱗唐詩選七卷')
+
+已併：d59f2nfg6a68 <- d59f6endf210
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-007 work d59f2nk1atxc <- ['d59f2nfvgwzm']
+== 逐欄 diff（keeper | d59f2nfvgwzm）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhy00ntjwg 與 11q37umjyhnnk 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 de | "標題與現有Work匹配但作者不同（Title match but author mismatch: entry='李于鱗' vs work='李攀龍' (GYL5Bhmppu5)），判定為同名異書，新建獨立Work。 舊匹配結果為 GYL5Bhmppu5（exact_title），經作者校驗後判定
+** authors            [{"name": "李攀龍", "role": "編", "dynasty": "明", "entity_id": "hixhd2h9bf59"}] | [{"name": "李于鱗", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bf59"}]
+** description        {"text": "李攀龍（明）編。三十四卷。見著錄於《欽定四庫全書總目》《國史經籍志》。其著錄之文，《國史經籍志》作「《古今詩刪》三十四卷（李攀龍）」。《欽定四庫全書總目》清乾隆間館臣修；《國史經籍志》明焦竑撰——本書之目賴之以存。", "sources": ["欽定四庫全書總目", "國史經籍志 | {"text": "李于鱗（明）撰。三十四卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「李於鱗《古今詩刪》三十四卷，《唐詩選》七卷」。本書惟《明史藝文志》一志著錄，別無他證。《明史藝文志》清張廷玉等修——本書之目賴之以存。", "sources": ["明史藝文志"]}
+   dynasty            "明" | "明"
+   dynasty_basis      "author_propagation" | "author_propagation"
+** id                 "d59f2nk1atxc" | "d59f2nfvgwzm"
+** indexed_by         [{"source": "欽定四庫全書總目", "source_bid": "d59dh3vo9af4", "title_info": "《古今詩刪》•三十四卷", "author_info": "明李攀龍編", "summary": "明李攀龍編。攀龍有《詩學事類》，已著錄。是編，為所錄歷代之詩， | [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "李于鳞《古今诗删》三十四卷，《唐诗选》七卷", "summary": "李於鱗《古今詩刪》三十四卷，《唐詩選》七卷"}]
+   juan_count         {"number": 34} | {"number": 34}
+   measure_info       "三十四卷" | "三十四卷"
+   measures           [{"unit": "卷", "number": 34}] | [{"unit": "卷", "number": 34}]
+   period             "ming" | "ming"
+   period_basis       "據 authors[0].dynasty「明」" | "據 authors[0].dynasty「明」"
+** resource_groups    {"nlc-411999029835": {"label": "國圖藏本：明[1368-1644]"}, "kokusho-100175869": {"label": "國書·岩国徴古藏刊 寛保３"}, "naikaku-1072107": {"label": "內閣文庫藏本：明刊本（集091-00 | null
+** resources          [{"id": "wikisource-siku", "name": "维基文库（四庫全書本）", "url": "https://zh.wikisource.org/wiki/古今詩刪_(四庫全書本)", "types": ["text"]}, {"id": "shidianguji-sikuqu | null
+** revised_at         "2026-10-16" | "2026-08-25"
+** revision           "1.4.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "古今詩刪" | "古今詩刪"
+   type               "work" | "work"
+   updated_at         "2026-08-09T10:41:40+00:00" | "2026-08-09T10:41:40+00:00"
+
+== 將動之處 ==
+  **分類（zongmu）：被併者 d59f2nfvgwzm 在 zm0676，keeper 在 zm0680——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  分類成員行改指／刪（classification/zongmu/members/zm0676.json）  ×1
+      ('zm0676', 769)
+  著錄移入 keeper  ×1
+      ('d59f2nfvgwzm', '明史藝文志', '李于鳞《古今诗删》三十四卷，《唐诗选》七卷')
+
+已併：d59f2nk1atxc <- d59f2nfvgwzm
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-008 work d59f2glchkap <- ['d59f2gd079q9']
+== 逐欄 diff（keeper | d59f2gd079q9）==
+** ai_note            "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by | "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書易類著錄「吾丘氏（衍）重正卦氣」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].s
+** authors            [{"name": "吾衍", "role": "撰", "dynasty": "元", "entity_id": "hixhd2h9bez7"}] | [{"name": "吾丘衍", "entity_id": "hixhd2h9bez7", "name_basis": "2026-08-24 補繫 entity：本條 authors 舊有名「吾丘衍」而無 entity_id，今繫 `1j967bgl70k5g`——庫中以此為別名（alt_name
+** description        {"text": "吾衍（元）撰。見著錄於《補遼金元藝文志》《元史藝文志》。其著錄之文，《元史藝文志》作「元吾衍（字子行，錢塘人）重正卦氣」。", "sources": ["補遼金元藝文志", "元史藝文志"]} | {"text": "吾丘衍撰。見著錄於《經義考》。《經義考》列於易。本書惟《經義考》一志著錄，別無他證。《經義考》清朱彝尊撰——本書之目賴之以存。", "sources": ["經義考"]}
+** dynasty            "元" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2glchkap" | "d59f2gd079q9"
+** indexed_by         [{"source": "補遼金元藝文志", "source_bid": "d59f2mp1zsox", "title_info": "吾衍重正卦氣", "summary": "元吾衍重正卦氣"}, {"source": "元史藝文志", "source_bid": "d59f2mp1zsoz",  | [{"source": "經義考", "source_bid": "d59f2mel8d1d", "title_info": "《重正卦氣》（吾丘衍）", "summary": "陶宗儀曰衍字子行號竹房太末人寓杭之生化坊好古博學不交雜客與趙魏公相厚", "section": "易", "juan":
+   period             "liao-jin-yuan" | "liao-jin-yuan"
+** period_basis       "據 authors[0].dynasty「元」" | "知名人物：吾丘衍，元初金石學家，與趙孟頫（趙魏公）相厚（2026-08-24 R3 引文定代）"
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing"
+   revised_at         "2026-08-25" | "2026-08-25"
+** revision           "1.0.0" | "1.1.0"
+   schema_version     1 | 1
+   title              "重正卦氣" | "重正卦氣"
+   type               "work" | "work"
+** updated_at         "2026-08-09T09:33:12+00:00" | "2026-08-24T00:00:00+00:00"
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f2gd079q9', 'period_basis', '據 authors[0].dynasty「元」', '知名人物：吾丘衍，元初金石學家，與趙孟頫（趙魏公）相厚（2026-08-24 R3 引文定代）')
+  分類成員行改指／刪（classification/zongmu/members/zm0010.json）  ×1
+      ('zm0010', 2632)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f2gd079q9', 'period_upper', 'qing')
+      ('d59f2gd079q9', 'period_upper_basis', 'catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing')
+  著錄移入 keeper  ×1
+      ('d59f2gd079q9', '經義考', '《重正卦氣》（吾丘衍）')
+
+已併：d59f2glchkap <- d59f2gd079q9
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-009 work d59f6ehch4hs <- ['d59f2gityqrk']
+== 逐欄 diff（keeper | d59f2gityqrk）==
+** ai_note            "同名異書：庫內已有同題「選唐詩」而撰人各異（方道壑(元)），本條撰人「方道叡」與之不合，依《千頃堂書目》著錄逕行新建。" | "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by
+** authors            [{"name": "方道叡", "role": "撰", "entity_id": "hixhd2h9bgx2"}] | [{"name": "方道壑", "role": "撰", "dynasty": "元", "entity_id": "hixhd2h9bgx2"}]
+** description        {"text": "方道叡撰。一卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「方道叡選唐詩」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]} | {"text": "方道壑（元）撰。一卷。見著錄於《補遼金元藝文志》。其著錄之文，《補遼金元藝文志》作「元方道壑（至正中人）選唐詩一卷」。本書惟《補遼金元藝文志》一志著錄，別無他證。", "sources": ["補遼金元藝文志"]}
+** dynasty            null | "元"
+** dynasty_basis      null | "author_propagation"
+** id                 "d59f6ehch4hs" | "d59f2gityqrk"
+** indexed_by         [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "方道叡選唐詩", "summary": "方道叡選唐詩"}] | [{"source": "補遼金元藝文志", "source_bid": "d59f2mp1zsox", "title_info": "方道壑選唐詩一卷", "author_info": "至正中人", "summary": "元方道壑（至正中人）選唐詩一卷"}]
+   juan_count         {"number": 1} | {"number": 1}
+   measure_info       "一卷" | "一卷"
+   measures           [{"unit": "卷", "number": 1}] | [{"unit": "卷", "number": 1}]
+   period             "liao-jin-yuan" | "liao-jin-yuan"
+** period_basis       "據撰人 方道叡（hixhd2h9bgx2） 之 period（liao-jin-yuan）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）" | "據 authors[0].dynasty「元」"
+** period_upper       "qing" | null
+** period_upper_basis "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜" | null
+** revised_at         "2026-10-07" | "2026-08-25"
+** revision           "1.1.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "選唐詩" | "選唐詩"
+   type               "work" | "work"
+** updated_at         null | "2026-08-09T09:33:12+00:00"
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f6ehch4hs',)
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f2gityqrk', 'period_basis', '據撰人 方道叡（hixhd2h9bgx2） 之 period（liao-jin-yuan）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）', '據 authors[0].dynasty「元」')
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f2gityqrk', 'dynasty', '元')
+      ('d59f2gityqrk', 'dynasty_basis', 'author_propagation')
+  著錄移入 keeper  ×1
+      ('d59f2gityqrk', '補遼金元藝文志', '方道壑選唐詩一卷')
+
+已併：d59f6ehch4hs <- d59f2gityqrk
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-010 work d59fxwcczsox <- ['d59fxwcdb18h']
+== 逐欄 diff（keeper | d59fxwcdb18h）==
+** ai_note            "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：a2xccv64a0bd3tjk\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n主責任者「釋菩提留支」朝代在各版本／contMap 與題名行之間不一致，未寫 dynast | "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：z2dbg2c7xjlemfuh、rk2az4iqy70cphb1\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重
+** authors            [{"name": "釋菩提留支", "role": "譯", "dynasty": "南北朝", "source": {"name": "中國古籍總目", "type": "url", "details": "http://data.library.sh.cn/entity/person/3ybm | [{"name": "釋菩提流支", "role": "譯", "dynasty": "南北朝", "source": {"name": "中國古籍總目", "type": "url", "details": "http://data.library.sh.cn/entity/person/eraj
+** dynasty            null | "南北朝"
+** dynasty_basis      null | "author_propagation"
+** id                 "d59fxwcczsox" | "d59fxwcdb18h"
+** indexed_by         [{"source": "中國古籍總目", "source_bid": "d59frnrt4lxc", "title_info": "差摩婆帝授記經一卷", "author_info": "東魏釋菩提留支譯", "section": "子部/釋家類/大藏之屬", "summary": "共 1 個版 | [{"source": "中國古籍總目", "source_bid": "d59frnrt4lxc", "title_info": "差摩婆帝授記經一卷", "author_info": "東魏釋菩提流支（菩提留支）譯", "section": "子部/釋家類/大藏之屬", "summary": "
+** period             null | "nanbeichao"
+** period_basis       null | "據 authors[0].dynasty「南北朝」"
+** resource_groups    null | {"nlc-ZHCH0373": {"label": "國圖藏本：金皇統九年[1149]"}}
+** resources          null | [{"id": "nlc", "group": "nlc-ZHCH0373", "group_role": "origin", "name": "中華古籍資源庫（國家圖書館）", "short_name": "國圖", "url": "http://read.nlc.cn/allSearch/sea
+** revised_at         "2026-10-18" | "2026-10-24"
+** revision           "1.0.0" | "1.1.0"
+   schema_version     1 | 1
+   title              "差摩婆帝授記經" | "差摩婆帝授記經"
+   type               "work" | "work"
+
+== 將動之處 ==
+  Book.work_id 改指 keeper  ×1
+      ('993f9jlv5u', 'd59fxwcdb18h')
+  分類成員行改指／刪（classification/zongmu/members/zm0525.json）  ×1
+      ('zm0525', 2356)
+  欄位搬遷（keeper 原無）  ×6
+      ('d59fxwcdb18h', 'dynasty', '南北朝')
+      ('d59fxwcdb18h', 'dynasty_basis', 'author_propagation')
+      ('d59fxwcdb18h', 'period', 'nanbeichao')
+      ('d59fxwcdb18h', 'period_basis', '據 authors[0].dynasty「南北朝」')
+      ('d59fxwcdb18h', 'resources', [{'id': 'nlc', 'group': 'nlc-ZHCH0373', 'group_role': 'origin', 'name': '中華古籍資源庫（國家圖書館）', 'short_name': '國圖', 'url': 'http://read.nlc.cn/allSearch/searchDetail?searchType=10021&showType=1&indexName=data_892&fid=ZHCH0373', 'types': ['image'], 'metadata': {'nlc_fid': 'ZHCH0373', 'edition': '金皇統九年[1149]'}}])
+      ('d59fxwcdb18h', 'resource_groups', {'nlc-ZHCH0373': {'label': '國圖藏本：金皇統九年[1149]'}})
+  著錄移入 keeper  ×1
+      ('d59fxwcdb18h', '中國古籍總目', '差摩婆帝授記經一卷')
+
+已併：d59fxwcczsox <- d59fxwcdb18h
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 1 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-012 work d59f2gprztvk <- ['d59f2gocswsg']
+== 逐欄 diff（keeper | d59f2gocswsg）==
+** additional_titles  null | ["易原奥義"]
+** ai_note            "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by | "作者「元寶巴撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkabi5zrz0g 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev0r91g2mq68(保八);1evgopgrk41kw()（不同作者，故新建獨立 Work）。 [ljy-ro
+** authors            [{"name": "保八", "role": "撰", "dynasty": "元", "entity_id": "hixhd2h9bdry"}] | [{"name": "寶巴", "role": "撰", "dynasty": "元", "entity_id": "hixhd2h9bdry", "name_basis": "2026-08-24 新建 entity `1jcf5151295aj` 並繫之——庫中舊無其人，說見該 entity 之
+** description        {"text": "保八（元）撰。一卷。見著錄於《欽定四庫全書總目》《補遼金元藝文志》《元史藝文志》。其著錄之文，《補遼金元藝文志》作「元保八易原奧義一卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。", "sources": ["欽定四庫全書總目", "補遼金元藝文志", "元史藝文 | {"text": "寶巴（元）撰。二卷。見著錄於《國史經籍志》。本書惟《國史經籍志》一志著錄，別無他證。《國史經籍志》明焦竑撰——本書之目賴之以存。", "sources": ["國史經籍志"]}
+   dynasty            "元" | "元"
+   dynasty_basis      "author_propagation" | "author_propagation"
+** id                 "d59f2gprztvk" | "d59f2gocswsg"
+** indexed_by         [{"source": "欽定四庫全書總目", "source_bid": "d59dh3vo9af4", "title_info": "《易原奧義》•一卷、《周易原旨》•六卷", "author_info": "元保八撰", "summary": "元保八撰。保八字普菴，色目人，居於洛陽。是書前有 | [{"source": "國史經籍志", "source_bid": "d59f2nl40936", "title_info": "《易原奥義》二卷", "summary": "《易原奥義》二卷"}]
+** juan_count         {"number": 1} | {"number": 2}
+** measure_info       "一卷" | "二卷"
+** measures           [{"unit": "卷", "number": 1}] | [{"unit": "卷", "number": 2}]
+   period             "liao-jin-yuan" | "liao-jin-yuan"
+   period_basis       "據 authors[0].dynasty「元」" | "據 authors[0].dynasty「元」"
+** related_works      [{"id": "d59f2gpw1wxt", "relation": "related", "note": "舊叢編對照表（欽定四庫全書·文淵閣本）列本書於《易原奧義》之下"}] | null
+   revised_at         "2026-08-25" | "2026-08-25"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "易原奧義" | "易原奧義"
+   type               "work" | "work"
+** updated_at         "2026-08-09T09:33:12+00:00" | "2026-08-24T00:00:00+00:00"
+
+== 將動之處 ==
+  **分類（zongmu）：被併者 d59f2gocswsg 在 zm0001，keeper 在 zm0010——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×2
+      ('d59f2gocswsg', 'juan_count', {'number': 1}, {'number': 2})
+      ('d59f2gocswsg', 'measure_info', '一卷', '二卷')
+  Book.work_id 改指 keeper  ×2
+      ('988g4uuayz', 'd59f2gocswsg')
+      ('988g3h7klf', 'd59f2gocswsg')
+  分類成員行改指／刪（classification/zongmu/members/zm0001.json）  ×1
+      ('zm0001', 1856)
+  欄位搬遷（keeper 原無）  ×1
+      ('d59f2gocswsg', 'measures', [{'unit': '卷', 'number': 2}])
+  著錄移入 keeper  ×1
+      ('d59f2gocswsg', '國史經籍志', '《易原奥義》二卷')
+
+已併：d59f2gprztvk <- d59f2gocswsg
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 2 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-013 work d59fyiq2zpxe <- ['d59f6efmzdhc']
+== 逐欄 diff（keeper | d59f6efmzdhc）==
+** ai_note            "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：7kvluoaztbs3qzy8、pntrnotdujijk7s6、y3fntitke3uw7and、omu13ko7ur2fd2js\nauto-split:存疑未并\nE6 第 541 批新建（h | null
+** authors            [{"name": "釋袾宏", "role": "撰", "dynasty": "明", "source": {"name": "中國古籍總目", "type": "url", "details": "http://data.library.sh.cn/entity/person/xaopkzfr | [{"name": "祩宏", "role": "撰", "entity_id": "hixi5fivkq3j"}]
+** description        null | {"text": "祩宏撰。一卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「祩宏竹窗隨筆」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "明" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59fyiq2zpxe" | "d59f6efmzdhc"
+** indexed_by         [{"source": "中國古籍總目", "source_bid": "d59frnrt4lxc", "title_info": "竹窓隨筆一卷二筆一卷三筆一卷首一卷", "author_info": "明釋袾宏撰", "section": "子部/釋家類/撰述之屬/雜撰部", "summary" | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "祩宏竹窗隨筆", "author_info": "字佛慧别號蓮池仁和人住雲樓", "summary": "祩宏竹窗隨筆⟨字佛慧别號蓮池仁和人住雲樓⟩"}]
+** juan_count         null | {"number": 1}
+** measure_info       null | "一卷"
+** measures           null | [{"unit": "卷", "number": 1}]
+   period             "ming" | "ming"
+** period_basis       "據 authors[0].dynasty「明」" | "據撰人 祩宏（hixhd2h9bkj6） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）"
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+** resource_groups    {"kokusho-100056356": {"label": "國書·大阪公大杉本図森藏写"}, "kokusho-100107176": {"label": "國書·新城図情報牧野藏刊"}} | null
+** resources          [{"id": "kokusho", "group": "kokusho-100056356", "group_role": "origin", "name": "國書データベース（國文學研究資料館）", "short_name": "國書", "url": "https://kokusho.nij | null
+** revised_at         "2026-10-26" | "2026-10-07"
+   revision           "1.1.0" | "1.1.0"
+   schema_version     1 | 1
+** title              "竹窓隨筆" | "竹窗隨筆"
+   type               "work" | "work"
+
+== 將動之處 ==
+  **分類（zongmu）：被併者 d59f6efmzdhc 在 zm0666，keeper 在 zm0549——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f6efmzdhc', 'period_basis', '據 authors[0].dynasty「明」', '據撰人 祩宏（hixhd2h9bkj6） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）')
+  Book.work_id 改指 keeper  ×7
+      ('99587gk6bk', 'd59f6efmzdhc')
+      ('99587gk6bl', 'd59f6efmzdhc')
+      ('99587gvev4', 'd59f6efmzdhc')
+      ('99587h6neo', 'd59f6efmzdhc')
+      ('99587h6nep', 'd59f6efmzdhc')
+      ('99587hhvy8', 'd59f6efmzdhc')
+      ('99587g8xs0', 'd59f6efmzdhc')
+  分類成員行改指／刪（classification/zongmu/members/zm0666.json）  ×1
+      ('zm0666', 7824)
+  欄位搬遷（keeper 原無）  ×5
+      ('d59f6efmzdhc', 'juan_count', {'number': 1})
+      ('d59f6efmzdhc', 'measures', [{'unit': '卷', 'number': 1}])
+      ('d59f6efmzdhc', 'measure_info', '一卷')
+      ('d59f6efmzdhc', 'period_upper', 'qing')
+      ('d59f6efmzdhc', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×1
+      ('d59f6efmzdhc', '千頃堂書目', '祩宏竹窗隨筆')
+
+已併：d59fyiq2zpxe <- d59f6efmzdhc
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 7 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-014 work d59f6ery8cud <- ['d59f2ghuoxds']
+== 逐欄 diff（keeper | d59f2ghuoxds）==
+** ai_note            "撰人切分來源：又條承上。 同名異書：庫內已有同題「讀易須知」而撰人各異（俞玉吾(元)），本條撰人「俞琰」與之不合，依《千頃堂書目》著錄逕行新建。" | "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n[M3磁鐵 2026-08-23] 元史藝文志兩條「俞玉吾讀易須知一卷」「俞玉吾卦爻象占分類一卷」是二書，原題「讀易須知卦爻象占分類」係補遼金元藝文志連書一條之題；今各繫其書。\n\n
+** authors            [{"name": "俞琰", "role": "撰", "entity_id": "hixhd2h9bhum"}] | [{"name": "俞玉吾", "role": "撰", "dynasty": "元", "entity_id": "hixhd2h9bhum"}]
+** description        {"text": "俞琰撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「俞琰讀易須知」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]} | {"text": "俞玉吾（元）撰。一卷。見著錄於《元史藝文志》《補遼金元藝文志》。其著錄之文，《補遼金元藝文志》作「元俞琰讀易須知卦爻象占分類一卷」。", "sources": ["元史藝文志", "補遼金元藝文志"]}
+** dynasty            null | "元"
+** dynasty_basis      null | "author_propagation"
+** id                 "d59f6ery8cud" | "d59f2ghuoxds"
+** indexed_by         [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "俞琰讀易須知", "author_info": "缺", "summary": "俞琰讀易須知⟨缺⟩"}] | [{"source": "元史藝文志", "source_bid": "d59f2mp1zsoz", "title_info": "俞玉吾讀易須知一卷", "summary": "元俞玉吾讀易須知一卷"}, {"source": "補遼金元藝文志", "source_bid": "d59f2mp1z
+** juan_count         null | {"number": 1}
+** measure_info       null | "一卷"
+** measures           null | [{"unit": "卷", "number": 1}]
+** original_title     null | "讀易須知卦爻象占分類"
+** period             null | "liao-jin-yuan"
+** period_basis       null | "據 authors[0].dynasty「元」"
+** period_upper       "qing" | null
+** period_upper_basis "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜" | null
+** revised_at         "2026-09-01" | "2026-08-25"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "讀易須知" | "讀易須知"
+   type               "work" | "work"
+** updated_at         null | "2026-08-23T18:48:05+00:00"
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f6ery8cud',)
+  欄位搬遷（keeper 原無）  ×8
+      ('d59f2ghuoxds', 'juan_count', {'number': 1})
+      ('d59f2ghuoxds', 'measures', [{'unit': '卷', 'number': 1}])
+      ('d59f2ghuoxds', 'measure_info', '一卷')
+      ('d59f2ghuoxds', 'period', 'liao-jin-yuan')
+      ('d59f2ghuoxds', 'period_basis', '據 authors[0].dynasty「元」')
+      ('d59f2ghuoxds', 'dynasty', '元')
+      ('d59f2ghuoxds', 'dynasty_basis', 'author_propagation')
+      ('d59f2ghuoxds', 'original_title', '讀易須知卦爻象占分類')
+  著錄移入 keeper  ×2
+      ('d59f2ghuoxds', '元史藝文志', '俞玉吾讀易須知一卷')
+      ('d59f2ghuoxds', '補遼金元藝文志', '俞琰讀易須知卦爻象占分類一卷')
+
+已併：d59f6ery8cud <- d59f2ghuoxds
+善後：著錄 2 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-016 work d59f2ncsnny9 <- ['d59f2ngvzojn']
+== 逐欄 diff（keeper | d59f2ngvzojn）==
+** ai_note            "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書易類著錄「朱氏（謀㙔）易象通」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].su | "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引
+** authors            [{"name": "朱謀㙔", "entity_id": "hixhd2h9bhv3", "name_basis": "2026-08-24 補繫 entity：本條 authors 舊有名「朱謀㙔」而無 entity_id，今繫 `1j96a9eeqg8hs`——庫中 primary_name  | [{"name": "朱謀韋", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bhv3"}]
+** description        {"text": "朱謀㙔撰。見著錄於《經義考》。《經義考》列於易。本書惟《經義考》一志著錄，別無他證。《經義考》清朱彝尊撰——本書之目賴之以存。", "sources": ["經義考"]} | {"text": "朱謀韋（明）撰。八卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「朱謀鵒韋《易象通》八卷」。本書惟《明史藝文志》一志著錄，別無他證。《明史藝文志》清張廷玉等修——本書之目賴之以存。", "sources": ["明史藝文志"]}
+   dynasty            "明" | "明"
+** dynasty_basis      "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）" | "author_propagation"
+** id                 "d59f2ncsnny9" | "d59f2ngvzojn"
+** indexed_by         [{"source": "經義考", "source_bid": "d59f2mel8d1d", "title_info": "《易象通》（朱謀㙔）", "summary": "八卷\n李維楨序曰昔者孔子晚而學易而為之十翼其指曰易者象也象也者像也由周迄漢治易者率先明象迨晉王弼尚名理而宋邢恕輩因之至欲 | [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "朱谋韦《易象通》八卷", "summary": "朱謀鵒韋《易象通》八卷"}]
+** juan_count         null | {"number": 8}
+** measure_info       null | "八卷"
+** measures           null | [{"unit": "卷", "number": 8}]
+   period             "ming" | "ming"
+** period_basis       "知名人物：朱謀㙔，明宗室學者；李維楨（明）序稱友人（2026-08-24 R3 引文定代）" | "據 authors[0].dynasty「明」"
+** period_upper       "qing" | null
+** period_upper_basis "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing" | null
+   revised_at         "2026-08-25" | "2026-08-25"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "易象通" | "易象通"
+   type               "work" | "work"
+** updated_at         "2026-08-24T00:00:00+00:00" | "2026-08-09T10:41:40+00:00"
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f2ncsnny9',)
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×2
+      ('d59f2ngvzojn', 'period_basis', '知名人物：朱謀㙔，明宗室學者；李維楨（明）序稱友人（2026-08-24 R3 引文定代）', '據 authors[0].dynasty「明」')
+      ('d59f2ngvzojn', 'dynasty_basis', '據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）', 'author_propagation')
+  分類成員行改指／刪（classification/zongmu/members/zm0010.json）  ×1
+      ('zm0010', 2631)
+  欄位搬遷（keeper 原無）  ×3
+      ('d59f2ngvzojn', 'juan_count', {'number': 8})
+      ('d59f2ngvzojn', 'measures', [{'unit': '卷', 'number': 8}])
+      ('d59f2ngvzojn', 'measure_info', '八卷')
+  著錄移入 keeper  ×1
+      ('d59f2ngvzojn', '明史藝文志', '朱谋\ue401韦《易象通》八卷')
+
+已併：d59f2ncsnny9 <- d59f2ngvzojn
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-017 work d59f2neh7pc2 <- ['d59f2ne3sidd']
+== 逐欄 diff（keeper | d59f2ne3sidd）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引 | "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法—
+** authors            [{"name": "李默", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9beex"}] | [{"name": "李黙", "role": "撰", "entity_id": "hixhd2h9beex", "dynasty": "明", "dynasty_basis": "period_basis 已考定（J30）：李默為明嘉靖吏部尚書；惟寧國府之名南宋已置，未能全排宋修之可能。　複審採
+** description        {"text": "李默（明）撰。十卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「李默《甯國府志》十卷」。本書惟《明史藝文志》一志著錄，別無他證。《明史藝文志》清張廷玉等修——本書之目賴之以存。", "sources": ["明史藝文志"]} | {"text": "李黙撰。十卷。見著錄於《國史經籍志》。其著錄之文，《國史經籍志》作「《寜國府志》十卷（李黙）」。本書惟《國史經籍志》一志著錄，別無他證。《國史經籍志》明焦竑撰——本書之目賴之以存。", "sources": ["國史經籍志"]}
+   dynasty            "明" | "明"
+** dynasty_basis      "author_propagation" | "據 authors[0].dynasty「明」（J30，period_basis 已考定）"
+** id                 "d59f2neh7pc2" | "d59f2ne3sidd"
+** indexed_by         [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "李默《甯國府志》十卷", "summary": "李默《甯國府志》十卷"}, {"source": "中國古籍總目", "source_bid": "d59frnrt4 | [{"source": "國史經籍志", "source_bid": "d59f2nl40936", "title_info": "《寜國府志》十卷", "summary": "《寜國府志》十卷（李黙）", "author_info": "李黙"}]
+   juan_count         {"number": 10} | {"number": 10}
+   measure_info       "十卷" | "十卷"
+   measures           [{"unit": "卷", "number": 10}] | [{"unit": "卷", "number": 10}]
+   period             "ming" | "ming"
+** period_basis       "據 authors[0].dynasty「明」" | "李默為明嘉靖吏部尚書；惟寧國府之名南宋已置，未能全排宋修之可能。　複審採納：李默為明嘉靖吏部尚書，嘉靖《寧國府志》即其所修（2026-08-24 B1 medium 複審）"
+** period_upper       null | "ming"
+** period_upper_basis null | "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming"
+** resource_groups    {"nlc-312001068212": {"label": "國圖藏本："}} | null
+** resources          [{"id": "nlc", "group": "nlc-312001068212", "group_role": "origin", "name": "中華古籍資源庫（國家圖書館）", "short_name": "國圖", "url": "http://read.nlc.cn/allSearch | null
+** revised_at         "2026-10-24" | "2026-08-25"
+** revision           "1.1.0" | "1.0.0"
+   schema_version     1 | 1
+** title              "甯國府志" | "寜國府志"
+   type               "work" | "work"
+** updated_at         "2026-08-09T10:41:40+00:00" | "2026-08-24T11:35:01.985992+00:00"
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f2neh7pc2',)
+  **分類（zongmu）：被併者 d59f2ne3sidd 在 zm0176，keeper 在 zm0285——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×2
+      ('d59f2ne3sidd', 'period_basis', '據 authors[0].dynasty「明」', '李默為明嘉靖吏部尚書；惟寧國府之名南宋已置，未能全排宋修之可能。\u3000複審採納：李默為明嘉靖吏部尚書，嘉靖《寧國府志》即其所修（2026-08-24 B1 medium 複審）')
+      ('d59f2ne3sidd', 'dynasty_basis', 'author_propagation', '據 authors[0].dynasty「明」（J30，period_basis 已考定）')
+  分類成員行改指／刪（classification/zongmu/members/zm0176.json）  ×1
+      ('zm0176', 3886)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f2ne3sidd', 'period_upper', 'ming')
+      ('d59f2ne3sidd', 'period_upper_basis', 'catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming')
+  著錄移入 keeper  ×1
+      ('d59f2ne3sidd', '國史經籍志', '《寜國府志》十卷')
+
+已併：d59f2neh7pc2 <- d59f2ne3sidd
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-018 work d59f2nfem3up <- ['d59f6ejgn11c']
+== 逐欄 diff（keeper | d59f6ejgn11c）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引 | "撰人原判定為「待考」／「有其人而名不可切」（撰人=None，題名=原文全句）。本輪以「撰人本名於全書他處另有獨立、完整之出現」為據自動比對解出：撰人「黄省曽」確於本書目他處以此完整形式出現（非本條），故據以切分為 撰人「黄省曽」＋題名「詩法」。"
+** authors            [{"name": "黃省曾", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bemm"}] | [{"name": "黄省曽", "role": "撰", "entity_id": "hixhd2h9bemm"}]
+** description        {"text": "黃省曾（明）撰。八卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「黃省曾《詩法》八卷」。本書惟《明史藝文志》一志著錄，別無他證。《明史藝文志》清張廷玉等修——本書之目賴之以存。", "sources": ["明史藝文志"]} | {"text": "黄省曽撰。八卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「黄省曽詩法」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "明" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2nfem3up" | "d59f6ejgn11c"
+** indexed_by         [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "黄省曾《诗法》八卷", "summary": "黃省曾《詩法》八卷"}] | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "黄省曽詩法", "summary": "黄省曽詩法"}]
+   juan_count         {"number": 8} | {"number": 8}
+   measure_info       "八卷" | "八卷"
+   measures           [{"unit": "卷", "number": 8}] | [{"unit": "卷", "number": 8}]
+** period             "ming" | null
+** period_basis       "據 authors[0].dynasty「明」" | null
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+   related_works      [{"id": "d59fyfa7ncap", "relation": "related", "note": "總目記錄無具名主責任者（記佚名），與既有 Work 題名相同，依錄入優先與 Sabine 規則不據題名並，另立；互為相關，待有責任者證據再議。"}] | [{"id": "d59fyfa7ncap", "relation": "related", "note": "總目記錄無具名主責任者（記佚名），與既有 Work 題名相同，依錄入優先與 Sabine 規則不據題名並，另立；互為相關，待有責任者證據再議。"}]
+** revised_at         "2026-08-25" | "2026-09-01"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "詩法" | "詩法"
+   type               "work" | "work"
+** updated_at         "2026-08-09T10:41:40+00:00" | null
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f2nfem3up',)
+  related_works add（本 keeper）  ×1
+      ('d59f2nfem3up', {'id': 'd59fyfa7ncap', 'relation': 'related', 'note': '總目記錄無具名主責任者（記佚名），與既有 Work 題名相同，依錄入優先與 Sabine 規則不據題名並，另立；互為相關，待有責任者證據再議。', 'from': 'd59f6ejgn11c'})
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f6ejgn11c', 'period_upper', 'qing')
+      ('d59f6ejgn11c', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×1
+      ('d59f6ejgn11c', '千頃堂書目', '黄省曽詩法')
+
+已併：d59f2nfem3up <- d59f6ejgn11c
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-019 work d59f2nhpn7y9 <- ['d59f6em612it']
+== 逐欄 diff（keeper | d59f6em612it）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引 | "撰人原判定為「待考」／「有其人而名不可切」（撰人=None，題名=原文全句）。本輪以「撰人本名於全書他處另有獨立、完整之出現」為據自動比對解出：撰人「黄省曽」確於本書目他處以此完整形式出現（非本條），故據以切分為 撰人「黄省曽」＋題名「稻品」。"
+** authors            [{"name": "黃省曾", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bemm"}] | [{"name": "黄省曽", "role": "撰", "entity_id": "hixhd2h9bemm"}]
+** description        {"text": "黃省曾（明）撰。一卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「黃省曾《稻品》一卷，《蠶經》一卷」。本書惟《明史藝文志》一志著錄，別無他證。《明史藝文志》清張廷玉等修——本書之目賴之以存。", "sources": ["明史藝文志"]} | {"text": "黄省曽撰。一卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「黄省曽稻品」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "明" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2nhpn7y9" | "d59f6em612it"
+** indexed_by         [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "黄省曾《稻品》一卷，《蚕经》一卷", "summary": "黃省曾《稻品》一卷，《蠶經》一卷"}] | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "黄省曽稻品", "summary": "黄省曽稻品"}]
+   juan_count         {"number": 1} | {"number": 1}
+   measure_info       "一卷" | "一卷"
+   measures           [{"unit": "卷", "number": 1}] | [{"unit": "卷", "number": 1}]
+** period             "ming" | null
+** period_basis       "據 authors[0].dynasty「明」" | null
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+** resources          [{"name": "维基文库", "id": "wikisource", "url": "https://zh.wikisource.org/wiki/%E7%90%86%E7%94%9F%E7%8E%89%E9%8F%A1%E7%A8%BB%E5%93%81", "types": ["text" | null
+** revised_at         "2026-08-25" | "2026-09-01"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "稻品" | "稻品"
+   type               "work" | "work"
+** updated_at         "2026-08-09T10:41:40+00:00" | null
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f2nhpn7y9',)
+  分類成員行改指／刪（classification/zongmu/members/zm0344.json）  ×1
+      ('zm0344', 131)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f6em612it', 'period_upper', 'qing')
+      ('d59f6em612it', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×1
+      ('d59f6em612it', '千頃堂書目', '黄省曽稻品')
+
+已併：d59f2nhpn7y9 <- d59f6em612it
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-020 work d59f2ges6x36 <- ['d59f6epzzymd']
+== 逐欄 diff（keeper | d59f6epzzymd）==
+** ai_note            "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by | "原「呉師道易書詩襍説」撰人提取失敗（易、詩各一卷，書六卷；與本輪《春秋胡傳補説》為同一人不同著作，該條經核已與production重出而不建檔，本條經核無重出，正常建檔）。按語無年號，不可定period。"
+** authors            [{"name": "吳師道", "role": "撰", "dynasty": "元", "entity_id": "hixhd2h9be8r"}] | [{"name": "呉師道", "role": "撰", "entity_id": "hixhd2h9be8r"}]
+** description        {"text": "吳師道（元）撰。八卷；諸志所著之數有異，別作二卷。見著錄於《補遼金元藝文志》《經義考》。《經義考》列於詩。其著錄之文，《補遼金元藝文志》作「元吳師道易書詩雜說八卷」。《經義考》清朱彝尊撰——本書之目賴之以存。", "sources": ["補遼金元藝文志", "經義考"]} | {"text": "呉師道撰。八卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「呉師道易書詩襍説」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "元" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2ges6x36" | "d59f6epzzymd"
+** indexed_by         [{"source": "補遼金元藝文志", "source_bid": "d59f2mp1zsox", "title_info": "吳師道易書詩雜說八卷", "summary": "元吳師道易書詩雜說八卷"}, {"source": "經義考", "source_bid": "d59f2mel8 | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "呉師道易書詩襍説", "author_info": "易詩各一卷書六卷", "summary": "呉師道易書詩襍説⟨易詩各一卷書六卷⟩"}]
+   juan_count         {"number": 8} | {"number": 8}
+   measure_info       "八卷" | "八卷"
+   measures           [{"unit": "卷", "number": 8}] | [{"unit": "卷", "number": 8}]
+** period             "liao-jin-yuan" | null
+** period_basis       "據 authors[0].dynasty「元」" | null
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無明確朝代線索，period 留 null 不猜"
+** revised_at         "2026-08-25" | "2026-09-01"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+** title              "易書詩雜說" | "易書詩襍説"
+   type               "work" | "work"
+** updated_at         "2026-08-09T09:33:12+00:00" | null
+
+== 將動之處 ==
+  **分類（zongmu）：被併者 d59f6epzzymd 在 zm0132，keeper 在 zm0030——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  分類成員行改指／刪（classification/zongmu/members/zm0132.json）  ×1
+      ('zm0132', 555)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f6epzzymd', 'period_upper', 'qing')
+      ('d59f6epzzymd', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無明確朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×1
+      ('d59f6epzzymd', '千頃堂書目', '呉師道易書詩襍説')
+
+已併：d59f2ges6x36 <- d59f6epzzymd
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-022 work d59f9uwq2ubm <- ['d59f28k3vbwl']
+== 逐欄 diff（keeper | d59f28k3vbwl）==
+** ai_note            "2026-09-06 《補晉書藝文志》（秦榮光）整理：據《補晉書藝文志》（秦榮光撰）新建。原文「葛洪　神仙服食藥方十卷」。新建之由：庫中同題 1 條而撰人無一相符（庫作抱樸子，本志作「葛洪」），書名同而撰人異，是兩部書。　撰人後置：原文「上十一種並葛洪撰」總標於數條之後" | "\n\n2026-09-06 《補晉書藝文志》（黃逢元）整理：收《補晉書藝文志》（黃逢元撰）一節，作「葛洪　神仙服食藥方十卷」。庫題《神仙服食藥方》十卷 author 作「抱樸子」，繫隋志、兩唐志三源，隋志原文作「《神仙服食藥方》十卷抱樸子撰」。本志亦云「本《隋志》，注云：『抱朴子撰』。唐新舊《志
+** authors            [{"name": "葛洪", "role": "撰", "dynasty": "晉", "entity_id": "hixhd2h9bet2"}] | [{"name": "抱樸子", "role": "撰", "entity_id": "hixhd2h9bet2", "dynasty": "晉"}]
+** description        null | {"text": "《神仙服食藥方》十卷，晉抱樸子撰。《隋書經籍志》、《舊唐書經籍志》、《新唐書藝文志》、《補晉書藝文志（黃逢元）》所著卷數一致（十卷）。", "sources": ["隋書經籍志", "舊唐書經籍志", "新唐書藝文志", "補晉書藝文志（黃逢元）"]}
+** dynasty            "晉" | null
+** emendated_by       null | [{"source": "隋書經籍志考證", "source_bid": "d59f2mp0flz6", "title_info": "《神仙服食藥方》十卷", "summary": "神仙服食藥方十卷抱朴子撰\n抱朴子,葛洪,有《肘後方》、《玉函煎方》,並見上、下篇經\n方家。\n《唐書·經籍志》
+** id                 "d59f9uwq2ubm" | "d59f28k3vbwl"
+** indexed_by         [{"source": "補晉書藝文志（秦榮光）", "source_bid": "d59f5ilweo6h", "title_info": "神仙服食藥方十卷", "summary": "案《舊唐志》作\"《太清神仙服食藥方》五卷，又一卷\"，《新唐志》同，而無\"又一卷\"。", "author | [{"source": "隋書經籍志", "source_bid": "d59f28nmafwh", "title_info": "《神仙服食藥方》十卷", "summary": "《神仙服食藥方》十卷抱樸子撰。"}, {"source": "舊唐書經籍志", "source_bid": "d59f
+** juan_count         null | {"number": 10}
+   measure_info       "十卷" | "十卷"
+** measures           null | [{"unit": "卷", "number": 10}]
+   period             "jin" | "jin"
+** period_basis       "2026-09-06 《補晉書藝文志》（秦榮光）整理：《補晉書藝文志》（秦榮光）著錄。晉（265-420）。" | "撰人葛洪（東晉，283–343），據 entity 訂正後之朝代歸併（原 period_basis 已知誤繫 sui-tang，見 ai_note）"
+** period_upper       null | "sui-tang"
+** period_upper_basis null | "catalog_bound：所繫諸志中最緊者為《隋書經籍志》（唐長孫無忌等，成於顯慶元年（656）），故不晚於 sui-tang"
+** revised_at         "2026-09-06" | "2026-08-24"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "神仙服食藥方" | "神仙服食藥方"
+   type               "work" | "work"
+** updated_at         null | "2026-08-22T04:56:00.083579+00:00"
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f28k3vbwl', 'period_basis', '2026-09-06 《補晉書藝文志》（秦榮光）整理：《補晉書藝文志》（秦榮光）著錄。晉（265-420）。', '撰人葛洪（東晉，283–343），據 entity 訂正後之朝代歸併（原 period_basis 已知誤繫 sui-tang，見 ai_note）')
+  欄位搬遷（keeper 原無）  ×5
+      ('d59f28k3vbwl', 'juan_count', {'number': 10})
+      ('d59f28k3vbwl', 'emendated_by', [{'source': '隋書經籍志考證', 'source_bid': 'd59f2mp0flz6', 'title_info': '《神仙服食藥方》十卷', 'summary': '神仙服食藥方十卷抱朴子撰\n抱朴子,葛洪,有《肘後方》、《玉函煎方》,並見上、下篇經\n方家。\n《唐書·經籍志》:《太清神仙服食經》五卷,又一卷,抱朴\n子撰。\n《唐書·藝文志》:抱朴子《太清神仙服食經》五卷。\n案《新唐志》又有《太清神仙服食經》五卷,不著撰人。兩書\n合并似即此十卷也。'}])
+      ('d59f28k3vbwl', 'measures', [{'unit': '卷', 'number': 10}])
+      ('d59f28k3vbwl', 'period_upper', 'sui-tang')
+      ('d59f28k3vbwl', 'period_upper_basis', 'catalog_bound：所繫諸志中最緊者為《隋書經籍志》（唐長孫無忌等，成於顯慶元年（656）），故不晚於 sui-tang')
+  著錄移入 keeper  ×4
+      ('d59f28k3vbwl', '隋書經籍志', '《神仙服食藥方》十卷')
+      ('d59f28k3vbwl', '舊唐書經籍志', '《神仙服食藥方》十卷')
+      ('d59f28k3vbwl', '新唐書藝文志', '神仙服食藥方')
+      ('d59f28k3vbwl', '補晉書藝文志（黃逢元）', '神仙服食藥方十卷')
+
+已併：d59f9uwq2ubm <- d59f28k3vbwl
+善後：著錄 4 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-023 work d59f2nfmq9z4 <- ['d59f2niid24k']
+== 逐欄 diff（keeper | d59f2niid24k）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引 | "標題與現有Work匹配但作者不同（Title match but author mismatch: entry='凌以棟' vs work='淩稚隆' (GYL57H3ekoZ)），判定為同名異書，新建獨立Work。 舊匹配結果為 GYL57H3ekoZ（exact_title），經作者校驗後判定
+** authors            [{"name": "凌稚隆", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bgeo"}] | [{"name": "凌以棟", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bgeo"}]
+** description        {"text": "凌稚隆（明）撰。一百六十卷。見著錄於《欽定四庫全書總目》。本書惟《欽定四庫全書總目》一志著錄，別無他證。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。", "sources": ["欽定四庫全書總目"]} | {"text": "凌以棟（明）撰。一百六十卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「淩以棟《五車韻瑞》一百六十卷」。本書惟《明史藝文志》一志著錄，別無他證。《明史藝文志》清張廷玉等修——本書之目賴之以存。", "sources": ["明史藝文志"]}
+   dynasty            "明" | "明"
+   dynasty_basis      "author_propagation" | "author_propagation"
+** id                 "d59f2nfmq9z4" | "d59f2niid24k"
+** indexed_by         [{"source": "欽定四庫全書總目", "source_bid": "d59dh3vo9af4", "title_info": "《五車韻瑞》·一百六十卷", "author_info": "明淩稚隆撰", "summary": "明淩稚隆撰。稚隆有《春秋左傳評注測義》，已著錄。是編因《韻府 | [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "凌以栋《五车韵瑞》一百六十卷", "summary": "淩以棟《五車韻瑞》一百六十卷"}]
+   juan_count         {"number": 160} | {"number": 160}
+   measure_info       "一百六十卷" | "一百六十卷"
+   measures           [{"unit": "卷", "number": 160}] | [{"unit": "卷", "number": 160}]
+   period             "ming" | "ming"
+   period_basis       "據 authors[0].dynasty「明」" | "據 authors[0].dynasty「明」"
+** resource_groups    {"kokusho-100067477": {"label": "國書·西尾市岩瀬藏刊 万治２"}, "kokusho-100072414": {"label": "國書·愛知教大図藏刊"}, "kokusho-100105222": {"label": "國書·麗沢大田中藏刊"}, "kokush | null
+** resources          [{"id": "shidianguji-unknown", "name": "识典古籍", "url": "https://www.shidianguji.com/book/CADAL02059421", "metadata": {"edition": "未知", "version": "v2", | null
+** revised_at         "2026-10-16" | "2026-08-25"
+** revision           "1.2.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "五車韻瑞" | "五車韻瑞"
+   type               "work" | "work"
+   updated_at         "2026-08-09T10:41:40+00:00" | "2026-08-09T10:41:40+00:00"
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f2nfmq9z4',)
+  分類成員行改指／刪（classification/zongmu/members/zm0495.json）  ×1
+      ('zm0495', 401)
+  著錄移入 keeper  ×1
+      ('d59f2niid24k', '明史藝文志', '凌以栋《五车韵瑞》一百六十卷')
+
+已併：d59f2nfmq9z4 <- d59f2niid24k
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-024 work d59f2gnf3a4g <- ['d59f6ertv18i']
+== 逐欄 diff（keeper | d59f6ertv18i）==
+** ai_note            "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by | "撰人切分來源：又條承上。 同名異書：庫內已有同題「農桑通訣」而撰人各異（王禎(元)），本條撰人「王楨」與之不合，依《千頃堂書目》著錄逕行新建。"
+** authors            [{"name": "王禎", "role": "撰", "dynasty": "元", "entity_id": "hixhd2h9bh0r"}] | [{"name": "王楨", "role": "撰", "entity_id": "hixhd2h9bh0r"}]
+** description        {"text": "王禎（元）撰。二十卷。見著錄於《補遼金元藝文志》。其著錄之文，《補遼金元藝文志》作「元王禎農桑通訣二十卷」。本書惟《補遼金元藝文志》一志著錄，別無他證。", "sources": ["補遼金元藝文志"]} | {"text": "王楨撰。二十卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「王楨農桑通訣二十卷」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "元" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2gnf3a4g" | "d59f6ertv18i"
+** indexed_by         [{"source": "補遼金元藝文志", "source_bid": "d59f2mp1zsox", "title_info": "王禎農桑通訣二十卷", "summary": "元王禎農桑通訣二十卷"}] | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "王楨農桑通訣二十卷", "summary": "王楨農桑通訣二十卷"}]
+   juan_count         {"number": 20} | {"number": 20}
+   measure_info       "二十卷" | "二十卷"
+   measures           [{"unit": "卷", "number": 20}] | [{"unit": "卷", "number": 20}]
+   period             "liao-jin-yuan" | "liao-jin-yuan"
+** period_basis       "據 authors[0].dynasty「元」" | "據撰人 王楨（hixhd2h9bm9b） 之 period（liao-jin-yuan）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）"
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+** revised_at         "2026-08-25" | "2026-10-07"
+** revision           "1.0.0" | "1.1.0"
+   schema_version     1 | 1
+   title              "農桑通訣" | "農桑通訣"
+   type               "work" | "work"
+** updated_at         "2026-08-09T09:33:12+00:00" | null
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f2gnf3a4g',)
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f6ertv18i', 'period_basis', '據 authors[0].dynasty「元」', '據撰人 王楨（hixhd2h9bm9b） 之 period（liao-jin-yuan）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）')
+  分類成員行改指／刪（classification/zongmu/members/zm0344.json）  ×1
+      ('zm0344', 131)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f6ertv18i', 'period_upper', 'qing')
+      ('d59f6ertv18i', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×1
+      ('d59f6ertv18i', '千頃堂書目', '王楨農桑通訣二十卷')
+
+已併：d59f2gnf3a4g <- d59f6ertv18i
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-027 work d59f2mycxfk2 <- ['d59f2mxi0xs1']
+== 逐欄 diff（keeper | d59f2mxi0xs1）==
+** ai_note            "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊 | "本 Work 條目從《中華再造善本》目錄錄入。\n\n2026-09-06 qa-sweep/qing·F 類：撰人名由「清聖祖玄燁」正為「玄燁」。剝朝代廟號前綴，「玄燁」為 entity「清聖祖」之本名別名。\n\nGUJI-511 E1b 国图挂接 69行/51Work"
+** authors            [{"name": "聖祖", "role": "撰", "dynasty": "清", "entity_id": "hixhd2h9bhwn", "name_basis": "2026-08-24 新建 entity `1jcf515129805` 並繫之——庫中舊無其人，說見該 entity 之 | [{"name": "玄燁", "role": "撰", "dynasty": "清", "entity_id": "hixhd2h9bhwn", "name_basis": "2026-08-24 帝號廟號歸人：著錄作「清聖祖玄燁」，非姓名而是廟號（或帝號、后號）。以本書之撰人朝代定其朝，故繫 `
+** description        {"text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故殿029529）。清康熙五十一年武英殿刊朱墨套印本。", "sources": ["國立故宮博物院善本舊籍"]} | {"text": "本書收入《中華再造善本》明清編（ZHSY100306）。清康熙五十一年内府刻本。", "sources": ["中華再造善本"]}
+   dynasty            "清" | "清"
+   dynasty_basis      "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」" | "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+** id                 "d59f2mycxfk2" | "d59f2mxi0xs1"
+** measure_info       "一冊" | null
+** measures           [{"unit": "冊", "number": 1}] | null
+   period             "qing" | "qing"
+   period_basis       "據 authors[0].dynasty「清」" | "據 authors[0].dynasty「清」"
+** resource_groups    {"kokusho-100266497": {"label": "國書·藝大図貴重書藏刊"}} | {"nlc-411999032257": {"label": "國圖藏本：清康熙51年[1712]"}}
+** resources          [{"id": "kokusho", "group": "kokusho-100266497", "group_role": "origin", "name": "國書データベース（國文學研究資料館）", "short_name": "國書", "url": "https://kokusho.nij | [{"name": "维基共享资源", "types": ["image"], "id": "commons", "url": "https://commons.wikimedia.org/wiki/File:Harvard_drs_51920300_%E5%BE%A1%E8%A3%BD%E9%81
+** revised_at         "2026-10-13" | "2026-10-16"
+** revision           "1.2.0" | "1.1.0"
+   schema_version     1 | 1
+** title              "御製避暑山莊詩(並圖)" | "御製避暑山莊詩"
+   type               "work" | "work"
+** updated_at         "2026-08-25T00:00:00+00:00" | "2026-08-24T00:00:00+00:00"
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f2mxi0xs1', 'resource_groups', {'kokusho-100266497': {'label': '國書·藝大図貴重書藏刊'}}, {'nlc-411999032257': {'label': '國圖藏本：清康熙51年[1712]'}})
+  Book.work_id 改指 keeper  ×12
+      ('988g0wi39q', 'd59f2mxi0xs1')
+      ('988g0y29z8', 'd59f2mxi0xs1')
+      ('988g7ghhxq', 'd59f2mxi0xs1')
+      ('988fzqzj0t', 'd59f2mxi0xs1')
+      ('988g385oui', 'd59f2mxi0xs1')
+      ('988g59tp1u', 'd59f2mxi0xs1')
+      ('988g3c7rwg', 'd59f2mxi0xs1')
+      ('988g6x4s94', 'd59f2mxi0xs1')
+      ('988g12qu4r', 'd59f2mxi0xs1')
+      ('98y7269ukj', 'd59f2mxi0xs1')
+      ('988g4elyq5', 'd59f2mxi0xs1')
+      ('994y41tzwg', 'd59f2mxi0xs1')
+  欄位搬遷（keeper 原無）  ×1
+      ('d59f2mxi0xs1', 'resources', [{'name': '维基共享资源', 'types': ['image'], 'id': 'commons', 'url': 'https://commons.wikimedia.org/wiki/File:Harvard_drs_51920300_%E5%BE%A1%E8%A3%BD%E9%81%BF%E6%9A%91%E5%B1%B1%E8%8E%8A%E8%A9%A9_v.1.pdf'}, {'id': 'nlc', 'group': 'nlc-411999032257', 'group_role': 'origin', 'name': '中華古籍資源庫（國家圖書館）', 'short_name': '國圖', 'url': 'http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999032257', 'types': ['image'], 'metadata': {'nlc_fid': '411999032257', 'edition': '清康熙51年[1712]'}}])
+
+已併：d59f2mycxfk2 <- d59f2mxi0xs1
+善後：著錄 0 節、他條關係 0 條記錄、存儲側引用改指 12 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-030 work d59f2nde71ms <- ['d59f6efwyyv6']
+== 逐欄 diff（keeper | d59f6efwyyv6）==
+** ai_note            "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書禮記類著錄「吳氏（中立）學庸大旨」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[]. | "原「呉中立學庸大㫖」撰人提取失敗。按語「浦城人隆慶缺進士不受官歸養親親歿遂隱退終身」，「隆慶」為明穆宗年號。"
+** authors            [{"name": "吳中立", "entity_id": "hixhd2h9bgck", "name_basis": "2026-08-24 補繫 entity：本條 authors 舊有名「吳中立」而無 entity_id，今繫 `1j967cp1zozk7`——庫中 primary_name  | [{"name": "呉中立", "role": "撰", "entity_id": "hixhd2h9bgck"}]
+** description        {"text": "吳中立撰。見著錄於《經義考》。《經義考》列於禮記。本書惟《經義考》一志著錄，別無他證。《經義考》清朱彝尊撰——本書之目賴之以存。", "sources": ["經義考"]} | {"text": "呉中立（明）撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「呉中立學庸大㫖」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+   dynasty            "明" | "明"
+** dynasty_basis      "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）" | null
+** id                 "d59f2nde71ms" | "d59f6efwyyv6"
+** indexed_by         [{"source": "經義考", "source_bid": "d59f2mel8d1d", "title_info": "《學庸大旨》（吳中立）", "summary": "黄虞稷曰中立字公度浦城人隆慶辛未進士官尚寳司丞", "section": "禮記", "juan": "卷一百六十二", | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "呉中立學庸大㫖", "author_info": "浦城人隆慶缺進士不受官歸養親親歿遂隱退終身", "summary": "呉中立學庸大㫖⟨浦城人隆慶缺進士不受官歸養親
+   period             "ming" | "ming"
+** period_basis       "隆慶辛未進士（2026-08-24 R3 引文定代）" | "撰人或本事年代線索：「浦城人隆慶缺進士不受官歸養親親歿遂隱退終身」"
+** period_upper       "qing" | null
+** period_upper_basis "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing" | null
+** revised_at         "2026-08-25" | "2026-09-01"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+** title              "學庸大旨" | "學庸大㫖"
+   type               "work" | "work"
+** updated_at         "2026-08-24T00:00:00+00:00" | null
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f2nde71ms',)
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f6efwyyv6', 'period_basis', '隆慶辛未進士（2026-08-24 R3 引文定代）', '撰人或本事年代線索：「浦城人隆慶缺進士不受官歸養親親歿遂隱退終身」')
+  分類成員行改指／刪（classification/zongmu/members/zm0042.json）  ×1
+      ('zm0042', 1668)
+  著錄移入 keeper  ×1
+      ('d59f6efwyyv6', '千頃堂書目', '呉中立學庸大㫖')
+
+已併：d59f2nde71ms <- d59f6efwyyv6
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-031 work d59f27x68n43 <- ['d59f27x3qqrm']
+== 逐欄 diff（keeper | d59f27x3qqrm）==
+** ai_note            "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evcmobepncow()（不同作者，故新建獨立 Work）。\n\n2026-08-24 J3(3) 壞名清理：撰人「釋支遞(道林」正為「支遁」（形甲丙）：「釋」是通稱；「支遞」是「支遁」之形訛，「道林」是其字—— | "作者「東晉支道林撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evke4t8cg6io 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1evcmobepncow();1evkaarc8gzr4(釋支遞(道林);1evkagqw2q5mo(釋支遞)（
+** authors            [{"name": "支遁", "role": "撰", "dynasty": "晉", "name_basis": "2026-08-24 J3(3)：見 ai_note\n\n2026-08-24 補繫 entity（代相鄰者）：本條 authors 有名「支遁」而無 entity_id，庫中同 | [{"name": "支道林", "role": "撰", "dynasty": "東晉", "entity_id": "hixhd2h9bhv5"}]
+** description        {"text": "支遁（東晉）別集。遁字道林，陳留人，東晉名僧，善談玄理，以「即色」義名家，注《莊子·逍遙遊》而見稱於世，與王羲之、謝安諸人遊。此本影汲古閣鈔本。本書收入《國立故宮博物院善本舊籍》（統一編號 故善009884）。清嘉慶間阮元進呈影汲古閣鈔本。", "sources": ["國立故宮 | {"text": "支遁（東晉）別集。遁字道林，陳留人，東晉名僧，善談玄理，以「即色」義名家，與王羲之、謝安諸人遊。《隋志》著錄八卷，今傳二卷本出清人所輯。本書收入《國立故宮博物院善本舊籍》（統一編號 贈善028652）。清嘉慶十四年蘇州吾與庵釋寒石刊本。", "sources": ["國立故宮博物
+** dynasty            "晉" | "東晉"
+   dynasty_basis      "author_propagation:唯一作者朝代" | "author_propagation:唯一作者朝代"
+** emendated_by       null | [{"source": "隋書經籍志考證", "source_bid": "d59f2mp0flz6", "title_info": "《支遁集》八卷", "summary": "晉沙門支遁集八卷。梁十三卷。\n梁釋慧皎《高僧傳》:支遁字道林,本姓關氏,陳留人,或云河\n東林慮人。幼有神理,聰明秀徹
+** id                 "d59f27x68n43" | "d59f27x3qqrm"
+** indexed_by         null | [{"source": "隋書經籍志", "source_bid": "d59f28nmafwh", "title_info": "《支遁集》八卷", "summary": "晉沙門《支遁集》八卷梁十三卷。又有《劉彧集》十六卷，亡。"}, {"source": "新唐書藝文志", "source_b
+** juan_count         null | {"number": 8}
+** measure_info       "一冊" | "八卷"
+** measures           [{"unit": "冊", "number": 1}] | [{"unit": "卷", "number": 8}]
+   period             "jin" | "jin"
+** period_basis       "據 authors[0].dynasty「晉」" | "據 authors[0].dynasty「東晉」"
+** resource_groups    {"waseda-bunko11_d0103": {"label": "早稲田藏本：邵武 : 徐氏, 光緒10[1884]跋"}} | {"nlc-1560": {"label": "國圖藏本：明[1368-1644]"}}
+** resources          [{"id": "waseda", "group": "waseda-bunko11_d0103", "group_role": "origin", "name": "早稲田大学図書館 古典籍総合データベース", "short_name": "早稲田", "url": "https://www.wu | [{"id": "nlc", "group": "nlc-1560", "group_role": "origin", "name": "中華古籍資源庫（國家圖書館）", "short_name": "國圖", "url": "http://read.nlc.cn/allSearch/searchD
+** revised_at         "2026-10-14" | "2026-10-24"
+   revision           "1.1.0" | "1.1.0"
+   schema_version     1 | 1
+   title              "支遁集" | "支遁集"
+   type               "work" | "work"
+** updated_at         "2026-08-24T00:00:00+00:00" | "2026-08-08T13:35:31+00:00"
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×4
+      ('d59f27x3qqrm', 'measure_info', '一冊', '八卷')
+      ('d59f27x3qqrm', 'period_basis', '據 authors[0].dynasty「晉」', '據 authors[0].dynasty「東晉」')
+      ('d59f27x3qqrm', 'dynasty', '晉', '東晉')
+      ('d59f27x3qqrm', 'resource_groups', {'waseda-bunko11_d0103': {'label': '早稲田藏本：邵武 : 徐氏, 光緒10[1884]跋'}}, {'nlc-1560': {'label': '國圖藏本：明[1368-1644]'}})
+  Book.work_id 改指 keeper  ×1
+      ('988g4io1s7', 'd59f27x3qqrm')
+  欄位搬遷（keeper 原無）  ×4
+      ('d59f27x3qqrm', 'juan_count', {'number': 8})
+      ('d59f27x3qqrm', 'emendated_by', [{'source': '隋書經籍志考證', 'source_bid': 'd59f2mp0flz6', 'title_info': '《支遁集》八卷', 'summary': '晉沙門支遁集八卷。梁十三卷。\n梁釋慧皎《高僧傳》:支遁字道林,本姓關氏,陳留人,或云河\n東林慮人。幼有神理,聰明秀徹。家世事佛。隱居餘杭山,\n年二十五出家。初至京師,太原王濛甚重之,曰:“造微之功,\n不減輔嗣。”殷融、謝安、王洽、劉恢、殷浩、許詢、 超、孫綽、\n桓彦表、王敬仁、何次道、王文度、謝長遐、袁彦伯等並一代名\n流,皆著塵外之。遁常在白馬寺,與劉系之等談《莊子消\n遥篇》,於是退而為注,群儒莫不歎服。王羲之時在會稽,請\n住靈嘉寺,意存相近。行道僧眾百餘常隨桌學,時或有惰者,\n遁乃著坐右銘以助之。時論以遁才堪經濟,而潔己拔俗,有\n違兼濟之道。遁乃作《釋朦論》,又作《即色游玄論》、《聖不辨\n知論》、《道行旨歸》、《學道誠》等。太和元年終,春秋五十有\n三。遁善草隸,鄭超為之序傳,袁宏為之銘贊,周曇寶為作\n誌。凡遁所著文翰集有十卷,盛行於世。\n《唐書·經籍》、《藝文志》:沙門《支遁集》十卷。\n阮氏《 經室外集》曰:“《支遁集》二卷,晉釋支遁撰。案《隋\n志》八卷,注云梁十三卷,《唐志》十卷,《宋志》不著録。《讀書\n敏求記》及《述古堂書目》作二卷,知缺佚多矣。是編依毛\n汲古閣舊鈔本過録,上卷詩凡十八首,下卷書、銘及 凡十五\n首。錢遵王跋稱“支公養馬,愛其神駿,胸中未必無事在”。\n皎然云山陰詩友喧四座,佳句縱橫不廢禪”云云。晉代沙門\n多墨名而儒行,若支遁,尤矯然不群,宜其以辭翰著也。”\n嚴氏《全晉文編》曰:“支遁居吴之支山,後居 之沃州。哀帝\n徵講於東安寺,尋歸,太和初卒。有集十三卷。《釋藏》、《弘\n明集》、《高僧傳》載書、論、序、費、銘凡二十六篇。”又《文編》\n卷首敘録曰:“《支遁集》二卷,《釋藏》本。”'}])
+      ('d59f27x3qqrm', 'measures', [{'unit': '卷', 'number': 8}])
+      ('d59f27x3qqrm', 'resources', [{'id': 'nlc', 'group': 'nlc-1560', 'group_role': 'origin', 'name': '中華古籍資源庫（國家圖書館）', 'short_name': '國圖', 'url': 'http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=1560', 'types': ['image'], 'metadata': {'nlc_fid': '1560', 'edition': '明[1368-1644]'}}])
+  著錄移入 keeper  ×2
+      ('d59f27x3qqrm', '隋書經籍志', '《支遁集》八卷')
+      ('d59f27x3qqrm', '新唐書藝文志', '支遁集')
+
+已併：d59f27x68n43 <- d59f27x3qqrm
+善後：著錄 2 節、他條關係 0 條記錄、存儲側引用改指 1 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-032 work d59f6efuh2ip <- ['d59f2nh6lr7k']
+== 逐欄 diff（keeper | d59f2nh6lr7k）==
+** additional_titles  null | ["通鑒博論"]
+** ai_note            "同名異書：庫內已有同題「通鑑愽論」而撰人各異（寧王權(明)），本條撰人「寧獻王權」與之不合，依《千頃堂書目》著錄逕行新建。" | "從 1evjxl6zy27ls 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1ev3bb5qxvn5s(寧王權)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n
+** authors            [{"name": "寧獻王權", "role": "撰", "entity_id": "hixhd2h9bgm4"}] | [{"name": "寧王權", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bgm4"}]
+** description        {"text": "寧獻王權撰。二卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「寧獻王權通鑑愽論」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]} | {"text": "寧王權（明）撰。三卷。見著錄於《欽定四庫全書總目》《四庫全書存目叢書》。《四庫全書存目叢書》列於史部。其著錄之文，《四庫全書存目叢書》作「《通鑑博論》三卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。", "sources": ["欽定四庫全書總目", "四庫全書存
+** dynasty            null | "明"
+** dynasty_basis      null | "author_propagation"
+** id                 "d59f6efuh2ip" | "d59f2nh6lr7k"
+** indexed_by         [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "寧獻王權通鑑愽論", "summary": "寧獻王權通鑑愽論"}] | [{"source": "欽定四庫全書總目", "source_bid": "d59dh3vo9af4", "title_info": "《通鑒博論》·三卷", "author_info": "明甯王權撰", "summary": "明甯王權撰。權有《漢唐秘史》，已著錄。此書以洪武二十九年九月表上，
+** juan_count         {"number": 2} | {"number": 3}
+** measure_info       "二卷" | "三卷"
+** measures           [{"unit": "卷", "number": 2}] | [{"unit": "卷", "number": 3}]
+   period             "ming" | "ming"
+** period_basis       "據撰人 寧獻王權（hixhd2h9bivn） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）" | "據 authors[0].dynasty「明」"
+** period_upper       "qing" | null
+** period_upper_basis "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜" | null
+** resource_groups    null | {"nlc-411999014834": {"label": "國圖藏本：清[1644-1911]"}}
+** resources          null | [{"id": "shidianguji-keben", "name": "识典古籍", "url": "https://www.shidianguji.com/book/CADAL02053386", "metadata": {"edition": "刻本", "version": "v2", "
+** revised_at         "2026-10-07" | "2026-10-15"
+   revision           "1.1.0" | "1.1.0"
+   schema_version     1 | 1
+** title              "通鑑愽論" | "通鑑博論"
+   type               "work" | "work"
+** updated_at         null | "2026-08-09T10:41:40+00:00"
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f6efuh2ip',)
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×3
+      ('d59f2nh6lr7k', 'juan_count', {'number': 2}, {'number': 3})
+      ('d59f2nh6lr7k', 'measure_info', '二卷', '三卷')
+      ('d59f2nh6lr7k', 'period_basis', '據撰人 寧獻王權（hixhd2h9bivn） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）', '據 authors[0].dynasty「明」')
+  Book.work_id 改指 keeper  ×2
+      ('9952n19q81', 'd59f2nh6lr7k')
+      ('9952n1kyrk', 'd59f2nh6lr7k')
+  分類成員行改指／刪（classification/zongmu/members/zm0202.json）  ×1
+      ('zm0202', 120)
+  欄位搬遷（keeper 原無）  ×5
+      ('d59f2nh6lr7k', 'resources', [{'id': 'shidianguji-keben', 'name': '识典古籍', 'url': 'https://www.shidianguji.com/book/CADAL02053386', 'metadata': {'edition': '刻本', 'version': 'v2', 'total_page': 514, 'paragraph_count': 4020, 'check_type': 'AI整理'}, 'types': ['text', 'image']}, {'id': 'shidianguji-qingchaoben', 'name': '识典古籍', 'url': 'https://www.shidianguji.com/book/NGJ89241199901483436811', 'metadata': {'edition': '清抄本', 'version': 'v1', 'total_page': 266, 'paragraph_count': 3288, 'check_type': 'AI整理'}, 'types': ['text', 'image']}, {'id': 'nlc', 'group': 'nlc-411999014834', 'group_role': 'origin', 'name': '中華古籍資源庫（國家圖書館）', 'short_name': '國圖', 'url': 'http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999014834', 'types': ['image'], 'metadata': {'nlc_fid': '411999014834', 'edition': '清[1644-1911]'}}])
+      ('d59f2nh6lr7k', 'measures', [{'unit': '卷', 'number': 3}])
+      ('d59f2nh6lr7k', 'dynasty', '明')
+      ('d59f2nh6lr7k', 'dynasty_basis', 'author_propagation')
+      ('d59f2nh6lr7k', 'resource_groups', {'nlc-411999014834': {'label': '國圖藏本：清[1644-1911]'}})
+  著錄移入 keeper  ×2
+      ('d59f2nh6lr7k', '欽定四庫全書總目', '《通鑒博論》·三卷')
+      ('d59f2nh6lr7k', '四庫全書存目叢書', '《通鑑博論》三卷')
+
+已併：d59f6efuh2ip <- d59f2nh6lr7k
+善後：著錄 2 節、他條關係 0 條記錄、存儲側引用改指 2 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-033 work d59f2nkbaewy <- ['d59f6eqvu614']
+== 逐欄 diff（keeper | d59f6eqvu614）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引 | "同名異書：庫內已有同題「乾坤生意」而撰人各異（朱權(明)），本條撰人「寧獻王權」與之不合，依《千頃堂書目》著錄逕行新建。"
+** authors            [{"name": "朱權", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bgm4"}] | [{"name": "寧獻王權", "role": "撰", "entity_id": "hixhd2h9bgm4"}]
+** description        {"text": "朱權（明）撰。四卷。見著錄於《明史藝文志》。其著錄之文，《明史藝文志》作「甯獻王權《乾坤生意》四卷，《壽域神方》四卷」。本書惟《明史藝文志》一志著錄，別無他證。《明史藝文志》清張廷玉等修——本書之目賴之以存。", "sources": ["明史藝文志"]} | {"text": "寧獻王權撰。四卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「寧獻王權乾坤生意」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "明" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2nkbaewy" | "d59f6eqvu614"
+** indexed_by         [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "宁献王权《乾坤生意》四卷，《寿域神方》四卷", "summary": "甯獻王權《乾坤生意》四卷，《壽域神方》四卷"}] | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "寧獻王權乾坤生意", "summary": "寧獻王權乾坤生意"}]
+   juan_count         {"number": 4} | {"number": 4}
+   measure_info       "四卷" | "四卷"
+   measures           [{"unit": "卷", "number": 4}] | [{"unit": "卷", "number": 4}]
+   period             "ming" | "ming"
+** period_basis       "據 authors[0].dynasty「明」" | "據撰人 寧獻王權（hixhd2h9bivn） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）"
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+** resource_groups    {"nlc-411999024969": {"label": "國圖藏本：明[1368-1644]"}, "naikaku-1079198": {"label": "內閣文庫藏本：明成化14年刊本（序刊）（子031-0012，3冊）"}} | null
+** resources          [{"name": "维基共享资源", "types": ["image"], "id": "commons", "url": "https://commons.wikimedia.org/wiki/File:NLC011-411999024969-673_%E4%B9%BE%E5%9D%A4%E7 | null
+** revised_at         "2026-10-16" | "2026-10-07"
+** revision           "1.2.0" | "1.1.0"
+   schema_version     1 | 1
+   title              "乾坤生意" | "乾坤生意"
+   type               "work" | "work"
+** updated_at         "2026-08-09T10:41:40+00:00" | null
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f2nkbaewy',)
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f6eqvu614', 'period_basis', '據 authors[0].dynasty「明」', '據撰人 寧獻王權（hixhd2h9bivn） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）')
+  Book.work_id 改指 keeper  ×1
+      ('993jvtz1tt', 'd59f6eqvu614')
+  分類成員行改指／刪（classification/zongmu/members/zm0358.json）  ×1
+      ('zm0358', 981)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f6eqvu614', 'period_upper', 'qing')
+      ('d59f6eqvu614', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×1
+      ('d59f6eqvu614', '千頃堂書目', '寧獻王權乾坤生意')
+
+已併：d59f2nkbaewy <- d59f6eqvu614
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 1 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-034 work d59f2hhdk6wx <- ['d59f2hrdgt8g']
+== 逐欄 diff（keeper | d59f2hrdgt8g）==
+** ai_note            "本 Work 條目從《續修四庫全書》目錄錄入。 索引中尚有同名異書：（不同作者，故新建獨立 Work）。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by  | "作者 \"宋史載之撰\" 補自《國立故宮博物院善本舊籍》目錄。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無
+** authors            [{"name": "史堪", "role": "撰", "dynasty": "北宋", "entity_id": "hixhd2h9bhjn", "dynasty_basis": "entity_propagation_r2:1j967da97uuiw"}] | [{"name": "史載之", "role": "撰", "dynasty": "趙宋", "entity_id": "hixhd2h9bhjn", "name_basis": "2026-08-24 新建 entity `1jcf5151294if` 並繫之——庫中舊無其人，說見該 entity
+** description        {"text": "史堪（北宋）撰。二卷。見著錄於《續修四庫全書》。《續修四庫全書》列於子部 醫家類。其著錄之文，《續修四庫全書》作「《史載之方》二卷」。本書惟《續修四庫全書》一志著錄，別無他證。《續修四庫全書》一九九五年影印——本書之目賴之以存。", "sources": ["續修四庫全書"]} | {"text": "史載之（宋）撰。見著錄於《宋史藝文志》。其著錄之文，《宋史藝文志》作「《史載之方》二卷夏德懋」。本書惟《宋史藝文志》一志著錄，別無他證。《宋史藝文志》元脫脫等修——本書之目賴之以存。", "sources": ["宋史藝文志"]}
+** dynasty            "北宋" | null
+** dynasty_basis      "据唯一 author.dynasty「北宋」补全" | null
+** id                 "d59f2hhdk6wx" | "d59f2hrdgt8g"
+** indexed_by         [{"source": "續修四庫全書", "source_bid": "d59f2og4vksh", "title_info": "《史載之方》二卷", "author_info": "宋史堪撰", "summary": "《史載之方》二卷。宋史堪撰。影印宛委別藏清抄本。", "edition": | [{"source": "宋史藝文志", "source_bid": "d59f2gdp696q", "title_info": "《史載之方》", "summary": "《史載之方》二卷"}]
+** juan_count         {"number": 2} | null
+** measure_info       "二卷" | null
+** measures           [{"unit": "卷", "number": 2}] | null
+   period             "song" | "song"
+** period_basis       "据唯一 author.dynasty「北宋」自动归并" | "故宮目錄題「宋史載之撰」，史載之即北宋名醫史堪（2026-08-24 R3二輪 引文定代）"
+** period_upper       null | "song"
+** period_upper_basis null | "catalog_bound：所繫諸志中最緊者為《宋史藝文志》（元脫脫等（1345），著錄宋代藏書），故不晚於 song"
+** resource_groups    {"nlc-411999008592": {"label": "國圖藏本：清[1644-1911]"}} | null
+** resources          [{"id": "wikimedia-commons-xuxiu", "name": "維基共享 續修四庫全書 PDF", "short_name": "維基共享", "url": "https://commons.wikimedia.org/wiki/File:%E7%BA%8C%E4%BF%AE | [{"name": "维基文库", "id": "wikisource", "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%BC%89%E4%B9%8B%E6%96%B9", "types": ["text"]}]
+** revised_at         "2026-10-13" | "2026-08-25"
+** revision           "1.1.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "史載之方" | "史載之方"
+   type               "work" | "work"
+** updated_at         "2026-08-09T08:58:29+00:00" | "2026-08-24T00:00:00+00:00"
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f2hhdk6wx',)
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f2hrdgt8g', 'period_basis', '据唯一 author.dynasty「北宋」自动归并', '故宮目錄題「宋史載之撰」，史載之即北宋名醫史堪（2026-08-24 R3二輪 引文定代）')
+  Book.work_id 改指 keeper  ×1
+      ('988g628ah5', 'd59f2hrdgt8g')
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f2hrdgt8g', 'period_upper', 'song')
+      ('d59f2hrdgt8g', 'period_upper_basis', 'catalog_bound：所繫諸志中最緊者為《宋史藝文志》（元脫脫等（1345），著錄宋代藏書），故不晚於 song')
+  著錄移入 keeper  ×1
+      ('d59f2hrdgt8g', '宋史藝文志', '《史載之方》')
+
+已併：d59f2hhdk6wx <- d59f2hrdgt8g
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 1 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-035 work d59f9ux2kc1t <- ['d59f2pz89ibl']
+== 逐欄 diff（keeper | d59f2pz89ibl）==
+** ai_note            "2026-09-06 《補晉書藝文志》（秦榮光）整理：據《補晉書藝文志》（秦榮光撰）新建。原文「洪肇　涅槃無名論一卷」。新建之由：庫中同題 1 條而撰人無一相符（庫作釋僧肇，本志作「洪肇」），書名同而撰人異，是兩部書。　撰人後置：原文「上九種並姚秦僧洪肇撰」總標於數條之後；原 author 作「姚 | "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必
+** authors            [{"name": "僧肇", "role": "撰", "dynasty": "晉", "entity_id": "hixhd2h9bixi", "original_name": "洪肇", "name_basis": "3c 誤字勘誤：補晉書藝文志（秦）系著錄誤「僧」為「洪」，同批《寶藏論》《物 | [{"name": "釋僧肇", "role": "撰", "dynasty": "晉", "entity_id": "hixhd2h9bixi"}]
+** dynasty            "晉" | null
+** id                 "d59f9ux2kc1t" | "d59f2pz89ibl"
+** indexed_by         [{"source": "補晉書藝文志（秦榮光）", "source_bid": "d59f5ilweo6h", "title_info": "涅槃無名論一卷", "summary": "涅槃無名論一卷", "author_info": "見子部·釋家類"}] | [{"source": "宋史藝文志", "source_bid": "d59f2gdp696q", "title_info": "《涅槃無名論》", "summary": "《涅槃無名論》一卷"}, {"source": "補晉書經籍志（吳士鑑）", "source_bid": "d59f2o2l
+** measure_info       "一卷" | null
+   period             "jin" | "jin"
+** period_basis       "2026-09-06 《補晉書藝文志》（秦榮光）整理：《補晉書藝文志》（秦榮光）著錄。晉（265-420）。" | "2026-09-06 《補晉書經籍志》（吳士鑑）整理：《補晉書經籍志》（吳士鑑）著錄。晉（265-420）。"
+** period_upper       null | "song"
+** period_upper_basis null | "catalog_bound：所繫諸志中最緊者為《宋史藝文志》（元脫脫等（1345），著錄宋代藏書），故不晚於 song"
+** revised_at         "2026-10-26" | "2026-08-25"
+** revision           "1.0.1" | "1.0.0"
+   schema_version     1 | 1
+   title              "涅槃無名論" | "涅槃無名論"
+   type               "work" | "work"
+** updated_at         null | "2026-04-29T16:51:33-07:00"
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f2pz89ibl', 'period_basis', '2026-09-06 《補晉書藝文志》（秦榮光）整理：《補晉書藝文志》（秦榮光）著錄。晉（265-420）。', '2026-09-06 《補晉書經籍志》（吳士鑑）整理：《補晉書經籍志》（吳士鑑）著錄。晉（265-420）。')
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f2pz89ibl', 'period_upper', 'song')
+      ('d59f2pz89ibl', 'period_upper_basis', 'catalog_bound：所繫諸志中最緊者為《宋史藝文志》（元脫脫等（1345），著錄宋代藏書），故不晚於 song')
+  著錄移入 keeper  ×2
+      ('d59f2pz89ibl', '宋史藝文志', '《涅槃無名論》')
+      ('d59f2pz89ibl', '補晉書經籍志（吳士鑑）', '涅槃無名論')
+
+已併：d59f9ux2kc1t <- d59f2pz89ibl
+善後：著錄 2 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-036 work d59f9ux2kc1u <- ['d59f27v5tl38']
+== 逐欄 diff（keeper | d59f27v5tl38）==
+** ai_note            "2026-09-06 《補晉書藝文志》（秦榮光）整理：據《補晉書藝文志》（秦榮光撰）新建。原文「洪肇　般若無知論一卷」。新建之由：庫中同題 1 條而撰人無一相符（庫作釋僧肇，本志作「洪肇」），書名同而撰人異，是兩部書。　撰人後置：原文「上九種並姚秦僧洪肇撰」總標於數條之後；原 author 作「姚 | "2026-08-24 J6 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——
+** authors            [{"name": "僧肇", "role": "撰", "dynasty": "晉", "entity_id": "hixhd2h9bixi", "original_name": "洪肇", "name_basis": "3c 誤字勘誤：補晉書藝文志（秦）系著錄誤「僧」為「洪」，同批《寶藏論》《物 | [{"name": "釋僧肇", "role": "撰", "dynasty": "晉", "entity_id": "hixhd2h9bixi"}]
+** description        null | {"text": "諸志不著撰人。見著錄於《宋史藝文志》《補晋書藝文志》。《補晋書藝文志》列於丁部集録·釋家。其著錄之文，《補晋書藝文志》作「般若無知論一卷 僧策,謹按見《大唐內典目錄》,亦載《宋志》」。", "sources": ["宋史藝文志", "補晋書藝文志"]}
+   dynasty            "晉" | "晉"
+** dynasty_basis      null | "period_fallback:jin→晉"
+** id                 "d59f9ux2kc1u" | "d59f27v5tl38"
+** indexed_by         [{"source": "補晉書藝文志（秦榮光）", "source_bid": "d59f5ilweo6h", "title_info": "般若無知論一卷", "summary": "上四種並据《大唐内典目録》。　上九種並姚秦僧洪肇撰。　案《魏·釋老志》云：“肇著數論，皆有妙致。”《傳燈録》云： | [{"source": "宋史藝文志", "source_bid": "d59f2gdp696q", "title_info": "《般若無知論》", "summary": "又《般若無知論》一卷"}, {"source": "補晉書藝文志（丁國鈞）", "source_bid": "d59f2mp
+** measure_info       "一卷" | null
+   period             "jin" | "jin"
+** period_basis       "2026-09-06 《補晉書藝文志》（秦榮光）整理：《補晉書藝文志》（秦榮光）著錄。晉（265-420）。" | "撰人朝代闕，而所著錄之志唯一且為斷代志（其所著錄者九成以上是該代之作，此比例以庫中資料自驗），故據之：補晋書藝文志"
+** revised_at         "2026-10-26" | "2026-08-24"
+** revision           "1.0.1" | "1.0.0"
+   schema_version     1 | 1
+   title              "般若無知論" | "般若無知論"
+   type               "work" | "work"
+** updated_at         null | "2026-08-08T13:35:31+00:00"
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f27v5tl38', 'period_basis', '2026-09-06 《補晉書藝文志》（秦榮光）整理：《補晉書藝文志》（秦榮光）著錄。晉（265-420）。', '撰人朝代闕，而所著錄之志唯一且為斷代志（其所著錄者九成以上是該代之作，此比例以庫中資料自驗），故據之：補晋書藝文志')
+  分類成員行改指／刪（classification/zongmu/members/zm0524.json）  ×1
+      ('zm0524', 1044)
+  欄位搬遷（keeper 原無）  ×1
+      ('d59f27v5tl38', 'dynasty_basis', 'period_fallback:jin→晉')
+  著錄移入 keeper  ×3
+      ('d59f27v5tl38', '宋史藝文志', '《般若無知論》')
+      ('d59f27v5tl38', '補晉書藝文志（丁國鈞）', '般若無知論一卷')
+      ('d59f27v5tl38', '補晉書經籍志（吳士鑑）', '般若無知論')
+
+已併：d59f9ux2kc1u <- d59f27v5tl38
+善後：著錄 3 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-037 work d59f2huga22p <- ['d59f2hfodog0']
+== 逐欄 diff（keeper | d59f2hfodog0）==
+** ai_note            "本 Work 條目從《中華再造善本》目錄錄入。 索引中尚有同名異書：1ev3beszwqz28(俞允文);1evgqgkkwglj4(龔立道);1evgqgknzwbgg(俞允文)（不同作者，故新建獨立 Work）。" | "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法—
+** authors            [{"name": "龔昱", "role": "輯", "dynasty": "趙宋", "entity_id": "hixhd2h9buzq", "name_basis": "2026-08-24 新建 entity `1jcf515129a81` 並繫之——庫中舊無其人，說見該 entity  | [{"name": "龔立道", "role": "撰", "dynasty": "趙宋", "entity_id": "hixhd2h9buzq", "dynasty_basis": "synonym:period=song"}]
+** description        {"text": "本書收入《中華再造善本》唐宋編（ZHSY000427）。宋開禧三年崑山縣齋刻本。", "sources": ["中華再造善本"]} | {"text": "龔立道（宋）撰。四卷。見著錄於《國史經籍志》。其著錄之文，《國史經籍志》作「《崑山雜詠》四卷（宋龔立道）」。本書惟《國史經籍志》一志著錄，別無他證。《國史經籍志》明焦竑撰——本書之目賴之以存。", "sources": ["國史經籍志"]}
+** id                 "d59f2huga22p" | "d59f2hfodog0"
+** indexed_by         [{"source": "中國古籍總目", "source_bid": "d59frnrt4lxc", "title_info": "崑山雜詠三卷", "author_info": "宋龔昱輯", "section": "集部/總集類/郡邑之屬", "summary": "共 1 個版本：宋開禧三年 | [{"source": "國史經籍志", "source_bid": "d59f2nl40936", "title_info": "《崑山雜詠》四卷", "summary": "《崑山雜詠》四卷（宋龔立道）", "author_info": "宋龔立道"}]
+** juan_count         {"number": 3} | {"number": 4}
+** measure_info       "三卷" | "四卷"
+** measures           [{"unit": "卷", "number": 3}] | [{"unit": "卷", "number": 4}]
+   period             "song" | "song"
+** period_basis       "宋開禧三年崑山縣齋刻本，開禧為南宋寧宗年號（2026-08-24 R3 引文定代）" | "引文明冠「宋」，龔立道即南宋崑山人龔昱，編崑山雜詠，amb「宋」為趙宋。（2026-08-24 R3二輪 引文定代）"
+   period_upper       "song" | "song"
+** period_upper_basis "edition_bound：所掛版本中最早者為「宋開禧三年崑山縣齋刻本」——版本之年不早於成書之年，故不晚於 song" | "撰人朝代作「宋」，歧而未決；諸解中最晚者為 song，無論何解皆不晚於此"
+** resources          [{"id": "commons", "name": "维基共享资源", "url": "https://commons.wikimedia.org/wiki/File:CADAL02120225_%E5%B4%91%E5%B1%B1%E9%9B%9C%E8%A9%A0.djvu", "types" | null
+** revised_at         "2026-10-07" | "2026-08-25"
+** revision           "1.1.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "崑山雜詠" | "崑山雜詠"
+   type               "work" | "work"
+** updated_at         "2026-08-24T00:00:00+00:00" | "2026-08-24T11:05:57.516837+00:00"
+
+== 將動之處 ==
+  **分類（zongmu）：被併者 d59f2hfodog0 在 zm0664，keeper 在 zm0682——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×4
+      ('d59f2hfodog0', 'juan_count', {'number': 3}, {'number': 4})
+      ('d59f2hfodog0', 'measure_info', '三卷', '四卷')
+      ('d59f2hfodog0', 'period_upper_basis', 'edition_bound：所掛版本中最早者為「宋開禧三年崑山縣齋刻本」——版本之年不早於成書之年，故不晚於 song', '撰人朝代作「宋」，歧而未決；諸解中最晚者為 song，無論何解皆不晚於此')
+      ('d59f2hfodog0', 'period_basis', '宋開禧三年崑山縣齋刻本，開禧為南宋寧宗年號（2026-08-24 R3 引文定代）', '引文明冠「宋」，龔立道即南宋崑山人龔昱，編崑山雜詠，amb「宋」為趙宋。（2026-08-24 R3二輪 引文定代）')
+  分類成員行改指／刪（classification/zongmu/members/zm0664.json）  ×1
+      ('zm0664', 4308)
+  欄位搬遷（keeper 原無）  ×1
+      ('d59f2hfodog0', 'measures', [{'unit': '卷', 'number': 4}])
+  著錄移入 keeper  ×1
+      ('d59f2hfodog0', '國史經籍志', '《崑山雜詠》四卷')
+
+已併：d59f2huga22p <- d59f2hfodog0
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-038 work d59f9c0xee4p <- ['d59f286eodmp']
+== 逐欄 diff（keeper | d59f286eodmp）==
+** ai_note            "2026-09-05 《補南北史藝文志》整理：據《補南北史藝文志》（徐崇撰）新建。本志繫梁代，原文「元帝　丹陽尹傳十卷」。新建之由：庫中時代相容之同題 1 條，撰人（粱元帝）無一與本志「元帝」相符，是同題異書，當新建。" | "2026-08-20 撰人補全專項：本條原無 authors，而所繫諸著錄之 author_info 一致作「粱元帝」，其文為裸名（去朝代與「撰」「編」「僧」「沙門」等職名之後為二至三字之人名，不含標點、數字、缺字），今據以補。四字以上者多為 OCR 之殘或二人連書，不在此批。\n\n2026-0
+** authors            [{"name": "元帝", "role": "撰", "dynasty": "南朝梁", "entity_id": "hixhd2h9bhg1"}] | [{"name": "粱元帝", "role": "撰", "entity_id": "hixhd2h9bhg1", "note": "據本 work 諸著錄之 author_info「粱元帝」補；著錄所給者為一，去朝代與職名後取之。", "name_basis": "2026-08-24 新建 e
+** description        null | {"text": "粱元帝撰，十卷。《隋書經籍志》、《舊唐書經籍志》、《國史經籍志》、《補梁書藝文志》皆作十卷。本條見於4家著錄：《隋書經籍志》、《舊唐書經籍志》、《國史經籍志》、《補梁書藝文志》。", "sources": ["隋書經籍志", "舊唐書經籍志", "國史經籍志", "補梁書藝文志"
+** dynasty            "南朝梁" | null
+** emendated_by       null | [{"source": "隋書經籍志考證", "source_bid": "d59f2mp0flz6", "title_info": "丹陽尹傳十卷", "summary": "丹陽尹傳十卷 梁元帝撰\n梁元帝有《孝德傳》、《忠臣傳》,並見前。\n《金樓子·著書篇》:《丹陽尹傳》一 十卷。金樓為尹京
+** id                 "d59f9c0xee4p" | "d59f286eodmp"
+** indexed_by         [{"source": "補南北史藝文志", "source_bid": "d59f2ofyy29s", "title_info": "丹陽尹傳十卷", "summary": "見本紀。《梁書》同。；《隋·經籍志》同。；按《南史·阮孝緒傳》：“湘東王著《丹陽尹録》，先簡孝緒而後施行。”", "aut | [{"source": "隋書經籍志", "source_bid": "d59f28nmafwh", "title_info": "《丹陽尹傳》十卷", "summary": "《丹陽尹傳》十卷梁元帝撰。"}, {"source": "舊唐書經籍志", "source_bid": "d59f2gcb
+** juan_count         null | {"number": 10}
+   measure_info       "十卷" | "十卷"
+** measures           null | [{"unit": "卷", "number": 10}]
+   period             "nanbeichao" | "nanbeichao"
+** period_basis       "2026-09-05 《補南北史藝文志》整理：《補南北史藝文志》著錄，本志繫梁代（502-557）。" | "隋志、舊唐志並明注「梁元帝撰」，梁元帝蕭繹為南朝梁君主（2026-08-24 R3 引文定代）"
+** period_upper       null | "sui-tang"
+** period_upper_basis null | "catalog_bound：所繫諸志中最緊者為《隋書經籍志》（唐長孫無忌等，成於顯慶元年（656）），故不晚於 sui-tang"
+** revised_at         "2026-09-05" | "2026-08-24"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "丹陽尹傳" | "丹陽尹傳"
+   type               "work" | "work"
+** updated_at         null | "2026-08-24T00:00:00+00:00"
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f286eodmp', 'period_basis', '2026-09-05 《補南北史藝文志》整理：《補南北史藝文志》著錄，本志繫梁代（502-557）。', '隋志、舊唐志並明注「梁元帝撰」，梁元帝蕭繹為南朝梁君主（2026-08-24 R3 引文定代）')
+  分類成員行改指／刪（classification/zongmu/members/zm0176.json）  ×1
+      ('zm0176', 3886)
+  欄位搬遷（keeper 原無）  ×5
+      ('d59f286eodmp', 'juan_count', {'number': 10})
+      ('d59f286eodmp', 'emendated_by', [{'source': '隋書經籍志考證', 'source_bid': 'd59f2mp0flz6', 'title_info': '丹陽尹傳十卷', 'summary': '丹陽尹傳十卷 梁元帝撰\n梁元帝有《孝德傳》、《忠臣傳》,並見前。\n《金樓子·著書篇》:《丹陽尹傳》一 十卷。金樓為尹京時,\n自撰序曰:“自二京版蕩,五馬南渡,固乃上燭天文,下應地\n理,爾其地勢,可得而言:東以赤山為成皋,南以長淮為伊維,\n北以鍾山為華阜,西以大江為黄河,既變淮海為神州,亦即丹\n陽為京尹,雖得人之盛,頗愧前賢,而盼遇之深,多用宰輔。\n若夫德以位成,位以德敘,每念泰列京河,茲焉四載,求餘\n晨,頗多暇景,今綴采英賢,為《丹陽尹傳》。”《梁書》本紀:天十三\n年,封湘東郡王。初,為寧遠將軍、會稽太守,人為侍中、宣威將軍、丹陽尹。普通七\n年,出為使持節,都督荆、湘等六州諸軍事、荆州刺史。\n《南史·隱逸阮孝緒傳》:湘東王著《忠臣傳》、《丹陽尹》,並\n先簡孝緒而後施行。\n《梁書》本紀:所著《丹陽尹傳》十卷。\n《唐書·經籍志》:《丹陽尹傳》十卷,梁元帝撰。\n《唐書·藝文志》:梁元帝《丹陽尹傳》十卷。'}])
+      ('d59f286eodmp', 'measures', [{'unit': '卷', 'number': 10}])
+      ('d59f286eodmp', 'period_upper', 'sui-tang')
+      ('d59f286eodmp', 'period_upper_basis', 'catalog_bound：所繫諸志中最緊者為《隋書經籍志》（唐長孫無忌等，成於顯慶元年（656）），故不晚於 sui-tang')
+  著錄移入 keeper  ×4
+      ('d59f286eodmp', '隋書經籍志', '《丹陽尹傳》十卷')
+      ('d59f286eodmp', '舊唐書經籍志', '《丹陽尹傳》十卷')
+      ('d59f286eodmp', '國史經籍志', '《丹陽尹傳》十卷')
+      ('d59f286eodmp', '補梁書藝文志', '丹陽尹傳十卷')
+
+已併：d59f9c0xee4p <- d59f286eodmp
+善後：著錄 4 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-040 work d59f2gix3476 <- ['d59f6ek68hl2']
+== 逐欄 diff（keeper | d59f6ek68hl2）==
+** ai_note            "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by | "撰人切分來源：詞庫補切·庫內題名。 同名異書：庫內已有同題「六經問答」而撰人各異（唐懷德(元)），本條撰人「唐懐徳」與之不合，依《千頃堂書目》著錄逕行新建。"
+** authors            [{"name": "唐懷德", "role": "撰", "dynasty": "元", "entity_id": "hixhd2h9bgy7"}] | [{"name": "唐懐徳", "role": "撰", "entity_id": "hixhd2h9bgy7"}]
+** description        {"text": "唐懷德（元）撰。見著錄於《補遼金元藝文志》《元史藝文志》《經義考》。《經義考》列於羣經。其著錄之文，《補遼金元藝文志》作「元唐懷德（字思誠，金華人）六經問答」。《經義考》清朱彝尊撰——本書之目賴之以存。", "sources": ["補遼金元藝文志", "元史藝文志", "經義考 | {"text": "唐懐徳撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「唐懐徳六經問答」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "元" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2gix3476" | "d59f6ek68hl2"
+** indexed_by         [{"source": "補遼金元藝文志", "source_bid": "d59f2mp1zsox", "title_info": "唐懷德六經問答", "author_info": "字思誠，金華人", "summary": "元唐懷德（字思誠，金華人）六經問答"}, {"source": "元 | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "唐懐徳六經問答", "author_info": "字思誠金華人元衢州學録", "summary": "唐懐徳六經問答⟨字思誠金華人元衢州學録⟩"}]
+** period             "liao-jin-yuan" | null
+** period_basis       "據 authors[0].dynasty「元」" | null
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+** revised_at         "2026-08-25" | "2026-09-01"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "六經問答" | "六經問答"
+   type               "work" | "work"
+** updated_at         "2026-08-09T09:33:12+00:00" | null
+
+== 將動之處 ==
+  分類成員行改指／刪（classification/zongmu/members/zm0132.json）  ×1
+      ('zm0132', 554)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f6ek68hl2', 'period_upper', 'qing')
+      ('d59f6ek68hl2', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×1
+      ('d59f6ek68hl2', '千頃堂書目', '唐懐徳六經問答')
+
+已併：d59f2gix3476 <- d59f6ek68hl2
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-041 work d59f2gm2phxc <- ['d59f6einlyip']
+== 逐欄 diff（keeper | d59f6einlyip）==
+** ai_note            "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by | "撰人切分來源：詞庫補切·庫內題名。 同名異書：庫內已有同題「存齋雜稿」而撰人各異（唐懷德(元)），本條撰人「唐懐徳」與之不合，依《千頃堂書目》著錄逕行新建。"
+** authors            [{"name": "唐懷德", "role": "撰", "dynasty": "元", "entity_id": "hixhd2h9bgy7"}] | [{"name": "唐懐徳", "role": "撰", "entity_id": "hixhd2h9bgy7"}]
+** description        {"text": "唐懷德（元）撰。見著錄於《補遼金元藝文志》《元史藝文志》。其著錄之文，《補遼金元藝文志》作「元唐懷德存齋雜稿」。", "sources": ["補遼金元藝文志", "元史藝文志"]} | {"text": "唐懐徳撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「唐懐徳存齋雜稿」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "元" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2gm2phxc" | "d59f6einlyip"
+** indexed_by         [{"source": "補遼金元藝文志", "source_bid": "d59f2mp1zsox", "title_info": "唐懷德存齋雜稿", "summary": "元唐懷德存齋雜稿"}, {"source": "元史藝文志", "source_bid": "d59f2mp1zsoz" | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "唐懐徳存齋雜稿", "author_info": "字思誠金華人受業許謙明初為本邑教諭", "summary": "唐懐徳存齋雜稿⟨字思誠金華人受業許謙明初為本邑教諭⟩
+** period             "liao-jin-yuan" | null
+** period_basis       "據 authors[0].dynasty「元」" | null
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+** revised_at         "2026-08-25" | "2026-09-01"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "存齋雜稿" | "存齋雜稿"
+   type               "work" | "work"
+** updated_at         "2026-08-09T09:33:12+00:00" | null
+
+== 將動之處 ==
+  分類成員行改指／刪（classification/zongmu/members/zm0666.json）  ×1
+      ('zm0666', 7824)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f6einlyip', 'period_upper', 'qing')
+      ('d59f6einlyip', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×1
+      ('d59f6einlyip', '千頃堂書目', '唐懐徳存齋雜稿')
+
+已併：d59f2gm2phxc <- d59f6einlyip
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-042 work d59f2gejrif4 <- ['d59f6eti3u2t']
+== 逐欄 diff（keeper | d59f6eti3u2t）==
+** ai_note            "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by | "撰人切分來源：詞庫補切·庫內題名。 同名異書：庫內已有同題「書學指南」而撰人各異（唐懷德(元)、施鉉()），本條撰人「唐懐徳」與之不合，依《千頃堂書目》著錄逕行新建。"
+** authors            [{"name": "唐懷德", "role": "撰", "dynasty": "元", "entity_id": "hixhd2h9bgy7"}] | [{"name": "唐懐徳", "role": "撰", "entity_id": "hixhd2h9bgy7"}]
+** description        {"text": "唐懷德（元）撰。見著錄於《補遼金元藝文志》《元史藝文志》。其著錄之文，《補遼金元藝文志》作「元唐懷德書學指南」。", "sources": ["補遼金元藝文志", "元史藝文志"]} | {"text": "唐懐徳撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「唐懐徳書學指南」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "元" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2gejrif4" | "d59f6eti3u2t"
+** indexed_by         [{"source": "補遼金元藝文志", "source_bid": "d59f2mp1zsox", "title_info": "唐懷德書學指南", "summary": "元唐懷德書學指南"}, {"source": "元史藝文志", "source_bid": "d59f2mp1zsoz" | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "唐懐徳書學指南", "summary": "唐懐徳書學指南"}]
+** period             "liao-jin-yuan" | null
+** period_basis       "據 authors[0].dynasty「元」" | null
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+** revised_at         "2026-08-25" | "2026-09-01"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "書學指南" | "書學指南"
+   type               "work" | "work"
+** updated_at         "2026-08-09T09:33:12+00:00" | null
+
+== 將動之處 ==
+  分類成員行改指／刪（classification/zongmu/members/zm0144.json）  ×1
+      ('zm0144', 912)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f6eti3u2t', 'period_upper', 'qing')
+      ('d59f6eti3u2t', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×1
+      ('d59f6eti3u2t', '千頃堂書目', '唐懐徳書學指南')
+
+已併：d59f2gejrif4 <- d59f6eti3u2t
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-043 work d59f2mx81cea <- ['d59f6ejxt2wy']
+== 逐欄 diff（keeper | d59f6ejxt2wy）==
+** ai_note            "本 Work 條目從《四庫全書存目叢書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。 | "同名異書：庫內已有同題「舟車集」而撰人各異（陶季(清)），本條撰人「陶澂」與之不合，依《千頃堂書目》著錄逕行新建。"
+** authors            [{"name": "陶季", "role": "撰", "dynasty": "清", "entity_id": "hixhd2h9bg34"}] | [{"name": "陶澂", "role": "撰", "entity_id": "hixhd2h9bg34"}]
+** description        {"text": "陶季（清）撰。二十卷 後集十卷 集唐一卷；諸志所著之數有異，別作二十卷。見著錄於《四庫全書存目叢書》。《四庫全書存目叢書》列於集部。其著錄之文，《四庫全書存目叢書》作「《舟車集》二十卷 後集十卷 集唐一卷」。本書惟《四庫全書存目叢書》一志著錄，別無他證。別集之屬，所收為其人之詩文 | {"text": "陶澂撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「陶澂舟車集」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "清" | null
+** dynasty_basis      "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」" | null
+** id                 "d59f2mx81cea" | "d59f6ejxt2wy"
+** indexed_by         [{"source": "四庫全書存目叢書", "source_bid": "d59f2og4vke9", "title_info": "《舟車集》二十卷 後集十卷 集唐一卷", "author_info": "清陶季撰", "summary": "《舟車集》二十卷 後集十卷 集唐一卷。清陶季撰。吉 | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "陶澂舟車集", "author_info": "字季深寳應人", "summary": "陶澂舟車集⟨字季深寳應人⟩"}]
+** juan_count         {"number": 20} | null
+** measure_info       "二十卷 後集十卷 集唐一卷" | null
+** measures           [{"unit": "卷", "number": 20}] | null
+** period             "qing" | null
+** period_basis       "據 authors[0].dynasty「清」" | null
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+** resource_groups    {"nlc-411999004386": {"label": "國圖藏本：清康熙[1662-1722]"}} | null
+** resources          [{"name": "维基共享资源", "types": ["image"], "id": "commons", "url": "https://commons.wikimedia.org/wiki/File:NCL-13296_%E8%88%9F%E8%BB%8A%E9%9B%86.pdf"},  | null
+** revised_at         "2026-10-13" | "2026-09-01"
+** revision           "1.1.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "舟車集" | "舟車集"
+   type               "work" | "work"
+** updated_at         "2026-08-09T10:40:18+00:00" | null
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f2mx81cea',)
+  **分類（zongmu）：被併者 d59f6ejxt2wy 在 zm0666，keeper 在 zm0664——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  分類成員行改指／刪（classification/zongmu/members/zm0666.json）  ×1
+      ('zm0666', 7823)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f6ejxt2wy', 'period_upper', 'qing')
+      ('d59f6ejxt2wy', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×1
+      ('d59f6ejxt2wy', '千頃堂書目', '陶澂舟車集')
+
+已併：d59f2mx81cea <- d59f6ejxt2wy
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-044 work d59f2ne4q7lu <- ['d59f6emapmo7']
+== 逐欄 diff（keeper | d59f6emapmo7）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引 | "撰人切點存疑條、經本輪覆核修正：「徐師曽」複見卷6「徐師曽呉江縣志二十八卷」及卷31「徐師曽文體明辨」，同一撰人三見，確係明代徐師曾（曽/曾同字，字伯魯，著有《文體明辨》），確證。"
+** authors            [{"name": "徐師曾", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bdu4"}] | [{"name": "徐師曽", "role": "撰", "entity_id": "hixhd2h9bdu4"}]
+** description        {"text": "徐師曾（明）撰。十二卷。見著錄於《明史藝文志》《欽定四庫全書總目》《續修四庫全書》《四庫全書存目叢書》《經義考》。《續修四庫全書》列於经部 易類；《四庫全書存目叢書》列於经部。本書為《周易》之注釋，其文附原典以行。", "sources": ["明史藝文志", "欽定四庫全書總目 | {"text": "徐師曽撰。十二卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「徐師曽今文周易演義十二卷」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "明" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2ne4q7lu" | "d59f6emapmo7"
+** indexed_by         [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "今文周易演義十二卷", "summary": "徐师曾《今文周易演义》十二卷"}, {"source": "欽定四庫全書總目", "source_bid": "d59d | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "徐師曽今文周易演義十二卷", "author_info": "師曽本尊古文為之演義以世咸用經傳祖連本故仍之而名曰今文隆慶二年戊辰序", "summary": "徐師曽今
+   juan_count         {"number": 12} | {"number": 12}
+   measure_info       "十二卷" | "十二卷"
+   measures           [{"unit": "卷", "number": 12}] | [{"unit": "卷", "number": 12}]
+   period             "ming" | "ming"
+** period_basis       "據 authors[0].dynasty「明」" | "撰人徐師曽（徐師曾）為明人，見同卷「徐師曽呉江縣志」「徐師曽文體明辨」互證"
+** related_works      [{"id": "d59ezakdey2o", "relation": "contains_text_of"}] | null
+** resource_groups    {"nlc-411999021991": {"label": "國圖藏本：明隆慶2年[1568]"}} | null
+** resources          [{"id": "shidianguji-longqingerdonghancek", "name": "识典古籍", "url": "https://www.shidianguji.com/book/HY1980", "metadata": {"edition": "隆慶二年(1568)董漢策刻本 | null
+** revised_at         "2026-10-13" | "2026-09-01"
+** revision           "1.1.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "今文周易演義" | "今文周易演義"
+   type               "work" | "work"
+** updated_at         "2026-08-09T10:41:40+00:00" | null
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f6emapmo7', 'period_basis', '據 authors[0].dynasty「明」', '撰人徐師曽（徐師曾）為明人，見同卷「徐師曽呉江縣志」「徐師曽文體明辨」互證')
+  分類成員行改指／刪（classification/zongmu/members/zm0010.json）  ×1
+      ('zm0010', 2630)
+  著錄移入 keeper  ×1
+      ('d59f6emapmo7', '千頃堂書目', '徐師曽今文周易演義十二卷')
+
+已併：d59f2ne4q7lu <- d59f6emapmo7
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-045 work d59f2nj55ds3 <- ['d59f2gcw56o2']
+== 逐欄 diff（keeper | d59f2gcw56o2）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引 | "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書詩類著錄「汪氏（克寛）詩集傳音義㑹通」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[
+** authors            [{"name": "汪克寬", "role": "撰", "dynasty": "元末明初", "entity_id": "hixhd2h9bgdm", "dynasty_basis": "L5 斷代歸一（2026-08-25 遼金元輪）：本欄舊作「明」，而其書之著錄源《欽定四庫全書總目》作「元某 | [{"name": "汪克寛", "entity_id": "hixhd2h9bgdm", "name_basis": "2026-08-24 補繫 entity：本條 authors 舊有名「汪克寛」而無 entity_id，今繫 `1j967cp1zozl9`——庫中以此為別名（alt_name
+** description        {"text": "汪克寬（明）撰。三十卷。見著錄於《明史藝文志》《國史經籍志》。其著錄之文，《明史藝文志》作「汪克寬《詩集傳音義會通》三十卷」。《明史藝文志》清張廷玉等修；《國史經籍志》明焦竑撰——本書之目賴之以存。", "sources": ["明史藝文志", "國史經籍志"]} | {"text": "汪克寛撰。見著錄於《經義考》。《經義考》列於詩。本書惟《經義考》一志著錄，別無他證。《經義考》清朱彝尊撰——本書之目賴之以存。", "sources": ["經義考"]}
+** dynasty            "元末明初" | null
+** dynasty_basis      "author_propagation（2026-09-06 qa-sweep/ming A 類重propagate：authors[0].dynasty 已作「元末明初」而本欄仍留「明」，同步之。原值：明）" | null
+** id                 "d59f2nj55ds3" | "d59f2gcw56o2"
+** indexed_by         [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "汪克宽《诗集传音义会通》三十卷", "summary": "汪克寬《詩集傳音義會通》三十卷"}, {"source": "國史經籍志", "source_bid": " | [{"source": "經義考", "source_bid": "d59f2mel8d1d", "title_info": "《詩集傳音義㑹通》（汪克寛）", "summary": "三十卷\n危素序曰新安朱子詩傳或文義或引證讀者時有所未通窮鄉下邑豈能家貯羣書人熟通訓故學者之患此乆矣祁門汪君仲裕甫
+** juan_count         {"number": 30} | null
+** measure_info       "三十卷" | null
+** measures           [{"unit": "卷", "number": 30}] | null
+** period             "ming" | "liao-jin-yuan"
+** period_basis       "2026-09-06 qa-sweep/ming A 類重立據：本書見錄於《明史藝文志》《國史經籍志》，前者專錄明人之作。撰人汪克寬（1304–1372）元末明初人。本條 period 仍作 ming。原句「據 authors[0].dynasty「明」」與實錄之「元末明初」相牴（2026-08- | "汪克寬元末經師（環谷先生），危素、宋濂序，前鄉貢進士→元（2026-08-24 R3 引文定代）"
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing"
+   revised_at         "2026-08-25" | "2026-08-25"
+** revision           "1.0.0" | "1.1.0"
+   schema_version     1 | 1
+** title              "詩集傳音義會通" | "詩集傳音義㑹通"
+   type               "work" | "work"
+** updated_at         "2026-08-09T10:41:40+00:00" | "2026-08-24T00:00:00+00:00"
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×2
+      ('d59f2gcw56o2', 'period', 'ming', 'liao-jin-yuan')
+      ('d59f2gcw56o2', 'period_basis', '2026-09-06 qa-sweep/ming A 類重立據：本書見錄於《明史藝文志》《國史經籍志》，前者專錄明人之作。撰人汪克寬（1304–1372）元末明初人。本條 period 仍作 ming。原句「據 authors[0].dynasty「明」」與實錄之「元末明初」相牴（2026-08-25 遼金元 L5 改撰人之代而未改本句）；本批不動 period，只重立其據。原值：period_basis="據 authors[0].dynasty「明」"。', '汪克寬元末經師（環谷先生），危素、宋濂序，前鄉貢進士→元（2026-08-24 R3 引文定代）')
+  分類成員行改指／刪（classification/zongmu/members/zm0030.json）  ×1
+      ('zm0030', 912)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f2gcw56o2', 'period_upper', 'qing')
+      ('d59f2gcw56o2', 'period_upper_basis', 'catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing')
+  著錄移入 keeper  ×1
+      ('d59f2gcw56o2', '經義考', '《詩集傳音義㑹通》（汪克寛）')
+
+已併：d59f2nj55ds3 <- d59f2gcw56o2
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-046 work d59f6emb0v7m <- ['d59f2ngfg3r6']
+== 逐欄 diff（keeper | d59f2ngfg3r6）==
+** ai_note            "同名異書：庫內已有同題「六詔紀聞」而撰人各異（彭汝寔(明)），本條撰人「彭汝實」與之不合，依《千頃堂書目》著錄逕行新建。" | "明史藝文志匹配：標題精確匹配但未能驗證作者（條目作者：'彭汝實'）。 作者 \"明彭汝寔輯\" 補自《四庫全書存目叢書》目錄。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條
+** authors            [{"name": "彭汝實", "role": "撰", "entity_id": "hixhgyrw4vt9"}] | [{"name": "彭汝寔", "role": "輯", "dynasty": "明", "entity_id": "hixhgyrw4vt9", "name_basis": "2026-08-24 新建 entity `1jcf5151295r4` 並繫之——庫中舊無其人，說見該 entity 
+** description        {"text": "彭汝實撰。一卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「彭汝實六詔紀聞」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]} | {"text": "彭汝寔（明）輯。二卷；諸志所著之數有異，別作一卷。見著錄於《欽定四庫全書總目》《明史藝文志》《國史經籍志》《四庫全書存目叢書》。《四庫全書存目叢書》列於子部。", "sources": ["欽定四庫全書總目", "明史藝文志", "國史經籍志", "四庫全書存目叢書"]}
+** dynasty            null | "明"
+** dynasty_basis      null | "author_propagation"
+** id                 "d59f6emb0v7m" | "d59f2ngfg3r6"
+** indexed_by         [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "彭汝實六詔紀聞", "summary": "彭汝實六詔紀聞"}] | [{"source": "欽定四庫全書總目", "source_bid": "d59dh3vo9af4", "title_info": "《六詔紀聞》·二卷", "summary": "上卷曰會勘夷情錄，乃嘉靖十四年建昌道兵備副使俞夔處置四川鹽井衛士千戶與雲南麗永二府土舍爭界事公移案牘。下卷曰南荒振
+** juan_count         {"number": 1} | {"number": 2}
+** measure_info       "一卷" | "二卷"
+** measures           [{"unit": "卷", "number": 1}] | [{"unit": "卷", "number": 2}]
+** period             null | "ming"
+** period_basis       null | "據 authors[0].dynasty「明」"
+** period_upper       "qing" | null
+** period_upper_basis "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜" | null
+** resources          null | [{"id": "shidianguji-jiajingershijiusansh", "name": "识典古籍", "url": "https://www.shidianguji.com/book/HY7064", "metadata": {"edition": "嘉靖二十九至三十年（1550-
+** revised_at         "2026-09-01" | "2026-08-25"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "六詔紀聞" | "六詔紀聞"
+   type               "work" | "work"
+** updated_at         null | "2026-08-24T00:00:00+00:00"
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f6emb0v7m',)
+  **分類（zongmu）：被併者 d59f2ngfg3r6 在 zm0488，keeper 在 zm0263——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×2
+      ('d59f2ngfg3r6', 'juan_count', {'number': 1}, {'number': 2})
+      ('d59f2ngfg3r6', 'measure_info', '一卷', '二卷')
+  Book.work_id 改指 keeper  ×3
+      ('994dopuhog', 'd59f2ngfg3r6')
+      ('994eo75khs', 'd59f2ngfg3r6')
+      ('9952o3cohs', 'd59f2ngfg3r6')
+  分類成員行改指／刪（classification/zongmu/members/zm0488.json）  ×1
+      ('zm0488', 1424)
+  欄位搬遷（keeper 原無）  ×6
+      ('d59f2ngfg3r6', 'resources', [{'id': 'shidianguji-jiajingershijiusansh', 'name': '识典古籍', 'url': 'https://www.shidianguji.com/book/HY7064', 'metadata': {'edition': '嘉靖二十九至三十年（1550-1551）吳縣袁氏嘉趣堂刻本', 'version': 'v5', 'total_page': 52, 'paragraph_count': 44, 'has_translation': True, 'check_type': '粗校'}, 'types': ['text', 'image']}])
+      ('d59f2ngfg3r6', 'measures', [{'unit': '卷', 'number': 2}])
+      ('d59f2ngfg3r6', 'period', 'ming')
+      ('d59f2ngfg3r6', 'period_basis', '據 authors[0].dynasty「明」')
+      ('d59f2ngfg3r6', 'dynasty', '明')
+      ('d59f2ngfg3r6', 'dynasty_basis', 'author_propagation')
+  著錄移入 keeper  ×4
+      ('d59f2ngfg3r6', '欽定四庫全書總目', '《六詔紀聞》·二卷')
+      ('d59f2ngfg3r6', '明史藝文志', '彭汝实《六诏纪闻》一卷')
+      ('d59f2ngfg3r6', '國史經籍志', '《六詔紀聞》一卷')
+      ('d59f2ngfg3r6', '四庫全書存目叢書', '《六詔紀聞》二卷')
+
+已併：d59f6emb0v7m <- d59f2ngfg3r6
+善後：著錄 4 節、他條關係 0 條記錄、存儲側引用改指 3 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-047 work d59f2nfuj7k1 <- ['d59f6et5b3sx']
+== 逐欄 diff（keeper | d59f6et5b3sx）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引 | "原撰人提取失敗，編者為曽同亨。按語含\"萬厯\"，可定period為明。"
+** authors            [{"name": "曾同亨", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bgi0"}] | [{"name": "曽同亨", "role": "編", "entity_id": "hixhd2h9bgi0"}]
+** description        {"text": "曾同亨（明）撰。十卷。見著錄於《明史藝文志》《國史經籍志》。其著錄之文，《明史藝文志》作「曾同亨《工部條例》十卷」。《明史藝文志》清張廷玉等修；《國史經籍志》明焦竑撰——本書之目賴之以存。", "sources": ["明史藝文志", "國史經籍志"]} | {"text": "曽同亨（明）編。十卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「曽同亨工部條例」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+   dynasty            "明" | "明"
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2nfuj7k1" | "d59f6et5b3sx"
+** indexed_by         [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "曾同亨《工部条例》十卷", "summary": "曾同亨《工部條例》十卷"}, {"source": "國史經籍志", "source_bid": "d59f2nl4 | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "曽同亨工部條例", "author_info": "萬厯十九年編", "summary": "曽同亨工部條例⟨萬厯十九年編⟩"}]
+   juan_count         {"number": 10} | {"number": 10}
+   measure_info       "十卷" | "十卷"
+   measures           [{"unit": "卷", "number": 10}] | [{"unit": "卷", "number": 10}]
+   period             "ming" | "ming"
+** period_basis       "據 authors[0].dynasty「明」" | "按語含\"萬厯十九年\""
+** revised_at         "2026-08-25" | "2026-10-19"
+** revision           "1.0.0" | "1.0.1"
+   schema_version     1 | 1
+   title              "工部條例" | "工部條例"
+   type               "work" | "work"
+** updated_at         "2026-08-09T10:41:40+00:00" | null
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f6et5b3sx', 'period_basis', '據 authors[0].dynasty「明」', '按語含"萬厯十九年"')
+  分類成員行改指／刪（classification/zongmu/members/zm0225.json）  ×1
+      ('zm0225', 239)
+  著錄移入 keeper  ×1
+      ('d59f6et5b3sx', '千頃堂書目', '曽同亨工部條例')
+
+已併：d59f2nfuj7k1 <- d59f6et5b3sx
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-048 work d59f2nj39yiq <- ['d59f6eh2hj43']
+== 逐欄 diff（keeper | d59f6eh2hj43）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引 | "同名異書：庫內已有同題「飲射圖解」而撰人各異（聞人詮(明)），本條撰人「聞人銓」與之不合，依《千頃堂書目》著錄逕行新建。"
+** authors            [{"name": "聞人詮", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bejx"}] | [{"name": "聞人銓", "role": "撰", "entity_id": "hixhd2h9bejx"}]
+** description        {"text": "聞人詮（明）撰。一卷。見著錄於《明史藝文志》《國史經籍志》《經義考》。《經義考》列於儀禮。其著錄之文，《國史經籍志》作「《飲射圖解》一卷（聞人銓）」。經注之屬。《明史藝文志》清張廷玉等修；《國史經籍志》明焦竑撰——本書之目賴之以存。", "sources": ["明史藝文志",  | {"text": "聞人銓撰。一卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「聞人銓飲射圖解」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "明" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2nj39yiq" | "d59f6eh2hj43"
+** indexed_by         [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "闻人诠《饮射图解》一卷", "summary": "聞人詮《飲射圖解》一卷"}, {"source": "國史經籍志", "source_bid": "d59f2nl4 | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "聞人銓飲射圖解", "summary": "聞人銓飲射圖解"}]
+   juan_count         {"number": 1} | {"number": 1}
+   measure_info       "一卷" | "一卷"
+   measures           [{"unit": "卷", "number": 1}] | [{"unit": "卷", "number": 1}]
+** period             "ming" | null
+** period_basis       "據 authors[0].dynasty「明」" | null
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+** revised_at         "2026-08-25" | "2026-09-01"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "飲射圖解" | "飲射圖解"
+   type               "work" | "work"
+** updated_at         "2026-08-09T10:41:40+00:00" | null
+
+== 將動之處 ==
+  分類成員行改指／刪（classification/zongmu/members/zm0042.json）  ×1
+      ('zm0042', 1667)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f6eh2hj43', 'period_upper', 'qing')
+      ('d59f6eh2hj43', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×1
+      ('d59f6eh2hj43', '千頃堂書目', '聞人銓飲射圖解')
+
+已併：d59f2nj39yiq <- d59f6eh2hj43
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-049 work d59f2ng7bxfm <- ['d59f6eob4oox']
+== 逐欄 diff（keeper | d59f6eob4oox）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引 | "同名異書：庫內已有同題「虞書箋」而撰人各異（茅瑞徵(明)），本條撰人「茅瑞徴」與之不合，依《千頃堂書目》著錄逕行新建。"
+** authors            [{"name": "茅瑞徵", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bdy1"}] | [{"name": "茅瑞徴", "role": "撰", "entity_id": "hixhd2h9bdy1"}]
+** description        {"text": "茅瑞徵（明）撰。二卷。見著錄於《欽定四庫全書總目》《明史藝文志》《四庫全書存目叢書》《經義考》。《四庫全書存目叢書》列於经部；《經義考》列於書。", "sources": ["欽定四庫全書總目", "明史藝文志", "四庫全書存目叢書", "經義考"]} | {"text": "茅瑞徴撰。二卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「茅瑞徴虞書箋」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+** dynasty            "明" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2ng7bxfm" | "d59f6eob4oox"
+** indexed_by         [{"source": "欽定四庫全書總目", "source_bid": "d59dh3vo9af4", "title_info": "《虞書箋》•二卷", "author_info": "明茅瑞徵撰", "summary": "明茅瑞徵撰。瑞徵字伯符，歸安人。萬曆辛丑進士，官至南京光祿寺卿。解官 | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "茅瑞徴虞書箋", "summary": "茅瑞徴虞書箋"}]
+   juan_count         {"number": 2} | {"number": 2}
+   measure_info       "二卷" | "二卷"
+   measures           [{"unit": "卷", "number": 2}] | [{"unit": "卷", "number": 2}]
+** period             "ming" | null
+** period_basis       "據 authors[0].dynasty「明」" | null
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+** resource_groups    {"nlc-411999025594": {"label": "國圖藏本：明崇禎[1628-1644]"}} | null
+** resources          [{"id": "shidianguji-mingchongzhenkeben", "name": "识典古籍", "url": "https://www.shidianguji.com/book/NGJ892411999025594156992", "metadata": {"edition":  | null
+** revised_at         "2026-10-24" | "2026-09-01"
+** revision           "1.1.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "虞書箋" | "虞書箋"
+   type               "work" | "work"
+** updated_at         "2026-08-09T10:41:40+00:00" | null
+
+== 將動之處 ==
+  分類成員行改指／刪（classification/zongmu/members/zm0020.json）  ×1
+      ('zm0020', 1098)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f6eob4oox', 'period_upper', 'qing')
+      ('d59f6eob4oox', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×1
+      ('d59f6eob4oox', '千頃堂書目', '茅瑞徴虞書箋')
+
+已併：d59f2ng7bxfm <- d59f6eob4oox
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-052 work d59f2hpxynlu <- ['d59f2hg7f5ky']
+== 逐欄 diff（keeper | d59f2hg7f5ky）==
+   additional_titles  ["洪範政鑒"] | ["洪範政鑒"]
+** ai_note            "本 Work 條目從《續修四庫全書》目錄錄入。 索引中尚有同名異書：1ev3bbnygjmdc(仁宗皇帝)。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_b | "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法—
+** authors            [{"name": "趙禎", "role": "撰", "dynasty": "北宋", "entity_id": "hixhd2h9bhj6", "dynasty_basis": "entity_propagation:1j967da97jm29"}] | [{"name": "仁宗皇帝", "role": "撰", "dynasty": "趙宋", "entity_id": "hixhd2h9bhj6", "dynasty_basis": "synonym:period=song"}]
+** description        {"text": "趙禎（北宋）撰。十二卷。見著錄於《續修四庫全書》《四庫全書存目叢書》。《續修四庫全書》列於子部 術數類；《四庫全書存目叢書》列於子部。《續修四庫全書》一九九五年影印——本書之目賴之以存。", "sources": ["續修四庫全書", "四庫全書存目叢書"]} | {"text": "《洪範政鑑》十二卷，宋仁宗皇帝撰。《欽定四庫全書總目》、《國史經籍志》所著卷數一致（十二卷）。《欽定四庫全書總目》敘曰：「宋仁宗皇帝撰。前有制序曰：宸宮餘暇，氾覽史籍，《洪範》之說，緬然可尋，而伏、鄭所編，靡聞全錄。前則歆、向作傳，散佈群篇；後則京、夏諸儒，衍釋證兆。簡牘廣記，顛
+** dynasty            "北宋" | null
+** dynasty_basis      "据唯一 author.dynasty「北宋」补全" | null
+** id                 "d59f2hpxynlu" | "d59f2hg7f5ky"
+** indexed_by         [{"source": "續修四庫全書", "source_bid": "d59f2og4vksh", "title_info": "《洪範政鑒》十二卷", "author_info": "宋趙禎撰", "summary": "《洪範政鑒》十二卷。宋趙禎撰。影印宋淳熙十三年內府寫本。", "edit | [{"source": "欽定四庫全書總目", "source_bid": "d59dh3vo9af4", "title_info": "《洪範政鑒》•十二卷", "author_info": "宋仁宗皇帝撰", "summary": "宋仁宗皇帝撰。前有制序曰：宸宮餘暇，氾覽史籍，《洪範》之說，緬
+   juan_count         {"number": 12} | {"number": 12}
+   measure_info       "十二卷" | "十二卷"
+   measures           [{"unit": "卷", "number": 12}] | [{"unit": "卷", "number": 12}]
+   period             "song" | "song"
+** period_basis       "据唯一 author.dynasty「北宋」自动归并" | "四庫：宋仁宗撰，《玉海》載康定元年十一月內出示輔臣（2026-08-24 R3 引文定代）"
+** period_upper       null | "song"
+** period_upper_basis null | "撰人朝代作「宋」，歧而未決；諸解中最晚者為 song，無論何解皆不晚於此"
+** resource_groups    {"nlc-411999022412": {"label": "國圖藏本：清光緒8年[1882]"}} | null
+** resources          [{"id": "wikimedia-commons-xuxiu", "name": "維基共享 續修四庫全書 PDF", "short_name": "維基共享", "url": "https://commons.wikimedia.org/wiki/File:%E7%BA%8C%E4%BF%AE | [{"id": "shidianguji-chaoben", "name": "识典古籍", "url": "https://www.shidianguji.com/book/CADAL02055522", "metadata": {"edition": "抄本", "version": "v7",
+** revised_at         "2026-10-24" | "2026-08-25"
+** revision           "1.1.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "洪範政鑑" | "洪範政鑑"
+   type               "work" | "work"
+** updated_at         "2026-08-09T08:58:29+00:00" | "2026-08-24T09:26:11.167844+00:00"
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f2hg7f5ky', 'period_basis', '据唯一 author.dynasty「北宋」自动归并', '四庫：宋仁宗撰，《玉海》載康定元年十一月內出示輔臣（2026-08-24 R3 引文定代）')
+  分類成員行改指／刪（classification/zongmu/members/zm0411.json）  ×1
+      ('zm0411', 347)
+  欄位搬遷（keeper 原無）  ×3
+      ('d59f2hg7f5ky', 'resources', [{'id': 'shidianguji-chaoben', 'name': '识典古籍', 'url': 'https://www.shidianguji.com/book/CADAL02055522', 'metadata': {'edition': '抄本', 'version': 'v7', 'total_page': 623, 'paragraph_count': 866, 'check_type': '粗校'}, 'types': ['text', 'image']}, {'id': 'shidianguji-chunxishisanneifuxie', 'name': '识典古籍', 'url': 'https://www.shidianguji.com/book/CADAL02094366', 'metadata': {'edition': '淳熙十三年內府寫本', 'version': 'v5', 'total_page': 621, 'paragraph_count': 2991, 'check_type': 'AI整理'}, 'types': ['text', 'image']}])
+      ('d59f2hg7f5ky', 'period_upper', 'song')
+      ('d59f2hg7f5ky', 'period_upper_basis', '撰人朝代作「宋」，歧而未決；諸解中最晚者為 song，無論何解皆不晚於此')
+  著錄移入 keeper  ×2
+      ('d59f2hg7f5ky', '欽定四庫全書總目', '《洪範政鑒》•十二卷')
+      ('d59f2hg7f5ky', '國史經籍志', '《洪範政鑒》十二卷')
+
+已併：d59f2hpxynlu <- d59f2hg7f5ky
+善後：著錄 2 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-053 work d59f2gj6g8hs <- ['d59f2prrteyp']
+== 逐欄 diff（keeper | d59f2prrteyp）==
+** ai_note            "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by | "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書書類著錄「呉氏（迂）書編大㫖」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].su
+** authors            [{"name": "吳迂", "role": "撰", "dynasty": "元", "entity_id": "hixhd2h9bgvr"}] | [{"name": "呉迂", "entity_id": "hixhd2h9bgvr", "name_basis": "2026-08-24 新建 entity `1jcf5151294q1` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。", "role": "撰"}]
+** description        {"text": "吳迂（元）撰。見著錄於《補遼金元藝文志》《元史藝文志》。其著錄之文，《補遼金元藝文志》作「元吳迂書編大旨」。", "sources": ["補遼金元藝文志", "元史藝文志"]} | null
+** dynasty            "元" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2gj6g8hs" | "d59f2prrteyp"
+** indexed_by         [{"source": "補遼金元藝文志", "source_bid": "d59f2mp1zsox", "title_info": "吳迂書編大旨", "summary": "元吳迂書編大旨"}, {"source": "元史藝文志", "source_bid": "d59f2mp1zsoz",  | [{"source": "經義考", "source_bid": "d59f2mel8d1d", "title_info": "《書編大㫖》（呉迂）", "summary": "呉氏（迂）書編大㫖\n未見", "section": "書", "juan": "卷八十六", "page": "KR2n
+** period             "liao-jin-yuan" | null
+** period_basis       "據 authors[0].dynasty「元」" | null
+** period_upper       null | "qing"
+** period_upper_basis null | "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing"
+   revised_at         "2026-08-25" | "2026-08-25"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+** title              "書編大旨" | "書編大㫖"
+   type               "work" | "work"
+** updated_at         "2026-08-09T09:33:12+00:00" | "2026-08-24T00:00:00+00:00"
+
+== 將動之處 ==
+  分類成員行改指／刪（classification/zongmu/members/zm0020.json）  ×1
+      ('zm0020', 1098)
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f2prrteyp', 'period_upper', 'qing')
+      ('d59f2prrteyp', 'period_upper_basis', 'catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing')
+  著錄移入 keeper  ×1
+      ('d59f2prrteyp', '經義考', '《書編大㫖》（呉迂）')
+
+已併：d59f2gj6g8hs <- d59f2prrteyp
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-054 work d59fyf95ke0w <- ['d59f2hjy9o8y', 'd59f6epzoq2r', 'd59fs7qguosm']
+== 逐欄 diff（keeper | d59f2hjy9o8y | d59f6epzoq2r | d59fs7qguosm）==
+** ai_note            "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：q1bh7xmbw6f8zz7t、w1ykucsfxbdlgp20、i1u18rfxbjpruagx、d5o5aya0jq5nm2q2、fp6dmsw116img26u\nauto-split:存疑未 | "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（一卷），今據以補。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文 | null | "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：386v3jnc4f5ieysj"
+** authors            [{"name": "高翥", "role": "撰", "entity_id": "hixhd2h9bffm", "dynasty": "宋", "source": {"name": "中國古籍總目", "type": "url", "details": "http://data.library. | [{"name": "高九萬", "role": "撰", "dynasty": "趙宋", "entity_id": "hixhd2h9bffm", "dynasty_basis": "synonym:period=song"}] | [{"name": "高九萬", "role": "撰", "entity_id": "hixhd2h9bffm"}] | [{"name": "高翥", "role": "撰", "dynasty": "南宋", "source": {"name": "中國古籍總目", "type": "url", "details": "http://data.library.sh.cn/entity/person/i4kpdy1c
+** description        null | {"text": "高九萬（宋）撰。一卷。見著錄於《宋史藝文志補》。其著錄之文，《宋史藝文志補》作「菊礀小集一卷」。本書惟《宋史藝文志補》一志著錄，別無他證。別集之屬，所收為其人之詩文。", "sources": ["宋史藝文志補"]} | {"text": "高九萬撰。一卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「高九萬菊磵小集」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]} | null
+** dynasty            "宋" | null | null | "南宋"
+** dynasty_basis      "author_propagation" | null | null | "author_propagation:authors 已判「南宋」"
+** id                 "d59fyf95ke0w" | "d59f2hjy9o8y" | "d59f6epzoq2r" | "d59fs7qguosm"
+** indexed_by         [{"source": "中國古籍總目", "source_bid": "d59frnrt4lxc", "title_info": "菊磵小集一卷", "author_info": "宋高翥撰", "section": "集部/別集類/宋代之屬", "summary": "共 5 個版本：宋四十三家 | [{"source": "宋史藝文志補", "source_bid": "d59f2mp38qv4", "title_info": "菊礀小集一卷", "summary": "菊礀小集一卷\n高九萬撰。"}] | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "高九萬菊磵小集", "summary": "高九萬菊磵小集"}] | [{"source": "中國古籍總目", "source_bid": "d59frnrt4lxc", "title_info": "菊澗小集一卷", "author_info": "宋高翥撰", "section": "集部/總集類/叢編之屬/分體", "summary": "共 1 個版本：（上
+** juan_count         null | {"number": 1} | {"number": 1} | null
+** measure_info       null | "一卷" | "一卷" | null
+** measures           null | [{"unit": "卷", "number": 1}] | [{"unit": "卷", "number": 1}] | null
+   period             "song" | "song" | "song" | "song"
+** period_basis       "據 authors[0].dynasty「宋」" | "撰人朝代作「宋」，歧（劉宋｜趙宋）；而其書見《宋史藝文志補》——清人補宋史藝文志，專收宋人著述，劉宋之書無由入之。以庫中自驗：該志已定 period 者 96.0% 為 song，其撰人明標「南朝宋」者僅 2 條而趙宋 543 條。本條不兼繫宋前之志（所繫：宋史藝文志補），雙重證據成立，故判趙宋。 | "據撰人 高九萬（hixhd2h9bm7o） 之 period（song）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）" | "據 authors[0].dynasty「宋」"
+** period_upper       null | null | "qing" | null
+** period_upper_basis null | null | "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜" | null
+** related_works      null | null | [{"id": "d59fyf95ke0w", "relation": "related", "note": "晋升前去重复核（集部）：与正式库该条題名／作者相近，未能確認同書，另立互鏈。"}] | [{"id": "d59fyf95ke0w", "relation": "related", "note": "晋升前去重复核（集部）：与正式库该条題名／作者相近，未能確認同書，另立互鏈。"}]
+** revised_at         "2026-10-19" | "2026-08-25" | "2026-10-07" | "2026-10-08"
+** revision           "1.0.0" | "1.0.0" | "1.1.0" | "1.0.0"
+   schema_version     1 | 1 | 1 | 1
+** title              "菊磵小集" | "菊礀小集" | "菊磵小集" | "菊澗小集"
+   type               "work" | "work" | "work" | "work"
+** updated_at         null | "2026-08-24T10:25:13.960918+00:00" | null | null
+
+== 將動之處 ==
+  **分類（zongmu）：被併者 d59f6epzoq2r 在 zm0666，keeper 在 zm0669——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  **分類（zongmu）：被併者 d59fs7qguosm 在 zm0679，keeper 在 zm0669——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×4
+      ('d59f2hjy9o8y', 'period_basis', '據 authors[0].dynasty「宋」', '撰人朝代作「宋」，歧（劉宋｜趙宋）；而其書見《宋史藝文志補》——清人補宋史藝文志，專收宋人著述，劉宋之書無由入之。以庫中自驗：該志已定 period 者 96.0% 為 song，其撰人明標「南朝宋」者僅 2 條而趙宋 543 條。本條不兼繫宋前之志（所繫：宋史藝文志補），雙重證據成立，故判趙宋。（2026-08-24 A4）')
+      ('d59f6epzoq2r', 'period_basis', '據 authors[0].dynasty「宋」', '據撰人 高九萬（hixhd2h9bm7o） 之 period（song）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）')
+      ('d59fs7qguosm', 'dynasty', '宋', '南宋')
+      ('d59fs7qguosm', 'dynasty_basis', 'author_propagation', 'author_propagation:authors 已判「南宋」')
+  Book.work_id 改指 keeper  ×4
+      ('98y4jngbgg', 'd59f6epzoq2r')
+      ('98y4k4mdc3', 'd59f6epzoq2r')
+      ('98y4k4mdc4', 'd59f6epzoq2r')
+      ('98xqnn5ipz', 'd59fs7qguosm')
+  分類成員行改指／刪（classification/zongmu/members/zm0666.json）  ×1
+      ('zm0666', 7822)
+  分類成員行改指／刪（classification/zongmu/members/zm0679.json）  ×1
+      ('zm0679', 1318)
+  欄位搬遷（keeper 原無）  ×5
+      ('d59f2hjy9o8y', 'measures', [{'unit': '卷', 'number': 1}])
+      ('d59f2hjy9o8y', 'measure_info', '一卷')
+      ('d59f2hjy9o8y', 'juan_count', {'number': 1})
+      ('d59f6epzoq2r', 'period_upper', 'qing')
+      ('d59f6epzoq2r', 'period_upper_basis', 'catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜')
+  著錄移入 keeper  ×3
+      ('d59f2hjy9o8y', '宋史藝文志補', '菊礀小集一卷')
+      ('d59f6epzoq2r', '千頃堂書目', '高九萬菊磵小集')
+      ('d59fs7qguosm', '中國古籍總目', '菊澗小集一卷')
+
+已併：d59fyf95ke0w <- d59f2hjy9o8y,d59f6epzoq2r,d59fs7qguosm
+善後：著錄 3 節、他條關係 0 條記錄、存儲側引用改指 4 條記錄、分類檔 2、刪檔 3
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-059 work d59f9ux5zy11 <- ['d59f27vksz5t']
+== 逐欄 diff（keeper | d59f27vksz5t）==
+** ai_note            "2026-09-06 《補晉書藝文志》（秦榮光）整理：據《補晉書藝文志》（秦榮光撰）新建。原文「簡文帝　簡文談疏六卷」。新建之由：庫中同題 1 條而時代皆不合（庫作簡文·南朝梁），本志繫晉，非一書。　撰人自考證文首句提取（A）" | "2026-08-24 J6 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——
+** authors            [{"name": "簡文帝", "role": "撰", "dynasty": "晉", "entity_id": "hixhd2h9bny4"}] | [{"name": "簡文", "role": "撰", "dynasty": "南朝梁", "entity_id": "hixhd2h9bny4"}]
+** description        null | {"text": "諸志不著撰人。六卷。見著錄於《隋書經籍志》《補晋書藝文志》。《補晋書藝文志》列於丙部子録·道家類。其著錄之文，《補晋書藝文志》作「簡文談疏六卷 簡文帝撰,謹按見《隋志》」。", "sources": ["隋書經籍志", "補晋書藝文志"]}
+   dynasty            "晉" | "晉"
+** dynasty_basis      null | "period_fallback:jin→晉"
+** emendated_by       null | [{"source": "隋書經籍志考證", "source_bid": "d59f2mp0flz6", "title_info": "《簡文談疏》六卷", "summary": "簡文談疏六卷 晉簡文帝撰\n《晉書》本紀:簡文皇帝諱昱,字道萬,元帝之少子也。幼而岐\n疑,為元帝所愛。及長,清虚寡欲
+** id                 "d59f9ux5zy11" | "d59f27vksz5t"
+** indexed_by         [{"source": "補晉書藝文志（秦榮光）", "source_bid": "d59f5ilweo6h", "title_info": "簡文談疏六卷", "summary": "簡文帝撰。", "author_info": "見子部·道家類"}] | [{"source": "隋書經籍志", "source_bid": "d59f28nmafwh", "title_info": "《簡文談疏》六卷", "summary": "《簡文談疏》六卷晉簡文帝撰。"}, {"source": "補晉書藝文志（丁國鈞）", "source_bid": "d5
+** juan_count         null | {"number": 6}
+   measure_info       "六卷" | "六卷"
+** measures           null | [{"unit": "卷", "number": 6}]
+   period             "jin" | "jin"
+** period_basis       "2026-09-06 《補晉書藝文志》（秦榮光）整理：《補晉書藝文志》（秦榮光）著錄。晉（265-420）。" | "撰人朝代闕，而所著錄之志唯一且為斷代志（其所著錄者九成以上是該代之作，此比例以庫中資料自驗），故據之：補晋書藝文志"
+** revised_at         "2026-09-06" | "2026-08-24"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "簡文談疏" | "簡文談疏"
+   type               "work" | "work"
+** updated_at         null | "2026-08-08T13:35:31+00:00"
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f27vksz5t', 'period_basis', '2026-09-06 《補晉書藝文志》（秦榮光）整理：《補晉書藝文志》（秦榮光）著錄。晉（265-420）。', '撰人朝代闕，而所著錄之志唯一且為斷代志（其所著錄者九成以上是該代之作，此比例以庫中資料自驗），故據之：補晋書藝文志')
+  分類成員行改指／刪（classification/zongmu/members/zm0508.json）  ×1
+      ('zm0508', 392)
+  欄位搬遷（keeper 原無）  ×4
+      ('d59f27vksz5t', 'juan_count', {'number': 6})
+      ('d59f27vksz5t', 'emendated_by', [{'source': '隋書經籍志考證', 'source_bid': 'd59f2mp0flz6', 'title_info': '《簡文談疏》六卷', 'summary': '簡文談疏六卷 晉簡文帝撰\n《晉書》本紀:簡文皇帝諱昱,字道萬,元帝之少子也。幼而岐\n疑,為元帝所愛。及長,清虚寡欲,尤善玄言。永昌元年,元\n帝封為琅邪王。咸和元年,徙封會稽王、海西公。太和六年,\n桓温圖廢立,以皇太后詔奉迎。咸安元年冬十一月己酉,即\n皇帝位,二年秋七月乙未崩,年五十三。廟號太宗。帝雖神\n識恬暢,而無濟世大略,故謝安稱為惠帝之流,清談差勝耳。\n沙門支道林言“會稽有遠體而無遠神”。謝靈運迹其行事,\n亦以為郝、獻之輩云。\n案晃載之《續談助》抄《殷芸小說》引簡文談疏一事。又《世\n說新語》諸篇述簡文語及稱撫軍、稱會稽王者特多,似皆本\n之是書。 氏《全梁文编》以《談疏》六卷為梁簡文帝撰,蓋誤寫入也。'}])
+      ('d59f27vksz5t', 'measures', [{'unit': '卷', 'number': 6}])
+      ('d59f27vksz5t', 'dynasty_basis', 'period_fallback:jin→晉')
+  著錄移入 keeper  ×5
+      ('d59f27vksz5t', '隋書經籍志', '《簡文談疏》六卷')
+      ('d59f27vksz5t', '補晉書藝文志（丁國鈞）', '簡文談疏六卷')
+      ('d59f27vksz5t', '補梁書藝文志', '談疏六卷')
+      ('d59f27vksz5t', '補晉書藝文志（文廷式）', '簡文談疏六卷')
+      ('d59f27vksz5t', '補晉書藝文志（黃逢元）', '簡文談疏六卷')
+
+已併：d59f9ux5zy11 <- d59f27vksz5t
+善後：著錄 5 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-060 work d59f2njbpddv <- ['d59f6eo9vqiw']
+== 逐欄 diff（keeper | d59f6eo9vqiw）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-22 B3 併池（藏本條重出）：1evkq428y3bwg 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Wo | "同名異書：庫內已有同題「刑部事宜」而撰人各異（劉文徵(明)），本條撰人「劉文徴」與之不合，依《千頃堂書目》著錄逕行新建。"
+** authors            [{"name": "劉文徵", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bghz"}] | [{"name": "劉文徴", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bghz"}]
+** description        {"text": "劉文徵（明）撰。十卷。見著錄於《明史藝文志》《國史經籍志》。其著錄之文，《明史藝文志》作「劉文徵《刑部事宜》十卷」。《明史藝文志》清張廷玉等修；《國史經籍志》明焦竑撰——本書之目賴之以存。", "sources": ["明史藝文志", "國史經籍志"]} | {"text": "劉文徴（明）撰。十卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「劉文徴刑部事宜」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]}
+   dynasty            "明" | "明"
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2njbpddv" | "d59f6eo9vqiw"
+** indexed_by         [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "刘文徵《刑部事宜》十卷", "summary": "劉文徵《刑部事宜》十卷"}, {"source": "國史經籍志", "source_bid": "d59f2nl4 | [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "劉文徴刑部事宜", "author_info": "萬厯", "summary": "劉文徴刑部事宜⟨萬厯⟩"}]
+   juan_count         {"number": 10} | {"number": 10}
+   measure_info       "十卷" | "十卷"
+   measures           [{"unit": "卷", "number": 10}] | [{"unit": "卷", "number": 10}]
+   period             "ming" | "ming"
+** period_basis       "據 authors[0].dynasty「明」" | "小注載年號／朝代詞（「萬厯」等），據此定代；《千頃堂書目》為唯一著錄源，屬單一著錄志書逕定代之例"
+** period_upper       "ming" | null
+** period_upper_basis "edition_bound：所掛版本中最早者為「明藍格鈔本」——版本之年不早於成書之年，故不晚於 ming" | null
+** related_works      null | [{"id": "d59fyv738mpu", "relation": "related", "note": "史部E另立（anon）：總目記錄「刑部事宜」（無作者）與既有 Work 題名相同或相近而不可證同書（记录无作者、目标 Work 有作者且卷数不符／缺：不能证同作者，默认另立＋related
+** revised_at         "2026-08-25" | "2026-09-01"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+   title              "刑部事宜" | "刑部事宜"
+   type               "work" | "work"
+** updated_at         "2026-08-23T06:04:29.719957+00:00" | null
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×1
+      ('d59f6eo9vqiw', 'period_basis', '據 authors[0].dynasty「明」', '小注載年號／朝代詞（「萬厯」等），據此定代；《千頃堂書目》為唯一著錄源，屬單一著錄志書逕定代之例')
+  related_works add（本 keeper）  ×1
+      ('d59f2njbpddv', {'id': 'd59fyv738mpu', 'relation': 'related', 'note': '史部E另立（anon）：總目記錄「刑部事宜」（無作者）與既有 Work 題名相同或相近而不可證同書（记录无作者、目标 Work 有作者且卷数不符／缺：不能证同作者，默认另立＋related），判為不同著作（不並）；互為相關。', 'from': 'd59f6eo9vqiw'})
+  分類成員行改指／刪（classification/zongmu/members/zm0225.json）  ×1
+      ('zm0225', 238)
+  著錄移入 keeper  ×1
+      ('d59f6eo9vqiw', '千頃堂書目', '劉文徴刑部事宜')
+
+已併：d59f2njbpddv <- d59f6eo9vqiw
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-061 work d59f6enbjmrk <- ['d59f2ne01nup']
+== 逐欄 diff（keeper | d59f2ne01nup）==
+** additional_titles  null | ["通鑒綱目發微"]
+** ai_note            null | "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引
+** authors            [{"name": "王峯", "role": "撰", "entity_id": "hixhd2h9bgh0"}] | [{"name": "王峰", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9bgh0"}]
+** description        {"text": "王峯撰。三十卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「王峯通鑑綱目發㣲」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]} | {"text": "王峰（明）撰。三十卷。見著錄於《明史藝文志》。本書惟《明史藝文志》一志著錄，別無他證。《明史藝文志》清張廷玉等修——本書之目賴之以存。", "sources": ["明史藝文志"]}
+** dynasty            null | "明"
+** dynasty_basis      null | "author_propagation"
+** id                 "d59f6enbjmrk" | "d59f2ne01nup"
+** indexed_by         [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "王峯通鑑綱目發㣲", "author_info": "南直□通州人", "summary": "王峯通鑑綱目發㣲⟨南直□通州人⟩"}] | [{"source": "明史藝文志", "source_bid": "d59f2mox0000", "title_info": "王峰《通鉴纲目发微》三十卷", "summary": "王峯《通鑒綱目發微》三十卷"}]
+   juan_count         {"number": 30} | {"number": 30}
+   measure_info       "三十卷" | "三十卷"
+   measures           [{"unit": "卷", "number": 30}] | [{"unit": "卷", "number": 30}]
+** period             null | "ming"
+** period_basis       null | "據 authors[0].dynasty「明」"
+** period_upper       "qing" | null
+** period_upper_basis "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜" | null
+** revised_at         "2026-09-01" | "2026-08-25"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+** title              "通鑑綱目發㣲" | "通鑑綱目發微"
+   type               "work" | "work"
+** updated_at         null | "2026-08-09T10:41:40+00:00"
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f6enbjmrk',)
+  分類成員行改指／刪（classification/zongmu/members/zm0198.json）  ×1
+      ('zm0198', 50)
+  欄位搬遷（keeper 原無）  ×4
+      ('d59f2ne01nup', 'period', 'ming')
+      ('d59f2ne01nup', 'period_basis', '據 authors[0].dynasty「明」')
+      ('d59f2ne01nup', 'dynasty', '明')
+      ('d59f2ne01nup', 'dynasty_basis', 'author_propagation')
+  著錄移入 keeper  ×1
+      ('d59f2ne01nup', '明史藝文志', '王峰《通鉴纲目发微》三十卷')
+
+已併：d59f6enbjmrk <- d59f2ne01nup
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== 3b-062 work d59f2ggpsu81 <- ['d59f2glfap6q']
+== 逐欄 diff（keeper | d59f2glfap6q）==
+** ai_note            "同名異書：已有 Work 作者為 [('優曇', '元')]，本條作者 普度（元），另建 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數 | "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by
+** authors            [{"name": "普度", "role": "撰", "dynasty": "元", "entity_id": "hixhd2h9bh1z"}] | [{"name": "優曇", "role": "撰", "dynasty": "元", "entity_id": "hixhd2h9bh1z"}]
+** description        {"text": "普度（元）撰。十卷。見著錄於《元史藝文志》。其著錄之文，《元史藝文志》作「元普度（字優曇）蓮宗寶鑑十卷」。本書惟《元史藝文志》一志著錄，別無他證。", "sources": ["元史藝文志"]} | {"text": "優曇（元）撰。十卷。見著錄於《補遼金元藝文志》。其著錄之文，《補遼金元藝文志》作「元優曇（丹陽僧）蓮宗寶鑑十卷」。本書惟《補遼金元藝文志》一志著錄，別無他證。", "sources": ["補遼金元藝文志"]}
+   dynasty            "元" | "元"
+   dynasty_basis      "author_propagation" | "author_propagation"
+** id                 "d59f2ggpsu81" | "d59f2glfap6q"
+** indexed_by         [{"source": "元史藝文志", "source_bid": "d59f2mp1zsoz", "title_info": "普度蓮宗寶鑑十卷", "author_info": "字優曇", "summary": "元普度（字優曇）蓮宗寶鑑十卷"}] | [{"source": "補遼金元藝文志", "source_bid": "d59f2mp1zsox", "title_info": "優曇蓮宗寶鑑十卷", "author_info": "丹陽僧", "summary": "元優曇（丹陽僧）蓮宗寶鑑十卷"}, {"source": "元史藝文志",
+   juan_count         {"number": 10} | {"number": 10}
+   measure_info       "十卷" | "十卷"
+   measures           [{"unit": "卷", "number": 10}] | [{"unit": "卷", "number": 10}]
+   period             "liao-jin-yuan" | "liao-jin-yuan"
+   period_basis       "據 authors[0].dynasty「元」" | "據 authors[0].dynasty「元」"
+** resource_groups    {"naikaku-3610996": {"label": "內閣文庫藏本：明刊本（310-0146，2冊）"}, "waseda-bunko19_f0223": {"label": "早稲田藏本：[杭州] : 瑪瑙寺経房, 光緒5 [1879] [ ] : 5 [1879]"}} | null
+** resources          [{"name": "维基共享资源", "types": ["image"], "id": "commons", "url": "https://commons.wikimedia.org/wiki/File:CNTS-00047983553_%E8%93%AE%E5%AE%97%E5%AF%B6% | null
+** revised_at         "2026-10-26" | "2026-08-31"
+** revision           "1.2.0" | "1.0.1"
+   schema_version     1 | 1
+   title              "蓮宗寶鑑" | "蓮宗寶鑑"
+   type               "work" | "work"
+   updated_at         "2026-08-09T09:33:12+00:00" | "2026-08-09T09:33:12+00:00"
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f2ggpsu81',)
+  著錄移入 keeper  ×2
+      ('d59f2glfap6q', '補遼金元藝文志', '優曇蓮宗寶鑑十卷')
+      ('d59f2glfap6q', '元史藝文志', '普度蓮宗寶鑑十卷')
+
+已併：d59f2ggpsu81 <- d59f2glfap6q
+善後：著錄 2 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+promotions 文件改动： 2

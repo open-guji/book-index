@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/m18xhkt6lee3nsf8"
-      }
+      },
+      "entity_id": "hixicld4dsve"
     },
     {
       "name": "嗣端",
@@ -35,7 +36,29 @@
       "summary": "共 1 個版本：明萬曆二十年崑山顧紹芳等刻（臺灣圖書館、北京市法源寺）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：w0eh7gnbd72xaj6x\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）\n晋升前審計補錄：據 indexed_by.author_info 補入 嗣端（錄入時漏）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：w0eh7gnbd72xaj6x\nE6 第 427 批新建（hold 清零：E；原 hold 原因：-）\n晋升前審計補錄：據 indexed_by.author_info 補入 嗣端（錄入時漏）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "ndl",
+      "group": "ndl-2532100",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2532100",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2532100",
+        "edition": "貞治7 [1368]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ndl-2532100": {
+      "label": "NDL藏本：貞治7 [1368]"
+    }
+  }
 }

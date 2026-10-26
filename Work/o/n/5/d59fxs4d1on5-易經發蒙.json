@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/gj/entity/person/gstng0xsdgm163u3"
-      }
+      },
+      "entity_id": "hixicmxr0ojg"
     }
   ],
   "dynasty": "清",
@@ -29,7 +30,32 @@
       "summary": "共 2 個版本：清乾隆五十六年繹思堂刻本（上海圖書館）；清康熙間培桂齋刻本（南京圖書館、湖北省圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：8qwsk0wis6nx0rur、5vpoa81wl2cfe2he\nE6 第 301 批新建（hold 清零：G527-M-new；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：8qwsk0wis6nx0rur、5vpoa81wl2cfe2he\nE6 第 301 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073862",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073862",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073862",
+        "request_no": "２７３－０１０６",
+        "edition": "刊本::清乾隆:560000:培桂斎",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3966510/manifest.json",
+        "extent": "10冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1073862": {
+      "label": "內閣文庫藏本：清乾隆56年刊本 培桂斎（273-0106，10冊）"
+    }
+  }
 }

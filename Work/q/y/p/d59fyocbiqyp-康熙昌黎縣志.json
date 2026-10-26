@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/ypyxd8botjnp0iwa"
-      }
+      },
+      "entity_id": "hixicmxr0oim"
     },
     {
       "name": "高培",
@@ -40,8 +41,8 @@
       "summary": "共 1 個版本：清康熙十四年刻本（天津圖書館、湖北省圖書館、國家圖書館、南京圖書館、上海圖書館、中國科學院圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：7r11wj4ii4fzhcgv\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.1.0",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：7r11wj4ii4fzhcgv\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A11-去重方案方志-并 併條（rule=去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并）：併 d59f2n6ja7sy《昌黎縣志》 入本條。方志同修次重出：《[康熙]昌黎縣志》王日翼修、高培纂（中國古籍總目） ← 《昌黎縣志》王曰翼修（无著录（故宫等））。脚本初判 A同修次·同人(近形)·同卷·年号同。逐簇核对：王曰翼即王日翼（近形），康熙十三／十四年刊，八卷，同修次。",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -61,11 +62,68 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4759185/manifest.json",
         "extent": "3冊"
       }
+    },
+    {
+      "id": "commons",
+      "name": "维基共享资源",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC403-312001057700-56692_%E6%98%8C%E9%BB%8E%E7%B8%A3%E8%AA%8C_%E6%B8%85%E5%BA%B7%E7%86%9914%E5%B9%B4%281675%29_%E5%8D%B7%E4%B8%80.pdf",
+      "types": [
+        "image"
+      ],
+      "root_type": "catalog",
+      "metadata": {
+        "format": "PDF",
+        "edition": "刻本",
+        "year": "清康熙14年[1675]",
+        "note": "本链接为扫描册 卷一；不代表全书齐备。"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001057700",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001057700",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001057700",
+        "edition": ""
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1073359": {
       "label": "內閣文庫藏本：清康煕14年刊本（序刊）（史162-0009，3冊）"
     }
-  }
+  },
+  "juan_count": {
+    "number": 8
+  },
+  "measures": [
+    {
+      "unit": "卷",
+      "number": 8
+    }
+  ],
+  "measure_info": "八卷",
+  "additional_titles": [
+    "昌黎縣志"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n6ja7sy",
+      "title": "昌黎縣志",
+      "at": "2026-10-26T11:56:51Z",
+      "by": "A11-去重方案方志-并",
+      "rule": "去重方案研-方志：同一修次重出（A 同人／B 同年同卷，逐簇子 agent 核）B 档证据并",
+      "why": "方志同修次重出：《[康熙]昌黎縣志》王日翼修、高培纂（中國古籍總目） ← 《昌黎縣志》王曰翼修（无著录（故宫等））。脚本初判 A同修次·同人(近形)·同卷·年号同。逐簇核对：王曰翼即王日翼（近形），康熙十三／十四年刊，八卷，同修次。",
+      "author": "王曰翼"
+    }
+  ],
+  "merged_from": [
+    "d59f2n6ja7sy"
+  ]
 }

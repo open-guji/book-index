@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故善007809-007837），無同名 Work 故新建。 | 從 1evkaagr0lczk 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故善007809-007837），無同名 Work 故新建。 | 從 1evkaagr0lczk 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "juan_count": {
     "number": 29
   },
@@ -34,8 +34,8 @@
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -89,6 +89,41 @@
         "nlc_fid": "411999016536",
         "edition": "明萬曆28年[1600]"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100385536",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100385536",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100385536",
+        "holder": "京大図",
+        "edition": "刊 万暦５",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00013352/manifest.json"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084074",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084074",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084074",
+        "request_no": "３０４－０２８７",
+        "edition": "刊本::明万暦:280000:籍山書院",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4774070/manifest.json",
+        "extent": "10冊"
+      }
     }
   ],
   "resource_groups": {
@@ -100,6 +135,12 @@
     },
     "nlc-411999016536": {
       "label": "國圖藏本：明萬曆28年[1600]"
+    },
+    "kokusho-100385536": {
+      "label": "國書·京大図藏刊 万暦５"
+    },
+    "naikaku-1084074": {
+      "label": "內閣文庫藏本：明万暦28年刊本 籍山書院（304-0287，10冊）"
     }
   }
 }
