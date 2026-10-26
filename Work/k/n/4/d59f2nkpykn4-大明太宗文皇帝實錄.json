@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 18 取自 `measure_info`「十八冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 18 取自 `measure_info`「十八冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案 新-异人登记-史：同题首位责任者不同，经逐组核为同书（误字／异体／字号谥号／占位名／题名误切／旧题与实撰／序者刊者校者误题为撰者／官修书署名不同）者按 3a B 档并）：併 d59fyt785sld《大明太宗文皇帝實錄》 入本條。《大明太宗文皇帝實錄》（張輔／楊溥）：同一部官修實錄，總裁纂修署名不同",
   "measures": [
     {
       "unit": "冊",
@@ -30,7 +30,7 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resources": [
     {
@@ -56,11 +56,88 @@
         "call_number": "202.3 01949",
         "edition": "明內府朱格寫本"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999010230",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999010230",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999010230",
+        "edition": "明[1368-1644]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999022496",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999022496",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999022496",
+        "edition": "明[1368-1644]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-CBM0100",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=CBM0100",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "CBM0100",
+        "edition": "明[1368-1644]"
+      }
     }
   ],
   "resource_groups": {
     "ncltw-01949": {
       "label": "臺灣國家圖書館藏本：明內府朱格寫本"
     }
-  }
+  },
+  "indexed_by": [
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "大明太宗文皇帝實錄不分卷",
+      "author_info": "明張輔、楊士奇等纂修",
+      "section": "史部/編年類/斷代之屬",
+      "summary": "共 7 個版本：明瑞香樓抄本（湖南省社會科學院圖書館）；明抄本（北京大學圖書館、國家圖書館、上海圖書館）；明抄本（國家圖書館）；明抄本配抄本（臺灣圖書館）；明内府寫本（臺灣圖書館）；明抄本（北京大學圖書館、南京圖書館、山東省圖書館、國家圖書館）；江蘇省立國學圖書館抄本（南京圖書館）"
+    }
+  ],
+  "related_works": [
+    {
+      "id": "d59fxr3xptds",
+      "relation": "related",
+      "note": "史部E存疑另立：總目記錄「大明太宗文皇帝實錄」（張輔、楊士奇）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（缺卷数（记录卷数非单一N卷或目标无卷数））），按嚴口徑另立；互為相關，待並條複核。"
+    }
+  ],
+  "merged_in": [
+    {
+      "id": "d59fyt785sld",
+      "title": "大明太宗文皇帝實錄",
+      "at": "2026-10-26T23:14:08Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案 新-异人登记-史：同题首位责任者不同，经逐组核为同书（误字／异体／字号谥号／占位名／题名误切／旧题与实撰／序者刊者校者误题为撰者／官修书署名不同）者按 3a B 档并",
+      "why": "《大明太宗文皇帝實錄》（張輔／楊溥）：同一部官修實錄，總裁纂修署名不同",
+      "author": "張輔、楊士奇",
+      "title_info": "大明太宗文皇帝實錄不分卷"
+    }
+  ],
+  "merged_from": [
+    "d59fyt785sld"
+  ]
 }
