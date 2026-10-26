@@ -21,6 +21,20 @@
       "title_info": "《國朝文纂》五十卷",
       "summary": "《國朝文纂》五十卷（張士兀）",
       "author_info": "張士兀"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "國朝文纂五十卷",
+      "author_info": "明張士瀹輯",
+      "section": "集部/總集類/斷代之屬",
+      "summary": "共 1 個版本：明活字印本（上海圖書館、國家圖書館）"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "張士瀹明朝文纂",
+      "summary": "張士瀹明朝文纂"
     }
   ],
   "description": {
@@ -29,7 +43,7 @@
       "國史經籍志"
     ]
   },
-  "ai_note": "missing_reason: 作者冲突 work=王稌 vs anno=張士兀；3c 責任者名勘誤（2026-10-25）：authors[0]「張士兀」→「張士瀹」",
+  "ai_note": "missing_reason: 作者冲突 work=王稌 vs anno=張士兀；3c 責任者名勘誤（2026-10-25）：authors[0]「張士兀」→「張士瀹」\n\n2026-10-26 A11-去重方案3a 併條（rule=新-异人登记-集：同题首位异人组逐组复核，误字／乱码人名、序刊注者误作撰者、合撰分挂、同人异 Entity 者按同书并；独立子代理逐对核验）：併 d59fyf9dok5c《國朝文纂》 入本條。張士瀹《國朝文纂》五十卷，同撰人同卷數（明活字本為其版本）",
   "id": "d59f2ptc04qq",
   "measures": [
     {
@@ -41,13 +55,51 @@
   "updated_at": "2026-04-29T16:51:33-07:00",
   "period_upper": "ming",
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming",
-  "revision": "1.0.1",
-  "revised_at": "2026-10-25",
-  "related_works": [
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "dynasty": "明",
+  "dynasty_basis": "author_propagation",
+  "period": "ming",
+  "period_basis": "據 authors[0].dynasty「明」",
+  "resources": [
+    {
+      "id": "nlc",
+      "group": "nlc-411999029386",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999029386",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999029386",
+        "edition": "明[1368-1644]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-411999029386": {
+      "label": "國圖藏本：明[1368-1644]"
+    }
+  },
+  "merged_from": [
+    "d59f6ei14vep",
+    "d59fyf9dok5c"
+  ],
+  "additional_titles": [
+    "明朝文纂"
+  ],
+  "merged_in": [
     {
       "id": "d59fyf9dok5c",
-      "relation": "related",
-      "note": "晋升前去重复核（集部）：与正式库该条題名／作者相近，未能確認同書，另立互鏈。"
+      "title": "國朝文纂",
+      "at": "2026-10-26T23:28:52Z",
+      "by": "A11-去重方案3a",
+      "rule": "新-异人登记-集：同题首位异人组逐组复核，误字／乱码人名、序刊注者误作撰者、合撰分挂、同人异 Entity 者按同书并；独立子代理逐对核验",
+      "why": "張士瀹《國朝文纂》五十卷，同撰人同卷數（明活字本為其版本）",
+      "author": "張士瀹",
+      "title_info": "國朝文纂五十卷；張士瀹明朝文纂"
     }
   ]
 }
