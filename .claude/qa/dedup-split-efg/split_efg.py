@@ -13,6 +13,7 @@
 - 无 series 的记录（总目「××本」子目著录，0 馆藏）不进任何组，从 sources 去掉、id 记在保留 Book 的 ai_note；带馆藏者整条存疑。
 - provenance 按 item id 分回；分不干净整条存疑。
 - 目标 Collection（含同题同版本名、文淵閣／摛藻堂同物两套）已有同 Work 的别的 Book：整条存疑（拆后要另判并）。
+- ai_note 里有人工终判（hold80 等）：整条存疑，不推翻人工判定。
 - 有源记录所属丛书实例未建 Collection、或有已挂 Collection 无记录对应：整条存疑。
 - provenance 最多的一组保留原 id（revision 升 major），其余铸新 id（MachineID 2035，1.0.0）。
 - 新档文件名只用题名。
@@ -133,6 +134,8 @@ def main():
 
         def H(why):
             hold.append({'book': bid, 'lane': lane, 'why': why, 'title': b.get('title')}); stat['存疑：' + why] += 1
+        if re.search(r'[终終]判', b.get('ai_note') or ''):
+            H('有人工终判（如 hold80）'); continue
         ci = list(dict.fromkeys(live(x['id']) for x in b['contained_in']))
         if len(ci) < 2:
             stat['挂的 Collection 归一后 <2，不动'] += 1; continue
