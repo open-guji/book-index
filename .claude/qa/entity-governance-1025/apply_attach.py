@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """2.2 补挂：把已复核判 SAME 的作者位挂上现成人物 Entity（只设 authors[slot].entity_id，别的不动）。
     python3 apply_attach.py <attach-list.json> [--apply]   # 条目 {path,slot,name,entity_id,...}
-前提逐条重验：作者位名未变、尚无 entity_id、Entity 存在且非墓碑、记录非墓碑；不合者跳过。--out 写出实际挂上的清单。"""
+前提逐条重验：作者位名未变、尚无 entity_id、Entity 存在且非墓碑。--out 写出实际挂上的清单。"""
 import argparse, json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
@@ -17,7 +17,10 @@ for f in glob.glob(os.path.join(jio.ROOT, 'Entity', '*', '*', '*', '*.json')):
     if d.get('subtype') == 'people' and not d.get('merged_into'): live[d['id']] = 1
 done = skip = 0; applied = []
 for it in items:
-    d, fmt = jio.load(it['path'])
+    try:
+        d, fmt = jio.load(it['path'])
+    except FileNotFoundError:
+        skip += 1; print('跳过（文件已不在）', it['path']); continue
     aus = d.get('authors') or []
     au = aus[it['slot']] if it['slot'] < len(aus) and isinstance(aus[it['slot']], dict) else {}
     if au.get('name') != it['name'] or au.get('entity_id') or it['entity_id'] not in live or d.get('merged_into'):
