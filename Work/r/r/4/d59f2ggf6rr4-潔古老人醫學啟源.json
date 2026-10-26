@@ -26,6 +26,14 @@
       "edition": "影印上海圖書館藏明刻本",
       "volume": "第1019冊",
       "section": "子部 醫家類"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "新刊醫學啓源（醫學啟源）三卷",
+      "author_info": "金張元素撰",
+      "section": "子部/醫家類/綜論之屬",
+      "summary": "共 2 個版本：明嘉靖十一年安正堂刻本（中華醫學會上海分會圖書館、國家圖書館）；明刻本（上海圖書館）"
     }
   ],
   "juan_count": {
@@ -67,6 +75,21 @@
       ],
       "id": "wikisource",
       "url": "https://zh.wikisource.org/wiki/%E9%86%AB%E5%AD%B8%E5%95%9F%E6%BA%90"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999021142",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999021142",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999021142",
+        "edition": "明嘉靖十一年[1532]"
+      }
     }
   ],
   "description": {
@@ -76,12 +99,36 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "從 1evjr475yp98g 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 [ljy-round1: dynasty null→金; 據 author.dynasty 集合補「金」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjr475yp98g 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 [ljy-round1: dynasty null→金; 據 author.dynasty 集合補「金」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3a-3 併條（rule=去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并）：併 d59fxxon169s《新刊醫學啓源》 入本條。异题名同书（总目题名括注／其他题名互见）：《潔古老人醫學啟源》張元素／《新刊醫學啓源》張元素；依据：其他题名「醫學啟源」；两道子 agent 逐条复核：B古籍總目「新刊醫學啓源（醫學啟源）三卷」，同為金張元素撰三卷，即《潔古老人醫學啟源》",
   "updated_at": "2026-08-09T09:33:12+00:00",
   "period": "liao-jin-yuan",
   "period_basis": "據 authors[0].dynasty「金」",
   "dynasty": "金",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "nlc-411999021142": {
+      "label": "國圖藏本：明嘉靖十一年[1532]"
+    }
+  },
+  "additional_titles": [
+    "新刊醫學啓源",
+    "醫學啟源"
+  ],
+  "merged_in": [
+    {
+      "id": "d59fxxon169s",
+      "title": "新刊醫學啓源",
+      "at": "2026-10-26T14:16:39Z",
+      "by": "A11-去重方案3a-3",
+      "rule": "去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并",
+      "why": "异题名同书（总目题名括注／其他题名互见）：《潔古老人醫學啟源》張元素／《新刊醫學啓源》張元素；依据：其他题名「醫學啟源」；两道子 agent 逐条复核：B古籍總目「新刊醫學啓源（醫學啟源）三卷」，同為金張元素撰三卷，即《潔古老人醫學啟源》",
+      "author": "張元素",
+      "title_info": "新刊醫學啓源（醫學啟源）三卷"
+    }
+  ],
+  "merged_from": [
+    "d59fxxon169s"
+  ]
 }

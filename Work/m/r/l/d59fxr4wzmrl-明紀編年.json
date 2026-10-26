@@ -28,10 +28,18 @@
       "author_info": "明鍾惺撰;清王汝南補",
       "section": "史部/編年類/斷代之屬",
       "summary": "共 1 個版本：清順治十七年金閶擁萬堂刻本（國家圖書館、北京大學圖書館、上海圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "明季編年十二卷",
+      "author_info": "明鍾惺撰;清王汝南補",
+      "section": "史部/編年類/斷代之屬",
+      "summary": "共 1 個版本：清初刻本（吉林大學圖書館、國家圖書館、安徽省圖書館、北京大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5k3qaxncw4vddbfj\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.1.0",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5k3qaxncw4vddbfj\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A11-去重上图-并 併條（rule=去重细拆上图-并 B 档：总目同一 work＋题名归一同／异写＋首位责任者同一＋卷数朝代相容）：併 d59fxr4xavb4《明季編年》 入本條。上图藏书 work_uri jnnnafwv2vz0m6ll 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《明紀編年》鍾惺(明,-卷)／《明季編年》鍾惺(明,-卷)；紀／季音讹；同为十二卷，同撰者鍾惺",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "related_works": [
     {
@@ -58,11 +66,44 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4280498/manifest.json",
         "extent": "6冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999030951",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999030951",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999030951",
+        "edition": "清初[1644-1722]"
+      }
     }
   ],
   "resource_groups": {
     "naikaku-1068442": {
       "label": "內閣文庫藏本：清順治17年刊本（序刊）（284-0084，6冊）"
     }
-  }
+  },
+  "additional_titles": [
+    "明季編年"
+  ],
+  "merged_in": [
+    {
+      "id": "d59fxr4xavb4",
+      "title": "明季編年",
+      "at": "2026-10-26T14:57:15Z",
+      "by": "A11-去重上图-并",
+      "rule": "去重细拆上图-并 B 档：总目同一 work＋题名归一同／异写＋首位责任者同一＋卷数朝代相容",
+      "why": "上图藏书 work_uri jnnnafwv2vz0m6ll 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《明紀編年》鍾惺(明,-卷)／《明季編年》鍾惺(明,-卷)；紀／季音讹；同为十二卷，同撰者鍾惺",
+      "author": "鍾惺",
+      "title_info": "明季編年十二卷"
+    }
+  ],
+  "merged_from": [
+    "d59fxr4xavb4"
+  ]
 }

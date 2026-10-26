@@ -34,15 +34,15 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 12，與著錄原文（清史稿藝文志：「訒葊集古印存」）所載之 32 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 12，與著錄原文（清史稿藝文志：「訒葊集古印存」）所載之 32 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 B 档逐组复核并）：併 d59f2n1qnzeq《訒庵集古印存》 入本條。同题同首位责任者：《訒庵集古印存》汪啟淑(清,?卷,2版本)／《訒葊集古印存》汪啟淑(清,32卷,3版本)；B 档逐组复核判同一作品（flags=role_diff）",
   "description": {
-    "text": "汪啟淑（清）撰。三十二卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「訒葊集古印存三十二卷」。本書惟《清史稿藝文志》一志著錄，別無他證。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
+    "text": "汪啟淑（清）撰。三十二卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「訒葊集古印存三十二卷」。",
     "sources": [
       "清史稿藝文志"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-16",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -129,6 +129,51 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4763264/manifest.json",
         "extent": "32冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999008294",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999008294",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999008294",
+        "edition": "清乾隆25年[1760]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999008292",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999008292",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999008292",
+        "edition": "清乾隆25年[1760]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999008293",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999008293",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999008293",
+        "edition": "清乾隆25年[1760]"
+      }
     }
   ],
   "resource_groups": {
@@ -147,5 +192,24 @@
     "naikaku-1078419": {
       "label": "內閣文庫藏本：清乾隆25年刊本（序刊）（子254-0003，32冊）"
     }
-  }
+  },
+  "original_title": "訒集古印存",
+  "additional_titles": [
+    "訒庵集古印存",
+    "訒�集古印存"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2n1qnzeq",
+      "title": "訒庵集古印存",
+      "at": "2026-10-26T14:50:31Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 B 档逐组复核并",
+      "why": "同题同首位责任者：《訒庵集古印存》汪啟淑(清,?卷,2版本)／《訒葊集古印存》汪啟淑(清,32卷,3版本)；B 档逐组复核判同一作品（flags=role_diff）",
+      "author": "汪啟淑"
+    }
+  ],
+  "merged_from": [
+    "d59f2n1qnzeq"
+  ]
 }

@@ -29,7 +29,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
   "juan_count": {
     "number": 6
   },
@@ -103,6 +103,57 @@
         "holder": "府中之島図石崎",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300097115/manifest"
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN1749472279",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN1749472279",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN1749472279",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN1749472279/manifest",
+        "shelfmark": "Slg. Unschuld 8141",
+        "edition": "s.l. End of Qing era"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN1752081730",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN1752081730",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN1752081730",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN1752081730/manifest",
+        "shelfmark": "Slg. Unschuld 8209",
+        "edition": "s.l. 1920"
+      }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN1931502897",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN1931502897",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN1931502897",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN1931502897/manifest",
+        "shelfmark": "Slg. Unschuld 8853",
+        "edition": "s.l. s.a. Republican era"
+      }
     }
   ],
   "updated_at": "2026-08-24T00:00:00+00:00",
@@ -110,14 +161,23 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "kokusho-300091716": {
       "label": "國書·府中之島図森田藏刊"
     },
     "kokusho-300097115": {
       "label": "國書·府中之島図石崎藏刊 文政9"
+    },
+    "sbb-PPN1749472279": {
+      "label": "柏林國家圖書館藏本：s.l. End of Qing era"
+    },
+    "sbb-PPN1752081730": {
+      "label": "柏林國家圖書館藏本：s.l. 1920"
+    },
+    "sbb-PPN1931502897": {
+      "label": "柏林國家圖書館藏本：s.l. s.a. Republican era"
     }
   }
 }
