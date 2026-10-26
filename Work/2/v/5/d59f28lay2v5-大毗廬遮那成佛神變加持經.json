@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 慶應 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -48,11 +48,31 @@
         "nlc_fid": "ZHCH0333",
         "edition": "金皇統九年[1149]"
       }
+    },
+    {
+      "id": "keio",
+      "group": "keio-16811",
+      "group_role": "origin",
+      "name": "慶應義塾図書館 漢籍コレクション",
+      "short_name": "慶應",
+      "url": "https://dcollections.lib.keio.ac.jp/ja/kanseki/110x-18-7-1",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "keio_record": "keioobjecthub-16811",
+        "call_no": "110X-18-7-1",
+        "edition": "京 釈覺増 嘉吉1年刊(1441) 東寺版",
+        "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/110X-18-7-1/manifest.json"
+      }
     }
   ],
   "resource_groups": {
     "nlc-ZHCH0333": {
       "label": "國圖藏本：金皇統九年[1149]"
+    },
+    "keio-16811": {
+      "label": "慶應藏本：京 釈覺増 嘉吉1年刊(1441) 東寺版"
     }
   }
 }

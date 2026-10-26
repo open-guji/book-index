@@ -190,6 +190,23 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3638055/manifest.json",
         "extent": "2冊"
       }
+    },
+    {
+      "id": "sbb",
+      "group": "sbb-PPN3343671363",
+      "group_role": "origin",
+      "name": "柏林國家圖書館數字館藏",
+      "short_name": "柏林國圖",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN3343671363",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN3343671363",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN3343671363/manifest",
+        "shelfmark": "Libri sin. 682-2",
+        "edition": "刻本;[China] 汲古閣 [明崇禎年間 (=1628-1644)]"
+      }
     }
   ],
   "measures": [
@@ -213,9 +230,9 @@
       "欽定四庫全書總目"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…博士程塾等校刊之，趙世延為序。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-15",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…博士程塾等校刊之，趙世延為序。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 柏林國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "loss_status": "extant",
   "loss_status_basis": "今存。博士程塾等校刊之，趙世延為序。」今存。",
   "resource_groups": {
@@ -233,6 +250,9 @@
     },
     "naikaku-3602678": {
       "label": "內閣文庫藏本：明刊本（290-0159，2冊）"
+    },
+    "sbb-PPN3343671363": {
+      "label": "柏林國家圖書館藏本：刻本;[China] 汲古閣 [明崇禎年間 (=1628-1644)]"
     }
   }
 }
