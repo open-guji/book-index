@@ -4,6 +4,7 @@
 --sample：各部类轮流取，供样本批。"""
 import argparse, glob, json, os
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
+RULE_B = '去重细拆单元子目-甲2：同名丛书不同版次里的同题叢書子目 Work，各版次丛书编者著录写法不同而经核为同一部书（编者异写／先后编者），责任者与卷数不矛盾，B 档证据并（子 agent 逐条核）'
 RULE = '去重细拆单元子目-甲2：同名丛书不同版次里的同题叢書子目 Work（叢書线按丛书版本记录各建一条），丛书撰者相同、责任者与卷数不矛盾，A 档机械并'
 def load(i):
     p = glob.glob(f'{ROOT}/Work/{i[-3]}/{i[-2]}/{i[-1]}/{i}-*.json'); assert len(p) == 1, (i, p)
@@ -40,7 +41,7 @@ for c in cs:
         d = load(l)
         notes[l] = {'ai_note': d.get('ai_note'), 'description': (d.get('description') or {}).get('text') if isinstance(d.get('description'), dict) else d.get('description')}
     groups.append({'case_id': c['keeper'], 'cluster_id': 'jia2-%s' % c['keeper'], 'type': 'work', 'keeper': c['keeper'], 'losers': c['losers'],
-                   'keeper_source': '去重细拆单元子目-甲2 同名丛书子目扫描（book-index %s）' % a.base, 'evidence': ev, 'rule': RULE, 'why': ev,
+                   'keeper_source': '去重细拆单元子目-甲2 同名丛书子目扫描（book-index %s）' % a.base, 'evidence': ev, 'rule': RULE_B if c.get('tier') == 'B' else RULE, 'why': ev,
                    'loser_original_notes': notes})
 os.makedirs(a.out, exist_ok=True)
 json.dump({'groups': groups}, open(os.path.join(a.out, 'batch.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
