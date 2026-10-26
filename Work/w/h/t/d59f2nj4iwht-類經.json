@@ -183,6 +183,38 @@
         "waseda_id": "ya09_00305",
         "edition": ""
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100452953",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100452953",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100452953",
+        "holder": "東洋大哲学堂",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100452953/manifest"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999015730",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999015730",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999015730",
+        "edition": "明天启四年[1624]"
+      }
     }
   ],
   "resource_groups": {
@@ -200,6 +232,12 @@
     },
     "waseda-ya09_00305": {
       "label": "早稲田藏本"
+    },
+    "kokusho-100452953": {
+      "label": "國書·東洋大哲学堂藏刊"
+    },
+    "nlc-411999015730": {
+      "label": "國圖藏本：明天启四年[1624]"
     }
   },
   "measures": [
@@ -214,13 +252,13 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwknmo4xs 與 11q37qvon3tog 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwknmo4xs 與 11q37qvon3tog 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。",
   "description": {
     "text": "張介賓（明）編。三十二卷。見著錄於《欽定四庫全書總目》。諸志按語言其亡佚。本書惟《欽定四庫全書總目》一志著錄，別無他證。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.4.0",
-  "revised_at": "2026-10-14"
+  "revision": "1.6.0",
+  "revised_at": "2026-10-26"
 }

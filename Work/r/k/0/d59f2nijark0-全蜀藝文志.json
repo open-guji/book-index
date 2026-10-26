@@ -28,7 +28,7 @@
       "明史藝文志"
     ]
   },
-  "ai_note": "標題與現有Work匹配但作者不同（Title match but author mismatch: entry='楊慎' vs work='周複俊' (GYL5BhhZcTq)），判定為同名異書，新建獨立Work。 舊匹配結果為 GYL5BhhZcTq（exact_title），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 B-修（错挂核对）：Wikimedia Commons 文件页责任者与本条作者不符，已摘除 1 条 commons 挂接（同一文件页另有作者相符的同题 Work 保留）。依据见 overview 馆藏资源挂接/计划/B修-commons批2-PR核对表.tsv。",
+  "ai_note": "標題與現有Work匹配但作者不同（Title match but author mismatch: entry='楊慎' vs work='周複俊' (GYL5BhhZcTq)），判定為同名異書，新建獨立Work。 舊匹配結果為 GYL5BhhZcTq（exact_title），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-13 #583 B-修（错挂核对）：Wikimedia Commons 文件页责任者与本条作者不符，已摘除 1 条 commons 挂接（同一文件页另有作者相符的同题 Work 保留）。依据见 overview 馆藏资源挂接/计划/B修-commons批2-PR核对表.tsv。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
   "measures": [
     {
       "unit": "卷",
@@ -41,8 +41,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-13",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "contained_in": [
     {
       "id": "8rld0ts2thj4",
@@ -64,11 +64,29 @@
         "nlc_fid": "312002086817",
         "edition": "雨余山房   清光緒15年[1889]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-he16_02033",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/he16/he16_02033/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "he16_02033",
+        "edition": "楽山 : 張汝杰, 嘉慶16[1811]跋"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312002086817": {
       "label": "國圖藏本：雨余山房   清光緒15年[1889]"
+    },
+    "waseda-he16_02033": {
+      "label": "早稲田藏本：楽山 : 張汝杰, 嘉慶16[1811]跋"
     }
   }
 }

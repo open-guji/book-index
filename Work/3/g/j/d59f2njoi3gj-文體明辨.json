@@ -70,14 +70,14 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "從 1evjxorrw42dc 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 | 從 1evkppsjnu0hs 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善006161-006200），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjxorrw42dc 合併。原註：本 Work 條目從《四庫全書存目叢書》目錄錄入。 | 從 1evkppsjnu0hs 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善006161-006200），無同名 Work 故新建。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -86,6 +86,68 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NLC416-07jh014899-21477_%E6%96%87%E9%AB%94%E6%98%8E%E8%BE%A8.pdf"
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100060378",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100060378",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100060378",
+        "holder": "岐阜大図",
+        "edition": "刊 寛政１３",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100060378/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200022611",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200022611",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200022611",
+        "holder": "国文研",
+        "edition": "刊 寛文１３",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200022611/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200022612",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200022612",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200022612",
+        "holder": "国文研",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200022612/manifest"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "kokusho-100060378": {
+      "label": "國書·岐阜大図藏刊 寛政１３"
+    },
+    "kokusho-200022611": {
+      "label": "國書·国文研藏刊 寛文１３"
+    },
+    "kokusho-200022612": {
+      "label": "國書·国文研藏刊"
+    }
+  }
 }

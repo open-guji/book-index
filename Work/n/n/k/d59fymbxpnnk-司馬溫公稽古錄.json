@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/3ekp9e19p3dm9zza"
-      }
+      },
+      "entity_id": "hixhd2h9bdqp"
     }
   ],
   "dynasty": "宋",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：影印明刻本（上海圖書館、山東省圖書館、湖北省圖書館、四川省圖書館、國家圖書館、甘肅省圖書館、遼寧省圖書館、中國科學院圖書館、天津圖書館、北京大學圖書館、南京圖書館、復旦大學圖書館、浙江圖書館）"
     }
   ],
-  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 evajj6j0j20xz3eq（四部叢刊三百八種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ui7ppnc1dninwzy3\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "【叢書子目新建·未比对到单行本】叢書线（GUJI-526）：叢書子目新建，未比对到单行本（已按題名＋作者＋朝代全局预查）；所屬叢書記錄 evajj6j0j20xz3eq（四部叢刊三百八種）\n叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ui7ppnc1dninwzy3\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.4.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -77,6 +78,75 @@
         "nlc_fid": "411999024314",
         "edition": "清同治6-7年[1867-1868]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068508",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068508",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068508",
+        "request_no": "史０２７－０００２",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4353471/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ri08_00970",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ri08/ri08_00970/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ri08_00970",
+        "edition": "寛政12[1800]"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1068509",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1068509",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1068509",
+        "request_no": "２８３－００２１",
+        "edition": "刊本::寛政:120000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4125057/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073344",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073344",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073344",
+        "request_no": "２８３－００２２",
+        "edition": "刊本::寛政:120000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4125970/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
@@ -88,6 +158,18 @@
     },
     "nlc-411999024314": {
       "label": "國圖藏本：清同治6-7年[1867-1868]"
+    },
+    "naikaku-1068508": {
+      "label": "內閣文庫藏本：清刊本（史027-0002，2冊）"
+    },
+    "waseda-ri08_00970": {
+      "label": "早稲田藏本：寛政12[1800]"
+    },
+    "naikaku-1068509": {
+      "label": "內閣文庫藏本：寛政12年刊本（283-0021，4冊）"
+    },
+    "naikaku-1073344": {
+      "label": "內閣文庫藏本：寛政12年刊本（283-0022，4冊）"
     }
   }
 }

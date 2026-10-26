@@ -30,9 +30,9 @@
       "summary": "共 3 個版本：清康熙五十七年刻挺秀堂印本（復旦大學圖書館、南京圖書館）；清嘉慶四年秦瀛刻本（中國科學院圖書館）；清康熙五十七年刻尊賢堂印本（國家圖書館、華東師範大學圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zi3msrp4fp2gsulp、sqf2wrlg3i07gu71、e2r6ln5ygktzv2ht\nauto-split:存疑未并\nE6 第 601 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zi3msrp4fp2gsulp、sqf2wrlg3i07gu71、e2r6ln5ygktzv2ht\nauto-split:存疑未并\nE6 第 601 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -48,11 +48,32 @@
         "nlc_fid": "411999026120",
         "edition": "清康熙[1662-1722]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1082511",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1082511",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082511",
+        "request_no": "３１３－０２１３",
+        "edition": "刊本（序刊）::清康煕:570000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5084258/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999026120": {
       "label": "國圖藏本：清康熙[1662-1722]"
+    },
+    "naikaku-1082511": {
+      "label": "內閣文庫藏本：清康煕57年刊本（序刊）（313-0213，4冊）"
     }
   }
 }

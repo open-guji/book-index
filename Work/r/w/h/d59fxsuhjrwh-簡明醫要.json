@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/ny27gkf7p7vw45hw"
-      }
+      },
+      "entity_id": "hixicm3c065s"
     }
   ],
   "dynasty": "明",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：明萬曆三十四年顧儒刻本（國家圖書館、上海中醫藥大學圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：wulkuma7zd2t13vv\nE6 第 422 批新建（hold 清零：E；原 hold 原因：-）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：wulkuma7zd2t13vv\nE6 第 422 批新建（hold 清零：E；原 hold 原因：-）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,32 @@
         "nlc_fid": "412000000412",
         "edition": "明万历三十四年[1606]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084039",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084039",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084039",
+        "request_no": "子０２９－００１７",
+        "edition": "刊本（序刊）::明万暦:330000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4423755/manifest.json",
+        "extent": "4冊"
+      }
     }
   ],
   "resource_groups": {
     "nlc-412000000412": {
       "label": "國圖藏本：明万历三十四年[1606]"
+    },
+    "naikaku-1084039": {
+      "label": "內閣文庫藏本：明万暦33年刊本（序刊）（子029-0017，4冊）"
     }
   }
 }

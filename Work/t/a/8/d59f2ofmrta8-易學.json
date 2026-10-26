@@ -4,12 +4,13 @@
   "title": "易學",
   "authors": [
     {
-      "name": "王禔",
+      "name": "王湜",
       "role": "撰",
       "dynasty": "趙宋",
-      "entity_id": "hixhd2h9bsbk",
-      "name_basis": "2026-08-24 新建 entity `1jcf5151297jb` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。",
-      "dynasty_basis": "synonym:period=song"
+      "entity_id": "hixhd2h9bsai",
+      "name_basis": "3c 誤字勘誤：同題著錄 d59f2htxv20z 作「王湜」，據人物考訂《易學》撰人當作「王湜」；經獨立子代理盲判一致；原掛 Entity hixhd2h9bsbk（主名「王禔」，係同一誤字所建）改掛同題著錄所掛 hixhd2h9bsai（王湜）",
+      "dynasty_basis": "synonym:period=song",
+      "original_name": "王禔"
     }
   ],
   "description": {
@@ -18,7 +19,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev0r92kck1ds(沈一貫);1ev0r92ysledc(吳極);1evct45eqlla8()（不同作者，故新建獨立 Work）。\n\n2026-08-25 有斷代諸桶收尾：本條著錄來源（國立故宮博物院善本舊籍，統一編號見 indexed_by.catalog_no）原僅存於 description 之散文，今結構化補入 indexed_by（機械抽取，未增未減）。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev0r92kck1ds(沈一貫);1ev0r92ysledc(吳極);1evct45eqlla8()（不同作者，故新建獨立 Work）。\n\n2026-08-25 有斷代諸桶收尾：本條著錄來源（國立故宮博物院善本舊籍，統一編號見 indexed_by.catalog_no）原僅存於 description 之散文，今結構化補入 indexed_by（機械抽取，未增未減）。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。；3c 責任者名勘誤（2026-10-25）：authors[0]「王禔」→「王湜」",
   "measures": [
     {
       "unit": "冊",
@@ -41,6 +42,6 @@
       "catalog_no": "故殿002771"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.0.1",
+  "revised_at": "2026-10-25"
 }

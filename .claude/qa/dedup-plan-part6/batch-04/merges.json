@@ -1,0 +1,215 @@
+{
+ "base": "2c13591e3ac647319d29cb10ac262a8de7eca71f",
+ "merges": [
+  {
+   "cluster_id": "COL6-10",
+   "type": "collection",
+   "keeper": "8rlb6yibp6o0",
+   "losers": [
+    "8rldp8m9of7l"
+   ],
+   "evidence": "同一实物：文津閣本《四庫全書》只此一部（乾隆間内府寫本，今藏國家圖書館）。总目叢書线条「文津閣四庫全書三千五百三種」（源記錄 vpqbn7dl5hq27pxu，館藏國家圖書館，只建外壳无成员）与早期手建「欽定四庫全書·文津閣本」（現藏國家圖書館）指同一套书；保留手建条，总目著录并入。与 batch-03 文淵閣、摛藻堂同理。",
+   "rule": "去重方案部分 6a：同一实物的重复 Collection（孤本写本，馆藏唯一）",
+   "by": "A11-去重方案部分6",
+   "at": "2026-10-26",
+   "preconditions": [
+    {
+     "id": "8rlb6yibp6o0",
+     "path": "Collection/6/o/0/8rlb6yibp6o0-欽定四庫全書文津閣本.json",
+     "sha256": "3849d62f3f0d69d9d7c68fdd4ed3ef22c842a5b3a4591b31ca23419bcc8d23f7"
+    },
+    {
+     "id": "8rldp8m9of7l",
+     "path": "Collection/f/7/l/8rldp8m9of7l-文津閣四庫全書三千五百三種清乾隆間内府寫本.json",
+     "sha256": "94a3799a4179084e145465347dd8b810a653fb3a426d97a71fda5d844a52edca"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "8rldp8m9of7l",
+     "fields": [
+      {
+       "field": "authors",
+       "keeper_value": [
+        {
+         "name": "紀昀等",
+         "role": "編",
+         "dynasty": "清"
+        }
+       ],
+       "loser_value": [
+        {
+         "name": "紀昀",
+         "role": "纂修",
+         "dynasty": "清"
+        },
+        {
+         "name": "永瑢",
+         "role": "纂修",
+         "dynasty": "清"
+        }
+       ],
+       "chosen": "loser"
+      },
+      {
+       "field": "title",
+       "keeper_value": "欽定四庫全書·文津閣本",
+       "loser_value": "文津閣四庫全書三千五百三種"
+      }
+     ]
+    },
+    {
+     "loser": "8rldp8m9of7l",
+     "fields": [
+      {
+       "field": "ai_note",
+       "keeper_value": "待找具體影印件資源：(1) 商務印書館 2005 影印文津閣本 500 冊；(2) 中國國家圖書館藏原本（公開影像受限）。目前無公開可訪問的全文/影像資源。\n2026-10-09 S 格式修正：authors[].role 原作英文「author」、責任方式混在 name 中，拆為 name＋role（overview#496 A2）。",
+       "loser_value": "【叢書线·Collection】叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：vpqbn7dl5hq27pxu\n叢書线（串7）：全書型叢書只建 Collection 外壳，成員 Book 另按 collate-cong-bian 錄入。"
+      }
+     ]
+    }
+   ],
+   "member_attr_conflicts": []
+  },
+  {
+   "cluster_id": "COL6-11",
+   "type": "collection",
+   "keeper": "8rlb6yirb1ts",
+   "losers": [
+    "8rldp8m9znr6"
+   ],
+   "evidence": "同一实物：文溯閣本《四庫全書》只此一部（乾隆間内府寫本，今藏甘肅省圖書館）。总目叢書线条「文溯閣四庫全書三千五百九十種」（源記錄 6cnhn55okq38kau1，館藏甘肅省圖書館，只建外壳无成员）与早期手建「欽定四庫全書·文溯閣本」（現藏甘肅省圖書館）指同一套书；保留手建条，总目著录并入。与 batch-03 文淵閣、摛藻堂同理。",
+   "rule": "去重方案部分 6a：同一实物的重复 Collection（孤本写本，馆藏唯一）",
+   "by": "A11-去重方案部分6",
+   "at": "2026-10-26",
+   "preconditions": [
+    {
+     "id": "8rlb6yirb1ts",
+     "path": "Collection/1/t/s/8rlb6yirb1ts-欽定四庫全書文溯閣本.json",
+     "sha256": "6d1a71b623f9a12a55a209130993fba6b1b0eba5843ee9724272c458ae29941a"
+    },
+    {
+     "id": "8rldp8m9znr6",
+     "path": "Collection/n/r/6/8rldp8m9znr6-文溯閣四庫全書三千五百九十種清乾隆間内府寫本.json",
+     "sha256": "0b6cbb54127142bf32045e56d104d1c27b2a8d2ed4f4ac12c7d71175c3764698"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "8rldp8m9znr6",
+     "fields": [
+      {
+       "field": "authors",
+       "keeper_value": [
+        {
+         "name": "紀昀等",
+         "role": "編",
+         "dynasty": "清"
+        }
+       ],
+       "loser_value": [
+        {
+         "name": "紀昀",
+         "role": "纂修",
+         "dynasty": "清"
+        },
+        {
+         "name": "永瑢",
+         "role": "纂修",
+         "dynasty": "清"
+        }
+       ],
+       "chosen": "loser"
+      },
+      {
+       "field": "title",
+       "keeper_value": "欽定四庫全書·文溯閣本",
+       "loser_value": "文溯閣四庫全書三千五百九十種"
+      }
+     ]
+    },
+    {
+     "loser": "8rldp8m9znr6",
+     "fields": [
+      {
+       "field": "ai_note",
+       "keeper_value": "待找具體影印件資源：甘肅省圖書館藏文溯閣本原本（公開影像受限）。目前無公開可訪問的全文/影像資源。\n2026-10-09 S 格式修正：authors[].role 原作英文「author」、責任方式混在 name 中，拆為 name＋role（overview#496 A2）。",
+       "loser_value": "【叢書线·Collection】叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：6cnhn55okq38kau1\n叢書线（串7）：全書型叢書只建 Collection 外壳，成員 Book 另按 collate-cong-bian 錄入。"
+      }
+     ]
+    }
+   ],
+   "member_attr_conflicts": []
+  },
+  {
+   "cluster_id": "COL6-12",
+   "type": "collection",
+   "keeper": "8rlb6yj1lvr4",
+   "losers": [
+    "8rldp8m9d6o6"
+   ],
+   "evidence": "同一实物：文瀾閣本《四庫全書》只此一部（乾隆間内府寫本，今藏浙江圖書館）。总目叢書线条「文瀾閣四庫全書三千四百五十種」（源記錄 vhzrz3py6vtfgj0c，館藏浙江圖書館，只建外壳无成员）与早期手建「欽定四庫全書·文瀾閣本」（現藏浙江圖書館）指同一套书；保留手建条，总目著录并入。与 batch-03 文淵閣、摛藻堂同理。",
+   "rule": "去重方案部分 6a：同一实物的重复 Collection（孤本写本，馆藏唯一）",
+   "by": "A11-去重方案部分6",
+   "at": "2026-10-26",
+   "preconditions": [
+    {
+     "id": "8rlb6yj1lvr4",
+     "path": "Collection/v/r/4/8rlb6yj1lvr4-欽定四庫全書文瀾閣本.json",
+     "sha256": "331d25acd881f54ffe8ca4cc98b1f9a5f469af7065c05e1d110537a01b76d41e"
+    },
+    {
+     "id": "8rldp8m9d6o6",
+     "path": "Collection/6/o/6/8rldp8m9d6o6-文瀾閣四庫全書三千四百五十種清乾隆間内府寫本清末民初補抄本.json",
+     "sha256": "46e483498a9ea3f8f34619f225bba1bcdf5cc7d2130a265ce91dad6ec609a925"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "8rldp8m9d6o6",
+     "fields": [
+      {
+       "field": "authors",
+       "keeper_value": [
+        {
+         "name": "紀昀等",
+         "role": "編",
+         "dynasty": "清"
+        }
+       ],
+       "loser_value": [
+        {
+         "name": "永瑢",
+         "role": "纂修",
+         "dynasty": "清"
+        },
+        {
+         "name": "紀昀",
+         "role": "纂修",
+         "dynasty": "清"
+        }
+       ],
+       "chosen": "loser"
+      },
+      {
+       "field": "title",
+       "keeper_value": "欽定四庫全書·文瀾閣本",
+       "loser_value": "文瀾閣四庫全書三千四百五十種"
+      }
+     ]
+    },
+    {
+     "loser": "8rldp8m9d6o6",
+     "fields": [
+      {
+       "field": "ai_note",
+       "keeper_value": "待找具體影印件資源：(1) 杭州出版社 2006-2015 影印文瀾閣四庫全書 1559 冊（含丁/乙卯/癸亥三批補抄）；(2) 浙江圖書館藏原本。目前無公開可訪問的全文/影像資源。\n2026-10-09 S 格式修正：authors[].role 原作英文「author」、責任方式混在 name 中，拆為 name＋role（overview#496 A2）。",
+       "loser_value": "【叢書线·Collection】叢書线（GUJI-526）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：vhzrz3py6vtfgj0c\n後印／補刻：\"本清末民初補抄本\"\n叢書线（串7）：全書型叢書只建 Collection 外壳，成員 Book 另按 collate-cong-bian 錄入。"
+      }
+     ]
+    }
+   ],
+   "member_attr_conflicts": []
+  }
+ ]
+}

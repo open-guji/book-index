@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/hojxkpnnswdqiups"
-      }
+      },
+      "entity_id": "hixicabcm3li"
     },
     {
       "name": "釋真諦",
@@ -52,7 +53,7 @@
       "summary": "共 1 個版本：（上海圖書館、寧夏壽佛寺、南京圖書館、福州市雪峰崇聖寺、蘇州市西園寺、重慶市慈雲寺、青島市湛山寺、南陽市水帘寺、國家圖書館、哈爾濱市極樂寺、大同市吉祥寺）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：d784ojkkdw8kpezo、0g4asn7ogvhp1wpg、yp7i7li87f7smj81\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n責任者 role 異常未寫入：馬鳴菩薩造、龍樹菩薩造\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）\n總目版本待定（庫內已有 Book 11soe57r10cg3、11soe57r10cg4、11soe57r10cg5：清光緒金陵刻經處刻本、清金陵刻經處刻本、清刻本）：總目著錄版本標籤空，未入 Book，只作 Work 級來源（第 801 批；t0yhzar11bzxleuf、p6sxmtnba87gc1jm）；總目分類：子部／釋家類\n查重线（跨部查重 10-19）：同题同作者（含别名/省称/同人）并入 1 个 Work（1exokzotvygow）；作者异写：1exokzotvygow作者作「筏提摩多」\n晋升前審計補錄：據 indexed_by.author_info 補入 龍樹（錄入時漏）",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：d784ojkkdw8kpezo、0g4asn7ogvhp1wpg、yp7i7li87f7smj81\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n責任者 role 異常未寫入：馬鳴菩薩造、龍樹菩薩造\nauto-split:存疑未并\nE6 第 541 批新建（hold 清零：jyiyi；原 hold 原因：）\n總目版本待定（庫內已有 Book 11soe57r10cg3、11soe57r10cg4、11soe57r10cg5：清光緒金陵刻經處刻本、清金陵刻經處刻本、清刻本）：總目著錄版本標籤空，未入 Book，只作 Work 級來源（第 801 批；t0yhzar11bzxleuf、p6sxmtnba87gc1jm）；總目分類：子部／釋家類\n查重线（跨部查重 10-19）：同题同作者（含别名/省称/同人）并入 1 个 Work（1exokzotvygow）；作者异写：1exokzotvygow作者作「筏提摩多」\n晋升前審計補錄：據 indexed_by.author_info 補入 龍樹（錄入時漏）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 3 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
   "merged_in": [
     {
       "id": "1exokzotvygow",
@@ -63,6 +64,66 @@
       "why": "同题同作者同朝代；作者异写（别名/同人ID）"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-ha05_00685",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ha05/ha05_00685/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ha05_00685",
+        "edition": ""
+      },
+      "note": "存卷1"
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ha05_00806",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ha05/ha05_00806/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ha05_00806",
+        "edition": "洛陽(京都) : 前川茂右衛門, ( )"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e0999",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e0999/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e0999",
+        "edition": ""
+      },
+      "note": "存卷5"
+    }
+  ],
+  "resource_groups": {
+    "waseda-ha05_00685": {
+      "label": "早稲田藏本"
+    },
+    "waseda-ha05_00806": {
+      "label": "早稲田藏本：洛陽(京都) : 前川茂右衛門, ( )"
+    },
+    "waseda-bunko31_e0999": {
+      "label": "早稲田藏本"
+    }
+  }
 }

@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/gj/entity/person/y0txblyjkuzdra21"
-      }
+      },
+      "entity_id": "hixiclg34x4t"
     }
   ],
   "dynasty": "清",
@@ -29,9 +30,9 @@
       "summary": "共 1 個版本：清同治十一年常州顧氏刻本（南京圖書館、國家圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ler32w7xd87whl0q\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ler32w7xd87whl0q\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +48,29 @@
         "nlc_fid": "002298794",
         "edition": "常州顧氏   清同治11年[1872]"
       }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2608955",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2608955",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2608955",
+        "edition": "同治11"
+      }
     }
   ],
   "resource_groups": {
     "nlc-002298794": {
       "label": "國圖藏本：常州顧氏   清同治11年[1872]"
+    },
+    "ndl-2608955": {
+      "label": "NDL藏本：同治11"
     }
   }
 }

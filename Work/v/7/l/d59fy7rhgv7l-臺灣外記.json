@@ -37,7 +37,7 @@
       "summary": "共 1 個版本：清刻本（北京大學圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gom1spqcvje3kkgk、65l0xr2trpqz14pk\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-09.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n跨朝代著录不同，同題同首位作者並條（用户10-18放行）（源 Work 1exomg3y8p340《臺灣外記》已並入；其作者寫法：江日昇）",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gom1spqcvje3kkgk、65l0xr2trpqz14pk\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-09.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n跨朝代著录不同，同題同首位作者並條（用户10-18放行）（源 Work 1exomg3y8p340《臺灣外記》已並入；其作者寫法：江日昇）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
   "merged_in": [
     {
       "id": "1exomg3y8p340",
@@ -48,6 +48,73 @@
       "why": "跨朝代著录不同，同題同首位作者並條（用户10-18放行）"
     }
   ],
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070120",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070120",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070120",
+        "request_no": "２８８－００１９",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4905176/manifest.json",
+        "extent": "12冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070520",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070520",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070520",
+        "request_no": "２８６－０２０２",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4903628/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070579",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070579",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070579",
+        "request_no": "２８６－０２１１",
+        "edition": "刊本::清道光:130000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4268084/manifest.json",
+        "extent": "8冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1070120": {
+      "label": "內閣文庫藏本：清刊本（288-0019，12冊）"
+    },
+    "naikaku-1070520": {
+      "label": "內閣文庫藏本：清刊本（286-0202，5冊）"
+    },
+    "naikaku-1070579": {
+      "label": "內閣文庫藏本：清道光13年刊本（286-0211，8冊）"
+    }
+  }
 }

@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/orixarnvtv0am808"
-      }
+      },
+      "entity_id": "hixhd2h9bjrl"
     }
   ],
   "dynasty": "明",
@@ -29,7 +30,49 @@
       "summary": "共 3 個版本：明崇禎十二年刻本（蘇州中醫醫院）；明刻本（浙江中醫藥大學圖書館、山東醫科大學圖書館、軍事醫學科學院圖書館、國家圖書館、同濟醫科大學圖書館）；醫學六要本（馆藏未载）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jpbp47wnlnlhl0u6、cmyzec5li2yazw8e、7ls4e2nu1pxpnhcj",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：jpbp47wnlnlhl0u6、cmyzec5li2yazw8e、7ls4e2nu1pxpnhcj\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1579",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1579/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1579",
+        "edition": ""
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300096907",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300096907",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300096907",
+        "holder": "府中之島図石崎",
+        "edition": "刊 [明代]",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300096907/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-bunko31_e1579": {
+      "label": "早稲田藏本"
+    },
+    "kokusho-300096907": {
+      "label": "國書·府中之島図石崎藏刊 [明代]"
+    }
+  }
 }

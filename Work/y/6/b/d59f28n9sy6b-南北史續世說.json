@@ -29,7 +29,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "juan_count": {
     "number": 10
   },
@@ -52,8 +52,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "name": "维基共享资源",
@@ -92,6 +92,60 @@
         "nlc_fid": "411999013177",
         "edition": "明萬曆[1573-1620]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076032",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076032",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076032",
+        "request_no": "３０８－０１８１",
+        "edition": "刊本::天保:030000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5049499/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078248",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078248",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078248",
+        "request_no": "子１９０－０００３",
+        "edition": "刊本（序刊）::明万暦:370000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4487831/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076033",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076033",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076033",
+        "request_no": "３０８－０１８０",
+        "edition": "刊本::天保:030000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5049496/manifest.json",
+        "extent": "5冊"
+      }
     }
   ],
   "resource_groups": {
@@ -100,6 +154,15 @@
     },
     "nlc-411999013177": {
       "label": "國圖藏本：明萬曆[1573-1620]"
+    },
+    "naikaku-1076032": {
+      "label": "內閣文庫藏本：天保3年刊本（308-0181，5冊）"
+    },
+    "naikaku-1078248": {
+      "label": "內閣文庫藏本：明万暦37年刊本（序刊）（子190-0003，5冊）"
+    },
+    "naikaku-1076033": {
+      "label": "內閣文庫藏本：天保3年刊本（308-0180，5冊）"
     }
   }
 }

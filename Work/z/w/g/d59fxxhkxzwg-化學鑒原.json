@@ -25,9 +25,9 @@
       "summary": "共 6 個版本：富強叢書本（馆藏未载）；清光緒間江南製造局刻本（上海圖書館、南京圖書館）；清同治間鉛印本（國家圖書館）；（國家圖書館、上海圖書館）；（天津圖書館、軍事科學院圖書館、湖北省圖書館）；（湖北省圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：7gu5ewg5pvt6a1o1、d0ktgseks7vzrcrq、qubws13y2boeroko\n主責任者「韋而司」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nE6 第 408 批新建（hold 清零：E；原 hold 原因：-）\n總目版本待定（庫內已有 Book 11so3x26dg3r5、11so3x26dg3r6、11so3x26dg3r7：富強叢書本、清光緒間江南製造局刻本、清同治間鉛印本）：總目著錄版本標籤空，未入 Book，只作 Work 級來源（第 953 批；yl757aakajisuhqb、ww875wtn2cr5dmzh、oz2nhv6gwjf2wyjy）；總目分類：子部／新學類／叢編之屬\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：7gu5ewg5pvt6a1o1、d0ktgseks7vzrcrq、qubws13y2boeroko\n主責任者「韋而司」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nE6 第 408 批新建（hold 清零：E；原 hold 原因：-）\n總目版本待定（庫內已有 Book 11so3x26dg3r5、11so3x26dg3r6、11so3x26dg3r7：富強叢書本、清光緒間江南製造局刻本、清同治間鉛印本）：總目著錄版本標籤空，未入 Book，只作 Work 級來源（第 953 批；yl757aakajisuhqb、ww875wtn2cr5dmzh、oz2nhv6gwjf2wyjy）；總目分類：子部／新學類／叢編之屬\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条、國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -43,11 +43,52 @@
         "nlc_fid": "312001045525",
         "edition": "江南機器製造總局   清同治11年[1872]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077114",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077114",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077114",
+        "request_no": "３１２－００４４",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5055675/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100234957",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100234957",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100234957",
+        "holder": "東北大和算",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100234957/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001045525": {
       "label": "國圖藏本：江南機器製造總局   清同治11年[1872]"
+    },
+    "naikaku-1077114": {
+      "label": "內閣文庫藏本：清刊本（312-0044，4冊）"
+    },
+    "kokusho-100234957": {
+      "label": "國書·東北大和算藏刊"
     }
   }
 }

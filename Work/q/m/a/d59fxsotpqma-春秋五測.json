@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/mglhy3lrkim37uhs"
-      }
+      },
+      "entity_id": "hixi8u62npyq"
     }
   ],
   "dynasty": "清",
@@ -27,9 +28,53 @@
       "author_info": "清戴祖啓撰",
       "section": "經部/春秋類/春秋總義/傳說之屬",
       "summary": "共 1 個版本：清嘉慶元年資敬堂刻本（吉林省社會科學院圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "春秋五測三卷",
+      "author_info": "",
+      "section": "叢書部/獨撰類/清代前期",
+      "summary": "共 1 個版本：（日本京都大學人文科學研究所）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：armwxtcwbm3j27g6\nE6 第 306 批新建（hold 清零：G527-M-new；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：armwxtcwbm3j27g6\nE6 第 306 批新建（hold 清零：G527-M-new；原 hold 原因：-）\n\n2026-10-25 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fyxn0ezuq《春秋五測》 入本條。同題：單行本《春秋五測》戴祖啓（清）；《春秋五測》（d59fyxn0ezuq）为叢書子目，所屬叢書《上元戴氏所著書四種》（8rldoryifpjb）撰者戴祖啓（清）；卷數同\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "merged_in": [
+    {
+      "id": "d59fyxn0ezuq",
+      "title": "春秋五測",
+      "at": "2026-10-25T21:31:51Z",
+      "by": "A11-去重方案4",
+      "rule": "去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并",
+      "why": "同題：單行本《春秋五測》戴祖啓（清）；《春秋五測》（d59fyxn0ezuq）为叢書子目，所屬叢書《上元戴氏所著書四種》（8rldoryifpjb）撰者戴祖啓（清）；卷數同",
+      "title_info": "春秋五測三卷"
+    }
+  ],
+  "merged_from": [
+    "d59fyxn0ezuq"
+  ],
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_00919",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_00919/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_00919",
+        "edition": ""
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-ro12_00919": {
+      "label": "早稲田藏本"
+    }
+  }
 }

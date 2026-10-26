@@ -44,15 +44,15 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
   "description": {
     "text": "張溥（明）編。一百十八卷。見著錄於《欽定四庫全書總目》。諸家按語稱其佚文見引於《三國志注》。本書惟《欽定四庫全書總目》一志著錄，別無他證。別集之屬，所收為其人之詩文。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fxw275ipt",
@@ -101,6 +101,71 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E6%96%87%E6%B7%B5%E9%96%A3%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8_1414%E5%86%8A.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071216",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071216",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071216",
+        "request_no": "３６１－００５０",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4400112/manifest.json",
+        "extent": "13冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1071483",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1071483",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1071483",
+        "request_no": "３６１－００５１",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4038784/manifest.json",
+        "extent": "99冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077390",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077390",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077390",
+        "request_no": "別０３０－０００１",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/579448/manifest.json",
+        "extent": "100冊"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1071216": {
+      "label": "內閣文庫藏本：明刊本（361-0050，13冊）"
+    },
+    "naikaku-1071483": {
+      "label": "內閣文庫藏本：明刊本（361-0051，99冊）"
+    },
+    "naikaku-1077390": {
+      "label": "內閣文庫藏本：明刊本（別030-0001，100冊）"
+    }
+  }
 }
