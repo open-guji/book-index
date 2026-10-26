@@ -17,7 +17,8 @@
     },
     {
       "name": "聖祖",
-      "type": "廟號"
+      "type": "廟號",
+      "ambiguous": true
     },
     {
       "name": "康熙帝",
@@ -28,24 +29,34 @@
       "name": "聖祖康熙",
       "type": "別名",
       "note": "重出條并入"
+    },
+    {
+      "name": "合天弘運文武睿哲恭儉寬裕孝敬誠信中和功德大成仁皇帝",
+      "type": "諡號"
     }
   ],
   "dynasty": "清",
   "description": {
-    "text": "康熙皇帝",
-    "sources": []
+    "text": "清朝皇帝，年號康熙（1662–1722）。清世祖福臨之子。",
+    "sources": [
+      {
+        "name": "維基百科",
+        "type": "url",
+        "details": "https://zh.wikipedia.org/wiki/康熙帝"
+      }
+    ]
   },
   "updated_at": "2026-08-25T00:00:00+00:00",
   "period": "qing",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-08-25 廟號歸正：庫中別有一條，primary_name 徑作「聖祖」（1jcf515129805，2026-08-24 乙等所建；彼批本立「去廟號」之驗而此條漏之），即清聖祖玄燁。廟號不繫朝代則歧（諸代皆有聖祖），今併入本條。\n\n2026-09-07 coord：刪 `works` 內之重複項 12 個（d59f2moibugy×2、d59f2n4vz4le×2、d59f2mycxfk2×2、d59f2my7xmv4×2、d59f2n4x82rl×2、d59f2my9t24j×2、d59f2n7z3lz4×2、d59f2n7x86ps×2、d59f2myi8gsg×2、d59f2n4rx1j6×2、d59f2n1ohblt×2、d59f2n7z3lz6×2）——**整項逐欄相同**（work_id 與 role 皆同，非同書異役），是歷次補繫累加所致。此病 verify.py 原查不到：其 entity 側以 `set` 收 works，同一 work_id 列兩次一入集合即消失（lane-B 所發，坑 69）；今檢已補而此為清賬。",
+  "ai_note": "2026-08-25 廟號歸正：庫中別有一條，primary_name 徑作「聖祖」（1jcf515129805，2026-08-24 乙等所建；彼批本立「去廟號」之驗而此條漏之），即清聖祖玄燁。廟號不繫朝代則歧（諸代皆有聖祖），今併入本條。\n\n2026-09-07 coord：刪 `works` 內之重複項 12 個（d59f2moibugy×2、d59f2n4vz4le×2、d59f2mycxfk2×2、d59f2my7xmv4×2、d59f2n4x82rl×2、d59f2my9t24j×2、d59f2n7z3lz4×2、d59f2n7x86ps×2、d59f2myi8gsg×2、d59f2n4rx1j6×2、d59f2n1ohblt×2、d59f2n7z3lz6×2）——**整項逐欄相同**（work_id 與 role 皆同，非同書異役），是歷次補繫累加所致。此病 verify.py 原查不到：其 entity 側以 `set` 收 works，同一 work_id 列兩次一入集合即消失（lane-B 所發，坑 69）；今檢已補而此為清賬。\n\n2026-10-25 A12 L6 帝王稱號：補廟號、帝號別名（合天弘運文武睿哲恭儉寬裕孝敬誠信中和功德大成仁皇帝），據維基百科補身份、說明；回填年號條 ruler.entity_id。",
   "dates": {
     "birth": 1654,
     "death": 1722,
     "basis": "現行字段"
   },
-  "revision": "1.0.2",
-  "revised_at": "2026-10-14",
+  "revision": "1.0.3",
+  "revised_at": "2026-10-25",
   "dynasty_basis": "author_propagation:所繫 work 之 authors[].dynasty 作「清」",
   "merged_in": [
     {
@@ -68,6 +79,8 @@
   "external_ids": {
     "cbdb_id": 65884,
     "cbdb_match": "manual",
-    "cbdb_source": "CBDB 愛新覺羅玄燁 1654–1722，生卒与本條一致（Soren 清帝重出核查 2026-10-14）"
-  }
+    "cbdb_source": "CBDB 愛新覺羅玄燁 1654–1722，生卒与本條一致（Soren 清帝重出核查 2026-10-14）",
+    "wikidata_id": "Q17790"
+  },
+  "title_or_office": "皇帝"
 }

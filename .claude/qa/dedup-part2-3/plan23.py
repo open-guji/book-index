@@ -152,6 +152,10 @@ def main():
         if len(n) >= 3 and n[-1] in '藏並等' or (len(n) >= 5 and re.search(r'(局制|鹽使|運使|按察使|布政使)$', n)):   # 乙01 抽检：上海巡警總局制
             hold(s, '疑名字粘连责任方式'); continue
         if DEITY.search(n): hold(s, '神号或托名'); continue
+        if '囗' in n: hold(s, '名字含缺字/分隔/括注或单字'); continue   # 丙01 抽检：沈囗（囗 U+56D7 作缺字用）
+        if re.search(re.escape(n) + r'[（(][^）)]{1,6}[）)]', s['author_info']):
+            hold(s, '原文括注另名待核'); continue   # 丙01 抽检：徐太室（學謨）＝已有徐學謨；括注多为本名／字，归 2.2 核
+        if len(n) <= 3 and n.endswith('公'): hold(s, '神号或托名'); continue   # 丙01 抽检：題宋漁陽公撰
         if re.search('(宋宋|唐唐|明明|元元|金金|漢漢|晉晉|魏魏|梁梁|陳陳|周周|齊齊|吳吳)' + re.escape(n), s['author_info']):
             hold(s, '朝代字与姓重叠被切'); continue   # 抽检 b02：「宋宋爲仁撰」切成爲仁
         if len(n) >= 3 and any(len(k) > len(loose(n)) and k.endswith(loose(n)) for k in suffixidx.get(loose(n)[-3:], ())):

@@ -29,9 +29,9 @@
       "summary": "共 2 個版本：明崇禎元年金陵周如泉萬卷樓刻本（國家圖書館、美國哈佛大學燕京圖書館）；明崇禎元年刻本（上海圖書館、國家圖書館、甘肅省圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：0la0i8skiyjnphfk、xy84hebmfy3dkl22\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：0la0i8skiyjnphfk、xy84hebmfy3dkl22\nauto-split:存疑未并\nE6 第 547 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条、國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +47,70 @@
         "nlc_fid": "411999028038",
         "edition": "明崇禎元年[1628]"
       }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-ni01_00815",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ni01/ni01_00815/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ni01_00815",
+        "edition": "金陵 : 万巻楼, 崇禎元[1628]序"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079782",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079782",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079782",
+        "request_no": "子０４３－００１０",
+        "edition": "刊本（序刊）::明崇禎:010000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4416694/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100244209",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100244209",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100244209",
+        "holder": "慶大富士川",
+        "edition": "写",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100244209/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999028038": {
       "label": "國圖藏本：明崇禎元年[1628]"
+    },
+    "waseda-ni01_00815": {
+      "label": "早稲田藏本：金陵 : 万巻楼, 崇禎元[1628]序"
+    },
+    "naikaku-1079782": {
+      "label": "內閣文庫藏本：明崇禎1年刊本（序刊）（子043-0010，5冊）"
+    },
+    "kokusho-100244209": {
+      "label": "國書·慶大富士川藏写"
     }
   }
 }

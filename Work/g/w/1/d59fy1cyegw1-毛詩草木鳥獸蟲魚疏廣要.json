@@ -29,9 +29,9 @@
       "summary": "共 4 個版本：津逮祕書本（馆藏未载）；清道光十五年朝邑劉氏刻本（復旦大學圖書館）；四庫全書本（馆藏未载）；學津討原本（馆藏未载）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：hbra7tywb2om2x13、afotab42040cpvq1、dk5zco2jwekbs7br、t0xespcasbpjs1mi\nauto-split:存疑未并\nE6 第 528 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：hbra7tywb2om2x13、afotab42040cpvq1、dk5zco2jwekbs7br、t0xespcasbpjs1mi\nauto-split:存疑未并\nE6 第 528 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -47,11 +47,50 @@
         "nlc_fid": "002723486",
         "edition": "汲古閣   明崇禎間[1628-164"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074060",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074060",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074060",
+        "request_no": "２７３－０２４８",
+        "edition": "刊本:明:::汲古閣",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3952192/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2555651",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2555651",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2555651",
+        "edition": "江戸寫"
+      }
     }
   ],
   "resource_groups": {
     "nlc-002723486": {
       "label": "國圖藏本：汲古閣   明崇禎間[1628-164"
+    },
+    "naikaku-1074060": {
+      "label": "內閣文庫藏本：明刊本 汲古閣（273-0248，6冊）"
+    },
+    "ndl-2555651": {
+      "label": "NDL藏本：江戸寫"
     }
   }
 }

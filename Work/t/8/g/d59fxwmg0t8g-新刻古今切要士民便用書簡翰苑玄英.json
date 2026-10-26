@@ -30,9 +30,9 @@
       "summary": "共 1 個版本：明書林邵文聘刻本（國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2zefsv0bngfm5uwq\nE6 第 3 批新建（hold 清零：子部E机械落地b1:E-M-new；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：2zefsv0bngfm5uwq\nE6 第 3 批新建（hold 清零：子部E机械落地b1:E-M-new；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条、國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -48,11 +48,93 @@
         "nlc_fid": "411999021862",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074766",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074766",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074766",
+        "request_no": "３６４－００４４",
+        "edition": "刊本::寛文:120000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5099157/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074772",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074772",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074772",
+        "request_no": "３６４－００４５",
+        "edition": "刊本::寛文:120000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5099161/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200031187",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200031187",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200031187",
+        "holder": "国文研山鹿",
+        "edition": "写",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200031187/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300097933",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300097933",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300097933",
+        "holder": "府中之島図石崎",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300097933/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999021862": {
       "label": "國圖藏本：明[1368-1644]"
+    },
+    "naikaku-1074766": {
+      "label": "內閣文庫藏本：寛文12年刊本（364-0044，4冊）"
+    },
+    "naikaku-1074772": {
+      "label": "內閣文庫藏本：寛文12年刊本（364-0045，4冊）"
+    },
+    "kokusho-200031187": {
+      "label": "國書·国文研山鹿藏写"
+    },
+    "kokusho-300097933": {
+      "label": "國書·府中之島図石崎藏刊"
     }
   }
 }

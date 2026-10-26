@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/g4qjimnaot1yq457"
-      }
+      },
+      "entity_id": "hixhd2h9bj2p"
     }
   ],
   "dynasty": "清",
@@ -29,7 +30,53 @@
       "summary": "共 5 個版本：清承西樓刻本（北京大學圖書館）；清老二酉堂刻本（北京大學圖書館）；清三槐堂刻本（復旦大學圖書館、北京大學圖書館、國家圖書館、中國科學院圖書館）；清雍正八年宏文閣刻本（國家圖書館、上海圖書館）；清永魁齋刻本（北京大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：irtyajpxyfx7jphj、sro6vjatoibdd0fo、2po0teyx10qnqvij、lurr3qcitprjexaa、10b0vxdzo12mq60l\nauto-split:存疑未并\nE6 第 522 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：irtyajpxyfx7jphj、sro6vjatoibdd0fo、2po0teyx10qnqvij、lurr3qcitprjexaa、10b0vxdzo12mq60l\nauto-split:存疑未并\nE6 第 522 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070467",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070467",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070467",
+        "request_no": "経０５３－０００２",
+        "edition": "刊本:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4406347/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1070468",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1070468",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1070468",
+        "request_no": "２７８－０１４２",
+        "edition": "刊本::清雍正:100000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4050736/manifest.json",
+        "extent": "4冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1070467": {
+      "label": "內閣文庫藏本：清刊本（経053-0002，4冊）"
+    },
+    "naikaku-1070468": {
+      "label": "內閣文庫藏本：清雍正10年刊本（278-0142，4冊）"
+    }
+  }
 }

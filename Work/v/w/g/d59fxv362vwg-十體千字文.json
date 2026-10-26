@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/e5etl5z3b4t4bxdk"
-      }
+      },
+      "entity_id": "hixhd2h9bmhr"
     }
   ],
   "dynasty": "明",
@@ -29,7 +30,65 @@
       "summary": "共 2 個版本：日本嘉永二年水玉堂刻本（北京大學圖書館）；日本寛永二十年刻本（首都圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：aqp7m6kmnokck1q8、dxjkn2tsqwfmbfpj\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 343 批新建（hold 清零：E-N-anon-clean；原 hold 原因：no_main_author）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：aqp7m6kmnokck1q8、dxjkn2tsqwfmbfpj\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 343 批新建（hold 清零：E-N-anon-clean；原 hold 原因：no_main_author）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 3 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1729",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1729/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1729",
+        "edition": "[京都] : 沢田庄左衛門, 寛永20[1643]"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1730",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1730/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1730",
+        "edition": "洛陽(京都) : 桜林堂, 享保14[1729] ( )"
+      }
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-bunko31_e1731",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/bunko31/bunko31_e1731/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "bunko31_e1731",
+        "edition": "京極通五条橋詰町(平安) : 水玉堂, 宝暦6[1756] ( )"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-bunko31_e1729": {
+      "label": "早稲田藏本：[京都] : 沢田庄左衛門, 寛永20[1643]"
+    },
+    "waseda-bunko31_e1730": {
+      "label": "早稲田藏本：洛陽(京都) : 桜林堂, 享保14[1729] ( )"
+    },
+    "waseda-bunko31_e1731": {
+      "label": "早稲田藏本：京極通五条橋詰町(平安) : 水玉堂, 宝暦6[1756] ( )"
+    }
+  }
 }

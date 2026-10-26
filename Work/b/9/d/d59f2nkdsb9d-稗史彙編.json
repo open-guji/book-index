@@ -29,6 +29,12 @@
       "edition": "遼寧省圖書館藏明萬曆刻本",
       "volume": "第139冊",
       "section": "子部"
+    },
+    {
+      "source": "千頃堂書目",
+      "source_bid": "d59f2mel8d1c",
+      "title_info": "王圻稗史彚編",
+      "summary": "王圻稗史彚編"
     }
   ],
   "juan_count": {
@@ -104,17 +110,37 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "從 1evkps2ewnksg 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善004781-004880）。阶段 5 兜底建立。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "從 1evkps2ewnksg 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善004781-004880）。阶段 5 兜底建立。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案3a-2丁 併條（rule=去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，A 档机械并）：併 d59f6eperton《稗史彚編》 入本條。题名只差一字（彙彚 异体：稗史彙編／稗史彚編）。《稗史彙編》王圻(175卷)／《稗史彚編》王圻(175卷)；首位责任者同一，朝代兼容，著作领域不冲突",
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "nlc-CBM1585": {
       "label": "國圖藏本：明萬曆[1573-1620]"
     }
-  }
+  },
+  "period_upper": "qing",
+  "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+  "additional_titles": [
+    "稗史彚編"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f6eperton",
+      "title": "稗史彚編",
+      "at": "2026-10-26T10:13:57Z",
+      "by": "A11-去重方案3a-2丁",
+      "rule": "去重方案 3a-2丁：题名差一字（异体／通用／误字）同首位责任者，A 档机械并",
+      "why": "题名只差一字（彙彚 异体：稗史彙編／稗史彚編）。《稗史彙編》王圻(175卷)／《稗史彚編》王圻(175卷)；首位责任者同一，朝代兼容，著作领域不冲突",
+      "author": "王圻",
+      "title_info": "王圻稗史彚編"
+    }
+  ],
+  "merged_from": [
+    "d59f6eperton"
+  ]
 }
