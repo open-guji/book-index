@@ -27,7 +27,7 @@ T2S = opencc.OpenCC('t2s')
 EXTRA = str.maketrans('髙寜啓啟爲衆敎峯煕熈彜彞誌', '高寧启启为众教峰熙熙彝彝志')
 URI = re.compile(r'entity/person/(\w+)')
 ANON = re.compile(r'^(佚名|闕名|缺名|無名氏?|失名|不著撰人|不著撰者|不題撰人|不詳|撰者不詳|未詳|不詳纂修人|不詳撰人|撰人不詳)$|^□+$')
-BROKEN = re.compile(r'[□&;；,，、 ]|\?|？|⿰|⿱|⿲|⿳|⿴|⿵|⿶|⿷|⿸|⿹|⿺|⿻|（|）|\(|\)')
+BROKEN = re.compile(r'[□〓\[\]【】&;；,，、 \ue000-\uf8ff]|\?|？|⿰|⿱|⿲|⿳|⿴|⿵|⿶|⿷|⿸|⿹|⿺|⿻|（|）|\(|\)')
 ORG4 = re.compile(r'(局|館|会|會|公司|廳|院|社|處|部|府|衙門|學堂|學校|委員會|書店|書莊|銀號|總號|藥號|藥房|署|司|所|廠|營|堂|書院|政府|議會|大學|中學|小學|女學|省|報|股|室|團|組|監|科|大臣|會員|留學生|編輯|調查)$')
 ORG3 = re.compile(r'(局|館|社|院|監|部|處|廳|衙門|公司|書莊|銀號|藥號)$')
 PLACEHOLDER = re.compile(r'不詳|不著|名氏|未詳|闕名|佚名')
@@ -149,7 +149,7 @@ def main():
         if n != n.strip() or BROKEN.search(n) or len(n) < 2: hold(s, '名字含缺字/分隔/括注或单字'); continue
         if (len(n) >= 4 and ORG4.search(n)) or (len(n) == 3 and ORG3.search(n)) or loose(n) in othernames: hold(s, '机构或非人物专名'); continue
         if len(n) >= 4 and '·' not in n and GARBLE.fullmatch(n) and not n.startswith('釋'): hold(s, '疑名字粘连责任方式'); continue
-        if len(n) >= 3 and n[-1] in '藏並等':
+        if len(n) >= 3 and n[-1] in '藏並等' or (len(n) >= 5 and re.search(r'(局制|鹽使|運使|按察使|布政使)$', n)):   # 乙01 抽检：上海巡警總局制
             hold(s, '疑名字粘连责任方式'); continue
         if DEITY.search(n): hold(s, '神号或托名'); continue
         if len(n) >= 3 and any(len(k) > len(loose(n)) and k.endswith(loose(n)) for k in suffixidx.get(loose(n)[-3:], ())):
@@ -224,7 +224,8 @@ def main():
             continue
         if len(ss) >= 2:
             ts = [s['title'] or '' for s in ss]
-            if any('硃卷' in t for t in ts) and not all('硃卷' in t for t in ts):
+            EXAM = re.compile(r'硃卷|貢卷|試卷|闈墨')   # 乙01 抽检：彭飛熊、季學英等「優貢卷」＋族谱，同硃卷
+            if any(EXAM.search(t) for t in ts) and not all(EXAM.search(t) for t in ts):
                 for s in ss: hold(s, '硃卷与他书同名待核')   # 抽检 spot1：张二铭、张家俊皆硃卷＋谱／志异人
                 continue
             pu = [s for s in ss if '譜' in (s['title'] or '') or '乘' in (s['title'] or '')]

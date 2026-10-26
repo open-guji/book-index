@@ -10,6 +10,7 @@ for b in B.values():
     if b.get('work_id'): books_of[b['work_id']].append(b)
 SRC=re.compile(r'源記錄：([0-9a-z]{16})')
 def first_author(w):
+    if '【獨撰子目补撰人】' in (w.get('ai_note') or ''): return ''   # 他串据丛书补的撰人，视同无责任者
     au=[a for a in w.get('authors') or [] if isinstance(a,dict)]
     if not au: return ''
     n=norm_name(au[0].get('name'))

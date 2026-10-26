@@ -1,0 +1,122 @@
+{
+ "base": "7faafda5ac54f90dfcb594988015e51a774edf16",
+ "merges": [
+  {
+   "cluster_id": "3a-G0518",
+   "type": "work",
+   "keeper": "d59f2hdxmz9f",
+   "losers": [
+    "d59f2hgz79xd"
+   ],
+   "evidence": "《易章句》呂大臨（hixhd2h9bewx）一卷：d59f2hgz79xd 宋志「《易章句》一卷」一节，d59f2hdxmz9f《經義考》注「宋志一卷」；混入的程迥十卷一节已于 #1298 改繫沙隨易章句，余下同人同题同卷",
+   "rule": "去重方案部分3a-2：同题同首位责任者 拆混记录后复核并",
+   "preconditions": [
+    {
+     "id": "d59f2hdxmz9f",
+     "path": "Work/z/9/f/d59f2hdxmz9f-易章句.json",
+     "sha256": "e68367b0340fc51c212d047431e815bc8d651a7966771ceb0e265ab0f1b3650c"
+    },
+    {
+     "id": "d59f2hgz79xd",
+     "path": "Work/9/x/d/d59f2hgz79xd-易章句.json",
+     "sha256": "6087b5ed86f640e87df580a3252326266c98832c85874ad77fc190316a07972f"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2hgz79xd",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "從程頤張載學，登進士第（呂大臨，北宋知名）（2026-08-24 R3 引文定代）",
+       "loser_value": "据唯一 author.dynasty「北宋」自动归并"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2hgz79xd": {
+     "description": "《易章句》一卷，北宋呂大臨撰。見《宋史·藝文志》。",
+     "ai_note": "此為北宋龔原所著《易章句》一卷，原被錯誤匹配至漢志的施、孟、梁丘三家《易章句》(GYPuTpi4w3D)，現已獨立為新條目。龔原為王安石門人，宋史藝文志易類另有其他龔原著作。\n\n2026-08-20 磁鐵拆解專項（全域掃描）：宋史藝文志之「《易章句》」一節原繫於磁鐵條（`1ev85diqsbqww`），其題與本條合而本條非磁鐵，今改繫本條並補其著錄。\n\n2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（一卷），今據以補。\n\n2026-08-25 宋志頂真格誤剖專項：《宋史藝文志》行文用頂真格（「〔本條撰人〕《書名》卷數〔次條撰人〕」，題後之名屬次條）。整理本逐節存其原序，且節與節交界之名重出一次——全志 3,368 節如此，不合者僅 27 且皆簡繁取字之異，是此讀為整理本自證；又《經義考》所注「宋志N卷」，其卷數與本志各節條條相符，是外證。　撰人由「龔原」正為「呂大臨」，據見 authors[0].name_basis。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 宋志頂真格誤剖專項連帶：description 首句所題撰人「龔原」係並行會話「desc 大批」據著錄原文機讀所得，而該名依頂真格屬次條；今隨 authors 之正而正，並綴案語一句。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-10-25 去重方案部分3a 拆混記錄：宋志「《易章句》十卷又《外編》一卷《占法》」一節屬程迥（頂真格前節尾名），改繫 d59f2hjwe8zn《沙隨易章句》；description 原誤作龔原並混入十卷之說，改寫；authors[0].dynasty 補「北宋」。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a-G0534",
+   "type": "work",
+   "keeper": "d59f2n1pq9s0",
+   "losers": [
+    "d59fxu434pvk"
+   ],
+   "evidence": "《今水經》黃宗羲一卷（表一卷）：四庫、知不足齋本与总目各版本记录同书；混入的黃錫齡注本已于 #1298 拆出，薛鳳昌编二卷本即梨洲遺著彙刊本（一卷加表一卷）",
+   "rule": "去重方案部分3a-2：同题同首位责任者 拆混记录后复核并",
+   "preconditions": [
+    {
+     "id": "d59f2n1pq9s0",
+     "path": "Work/9/s/0/d59f2n1pq9s0-今水經一卷表一卷.json",
+     "sha256": "f7dbf20ddb163781602df2c7c56cdfd93853f0ce960dcd68d9652c334b2f6233"
+    },
+    {
+     "id": "d59fxu434pvk",
+     "path": "Work/p/v/k/d59fxu434pvk-今水經.json",
+     "sha256": "031442725a8334dfc2783f064aaa72385c520cc730bbd62894649e1af66de1c1"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fxu434pvk",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
+       "loser_value": "author_propagation"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fxu434pvk 在 zm0278，keeper 在 zm0263——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59fxu434pvk": {
+     "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：r8xm2xuhnhja0adi、ypzme7kwnwjiz3kl、mouazydgd4ahcafu、1pau0pwjovioo6qi、yhhvbwlyjr1rkwj8、bjdjad62qmjte6jy、x3db78gmcxo4285t、05vyn774aeh4cq72、4nbpb81o3t2syxwd、nrshbfqn8oq34gcn、204a3bl2xzfm6f2u、ntvabr031t168463、7h74ti67pqjzgsjf、1tzlecxbn6lropaf、74zsuztdfjntcm6q\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-04.tsv；原 hold 原因：auto-split:存疑未并（缺卷数（记录卷数非单一N卷或目标无卷数）））\n第 440 批追加版本，源記錄：wmrp2vr822cir1sm\n同題同作者並條（作者別名與並條口徑-共用 B檔：作者形近異寫／省稱，子agent逐條核；用戶 10-18 確認）（源 Work 1exp0i3rxo2km《今水經》已並入；其作者寫法：黃宗義）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-25 去重方案部分3a 拆混記錄：「今水經注要覽三卷 清黃宗羲撰;清黃錫齡注」（indexed_by、Book 9955zzq801）是後人注本，移出至新建 d59g24d8rsw3。薛鳳昌編宣統二年時中書局鉛印本即梨洲遺著彙刊本，留下。"
+    }
+   }
+  },
+  {
+   "cluster_id": "3a-G0715",
+   "type": "work",
+   "keeper": "d59fxqo6uoe8",
+   "losers": [
+    "d59fyicpyvi9"
+   ],
+   "evidence": "《蓮鬚閣集》黎遂球：d59fyicpyvi9 六卷是总集《乾坤正氣集》所收选本，与 d59fxqo6uoe8 indexed_by[1] 同批源记录，keeper 已挂乾坤正氣集本六卷 Book；依库例节选本挂原书",
+   "rule": "去重方案部分3a-2：同题同首位责任者 拆混记录后复核并",
+   "preconditions": [
+    {
+     "id": "d59fxqo6uoe8",
+     "path": "Work/o/e/8/d59fxqo6uoe8-蓮鬚閣集.json",
+     "sha256": "1bbe1778c9e4da31617afd3d31f362306c5d5370397e52aaffc1a8e952aeb3e2"
+    },
+    {
+     "id": "d59fyicpyvi9",
+     "path": "Work/v/i/9/d59fyicpyvi9-蓮鬚閣集.json",
+     "sha256": "3eafe5e40a5bfbf886fb5dbe493f3712d9926335d7a866ae5fa7abb498d9e4b6"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fyicpyvi9 在 zm0676，keeper 在 zm0671——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59fyicpyvi9": {
+     "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：i5kgqs0ef77kmisy、vcg55jznz7gihsj6、pnxhvh75gn6550k5、445uethxk6lj1hgg、ps2318hak8k0tf77\n主責任者「黎遂球」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n各版本分類不一，取多數：{\"basis\": \"S\", \"l1\": \"\\u96c6\\u90e8\", \"l2\": \"\\u7e3d\\u96c6\\u985e\", \"l3\": \"\\u6c0f\\u65cf\\u4e4b\\u5c6c\", \"l4\": \"\", \"source\": \"\\u4e2d\\u570b\\u53e4\\u7c4d\\u7e3d\\u76ee\"} | {\"basis\": \"S\", \"l1\": \"\\u96c6\\u90e8\", \"l2\": \"\\u7e3d\\u96c6\\u985e\", \"l3\": \"\\u901a\\u4ee3\\u4e4b\\u5c6c\", \"l4\": \"\", \"source\": \"\\u4e2d\\u570b\\u53e4\\u7c4d\\u7e3d\\u76ee\"}\nauto-split:存疑未并\nE6 第 901 批新建（hold 清零：總集類；原 hold 原因：tier=存疑）"
+    }
+   }
+  }
+ ]
+}
