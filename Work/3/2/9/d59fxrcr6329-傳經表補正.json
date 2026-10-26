@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/msg1ios3fgu3g67c"
-      }
+      },
+      "entity_id": "hixi8us2w11k"
     }
   ],
   "dynasty": "清",
@@ -29,14 +30,36 @@
       "summary": "共 2 個版本：清光緒十九年刻本（天津圖書館）；清光緒十九年錢唐汪氏刻愈妄闕齋所著書本（浙江圖書館、北京大學圖書館、復旦大學圖書館、上海圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ex4r56kmc4chnt3s、rgyvsbvoxa0xcils",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ex4r56kmc4chnt3s、rgyvsbvoxa0xcils\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批3_核对报告.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
   "related_works": [
     {
       "id": "d59fxx81kw01",
       "relation": "related",
       "note": "總目經部另立（auto-split:同名无主责任者未并）"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-ro12_00001",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro12/ro12_00001/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro12_00001",
+        "edition": "光緒19[1893]"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-ro12_00001": {
+      "label": "早稲田藏本：光緒19[1893]"
+    }
+  }
 }

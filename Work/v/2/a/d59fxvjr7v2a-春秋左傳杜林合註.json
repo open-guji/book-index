@@ -22,7 +22,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/2mszf6mp0h45ph5n"
-      }
+      },
+      "entity_id": "hixicm3c064l"
     }
   ],
   "dynasty": "明",
@@ -39,7 +40,53 @@
       "summary": "共 1 個版本：明萬曆二十二年吴興閔氏刻本（浙江圖書館、重慶市博物館、國家圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：aggyev5f4vtegluj\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 345 批新建（hold 清零：E-N-anon-clean；原 hold 原因：no_main_author）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：aggyev5f4vtegluj\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 345 批新建（hold 清零：E-N-anon-clean；原 hold 原因：no_main_author）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1073668",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1073668",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1073668",
+        "request_no": "経０１６－０００５",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4441352/manifest.json",
+        "extent": "18冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074220",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074220",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074220",
+        "request_no": "２７４－０１４８",
+        "edition": "刊本:明:::楊閩斎",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3951890/manifest.json",
+        "extent": "20冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1073668": {
+      "label": "內閣文庫藏本：明刊本（経016-0005，18冊）"
+    },
+    "naikaku-1074220": {
+      "label": "內閣文庫藏本：明刊本 楊閩斎（274-0148，20冊）"
+    }
+  }
 }

@@ -8,3 +8,5 @@
 
 结果：27 组，keeper＝馆藏多、信息全者，sources／indexed_by／provenance 取并集，27 个被并者留墓碑；promotions 改指；草稿库 1 处 merged_into 改指 keeper（book-index-draft 同名分支 PR）。
 门禁（与 5a 合并台账审）：audit T/L/P/R/D 全 0；check_v2 0；check-classification 0；check_promo_dup 0；check-duplicate-audit PASS；index/books 定点刷新。
+
+注：当时脚本实际漏并 sources／indexed_by／provenance，已在 ../../backfill/ 回补。

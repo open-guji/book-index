@@ -8,8 +8,8 @@ batch.json：{"groups": [{"cluster_id", "keeper", "losers": [...], "evidence", "
 格式同 dedup-confirmed-163，type 为 collection），供 scripts/audit-merge-ledger.py 核。
 
 做法（schema/collection.md〈merged_into〉、CHANGELOG 2026-10-25）：
-- keeper：被并者有而 keeper 没有的字段补入；indexed_by／sources／resources／additional_titles 取并集；
-  两边都有且不同的标量保留 keeper 值，被并值记台账 retained_alternatives；merged_from 加被并 id；revision 升 minor。
+- keeper：被并者题名与 keeper 不同的记入 additional_titles；被并者有而 keeper 没有的字段补入；indexed_by／sources／resources／additional_titles 取并集；
+  两边都有且不同的标量保留 keeper 值（batch 里 prefer_loser 列的字段改取被并值），另一值记台账 retained_alternatives；batch 的 note 追加到 keeper 的 ai_note；merged_from 加被并 id；revision 升 minor。
 - 被并者：只留 schema_version／id／type／subtype／title／merged_into／revision／revised_at。
 - 成员（Book／Work／Collection 的 contained_in 指被并者）：改指 keeper；同一成员已挂 keeper 的，
   把被并项的 volume_index／sub_items／details 补到 keeper 项上（keeper 项已有不同值的记台账），删去被并项；
@@ -159,11 +159,19 @@ def main():
             assert not d.get('merged_into'), ('被并者已是墓碑', l)
             pre.append({'id': l, 'path': os.path.relpath(lp, ROOT), 'sha256': base_sha(os.path.relpath(lp, ROOT))})
             la = []
+            if d.get('title') and d['title'] != k.get('title') and d['title'] not in (k.get('additional_titles') or []):
+                k.setdefault('additional_titles', []).append(d['title'])   # 被并者题名留作异名
+            for f in g.get('prefer_loser') or []:   # 被并者著录更准的字段：改取被并值，keeper 原值记台账
+                if f in d and d[f] != k.get(f):
+                    la.append({'field': f, 'keeper_value': k.get(f), 'loser_value': d[f], 'chosen': 'loser'})
+                    k[f] = d[f]
             merge_keeper(k, d, la)
             if la:
                 alts.append({'loser': l, 'fields': la})
             if d.get('ai_note') and d['ai_note'] != k.get('ai_note'):
                 alts.append({'loser': l, 'fields': [{'field': 'ai_note', 'keeper_value': k.get('ai_note'), 'loser_value': d['ai_note']}]})
+            if g.get('note'):
+                k['ai_note'] = ((k.get('ai_note') or '').rstrip() + '\n' + g['note']).lstrip()
             k.setdefault('merged_from', [])
             if l not in k['merged_from']:
                 k['merged_from'].append(l)
@@ -176,7 +184,7 @@ def main():
         print('=====', g['cluster_id'], g['keeper'], '<-', g['losers'], '冲突字段', sum(len(x['fields']) for x in alts))
         for x in alts:
             for f in x['fields']:
-                print('   保留 keeper 值', f['field'], '| 被并值', str(f['loser_value'])[:100].replace('\n', ' '))
+                print('   改取被并值' if f.get('chosen') == 'loser' else '   保留 keeper 值', f['field'], '| 被并值', str(f['loser_value'])[:100].replace('\n', ' '))
         if a.apply:
             save(kp, k, kfmt)
         ledger.append({'cluster_id': g['cluster_id'], 'type': 'collection', 'keeper': g['keeper'], 'losers': g['losers'],

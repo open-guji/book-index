@@ -65,6 +65,75 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-08149_%E6%BD%9B%E7%A2%BA%E5%B1%85%E9%A1%9E%E6%9B%B8.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1076422",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1076422",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076422",
+        "request_no": "子２６９－０００１",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4499829/manifest.json",
+        "extent": "100冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1077898",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1077898",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1077898",
+        "request_no": "３６７－０００２",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/5389359/manifest.json",
+        "extent": "40冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078938",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078938",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078938",
+        "request_no": "子１２７－０００１",
+        "edition": "刊本（序刊）::明崇禎:150000:陳氏継志堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4761926/manifest.json",
+        "extent": "51冊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2580346",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2580346",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2580346",
+        "edition": "明刊"
+      }
     }
   ],
   "updated_at": "2026-08-09T10:41:40+00:00",
@@ -72,7 +141,21 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07"
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resource_groups": {
+    "naikaku-1076422": {
+      "label": "內閣文庫藏本：明刊本（子269-0001，100冊）"
+    },
+    "naikaku-1077898": {
+      "label": "內閣文庫藏本：明刊本（367-0002，40冊）"
+    },
+    "naikaku-1078938": {
+      "label": "內閣文庫藏本：明崇禎15年刊本（序刊） 陳氏継志堂（子127-0001，51冊）"
+    },
+    "ndl-2580346": {
+      "label": "NDL藏本：明刊"
+    }
+  }
 }

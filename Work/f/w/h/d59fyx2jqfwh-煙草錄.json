@@ -23,7 +23,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/x2v0pyfoznmoi3wg"
-      }
+      },
+      "entity_id": "hixhd2h9bmvr"
     }
   ],
   "dynasty": "清",
@@ -40,7 +41,70 @@
       "summary": "共 1 個版本：頤素堂叢書本（馆藏未载）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：b8yncji5izweqxgl\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-20"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：b8yncji5izweqxgl\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "kokusho",
+      "group": "kokusho-100311196",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100311196",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100311196",
+        "holder": "小泉吉永",
+        "edition": "刊 嘉慶庚辰（文政３）",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100311196/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100267926",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100267926",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100267926",
+        "holder": "京大富士川",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100267926/manifest"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2538765",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2538765",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2538765",
+        "edition": "江戸刊"
+      },
+      "note": "合刻本：同册另含《煙〓雜著》（顧祿）（K19，只挂主书）"
+    }
+  ],
+  "resource_groups": {
+    "kokusho-100311196": {
+      "label": "國書·小泉吉永藏刊 嘉慶庚辰（文政３）"
+    },
+    "kokusho-100267926": {
+      "label": "國書·京大富士川藏刊"
+    },
+    "ndl-2538765": {
+      "label": "NDL藏本：江戸刊"
+    }
+  }
 }

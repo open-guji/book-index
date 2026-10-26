@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/jwqntcznb3n0q3ku"
-      }
+      },
+      "entity_id": "hixhd2h9bdsh"
     }
   ],
   "dynasty": "明",
@@ -29,7 +30,93 @@
       "summary": "共 2 個版本：明刻本（日本內閣文庫（國立公文書館））；明崇禎八年方文刻本（湖北省圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：oigh3qbz18mk70vx、kb4wcubm3f0ah7pz\nauto-split:存疑未并\nE6 第 526 批新建（hold 清零：jyiyi；原 hold 原因：）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：oigh3qbz18mk70vx、kb4wcubm3f0ah7pz\nauto-split:存疑未并\nE6 第 526 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条、國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md（第二轮）。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1074328",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1074328",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1074328",
+        "request_no": "２７７－０１８０",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4031399/manifest.json",
+        "extent": "9冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610127",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610127",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610127",
+        "request_no": "２７７－０１８４",
+        "edition": "刊本:江戸:::／印年::承応:030000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3913251/manifest.json",
+        "extent": "13冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-100376062",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100376062",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100376062",
+        "holder": "大妻女大テキスト研",
+        "edition": "刊 承応３",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100376062/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300119106",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300119106",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300119106",
+        "holder": "廣瀬資",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300119106/manifest"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1074328": {
+      "label": "內閣文庫藏本：明刊本（277-0180，9冊）"
+    },
+    "naikaku-3610127": {
+      "label": "內閣文庫藏本：江戸刊本 /印年（277-0184，13冊）"
+    },
+    "kokusho-100376062": {
+      "label": "國書·大妻女大テキスト研藏刊 承応３"
+    },
+    "kokusho-300119106": {
+      "label": "國書·廣瀬資藏刊"
+    }
+  }
 }

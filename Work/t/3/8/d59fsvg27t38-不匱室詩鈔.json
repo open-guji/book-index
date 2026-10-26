@@ -6,16 +6,17 @@
   "authors": [
     {
       "name": "胡漢民",
-      "role": "撰"
+      "role": "撰",
+      "entity_id": "hixicabb1wrt"
     }
   ],
   "dynasty": "中華民國",
   "dynasty_basis": "author_propagation",
   "period": "modern",
   "period_basis": "據 authors[0].dynasty「民國」",
-  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007695870。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-13",
+  "ai_note": "E 道（overview#409）據NDL古典籍（dl.ndl.go.jp）「無」档（總目已抓塊無同題同作者；muse 複核非同書）建條；源記錄：000007695870。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "ndl",
@@ -32,11 +33,30 @@
         "edition": "民國20"
       },
       "details": "NDL 非全網公開（送信サービス限定：個人送信須 NDL 本登録，或到圖書館送信參加館／NDL 館內閱覽）"
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2566091",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2566091",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2566091",
+        "edition": "民國25"
+      },
+      "note": "附《詩餘》一卷（同著者）"
     }
   ],
   "resource_groups": {
     "ndl-2539686": {
       "label": "NDL藏本（送信限定）：民國20"
+    },
+    "ndl-2566091": {
+      "label": "NDL藏本：民國25"
     }
   }
 }

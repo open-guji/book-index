@@ -17,7 +17,8 @@
     {
       "name": "繼忠",
       "role": "輯",
-      "dynasty": "宋"
+      "dynasty": "宋",
+      "entity_id": "hixicld4dsu7"
     }
   ],
   "dynasty": "宋",
@@ -34,9 +35,9 @@
       "summary": "共 4 個版本：明萬曆十七年至清乾隆間刻（臺灣圖書館、北京市法源寺）；明永樂十八年至正統五年刻（馆藏未载）；（馆藏未载）；（上海圖書館、寧夏壽佛寺、南京圖書館、福州市雪峰崇聖寺、蘇州市西園寺、重慶市慈雲寺、青島市湛山寺、南陽市水帘寺、國家圖書館、哈爾濱市極樂寺、大同市吉祥寺）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：x28exvjje4latdru、sjhsbuyfe3465diq\nE6 第 426 批新建（hold 清零：E；原 hold 原因：-）\n總目版本待定（庫內已有 Book 11so4ugwfpvr5、11so4ugwfpvr6：明萬曆十七年至清乾隆間刻、明永樂十八年至正統五年刻）：總目著錄版本標籤空，未入 Book，只作 Work 級來源（第 801 批；rysxbfr685wqgz76、dqivh4qwuapi00dv）；總目分類：子部／釋家類／大藏之屬\n晋升前審計補錄：據 indexed_by.author_info 補入 繼忠（錄入時漏）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：x28exvjje4latdru、sjhsbuyfe3465diq\nE6 第 426 批新建（hold 清零：E；原 hold 原因：-）\n總目版本待定（庫內已有 Book 11so4ugwfpvr5、11so4ugwfpvr6：明萬曆十七年至清乾隆間刻、明永樂十八年至正統五年刻）：總目著錄版本標籤空，未入 Book，只作 Work 級來源（第 801 批；rysxbfr685wqgz76、dqivh4qwuapi00dv）；總目分類：子部／釋家類／大藏之屬\n晋升前審計補錄：據 indexed_by.author_info 補入 繼忠（錄入時漏）\n\n2026-10-24 國圖數字方志／趙城金藏／家譜重配（存疑檔）：逐條裁決後補掛國圖影像資源（子 agent 讀 Work 文件核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -52,11 +53,31 @@
         "nlc_fid": "ZHCH1207",
         "edition": ""
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300093860",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300093860",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300093860",
+        "holder": "東洋大哲学堂",
+        "edition": "刊 延宝５",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300093860/manifest"
+      }
     }
   ],
   "resource_groups": {
     "nlc-ZHCH1207": {
       "label": "國圖藏本："
+    },
+    "kokusho-300093860": {
+      "label": "國書·東洋大哲学堂藏刊 延宝５"
     }
   }
 }

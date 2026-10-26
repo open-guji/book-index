@@ -10,6 +10,7 @@ for b in B.values():
     if b.get('work_id'): books_of[b['work_id']].append(b)
 SRC=re.compile(r'源記錄：([0-9a-z]{16})')
 def first_author(w):
+    if '【獨撰子目补撰人】' in (w.get('ai_note') or ''): return ''   # 他串据丛书补的撰人，视同无责任者
     au=[a for a in w.get('authors') or [] if isinstance(a,dict)]
     if not au: return ''
     n=norm_name(au[0].get('name'))
@@ -25,6 +26,23 @@ def srcids(x):
     for r in x.get('sources') or []:
         if isinstance(r,dict) and r.get('id') and re.fullmatch(r'[0-9a-z]{16}',r['id']): s.add(r['id'])
     return s
+CNUM={'一':1,'二':2,'兩':2,'三':3,'四':4,'五':5,'六':6,'七':7,'八':8,'九':9,'十':10,'百':100,'〇':0,'零':0}
+def cnum(s):
+    n=cur=0
+    for ch in s:
+        v=CNUM[ch]
+        if v in (10,100): n+=(cur or 1)*v; cur=0
+        else: cur=cur*10+v if cur else v
+    return n+cur
+def tijuan(w):
+    """indexed_by.title_info 里紧跟题名的「N卷」（juan_count 缺时补判卷数悬殊；4a-α乙 复盘：采雨山房詩十卷總名←子目一卷）"""
+    t=w.get('title') or ''; out=set()
+    for x in w.get('indexed_by') or []:
+        ti=x.get('title_info') or ''
+        if not ti.startswith(t): continue
+        m=re.match(r'([一二兩三四五六七八九十百〇零]+)卷',ti[len(t):])
+        if m: out.add(cnum(m.group(1)))
+    return out
 def feat(wid):
     w=W[wid]; bs=books_of.get(wid,[])
     cols=[]
@@ -37,7 +55,7 @@ def feat(wid):
     secs={i.get('section') for i in w.get('indexed_by') or [] if i.get('section')}
     return dict(id=wid,title=w.get('title'),fa=first_author(w),dyn=dyn(w),juan=juan(w),
         nbooks=len(bs),eds=[b.get('edition') or '' for b in bs],
-        bjuan={juan(b) for b in bs}-{None},
+        bjuan=({juan(b) for b in bs}|tijuan(w))-{None},
         cols=[(c['id'],c.get('title'),first_author(c)) for c in cols],
         src=src,secs=secs,note=w.get('ai_note') or '',
         congshu='叢書子目' in (w.get('ai_note') or ''),

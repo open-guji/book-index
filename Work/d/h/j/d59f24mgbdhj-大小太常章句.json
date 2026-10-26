@@ -11,7 +11,7 @@
       "role": "撰"
     }
   ],
-  "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書書類著錄「桓君（榮）大小太常章句」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「佚」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n標目之正：「桓君（榮）」之君是敬稱。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1exdu947x31wd` 不同（authors）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。",
+  "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書書類著錄「桓君（榮）大小太常章句」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「佚」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n標目之正：「桓君（榮）」之君是敬稱。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1exdu947x31wd` 不同（authors）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-10-26 A11-去重3b-0 併條（rule=去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并）：併 d59fkwmxjvnl《大、小太常章句》 入本條。署名异写同书：《大小太常章句》桓榮／桓君：「桓君」，原注「桓榮及子郁删定」",
   "indexed_by": [
     {
       "source": "經義考",
@@ -24,6 +24,12 @@
       "attested_status": "lost",
       "attested_status_raw": "佚",
       "attested_status_note": "此是朱彝尊所判，非本庫之判，故不改本記錄之 loss_status。四庫御製題論此書曰「所注闕佚未見者，今四庫所録往往其書尚存」——其判是十七世紀一人之見聞。「未見」尤非亡佚，是朱氏未見其書。"
+    },
+    {
+      "source": "補後漢書藝文志",
+      "source_bid": "d59f2o2lm0ht",
+      "title_info": "桓君<桓榮及子郁删定> 大、小太常章句",
+      "summary": "桓君 大、小太常章句<桓榮及子郁删定。>"
     }
   ],
   "period_upper": "qing",
@@ -31,6 +37,24 @@
   "period": "qin-han",
   "period_basis": "後漢書：桓榮建武十九年辟大司徒府，授明帝尚書（2026-08-24 R3 引文定代）",
   "updated_at": "2026-08-24T09:25:54.498171+00:00",
-  "revision": "1.1.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
+  "additional_titles": [
+    "大、小太常章句"
+  ],
+  "merged_in": [
+    {
+      "id": "d59fkwmxjvnl",
+      "title": "大、小太常章句",
+      "at": "2026-10-26T11:37:11Z",
+      "by": "A11-去重3b-0",
+      "rule": "去重细拆单元 3b-0：题名相同、首位责任者异写而有独立证据为同一人（或同一书）B 档并",
+      "why": "署名异写同书：《大小太常章句》桓榮／桓君：「桓君」，原注「桓榮及子郁删定」",
+      "author": "桓君",
+      "title_info": "桓君<桓榮及子郁删定> 大、小太常章句"
+    }
+  ],
+  "merged_from": [
+    "d59fkwmxjvnl"
+  ]
 }

@@ -98,7 +98,8 @@ def merge_work(g, apply):
                 if isinstance(m, dict) and m.get('id') == l:
                     au = '、'.join(str(a.get('name')) for a in recs[l].get('authors') or [])
                     if au: m['author'] = au
-                    m['title_info'] = [x.get('title_info') for x in recs[l].get('indexed_by') or [] if x.get('title_info')][:6]
+                    ti = '；'.join([x['title_info'] for x in recs[l].get('indexed_by') or [] if x.get('title_info')][:6])
+                    if ti: m['title_info'] = ti   # schema：string（多條以「；」連）
         with open(kp, 'w', encoding='utf-8') as f:
             f.write(V.dump(k, V.detect_format(open(kp, encoding='utf-8').read(), k)))
     return out

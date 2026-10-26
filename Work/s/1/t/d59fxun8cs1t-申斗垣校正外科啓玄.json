@@ -12,7 +12,8 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/rhpmqzntsm36wkn2"
-      }
+      },
+      "entity_id": "hixicld509x3"
     }
   ],
   "dynasty": "明",
@@ -29,9 +30,9 @@
       "summary": "共 5 個版本：清聚錦堂刻本（天津中醫藥大學第一附屬醫院圖書館、國家圖書館、山西省圖書館）；明萬曆三十二年刻本（中國科學院圖書館）；明萬曆三十二年刻清重修本（中國科學院圖書館）；明刻本（國家圖書館）；明萬曆間金陵富春堂刻本（河南省圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：vb74l52b7t7rkvxg、pj6c336v5gqo5s3c、0yfvdr1m6vprjzea、d2dsqad3m86rpnnf、oketdrt2zzf5ikn0\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-21 重出审计 WORK-0154：并入 d59fxuz16rcy；保留墓碑，迁移存储侧引用。原字段异说与逐组依据见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-21",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：vb74l52b7t7rkvxg、pj6c336v5gqo5s3c、0yfvdr1m6vprjzea、d2dsqad3m86rpnnf、oketdrt2zzf5ikn0\nE6 第 423 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-21 重出审计 WORK-0154：并入 d59fxuz16rcy；保留墓碑，迁移存储侧引用。原字段异说与逐组依据见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "merged_in": [
     {
       "id": "d59fxuz16rcy",
@@ -41,5 +42,72 @@
       "rule": "同作同源覆核",
       "why": "WORK-0154；逐组证据与原字段差异见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json"
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1075634",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1075634",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1075634",
+        "request_no": "３０４－０１５４",
+        "edition": "写本:江戸:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4917604/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078774",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078774",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078774",
+        "request_no": "３０４－０１４９",
+        "edition": "刊本（序刊）::明万暦:320000:；／印年:清:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4773962/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079785",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079785",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079785",
+        "request_no": "子０４９－００２２",
+        "edition": "刊本（序刊）::明万暦:320000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/628725/manifest.json",
+        "extent": "6冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "naikaku-1075634": {
+      "label": "內閣文庫藏本：江戸写本（304-0154，4冊）"
+    },
+    "naikaku-1078774": {
+      "label": "內閣文庫藏本：明万暦32年刊本（序刊） ;/印年（304-0149，4冊）"
+    },
+    "naikaku-1079785": {
+      "label": "內閣文庫藏本：明万暦32年刊本（序刊）（子049-0022，6冊）"
+    }
+  }
 }

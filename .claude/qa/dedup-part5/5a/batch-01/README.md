@@ -9,3 +9,5 @@
 不碰：同源但 contained_in 不同的 3 组（頤道堂詩選、續方言、點蒼山人詩鈔，属「拆回丛书版次错并」串）；其余差异较多的同源组登记。
 
 结果：10 组，keeper 并入 sources／indexed_by／provenance／contained_in／resources 并集，被并者留墓碑；promotions 4 处改指 keeper。脚本同 5c（merge_books.py）。
+
+注：当时脚本实际漏并 sources／indexed_by／provenance，已在 ../../backfill/ 回补。

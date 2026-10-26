@@ -18,7 +18,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-09-06 qa-sweep/liaojinyuan C 類＋真斷代錯：period 由 liao-jin-yuan 改 ming。據：本條無 indexed_by（無著錄可撮），其代全繫於撰人。所繫 entity `hixhd2h9be2p`（陳懿典）載生卒 **1554–1638**，**生於元亡（1368）之後一百八十六年**，斷不能有元人之作；其名下另五部有期之書（讀左漫筆、讀史漫筆、陳學士先生初集、孟子貫義、論語貫義）**皆在 ming 桶**，唯本條在 liao-jin-yuan，是孤雁（本輪 L 類亦報之）。旁證：題首「鍥」字（鍥版、鍥刻）乃明季書坊刻書題署之常語，「三注大全」之「大全」亦明代坊刻類書之題例。舊 period_basis 作「據 authors[0].dynasty「元」」，而該「元」與所繫之人之生卒直相牴，是機械派生之殘留。原值：period「liao-jin-yuan」、authors[0].dynasty「元」。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 9 取自 `measure_info`「九冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-09-06 qa-sweep/liaojinyuan C 類＋真斷代錯：period 由 liao-jin-yuan 改 ming。據：本條無 indexed_by（無著錄可撮），其代全繫於撰人。所繫 entity `hixhd2h9be2p`（陳懿典）載生卒 **1554–1638**，**生於元亡（1368）之後一百八十六年**，斷不能有元人之作；其名下另五部有期之書（讀左漫筆、讀史漫筆、陳學士先生初集、孟子貫義、論語貫義）**皆在 ming 桶**，唯本條在 liao-jin-yuan，是孤雁（本輪 L 類亦報之）。旁證：題首「鍥」字（鍥版、鍥刻）乃明季書坊刻書題署之常語，「三注大全」之「大全」亦明代坊刻類書之題例。舊 period_basis 作「據 authors[0].dynasty「元」」，而該「元」與所繫之人之生卒直相牴，是機械派生之殘留。原值：period「liao-jin-yuan」、authors[0].dynasty「元」。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 9 取自 `measure_info`「九冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-国書存疑升档-20261026.md。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -32,6 +32,90 @@
   "period_basis": "據所繫 entity 陳懿典生卒 1554–1638（明萬曆進士），名下另五書皆在 ming 桶；題冠「鍥」字乃明季書坊刻書之語",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.3.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "waseda",
+      "group": "waseda-ro13_01406",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro13/ro13_01406/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro13_01406",
+        "edition": ""
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200019706",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200019706",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200019706",
+        "holder": "国文研鵜飼",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200019706/manifest"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3611043",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3611043",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3611043",
+        "request_no": "３１１－０２１５",
+        "edition": "刊本::明万暦:210000:余氏自新斎",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3672998/manifest.json",
+        "extent": "12冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1078480",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1078480",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1078480",
+        "request_no": "３１１－０２１３",
+        "edition": "刊本::明万暦:210000:余氏自新斎",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4768319/manifest.json",
+        "extent": "8冊"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-ro13_01406": {
+      "label": "早稲田藏本"
+    },
+    "kokusho-200019706": {
+      "label": "國書·国文研鵜飼藏刊"
+    },
+    "naikaku-3611043": {
+      "label": "內閣文庫藏本：明万暦21年刊本 余氏自新斎（311-0215，12冊）"
+    },
+    "naikaku-1078480": {
+      "label": "內閣文庫藏本：明万暦21年刊本 余氏自新斎（311-0213，8冊）"
+    }
+  }
 }
