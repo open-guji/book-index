@@ -35,7 +35,11 @@ def fa(m):
     return None if n in ANON else n
 DYN = {'清': {'清'}, '明': {'明'}}
 NUM = re.compile(r'[〇零一二三四五六七八九十百千]+(種|卷|集|冊)|不分卷|存')
-def ctnorm(t): return cen.norm(NUM.sub('', t or ''))
+# 同一丛书的异称（Collection 题名改写或丛书改名重印）：文淵閣本、薈要摛藻堂本；黃奭《漢學堂叢書》即《黃氏逸書考》
+ALIAS = {'欽定四庫全書文淵閣本': '文淵閣四庫全書', '欽定四庫全書薈要摛藻堂本': '摛藻堂四庫全書薈要', '黃氏逸書考附': '漢學堂叢書', '黃氏逸書考': '漢學堂叢書'}
+def ctnorm(t):
+    n = cen.norm(NUM.sub('', t or ''))
+    return ALIAS.get(n, n)
 out, judged, skip = [], [], collections.Counter()
 for g in G:
     by = collections.defaultdict(list)
