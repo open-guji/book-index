@@ -40,9 +40,9 @@
       "summary": "共 5 個版本：抄本（上海圖書館）；明抄本（臺灣圖書館、國家圖書館、天津圖書館）；江蘇省立國學圖書館抄本（南京圖書館）；明抄本（國家圖書館、蘇州市圖書館、遼寧省圖書館）；明抄本（臺灣圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pdm8rbcq4f3rid5w、34evczlej2u0mia7、nrjmvahfr8hl517g、q1bmez3oamed42pk、h2u1wlhszq7cvolc\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-01.tsv；原 hold 原因：auto-split:存疑未并（作者仅部分交集（合著增减）））\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pdm8rbcq4f3rid5w、34evczlej2u0mia7、nrjmvahfr8hl517g、q1bmez3oamed42pk、h2u1wlhszq7cvolc\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-01.tsv；原 hold 原因：auto-split:存疑未并（作者仅部分交集（合著增减）））\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-27 A11-去重新-待並條 併條（rule=去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检））：併 d59f2njkr94z《明宣宗章皇帝實錄》 入本條。待並條逐条定论同书：《大明宣宗章皇帝實錄》楊士奇／《明宣宗章皇帝實錄》楊士奇；同 entity 楊士奇，B 題加「大明」為全稱，張輔為同修者，同為宣宗實錄明抄本；B 有總目著錄",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-27",
   "resources": [
     {
       "id": "nlc",
@@ -58,11 +58,50 @@
         "nlc_fid": "411999010232",
         "edition": "明[1368-1644]"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-CBM0102",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=CBM0102",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "CBM0102",
+        "edition": "明[1368-1644]"
+      }
     }
   ],
   "resource_groups": {
     "nlc-411999010232": {
       "label": "國圖藏本：明[1368-1644]"
     }
-  }
+  },
+  "measures": [
+    {
+      "unit": "冊",
+      "number": 13
+    }
+  ],
+  "measure_info": "十三冊",
+  "additional_titles": [
+    "明宣宗章皇帝實錄"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2njkr94z",
+      "title": "明宣宗章皇帝實錄",
+      "at": "2026-10-27T00:46:34Z",
+      "by": "A11-去重新-待並條",
+      "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+      "why": "待並條逐条定论同书：《大明宣宗章皇帝實錄》楊士奇／《明宣宗章皇帝實錄》楊士奇；同 entity 楊士奇，B 題加「大明」為全稱，張輔為同修者，同為宣宗實錄明抄本；B 有總目著錄",
+      "author": "楊士奇"
+    }
+  ],
+  "merged_from": [
+    "d59f2njkr94z"
+  ]
 }
