@@ -4,24 +4,37 @@
   "type": "entity",
   "subtype": "people",
   "primary_name": "薛向",
-  "dynasty": "唐",
-  "external_ids": {
-    "cbdb_id": 180263,
-    "cbdb_match": "manual",
-    "cbdb_source": "pending_accept: auto_ambig cbdb_dy=6 (None-830)",
-    "wikidata_id": "Q45627190"
-  },
+  "dynasty": "北宋",
   "updated_at": "2026-08-24T00:00:00+00:00",
-  "period": "sui-tang",
-  "period_basis": "據 dynasty「唐」自動歸併",
-  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 2 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=180263 補入空槽——籍貫「寶鼎」。既有之值一概未動。",
-  "native_place": "寶鼎",
-  "native_place_entity_id": "hixi6kezd0y2",
-  "native_place_basis": "CBDB 180263 index_addr（2026-09-06 CBDB enrich）",
+  "period": "song",
+  "period_basis": "據 dynasty「北宋」歸併",
+  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 2 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=180263 補入空槽——籍貫「寶鼎」。既有之值一概未動。\n\nA12 正史列傳 M9 待裁覆核（2026-10-27）：所繫《陝西建明》《邊陲利害》皆宋志著錄、宋薛向之作，而本條舊作唐人：CBDB 180263（唐，卒約830，墓誌人物）為自動歧配（pending_accept auto_ambig），Q45627190 與籍貫「寶鼎」皆隨之而來。今卸除，改北宋並據本傳補資料（宋薛向即 CBDB 800，字師正）。原值可逆：{\"dynasty\": \"唐\", \"period\": \"sui-tang\", \"period_basis\": \"據 dynasty「唐」自動歸併\", \"external_ids\": {\"cbdb_id\": 180263, \"cbdb_match\": \"manual\", \"cbdb_source\": \"pending_accept: auto_ambig cbdb_dy=6 (None-830)\", \"wikidata_id\": \"Q45627190\"}, \"native_place\": \"寶鼎\", \"native_place_entity_id\": \"hixi6kezd0y2\", \"native_place_basis\": \"CBDB 180263 index_addr（2026-09-06 CBDB enrich）\", \"dates\": {\"death\": 830, \"basis\": \"現行字段\"}}",
   "dates": {
-    "death": 830,
-    "basis": "現行字段"
+    "birth": 1016,
+    "death": 1081,
+    "basis": "通行生卒；本傳斥知潁州、改隨州卒，年六十六"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-27",
+  "dynasty_basis": "據正史本傳",
+  "alt_names": [
+    {
+      "name": "師正",
+      "type": "字"
+    },
+    {
+      "name": "恭敏",
+      "type": "諡號"
+    }
+  ],
+  "title_or_office": "同知樞密院事",
+  "description": {
+    "text": "以祖顏蔭補官，善理財。權陝西轉運副使、制置解鹽，以羨鹽之直市馬，馬歲至萬匹；神宗時為江浙荊淮發運使，熙寧四年權三司使，知定州；元豐元年同知樞密院，以畜馬事斥知潁州，改隨州卒，年六十六。元祐中諡恭敏。子紹彭有翰墨名。",
+    "sources": [
+      {
+        "name": "《宋史·薛向傳》",
+        "details": "卷328"
+      }
+    ]
+  }
 }
