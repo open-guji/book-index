@@ -428,9 +428,39 @@ five-dynasties  song  liao-jin-yuan  ming  qing  modern
 | 春秋吳 | pre-qin |  |  |
 | 春秋魯 | pre-qin |  |  |
 | 春秋杞 | pre-qin | 杞、𣏌 | 諸侯國 |
+| 春秋宋 | pre-qin | 宋 | 諸侯國 |
+| 春秋鄭 | pre-qin | 鄭 | 諸侯國 |
+| 春秋衛 | pre-qin | 衛、衞 | 諸侯國 |
+| 春秋秦 | pre-qin | 秦 | 諸侯國 |
+| 春秋楚 | pre-qin | 楚 | 諸侯國 |
+| 春秋紀 | pre-qin | 紀 | 諸侯國 |
+| 春秋陳 | pre-qin | 陳 | 諸侯國 |
+| 春秋蔡 | pre-qin | 蔡 | 諸侯國 |
+| 春秋曹 | pre-qin | 曹 | 諸侯國 |
+| 春秋莒 | pre-qin | 莒 | 諸侯國 |
+| 春秋邾 | pre-qin | 邾 | 諸侯國 |
+| 春秋滕 | pre-qin | 滕、縢 | 諸侯國 |
+| 春秋越 | pre-qin | 越 | 諸侯國 |
+| 春秋薛 | pre-qin | 薛 | 諸侯國 |
+| 春秋郕 | pre-qin | 郕 | 諸侯國 |
+| 春秋鄫 | pre-qin | 鄫、鄶 | 諸侯國 |
+| 春秋萊 | pre-qin | 萊 | 諸侯國 |
+| 春秋許 | pre-qin | 許 | 諸侯國 |
+| 春秋宿 | pre-qin | 宿 | 諸侯國 |
+| 春秋虢 | pre-qin | 虢 | 諸侯國 |
+| 春秋項 | pre-qin | 項 | 諸侯國 |
+| 春秋燕 | pre-qin | 燕 | 諸侯國 |
+| 春秋邢 | pre-qin | 邢 | 諸侯國 |
+| 春秋小邾 | pre-qin | 小邾、郳 | 諸侯國 |
+| 春秋庸 | pre-qin | 庸 | 諸侯國 |
+| 春秋梁 | pre-qin | 梁 | 諸侯國 |
+| 春秋鑄 | pre-qin | 鑄、祝 | 諸侯國 |
+| 春秋譚 | pre-qin | 譚 | 諸侯國 |
 | 戰國齊 | pre-qin |  |  |
 | 戰國楚 | pre-qin |  |  |
 | 戰國趙 | pre-qin |  |  |
+| 戰國韓 | pre-qin | 韓 |  |
+| 戰國魏 | pre-qin | 魏 |  |
 | 秦 | qin-han | 贏秦 | 贏秦=嬴秦之訛 |
 | 西漢 | qin-han |  |  |
 | 新 | qin-han |  | 新莽（王莽） |
