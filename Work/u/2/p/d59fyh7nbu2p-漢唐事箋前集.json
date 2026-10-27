@@ -30,7 +30,81 @@
       "summary": "共 3 個版本：清嘉慶間阮元影抄本（臺北“故宮博物院”）；粵雅堂叢書本（馆藏未载）；宛委别藏本（馆藏未载）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：73ky2ejajqkji0am、i14h2mawv5bp8aps、01v8q34v4qju0hb1\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-03.tsv；原 hold 原因：auto-split:存疑未并（缺卷数（记录卷数非单一N卷或目标无卷数）））",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-19"
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：73ky2ejajqkji0am、i14h2mawv5bp8aps、01v8q34v4qju0hb1\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-03.tsv；原 hold 原因：auto-split:存疑未并（缺卷数（记录卷数非单一N卷或目标无卷数）））\n\n2026-10-27 A11-去重新-待並條 併條（rule=去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检））：併 d59f2j4oyn0i《漢唐事箋》 入本條。待並條逐条定论同书：《漢唐事箋前集》朱禮／《漢唐事箋》朱禮；同作者朱禮，A為故宮藏清嘉慶阮元進呈影鈔本漢唐事箋，B總目即著錄該阮元影抄本，題名省稱",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-27",
+  "measures": [
+    {
+      "unit": "冊",
+      "number": 6
+    }
+  ],
+  "measure_info": "六冊",
+  "resources": [
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:SSID-11311188_%E6%BC%A2%E5%94%90%E4%BA%8B%E7%AE%8B.pdf"
+    },
+    {
+      "id": "waseda",
+      "group": "waseda-wa04_00551",
+      "group_role": "origin",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "short_name": "早稲田",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/wa04/wa04_00551/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "wa04_00551",
+        "edition": "山陰 : 李銕橋, 道光2[1822]"
+      }
+    },
+    {
+      "id": "bsb",
+      "group": "bsb-bsb11129000",
+      "group_role": "origin",
+      "name": "MDZ 數字館藏（巴伐利亞州立圖書館）",
+      "short_name": "巴伐利亞",
+      "url": "https://www.digitale-sammlungen.de/view/bsb11129000",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "bsb_record": "bsb11129000",
+        "iiif_manifest": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb11129000/manifest",
+        "shelfmark": "4 L.sin. D 151-1/8",
+        "edition": "[S.l.] 山陰李銕橋 1822"
+      }
+    }
+  ],
+  "resource_groups": {
+    "waseda-wa04_00551": {
+      "label": "早稲田藏本：山陰 : 李銕橋, 道光2[1822]"
+    },
+    "bsb-bsb11129000": {
+      "label": "巴伐利亞州立圖書館藏本：[S.l.] 山陰李銕橋 1822"
+    }
+  },
+  "additional_titles": [
+    "漢唐事箋"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2j4oyn0i",
+      "title": "漢唐事箋",
+      "at": "2026-10-27T00:39:41Z",
+      "by": "A11-去重新-待並條",
+      "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+      "why": "待並條逐条定论同书：《漢唐事箋前集》朱禮／《漢唐事箋》朱禮；同作者朱禮，A為故宮藏清嘉慶阮元進呈影鈔本漢唐事箋，B總目即著錄該阮元影抄本，題名省稱",
+      "author": "朱禮"
+    }
+  ],
+  "merged_from": [
+    "d59f2j4oyn0i"
+  ]
 }

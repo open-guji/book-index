@@ -17,13 +17,17 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-10-26 A11-去重方案新-譜志余 併條（rule=去重方案新-譜志余：同题组逐对子 agent 判同书＋独立 agent 复核确认（B 档 100% 核））：併 d59f2n7o6ayq《安肅縣志》 入本條。《安肅縣志》同题同书：甲故宮史元善十六卷清嘉慶十三年修補本，乙張鈍修十六卷乾隆四十三年刻，且乙另有「乾隆四十三年刻嘉慶十三年石梁補刻本」；同卷，甲即乙之嘉慶補刻印本，非另修｜独立复核：甲「嘉慶戊辰十三年修補本」十六卷恰與乙所掛「乾隆四十三年刻嘉慶十三年補刻本」十六卷相應，乙只錄修者，甲史元善可為纂／補者，同年同卷修纂分錄",
   "juan_count": {
     "number": 16
   },
   "measures": [
     {
       "unit": "冊",
+      "number": 16
+    },
+    {
+      "unit": "卷",
       "number": 16
     }
   ],
@@ -34,6 +38,57 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "resources": [
+    {
+      "id": "commons",
+      "name": "维基共享资源",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC403-312001065077-3877_%E5%AE%89%E8%82%85%E7%B8%A3%E8%AA%8C_%E6%B8%85%E5%98%89%E6%85%B613%E5%B9%B4%281808%29_%E5%8D%B7%E4%B8%80.pdf",
+      "types": [
+        "image"
+      ],
+      "root_type": "catalog",
+      "metadata": {
+        "format": "PDF",
+        "edition": "刻本",
+        "year": "清嘉慶13年[1808]",
+        "note": "本链接为扫描册 卷一；不代表全书齐备。"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-312001065077",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=12&showType=1&indexName=data_403&fid=312001065077",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "312001065077",
+        "edition": ""
+      }
+    }
+  ],
+  "resource_groups": {
+    "nlc-312001065077": {
+      "label": "國圖藏本："
+    }
+  },
+  "merged_in": [
+    {
+      "id": "d59f2n7o6ayq",
+      "title": "安肅縣志",
+      "at": "2026-10-26T23:16:41Z",
+      "by": "A11-去重方案新-譜志余",
+      "rule": "去重方案新-譜志余：同题组逐对子 agent 判同书＋独立 agent 复核确认（B 档 100% 核）",
+      "why": "《安肅縣志》同题同书：甲故宮史元善十六卷清嘉慶十三年修補本，乙張鈍修十六卷乾隆四十三年刻，且乙另有「乾隆四十三年刻嘉慶十三年石梁補刻本」；同卷，甲即乙之嘉慶補刻印本，非另修｜独立复核：甲「嘉慶戊辰十三年修補本」十六卷恰與乙所掛「乾隆四十三年刻嘉慶十三年補刻本」十六卷相應，乙只錄修者，甲史元善可為纂／補者，同年同卷修纂分錄",
+      "author": "張鈍"
+    }
+  ],
+  "merged_from": [
+    "d59f2n7o6ayq"
+  ]
 }

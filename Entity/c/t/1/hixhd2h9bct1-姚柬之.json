@@ -13,7 +13,7 @@
   "dynasty": "清",
   "native_place_basis": "CBDB 85558 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條；去其指向不存在之 work 的懸空繫連 1 條（原值：[{\"work_id\": \"1ex3wu6ou89p2\", \"role\": \"修\"}]）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=85558 補入空槽——籍貫「桐城」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ssrrv7c。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條；去其指向不存在之 work 的懸空繫連 1 條（原值：[{\"work_id\": \"1ex3wu6ou89p2\", \"role\": \"修\"}]）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=85558 補入空槽——籍貫「桐城」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ssrrv7c。\n\nA12 非作者人物 正史列傳 M14（清）：補資料（2026-10-26）。",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "period": "qing",
   "alt_names": [
@@ -53,15 +53,21 @@
     "death": 1847,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "description": {
+    "text": "字伯山，安徽桐城人，姚文燮七世孫，從族祖姚鼐學，道光二年進士。歷河南臨漳知縣，善決疑獄；任廣東，署肇慶府；十九年擢貴州大定知府，捕汪擺片，引疾歸。附見清史稿循吏劉衡傳。",
     "sources": [
+      {
+        "name": "《清史稿·列傳二百六十五》",
+        "details": "卷478"
+      },
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/ttpqquaw2gyr3of3"
       }
     ]
-  }
+  },
+  "title_or_office": "大定知府"
 }
