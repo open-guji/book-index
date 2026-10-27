@@ -26,11 +26,19 @@
       "author_info": "德國湯若望撰",
       "section": "子部/天文算法類/叢編之屬",
       "summary": "共 4 個版本：（南京圖書館、國家圖書館）；（北京大學圖書館）；（北京大學圖書館）；（南京圖書館、北京師範大學圖書館、北京大學圖書館、、上海圖書館、國家圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "測食二卷",
+      "author_info": "德國湯如望撰;明周子愚、明卓爾康訂",
+      "section": "子部/天文算法類/推步之屬/天文",
+      "summary": "共 1 個版本：明天啓五年汪喬年刻本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5khlh3f5p81p2sgd、26zaxf5rzmleil1r、2zvguvoenj7wh6h4、353fdi7avqhxmmwh\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-26",
+  "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：5khlh3f5p81p2sgd、26zaxf5rzmleil1r、2zvguvoenj7wh6h4、353fdi7avqhxmmwh\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 國書 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-27 A11-去重同姓异名余 併條（rule=去重第二轮细拆单元 新-同姓异名余（3b-0 口径）：题名相同、首位责任者同姓异名而判为同一人（名／字／號异写、形近讹字、署名残缺）或著录同列，B 档并）：併 d59fxruj2n0h《測食》 入本條。署名异写同书：《測食》湯若望／湯如望：湯若望／湯如望异写",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-27",
   "resources": [
     {
       "id": "kokusho",
@@ -48,11 +56,41 @@
         "edition": "写",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100236021/manifest"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999019142",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999019142",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999019142",
+        "edition": "明天啓5年[1625]"
+      }
     }
   ],
   "resource_groups": {
     "kokusho-100236021": {
       "label": "國書·東北大和算藏写"
     }
-  }
+  },
+  "merged_in": [
+    {
+      "id": "d59fxruj2n0h",
+      "title": "測食",
+      "at": "2026-10-27T00:10:36Z",
+      "by": "A11-去重同姓异名余",
+      "rule": "去重第二轮细拆单元 新-同姓异名余（3b-0 口径）：题名相同、首位责任者同姓异名而判为同一人（名／字／號异写、形近讹字、署名残缺）或著录同列，B 档并",
+      "why": "署名异写同书：《測食》湯若望／湯如望：湯若望／湯如望异写",
+      "author": "湯如望",
+      "title_info": "測食二卷"
+    }
+  ],
+  "merged_from": [
+    "d59fxruj2n0h"
+  ]
 }
