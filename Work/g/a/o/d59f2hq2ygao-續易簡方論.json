@@ -18,7 +18,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-16 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A9续-京大 馆藏挂接：按确定档补挂 京大 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9续-京大贵重挂接-20261026.md。",
   "measures": [
     {
       "unit": "冊",
@@ -32,8 +32,8 @@
   "period_upper_basis": "撰人朝代作「宋」，歧而未決；諸解中最晚者為 song，無論何解皆不晚於此",
   "period": "song",
   "period_basis": "施發為南宋永嘉醫家，此書續王碩《易簡方》（南宋慶元間），必趙宋（2026-08-24 R3 引文定代）",
-  "revision": "1.4.0",
-  "revised_at": "2026-10-16",
+  "revision": "1.5.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "kokusho",
@@ -120,6 +120,23 @@
         "waseda_id": "ya09_00373",
         "edition": "松屏舎, 文政10[1827]跋"
       }
+    },
+    {
+      "id": "kyoto-rmda",
+      "group": "kyoto-RB00003905",
+      "group_role": "origin",
+      "name": "京都大学貴重資料デジタルアーカイブ",
+      "short_name": "京大",
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/item/rb00003905",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kyoto_record": "RB00003905",
+        "call_no": "ソ/3",
+        "edition": "和刻本",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00003905/manifest.json"
+      }
     }
   ],
   "resource_groups": {
@@ -137,6 +154,9 @@
     },
     "waseda-ya09_00373": {
       "label": "早稲田藏本：松屏舎, 文政10[1827]跋"
+    },
+    "kyoto-RB00003905": {
+      "label": "京大藏本：和刻本"
     }
   }
 }
