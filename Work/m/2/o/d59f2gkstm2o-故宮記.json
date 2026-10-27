@@ -16,6 +16,14 @@
       "source_bid": "d59f2mp1zsoz",
       "title_info": "楊奐故宮記一卷",
       "summary": "元楊奐故宮記一卷"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "汴故宮記一卷",
+      "author_info": "元楊奐撰",
+      "section": "史部/地理類/專志之屬/宮殿",
+      "summary": "共 1 個版本：說郛本（馆藏未载）"
     }
   ],
   "juan_count": {
@@ -34,20 +42,55 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-27 A11-去重新-待並條 併條（rule=去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检））：併 d59fybb3cdmo《汴故宮記》 入本條。待並條逐条定论同书：《故宮記》楊奐／《汴故宮記》楊奐；同 entity 楊奐，B 題加地名「汴」，卷數同為一卷，元志「故宮記」即汴故宮記",
   "description": {
-    "text": "楊奐（元）撰。一卷。見著錄於《元史藝文志》。其著錄之文，《元史藝文志》作「元楊奐故宮記一卷」。本書惟《元史藝文志》一志著錄，別無他證。",
+    "text": "楊奐（元）撰。一卷。見著錄於《元史藝文志》。其著錄之文，《元史藝文志》作「元楊奐故宮記一卷」。",
     "sources": [
-      "元史藝文志"
+      "元史藝文志",
+      "中國古籍總目"
     ]
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
-  "related_works": [
+  "revision": "1.1.0",
+  "revised_at": "2026-10-27",
+  "resources": [
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-B3221900",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=B3221900&order=rn_no&no=00442",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "B3221900",
+        "call_no": "雙紅堂-小說-150",
+        "edition": ""
+      }
+    }
+  ],
+  "resource_groups": {
+    "ioc-B3221900": {
+      "label": "東文研藏本：《舊小說》所收本"
+    }
+  },
+  "additional_titles": [
+    "汴故宮記"
+  ],
+  "merged_in": [
     {
       "id": "d59fybb3cdmo",
-      "relation": "related",
-      "note": "史部E存疑另立：總目記錄「汴故宮記」（楊奐）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（候选核对：同名未并（题名仅包含／近似而非异体，另立＋related））），按嚴口徑另立；互為相關，待並條複核。"
+      "title": "汴故宮記",
+      "at": "2026-10-27T00:12:17Z",
+      "by": "A11-去重新-待並條",
+      "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+      "why": "待並條逐条定论同书：《故宮記》楊奐／《汴故宮記》楊奐；同 entity 楊奐，B 題加地名「汴」，卷數同為一卷，元志「故宮記」即汴故宮記",
+      "author": "楊奐",
+      "title_info": "汴故宮記一卷"
     }
+  ],
+  "merged_from": [
+    "d59fybb3cdmo"
   ]
 }
