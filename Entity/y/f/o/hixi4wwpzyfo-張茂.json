@@ -16,11 +16,11 @@
     "cbdb_match": "auto_dy_unique",
     "cbdb_source": "name_exact+dy_match+unique（批A-前置.tsv）"
   },
-  "ai_note": "批A（overview#588）：據帝王年號對照表（前涼）與需求單建檔；CBDB 17857 名＋朝代唯一吻合，與對照表兩源互證。 2026-10-13 修：CBDB 生年空值曾誤寫為 0，已撤去 birth，僅留 death。\n\n2026-10-26 A12 L6 帝王稱號：補廟號、帝號別名（太宗、前涼太宗），補身份、說明（據本庫年號條）；回填年號條 ruler.entity_id。",
+  "ai_note": "批A（overview#588）：據帝王年號對照表（前涼）與需求單建檔；CBDB 17857 名＋朝代唯一吻合，與對照表兩源互證。 2026-10-13 修：CBDB 生年空值曾誤寫為 0，已撤去 birth，僅留 death。\n\n2026-10-26 A12 L6 帝王稱號：補廟號、帝號別名（太宗、前涼太宗），補身份、說明（據本庫年號條）；回填年號條 ruler.entity_id。\n\n2026-10-26 A12 L6 帝王稱號（晉書載記）：據《晉書·張軌傳》卷086補字、廟號、諡號別名（成遜、成公、前涼成公）與說明。 身份由「皇帝」改「涼州刺史、西平公」。",
   "review": {
     "status": "unreviewed"
   },
-  "revision": "1.0.1",
+  "revision": "1.0.2",
   "revised_at": "2026-10-26",
   "alt_names": [
     {
@@ -31,10 +31,30 @@
     {
       "name": "前涼太宗",
       "type": "廟號"
+    },
+    {
+      "name": "成遜",
+      "type": "字"
+    },
+    {
+      "name": "成公",
+      "type": "諡號",
+      "ambiguous": true
+    },
+    {
+      "name": "前涼成公",
+      "type": "別名",
+      "note": "私諡"
     }
   ],
-  "title_or_office": "皇帝",
+  "title_or_office": "涼州刺史、西平公",
   "description": {
-    "text": "前涼君主，年號永元（320–323）。"
+    "text": "前涼君主，年號永元（320–323）。張寔之弟。",
+    "sources": [
+      {
+        "name": "《晉書·張軌傳》",
+        "details": "卷086"
+      }
+    ]
   }
 }
