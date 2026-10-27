@@ -20,6 +20,22 @@
       "edition": "影印民國涵芬樓影印明正統道藏本",
       "volume": "第1294冊",
       "section": "子部 宗教類"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "華陽陶隱居（弘景）内傳三卷",
+      "author_info": "宋賈嵩撰",
+      "section": "史部/傳記類/別傳之屬",
+      "summary": "共 6 個版本：明抄本（國家圖書館）；道藏精華錄本（馆藏未载）；道藏本（馆藏未载）；觀古堂彙刻書本（馆藏未载）；觀古堂所刊書本（上海圖書館）；郋園先生全書本（馆藏未载）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "華陽陶隱居内傳三卷",
+      "author_info": "宋賈嵩撰",
+      "section": "子部/道家類/道教之屬/合編",
+      "summary": "共 1 個版本：（國家圖書館）"
     }
   ],
   "description": {
@@ -28,7 +44,7 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]",
+  "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-10-27 A11-去重新-待並條 併條（rule=去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检））：併 d59fy1cpntog《華陽陶隱居内傳》 入本條。待並條逐条定论同书：《華陽陶隱居內傳》賈嵩／《華陽陶隱居内傳》賈嵩；同作者賈嵩（同entity），題名華陽陶隱居內傳僅內／内異體，均三卷，唐宋朝代差屬著錄歧異，同一道藏本書。",
   "juan_count": {
     "number": 3
   },
@@ -60,6 +76,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E5%8F%A2%E6%9B%B8%E9%9B%86%E6%88%90%E7%BA%8C%E7%B7%A8%EF%BC%88%E6%BB%AC%EF%BC%89039.djvu"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999012890",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999012890",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999012890",
+        "edition": "明[1368-1644]"
+      }
     }
   ],
   "updated_at": "2026-08-09T09:00:59+00:00",
@@ -67,13 +98,30 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
-  "related_works": [
+  "revision": "1.1.0",
+  "revised_at": "2026-10-27",
+  "resource_groups": {
+    "nlc-411999012890": {
+      "label": "國圖藏本：明[1368-1644]"
+    }
+  },
+  "additional_titles": [
+    "華陽陶隱居内傳",
+    "弘景"
+  ],
+  "merged_in": [
     {
       "id": "d59fy1cpntog",
-      "relation": "related",
-      "note": "史部E存疑另立：總目記錄「華陽陶隱居内傳」（賈嵩）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（候选核对：朝代不同（宋≠唐））），按嚴口徑另立；互為相關，待並條複核。"
+      "title": "華陽陶隱居内傳",
+      "at": "2026-10-27T00:12:04Z",
+      "by": "A11-去重新-待並條",
+      "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+      "why": "待並條逐条定论同书：《華陽陶隱居內傳》賈嵩／《華陽陶隱居内傳》賈嵩；同作者賈嵩（同entity），題名華陽陶隱居內傳僅內／内異體，均三卷，唐宋朝代差屬著錄歧異，同一道藏本書。",
+      "author": "賈嵩",
+      "title_info": "華陽陶隱居（弘景）内傳三卷；華陽陶隱居内傳三卷"
     }
+  ],
+  "merged_from": [
+    "d59fy1cpntog"
   ]
 }
