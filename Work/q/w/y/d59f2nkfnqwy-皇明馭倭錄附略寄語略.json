@@ -35,6 +35,14 @@
       "edition": "影印國家圖書館藏明萬曆刻本",
       "volume": "第428冊",
       "section": "史部 史部"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "皇明馭倭錄九卷附畧二卷寄語畧一卷",
+      "author_info": "明王士騏撰並輯",
+      "section": "史部/雜史類/事實之屬",
+      "summary": "共 1 個版本：明萬曆間刻本（國家圖書館、華東師範大學圖書館）"
     }
   ],
   "juan_count": {
@@ -67,6 +75,36 @@
       "types": [
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999011186",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999011186",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999011186",
+        "edition": "明萬曆[1573-1620]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-0317",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0317",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0317",
+        "edition": "明萬曆[1573-1620]"
+      }
     }
   ],
   "description": {
@@ -77,22 +115,39 @@
       "續修四庫全書"
     ]
   },
-  "ai_note": "從 1evjy765ghpts 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 | 從 1evjr0gmr2pkw 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+  "ai_note": "從 1evjy765ghpts 合併。原註：本 Work 條目從《中華再造善本》目錄錄入。 | 從 1evjr0gmr2pkw 合併。原註：本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-27 A11-去重新-待並條 併條（rule=去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检））：併 d59fyt689i4g《皇明馭倭錄》 入本條。待並條逐条定论同书：《皇明馭倭錄附略寄語略》王士騏／《皇明馭倭錄》王士騏；同作者王士騏同entity，皇明馭倭錄附略寄語略九卷即B九卷附畧二卷寄語畧一卷，同萬曆刻本",
   "additional_titles": [
-    "皇明馭倭錄附畧寄語畧"
+    "皇明馭倭錄附畧寄語畧",
+    "皇明馭倭錄"
   ],
   "updated_at": "2026-08-09T10:41:40+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
-  "related_works": [
+  "revision": "1.1.0",
+  "revised_at": "2026-10-27",
+  "resource_groups": {
+    "nlc-411999011186": {
+      "label": "國圖藏本：明萬曆[1573-1620]"
+    },
+    "nlc-0317": {
+      "label": "國圖藏本：明萬曆[1573-1620]"
+    }
+  },
+  "merged_in": [
     {
       "id": "d59fyt689i4g",
-      "relation": "related",
-      "note": "史部E存疑另立：總目記錄「皇明馭倭錄」（王士騏）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（缺卷数（记录卷数非单一N卷或目标无卷数））），按嚴口徑另立；互為相關，待並條複核。"
+      "title": "皇明馭倭錄",
+      "at": "2026-10-27T00:31:59Z",
+      "by": "A11-去重新-待並條",
+      "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+      "why": "待並條逐条定论同书：《皇明馭倭錄附略寄語略》王士騏／《皇明馭倭錄》王士騏；同作者王士騏同entity，皇明馭倭錄附略寄語略九卷即B九卷附畧二卷寄語畧一卷，同萬曆刻本",
+      "author": "王士騏",
+      "title_info": "皇明馭倭錄九卷附畧二卷寄語畧一卷"
     }
+  ],
+  "merged_from": [
+    "d59fyt689i4g"
   ]
 }

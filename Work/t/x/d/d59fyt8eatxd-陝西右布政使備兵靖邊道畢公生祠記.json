@@ -12,7 +12,9 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/1hlqbndr8yx14xf5"
-      }
+      },
+      "entity_id": "hixhd2j3sw7a",
+      "name_basis": "2026-10-25 並條善後：同書重出條 d59f2njcn2mb 之同名撰人已繫此 entity，今補繫（dbt-d59fyt8eatxd）。"
     }
   ],
   "dynasty": "明",
@@ -29,9 +31,9 @@
       "summary": "共 1 個版本：明天啓間刻本（國家圖書館、華中師範大學圖書館）"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：bcsobqdytbdkfo8d\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-08.tsv；原 hold 原因：auto-split:存疑未并（缺卷数（记录卷数非单一N卷或目标无卷数）））\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：bcsobqdytbdkfo8d\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-08.tsv；原 hold 原因：auto-split:存疑未并（缺卷数（记录卷数非单一N卷或目标无卷数）））\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-27 A11-去重新-待並條 併條（rule=去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检））：併 d59f2njcn2mb《畢公生祠記》 入本條。待並條逐条定论同书：《陝西右布政使備兵靖邊道畢公生祠記》張廷玉／《畢公生祠記》張廷玉；作者同名張廷玉（明），畢公生祠記為省稱，同為明天啓間陝西刻本；B 有總目著錄",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-27",
   "resources": [
     {
       "id": "nlc",
@@ -62,6 +64,29 @@
         "nlc_fid": "411999027803",
         "edition": "明天啓[1621-1627]"
       }
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC892-0427-205730_%E7%95%A2%E5%85%AC%E7%94%9F%E7%A5%A0%E8%A8%98.pdf"
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-0427",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0427",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0427",
+        "edition": "明天啓[1621-1627]"
+      }
     }
   ],
   "resource_groups": {
@@ -71,5 +96,29 @@
     "nlc-411999027803": {
       "label": "國圖藏本：明天啓[1621-1627]"
     }
-  }
+  },
+  "measures": [
+    {
+      "unit": "冊",
+      "number": 1
+    }
+  ],
+  "measure_info": "一冊",
+  "additional_titles": [
+    "畢公生祠記"
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2njcn2mb",
+      "title": "畢公生祠記",
+      "at": "2026-10-27T00:47:10Z",
+      "by": "A11-去重新-待並條",
+      "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+      "why": "待並條逐条定论同书：《陝西右布政使備兵靖邊道畢公生祠記》張廷玉／《畢公生祠記》張廷玉；作者同名張廷玉（明），畢公生祠記為省稱，同為明天啓間陝西刻本；B 有總目著錄",
+      "author": "張廷玉"
+    }
+  ],
+  "merged_from": [
+    "d59f2njcn2mb"
+  ]
 }
