@@ -47,6 +47,14 @@
       "attested_status": "extant",
       "attested_status_raw": "存",
       "attested_status_note": "此是朱彝尊所判，非本庫之判，故不改本記錄之 loss_status。四庫御製題論此書曰「所注闕佚未見者，今四庫所録往往其書尚存」——其判是十七世紀一人之見聞。「未見」尤非亡佚，是朱氏未見其書。"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "周易旁注會通九卷周易四卷",
+      "author_info": "明朱升撰;明姚文蔚會通",
+      "section": "經部/易類/傳說之屬",
+      "summary": "共 3 個版本：明萬曆四十五年刻本（國家圖書館）；明刻本（日本尊經閣文庫、日本內閣文庫（國立公文書館））；明萬曆間刻本（無錫市圖書館）"
     }
   ],
   "juan_count": {
@@ -68,6 +76,71 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999031510",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999031510",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999031510",
+        "edition": "明萬曆45年[1617]"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1069218",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1069218",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1069218",
+        "request_no": "２７３－００６２",
+        "edition": "刊本:明:::",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3971954/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00073",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00073",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00073",
+        "call_number": "101.2 00073",
+        "edition": "明萬曆戊午(四十六年, 1618)原刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-00074",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/00074",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "00074",
+        "call_number": "101.2 00074",
+        "edition": "明萬曆戊午(46年, 1618)原刊本"
+      }
     }
   ],
   "measures": [
@@ -96,9 +169,9 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重上图-并 併條（rule=去重细拆上图-并 B 档：总目同一 work＋题名归一同／异写＋首位责任者同一＋卷数朝代相容）：併 d59f2ncpuj9d《周易旁注㑹通》 入本條。上图藏书 work_uri 周易旁注会通|明姚文蔚撰 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《周易旁注會通》姚文蔚(明,14卷)／《周易旁注㑹通》姚文蔚(明,-卷)；全国漢籍 DB 同一记录（题名＋责任者）对到本组各 Work；《周易旁注㑹通》姚文蔚／《周易旁注會通》姚文蔚：题名只差异体／俗字／冠称，首位责任者同一，卷数相同或差≤1／一侧缺",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-26",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重上图-并 併條（rule=去重细拆上图-并 B 档：总目同一 work＋题名归一同／异写＋首位责任者同一＋卷数朝代相容）：併 d59f2ncpuj9d《周易旁注㑹通》 入本條。上图藏书 work_uri 周易旁注会通|明姚文蔚撰 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《周易旁注會通》姚文蔚(明,14卷)／《周易旁注㑹通》姚文蔚(明,-卷)；全国漢籍 DB 同一记录（题名＋责任者）对到本组各 Work；《周易旁注㑹通》姚文蔚／《周易旁注會通》姚文蔚：题名只差异体／俗字／冠称，首位责任者同一，卷数相同或差≤1／一侧缺\n\n2026-10-27 A11-去重方案3a 併條（rule=去重第二轮细拆 新-异人登记-經未：同题首位责任者异写／误字／占位名或编撰分署，原文自证同书，逐对判并（双盲：判定与复核分由不同子 agent））：併 d59fxwp7lg5d《周易旁注會通》 入本條。《周易旁注會通》：复核推翻——总目条原责任者串「朱升旁注、姚文蔚會通」，朱升为底本旁注者、姚文蔚为实际编撰者，且皆明萬曆刻、無錫市圖書館藏本与存目丛书底本互证，同书；keeper d59f2nhqw64g（四库总目／明志／存目著录全），正名姚文蔚",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-27",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing",
   "additional_titles": [
@@ -114,9 +187,34 @@
       "why": "上图藏书 work_uri 周易旁注会通|明姚文蔚撰 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《周易旁注會通》姚文蔚(明,14卷)／《周易旁注㑹通》姚文蔚(明,-卷)；全国漢籍 DB 同一记录（题名＋责任者）对到本组各 Work；《周易旁注㑹通》姚文蔚／《周易旁注會通》姚文蔚：题名只差异体／俗字／冠称，首位责任者同一，卷数相同或差≤1／一侧缺",
       "author": "姚文蔚",
       "title_info": "《周易旁注㑹通》（姚文蔚）"
+    },
+    {
+      "id": "d59fxwp7lg5d",
+      "title": "周易旁注會通",
+      "at": "2026-10-27T00:14:07Z",
+      "by": "A11-去重方案3a",
+      "rule": "去重第二轮细拆 新-异人登记-經未：同题首位责任者异写／误字／占位名或编撰分署，原文自证同书，逐对判并（双盲：判定与复核分由不同子 agent）",
+      "why": "《周易旁注會通》：复核推翻——总目条原责任者串「朱升旁注、姚文蔚會通」，朱升为底本旁注者、姚文蔚为实际编撰者，且皆明萬曆刻、無錫市圖書館藏本与存目丛书底本互证，同书；keeper d59f2nhqw64g（四库总目／明志／存目著录全），正名姚文蔚",
+      "author": "朱升",
+      "title_info": "周易旁注會通九卷周易四卷"
     }
   ],
   "merged_from": [
-    "d59f2ncpuj9d"
-  ]
+    "d59f2ncpuj9d",
+    "d59fxwp7lg5d"
+  ],
+  "resource_groups": {
+    "nlc-411999031510": {
+      "label": "國圖藏本：明萬曆45年[1617]"
+    },
+    "naikaku-1069218": {
+      "label": "內閣文庫藏本：明刊本（273-0062，4冊）"
+    },
+    "ncltw-00073": {
+      "label": "臺灣國家圖書館藏本：明萬曆戊午(四十六年, 1618)原刊本"
+    },
+    "ncltw-00074": {
+      "label": "臺灣國家圖書館藏本：明萬曆戊午(46年, 1618)原刊本"
+    }
+  }
 }
