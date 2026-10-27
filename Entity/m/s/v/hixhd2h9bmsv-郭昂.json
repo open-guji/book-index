@@ -4,26 +4,42 @@
   "type": "entity",
   "subtype": "people",
   "primary_name": "郭昂",
-  "dynasty": "元末明初",
+  "dynasty": "元",
   "updated_at": "2026-08-08T11:51:59+00:00",
   "period": "liao-jin-yuan",
   "period_basis": "catalog：改繫 CBDB 505211 後改依著錄（2026-09-06 CBDB 同步 L1 落盘）",
-  "dynasty_basis": "catalog：改繫 CBDB 505211 後改依著錄（2026-09-06 CBDB 同步 L1 落盘）",
-  "ai_note": "2026-08-25 遼金元 L5：dynasty 由「明」歸一為「元末明初」。判據見 dynasty_basis。其名下 work 之 authors[].dynasty 同步。\n\n2026-09-06 CBDB 同步 L1 落盘：卸除 cbdb_id=130165。原繫 130165 為同名異代之誤配（现挂130165生卒[1465, 1537]与著录['liao-jin-yuan']冲突；CBDB 505211「郭昂」元 时代吻合，著作0部）。今卸除該 pid 帶入之斷言（birth_year、death_year、alt_names(1)）。原值悉錄於此，可逆：{\"cbdb_id\": 130165, \"cbdb_match\": \"manual\", \"cbdb_source\": \"pending_accept: relaxed_ambig cbdb_dy=19 (1465-1537)\", \"birth_year\": 1465, \"death_year\": 1537, \"alt_names\": [\"大軒\"]}\n\n2026-09-06 CBDB 同步 L1 落盘：cbdb_id 由 130165 改繫 505211（「郭昂」元，?–?）。新號之生卒／別名等未逕填，留待 enrich 補。 併改斷代依著錄：period「ming」→「liao-jin-yuan」、dynasty「元末明初」→「元末明初」（原值出自舊繫 130165，與所繫 work 之代不合）。",
+  "dynasty_basis": "據《元史》卷165 本傳（M12 待裁覆核 2026-10-27）",
+  "ai_note": "2026-08-25 遼金元 L5：dynasty 由「明」歸一為「元末明初」。判據見 dynasty_basis。其名下 work 之 authors[].dynasty 同步。\n\n2026-09-06 CBDB 同步 L1 落盘：卸除 cbdb_id=130165。原繫 130165 為同名異代之誤配（现挂130165生卒[1465, 1537]与著录['liao-jin-yuan']冲突；CBDB 505211「郭昂」元 时代吻合，著作0部）。今卸除該 pid 帶入之斷言（birth_year、death_year、alt_names(1)）。原值悉錄於此，可逆：{\"cbdb_id\": 130165, \"cbdb_match\": \"manual\", \"cbdb_source\": \"pending_accept: relaxed_ambig cbdb_dy=19 (1465-1537)\", \"birth_year\": 1465, \"death_year\": 1537, \"alt_names\": [\"大軒\"]}\n\n2026-09-06 CBDB 同步 L1 落盘：cbdb_id 由 130165 改繫 505211（「郭昂」元，?–?）。新號之生卒／別名等未逕填，留待 enrich 補。 併改斷代依著錄：period「ming」→「liao-jin-yuan」、dynasty「元末明初」→「元末明初」（原值出自舊繫 130165，與所繫 work 之代不合）。\n\nA12 非作者人物 正史列傳 M12（元）：補別名 彥高、野齋（2026-10-26）。M12 待裁覆核：《元史藝文志》著錄「元郭昂野齋集」；CBDB 107727 郭昂字彥高、號野齋、林州人、宣慰使，與《元史》卷165 郭昂同人，即本條撰人。原朝代「元末明初」出自已卸除之明人郭昂（1465–1537）誤配，今改「元」，所繫《野齋集》朝代同步改元。\n朝代「元末明初」改「元」；原 dynasty_basis：catalog：改繫 CBDB 505211 後改依著錄（2026-09-06 CBDB 同步 L1 落盘）",
   "external_ids": {
     "cbdb_id": 505211,
     "cbdb_match": "manual_remap",
     "cbdb_source": "2026-09-06 改繫：现挂130165生卒[1465, 1537]与著录['liao-jin-yuan']冲突；CBDB 505211「郭昂」元 时代吻合，著作0部"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "description": {
+    "text": "字彥高，彰德林州人。習刀槊，稍通經史，尤工於詩。至元二年上書言事，廉希憲材之，授山東統軍司知事；歷襄陽總軍司、沅州安撫司同知，招降溪洞八十餘柵，進安遠大將軍；二十六年討江西盜，授萬戶，鎮撫州；赴廣東監造戰船，諭降群盜，授廣東宣慰使，卒年六十一。有《野齋集》。",
     "sources": [
+      {
+        "name": "《元史·郭昂傳》",
+        "details": "卷165"
+      },
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/31yp5pdu43o6gqj5"
       }
     ]
-  }
+  },
+  "alt_names": [
+    {
+      "name": "彥高",
+      "type": "字"
+    },
+    {
+      "name": "野齋",
+      "type": "號"
+    }
+  ],
+  "title_or_office": "廣東宣慰使"
 }

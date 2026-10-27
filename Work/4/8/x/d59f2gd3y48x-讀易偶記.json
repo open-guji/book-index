@@ -13,7 +13,7 @@
       "role": "撰"
     }
   ],
-  "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書易類著錄「余氏（芑舒）讀易偶記」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「佚」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 L4 撰人朝代回填：authors[].dynasty 原闕而其 entity 已有其代，今取之（1 處）——「核人不核書」。判據記於 authors[].dynasty_basis。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1exue7d7as29v` 不同（ai_note、authors）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。",
+  "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書易類著錄「余氏（芑舒）讀易偶記」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「佚」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 L4 撰人朝代回填：authors[].dynasty 原闕而其 entity 已有其代，今取之（1 處）——「核人不核書」。判據記於 authors[].dynasty_basis。\n\n2026-08-25 與 draft 墓碑對齊（validate-promotions 之 E08）：本條 revision 仍是 1.0.0（升格後未改過）而其內容與墓碑 `1exue7d7as29v` 不同（ai_note、authors）——或升格所用之快照陳舊，或墓碑於升格之後被改而 production 未跟。今自墓碑取回（引用之欄先把 draft id 換成 production id）。\n\n2026-10-27 A11-去重同姓异名余 併條（rule=去重第二轮细拆单元 新-同姓异名余（3b-0 口径）：题名相同、首位责任者同姓异名而判为同一人（名／字／號异写、形近讹字、署名残缺）或著录同列，B 档并）：併 d59f2gls3fgg《讀易偶記》 入本條。署名异写同书：《讀易偶記》余芑舒／余舒：余芑舒脱字作余舒",
   "indexed_by": [
     {
       "source": "經義考",
@@ -26,17 +26,49 @@
       "attested_status": "lost",
       "attested_status_raw": "佚",
       "attested_status_note": "此是朱彝尊所判，非本庫之判，故不改本記錄之 loss_status。四庫御製題論此書曰「所注闕佚未見者，今四庫所録往往其書尚存」——其判是十七世紀一人之見聞。「未見」尤非亡佚，是朱氏未見其書。"
+    },
+    {
+      "source": "元史藝文志",
+      "source_bid": "d59f2mp1zsoz",
+      "title_info": "余舒讀易偶記",
+      "author_info": "字德新，饒州德興人",
+      "summary": "元余舒（字德新，饒州德興人）讀易偶記"
     }
   ],
   "period": "liao-jin-yuan",
   "period_basis": "據撰人「余芑舒」（entity `1j967cp21keve`，代「元」）。本條 authors 舊有其名而未繫 entity，今補繫，遂得其代。",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "description": {
-    "text": "余芑舒撰。見著錄於《經義考》。《經義考》列於易。本書惟《經義考》一志著錄，別無他證。《經義考》清朱彝尊撰——本書之目賴之以存。",
+    "text": "余芑舒撰。見著錄於《經義考》。《經義考》列於易。",
     "sources": [
-      "經義考"
+      "經義考",
+      "元史藝文志"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.2.0",
+  "revised_at": "2026-10-27",
+  "dynasty": "元",
+  "dynasty_basis": "author_propagation",
+  "related_works": [
+    {
+      "id": "d59fxx8dfwn6",
+      "relation": "related",
+      "note": "總目經部另立（auto-split:同名无主责任者未并）"
+    }
+  ],
+  "merged_in": [
+    {
+      "id": "d59f2gls3fgg",
+      "title": "讀易偶記",
+      "at": "2026-10-27T00:15:53Z",
+      "by": "A11-去重同姓异名余",
+      "rule": "去重第二轮细拆单元 新-同姓异名余（3b-0 口径）：题名相同、首位责任者同姓异名而判为同一人（名／字／號异写、形近讹字、署名残缺）或著录同列，B 档并",
+      "why": "署名异写同书：《讀易偶記》余芑舒／余舒：余芑舒脱字作余舒",
+      "author": "余舒",
+      "title_info": "余舒讀易偶記"
+    }
+  ],
+  "merged_from": [
+    "d59f2gls3fgg"
+  ]
 }

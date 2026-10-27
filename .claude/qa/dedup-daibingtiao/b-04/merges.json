@@ -1,0 +1,1369 @@
+{
+ "base": "430d36b9090ddde09a1d48ffc4021b9d1b1363ba",
+ "merges": [
+  {
+   "cluster_id": "dbt-d59fyt6sjxfk",
+   "type": "work",
+   "keeper": "d59fyt6sjxfk",
+   "losers": [
+    "d59f2nkc84jk"
+   ],
+   "evidence": "待並條逐条定论同书：《太常奏議存》李日宣／《太常奏議》李日宣；同作者李日宣同entity，A故宮平圖藏崇禎十二年刊本即B總目崇禎十二年刻本（北平館藏臺），同一書",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt6sjxfk",
+     "path": "Work/x/f/k/d59fyt6sjxfk-太常奏議存.json",
+     "sha256": "72094340895a3bc508af512c427845dfb1abac4b30b0c3c4bc08a23c23217242"
+    },
+    {
+     "id": "d59f2nkc84jk",
+     "path": "Work/4/j/k/d59f2nkc84jk-太常奏議.json",
+     "sha256": "343134c9746534839e488673a8cb53c44fe00bae4b1dd37081a76b657cf8a83b"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2nkc84jk": {
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+     "description": {
+      "text": "李日宣（明）撰。一冊。奏議之屬。其體錄臣工上於君之文，見一時政事之得失與言路之風。本書收入《國立故宮博物院善本舊籍》（統一編號 平圖005691）。明崇禎己卯(十二年)刊本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt6yhfr5",
+   "type": "work",
+   "keeper": "d59fyt6yhfr5",
+   "losers": [
+    "d59f6eflqfba"
+   ],
+   "evidence": "待並條逐条定论同书：《滸東先生奏議》張鹵／《滸東奏議》張鹵；同張鹵entity，千頃堂「滸東奏議」為「滸東先生奏議」省稱，A缺卷數，B總目十六卷明萬曆刻，字段更全",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt6yhfr5",
+     "path": "Work/f/r/5/d59fyt6yhfr5-滸東先生奏議.json",
+     "sha256": "680c1e20d08452526222b3be2e32338020d11f3e55f33b63fdcd4acdd87c6a33"
+    },
+    {
+     "id": "d59f6eflqfba",
+     "path": "Work/f/b/a/d59f6eflqfba-滸東奏議.json",
+     "sha256": "878e7bd027d48855d30ad2b6343e4a593b6261f9cf04f85e3f02cb5053efa123"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f6eflqfba",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「明」",
+       "loser_value": "據撰人 張鹵（hixhd2h9beck） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6eflqfba": {
+     "description": {
+      "text": "張鹵撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「張鹵滸東奏議」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt71lt6q",
+   "type": "work",
+   "keeper": "d59fyt71lt6q",
+   "losers": [
+    "d59f6emz251c"
+   ],
+   "evidence": "待並條逐条定论同书：《閉關三疏》張欽／《閉開三疏》張欽；同作者張欽（同entity），千頃堂「閉開三疏」一卷即閉關三疏一卷，開／關形近誤寫，卷數相合。",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt71lt6q",
+     "path": "Work/t/6/q/d59fyt71lt6q-閉關三疏.json",
+     "sha256": "ddcd05a00764d34c171cdef4a9aa2ee881fc4f47b8fd75eb907885e55bf01082"
+    },
+    {
+     "id": "d59f6emz251c",
+     "path": "Work/5/1/c/d59f6emz251c-閉開三疏.json",
+     "sha256": "e8f9de7d2deeec22988008266d93de9ed073676d24e594ade019f4702ba50b70"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6emz251c": {
+     "description": {
+      "text": "張欽撰。一卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「張欽閉開三疏」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt72jitd",
+   "type": "work",
+   "keeper": "d59fyt72jitd",
+   "losers": [
+    "d59f6ervqghx"
+   ],
+   "evidence": "待並條逐条定论同书：《資治通鑑節要續編》張光啓／《宋元通鑑節要續編》張光啓；同 entity 張光啓，宋元通鑑節要續編與資治通鑑節要續編同為三十卷，B 題標準有刻本",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt72jitd",
+     "path": "Work/i/t/d/d59fyt72jitd-資治通鑑節要續編.json",
+     "sha256": "df5421ec63bca0c0b0ef4310be9f4ebbc57636473f00247f627e5ace6064e77e"
+    },
+    {
+     "id": "d59f6ervqghx",
+     "path": "Work/g/h/x/d59f6ervqghx-宋元通鑑節要續編.json",
+     "sha256": "3f2ff9b625f1f1dbb6751734d0787380380cd2d7aa76c57a038c1aef09cd511d"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f6ervqghx",
+     "fields": [
+      {
+       "field": "period_upper",
+       "keeper_value": "ming",
+       "loser_value": "qing"
+      },
+      {
+       "field": "period_upper_basis",
+       "keeper_value": "edition_bound：所掛版本中最早者為「明正德九年司禮監刊本」——版本之年不早於成書之年，故不晚於 ming",
+       "loser_value": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f6ervqghx 在 zm0182，keeper 在 zm0184——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6ervqghx": {
+     "description": {
+      "text": "張光啓撰。三十卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「張光啓宋元通鑑節要續編」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt72urcw",
+   "type": "work",
+   "keeper": "d59fyt72urcw",
+   "losers": [
+    "d59f2nc1t5a9"
+   ],
+   "evidence": "待並條逐条定论同书：《資治通鑑後編校勘記》夏震武／《續資治通鑑後編校勘記》夏震武；同作者夏震武（同entity），續資治通鑑後編校勘記十五卷與資治通鑑後編校勘記十五卷卷數相合，B有刻本。",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt72urcw",
+     "path": "Work/r/c/w/d59fyt72urcw-資治通鑑後編校勘記.json",
+     "sha256": "a3cde16bd8111a938cb0117aadfb820fe9f0b585eff7f78cb95e7c0c1e0f464f"
+    },
+    {
+     "id": "d59f2nc1t5a9",
+     "path": "Work/5/a/9/d59f2nc1t5a9-續資治通鑑後編校勘記.json",
+     "sha256": "4780ae1e66847aecf1c78748477b5762c93cc704680bcee5016005aad837b375"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2nc1t5a9",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2nc1t5a9": {
+     "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+     "description": {
+      "text": "夏震武（清）編。十五卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「續資治通鑒後編校勘記十五卷」。本書惟《清史稿藝文志》一志著錄，別無他證。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
+      "sources": [
+       "清史稿藝文志"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt75cnpc",
+   "type": "work",
+   "keeper": "d59fyt75cnpc",
+   "losers": [
+    "d59f2n1mlwcg"
+   ],
+   "evidence": "待並條逐条定论同书：《通鑑綱目分注拾遺》芮長恤／《綱目分注拾遺》芮長恤；同作者芮長恤（同entity），綱目分注拾遺四卷即通鑑綱目分注拾遺四卷，A為四庫寫本省稱、無著錄；B題名完整。",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt75cnpc",
+     "path": "Work/n/p/c/d59fyt75cnpc-通鑑綱目分注拾遺.json",
+     "sha256": "c2b223d8e7777448fdb6f5c698c32ae79cc82c3dc67561164020307f6ea428ea"
+    },
+    {
+     "id": "d59f2n1mlwcg",
+     "path": "Work/w/c/g/d59f2n1mlwcg-綱目分注拾遺.json",
+     "sha256": "a570382d439bef4078bf8958bedd2f787049c7c732bfb7453971d28c7aac6b8a"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2n1mlwcg",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2n1mlwcg": {
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故庫007280-007283），無同名 Work 故新建。",
+     "description": {
+      "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故庫007280-007283）。清乾隆間寫文淵閣四庫全書本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt76adc1",
+   "type": "work",
+   "keeper": "d59fyt76adc1",
+   "losers": [
+    "d59f6efpsidk"
+   ],
+   "evidence": "待並條逐条定论同书：《歷朝紀元錄》丘文學／《紀元録》丘文學；同作者丘文學（同entity），千頃堂紀元録無卷數，總目歷朝紀元錄三卷明末刻本，題名為省稱，一側缺卷數。",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt76adc1",
+     "path": "Work/d/c/1/d59fyt76adc1-歷朝紀元錄.json",
+     "sha256": "a504da2cddefbecf882e47de5e589370b7168d23f0dd2aeef0a7ad24a37efafd"
+    },
+    {
+     "id": "d59f6efpsidk",
+     "path": "Work/i/d/k/d59f6efpsidk-紀元録.json",
+     "sha256": "63baf09e5d21a2b25e1bc714524e994ef6f9bfd6a60079ffeb3449ea02478f48"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f6efpsidk 在 zm0182，keeper 在 zm0184——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6efpsidk": {
+     "description": {
+      "text": "丘文學撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「丘文學紀元録」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt77uk1t",
+   "type": "work",
+   "keeper": "d59fyt77uk1t",
+   "losers": [
+    "d59f2njkr94z"
+   ],
+   "evidence": "待並條逐条定论同书：《大明宣宗章皇帝實錄》楊士奇／《明宣宗章皇帝實錄》楊士奇；同 entity 楊士奇，B 題加「大明」為全稱，張輔為同修者，同為宣宗實錄明抄本；B 有總目著錄",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt77uk1t",
+     "path": "Work/k/1/t/d59fyt77uk1t-大明宣宗章皇帝實錄.json",
+     "sha256": "e029d92714daed5ca7753ce1a3d930fd0a66f3241b6fa123dd9b4adbee405be1"
+    },
+    {
+     "id": "d59f2njkr94z",
+     "path": "Work/9/4/z/d59f2njkr94z-明宣宗章皇帝實錄.json",
+     "sha256": "7e56fdc7fb8594cd871daa969724bfd0b765d4b33815b540096190ebb41c3e52"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2njkr94z",
+     "fields": [
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "nlc-411999010232": {
+         "label": "國圖藏本：明[1368-1644]"
+        }
+       },
+       "loser_value": {
+        "nlc-CBM0102": {
+         "label": "國圖藏本：明[1368-1644]"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2njkr94z": {
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 13 取自 `measure_info`「十三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+     "description": {
+      "text": "楊士奇（明）等撰。十三冊。實錄之屬。其體按年月日繫事，據起居注、時政記等官修檔冊纂成，為一朝之編年官史。本書收入《國立故宮博物院善本舊籍》（統一編號 平圖004044-004056）。明朱格抄本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt7acge8",
+   "type": "work",
+   "keeper": "d59fyt7acge8",
+   "losers": [
+    "d59f2n7ysdfl"
+   ],
+   "evidence": "待並條逐条定论同书：《文苑傳》國史館／《清史文苑傳》國史館；同為國史館編文苑傳，A故宮內府寫本八冊題清史文苑傳，B總目文苑傳八卷，題名省稱",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt7acge8",
+     "path": "Work/g/e/8/d59fyt7acge8-文苑傳.json",
+     "sha256": "8439c657b7c780dc6bc7397f5255bad04df7b9dc5f0b7f778f5aa20aee645fa3"
+    },
+    {
+     "id": "d59f2n7ysdfl",
+     "path": "Work/d/f/l/d59f2n7ysdfl-清史文苑傳.json",
+     "sha256": "ee72e789534d8be80aa146947168964b8241794d4d496e45f91f8b99611eae75"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2n7ysdfl",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [
+    {
+     "loser": "d59f2n7ysdfl",
+     "name": "國史館",
+     "entity_id": "hixhd2h9bv3v"
+    }
+   ],
+   "loser_original_notes": {
+    "d59f2n7ysdfl": {
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故殿033541-033548）。阶段 5 兜底建立。",
+     "description": {
+      "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故殿033541-033548）。清內府朱絲欄寫本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt7c7vnl",
+   "type": "work",
+   "keeper": "d59fyt7c7vnl",
+   "losers": [
+    "d59f2ncd1ou8"
+   ],
+   "evidence": "待並條逐条定论同书：《明史稿》王鴻緒／《敕修明史稿》王鴻緒；同 entity 王鴻緒，A 著錄即清史稿明史稿三百十卷，B 總目明史稿三百十卷；A 冠「敕修」且卷數欄誤，取 B",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt7c7vnl",
+     "path": "Work/v/n/l/d59fyt7c7vnl-明史稿.json",
+     "sha256": "cebcd60420d0b830df6ed61f2a4ecfc572be4d04204dbb6c8ee27bfac3d21977"
+    },
+    {
+     "id": "d59f2ncd1ou8",
+     "path": "Work/o/u/8/d59f2ncd1ou8-敕修明史稿.json",
+     "sha256": "238c37a069b834b61eb58cf72a1b2fa34f6c3368ebe54203f0c23e9288cf6b2c"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2ncd1ou8",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      },
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "ndl-2601278": {
+         "label": "NDL藏本：康煕"
+        },
+        "ndl-2601342": {
+         "label": "NDL藏本：[清]"
+        },
+        "korcis-101444175": {
+         "label": "韓國國立中央圖書館數字化藏本：[刊寫年未詳]"
+        }
+       },
+       "loser_value": {
+        "nlc-CBM0167": {
+         "label": "國圖藏本：[出版年不詳]"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2ncd1ou8": {
+     "ai_note": "從 1evkafvb1kkcg 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+     "description": {
+      "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 平圖003531-003608）。清雍正間內府清寫本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt7g9ypt",
+   "type": "work",
+   "keeper": "d59fyt7g9ypt",
+   "losers": [
+    "d59f6esiis5f"
+   ],
+   "evidence": "待並條逐条定论同书：《職方存草》茅瑞徵／《職方存稿》茅瑞徵；同 entity 茅瑞徵，「存稿／存草」異寫，千頃堂僅著題名無卷數；B 有萬曆刻本四卷著錄更全",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt7g9ypt",
+     "path": "Work/y/p/t/d59fyt7g9ypt-職方存草.json",
+     "sha256": "8b9032174722bddd6bca756d190012e192935e75b1a1b4149895401a5c504c8c"
+    },
+    {
+     "id": "d59f6esiis5f",
+     "path": "Work/s/5/f/d59f6esiis5f-職方存稿.json",
+     "sha256": "3cf14048afe15391f2cd9f0f7f3f64c1508c1406c64f26c321de8944520e0d12"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f6esiis5f 在 zm0666，keeper 在 zm0256——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6esiis5f": {
+     "description": {
+      "text": "茅瑞徵撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「茅瑞徵職方存稿」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt7gwfsw",
+   "type": "work",
+   "keeper": "d59fyt7gwfsw",
+   "losers": [
+    "d59f2nf7fj0g"
+   ],
+   "evidence": "待並條逐条定论同书：《浙江海運全案初編》黃宗漢／《浙江海運全案》黃宗漢；同 entity 黃宗漢，A 清史稿十卷即 B 初編十卷，B 另附續編四卷，同為咸豐三年刻",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt7gwfsw",
+     "path": "Work/f/s/w/d59fyt7gwfsw-浙江海運全案初編.json",
+     "sha256": "241598a5ce0c63efcdc5e8369e4d67878784fdff72ef4f4e2aab752eafa7c2d8"
+    },
+    {
+     "id": "d59f2nf7fj0g",
+     "path": "Work/j/0/g/d59f2nf7fj0g-浙江海運全案.json",
+     "sha256": "d1c1032adda69d58d84cebc7866277fa8de8201bdf0a6d4949ad40841fb2b4a3"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2nf7fj0g",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2nf7fj0g": {
+     "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+     "description": {
+      "text": "黃宗漢（清）編。十卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「浙江海運全案十卷」。本書惟《清史稿藝文志》一志著錄，別無他證。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
+      "sources": [
+       "清史稿藝文志"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt7j33lt",
+   "type": "work",
+   "keeper": "d59fyt7j33lt",
+   "losers": [
+    "d59f2myfqkg1"
+   ],
+   "evidence": "待並條逐条定论同书：《憲政編查館奏遵旨議覆國籍條例候頒行摺》奕劻／《憲政編查館奏遵旨議覆國籍條例伏侯欽定頒行摺》奕劻；同 entity 奕劻，題名僅「伏侯欽定」與「候」繁省之異，同為宣統元年鉛印本；B 有總目著錄",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt7j33lt",
+     "path": "Work/3/l/t/d59fyt7j33lt-憲政編查館奏遵旨議覆國籍條例候頒行摺.json",
+     "sha256": "a8629bffe8a1a6ef48d3334cfda4fdb34e3e88d266e64a0f45b348225b0116a4"
+    },
+    {
+     "id": "d59f2myfqkg1",
+     "path": "Work/k/g/1/d59f2myfqkg1-憲政編查館奏遵旨議覆國籍條例伏侯欽定頒行摺.json",
+     "sha256": "87461bb0ab55448c1c4a9cf4f08baac44ec18f2420259fa6a2b15444a61f753f"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2myfqkg1",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2myfqkg1": {
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+     "description": {
+      "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故內000204）。清宣統己酉(元年)鉛印本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt7jec5d",
+   "type": "work",
+   "keeper": "d59fyt7jec5d",
+   "losers": [
+    "d59f2myfqkg0"
+   ],
+   "evidence": "待並條逐条定论同书：《憲政編查館奏覆核民政部修訂法律大臣奏禁煙條例摺》奕劻／《憲政編查館奏覆核民政部修訂法律大臣會奏禁煙條例摺》奕劻；同 entity 奕劻，題名僅「會奏」一字之差，同為宣統元年印本，同一摺；B 有總目著錄",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt7jec5d",
+     "path": "Work/c/5/d/d59fyt7jec5d-憲政編查館奏覆核民政部修訂法律大臣奏禁煙條例摺.json",
+     "sha256": "8e369da1a2762f4c115023e7231d3ea7a072ecdeea342f2f8e3e26d3e8c93c2e"
+    },
+    {
+     "id": "d59f2myfqkg0",
+     "path": "Work/k/g/0/d59f2myfqkg0-憲政編查館奏覆核民政部修訂法律大臣會奏禁煙條例摺.json",
+     "sha256": "9ffa0df9a408137ad316514650bf86df6b348b4836ed585bffad061a9e0d76e3"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2myfqkg0",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2myfqkg0": {
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+     "description": {
+      "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故內000202）。清宣統元年農工商部印刷科印本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt7jec5e",
+   "type": "work",
+   "keeper": "d59fyt7jec5e",
+   "losers": [
+    "d59f2myfqkg2"
+   ],
+   "evidence": "待並條逐条定论同书：《憲政編查館會奏遵議憲法大綱暨選舉各法摺》奕劻／《憲政編查館會奏遵議憲法大綱暨議院選舉各法並逐年籌備事宜摺》奕劻；同 entity 奕劻，A 為全題、B 為省稱（略「議院」「並逐年籌備事宜」），同為光緒三十四年印本；B 有總目",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt7jec5e",
+     "path": "Work/c/5/e/d59fyt7jec5e-憲政編查館會奏遵議憲法大綱暨選舉各法摺.json",
+     "sha256": "3bae4322c41573b594952ec1a83af8c27b0e7783616278b7504b0b18f88e6f63"
+    },
+    {
+     "id": "d59f2myfqkg2",
+     "path": "Work/k/g/2/d59f2myfqkg2-憲政編查館會奏遵議憲法大綱暨議院選舉各法並逐年籌備事宜摺.json",
+     "sha256": "81c4dacaa0a5829a79ceb1130ada707517e17ff4522ea4ee6e3717cd8c3eb3c6"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2myfqkg2",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2myfqkg2": {
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+     "description": {
+      "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故內000203）。清光緒三十四年農工商部印刷科印本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt7tp62o",
+   "type": "work",
+   "keeper": "d59fyt7tp62o",
+   "losers": [
+    "d59f2nevkidc"
+   ],
+   "evidence": "待並條逐条定论同书：《欽定工部則例》費淳／《工部則例》史貽直；同為史貽直等奉敕撰工部則例五十卷（同entity），B多費淳補修，合著增減，卷數相合；B有版本。",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt7tp62o",
+     "path": "Work/6/2/o/d59fyt7tp62o-欽定工部則例.json",
+     "sha256": "d59790a8629e98129ca92390ae45d625395f980cd951afead9301d20db5f0700"
+    },
+    {
+     "id": "d59f2nevkidc",
+     "path": "Work/i/d/c/d59f2nevkidc-工部則例.json",
+     "sha256": "6d95177885ac619a58a76a9e67c186d89b89f5f652117ed209c5d99c22bbcfd8"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2nevkidc",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2nevkidc": {
+     "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 10，與著錄原文（清史稿藝文志：「工部則例」）所載之 50 卷不合，今據原文訂正。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+     "description": {
+      "text": "史貽直（清）撰。五十卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「工部則例五十卷」。本書惟《清史稿藝文志》一志著錄，別無他證。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
+      "sources": [
+       "清史稿藝文志"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt7u0em8",
+   "type": "work",
+   "keeper": "d59fyt7u0em8",
+   "losers": [
+    "d59f2mywwmbk"
+   ],
+   "evidence": "待並條逐条定论同书：《欽定法院編制法》奕劻／《欽定法院編制法十六章》奕劻；同 entity 奕劻，A 題附「十六章」，同為宣統元年鉛印本，B 有總目著錄且題名標準",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt7u0em8",
+     "path": "Work/e/m/8/d59fyt7u0em8-欽定法院編制法.json",
+     "sha256": "b28686547faf6e10fc15be4675149d33c2a3ca4f67b0b45f39c484b50a56468c"
+    },
+    {
+     "id": "d59f2mywwmbk",
+     "path": "Work/m/b/k/d59f2mywwmbk-欽定法院編制法十六章.json",
+     "sha256": "ff8fc96728fb3e2aab27a8577366e497a07bb6977608003aa6cf1c4074ab43f2"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2mywwmbk",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2mywwmbk": {
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+     "description": {
+      "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故內001608）。清宣統元年鉛印本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt7w72f5",
+   "type": "work",
+   "keeper": "d59fyt7w72f5",
+   "losers": [
+    "d59f2nk0ocg1"
+   ],
+   "evidence": "待並條逐条定论同书：《律條疏義》張楷／《律條疏議》張楷；同作者張楷（同entity），A律條疏議為明成化七年俞誥重刊本，即B律條疏義三十卷所列俞誥刻本，議／義異寫。",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt7w72f5",
+     "path": "Work/2/f/5/d59fyt7w72f5-律條疏義.json",
+     "sha256": "586b6448a3a6f3c61422fd13437eee6bd134ebc062c4b29bbc2d98a751cafc58"
+    },
+    {
+     "id": "d59f2nk0ocg1",
+     "path": "Work/c/g/1/d59f2nk0ocg1-律條疏議.json",
+     "sha256": "d658a7c322582949a157c06924f7bc9c0b47f0270fc9f59d26735da5b5aff8a6"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2nk0ocg1": {
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+     "description": {
+      "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 平圖010554-010556）。明成化七年荊門守俞誥重刊本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt7ydq82",
+   "type": "work",
+   "keeper": "d59fyt7ydq82",
+   "losers": [
+    "d59f2ne51c74"
+   ],
+   "evidence": "待並條逐条定论同书：《畿輔水道管見》吳邦慶／《畿輔河道管見》吳邦慶；同作者吳邦慶（同entity），清史稿畿輔河道管見一卷與總目畿輔水道管見一卷卷數相合，河／水一字之異。",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt7ydq82",
+     "path": "Work/q/8/2/d59fyt7ydq82-畿輔水道管見.json",
+     "sha256": "2a9e1eeef43e074e5214e2a8af2bdb41973651215e70661ec0525e759d966042"
+    },
+    {
+     "id": "d59f2ne51c74",
+     "path": "Work/c/7/4/d59f2ne51c74-畿輔河道管見.json",
+     "sha256": "0f786a1ab67f5c9b1493ebc9b6e4fd1d30d4ba7e9b7cf67631865d5b40f161d7"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2ne51c74",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2ne51c74": {
+     "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+     "description": {
+      "text": "吳邦慶（清）輯。一卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「畿輔水利輯覽一卷，水利營田圖說一卷，畿輔河道管見一卷，水利私議一卷」。本書惟《清史稿藝文志》一志著錄，別無他證。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
+      "sources": [
+       "清史稿藝文志"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt81tc75",
+   "type": "work",
+   "keeper": "d59fyt81tc75",
+   "losers": [
+    "d59f2ne9pwci"
+   ],
+   "evidence": "待並條逐条定论同书：《防海備覽》薛傳源／《海防備覽》薛傳源；同作者薛傳源（同entity），海防備覽十卷與防海備覽十卷卷數相合，題名二字互倒，B有版本為準。",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt81tc75",
+     "path": "Work/c/7/5/d59fyt81tc75-防海備覽.json",
+     "sha256": "c39f523bd89558938adb933e8b3bc43456f60ddef2e07323c60822970d9ee537"
+    },
+    {
+     "id": "d59f2ne9pwci",
+     "path": "Work/w/c/i/d59f2ne9pwci-海防備覽.json",
+     "sha256": "dd9722917901c7c34cd22df94ff6e6068f2bb7e450d294b0080addf7e5a2238b"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2ne9pwci",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2ne9pwci": {
+     "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+     "description": {
+      "text": "薛傳源（清）撰。十卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「海防備覽十卷」。本書惟《清史稿藝文志》一志著錄，別無他證。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
+      "sources": [
+       "清史稿藝文志"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt84b8jm",
+   "type": "work",
+   "keeper": "d59fyt84b8jm",
+   "losers": [
+    "d59f2mykf4ld"
+   ],
+   "evidence": "待並條逐条定论同书：《幣制說帖及簡明總要並度支部說帖》鹿傳霖／《幣制說帖及簡明總要並度支部說帖各督撫議幣制摺奏電奏及節略》鹿傳霖；同作者鹿傳霖同entity，同為光緒三十四年鉛印本、藏臺北故宮，A題名為全稱",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt84b8jm",
+     "path": "Work/8/j/m/d59fyt84b8jm-幣制說帖及簡明總要並度支部說帖.json",
+     "sha256": "45dc710775a02fcbd606cbd8f0f72c79f3e21101ea1c8ab4714f8126295deb8a"
+    },
+    {
+     "id": "d59f2mykf4ld",
+     "path": "Work/4/l/d/d59f2mykf4ld-幣制說帖及簡明總要並度支部說帖各督撫議幣制摺奏電奏及節略.json",
+     "sha256": "a741c779ac63dba4c096c0e1be0151fa3859951283948124ac868da2846390dc"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2mykf4ld",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2mykf4ld": {
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+     "description": {
+      "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故內001135-001252）。清光緒三十四年鉛印本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt85vf9e",
+   "type": "work",
+   "keeper": "d59fyt85vf9e",
+   "losers": [
+    "d59f6egh9e6f"
+   ],
+   "evidence": "待並條逐条定论同书：《中鑑錄》王畿／《中官中鑒録》王畿；同 entity 王畿，千頃堂題「中官中鑒録」為描述性冠詞，卷數同為七卷；B 題標準且有刻本",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt85vf9e",
+     "path": "Work/f/9/e/d59fyt85vf9e-中鑑錄.json",
+     "sha256": "11a5f3f44b4bb5539c2b73c3afd264e269d0efdb6cdeccd42c3beeeb62fc041f"
+    },
+    {
+     "id": "d59f6egh9e6f",
+     "path": "Work/e/6/f/d59f6egh9e6f-中官中鑒録.json",
+     "sha256": "a57930542340952a1a3c70b13a36bca232a0d0198f517f9e98dbc5ab5de56da6"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f6egh9e6f",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「明」",
+       "loser_value": "據撰人 王畿（hixhd2h9bftn） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f6egh9e6f 在 zm0208，keeper 在 zm0209——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6egh9e6f": {
+     "description": {
+      "text": "王畿撰。七卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「王畿中官中鑒録」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt86hwcg",
+   "type": "work",
+   "keeper": "d59fyt86hwcg",
+   "losers": [
+    "d59fxp65v668"
+   ],
+   "evidence": "待並條逐条定论同书：《鄭成功傳》鄭亦鄒／《白麓藏書鄭成功傳》鄭亦鄒；同 entity 鄭亦鄒，白麓藏書為其集名冠稱，A 不分卷，B 二卷附郁永河逸事（合著增減）",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt86hwcg",
+     "path": "Work/w/c/g/d59fyt86hwcg-鄭成功傳.json",
+     "sha256": "c64248d50e58888ad9f9b841e5dbb7a069528f47f06cd9ced5e9b942893b63e5"
+    },
+    {
+     "id": "d59fxp65v668",
+     "path": "Work/6/6/8/d59fxp65v668-白麓藏書鄭成功傳.json",
+     "sha256": "148be314a67843e189856fe5d887558d8a41bfcb3083529f825926da6b6dda5a"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59fxp65v668": {
+     "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：6mjm4hamr6rgnsv0、78edysygy3yxpme7\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条、國書 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。"
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt8eatxd",
+   "type": "work",
+   "keeper": "d59fyt8eatxd",
+   "losers": [
+    "d59f2njcn2mb"
+   ],
+   "evidence": "待並條逐条定论同书：《陝西右布政使備兵靖邊道畢公生祠記》張廷玉／《畢公生祠記》張廷玉；作者同名張廷玉（明），畢公生祠記為省稱，同為明天啓間陝西刻本；B 有總目著錄",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt8eatxd",
+     "path": "Work/t/x/d/d59fyt8eatxd-陝西右布政使備兵靖邊道畢公生祠記.json",
+     "sha256": "f8ff4f9c7bf0af256bf391d8f0789dea9e9f241ff05634ec9c372113fe9f105e"
+    },
+    {
+     "id": "d59f2njcn2mb",
+     "path": "Work/2/m/b/d59f2njcn2mb-畢公生祠記.json",
+     "sha256": "05d311c35d5651c6677a79eb9d578b5c15c98c2e0f703c87a768ba905df85ae7"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2njcn2mb",
+     "fields": [
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "nlc-411999023554": {
+         "label": "國圖藏本：明天啓[1621-1627]"
+        },
+        "nlc-411999027803": {
+         "label": "國圖藏本：明天啓[1621-1627]"
+        }
+       },
+       "loser_value": {
+        "nlc-0427": {
+         "label": "國圖藏本：明天啓[1621-1627]"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [
+    {
+     "loser": "d59f2njcn2mb",
+     "name": "張廷玉",
+     "entity_id": "hixhd2j3sw7a"
+    }
+   ],
+   "loser_original_notes": {
+    "d59f2njcn2mb": {
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+     "description": {
+      "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 平圖005896）。明天啟間陝西刊本。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt8fjs3m",
+   "type": "work",
+   "keeper": "d59fyt8fjs3m",
+   "losers": [
+    "d59f6esd7qx3"
+   ],
+   "evidence": "待並條逐条定论同书：《七太子傳》陳懿典／《正史七太子傳》陳懿典；同作者陳懿典同entity，正史七太子傳即七太子傳，均一卷，B著錄更多題名更標準",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt8fjs3m",
+     "path": "Work/s/3/m/d59fyt8fjs3m-七太子傳.json",
+     "sha256": "62afb2d275bc884c737b89b126052d823aad7d8bdcf910a50267514c36652a9a"
+    },
+    {
+     "id": "d59f6esd7qx3",
+     "path": "Work/q/x/3/d59f6esd7qx3-正史七太子傳.json",
+     "sha256": "b53e771c68170378c512bc63d9732dedfac7a5bf92808defe83151418d7c3b66"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f6esd7qx3 在 zm0178，keeper 在 zm0209——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6esd7qx3": {
+     "description": {
+      "text": "陳懿典撰。一卷。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「陳懿典正史七太子傳」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyt8hf7cw",
+   "type": "work",
+   "keeper": "d59fyt8hf7cw",
+   "losers": [
+    "d59f2nu251j5"
+   ],
+   "evidence": "待並條逐条定论同书：《陸清獻公日記》陸隴其／《日記》陸隴其；同作者陸隴其，清史稿「日記十卷」即書目答問陸清獻公日記十卷，A卷數十二為誤析",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyt8hf7cw",
+     "path": "Work/7/c/w/d59fyt8hf7cw-陸清獻公日記.json",
+     "sha256": "1ce056b496978e603707457a6fe5c49a9a68ab32312ba31fc2f35a042c845f84"
+    },
+    {
+     "id": "d59f2nu251j5",
+     "path": "Work/1/j/5/d59f2nu251j5-日記.json",
+     "sha256": "5c9fca41d21fb345cb872b7521e0e59ead021504ff5cfdacb9540024ac192538"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2nu251j5",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      },
+      {
+       "field": "period_upper_basis",
+       "keeper_value": "catalog_bound：所繫諸志中最緊者為《書目答問》（清張之洞（1875）），故不晚於 qing",
+       "loser_value": "catalog_bound：所繫諸志中最緊者為《清史稿藝文志》（民國趙爾巽等（1927），著錄清人著述），故不晚於 qing。（2026-08-24 C1 訂正：舊上限緣於已從 indexed_by 摘去之早志節點，其 basis 未隨之重算，遂與現判之 period 顯示相斥——實則本條之著錄本無早志，重算即得。）"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2nu251j5": {
+     "ai_note": "短書名（2字），可能存在同名異書。 來源：清史稿藝文志子部儒家類\n\n2026-08-23 B1 同名異書併池：併入 `1evcsxbspitxc`（日記）。2026-08-23 B10（同題一方無撰人）：併入 `1evcsxbspitxc`（宋史藝文志，不著撰人、亦不著卷數）。題名與本條全同，著錄異源，全庫同題僅此二條，裸條唯本條可繫，同書。\n\n2026-08-24 摘去所繫之《宋史藝文志》一節——本條是清人之書，不可能見於元脫脫所修之宋志。本節作「趙概《日記》一卷司馬光」——趙概撰，「司馬光」屬下節 #131《日錄》（司馬光《日錄》正合）。庫中已有《趙康靖日記》一卷 `1evgpj75sgv0g`（撰人作「趙槩」，概／槩異體；康靖是趙概之諡），一卷數合，即其主。舊主 `1evr5e3meogzb` 是清陸隴其《日記》十二卷（清史稿著錄），與此無涉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。",
+     "description": {
+      "text": "陸隴其（清）撰。十二卷。見著錄於《清史稿藝文志》。其著錄之文，《清史稿藝文志》作「三魚堂賸言十二卷，松陽鈔存二卷，學術辨一卷，問學錄四卷，日記十卷」。本書惟《清史稿藝文志》一志著錄，別無他證。《清史稿藝文志》民國趙爾巽等修——本書之目賴之以存。",
+      "sources": [
+       "清史稿藝文志"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fytlyhywx",
+   "type": "work",
+   "keeper": "d59fytlyhywx",
+   "losers": [
+    "d59f6etrs6ww"
+   ],
+   "evidence": "待並條逐条定论同书：《陶學士先生事蹟》費宏／《陶學士事蹟》費宏；同 entity 費宏，陶學士事蹟即陶學士先生事蹟一卷；A 為史流十品子目，B 有總目版本",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fytlyhywx",
+     "path": "Work/y/w/x/d59fytlyhywx-陶學士先生事蹟.json",
+     "sha256": "fbef6264a2708952fe4eaf8048d9d100d5ce1138828dcf7f264b54a04bdf8881"
+    },
+    {
+     "id": "d59f6etrs6ww",
+     "path": "Work/6/w/w/d59f6etrs6ww-陶學士事蹟.json",
+     "sha256": "d8894e0c1efb509f7d9eedcc364fd320adec704aa1662bc083b47eb1ed87d5b7"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6etrs6ww": {
+     "description": {
+      "text": "見《千頃堂書目》著錄，收於司馬泰所編《史流十品》。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyutnensx",
+   "type": "work",
+   "keeper": "d59fyutnensx",
+   "losers": [
+    "d59f2nc08yki"
+   ],
+   "evidence": "待並條逐条定论同书：《史目表》洪飴孫／《歷代史目表》洪飴孫；同 entity 洪飴孫，歷代史目表／史目表為全稱省稱，一卷對二卷僅差一卷，皆見洪北江全集；B 版本多",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyutnensx",
+     "path": "Work/n/s/x/d59fyutnensx-史目表.json",
+     "sha256": "c898f29f493771cfb8f5d0d176438761a8696e53be99171799183e4818ea64be"
+    },
+    {
+     "id": "d59f2nc08yki",
+     "path": "Work/y/k/i/d59f2nc08yki-歷代史目表.json",
+     "sha256": "bb3573fac63bd056260f8005ad7343ce0beba4940245f17b0f19f01fad862937"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2nc08yki",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2nc08yki": {
+     "ai_note": "從 1evkphkf1v9xc 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故觀001586），無同名 Work 故新建。",
+     "description": {
+      "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故觀001586）。清光緒間洪氏授經堂刊洪北江全集之一。",
+      "sources": [
+       "國立故宮博物院善本舊籍"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fyv4b1gch",
+   "type": "work",
+   "keeper": "d59fyv4b1gch",
+   "losers": [
+    "d59f6etiqb5t"
+   ],
+   "evidence": "待並條逐条定论同书：《韓忠定公集》韓文／《忠定集》韓文；同韓文entity，千頃堂「忠定集」為「韓忠定公集」省稱（韓文諡忠定），A缺卷數，B四卷字段更全",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fyv4b1gch",
+     "path": "Work/g/c/h/d59fyv4b1gch-韓忠定公集.json",
+     "sha256": "69eee1ab4cc6949fa916a6039759eb51ba40aee2a067af7e374ead426f3bb43d"
+    },
+    {
+     "id": "d59f6etiqb5t",
+     "path": "Work/b/5/t/d59f6etiqb5t-忠定集.json",
+     "sha256": "3520858969a315eb28b793a15287acd34ca1efe09d7d009305b98c8274f31346"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f6etiqb5t",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「明」",
+       "loser_value": "據撰人 韓文（hixhd2h9bibj） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f6etiqb5t 在 zm0666，keeper 在 zm0210——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f6etiqb5t": {
+     "description": {
+      "text": "韓文撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「韓文忠定集」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。",
+      "sources": [
+       "千頃堂書目"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cluster_id": "dbt-d59fz72gzpj4",
+   "type": "work",
+   "keeper": "d59fz72gzpj4",
+   "losers": [
+    "d59fxrxh7bpd"
+   ],
+   "evidence": "待並條逐条定论同书：《新刻京板工師雕鏤正式魯班經匠家鏡》章嚴／《魯班經》午榮；同午榮、章嚴entity，「魯班經」為「新刻京板工師雕鏤正式魯班經匠家鏡」省稱，均附祕訣仙機一卷，三卷對二卷差1",
+   "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+   "preconditions": [
+    {
+     "id": "d59fz72gzpj4",
+     "path": "Work/p/j/4/d59fz72gzpj4-新刻京板工師雕鏤正式魯班經匠家鏡.json",
+     "sha256": "41e41a47cb6a2106de8650aafa3643dd0b3554b8de81c0547d6ceb03b21426da"
+    },
+    {
+     "id": "d59fxrxh7bpd",
+     "path": "Work/b/p/d/d59fxrxh7bpd-魯班經.json",
+     "sha256": "b708ce1485799061d5eda46da8206e5738644cd4df97a97deb1f3a91398c5f78"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fxrxh7bpd 在 zm0469，keeper 在 zm0253——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59fxrxh7bpd": {
+     "ai_note": "E 道（overview#409）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：zm8nylu0e3ryvtad\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\n主責任者「午榮」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period"
+    }
+   }
+  }
+ ]
+}
