@@ -1,0 +1,220 @@
+{
+ "base": "6698e0cb58e8a54736d04d146dc013a39da2902f",
+ "merges": [
+  {
+   "cluster_id": "mixsplit-1",
+   "type": "work",
+   "keeper": "d59fyh8129z5",
+   "losers": [
+    "d59fy7s3mps1"
+   ],
+   "evidence": "乙條所掛總目「西湖月觀紀一卷」甲條亦掛（同版本同館藏），同撰人陳仁錫、同一卷，記／紀通用，同一書",
+   "rule": "混记录先拆后并",
+   "preconditions": [
+    {
+     "id": "d59fyh8129z5",
+     "path": "Work/9/z/5/d59fyh8129z5-西湖月觀記.json",
+     "sha256": "88bb355d5aa56a8d6fdb9526d485284f8161eab15c39d42fbb589300048ed24d"
+    },
+    {
+     "id": "d59fy7s3mps1",
+     "path": "Work/p/s/1/d59fy7s3mps1-西湖月觀紀.json",
+     "sha256": "90531764a26f071710e84a743ef4cedcd245fea1a330e27bf5a2eb18960a98f6"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "mixsplit-2",
+   "type": "work",
+   "keeper": "d59f2make8zl",
+   "losers": [
+    "d59f2mwhi682"
+   ],
+   "evidence": "甲條四庫存目叢書朱軾《儀禮節略》十七卷圖三卷即總目《儀禮節要》二十卷（附圖三卷為門人王葉滋所為），甲 Book 亦題「儀禮節畧二十卷」，同一書",
+   "rule": "混记录先拆后并",
+   "preconditions": [
+    {
+     "id": "d59f2make8zl",
+     "path": "Work/8/z/l/d59f2make8zl-儀禮節要.json",
+     "sha256": "a45e76c55dfa43aa954dc1cffa699edae68f3143684bce8fe4f49605b1c900ea"
+    },
+    {
+     "id": "d59f2mwhi682",
+     "path": "Work/6/8/2/d59f2mwhi682-儀禮節略.json",
+     "sha256": "0f3f7d6baa83f31c6b817a1fa7c4d6232a9c195cc39db633d53d47b4c402aeb0"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2mwhi682",
+     "fields": [
+      {
+       "field": "juan_count",
+       "keeper_value": {
+        "number": 20
+       },
+       "loser_value": {
+        "number": 17
+       }
+      },
+      {
+       "field": "measure_info",
+       "keeper_value": "二十卷",
+       "loser_value": "十七卷 圖三卷"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2mwhi682 在 zm0001，keeper 在 zm0042——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "mixsplit-3",
+   "type": "work",
+   "keeper": "d59f27uzku82",
+   "losers": [
+    "d59f27yzsh6o"
+   ],
+   "evidence": "拆去新唐志一卷後，兩條皆賀循撰、庾蔚之注十卷；黃逢元明言舊唐志卷同、記作紀、題賀循撰庾蔚之注，隋志亦記梁有庾蔚之注本",
+   "rule": "混记录先拆后并",
+   "preconditions": [
+    {
+     "id": "d59f27uzku82",
+     "path": "Work/u/8/2/d59f27uzku82-喪服要記.json",
+     "sha256": "e3ee2586faac73aa93d628663736213f99868d23c8cd91192428f8d7d09b5aac"
+    },
+    {
+     "id": "d59f27yzsh6o",
+     "path": "Work/h/6/o/d59f27yzsh6o-喪服要紀.json",
+     "sha256": "36bf4daa4908c60f5900f3e3a330f3d87b7cbbb80802e72c027aec822611acc8"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f27yzsh6o",
+     "fields": [
+      {
+       "field": "dynasty",
+       "keeper_value": "晉",
+       "loser_value": "東晉"
+      },
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "period_fallback:jin→晉",
+       "loser_value": "author_propagation:撰者賀循之朝代"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "撰人朝代闕，而所著錄之志唯一且為斷代志（其所著錄者九成以上是該代之作，此比例以庫中資料自驗），故據之：補晋書藝文志",
+       "loser_value": "據 authors[0].dynasty「東晉」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [
+    {
+     "loser": "d59f27yzsh6o",
+     "name": "庾蔚之",
+     "entity_id": "hixhd2h9bhw3"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "mixsplit-4",
+   "type": "work",
+   "keeper": "d59f2hq4in0g",
+   "losers": [
+    "d59fyro7l1c1"
+   ],
+   "evidence": "拆去韋述柳芳唐書後，甲即歐陽修宋祁唐書二百二十五卷；乙為同書附考證釋音本",
+   "rule": "混记录先拆后并",
+   "preconditions": [
+    {
+     "id": "d59f2hq4in0g",
+     "path": "Work/n/0/g/d59f2hq4in0g-唐書.json",
+     "sha256": "9be2bd59925ba289d43fb7c34df111f51fba0a38ce2008b19ceb76f214f55d32"
+    },
+    {
+     "id": "d59fyro7l1c1",
+     "path": "Work/1/c/1/d59fyro7l1c1-唐書.json",
+     "sha256": "020dfabc3996f349053bf79842124299c09ef8e41e3ce14ed0530cfe12f856e4"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fyro7l1c1",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty（2026-08-13 南北朝探勘第二輪：歐陽修《唐書》：同上）",
+       "loser_value": "據 authors[0].dynasty「宋」"
+      },
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "nlc-CBM0361": {
+         "label": "國圖藏本：建康路   元大德[1297-1307]"
+        },
+        "nlc-412004000409": {
+         "label": "國圖藏本：元[1271-1368]"
+        },
+        "nlc-412004000406": {
+         "label": "國圖藏本：宋[960-1279]"
+        },
+        "nlc-0189": {
+         "label": "國圖藏本：元大德[1297-1307]"
+        },
+        "nlc-412004000415": {
+         "label": "國圖藏本：元[1271-1368]"
+        },
+        "kokusho-100453230": {
+         "label": "國書·東洋大哲学堂藏刊"
+        },
+        "ndl-2600864": {
+         "label": "NDL藏本：寛延3跋"
+        }
+       },
+       "loser_value": {
+        "nlc-412004000415": {
+         "label": "國圖藏本：元[1271-1368]"
+        },
+        "nlc-412004000409": {
+         "label": "國圖藏本：元[1271-1368]"
+        },
+        "nlc-0189": {
+         "label": "國圖藏本：元大德[1297-1307]"
+        },
+        "waseda-ri08_01735": {
+         "label": "早稲田藏本：汲古閣, 順治13[1656]"
+        },
+        "korcis-101175285": {
+         "label": "韓國國立中央圖書館數字化藏本：木板本 同治 12(1873)"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fyro7l1c1 在 zm0179，keeper 在 zm0178——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [
+    {
+     "loser": "d59fyro7l1c1",
+     "name": "宋祁",
+     "entity_id": "hixhd2h9beiu"
+    }
+   ],
+   "loser_original_notes": {}
+  }
+ ]
+}
