@@ -103,6 +103,89 @@
         "call_number": "308 07184",
         "edition": "日本鈔本"
       }
+    },
+    {
+      "name": "维基文库",
+      "types": [
+        "text"
+      ],
+      "id": "wikisource",
+      "url": "https://zh.wikisource.org/wiki/%E7%96%91%E8%80%80"
+    },
+    {
+      "id": "commons",
+      "name": "维基共享资源",
+      "url": "https://commons.wikimedia.org/wiki/File:NLC416-06jh008100-16683_%E7%96%91%E8%80%80.pdf",
+      "types": [
+        "image"
+      ],
+      "root_type": "catalog",
+      "metadata": {
+        "format": "PDF",
+        "publisher": "商務印書館[發行]",
+        "year": "民國28[1939]",
+        "note": "本链接为扫描册 1；不代表全书齐备。"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000001610",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000001610",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000001610",
+        "edition": "明萬曆[1573-1620]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000001609",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000001609",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000001609",
+        "edition": "明萬曆[1573-1620]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999027945",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999027945",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999027945",
+        "edition": "明萬曆[1573-1620]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999019395",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999019395",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999019395",
+        "edition": "明萬曆[1573-1620]"
+      }
     }
   ],
   "measures": [
@@ -117,14 +200,14 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題明李贄撰。贄有《九正易因》，已著錄。是編前有張萱序，稱負」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題明李贄撰。贄有《九正易因》，已著錄。是編前有張萱序，稱負」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。\n\n2026-10-26 A11-去重异人登记子 併條（rule=去重方案第二轮细拆「新-异人登记-子」：首位异人同题组逐组判，误字／占位名／同书异署者并（3c 口径））：併 d59f2nkeesqo《疑耀》 入本條。首位异人同题组逐组判：《疑耀》李贄(明,7卷)／《疑耀》張萱(明,7卷)；疑耀七卷舊題李贄，實張萱撰，同書",
   "description": {
-    "text": "李贄（明）舊題撰。七卷。見著錄於《欽定四庫全書總目》。本書惟《欽定四庫全書總目》一志著錄，別無他證。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
+    "text": "李贄（明）舊題撰。七卷。見著錄於《欽定四庫全書總目》。",
     "sources": [
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-10-26",
   "resource_groups": {
     "ncltw-07182": {
@@ -136,5 +219,19 @@
     "ncltw-07184": {
       "label": "臺灣國家圖書館藏本：日本鈔本"
     }
-  }
+  },
+  "merged_in": [
+    {
+      "id": "d59f2nkeesqo",
+      "title": "疑耀",
+      "at": "2026-10-26T23:42:01Z",
+      "by": "A11-去重异人登记子",
+      "rule": "去重方案第二轮细拆「新-异人登记-子」：首位异人同题组逐组判，误字／占位名／同书异署者并（3c 口径）",
+      "why": "首位异人同题组逐组判：《疑耀》李贄(明,7卷)／《疑耀》張萱(明,7卷)；疑耀七卷舊題李贄，實張萱撰，同書",
+      "author": "張萱"
+    }
+  ],
+  "merged_from": [
+    "d59f2nkeesqo"
+  ]
 }

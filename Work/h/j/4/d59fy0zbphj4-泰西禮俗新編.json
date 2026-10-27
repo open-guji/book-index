@@ -13,6 +13,13 @@
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/6zfxxpxy1bn3gnhw"
       }
+    },
+    {
+      "name": "劉式訓",
+      "role": "譯",
+      "dynasty": "清",
+      "entity_id": "hixi8us379jc",
+      "name_basis": "去重「新-異人登記-子」YRZ-0295：同書異署，自被並條 d59fy0zbphj5 補入"
     }
   ],
   "indexed_by": [
@@ -23,9 +30,36 @@
       "author_info": "法國司達福撰;清劉式訓譯",
       "section": "子部/新學類/雜撰之屬/雜記",
       "summary": "共 1 個版本：清光緒三十一年上海中新書局鉛印本（遼寧省圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "泰西禮俗新編不分卷",
+      "author_info": "清劉式訓譯",
+      "section": "子部/新學類/雜撰之屬/雜記",
+      "summary": "共 1 個版本：清光緒三十一年中新書局鉛印本（南京圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：w407fq140wxzu0kx\n主責任者「司達福」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nE6 第 408 批新建（hold 清零：E；原 hold 原因：-）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18"
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：w407fq140wxzu0kx\n主責任者「司達福」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nE6 第 408 批新建（hold 清零：E；原 hold 原因：-）\n\n2026-10-26 A11-去重异人登记子 併條（rule=去重方案第二轮细拆「新-异人登记-子」：首位异人同题组逐组判，误字／占位名／同书异署者并（3c 口径））：併 d59fy0zbphj5《泰西禮俗新編》 入本條。首位异人同题组逐组判：《泰西禮俗新編》司達福(朝代缺,?卷)／《泰西禮俗新編》劉式訓(清,?卷)；司達福著、劉式訓譯，同光緒三十一年中新書局本",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-26",
+  "dynasty": "清",
+  "dynasty_basis": "author_propagation",
+  "period": "qing",
+  "period_basis": "據 authors[0].dynasty「清」",
+  "merged_in": [
+    {
+      "id": "d59fy0zbphj5",
+      "title": "泰西禮俗新編",
+      "at": "2026-10-26T23:41:04Z",
+      "by": "A11-去重异人登记子",
+      "rule": "去重方案第二轮细拆「新-异人登记-子」：首位异人同题组逐组判，误字／占位名／同书异署者并（3c 口径）",
+      "why": "首位异人同题组逐组判：《泰西禮俗新編》司達福(朝代缺,?卷)／《泰西禮俗新編》劉式訓(清,?卷)；司達福著、劉式訓譯，同光緒三十一年中新書局本",
+      "author": "劉式訓",
+      "title_info": "泰西禮俗新編不分卷"
+    }
+  ],
+  "merged_from": [
+    "d59fy0zbphj5"
+  ]
 }
