@@ -35,6 +35,14 @@
       "author_info": "明陳誠、李暹撰",
       "section": "史部/地理類/中外雜記之屬",
       "summary": "共 1 個版本：豫恕堂叢書本（馆藏未载）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "奉使西域行程記三卷",
+      "author_info": "明陳誠、李暹撰",
+      "section": "史部/地理類/中外雜記之屬",
+      "summary": "共 1 個版本：清抄本（國家圖書館）"
     }
   ],
   "description": {
@@ -44,7 +52,7 @@
       "國史經籍志"
     ]
   },
-  "ai_note": "舊匹配結果為 GYL53b5pf2P（author+similar），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
+  "ai_note": "舊匹配結果為 GYL53b5pf2P（author+similar），經作者校驗後判定不匹配。 來源：明史藝文志。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-10-27 A11-去重新-待並條 併條（rule=去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检））：併 d59fyt5kjgu9《奉使西域行程記》 入本條。待並條逐条定论同书：《西域行程記》陳誠／《奉使西域行程記》李暹；同 entity 陳誠，「奉使」為題名增字，A 二卷 B 三卷僅差一卷，總目俱作陳誠、李暹撰，合著增減同書",
   "measures": [
     {
       "unit": "卷",
@@ -57,8 +65,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-27",
   "resources": [
     {
       "name": "维基文库",
@@ -96,18 +104,44 @@
         "nlc_fid": "312001059452",
         "edition": ""
       }
-    }
-  ],
-  "related_works": [
+    },
     {
-      "id": "d59fyt5kjgu9",
-      "relation": "related",
-      "note": "史部E存疑另立：總目記錄「奉使西域行程記」（李暹、陳誠）與既有 Work 題名相同或相近而存疑未能證同（存疑未并（作者仅部分交集（合著增减））），按嚴口徑另立；互為相關，待並條複核。"
+      "id": "nlc",
+      "group": "nlc-411999023915",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999023915",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999023915",
+        "edition": "清[1644-1911]"
+      }
     }
   ],
   "resource_groups": {
     "nlc-312001059452": {
       "label": "國圖藏本："
     }
-  }
+  },
+  "additional_titles": [
+    "奉使西域行程記"
+  ],
+  "merged_in": [
+    {
+      "id": "d59fyt5kjgu9",
+      "title": "奉使西域行程記",
+      "at": "2026-10-27T00:32:07Z",
+      "by": "A11-去重新-待並條",
+      "rule": "去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检）",
+      "why": "待並條逐条定论同书：《西域行程記》陳誠／《奉使西域行程記》李暹；同 entity 陳誠，「奉使」為題名增字，A 二卷 B 三卷僅差一卷，總目俱作陳誠、李暹撰，合著增減同書",
+      "author": "李暹、陳誠",
+      "title_info": "奉使西域行程記三卷"
+    }
+  ],
+  "merged_from": [
+    "d59fyt5kjgu9"
+  ]
 }
