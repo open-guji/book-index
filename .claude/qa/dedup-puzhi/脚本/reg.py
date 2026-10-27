@@ -11,6 +11,7 @@ if os.path.exists(H+'/verify/same_ok.json'):
     SAMEOK={frozenset(p) for p in json.load(open(H+'/verify/same_ok.json'))}
 LBL={'zp':{'C':'C分立','S':'C异修','D':'D存疑'},'fz':{'C':'C分立','D':'D存疑','E':'C续修'}}
 OV=json.load(open(H+'/verify/overrides.json'))
+AUTOM={frozenset(p) for p in json.load(open(H+'/verify/same_ok_autoc.json'))}
 rows=[];elinks=[];merges=[];missing=0;pend=[]
 for g in G:
     p={i:i for i in g['ids']}
@@ -32,6 +33,8 @@ for g in G:
                 cands.append((1,x,y,'C续修',j['reason']))
                 if OV.get('|'.join(sorted((x,y))),('',))[0]=='C续修': elinks.append((x,y,j['reason']))
             else: cands.append((2,x,y,'D存疑',j['reason']))
+        elif frozenset((x,y)) in AUTOM:
+            merges.append((g['key'],x,y,'autoc')); cands.append((0,x,y,None,None))
         elif k=='none' or k[0] in 'ABXE' or (src=='fz' and k[0]=='D'):
             missing+=1; continue
         else:
