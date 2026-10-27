@@ -52,9 +52,9 @@
       "summary": "共 1 個版本：明萬曆四十二年王氏香雪居刻本（國家圖書館）"
     }
   ],
-  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：0kvs2kk5ktk56vj5\nauto-split:存疑未并\nE6 第 606 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-23",
+  "ai_note": "E 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：0kvs2kk5ktk56vj5\nauto-split:存疑未并\nE6 第 606 批新建（hold 清零：jyiyi；原 hold 原因：）\n\n国图數字古籍重配挂接\n\n2026-10-26 A11-去重方案3a 併條（rule=新-异人登记-集：同题首位异人组逐组复核，误字／乱码人名、序刊注者误作撰者、合撰分挂、同人异 Entity 者按同书并；独立子代理逐对核验）：併 d59f2j5a6ry8《新校注古本西廂記》 入本條。同爲萬曆香雪居刻本，王驥德是校注者，王德信即王實甫｜核验：同為萬曆香雪居刻本",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resources": [
     {
       "id": "nlc",
@@ -100,6 +100,48 @@
         "nlc_fid": "411999025213",
         "edition": "明萬曆42年[1614]"
       }
+    },
+    {
+      "name": "维基共享资源",
+      "types": [
+        "image"
+      ],
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/wiki/File:%E6%96%B0%E6%A0%A1%E6%B3%A8%E5%8F%A4%E6%9C%AC%E8%A5%BF%E5%BB%82%E8%A8%98%28%E4%B8%80%29.djvu"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1072120",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1072120",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1072120",
+        "request_no": "３０９－００９９",
+        "edition": "刊本:明:::香雪居",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4769086/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-15060",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/15060",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "15060",
+        "call_number": "407.221 15060",
+        "edition": "明香雪居刊清初印本"
+      }
     }
   ],
   "resource_groups": {
@@ -112,5 +154,26 @@
     "nlc-411999025213": {
       "label": "國圖藏本：明萬曆42年[1614]"
     }
-  }
+  },
+  "measures": [
+    {
+      "unit": "冊",
+      "number": 6
+    }
+  ],
+  "measure_info": "六冊",
+  "merged_in": [
+    {
+      "id": "d59f2j5a6ry8",
+      "title": "新校注古本西廂記",
+      "at": "2026-10-26T23:30:58Z",
+      "by": "A11-去重方案3a",
+      "rule": "新-异人登记-集：同题首位异人组逐组复核，误字／乱码人名、序刊注者误作撰者、合撰分挂、同人异 Entity 者按同书并；独立子代理逐对核验",
+      "why": "同爲萬曆香雪居刻本，王驥德是校注者，王德信即王實甫｜核验：同為萬曆香雪居刻本",
+      "author": "王實甫"
+    }
+  ],
+  "merged_from": [
+    "d59f2j5a6ry8"
+  ]
 }
