@@ -1,0 +1,542 @@
+{
+ "base": "4bdc6fad01e93923bdbcd7de7dccd4ec167201ae",
+ "merges": [
+  {
+   "cluster_id": "新-譜志余-PZ54",
+   "type": "work",
+   "keeper": "d59fy6wva03k",
+   "losers": [
+    "d59fy6wzyk8x"
+   ],
+   "evidence": "《周李合譜》同题同书（机判「首位异人」复核改判）：同為道光十七年景蓮堂修、光緒續修四卷本（國圖），周燮即周李燮之誤切，修次相合｜独立复核：同為國圖藏景蓮堂道光十七年修、光緒續修之四卷本，周燮即續纂者周李燮之省寫，修次、卷數、藏館全合",
+   "rule": "去重方案新-譜志余：首位异人直判 C 全量复核判同书＋独立 agent 复核确认",
+   "preconditions": [
+    {
+     "id": "d59fy6wva03k",
+     "path": "Work/0/3/k/d59fy6wva03k-雲南大理周李合譜.json",
+     "sha256": "db24e71cd04e7c43ce7089e8440c1505af0f15d340e3bee344ad99d1bf915766"
+    },
+    {
+     "id": "d59fy6wzyk8x",
+     "path": "Work/k/8/x/d59fy6wzyk8x-雲南周李合譜.json",
+     "sha256": "c5c162b20ddd37c02bdbf21e55095ddc59ebabdbd1fc280d146d33e0508a578f"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [
+    {
+     "loser": "d59fy6wzyk8x",
+     "name": "周李燮",
+     "entity_id": "hixiclg2ig06"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "新-譜志余-PZ55",
+   "type": "work",
+   "keeper": "d59fyzscrsao",
+   "losers": [
+    "d59fxp60vdhd"
+   ],
+   "evidence": "《安道公年譜》同题同书（机判「首位异人」复核改判）：同為陳溥編安道公年譜，同有民國十六年太倉圖書館刻本；a首位繆朝荃僅纂附錄世系｜独立复核：同為陳溥編安道公年譜，a之源記錄2zoibhkb60gwpdro已追加為b之民國十六年太倉圖書館刻本，繆朝荃只纂附世系；四卷與二卷屬同本分卷著錄之異",
+   "rule": "去重方案新-譜志余：首位异人直判 C 全量复核判同书＋独立 agent 复核确认",
+   "preconditions": [
+    {
+     "id": "d59fyzscrsao",
+     "path": "Work/s/a/o/d59fyzscrsao-安道公年譜.json",
+     "sha256": "cc5a7455077287cc01e4e1ee64e47523e6b89559ccc437fdabee90a95b28ab9f"
+    },
+    {
+     "id": "d59fxp60vdhd",
+     "path": "Work/d/h/d/d59fxp60vdhd-安道公年譜.json",
+     "sha256": "37b35ef0beab0c4d49ff4aefcdbd61c162ecb69cf8335956b48d566326cb2a9b"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [
+    {
+     "loser": "d59fxp60vdhd",
+     "name": "繆朝荃",
+     "entity_id": "hixi5icd9gcn"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "新-譜志余-PZ56",
+   "type": "work",
+   "keeper": "d59f2hj740zl",
+   "losers": [
+    "d59f2hs7qtxc"
+   ],
+   "evidence": "《韓文類譜》同题同书（机判「首位异人」复核改判）：b所掛光緒隸釋齋翻刊馬氏小玲瓏山館覆宋本即a魏仲舉韓文類譜之本，呂大防乃其中年譜原撰者｜独立复核：b所掛光緒元年隸釋齋翻刊雍正七年馬氏小玲瓏山館覆宋本，即a續修四庫所據馬氏刻韓文類譜之翻本；呂大防為書中首篇年譜撰者，故宮題名取首撰者",
+   "rule": "去重方案新-譜志余：首位异人直判 C 全量复核判同书＋独立 agent 复核确认",
+   "preconditions": [
+    {
+     "id": "d59f2hj740zl",
+     "path": "Work/0/z/l/d59f2hj740zl-韓文類譜.json",
+     "sha256": "079a88bb0752f5a0253f30d38cd73c251e86d76e60f9d6a5bd9569edce540da1"
+    },
+    {
+     "id": "d59f2hs7qtxc",
+     "path": "Work/t/x/c/d59f2hs7qtxc-韓文類譜.json",
+     "sha256": "f1319bb8224e43424b78beee6b310e30ae2db18e77d9fa057cb5cb1d04b4e9df"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2hs7qtxc",
+     "fields": [
+      {
+       "field": "measure_info",
+       "keeper_value": "七卷",
+       "loser_value": "七卷柳先生年譜一卷"
+      },
+      {
+       "field": "dynasty",
+       "keeper_value": "南宋",
+       "loser_value": "北宋"
+      },
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "据本轮人工资料 author.dynasty「南宋」补全",
+       "loser_value": "据唯一 author.dynasty「北宋」补全"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "据本轮人工资料 author.dynasty「南宋」自动归并",
+       "loser_value": "据唯一 author.dynasty「北宋」自动归并"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [
+    {
+     "loser": "d59f2hs7qtxc",
+     "name": "呂大防",
+     "entity_id": "hixhd2h9bhgr"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "新-譜志余-PZ57",
+   "type": "work",
+   "keeper": "d59fy11b6txe",
+   "losers": [
+    "d59f2mglynls"
+   ],
+   "evidence": "《茶花譜》同题同书（机判「首位异人」复核改判）：a所繫四庫提要「舊本題樸靜子撰」、康熙己亥自序，與b樸靜子康熙五十八年刻本相合；趙學敏係清史稿下一條鳳仙譜之撰者，誤挂｜独立复核：a所繫四庫提要、存目叢書均作舊題樸靜子撰、康熙己亥（五十八年）刻本，與b樸靜子康熙五十八年刻本同；a之趙學敏係清史稿下一條鳳仙譜撰者誤挂",
+   "rule": "去重方案新-譜志余：首位异人直判 C 全量复核判同书＋独立 agent 复核确认",
+   "preconditions": [
+    {
+     "id": "d59fy11b6txe",
+     "path": "Work/t/x/e/d59fy11b6txe-茶花譜.json",
+     "sha256": "8ca0c72744c28a57ab9af83e402d2c329e81f05bbb9e7ed811c9f1bd1a17bece"
+    },
+    {
+     "id": "d59f2mglynls",
+     "path": "Work/n/l/s/d59f2mglynls-茶花譜.json",
+     "sha256": "d0ab781f853d95ab61e59fd438eb2d7b97e03f2c9eccefc9dc3f71768fe1cf2e"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2mglynls",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2mglynls 在 zm0465，keeper 在 zm0482——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [
+    {
+     "loser": "d59f2mglynls",
+     "name": "趙學敏",
+     "entity_id": "hixhd2h9bhuh"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "新-譜志余-PZ58",
+   "type": "work",
+   "keeper": "d59f2nfav94w",
+   "losers": [
+    "d59fy11cr0n5"
+   ],
+   "evidence": "《蝶几譜》同题同书（机判「首位异人」复核改判）：蝶几譜乃戈汕撰，b為存素堂校寫几譜三種本，黃伯思係同叢編首種燕几圖之撰者，誤挂｜独立复核：蝶几譜為明戈汕撰（續修四庫有萬曆本），黃伯思為宋人、所撰為燕几圖，b所掛存素堂校寫几譜三種本中蝶几譜一卷即戈書，撰者誤挂",
+   "rule": "去重方案新-譜志余：首位异人直判 C 全量复核判同书＋独立 agent 复核确认",
+   "preconditions": [
+    {
+     "id": "d59f2nfav94w",
+     "path": "Work/9/4/w/d59f2nfav94w-蝶几譜.json",
+     "sha256": "d60e94a8d8675a738f891f05bf6f872721fda6770d41786aaf28a49adb75a4e0"
+    },
+    {
+     "id": "d59fy11cr0n5",
+     "path": "Work/0/n/5/d59fy11cr0n5-蝶几譜.json",
+     "sha256": "fd0b56c0b1560e787f7edc6a629e5e8757bf81e9eed0f25da2a402fb57f103a0"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fy11cr0n5",
+     "fields": [
+      {
+       "field": "dynasty",
+       "keeper_value": "明",
+       "loser_value": "宋"
+      },
+      {
+       "field": "period",
+       "keeper_value": "ming",
+       "loser_value": "song"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「明」",
+       "loser_value": "據 authors[0].dynasty「宋」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fy11cr0n5 在 zm0469，keeper 在 zm0465——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [
+    {
+     "loser": "d59fy11cr0n5",
+     "name": "黃伯思",
+     "entity_id": "hixhd2h9beog"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "新-譜志余-PZ59",
+   "type": "work",
+   "keeper": "d59f2px85oua",
+   "losers": [
+    "d59f2hj31xxe"
+   ],
+   "evidence": "《農器譜》同题同书（机判「首位异人」复核改判）：魯之謹為曾之謹之訛；直齋作三卷續二卷，合為五卷，與焦竑五卷相合｜独立复核：魯、曾形近，曾之謹農器譜見宋志、直齋（三卷、續二卷），焦竑五卷正合三加二，撰者、卷數、時代皆可對上",
+   "rule": "去重方案新-譜志余：首位异人直判 C 全量复核判同书＋独立 agent 复核确认",
+   "preconditions": [
+    {
+     "id": "d59f2px85oua",
+     "path": "Work/o/u/a/d59f2px85oua-農器譜.json",
+     "sha256": "9125da4622930e91df60e7f55a06335eeaad7b7f455afbd8517bdd2167505cee"
+    },
+    {
+     "id": "d59f2hj31xxe",
+     "path": "Work/x/x/e/d59f2hj31xxe-農器譜.json",
+     "sha256": "ca35b2b802d6130a06241dbe9468c58f580b18dd6b81fb69adf69f2859994615"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2hj31xxe",
+     "fields": [
+      {
+       "field": "period_upper",
+       "keeper_value": "song",
+       "loser_value": "ming"
+      },
+      {
+       "field": "period_upper_basis",
+       "keeper_value": "catalog_bound：所繫諸志中最緊者為《宋史藝文志》（元脫脫等（1345），著錄宋代藏書），故不晚於 song",
+       "loser_value": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [
+    {
+     "loser": "d59f2hj31xxe",
+     "name": "魯之謹",
+     "entity_id": "hixhd2h9blp7"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "新-譜志余-PZ60",
+   "type": "work",
+   "keeper": "d59f2niscnb6",
+   "losers": [
+    "d59f6eske7er"
+   ],
+   "evidence": "《琴阮啟蒙譜》同题同书（机判「首位异人」复核改判）：臞𠎣即臞仙，寧獻王朱權之號，同書一卷｜独立复核：臞𠎣即臞仙，為寧獻王朱權之號，兩條同為琴阮啟蒙譜一卷",
+   "rule": "去重方案新-譜志余：首位异人直判 C 全量复核判同书＋独立 agent 复核确认",
+   "preconditions": [
+    {
+     "id": "d59f2niscnb6",
+     "path": "Work/n/b/6/d59f2niscnb6-琴阮啓蒙譜.json",
+     "sha256": "a9aa483daa1f574d15c9b14fec0f6adb5130cc3eaab658967c9f4ffd2a857703"
+    },
+    {
+     "id": "d59f6eske7er",
+     "path": "Work/7/e/r/d59f6eske7er-琴阮啟䝉譜.json",
+     "sha256": "9bc98908fa5e1fc78a72b27c4575bf49be4d6047ba9008f8facc8c617ce174e3"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f6eske7er",
+     "fields": [
+      {
+       "field": "period_upper",
+       "keeper_value": "ming",
+       "loser_value": "qing"
+      },
+      {
+       "field": "period_upper_basis",
+       "keeper_value": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming",
+       "loser_value": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "「臞仙」為明寧獻王朱權別號，朱權精琴學，明焦竑國史經籍志著錄其譜　複審採納：臞仙為明寧獻王朱權別號，朱權精琴學（2026-08-24 A1 medium 複審）",
+       "loser_value": "據撰人 寧獻王權（hixhd2h9bivn） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f6eske7er 在 zm0042，keeper 在 zm0001——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [
+    {
+     "loser": "d59f6eske7er",
+     "name": "寧獻王權",
+     "entity_id": "hixhd2h9bgm4"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "新-譜志余-PZ61",
+   "type": "work",
+   "keeper": "d59f2nga52bk",
+   "losers": [
+    "d59f6eq5m8e8"
+   ],
+   "evidence": "《神奇秘譜》同题同书（机判「首位异人」复核改判）：臞𠎣即臞仙朱權，神奇秘譜同書｜独立复核：臞𠎣（臞仙）即寧獻王朱權，神奇秘譜為朱權所編，千頃堂無卷數不矛盾",
+   "rule": "去重方案新-譜志余：首位异人直判 C 全量复核判同书＋独立 agent 复核确认",
+   "preconditions": [
+    {
+     "id": "d59f2nga52bk",
+     "path": "Work/2/b/k/d59f2nga52bk-神奇秘譜.json",
+     "sha256": "30e45aa06fb0a8b41afeaa2f2e10d2f4a09b6dbfd78dc36fd4e7d10abc5f4268"
+    },
+    {
+     "id": "d59f6eq5m8e8",
+     "path": "Work/8/e/8/d59f6eq5m8e8-神竒秘譜.json",
+     "sha256": "8a4594e7fff0e34200693045d508d6f33aa0ba7a2306002bcaa91ca3f3edf306"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f6eq5m8e8",
+     "fields": [
+      {
+       "field": "period_upper",
+       "keeper_value": "ming",
+       "loser_value": "qing"
+      },
+      {
+       "field": "period_upper_basis",
+       "keeper_value": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming",
+       "loser_value": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "「臞仙」為明寧獻王朱權（1378-1448）之號，《神奇秘譜》為其所輯琴譜（2026-08-24 R3 引文定代）",
+       "loser_value": "據撰人 寧獻王權（hixhd2h9bivn） 之 period（ming）；撰人角色皆撰、cbdb 非 auto、dynasty 與 period 相合；S 10-07 批（#473）"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f6eq5m8e8 在 zm0042，keeper 在 zm0001——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [
+    {
+     "loser": "d59f6eq5m8e8",
+     "name": "寧獻王權",
+     "entity_id": "hixhd2h9bgm4"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "新-譜志余-PZ62",
+   "type": "work",
+   "keeper": "d59f24lps7b5",
+   "losers": [
+    "d59fkwmxv47b"
+   ],
+   "evidence": "《韓詩譜》同题同书（机判「首位异人」复核改判）：趙曄字長君，同為韓詩譜二卷｜独立复核：後漢書儒林傳趙曄字長君，兩條同為東漢韓詩譜二卷（隋志梁有、侯康補志），同人同書",
+   "rule": "去重方案新-譜志余：首位异人直判 C 全量复核判同书＋独立 agent 复核确认",
+   "preconditions": [
+    {
+     "id": "d59f24lps7b5",
+     "path": "Work/7/b/5/d59f24lps7b5-韓詩譜.json",
+     "sha256": "96496faf6fae692cdfa1081933aef537032c8ecfc487e789fb2bcac7727dc7a9"
+    },
+    {
+     "id": "d59fkwmxv47b",
+     "path": "Work/4/7/b/d59fkwmxv47b-韓詩譜.json",
+     "sha256": "76bc53cc38774a849b16ac1ccae55915d8a2aa7b4eaa6075a90dc0cc539391f9"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fkwmxv47b",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「東漢」",
+       "loser_value": "2026-09-26 K3道《補後漢書藝文志》（侯康）整理：《補後漢書藝文志》著錄，東漢一代著述（隨全書斷限）。"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [
+    {
+     "loser": "d59fkwmxv47b",
+     "name": "趙長君",
+     "entity_id": "hixhv2bvri86"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "新-譜志余-PZ63",
+   "type": "work",
+   "keeper": "d59fxvayp4ht",
+   "losers": [
+    "d59f2ntef08x"
+   ],
+   "evidence": "《一笠庵北詞廣正譜》同题同书（机判「首位异人」复核改判）：李元玉即李玉（字玄玉），b題徐慶卿撰、李玉更定，同為康熙間青蓮書屋刻本｜独立复核：李元玉即李玉（字玄玉），b題徐慶卿撰、鈕少雅樂句、李玉更定，兩條同為康熙間青蓮書屋刻本，清史稿署更定者",
+   "rule": "去重方案新-譜志余：首位异人直判 C 全量复核判同书＋独立 agent 复核确认",
+   "preconditions": [
+    {
+     "id": "d59fxvayp4ht",
+     "path": "Work/4/h/t/d59fxvayp4ht-一笠庵北詞廣正譜.json",
+     "sha256": "907fbf98601b709311d2c4aea0aa682244522772f28623a70ec5d745e93933e7"
+    },
+    {
+     "id": "d59f2ntef08x",
+     "path": "Work/0/8/x/d59f2ntef08x-一笠庵北詞廣正譜.json",
+     "sha256": "5b8d83ae04679e82d825fd5593713dd2b5db7d4a7780279bcac5c3b7cefd40c1"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2ntef08x",
+     "fields": [
+      {
+       "field": "period",
+       "keeper_value": "ming",
+       "loser_value": "qing"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「明」",
+       "loser_value": "據 authors[0].dynasty「清」"
+      },
+      {
+       "field": "dynasty",
+       "keeper_value": "明",
+       "loser_value": "清"
+      },
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [
+    {
+     "loser": "d59f2ntef08x",
+     "name": "李元玉",
+     "entity_id": "hixhd2h9bjev"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "新-譜志余-PZ64",
+   "type": "work",
+   "keeper": "d59f2nikuyo0",
+   "losers": [
+    "d59f2nkigveo"
+   ],
+   "evidence": "《廣輯詞隱先生增定南九宮詞譜》同题同书（机判「首位异人」复核改判）：廣輯詞隱先生增定南九宮詞譜即沈自晉重定本，b所掛順治十二年沈氏不殊堂刻本即此書；沈璟（詞隱）為原譜撰者｜独立复核：此題即沈自晉重定之南詞新譜（順治十二年不殊堂刻），b故宮以原譜作者詞隱沈璟題撰，所掛兩本均為此書，a二十六卷、b無卷數不矛盾",
+   "rule": "去重方案新-譜志余：首位异人直判 C 全量复核判同书＋独立 agent 复核确认",
+   "preconditions": [
+    {
+     "id": "d59f2nikuyo0",
+     "path": "Work/y/o/0/d59f2nikuyo0-廣輯詞隱先生增定南九宮詞譜.json",
+     "sha256": "2c69f6ec8e02bdeaff864ad3b177e05c42714b9c1a3bc0366b8cb8696b863b63"
+    },
+    {
+     "id": "d59f2nkigveo",
+     "path": "Work/v/e/o/d59f2nkigveo-廣輯詞隱先生增定南九宮詞譜.json",
+     "sha256": "15d79100b21347bb871064685869cfa2e6dbe13ff190010d1209d25aedd29bae"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2nkigveo",
+     "fields": [
+      {
+       "field": "measure_info",
+       "keeper_value": "二十六卷",
+       "loser_value": "十二冊"
+      },
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "nlc-CBM2400": {
+         "label": "國圖藏本：清順治[1644-1661)"
+        }
+       },
+       "loser_value": {
+        "nlc-411999021367": {
+         "label": "國圖藏本：清順治12年[1655]"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [
+    {
+     "loser": "d59f2nkigveo",
+     "name": "沈璟",
+     "entity_id": "hixhd2h9bnsv"
+    }
+   ],
+   "loser_original_notes": {}
+  }
+ ]
+}
