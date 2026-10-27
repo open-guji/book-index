@@ -4,23 +4,12 @@
   "type": "entity",
   "subtype": "people",
   "primary_name": "劉璠",
-  "dynasty": "唐",
-  "external_ids": {
-    "cbdb_id": 192259,
-    "cbdb_match": "manual",
-    "cbdb_source": "pending_accept: auto_ambig cbdb_dy=6 (None-857)",
-    "wikidata_id": "Q45683508"
-  },
-  "updated_at": "2026-08-24T00:00:00+00:00",
-  "period": "sui-tang",
-  "period_basis": "據 dynasty「唐」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。",
-  "dates": {
-    "death": 857,
-    "basis": "現行字段"
-  },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07",
+  "dynasty": "北周",
+  "period": "nanbeichao",
+  "period_basis": "據 dynasty「北周」歸併",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\nA12 非作者人物 正史列傳 M5（北朝）待裁覆核：卸去 external_ids {\"cbdb_id\": 192259, \"cbdb_match\": \"manual\", \"cbdb_source\": \"pending_accept: auto_ambig cbdb_dy=6 (None-857)\", \"wikidata_id\": \"Q45683508\"} 與 dates {\"death\": 857, \"basis\": \"現行字段\"}——CBDB 192259 卒 857 屬唐人，與北周劉璠（《周書》卷42，天和三年卒）不合，wikidata 隨 CBDB 配入，一併卸去（2026-10-27）。\n\nA12 非作者人物 正史列傳 M5（北朝）：補別名 寶義（2026-10-27）。待裁覆核：原條誤標唐，並帶 CBDB 192259（卒 857）及隨之而來的 wikidata，A11 併條時已疑誤配。今據本傳改北周，卸去 CBDB 配對與 wikidata（原值記此），補生卒、字與簡介。",
+  "revision": "1.1.0",
+  "revised_at": "2026-10-27",
   "merged_in": [
     {
       "id": "hixhjeq2zria",
@@ -30,5 +19,35 @@
       "rule": "去重方案 2.1续 人物同名组判定（全同／把握中；可并）",
       "why": "據史實：《梁典》《毛詩義》為北周劉璠所撰，與北周《劉璠集》同人；唐條cbdb 192259（卒857）疑誤配"
     }
-  ]
+  ],
+  "suppressed_fields": [
+    "cbdb_id",
+    "wikidata_id"
+  ],
+  "alt_names": [
+    {
+      "name": "寶義",
+      "type": "字"
+    }
+  ],
+  "title_or_office": "同和郡守",
+  "dynasty_basis": "據正史本傳",
+  "dates": {
+    "birth": 510,
+    "death": 568,
+    "basis": "據《周書》本傳：天和三年卒，時年五十九"
+  },
+  "description": {
+    "text": "沛人，徙居廣陵。九歲而孤，少好讀書，兼善文筆，為梁上黃侯蕭曄所重。後入北周，為同和郡守，善撫羌民，秋毫無取；陳公宇文純鎮隴右引為總管府司錄。著《梁典》三十卷，有集二十卷。",
+    "sources": [
+      {
+        "name": "《周書·劉璠傳》",
+        "details": "卷42"
+      },
+      {
+        "name": "《北史·劉璠傳》",
+        "details": "卷70"
+      }
+    ]
+  }
 }
