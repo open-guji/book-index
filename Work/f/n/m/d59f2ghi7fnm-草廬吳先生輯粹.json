@@ -9,6 +9,13 @@
       "role": "撰",
       "dynasty": "元",
       "entity_id": "hixhd2h9bdrx"
+    },
+    {
+      "name": "王蓂",
+      "role": "輯",
+      "dynasty": "明",
+      "entity_id": "hixhd2h9beeg",
+      "name_basis": "去重「新-異人登記-子」YRZ-0439：同書異署，自被並條 d59fy10lwlxc 補入"
     }
   ],
   "indexed_by": [
@@ -28,6 +35,14 @@
       "edition": "明 王蓂 輯 北京圖書館藏明萬曆二十四年謝適然刻本",
       "volume": "第21冊",
       "section": "集部"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "草廬吳先生輯粹七卷",
+      "author_info": "明王蓂輯",
+      "section": "子部/儒家類/儒學之屬/宋元",
+      "summary": "共 1 個版本：明嘉靖二十四年謝適然刻本（國家圖書館）"
     }
   ],
   "juan_count": {
@@ -75,6 +90,21 @@
         "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4756083/manifest.json",
         "extent": "4冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999022937",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999022937",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999022937",
+        "edition": "明嘉靖24年[1545]"
+      }
     }
   ],
   "measures": [
@@ -84,7 +114,7 @@
     }
   ],
   "measure_info": "六卷",
-  "ai_note": "作者 \"元吳澄撰\" 補自《四庫全書存目叢書》目錄。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
+  "ai_note": "作者 \"元吳澄撰\" 補自《四庫全書存目叢書》目錄。 [ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A11-去重异人登记子 併條（rule=去重方案第二轮细拆「新-异人登记-子」：首位异人同题组逐组判，误字／占位名／同书异署者并（3c 口径））：併 d59fy10lwlxc《草廬吳先生輯粹》 入本條。首位异人同题组逐组判：《草廬吳先生輯粹》吳澄(元,6卷)／《草廬吳先生輯粹》王蓂(明,?卷)；王蓂輯吳澄文，同書",
   "updated_at": "2026-08-09T09:33:12+00:00",
   "period": "liao-jin-yuan",
   "period_basis": "據 authors[0].dynasty「元」",
@@ -97,11 +127,26 @@
       "四庫全書存目叢書"
     ]
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-14",
+  "revision": "1.2.0",
+  "revised_at": "2026-10-26",
   "resource_groups": {
     "naikaku-1073851": {
       "label": "內閣文庫藏本：明嘉靖24年刊本（序刊）（314-0020，4冊）"
     }
-  }
+  },
+  "merged_in": [
+    {
+      "id": "d59fy10lwlxc",
+      "title": "草廬吳先生輯粹",
+      "at": "2026-10-26T23:43:34Z",
+      "by": "A11-去重异人登记子",
+      "rule": "去重方案第二轮细拆「新-异人登记-子」：首位异人同题组逐组判，误字／占位名／同书异署者并（3c 口径）",
+      "why": "首位异人同题组逐组判：《草廬吳先生輯粹》吳澄(元,6卷)／《草廬吳先生輯粹》王蓂(明,?卷)；王蓂輯吳澄文，同書",
+      "author": "王蓂",
+      "title_info": "草廬吳先生輯粹七卷"
+    }
+  ],
+  "merged_from": [
+    "d59fy10lwlxc"
+  ]
 }
