@@ -1,0 +1,266 @@
+{
+ "base": "07b1f5257b3c5988ff5a943089993153063e8bbe",
+ "merges": [
+  {
+   "cluster_id": "4aB-d59fz72njoxt",
+   "type": "work",
+   "keeper": "d59fz72njoxt",
+   "losers": [
+    "d59f2py5vb42"
+   ],
+   "evidence": "同題卷數不同：有責任者《律》（孫奭）；《律》（d59f2py5vb42，無責任者）：版本馆藏——續修四庫「《律》十二卷」影印「國家圖書館藏宋刻宋元遞修本」，對方總目「律十二卷音義一卷」版本含「宋刻宋元遞修本（國家圖書館）」；卷數差只是 juan_count 取音義一卷，原文兩側皆為律十二卷",
+   "rule": "去重方案部分4（卷数不同单边对）：同题、一侧无责任者、卷数不同，逐对子 agent 核得实质证据且有著录原文解释卷数差异者并",
+   "preconditions": [
+    {
+     "id": "d59fz72njoxt",
+     "path": "Work/o/x/t/d59fz72njoxt-律.json",
+     "sha256": "8a6abaeaca87b7801e82bd75ee400ec6f8f08d61a1887bc90f22b492cad76867"
+    },
+    {
+     "id": "d59f2py5vb42",
+     "path": "Work/b/4/2/d59f2py5vb42-律.json",
+     "sha256": "7a158c4243a69f9fd4034e09b9bd4527851339ea7375248d115585ce37e6ebb2"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2py5vb42",
+     "fields": [
+      {
+       "field": "juan_count",
+       "keeper_value": {
+        "number": 1
+       },
+       "loser_value": {
+        "number": 12
+       }
+      },
+      {
+       "field": "measure_info",
+       "keeper_value": "一卷",
+       "loser_value": "十二卷"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2py5vb42 在 zm0176，keeper 在 zm0247——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2py5vb42": {
+     "ai_note": "本 Work 條目從《續修四庫全書》目錄錄入。\n\n2026-08-17 撰人闕載：原作者欄作「佚名」並繫於偽 Entity「佚名」——該 Entity 之名本是著錄語而非人名。《續修四庫全書》著錄原文作「佚名撰」。逐條回讀著錄原文，本書之撰人確不可考，故 authors 留空。空欄即「未著撰人」之正解；繫於一個偽人，反使不可考者看似可考。",
+     "description": "本書收入《續修四庫全書》第861冊（史部）。"
+    }
+   }
+  },
+  {
+   "cluster_id": "4aB-d59f2hj2fgu9",
+   "type": "work",
+   "keeper": "d59f2hj2fgu9",
+   "losers": [
+    "d59f2q4i1ssh"
+   ],
+   "evidence": "同題卷數不同：有責任者《桐陰舊話》（韓元吉）；《桐隂舊話》（d59f2q4i1ssh，無責任者）：自證——國史經籍志「《桐隂舊話》十卷」；有著者側同繫直齋「《桐陰舊話》十卷」，四庫提要明言「此書《宋志》云十卷，陳振孫《書錄解題》亦同…乃只此一卷…蓋全書久佚，從諸書抄撮成編」，十卷為原書、一卷為殘輯本",
+   "rule": "去重方案部分4（卷数不同单边对）：同题、一侧无责任者、卷数不同，逐对子 agent 核得实质证据且有著录原文解释卷数差异者并",
+   "preconditions": [
+    {
+     "id": "d59f2hj2fgu9",
+     "path": "Work/g/u/9/d59f2hj2fgu9-桐陰舊話.json",
+     "sha256": "7ee3a7fee9a47a869e632a1708b9c56763cac14cdf92bff06cebfa0c2bda8139"
+    },
+    {
+     "id": "d59f2q4i1ssh",
+     "path": "Work/s/s/h/d59f2q4i1ssh-桐隂舊話.json",
+     "sha256": "95c0d0b3e08df1513e068efa2c702000d81081f6a62a7fafc86e43dce0b0bd44"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2q4i1ssh",
+     "fields": [
+      {
+       "field": "juan_count",
+       "keeper_value": {
+        "number": 1
+       },
+       "loser_value": {
+        "number": 10
+       }
+      },
+      {
+       "field": "measure_info",
+       "keeper_value": "一卷",
+       "loser_value": "十卷"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2q4i1ssh 在 zm0176，keeper 在 zm0208——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2q4i1ssh": {
+     "ai_note": "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。",
+     "description": "《國史經籍志》收錄。"
+    }
+   }
+  },
+  {
+   "cluster_id": "4aB-d59f2mcfi9s0",
+   "type": "work",
+   "keeper": "d59f2mcfi9s0",
+   "losers": [
+    "d59fypvewmio"
+   ],
+   "evidence": "同題卷數不同：有責任者《談往》（花村看行侍者）；《談往》（d59fypvewmio，無責任者）：自证——无著者侧原始責任者串「題清花村看行侍者撰」，著录「中國古籍總目:談往二卷」；有著者侧亦挂「中國古籍總目:談往二卷」及崇正叢書本2卷，四库著「一卷」系另本分卷，二卷本本身即同著录",
+   "rule": "去重方案部分4（卷数不同单边对）：同题、一侧无责任者、卷数不同，逐对子 agent 核得实质证据且有著录原文解释卷数差异者并",
+   "preconditions": [
+    {
+     "id": "d59f2mcfi9s0",
+     "path": "Work/9/s/0/d59f2mcfi9s0-談往.json",
+     "sha256": "42b5df71f2d75c56a00906cc5533c64c3e1e4e7de79e7619d34304fe559b7b83"
+    },
+    {
+     "id": "d59fypvewmio",
+     "path": "Work/m/i/o/d59fypvewmio-談往.json",
+     "sha256": "4b401f87505d9ec574bc2a4f405db868a7e1ae6887ed31250a896793a54fd914"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fypvewmio 在 zm0191，keeper 在 zm0190——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59fypvewmio": {
+     "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：7wc6e2gpwd1lkkh8、3wxbtzc7udwpqmvi\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：題清花村看行侍者撰；（空）\nE6 第 415 批新建（hold 清零：史部E J-anon 另立；原 hold 原因：auto-split:无作者疑同书（题名同、卷数相符，无作者可证，另立＋rela）",
+     "description": null
+    }
+   }
+  },
+  {
+   "cluster_id": "4aB-d59f9s1m0qo6",
+   "type": "work",
+   "keeper": "d59f9s1m0qo6",
+   "losers": [
+    "d59f2q6acoow"
+   ],
+   "evidence": "同題卷數不同：有責任者《大方等陀羅尼經》（釋法眾）；《大方等陀羅尼經》（d59f2q6acoow，無責任者）：版本馆藏——無著者側故宮藏「宋元豐八年福州東禪寺等覺禪院刊本」，measure_info「卷第三」即殘卷一冊；有著者側亦掛「宋元豐八年福州東禪等覺院刻」四卷本，ai_note明言其「乃某藏本之殘卷，非全書」，卷數差為殘本",
+   "rule": "去重方案部分4（卷数不同单边对）：同题、一侧无责任者、卷数不同，逐对子 agent 核得实质证据且有著录原文解释卷数差异者并",
+   "preconditions": [
+    {
+     "id": "d59f9s1m0qo6",
+     "path": "Work/q/o/6/d59f9s1m0qo6-大方等陀羅尼經.json",
+     "sha256": "8feda7d1685fa2a94f583ea8ee17db9f0783a32b6facc80221a9b168657570ea"
+    },
+    {
+     "id": "d59f2q6acoow",
+     "path": "Work/o/o/w/d59f2q6acoow-大方等陀羅尼經.json",
+     "sha256": "c804862377c548022c5a40b14f022744b9e3be14a0a6710ad503c8938feb00a3"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2q6acoow",
+     "fields": [
+      {
+       "field": "measure_info",
+       "keeper_value": "四卷",
+       "loser_value": "卷第三"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59f2q6acoow": {
+     "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 購善002950）。無作者信息。阶段 5 兜底建立。",
+     "description": "本書收入《國立故宮博物院善本舊籍》（統一編號 購善002950）。宋元豐八年福州東禪寺等覺禪院刊本。"
+    }
+   }
+  },
+  {
+   "cluster_id": "4aB-d59f23nsclqd",
+   "type": "work",
+   "keeper": "d59f23nsclqd",
+   "losers": [
+    "d59fyja9cxz4"
+   ],
+   "evidence": "同題卷數不同：有責任者《太平經》（襄楷）；《太平經》（d59fyja9cxz4，無責任者）：版本馆藏——無著者側為道藏本「太平經一百十九卷」；有著者側提要云原書「百七十卷」，「今《正統道藏》存五十七卷」（殘本，卷次至一百十九），卷數差為原書與道藏殘本之別",
+   "rule": "去重方案部分4（卷数不同单边对）：同题、一侧无责任者、卷数不同，逐对子 agent 核得实质证据且有著录原文解释卷数差异者并",
+   "preconditions": [
+    {
+     "id": "d59f23nsclqd",
+     "path": "Work/l/q/d/d59f23nsclqd-太平經.json",
+     "sha256": "eda7ff95f7173397aa5cd102eda501b944923a4a578e313d7418d25f8632779a"
+    },
+    {
+     "id": "d59fyja9cxz4",
+     "path": "Work/x/z/4/d59fyja9cxz4-太平經.json",
+     "sha256": "b88b7abe10030fb3269258e1dcde6ab8b2b9c8af8f2a38ca582b8fba20809407"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fyja9cxz4 在 zm0516，keeper 在 zm0321——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59fyja9cxz4": {
+     "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：pej5vgd3cop8bifa\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：（空）\nauto-split:存疑未并\nE6 第 821 批新建（hold 清零：e；原 hold 原因：）\n總目版本待定（庫內已有 Book 11sowlugizeo5：道藏本）：總目著錄版本標籤空，未入 Book，只作 Work 級來源（第 804 批；1d0ngipf8trach3e）；總目分類：子部／道家類／道教之屬／合編",
+     "description": null
+    }
+   }
+  },
+  {
+   "cluster_id": "4aB-d59f2n8s4ohs",
+   "type": "work",
+   "keeper": "d59f2n8s4ohs",
+   "losers": [
+    "d59fxxknr6dc"
+   ],
+   "evidence": "同題卷數不同：有責任者《書傳補義》（方宗誠）；《書傳補義》（d59fxxknr6dc，無責任者）：自证——無著者側ai_note「原始責任者串：清方宗誠述」，兩側同繫中國古籍總目「書傳補義三卷」且皆掛柏堂遺書本3卷；卷數差異僅因有著者側另據清史稿「《書傳補義》一卷」，兩側總目著錄同為三卷，實無卷帙之別",
+   "rule": "去重方案部分4（卷数不同单边对）：同题、一侧无责任者、卷数不同，逐对子 agent 核得实质证据且有著录原文解释卷数差异者并",
+   "preconditions": [
+    {
+     "id": "d59f2n8s4ohs",
+     "path": "Work/o/h/s/d59f2n8s4ohs-書傳補義.json",
+     "sha256": "e753b01207fb7a57f9ce06ccac59f9931035db4ae5f8fa4a59bb69cf577df5ec"
+    },
+    {
+     "id": "d59fxxknr6dc",
+     "path": "Work/6/d/c/d59fxxknr6dc-書傳補義.json",
+     "sha256": "aafe8ea10242fa6ea447e8aebb77c6c5f70d240abb346e86b533023fa04d9a09"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fxxknr6dc",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
+       "loser_value": "author_propagation"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「清」",
+       "loser_value": "據總目題名行朝代「清」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {
+    "d59fxxknr6dc": {
+     "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gk76vvi1u5p8f3wz、cf23z753vwq0rjr1\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n總目未著錄責任者；原始責任者串：清方宗誠述\nauto-split:存疑未并\nE6 第 3003 批新建（hold 清零：J-anon；原 hold 原因：auto-split:同名无主责任者未并）\n朝代補寫：總目題名行責任者「清方宗誠述」署朝代「清」（作者匿名或名缺字），補 Work.dynasty",
+     "description": null
+    }
+   }
+  }
+ ]
+}

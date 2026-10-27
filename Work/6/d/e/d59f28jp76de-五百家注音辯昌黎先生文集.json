@@ -1,80 +1,9 @@
 {
   "schema_version": 1,
+  "id": "d59f28jp76de",
   "type": "work",
   "title": "五百家注音辯昌黎先生文集",
-  "authors": [
-    {
-      "name": "韓愈",
-      "role": "撰",
-      "dynasty": "唐",
-      "entity_id": "hixhd2h9bhej"
-    }
-  ],
-  "description": {
-    "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故觀007565-007579）。日本元和間活字本。",
-    "sources": [
-      "國立故宮博物院善本舊籍"
-    ]
-  },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3bcum0ba4g(魏仲舉)（不同作者，故新建獨立 Work）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 15 取自 `measure_info`「十五冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
-  "measures": [
-    {
-      "unit": "冊",
-      "number": 15
-    }
-  ],
-  "measure_info": "十五冊",
-  "id": "d59f28jp76de",
-  "updated_at": "2026-08-09T09:00:59+00:00",
-  "period": "sui-tang",
-  "period_basis": "據 authors[0].dynasty「唐」",
-  "dynasty": "唐",
-  "dynasty_basis": "author_propagation",
   "revision": "1.2.0",
-  "revised_at": "2026-10-13",
-  "resources": [
-    {
-      "id": "commons",
-      "name": "维基共享资源",
-      "url": "https://commons.wikimedia.org/wiki/File:NCL-09710_%E4%BA%94%E7%99%BE%E5%AE%B6%E8%A8%BB%E9%9F%B3%E8%BE%AF%E6%98%8C%E9%BB%8E%E5%85%88%E7%94%9F%E6%96%87%E9%9B%86.pdf",
-      "types": [
-        "image"
-      ],
-      "root_type": "catalog",
-      "metadata": {
-        "format": "PDF",
-        "edition": "日本舊活字本",
-        "note": "链接指向单个扫描文件；全书齐备情况未核。"
-      }
-    },
-    {
-      "id": "kokusho",
-      "group": "kokusho-100416298",
-      "group_role": "origin",
-      "name": "國書データベース（國文學研究資料館）",
-      "short_name": "國書",
-      "url": "https://kokusho.nijl.ac.jp/biblio/100416298",
-      "types": [
-        "image"
-      ],
-      "metadata": {
-        "kokusho_bid": "100416298",
-        "edition": "刊",
-        "holder": "富山市図山田孝雄",
-        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100416298/manifest"
-      }
-    }
-  ],
-  "resource_groups": {
-    "kokusho-100416298": {
-      "label": "國書·富山市図山田孝雄藏刊"
-    }
-  },
-  "related_works": [
-    {
-      "id": "d59fxw1kd728",
-      "relation": "related",
-      "note": "晋升前去重复核（集部复核池）：題名相近，未能確認同書，另立互鏈。"
-    }
-  ]
+  "merged_into": "d59f2hsk8bnl",
+  "revised_at": "2026-10-26"
 }
