@@ -6,3 +6,4 @@
 
 ## 批次
 - batch-01（样本）：20 个原 Book（随机，seed 7）拆为 75 个，新建 55。门禁：build_derived --check-only fatal 0、dangling 0；check_v2 75 档 ERROR 0；check-classification 0；check_promo_dup 0；check-duplicate-audit PASS。独立子 agent 全检 20 个：错拆 0、provenance 错归/漏/重 0、字段误改 0；2 处「版本项只写『清抄本』『明抄本』、丛书实例不同」按保守口径不并，待后续判断。
+- batch-02：445 个原 Book 拆出新建 1,000 个（main c21f2e4eebe）。门禁：check_v2 1,445 档 ERROR 0；check-classification 0；check_promo_dup 0；build_derived fatal 0／dangling 0；check-duplicate-audit PASS。独立子 agent 抽检 50 个（11%）：错拆／该并未并 0、provenance 错归漏重 0、字段误改 0。
