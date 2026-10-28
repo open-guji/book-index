@@ -19,3 +19,9 @@
 `judge_zi.py`（依赖 `../dedup-subitem-yi/feat.py`、`sig.py`）→ `cluster.py` → `mkbatch_zi.py` → `apply_zi.py`（包装 `../dedup-confirmed-163/apply_batch.py`）→ 善后 `../dedup-subitem/post.sh`；`mkjudged.py` 出登记表；`dump.py` 出盲检稿。
 善后＋门禁一键 `post_zi.sh <批次目录>`：`fix_merged_in.py`（apply_batch 不把被并者原有 `merged_in` 转到 keeper，check-duplicate-audit 会报「Later-merged keeper missing」）、`fix_chain_mine.py`（指向本批被并者的旧墓碑改指 keeper；不用 fix_tomb_refs，它会顺手改全库别处的链）、index 刷新、草稿库同步、全部门禁。
 坑：main 极活跃，批次撞车时从最新 main 重跑整批（mkbatch 自动跳过已被他线并掉的簇）。
+
+## 收口（10-28）：27 冲突簇＋D 档
+- 冲突簇（`mkbatch_conflict.py` 的 PLAN，人读）：并 25 组（玉函山房馬國翰輯本 16 组、九章算術、呂氏春秋、周髀算經、尸子（汪繼培輯本＋湖海樓本，不并原书尸佼）、種樹書、質龜論、食色紳言、鶡冠子、黃帝授三子玄女經）；不并：硯譜（異姓撰人 C）、尸子原书。月波洞中記由 D 档簇（含任遘還本，独立复核「同书」）并入。26 组独立盲检全同。
+- D 档（`pairs_zi.tsv` 中「缺撰人、同题同卷」且两端仍活的 605 对）：8 个子 agent 逐对按 4a-B 口径核，同书 443／存疑 116／异 46；SAME 连通簇 127 个（簇内无非 SAME 对），43 簇（含全部弱专名）独立复核 41 同书、0 异、2 存疑（洞冥記、參同契，剔出）。与冲突簇重叠的 4 组合并成一组。
+- 合计 146 组、并入 293 条 Work（`batch-all/`）；分立／存疑 140 对登 `../dedup-judged/新-子目异名-子收口.tsv`。
+- 坑：两批并在同一棵树上先后跑会让第二批 keeper 变墓碑（T/L/P 报错），要先把重叠组并成一组再 apply；善后后 related_works 仍指被并 id 的（关尹子、草稿库鬻子）要手改。
