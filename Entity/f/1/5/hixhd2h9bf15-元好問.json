@@ -13,7 +13,7 @@
   "dynasty": "金",
   "native_place_basis": "CBDB 10074 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「金」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10074 補入空槽——籍貫「秀容」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ep7wlqc、d59f6eiy80zm。\n\nA12 非作者人物 正史列傳 M11（遼金）：補資料（2026-10-26）。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10074 補入空槽——籍貫「秀容」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ep7wlqc、d59f6eiy80zm。\n\nA12 非作者人物 正史列傳 M11（遼金）：補資料（2026-10-26）。\nA12 b03（2026-10-29）據《四庫全書總目》第93、99册補異體／訛名「元遺山」。",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "period": "liao-jin-yuan",
   "alt_names": [
@@ -24,6 +24,10 @@
     {
       "name": "遺山",
       "type": "號"
+    },
+    {
+      "name": "元遺山",
+      "type": "別名"
     }
   ],
   "subtype": "people",
@@ -34,7 +38,7 @@
     "basis": "現行字段"
   },
   "revision": "1.1.0",
-  "revised_at": "2026-10-26",
+  "revised_at": "2026-10-29",
   "description": {
     "text": "字裕之，元德明之子。七歲能詩，從郝天挺學；興定五年進士，歷內鄉令、南陽令，天興初擢尚書省掾、左司都事，轉行尚書省左司員外郎。金亡不仕，構「野史亭」著述，編《中州集》《壬辰雜編》，《金史》多本之。年六十八卒。",
     "sources": [
