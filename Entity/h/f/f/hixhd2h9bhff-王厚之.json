@@ -15,7 +15,7 @@
   "dynasty": "南宋",
   "native_place_basis": "CBDB 3951 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "cross_check",
-  "ai_note": "[ljy-round1: period null→song; 據 CBDB c_dy 證為宋系]\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=3951 補入空槽——籍貫「諸暨」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6enguo00。",
+  "ai_note": "[ljy-round1: period null→song; 據 CBDB c_dy 證為宋系]\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=3951 補入空槽——籍貫「諸暨」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6enguo00。\nA12 b06（2026-10-29）據《欽定四庫全書總目》第41册補別名「王順伯」。",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "period": "song",
   "alt_names": [
@@ -26,6 +26,10 @@
     {
       "name": "順伯",
       "type": "字"
+    },
+    {
+      "name": "王順伯",
+      "type": "別名"
     }
   ],
   "subtype": "people",
@@ -35,6 +39,6 @@
     "death": 1204,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-10-29"
 }
