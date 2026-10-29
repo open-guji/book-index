@@ -14,7 +14,7 @@
   "dynasty": "明",
   "native_place_basis": "CBDB 68823 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 4 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=68823 補入空槽——籍貫「上海」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eq5azuq、d59f6eqw5eki、d59f6eqx3474、d59f6eq5azuo。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 4 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=68823 補入空槽——籍貫「上海」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eq5azuq、d59f6eqw5eki、d59f6eqx3474、d59f6eq5azuo。\nA12 b03（2026-10-29）據《四庫全書總目》第28册補異體／訛名「董傳䇿」。",
   "period": "ming",
   "schema_version": 1,
   "alt_names": [
@@ -33,12 +33,16 @@
     {
       "name": "幼海",
       "type": "號"
+    },
+    {
+      "name": "董傳䇿",
+      "type": "異體"
     }
   ],
   "subtype": "people",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "revision": "1.0.0",
-  "revised_at": "2026-10-07",
+  "revised_at": "2026-10-29",
   "description": {
     "sources": [
       {
