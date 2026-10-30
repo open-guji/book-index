@@ -61,7 +61,7 @@
 | `history[].end` | integer | 可选 | 原生 | 本段止年 | 整数，≤ 1912（其后用 `modern` 表达）（P02） | 录入 | `1053` |
 | `history[].dynasty_ids` | array<string> | 可选 | 原生 | 本段所属朝代 | dynasty id，须存在（P04）；本段年份须为所挂各朝代起讫的并集覆盖（端点相接算覆盖；朝代缺起讫者不查），否则 WARN——元明、明清之际等交替年份要补挂前朝或拆段（P11） | 录入 | `["hixi1ubk35zj"]` |
 | `history[].name` | string | **必填** | 原生 | 本段当时之名 | 非空（P01） | 录入 | `"汴州"` |
-| `history[].level` | string | **必填** | 原生 | 政区层级 | 12 值：`國`｜`郡`｜`州`｜`府`｜`軍`｜`監`｜`路`｜`道`｜`省`｜`縣`｜`廳`｜`都`（P01）。草稿库 10-08 用到：`縣` 2,776、`州` 1,726、`府` 472、`路` 318、`軍` 112、`郡` 85、`省` 68、`道` 16、`監` 8、`都` 7、`廳` 2 | 录入 | `"府"` |
+| `history[].level` | string | **必填** | 原生 | 政区层级（山川条为自然地理类别） | 14 值：`國`｜`郡`｜`州`｜`府`｜`軍`｜`監`｜`路`｜`道`｜`省`｜`縣`｜`廳`｜`都`｜`山`｜`水`（P01）；`山`、`水` 只用于山川条（山、岭、河、江、湖、海），见下〈山川条〉。草稿库 10-08 用到：`縣` 2,776、`州` 1,726、`府` 472、`路` 318、`軍` 112、`郡` 85、`省` 68、`道` 16、`監` 8、`都` 7、`廳` 2 | 录入 | `"府"` |
 | `history[].parent_id` | string | 可选 | 原生 | 本段上级 | place id，须存在、不自引、无环（P03）；上级在本段年份内须有沿革段覆盖（端点相接算覆盖），否则 WARN，应在空档处拆段、该段上级留空（P10） | 录入 | `"1jb8kox0psbuo"` |
 | `history[].parent_text` | string | 可选 | 原生 | 上级未建条时的上级名 | 与 `parent_id` 并存 WARN，入库前清掉 `parent_text`（P03）；草稿库现无 | 录入 | |
 | `history[].note` | string | 可选 | 原生 | 本段依据 | 自由文本（草稿库 5,590 项全有） | 录入 | `"《宋史》卷八十五〈地理志一〉：…"` |
@@ -132,12 +132,22 @@
 }
 ```
 
+## 山川条（2026-10-30 定）
+
+山、岭、河、江、湖、海等自然地理实体建成跨朝条（`place_level` 缺省），不进政区层级：
+
+- `history` 只写一段，`{"name": 同 primary_name, "level": "山" 或 "水"}`，不写 `start`／`end`、`dynasty_ids`、`parent_id`（山川无朝代，不挂上级）。`level` 取 `山`（山、岭、峰、岩）或 `水`（河、江、溪、湖、海）。
+- `modern` 写今地（省市县级文字，`relation` 取 `同名同地`；古今名不同、故道已湮者在 `modern.note` 说明，`無對應` 用于古水已不存）；不写 `adcode`，不写 `coords`（P08）。
+- 异写、古称、简称进 `alt_names`（`異體`｜`舊稱`｜`異稱`｜`簡稱`）；`ambiguous` 按〈ambiguous 规则〉（全库有 ≥2 条声称同名才标）。
+- 与政区同名者（太湖縣、華山縣）分条，由匹配端按上下文取舍。
+- 建档门槛：A33 库无地名中出现 ≥2 处；不对 CBDB、不存 `cbdb_*`。
+
 ## 校验码
 
 | 码 | 适用 | 查什么 | 级别 |
 |---|---|---|---|
 | D3 | dynasty、reign、office、place | `dates` 键按 subtype 放行（office／place 有 `dates` 即错）；`start`／`end` 为整数、无 0 年、`start ≤ end`；dynasty 的 `period` 是现有 slug（ERROR）；有 `period` 而缺 `start`（WARN） | ERROR／WARN |
-| P01 | place | `primary_name` 非空；`history` 为非空数组；各项为对象、`level` 在 12 值内、`name` 非空 | ERROR |
+| P01 | place | `primary_name` 非空；`history` 为非空数组；各项为对象、`level` 在 14 值内、`name` 非空 | ERROR |
 | P02 | place | 各项 `start`／`end` 为整数、`start ≤ end`、`end ≤ 1912`；各项时段不重叠 | ERROR |
 | P03 | place | `history[].parent_id` 存在且为 place、不自引、上级链无环（ERROR）；`parent_id` 与 `parent_text` 并存（WARN） | ERROR／WARN |
 | P04 | place | `history[].dynasty_ids` 存在且为 dynasty | ERROR |

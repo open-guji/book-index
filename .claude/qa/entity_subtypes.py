@@ -112,7 +112,8 @@ INST_DERIVED = ("subordinates", "members", "offices", "_subordinates", "_members
 INST_WARN_RANGE = 5
 # O14 第二步（替換 PR draft#97 合入後，S 10-07 收緊）：凍結名單清空，`COL:` 占位一律 ERROR。
 COL_PLACEHOLDERS = frozenset()
-PLACE_LEVELS = {"國", "郡", "州", "府", "軍", "監", "路", "道", "省", "縣", "廳", "都"}
+PLACE_LEVELS = {"國", "郡", "州", "府", "軍", "監", "路", "道", "省", "縣", "廳", "都",
+                "山", "水"}   # 山、水＝自然地理（山川）條，非政區，history 只記通名類別（2026-10-30）
 MODERN_RELATIONS = {"同名同地", "治所今在", "轄域約當", "沿用其名而異地", "無對應"}
 PRED_KINDS = {"析出", "並入", "改置"}
 PLACE_TIERS = {"concept", "concrete"}   # place_level：跨朝條／朝代條；缺省＝concept
