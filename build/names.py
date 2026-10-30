@@ -328,7 +328,7 @@ class Names:
     def _place_cand(self, i, d, via, amb, segs):
         hist = [h for h in d.get('history') or [] if isinstance(h, dict)]
         c = {'id': i, 'subtype': 'place', 'primary_name': d['primary_name'], 'via': via,
-             'place_level': 'concrete' if d.get('place_level') == 'concrete' else None,
+             'place_level': d.get('place_level') if d.get('place_level') in ('concrete', 'region') else None,
              'dynasties': [self.name(x) for x in _ids(d.get('dynasty_ids')) if self.name(x)],
              'level': hist[-1].get('level') if hist else None,
              'start': min((h['start'] for h in hist if isinstance(h.get('start'), int)), default=None),
@@ -371,7 +371,7 @@ class Names:
                     stack.extend(up.get(x, ()))
             anc[i] = seen
         for v in out.values():
-            cs = [c for c in v if c.get('place_level') != 'concrete']   # 朝代條按朝代挑，不標 default
+            cs = [c for c in v if c.get('place_level') not in ('concrete', 'region')]   # 朝代條按朝代挑、區域條泛稱，皆不標 default
             if len(cs) == 1 and len(v) > 1:
                 cs[0]['default'] = True                                 # 只一條跨朝條，其餘皆朝代條
             else:

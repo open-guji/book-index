@@ -20,7 +20,7 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
        （否則 WARN）；無 ambiguous 之 dynasty 別名在 dynasty 內全局唯一（ERROR）        ERROR／WARN
   O01–O05、O09–O12  官職，見各函數註；O06（CBDB 碼防重）已刪；O07 併入 V01；O08 併入 E1。
   P01–P11  地名，見各函數註；P05 併入 V01、P08 coords 單獨出碼；P10 沿革段之上級於該段年份內須存在（WARN）；P11 沿革段年份須為所掛朝代起訖覆蓋（WARN）。
-  P12–P14  地名兩層（跨朝條 concept／朝代條 concrete）：P12 place_level 枚舉；P13 朝代條頂層 dynasty_ids 必填、
+  P12–P14  地名兩層（跨朝條 concept／朝代條 concrete）另加區域條 region（兩淮、中原、西域等泛稱，無朝代無政區級，history 可省，不得作政區條之上級）：P12 place_level 枚舉；P13 朝代條頂層 dynasty_ids 必填、
        各段不換名不換級、段之朝代不出頂層所掛；P14 上級同層（朝代條之上級須朝代條且朝代相交，跨朝條之上級須跨朝條）、
        concept_id 只許朝代條且須指跨朝條。place_level 缺省＝concept（舊「一地一條＋沿革」條）。
   I01–I12  官署（collective 且 collective_kind=官署，P3c 設計稿 §六／§十二，S 10-07 定）；
@@ -115,7 +115,7 @@ COL_PLACEHOLDERS = frozenset()
 PLACE_LEVELS = {"國", "郡", "州", "府", "軍", "監", "路", "道", "省", "縣", "廳", "都"}
 MODERN_RELATIONS = {"同名同地", "治所今在", "轄域約當", "沿用其名而異地", "無對應"}
 PRED_KINDS = {"析出", "並入", "改置"}
-PLACE_TIERS = {"concept", "concrete"}   # place_level：跨朝條／朝代條；缺省＝concept
+PLACE_TIERS = {"concept", "concrete", "region"}   # place_level：跨朝條／朝代條／區域條；缺省＝concept
 MAX_DYNASTY_DEPTH = 3
 PLACE_END_MAX = 1912
 
@@ -886,7 +886,8 @@ def _check_place(rec, reg):
         out.append(("P01", ERROR, "primary_name", "缺"))
     hist = rec.get("history")
     if not (isinstance(hist, list) and hist):
-        out.append(("P01", ERROR, "history", "須非空數組"))
+        if rec.get("place_level") != "region" or "history" in rec:   # 區域條可省 history
+            out.append(("P01", ERROR, "history", "須非空數組"))
         hist = []
     spans = []
     for i, h in enumerate(hist):
@@ -978,10 +979,14 @@ def _check_place_tier(rec, reg, hist):
     out = []
     lv = rec.get("place_level")
     if lv is not None and lv not in PLACE_TIERS:
-        return [("P12", ERROR, "place_level", "須為 concept／concrete：%r" % (lv,))]
+        return [("P12", ERROR, "place_level", "須為 concept／concrete／region：%r" % (lv,))]
     tier = place_tier(rec)
     top = rec.get("dynasty_ids")
-    if tier == "concept":
+    if tier == "region":
+        for k in ("dynasty_ids", "concept_id"):
+            if k in rec:
+                out.append(("P13" if k == "dynasty_ids" else "P14", ERROR, k, "區域條不得有"))
+    elif tier == "concept":
         for k in ("dynasty_ids", "concept_id"):
             if k in rec:
                 out.append(("P13" if k == "dynasty_ids" else "P14", ERROR, k, "跨朝條不得有（只許朝代條）"))
