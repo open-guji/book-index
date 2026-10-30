@@ -323,6 +323,12 @@ def test_place_two_tiers():
     assert codes(ok, ming, qing, up, concept, level=es.ERROR) == []
     assert codes(concept, ming, level=es.ERROR) == []                                # 缺 place_level 即跨朝條
     assert has(place("pl", place_level="亂"), "P12")
+    # region：區域條可省 history，不得有 dynasty_ids／concept_id，政區條不得以之為上級
+    rg = {"id": "rg", "subtype": "place", "place_level": "region", "primary_name": "兩淮"}
+    assert codes(rg, level=es.ERROR) == []
+    assert has(dict(rg, dynasty_ids=["m"]), "P13", es.ERROR, ming)
+    assert has(dict(rg, history=[]), "P01")
+    assert has(cc("pl", hist=[h("平陸縣", parent_id="rg")]), "P14", es.ERROR, ming, rg)
     # P13
     assert has(cc("pl", dids=()), "P13", es.ERROR, ming)                               # 朝代條缺 dynasty_ids
     assert has(cc("pl", dids=("nope",)), "P13", es.ERROR, ming)

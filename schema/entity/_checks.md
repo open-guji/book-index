@@ -39,7 +39,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | P09 | place | 同名异地组（INFO）；同名且上级链相同，疑重复（WARN） | INFO／WARN |
 | P10 | place | 某沿革段写了 `parent_id`，上级在该段年份内须有沿革段覆盖（端点相接算覆盖），否则应在空档处拆段、上级留空 | WARN |
 | P11 | place | 某沿革段的年份须为其 `dynasty_ids` 各朝代起讫的并集覆盖（端点相接算覆盖；朝代缺起讫者不查） | WARN |
-| P12 | place | `place_level` ∈ `concept`／`concrete`（缺省 concept） | ERROR |
+| P12 | place | `place_level` ∈ `concept`／`concrete`／`region`（缺省 concept） | ERROR |
 | P13 | place | 朝代条：顶层 `dynasty_ids` 非空且都是 dynasty；各段 `name` 同 `primary_name`、`level` 一致；段的 `dynasty_ids` 不出顶层所挂。跨朝条不得有顶层 `dynasty_ids` | ERROR |
 | P14 | place | 上级同层：朝代条段的 `parent_id` 须指朝代条且朝代相交，跨朝条段的 `parent_id` 须指跨朝条；`concept_id` 只许朝代条、须指跨朝条 | ERROR |
 | I01 | collective | `collective_kind` 在 5 值内；官署的 `institution_level` 在 3 值内 | ERROR |
