@@ -496,10 +496,10 @@ def test_i12_institution_ref():
 
 
 def test_canonical_dynasties_from_schema():
-    """D1 枚举改读 schema/common.md（overview#496 §六-14）：规范表＋域外表，共 143 名。"""
+    """D1 枚举改读 schema/common.md（overview#496 §六-14）：规范表＋域外表，只增不減（初為 143 名，其後域外朝代陸續入表）。"""
     names = es.load_canonical_dynasties()
-    assert len(names) == 143
-    assert {"南朝梁", "趙宋", "高麗", "日本"} <= names
+    assert len(names) >= 143
+    assert {"南朝梁", "趙宋", "高麗", "日本", "吐蕃", "大理", "南越", "錫蘭"} <= names
     assert "规范名" not in names
 
 
