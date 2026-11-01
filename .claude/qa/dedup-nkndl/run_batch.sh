@@ -13,6 +13,7 @@ cd $Q/dedup-nkndl
 rm -f $B/merges.json $B/index-update.json $B/postfix_*原值.json
 python3 apply_nkndl.py $B/batch.json --apply > $B/apply.log 2>&1
 python3 ../dedup-confirmed-163/postfix_common.py $B --apply | tail -1
+python3 ../dedup-confirmed-163/fix_chains.py | tail -1
 cd /home/user/book-index
 python3 .claude/qa/dedup-confirmed-163/update_index.py $Q/dedup-nkndl/$B | cut -c1-60
 cd ../book-index-draft
