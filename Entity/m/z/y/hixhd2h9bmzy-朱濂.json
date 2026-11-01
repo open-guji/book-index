@@ -22,6 +22,11 @@
     {
       "name": "際遠",
       "type": "字"
+    },
+    {
+      "name": "朱濓",
+      "type": "別稱",
+      "note": "并入重出人物条（hixie9n8o1z4）；见 人物同名余-朱濂-A"
     }
   ],
   "updated_at": "2026-08-08T11:51:59+00:00",
@@ -30,7 +35,7 @@
   "native_place": "仙居",
   "native_place_entity_id": "hixi6kqhkxs1",
   "native_place_basis": "CBDB 578846 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=578846 補入空槽——籍貫「仙居」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=578846 補入空槽——籍貫「仙居」。既有之值一概未動。\n\n2026-10-26 去重 新-人物同名余：並入同人重出條 hixie9n8o1z4，補入／訂正：description.sources←hixie9n8o1z4。",
   "dates": {
     "birth": 1786,
     "death": 1836,
@@ -44,7 +49,21 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/eav6yjzxrojkzdog"
+      },
+      {
+        "name": "古籍原文（A33 b03 清單）",
+        "details": "《欽定四庫全書總目》第34册所見人物"
       }
     ]
-  }
+  },
+  "merged_in": [
+    {
+      "id": "hixie9n8o1z4",
+      "primary_name": "朱濓",
+      "at": "2026-11-01",
+      "by": "A11-去重新-人物同名余",
+      "rule": "去重方案 新-人物同名余（2.1续 口径）人物同名组判定（全同／把握高；可并）",
+      "why": "兩條皆清朱濂，一條編《時令匯紀》、另一條簡介「編《時令彙紀》等書」，同書異錄，朝代相合"
+    }
+  ]
 }

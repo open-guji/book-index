@@ -17,7 +17,7 @@
   "native_place": "溧陽",
   "native_place_entity_id": "hixi5whkr382",
   "native_place_basis": "CBDB 351301 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=351301 補入空槽——籍貫「溧陽」。既有之值一概未動。\n\n2026-09-06 CBDB 同步 L1 落盘：合併重出條目 hixhd2h9burb「魏麐徵」（二者正名僅異體之別（「魏麐徵」／「魏麟徵」），今存正體，時代相容、僧俗一致，判為同一人）。併入 work 1 條、別名 0 條；改 Work.authors 引用 1 處。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=351301 補入空槽——籍貫「溧陽」。既有之值一概未動。\n\n2026-09-06 CBDB 同步 L1 落盘：合併重出條目 hixhd2h9burb「魏麐徵」（二者正名僅異體之別（「魏麐徵」／「魏麟徵」），今存正體，時代相容、僧俗一致，判為同一人）。併入 work 1 條、別名 0 條；改 Work.authors 引用 1 處。\n\n2026-10-26 去重 新-人物同名余：並入同人重出條 hixieqqa8bp1，補入／訂正：description.sources←hixieqqa8bp1。",
   "revision": "1.1.0",
   "revised_at": "2026-10-07",
   "description": {
@@ -26,7 +26,36 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/rfl5hyoueep770yd"
+      },
+      {
+        "name": "古籍原文（A33 b16 清單）",
+        "details": "《欽定四庫全書總目》第89册所見人物"
       }
     ]
-  }
+  },
+  "alt_names": [
+    {
+      "name": "蒼石",
+      "type": "字"
+    },
+    {
+      "name": "魏麐徴",
+      "type": "異體"
+    },
+    {
+      "name": "魏麐徵",
+      "type": "別稱",
+      "note": "并入重出人物条（hixieqqa8bp1）；见 人物同名余-魏麟徵-A"
+    }
+  ],
+  "merged_in": [
+    {
+      "id": "hixieqqa8bp1",
+      "primary_name": "魏麐徵",
+      "at": "2026-11-01",
+      "by": "A11-去重新-人物同名余",
+      "rule": "去重方案 新-人物同名余（2.1续 口径）人物同名组判定（全同／把握高；可并）",
+      "why": "皆清代溧陽人，康熙丁未進士，官邵武知府，同著《石屋詩鈔》（bg1x 名下 work 即《石屋詩鈔》）；異體「魏麐徴」相合"
+    }
+  ]
 }
