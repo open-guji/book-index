@@ -1,0 +1,119 @@
+{
+ "base": "7ac2995a95c099e690807c08beef244a56cfd522",
+ "merges": [
+  {
+   "cluster_id": "nkndl-N01",
+   "type": "work",
+   "keeper": "d59f2nfbhqf5",
+   "losers": [
+    "d59f2ngt6jnk"
+   ],
+   "evidence": "初判（B）：乙總目自證「是書初名《集古印譜》，王穉登始易之曰《印藪》」；首位責任者同為王常（同entity hixhd2h9biha），卷數均六卷，版本隆慶／萬曆顧氏刻互見；复核：本串逐对重读著录，证据成立",
+   "rule": "去重线索（内閣／NDL）：同题或自证异名、首位著者同人，按 3a／部分 4 证据口径逐对判＋复核",
+   "preconditions": [
+    {
+     "id": "d59f2nfbhqf5",
+     "path": "Work/q/f/5/d59f2nfbhqf5-集古印譜.json",
+     "sha256": "e58115d01d380ba451f479befbbe3a20221d3445f2f3761deb8b15f9098516cf"
+    },
+    {
+     "id": "d59f2ngt6jnk",
+     "path": "Work/j/n/k/d59f2ngt6jnk-印藪.json",
+     "sha256": "b85a8187eb57d0fc827fa7ff81a6ec9074567f7fb1156625000e202f331b1493"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2ngt6jnk",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「明」",
+       "loser_value": "據 authors[0].dynasty「明」（規則1 粗粒度自消歧；2026-08-21 補派生專項）"
+      },
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "author_propagation",
+       "loser_value": "據 authors[0].dynasty「明」（S5 缺值補齊，J19）"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2ngt6jnk 在 zm0176，keeper 在 zm0321——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "nkndl-N02",
+   "type": "work",
+   "keeper": "d59f6ejm9atd",
+   "losers": [
+    "d59f2nfvgx6o"
+   ],
+   "evidence": "初判（A）：澹游集／澹遊集題名異體歸一；首位責任者釋來復／來復同entity hixhd2h9btwc；皆無卷數，同為清抄本線索（續修四庫影印國圖清抄本／澹遊集清抄本）；乙Book多；复核：本串逐对重读著录，证据成立",
+   "rule": "去重线索（内閣／NDL）：同题或自证异名、首位著者同人，按 3a／部分 4 证据口径逐对判＋复核",
+   "preconditions": [
+    {
+     "id": "d59f6ejm9atd",
+     "path": "Work/a/t/d/d59f6ejm9atd-澹遊集.json",
+     "sha256": "e0a1f2bbc820cfd813289cd30e6fc873f349258ab06381262175a7dd160d1aa5"
+    },
+    {
+     "id": "d59f2nfvgx6o",
+     "path": "Work/x/6/o/d59f2nfvgx6o-澹游集.json",
+     "sha256": "dd4e289bdc9d46948bc98a4a2b66b81fed60cf318b89e8d1452d0160b1e7d7dd"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2nfvgx6o 在 zm0664，keeper 在 zm0666——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "nkndl-N03",
+   "type": "work",
+   "keeper": "d59f2084tb0g",
+   "losers": [
+    "d59fkwn0o935"
+   ],
+   "evidence": "初判（B）：同首位著者班固（同 entity hixhd2h9bdqa）；甲著录《四庫總目》《隋志》《後漢藝文志》自證《白虎通義》即《白虎通》（一名《白虎通德論》《白虎通》），乙卷数缺；兩側均有元刻本互見；keeper 取 Book 多之甲；复核：本串逐对重读著录，证据成立",
+   "rule": "去重线索（内閣／NDL）：同题或自证异名、首位著者同人，按 3a／部分 4 证据口径逐对判＋复核",
+   "preconditions": [
+    {
+     "id": "d59f2084tb0g",
+     "path": "Work/b/0/g/d59f2084tb0g-白虎通義.json",
+     "sha256": "36c7c14f94771058806c48f7fc0901c453eda9c21ddb9efc29cfe886e1f4b0f6"
+    },
+    {
+     "id": "d59fkwn0o935",
+     "path": "Work/9/3/5/d59fkwn0o935-白虎通.json",
+     "sha256": "0c4039fe86b0fd5e369bf47ee6e57ce8d572c7ac0e3443f96eca5248585c9e62"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fkwn0o935",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「東漢」",
+       "loser_value": "2026-09-26 K3道《補後漢書藝文志》（侯康）整理：《補後漢書藝文志》著錄，東漢一代著述（隨全書斷限）。"
+      },
+      {
+       "field": "measure_info",
+       "keeper_value": "十卷",
+       "loser_value": "六卷"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  }
+ ]
+}
