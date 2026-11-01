@@ -61,8 +61,8 @@
       }
     }
   ],
-  "ai_note": "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。\n\n2026-10-21 重出审计 WORK-0012：并入 d59fy1jip6o1；保留墓碑，迁移存储侧引用。原字段异说与逐组依据见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-B：同题、卷数相同、一侧无责任者，逐条子 agent 核得实质证据（同源／版本馆藏／原文自证／题含作者名号／同一辑佚本）后 B 档并）：併 d59fxwylng8x《夢溪筆談》 入本條。同題同卷：有責任者《夢溪筆談》（沈括）；《夢溪筆談》（d59f2q7zj6yp，無責任者）：版本馆藏——同著者沈括(entity hixhd2h9beyl)；被并方元大德九年陳仁子東山書院刻本「古迂陳氏家藏夢溪筆談二十六卷」，卷26與保留方明覆宋刻本等26卷一致，皆藏國家圖書館（保留条改为挂有全文的 d59f2q7zj6yp，原拟保留 d59fxwylng8x 并入）\n\n2026-11-01 A9存疑升档 馆藏挂接：按确定档补挂 慶應 1 条（影像）。依据见 bim docs/馆藏资源挂接/报告/A9-日本诸馆存疑升档-20261101.md。",
-  "revision": "1.4.0",
+  "ai_note": "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。\n\n2026-10-21 重出审计 WORK-0012：并入 d59fy1jip6o1；保留墓碑，迁移存储侧引用。原字段异说与逐组依据见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-B：同题、卷数相同、一侧无责任者，逐条子 agent 核得实质证据（同源／版本馆藏／原文自证／题含作者名号／同一辑佚本）后 B 档并）：併 d59fxwylng8x《夢溪筆談》 入本條。同題同卷：有責任者《夢溪筆談》（沈括）；《夢溪筆談》（d59f2q7zj6yp，無責任者）：版本馆藏——同著者沈括(entity hixhd2h9beyl)；被并方元大德九年陳仁子東山書院刻本「古迂陳氏家藏夢溪筆談二十六卷」，卷26與保留方明覆宋刻本等26卷一致，皆藏國家圖書館（保留条改为挂有全文的 d59f2q7zj6yp，原拟保留 d59fxwylng8x 并入）\n\n2026-11-01 A9存疑升档 馆藏挂接：按确定档补挂 慶應 1 条（影像）。依据见 bim docs/馆藏资源挂接/报告/A9-日本诸馆存疑升档-20261101.md。\n\n2026-11-01 U2b 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 bim docs/馆藏资源挂接/报告/U2b-增量重挂-20261101.md。",
+  "revision": "1.5.0",
   "revised_at": "2026-11-01",
   "dynasty": "宋",
   "dynasty_basis": "合并同作，據《中國古籍總目》author_info「宋沈括撰」",
@@ -154,6 +154,54 @@
         "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/110X-532-8-1/manifest.json"
       },
       "note": "合刻本：同册另含《補筆談》3巻（K19，只挂主书）"
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07266",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07266",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07266",
+        "call_number": "308 07266",
+        "edition": "明覆刊宋乾道二年(1166)本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07269",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07269",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07269",
+        "call_number": "308 07269",
+        "edition": "明萬曆壬寅(三十年, 1602)沈儆炌延津刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07271",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07271",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07271",
+        "call_number": "308 07271",
+        "edition": "明崇禎四年(1631)嘉定馬元調刊本"
+      }
     }
   ],
   "resource_groups": {
@@ -168,6 +216,15 @@
     },
     "keio-14255": {
       "label": "慶應藏本：明崇禎4年序刊(1631)"
+    },
+    "ncltw-07266": {
+      "label": "臺灣國家圖書館藏本：明覆刊宋乾道二年(1166)本"
+    },
+    "ncltw-07269": {
+      "label": "臺灣國家圖書館藏本：明萬曆壬寅(三十年, 1602)沈儆炌延津刊本"
+    },
+    "ncltw-07271": {
+      "label": "臺灣國家圖書館藏本：明崇禎四年(1631)嘉定馬元調刊本"
     }
   },
   "merged_from": [
