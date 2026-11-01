@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 15 取自 `measure_info`「十五冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条、慶應 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 15 取自 `measure_info`「十五冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 NDL 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-25 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-7-余量内閣/内閣余量批3-4_核对报告.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条、慶應 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。\n\n2026-11-01 A4串-去重国書线索 併條（rule=去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并）：併 d59fy0zwxmgy《皇朝類苑》 入本條。初判（B）：同著者江少虞，新雕皇朝類苑与皇朝類苑题名近似，甲Book亦以皇朝類苑题名互见，卷数皆缺无冲突；独立复核维持：同一江少虞entity，「新雕」為版刻冠詞，兩側皆有清宣統三年董康影刻元和活字本及明鈔本，同一版本互見（B档）。",
   "measures": [
     {
       "unit": "冊",
@@ -31,8 +31,8 @@
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
-  "revision": "1.7.0",
-  "revised_at": "2026-10-26",
+  "revision": "1.8.0",
+  "revised_at": "2026-11-01",
   "resources": [
     {
       "name": "维基文库",
@@ -214,6 +214,117 @@
         "call_number": "308 07558",
         "edition": "日本元和七年(1621)銅活字本"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999009737",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999009737",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999009737",
+        "edition": "清[1644-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999013168",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999013168",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999013168",
+        "edition": "清[1644-1911]"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999024328",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999024328",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999024328",
+        "edition": "明[1368-1644]"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200010643",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200010643",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200010643",
+        "holder": "国文研",
+        "edition": "刊 元和７",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200010643/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200014055",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200014055",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200014055",
+        "holder": "国文研",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200014055/manifest"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07562",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07562",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07562",
+        "call_number": "308 07562",
+        "edition": "舊鈔本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-07563",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/07563",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "07563",
+        "call_number": "308 07563",
+        "edition": "鈔本"
+      }
     }
   ],
   "resource_groups": {
@@ -247,5 +358,33 @@
     "ncltw-07558": {
       "label": "臺灣國家圖書館藏本：日本元和七年(1621)銅活字本"
     }
-  }
+  },
+  "indexed_by": [
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "皇朝類苑七十八卷",
+      "author_info": "宋江少虞輯",
+      "section": "子部/雜家類/雜纂之屬",
+      "summary": "共 7 個版本：清宣統三年武進董康誦芬室刻本（國家圖書館）；清抄本（南京圖書館、臺灣圖書館）；說郛本（遼寧省圖書館、北京大學圖書館）；明抄本（上海圖書館、臺灣圖書館）；清抄本（邵武市圖書館、中山大學圖書館、臺灣圖書館）；清抄本（國家圖書館）；明抄本（國家圖書館）"
+    }
+  ],
+  "additional_titles": [
+    "皇朝類苑"
+  ],
+  "merged_in": [
+    {
+      "id": "d59fy0zwxmgy",
+      "title": "皇朝類苑",
+      "at": "2026-11-01T18:40:52Z",
+      "by": "A4串-去重国書线索",
+      "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+      "why": "初判（B）：同著者江少虞，新雕皇朝類苑与皇朝類苑题名近似，甲Book亦以皇朝類苑题名互见，卷数皆缺无冲突；独立复核维持：同一江少虞entity，「新雕」為版刻冠詞，兩側皆有清宣統三年董康影刻元和活字本及明鈔本，同一版本互見（B档）。",
+      "author": "江少虞",
+      "title_info": "皇朝類苑七十八卷"
+    }
+  ],
+  "merged_from": [
+    "d59fy0zwxmgy"
+  ]
 }
