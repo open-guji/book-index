@@ -1,0 +1,33 @@
+name: 去重值守（墓碑链／引用墓碑／title_info）
+# 把「7-值守」的机械检查搬进 CI，免得每次大批并条后人工复跑（方案 U4-a，2026-11-01）。
+#   T 墓碑链／merged_into 悬空或成环、L 活记录与 promotions／分类成员引用墓碑：非 0 即红（本仓 main 基线已清零）。
+#   title_info 写成数组（schema 要字符串）：命中即红。
+#   D 草稿库指向正式墓碑：只报警不阻断——并条 PR 合入后草稿库才跟进，若阻断会互相等。
+# 全部只读。红了的修法：T／L 用 .claude/qa/fix_tomb_refs.py --apply（单行 JSON 与分类成员行要手改），
+# title_info 用 .claude/qa/dedup-plan-part7/7b-03/fix_title_info.py --apply，D 用 dedup-confirmed-163/fix_draft.py。
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: title_info 数组复现检查
+        run: |
+          hits=$(grep -rlE '"title_info": \[' Work Book Entity Collection || true)
+          if [ -n "$hits" ]; then
+            echo "$hits" | head -50
+            echo "::error::title_info 写成了数组（schema 要字符串），见 .claude/qa/dedup-plan-part7/7b-03/fix_title_info.py"
+            exit 1
+          fi
+      - name: 普查 T／L（非 0 即失败）
+        run: python3 scripts/dedup-census.py --strict --out "$RUNNER_TEMP/census"
+      - uses: actions/checkout@v4
+        with: { repository: open-guji/book-index-draft, path: book-index-draft }
+      - name: 草稿库 D（只报警）
+        run: |
+          python3 scripts/dedup-census.py --draft book-index-draft --out "$RUNNER_TEMP/census-d"
+          n=$(awk 'NR>1' "$RUNNER_TEMP/census-d/草稿库.tsv" 2>/dev/null | wc -l)
+          if [ "$n" -gt 0 ]; then echo "::warning::草稿库有 $n 处指向正式库墓碑，并条 PR 合入后请跟一个草稿库 PR（fix_draft.py）"; fi

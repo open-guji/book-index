@@ -7,7 +7,8 @@
     {
       "name": "希運",
       "role": "撰",
-      "dynasty": "唐"
+      "dynasty": "唐",
+      "entity_id": "hixifzux096n"
     },
     {
       "name": "裴休",
@@ -26,9 +27,9 @@
       "summary": "共 1 個版本：清康熙六年嘉興楞嚴寺刻（馆藏未载）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：cpaymgqk6571smie\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：唐釋希運說;唐裴休集\nE6 第 445 批新建（hold 清零：E-N-anon-clean；原 hold 原因：no_main_author）\n晋升前審計補錄：據 indexed_by.author_info 補入 希運、裴休（錄入時漏）\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-26",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：cpaymgqk6571smie\n主責任者「佚名」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\n無主責任者（無名氏／責任者名被切斷／僅編校等次要角色），authors 記為佚名；原始責任者串：唐釋希運說;唐裴休集\nE6 第 445 批新建（hold 清零：E-N-anon-clean；原 hold 原因：no_main_author）\n晋升前審計補錄：據 indexed_by.author_info 補入 希運、裴休（錄入時漏）\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-11-01 A2存疑重判 馆藏挂接：按确定档补挂 國書 2 条（影像）。依据见 bim docs/馆藏资源挂接/报告/A2-日本三馆存疑重判-20261101.md。\n\n2026-11-01 U2-a 国图待核重判 馆藏挂接：按确定档补挂 國圖 1 条（影像）。依据见 bim docs/馆藏资源挂接/报告/U2a-国图待核与故宫疑挂错重判-20261101.md。",
+  "revision": "1.3.0",
+  "revised_at": "2026-11-01",
   "dynasty": "唐",
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「唐」",
@@ -50,11 +51,70 @@
         "call_number": "古1786-16",
         "edition": "明治(1886)"
       }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-200015543",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/200015543",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "200015543",
+        "holder": "国文研",
+        "edition": "刊 寛永９",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/200015543/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "group": "kokusho-300070919",
+      "group_role": "origin",
+      "name": "國書データベース（國文學研究資料館）",
+      "short_name": "國書",
+      "url": "https://kokusho.nijl.ac.jp/biblio/300070919",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "300070919",
+        "holder": "立教大図",
+        "edition": "刊 寛永９",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/300070919/manifest"
+      }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-412000001083",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000001083",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412000001083",
+        "edition": "明永樂12年[1414]"
+      },
+      "note": "合刻本：同册另含《宛陵錄》（K19，只挂主书）"
     }
   ],
   "resource_groups": {
     "korcis-101118983": {
       "label": "韓國國立中央圖書館數字化藏本：明治(1886)"
+    },
+    "kokusho-200015543": {
+      "label": "國書·国文研藏刊 寛永９"
+    },
+    "kokusho-300070919": {
+      "label": "國書·立教大図藏刊 寛永９"
+    },
+    "nlc-412000001083": {
+      "label": "國圖藏本：明永樂12年[1414]"
     }
   }
 }
