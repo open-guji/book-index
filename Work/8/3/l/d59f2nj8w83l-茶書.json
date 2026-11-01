@@ -17,15 +17,15 @@
       "中華再造善本"
     ]
   },
-  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]",
+  "ai_note": "本 Work 條目從《中華再造善本》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-11-01 A2存疑重判 馆藏挂接：按确定档补挂 內閣文庫 3 条、NDL 1 条（影像）。依据见 bim docs/馆藏资源挂接/报告/A2-日本三馆存疑重判-20261101.md。",
   "id": "d59f2nj8w83l",
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "ming",
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "resources": [
     {
       "name": "维基共享资源",
@@ -34,6 +34,89 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NAJDA-306-0270_%E8%8C%B6%E7%B5%8C3.pdf"
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1079626",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1079626",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1079626",
+        "request_no": "子０６８－０００２",
+        "edition": "刊本（序刊）::明万暦:400000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4501205/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-1084676",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/1084676",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1084676",
+        "request_no": "子０６８－０００４",
+        "edition": "刊本（序刊）::明万暦:400000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/596412/manifest.json",
+        "extent": "4冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "group": "naikaku-3610909",
+      "group_role": "origin",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "short_name": "內閣文庫",
+      "url": "https://www.digital.archives.go.jp/file/3610909",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3610909",
+        "request_no": "３０６－０２７０",
+        "edition": "刊本（後修）::明万暦:400000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3610910/manifest.json",
+        "extent": "5冊"
+      }
+    },
+    {
+      "id": "ndl",
+      "group": "ndl-2605396",
+      "group_role": "origin",
+      "name": "國立國會圖書館デジタルコレクション",
+      "short_name": "NDL",
+      "url": "https://dl.ndl.go.jp/pid/2605396",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ndl_record": "pid2605396",
+        "edition": "萬暦41刊"
+      }
     }
-  ]
+  ],
+  "resource_groups": {
+    "naikaku-1079626": {
+      "label": "內閣文庫藏本：明万暦40年刊本（序刊）（子068-0002，2冊）"
+    },
+    "naikaku-1084676": {
+      "label": "內閣文庫藏本：明万暦40年刊本（序刊）（子068-0004，4冊）"
+    },
+    "naikaku-3610909": {
+      "label": "內閣文庫藏本：明万暦40年刊本（後修）（306-0270，5冊）"
+    },
+    "ndl-2605396": {
+      "label": "NDL藏本：萬暦41刊"
+    }
+  }
 }
