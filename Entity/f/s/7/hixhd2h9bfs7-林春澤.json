@@ -12,6 +12,10 @@
     {
       "name": "旗峯",
       "type": "號"
+    },
+    {
+      "name": "人瑞翁",
+      "type": "號"
     }
   ],
   "dynasty": "明",
@@ -27,7 +31,7 @@
   "native_place": "侯官",
   "native_place_entity_id": "hixi5whl2bra",
   "native_place_basis": "CBDB 128610 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=128610 補入空槽——籍貫「侯官」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=128610 補入空槽——籍貫「侯官」。既有之值一概未動。\n\n2026-10-26 去重 新-人物同名余：並入同人重出條 hixieqbktugw，補入／訂正：description.sources←hixieqbktugw。",
   "dates": {
     "birth": 1480,
     "death": 1583,
@@ -41,7 +45,21 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/80wdgeye1fwh0kbm"
+      },
+      {
+        "name": "古籍原文（A33 b15 清單）",
+        "details": "《欽定四庫全書總目》第86册所見人物"
       }
     ]
-  }
+  },
+  "merged_in": [
+    {
+      "id": "hixieqbktugw",
+      "primary_name": "林春澤",
+      "at": "2026-11-01",
+      "by": "A11-去重新-人物同名余",
+      "rule": "去重方案 新-人物同名余（2.1续 口径）人物同名组判定（全同／把握高；可并）",
+      "why": "前者明侯官人1480-1583著《人瑞翁集》；後者號人瑞翁、侯官人，同名同籍同號同朝代"
+    }
+  ]
 }

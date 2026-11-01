@@ -16,6 +16,11 @@
     {
       "name": "百藥",
       "type": "別名"
+    },
+    {
+      "name": "李必恒",
+      "type": "別稱",
+      "note": "并入重出人物条（hixieplf2pdu）；见 人物同名余-李必恆-A"
     }
   ],
   "dynasty": "清",
@@ -31,7 +36,7 @@
   "native_place": "高郵州",
   "native_place_entity_id": "hixi5watl81w",
   "native_place_basis": "CBDB 77410 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=77410 補入空槽——籍貫「高郵州」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=77410 補入空槽——籍貫「高郵州」。既有之值一概未動。\n\n2026-10-26 去重 新-人物同名余：並入同人重出條 hixieplf2pdu，補入／訂正：description.sources←hixieplf2pdu。",
   "dates": {
     "birth": 1666,
     "basis": "現行字段"
@@ -44,7 +49,21 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/3bgajat21ko2721g"
+      },
+      {
+        "name": "古籍原文（A33 b13 清單）",
+        "details": "《欽定四庫全書總目》第73册所見人物"
       }
     ]
-  }
+  },
+  "merged_in": [
+    {
+      "id": "hixieplf2pdu",
+      "primary_name": "李必恒",
+      "at": "2026-11-01",
+      "by": "A11-去重新-人物同名余",
+      "rule": "去重方案 新-人物同名余（2.1续 口径）人物同名组判定（全同／把握高；可并）",
+      "why": "均清、高郵人；前者刪補《施註蘇詩》，後者簡介「高郵人，續成《施注蘇詩》卷三十五至三十六、三十九至四十」，據史實李必恆與邵長蘅等刪補施註蘇詩"
+    }
+  ]
 }

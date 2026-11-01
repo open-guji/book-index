@@ -12,7 +12,7 @@
   "dynasty": "清",
   "native_place_basis": "CBDB 34926 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=34926 補入空槽——籍貫「宜城」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ej9rt37、d59f6ej95c06。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=34926 補入空槽——籍貫「宜城」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ej9rt37、d59f6ej95c06。\n\n2026-10-26 去重 新-人物同名余：並入同人重出條 hixiemsc23c0，補入／訂正：description.sources←hixiemsc23c0。",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "period": "qing",
   "alt_names": [
@@ -35,6 +35,10 @@
     {
       "name": "貞文先生",
       "type": "別名"
+    },
+    {
+      "name": "沈□民",
+      "type": "異體"
     }
   ],
   "subtype": "people",
@@ -54,6 +58,14 @@
       "by": "集部串P3",
       "rule": "同名且有硬证据确认同人（作品同书／字號吻合／生平吻合）",
       "why": "姑山集與姑山遺集；二审：姑山集同書"
+    },
+    {
+      "id": "hixiemsc23c0",
+      "primary_name": "沈壽民",
+      "at": "2026-11-01",
+      "by": "A11-去重新-人物同名余",
+      "rule": "去重方案 新-人物同名余（2.1续 口径）人物同名组判定（全同／把握高；可并）",
+      "why": "兩邊均撰《閑道錄》(前者作者位朝代明)，後者別名「沈□民」異體；前者1607-1675宜城，明清之際人，朝代相容"
     }
   ],
   "description": {
@@ -62,6 +74,10 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/meehw4itk7q4qpbd"
+      },
+      {
+        "name": "古籍原文（A33 b07 清單）",
+        "details": "《欽定四庫全書總目》第46册所見人物"
       }
     ]
   }

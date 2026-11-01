@@ -17,11 +17,35 @@
   "native_place": "河南",
   "native_place_entity_id": "hixi6kqhw6bl",
   "native_place_basis": "CBDB 185425 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=185425 補入空槽——籍貫「河南」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=185425 補入空槽——籍貫「河南」。既有之值一概未動。\n\n2026-10-26 去重 新-人物同名余：並入同人重出條 hixien6pag4e，補入／訂正：description.sources←hixien6pag4e。",
   "dates": {
     "death": 932,
     "basis": "現行字段"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "description": {
+    "sources": [
+      {
+        "name": "古籍原文（A33 b08 清單）",
+        "details": "《欽定四庫全書總目》第48册所見人物"
+      }
+    ]
+  },
+  "alt_names": [
+    {
+      "name": "李逸",
+      "type": "訛名"
+    }
+  ],
+  "merged_in": [
+    {
+      "id": "hixien6pag4e",
+      "primary_name": "李迅",
+      "at": "2026-11-01",
+      "by": "A11-去重新-人物同名余",
+      "rule": "去重方案 新-人物同名余（2.1续 口径）人物同名组判定（全同／把握高；可并）",
+      "why": "兩邊均撰《集驗背疽方》(同一書)；後者簡介字嗣立泉州人官大理評事，據史實《集驗背疽方》為南宋李迅所撰，前者條下唐朝代及cbdb185425(卒932河南)為誤配，需修正朝代"
+    }
+  ]
 }

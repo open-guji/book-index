@@ -20,6 +20,15 @@
     {
       "name": "張睿父",
       "type": "別名"
+    },
+    {
+      "name": "愼吾",
+      "type": "字"
+    },
+    {
+      "name": "張𪔂思",
+      "type": "別稱",
+      "note": "并入重出人物条（hixieo0bw852）；见 人物同名余-張鼎思-A"
     }
   ],
   "dynasty": "明",
@@ -32,7 +41,7 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "ming",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=130570 補入空槽——籍貫「安陽」。既有之值一概未動。\nA12 b11（2026-10-30）據《四庫全書總目》第64册補別名「張睿父」。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=130570 補入空槽——籍貫「安陽」。既有之值一概未動。\nA12 b11（2026-10-30）據《四庫全書總目》第64册補別名「張睿父」。\n\n2026-10-26 去重 新-人物同名余：並入同人重出條 hixieo0bw852，補入／訂正：description.sources←hixieo0bw852。",
   "native_place": "安陽",
   "native_place_entity_id": "hixi4ui5u4ub",
   "native_place_basis": "CBDB 130570 index_addr（2026-09-06 CBDB enrich）",
@@ -42,5 +51,23 @@
     "basis": "現行字段"
   },
   "revision": "1.1.0",
-  "revised_at": "2026-10-30"
+  "revised_at": "2026-10-30",
+  "description": {
+    "sources": [
+      {
+        "name": "古籍原文（A33 b10 清單）",
+        "details": "《欽定四庫全書總目》第60册所見人物"
+      }
+    ]
+  },
+  "merged_in": [
+    {
+      "id": "hixieo0bw852",
+      "primary_name": "張𪔂思",
+      "at": "2026-11-01",
+      "by": "A11-去重新-人物同名余",
+      "rule": "去重方案 新-人物同名余（2.1续 口径）人物同名组判定（全同／把握中；可并）",
+      "why": "同名同為明萬曆間安陽人：一條字睿甫號愼吾（cbdb130570），一條字愼吾、萬曆丁丑進士、撰《瑯琊漫抄》，與前者《琅琊曼衍》《琅琊代醉編》同屬琅琊系列；據史實張鼎思撰《琅琊代醉編》《瑯琊漫抄》；cbdb兩號不同，疑CBDB重出；被并条 hixieo0bw852 另有 cbdb_id 131764（keeper 為 130570；CBDB 一人兩號或誤配，待 2.4 覆核）"
+    }
+  ]
 }
