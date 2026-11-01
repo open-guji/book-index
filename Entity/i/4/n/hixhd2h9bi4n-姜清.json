@@ -1,28 +1,27 @@
 {
   "type": "entity",
   "external_ids": {
-    "cbdb_id": 198616,
+    "cbdb_id": 201696,
     "cbdb_match": "manual",
-    "cbdb_source": "pending_accept: auto_ambig cbdb_dy=19 (1423-None)",
-    "wikidata_id": "Q18118397"
+    "cbdb_source": "2.4 复核：CBDB 201696 姜清（弋陽人，1483 生，字源甫，1511 進士）；與《姜氏秘史》撰人（弋陽人，正德辛未進士）相符"
   },
-  "native_place": "閿鄉",
+  "native_place": "弋陽",
   "id": "hixhd2h9bi4n",
   "primary_name": "姜清",
   "dynasty": "明",
-  "native_place_basis": "CBDB 198616 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 201696 index_addr（2026-11-01）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=198616 補入空槽——籍貫「閿鄉」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ei22l1d。\n\n2026-09-07 lane-B 併條善後：所繫 d59f6ei22l1d 已併入 d59f2nl59728，反邊改指。\n\n2026-10-26 去重 新-人物同名余：並入同人重出條 hixie9jn4kjk，補入／訂正：description.sources←hixie9jn4kjk。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=198616 補入空槽——籍貫「閿鄉」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ei22l1d。\n\n2026-09-07 lane-B 併條善後：所繫 d59f6ei22l1d 已併入 d59f2nl59728，反邊改指。\n\n2026-10-26 去重 新-人物同名余：並入同人重出條 hixie9jn4kjk，補入／訂正：description.sources←hixie9jn4kjk。\n\n2026-11-01 去重 2.4 CBDB 配错复核：原繫 cbdb 198616（閿鄉人，生 1423，字子澄，景泰八年進士）、wikidata Q18118397 不合：名下《姜氏秘史》撰人姜清為弋陽人、正德辛未（1511）進士，與 CBDB 201696 相符（弋陽人，生 1483，字源甫，1511 進士），並條時 merged_in 已記「生年 1423 與正德辛未不合」。改繫 201696；籍貫閿鄉改弋陽；生年 1423 改 1483；字子澄、行第二（屬 198616）改字源甫、行第七十；摘去 wikidata。",
   "updated_at": "2026-09-06T00:00:00+00:00",
   "period": "ming",
   "alt_names": [
     {
-      "name": "二",
-      "type": "行第"
+      "name": "源甫",
+      "type": "字"
     },
     {
-      "name": "子澄",
-      "type": "字"
+      "name": "七十",
+      "type": "行第"
     },
     {
       "name": "姜淸",
@@ -33,7 +32,7 @@
   "subtype": "people",
   "schema_version": 1,
   "dates": {
-    "birth": 1423,
+    "birth": 1483,
     "basis": "現行字段"
   },
   "revision": "1.0.0",
@@ -53,7 +52,8 @@
       "at": "2026-11-01",
       "by": "A11-去重新-人物同名余",
       "rule": "去重方案 新-人物同名余（2.1续 口径）人物同名组判定（全同／把握中；可并）",
-      "why": "同书《姜氏秘史》：hixhd2h9bi4n挂《秘史》《姜氏秘史》，hixie9jn4kjk简介著《姜氏秘史》(弋阳人，正德辛未进士)；注意前者生年1423与正德辛未不合，可能cbdb生卒有误"
+      "why": "同书《姜氏秘史》：hixhd2h9bi4n挂《秘史》《姜氏秘史》，hixie9jn4kjk简介著《姜氏秘史》(弋阳人，正德辛未进士)；注意前者生年1423与正德辛未不合，可能cbdb生卒有误；2.4 復核（2026-11-01）：確係 cbdb 198616 配錯，已改繫 201696（弋陽，1511 進士）"
     }
-  ]
+  ],
+  "native_place_entity_id": "hixi636giu4l"
 }
