@@ -104,6 +104,19 @@ def main():
         kj = json.dumps(k, ensure_ascii=False, sort_keys=True)
         for f in CONTENT_FIELDS:
             for e in d.get(f) or []:
+                # 墓碑指向留存条自己（或自己）的 related_works：并掉后成了自指，不用补
+                if f == 'related_works' and isinstance(e, dict) and e.get('id') in recs:
+                    t = e['id']
+                    for _ in range(30):
+                        if not recs[t][2].get('merged_into') or recs[t][2]['merged_into'] not in recs:
+                            break
+                        t = recs[t][2]['merged_into']
+                    if t == k.get('id') or t == i:
+                        continue
+                    # 留存条已有同目标同关系的条目（只是 note 不同）：不重复补
+                    if any(isinstance(x, dict) and x.get('id') == t and x.get('relation') == e.get('relation')
+                           for x in k.get('related_works') or []):
+                        continue
                 s = json.dumps(e, ensure_ascii=False, sort_keys=True)
                 if s in kj:
                     continue
@@ -143,7 +156,11 @@ def main():
         import datetime
         led = os.path.join(ROOT, '.claude/qa/purge-tombstones/ledger')
         os.makedirs(led, exist_ok=True)
-        with open(os.path.join(led, 'purge-%s.tsv' % datetime.date.today().strftime('%Y%m%d')), 'w', encoding='utf-8') as f:
+        base = 'purge-%s' % datetime.date.today().strftime('%Y%m%d')
+        lp, n = os.path.join(led, base + '.tsv'), 2
+        while os.path.exists(lp):   # 同一天清第二次：不覆盖已有台账，加序号
+            lp = os.path.join(led, '%s-%d.tsv' % (base, n)); n += 1
+        with open(lp, 'w', encoding='utf-8') as f:
             f.write('id\ttype\ttitle\tmerged_into\tfinal_keeper\n')
             for i in delete:
                 t, rel, d = tomb[i]
