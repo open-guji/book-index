@@ -1,0 +1,152 @@
+===== a9nlc-A1 work d59fxwdlbhtt <- ['d59fydxa7cap']
+== 逐欄 diff（keeper | d59fydxa7cap）==
+** ai_note            "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：x4yhkgyardogl4wp、mxpoje7tqus4z3o6、yw0v7xq0m155ka22\n晋升前審計補錄：據 indexed_by.author_info 補入 王玠（錄入時漏）" | "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：7hb7bqv5ioixu2s1、tahwbof8lmmuir1i\n總目版本待定（庫內已有 Book 11sn2sf4fjlz7、11sn2sf4fjlz8：清光緒十二年錢塘魏氏刻本、山居便覽本）：
+** authors            [{"name": "崔希範", "role": "撰", "dynasty": "五代", "source": {"name": "中國古籍總目", "type": "url", "details": "http://data.library.sh.cn/entity/person/qk0fluo | [{"name": "王玠", "role": "撰", "dynasty": "元", "source": {"name": "中國古籍總目", "type": "url", "details": "http://data.library.sh.cn/entity/person/5p0dle7a0
+** dynasty            "五代" | "元"
+   dynasty_basis      "author_propagation" | "author_propagation"
+** id                 "d59fxwdlbhtt" | "d59fydxa7cap"
+** indexed_by         [{"source": "中國古籍總目", "source_bid": "d59frnrt4lxc", "title_info": "崔公入藥鏡註解一卷", "author_info": "五代崔希範撰;元王玠注", "section": "子部/道家類/道教之屬/修煉", "summary": " | [{"source": "中國古籍總目", "source_bid": "d59frnrt4lxc", "title_info": "崔公入藥鏡注解一卷", "author_info": "元王玠撰", "section": "子部/醫家類/養生之屬/通論", "summary": "共 9 個版本
+** period             "five-dynasties" | "liao-jin-yuan"
+** period_basis       "據 authors[0].dynasty「五代」" | "據 authors[0].dynasty「元」"
+** revised_at         "2026-10-18" | "2026-10-19"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+** title              "崔公入藥鏡註解" | "崔公入藥鏡注解"
+   type               "work" | "work"
+
+== 將動之處 ==
+  **分類（zongmu）：被併者 d59fydxa7cap 在 zm0401，keeper 在 zm0520——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×3
+      ('d59fydxa7cap', 'dynasty', '五代', '元')
+      ('d59fydxa7cap', 'period', 'five-dynasties', 'liao-jin-yuan')
+      ('d59fydxa7cap', 'period_basis', '據 authors[0].dynasty「五代」', '據 authors[0].dynasty「元」')
+  Book.work_id 改指 keeper  ×3
+      ('993wugterk', 'd59fydxa7cap')
+      ('993wugterl', 'd59fydxa7cap')
+      ('993wuh4nb4', 'd59fydxa7cap')
+  分類成員行改指／刪（classification/zongmu/members/zm0401.json）  ×1
+      ('zm0401', 175)
+  著錄移入 keeper  ×1
+      ('d59fydxa7cap', '中國古籍總目', '崔公入藥鏡注解一卷')
+
+已併：d59fxwdlbhtt <- d59fydxa7cap
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 3 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== a9nlc-A2 work d59f2hg9akua <- ['d59f2puaypkw']
+== 逐欄 diff（keeper | d59f2puaypkw）==
+** ai_note            "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（五卷），今據以補。\n\n2026-08-20 撰人補全專項：本條原無 authors，而所繫諸著錄之 author_info 一致作「宋景煥」， | "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必
+** authors            [{"name": "景煥", "role": "撰", "dynasty": "趙宋", "entity_id": "hixhd2h9bqux", "note": "據本 work 諸著錄之 author_info「宋景煥」補；著錄所給者為一，去朝代與職名後取之。", "name_basis":  | []
+** description        {"text": "景煥（宋）撰。五卷。見著錄於《宋史藝文志》《國史經籍志》《直齋書錄解題》。其著錄之文，《國史經籍志》作「《野人閑話》五卷（宋景煥）」。《宋史藝文志》元脫脫等修；《國史經籍志》明焦竑撰——本書之目賴之以存。", "sources": ["宋史藝文志", "國史經籍志", "直齋書錄 | null
+** dynasty            "趙宋" | null
+** dynasty_basis      "author_propagation:authors 已判「趙宋」" | null
+** id                 "d59f2hg9akua" | "d59f2puaypkw"
+** indexed_by         [{"source": "宋史藝文志", "source_bid": "d59f2gdp696q", "title_info": "《野人閑話》", "summary": "又《野人閑話》五卷"}, {"source": "國史經籍志", "source_bid": "d59f2nl40936",  | [{"source": "崇文總目", "source_bid": "d59f2hqc0c1t", "title_info": "野人閒話五卷", "summary": "野人閒話五卷"}]
+   juan_count         {"number": 5} | {"number": 5}
+   measure_info       "五卷" | "五卷"
+   measures           [{"unit": "卷", "number": 5}] | [{"unit": "卷", "number": 5}]
+** period             "song" | null
+** period_basis       "據 authors[0].dynasty「宋」" | null
+** period_upper       null | "song"
+** period_upper_basis null | "catalog_bound：所繫諸志中最緊者為《崇文總目》（宋王堯臣等（1041），北宋崇文院藏書），故不晚於 song"
+** related_works      [{"id": "d59fybbwooow", "relation": "related", "note": "史部E另立（exact）：總目記錄「野人閒話」（景煥）與既有 Work 題名相同或相近而不可證同書（卷差>1（本条1卷，目标5卷）），判為不同著作（不並）；互為相關。"}] | null
+   revised_at         "2026-08-25" | "2026-08-25"
+   revision           "1.0.0" | "1.0.0"
+   schema_version     1 | 1
+** title              "野人閑話" | "野人閒話"
+   type               "work" | "work"
+** updated_at         "2026-08-24T00:00:00+00:00" | "2026-05-14T02:04:40-07:00"
+
+== 將動之處 ==
+  欄位搬遷（keeper 原無）  ×2
+      ('d59f2puaypkw', 'period_upper', 'song')
+      ('d59f2puaypkw', 'period_upper_basis', 'catalog_bound：所繫諸志中最緊者為《崇文總目》（宋王堯臣等（1041），北宋崇文院藏書），故不晚於 song')
+  著錄移入 keeper  ×1
+      ('d59f2puaypkw', '崇文總目', '野人閒話五卷')
+
+已併：d59f2hg9akua <- d59f2puaypkw
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== a9nlc-A3 work d59f2neo2xab <- ['d59f2q23wa9s']
+== 逐欄 diff（keeper | d59f2q23wa9s）==
+** ai_note            "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引 | "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必
+** authors            [{"name": "劉基", "role": "撰", "dynasty": "明", "entity_id": "hixhd2h9be9i"}] | []
+** description        {"text": "劉基（明）撰。二卷。見著錄於《欽定四庫全書總目》《書目答問》。其著錄之文，《書目答問》作「《鬱離子》二卷」。《欽定四庫全書總目》清乾隆間館臣修；《書目答問》清張之洞撰——本書之目賴之以存。", "sources": ["欽定四庫全書總目", "書目答問"]} | {"text": "《國史經籍志》收錄。", "sources": ["國史經籍志"]}
+** dynasty            "明" | null
+** dynasty_basis      "author_propagation" | null
+** id                 "d59f2neo2xab" | "d59f2q23wa9s"
+** indexed_by         [{"source": "欽定四庫全書總目", "source_bid": "d59dh3vo9af4", "title_info": "《鬱離子》•二卷", "author_info": "明劉基撰", "summary": "明劉基撰。基有《國初禮賢錄》，已著錄。是書原本十卷，分十八篇，一百九十 | [{"source": "國史經籍志", "source_bid": "d59f2nl40936", "title_info": "《郁離子》一卷", "summary": "《郁離子》一卷"}]
+** juan_count         {"number": 2} | {"number": 1}
+** measure_info       "二卷" | "一卷"
+** measures           [{"unit": "卷", "number": 2}] | [{"unit": "卷", "number": 1}]
+** period             "ming" | null
+** period_basis       "據 authors[0].dynasty「明」" | null
+** period_upper       null | "ming"
+** period_upper_basis null | "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming"
+** resource_groups    {"kokusho-100449656": {"label": "國書·東外大図藏刊 享保１７"}, "kokusho-100452759": {"label": "國書·東洋大哲学堂藏刊 享保１７"}, "nlc-411999019386": {"label": "國圖藏本：明嘉靖35年[1556 | null
+** resources          [{"id": "shidianguji-kanben", "name": "识典古籍", "url": "https://www.shidianguji.com/book/NA09440", "metadata": {"edition": "刊本(序刊)", "version": "v3", "t | [{"name": "维基文库", "id": "wikisource", "url": "https://zh.wikisource.org/wiki/%E9%83%81%E9%9B%A2%E5%AD%90", "types": ["text"]}]
+** revised_at         "2026-10-26" | "2026-08-25"
+** revision           "1.9.0" | "1.0.0"
+   schema_version     1 | 1
+** title              "鬱離子" | "郁離子"
+   type               "work" | "work"
+** updated_at         "2026-08-09T10:41:40+00:00" | "2026-04-29T16:51:33-07:00"
+
+== 將動之處 ==
+  **分類（zongmu）：被併者 d59f2q23wa9s 在 zm0321，keeper 在 zm0488——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×2
+      ('d59f2q23wa9s', 'juan_count', {'number': 2}, {'number': 1})
+      ('d59f2q23wa9s', 'measure_info', '二卷', '一卷')
+  分類成員行改指／刪（classification/zongmu/members/zm0321.json）  ×1
+      ('zm0321', 6127)
+  欄位搬遷（keeper 原無）  ×4
+      ('d59f2q23wa9s', 'measures', [{'unit': '卷', 'number': 1}])
+      ('d59f2q23wa9s', 'resources', [{'name': '维基文库', 'id': 'wikisource', 'url': 'https://zh.wikisource.org/wiki/%E9%83%81%E9%9B%A2%E5%AD%90', 'types': ['text']}])
+      ('d59f2q23wa9s', 'period_upper', 'ming')
+      ('d59f2q23wa9s', 'period_upper_basis', 'catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming')
+  著錄移入 keeper  ×1
+      ('d59f2q23wa9s', '國史經籍志', '《郁離子》一卷')
+
+已併：d59f2neo2xab <- d59f2q23wa9s
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== a9nlc-A4 work d59fajbzpn9c <- ['d59f24mlb66b']
+== 逐欄 diff（keeper | d59f24mlb66b）==
+** ai_note            "2026-09-07 拾補入庫：據《漢書藝文志拾補》（姚振宗撰，收《二十五史藝文經籍志考補萃編》第2卷）新建。姚氏鉤稽羣書，補漢志所未著錄者。\n先拆后并（2026-10-26，去重方案 3a-3）：由 d59f205iuvi8（春秋公羊經傳解詁）拆出的「嚴彭祖春秋公羊傳」一组并入本条（Book  | "2026-08-20 磁鐵拆解專項（八之二，撰人中置＋內文撰人）：整理本「《春秋公羊傳》十二卷」等 1 節原繫他條，其題核心與內文（或題中）之撰人「嚴彭祖」與本條相合，今歸本條。\n\n2026-08-21 補 original_title「春秋公羊傳」——自題名末剝去役字與撰人所得，庫中實有同題
+** authors            [{"name": "嚴彭祖", "role": "撰", "dynasty": "西漢", "entity_id": "hixhd2f8want"}] | [{"name": "嚴彭祖", "role": "章句", "dynasty": "西漢", "note": "東海下邳人。與顏安樂俱事眭孟，後各自名家。宣帝博士，官至太子太傅。創「嚴氏公羊學」。", "entity_id": "hixhd2f8want"}]
+** emendated_by       null | [{"source": "隋書經籍志考證", "source_bid": "d59f2mp0flz6", "note": "嚴彭祖《春秋公羊章句》十二卷，公羊學嚴氏一派的章句。《隋志》著錄。", "summary": "春秋公羊傳十二卷 嚴彭祖撰\n春秋公羊傳十二卷 嚴彭祖撰\n《漢書·儒林傳》:“
+** id                 "d59fajbzpn9c" | "d59f24mlb66b"
+** indexed_by         [{"source": "漢書藝文志拾補", "source_bid": "d59f2mp0quip", "title_info": "春秋公羊傳十二卷", "summary": "嚴彭祖 春秋公羊傳十二卷"}, {"source": "經義考", "source_bid": "d59f2mel8d | [{"source": "隋書經籍志", "source_bid": "d59f28nmafwh", "title_info": "《春秋公羊傳》十二卷", "summary": "《春秋公羊傳》十二卷嚴彭祖撰。", "note": "本著錄原繫磁鐵條「公羊傳」（`1ev7vo52r3ev4`），其
+   juan_count         {"number": 12} | {"number": 12}
+   measure_info       "十二卷" | "十二卷"
+   measures           [{"unit": "卷", "number": 12}] | [{"unit": "卷", "number": 12}]
+** original_title     null | "春秋公羊傳"
+   period             "qin-han" | "qin-han"
+** period_basis       null | "據 authors[0].dynasty「西漢」（原作籠統「漢」，2026-08-11 據所繫 Entity 之精確朝代同步訂正）"
+** related_works      [{"id": "d59fxx8352pu", "relation": "related", "note": "總目經部另立（auto-split:同名无主责任者未并）"}] | [{"id": "d59f1ioj1tz4", "relation": "contains_text_of"}]
+** revised_at         "2026-10-26" | "2026-08-24"
+** revision           "2.0.0" | "1.0.0"
+   schema_version     1 | 1
+** title              "春秋公羊傳" | "春秋公羊傳嚴彭祖章句"
+   type               "work" | "work"
+** updated_at         null | "2026-08-20T00:00:00-07:00"
+
+== 將動之處 ==
+  related_works add（本 keeper）  ×1
+      ('d59fajbzpn9c', {'id': 'd59f1ioj1tz4', 'relation': 'contains_text_of', 'note': None, 'from': 'd59f24mlb66b'})
+  欄位搬遷（keeper 原無）  ×3
+      ('d59f24mlb66b', 'emendated_by', [{'source': '隋書經籍志考證', 'source_bid': 'd59f2mp0flz6', 'note': '嚴彭祖《春秋公羊章句》十二卷，公羊學嚴氏一派的章句。《隋志》著錄。', 'summary': '春秋公羊傳十二卷 嚴彭祖撰\n春秋公羊傳十二卷 嚴彭祖撰\n《漢書·儒林傳》:“漢興,言《春秋》,於齊則胡母生,於趙則董\n仲舒。”又曰:“胡母生治《公羊春秋》,與董仲舒同業。弟子唯\n東平赢公守學不失師法,授東海孟卿、魯 孟。”又曰:“嚴彭\n祖字公子,東海下邳人也。與顏安樂俱事睦孟。孟弟子百餘\n人,惟彭祖、安樂為明。質問疑誼,各情所見。孟曰:“《春秋》\n之意,在二子矣。”孟死,彭祖、安樂各顯門教授。由是《公羊\n春秋》有顏、嚴之學。彭祖為宣帝博士,至河南東郡太守,以\n高第入為左馮翊,遷太子太傅,廉直不事權貴。或說曰:“天\n時不勝人事。君以不修小禮曲意,亡貴人左右之助,經誼雖\n高,不至宰相。願少自勉彊。”彭祖曰:‘凡通經術,固當修行\n先王之道,何可委曲從俗,苟求富貴乎?”彭祖竟以太傅官終。\n授琅邪王中,家世傳業。”\n又曰:“甘露元年, 召五經名儒、太子太傅蕭望之等大議殿\n中,平《公羊》、《穀梁》同異,各以經處是非。時公羊博士嚴彭\n祖、侍郎申 、伊推、宋顯、許廣並論。”\n荀悅《漢紀》:宣帝神雀四年十有一月,河南太守嚴延年有罪\n棄市。延年兄弟五人,皆有吏才,至二千石大官。次弟彭祖\n有才藝,學《春秋》。明傳經注記,即名嚴氏《春秋》也。官至\n太子太傅,不求當世,為儒者宗。\n鄭氏《六藝論》曰:“治《公羊》者,胡母生、董仲舒。董仲舒弟\n子赢公,赢公弟子 孟, 孟弟子莊彭祖及顏安樂。”\n本志篇敘曰:“初,齊人胡母子都傳《公羊春秋》,授東平赢公。\n赢公授東海孟卿,孟卿授魯人 孟, 孟授東海嚴彭祖、魯人\n顏安樂。故後漢《公羊》有嚴氏、顏氏之學。”按此本范書《儒林傳》,\n其言授受與《漢書》及《六藝論》異。《目弘傳》云從赢公受《春秋》,則非受之孟卿。蓋\n孟與孟卿同師 公者也。又赢公為董仲舒弟子。《睦弘傳》自言先師董仲舒,而赢\n公為胡母生弟子。《漢書》亦無明文,當從《六藝論》。\n《唐日本國見在書目》:《春秋公羊傳》十二卷,嚴彭祖注。\n《唐書·經籍志》:《春秋公羊傳》五卷,公羊高撰,嚴彭祖述。\n《唐書·藝文志》:《春秋公羊傳》五卷,嚴彭祖述。\n馬氏玉函山房輯本序曰:“公羊嚴氏《春秋》,唯孔穎達《左傳\n正義》、徐彦《公羊疏》各引一節。杜佑《通典》兼引馮君《嚴氏\n春秋章句》。合輯并附録本傳為卷。”按洪氏《隸釋》漢嚴 碑政和中,\n出於下邳,云:“訴字少通,治嚴氏《春秋》君章句。”蓋後漢安、順時人,或即嚴太傅\n之後 ?\n按嚴、顏同時以《公羊》名家,而顏家有冷任之學,又有 冥\n之學。《藝文志》亦載《公羊顏氏記》十一篇。嚴惟授琅邪\n王中,中授同郡公孫文、東門雲,皆未名家。當時傳業弟子\n不及顏氏之盛。《藝文志》亦不載其書。至後漢,嚴氏、顏\n氏並立博士,而嚴氏尤盛行於世。范書《儒林傳》、《經義\n考承師篇》、洪氏《傳經表》載之詳矣。\n又按《公羊序》疏引《六藝論》言顏安樂弟子有劉向,為《漢\n書》所未言。 以為疑,今觀《七略》載顏氏書,不及嚴氏,\n可以知其故矣。似初事顏氏為公羊學,後以宣帝詔,受《穀\n梁》,議石渠,遂以《穀梁》名家。史略其前事 ?惠棟《九經古\n義》云:“劉子政封事多用《公羊》說。”', 'title_info': '春秋公羊傳十二卷 嚴彭祖撰'}])
+      ('d59f24mlb66b', 'period_basis', '據 authors[0].dynasty「西漢」（原作籠統「漢」，2026-08-11 據所繫 Entity 之精確朝代同步訂正）')
+      ('d59f24mlb66b', 'original_title', '春秋公羊傳')
+  著錄移入 keeper  ×1
+      ('d59f24mlb66b', '隋書經籍志', '《春秋公羊傳》十二卷')
+
+已併：d59fajbzpn9c <- d59f24mlb66b
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+promotions 文件改动： 1
