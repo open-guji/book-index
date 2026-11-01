@@ -12,3 +12,4 @@
 - batch-05：364 个原 Book 新建 1,000 个。门禁同前全过（check_v2 ERROR 0；check-classification 0；check_promo_dup 0；build_derived fatal 0／dangling 0；check-duplicate-audit PASS）。独立子 agent 抽检 50 个原 Book（132 个新 Book）：错拆／该并未并 0、provenance 错归漏重 0、字段误改 0；3 个 book（98y4kxc7b7、98y4kjwzya、98y4jxfwub）「清抄本」同名丛书不同实例按保守不并。剩约 4,940 个原 Book。
 - batch-06：375 个原 Book 新建 1,000 个。门禁同前全过。独立子 agent 抽检 50 个原 Book（131 个新 Book）：错拆／该并未并 0、provenance 错归漏重 0、字段误改 0；9939jzu0hs「清抄本」同名丛书不同实例保守不并；5 个 book（9939k89f5s、993apec6bl、993bygkhdu、993aqw162o、98ybmrghs1）刊刻者年代同、仅版本标签不同（刻本对重修本等），按口径拆开。剩约 4,565 个原 Book。
 - batch-07：376 个原 Book 新建 1,000 个。门禁同前全过。独立子 agent 抽检 50 个原 Book（149 个新 Book）：错拆／该并未并 0、provenance 错归漏重 0、字段误改 0；993fpl2uiq「清抄本」同名丛书不同实例保守不并；另 14 个 book 仅版本标签不同（刻本对补修本等）按口径拆开。剩约 4,189 个原 Book。
+- batch-08：446 个原 Book 新建 1,000 个。门禁同前全过。独立子 agent 抽检 50 个原 Book（192 个拆后 Book 含 keeper；新建 142）：错拆／该并未并 0、provenance 错归漏重 0、字段误改 0；993gjrcow2「清抄本」同名丛书不同实例保守不并；4 个 book 仅版本标签不同按口径拆开。剩约 3,743 个原 Book。
