@@ -5,8 +5,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def record(family, rid):
+def record(family, rid, allow_purged=False):
     paths = list((ROOT / family / Path(*rid[-3:])).glob(rid + '-*.json'))
+    if allow_purged and not paths:
+        return None   # 墓碑已被定期清理（.claude/qa/purge-tombstones），旧 id 记在留存条的并条账里
     assert len(paths) == 1, rid
     return json.loads(paths[0].read_text(encoding='utf-8'))
 
@@ -16,15 +18,22 @@ def test_merge_ids_remain_resolvable_and_keep_history():
     families = {'people': 'Entity', 'work': 'Work', 'book': 'Book'}
     for merge in ledger['merges']:
         family = families[merge['type']]
-        keeper = record(family, merge['keeper'])
+        keeper = record(family, merge['keeper'], allow_purged=True)
+        if keeper is None:   # keeper 后来也被并、墓碑也清了：历史在后来的留存条里
+            continue
+        if keeper.get('merged_into'):
+            continue   # keeper 后来被并，墓碑还没清
         assert not keeper.get('merged_into')
         history = keeper.get('merged_in', []) if family != 'Book' else keeper.get('merged_from', [])
         history_ids = {entry['id'] if isinstance(entry, dict) else entry for entry in history}
         for rid in merge['losers']:
-            tomb = record(family, rid)
-            assert tomb['merged_into'] == keeper['id']
-            assert rid in history_ids
-            assert not any(key in tomb for key in ('authors', 'resources', 'indexed_by', 'contained_in'))
+            tomb = record(family, rid, allow_purged=True)
+            if tomb is not None:   # 墓碑还在就仍须合规；已清理的不查
+                assert tomb['merged_into'] == keeper['id']
+                assert not any(key in tomb for key in ('authors', 'resources', 'indexed_by', 'contained_in'))
+            led = ROOT / '.claude/qa/purge-tombstones/ledger'
+            purged = any(rid in f.read_text(encoding='utf-8') for f in led.glob('*.tsv')) if led.is_dir() else False
+            assert rid in history_ids or purged
 
 
 def test_commentary_and_original_authors_keep_their_distinct_roles():
@@ -44,7 +53,8 @@ def test_macau_author_does_not_acquire_the_unrelated_ming_person():
     zhang = [a for a in work['authors'] if a['name'] == '張汝霖']
     assert zhang and all(a['dynasty'] == '清' and not a.get('entity_id') for a in zhang)
     assert work['period'] == 'qing'
-    assert record('Work', 'd59fy2deo4jk')['merged_into'] == work['id']
+    gone = record('Work', 'd59fy2deo4jk', allow_purged=True)
+    assert gone is None or gone['merged_into'] == work['id']
 
 
 def test_same_viaf_does_not_merge_distinct_people():

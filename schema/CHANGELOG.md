@@ -4,6 +4,13 @@
 
 ---
 
+## 2026-11-01　并条墓碑改为定期整体清理（用户定；不改字段）
+
+- 墓碑（`merged_into`）从「永久不删」改成过渡状态：并条后先留墓碑，稳定后用 `.claude/qa/purge-tombstones/purge.py` 整体删。首批清掉 28,733 个（Work 20,854、Book 6,068、Entity 1,799、Collection 12）。
+- 保留不删的：book-text 全文还挂在墓碑 id 下的（460）、墓碑上带的著录或资源未并入留存条的（32）。
+- 旧 id → 终点对照留在 `.claude/qa/purge-tombstones/ledger/`；`verify.py` 不再要求被併 id 有墓碑，改为「消失的 id 须在并条账或台账里有记录」。
+- 说明见 `common.md〈并条账〉`。
+
 ## 2026-10-25　Collection 加 `merged_into`／`merged_from`（墓碑；去重方案部分 6，用户 10-25 放行）
 
 - `collection.schema.json` 加 `merged_into`（Id）与 `merged_from`（MergedFrom）；`collection.md` 字段表加两行，`common.md〈并条账〉`、`derived.md〈八〉` 同步。形状照 Book 墓碑（2026-10-13）：墓碑只留 `schema_version／id／type／subtype／title／merged_into／revision／revised_at`，keeper 的 `merged_from` 记被并 id。
