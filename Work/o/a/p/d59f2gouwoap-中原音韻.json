@@ -136,6 +136,22 @@
         "edition": "明萬暦29年序刊(1601)",
         "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/80-59-2-1/manifest.json"
       }
+    },
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-A583400",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=A583400&order=rn_no&no=00094",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "A583400",
+        "call_no": "雙紅堂-戲曲-284",
+        "edition": "海寧陳乃乾景印本 民國十五年"
+      }
     }
   ],
   "resource_groups": {
@@ -144,6 +160,9 @@
     },
     "keio-12254": {
       "label": "慶應藏本：明萬暦29年序刊(1601)"
+    },
+    "ioc-A583400": {
+      "label": "東文研藏本：海寧陳乃乾景印本 民國十五年"
     }
   },
   "measures": [
@@ -158,7 +177,7 @@
   "period_basis": "據 authors[0].dynasty「元」",
   "dynasty": "元",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhy5pe8y68 與 11q37v4nhkgzk 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 慶應 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。",
+  "ai_note": "[ljy-round1: dynasty null→元; 據 author.dynasty 集合補「元」] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhy5pe8y68 與 11q37v4nhkgzk 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 慶應 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-11-01 A9存疑升档 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 bim docs/馆藏资源挂接/报告/A9-日本诸馆存疑升档-20261101.md。",
   "description": {
     "text": "周德清（元）撰。二卷；諸志所著之數有異，別作一卷。見著錄於《欽定四庫全書總目》《補遼金元藝文志》《元史藝文志》。其著錄之文，《補遼金元藝文志》作「元周德清（號挺齋，高安人）中原音韻一卷」。《欽定四庫全書總目》清乾隆間館臣修——本書之目賴之以存。",
     "sources": [
@@ -167,6 +186,6 @@
       "元史藝文志"
     ]
   },
-  "revision": "1.3.0",
-  "revised_at": "2026-10-26"
+  "revision": "1.4.0",
+  "revised_at": "2026-11-01"
 }

@@ -41,15 +41,58 @@
   "period_basis": "著錄原文自書撰人朝代：《中國通俗小說書目》「\n明馮夢龍撰」",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：《中國通俗小說書目》明清講史部自標所收之代，故不晚於 qing",
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J19：work.dynasty 缺值，據 authors[0].dynasty「明」補齊。",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J19：work.dynasty 缺值，據 authors[0].dynasty「明」補齊。\n\n2026-11-01 A9存疑升档 馆藏挂接：按确定档补挂 東文研 1 条、名大 1 条（影像）。依据见 bim docs/馆藏资源挂接/报告/A9-日本诸馆存疑升档-20261101.md。",
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（S5 缺值補齊，J19）",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "contained_in": [
     {
       "id": "8rlcsybg2hhu",
       "volume_index": 1
     }
-  ]
+  ],
+  "resources": [
+    {
+      "id": "ioc-shanben",
+      "group": "ioc-B2013200",
+      "group_role": "origin",
+      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
+      "short_name": "東文研",
+      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=B2013200&order=rn_no&no=00223",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ioc_nu": "B2013200",
+        "call_no": "雙紅堂-小說-20",
+        "edition": "日本弘毅館刊本"
+      }
+    },
+    {
+      "id": "nagoya-u",
+      "group": "nagoya-N004_20230901_02954",
+      "group_role": "origin",
+      "name": "名古屋大学附属図書館 古典籍",
+      "short_name": "名大",
+      "url": "https://da.adm.thers.ac.jp/item/n004-20230901-02954",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nagoya_record": "THERS_da-N004_20230901_02954",
+        "call_no": "125.5-B",
+        "edition": "大阪書林河内屋眞七刊本",
+        "iiif_manifest": "https://da.adm.thers.ac.jp/iiif/1/classic_books/N004-20230901-02954/manifest.json"
+      }
+    }
+  ],
+  "resource_groups": {
+    "ioc-B2013200": {
+      "label": "東文研藏本：日本弘毅館刊本"
+    },
+    "nagoya-N004_20230901_02954": {
+      "label": "名大藏本：大阪書林河内屋眞七刊本"
+    }
+  }
 }
