@@ -88,7 +88,7 @@ def main():
     def key(sid, se):
         h = head.get(sid); e = h['edition'] if h else {}
         spec = bool(e.get('label')) and (e.get('publisher') or re.search(r'[年間间]', e.get('time_text') or ''))
-        t = se.get('series_title')
+        t = se.get('series_title') or ((h or {}).get('title') or {}).get('name')  # batch-19 起：源记录无 series_title 时用丛书头记录名
         vol = bool(se.get('volume_name') or se.get('set_name'))
         if t and (spec or vol):
             return ('E' if spec else 'V', t, e.get('label', ''))
