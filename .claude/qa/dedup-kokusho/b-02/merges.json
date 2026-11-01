@@ -1,0 +1,1259 @@
+{
+ "base": "523289ba988cdf487394a7e15254c3c26d279bd1",
+ "merges": [
+  {
+   "cluster_id": "kokusho2-G01",
+   "type": "work",
+   "keeper": "d59f6entc5q8",
+   "losers": [
+    "d59f2glspwjk"
+   ],
+   "evidence": "初判（B）：題名群/羣同、均二十卷；甲四庫總目原文自證時夫為幼遇之字，著者隂時軟(時夫異寫)=陰幼遇；keeper取Book多的乙；独立复核维持：同题同二十卷，甲所系《四庫總目》原文明言「陰幼遇…字時夫」、乙《千頃堂》亦云「字時夫」，隂時軟為陰時夫之訛，著者異寫有原文證據（B档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f6entc5q8",
+     "path": "Work/5/q/8/d59f6entc5q8-韻府羣玉.json",
+     "sha256": "ab8c0d06f97358010b9f0fafddfa8530582ea1692778ad0974eac453c41efcd7"
+    },
+    {
+     "id": "d59f2glspwjk",
+     "path": "Work/w/j/k/d59f2glspwjk-韻府群玉.json",
+     "sha256": "f6baa04a75a4723c2d33dbcb57703b87811fb30670f03fbebd49d034d0f9e6cb"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2glspwjk",
+     "fields": [
+      {
+       "field": "period_upper",
+       "keeper_value": "qing",
+       "loser_value": "ming"
+      },
+      {
+       "field": "period_upper_basis",
+       "keeper_value": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
+       "loser_value": "catalog_bound：所繫諸志中最緊者為《國史經籍志》（明焦竑（1590）），故不晚於 ming"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [
+    {
+     "loser": "d59f2glspwjk",
+     "name": "隂時軟",
+     "entity_id": "hixhd2h9bm19"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G02",
+   "type": "work",
+   "keeper": "d59f2hpf8f0j",
+   "losers": [
+    "d59fy0zwxmgy"
+   ],
+   "evidence": "初判（B）：同著者江少虞，新雕皇朝類苑与皇朝類苑题名近似，甲Book亦以皇朝類苑题名互见，卷数皆缺无冲突；独立复核维持：同一江少虞entity，「新雕」為版刻冠詞，兩側皆有清宣統三年董康影刻元和活字本及明鈔本，同一版本互見（B档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f2hpf8f0j",
+     "path": "Work/f/0/j/d59f2hpf8f0j-新雕皇朝類苑.json",
+     "sha256": "044f48a8e0402f595a940013a5274b154d9056e25cda53609b9c3566e2aa4662"
+    },
+    {
+     "id": "d59fy0zwxmgy",
+     "path": "Work/m/g/y/d59fy0zwxmgy-皇朝類苑.json",
+     "sha256": "8b585c9b9cfcf58c42d7cba5e91ef32d0ebe722b360d295830092856e0df0468"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fy0zwxmgy",
+     "fields": [
+      {
+       "field": "dynasty",
+       "keeper_value": "北宋",
+       "loser_value": "宋"
+      },
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "据唯一 author.dynasty「北宋」补全",
+       "loser_value": "author_propagation"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "据唯一 author.dynasty「北宋」自动归并",
+       "loser_value": "據 authors[0].dynasty「宋」"
+      },
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "nlc-312002022677": {
+         "label": "國圖藏本：武進董氏   清宣統3年[191"
+        },
+        "kokusho-100222459": {
+         "label": "國書·筑波大図藏刊"
+        },
+        "ndl-2606853": {
+         "label": "NDL藏本：元和7 [1621] 活字印"
+        },
+        "nlc-CBM0565": {
+         "label": "國圖藏本："
+        },
+        "naikaku-1077003": {
+         "label": "內閣文庫藏本：元和7年刊本（308-0030，15冊）"
+        },
+        "naikaku-1077004": {
+         "label": "內閣文庫藏本：元和7年刊本（308-0031，15冊）"
+        },
+        "naikaku-3611545": {
+         "label": "內閣文庫藏本：元和7年刊本（308-0029，15冊）"
+        },
+        "ioc-C5924200": {
+         "label": "東文研藏本：銅活字印本"
+        },
+        "keio-12281": {
+         "label": "慶應藏本：元和7年刊(1621) 銅活字 勅版"
+        },
+        "ncltw-07558": {
+         "label": "臺灣國家圖書館藏本：日本元和七年(1621)銅活字本"
+        }
+       },
+       "loser_value": {
+        "nlc-411999009737": {
+         "label": "國圖藏本：清[1644-1911]"
+        },
+        "nlc-411999013168": {
+         "label": "國圖藏本：清[1644-1911]"
+        },
+        "nlc-411999024328": {
+         "label": "國圖藏本：明[1368-1644]"
+        },
+        "kokusho-200010643": {
+         "label": "國書·国文研藏刊 元和７"
+        },
+        "kokusho-200014055": {
+         "label": "國書·国文研藏刊"
+        },
+        "ncltw-07562": {
+         "label": "臺灣國家圖書館藏本：舊鈔本"
+        },
+        "ncltw-07563": {
+         "label": "臺灣國家圖書館藏本：鈔本"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G03",
+   "type": "work",
+   "keeper": "d59f2nk0zl6p",
+   "losers": [
+    "d59f2njx8qo3"
+   ],
+   "evidence": "初判（B）：同著者馮惟訥156卷；古詩紀与詩紀题名近似，甲含文淵閣四庫本、乙含四庫全書本同版本互见；独立复核维持：同一馮惟訥entity，同一百五十六卷，《古詩紀》即四庫本題名，兩側均掛四庫全書本，同卷數同版本（B档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f2nk0zl6p",
+     "path": "Work/l/6/p/d59f2nk0zl6p-詩紀.json",
+     "sha256": "5a8d3a72338fe6389ff1c7f9c8d0c0f26502287bcd5009c9d93fa9ef423fe380"
+    },
+    {
+     "id": "d59f2njx8qo3",
+     "path": "Work/q/o/3/d59f2njx8qo3-古詩紀.json",
+     "sha256": "edae00354579912ad1007f744f9a580979740e7e5848a1b8237eed3802aac7e8"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G04",
+   "type": "work",
+   "keeper": "d59f2nkblnur",
+   "losers": [
+    "d59fxwyij2tc"
+   ],
+   "evidence": "初判（A）：五雜組/五雜俎异写，首位著者同為謝肇淛（同entity），乙卷数缺，甲16卷，领域朝代一致；独立复核维持：組／俎異體，同一謝肇淛entity，乙卷缺，兩側均著明萬曆四十四年潘膺祉如韋館刻本（A档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f2nkblnur",
+     "path": "Work/n/u/r/d59f2nkblnur-五雜組.json",
+     "sha256": "78d4272837723c64520c45d7018ef0fdf354813f71be5f52b4f6d6be8049dce2"
+    },
+    {
+     "id": "d59fxwyij2tc",
+     "path": "Work/2/t/c/d59fxwyij2tc-五雜俎.json",
+     "sha256": "b017dea73888703427863910ff06d40631bfd3c33d7c113c311515537c20b715"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fxwyij2tc",
+     "fields": [
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "kokusho-100050379": {
+         "label": "國書·鹿児島大玉里藏刊"
+        },
+        "kokusho-100060590": {
+         "label": "國書·岐阜大図藏刊 文政５"
+        },
+        "kokusho-100072183": {
+         "label": "國書·愛知教大図藏刊"
+        },
+        "kokusho-100112286": {
+         "label": "國書·上田図花月藏刊 文政５"
+        },
+        "kokusho-100125228": {
+         "label": "國書·矢口丹波記念文庫藏混"
+        },
+        "kokusho-100173878": {
+         "label": "國書·長野県大図藏刊 寛文１"
+        },
+        "kokusho-100338872": {
+         "label": "國書·成城大民俗研藏刊 １８２３"
+        },
+        "kokusho-100375348": {
+         "label": "國書·弘前市弘前図藏刊 寛文１"
+        },
+        "kokusho-100449472": {
+         "label": "國書·東外大図藏刊 寛文１"
+        },
+        "kokusho-200020559": {
+         "label": "國書·国文研鵜飼藏刊"
+        },
+        "kokusho-300096567": {
+         "label": "國書·府中之島図石崎藏刊 寛文１"
+        },
+        "kokusho-100200636": {
+         "label": "國書·東大宗教藏刊（摘抄／局部）"
+        },
+        "kokusho-100354292": {
+         "label": "國書·同志社大藏刊 寛文１"
+        },
+        "kokusho-300001252": {
+         "label": "國書·東洋大哲学堂藏刊 寛政７"
+        },
+        "nlc-411999027573": {
+         "label": "國圖藏本：明[1368-1644]"
+        },
+        "ndl-2610166": {
+         "label": "NDL藏本：[明]刊"
+        },
+        "ndl-2609263": {
+         "label": "NDL藏本：寛文元刊"
+        },
+        "ndl-2608782": {
+         "label": "NDL藏本：寛文元刊"
+        },
+        "waseda-i05_00008": {
+         "label": "早稲田藏本：心斎橋通安堂寺町(大坂) : 秋田屋太右衛門, 文政7[1824] ( )"
+        },
+        "waseda-bunko31_e1953": {
+         "label": "早稲田藏本：平安(京都) : 小林庄兵衛, 寛政7[1795] ( )"
+        },
+        "waseda-i05_01222": {
+         "label": "早稲田藏本：寛文元[1661]"
+        },
+        "naikaku-3610789": {
+         "label": "內閣文庫藏本：明万暦刊本（307-0242，15冊）"
+        },
+        "naikaku-1084762": {
+         "label": "內閣文庫藏本：明万暦刊本（子074-0013，12冊）"
+        },
+        "loc-2012402297": {
+         "label": "美國國會圖書館藏本：明刻本 1592"
+        },
+        "ncltw-07455": {
+         "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)刊本"
+        },
+        "ncltw-00000000AE3X531573": {
+         "label": "美國柏克萊加州大學東亞圖書館藏本：清乾隆五十一年(1786)趙氏小山堂刻五十九年(1794)重修本"
+        },
+        "korcis-101448126": {
+         "label": "韓國國立中央圖書館數字化藏本：寬政 7(1795)"
+        }
+       },
+       "loser_value": {
+        "nlc-411999008254": {
+         "label": "國圖藏本：明[1368-1644]"
+        },
+        "nlc-CBM0347": {
+         "label": "國圖藏本：明萬曆[1573-1620]"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fxwyij2tc 在 zm0490，keeper 在 zm0488——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G06",
+   "type": "work",
+   "keeper": "d59f2hpx0xz4",
+   "losers": [
+    "d59f2htmb9xc"
+   ],
+   "evidence": "初判（B）：同著者陳傅良，止齋先生文集52卷对止齋文集51卷附錄1卷，卷数差1，两侧皆有四庫全書本、清道光等版本；独立复核维持：同一陳傅良entity，五十二／五十一卷差1（附錄一卷），兩側均掛四庫全書本及薈要本（A＋B档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f2hpx0xz4",
+     "path": "Work/x/z/4/d59f2hpx0xz4-止齋先生文集.json",
+     "sha256": "968c44319eb673030bb85ab29661d1179b80f60d708d82352ef25ebb024cfdc1"
+    },
+    {
+     "id": "d59f2htmb9xc",
+     "path": "Work/9/x/c/d59f2htmb9xc-止齋文集.json",
+     "sha256": "b14e2dc54bef708dc25f4c8bdc18a9f41d5130b14ce2ecddf442d9d3bbe7feb5"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2htmb9xc",
+     "fields": [
+      {
+       "field": "juan_count",
+       "keeper_value": {
+        "number": 52
+       },
+       "loser_value": {
+        "number": 51
+       }
+      },
+      {
+       "field": "measure_info",
+       "keeper_value": "五十二卷附錄一卷",
+       "loser_value": "五十一卷"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G07",
+   "type": "work",
+   "keeper": "d59fxwpr9edd",
+   "losers": [
+    "d59f2njloykh"
+   ],
+   "evidence": "初判（B）：同著者胡廣；四書大全与四書集註大全，两侧皆有四庫全書本互见，甲卷数36无冲突；独立复核维持：同一胡廣entity，《四書大全》即《四書集註大全》，兩側均掛四庫全書本、明內府本，同一版本互見（B档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59fxwpr9edd",
+     "path": "Work/e/d/d/d59fxwpr9edd-四書集註大全.json",
+     "sha256": "3cc6b9d349d3cf02f05c598cfcde69b5c67436ed6a6d0f1aa2c62ad3a6db0a98"
+    },
+    {
+     "id": "d59f2njloykh",
+     "path": "Work/y/k/h/d59f2njloykh-四書大全.json",
+     "sha256": "6dbc2f429bd0a89e175a490720c1ff26af58f8d1ea505ed3a50fc37b05581c50"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2njloykh",
+     "fields": [
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "nlc-411999017114": {
+         "label": "國圖藏本：明[1368-1644]"
+        },
+        "nlc-411999015452": {
+         "label": "國圖藏本：明[1368-1644]"
+        },
+        "naikaku-1074266": {
+         "label": "內閣文庫藏本：寛永刊本（277-0040，21冊）"
+        },
+        "ndl-2609342": {
+         "label": "NDL藏本：萬治2"
+        },
+        "ncltw-00813": {
+         "label": "臺灣國家圖書館藏本：明內府刊本"
+        }
+       },
+       "loser_value": {
+        "waseda-ro12_01326": {
+         "label": "早稲田藏本"
+        },
+        "waseda-ro12_02802": {
+         "label": "早稲田藏本：[京都] : 洛陽書肆, 元禄4[1691]"
+        },
+        "waseda-ro12_01169": {
+         "label": "早稲田藏本"
+        },
+        "kokusho-100160329": {
+         "label": "國書·上田図花春藏刊"
+        },
+        "naikaku-1074265": {
+         "label": "內閣文庫藏本：清刊本（277-0035，14冊）"
+        },
+        "ncltw-00814": {
+         "label": "臺灣國家圖書館藏本：明初建刊本"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2njloykh 在 zm0103，keeper 在 zm0122——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G08",
+   "type": "work",
+   "keeper": "d59fy3omxreo",
+   "losers": [
+    "d59f2nklwhs3"
+   ],
+   "evidence": "初判（B）：同著者張以寧，春王正月考与春秋春王正月考题名近似，甲Book亦题春秋春王正月考，甲2卷乙缺；独立复核维持：同一張以寧entity，甲二卷即一卷辨疑一卷，兩側均掛通志堂經解本與四庫薈要本（B档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59fy3omxreo",
+     "path": "Work/r/e/o/d59fy3omxreo-春秋春王正月考.json",
+     "sha256": "aa828b8643f639ae9ffe64a81445144c87a2e82fb5b0922d5d9b7309c25fbfad"
+    },
+    {
+     "id": "d59f2nklwhs3",
+     "path": "Work/h/s/3/d59f2nklwhs3-春王正月考.json",
+     "sha256": "7681feb88f107f065e0b11ef35da8ec6cdfce26289dcd90d64e4dec2bfe1703e"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2nklwhs3",
+     "fields": [
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "waseda-ro12_02926": {
+         "label": "早稲田藏本"
+        },
+        "waseda-ro12_03074": {
+         "label": "早稲田藏本：日本橋南佐内町(江戸) : 翠簾屋又右衛門, 元禄10[1697] ( )"
+        },
+        "ndl-13588145": {
+         "label": "NDL藏本：元祿10"
+        }
+       },
+       "loser_value": {
+        "kokusho-100237384": {
+         "label": "國書·東北大和算藏刊"
+        },
+        "kokusho-100265682": {
+         "label": "國書·国立天文台藏刊"
+        },
+        "kokusho-300097763": {
+         "label": "國書·府中之島図石崎藏刊 元禄１０"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2nklwhs3 在 zm0076，keeper 在 zm0007——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G09",
+   "type": "work",
+   "keeper": "d59f7z475rew",
+   "losers": [
+    "d59fyhjxbwu9"
+   ],
+   "evidence": "初判（B）：同譯者entity(求那跋陀羅)，同載清光緒二十二年金陵刻經處刻本，總目著錄同為南朝宋釋求那跋陀羅譯，勝鬘經為全題簡稱；独立复核维持：同一求那跋陀羅entity，《勝鬘經》為全名省稱，兩側均著清光緒二十二年金陵刻經處刻本（B档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f7z475rew",
+     "path": "Work/r/e/w/d59f7z475rew-勝鬘師子吼一乘大方便方廣經.json",
+     "sha256": "fd0235c29475974bf39effaf1d0b6f23457bdd83d86e097ada29e6a57a599377"
+    },
+    {
+     "id": "d59fyhjxbwu9",
+     "path": "Work/w/u/9/d59fyhjxbwu9-勝鬘經.json",
+     "sha256": "1274ce31b0da18c4352195cd327342f04613d668dcf5ed791db4babcb6410c2e"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fyhjxbwu9",
+     "fields": [
+      {
+       "field": "period_basis",
+       "keeper_value": "見於南朝宋補志《補宋書藝文志》著錄，據補志所記時代定為南北朝（劉宋）。",
+       "loser_value": "據 authors[0].dynasty「南朝宋」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fyhjxbwu9 在 zm0528，keeper 在 zm0524——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G11",
+   "type": "work",
+   "keeper": "d59f2j53bk02",
+   "losers": [
+    "d59f2j4vtuyp"
+   ],
+   "evidence": "初判（B）：同著者董鼎(同entity)，乙總目「宋蔡沈集傳;元董鼎輯錄纂註」自證蔡氏傳即書集傳，均有通志堂經解本；独立复核维持：同一董鼎entity，「書蔡氏傳」即「書集傳」，兩側均掛通志堂經解本（B档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f2j53bk02",
+     "path": "Work/k/0/2/d59f2j53bk02-書集傳輯錄纂注.json",
+     "sha256": "5cdd12421019ae464e98710bf4a212727953e11fcedc11df6baa70e1bea58a34"
+    },
+    {
+     "id": "d59f2j4vtuyp",
+     "path": "Work/u/y/p/d59f2j4vtuyp-書蔡氏傳輯錄纂注.json",
+     "sha256": "0a5d2ba42d01aa37cb2fe45d7f8cc70f7873ab314294b5ebb0f6c84e51a5a664"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2j4vtuyp",
+     "fields": [
+      {
+       "field": "measure_info",
+       "keeper_value": "十冊",
+       "loser_value": "六卷首一卷"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G12",
+   "type": "work",
+   "keeper": "d59f2gfms6bl",
+   "losers": [
+    "d59f2hgelm2q"
+   ],
+   "evidence": "初判（B）：同著者鄭思肖(同entity)，卷數7/8差1，同見明崇禎十二年張國維刻本；独立复核维持：同一鄭思肖entity，七／八卷差1，甲掛明崇禎十二年張國維刻本即乙存目叢書所據之本（B档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f2gfms6bl",
+     "path": "Work/6/b/l/d59f2gfms6bl-心史.json",
+     "sha256": "22fcceda5d9e7cf03521f1a83bc6ad6a864f46d95ebfdbd54ee2696c8092e0a1"
+    },
+    {
+     "id": "d59f2hgelm2q",
+     "path": "Work/m/2/q/d59f2hgelm2q-宋鄭所南先生心史.json",
+     "sha256": "1f10eabc035688a134de0228cb02e586c8cb38b21347c88c62dcb1aa245dbce7"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2hgelm2q",
+     "fields": [
+      {
+       "field": "juan_count",
+       "keeper_value": {
+        "number": 7
+       },
+       "loser_value": {
+        "number": 8
+       }
+      },
+      {
+       "field": "measure_info",
+       "keeper_value": "七卷",
+       "loser_value": "八卷"
+      },
+      {
+       "field": "period",
+       "keeper_value": "liao-jin-yuan",
+       "loser_value": "song"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「元」（規則1 粗粒度自消歧；2026-08-21 補派生專項）",
+       "loser_value": "据本轮人工资料 author.dynasty「南宋」自动归并"
+      },
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "kokusho-100393464": {
+         "label": "國書·九大木活字本藏刊"
+        },
+        "kokusho-100453547": {
+         "label": "國書·東洋大哲学堂藏刊"
+        },
+        "nlc-411999010460": {
+         "label": "國圖藏本：明崇禎12年[1639]"
+        },
+        "nlc-411999027944": {
+         "label": "國圖藏本：明崇禎12年[1639]"
+        },
+        "nlc-411999009635": {
+         "label": "國圖藏本：明崇禎13年[1640]"
+        },
+        "ncltw-10770": {
+         "label": "臺灣國家圖書館藏本：明崇禎己卯(十二年, 1639 )張國維吳門刊本"
+        }
+       },
+       "loser_value": {
+        "naikaku-1073800": {
+         "label": "內閣文庫藏本：明隆武1年刊本（序刊）（316-0035，2冊）"
+        },
+        "naikaku-1083674": {
+         "label": "內閣文庫藏本：明崇禎11年刊本（集014-0006，2冊）"
+        },
+        "ncltw-10771": {
+         "label": "臺灣國家圖書館藏本：明崇禎庚辰(十三年, 1640)新安汪駿聲集貲刊本"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2hgelm2q 在 zm0664，keeper 在 zm0669——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G13",
+   "type": "work",
+   "keeper": "d59f2hgf835v",
+   "losers": [
+    "d59f2hiepfk0"
+   ],
+   "evidence": "初判（B）：同entity釋贊寧、均三卷，大宋僧史略/僧史略为全称与简称，同书；独立复核维持：同一釋贊寧entity，同三卷，「大宋」為冠稱，題名歸一相同（A档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f2hgf835v",
+     "path": "Work/3/5/v/d59f2hgf835v-大宋僧史略.json",
+     "sha256": "1cb9a421e5256ecaa9e345d465384d69065faf091b3fce6a3d4c7827c3454d03"
+    },
+    {
+     "id": "d59f2hiepfk0",
+     "path": "Work/f/k/0/d59f2hiepfk0-僧史略.json",
+     "sha256": "e248c90772c5c7b0ae83e9a3d27843de8cb5d90ab99d2e47a535650f1b5e0458"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f2hiepfk0",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "据唯一 author.dynasty「北宋」补全",
+       "loser_value": "author_propagation:唯一作者朝代"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "据唯一 author.dynasty「北宋」自动归并",
+       "loser_value": "據 authors[0].dynasty「北宋」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G14",
+   "type": "work",
+   "keeper": "d59f28jxbchs",
+   "losers": [
+    "d59f2pyn1ddt"
+   ],
+   "evidence": "初判（B）：同entity賈島、均十卷，甲著录亦有「長江集十卷」，乙仅志书著录，核心名同；独立复核维持：同一賈島entity，同十卷，「賈浪仙／賈島」為撰人字首式題名，歸一同為《長江集》（A档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f28jxbchs",
+     "path": "Work/c/h/s/d59f28jxbchs-賈浪仙長江集.json",
+     "sha256": "2339f49b910919996ee8d321c7dc31d0f9904a86e00544f9e27e209591c1e83b"
+    },
+    {
+     "id": "d59f2pyn1ddt",
+     "path": "Work/d/d/t/d59f2pyn1ddt-賈島長江集.json",
+     "sha256": "316d9c4deb25997aa939df8da8860e39ed7a60b5f9298b2d56909244915ac488"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f2pyn1ddt 在 zm0664，keeper 在 zm0668——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G15",
+   "type": "work",
+   "keeper": "d59f2mwc74zm",
+   "losers": [
+    "d59fxru3ru9t"
+   ],
+   "evidence": "初判（B）：同entity孔尚任，桃花扇傳奇/桃花扇，两侧总目均著录清乾隆七年刻本（同版本互见），卷数甲二乙缺；独立复核维持：同一孔尚任entity，乙卷缺，兩側總目均著清乾隆七年刻本（A＋B档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f2mwc74zm",
+     "path": "Work/4/z/m/d59f2mwc74zm-桃花扇傳奇.json",
+     "sha256": "a3f5409044d4a2a28cb22875b5d4c55cdba0dc603f9e6981afa2bde17ea0e3cc"
+    },
+    {
+     "id": "d59fxru3ru9t",
+     "path": "Work/u/9/t/d59fxru3ru9t-桃花扇.json",
+     "sha256": "309c3339f66e5514f6b2ae18e23de745dcaed1703b1d77c0664929b1b1d38172"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fxru3ru9t",
+     "fields": [
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
+       "loser_value": "author_propagation"
+      },
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "nlc-411999028384": {
+         "label": "國圖藏本：清康熙[1662-1722]"
+        },
+        "nlc-411999028383": {
+         "label": "國圖藏本：清康熙[1662-1722]"
+        },
+        "nlc-411999009445": {
+         "label": "國圖藏本：清康熙[1662-1722]"
+        },
+        "kokusho-200012692": {
+         "label": "國書·国文研藏刊"
+        }
+       },
+       "loser_value": {
+        "waseda-he19_02621": {
+         "label": "早稲田藏本：暖紅室"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G16",
+   "type": "work",
+   "keeper": "d59f28mlrock",
+   "losers": [
+    "d59f28jcpon4"
+   ],
+   "evidence": "初判（B）：同著者白居易同entity，乙著录四库总目自证宋刻本题白氏文集不名长庆集，70对71卷差1，双方均有明姑蘇錢應龍元白合刻本；独立复核维持：同一白居易entity，七十／七十一卷差1，乙所系《四庫總目》原文稱宋刻皆題《白氏文集》，兩側均掛明錢應龍元白合刻本及四庫薈要本（B档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f28mlrock",
+     "path": "Work/o/c/k/d59f28mlrock-白氏長慶集.json",
+     "sha256": "798b0b36586169c0e669f2cba681845a1c89d58f541b99a1239558c6bde80972"
+    },
+    {
+     "id": "d59f28jcpon4",
+     "path": "Work/o/n/4/d59f28jcpon4-白氏文集.json",
+     "sha256": "5938824beb176db35bd14caf2ee4c7d8b90e1fafc54fcaf7e094c67ce6f64702"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f28jcpon4",
+     "fields": [
+      {
+       "field": "juan_count",
+       "keeper_value": {
+        "number": 71
+       },
+       "loser_value": {
+        "number": 70
+       }
+      },
+      {
+       "field": "measure_info",
+       "keeper_value": "七十一卷",
+       "loser_value": "七十卷"
+      },
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "nlc-411999000328": {
+         "label": "國圖藏本：明万历三十四年[1606]"
+        },
+        "nlc-411999014028": {
+         "label": "國圖藏本：明正德八年[1513]"
+        },
+        "nlc-411999031587": {
+         "label": "國圖藏本：明萬曆34年[1606]"
+        },
+        "nlc-411999011977": {
+         "label": "國圖藏本：明正德8年[1513]"
+        },
+        "kokusho-100436039": {
+         "label": "國書·手錢美藏刊"
+        },
+        "naikaku-1077385": {
+         "label": "內閣文庫藏本：明万暦34年刊本（序刊）（別024-0002，12冊）"
+        },
+        "naikaku-1082530": {
+         "label": "內閣文庫藏本：明暦3年刊本 /印年（集135-0004，35冊）"
+        },
+        "waseda-bunko31_e1985": {
+         "label": "早稲田藏本"
+        },
+        "waseda-bunko31_e1986": {
+         "label": "早稲田藏本：姉小路通堀川東江入町(京都) : 中川茂兵衛, 元禄15[1702] ( )"
+        },
+        "sbb-PPN1048959287": {
+         "label": "柏林國家圖書館藏本：刻本;[China] 萬曆丙午年 (=1606)"
+        },
+        "korcis-101477124": {
+         "label": "韓國國立中央圖書館數字化藏本：萬曆年間[1573-1620]"
+        },
+        "korcis-102517526": {
+         "label": "韓國國立中央圖書館數字化藏本：[刊寫年未詳]"
+        },
+        "ncltw-09840": {
+         "label": "臺灣國家圖書館藏本：明正德癸酉(八年, 1513)錫山華氏蘭雪堂銅活字本"
+        },
+        "ncltw-09841": {
+         "label": "臺灣國家圖書館藏本：明萬曆丙午(三十四年, 1606)松江馬元調刊本"
+        },
+        "zinbun-toho-Q001menu01": {
+         "label": "京大人文研東方學デジタル圖書館藏本：萬曆三十四年松江馬氏刊本"
+        }
+       },
+       "loser_value": {
+        "nlc-411999031032": {
+         "label": "國圖藏本：明嘉靖17年[1538]"
+        },
+        "nlc-411999021190": {
+         "label": "國圖藏本：明嘉靖17年[1538]"
+        },
+        "nlc-007438537": {
+         "label": "國圖藏本：不詳"
+        },
+        "nlc-411999017331": {
+         "label": "國圖藏本：明嘉靖17年[1538]"
+        },
+        "nlc-411999010923": {
+         "label": "國圖藏本：明嘉靖17年[1538]"
+        },
+        "kokusho-100300339": {
+         "label": "國書·愛媛大鈴鹿藏写"
+        },
+        "kokusho-100442626": {
+         "label": "國書·四天王寺大恩頼藏写"
+        },
+        "kokusho-100181994": {
+         "label": "國書·筑波大図藏刊"
+        },
+        "kokusho-100190140": {
+         "label": "國書·長野県大図藏刊"
+        },
+        "kokusho-100371477": {
+         "label": "國書·書陵部蔵藏刊 元和４"
+        },
+        "kokusho-100386086": {
+         "label": "國書·京大谷村藏刊 ［元和４］"
+        },
+        "kokusho-100420981": {
+         "label": "國書·富山市図山田孝雄藏刊"
+        },
+        "kokusho-100115918": {
+         "label": "國書·真福寺大須文庫藏写"
+        },
+        "ndl-2605620": {
+         "label": "NDL藏本：[元和4 (1618)]"
+        },
+        "naikaku-1071307": {
+         "label": "內閣文庫藏本：元和4年刊本（315-0016，30冊）"
+        },
+        "naikaku-1082088": {
+         "label": "內閣文庫藏本：元和4年刊本（315-0015，15冊）"
+        },
+        "naikaku-1072102": {
+         "label": "內閣文庫藏本：文政6年刊本（315-0019，30冊）"
+        },
+        "waseda-he16_00658": {
+         "label": "早稲田藏本：[元和4(1618)跋]"
+        },
+        "waseda-he16_02690": {
+         "label": "早稲田藏本：[京都] : 松栢堂, 明暦3[1657]"
+        },
+        "waseda-he16_03345": {
+         "label": "早稲田藏本：[京都] : 松栢堂, 明暦3[1657]"
+        },
+        "ioc-D7163600": {
+         "label": "東文研藏本：那波道圓活字印本 元和中"
+        },
+        "shoryobu-1000074300000": {
+         "label": "書陵部藏本：明版, 明 嘉靖17年, 呉郡伍忠光"
+        },
+        "shoryobu-1000134260000": {
+         "label": "書陵部藏本：木活, 元和"
+        },
+        "keio-12355": {
+         "label": "慶應藏本：那波活所 元和4年跋刊(1618) 古活字"
+        },
+        "korcis-101120655": {
+         "label": "韓國國立中央圖書館數字化藏本：木板本 [刊寫年未詳]"
+        },
+        "korcis-101475397": {
+         "label": "韓國國立中央圖書館數字化藏本：[元和年間(1615-1623)]"
+        },
+        "ncltw-09846": {
+         "label": "臺灣國家圖書館藏本：明姑蘇錢應龍刊本"
+        },
+        "ncltw-09847": {
+         "label": "臺灣國家圖書館藏本：日本元和戊午(四年, 1618)那波道圓活字本"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G17",
+   "type": "work",
+   "keeper": "d59f28lozrb7",
+   "losers": [
+    "d59f28ltd2x0"
+   ],
+   "evidence": "初判（B）：同著者孙思邈同entity，题名仅差孙真人尊称前缀，均为故宫善本旧籍录入且无卷数矛盾，甲Book 22个更全；独立复核维持：同一孫思邈entity，「孫真人」為撰人字首、「重刊」為版刻冠詞，歸一同為《備急千金要方》，卷均缺，朝代同（A档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f28lozrb7",
+     "path": "Work/r/b/7/d59f28lozrb7-孫真人備急千金要方.json",
+     "sha256": "c102030940346c84d04a5b915591be56c354c4dcc4031e6d8a7e27ad816298e2"
+    },
+    {
+     "id": "d59f28ltd2x0",
+     "path": "Work/2/x/0/d59f28ltd2x0-備急千金要方.json",
+     "sha256": "d592c3638802409f09dc7ca3782a474eb265c54cf0a6cac5bf01765d4e33d33e"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f28ltd2x0",
+     "fields": [
+      {
+       "field": "measure_info",
+       "keeper_value": "十二冊",
+       "loser_value": "三十四冊"
+      },
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "nlc-411999010251": {
+         "label": "國圖藏本：明嘉靖22年[1543]"
+        },
+        "naikaku-1078781": {
+         "label": "內閣文庫藏本：明嘉靖23年刊本 喬氏小丘山房（305-0007，21冊）"
+        },
+        "naikaku-1079440": {
+         "label": "內閣文庫藏本：万治2年刊本（子038-0001，16冊）"
+        }
+       },
+       "loser_value": {
+        "kokusho-100381977": {
+         "label": "國書·東北大狩野マイクロ藏写"
+        },
+        "waseda-ya09_00175": {
+         "label": "早稲田藏本：[京都] : 敦賀屋久兵衛, 万治2[1659]"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G18",
+   "type": "work",
+   "keeper": "d59f28k96d4z",
+   "losers": [
+    "d59f28jptngg"
+   ],
+   "evidence": "初判（B）：同著者王通同entity，乙描述亦称文中子并著录唐志五卷对今本十卷（卷数差已自证），六子本版本互见；独立复核维持：同一王通entity，五／十卷之差有乙《四庫總目》原文解釋（唐志五卷、今本十卷），兩側均有世德堂六子本（B档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f28k96d4z",
+     "path": "Work/d/4/z/d59f28k96d4z-中說.json",
+     "sha256": "8f196682f8b1e490714b555c971eb33ea78e134d3005d9ccced5d9c266b46ea3"
+    },
+    {
+     "id": "d59f28jptngg",
+     "path": "Work/n/g/g/d59f28jptngg-文中子中說.json",
+     "sha256": "b68d202669fedeee2d69693d4fa94f3a765402e883c760ff91336401fdc1415a"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f28jptngg",
+     "fields": [
+      {
+       "field": "juan_count",
+       "keeper_value": {
+        "number": 10
+       },
+       "loser_value": {
+        "number": 5
+       }
+      },
+      {
+       "field": "measure_info",
+       "keeper_value": "十卷",
+       "loser_value": "五卷"
+      },
+      {
+       "field": "resource_groups",
+       "keeper_value": {
+        "nlc-411999000131": {
+         "label": "國圖藏本：明嘉靖十二年[1533]"
+        },
+        "nlc-411999032796": {
+         "label": "國圖藏本：明初[1368-1424]"
+        },
+        "nlc-411999008575": {
+         "label": "國圖藏本：明初(1368～1424)"
+        },
+        "ndl-2541574": {
+         "label": "NDL藏本（送信限定）：光緒16"
+        },
+        "naikaku-1076423": {
+         "label": "內閣文庫藏本：明刊本（子269-0003，2冊）"
+        },
+        "naikaku-1076822": {
+         "label": "內閣文庫藏本：明初刊本（298-0120，2冊）"
+        },
+        "waseda-ro13_00130": {
+         "label": "早稲田藏本：姑蘇 : 聚文堂, 嘉慶9[1804]"
+        },
+        "ncltw-05433": {
+         "label": "臺灣國家圖書館藏本：明萬曆間(1573-1620)新安吳勉學刊二十子本"
+        },
+        "ncltw-15286-0048": {
+         "label": "臺灣國家圖書館藏本：明末武林何氏刊本配補清刊本"
+        }
+       },
+       "loser_value": {
+        "naikaku-1076723": {
+         "label": "內閣文庫藏本：元禄8年刊本（後印）（298-0108，2冊）"
+        },
+        "naikaku-1076730": {
+         "label": "內閣文庫藏本：元禄8年刊本（298-0121，4冊）"
+        },
+        "naikaku-3611463": {
+         "label": "內閣文庫藏本：元禄8年刊本（298-0111，4冊）"
+        },
+        "ncltw-05421": {
+         "label": "臺灣國家圖書館藏本：元刊六子本"
+        },
+        "ncltw-05422": {
+         "label": "臺灣國家圖書館藏本：明翻元刊六子本"
+        },
+        "ncltw-05424": {
+         "label": "臺灣國家圖書館藏本：明桐蔭書屋覆吳郡顧氏世德堂刊六子本"
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59f28jptngg 在 zm0321，keeper 在 zm0325——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G19",
+   "type": "work",
+   "keeper": "d59f2hucug3l",
+   "losers": [
+    "d59fxrni8fls"
+   ],
+   "evidence": "初判（B）：同著者刘次庄同entity，宋朝代兼容，题名法帖释文与历代帝王法帖释文，双方总目著录同见明天启七年刻本（上海图书馆）；独立复核维持：同一劉次莊entity，乙卷缺，兩側總目均著明天啓七年刻本，同一版本互見（B档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f2hucug3l",
+     "path": "Work/g/3/l/d59f2hucug3l-法帖釋文.json",
+     "sha256": "450c89726c6a9f70ac254ad2a78af1e813b74504df4c60dcda80fe01040a7ef0"
+    },
+    {
+     "id": "d59fxrni8fls",
+     "path": "Work/f/l/s/d59fxrni8fls-歷代帝王法帖釋文.json",
+     "sha256": "eb32f12c659549ee26108b6661e2eb839707bdb30f381557beabcf0b69b0e7b1"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fxrni8fls",
+     "fields": [
+      {
+       "field": "dynasty",
+       "keeper_value": "北宋",
+       "loser_value": "宋"
+      },
+      {
+       "field": "dynasty_basis",
+       "keeper_value": "据唯一 author.dynasty「北宋」补全",
+       "loser_value": "author_propagation"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "据唯一 author.dynasty「北宋」自动归并",
+       "loser_value": "據 authors[0].dynasty「宋」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fxrni8fls 在 zm0444，keeper 在 zm0298——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G20",
+   "type": "work",
+   "keeper": "d59f286ua8si",
+   "losers": [
+    "d59fxz26bxmp"
+   ],
+   "evidence": "初判（B）：同著者龚庆宣同entity，朝代兼容，乙鬼遗方为劉涓子鬼遺方撰人折入题首之省称（甲著录补晋志等自称鬼遗方），乙卷数缺；独立复核维持：同一龔慶宣entity，「劉涓子」為題首人名，乙卷缺，晉／齊朝代相容，甲著錄原文亦稱《鬼遺方》（A档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f286ua8si",
+     "path": "Work/8/s/i/d59f286ua8si-劉涓子鬼遺方.json",
+     "sha256": "ee9138a304f6c735ee559168863f8c5e89a651035b42749aa732c4c3c643ab52"
+    },
+    {
+     "id": "d59fxz26bxmp",
+     "path": "Work/x/m/p/d59fxz26bxmp-鬼遺方.json",
+     "sha256": "24ea53aeff3eee2433c84dbec6322e137cc627ce5725de47eac22b9dc4e30c65"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fxz26bxmp",
+     "fields": [
+      {
+       "field": "dynasty",
+       "keeper_value": "晉",
+       "loser_value": "齊"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fxz26bxmp 在 zm0359，keeper 在 zm0358——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "kokusho2-G21",
+   "type": "work",
+   "keeper": "d59f9s1beo75",
+   "losers": [
+    "d59f27y1rlz6"
+   ],
+   "evidence": "初判（A）：同entity衛瓘、題名歸一同（甲僅多撰人後綴）、乙卷數缺、晉代兼容；独立复核维持：同一衛瓘entity，甲題「論語集注衛瓘注」為題＋撰人式，乙ai_note原文已指其為庫內重出，同為晉佚書（A档）。",
+   "rule": "去重线索（国書）：同题、著者同人或一侧无著者而著录互证，按 3a／部分 4 证据口径逐对判＋独立复核并",
+   "preconditions": [
+    {
+     "id": "d59f9s1beo75",
+     "path": "Work/o/7/5/d59f9s1beo75-論語集注.json",
+     "sha256": "6391ffff0141aacc4e33496494ef1761fff89091b7ed1b46d9d2634f9a84de82"
+    },
+    {
+     "id": "d59f27y1rlz6",
+     "path": "Work/l/z/6/d59f27y1rlz6-論語集注衛瓘注.json",
+     "sha256": "1066f6aae95c5520e4e275e6449511cfb9ffa1c4ed5d89ccb9d7931e46151b41"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59f27y1rlz6",
+     "fields": [
+      {
+       "field": "measure_info",
+       "keeper_value": "八卷",
+       "loser_value": "六卷"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "2026-09-06 《補晉書經籍志》（吳士鑑）整理：《補晉書經籍志》（吳士鑑）著錄。晉（265-420）。",
+       "loser_value": "撰人 Entity 之代：衛瓘（西晉）——同人名下他書 {'jin': 2} 佐證一致"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  }
+ ]
+}

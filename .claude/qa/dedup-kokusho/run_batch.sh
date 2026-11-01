@@ -2,8 +2,8 @@
 # 国書线索去重一批全流程（从最新 main 重跑）：run_batch.sh <批次名> <分支名>
 set -e
 B=$1; BR=$2
-Q=/home/claude/book-index/.claude/qa
-cd /home/claude/book-index
+Q=/home/user/book-index/.claude/qa
+cd /home/user/book-index
 git fetch -q origin main
 T=$(mktemp -d); cp -a .claude/qa/dedup-kokusho $T/
 git checkout -q -- . && git clean -qfd -- Work Book Entity index promotions classification
@@ -13,12 +13,12 @@ cd $Q/dedup-kokusho
 rm -f $B/merges.json $B/index-update.json $B/postfix_*原值.json
 python3 apply_kokusho.py $B/batch.json --apply > $B/apply.log 2>&1
 python3 ../dedup-confirmed-163/postfix_common.py $B --apply | tail -1
-cd /home/claude/book-index
+cd /home/user/book-index
 python3 .claude/qa/dedup-confirmed-163/update_index.py $Q/dedup-kokusho/$B | cut -c1-60
 cd ../book-index-draft
 git fetch -q origin main && git checkout -q -- . && git checkout -q -B "$BR" origin/main
 python3 ../book-index/.claude/qa/dedup-confirmed-163/fix_draft.py $Q/dedup-kokusho/$B/merges.json . --apply 2>&1 | tail -1
-cd /home/claude/book-index
+cd /home/user/book-index
 S=$(mktemp)
 git -c core.quotePath=false diff --name-only origin/main > $S
 python3 scripts/audit-merge-ledger.py --ledger $Q/dedup-kokusho/$B/merges.json --base origin/main --draft ../book-index-draft 2>&1 | grep ERROR | tr '\n' ' '; echo
