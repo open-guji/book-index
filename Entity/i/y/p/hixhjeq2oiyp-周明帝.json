@@ -13,9 +13,9 @@
     "death": 560,
     "basis": "維基百科"
   },
-  "ai_note": "2026-09-05 《補周書藝文志》整理：據《補周書藝文志》新建。庫中另有同名者 ['hixhd2h9bpl4']，代不相容（[None]），別是一人。\n\n2026-09-05 誤建 entity 併治：併入誤建之同名 entity `hixhd2h9bpl4`。前輪整理腳本遇庫中同名而 dynasty 為 None 者，誤判「代不相容，別是一人」而別建；然 dynasty=None 乃**未考定**，非「不相容」，不可據以斷為二人。今併之，移入 works 1 部。\n\n2026-10-26 A12 L6 帝王稱號：補廟號、帝號別名（北周明帝），據維基百科補身份、說明、生卒；回填年號條 ruler.entity_id。 帝號通稱據本庫年號條說明補；維基中文條目未讀，廟號、諡號全稱多待補。\n\n2026-11-01 A 檔補字段：據所繫 cbdb_id=31772（有硬證：書名／生卒／別名對上）補入空槽——籍貫「長安」。既有之值一概未動。",
+  "ai_note": "2026-09-05 《補周書藝文志》整理：據《補周書藝文志》新建。庫中另有同名者 ['hixhd2h9bpl4']，代不相容（[None]），別是一人。\n\n2026-09-05 誤建 entity 併治：併入誤建之同名 entity `hixhd2h9bpl4`。前輪整理腳本遇庫中同名而 dynasty 為 None 者，誤判「代不相容，別是一人」而別建；然 dynasty=None 乃**未考定**，非「不相容」，不可據以斷為二人。今併之，移入 works 1 部。\n\n2026-10-26 A12 L6 帝王稱號：補廟號、帝號別名（北周明帝），據維基百科補身份、說明、生卒；回填年號條 ruler.entity_id。 帝號通稱據本庫年號條說明補；維基中文條目未讀，廟號、諡號全稱多待補。\n\n2026-11-01 A 檔補字段：據所繫 cbdb_id=31772（有硬證：書名／生卒／別名對上）補入空槽——籍貫「長安」。既有之值一概未動。\n\n2026-11-01 A 檔補 Wikidata：經 Wikidata P497（CBDB ID）反查 cbdb_id=31772，唯一對應 Q1196041，且 Wikidata 標籤與本條名稱相符。",
   "id": "hixhjeq2oiyp",
-  "revision": "1.0.4",
+  "revision": "1.0.5",
   "revised_at": "2026-11-01",
   "period_basis": "據 dynasty「北周」自動歸併",
   "alt_names": [
@@ -59,6 +59,7 @@
   "external_ids": {
     "cbdb_id": 31772,
     "cbdb_match": "auto_v2",
-    "cbdb_source": "v2:name+period+death"
+    "cbdb_source": "v2:name+period+death",
+    "wikidata_id": "Q1196041"
   }
 }
