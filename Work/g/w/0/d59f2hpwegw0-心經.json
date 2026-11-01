@@ -96,11 +96,49 @@
         "holder": "筑波大図",
         "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100181976/manifest"
       }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05529",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05529",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05529",
+        "call_number": "301 05529",
+        "edition": "宋端平元年(1234)顏若愚泉州府學刊本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-05530",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05530",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05530",
+        "call_number": "301 05530",
+        "edition": "明刊大字本"
+      }
     }
   ],
   "resource_groups": {
     "kokusho-100181976": {
       "label": "國書·筑波大図藏刊"
+    },
+    "ncltw-05529": {
+      "label": "臺灣國家圖書館藏本：宋端平元年(1234)顏若愚泉州府學刊本"
+    },
+    "ncltw-05530": {
+      "label": "臺灣國家圖書館藏本：明刊大字本"
     }
   },
   "measures": [
@@ -115,7 +153,7 @@
   "dynasty_basis": "据唯一 author.dynasty「南宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「南宋」自动归并",
-  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwfu3z280 與 11q37qifkqy9s 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·G 類淨題撞庫得正條，逐條裁併：併入 `d59f2hsschs2`《心經一卷政經》。據：source（一冊，題末衍「政經」——真德秀另一書名黏連）與 keeper（一卷，宋志、四庫）皆真德秀《心經》，同書；「政經」乃其別一書，題末黏連之誤，見 ai_note。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…《心經》一書行於世，至徹禁中。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第三轮：补撰人与国書子目对后同题同首位（含混合组内同首位子簇） B 档逐组复核并）：併 d59fxplfv8cg《心經》 入本條。同题同首位责任者：《心經》真德秀(南宋,1卷,10版本)／《心經》真德秀(宋,1卷,1版本,繼承叢書撰者)；B 档逐组复核判同一作品（flags=generic_title）",
+  "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwfu3z280 與 11q37qifkqy9s 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·G 類淨題撞庫得正條，逐條裁併：併入 `d59f2hsschs2`《心經一卷政經》。據：source（一冊，題末衍「政經」——真德秀另一書名黏連）與 keeper（一卷，宋志、四庫）皆真德秀《心經》，同書；「政經」乃其別一書，題末黏連之誤，見 ai_note。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…《心經》一書行於世，至徹禁中。」今存。…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第三轮：补撰人与国書子目对后同题同首位（含混合组内同首位子簇） B 档逐组复核并）：併 d59fxplfv8cg《心經》 入本條。同题同首位责任者：《心經》真德秀(南宋,1卷,10版本)／《心經》真德秀(宋,1卷,1版本,繼承叢書撰者)；B 档逐组复核判同一作品（flags=generic_title）\n\n2026-11-01 U2b 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 bim docs/馆藏资源挂接/报告/U2b-增量重挂-20261101.md。",
   "description": {
     "text": "《心經》一卷，南宋真德秀撰。《宋史藝文志》、《欽定四庫全書總目》所著卷數一致（一卷）。《欽定四庫全書總目》敘曰：「宋真德秀撰。是編集聖賢論心格言，而以諸家議論為之注。末附四言贊一首。端平元年，顏若愚鋟於泉州府學，有跋一首，稱其築室粵山之下，雖晏息之地，常如君父之臨其前。淳祐二年，大庾令趙時棣又以此書與政經合刻。前有德秀門人王邁序雲，《心經》一書行於世，至徹禁中。」今存。",
     "sources": [
@@ -123,8 +161,8 @@
       "欽定四庫全書總目"
     ]
   },
-  "revision": "1.3.0",
-  "revised_at": "2026-10-26",
+  "revision": "1.4.0",
+  "revised_at": "2026-11-01",
   "merge_history": [
     {
       "merged_from": "d59f2hsschs2",
