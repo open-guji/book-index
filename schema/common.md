@@ -277,6 +277,8 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 
 两条记录被认定为同一部（重出）时并成一条：保留者（keeper）记事件，被并者留墓碑。
 
+**墓碑是过渡状态，会被定期整体清掉**（2026-11-01 用户定：先尽量多录书、再并条，并条会产生大量墓碑；还没有外部引用我们的 id，合并稳定后删墓碑）。清理后：被并方的文件不再存在，旧 id 只留在 keeper 的 `merged_in`／`merged_from`，以及 `.claude/qa/purge-tombstones/ledger/*.tsv`（旧 id → 终点 id 对照）；网站对旧 id 不再 308（404）。做法与保留条件见 `.claude/qa/purge-tombstones/README.md`。所以新写的引用一律指 keeper，不要指墓碑。
+
 | 字段 | 类型 | 在哪 | 性质 | 含义 | 取值 |
 |---|---|---|---|---|---|
 | `merged_in` | array<object> | keeper（Work、Entity） | 原生 | 并条事件日志（事件，不是关系，不可派生） | 每项 `{id, title, at, by, rule, why}`；可另带 `author`、`title_info`、`indexed_by_moved[]`、`books_moved[]`、`measure_info`、`note`、`reason`。早期有 34 项只写了被并者 id 字符串 |

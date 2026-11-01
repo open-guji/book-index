@@ -35,6 +35,9 @@ def main():
     mapping = {rid: step['keeper'] for step in ledger['merges'] for rid in step['losers']}
     counts = collections.Counter()
     paths = {}
+    purged_ids = set()
+    for ledger_file in (ROOT / '.claude/qa/purge-tombstones/ledger').glob('*.tsv'):
+        purged_ids.update(line.split('\t', 1)[0] for line in ledger_file.read_text(encoding='utf-8').splitlines()[1:])
 
     def find(rid, family):
         # 后续批次可能把本台账的 keeper 再并入别处（如 dedup-confirmed-163），故按 merged_into 链走到活条
@@ -55,8 +58,17 @@ def main():
 
     for step in ledger['merges']:
         family = step['preconditions'][0]['path'].split('/')[0]
+        if find(step['keeper'], family) is None:
+            counts['keeper_purged'] += 1   # keeper 后来也被并、墓碑已被定期清理（purge-tombstones）
+            continue
         keeper_final = final(step['keeper'], family)
         for entry in step['preconditions']:
+            if not (ROOT / entry['path']).exists():
+                # 墓碑已被 .claude/qa/purge-tombstones 清理：旧 id 须仍在清理台账里，且不得带全文
+                require(entry['id'] in purged_ids, f"Missing record and not in purge ledger: {entry['id']}")
+                require(entry['id'] not in text_ids, f"Retired text-bearing ID: {entry['id']}")
+                counts['tombstones_purged'] += 1
+                continue
             obj = read(ROOT / entry['path'])
             require(obj['id'] == entry['id'], f"Record ID mismatch: {entry['path']}")
             if entry['id'] in step['losers']:

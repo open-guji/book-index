@@ -10,7 +10,6 @@
 |---|---|---|---|
 | 蘇軾 `hixhd2h9bdqq` | [Entity/d/q/q/hixhd2h9bdqq-蘇軾.json](../../Entity/d/q/q/hixhd2h9bdqq-蘇軾.json) | [index/entities/2.json](../../index/entities/2.json) | 字、号等 `alt_names`、`external_ids`（CBDB／Wikidata 等）、籍贯、`dates` 的完整典型人物条 |
 | 強仕 `hixi23un53pm` | [Entity/3/p/m/hixi23un53pm-強仕.json](../../Entity/3/p/m/hixi23un53pm-強仕.json) | [index/entities/7.json](../../index/entities/7.json) | 并条的**留存方**：`merged_in[]` 记录被并入的条（含并入时间、规则、理由） |
-| 載湉 `hixi5ikz83tv` | [Entity/3/t/v/hixi5ikz83tv-載湉.json](../../Entity/3/t/v/hixi5ikz83tv-載湉.json) | [index/entities/2.json](../../index/entities/2.json) | 并条的**墓碑**：只留 `primary_name` 与 `merged_into`，指向留存条 `hixhd2h9brxy`（清德宗） |
 | 張金瀾 `hixhd2h9bqib` | [Entity/q/i/b/hixhd2h9bqib-張金瀾.json](../../Entity/q/i/b/hixhd2h9bqib-張金瀾.json) | [index/entities/8.json](../../index/entities/8.json) | `native_place_entity_id` 指向 place 条（山陰縣 `hixi5xctqcxs`）的籍贯写法 |
 
 通用字段全部可用（见[通用字段](_common.md)）。people 实际用到的字段一览（每行的完整取值、统计数见[通用字段](_common.md)对应行；`people` 没有专属于它的子类型字段，下面都是[通用字段](_common.md)里的通用字段）：
@@ -38,7 +37,7 @@ people 特有的规矩：
 
 - 名下作品不写，build 生成 `_works`；朝代名由 build 解析为 `_dynasty_id`（规范名唯一命中且不歧义）或 `_dynasty_candidates`（歧义名的候选 id），见 [derived.md](../derived.md)。
 - **`suppressed_fields`**（2026-09-26 用户裁，甲案）：人工核过、确认 CBDB 该字段之值有误而清空的，把字段名列进 `suppressed_fields`；补空槽的 enrich 脚本（`cbdb-sync/apply_enrich.py`）逢清单里的字段即绕开，不再拿 CBDB 之值回填。原行为只认「字段现在是否空」，人清空一次、下一轮 enrich 就自动填回去，俞安期、謝顯两例皆如此每跑一次就再犯一次。**只影响列名的字段**，其余空槽仍照常补。
-- 并条：留存方写 `merged_in[]`，被并方只留 stub（墓碑）并写 `merged_into`，**不删档**（2026-10-09 目录经理定，overview#409；`.claude/qa/entity_merge.py` 已改为写墓碑）。网站按被并方记录的 `merged_into` 308 跳到留存方；build 现仍把墓碑列入 `index/`。早期（2026-09-09）的并条账在 `merge_history[]`；此前 entity_merge.py 删档的并条只在留存方 `merged_in` 里有账。
+- 并条：留存方写 `merged_in[]`，被并方只留 stub（墓碑）并写 `merged_into`，**并条时不删档**（墓碑会在合并稳定后被定期整体清理，见 [common.md〈并条账〉](../common.md#七并条账)）（2026-10-09 目录经理定，overview#409；`.claude/qa/entity_merge.py` 已改为写墓碑）。网站按被并方记录的 `merged_into` 308 跳到留存方；build 现仍把墓碑列入 `index/`。早期（2026-09-09）的并条账在 `merge_history[]`；此前 entity_merge.py 删档的并条只在留存方 `merged_in` 里有账。
 - 退役：写 `retired: true` 与 `retired_reason`，记录保留。
 
 例（正式库，馬令 `hixhd2h9bv8d`，节录）：

@@ -1,6 +1,7 @@
 name: 去重值守（墓碑链／引用墓碑／title_info）
 # 把「7-值守」的机械检查搬进 CI，免得每次大批并条后人工复跑（方案 U4-a，2026-11-01）。
 #   T 墓碑链／merged_into 悬空或成环、L 活记录与 promotions／分类成员引用墓碑：非 0 即红（本仓 main 基线已清零）。
+#   墓碑是过渡状态，会定期整体清掉（.claude/qa/purge-tombstones）；积压超 5000 只报警。
 #   title_info 写成数组（schema 要字符串）：命中即红。
 #   D 草稿库指向正式墓碑：只报警不阻断——并条 PR 合入后草稿库才跟进，若阻断会互相等。
 # 全部只读。红了的修法：T／L 用 .claude/qa/fix_tomb_refs.py --apply（单行 JSON 与分类成员行要手改），
@@ -24,6 +25,11 @@ jobs:
           fi
       - name: 普查 T／L（非 0 即失败）
         run: python3 scripts/dedup-census.py --strict --out "$RUNNER_TEMP/census"
+      - name: 墓碑积压（只报警）
+        run: |
+          n=$(grep -rlE '"merged_into"' Work Book Entity Collection | wc -l)
+          echo "墓碑 $n 个"
+          if [ "$n" -gt 5000 ]; then echo "::warning::正式库墓碑已有 $n 个，并条稳定后请按 .claude/qa/purge-tombstones/README.md 整体清一次"; fi
       - uses: actions/checkout@v4
         with: { repository: open-guji/book-index-draft, path: book-index-draft }
       - name: 草稿库 D（只报警）

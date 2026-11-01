@@ -23,6 +23,17 @@ S5（overview#189）另加：通用 `todo`／`review`（審核狀態）形狀校
 import argparse, collections, glob, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 
+def _note_merged(d, acc):
+    """收一条记录上的并条账 id：merged_in[].id、merged_from[]、merge_history[].merged_from。"""
+    for m in d.get('merged_in') or []:
+        acc.add(m.get('id') if isinstance(m, dict) else m)
+    mf = d.get('merged_from')
+    acc.update(mf if isinstance(mf, list) else [mf])
+    for h in d.get('merge_history') or []:
+        if isinstance(h, dict):
+            x = h.get('merged_from')
+            acc.update(x if isinstance(x, list) else [x])
+
 def idx(fam):
     out = {}
     for f in glob.glob(os.path.join(ROOT, 'index', fam, '*.json')): out.update(json.load(open(f)))
@@ -276,11 +287,13 @@ def main():
             bad_be.append(bid)
     stale_related = []
     bad_tomb_target, bad_tomb_unindexed = [], []   # 墓碑：目標須存在且自身非墓碑（防懸空／鏈式）；墓碑檔須在 index/works 有條目
-    bad_merged_in = []   # 被併旧 id 必有墓碑（GUJI-126 #326 缺陷：23 个被併 Work 被直接删除，线上 404）
+    bad_merged_in = []   # 被併旧 id 的档若还在，须指回本 Work（墓碑可被定期清理，见 .claude/qa/purge-tombstones）
+    recorded = set()     # 并条账里记过的 id（merged_in／merged_from／merge_history 与清理台账），消失的 id 须在其中
     for wid, ie in IW.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(wid); continue
         d = json.load(open(p))
+        _note_merged(d, recorded)
         for f in ('period', 'loss_status', 'title', 'subtype'):
             x, y = ie.get(f), d.get(f)
             if x is None and y is None: continue
@@ -306,7 +319,8 @@ def main():
             mp = IW.get(mid, {}).get('path')
             try: md = json.load(open(os.path.join(ROOT, mp))) if mp else None
             except Exception: md = None
-            if not md or md.get('merged_into') != wid: bad_merged_in.append((wid, mid))
+            # 2026-11-01 起墓碑会被定期清掉（purge-tombstones）：被併者的档不在了不算错，只在档还在时要求它指回本 Work
+            if md and md.get('merged_into') != wid: bad_merged_in.append((wid, mid))
         for r in (d.get('related_works') or []):
             if r.get('id') and r['id'] not in ALL: dangle_w.append((wid, 'related_works', r['id']))
             if r.get('id') and r.get('title') is not None:
@@ -330,6 +344,7 @@ def main():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(eid); continue
         d = json.load(open(p))
+        _note_merged(d, recorded)
         dts = d.get('dates') if isinstance(d.get('dates'), dict) else {}
         for f in ('primary_name', 'dynasty', 'birth_year', 'death_year', 'period'):
             # B2 後源檔無 birth_year／death_year：index 的同名鍵由 dates.birth／dates.death 推出（整數才有）
@@ -393,11 +408,15 @@ def main():
         _ids = lambda files: {os.path.basename(f).split('-')[0] for f in files if f.endswith('.json')}
         _base_ids = _ids(_bl)
         _cur_ids = _ids(glob.glob(os.path.join(ROOT, 'Work', '*', '*', '*', '*.json')) + glob.glob(os.path.join(ROOT, 'Entity', '*', '*', '*', '*.json')))
-        vanished = sorted(_base_ids - _cur_ids)
+        # 清理台账里的旧 id 也算有记录
+        for _lf in glob.glob(os.path.join(ROOT, '.claude/qa/purge-tombstones/ledger/*.tsv')):
+            with open(_lf, encoding='utf-8') as _fh:
+                recorded.update(_l.split('\t', 1)[0] for _l in _fh.read().splitlines()[1:])
+        vanished = sorted(i for i in _base_ids - _cur_ids if i not in recorded)
         base_note = f'（基線 {a.base}：{len(_base_ids)} 個 Work／Entity id，現有 {len(_cur_ids)}，新增 {len(_cur_ids - _base_ids)}）'
     else:
         base_note = f'（基線 {a.base} 解析不到，略過）'
-    print(f'相對基線消失之 id（被併須留墓碑檔，不得直接刪） {len(vanished)} {base_note}')
+    print(f'相對基線消失而並條賬與清理台賬都沒記的 id（墓碑可清，但沒記過被併就消失是誤刪） {len(vanished)} {base_note}')
     for r in vanished[:10]: print('  消失', r)
     print(f'墓碑目標不存在或亦為墓碑 {len(bad_tomb_target)}')
     for r in bad_tomb_target[:10]: print('  墓碑目標', r)
