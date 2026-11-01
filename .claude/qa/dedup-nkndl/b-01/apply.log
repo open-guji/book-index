@@ -1,0 +1,146 @@
+===== nkndl-N01 work d59f2nfbhqf5 <- ['d59f2ngt6jnk']
+== 逐欄 diff（keeper | d59f2ngt6jnk）==
+** additional_titles  null | ["集古印譜"]
+** ai_note            "本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1evgc096z51c0(吳叡)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 descript | "missing_reason: 作者冲突 work=顧從德 vs anno=王常\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆
+** authors            [{"name": "王常", "role": "輯", "dynasty": "明", "entity_id": "hixhd2h9biha", "name_basis": "2026-08-24 補繫 entity：本條 authors 舊有名「王常」而無 entity_id，今繫 `1j96h | [{"name": "王常", "role": "撰", "entity_id": "hixhd2h9biha", "dynasty": "明", "dynasty_basis": "Entity 1j96h8rw86q2h=王常=明人（CBDB dy=20=明）"}]
+** description        {"text": "王常（明）輯。六卷。見著錄於《四庫全書存目叢書》。《四庫全書存目叢書》列於子部。其著錄之文，《四庫全書存目叢書》作「《集古印譜》六卷」。本書惟《四庫全書存目叢書》一志著錄，別無他證。", "sources": ["四庫全書存目叢書"]} | {"text": "王常（明）撰。六卷。見著錄於《國史經籍志》。其著錄之文，《國史經籍志》作「《印藪》六卷（王常）」。", "sources": ["國史經籍志", "欽定四庫全書總目"]}
+   dynasty            "明" | "明"
+** dynasty_basis      "author_propagation" | "據 authors[0].dynasty「明」（S5 缺值補齊，J19）"
+** id                 "d59f2nfbhqf5" | "d59f2ngt6jnk"
+** indexed_by         [{"source": "四庫全書存目叢書", "source_bid": "d59f2og4vke9", "title_info": "《集古印譜》六卷", "author_info": "明王常輯", "summary": "《集古印譜》六卷。明王常輯。北京大學圖書館藏明萬曆三年顧氏芸閣刻本。" | [{"source": "國史經籍志", "source_bid": "d59f2nl40936", "title_info": "《印藪》六卷", "summary": "《印藪》六卷（王常）", "author_info": "王常"}, {"source": "欽定四庫全書總目", "sour
+   juan_count         {"number": 6} | {"number": 6}
+   measure_info       "六卷" | "六卷"
+   measures           [{"unit": "卷", "number": 6}] | [{"unit": "卷", "number": 6}]
+** merged_from        null | ["d59f2nl9xr7k", "d59f2ne3shz6"]
+** merged_in          null | [{"id": "d59f2ne3shz6", "title": "印藪", "at": "2026-10-26T23:13:29Z", "by": "A11-去重方案3a", "rule": "去重方案 新-异人登记-史：同题首位责任者不同，经逐组核为同书（误字／异体／字号谥号／占位名／题名误切／
+   period             "ming" | "ming"
+** period_basis       "據 authors[0].dynasty「明」" | "據 authors[0].dynasty「明」（規則1 粗粒度自消歧；2026-08-21 補派生專項）"
+** related_works      [{"id": "d59fyv4w9la8", "relation": "related", "note": "史部E另立（anon）：總目記錄「集古印譜」（無作者）與既有 Work 題名相同或相近而不可證同書（记录无作者、目标 Work 有作者且卷数不符／缺：不能证同作者，默认另立＋related | null
+** resource_groups    {"nlc-312001043373": {"label": "國圖藏本：清乾隆間"}, "nlc-411999017203": {"label": "國圖藏本：明萬曆3年[1575]"}, "naikaku-1076705": {"label": "內閣文庫藏本：明刊本 顧氏芸閣（306-0209 | null
+** resources          [{"name": "维基共享资源", "types": ["image"], "id": "commons", "url": "https://commons.wikimedia.org/wiki/File:NCL-06770_%E9%9B%86%E5%8F%A4%E5%8D%B0%E8%AD%9 | [{"name": "维基共享资源", "types": ["image"], "id": "commons", "url": "https://commons.wikimedia.org/wiki/File:NCL-06770_%E9%9B%86%E5%8F%A4%E5%8D%B0%E8%AD%9
+   revised_at         "2026-10-26" | "2026-10-26"
+** revision           "1.2.0" | "1.1.0"
+   schema_version     1 | 1
+** title              "集古印譜" | "印藪"
+   type               "work" | "work"
+** updated_at         "2026-08-24T00:00:00+00:00" | "2026-04-29T16:51:33-07:00"
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f2nfbhqf5',)
+  **分類（zongmu）：被併者 d59f2ngt6jnk 在 zm0176，keeper 在 zm0321——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×2
+      ('d59f2ngt6jnk', 'period_basis', '據 authors[0].dynasty「明」', '據 authors[0].dynasty「明」（規則1 粗粒度自消歧；2026-08-21 補派生專項）')
+      ('d59f2ngt6jnk', 'dynasty_basis', 'author_propagation', '據 authors[0].dynasty「明」（S5 缺值補齊，J19）')
+  Book.work_id 改指 keeper  ×2
+      ('9952safjeo', 'd59f2ngt6jnk')
+      ('988g335w5p', 'd59f2ngt6jnk')
+  他條之併條賬指著被併者（墓誌，不改）  ×2
+      ('d59f2ne3shz6', 'merged_in', 'merged_into')
+      ('d59f2nl9xr7k', 'merged_in', 'merged_into')
+  分類成員行改指／刪（classification/zongmu/members/zm0176.json）  ×1
+      ('zm0176', 3790)
+  欄位搬遷（keeper 原無）  ×1
+      ('d59f2ngt6jnk', 'merged_from', ['d59f2nl9xr7k', 'd59f2ne3shz6'])
+  著錄移入 keeper  ×2
+      ('d59f2ngt6jnk', '國史經籍志', '《印藪》六卷')
+      ('d59f2ngt6jnk', '欽定四庫全書總目', '《印藪》·六卷')
+
+已併：d59f2nfbhqf5 <- d59f2ngt6jnk
+善後：著錄 2 節、他條關係 0 條記錄、存儲側引用改指 2 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== nkndl-N02 work d59f6ejm9atd <- ['d59f2nfvgx6o']
+== 逐欄 diff（keeper | d59f2nfvgx6o）==
+** ai_note            "撰人切分來源：又條承上。" | "本 Work 條目從《續修四庫全書》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴
+** authors            [{"name": "來復", "role": "撰", "entity_id": "hixhd2h9btwc"}] | [{"name": "釋來復", "role": "輯", "dynasty": "明", "entity_id": "hixhd2h9btwc", "name_basis": "2026-08-24 新建 entity `1jcf515129948` 並繫之——庫中舊無其人，說見該 entity 
+** description        {"text": "來復撰。見著錄於《千頃堂書目》。其著錄之文，《千頃堂書目》作「來復澹遊集」。本書惟《千頃堂書目》一志著錄，別無他證。《千頃堂書目》清黃虞稷撰——本書之目賴之以存。", "sources": ["千頃堂書目"]} | {"text": "釋來復（明）輯。見著錄於《續修四庫全書》。《續修四庫全書》列於集部 集部。其著錄之文，《續修四庫全書》作「《澹游集》」。本書惟《續修四庫全書》一志著錄，別無他證。別集之屬，所收為其人之詩文。《續修四庫全書》一九九五年影印——本書之目賴之以存。", "sources": ["續修四
+** dynasty            null | "明"
+** dynasty_basis      null | "author_propagation"
+** id                 "d59f6ejm9atd" | "d59f2nfvgx6o"
+** indexed_by         [{"source": "千頃堂書目", "source_bid": "d59f2mel8d1c", "title_info": "來復澹遊集", "author_info": "缺", "summary": "來復澹遊集⟨缺⟩"}] | [{"source": "續修四庫全書", "source_bid": "d59f2og4vksh", "title_info": "《澹游集》", "author_info": "(明)釋來復輯", "summary": "《澹游集》。(明)釋來復輯。影印國家圖書館藏清抄本。", "edition
+** period             null | "ming"
+** period_basis       null | "據 authors[0].dynasty「明」"
+** period_upper       "qing" | null
+** period_upper_basis "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜" | null
+** resource_groups    null | {"nlc-411999008743": {"label": "國圖藏本：清[1644-1911]"}, "nlc-412000006519": {"label": "國圖藏本：[出版年不詳]"}}
+** resources          [{"name": "维基共享资源", "types": ["image"], "id": "commons", "url": "https://commons.wikimedia.org/wiki/File:NLC892-411999008743-100113_%E6%BE%B9%E9%81%8A | [{"id": "wikimedia-commons-xuxiu", "name": "維基共享 續修四庫全書 DjVu", "short_name": "維基共享", "url": "https://commons.wikimedia.org/wiki/File:%E7%BA%8C%E4%BF%A
+** revised_at         "2026-09-07" | "2026-10-24"
+** revision           "1.0.1" | "1.2.0"
+   schema_version     1 | 1
+** title              "澹遊集" | "澹游集"
+   type               "work" | "work"
+** updated_at         null | "2026-08-24T00:00:00+00:00"
+
+== 將動之處 ==
+  **keeper description 有「別無他證／惟某志著錄」之語，併入新源後即失實——須人改**  ×1
+      ('d59f6ejm9atd',)
+  **分類（zongmu）：被併者 d59f2nfvgx6o 在 zm0664，keeper 在 zm0666——刪被併者之行，留 keeper 的；類不同須人看**  ×1
+      ()
+  分類成員行改指／刪（classification/zongmu/members/zm0664.json）  ×1
+      ('zm0664', 4247)
+  欄位搬遷（keeper 原無）  ×6
+      ('d59f2nfvgx6o', 'resources', [{'id': 'wikimedia-commons-xuxiu', 'name': '維基共享 續修四庫全書 DjVu', 'short_name': '維基共享', 'url': 'https://commons.wikimedia.org/wiki/File:%E7%BA%8C%E4%BF%AE%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E7%AC%AC1622%E5%86%8A.djvu', 'metadata': {'volume': 1622}, 'types': ['image']}, {'name': '维基共享资源', 'types': ['image'], 'id': 'commons', 'url': 'https://commons.wikimedia.org/wiki/File:%E6%BE%B9%E6%B8%B8%E9%9B%86.djvu'}, {'id': 'nlc', 'group': 'nlc-411999008743', 'group_role': 'origin', 'name': '中華古籍資源庫（國家圖書館）', 'short_name': '國圖', 'url': 'http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999008743', 'types': ['image'], 'metadata': {'nlc_fid': '411999008743', 'edition': '清[1644-1911]'}}, {'id': 'nlc', 'group': 'nlc-412000006519', 'group_role': 'origin', 'name': '中華古籍資源庫（國家圖書館）', 'short_name': '國圖', 'url': 'http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412000006519', 'types': ['image'], 'metadata': {'nlc_fid': '412000006519', 'edition': '[出版年不詳]'}}])
+      ('d59f2nfvgx6o', 'resource_groups', {'nlc-411999008743': {'label': '國圖藏本：清[1644-1911]'}, 'nlc-412000006519': {'label': '國圖藏本：[出版年不詳]'}})
+      ('d59f2nfvgx6o', 'period', 'ming')
+      ('d59f2nfvgx6o', 'period_basis', '據 authors[0].dynasty「明」')
+      ('d59f2nfvgx6o', 'dynasty', '明')
+      ('d59f2nfvgx6o', 'dynasty_basis', 'author_propagation')
+  著錄移入 keeper  ×1
+      ('d59f2nfvgx6o', '續修四庫全書', '《澹游集》')
+
+已併：d59f6ejm9atd <- d59f2nfvgx6o
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 0 條記錄、分類檔 1、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+===== nkndl-N03 work d59f2084tb0g <- ['d59fkwn0o935']
+== 逐欄 diff（keeper | d59fkwn0o935）==
+** additional_titles  ["白虎通", "白虎通德論"] | null
+** ai_note            "2026-08-20 整理本落空繫連回收專項：整理本有節繫於已不存在之 work id（`1evcpcurn4q9s`），據題名唯一回收於本條，並補其著錄。\n\n2026-08-23 描述補全專項（C 級 desc 全空批次）：description 由空補寫。所據為本條所繫著錄之引文（見 in | "2026-09-26 K3道《補後漢書藝文志》（侯康）整理：據《補後漢書藝文志》（侯康撰）新建。原文「班固等白虎通六卷」。"
+** authors            [{"name": "班固", "role": "撰", "dynasty": "東漢", "note": "東漢明帝建初四年（79年）白虎觀會議後奉敕撰。", "entity_id": "hixhd2h9bdqa"}] | [{"name": "班固", "role": "撰", "dynasty": "東漢", "entity_id": "hixhd2h9bdqa"}]
+** description        {"text": "東漢章帝建初四年（79）會諸儒於白虎觀，考詳五經同異，帝親臨稱制如宣帝石渠故事，班固奉詔撰集其議而成，一名《白虎通德論》《白虎通》。分爵、號、諡、社稷等四十餘門，存今文經說之大略而兼採讖緯，為東漢官定經學之總匯。《隋志》六卷，今傳四卷，清陳立《白虎通疏證》為通行整理本。今存。", | null
+** dynasty            "東漢" | null
+** emendated_by       [{"source": "隋書經籍志考證", "source_bid": "d59f2mp0flz6", "title_info": "白虎通六卷", "summary": "白虎通六卷\n不著撰人。\n《後漢書章帝本紀》:“建初四年冬十一月壬戌,詔曰:“蓋\n三代導人,教學為本。漢承暴秦,褒顯儒術 | null
+** id                 "d59f2084tb0g" | "d59fkwn0o935"
+** indexed_by         [{"source": "直齋書錄解題", "source_bid": "d59f2htm01du", "summary": "漢尚書郎班固撰。章帝建初四年，詔諸儒會白虎觀，講議《五經》同異。五官中郎將魏應承制問，侍中淳於恭奏，帝親稱制臨決，作《白虎議奏》，蓋用宣帝石渠故事也。《石渠議奏》今不傳矣。 | [{"source": "補後漢書藝文志", "source_bid": "d59f2o2lm0ht", "title_info": "班固等 白虎通六卷", "summary": "白虎通六卷<班固等撰。>"}]
+** juan_count         {"number": 10} | null
+** loss_status        "extant" | null
+** measure_info       "十卷" | "六卷"
+** measures           [{"unit": "卷", "number": 10}] | null
+** merged_from        ["d59f2q6y2ps0"] | null
+** merged_in          [{"id": "d59f2q6y2ps0", "title": "白虎通德論", "at": "2026-10-26T12:08:42Z", "by": "A11-去重方案3a-3", "rule": "去重方案3a-3：异题名同书，著录原文自证（一名／又名／原名／即）B 档逐条复核并", "wh | null
+   period             "qin-han" | "qin-han"
+** period_basis       "據 authors[0].dynasty「東漢」" | "2026-09-26 K3道《補後漢書藝文志》（侯康）整理：《補後漢書藝文志》著錄，東漢一代著述（隨全書斷限）。"
+** period_upper       "song" | null
+** period_upper_basis "catalog_bound：所繫諸志中最緊者為《崇文總目》（宋王堯臣等（1041），北宋崇文院藏書），故不晚於 song" | null
+** resource_groups    {"nlc-1303": {"label": "國圖藏本：元大德[1297-1307]"}, "nlc-1304": {"label": "國圖藏本：清[1644-1911]"}, "nlc-411999029548": {"label": "國圖藏本：明[1368-1644]"}, "nlc-41 | null
+** resources          [{"name": "维基共享资源", "types": ["image"], "id": "commons", "url": "https://commons.wikimedia.org/wiki/File:%E6%96%87%E6%B7%B5%E9%96%A3%E5%9B%9B%E5%BA%AB | null
+** revised_at         "2026-10-26" | "2026-09-26"
+** revision           "1.6.0" | "1.0.0"
+   schema_version     1 | 1
+** title              "白虎通義" | "白虎通"
+   type               "work" | "work"
+** updated_at         "2026-08-24T00:00:00+00:00" | null
+
+== 將動之處 ==
+  **欄位衝突（兩邊皆有且不同，不搬，須人看）**  ×2
+      ('d59fkwn0o935', 'period_basis', '據 authors[0].dynasty「東漢」', '2026-09-26 K3道《補後漢書藝文志》（侯康）整理：《補後漢書藝文志》著錄，東漢一代著述（隨全書斷限）。')
+      ('d59fkwn0o935', 'measure_info', '十卷', '六卷')
+  Book.work_id 改指 keeper  ×8
+      ('995b8s4740', 'd59fkwn0o935')
+      ('995b8s4741', 'd59fkwn0o935')
+      ('994et0e9z4', 'd59fkwn0o935')
+      ('993n7afev4', 'd59fkwn0o935')
+      ('995b8sffnk', 'd59fkwn0o935')
+      ('994ep6qmf4', 'd59fkwn0o935')
+      ('99819vao3h', 'd59fkwn0o935')
+      ('994g14wydc', 'd59fkwn0o935')
+  著錄移入 keeper  ×1
+      ('d59fkwn0o935', '補後漢書藝文志', '班固等 白虎通六卷')
+
+已併：d59f2084tb0g <- d59fkwn0o935
+善後：著錄 1 節、他條關係 0 條記錄、存儲側引用改指 8 條記錄、分類檔 0、刪檔 1
+下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），python3 .claude/qa/check_v2.py --paths <改動之檔>
+
+promotions 文件改动： 0
