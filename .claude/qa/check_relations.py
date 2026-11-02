@@ -2,7 +2,7 @@
 """people.relations[] 跨记录检查（2026-11-01，A12）。
 用法：python3 .claude/qa/check_relations.py [仓根]
 查：type 在枚举内；entity_id 存在、是 people、未被并/退役、不是自己；同一 (entity_id,type) 不重复；
-对称（甲有 {type:T, 乙} 则乙有 {type:逆称(T), 甲}）；sources 项是对象。
+对称（甲有 {type:T, 乙} 则乙有 {type:逆称(T), 甲}）；sources 非空且项是对象。
 印出「扫 N 檔、含 relations M 檔、关系项 K」，防扫 0 文件假绿。有错退出码 1。"""
 import json, os, sys
 ROOT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')
@@ -36,6 +36,7 @@ for i, d in recs.items():
         seen.add((e, t))
         if not any(y.get('entity_id') == i and y.get('type') == INV[t] for y in (o.get('relations') or [])):
             errs.append((i, '缺对称项：%s 应有 {%s, %s}' % (e, INV[t], i)))
+        if not x.get('sources'): errs.append((i, 'sources 必填且指到具体文本'))
         for s in x.get('sources', []):
             if not isinstance(s, dict): errs.append((i, 'sources 项须为对象'))
 print('扫 %d 檔、含 relations %d 檔、关系项 %d；错误 %d' % (scanned, nfile, nitem, len(errs)))
