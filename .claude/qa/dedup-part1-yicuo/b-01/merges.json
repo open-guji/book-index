@@ -1,0 +1,140 @@
+{
+ "base": "db504482efaa419bc1b15f7291d042bc34d2bca9",
+ "merges": [
+  {
+   "cluster_id": "p1yc-d59fxxs1perk",
+   "type": "work",
+   "keeper": "d59fxxs1perk",
+   "losers": [
+    "d59fykwoly4g"
+   ],
+   "evidence": "同一實物自證：兩條都著錄「清光緒（九年）常昭刻經處刻本（天津圖書館）」，同唐釋澄觀撰；80/220卷只是總目著錄分卷計法之異（220卷條另列實叉難陀為所含經文譯者）",
+   "rule": "去重方案部分1存疑核定：有硬证据者并（同一实物／同一版本／同作者同题自证）",
+   "preconditions": [
+    {
+     "id": "d59fxxs1perk",
+     "path": "Work/e/r/k/d59fxxs1perk-大方廣佛華嚴經疏鈔會本.json",
+     "sha256": "f519c6823b031b48888129dc3b70d045a33ad7da19c1de36aca35c3449075fb0"
+    },
+    {
+     "id": "d59fykwoly4g",
+     "path": "Work/y/4/g/d59fykwoly4g-大方廣佛華嚴經疏鈔會本.json",
+     "sha256": "0453e6d2dbe878242a00df72312034b4d989528191810a6bd9f49df8cbc96b50"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [
+    {
+     "loser": "d59fykwoly4g",
+     "name": "實叉難陀",
+     "entity_id": "hixhd2h9bnrk"
+    }
+   ],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "p1yc-d59fxz3mgkcg",
+   "type": "work",
+   "keeper": "d59fxz3mgkcg",
+   "losers": [
+    "d59fyjschxq9"
+   ],
+   "evidence": "同一版本自證：二卷條所列「周氏醫學叢書本」即四卷條 Book 11soefs9olrsz（清光緒十七年池陽周氏刻）；同元朱震亨（同 Entity hixhd2h9beti），丹溪朱氏脈因證治原題括注「脈因證治」，二卷與四卷為周學海刻入叢書時分卷之異",
+   "rule": "去重方案部分1存疑核定：有硬证据者并（同一实物／同一版本／同作者同题自证）",
+   "preconditions": [
+    {
+     "id": "d59fxz3mgkcg",
+     "path": "Work/k/c/g/d59fxz3mgkcg-脈因證治.json",
+     "sha256": "3d9c7adea8ce8eba49c1661b27722abdc3b355375f0c140153124adbdd83080b"
+    },
+    {
+     "id": "d59fyjschxq9",
+     "path": "Work/x/q/9/d59fyjschxq9-丹溪朱氏脈因證治.json",
+     "sha256": "99cce42b225f4d9591ff7fedca50378e89949a66cb0e9a4efc80d5f85c82e800"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fyjschxq9 在 zm0379，keeper 在 zm0359——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "p1yc-d59fyh4fu0w1",
+   "type": "work",
+   "keeper": "d59fyh4fu0w1",
+   "losers": [
+    "d59fyk6fqlts"
+   ],
+   "evidence": "同題「神咒錄」，同 Entity 皇甫周（hixiclg00jlb，兩條同一人 Entity 非僅 person_uri 相同），一為養生導引類（山東省圖）、一為居家必備本（道術符圖類，標宋）；朝代明／宋為總目標注差異，保留 keeper 明，一卷與無卷數不衝突",
+   "rule": "去重方案部分1存疑核定：有硬证据者并（同一实物／同一版本／同作者同题自证）",
+   "preconditions": [
+    {
+     "id": "d59fyh4fu0w1",
+     "path": "Work/0/w/1/d59fyh4fu0w1-神咒錄.json",
+     "sha256": "e5b4db3acb564f03e6435d8fe89ebabd7f169121fd3e7f9b40016d9a9efdc212"
+    },
+    {
+     "id": "d59fyk6fqlts",
+     "path": "Work/l/t/s/d59fyk6fqlts-神咒錄.json",
+     "sha256": "84f6719c7b2a912473bde4d6d4f8044e34c0b52c39da9467318f263bd95c926a"
+    }
+   ],
+   "retained_alternatives": [
+    {
+     "loser": "d59fyk6fqlts",
+     "fields": [
+      {
+       "field": "dynasty",
+       "keeper_value": "明",
+       "loser_value": "宋"
+      },
+      {
+       "field": "period",
+       "keeper_value": "ming",
+       "loser_value": "song"
+      },
+      {
+       "field": "period_basis",
+       "keeper_value": "據 authors[0].dynasty「明」",
+       "loser_value": "據 authors[0].dynasty「宋」"
+      }
+     ]
+    }
+   ],
+   "classification_decisions": [
+    "分類（zongmu）：被併者 d59fyk6fqlts 在 zm0521，keeper 在 zm0402——刪被併者之行，留 keeper 的；類不同須人看"
+   ],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  },
+  {
+   "cluster_id": "p1yc-d59fypvdyww1",
+   "type": "work",
+   "keeper": "d59fypvdyww1",
+   "losers": [
+    "d59fz73fyadc"
+   ],
+   "evidence": "同一實物自證：兩條 title_info 同為「絳守居園池記註一卷／清張子特箋註」，館藏同為浙江圖書館、上海圖書館、國家圖書館，民國八年刻合刻本被按注家拆成兩條",
+   "rule": "去重方案部分1存疑核定：有硬证据者并（同一实物／同一版本／同作者同题自证）",
+   "preconditions": [
+    {
+     "id": "d59fypvdyww1",
+     "path": "Work/w/w/1/d59fypvdyww1-絳守居園池記註.json",
+     "sha256": "43696d3bed185f0303d523f86be779a6349fa86615e4e946e27fc6b09a098460"
+    },
+    {
+     "id": "d59fz73fyadc",
+     "path": "Work/a/d/c/d59fz73fyadc-絳守居園池記註.json",
+     "sha256": "05fcb4ffc0c5261da6d6f671ee2f33f916d52bd5ba086129fe13e438f0b0c5cc"
+    }
+   ],
+   "retained_alternatives": [],
+   "classification_decisions": [],
+   "dropped_author_entities": [],
+   "loser_original_notes": {}
+  }
+ ]
+}
