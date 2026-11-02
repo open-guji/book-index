@@ -69,8 +69,8 @@
     }
   ],
   "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；源記錄：2ce6r2f1advvg4q2\n\n2026-10-26 A6续-上圖 馆藏挂接：按确定档补挂 上圖 1 条（书目页）。依据见 book-index-manager docs/馆藏资源挂接/报告/A6续-上图Book层挂接-20261026.md。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-26",
+  "revision": "1.3.0",
+  "revised_at": "2026-11-01",
   "resources": [
     {
       "id": "shlib",
@@ -90,11 +90,48 @@
         "publisher": "古微堂",
         "extent": "20冊"
       }
+    },
+    {
+      "id": "nlc",
+      "group": "nlc-411999032149",
+      "group_role": "origin",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "short_name": "國圖",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999032149",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999032149",
+        "edition": "清道光24年[1844]"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "group": "ncltw-22044",
+      "group_role": "origin",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "short_name": "臺灣國圖",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/22044",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "22044",
+        "call_number": "210.7 22044",
+        "edition": "清道光二十四年(1844)古微堂活字本"
+      }
     }
   ],
   "resource_groups": {
     "shlib-4tjv7k1vohhz80iz": {
       "label": "上海圖書館藏本書目：清道光24年(1844) 木活字本"
+    },
+    "nlc-411999032149": {
+      "label": "國圖藏本：清道光24年[1844]"
+    },
+    "ncltw-22044": {
+      "label": "臺灣國家圖書館藏本：清道光二十四年(1844)古微堂活字本"
     }
   }
 }
