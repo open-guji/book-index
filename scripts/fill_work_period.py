@@ -47,7 +47,7 @@ def main():
             if False and dy in DYN and dy not in AMB:  # dyn 路线 2026-11-02 抽检错 6.7%（多为叢書子目承叢書撰者朝代），已停用
                 c.append(('dyn',DYN[dy],f'據 authors[0].dynasty「{dy}」（A11 {TODAY} 補）'))
             e=E.get(a0.get('entity_id') or '')
-            if e and e.get('period') and not e.get('merged_into'):
+            if e and e.get('period') and not e.get('merged_into') and not dy:  # 撰人朝代闕才据 Entity；authors 已写朝代者属 dyn 路线（已停用）
                 eb=e.get('period_basis') or ''
                 if re.search('所繫|從所繫',eb): stat['skip_circular']+=1
                 elif e.get('dynasty') in AMB: stat['skip_amb']+=1
@@ -57,6 +57,7 @@ def main():
             if r and not a: c.append(('note',r[0],f'據國圖著錄責任者朝代「{r[1]}」（ai_note 載，A11 {TODAY} 補）'))
         r=bracket(d['title'])
         if r:
+            if not c and a and a[0].get('dynasty'): stat['skip_bracket_dyn']+=1; continue  # 已写朝代而 period 未补者另有缘故（dyn 路线已回滚）
             if not c: c.append(('bracket',r[0],f'據題名首纂修年號「{r[1]}」（A11 {TODAY} 補）'))
             elif r[0] not in {x[1] for x in c}: conf.append((d['id'],d['title'],'bracket_vs_author',sorted({x[1] for x in c}|{r[0]}))); continue
         if not c: stat['nocand']+=1; continue
