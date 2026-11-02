@@ -39,11 +39,12 @@ def main():
         if d.get('period') or d.get('merged_into'): continue
         a=d.get('authors') or []
         c=[]
+        if '不一致' in (d.get('ai_note') or '') and '未寫' in (d.get('ai_note') or ''): stat['skip_inconsistent_note']+=1; continue  # 录入时有意未写朝代
         if a:
             a0=a[0]
             if re.search('舊題|旧题|偽|僞|托',(a0.get('role') or '')+str(a0.get('role_basis',''))): stat['skip_attrib']+=1; continue
             dy=a0.get('dynasty')
-            if dy in DYN and dy not in AMB:
+            if False and dy in DYN and dy not in AMB:  # dyn 路线 2026-11-02 抽检错 6.7%（多为叢書子目承叢書撰者朝代），已停用
                 c.append(('dyn',DYN[dy],f'據 authors[0].dynasty「{dy}」（A11 {TODAY} 補）'))
             e=E.get(a0.get('entity_id') or '')
             if e and e.get('period') and not e.get('merged_into'):
