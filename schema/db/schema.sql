@@ -184,8 +184,7 @@ CREATE INDEX ON merged_into (live_id);
 -- item_id 可为 Book 或 Collection id；entity_id 存 book-text 里的原始 id（可能已并条），不加外键，派生时按 merged_into 解析
 CREATE TABLE mention (entity_id text NOT NULL, item_id text NOT NULL, chapter text NOT NULL, n int NOT NULL, PRIMARY KEY (entity_id, item_id, chapter));
 CREATE INDEX ON mention (item_id);
--- book-text 有无（D5）
-CREATE TABLE book_text (book_id text NOT NULL, kind text NOT NULL, version text, juan int, PRIMARY KEY (book_id, kind));
+-- book-text 各表见 book_text.sql（bt_ 前缀与 fragment*）
 
 -- ============ 检索索引 ============
 CREATE INDEX ON work  USING gin (title gin_trgm_ops);
