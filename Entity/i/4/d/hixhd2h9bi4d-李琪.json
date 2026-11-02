@@ -9,22 +9,21 @@
     "cbdb_id": 93049,
     "cbdb_match": "manual",
     "cbdb_source": "manual（#489 N 2026-10-09）：後唐李琪 871-930 著《金門集》《應用集》《玉堂儀範》《皇王大政論》，與本條所繫合；《春秋王霸列國世紀編》屬南宋李琪（CBDB 3473），待拆",
-    "wikidata_id": "Q45433600"
+    "wikidata_id": "Q16239733"
   },
   "updated_at": "2026-08-24T00:00:00+00:00",
   "dynasty_basis": "CBDB 93049 後唐李琪（#489 N 2026-10-09）",
-  "period": "song",
-  "period_basis": "据 dynasty「北宋」自动归并",
-  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 4 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-04 坑32 修復批次：補繫《李琪應用集》（work d59f2q7b6osh），依別集類「人名+集」書名體例。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=40714 補入空槽——籍貫「伊闕」。既有之值一概未動。\n\n2026-10-09 #489 CBDB 改繫：原 pending_accept cbdb_id=40714 與本條所繫作品不合，改繫 93049（後唐李琪 871-930 著《金門集》《應用集》《玉堂儀範》《皇王大政論》，與本條所繫合；《春秋王霸列國世紀編》屬南宋李琪（CBDB 3473），待拆）。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-09",
-  "native_place": "伊闕",
-  "native_place_entity_id": "hixi6kezd0xz",
-  "native_place_basis": "CBDB 40714 index_addr（2026-09-06 CBDB enrich）",
+  "period": "five-dynasties",
+  "period_basis": "據 dynasty「後唐」自動歸併（原「北宋」出自舊繫 40714）",
+  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 4 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-04 坑32 修復批次：補繫《李琪應用集》（work d59f2q7b6osh），依別集類「人名+集」書名體例。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=40714 補入空槽——籍貫「伊闕」。既有之值一概未動。\n\n2026-10-09 #489 CBDB 改繫：原 pending_accept cbdb_id=40714 與本條所繫作品不合，改繫 93049（後唐李琪 871-930 著《金門集》《應用集》《玉堂儀範》《皇王大政論》，與本條所繫合；《春秋王霸列國世紀編》屬南宋李琪（CBDB 3473），待拆）。\n\n2026-11-02 核 Wikidata：原 wikidata_id=Q45433600 對應的 CBDB 號與本條現繫 cbdb_id=93049 不同（#489／X1／X3 改繫 CBDB 時未同步），改為 P497 反查唯一對應 Q16239733（標籤李琪/李琪/李琪）。隨 CBDB 改繫更正：生卒原 925–1008 出自舊繫 40714（宋李琪），改為 871–930；加字「台秀」；籍貫原「伊闕」改「燉煌」並撤 native_place_entity_id；period 改 five-dynasties。",
+  "revision": "1.1.1",
+  "revised_at": "2026-11-02",
+  "native_place": "燉煌",
+  "native_place_basis": "CBDB 93049 index_addr（2026-11-02 隨改繫更正，原伊闕出自舊繫 40714）",
   "dates": {
-    "birth": 925,
-    "death": 1008,
-    "basis": "現行字段"
+    "birth": 871,
+    "death": 930,
+    "basis": "CBDB 93049；Wikidata Q16239733 同"
   },
   "merged_in": [
     {
@@ -34,6 +33,12 @@
       "by": "D4-Entity清账",
       "rule": "keeper: cbdb>朝代与CBDB相容/生卒>作品数>较早id",
       "why": "P4b 疑似重复人物（批3）：同一部书：《金門集》↔《李琪金門集》；同见國史經籍志"
+    }
+  ],
+  "alt_names": [
+    {
+      "name": "台秀",
+      "type": "字"
     }
   ]
 }
