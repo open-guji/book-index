@@ -1,0 +1,4 @@
+你是古籍目录学盲复核员（独立判断，只读，不改仓库、不做 git）。全程中文。口径「宁缺毋滥」。
+输入 /tmp/claude-0/-home-user/d7f122ca-9551-55fa-9062-6f9fcaa98335/scratchpad/pack4/{FILE}（jsonl，每行一个名字）：待挂作者位（slots）与库里唯一候选人物（cand：生卒、籍贯、已挂作品样例）。请你重新独立判断这些书是否确为该候选人物所著/编/辑/校。请务必逐条检查 slots 里每个作者位（不只看大名）：题名、责任方式、朝代、部类与该人生平和著述领域是否相合；同名异人（尤其地方志修纂者、硃卷考生、谱牒、明清小官吏同名）极常见，有明显不合者放入 exclude（填该 slot 的 k 值）。可用 WebSearch 查证无把握者。
+判 SAME（可带 exclude）/DIFF/UNSURE。输出 /tmp/claude-0/-home-user/d7f122ca-9551-55fa-9062-6f9fcaa98335/scratchpad/verdicts4/{FILE}，每名字一行：{"name","slot_dyn","chunk","verdict","eid","exclude":[k...],"reason":"具体证据"}，写完 wc -l 核对。最后回复只给：名字数、SAME/DIFF/UNSURE 计数、exclude 总数。
+补充：每行是一个名字的一个 chunk（≤14 个作者位）；对 cohort=C（候选仅挂 1–4 部）要求更严，须有书与人的明确对应才 SAME，请对重点名字用 WebSearch 查证；输出行回填 chunk。
