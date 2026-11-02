@@ -35,8 +35,8 @@
   "period": "song",
   "period_basis": "据 dynasty「南宋」自动归并",
   "ai_note": "2026-08-25 雙向補繫：下列 work 之 authors[].entity_id 已指本條，而本條 works 未回指（chk〈作品→人物 單向〉），今補——`1evr5e3m76ruf`《宋袁燮絜齋毛詩經筵講義》。\n2026-08-25 works 死鏈清理：所指 work 檔兩倉皆無（歷次併條/刪條之積欠），去之：1evr5e3m76ruf。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10289 補入空槽——籍貫「鄞縣」。既有之值一概未動。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "native_place": "鄞縣",
   "native_place_entity_id": "hixi4ui5u4ug",
   "native_place_basis": "CBDB 10289 index_addr（2026-09-06 CBDB enrich）",
@@ -53,5 +53,75 @@
         "details": "http://data.library.sh.cn/entity/person/0kh1fxeytgj0opae"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "父",
+      "entity_id": "hixhd2h9be3z",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 183（S2）"
+        }
+      ]
+    },
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bgan",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 183（S2）"
+        }
+      ]
+    },
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9becw",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    },
+    {
+      "type": "弟子",
+      "entity_id": "hixhd2h9bdrf",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 19"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 20"
+        }
+      ]
+    }
+  ]
 }

@@ -25,8 +25,8 @@
     "death": 1928,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "description": {
     "sources": [
       {
@@ -35,5 +35,36 @@
         "details": "http://data.library.sh.cn/entity/person/yrv2hzk75z34wnho"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bdi4",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    },
+    {
+      "type": "姪",
+      "entity_id": "hixi5j4n6bu1",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 177（BS）"
+        }
+      ]
+    }
+  ]
 }

@@ -34,8 +34,8 @@
   "period": "sui-tang",
   "period_basis": "據 dynasty「唐」自動歸併",
   "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=13575 補入空槽——籍貫「歷陽」。既有之值一概未動。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "native_place": "歷陽",
   "native_place_entity_id": "hixi6kydy4nl",
   "native_place_basis": "CBDB 13575 index_addr（2026-09-06 CBDB enrich）",
@@ -52,5 +52,24 @@
         "details": "http://data.library.sh.cn/entity/person/gzmgldxluevxynhw"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "弟子",
+      "entity_id": "hixhd2h9bhej",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    }
+  ]
 }

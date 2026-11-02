@@ -24,7 +24,43 @@
   "native_place": "清江",
   "native_place_entity_id": "hixi4ui65dds",
   "native_place_basis": "CBDB 3593 index_addr（2026-09-06 CBDB enrich）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07",
-  "dynasty_basis": "synonym:period=song"
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
+  "dynasty_basis": "synonym:period=song",
+  "relations": [
+    {
+      "type": "曾孫",
+      "entity_id": "hixhd2h9bfc0",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 48（FFF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 255（SSS）"
+        }
+      ]
+    },
+    {
+      "type": "弟子",
+      "entity_id": "hixhd2h9bep4",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    }
+  ]
 }

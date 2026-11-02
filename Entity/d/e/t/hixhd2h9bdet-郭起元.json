@@ -20,7 +20,7 @@
   "updated_at": "2026-08-08T11:51:58+00:00",
   "period": "qing",
   "period_basis": "據 dynasty「清」自動歸併",
-  "revision": "1.0.1",
+  "revision": "1.1.0",
   "revised_at": "2026-11-01",
   "description": {
     "sources": [
@@ -30,5 +30,19 @@
         "details": "http://data.library.sh.cn/entity/person/f8p2jrwrogx18g7l"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bdiy",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    }
+  ]
 }

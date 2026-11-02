@@ -30,8 +30,8 @@
   "dynasty_basis": "cbdb:birth/death_name=北宋",
   "period": "song",
   "period_basis": "据 dynasty「北宋」自动归并",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-30",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "native_place": "開封",
   "native_place_entity_id": "hixi4ui65ddv",
   "native_place_basis": "CBDB 8100 index_addr（2026-09-06 CBDB enrich）",
@@ -39,5 +39,24 @@
     "birth": 979,
     "death": 1044,
     "basis": "現行字段"
-  }
+  },
+  "relations": [
+    {
+      "type": "父",
+      "entity_id": "hixhd2h9bph6",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 184（S3）"
+        }
+      ]
+    }
+  ]
 }

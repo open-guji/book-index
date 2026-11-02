@@ -28,8 +28,8 @@
   "dynasty_basis": "CBDB 25794 c_dy=27（2026-09-06 CBDB enrich）",
   "native_place": "剡縣",
   "native_place_basis": "CBDB 25794 index_addr（2026-09-06 CBDB enrich）",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "merged_in": [
     {
       "id": "hixhjtdb4hdx",
@@ -38,6 +38,25 @@
       "by": "D4-Entity清账",
       "rule": "A12 官名前缀误建并条",
       "why": "误建条：主名「黃門郎王徽之」为官名＋人名连书，所指即已有条（A12 2026-11-01）"
+    }
+  ],
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bgv7",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 184（S3）"
+        }
+      ]
     }
   ]
 }

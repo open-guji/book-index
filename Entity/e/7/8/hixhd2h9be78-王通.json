@@ -29,8 +29,8 @@
     "death": 616,
     "basis": "現行字段"
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-11-02",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "description": {
     "sources": [
       {
@@ -39,5 +39,24 @@
         "details": "http://data.library.sh.cn/entity/person/d0i7gtrxtwh0ekad"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9bgb7",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    }
+  ]
 }

@@ -50,13 +50,13 @@
   ],
   "subtype": "people",
   "schema_version": 1,
-  "revised_at": "2026-10-30",
+  "revised_at": "2026-11-01",
   "dates": {
     "birth": 1084,
     "death": 1145,
     "basis": "現行字段"
   },
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "description": {
     "sources": [
       {
@@ -65,5 +65,92 @@
         "details": "http://data.library.sh.cn/entity/person/xvw1m2vak463g1ui"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "孫",
+      "entity_id": "hixhd2h9beyn",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 62（FF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 243（SS）"
+        }
+      ]
+    },
+    {
+      "type": "曾孫",
+      "entity_id": "hixhd2h9bph6",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 48（FFF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 255（SSS）"
+        }
+      ]
+    },
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9bdx0",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    },
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9bfe8",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    },
+    {
+      "type": "師",
+      "entity_id": "hixi23uqvy8d",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    }
+  ]
 }

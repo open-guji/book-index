@@ -43,8 +43,8 @@
   "period": "song",
   "period_basis": "据 dynasty「南宋」自动归并",
   "ai_note": "2026-08-22 E1 人物併池：1j967bgl8kqxz 併入本條。二者之名僅異體之別（黃幹／黃榦），朝代同，生卒年不相斥，是同一人被拆成二條。異體之名存 alt_names；CBDB 另予之 id 存 external_ids.cbdb_id_alt。\n2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n2026-08-24 新收 1 部 work 之繫——其 authors 作「名＋字」連書之形，本是一人。\n\n2026-08-25 同名同代者歸併：併入同名之條（`1jcf515129a5a`）。二條同名、同 period，其所繫之 work 亦相類，是庫中一人兩目——或本日新建之際未撞既有，或朝代之詳略異（「晉」與「東晉」、「漢」與「東漢」）而各立一條。今取其 work 較備者為正，餘併入之，alt_names 與 works 悉收。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=11134 補入空槽——籍貫「閩縣」。既有之值一概未動。\n\n2026-10-13 X3 余項（GUJI-30）：摘 `cbdb_id_alt` [10742] 及 alt_names「尚質」。查 CBDB：10742 黃幹，長溪人，字尚質，無生卒，自有 Wikidata Q10567174 與中文維基「黃幹」條；本條 11134 黃榦，閩縣人，1152–1221，字直卿，Wikidata Q10567181——二者是二人，併池僅憑異體字而誤並。「黃幹」留作本人之異體寫法；已併入之 works 中是否有屬 10742 者，待核（見 GUJI-30 余項）。原值可由本段復原。",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-04",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "native_place": "閩縣",
   "native_place_entity_id": "hixi5watl81t",
   "native_place_basis": "CBDB 11134 index_addr（2026-09-06 CBDB enrich）",
@@ -61,6 +61,88 @@
       "by": "D4-Entity清账",
       "rule": "GUJI-189 異寫作者並條",
       "why": "同人異寫：黃幹並入黃榦（規範名黃榦，宋史本傳）"
+    }
+  ],
+  "relations": [
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9bffy",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    },
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9bhi6",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    },
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9bhoh",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    },
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9bodz",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    },
+    {
+      "type": "弟子",
+      "entity_id": "hixhd2h9bgah",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
     }
   ]
 }

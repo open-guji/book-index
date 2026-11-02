@@ -48,8 +48,8 @@
     ],
     "basis": "cbdb:index_year"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-30",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "merged_in": [
     {
       "id": "hixie9ljhji8",
@@ -58,6 +58,25 @@
       "by": "D4-Entity清账",
       "rule": "A12-b03 同名同书/同生平",
       "why": "A12 b03 自检：新建后发现库内已有同人（龔頤正，著作或生平相合），并入留存条"
+    }
+  ],
+  "relations": [
+    {
+      "type": "曾孫",
+      "entity_id": "hixhd2h9bgci",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 48（FFF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 255（SSS）"
+        }
+      ]
     }
   ]
 }

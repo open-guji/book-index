@@ -33,7 +33,7 @@
   "review": {
     "status": "unreviewed"
   },
-  "revision": "1.0.3",
+  "revision": "1.1.0",
   "revised_at": "2026-11-01",
   "alt_names": [
     {
@@ -65,5 +65,41 @@
     "cbdb_id": 43166,
     "cbdb_match": "auto_v2",
     "cbdb_source": "v2:name+period+birth+death"
-  }
+  },
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixictcwv3es",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    },
+    {
+      "type": "孫",
+      "entity_id": "hixhd2h9bl2k",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 62（FF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 243（SS）"
+        }
+      ]
+    }
+  ]
 }

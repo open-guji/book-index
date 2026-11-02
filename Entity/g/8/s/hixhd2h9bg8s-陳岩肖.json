@@ -14,8 +14,8 @@
   "ai_note": "2026-08-16 CBDB 假連結清理批一：原繫 98544，該號於現行名冊已無，且 CBDB 今無同名者，撤之。",
   "period": "song",
   "period_basis": "dynasty「宋」有歧義（可解為 nanbeichao、song），而所繫之 work 之代唯 song 一解與之相合，故定之。（2026-08-24 補）",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "alt_names": [
     {
       "name": "子象",
@@ -41,5 +41,24 @@
       "why": "同名（异体）、同朝代、CBDB 26551、著作重合；草稿条已删，Work／Book 改指本条"
     }
   ],
-  "dynasty_basis": "synonym:period=song"
+  "dynasty_basis": "synonym:period=song",
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bmsm",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    }
+  ]
 }

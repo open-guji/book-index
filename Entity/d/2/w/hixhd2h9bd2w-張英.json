@@ -114,8 +114,8 @@
     "death": 1708,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "description": {
     "sources": [
       {
@@ -124,5 +124,53 @@
         "details": "http://data.library.sh.cn/entity/person/7wj8cfniorw0qbbw"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "父",
+      "entity_id": "hixhd2f8wan5",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    },
+    {
+      "type": "父",
+      "entity_id": "hixi23dgrzlz",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        }
+      ]
+    },
+    {
+      "type": "父",
+      "entity_id": "hixicx5kmccu",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    }
+  ]
 }

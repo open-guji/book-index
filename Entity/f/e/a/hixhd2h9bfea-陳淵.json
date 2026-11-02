@@ -38,8 +38,8 @@
   "period": "song",
   "period_basis": "据 dynasty「南宋」自动归并",
   "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=3094 補入空槽——籍貫「沙縣」。既有之值一概未動。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "native_place": "沙縣",
   "native_place_entity_id": "hixi5wau7p57",
   "native_place_basis": "CBDB 3094 index_addr（2026-09-06 CBDB enrich）",
@@ -55,5 +55,41 @@
         "details": "http://data.library.sh.cn/entity/person/awgcymsnpymavxjg"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "孫",
+      "entity_id": "hixictm7ssg4",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 62（FF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 243（SS）"
+        }
+      ]
+    },
+    {
+      "type": "弟子",
+      "entity_id": "hixhd2h9beq2",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    }
+  ]
 }

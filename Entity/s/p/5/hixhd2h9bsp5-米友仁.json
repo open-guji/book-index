@@ -39,13 +39,13 @@
   "native_place": "吳縣",
   "native_place_entity_id": "hixi4ui5iwao",
   "native_place_basis": "CBDB 1366 index_addr（2026-09-06 CBDB enrich）",
-  "revised_at": "2026-10-29",
+  "revised_at": "2026-11-01",
   "dates": {
     "birth": 1072,
     "death": 1151,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "description": {
     "sources": [
       {
@@ -54,5 +54,24 @@
         "details": "http://data.library.sh.cn/entity/person/ge3u6nblrzgkaz33"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bevy",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    }
+  ]
 }

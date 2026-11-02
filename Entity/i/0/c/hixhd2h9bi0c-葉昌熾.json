@@ -117,13 +117,13 @@
   "native_place": "元和",
   "native_place_entity_id": "hixi5wnd9m2t",
   "native_place_basis": "CBDB 58353 index_addr（2026-09-06 CBDB enrich）",
-  "revised_at": "2026-09-06",
+  "revised_at": "2026-11-01",
   "dates": {
     "birth": 1849,
     "death": 1917,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
+  "revision": "1.1.0",
   "merged_in": [
     {
       "id": "hixi8u5q68a9",
@@ -142,5 +142,24 @@
         "details": "http://data.library.sh.cn/entity/person/lovqisjdk4jtuuxr"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "弟子",
+      "entity_id": "hixhd2h9bcrf",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 36"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 37"
+        }
+      ]
+    }
+  ]
 }

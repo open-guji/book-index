@@ -25,8 +25,8 @@
   "native_place": "襄陽",
   "native_place_entity_id": "hixi6kqhw6bm",
   "native_place_basis": "CBDB 134697 index_addr（2026-09-06 CBDB enrich）",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "description": {
     "sources": [
       {
@@ -35,5 +35,24 @@
         "details": "http://data.library.sh.cn/entity/person/ddzosswthmmx6kep"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9bdz4",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 19"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 20"
+        }
+      ]
+    }
+  ]
 }

@@ -16,8 +16,8 @@
   "period": "qin-han",
   "period_basis": "據 dynasty「東漢」自動歸併",
   "ai_note": "2026-08-19 人物繫連補記：庫中有 4 書之 authors[].entity_id 指向本條而本條之 works 未載（《儀禮班氏義》《周禮班氏義》《漢書佚文》《周易班氏義》），是單向之繫，今補其反向。\n\n2026-08-24 兩漢升格前清賬（撰人繫連補全）：works 補繫 1 條。\n\n2026-10-02 T63 併條善後：所繫 d59f24mm8vsz 已併入 d59f1iqd854w，反邊改指。",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-26",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "description": {
     "sources": [
       {
@@ -26,5 +26,19 @@
         "details": "http://data.library.sh.cn/entity/person/swr63kdmkwtb12rh"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "兄",
+      "entity_id": "hixhd2h9bdql",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        }
+      ]
+    }
+  ]
 }

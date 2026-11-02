@@ -51,8 +51,8 @@
     "death": 1135,
     "basis": "現行字段"
   },
-  "revision": "1.4.0",
-  "revised_at": "2026-10-30",
+  "revision": "1.5.0",
+  "revised_at": "2026-11-01",
   "description": {
     "sources": [
       {
@@ -68,5 +68,48 @@
     ],
     "text": "北宋皇帝，年號建中靖國（1101）、崇寧（1102–1106）、大觀（1107–1110）、政和（1111–1118）、重和（1118–1119）、宣和（1119–1125）。"
   },
-  "title_or_office": "皇帝"
+  "title_or_office": "皇帝",
+  "relations": [
+    {
+      "type": "父",
+      "entity_id": "hixhd2h9bhd3",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        }
+      ]
+    },
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9btm1",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        }
+      ]
+    },
+    {
+      "type": "弟",
+      "entity_id": "hixicxx7fqbm",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
+    }
+  ]
 }

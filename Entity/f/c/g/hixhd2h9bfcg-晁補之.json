@@ -41,8 +41,8 @@
     "death": 1106,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "description": {
     "sources": [
       {
@@ -60,6 +60,25 @@
       "by": "D4-Entity清账",
       "rule": "去重方案子目-乙：并条后 2.3 據誤字所建人物無引用，并入正字人物",
       "why": "晁輔之為晁補之形誤（无咎題跋，津逮祕書本系；字無咎）"
+    }
+  ],
+  "relations": [
+    {
+      "type": "兄",
+      "entity_id": "hixhd2h9beq4",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
     }
   ]
 }

@@ -36,6 +36,25 @@
   },
   "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=128364 補入空槽——籍貫「會稽」。既有之值一概未動。\n\n2026-09-06 qa-sweep/qing·C 類（entity 之 period 與 work 相牴）：dynasty 原作「明」（明），而《清史稿藝文志》「句陳晷度一卷，廿星距度一卷，日星測時表二卷。余煌撰」，名下四書皆本道 qing。名下無一部明代之書。原判明係逕從 dynasty 自動歸併（basis 未見具體考據），今據著錄逕稱之「清」正之。原值：dynasty=「明」、period=「ming」、period_basis=「據 dynasty「明」自動歸併」，可逆。\n\n2026-10-26 去重 2.1续 拆混并：dynasty 改為「明」（原「清」）——明末會稽余煌（cbdb 128364，諡忠節）",
   "dynasty_basis": "2026-10-26 去重 2.1续 拆混并：明末會稽余煌（cbdb 128364，諡忠節）",
-  "revised_at": "2026-11-02",
-  "revision": "1.0.1"
+  "revised_at": "2026-11-01",
+  "revision": "1.1.0",
+  "relations": [
+    {
+      "type": "兄",
+      "entity_id": "hixicyxbuakx",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
+    }
+  ]
 }

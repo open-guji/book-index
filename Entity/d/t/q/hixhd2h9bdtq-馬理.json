@@ -37,13 +37,13 @@
   ],
   "subtype": "people",
   "schema_version": 1,
-  "revised_at": "2026-10-29",
+  "revised_at": "2026-11-01",
   "dates": {
     "birth": 1474,
     "death": 1555,
     "basis": "現行字段"
   },
-  "revision": "1.1.1",
+  "revision": "1.2.0",
   "description": {
     "sources": [
       {
@@ -52,5 +52,24 @@
         "details": "http://data.library.sh.cn/entity/person/b1eh8g78v4gkv4yz"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "弟子",
+      "entity_id": "hixhd2h9bdti",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    }
+  ]
 }

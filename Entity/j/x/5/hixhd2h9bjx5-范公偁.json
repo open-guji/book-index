@@ -26,7 +26,7 @@
     ],
     "basis": "cbdb:index_year"
   },
-  "revision": "1.0.1",
+  "revision": "1.1.0",
   "revised_at": "2026-11-01",
   "description": {
     "sources": [
@@ -36,5 +36,41 @@
         "details": "http://data.library.sh.cn/entity/person/oy5b0bmqrzuiyoov"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "孫",
+      "entity_id": "hixicwxl4uu5",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 62（FF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 243（SS）"
+        }
+      ]
+    },
+    {
+      "type": "曾孫",
+      "entity_id": "hixhd2h9bisp",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 48（FFF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 255（SSS）"
+        }
+      ]
+    }
+  ]
 }

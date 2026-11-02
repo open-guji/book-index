@@ -16,8 +16,8 @@
   "review": {
     "status": "unreviewed"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-16",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "description": {
     "sources": [
       {
@@ -26,5 +26,24 @@
         "details": "http://data.library.sh.cn/entity/person/7fnc52q133ug2rlf"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "弟子",
+      "entity_id": "hixhd2f8walm",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    }
+  ]
 }

@@ -24,6 +24,42 @@
   "native_place_entity_id": "hixi5whkr37l",
   "native_place_basis": "CBDB 102527 index_addr（2026-09-06 CBDB enrich）",
   "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=102527 補入空槽——籍貫「永康」。既有之值一概未動。",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
+  "relations": [
+    {
+      "type": "兄",
+      "entity_id": "hixhd2h9bgxm",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
+    },
+    {
+      "type": "弟子",
+      "entity_id": "hixhd2h9bdxf",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    }
+  ]
 }

@@ -17,6 +17,25 @@
   "ai_note": "2026-08-24 兩漢升格前清賬（撰人繫連補全）：works 補繫 5 條。\n2026-08-24 舊唐志逐條抽撰人：新收 1 部 work 之繫。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=28147 補入空槽——籍貫「榮陽」。既有之值一概未動。",
   "native_place": "榮陽",
   "native_place_basis": "CBDB 28147 index_addr（2026-09-06 CBDB enrich）",
-  "revision": "1.0.1",
-  "revised_at": "2026-09-26"
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2f8walg",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    }
+  ]
 }

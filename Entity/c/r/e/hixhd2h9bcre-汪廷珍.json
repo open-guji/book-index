@@ -40,7 +40,7 @@
     "death": 1827,
     "basis": "現行字段"
   },
-  "revision": "1.1.1",
+  "revision": "1.2.0",
   "revised_at": "2026-11-01",
   "description": {
     "sources": [
@@ -51,5 +51,41 @@
       }
     ]
   },
-  "native_place_entity_id": "hixi5x9hv8ci"
+  "native_place_entity_id": "hixi5x9hv8ci",
+  "relations": [
+    {
+      "type": "師",
+      "entity_id": "hixhd2f8wald",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    },
+    {
+      "type": "弟子",
+      "entity_id": "hixhd2f8wal4",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    }
+  ]
 }

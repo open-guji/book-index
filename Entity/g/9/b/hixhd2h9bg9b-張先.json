@@ -34,13 +34,13 @@
   "native_place": "烏程",
   "native_place_entity_id": "hixi4ui6glxe",
   "native_place_basis": "CBDB 27114 index_addr（2026-09-06 CBDB enrich）",
-  "revised_at": "2026-10-29",
+  "revised_at": "2026-11-01",
   "dates": {
     "birth": 990,
     "death": 1078,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "description": {
     "sources": [
       {
@@ -49,5 +49,41 @@
         "details": "http://data.library.sh.cn/entity/person/yk6m77wg7xdzadqf"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bfnw",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    },
+    {
+      "type": "祖",
+      "entity_id": "hixhd2h9be5t",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 62（FF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 243（SS）"
+        }
+      ]
+    }
+  ]
 }

@@ -38,13 +38,13 @@
   ],
   "subtype": "people",
   "schema_version": 1,
-  "revised_at": "2026-10-29",
+  "revised_at": "2026-11-01",
   "dates": {
     "birth": 1123,
     "death": 1202,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "description": {
     "sources": [
       {
@@ -53,5 +53,58 @@
         "details": "http://data.library.sh.cn/entity/person/xp538w1egqlaezfm"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9be8v",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 184（S3）"
+        }
+      ]
+    },
+    {
+      "type": "弟",
+      "entity_id": "hixhd2h9be73",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
+    },
+    {
+      "type": "弟",
+      "entity_id": "hixhd2h9bhd1",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
+    }
+  ]
 }

@@ -34,8 +34,8 @@
   "dynasty_basis": "cbdb:birth/death_name=南宋",
   "period": "song",
   "period_basis": "据 dynasty「南宋」自动归并",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-29",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "native_place": "武康",
   "native_place_entity_id": "hixi61e92jo3",
   "native_place_basis": "CBDB 29608 index_addr（2026-09-06 CBDB enrich）",
@@ -53,5 +53,24 @@
         "details": "http://data.library.sh.cn/entity/person/opemx0fej1s8s46g"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9bhqa",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    }
+  ]
 }

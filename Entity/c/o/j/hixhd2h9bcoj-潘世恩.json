@@ -66,7 +66,7 @@
     "death": 1854,
     "basis": "現行字段"
   },
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-11-01",
   "description": {
     "sources": [
@@ -84,6 +84,23 @@
   },
   "relations": [
     {
+      "type": "父",
+      "entity_id": "hixhd2h9bs0c",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    },
+    {
       "type": "祖",
       "entity_id": "hixhd2h9bckk",
       "basis": "著錄／正史本傳明載，兩端均為庫內唯一確定的人物條",
@@ -92,6 +109,23 @@
           "name": "清史稿",
           "type": "text",
           "details": "列傳〈潘世恩〉：修官至吏部侍郎。孫祖廕，自有"
+        }
+      ]
+    },
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9brgr",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
         }
       ]
     }

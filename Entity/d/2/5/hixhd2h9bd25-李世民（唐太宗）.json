@@ -43,8 +43,8 @@
     "death": 649,
     "basis": "現行字段"
   },
-  "revision": "1.0.2",
-  "revised_at": "2026-10-26",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "merged_in": [
     {
       "id": "hixhd2h9br1e",
@@ -70,5 +70,41 @@
     ],
     "text": "唐朝皇帝，年號貞觀（627–649）。唐高祖李淵之子。"
   },
-  "title_or_office": "皇帝"
+  "title_or_office": "皇帝",
+  "relations": [
+    {
+      "type": "祖",
+      "entity_id": "hixhd2h9bgae",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 62（FF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 243（SS）"
+        }
+      ]
+    },
+    {
+      "type": "兄",
+      "entity_id": "hixictxe5o2q",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
+    }
+  ]
 }

@@ -35,8 +35,8 @@
   "period": "song",
   "period_basis": "据 dynasty「南宋」自动归并",
   "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-04 「坑32」批次逐條核查：新收 1 部 work 之繫（據別集類「人名＋集」書名體例補其撰人而回填反向）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=22368 補入空槽——籍貫「崇仁」。既有之值一概未動。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "native_place": "崇仁",
   "native_place_entity_id": "hixi4ui65ddy",
   "native_place_basis": "CBDB 22368 index_addr（2026-09-06 CBDB enrich）",
@@ -64,6 +64,25 @@
       "by": "Elias",
       "rule": "異寫同名重出并入（Mirren 口徑：硬證據者）",
       "why": "朝代/生卒不衝突，且保留者有 cbdb 22368"
+    }
+  ],
+  "relations": [
+    {
+      "type": "兄",
+      "entity_id": "hixi8nb5bhu3",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
     }
   ]
 }

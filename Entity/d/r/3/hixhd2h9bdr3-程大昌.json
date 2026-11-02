@@ -34,13 +34,13 @@
   "native_place": "休寧",
   "native_place_entity_id": "hixi4ui65ddz",
   "native_place_basis": "CBDB 3109 index_addr（2026-09-06 CBDB enrich）",
-  "revised_at": "2026-10-29",
+  "revised_at": "2026-11-01",
   "dates": {
     "birth": 1123,
     "death": 1195,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "description": {
     "sources": [
       {
@@ -49,5 +49,24 @@
         "details": "http://data.library.sh.cn/entity/person/887lf6ojp0rnpm1w"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "叔伯",
+      "entity_id": "hixhd2h9be9c",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 79（FB）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 177（BS）"
+        }
+      ]
+    }
+  ]
 }

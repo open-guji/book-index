@@ -30,8 +30,8 @@
   "updated_at": "2026-08-24T00:00:00+00:00",
   "period": "three-kingdoms",
   "period_basis": "據 dynasty「三國魏」自動歸併",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-26",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "description": {
     "sources": [
       {
@@ -40,5 +40,19 @@
         "details": "http://data.library.sh.cn/entity/person/lza3nin736o65iyn"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "父",
+      "entity_id": "hixictjmgsub",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        }
+      ]
+    }
+  ]
 }

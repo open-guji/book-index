@@ -28,8 +28,8 @@
   "period": "sui-tang",
   "period_basis": "據 dynasty「唐」自動歸併",
   "ai_note": "2026-09-04 「坑32」批次逐條核查：新收 1 部 work 之繫（據別集類「人名＋集」書名體例補其撰人而回填反向）。",
-  "revision": "1.1.2",
-  "revised_at": "2026-11-02",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "dates": {
     "birth": 710,
     "death": 782,
@@ -43,5 +43,58 @@
         "details": "http://data.library.sh.cn/entity/person/u58nh41syl1e8uf3"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "父",
+      "entity_id": "hixicts9d6p4",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    },
+    {
+      "type": "祖",
+      "entity_id": "hixhiif2yfi8",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 62（FF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 243（SS）"
+        }
+      ]
+    },
+    {
+      "type": "祖",
+      "entity_id": "hixicts9d6p3",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 62（FF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 243（SS）"
+        }
+      ]
+    }
+  ]
 }

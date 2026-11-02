@@ -27,8 +27,8 @@
   "period": "song",
   "period_basis": "据 dynasty「北宋」自动归并",
   "ai_note": "2026-08-24 補繫 entity：新收 3 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=17935 補入空槽——籍貫「奉符」。既有之值一概未動。",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "native_place": "奉符",
   "native_place_entity_id": "hixi6kf0aqkx",
   "native_place_basis": "CBDB 17935 index_addr（2026-09-06 CBDB enrich）",
@@ -45,5 +45,41 @@
         "details": "http://data.library.sh.cn/entity/person/h2jpat1ry7azui34"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9beyn",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    },
+    {
+      "type": "弟子",
+      "entity_id": "hixhd2h9bhv9",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 36"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 37"
+        }
+      ]
+    }
+  ]
 }

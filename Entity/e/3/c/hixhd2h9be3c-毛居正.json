@@ -32,7 +32,26 @@
   "native_place_entity_id": "hixi6kydy4n5",
   "native_place_basis": "CBDB 33882 index_addr（2026-09-06 CBDB enrich）",
   "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=33882 補入空槽——籍貫「江山」。既有之值一概未動。",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07",
-  "dynasty_basis": "synonym:period=song"
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
+  "dynasty_basis": "synonym:period=song",
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bdx2",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    }
+  ]
 }

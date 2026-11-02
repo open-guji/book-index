@@ -10,12 +10,12 @@
   },
   "type": "entity",
   "native_place": "宣州",
-  "revision": "1.0.2",
+  "revision": "1.1.0",
   "primary_name": "劉虬",
   "period": "nanbeichao",
   "native_place_basis": "CBDB 171468 index_addr（2026-09-06 CBDB enrich）",
   "id": "hixhio70vmkg",
-  "revised_at": "2026-11-02",
+  "revised_at": "2026-11-01",
   "ai_note": "據《補南齊書經籍志》（高桂華、陳鴻儒、閻枕泉合撰）著錄新建。本志斷代南齊（479-502），據以定代。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=171468（「劉虬」南北朝，?–496）。判準 score=70.0：name 命中、同期候選 1 個、著作重合 0.0。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=171468 補入空槽——卒年 496；籍貫「宣州」。既有之值一概未動。\n\n2026-09-05 《補南北史藝文志》整理：收《孝子傳》(d59f9c0xee4m)。\n\n2026-09-05 《補南北史藝文志》整理：收《法華經注》(d59f9c13ydj5)。",
   "dates": {
     "death": 496,
@@ -40,6 +40,25 @@
       "by": "Elias",
       "rule": "異寫同名重出并入（Mirren 口徑：硬證據者）",
       "why": "朝代/生卒不衝突，且保留者有 cbdb 171468"
+    }
+  ],
+  "relations": [
+    {
+      "type": "父",
+      "entity_id": "hixhd2h9bgbu",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
     }
   ]
 }

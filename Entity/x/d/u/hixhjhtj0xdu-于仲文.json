@@ -8,8 +8,8 @@
   "dynasty_basis": "2026-09-05 《補南北史藝文志》整理：《補南北史藝文志》著錄，本志繫隋。",
   "ai_note": "2026-09-05 《補南北史藝文志》整理：據《補南北史藝文志》新建，本志繫隋代。庫中舊無其人。\n\n2026-09-05 《補南北史藝文志》整理：併入本批重複新建之同名同代 entity 1 個。整理腳本之同名索引為啟動時之快照，本批新建者不在其中，故同名者每遇一條即別建一個（「于仲文」建 2 個）。今併之，移入 works 1 部。異代同號者（如宋武帝、齊武帝、梁武帝）不併。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=31487（「于仲文」隋，545–612）。判準 score=70.0：name 命中、同期候選 1 個、著作重合 0.0。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=31487 補入空槽——生年 545；卒年 612；籍貫「高陵」。既有之值一概未動。",
   "id": "hixhjhtj0xdu",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-05",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "external_ids": {
     "cbdb_id": 31487,
     "cbdb_match": "auto_2026-09-06",
@@ -23,5 +23,24 @@
     "birth": 545,
     "death": 612,
     "basis": "現行字段"
-  }
+  },
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixicuggkidz",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 183（S2）"
+        }
+      ]
+    }
+  ]
 }

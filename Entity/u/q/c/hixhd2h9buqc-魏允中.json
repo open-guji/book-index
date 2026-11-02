@@ -29,8 +29,8 @@
   "native_place": "南樂",
   "native_place_entity_id": "hixi6kezd0yd",
   "native_place_basis": "CBDB 133460 index_addr（2026-09-06 CBDB enrich）",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "description": {
     "sources": [
       {
@@ -39,5 +39,24 @@
         "details": "http://data.library.sh.cn/entity/person/d4cm0gvzjpd6ag40"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "弟",
+      "entity_id": "hixhd2h9buqe",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
+    }
+  ]
 }

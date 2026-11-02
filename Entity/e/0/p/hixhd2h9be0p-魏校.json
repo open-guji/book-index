@@ -9,14 +9,14 @@
   "native_place": "崑山",
   "native_place_entity_id": "hixi5whkr37s",
   "id": "hixhd2h9be0p",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "primary_name": "魏校",
   "dynasty": "明",
   "native_place_basis": "CBDB 30595 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「明」自動歸併",
   "ai_note": "2026-08-24 補繫 entity：新收 3 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 3 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=30595 補入空槽——籍貫「崑山」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6enm5p8g、d59f6eqmsa9x、d59f6eszou0z。",
   "updated_at": "2026-09-06T00:00:00+00:00",
-  "revised_at": "2026-10-07",
+  "revised_at": "2026-11-01",
   "period": "ming",
   "alt_names": [
     {
@@ -82,6 +82,69 @@
       "by": "A11-去重2.1续",
       "rule": "去重方案 2.1续 人物同名组判定（全同／把握高；可并）",
       "why": "同書異錄：《周禮沿革傳》／《周禮天官沿革傳》，皆明"
+    }
+  ],
+  "relations": [
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9beaa",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 36"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 37"
+        }
+      ]
+    },
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9beig",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    },
+    {
+      "type": "師",
+      "entity_id": "hixhd2h9bews",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 19"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 20"
+        }
+      ]
     }
   ]
 }

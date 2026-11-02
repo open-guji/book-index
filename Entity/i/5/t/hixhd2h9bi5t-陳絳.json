@@ -36,8 +36,8 @@
     "birth": 1513,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-30",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "description": {
     "sources": [
       {
@@ -46,5 +46,24 @@
         "details": "http://data.library.sh.cn/entity/person/673sxny2sd1n4rem"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "兄",
+      "entity_id": "hixhgyrw4y1b",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
+    }
+  ]
 }

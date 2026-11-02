@@ -15,8 +15,8 @@
   "dynasty_basis": "synonym:南齊->南朝齊",
   "period": "nanbeichao",
   "period_basis": "據 dynasty「南朝齊」自動歸併",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-04",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "native_place": "吳縣",
   "native_place_basis": "CBDB 33732 index_addr（2026-09-06 CBDB enrich）",
   "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=33732 補入空槽——籍貫「吳縣」。既有之值一概未動。",
@@ -24,5 +24,24 @@
     "birth": 472,
     "death": 499,
     "basis": "現行字段"
-  }
+  },
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixicuetknin",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 182（S1）"
+        }
+      ]
+    }
+  ]
 }

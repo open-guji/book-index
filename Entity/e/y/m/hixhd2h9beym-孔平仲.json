@@ -27,8 +27,8 @@
   "period": "song",
   "period_basis": "据 dynasty「北宋」自动归并",
   "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 3 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=901 補入空槽——籍貫「新淦」。既有之值一概未動。",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-04",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "native_place": "新淦",
   "native_place_entity_id": "hixi61e8rb44",
   "native_place_basis": "CBDB 901 index_addr（2026-09-06 CBDB enrich）",
@@ -47,5 +47,58 @@
         "details": "http://data.library.sh.cn/entity/person/31a1sun88xgb5yzg"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bg65",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 184（S3）"
+        }
+      ]
+    },
+    {
+      "type": "弟",
+      "entity_id": "hixhd2h9bhcn",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
+    },
+    {
+      "type": "弟",
+      "entity_id": "hixhinep3bwh",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
+    }
+  ]
 }

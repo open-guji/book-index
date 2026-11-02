@@ -18,12 +18,58 @@
   "period": "song",
   "period_basis": "据 dynasty「南宋」自动归并",
   "ai_note": "2026-08-24 補繫 entity：新收 4 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-08-25 雙向補繫：下列 work 之 authors[].entity_id 已指本條，而本條 works 未回指（chk〈作品→人物 單向〉），今補——`1evr5e3m6vjbi`《宋馮椅厚齋易學》。\n2026-08-25 works 死鏈清理：所指 work 檔兩倉皆無（歷次併條/刪條之積欠），去之：1evr5e3m6vjbi。\n\n2026-11-01 A 檔補字段：據所繫 cbdb_id=48317（有硬證：書名／生卒／別名對上）補入空槽——籍貫「都昌」。既有之值一概未動。\n\n2026-11-01 A 檔補 Wikidata：經 Wikidata P497（CBDB ID）反查 cbdb_id=48317，唯一對應 Q45666934，且 Wikidata 標籤與本條名稱相符。",
-  "revision": "1.0.4",
-  "revised_at": "2026-11-02",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "external_ids": {
     "cbdb_id": 48317,
     "cbdb_match": "auto_v2",
     "cbdb_source": "v2:name+period+work",
     "wikidata_id": "Q45666934"
-  }
+  },
+  "relations": [
+    {
+      "type": "父",
+      "entity_id": "hixhd2h9bokv",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    },
+    {
+      "type": "弟子",
+      "entity_id": "hixhd2h9bgah",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 19"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 20"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    }
+  ]
 }

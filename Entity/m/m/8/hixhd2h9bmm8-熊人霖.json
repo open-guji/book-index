@@ -33,8 +33,8 @@
     "death": 1666,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-01",
   "merged_in": [
     {
       "id": "hixi8u5so4ox",
@@ -53,5 +53,24 @@
         "details": "http://data.library.sh.cn/entity/person/0ibabxsdapk4wosa"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bgc5",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    }
+  ]
 }

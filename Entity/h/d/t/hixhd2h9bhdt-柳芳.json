@@ -25,5 +25,46 @@
   "native_place_entity_id": "hixi5watwglw",
   "native_place_basis": "CBDB 32461 index_addr（2026-09-06 CBDB enrich）",
   "revised_at": "2026-11-01",
-  "revision": "1.0.1"
+  "revision": "1.1.0",
+  "relations": [
+    {
+      "type": "父",
+      "entity_id": "hixhinc9ovsx",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 183（S2）"
+        }
+      ]
+    },
+    {
+      "type": "祖",
+      "entity_id": "hixhd2h9brg8",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 62（FF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 243（SS）"
+        }
+      ]
+    }
+  ]
 }

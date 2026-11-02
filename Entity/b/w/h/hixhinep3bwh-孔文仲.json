@@ -5,7 +5,7 @@
   "primary_name": "孔文仲",
   "ai_note": "2026-09-04 「坑32」逐條核查訂正新建：據《孔文仲文集》書名體例（別集類人名＋集）補撰人，而庫中無其人，故立。《宋史藝文志》著錄，北宋人（清江三孔之一）。\n\n2026-11-01 A 檔補字段：據所繫 cbdb_id=3439（有硬證：書名／生卒／別名對上）補入空槽——生卒1037/1087；籍貫「新淦」。既有之值一概未動。\n\n2026-11-01 A 檔補 Wikidata：經 Wikidata P497（CBDB ID）反查 cbdb_id=3439，唯一對應 Q10944347，且 Wikidata 標籤與本條名稱相符。",
   "id": "hixhinep3bwh",
-  "revision": "1.0.4",
+  "revision": "1.1.0",
   "revised_at": "2026-11-01",
   "merged_in": [
     {
@@ -42,5 +42,58 @@
     "cbdb_match": "auto_v2",
     "cbdb_source": "v2:name+period+work",
     "wikidata_id": "Q10944347"
-  }
+  },
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bg65",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 182（S1）"
+        }
+      ]
+    },
+    {
+      "type": "兄",
+      "entity_id": "hixhd2h9beym",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
+    },
+    {
+      "type": "兄",
+      "entity_id": "hixhd2h9bhcn",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 126（B-）"
+        }
+      ]
+    }
+  ]
 }

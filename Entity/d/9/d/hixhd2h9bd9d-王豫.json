@@ -29,13 +29,13 @@
   "subtype": "people",
   "schema_version": 1,
   "dynasty_basis": "2026-09-06 qa-sweep/qing·U 類：生卒 1768–1826 為據，「明」與生卒相斥（坑13/U 類同型）。",
-  "revised_at": "2026-09-06",
+  "revised_at": "2026-11-01",
   "dates": {
     "birth": 1768,
     "death": 1826,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
+  "revision": "1.1.0",
   "description": {
     "sources": [
       {
@@ -44,5 +44,19 @@
         "details": "http://data.library.sh.cn/entity/person/73eh1q0zphq168dr"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "兄",
+      "entity_id": "hixhd2h9bin1",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 125（B+）"
+        }
+      ]
+    }
+  ]
 }

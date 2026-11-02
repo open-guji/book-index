@@ -34,7 +34,7 @@
   "period": "sui-tang",
   "period_basis": "據 dynasty「唐」自動歸併",
   "ai_note": "2026-09-04 坑32 修復批次：補繫《獨孤常州集》（work d59f2puhiosg），依別集類「人名+集」書名體例。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=32917 補入空槽——籍貫「洛陽」。既有之值一概未動。",
-  "revision": "1.1.1",
+  "revision": "1.2.0",
   "revised_at": "2026-11-01",
   "native_place": "洛陽",
   "native_place_entity_id": "hixi4ui5u4ue",
@@ -52,5 +52,46 @@
         "details": "http://data.library.sh.cn/entity/person/ak8f6q423rkttjp4"
       }
     ]
-  }
+  },
+  "relations": [
+    {
+      "type": "父",
+      "entity_id": "hixhiigm8kqu",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 183（S2）"
+        }
+      ]
+    },
+    {
+      "type": "師",
+      "entity_id": "hixhineos3cw",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 22"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "社會關係表 ASSOC_DATA 關係碼 23"
+        }
+      ]
+    }
+  ]
 }

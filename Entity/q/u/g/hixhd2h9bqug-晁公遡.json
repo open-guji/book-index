@@ -31,8 +31,8 @@
   "native_place": "鉛山",
   "native_place_entity_id": "hixi636g7lkz",
   "native_place_basis": "CBDB 10878 index_addr（2026-09-06 CBDB enrich）",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "description": {
     "sources": [
       {
@@ -50,6 +50,25 @@
       "by": "Elias",
       "rule": "異寫同名重出并入（Mirren 口徑：硬證據者）",
       "why": "朝代/生卒不衝突，且保留者有 cbdb 10878"
+    }
+  ],
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bo4j",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
     }
   ]
 }

@@ -8,7 +8,7 @@
   "updated_at": "2026-08-08T11:51:59+00:00",
   "period": "liao-jin-yuan",
   "period_basis": "據 dynasty「遼」自動歸併",
-  "revision": "1.0.4",
+  "revision": "1.1.0",
   "revised_at": "2026-11-01",
   "dynasty_basis": "據《帝王年號對照》朝代「遼」",
   "native_place": "臨潢",
@@ -70,5 +70,70 @@
     "cbdb_id": 43162,
     "cbdb_match": "auto_v2",
     "cbdb_source": "v2:name+period+birth+death"
-  }
+  },
+  "relations": [
+    {
+      "type": "父",
+      "entity_id": "hixictcwv3es",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 180（S）"
+        }
+      ]
+    },
+    {
+      "type": "子",
+      "entity_id": "hixi4watiipv",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 182（S1）"
+        }
+      ]
+    },
+    {
+      "type": "子",
+      "entity_id": "hixictpiq58s",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 182（S1）"
+        }
+      ]
+    },
+    {
+      "type": "祖",
+      "entity_id": "hixi4watiipx",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 62（FF）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 243（SS）"
+        }
+      ]
+    }
+  ]
 }

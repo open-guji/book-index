@@ -18,8 +18,8 @@
   "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=37922 補入空槽——籍貫「四川」。既有之值一概未動。\n\n2026-11-01 去重 2.4 CBDB 配错复核：原繫 cbdb 37922（南宋，四川人，卒 1236）、wikidata Q45433982 不合：名下《聞見近錄》《甲申雜記》《論語注》等為北宋王鞏（字定國，莘縣人，王旦之孫，蘇軾友）著。改繫 cbdb 7084（wikidata Q45365253）；朝代南宋改北宋；籍貫四川改莘縣；摘去卒年 1236；補字定國、號清虛居士；名下作品作者位朝代「南宋」同改「北宋」。《𠎣源類譜》（國史經籍志僅署「王鞏」）無證據，作者位未動。",
   "native_place": "莘縣",
   "native_place_basis": "CBDB 7084 index_addr（2026-11-01）",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-01",
   "description": {
     "sources": [
       {
@@ -38,6 +38,25 @@
     {
       "name": "清虛居士",
       "type": "號"
+    }
+  ],
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bedb",
+      "basis": "CBDB 親屬表／社會關係表；兩端均為已核實（A 檔）的 CBDB 鏈接",
+      "sources": [
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 75（F）"
+        },
+        {
+          "name": "CBDB",
+          "type": "cbdb",
+          "details": "親屬表 KIN_DATA 親屬碼 185（S4）"
+        }
+      ]
     }
   ]
 }
