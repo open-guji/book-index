@@ -240,6 +240,33 @@ def iter_records(root, paths=None):
                     yield rel, ap
 
 
+def semantic_warns(kind, rec):
+    """文档写了、JSON Schema 难表达的规则（S3-A8）：先只报 WARN，不计 ERROR。"""
+    out = []
+    if kind in ("work", "entity"):
+        if rec.get("period") and not rec.get("period_basis"):
+            out.append(("WARN", "period-no-basis", "period_basis", "有 period 而无 period_basis"))
+        if rec.get("dynasty") and not rec.get("dynasty_basis"):
+            out.append(("WARN", "dynasty-no-basis", "dynasty_basis", "有 dynasty 而无 dynasty_basis"))
+    rs = rec.get("resources")
+    if isinstance(rs, list):
+        groups = rec.get("resource_groups")
+        groups = groups if isinstance(groups, dict) else {}
+        for i, r in enumerate(rs):
+            g = r.get("group") if isinstance(r, dict) else None
+            if g is not None and g not in groups:
+                out.append(("WARN", "group-undefined", f"resources[{i}].group", f"组键 {g!r} 不在 resource_groups 里"))
+    for fld in ("indexed_by", "emendated_by"):
+        es = rec.get(fld)
+        if isinstance(es, list):
+            for i, e in enumerate(es):
+                if isinstance(e, dict):
+                    for k in ("title_info", "summary"):
+                        if not e.get(k):
+                            out.append(("WARN", "index-entry-missing", f"{fld}[{i}].{k}", f"{k} 缺或为空（common.md 写必填）"))
+    return out
+
+
 def is_record_path(rel):
     parts = rel.split("/")
     return len(parts) == 5 and parts[0] in TYPES and parts[-1].endswith(".json")
@@ -454,6 +481,7 @@ def main():
         recs[kind] += 1
         out = []
         v.validate(rec, v.doc(SCHEMA_OF[kind]), SCHEMA_OF[kind], "", out)
+        out.extend(semantic_warns(kind, rec))
         if not a.draft:
             for k in ("revision", "revised_at"):
                 if k not in rec:

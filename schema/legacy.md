@@ -3,7 +3,7 @@
 本档只回答三件事：①哪些旧写法已删净（现存 0，门禁防回潮）；②哪些**有意保留**；③哪些**还没清**（读者回退、写入代码、存量数据）。新写法见各类字段表：[common.md](common.md)、[work.md](work.md)、[book.md](book.md)、[collection.md](collection.md)、[entity.md](entity.md)（总览，各子类型见 [entity/](entity/)）、[derived.md](derived.md)。
 
 - 总则 9「读者先切后拆」：读者新字段有就用、没有回退旧字段；数据切换完成后再删回退。build 不产出旧字段别名。
-- 来历：schema-v2 迁移见 overview#451、#459、#458、#464；本档 2026-10-12 按 #568 B1a 重写，数字来自 `check_schema --json` 与 `check_v2 --summary`（正式库 HEAD 25042ef9c1），复现命令见文末。
+- 来历：schema-v2 迁移见 overview#451、#459、#458、#464；本档 2026-10-12 按 #568 B1a 重写，数字来自 `check_schema --json` 与 `check_v2 --summary`（正式库 HEAD 25042ef9c1；2026-11-03 在 92d989cea9a 重扫，见 S3 审查报告），复现命令见文末。
 
 ## 一、已删（现存 0；`check_v2.py` V01–V16 长期门禁，再出现按错处理）
 
@@ -29,7 +29,7 @@
 
 | 写法 | 现状（正式库） | 理由与口径 |
 |---|---|---|
-| `indexed_by[]` 的 `merged_from` 596、`text`／`self_note`／`commentaries` 各 592、`comment` 405（另 Book 1）、`category` 321、`additional_comment` 71、`link_basis` 71 | check_schema INFO `legacy-keep` 共 3,241，WARN 0 | 志书原文与并条证据，删了丢证据。Schema 里标 `x-legacy:"keep"`（overview#496）；新录入同类信息写 [common.md〈IndexEntry〉](common.md#二indexentryindexed_byemendated_by-的元素) 正式键 |
+| `indexed_by[]` 的 `merged_from` 596、`text`／`self_note`／`commentaries` 各 592、`comment` 405（另 Book 1）、`category` 321、`additional_comment` 71、`link_basis` 71 | check_schema INFO `legacy-keep` 共 3,240（2026-11-03）。WARN 现为 531，全在 Entity（`external_ids` 等），不是这些旧写法 | 志书原文与并条证据，删了丢证据。Schema 里标 `x-legacy:"keep"`（overview#496）；新录入同类信息写 [common.md〈IndexEntry〉](common.md#二indexentryindexed_byemendated_by-的元素) 正式键 |
 | 草稿库缺 `revision` | 草稿库 Work／Book 全部 | 草稿库正当状态，升格时 bim 补 `"1.0.0"`（[common.md〈revision 口径〉](common.md#revision-口径)） |
 | `dynasty` 跨朝代值（宋末元初、元末明初、遼金元等） | 10-09 共 862 处（未重测） | 带真实信息，准许存量；随人物细化逐条改，无截止日（overview#496 C1・R5） |
 | `classific.json`（仓根旧分类词表） | 正式库有、草稿库无 | 2026-10-12 裁决：**保留**，由 build 从 `classification/zongmu/tree.json` 生成；读者 web 3 个脚本、bim 4 处仍读，改读 tree 前不删。读者全改完另立条再删 |
@@ -39,10 +39,12 @@
 
 **数据（待 S 修，规则在对应字段表）**：`dynasty` 非规范值、空串、`null`（10-08 数：Work 1,850、`authors[].dynasty` 非规范 3,099／空串 4,138，其余见 [common.md〈dynasty〉](common.md#dynasty-与-dynasty_basis)；check_schema 不校，**未重测**）。
 
-**读者回退分支（网站经理，数据切换完成后删）**：bim `ui/src/core/` 的派生兼容层（补回 `books`／`works`／`classification`／`_members`）；`WorkPage.tsx`、`EntityPage.tsx` 读 `books`／`collections`；`ui/src/storage/local-storage.ts` 读 `parent_work`；`ui/src/types.ts:getResourceTypes` 兜 `type`；`CollectionPage.tsx` 的 `contained_in[0]` 只认字符串形（对象形上级丛编显示不出）；`has_collated` 兼读在 `entry_extractor.py`、`_utils.py:read_promoted_to` 兼读 `_promoted_to`。行号随提交漂移，以 `grep` 为准。
+**读者回退分支（网站经理，数据切换完成后删）**：bim `ui/src/core/` 的派生兼容层（补回 `books`／`works`／`classification`／`_members`）；`WorkPage.tsx`、`EntityPage.tsx` 读 `books`／`collections`；`IndexDetail.tsx`（第 1064、1123、1357、1364 行）与 `ui/src/types.ts` 仍读／声明 `parent_work`、`parent_works`；`CollectionPage.tsx` 的 `contained_in[0]` 只认字符串形（对象形上级丛编显示不出）；（`has_collated` 现为 build 从 book-text 推出的正当派生字段，不算旧字段）`_utils.py:read_promoted_to` 兼读 `_promoted_to`。行号随提交漂移，以 `grep` 为准。
 
-**仍会写回旧写法的代码（bim 侧，网站经理排期；修好前靠 `check_v2.py` 兜底）**：`manager.py`／`storage.py` 的 `save_item` 不拦已删字段；`update_field` 的「其他版本」整栏覆盖 `related_books`、「收藏历史」写 `history`；`storage.py:_migrate_keys` 的中文键迁移（`role:"author"`、字符串 `contained_in`、占位 0）；`add-resource` 与 `ResourceEditor.tsx` 写单值 `type`；`local-storage.ts:linkEntity` 写 `parent_work`／`books`；`github-storage.ts:fetchPromotions` 读草稿仓空 `promotions.json`；`_utils.py:mark_promoted` 死代码；bim CLI 无 `link` 子命令（对称关系仅靠 V07 把关）。
+**仍会写回旧写法的代码（bim 侧，网站经理排期；修好前靠 `check_v2.py` 兜底）**：`manager.py`／`storage.py` 的 `save_item` 不拦已删字段；`update_field` 的「其他版本」整栏覆盖 `related_books`、「收藏历史」写 `history`；`storage.py:_migrate_keys` 的中文键迁移（`role:"author"`、字符串 `contained_in`、占位 0）；`add-resource` 写单值 `type`（待核）；`github-storage.ts:fetchPromotions` 读草稿仓空 `promotions.json`；`_utils.py:mark_promoted` 死代码；bim CLI 无 `link` 子命令（对称关系仅靠 V07 把关）。
 
 **build／校验侧（S）**：`build_derived.py` 对 `books`／`works`／`contained_works` 与 `type` 的并集过渡分支；`.claude/qa/verify.py` 的 `_edition_count`／`_member_*` 校验在新格式下恒 0，待删。
+
+**2026-11-03 补**：下列 schema 里 0 条数据的旧分支已删（Author 14 个旧键、`Author.source` 字符串、`Resource.type`、`group_role:source`、`JuanUnit` 册、`NullablePeriod` 的 `null`、`MergedFrom`／`MergedInItem` 字符串项、`ManagementProps`）；再出现即 `unknown-field`／枚举错。`dynasty` 非规范值现状：Work 6,089 条（`宋` 3,789、`民國` 1,034、`漢` 539、`遼金元` 237）、Entity 1,768 条；`authors[].dynasty` 非规范 Work 6,619 项、Book 15,710 项，空串 Work 23,358 项、Book 4,033 项。
 
 **复现**：`python3 schema/check_schema.py --json 报告.json --quiet-warn`；`python3 .claude/qa/check_v2.py --summary`；草稿库加 `--root ../book-index-draft --draft`。
