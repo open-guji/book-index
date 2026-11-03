@@ -85,6 +85,23 @@ book-text 与 book-index 同一套 id，进同一个库，表名加 `bt_` 前缀
 ## 随 S1 数据批改（#2193）同步（2026-11-03）
 `collection` 删 `publisher`、`publish_year`（已并入 `publication_info`，即 `pub_*` 列）、`holder`（并入 `current_location`）、`total_works`、`total_volumes`、`sections`；删 `collection_editor` 表（`editors` 已并入 `authors`，走 `authorship`）。
 
+## D2 原型：还原门禁（2026-11-03）
+`proto/roundtrip.py`：一份拆表映射（每个 JSON 键进哪一列或哪张明细表）驱动灌库，再从表读回成 JSON 逐条比对。类型对不上或映射里没有的键原样进该行 `extra`；`extra` 里用 `_null`／`_empty`／`_present` 记显式 null、空容器、拆进主表列的对象，还原时补回。比对口径是解析后对象相等（不比键序、缩进）。
+
+实测（本地 PostgreSQL 16，book-index main 2026-11-03 上午）：
+| 类型 | 条数 | 还原不一致 | 灌库＋还原 |
+|---|---|---|---|
+| Entity | 151,446 | 0 | 37s |
+| Work | 249,778 | 0 | 88s |
+| Collection | 3,707 | 0 | 3s |
+| Book | 402,956 | 0 | 139s |
+
+四类灌完后 `checks.sql` 全部 0 行，`constraints.sql` 的 11 个外键全部 VALIDATE 通过。库大小约 1.35 GB（含 trigram 索引；源 JSON 约 3.7 GB）。
+
+为还原改了 DDL：`related_book`／`related_collection` 加 `seq`（按文件列表存）；`member_of` 加 `extra`；`entity_external_id.value` 改 jsonb（`cbdb_id` 是整数、`cbdb_id_alt` 是数组，原样存）；`entity_relation` 加 `src_key`（同一 `rel` 有多个来源键，如 `dynasty_ids`／`dynasty_id`），主键改为 `(src, src_key, seq)`。
+
+还没做：并条账台账装载（`merged_into.live_id` 现取墓碑直写去向，未解链末）、book-text 各表、写出端键序、把映射挪进 bim 并加「schema 有而映射无」的 CI 检查。
+
 ## 如何防止与 `schema/json` 漂移
 D2 起由 bim 里的一份拆表映射（字段名 → 表／列）驱动建库与还原，并加一条 CI 检查：`schema/json` 里出现映射里没有的字段时报错，逼人要么登记列、要么确认放 `extra`。DDL 以后由映射生成，本目录 `schema.sql` 届时改为生成物。
 

@@ -38,7 +38,8 @@ CREATE TABLE entity (
   extra jsonb                              -- 长尾字段
 );
 CREATE TABLE entity_alt_name (owner_id text REFERENCES entity(id) ON DELETE CASCADE, seq int, name text NOT NULL, type text, ambiguous boolean, note text, extra jsonb, PRIMARY KEY (owner_id, seq));
-CREATE TABLE entity_external_id (owner_id text REFERENCES entity(id) ON DELETE CASCADE, key text, seq int NOT NULL DEFAULT 0, value text, PRIMARY KEY (owner_id, key, seq)); -- cbdb_id/wikidata_id/viaf_id/cbdb_match/cbdb_source；cbdb_id_alt 为数组，一值一行
+CREATE TABLE entity_external_id (owner_id text REFERENCES entity(id) ON DELETE CASCADE, key text, value jsonb NOT NULL, PRIMARY KEY (owner_id, key)); -- cbdb_id/wikidata_id/viaf_id/cbdb_match/cbdb_source/cbdb_id_alt；值原样（cbdb_id 是整数、cbdb_id_alt 是数组），查时用 value = '123'::jsonb
+CREATE INDEX ON entity_external_id (key, value);
 CREATE TABLE entity_dates (owner_id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, birth int, death int, floruit_start int, floruit_end int, start_year int, end_year int, basis text, extra jsonb);
 
 -- Entity 子类表（主键即 entity.id）
@@ -67,9 +68,10 @@ CREATE TABLE entity_relation (
     -- in_dynasty←dynasty_ids | parent←parent_id | predecessor←predecessors | superior←superiors | owner←owner_ids/owners | in_group←group_ids | institution←institution_ids | person←relations[]（亲属师承，kind=type，note=basis，sources 进 extra）
     --   institution 兼收 office.institution_ref 与 seal.institution_ids；in_dynasty 兼收 reign.dynasty_id
   dst text NOT NULL, seq int NOT NULL DEFAULT 0,
+  src_key text NOT NULL,   -- 来自文件里哪个键（dynasty_ids／dynasty_id／owners／owner_ids…），同一 rel 有多个来源键，还原要靠它
   role text, year int, start_year int, end_year int, kind text, note text, sources jsonb, extra jsonb,
   -- person 关系双向都存（互为逆称，与文件一致），不在库里派生反向
-  PRIMARY KEY (src, rel, dst, seq)
+  PRIMARY KEY (src, src_key, seq)
 );
 CREATE INDEX ON entity_relation (dst, rel);
 CREATE TABLE entity_appears_in (owner_id text REFERENCES entity(id) ON DELETE CASCADE, seq int, ref_type text, ref_id text, position text, note text, extra jsonb, PRIMARY KEY (owner_id, seq));

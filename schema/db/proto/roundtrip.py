@@ -7,7 +7,7 @@
 extra 里另有几个记号：`_null`（显式写了 null 的键）、`_empty`（写了空容器 {} / [] 的键）、
 拆进主表列的对象记 `{对象名: {"_present": 1, …}}`，还原时据此补回。
 比对口径：解析后的对象相等（不比键序与缩进；键序由写出端按 schema 排）。
-灌库在一个事务里，跑完回滚，不留数据。
+灌库在一个事务里，跑完回滚，不留数据；加 --keep 则比对全过才提交。
 """
 import argparse, collections, glob, json, os, sys, time
 import psycopg
@@ -144,6 +144,70 @@ MAPS = {
                                                       'evidence': 'evidence'}, {'kind': 'related_to'}, owner='src'),
         }),
     },
+    'Entity': {
+        'table': 'entity', 'owner_type': 'E', 'fixed': {'type': 'entity'},
+        'cols': {'id': 'id', 'subtype': 'subtype', 'primary_name': 'primary_name', 'dynasty': 'dynasty',
+                 'dynasty_basis': 'dynasty_basis', 'period': 'period', 'period_basis': 'period_basis', 'name_basis': 'name_basis',
+                 'ai_note': 'ai_note', 'schema_version': 'schema_version', 'revision': 'revision', 'revised_at': 'revised_at',
+                 'updated_at': 'updated_at', 'retired': 'retired', 'retired_reason': 'retired_reason'},
+        'flat': {'description': {'text': 'description_text'}, 'review': {'status': 'review_status'}},
+        'jsonb': {},
+        'side': {
+            'people': ('person', {'title_or_office': 'title_or_office', 'native_place': 'native_place',
+                                  'native_place_basis': 'native_place_basis', 'native_place_entity_id': 'native_place_entity_id'}, {}),
+            'collective': ('collective', {'collective_kind': 'collective_kind', 'institution_level': 'institution_level',
+                                          'function': 'function', 'basis': 'basis'}, {}),
+            'publisher': ('publisher', {'publisher_kind': 'publisher_kind', 'status': 'status'}, {}),
+            'office': ('office', {'office_level': 'office_level', 'office_class': 'office_class', 'function': 'function',
+                                  'basis': 'basis', 'base_office_id': 'base_office_id'},
+                       {'rank': {'text': 'rank_text', 'basis': 'rank_basis'},
+                        'qualifier': {'kind': 'qualifier_kind', 'name': 'qualifier_name', 'note': 'qualifier_note',
+                                      'target': 'qualifier_target'}}),
+            'place': ('place', {'concept_id': 'concept_id', 'place_level': 'place_level'},
+                      {'modern': {'text': 'modern_text', 'relation': 'modern_relation', 'adcode': 'modern_adcode',
+                                  'note': 'modern_note'}}),
+            'seal': ('seal', {'seal_text': 'seal_text', 'seal_kind': 'seal_kind', 'seal_style': 'seal_style',
+                              'seal_form': 'seal_form', 'usage_scope': 'usage_scope'}, {}),
+            'reign': ('reign', {}, {'ruler': {'name': 'ruler_name', 'entity_id': 'ruler_entity_id'}}),
+            'dynasty': ('dynasty', {}, {}),
+        },
+        'kids': {
+            'alt_names': K('entity_alt_name', {'name': 'name', 'type': 'type', 'ambiguous': 'ambiguous', 'note': 'note'}),
+            'external_ids': K('entity_external_id', {'@': 'value'}, mode='dict', dictkey='key'),
+            'dates': K('entity_dates', {'birth': 'birth', 'death': 'death', 'floruit': ('floruit_start', 'floruit_end'),
+                                        'start': 'start_year', 'end': 'end_year', 'basis': 'basis'}, mode='one'),
+            'history': K('place_history', {'name': 'name', 'level': 'level', 'start': 'start_year', 'end': 'end_year',
+                                           'note': 'note', 'parent_id': 'parent_id'},
+                         sub={'dynasty_ids': K('place_history_dynasty', {'@': 'dynasty_id'}, parent='hseq')}),
+            'images': K('entity_image', {'file': 'file', 'credit': 'credit', 'license': 'license', 'source_url': 'source_url',
+                                         'note': 'note'}),
+            'locations': K('entity_location', {'name': 'name', 'place_id': 'place_id', 'note': 'note'}),
+            'appears_in': K('entity_appears_in', {'ref_type': 'ref_type', 'id': 'ref_id', 'position': 'position', 'note': 'note'}),
+            'dynasty_ids': K('entity_relation', {'@': 'dst'}, {'rel': 'in_dynasty', 'src_key': 'dynasty_ids'}, owner='src'),
+            'dynasty_id': K('entity_relation', {'@': 'dst'}, {'rel': 'in_dynasty', 'src_key': 'dynasty_id'}, owner='src', mode='one'),
+            'parent_id': K('entity_relation', {'@': 'dst'}, {'rel': 'parent', 'src_key': 'parent_id'}, owner='src', mode='one'),
+            'institution_ref': K('entity_relation', {'@': 'dst'}, {'rel': 'institution', 'src_key': 'institution_ref'},
+                                 owner='src', mode='one'),
+            'institution_ids': K('entity_relation', {'@': 'dst'}, {'rel': 'institution', 'src_key': 'institution_ids'}, owner='src'),
+            'predecessors': K('entity_relation', {'id': 'dst', 'kind': 'kind', 'year': 'year', 'note': 'note'},
+                              {'rel': 'predecessor', 'src_key': 'predecessors'}, owner='src'),
+            'superiors': K('entity_relation', {'id': 'dst', 'start': 'start_year', 'end': 'end_year', 'note': 'note'},
+                           {'rel': 'superior', 'src_key': 'superiors'}, owner='src'),
+            'owner_ids': K('entity_relation', {'@': 'dst'}, {'rel': 'owner', 'src_key': 'owner_ids'}, owner='src'),
+            'owners': K('entity_relation', {'id': 'dst', 'role': 'role', 'note': 'note'}, {'rel': 'owner', 'src_key': 'owners'},
+                        owner='src'),
+            'group_ids': K('entity_relation', {'@': 'dst'}, {'rel': 'in_group', 'src_key': 'group_ids'}, owner='src'),
+            'relations': K('entity_relation', {'entity_id': 'dst', 'type': 'kind', 'basis': 'note', 'sources': 'sources'},
+                           {'rel': 'person', 'src_key': 'relations'}, owner='src'),
+            'merged_in': K('merge_event', MERGED_IN, {'kind': 'merged_in'}),
+            'merge_history': K('merge_event', {'merged_from': 'other_id', 'primary_name': 'primary_name', 'title': 'title',
+                                               'date': 'date', 'reason': 'reason'}, {'kind': 'merge_history'}),
+            'todo': K('record_todo', {'what': 'what', 'by': 'by', 'date': 'date'}),
+            'merged_into': K('merged_into', {'@': 'direct_into'}, {'record_type': 'E', 'src': 'tombstone'}, owner='dead_id',
+                             mode='one'),
+            'description.sources': K('description_source', {'@': 'source'}),
+        },
+    },
 }
 
 
@@ -205,6 +269,11 @@ def shred(obj, keymap, types, enums, extra):
             extra.setdefault('_null', []).append(k)
         elif isinstance(v, (dict, list)) and not v:
             extra.setdefault('_empty', []).append([k, v])
+        elif isinstance(col, tuple):
+            if isinstance(v, list) and len(v) == len(col) and all(x is not None and fits(x, types[c], enums) for x, c in zip(v, col)):
+                row.update(zip(col, v))
+            else:
+                extra[k] = v
         elif col and fits(v, types[col], enums):
             row[col] = val(v, types[col])
         else:
@@ -224,7 +293,17 @@ class Loader:
         m, tab = self.m, self.m['table']
         tcols = self.types[tab]
         extra, row, later = {}, {}, []
+        side = m.get('side', {}).get(d.get('subtype'))
+        srow = {}
         for k, v in d.items():
+            if side and v is not None and k in side[1] and fits(v, self.types[side[0]][side[1][k]], self.enums):
+                srow[side[1][k]] = v
+                continue
+            if side and k in side[2] and isinstance(v, dict) and v:
+                sub = {'_present': 1}
+                srow.update(shred(v, side[2][k], self.types[side[0]], self.enums, sub))
+                extra[k] = sub
+                continue
             if k in m['fixed']:
                 if v != m['fixed'][k]:
                     extra[k] = v
@@ -262,13 +341,16 @@ class Loader:
         if extra:
             row['extra'] = Jsonb(extra)
         self.add(tab, row)
+        if side:
+            srow['id'] = d['id']
+            self.add(side[0], srow)
         for k, v in later:
             self.kids(k, d['id'], v)
 
     def kid_ok(self, k, v):
         mode = self.m['kids'][k]['mode']
         return (mode == 'list' and isinstance(v, list) and v) or (mode == 'dict' and isinstance(v, dict) and v) \
-            or (mode == 'one' and isinstance(v, str))
+            or (mode == 'one' and (isinstance(v, str) or (isinstance(v, dict) and v)))
 
     def kids(self, key, oid, v):
         s = self.m['kids'][key]
@@ -331,7 +413,10 @@ def unshred(row, keymap, extra):
         return row[keymap['@']]
     o = {}
     for k, col in keymap.items():
-        if row.get(col) is not None:
+        if isinstance(col, tuple):
+            if all(row.get(c) is not None for c in col):
+                o[k] = [row[c] for c in col]
+        elif row.get(col) is not None:
             o[k] = row[col]
     for k in extra.get('_null', []):
         o[k] = None
@@ -372,10 +457,22 @@ def restore_all(cur, m):
                     it[sk] = [x for _, x in sorted(got, key=lambda y: y[0])]
             by[r[s['owner']]].append((pos, it))
         kids[key] = by
+    sides = {}
+    for st, (t, cm, fm) in m.get('side', {}).items():
+        sides[st] = {r['id']: r for r in fetch(cur, t)}
     out = {}
     for row in fetch(cur, m['table']):
         extra = row.get('extra') or {}
         d = dict(m['fixed'])
+        side = m.get('side', {}).get(row.get('subtype'))
+        if side:
+            sr = sides[row['subtype']].get(row['id'], {})
+            for k, col in side[1].items():
+                if sr.get(col) is not None:
+                    d[k] = sr[col]
+            for k, fm in side[2].items():
+                if k in extra:
+                    d[k] = unshred(sr, fm, extra.pop(k))
         for k, col in m['cols'].items():
             if row.get(col) is not None:
                 v = row[col]
@@ -424,6 +521,7 @@ def main():
     ap.add_argument('--dsn', required=True)
     ap.add_argument('--type', default='Collection')
     ap.add_argument('--limit', type=int)
+    ap.add_argument('--keep', action='store_true', help='比对通过就提交，留下数据（供 checks.sql、外键 VALIDATE）')
     a = ap.parse_args()
     m = MAPS[a.type]
     t0 = time.time()
@@ -463,7 +561,10 @@ def main():
                 r = cur.fetchall()
                 if r:
                     print('  %s extra 键：' % t, r)
-        conn.rollback()
+        if a.keep and not n_bad:
+            conn.commit()
+        else:
+            conn.rollback()
     sys.exit(1 if n_bad else 0)
 
 
