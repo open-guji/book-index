@@ -68,7 +68,6 @@
   ],
   "measure_info": "《水滸》二十卷首一卷（約 115 回）",
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "二十卷首一卷（《水滸》部分約 115 回）",
     "alias": [
@@ -76,16 +75,6 @@
       "雄飛館本",
       "熊飛館本"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9az1n0",
-        "ref_type": "book",
-        "relation": "同系延伸",
-        "confidence": "consensus",
-        "evidence": "据人文社版本嬗变官方图：英雄譜本（初刻/二刻）作为評林本系列之延伸（图中并列于評林本注）"
-      }
-    ],
-    "related_to": [],
     "note": "评林本系列下属——人文社官方图把初刻英雄谱本、二刻英雄谱本作为评林本之注。实际是评林本系列的延伸刊本（与三国合刻），但本索引保留独立 Book 以记录其独有的影印资源等。"
   },
   "indexed_by": [
@@ -104,6 +93,17 @@
       "institution": "初刻：筑波大学等；二刻：日本内阁文库、京都大学（铃木虎雄藏）、尊经阁、国图等",
       "notes": "英雄谱本分初刻、二刻两个版次，皆与三国合刻",
       "source": "current_location"
+    }
+  ],
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "同系延伸",
+      "book_id": "988g9az1n0",
+      "confidence": "consensus",
+      "evidence": "据人文社版本嬗变官方图：英雄譜本（初刻/二刻）作为評林本系列之延伸（图中并列于評林本注）",
+      "source": "lineage.derived_from"
     }
   ]
 }

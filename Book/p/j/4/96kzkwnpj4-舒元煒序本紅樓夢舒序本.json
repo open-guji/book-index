@@ -66,18 +66,8 @@
     }
   ],
   "lineage": {
-    "category": "抄本",
     "status": "fragment",
-    "extant_juan": "前40回（原本80回）",
-    "derived_from": [
-      {
-        "ref": "h_zhi_dingben_1754",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "probable",
-        "evidence": "据舒元炜序为乾隆己酉抄定，文字介于脂评本与梦觉本之间，已有较多刪改"
-      }
-    ]
+    "extant_juan": "前40回（原本80回）"
   },
   "edition": "舒序本",
   "revision": "1.0.18",
@@ -94,5 +84,16 @@
       "source": "current_location"
     }
   ],
-  "measure_info": "現存 40 回（一至四十回）"
+  "measure_info": "現存 40 回（一至四十回）",
+  "edition_type": "抄本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_zhi_dingben_1754",
+      "confidence": "probable",
+      "evidence": "据舒元炜序为乾隆己酉抄定，文字介于脂评本与梦觉本之间，已有较多刪改",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

@@ -28,18 +28,8 @@
   },
   "ai_note": "新建：戚寧本（戚序本系統，南京圖書館藏）。 | 資源狀態：戚寧本：南京圖書館藏，至今未公開影印出版（毛國瑤 1973 年文章首次介紹）\n原 lineage.year_text：清乾隆中后期抄本\n原 juan_count.number（無單位）：80",
   "lineage": {
-    "category": "抄本",
     "status": "extant",
-    "extant_juan": "80回",
-    "derived_from": [
-      {
-        "ref": "h_qixu_zuben",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "consensus",
-        "evidence": "戚序本系统三支之一，今藏南京图书馆，故称戚宁本/戚南本，与戚张本同源"
-      }
-    ]
+    "extant_juan": "80回"
   },
   "edition": "戚寧本",
   "resources": [
@@ -77,12 +67,25 @@
     }
   },
   "related_books": [
-    "96l2ph9q0w"
+    {
+      "book_id": "96l2ph9q0w"
+    }
   ],
   "provenance": [
     {
       "institution": "南京圖書館",
       "source": "current_location"
+    }
+  ],
+  "edition_type": "抄本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_qixu_zuben",
+      "confidence": "consensus",
+      "evidence": "戚序本系统三支之一，今藏南京图书馆，故称戚宁本/戚南本，与戚张本同源",
+      "source": "lineage.derived_from"
     }
   ]
 }

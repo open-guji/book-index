@@ -73,7 +73,6 @@
   ],
   "measure_info": "一百二十回",
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "一百二十回不分卷",
     "alias": [
@@ -81,23 +80,6 @@
       "百二十回全書本",
       "郁郁堂本（版次）",
       "宝翰楼本（同板）"
-    ],
-    "derived_from": [
-      {
-        "ref": "988g9c7zsw",
-        "ref_type": "book",
-        "relation": "增補",
-        "confidence": "consensus",
-        "evidence": "鄧雷課程：百二十回本承襲大滌餘人序本而來"
-      }
-    ],
-    "related_to": [
-      {
-        "book_id": "988g9baa68",
-        "relation": "兄弟本",
-        "confidence": "consensus",
-        "evidence": "百二十回本之兩支：全傳本與全書本，同源於大滌餘人序本"
-      }
     ],
     "note": "百二十回本之全書本支系，含郁郁堂挖印本版次。"
   },
@@ -107,10 +89,13 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988g9c7zsw",
+      "relation": "增補",
       "name": "忠義水滸傳（大滌餘人序本）",
-      "source": "lineage.derived_from",
-      "note": "鄧雷課程：百二十回本承襲大滌餘人序本而來"
+      "book_id": "988g9c7zsw",
+      "confidence": "consensus",
+      "evidence": "鄧雷課程：百二十回本承襲大滌餘人序本而來",
+      "note": "鄧雷課程：百二十回本承襲大滌餘人序本而來",
+      "source": "lineage.derived_from"
     }
   ],
   "provenance": [
@@ -119,5 +104,14 @@
       "notes": "全书本（郁郁堂）+郁郁堂挖印本两个版次，存本众多",
       "source": "current_location"
     }
-  ]
+  ],
+  "related_books": [
+    {
+      "book_id": "988g9baa68",
+      "relation": "兄弟本",
+      "confidence": "consensus",
+      "evidence": "百二十回本之兩支：全傳本與全書本，同源於大滌餘人序本"
+    }
+  ],
+  "edition_type": "刻本"
 }

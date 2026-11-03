@@ -42,22 +42,11 @@
   ],
   "measure_info": "二十五卷",
   "lineage": {
-    "category": "刻本",
     "status": "fragment",
     "extant_juan": "二十五卷，殘本，偏像版式（上圖下文）",
     "alias": [
       "種德書堂本"
     ],
-    "derived_from": [
-      {
-        "ref": "h_jianben_zuben",
-        "ref_type": "hypothetical",
-        "relation": "刪節",
-        "confidence": "consensus",
-        "evidence": "鄧雷課程：比容與堂本刪削 45%；簡本系統核心祖本"
-      }
-    ],
-    "related_to": [],
     "note": "簡本系統核心祖本，插增、評林之共同源頭。"
   },
   "ai_note": "鄧雷《水滸傳版本知見録》對應章節（人民文學社版本源流課程，課程主頁 https://special.rhky.com/mobile/mooc/tocourse/204391782）：\n- 二、書名：新刊全相忠義水滸傳（種德書堂刊本） → https://special.rhky.com/mobile/mooc/tocard/157715908?courseId=204391782\n- 　版本一：殘本※（德萊斯頓藏本） → https://special.rhky.com/mobile/mooc/tocard/157715910?courseId=204391782\n- 　版本二：殘本（梵蒂岡藏本） → https://special.rhky.com/mobile/mooc/tocard/157715912?courseId=204391782",
@@ -67,6 +56,17 @@
     {
       "institution": "德國德累斯頓邦立薩克森圖書館；梵蒂岡教廷圖書館",
       "source": "current_location"
+    }
+  ],
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "刪節",
+      "hypothetical_id": "h_jianben_zuben",
+      "confidence": "consensus",
+      "evidence": "鄧雷課程：比容與堂本刪削 45%；簡本系統核心祖本",
+      "source": "lineage.derived_from"
     }
   ]
 }

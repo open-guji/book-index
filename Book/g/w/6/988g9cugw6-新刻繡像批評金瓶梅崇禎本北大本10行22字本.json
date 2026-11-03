@@ -39,7 +39,6 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "二十卷一百回，全",
     "alias": [
@@ -47,16 +46,6 @@
       "新刻繡像批評金瓶梅",
       "崇禎北大本"
     ],
-    "derived_from": [
-      {
-        "ref": "h_chongzhen_zuben",
-        "ref_type": "hypothetical",
-        "relation": "翻刻",
-        "confidence": "consensus",
-        "evidence": "黃霖：崇禎本系第一支，據崇禎原刊本翻刻"
-      }
-    ],
-    "related_to": [],
     "note": "崇祯本北大本支祖；马廉「不登大雅之堂」旧藏；眉批 4 字一行；北大社 1988 影印。"
   },
   "ai_note": "馬廉「不登大雅之堂」陰文方章為著名藏書印（鄭振鐸 1957《中國文學研究》引）。魏珂判定北大本所屬「10 行 22 字+眉批 4 字一行」支系包括天大本、上圖甲本三本同類。上圖乙本/天圖本（眉批 2 字或 4 字混用）較北大本批語少，視為再刊本支系。",
@@ -68,5 +57,16 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "翻刻",
+      "hypothetical_id": "h_chongzhen_zuben",
+      "confidence": "consensus",
+      "evidence": "黃霖：崇禎本系第一支，據崇禎原刊本翻刻",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

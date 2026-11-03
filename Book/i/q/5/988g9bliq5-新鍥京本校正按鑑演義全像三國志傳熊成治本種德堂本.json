@@ -39,7 +39,6 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "fragment",
     "extant_juan": "二十卷，存卷一、二",
     "alias": [
@@ -47,16 +46,6 @@
       "熊衝宇本",
       "種德堂本"
     ],
-    "derived_from": [
-      {
-        "ref": "h_erxi_zuben",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "consensus",
-        "evidence": "金文京 2004：建陽繁本系統，承襲二系祖本（含花關索故事）"
-      }
-    ],
-    "related_to": [],
     "note": "冒充李卓吾本的早期偽托；非余象斗1592年所提的種德堂本。"
   },
   "revision": "1.0.0",
@@ -67,5 +56,16 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_erxi_zuben",
+      "confidence": "consensus",
+      "evidence": "金文京 2004：建陽繁本系統，承襲二系祖本（含花關索故事）",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

@@ -38,23 +38,12 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "fragment",
     "extant_juan": "二十卷，存卷一、二、三",
     "alias": [
       "魏某本",
       "書林魏某二刻本"
     ],
-    "derived_from": [
-      {
-        "ref": "h_sansi_zuben",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "consensus",
-        "evidence": "金文京 2004：三系乙（《英雄志傳》系）建陽簡本"
-      }
-    ],
-    "related_to": [],
     "note": "二刻 + 新刻後修配補；版心兩種並存。"
   },
   "revision": "1.0.0",
@@ -65,5 +54,16 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_sansi_zuben",
+      "confidence": "consensus",
+      "evidence": "金文京 2004：三系乙（《英雄志傳》系）建陽簡本",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

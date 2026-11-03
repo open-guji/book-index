@@ -46,23 +46,12 @@
     ]
   },
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "二十卷，全",
     "alias": [
       "黃正甫本",
       "黃一鶚本"
     ],
-    "derived_from": [
-      {
-        "ref": "h_sansi_zuben",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "consensus",
-        "evidence": "金文京 2004：三系甲（《三國志傳》系）晚期刊本"
-      }
-    ],
-    "related_to": [],
     "note": "三系甲簡本系統晚期代表。"
   },
   "location_history": [
@@ -86,5 +75,15 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_sansi_zuben",
+      "confidence": "consensus",
+      "evidence": "金文京 2004：三系甲（《三國志傳》系）晚期刊本",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

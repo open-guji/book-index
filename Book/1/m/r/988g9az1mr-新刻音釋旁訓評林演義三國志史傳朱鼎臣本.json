@@ -39,23 +39,12 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "二十卷，全",
     "alias": [
       "朱鼎臣本",
       "古臨衝懷本"
     ],
-    "derived_from": [
-      {
-        "ref": "h_sansi_zuben",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "consensus",
-        "evidence": "金文京 2004：三系甲（《三國志傳》系）建陽簡本"
-      }
-    ],
-    "related_to": [],
     "note": "朱鼎臣（古臨/羊城=臨川）為晚明高產編書者，多種坊刻本俱見其名。"
   },
   "revision": "1.0.0",
@@ -66,5 +55,16 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_sansi_zuben",
+      "confidence": "consensus",
+      "evidence": "金文京 2004：三系甲（《三國志傳》系）建陽簡本",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

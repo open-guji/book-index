@@ -132,18 +132,8 @@
     }
   ],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
-    "extant_juan": "120回",
-    "derived_from": [
-      {
-        "ref": "96kzkdm8e8",
-        "ref_type": "book",
-        "relation": "修訂",
-        "confidence": "certain",
-        "evidence": "程伟元、高鹗自陈：「初印时不及细校，间有紕缺，今复聚集各原本详加校阅，改订无讹」"
-      }
-    ]
+    "extant_juan": "120回"
   },
   "edition": "程乙本",
   "revision": "1.2.11",
@@ -161,10 +151,13 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "96kzkdm8e8",
+      "relation": "修訂",
       "name": "程甲本",
-      "source": "lineage.derived_from",
-      "note": "程伟元、高鹗自陈：「初印时不及细校，间有紕缺，今复聚集各原本详加校阅，改订无讹」"
+      "book_id": "96kzkdm8e8",
+      "confidence": "certain",
+      "evidence": "程伟元、高鹗自陈：「初印时不及细校，间有紕缺，今复聚集各原本详加校阅，改订无讹」",
+      "note": "程伟元、高鹗自陈：「初印时不及细校，间有紕缺，今复聚集各原本详加校阅，改订无讹」",
+      "source": "lineage.derived_from"
     }
   ],
   "provenance": [
@@ -172,5 +165,6 @@
       "institution": "多家收藏（北師大、紹興兰藏、天津圖書館、中國書店、杭州圖書館 等）",
       "source": "current_location"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

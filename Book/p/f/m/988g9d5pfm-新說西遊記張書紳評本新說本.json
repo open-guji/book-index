@@ -35,7 +35,6 @@
   "location_history": [],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "一百回",
     "alias": [
@@ -43,16 +42,6 @@
       "新說西游記",
       "張書紳評本"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9blipw",
-        "ref_type": "book",
-        "relation": "翻刻",
-        "confidence": "probable",
-        "evidence": "黃永年：清代繁本系；文字承明代李評本繁本系統而下"
-      }
-    ],
-    "related_to": [],
     "note": "清代繁本系（独立于删本系）；张书绅评；儒学义理诠释。"
   },
   "revision": "1.0.0",
@@ -60,10 +49,14 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988g9blipw",
+      "relation": "翻刻",
       "name": "李卓吾先生批評西游記（李評本）",
-      "source": "lineage.derived_from",
-      "note": "黃永年：清代繁本系；文字承明代李評本繁本系統而下"
+      "book_id": "988g9blipw",
+      "confidence": "probable",
+      "evidence": "黃永年：清代繁本系；文字承明代李評本繁本系統而下",
+      "note": "黃永年：清代繁本系；文字承明代李評本繁本系統而下",
+      "source": "lineage.derived_from"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

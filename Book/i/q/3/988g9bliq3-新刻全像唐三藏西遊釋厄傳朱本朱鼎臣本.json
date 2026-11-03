@@ -57,7 +57,6 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "十卷十三萬字",
     "alias": [
@@ -66,23 +65,6 @@
       "唐三藏西游釋厄傳",
       "全相唐三藏西游傳"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9bliq1",
-        "ref_type": "book",
-        "relation": "翻刻",
-        "confidence": "consensus",
-        "evidence": "黃永年：朱本因襲楊本"
-      },
-      {
-        "ref": "988g9blipx",
-        "ref_type": "book",
-        "relation": "參校",
-        "confidence": "consensus",
-        "evidence": "黃永年：朱本同時還直接參考了百回本（即世德堂本所代表的繁本系統）"
-      }
-    ],
-    "related_to": [],
     "note": "简本系，朱因袭杨同时参考百回本；文字比杨本详。"
   },
   "ai_note": "黃永年《〈西游記〉的成書經過和版本源流》考定：「世德堂本→楊本→朱本」——朱本因襲楊本同时参考百回本。舒穆撰章列朱本 3 套：故宮朱本（發現於日本村口書店，臺灣故宮）、慈眼堂朱本（日本）、希藏朱本（希不全山房私藏僅一冊）。羊城/古臨並非廣州，舒穆釋為江西臨川別名（從魏安 1996 考）。",
@@ -91,17 +73,24 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988g9bliq1",
+      "relation": "翻刻",
       "name": "新鍥唐三藏出身全傳（楊本／齊雲陽至和本）",
-      "source": "lineage.derived_from",
-      "note": "黃永年：朱本因襲楊本"
+      "book_id": "988g9bliq1",
+      "confidence": "consensus",
+      "evidence": "黃永年：朱本因襲楊本",
+      "note": "黃永年：朱本因襲楊本",
+      "source": "lineage.derived_from"
     },
     {
       "role": "參校",
-      "book_id": "988g9blipx",
+      "relation": "參校",
       "name": "新刻出像官板大字西游記（世德堂本／熊雲濱補修重印本）",
-      "source": "lineage.derived_from",
-      "note": "黃永年：朱本同時還直接參考了百回本（即世德堂本所代表的繁本系統）"
+      "book_id": "988g9blipx",
+      "confidence": "consensus",
+      "evidence": "黃永年：朱本同時還直接參考了百回本（即世德堂本所代表的繁本系統）",
+      "note": "黃永年：朱本同時還直接參考了百回本（即世德堂本所代表的繁本系統）",
+      "source": "lineage.derived_from"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

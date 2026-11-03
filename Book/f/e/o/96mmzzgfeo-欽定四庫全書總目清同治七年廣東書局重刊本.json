@@ -91,24 +91,7 @@
     "sources": []
   },
   "lineage": {
-    "category": "刻本",
-    "status": "extant",
-    "derived_from": [
-      {
-        "ref": "96mid1ogzk",
-        "ref_type": "book",
-        "relation": "翻刻",
-        "confidence": "consensus"
-      }
-    ],
-    "related_to": [
-      {
-        "book_id": "96mmzlpzi8",
-        "relation": "同版",
-        "confidence": "certain",
-        "evidence": "同治七年廣東書局重刊本，與 96mmzlpzi8 同版，皆國立故宮博物院藏"
-      }
-    ]
+    "status": "extant"
   },
   "revision": "1.0.1",
   "revised_at": "2026-10-19",
@@ -135,10 +118,20 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "96mid1ogzk",
+      "relation": "翻刻",
       "name": "武英殿刻本",
+      "book_id": "96mid1ogzk",
+      "confidence": "consensus",
       "source": "lineage.derived_from"
     }
   ],
-  "ai_note": "2026-10-19 GUJI-240：描述中舊 draft id 改為正式 id；殿本印數依曹文埴奏作一百零四部；粵本底本為浙本。\n\n2026-10-19 GUJI-240 續：lineage.related_to 記「同版」指 96mmzlpzi8（代表本），網站版本表據以把同版各部收成一組。\n原 lineage.year_text：清同治七年（1868）翻刻"
+  "ai_note": "2026-10-19 GUJI-240：描述中舊 draft id 改為正式 id；殿本印數依曹文埴奏作一百零四部；粵本底本為浙本。\n\n2026-10-19 GUJI-240 續：lineage.related_to 記「同版」指 96mmzlpzi8（代表本），網站版本表據以把同版各部收成一組。\n原 lineage.year_text：清同治七年（1868）翻刻",
+  "related_books": [
+    {
+      "book_id": "96mmzlpzi8",
+      "relation": "同版",
+      "confidence": "certain",
+      "evidence": "同治七年廣東書局重刊本，與 96mmzlpzi8 同版，皆國立故宮博物院藏"
+    }
+  ]
 }

@@ -66,7 +66,6 @@
     "year_uncertain": true
   },
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "三十卷，分卷不分回",
     "alias": [
@@ -74,16 +73,6 @@
       "寶翰樓本（版次）",
       "映雪草堂本（版次）"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9cj8cu",
-        "ref_type": "book",
-        "relation": "校改",
-        "confidence": "consensus",
-        "evidence": "据人文社版本嬗变官方图：三大寇本派生两支，本三十卷本（含宝翰楼本/映雪草堂本）为右支"
-      }
-    ],
-    "related_to": [],
     "note": "繁本系，三大寇本下游。分卷不分回独例。含宝翰楼本、映雪草堂本两个版次。"
   },
   "ai_note": "鄧雷《水滸傳版本知見録》對應章節（人民文學社版本源流課程，課程主頁 https://special.rhky.com/mobile/mooc/tocourse/204391782）：\n- 十六、書名：水滸傳全本（三十卷本） → https://special.rhky.com/mobile/mooc/tocard/157716011?courseId=204391782\n- 　版本一：六卷殘本※（寶翰樓刊本） → https://special.rhky.com/mobile/mooc/tocard/157716014?courseId=204391782\n- 　版本二：三十卷全本※（映雪草堂刊本） → https://special.rhky.com/mobile/mooc/tocard/157716016?courseId=204391782\n原 lineage.year：1640",
@@ -92,10 +81,13 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988g9cj8cu",
+      "relation": "校改",
       "name": "忠義水滸傳（三大寇本）",
-      "source": "lineage.derived_from",
-      "note": "据人文社版本嬗变官方图：三大寇本派生两支，本三十卷本（含宝翰楼本/映雪草堂本）为右支"
+      "book_id": "988g9cj8cu",
+      "confidence": "consensus",
+      "evidence": "据人文社版本嬗变官方图：三大寇本派生两支，本三十卷本（含宝翰楼本/映雪草堂本）为右支",
+      "note": "据人文社版本嬗变官方图：三大寇本派生两支，本三十卷本（含宝翰楼本/映雪草堂本）为右支",
+      "source": "lineage.derived_from"
     }
   ],
   "provenance": [
@@ -104,5 +96,6 @@
       "notes": "宝翰楼本+映雪草堂本两支",
       "source": "current_location"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

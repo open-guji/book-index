@@ -102,7 +102,6 @@
     }
   ],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "二十卷一百二十回",
     "alias": [
@@ -110,23 +109,6 @@
       "英雄譜本",
       "熊飛本"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9bwr9f",
-        "ref_type": "book",
-        "relation": "綜合",
-        "confidence": "probable",
-        "evidence": "金文京 2004：注解大部分跟湯賓尹本一樣，疑用湯賓尹本作二系底本"
-      },
-      {
-        "ref": "988g9cj8cr",
-        "ref_type": "book",
-        "relation": "綜合",
-        "confidence": "probable",
-        "evidence": "金文京 2004：用四系（李卓吾評本）作另一底本"
-      }
-    ],
-    "related_to": [],
     "note": "二系+四系底本混合的矛盾本；与水浒合刻；图像刻工刘玉明（疑刘素明兄弟）。"
   },
   "revision": "1.0.1",
@@ -137,5 +119,24 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "綜合",
+      "book_id": "988g9bwr9f",
+      "confidence": "probable",
+      "evidence": "金文京 2004：注解大部分跟湯賓尹本一樣，疑用湯賓尹本作二系底本",
+      "source": "lineage.derived_from"
+    },
+    {
+      "role": "底本",
+      "relation": "綜合",
+      "book_id": "988g9cj8cr",
+      "confidence": "probable",
+      "evidence": "金文京 2004：用四系（李卓吾評本）作另一底本",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

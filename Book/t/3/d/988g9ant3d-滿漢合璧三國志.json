@@ -39,29 +39,11 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "二十四卷",
     "alias": [
       "滿漢合璧本"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9ant3c",
-        "ref_type": "book",
-        "relation": "翻刻",
-        "confidence": "consensus",
-        "evidence": "金文京 2004：滿文部分基本上和《滿本三國志》一樣"
-      },
-      {
-        "ref": "988g9cj8cm",
-        "ref_type": "book",
-        "relation": "翻刻",
-        "confidence": "consensus",
-        "evidence": "金文京 2004：漢文部分用綠蔭堂本，扉葉即綠蔭堂本扉葉"
-      }
-    ],
-    "related_to": [],
     "note": "雍正北京二酉堂双语刻本，汉部分用绿荫堂本。"
   },
   "revision": "1.0.0",
@@ -69,17 +51,24 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988g9ant3c",
+      "relation": "翻刻",
       "name": "滿本三國志 (Ilan gurun i bithe)",
-      "source": "lineage.derived_from",
-      "note": "金文京 2004：滿文部分基本上和《滿本三國志》一樣"
+      "book_id": "988g9ant3c",
+      "confidence": "consensus",
+      "evidence": "金文京 2004：滿文部分基本上和《滿本三國志》一樣",
+      "note": "金文京 2004：滿文部分基本上和《滿本三國志》一樣",
+      "source": "lineage.derived_from"
     },
     {
       "role": "底本",
-      "book_id": "988g9cj8cm",
+      "relation": "翻刻",
       "name": "李卓吾先生批評三國志（綠蔭堂本）",
-      "source": "lineage.derived_from",
-      "note": "金文京 2004：漢文部分用綠蔭堂本，扉葉即綠蔭堂本扉葉"
+      "book_id": "988g9cj8cm",
+      "confidence": "consensus",
+      "evidence": "金文京 2004：漢文部分用綠蔭堂本，扉葉即綠蔭堂本扉葉",
+      "note": "金文京 2004：漢文部分用綠蔭堂本，扉葉即綠蔭堂本扉葉",
+      "source": "lineage.derived_from"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

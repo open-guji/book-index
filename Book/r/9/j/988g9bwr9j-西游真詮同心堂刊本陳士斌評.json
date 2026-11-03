@@ -43,23 +43,12 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "一百回，大型本 20 冊",
     "alias": [
       "同心堂本",
       "蓬左文庫西游真詮"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9d5pfp",
-        "ref_type": "book",
-        "relation": "翻刻",
-        "confidence": "consensus",
-        "evidence": "舒穆：略晚於《西游證道書》"
-      }
-    ],
-    "related_to": [],
     "note": "清初真诠本早期刊本之一；蓬左文库藏。"
   },
   "ai_note": "舒穆撰章記蓬左文庫同心堂本書志：內封題「金聖嘆批點」（伪托）+「悟一子參解證道書」。尤侗序作於康熙丙子（1696），是真詮本早期刊本之一。本索引將其歸為證道→真詮派生鏈下游。",
@@ -68,10 +57,14 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988g9d5pfp",
+      "relation": "翻刻",
       "name": "西遊證道書（汪象旭評本／證道本）",
-      "source": "lineage.derived_from",
-      "note": "舒穆：略晚於《西游證道書》"
+      "book_id": "988g9d5pfp",
+      "confidence": "consensus",
+      "evidence": "舒穆：略晚於《西游證道書》",
+      "note": "舒穆：略晚於《西游證道書》",
+      "source": "lineage.derived_from"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

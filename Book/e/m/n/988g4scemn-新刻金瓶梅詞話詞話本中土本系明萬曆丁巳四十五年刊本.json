@@ -52,7 +52,6 @@
     ]
   },
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "十卷一百回，全（中土/慈眼堂/栖息堂三本均完整；京大殘 23 回）",
     "alias": [
@@ -62,16 +61,6 @@
       "介休本",
       "萬曆本"
     ],
-    "derived_from": [
-      {
-        "ref": "h_lanling_yuanben",
-        "ref_type": "hypothetical",
-        "relation": "翻刻",
-        "confidence": "consensus",
-        "evidence": "詞話本為現存最早金瓶梅刊本，當為蘭陵笑笑生原本（萬曆早期已佚）的下游"
-      }
-    ],
-    "related_to": [],
     "note": "现存全本三部+残本一帙；至少 2 次印刷（栖息堂本第 5 回末叶后刻补入证之）；刊行年代实际为崇祯初年（1619-1629），晚于崇祯本——但兄弟本同源关系不变。"
   },
   "location_history": [
@@ -124,5 +113,15 @@
     "condition": "",
     "source": "library_data/臺灣故宮博物院善本古籍（依 provenance.call_number＝holding_id 對照，同號多書按書名/卷數挑選）"
   },
-  "edition_type": "刻本"
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "翻刻",
+      "hypothetical_id": "h_lanling_yuanben",
+      "confidence": "consensus",
+      "evidence": "詞話本為現存最早金瓶梅刊本，當為蘭陵笑笑生原本（萬曆早期已佚）的下游",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

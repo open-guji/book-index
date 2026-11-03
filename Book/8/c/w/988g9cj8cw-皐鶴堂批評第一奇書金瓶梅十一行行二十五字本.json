@@ -39,22 +39,11 @@
   "location_history": [],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "一百回",
     "alias": [
       "十一行本"
     ],
-    "derived_from": [
-      {
-        "ref": "988fzcbdhh",
-        "ref_type": "book",
-        "relation": "翻刻",
-        "confidence": "consensus",
-        "evidence": "胡龍：十一行本為皐鶴堂初刻本後出翻刻支之一"
-      }
-    ],
-    "related_to": [],
     "note": "张评本翻刻支之一（11行25字版式）。"
   },
   "revision": "1.0.0",
@@ -69,10 +58,14 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988fzcbdhh",
+      "relation": "翻刻",
       "name": "清影松軒刊本",
-      "source": "lineage.derived_from",
-      "note": "胡龍：十一行本為皐鶴堂初刻本後出翻刻支之一"
+      "book_id": "988fzcbdhh",
+      "confidence": "consensus",
+      "evidence": "胡龍：十一行本為皐鶴堂初刻本後出翻刻支之一",
+      "note": "胡龍：十一行本為皐鶴堂初刻本後出翻刻支之一",
+      "source": "lineage.derived_from"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

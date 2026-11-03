@@ -50,17 +50,7 @@
   ],
   "measure_info": "一百二十回",
   "lineage": {
-    "category": "批校本",
-    "status": "extant",
-    "derived_from": [
-      {
-        "ref": "96kzkmzcow",
-        "ref_type": "book",
-        "relation": "批校",
-        "confidence": "consensus",
-        "evidence": "在程乙本基礎上由陳其泰加批校題跋圈點"
-      }
-    ]
+    "status": "extant"
   },
   "revision": "1.0.14",
   "revised_at": "2026-05-17",
@@ -98,10 +88,13 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "96kzkmzcow",
+      "relation": "批校",
       "name": "程乙本",
-      "source": "lineage.derived_from",
-      "note": "在程乙本基礎上由陳其泰加批校題跋圈點"
+      "book_id": "96kzkmzcow",
+      "confidence": "consensus",
+      "evidence": "在程乙本基礎上由陳其泰加批校題跋圈點",
+      "note": "在程乙本基礎上由陳其泰加批校題跋圈點",
+      "source": "lineage.derived_from"
     }
   ],
   "provenance": [
@@ -109,5 +102,6 @@
       "institution": "杭州市圖書館",
       "source": "current_location"
     }
-  ]
+  ],
+  "ai_note": "原 lineage.category：批校本"
 }

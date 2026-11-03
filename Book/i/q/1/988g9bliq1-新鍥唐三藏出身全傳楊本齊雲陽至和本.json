@@ -35,7 +35,6 @@
   "location_history": [],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "四卷七萬字",
     "alias": [
@@ -44,19 +43,20 @@
       "陽至和本",
       "新鍥三藏出身全傳"
     ],
-    "derived_from": [
-      {
-        "ref": "h_chenxu_xyj",
-        "ref_type": "hypothetical",
-        "relation": "刪節",
-        "confidence": "consensus",
-        "evidence": "黃永年：杨本是百回繁本（陈序本系）的删节改写本"
-      }
-    ],
-    "related_to": [],
     "note": "简本系祖；朱本之底本；删节自百回繁本。"
   },
   "ai_note": "黃永年考定：杨本（齊雲陽至和編）是百回繁本（陈序本系）的删节改写本，朱本因袭杨本而下。黃永年驳「简先繁后」说的核心论据：「夫唯刪繁就簡可無變更；由簡入繁乃欲絲毫不變原本……為不可能」（诗篇韵律 + 情节漏洞双重证据）。",
   "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revised_at": "2026-08-25",
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "刪節",
+      "hypothetical_id": "h_chenxu_xyj",
+      "confidence": "consensus",
+      "evidence": "黃永年：杨本是百回繁本（陈序本系）的删节改写本",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

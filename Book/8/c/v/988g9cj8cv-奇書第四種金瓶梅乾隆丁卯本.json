@@ -38,23 +38,12 @@
   "location_history": [],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "一百回",
     "alias": [
       "奇書第四種",
       "乾隆丁卯本"
     ],
-    "derived_from": [
-      {
-        "ref": "988fzcbdhh",
-        "ref_type": "book",
-        "relation": "翻刻",
-        "confidence": "consensus",
-        "evidence": "胡龍：乾隆丁卯本為皐鶴堂祖刻翻刻末流"
-      }
-    ],
-    "related_to": [],
     "note": "清中后期张评本通行翻刻；定型「奇书第四种」称谓。"
   },
   "revision": "1.0.0",
@@ -62,10 +51,14 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988fzcbdhh",
+      "relation": "翻刻",
       "name": "清影松軒刊本",
-      "source": "lineage.derived_from",
-      "note": "胡龍：乾隆丁卯本為皐鶴堂祖刻翻刻末流"
+      "book_id": "988fzcbdhh",
+      "confidence": "consensus",
+      "evidence": "胡龍：乾隆丁卯本為皐鶴堂祖刻翻刻末流",
+      "note": "胡龍：乾隆丁卯本為皐鶴堂祖刻翻刻末流",
+      "source": "lineage.derived_from"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

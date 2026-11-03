@@ -37,7 +37,6 @@
   "location_history": [],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "二十卷一百回",
     "alias": [
@@ -45,19 +44,20 @@
       "華陽洞天主人校本",
       "二刻官版唐三藏西遊記"
     ],
-    "derived_from": [
-      {
-        "ref": "h_jiajing_shanjie",
-        "ref_type": "hypothetical",
-        "relation": "翻刻",
-        "confidence": "consensus",
-        "evidence": "黃永年：第二支祖本嘉靖後期刪節本（已佚）→ 唐僧本（隆慶最早實證）"
-      }
-    ],
-    "related_to": [],
     "note": "删本系最早实证；华阳洞天主人校。"
   },
   "ai_note": "舒穆撰章記 3 處藏家：日本國會圖書館（11 冊缺卷一卷十二，缺卷以李卓吾批評本補鈔）、日光慈眼堂本（足本，朱繼源梓行，「二刻官板唐三藏西遊記」）、叡山文庫本（無內封，太田辰夫調查）。華陽洞天主人校（同世德堂本系）。",
   "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revised_at": "2026-08-25",
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "翻刻",
+      "hypothetical_id": "h_jiajing_shanjie",
+      "confidence": "consensus",
+      "evidence": "黃永年：第二支祖本嘉靖後期刪節本（已佚）→ 唐僧本（隆慶最早實證）",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

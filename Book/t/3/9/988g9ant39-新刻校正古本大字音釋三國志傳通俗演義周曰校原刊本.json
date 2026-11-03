@@ -54,7 +54,6 @@
     }
   ],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "十二卷二百四十則，全（耶魯藏）；北大殘存卷一至七",
     "alias": [
@@ -63,16 +62,6 @@
       "金陵萬卷樓本",
       "仁壽堂本"
     ],
-    "derived_from": [
-      {
-        "ref": "h_sixi_zuben",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "consensus",
-        "evidence": "金文京 2004：四系甲十二卷本祖證"
-      }
-    ],
-    "related_to": [],
     "note": "周曰校本兩種版式之一：原刊本，圖有刻工署名。重刊本（11qk4xwcxk3sm）係此本翻刻去刻工署名而成。"
   },
   "revision": "1.0.1",
@@ -83,5 +72,16 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_sixi_zuben",
+      "confidence": "consensus",
+      "evidence": "金文京 2004：四系甲十二卷本祖證",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

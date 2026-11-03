@@ -52,18 +52,8 @@
     }
   ],
   "lineage": {
-    "category": "抄本",
     "status": "fragment",
-    "extant_juan": "前10回",
-    "derived_from": [
-      {
-        "ref": "h_caoxueqin_manuscript",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "disputed",
-        "evidence": "2006 年公布。文字特征接近甲戌、庚辰之间的早期过录本，部分学者认为底本可能早于甲戌本"
-      }
-    ]
+    "extant_juan": "前10回"
   },
   "edition": "卞藏本",
   "revision": "1.0.16",
@@ -80,5 +70,16 @@
       "source": "current_location"
     }
   ],
-  "measure_info": "現存第 1-10 回殘本"
+  "measure_info": "現存第 1-10 回殘本",
+  "edition_type": "抄本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_caoxueqin_manuscript",
+      "confidence": "disputed",
+      "evidence": "2006 年公布。文字特征接近甲戌、庚辰之间的早期过录本，部分学者认为底本可能早于甲戌本",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

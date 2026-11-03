@@ -94,23 +94,12 @@
   ],
   "measure_info": "一百卷一百回",
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "一百卷一百回",
     "alias": [
       "鍾伯敬本",
       "四知館本"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9bwr9g",
-        "ref_type": "book",
-        "relation": "翻刻+改批",
-        "confidence": "consensus",
-        "evidence": "鄧雷課程：「一般認為此本的底本是容與堂本」，70% 批語源自容與堂本"
-      }
-    ],
-    "related_to": [],
     "note": "容与堂本之建阳翻刻支，加钟伯敬偽托批语；70% 批语源自容与堂本，30% 为独创/改写。四知馆据积庆堂旧板翻印（巴黎本第 22 回第 3 叶版心残留「积庆堂藏板」五字）。"
   },
   "ai_note": "鄧雷《水滸傳版本知見録》對應章節（人民文學社版本源流課程，課程主頁 https://special.rhky.com/mobile/mooc/tocourse/204391782）：\n- 四、書名：鍾伯敬先生批評忠義水滸傳（鍾伯敬本） → https://special.rhky.com/mobile/mooc/tocard/157715844?courseId=204391782\n- 　版本一：一百回全本※（巴黎藏本） → https://special.rhky.com/mobile/mooc/tocard/157715845?courseId=204391782\n- 　版本二：一百回全本（神山閏次藏本） → https://special.rhky.com/mobile/mooc/tocard/157715846?courseId=204391782\n- 　版本三：一百回全本（京都大學藏本） → https://special.rhky.com/mobile/mooc/tocard/157715847?courseId=204391782",
@@ -119,10 +108,13 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988g9bwr9g",
+      "relation": "翻刻+改批",
       "name": "李卓吾先生批評忠義水滸傳（容與堂本）",
-      "source": "lineage.derived_from",
-      "note": "鄧雷課程：「一般認為此本的底本是容與堂本」，70% 批語源自容與堂本"
+      "book_id": "988g9bwr9g",
+      "confidence": "consensus",
+      "evidence": "鄧雷課程：「一般認為此本的底本是容與堂本」，70% 批語源自容與堂本",
+      "note": "鄧雷課程：「一般認為此本的底本是容與堂本」，70% 批語源自容與堂本",
+      "source": "lineage.derived_from"
     }
   ],
   "provenance": [
@@ -131,5 +123,6 @@
       "notes": "两处独立藏本",
       "source": "current_location"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

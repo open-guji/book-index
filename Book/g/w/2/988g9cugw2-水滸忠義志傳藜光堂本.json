@@ -58,23 +58,12 @@
   ],
   "measure_info": "二十五卷一百十五回",
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "二十五卷一百十五回",
     "alias": [
       "藜光堂本",
       "亲贤堂刊本（同系）"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9az1mz",
-        "ref_type": "book",
-        "relation": "翻刻",
-        "confidence": "probable",
-        "evidence": "嵌圖本系列承劉興我本而來"
-      }
-    ],
-    "related_to": [],
     "note": "嵌圖本系列之一，劉興我本系翻刻。"
   },
   "ai_note": "鄧雷《水滸傳版本知見録》對應章節（人民文學社版本源流課程，課程主頁 https://special.rhky.com/mobile/mooc/tocourse/204391782）：\n- 八、書名：新刻全像忠義水滸志傳（藜光堂刊本） → https://special.rhky.com/mobile/mooc/tocard/157715969?courseId=204391782\n- 　版本一：二十五卷全本※（藜光堂刊本） → https://special.rhky.com/mobile/mooc/tocard/157715971?courseId=204391782\n- 　版本二：二十五卷全本※（親賢堂刊本） → https://special.rhky.com/mobile/mooc/tocard/157715973?courseId=204391782\n原 lineage.year：1650",
@@ -83,10 +72,13 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988g9az1mz",
+      "relation": "翻刻",
       "name": "水滸忠義志傳（劉興我本）",
-      "source": "lineage.derived_from",
-      "note": "嵌圖本系列承劉興我本而來"
+      "book_id": "988g9az1mz",
+      "confidence": "probable",
+      "evidence": "嵌圖本系列承劉興我本而來",
+      "note": "嵌圖本系列承劉興我本而來",
+      "source": "lineage.derived_from"
     }
   ],
   "provenance": [
@@ -95,5 +87,6 @@
       "notes": "藜光堂本与亲贤堂本同系，皆嵌图本",
       "source": "current_location"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

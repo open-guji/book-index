@@ -46,7 +46,6 @@
   "measures": [],
   "measure_info": "",
   "lineage": {
-    "category": "刻本",
     "status": "fragment",
     "extant_juan": "均為殘本",
     "alias": [
@@ -54,16 +53,6 @@
       "插增甲本",
       "插增乙本"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9cugwa",
-        "ref_type": "book",
-        "relation": "刪節",
-        "confidence": "probable",
-        "evidence": "據鄧雷課程：「插增本、評林本均源出種德書堂本」，比種德書堂再刪 15% 左右"
-      }
-    ],
-    "related_to": [],
     "note": "建陽簡本系統，源出種德書堂本。"
   },
   "ai_note": "鄧雷《水滸傳版本知見録》對應章節（人民文學社版本源流課程，課程主頁 https://special.rhky.com/mobile/mooc/tocourse/204391782）：\n- 三、書名：新刻京本全像插增田虎王慶忠義水滸全傳（插增本） → https://special.rhky.com/mobile/mooc/tocard/157715914?courseId=204391782\n- 　版本一：殘本※（斯圖加特藏本） → https://special.rhky.com/mobile/mooc/tocard/157715916?courseId=204391782\n- 　版本二：殘葉※（艾氏藏本） → https://special.rhky.com/mobile/mooc/tocard/157715918?courseId=204391782\n- 　版本三：殘本※（哥本哈根藏本） → https://special.rhky.com/mobile/mooc/tocard/157715919?courseId=204391782\n- 　版本四：殘本※（巴黎藏本） → https://special.rhky.com/mobile/mooc/tocard/157715922?courseId=204391782\n- 　版本五：殘葉※（牛津殘葉） → https://special.rhky.com/mobile/mooc/tocard/157715924?courseId=204391782",
@@ -72,10 +61,13 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988g9cugwa",
+      "relation": "刪節",
       "name": "新刻全像水滸傳（種德書堂本）",
-      "source": "lineage.derived_from",
-      "note": "據鄧雷課程：「插增本、評林本均源出種德書堂本」，比種德書堂再刪 15% 左右"
+      "book_id": "988g9cugwa",
+      "confidence": "probable",
+      "evidence": "據鄧雷課程：「插增本、評林本均源出種德書堂本」，比種德書堂再刪 15% 左右",
+      "note": "據鄧雷課程：「插增本、評林本均源出種德書堂本」，比種德書堂再刪 15% 左右",
+      "source": "lineage.derived_from"
     }
   ],
   "provenance": [
@@ -84,5 +76,6 @@
       "notes": "残本散藏多处",
       "source": "current_location"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

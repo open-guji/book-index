@@ -39,23 +39,12 @@
   "location_history": [],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "一百回",
     "alias": [
       "本衙藏板四雪草堂本",
       "不分卷四雪草堂本"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9ant3a",
-        "ref_type": "book",
-        "relation": "翻刻",
-        "confidence": "probable",
-        "evidence": "韦凤娟：本衙藏板本似为清籁阁本翻刻（行款 10 行 22 字 vs 清籁阁 10 行 20 字）"
-      }
-    ],
-    "related_to": [],
     "note": "清籁阁本翻刻；本衙藏板不分卷；保留刻工溪马良御署名。"
   },
   "ai_note": "本衙藏板四雪草堂刊本不分卷 100 回，**行款 10 行 22 字與清籁阁本（10 行 20 字）不同**，似為清籁閣本翻刻 —— 韋鳳娟撰章考定。刻工溪馬良御署名延續，無「康熙甲戌年壬申月」之署時。",
@@ -71,10 +60,14 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988g9ant3a",
+      "relation": "翻刻",
       "name": "封神演義（清籟閣藏版四雪草堂訂證本／清初訂證祖刻）",
-      "source": "lineage.derived_from",
-      "note": "韦凤娟：本衙藏板本似为清籁阁本翻刻（行款 10 行 22 字 vs 清籁阁 10 行 20 字）"
+      "book_id": "988g9ant3a",
+      "confidence": "probable",
+      "evidence": "韦凤娟：本衙藏板本似为清籁阁本翻刻（行款 10 行 22 字 vs 清籁阁 10 行 20 字）",
+      "note": "韦凤娟：本衙藏板本似为清籁阁本翻刻（行款 10 行 22 字 vs 清籁阁 10 行 20 字）",
+      "source": "lineage.derived_from"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

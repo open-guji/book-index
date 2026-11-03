@@ -29,7 +29,6 @@
   "location_history": [],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "二十卷一百回",
     "alias": [
@@ -37,16 +36,6 @@
       "楊居謙本",
       "新刻增補批評全像西游記"
     ],
-    "derived_from": [
-      {
-        "ref": "h_jiajing_shanjie",
-        "ref_type": "hypothetical",
-        "relation": "翻刻",
-        "confidence": "consensus",
-        "evidence": "黃永年：刪本系三本之一"
-      }
-    ],
-    "related_to": [],
     "note": "删本系第三本；与杨闽斋本异坊但同系。"
   },
   "ai_note": "重大更正：舒穆撰章定為「閩齋堂楊居謙崇禎辛未（1631）刊」（之前 round1/2 誤為萬曆間）。杨居谦为杨闽斋（楊春元/清白堂主人）之子（如余氏雙峰堂家學傳承）。秃老批評之印章 + 莲牌木记「崇禎辛未歲閩齋堂楊居謙校梓」是斷代鐵證。舒穆指出「該書是較清白堂本省略得更多的簡本」，故黃永年舊定「刪本系第三本」，本索引採舒穆定為「簡本」。故奧野信太郎舊藏，朝鲜改装本「名越」朱印保留。",
@@ -61,5 +50,16 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "翻刻",
+      "hypothetical_id": "h_jiajing_shanjie",
+      "confidence": "consensus",
+      "evidence": "黃永年：刪本系三本之一",
+      "source": "lineage.derived_from"
+    }
+  ]
 }
