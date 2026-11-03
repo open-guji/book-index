@@ -31,7 +31,6 @@
 - `ai_note`：实际是**来源登记**（批次、依据、变更说明），不是随手备注，约 14 万条。新写入时格式：日期＋批次号或 Jira 卡号＋一句依据；存量不动，不改名、不拆结构。
 - `external_ids.cbdb_match`／`cbdb_source`：匹配过程的内部元数据，不是外部 id；按红线专名类不存 cbdb_* id，people 里这两个键仅用于内部互验。A/B/C 档与 `none` 值保持合法。
 - 并条账只在墓碑上（`merged_into`＋`merged_basis`），清墓碑后在台账 `.claude/qa/purge-tombstones/ledger/`。留存方的 `merged_in`／`merge_history` 已于 2026-11-03 删除，旧账导出在 `ledger/history-20261103.tsv`。
-- `retired`＋`retired_reason`：5 条 people 退役条，是「坏名条」归正，原指向的是旧体系 id（如 `1j98p56aww3cw`），故没有 `merged_into`；与并条墓碑是两回事。
 - `native_place`（文本，著录所见）与 `native_place_entity_id`（校正后的 place id）并存。
 
 ## 四、停写与待定

@@ -65,7 +65,7 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 |---|---|
 | [entity/_common.md](entity/_common.md) | 通用字段表（`id`／`subtype`／`primary_name`／`alt_names`／`dynasty`／`dates`／`external_ids`／`description`／并条与退役／管理字段等） |
 | [entity/_alt-names.md](entity/_alt-names.md) | `alt_names`：AltName 对象、`type` 27 值枚举、`ambiguous` 规则 |
-| [entity/_field-dictionary.md](entity/_field-dictionary.md) | 字段词典：同义异名、异义同名对照，`ai_note`／`cbdb_match`／`retired` 等易误读字段，停写与待定项 |
+| [entity/_field-dictionary.md](entity/_field-dictionary.md) | 字段词典：同义异名、异义同名对照，`ai_note`／`cbdb_match` 等易误读字段，停写与待定项 |
 | [entity/_dates-external-ids.md](entity/_dates-external-ids.md) | `dates` 按子类型放行的键；`external_ids` 各子键（CBDB、Wikidata、VIAF、ISBN 前缀） |
 | [entity/_forbidden-derived.md](entity/_forbidden-derived.md) | 源档不许写的字段；build 派生字段（只在 `_build/entry/`） |
 | [entity/_checks.md](entity/_checks.md) | 全部校验码总表（E／D／R／A／O／P／I／S／K／V）与 verify 的另查项 |
@@ -76,7 +76,7 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 - **`alt_names`**：对象数组 `{name, type, ambiguous?, note?}`；`type` 27 值（字、号、諡號、簡稱、合稱、舊稱……）；单独不能定位到本条的名写 `ambiguous: true`。详见 [entity/_alt-names.md](entity/_alt-names.md)。
 - **`dates`**：people 用 `birth`／`death`／`floruit`；dynasty、reign 用 `start`／`end`；官署、seal、publisher 自 2026-11-03 起也用 `dates{start,end,basis}`（原顶层 `start`／`end`）；office、place 不用 `dates`（起讫在沿革项）。详见 [entity/_dates-external-ids.md](entity/_dates-external-ids.md)。
 - **`external_ids`**：people 可有 `cbdb_id`／`wikidata_id`／`viaf_id` 等；专名子类型与 seal、官署只许 `wikidata_id`；publisher 另许 `isbn_publisher_code`。
-- **并条与退役**：留存方不记，被并方只留墓碑并写 `merged_into`、`merged_basis`（`merged_in`／`merge_history` 已于 2026-11-03 删除；并条时不删档，墓碑之后会被定期整体清理，见 [common.md〈并条账〉](common.md#七并条账)）；退役写 `retired: true` 与 `retired_reason`。
+- **并条与退役**：留存方不记，被并方只留墓碑并写 `merged_into`、`merged_basis`（`merged_in`／`merge_history` 已于 2026-11-03 删除；并条时不删档，墓碑之后会被定期整体清理，见 [common.md〈并条账〉](common.md#七并条账)）。（原「退役」`retired`／`retired_reason` 已于 2026-11-03 取消：5 条坏名退役条已删档，账见 `.claude/qa/schema-s3-group8-1103/`。）
 - **管理字段**：`ai_note`、`todo`、`review`、`revision`、`revised_at`（`updated_at` 已于 2026-11-03 删除，见 [CHANGELOG.md](CHANGELOG.md)）。
 - **禁字段与派生**：源档不写 `_` 起首字段、`works`、反向列表等；见 [entity/_forbidden-derived.md](entity/_forbidden-derived.md)。
 

@@ -303,9 +303,8 @@ Work、Book、Collection、Entity 都有。
 | `revision` | string | 正式库必填 | 原生 | 记录内容的版本 | `"主.次.补"`，三段非负整数；新记录 `"1.0.0"`；口径见下 | bim | `"1.1.0"` |
 | `revised_at` | string | 有 `revision` 时必填 | 原生 | 最后一次改版的日期 | `YYYY-MM-DD` | bim | `"2026-10-08"` |
 | `ai_note` | string | 可选 | 原生 | 整理者写给整理者的注，不面向读者 | 自由文本，见下 | 录入 | |
-| `todo` | array<object> | 可选 | 原生 | 条目级待核清单 | `[{what, by?, date?}]`，`what` 非空；做完即移除该项，不留「已办」标记 | 录入 | |
-| `review` | object | 可选 | 原生 | 人工审核状态 | `{status, by?, date?}`；`status` ∈ `unreviewed`｜`reviewed`｜`disputed`；缺即 `unreviewed` | 录入 | `{"status":"unreviewed"}` |
-| `zhsy_retrieved_at`、`authors[].cbdb_retrieved_at` | string | 可选 | 原生 | 外部对齐的取得时间 | ISO 8601；新增对齐时必填（现存 0 条） | 录入 | |
+| `todo` | array<object> | 可选（Entity 专用；Work／Book／Collection 已删） | 原生 | 条目级待核清单 | `[{what, by?, date?}]`，`what` 非空；做完即移除该项，不留「已办」标记 | 录入 | |
+| `review` | object | 可选（Work 49 条、Entity 存量；Book／Collection 已删） | 原生 | 人工审核状态 | `{status, by?, date?}`；`status` ∈ `unreviewed`｜`reviewed`｜`disputed`；缺即 `unreviewed` | 录入 | `{"status":"unreviewed"}` |
 | `_` 起首一切 | — | 源档不写 | 派生 | 见 [derived.md](derived.md) | 无例外（`_has_text`、`_has_collated` 豁免已收回，见 [CHANGELOG.md](CHANGELOG.md)） | build | |
 
 **`ai_note`**：

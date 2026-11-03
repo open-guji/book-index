@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-11-03　删空或预留字段（第 8 组；S3）
+
+- 从 JSON Schema 与文档删：Book／Collection 的 `todo`、`review`，Work 的 `todo`（全库 0 条）；Book 的 `zhsy_retrieved_at`、`authors[].cbdb_retrieved_at`（0 条）；Book `appendix`（仅《新鐫全部繡像紅樓夢程甲本》1 条，原文并入该条 `ai_note` 末尾，原档存 `.claude/qa/schema-s3-group8-1103/BEFORE-*`）。Work `review`（49 条）与 Entity `todo`／`review` 存量不动。
+- Entity `retired`／`retired_reason`：5 条坏名／同名分裂退役条（賀瑒、王儉、廋信、費沉、沉重）名下已无作品、全库无引用，**删档**（原档存 `.claude/qa/schema-s3-group8-1103/`，可回滚），并从 schema 与文档去掉这两个字段。
+- 此后再写这些键会报 unknown-field。
+
 ## 2026-11-03　office／官署顶层 `basis` 改名 `function_basis`（可做可不做第 9 组，用户定）
 
 - 异义同名：office、官署顶层 `basis` 是职掌（`function`）的依据，与 `dates.basis`（年值依据）、`rank.basis`（品秩依据）同名。改名 `function_basis`，其余同义异名只进字段词典，不改数据。

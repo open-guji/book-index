@@ -27,7 +27,6 @@
 | `external_ids` | object | 可选 | CBDB、Wikidata、VIAF，子键见[external_ids 子键](_dates-external-ids.md#external_ids-子键) | `{"cbdb_id":3767,"wikidata_id":"Q36020"}` |
 | `description` | Description | 可选 | 介绍与出处（`sources`） | |
 | `merged_into`／`merged_basis` | string／object | 墓碑 | 并条账，只在墓碑上，见下 | |
-| `retired`、`retired_reason` | boolean／string | 可选 | 退役 | |
 | `relations[]` | array<PersonRelation> | 可选 | 亲属／师承关系（2026-11-02 新增，见下） | `[{"type":"父","entity_id":"hixhd2h9bf1f"}]` |
 | `suppressed_fields` | array<string> | 可选 | 人工确认 CBDB 值有误而清空的字段名 | `["cbdb_id"]` |
 | `review`、`todo`、`ai_note` | object／array／string | 可选 | 审核状态、待办、备注 | |
@@ -43,7 +42,6 @@ people 特有的规矩：
   - `entity_id` 指向另一 people 条（不得指自己、不得指墓碑）；**双向对称写入**：甲条有 `{子, 乙}`，则乙条必有 `{父, 甲}`（逆称：父↔子、祖↔孙、曾祖↔曾孙、兄↔弟、叔伯↔姪、師↔弟子）。不写姻亲（妻、婿、岳父等）与姐妹，需要时另议。
   - `basis` 一句话写依据（如「《明史》卷二百五十五本传：子某，自有传」）；`sources[]` 用通用 Source 形状（`name`、`type`、`details`）。**`sources` 必填**，指到我们已整理的具体文本（书名＋卷／篇＋原句片段，如 `{"name":"明史","type":"text","details":"列傳〈方孝孺〉：父克勤，洪武中循吏"}`）；**关系只录库内已整理文本里明载者，不从 CBDB 等外部库导入**（2026-11-02 用户定）。
   - **只连双方都能唯一确定的**：两端都已是库内唯一的人物条，且依据能指到具体文本；同名拿不准的不连，列清单待裁。检查脚本 `.claude/qa/check_relations.py`（对称、目标存在且未被并、逆称一致）。
-- 退役：写 `retired: true` 与 `retired_reason`，记录保留。
 
 例（正式库，馬令 `hixhd2h9bv8d`，节录）：
 

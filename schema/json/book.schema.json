@@ -30,12 +30,6 @@
     "ai_note": {
       "type": "string"
     },
-    "todo": {
-      "$ref": "common.schema.json#/$defs/Todo"
-    },
-    "review": {
-      "$ref": "common.schema.json#/$defs/Review"
-    },
     "title": {
       "type": "string",
       "minLength": 1
@@ -589,12 +583,6 @@
     "zhsy_id": {
       "type": "string"
     },
-    "zhsy_retrieved_at": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
     "metadata": {
       "type": "object"
     },
@@ -609,9 +597,6 @@
     },
     "merged_basis": {
       "$ref": "common.schema.json#/$defs/MergedBasis"
-    },
-    "appendix": {
-      "$ref": "common.schema.json#/$defs/AppendixItems"
     },
     "_has_text": {
       "type": "boolean",

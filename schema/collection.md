@@ -32,7 +32,7 @@
 | `related_collections` | array<string> | 可选 | 原生 | 对称关联的丛编（存 id 较小一侧） | Collection id 字符串数组；只能写丛编 id | 录入（V07 把关） | `["8rlcsybg2hi6"]` |
 | `merged_into` | string | 墓碑 | 原生 | 本丛编已并入哪一个丛编 | Collection id。**只在墓碑上**；墓碑只留 `schema_version／id／type／subtype／title／merged_into／merged_basis／revision／revised_at`，形同 Book 墓碑；成员侧 `contained_in` 一律改指 keeper，不得指墓碑；网站 `/item/<id>` 308 到 keeper | 并条脚本 | |
 | `resources` | array<Resource> | 可选 | 原生 | 外部资源 | 见 common.md | 录入 | |
-| `sources`、`ai_note`、`todo`、`review` | — | 可选 | 原生 | 共通字段 | 见 common.md | 录入 | |
+| `sources`、`ai_note` | — | 可选 | 原生 | 共通字段 | 见 common.md | 录入 | |
 | `revision`、`revised_at` | string | `revision` 必填 | 原生 | 共通字段 | 见 common.md | bim | `"1.0.0"` |
 | 一切 `_` 起首 | — | **源档不写** | 派生 | `_members`、`_member_pages`、`_member_count`、`_member_type`、`_children`、`_related`、`_has_image` 等 | 见 [derived.md](derived.md) | build | |
 | ~~`books`~~、~~`contained_works`~~ | — | **不写** | — | 成员列表：由成员的 `contained_in` 反查 | — | — | |
