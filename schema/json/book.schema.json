@@ -44,7 +44,8 @@
       "$ref": "common.schema.json#/$defs/Id"
     },
     "edition": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "edition_type": {
       "enum": [
@@ -107,9 +108,6 @@
         "additionalProperties": false
       }
     },
-    "section": {
-      "type": "string"
-    },
     "authors": {
       "$ref": "common.schema.json#/$defs/Authors"
     },
@@ -123,8 +121,12 @@
       "type": "string",
       "not": {
         "anyOf": [
-          {"pattern": "^[0-9０-９]+(（[^）]*）)?[卷篇冊册回種部集章]$"},
-          {"pattern": "[一二三四五六七八九十百千萬][0０][一二三四五六七八九十]"}
+          {
+            "pattern": "^[0-9０-９]+(（[^）]*）)?[卷篇冊册回種部集章]$"
+          },
+          {
+            "pattern": "[一二三四五六七八九十百千萬][0０][一二三四五六七八九十]"
+          }
         ]
       },
       "x-not-message": "卷数用汉字数字写（如「十卷」「一百零五卷」），不写阿拉伯数字，也不夹「０」"
@@ -162,13 +164,15 @@
             "minLength": 1
           },
           "call_number": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "seals": {
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "minItems": 1
           },
           "seal_marks": {
             "type": "array",
@@ -197,11 +201,15 @@
             }
           },
           "notes": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "source": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "not": {
+              "const": "src_manual"
+            }
           }
         },
         "additionalProperties": false
@@ -435,9 +443,6 @@
         }
       },
       "additionalProperties": false
-    },
-    "current_location": {
-      "$ref": "common.schema.json#/$defs/Location"
     },
     "location_history": {
       "type": "array",
