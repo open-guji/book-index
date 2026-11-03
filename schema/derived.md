@@ -161,7 +161,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `img` | `true` | `resources` | 本 Book 的 resources 含 `image` |
 | `txt` | `true` | `resources`、book-text（同 `_has_text`） | 同上，看 `text` |
 | `nres` | integer | `resources` | `resources` 项数；0 不出 |
-| `pub` | string｜integer | `publication_info.year` | `publication_info` 是对象、其 `year` 是字符串或整数时原样取 |
+| `pub` | string｜integer | `publication_info.year`，缺则 `dating.text`／`year`／`year_range` | 与迁移前等价：旧数据取 `publication_info.year`；已并入 `dating` 的取 `dating.text`，否则 `year` 或 `起-止` |
 | `meas` | string | `measure_info` | 是字符串才取 |
 | `from` | array<string> | `lineage.derived_from[]` | `ref_type` 缺省或为 `"book"` 的项的 `ref`（旧写 `book_id`），去重、按 id 排序 |
 | `alias` | string | `lineage.alias` | 是字符串才取 |

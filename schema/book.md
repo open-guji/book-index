@@ -18,7 +18,7 @@
 | `edition` | string | 可选 | 原生 | 版本名（文献学意义上「这是哪一个本子」） | 自由文本；不写成 `version`。**空串不写；与 `edition_type` 完全相同（如只有「稿本」）也不写** | 录入 | `"清乾隆間寫文淵閣四庫全書本"` |
 | `edition_type` | string | 可选 | 原生 | 版本类型 | 13 值闭集，见 [§二](#edition_type)；推不出不写 | 录入 | `"刻本"` |
 | `dating` | object | 可选 | 原生 | 刊刻／抄写年代 | 见 [common.md〈dating〉](common.md#六dating-与-publication_info) | 录入 | `{"era":"宋","reign":"紹熙","year":1193,"certainty":"inferred","source":"edition","basis":"…"}` |
-| `publication_info` | object | 可选 | 原生 | 出版信息 | 见 common.md | 录入 | `{"year":"清乾隆間"}` |
+| `publication_info` | object | 可选 | 原生 | 出版信息（Book 只有 `details`／`publisher`／`place`／`source`；年代已并入 `dating`，S2-L） | 见 common.md | 录入 | `{"details":"刊刻者：京師嫏嬛別館"}` |
 | `contained_in` | array<object> | 可选 | 原生 | 收在哪些丛编（**Book∈Collection 的唯一存储侧**） | 每项 `{id, volume_index?, details?, sub_items?}`，见 [§三](#三contained_in) | 录入 | `[{"id":"8rl…","volume_index":[7,8],"sub_items":["周易略例"]}]` |
 | `authors` | array<Author> | 可选 | 原生 | 版本层的责任者（刻者、批点者、序跋者等） | 见 common.md；**`role` 必填** | 录入 | |
 | `juan_count` | object | 可选 | 原生 | 本版本的主计量 | `{number, unit?, description?, source?}` | 录入 | `{"number":10,"unit":"卷"}` |
@@ -182,7 +182,7 @@
 | 字段 | 类型 | 含义 | 取值 |
 |---|---|---|---|
 | `category` | string | 版本类别 | 自由文本（实测：刻本、石刻、抄本、评本、拓本、影印、排印、簡本、石印本……） |
-| `year`、`year_range`、`year_text`、`year_uncertain` | integer、array<integer>、string、boolean | 年代 | |
+| ~~`year`、`year_range`、`year_text`、`year_uncertain`~~ | | 已删（S2-L），并入 `dating`。原 `year_uncertain: true` 而 `dating.certainty` 非 `uncertain` 者，原值记在 `ai_note` | |
 | `status` | string | 存佚 | `extant`｜`fragment`｜`lost` |
 | `extant_juan` | string | 现存卷回 | 自由文本 |
 | `alias` | array<string> | 简称、俗称（如「甲戌本」） | |
