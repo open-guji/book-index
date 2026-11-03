@@ -78,6 +78,20 @@ def types_of(resources):
     return out        # 旧单值 resources[].type 已于数据中清零（2026-11-03 实测 0 条），不再兼容
 
 
+def holder_of(b):
+    """版本的藏处：先 current_location（舊），無則取 provenance[0].institution（S2-H，2026-11-03）。
+    與 bim entry_extractor._extract_holder、ui storage.ts 同序。"""
+    h = text(b.get('current_location'))
+    if h:
+        return h
+    pv = b.get('provenance')
+    if isinstance(pv, list) and pv and isinstance(pv[0], dict):
+        inst = pv[0].get('institution')
+        if isinstance(inst, str):
+            return inst
+    return ''
+
+
 def sort_year(b):
     d = b.get('dating')
     if isinstance(d, dict):
@@ -336,7 +350,7 @@ class Build:
         pub = b.get('publication_info')
         return clean({
             'id': bid, 'title': b.get('title'), 'edition': b.get('edition'), 'etype': b.get('edition_type'),
-            'dating': dating_text(b), 'y': sort_year(b), 'holder': text(b.get('current_location')),
+            'dating': dating_text(b), 'y': sort_year(b), 'holder': holder_of(b),
             'juan': num(b.get('juan_count')),
             'img': self.has(b, 'image'), 'txt': self.has(b, 'text'),
             'nres': len(b.get('resources') or []),
@@ -717,8 +731,7 @@ def index_entry(d, typ, rel_path, promoted_to=None, build=None):
             rng = dt.get('year_range')
             if isinstance(rng, list) and len(rng) == 2 and isinstance(rng[0], int):
                 e['sort_year'] = rng[0]
-    loc = d.get('current_location')
-    holder = loc.get('name', '') if isinstance(loc, dict) else loc if isinstance(loc, str) else ''
+    holder = holder_of(d) if typ == 'Book' else (lambda loc: loc.get('name', '') if isinstance(loc, dict) else loc if isinstance(loc, str) else '')(d.get('current_location'))
     if holder:
         e['holder'] = holder
     # 撰人朝代：第一个有朝代的作者优先，顶层 dynasty 兜底（overview#496 §六-1；与 bim entry_extractor、ui storage.ts 同）。
