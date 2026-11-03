@@ -83,10 +83,11 @@ def types_of(resources):
 def sort_year(b):
     d = b.get('dating')
     if isinstance(d, dict):
+        # 與 bim entry_extractor._extract_dating、ui storage.ts datingProjection 同序：先 year，後 year_range[0]
+        if isinstance(d.get('year'), int) and not isinstance(d.get('year'), bool):
+            return d['year']
         if isinstance(d.get('year_range'), list) and d['year_range'] and isinstance(d['year_range'][0], int):
             return d['year_range'][0]
-        if isinstance(d.get('year'), int):
-            return d['year']
     return None
 
 
@@ -116,7 +117,7 @@ def contained(x):
     i = V.ref_id(x)
     attrs = {}
     if isinstance(x, dict):
-        for k_src, k_out in (('volume_index', 'vol'), ('sub_items', 'sub'), ('group', 'group')):
+        for k_src, k_out in (('volume_index', 'vol'), ('sub_items', 'sub'), ('group', 'group'), ('section', 'section')):  # section：S2-I，項內部類優先於 Book.section
             if x.get(k_src) not in (None, '', []):
                 attrs[k_out] = x[k_src]
         m = re.search(r'叢編原序\s*(\d+)', x.get('details') or '') if isinstance(x.get('details'), str) else None

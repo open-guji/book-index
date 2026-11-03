@@ -61,7 +61,7 @@
     }
   },
   "patternProperties": {
-    "^_(?!(ancestors|authors|books|catalogs|children|classifications|collections|compounds|derived_by|dynasty|dynasty_candidates|dynasty_id|edition_count|has_collated|has_image|has_text|index_in_reign|lineage_graph_ref|lineage_refs|member_catalog|member_count|member_pages|member_type|members|offices|reigns|related|related_pages|related_total|ruler|same_name|siblings|siblings_more|siblings_total|span|subordinates|work|works)$)": false
+    "^_(?!(ancestors|authors|books|catalogs|children|classifications|collections|compounds|concretes|derived_by|dynasty|dynasty_candidates|dynasty_id|edition_count|has_collated|has_image|has_text|index_in_reign|lineage_graph_ref|lineage_refs|member_catalog|member_count|member_pages|member_type|members|offices|reigns|related|related_pages|related_total|ruler|same_name|siblings|siblings_more|siblings_total|span|subordinates|work|works)$)": false
   },
   "allOf": [
     {
@@ -431,10 +431,18 @@
                 },
                 "_span": {
                   "$ref": "#/$defs/Span"
+                },
+                "_concretes": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/PlaceCard"
+                  },
+                  "minItems": 1,
+                  "description": "跨朝条上，以 concept_id 指向本条的朝代条，按起年排"
                 }
               },
               "patternProperties": {
-                "^_(?!(children|span|works)$)": false
+                "^_(?!(children|concretes|span|works)$)": false
               }
             }
           },
@@ -1436,6 +1444,14 @@
         },
         "end": {
           "type": "integer"
+        },
+        "dynasties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "description": "dynasty_ids 各条的朝代名（解不出名的跳过）"
         }
       },
       "additionalProperties": false

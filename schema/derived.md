@@ -154,7 +154,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `edition` | string | `edition` | |
 | `etype` | string | `edition_type` | |
 | `dating` | string | `dating.era`、`dating.reign` | `era` 与 `reign` 中是非空字符串（或整数）者，按此顺序用一个半角空格连接，如 `"清 乾隆"`；只有一项就是那一项（如 `"乾隆"`、`"清"`） |
-| `y` | integer | `dating.year_range`、`dating.year` | **先取 `year_range[0]`**（数组非空且首项为整数），否则取 `year`（整数）；都没有不出 |
+| `y` | integer | `dating.year`、`dating.year_range` | **先取 `year`**（整数，非布尔），否则取 `year_range[0]`（数组非空且首项为整数）；都没有不出。与 `index/` 的 `sort_year` 同序（2026-11-03 统一，原先相反） |
 | `holder` | string | `current_location` | 是对象取 `name`，没有 `name` 取 `text`；是字符串取本身 |
 | `juan` | number | `juan_count` | 同 Work 卡 |
 | `img` | `true` | `resources`、源 `_has_image` | 本 Book 的 resources 含 `image`，或源档 `_has_image` 为真 |
@@ -189,7 +189,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | dynasty 卡 | `{id, name, start?, end?}` | `name`＝`primary_name`；`start`／`end`＝`dates.start`／`dates.end`（整数才取） |
 | reign 卡 | `{id, name, start?, end?, ruler?, dynasty?}` | `ruler`＝`ruler.name`；`dynasty`＝`dynasty_id` 所指朝代条的 `primary_name` |
 | office 卡 | `{id, name, level?, dynasties?}` | `level`＝`office_level`，没有则 `institution_level`（官署条也用此卡）；`dynasties`＝`dynasty_ids` 各条的 `primary_name`（解不出名的跳过） |
-| place 卡 | `{id, name, start?, end?}` | `start`／`end`＝该地各 `history[]` 段的最小 `start`、最大 `end`（同 `_span`） |
+| place 卡 | `{id, name, start?, end?, dynasties?}` | `start`／`end`＝该地各 `history[]` 段的最小 `start`、最大 `end`（同 `_span`）；`dynasties`＝`dynasty_ids` 各条的 `primary_name`（解不出名的跳过，朝代条才有） |
 | people 卡 | `{id, name, dyn?}` | `dyn`＝`dynasty` |
 
 例（`hixi1ubk35z8` 三國吳的 `_reigns` 首项）：`{"dynasty":"三國吳","end":229,"id":"hixi1ubl0vmo","name":"黃武","ruler":"孫權","start":222}`
@@ -206,7 +206,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 
 | 字段 | 类型／精确形状 | 出现 | 由哪些源字段算出 | 产物 | 自 |
 |---|---|---|---|---|---|
-| `_books` | array<Book 卡> | 总是 | `Book.work_id` 反查（并旧 `Work.books`）。排序：有年代者在前，按 Book 卡 `y` 的取法（`year_range[0]` 优先，否则 `year`）升序；年代相同或都无年代按 id | entry | v1 |
+| `_books` | array<Book 卡> | 总是 | `Book.work_id` 反查（并旧 `Work.books`）。排序：有年代者在前，按 Book 卡 `y` 的取法（`year` 优先，否则 `year_range[0]`）升序；年代相同或都无年代按 id | entry | v1 |
 | `_edition_count` | integer | 总是 | `len(_books)` | entry | v1 |
 | `_authors` | array<`{name?, role?, dyn?, id?, h?, dates?}`> | 总是 | 与 `authors[]` 同序，非对象项跳过。每项基础为 `{name: authors[].name, role: authors[].role, dyn: authors[].dynasty}`（空者省略；**role 缺不补**）；`entity_id` 解得到 Entity 时先放 Entity 卡（或枢纽 `{id, h:1}`），再用基础值覆盖其 `name`、`dyn` | entry | v1 |
 | `_catalogs` | array<`{bid, title?, dyn?, section?}`>，枢纽志书为 `{bid, h:1, section?}` | 总是 | 按 `indexed_by[]` 顺序，取 `source_bid` 解得到 Work 者，同一 `source_bid` 只取第一次出现。`title`＝志书题名；`dyn`＝志书的 Work 卡 `dyn` 取法；`section`＝该 `indexed_by` 项的 `section`（非空字符串） | entry | v1 |
@@ -325,6 +325,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 | 字段 | 类型／精确形状 | 出现 | 由哪些源字段算出 | 产物 | 自 |
 |---|---|---|---|---|---|
 | `_children` | array<place 卡> | 有下辖时 | 别的 place 的 `history[].parent_id` 反查；按 id。卡片带下级自己的 `start`／`end` | entry | v2 |
+| `_concretes` | array<place 卡> | 跨朝条（`place_level:"concept"`）下有朝代条时 | 别的 place 的 `concept_id` 指向本条者；按起年（无起年在后）、再按 id 排序；卡片带 `dynasties` | entry | v2 |
 | `_span` | `{start?, end?}` | 有任一段起讫年时 | 各 `history[]` 段整数 `start` 的最小值、整数 `end` 的最大值 | entry | v2 |
 
 例（草稿 `1jb8kgdh3pse8` 浙江省）：`"_span":{"end":1912,"start":1366}`，`_children` 首项 `{"end":1912,"id":"1jb8kgdh3psel","name":"杭州","start":621}`。
@@ -550,6 +551,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 | 1 | 2026-10-07 | 基础契约（overview#458）：`entry/`、`members/`、`catalog/`、`related/`、`lineage/`、`_hubs.json`、`classific.json`、`index/`；Work／Book／Collection／Entity 的基础派生字段 |
 | 2 | 2026-10-07 | 纯增量：专名派生字段（dynasty、reign、office、官署、place 各字段，people 与 Work 的 `_dynasty_id`／`_dynasty_candidates`）与 `dynasty_reign_keys.json`、`office_keys.json`、`place_keys.json`（overview#464、#458） |
 | 3 | 2026-10-08 | 纯增量：Book、Collection 加 `_related`（`related_books`／`related_collections` 两侧并集）（overview#458） |
+| 3（补登） | 2026-11-03 | 契约 3 之后上线、当时未登记的纯增量：place 条加 `_concretes`；place 卡加 `dynasties`。未升 `CONTRACT`（升版要改 `build_derived.py`，另行排期）；补登依据 S5 审查（总目/schema审查/S5） |
 
 **改契约的规矩**：任何增删、改名、改形状、改分页大小，**先在 overview#458 留言通知网站经理，等对方回复后再合**；只新增可选字段也算改契约，同样要先通知。改动时：`CONTRACT` 加一、本档〈十一〉表加一行、记入 [CHANGELOG.md](CHANGELOG.md)，并在同一个提交里用 `build/make_contract_sample.py` 重生 `build/contract-sample/`。
 `report.json` 的内容、`notes` 的措辞不属契约。
@@ -565,7 +567,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 | # | 现状 | 影响 |
 |---|---|---|
 | 1 | **朝代：两个字段，有意不同**（overview#496 §六-1，目录经理 10-09 定）：`index/` 的 `dynasty` 是**撰人朝代**（第一个有朝代的作者优先，再顶层）；卡片 `dyn`、`_hubs.json` 的 `dyn`、Work 的 `_dynasty_id` 是**成书朝代**（顶层 `dynasty` 优先，再第一个有朝代的作者）。正式库 10-09 实测 216 部 Work 两者不同：多为作者朝代更细（元末明初／明）或成书与撰人本异（今本竹書紀年 南朝梁／明），故不统一。bim `entry_extractor`、ui `storage.ts` 同此取法 | 搜索列表显示撰人朝代，页面显示成书朝代；读者勿当作同一字段 |
-| 2 | **年份取法不一**：`index/` 的 `sort_year` 取 `dating.year` 优先、再 `year_range[0]`（且要求 `year_range` 恰两项）；卡片 `y` 与 `_books`／`_siblings` 排序取 `year_range[0]` 优先、再 `year` | 两者都有的 Book，列表排序年与卡片年不同 |
+| 2 | ~~年份取法不一~~ 已统一（2026-11-03，S2 报告 §5.1 J）：`index/` 的 `sort_year`、卡片 `y`、`_books`／`_siblings` 排序都先取 `dating.year`、再 `year_range[0]`。仅剩细节差：`sort_year` 要求 `year_range` 恰两项，卡片 `y` 不要求 | 数据里 `year` 与 `year_range` 并存 0 条，无实际差异 |
 | 3 | **有无全文／影像取法不一**：`index/` 的 `has_text`／`has_image` 只看本条 `resources`（认旧 `type:"text+image"`），不看源档 `_has_text`，Work 也不并其 Book；entry 的 `_has_text`／`_has_image` 与卡片 `txt`／`img` 看源档旧值、Work 并其 Book，但旧单值 `type` 只按原值比，`"text+image"` 不算 `text` 也不算 `image`。正式库 10-09：Work 条目 `has_text` 11,511 vs `_has_text` 12,003（**已由 `--text-index` 统一**，工作包 C；`has_text` 与 `_has_text` 同为 book-text 口径，`has_collated` 同）；`has_image` 18,926 vs `_has_image` 20,540 | 搜索筛「有全文」与页面徽标不一致 |
 | 4 | **`promoted_to` 范围不一**：entry 里只有 Work、Book 出 `promoted_to`；`index/` 四类都出 | 已升格草稿 Collection（目前草稿库无 Collection）、Entity 的页面拿不到正式 id，要读 `index/` |
 | 5 | **`_lineage_graph_ref` 可能指向不存在的文件**：Book 只要所属 Work 下任一 Book 的 `lineage.derived_from`／`related_to` 非空就出；Work 的版本图要求至少一项是对象且带 `ref`／`book_id`，否则不出文件。正式库 10-09 实测 180 处引用全部有对应文件 | 读者打开 `lineage/` 文件要容忍 404 |
