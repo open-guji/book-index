@@ -47,6 +47,6 @@
 
 **Book.lineage.related_to[]**：仍有 11 条用旧写 `book_id`（`derived_from` 已是 0），待 S2 随 Book 数据一遍清。
 
-**`review` 缺省**：缺省即 `unreviewed`，新记录不再显式写 `{"status":"unreviewed"}`（2026-11-03，去重录入脚本已删这一行）；存量 Entity 12.1 万条、Work 49 条是否删，待用户定。
+**`review` 缺省**：缺省即 `unreviewed`，新记录不再显式写 `{"status":"unreviewed"}`（2026-11-03，去重录入脚本已删这一行）；存量（Entity 12.1 万条、Work 49 条）不动（用户 2026-11-03 定：只停新写）。
 
 **复现**：`python3 schema/check_schema.py --json 报告.json --quiet-warn`；`python3 .claude/qa/check_v2.py --summary`；草稿库加 `--root ../book-index-draft --draft`。
