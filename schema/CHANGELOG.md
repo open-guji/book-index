@@ -15,6 +15,13 @@
 - 无写入方、无读者的时间戳：Book 19,358、Work 72,430、Collection 57、Entity 68,158 条存量已由各家数据批改删尽（#2192／#2193／#2194），本次从 `common.md §八`、四个记录 schema、文档里去掉该键；`revision`／`revised_at` 不动。
 - 此后记录再带 `updated_at` 会报 unknown-field。`DateTime` 定义保留（promotions.schema.json 仍引用）。
 
+## 2026-11-03　仓内不再提交 `index/`（S5-D；产物删除，读者读 build 产物）
+
+- 删除 `index/works|books|entities|collections.json` 与印章表 `index/seals.json`、`index/seals/`；`index/` 只作为 build 产物（`<out>/index/`、COS）存在。`index.schema.json` 的形状不变。
+- `build_derived.py`：`--write-index` 已废（不再写仓内）；报告去掉 `drift_vs_repo_index`；`verify.py` 的 index 条目改由记录经 `index_entry` 现算，不再比对仓内印章表。
+- bim `GithubStorage`（读源仓 `index/`）标为废弃（book-index-manager#288）。
+- `schema/entity/*.md`〈真实示例〉去掉「index」列，`tests/test_entity_examples.py` 同步。
+
 ## 2026-11-03　补登派生字段 `_concretes` 与 place 卡 `dynasties`（S5-A；不改数据、不改代码）
 
 - build 已在产出、但文档与 schema 一直没有的两处纯增量：place 跨朝条的 `_concretes`（朝代条按 `concept_id` 反查，实测 10,819 条 entity）；place 卡（`_children`／`_concretes` 的元素）的 `dynasties`（朝代名数组）。

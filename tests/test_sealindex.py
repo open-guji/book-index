@@ -84,6 +84,6 @@ def test_build_writes_seal_files_and_reports(tmp_path):
     assert r['fatal'] == []
     assert r['index']['seals']['seals'] == 0
     assert json.load(open(os.path.join(out, 'index', 'seals.json'))) == {}
-    assert json.load(open(os.path.join(repo, 'index', 'seals.json'))) == {}
+    assert not os.path.exists(os.path.join(repo, 'index'))      # 倉內不再寫 index/
     r2, _ = BD.run(repo, out_dir=out, quiet=True)
     assert r2['write']['seal_files_written'] == 0

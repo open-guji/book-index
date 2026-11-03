@@ -2,6 +2,7 @@
 所有 id 必须存在；lineage_picks 必须是确有谱系的 Work（version_graph 启用且有分组）。"""
 import glob
 import json
+import os
 import pathlib
 
 ROOT = pathlib.Path(__file__).parent.parent
@@ -14,21 +15,27 @@ def _work(wid):
     return json.loads(pathlib.Path(hits[0]).read_text(encoding="utf-8"))
 
 
+def _ids(typ):
+    """仓内不再提交 index/（2026-11-03），改由源档文件名取 id（`{ID}-{名称}.json`）。"""
+    out = set()
+    for _dp, _dn, fns in os.walk(str(ROOT / typ)):
+        out.update(fn.split("-", 1)[0] for fn in fns if fn.endswith(".json"))
+    return out
+
+
 def test_schema():
     assert HOME["schema"] == "meta-home/1"
 
 
 def test_collection_ids_exist():
-    cols = json.loads((ROOT / "index" / "collections.json").read_text(encoding="utf-8"))
+    cols = _ids("Collection")
     ids = [i for g in HOME["collection_groups"] for i in g["items"]]
     assert ids and len(ids) == len(set(ids))
     assert [i for i in ids if i not in cols] == []
 
 
 def test_bibliographer_ids_exist():
-    ents = {}
-    for f in glob.glob(str(ROOT / "index" / "entities" / "*.json")):
-        ents.update(json.loads(pathlib.Path(f).read_text(encoding="utf-8")))
+    ents = _ids("Entity")
     ids = HOME["bibliographers"]
     assert ids and len(ids) == len(set(ids))
     assert [i for i in ids if i not in ents] == []

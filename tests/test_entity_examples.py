@@ -1,7 +1,7 @@
 """schema/entity/*.md 〈真实示例〉小节与「按类型找示例」入口表里的路径必须真实存在。
 
-示例行形如 | 名 `id` | [Entity/…json](相对路径) | [index/entities/N.json](相对路径) | 说明 |：
-源档存在且 subtype 与所在文档一致，id 出现在所指 index 分片里；入口表的链接必须能解析到文件。
+示例行形如 | 名 `id` | [Entity/…json](相对路径) | 说明 |：
+源档存在且 subtype 与所在文档一致；入口表的链接必须能解析到文件。
 """
 import json
 import os
@@ -11,7 +11,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ENTITY_DIR = os.path.join(ROOT, "schema", "entity")
 SUBTYPES = ["people", "collective", "dynasty", "reign", "office", "place", "seal", "publisher"]
 LINK = re.compile(r"\]\(([^)#]+)(?:#[^)]*)?\)")
-ROW = re.compile(r"^\| [^|]*`([0-9a-z]+)` \| \[([^\]]+)\]\(([^)]+)\) \| \[([^\]]+)\]\(([^)]+)\) \|")
+ROW = re.compile(r"^\| [^|]*`([0-9a-z]+)` \| \[([^\]]+)\]\(([^)]+)\) \|")
 
 
 def _read(path):
@@ -33,7 +33,7 @@ def test_each_subtype_doc_has_verified_examples():
         rows = [r for r in rows if r]
         assert len(rows) >= 2, "%s.md 示例少于 2 条" % sub
         for m in rows:
-            eid, epath, elink, ipath, ilink = m.groups()
+            eid, epath, elink = m.groups()
             assert epath.startswith("Entity/"), epath
             full = os.path.normpath(os.path.join(ENTITY_DIR, elink))
             assert full == os.path.join(ROOT, epath), (sub, elink)
@@ -41,10 +41,6 @@ def test_each_subtype_doc_has_verified_examples():
             ent = json.loads(_read(full))
             assert ent["id"] == eid, (epath, eid)
             assert ent["subtype"] == sub, "%s 的 subtype 是 %s，不是 %s" % (epath, ent["subtype"], sub)
-            ifull = os.path.normpath(os.path.join(ENTITY_DIR, ilink))
-            assert ifull == os.path.join(ROOT, ipath), (sub, ilink)
-            assert os.path.isfile(ifull), "示例 index 分片不存在：%s" % ipath
-            assert eid in json.loads(_read(ifull)), "%s 不在 %s 里" % (eid, ipath)
 
 
 def test_entry_tables_resolve():

@@ -189,8 +189,8 @@
 
 ### 10. 合并之后必须同步者
 
-- `index/works/*.json`（title／path／author／role／dynasty／period／juan_count…）
-- **`index/books/*.json` 之 `work_id`**——Book 改指而此处未同步，
+- （`index/` 已不进仓，由 build 重生，无需手同步）
+- **~~`index/books/*.json` 之 `work_id`~~**——Book 改指而此处未同步，
   `chk.py`「索引栏位不符」即现
 - ~~Entity `works[]`~~：schema-v2 起 Entity 不存作品列表，改 `authors[].entity_id` 即足；**但撰人之名孰正须另判**（见上条）
 - 随迁之 `fragments/*.json`：其**档内 `work_id` 须随路径改**，
@@ -640,6 +640,6 @@ catalog_bound 之真价值在**验证**（实测查出 437 条 `period` 逾限�
 
 用 `author_propagation` 或以 Entity 之 `dynasty` 为据时，同守〈6.4〉：写明那个 `dynasty` 本身从哪里来，防闭环。
 
-`dynasty` 规范化后同步更新 `index/works/*.json` 与 `index/entities/*.json` 中的 dynasty 字段（今由 build 重生 `index/`）。
+`dynasty` 规范化后（`index/` 不进仓，由 build 重生）。
 
 来历：2026-08-08 定；参照 CBDB 而不存 `c_dy` 2026-10-07 用户定（overview#464）。

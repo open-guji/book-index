@@ -4,12 +4,12 @@
 
 ## 真实示例
 
-下列路径都是本仓真实文件（`tests/test_entity_examples.py` 逐条核实存在）；「index」列是派生分片索引，键即该条 id。分片编号会随重建变动，以测试核实为准。
+下列路径都是本仓真实文件（`tests/test_entity_examples.py` 逐条核实存在）。
 
-| 示例 | 源档 | index | 演示什么 |
-|---|---|---|---|
-| 潼川府 `hixi4ugtgcn5` | [Entity/c/n/5/hixi4ugtgcn5-潼川府.json](../../Entity/c/n/5/hixi4ugtgcn5-潼川府.json) | [index/entities/3.json](../../index/entities/3.json) | 潼川府：一地一条＋14 段 `history` 沿革（梓州→梓潼郡→潼川府…）与 `modern` 今地对照 |
-| 果州 `hixi5wawecy1` | [Entity/c/y/1/hixi5wawecy1-果州.json](../../Entity/c/y/1/hixi5wawecy1-果州.json) | [index/entities/0.json](../../index/entities/0.json) | 果州：多个 `alt_names`，同样 14 段沿革；演示换名与上级留空的写法 |
+| 示例 | 源档 | 演示什么 |
+|---|---|---|
+| 潼川府 `hixi4ugtgcn5` | [Entity/c/n/5/hixi4ugtgcn5-潼川府.json](../../Entity/c/n/5/hixi4ugtgcn5-潼川府.json) | 潼川府：一地一条＋14 段 `history` 沿革（梓州→梓潼郡→潼川府…）与 `modern` 今地对照 |
+| 果州 `hixi5wawecy1` | [Entity/c/y/1/hixi5wawecy1-果州.json](../../Entity/c/y/1/hixi5wawecy1-果州.json) | 果州：多个 `alt_names`，同样 14 段沿革；演示换名与上级留空的写法 |
 
 ## 两层：跨朝条与朝代条
 

@@ -113,7 +113,7 @@
 
 `collection_id`（2026-08-23 增）之由：书目之中本有专著丛书者——《中國通俗小說書目》卷九附录二即〈叢書目〉，其条为《四大奇書》《前後七國志》《怡園五種》《合刻天花藏七才子書》之属。此辈库中以 Collection 记之（丛书非单一著作，其子书各有其 Work），而节先前一律用 `work_id`，栏名与所指不符。
 
-判之之法：所指之 id 在 `index/collections.json` 者即用 `collection_id`。`chk.py` 验其存在，并另验「`work_id` 所指而实为 Collection 者」，其数当为 0。
+判之之法：所指之 id 为 Collection 记录（`Collection/` 下有档）者即用 `collection_id`。`chk.py` 验其存在，并另验「`work_id` 所指而实为 Collection 者」，其数当为 0。
 
 section 另有 `section_kind`（`附屬部帙`／`別本`／`一書兩著`），判法见 [cataloging-rules.md〈「別本」之节〉](cataloging-rules.md)。
 

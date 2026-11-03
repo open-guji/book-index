@@ -55,7 +55,7 @@
 | 5 | **不写派生列表与反向列表** | 不写 `Work.books`、`Collection.books`、`Collection.contained_works`、`Entity.works`、`related_works[].title`。成员关系写在成员一侧：`Book.work_id`、`Book.contained_in`、`Work.contained_in`、`Collection.contained_in`、`Work.authors[].entity_id`。 |
 | 6 | **`authors[].role` 必填** | Work、Book、Collection 的 `authors[]` 每项都要写 `role`。 |
 | 7 | **分类不写在 Work 里** | 分类归属写在 `classification/<分类法>/members/<节点>.json`。见 [classification.md](classification.md)。Collection 不分类。 |
-| 8 | **`_build/` 是构建产物，不是源** | `build/build_derived.py` 读源档生成 `_build/`（不进 git）与 `index/`。网站与 bim 读 `_build/entry/<id>.json`（源记录＋派生字段）。见 [derived.md](derived.md)。 |
+| 8 | **`_build/` 是构建产物，不是源** | `build/build_derived.py` 读源档生成 `_build/`（不进 git）与 `<out>/index/`。网站与 bim 读 `_build/entry/<id>.json`（源记录＋派生字段）。见 [derived.md](derived.md)。 |
 | 9 | **读者先切后拆** | 网站与 bim「新字段有就用新的，没有再回退旧字段」；数据切换完成后再删回退分支。build 不产出旧字段的别名。各旧字段的兼容读法见 [legacy.md](legacy.md)。 |
 | 10 | **`revision` 只管「作品是什么」的陈述** | 派生字段、分类归属、反向链的变化不 bump `revision`；迁移脚本一律不改 `revision`／`revised_at`。口径见 [common.md〈revision〉](common.md#revision-口径)。 |
 | 11 | **只标异常，不标正常；判不出不猜** | 可选字段缺省即「未考／无」，不写占位值（`null`、`""`、`0`、「不詳」）。判不出的留空，另出清单。 |
@@ -75,7 +75,7 @@
 | `resource.json`、`resource-site.json`、`resource-catalog.json`、`resource-collection.json` | 资源站点目录（不是记录） | 源 | 人工 |
 | `recommended.json` | 网站首页推荐（不是记录） | 源 | 人工 |
 | `classific.json` | 旧分类词表，由 `classification/zongmu/tree.json` 生成，退役中 | 产物（只在 build 产物里；仓根提交的副本已于 2026-11-03 删除） | build |
-| `index/**` | 检索用扁平摘要 | 产物（提交在仓里，但不手改；仓根 `index.json` 空壳已于 2026-11-03 删除） | build |
+| `index/**` | 检索用扁平摘要 | 产物（**不提交**：仓内 `index/` 与仓根 `index.json` 已于 2026-11-03 删除，读 build 产物） | build |
 | `_build/**` | 页面就绪条目与分页大列表 | 产物（不进 git） | build |
 
 **路径分片**：`{c1}/{c2}/{c3}` 是 id 的末三个字符，按原序（如 `d59fryqsp3bb` → `Work/3/b/b/`；bim `storage.shard_dirs`）。文件名 `<id>-<题名>.json` 里的题名只是附注，**名以记录内的字段为准**；改名后文件名可以不跟着改，找记录一律按 id。
@@ -137,7 +137,7 @@ ID 是 64 位 snowflake，base36 小写编码，数值 `< 2^63`。
 | 缩进 | 2 个空格 |
 | 非 ASCII | 直接写本字（`ensure_ascii=False`），不写 `\uXXXX` |
 | 分隔符 | 默认（`": "`、`", "`） |
-| 键序 | 不重排，保持文件原序；`index/` 分片按 id 排序 |
+| 键序 | 不重排，保持文件原序；`<out>/index/` 分片按 id 排序 |
 | 文件尾 | 一个换行 |
 
 ```python
