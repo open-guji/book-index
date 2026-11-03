@@ -39,8 +39,6 @@
 | `dates` | object | 条件：people、dynasty、reign 可写；office、place **不得有** | 原生 | 结构化起讫／生卒 | 按子类型放行的键见[dates 与 external_ids](_dates-external-ids.md) | 录入 | `{"birth":1036,"death":1101,"floruit":null,"basis":"現行字段"}` |
 | `external_ids` | object | 可选（全部）；专名只许 `wikidata_id` | 原生 | 外部库 id | 子键见[external_ids 子键](_dates-external-ids.md#external_ids-子键) | 录入、bim | `{"cbdb_id":3767,"wikidata_id":"Q36020"}` |
 | `description` | Description | 可选；官职概念条、官署概念条与合称条**必填** | 原生 | 介绍与出处 | 形状同 [common.md〈Description〉](../common.md)，但 Entity 的 `text` 可省（正式库 people 5,886 条 `description` 里只有 213 条有 `text`，其余只记出处），`sources` 必有；Entity 的出处一律记 `description.sources` | 录入 | `{"text":"都開封。","sources":[]}` |
-| `retired` | boolean | 可选 | 原生 | 本条已退役 | 只写 `true`（正式库 5 条） | 录入 | `true` |
-| `retired_reason` | string | 条件：`retired` 时必填 | 原生 | 退役原因 | 自由文本 | 录入 | `"N3 壞名 entity 歸正（2026-08-24 南北朝斷代與壞名專項）：…"`（廋信 `hixhd2h9bq93`） |
 | `suppressed_fields` | array<string> | 可选；people | 原生 | 人工确认 CBDB 值有误而清空的字段名 | 字段名（顶层键名，或 `external_ids` 的子键名）；正式库 6 条（2026-11-03 实测）：`["cbdb_id"]`、`["cbdb_id","wikidata_id"]`、`["dates"]`。见[people](people.md) | 录入 | `["cbdb_id"]` |
 | `relations` | array<PersonRelation> | 可选；people | 原生 | 亲属／师承关系，双向对称写入 | 每项 `{type, entity_id, basis?, sources?[]}`；`type` 12 值：父／子／祖／孫／曾祖／曾孫／兄／弟／叔伯／姪／師／弟子；见[people](people.md) | 录入 | `[{"type":"父","entity_id":"hixhd2h9bf1f"}]` |
 | `ai_note` | string | 可选（全部） | 原生 | 录入备注 | 自由文本，见 [common.md〈ai_note〉](../common.md) | 录入 | |

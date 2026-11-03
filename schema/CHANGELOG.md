@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-11-03　删空或预留字段（第 8 组；S3）
+
+- 从 JSON Schema 与文档删：Book／Collection 的 `todo`、`review`，Work 的 `todo`（全库 0 条）；Book 的 `zhsy_retrieved_at`、`authors[].cbdb_retrieved_at`（0 条）；Book `appendix`（仅《新鐫全部繡像紅樓夢程甲本》1 条，原文并入该条 `ai_note` 末尾，原档存 `.claude/qa/schema-s3-group8-1103/BEFORE-*`）。Work `review`（49 条）与 Entity `todo`／`review` 存量不动。
+- Entity `retired`／`retired_reason`：5 条坏名／同名分裂退役条（賀瑒、王儉、廋信、費沉、沉重）名下已无作品、全库无引用，**删档**（原档存 `.claude/qa/schema-s3-group8-1103/`，可回滚），并从 schema 与文档去掉这两个字段。
+- 此后再写这些键会报 unknown-field。
+
 ## 2026-11-03　删并条历史字段，并条账只留在墓碑与台账（可做可不做第 5 组，用户定）
 
 - 四类记录删 `merged_in`、`merged_from`、`merge_history`，`indexed_by[]` 删 `merged_from`（x-legacy keep 分支一并去掉）；`MergedIn`／`MergedFrom`／`MergedInItem`（common）与 `MergeHistoryItem`／`EntityMergedInItem`（entity）定义删除。此后再写报 unknown-field（ERROR）。网站、搜索只读 `merged_into`，不受影响。

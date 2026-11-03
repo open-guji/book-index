@@ -81,12 +81,6 @@
     "merged_basis": {
       "$ref": "common.schema.json#/$defs/MergedBasis"
     },
-    "retired": {
-      "const": true
-    },
-    "retired_reason": {
-      "$ref": "common.schema.json#/$defs/NonEmptyString"
-    },
     "suppressed_fields": {
       "type": "array",
       "items": {
@@ -2226,23 +2220,6 @@
           },
           "x-not-message": "非官署 collective 只许通用字段、朝代／时代字段（dynasty／period 或 dynasty_ids）与 collective_kind"
         }
-      }
-    },
-    {
-      "if": {
-        "properties": {
-          "retired": {
-            "const": true
-          }
-        },
-        "required": [
-          "retired"
-        ]
-      },
-      "then": {
-        "required": [
-          "retired_reason"
-        ]
       }
     },
     {
