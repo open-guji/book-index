@@ -20,7 +20,7 @@
 | `seal_kind` | string | **必填** | 原生 | 印章类别 | `官印`｜`私印`｜`鑒藏印`｜`齋館印`｜`其他`（鑒藏印即收藏／鑒賞印，不另设「收藏印」） | 录入 | `"官印"` |
 | `dynasty_ids` | array<id> | **必填** | 原生 | 启用时所属朝代 | dynasty id 数组，默认一朝一条；不写旧式 `dynasty`／`period` 字符串 | 录入 | `["hixi1ubjrxga"]`（清） |
 | `description` | object | **必填** | 原生 | 介绍与出处 | 同通则，`sources` 非空；来源不实的字段一律留空，不编造 | 录入 | `{"text":"…","sources":[{"title":"…"}]}` |
-| `dates` | object | 可选 | 原生 | 启用／停用年 | `{start?, end?, basis?}`：公元年，无 0 年，`start ≤ end`；不确定不写，说明进 `description.text`；顶层 `start`／`end` 为旧写法（WARN） | 录入 | |
+| `dates` | object | 可选 | 原生 | 启用／停用年 | `{start?, end?, basis?}`：公元年，无 0 年，`start ≤ end`；不确定不写，说明进 `description.text`；顶层 `start`／`end` 已不合法（D3 ERROR） | 录入 | |
 | `seal_style` | string | 可选 | 原生 | 朱白 | `朱文`｜`白文`｜`朱白相間` | 录入 | `"朱文"` |
 | `seal_form` | string | 可选 | 原生 | 印形 | `方`｜`圓`｜`橢圓`｜`長方`｜`異形` | 录入 | `"方"` |
 | `usage_scope` | string | 可选 | 原生 | 用途／钤用范围 | 一句话 | 录入 | `"鈐於文淵閣本《四庫全書》各冊首卷第一頁"` |

@@ -22,7 +22,7 @@
 |---|---|---|---|---|---|---|---|
 | `publisher_kind` | string | **必填** | 原生 | 主类别 | `家刻`｜`坊刻`｜`寺觀`｜`藩府`｜`現代出版社`｜`未分`（K01） | 录入 | `"家刻"` |
 | `dynasty_ids` | array<id> | 条件：古代类**必填**；`現代出版社`**不得写** | 原生 | 活动所跨朝代 | dynasty id；跨朝单条仅限同一私人／书坊主体连续经营跨朝（如掃葉山房明清）（K02） | 录入 | `["hixi1ubjrxfw"]` |
-| `dates` | object | 可选 | 原生 | 起止年与依据 | `{start?, end?, basis?}`：公历年，无 0 年，`start ≤ end`；有把握才填；仍存续者不写 `end`；現代出版社 `start` 可早于 1900（K03）；写了起止年须有 `dates.basis`（K08，WARN，自由文本）。**2026-11-03 起写入 `dates`；顶层 `start`／`end`／`dates_basis` 为旧写法，报 WARN（D3）** | 录入 | `{"start": 1912, "basis": "《書林清話》"}` |
+| `dates` | object | 可选 | 原生 | 起止年与依据 | `{start?, end?, basis?}`：公历年，无 0 年，`start ≤ end`；有把握才填；仍存续者不写 `end`；現代出版社 `start` 可早于 1900（K03）；写了起止年须有 `dates.basis`（K08，WARN，自由文本）。**2026-11-03 起写入 `dates`；顶层 `start`／`end`／`dates_basis` 已不合法（schema 报未知键、D3 ERROR；2026-11-03 阶段 4）** | 录入 | `{"start": 1912, "basis": "《書林清話》"}` |
 | `locations` | array<object> | 可选 | 原生 | 所在地（可多段） | 迁移（建陽→南京）用多段表达（K04） | 录入 | |
 | `locations[].name` | string | **必填** | 原生 | 地名 | 非空；无地名条时只写这个 | 录入 | `"常熟"` |
 | `locations[].place_id` | string | 可选 | 原生 | 地名条 id | 须指 `subtype=place`（K04） | 录入 | |

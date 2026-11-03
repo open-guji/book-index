@@ -40,16 +40,7 @@
       "$ref": "#/$defs/AltNames"
     },
     "dynasty": {
-      "anyOf": [
-        {
-          "$ref": "common.schema.json#/$defs/NonEmptyString"
-        },
-        {
-          "type": "null",
-          "x-legacy": true,
-          "description": "null 占位（旧）"
-        }
-      ]
+      "$ref": "common.schema.json#/$defs/NonEmptyString"
     },
     "dynasty_basis": {
       "type": "string"
@@ -61,16 +52,7 @@
       "type": "string"
     },
     "native_place": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null",
-          "x-legacy": true,
-          "description": "null 占位（旧）"
-        }
-      ]
+      "type": "string"
     },
     "native_place_basis": {
       "type": "string"
@@ -142,9 +124,6 @@
     "revised_at": {
       "$ref": "common.schema.json#/$defs/Date"
     },
-    "updated_at": {
-      "$ref": "common.schema.json#/$defs/DateTime"
-    },
     "collective_kind": {
       "enum": [
         "官署",
@@ -207,16 +186,6 @@
     },
     "basis": {
       "$ref": "common.schema.json#/$defs/NonEmptyString"
-    },
-    "start": {
-      "type": "integer",
-      "x-legacy": true,
-      "description": "顶层起讫（旧）：官署、seal、publisher 已收进 dates.start（2026-11-03），出现报 WARN"
-    },
-    "end": {
-      "type": "integer",
-      "x-legacy": true,
-      "description": "顶层起讫（旧）：官署、seal、publisher 已收进 dates.end（2026-11-03），出现报 WARN"
     },
     "dynasty_id": {
       "$ref": "common.schema.json#/$defs/Id"
@@ -290,16 +259,7 @@
           "$ref": "common.schema.json#/$defs/NonEmptyString"
         },
         "target": {
-          "anyOf": [
-            {
-              "$ref": "common.schema.json#/$defs/Id"
-            },
-            {
-              "type": "null",
-              "x-legacy": true,
-              "description": "null 占位（旧）"
-            }
-          ]
+          "$ref": "common.schema.json#/$defs/Id"
         },
         "note": {
           "type": "string"
@@ -543,11 +503,6 @@
         "現代出版社",
         "未分"
       ]
-    },
-    "dates_basis": {
-      "$ref": "common.schema.json#/$defs/NonEmptyString",
-      "x-legacy": true,
-      "description": "顶层起讫依据（旧）：已收进 dates.basis（2026-11-03），出现报 WARN"
     },
     "locations": {
       "type": "array",
@@ -2001,10 +1956,30 @@
                     "required": [
                       "status"
                     ]
+                  },
+                  {
+                    "required": [
+                      "dynasty"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "dynasty_basis"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "period"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "period_basis"
+                    ]
                   }
                 ]
               },
-              "x-not-message": "官署条不得有官职专有字段等（I08）；起讫写 dates{start,end,basis}"
+              "x-not-message": "官署条不得有官职专有字段、旧式朝代／时代字符串（dynasty／period 及其 basis）等（I08）；起讫写 dates{start,end,basis}"
             },
             {
               "properties": {
@@ -2020,26 +1995,6 @@
               "required": [
                 "institution_level"
               ]
-            },
-            {
-              "properties": {
-                "dynasty": {
-                  "x-legacy": true,
-                  "description": "官署条不写旧式朝代／时代字符串（旧，暂留）"
-                },
-                "dynasty_basis": {
-                  "x-legacy": true,
-                  "description": "官署条不写旧式朝代／时代字符串（旧，暂留）"
-                },
-                "period": {
-                  "x-legacy": true,
-                  "description": "官署条不写旧式朝代／时代字符串（旧，暂留）"
-                },
-                "period_basis": {
-                  "x-legacy": true,
-                  "description": "官署条不写旧式朝代／时代字符串（旧，暂留）"
-                }
-              }
             },
             {
               "if": {
@@ -2815,10 +2770,11 @@
   ],
   "$defs": {
     "AltName": {
-      "description": "别名。type 枚举 27 值（schema/entity/_alt-names.md）；people 的表外旧值报 WARN；缺 type 为旧写法（WARN）。",
+      "description": "别名。type 必填，枚举 27 值（schema/entity/_alt-names.md）；people 的表外旧值报 WARN。",
       "type": "object",
       "required": [
-        "name"
+        "name",
+        "type"
       ],
       "properties": {
         "name": {
@@ -2898,32 +2854,12 @@
           "type": "string"
         }
       },
-      "additionalProperties": false,
-      "if": {
-        "not": {
-          "required": [
-            "type"
-          ]
-        }
-      },
-      "then": {
-        "x-legacy": true
-      }
+      "additionalProperties": false
     },
     "AltNames": {
       "type": "array",
       "items": {
-        "anyOf": [
-          {
-            "$ref": "#/$defs/AltName"
-          },
-          {
-            "type": "string",
-            "minLength": 1,
-            "x-legacy": true,
-            "description": "裸字符串别名（旧），按 {name: 该串} 读"
-          }
-        ]
+        "$ref": "#/$defs/AltName"
       }
     },
     "AltNamesStrict": {
@@ -3045,65 +2981,29 @@
       "type": "object",
       "properties": {
         "birth": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null",
-              "x-legacy": true,
-              "description": "null 占位（旧），按缺省读"
-            }
-          ]
+          "type": "integer"
         },
         "death": {
-          "anyOf": [
+          "type": "integer"
+        },
+        "floruit": {
+          "type": "array",
+          "prefixItems": [
             {
               "type": "integer"
             },
             {
-              "type": "null",
-              "x-legacy": true,
-              "description": "null 占位（旧），按缺省读"
+              "type": "integer"
             }
-          ]
-        },
-        "floruit": {
-          "anyOf": [
-            {
-              "type": "array",
-              "prefixItems": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ],
-              "minItems": 2,
-              "maxItems": 2
-            },
-            {
-              "type": "null",
-              "x-legacy": true,
-              "description": "null 占位（旧）"
-            }
-          ]
+          ],
+          "minItems": 2,
+          "maxItems": 2
         },
         "start": {
           "type": "integer"
         },
         "end": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null",
-              "x-legacy": true,
-              "description": "null 占位（旧），按缺省读"
-            }
-          ]
+          "type": "integer"
         },
         "basis": {
           "type": "string"
@@ -3129,11 +3029,6 @@
             "type": "integer"
           }
         },
-        "cbdb_note": {
-          "type": "string",
-          "x-legacy": true,
-          "description": "待并入 ai_note"
-        },
         "wikidata_id": {
           "type": "string",
           "pattern": "^Q[0-9]+$"
@@ -3144,15 +3039,7 @@
         }
       },
       "additionalProperties": false,
-      "if": {
-        "type": "object",
-        "properties": {},
-        "additionalProperties": false
-      },
-      "then": {
-        "x-legacy": true,
-        "description": "空对象 {}（旧），新写不写"
-      }
+      "minProperties": 1
     },
     "ExternalIdsWikidataOnly": {
       "description": "专名子类型与官署只许 wikidata_id（E1／I08）",
