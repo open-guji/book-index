@@ -321,10 +321,6 @@
               }
             },
             "additionalProperties": false
-          },
-          {
-            "$ref": "common.schema.json#/$defs/Id",
-            "x-legacy": true
           }
         ]
       }
@@ -350,14 +346,7 @@
     "sources": {
       "type": "array",
       "items": {
-        "anyOf": [
-          {
-            "$ref": "common.schema.json#/$defs/Source"
-          },
-          {
-            "type": "string"
-          }
-        ]
+        "$ref": "common.schema.json#/$defs/Source"
       }
     },
     "merged_into": {
