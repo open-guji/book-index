@@ -197,8 +197,10 @@ CREATE TABLE work_relation (src text NOT NULL, dst text NOT NULL, relation text 
 CREATE INDEX ON work_relation (dst, relation);
 CREATE TABLE related_book (src text NOT NULL, dst text NOT NULL, PRIMARY KEY (src, dst));
 CREATE TABLE related_collection (src text NOT NULL, dst text NOT NULL, PRIMARY KEY (src, dst));
--- 墓碑：被并者 → 现行（entity/work/book/collection 共用）
-CREATE TABLE merged_into (dead_id text PRIMARY KEY, live_id text NOT NULL, record_type char(1) NOT NULL);
+-- 并条账：被并者 → 现行（entity/work/book/collection 共用）。两个来源一起装：
+--   现存墓碑文件（src='tombstone'）＋已清墓碑的台账 .claude/qa/purge-tombstones/ledger/*.tsv（src=台账文件名）。
+-- live_id 是链末的现行记录（装载时沿链解到底），direct_into 是墓碑上原写的 merged_into。
+CREATE TABLE merged_into (dead_id text PRIMARY KEY, live_id text NOT NULL, direct_into text, record_type char(1) NOT NULL, title text, src text NOT NULL);
 CREATE INDEX ON merged_into (live_id);
 -- book-text 专名号反查（D5 才灌）：实体 × 书 × 章 × 次数
 -- 专名出处见 book_text.sql 的物化视图 bt_mention

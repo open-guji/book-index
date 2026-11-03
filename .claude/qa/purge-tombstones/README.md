@@ -16,6 +16,7 @@
 ## 脚本保留什么（不删）
 
 - **T**：book-text 的 `index/texts` 键或 `Work/ Book/` 目录里有这个 id——全文挂在它下面，先在 book-text 改名到留存 id 再清。
+- **K**：book-text 的 JSON（整理本 section 的 `work_id`、专名文件的 `entity_id`／`href` 等）里还引用这个 id——先在 book-text 改指到留存 id（并同步 `href`、`canonical_name`）再清。11-03 起加，因为 #2124／#2126 清墓碑时没管这类引用，留下 book-text 悬空 id。
 - **C**：墓碑上带的 `indexed_by`／`resources`／`related_works`／`sources`／`additional_titles` 在留存条（链末）里找不到——先补进留存条再清。
 - **R**：活记录里有字符串值恰等于墓碑 id（并条账与说明字段除外）——先改指留存条。
 

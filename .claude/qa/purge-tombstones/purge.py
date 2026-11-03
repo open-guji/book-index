@@ -11,7 +11,7 @@
 被保留的墓碑下一轮清理再试。--apply 会先把「旧 id → 终点」写进 ledger/purge-<日期>.tsv（要提交，verify.py 靠它认并掉的 id）。
 --apply 之后：从 index/ 里摘掉被删 id 的条目（不要整体重建，会带进无关漂移），再跑 dedup-census --strict、verify.py。
 """
-import argparse, collections, glob, json, os, sys
+import argparse, collections, glob, json, os, re, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 TYPES = ('Work', 'Book', 'Entity', 'Collection')
@@ -84,6 +84,20 @@ def main():
             i = os.path.basename(p)
             if i in tomb:
                 keep.setdefault(i, ('T', 'book-text/%s 下有目录' % t))
+
+    # K book-text 的整理本 section、专名目标（entity_id／href）等还引用墓碑 id：先在 book-text 改指再清
+    # （11-03 A12、A33 建议：#2124／#2126 清墓碑时没管这些引用，留下 book-text 悬空 id）
+    tok = re.compile(r'(?<![0-9a-z])[0-9a-z]{8,14}(?![0-9a-z])')
+    n_bt = 0
+    for t in ('Work', 'Book'):
+        for p in glob.glob(os.path.join(a.book_text, t, '**', '*.json'), recursive=True):
+            n_bt += 1
+            with open(p, encoding='utf-8') as fh:
+                hits = set(tok.findall(fh.read())) & tomb.keys()
+            for i in hits:
+                keep.setdefault(i, ('K', 'book-text %s 引用' % os.path.relpath(p, a.book_text)))
+    if not n_bt:
+        sys.exit('book-text Work/ Book/ 下没读到 json，停')
 
     # C 著录/资源未并到留存条
     def end_of(i):

@@ -15,7 +15,7 @@ git 里的 JSON 仍是唯一真源。数据库由 bim 从 JSON 生成（D2），
 1. **每类记录一张主表**：`work`、`book`、`collection`、`entity`；Entity 另有 8 张子类表（`person` `collective` `publisher` `dynasty` `reign` `office` `place` `seal`），主键即 `entity.id`。
 2. **数组对象 → 明细表**（`owner_id + seq` 保序）：别名、馆藏（`book_provenance`）、底本、附刻、地名沿革、图片等，只属一条主记录。
 3. **多类共用的对象 → 共用明细表**：`authorship`（责任者）、`index_entry`（`indexed_by` / `emendated_by`，`kind` 区分）、`resource` / `resource_group`、`source_ref`、`merge_event`（`merged_in` / `merged_from` / `merge_history`）。以 `owner_id + owner_type(W/B/C)` 指向主记录。
-4. **跨记录引用 → 关系表，每种关系只存一遍**：`authorship.entity_id`（作者）、`book.work_id`（版本→作品）、`member_of`（入丛书，带册次）、`work_relation`（注疏续作等）、`entity_relation`（朝代／上下级／前身／印主等）、`merged_into`（墓碑→现行）、`mention`、`book_text`（D5）。正反向都靠索引查询。
+4. **跨记录引用 → 关系表，每种关系只存一遍**：`authorship.entity_id`（作者）、`book.work_id`（版本→作品）、`member_of`（入丛书，带册次）、`work_relation`（注疏续作等）、`entity_relation`（朝代／上下级／前身／印主等）、`merged_into`（并条账：旧 id→现行）、`bt_mention`（book-text 专名出处，物化视图，见 book_text.sql）。正反向都靠索引查询。
 5. **无损**：已知字段有类型化列；未登记的键进该行 `extra jsonb`。字段形状不规则的（如 `volume_index` 有整数／数组／字符串三种形）原样放 `jsonb`。**还原门禁**：从表拼回的 JSON 与原文件做规范化比较（键排序、数组按 `seq`）必须 100% 相同，否则 D2 不通过。
 6. **类型与枚举**：年份、卷数、册数为数值；`edition_type`、`loss_status`、`attested_status`、各 `subtype` 为 Postgres 枚举（取值同 `schema/json`）。朝代名、`period`、`role` 等开放词表保持文本，不建枚举。
 7. **外键两阶段**（按 A12 评审改）：外键不随建表，先 COPY，再加 `NOT VALID` 外键（不检查存量），跑 `checks.sql` 出悬空清单，清干净再 `VALIDATE` 改为硬拦。主键与唯一约束从第一天起就是硬的。
@@ -60,7 +60,7 @@ book-text 与 book-index 同一套 id，进同一个库，表名加 `bt_` 前缀
 `juan_number` 改 int（三张主表）；`dating_based_on`、`dating_later_repair` 改 jsonb（实为对象）；`volume_count` 与 `page_count` 统一为 jsonb；`dating_year_range` 加二元 CHECK；新增 `measure`（`measures[]`，三类共用）、`book_seal_mark`（印记 → seal 实体）、`book_relation`（`lineage.derived_from`／`related_to` 的 Book→Book 边）。报告：`/mnt/project-files/总目/schema审查/S2-Book.md`。列名前缀（`pub_*` 对 `publication_info`）等命名问题留待总报告统一定。
 
 ## 据 S3（共用对象）、S4（Entity）审查的修订（2026-11-02）
-- **草稿库**：现存几乎全是 `{schema_version,id,type,title}` 空壳。空壳（无实质字段、也无 `merged_into`）不灌；**墓碑一律保留行**（正式库与草稿库都是：主表一行＋`merged_into` 表一行，A12 要求，A33 按 `merged_in` 重扫改挂靠它）；`revision` 改为可空（草稿多数没有）。
+- **草稿库**：现存几乎全是 `{schema_version,id,type,title}` 空壳。空壳（无实质字段、也无 `merged_into`）不灌；**并条账一条不丢**：现存墓碑照灌（主表一行＋`merged_into` 表一行）；11-01 起正式库墓碑已大批清掉（#2124、#2126），旧 id 只剩台账 `.claude/qa/purge-tombstones/ledger/*.tsv`，装载时一起装进 `merged_into`（11-03 A12 修正，见下节）；`revision` 改为可空（草稿多数没有）。
 - `updated_at` 改 `text`：数据里有只写日期、带 `Z`、带偏移三种写法，存 timestamptz 会破坏还原。
 - `merge_event` 加 `primary_name`（Entity 并条记录的名字）；`work`、`collection` 补 `juan_source`；`book`、`collection` 补 `review_status`。
 - `entity_todo` 并入 `record_todo`，`entity_description_source` 并入 `description_source`（四类共用）。
@@ -74,6 +74,13 @@ book-text 与 book-index 同一套 id，进同一个库，表名加 `bt_` 前缀
 - 删 `mention` 表，出处反查统一用物化视图 `bt_mention`。
 - book-text：删未用的 `bt_kind` 枚举（`kind` 取 manifest 原值）；`bt_version` 加 `edition_label`、`note`、`fetched_at`，`references_` 改 `ref_sources`；`bt_chapter` 补 `md_len`、`page_title`、`revid`、`juan`、`volume`、`pdf_pages`、`has_table`；`bt_layer` 加 `review`（验收记录）；`bt_juan_group` 加 `parent_seq`；`bt_change` 的「冊」栏拆 `target_item`＋`ch`，`line` 改 `track`；`bt_section` 补 `book_title`、`author`、`dynasty`、`edition`、`n_juan` 等高频列及 `has_work_id_key`；`via` 去掉 `part`；辑佚补 `heading`、`editor_note`、核验与 `statement_label` 等列，`fragment_piece` 主键改用数组位置 `idx`；checks 加 book-text 悬空检查（只报不挡）。
 报告：`S1-Work与Collection.md`、`S6-book-text格式.md`（同目录）；A12 意见：ai-team `domain/专名/schema审查/S4-Entity-A12意见.md`。
+
+## 据 A12、A33 对 S6 专名部分意见的修订（2026-11-03）
+- `merged_into` 改为「并条账」：装现存墓碑＋清墓碑台账两个来源，加 `direct_into`（墓碑原写的去向）、`title`、`src`（来源）；`live_id` 一律解到链末。checks 加「终点必须是现行记录」。旧 id（网站旧链接、book-text 旧引用）都靠这张表解析。
+- 墓碑清理脚本 `purge.py` 加保留类 **K**：book-text 的 JSON 里还引用的墓碑 id 不清，先在 book-text 改指。
+- `bt_entity_span_target.target_id` 对应文件里的 `entity_id`。文件字段**暂不改名**（A12、A33：读者多，等专名 1.0 验收后随 entity v0.3 再议），库里列名用 `target_id` 只是表达「Work 或 Entity」；type=work 时它是 Work id。
+- `target_coarse` 保留，取值只有 `part_of_work`（篇名暂挂上位书，A33 书名细配的标记）。book-text 专名 `type` 用 `people` 复数，与 Entity `subtype` 一致，不改。
+意见原文：ai-team `domain/专名/schema审查/S6-book-text专名-A12意见.md`。
 
 ## 如何防止与 `schema/json` 漂移
 D2 起由 bim 里的一份拆表映射（字段名 → 表／列）驱动建库与还原，并加一条 CI 检查：`schema/json` 里出现映射里没有的字段时报错，逼人要么登记列、要么确认放 `extra`。DDL 以后由映射生成，本目录 `schema.sql` 届时改为生成物。
