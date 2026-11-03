@@ -2819,7 +2819,7 @@
   ],
   "$defs": {
     "AltName": {
-      "description": "别名。type 枚举 25 值（schema/entity/_alt-names.md）；people 的表外旧值报 WARN；缺 type 为旧写法（WARN）。",
+      "description": "别名。type 枚举 27 值（schema/entity/_alt-names.md）；people 的表外旧值报 WARN；缺 type 为旧写法（WARN）。",
       "type": "object",
       "required": [
         "name"
@@ -2855,7 +2855,9 @@
             "異稱",
             "今名",
             "堂號",
-            "牌記名"
+            "牌記名",
+            "初名",
+            "綽號"
           ],
           "x-legacy-values": [
             "著錄形",
@@ -2929,7 +2931,7 @@
       }
     },
     "AltNamesStrict": {
-      "description": "专名子类型与官署：type 必填且必须在 25 值内（O12）",
+      "description": "专名子类型与官署：type 必填且必须在 27 值内（O12）",
       "type": "array",
       "items": {
         "type": "object",
@@ -2964,7 +2966,9 @@
               "異稱",
               "今名",
               "堂號",
-              "牌記名"
+              "牌記名",
+              "初名",
+              "綽號"
             ]
           }
         }
