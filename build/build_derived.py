@@ -81,17 +81,9 @@ def juan_of(r):
 
 
 def derived_items(b):
-    """Book 的「所出之本」邊（有向）：lineage.derived_from（舊）＋ base_edition 中帶 relation 且有 book_id／hypothetical_id 的項（新，
-    版本關係 06 稿）。無 relation 的 base_edition 項是純著錄、不成邊（與舊產物逐字節一致）。同一 (ref, ref_type) 舊寫法優先。
-    回傳 [{ref, ref_type, relation, confidence}]。"""
+    """Book 的「所出之本」邊（有向）：base_edition 中帶 relation 且有 book_id／hypothetical_id 的項（版本關係 06 稿）。
+    無 relation 的 base_edition 項是純著錄、不成邊。回傳 [{ref, ref_type, relation, confidence}]。"""
     out, seen = [], set()
-    lin = b.get('lineage') if isinstance(b.get('lineage'), dict) else {}
-    for x in lin.get('derived_from') or []:
-        if isinstance(x, dict) and (x.get('ref') or x.get('book_id')):
-            ref = x.get('ref') or x.get('book_id')
-            out.append({'ref': ref, 'ref_type': x.get('ref_type'), 'relation': x.get('relation'),
-                        'confidence': x.get('confidence')})
-            seen.add((ref, x.get('ref_type') or 'book'))
     for x in b.get('base_edition') or []:
         if not isinstance(x, dict) or not x.get('relation'):
             continue
@@ -103,13 +95,9 @@ def derived_items(b):
 
 
 def related_items(b):
-    """Book 的「非源流關聯」邊（無向）：lineage.related_to（舊）＋ related_books 中帶 relation 的對象項（新）。
-    純 id 字符串與無 relation 的對象只進 sym_view，不成圖邊。回傳 [{ref, ref_type, relation}]。"""
+    """Book 的「非源流關聯」邊（無向）：related_books 中帶 relation 的對象項。
+    無 relation 的對象只進 sym_view，不成圖邊。回傳 [{ref, ref_type, relation}]。"""
     out = []
-    lin = b.get('lineage') if isinstance(b.get('lineage'), dict) else {}
-    for x in lin.get('related_to') or []:
-        if isinstance(x, dict) and (x.get('ref') or x.get('book_id')):
-            out.append({'ref': x.get('ref') or x.get('book_id'), 'ref_type': x.get('ref_type'), 'relation': x.get('relation')})
     for x in b.get('related_books') or []:
         if isinstance(x, dict) and x.get('book_id') and x.get('relation'):
             out.append({'ref': x['book_id'], 'ref_type': None, 'relation': x['relation']})
@@ -265,7 +253,7 @@ class Build:
                     if tgt in R['Book']:
                         self.derived_by[tgt].append((bid, x['relation']))
                     elif tgt:
-                        self._dangle('Book.lineage.derived_from', bid, tgt)
+                        self._dangle('Book.base_edition', bid, tgt)
         for wid, w in R['Work'].items():
             for a in w.get('authors') or []:
                 if isinstance(a, dict) and isinstance(a.get('entity_id'), str) and a['entity_id']:

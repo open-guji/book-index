@@ -76,7 +76,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `members/<collection_id>/<n>.json` | 有成员的丛编；`n` 从 **1** 起 | 成员卡片数组，每页至多 200 项，见〈六〉 | v1 |
 | `catalog/<志书 work_id>/<n>.json` | 被别的 Work 以 `indexed_by[].source_bid` 指向的 Work（志书）；`n` 从 **1** 起 | 著录成员数组，每页至多 200 项，见〈六〉 | v1 |
 | `related/<work_id>/<n>.json` | Work 的 `_related` 超过 200 项时；`n` 从 **2** 起（第 1 页就是 entry 里的 `_related`） | Work `_related` 元素数组，每页至多 200 项 | v1 |
-| `lineage/<work_id>.json` | 该 Work 下有 Book 的 `lineage.derived_from`／`related_to` 项带 `ref`（或旧 `book_id`）时 | `{work_id, nodes, edges}`，见〈六〉 | v1 |
+| `lineage/<work_id>.json` | 该 Work 下有 Book 的 `base_edition`（带 `relation` 与 id 的项）或 `related_books`（带 `relation` 的对象项）成边时 | `{work_id, nodes, edges}`，见〈六〉 | v1 |
 | `_hubs.json` | 总是 | `{id: {t, title?, dyn?}}`，见〈七〉 | v1 |
 | `classific.json` | 有 `classification/` 且有 `primary` 分类法时 | 旧格式分类词表（数组），见〈七〉 | v1 |
 | `index/works/<0-f>.json`、`index/books/<0-f>.json`、`index/entities/<0-f>.json`、`index/collections.json` | 总是 | `{id: 条目}`，见〈八〉 | v1 |
@@ -162,7 +162,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `nres` | integer | `resources` | `resources` 项数；0 不出 |
 | `pub` | string｜integer | `publication_info.year`，缺则 `dating.text`／`year`／`year_range` | 与迁移前等价：旧数据取 `publication_info.year`；已并入 `dating` 的取 `dating.text`，否则 `year` 或 `起-止` |
 | `meas` | string | `measure_info` | 是字符串才取 |
-| `from` | array<string> | `lineage.derived_from[]` | `ref_type` 缺省或为 `"book"` 的项的 `ref`（旧写 `book_id`），去重、按 id 排序 |
+| `from` | array<string> | `base_edition[]`（带 `relation`） | `ref_type` 缺省或为 `"book"` 的项的 `ref`（旧写 `book_id`），去重、按 id 排序 |
 | `alias` | string | `lineage.alias` | 是字符串才取 |
 
 `resources` 的类型判定（`img`、`txt`、`_has_image`、`_has_text` 共用）：取每项 `types`（字符串数组）的全部值（旧单值 `resources[].type` 数据中已 0 条，build 已不再兼容）。
@@ -235,12 +235,12 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `_work` | Work 卡，枢纽为 `{id, h:1}` | `work_id` 解得到 Work（含参照仓）时 | `work_id` | entry | v1 |
 | `_collections` | 同 Work `_collections` | 总是 | 同 Work | entry | v1 |
 | `_related` | array<（Book 卡或 Collection 卡）＋`{t, relation:"related", direction}`> | 有对称关联时才有 | 本库（含参照仓）所有 Book、Collection 的 `related_books`、`related_collections` 里的 id（字符串、非自身、对方是 Book 或 Collection）两侧并集。`t`＝`"book"`／`"collection"`；`direction`＝`"out"` 本条源档写了这一项，`"in"` 只有对方写了（两侧都写时两边都是 `"out"`）。按对方 id 排序；不分页 | entry | **v3** |
-| `_lineage_refs` | object `{book_id: {title?, edition?}}` | 有可解析的引用时 | `lineage.derived_from[]` 与 `lineage.related_to[]` 各项的 `ref`（旧写 `book_id`），对方须是 Book（不看 `ref_type`）；值取对方 `title`、`edition` | entry | v1 |
-| `_derived_by` | array<`{id, title?, edition?, rel?}`> | 有别本以本条为底本时 | 别的 Book 的 `lineage.derived_from[]` 中 `ref_type` 缺省或为 `"book"`、`ref`（或 `book_id`）指向本条者；`rel`＝该项 `relation`。按对方 id 排序 | entry | v1 |
+| `_lineage_refs` | object `{book_id: {title?, edition?}}` | 有可解析的引用时 | `base_edition[]` 与 `related_books[]` 各项的 `ref`（旧写 `book_id`），对方须是 Book（不看 `ref_type`）；值取对方 `title`、`edition` | entry | v1 |
+| `_derived_by` | array<`{id, title?, edition?, rel?}`> | 有别本以本条为底本时 | 别的 Book 的 `base_edition[]`（带 `relation`）中 `ref_type` 缺省或为 `"book"`、`ref`（或 `book_id`）指向本条者；`rel`＝该项 `relation`。按对方 id 排序 | entry | v1 |
 | `_has_image` | `true` | 为真才有 | 本条 resources 含 `image` | entry | v1 |
 | `_has_text` | `true` | 为真才有 | 本条 resources 含 `text`，或 book-text 里有本条 id 的可用版本（口径同 Work） | entry | v1 |
 | `_has_collated` | `true` | 为真才有 | 同 Work：book-text 里本条 id 有可用的 `collated`／`self_collated` 版本 | entry | v1 |
-| `_lineage_graph_ref` | string `"lineage/<work_id>.json"` | 所属 Work 下任一 Book 的 `lineage.derived_from` 或 `related_to` 非空时（本条自己没有也出） | 见〈十二〉第 5 条 | entry | v1 |
+| `_lineage_graph_ref` | string `"lineage/<work_id>.json"` | 所属 Work 下任一 Book 的 `base_edition`（带 `relation`）或 `related_books`（带 `relation`）非空时（本条自己没有也出） | 见〈十二〉第 5 条 | entry | v1 |
 | `promoted_to` | string | 草稿记录在升格对照里时 | 升格对照 | entry | v1 |
 
 `96kzk3xvk0` 的 `_derived_by`：`[{"edition":"程甲本","id":"96kzkdm8e8","rel":"底本","title":"新鐫全部繡像紅樓夢"}]`。
@@ -374,9 +374,9 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 |---|---|
 | `work_id` | 本 Work id |
 | `nodes` | Book 卡数组：先是本 Work 的全部 Book（顺序同 `_books`），再按边出现顺序补上边所指、不属本 Work 但库里有的 Book |
-| `edges` | 由本 Work 各 Book 的 `lineage` 生成，项须是对象且带 `ref`（或旧 `book_id`）：`derived_from` 项 → `{from: ref, to: 本 Book, rel?: relation, ref_type?, confidence?}`；`related_to` 项 → `{a: 本 Book, b: ref, rel?: relation, ref_type?}`。按各边 JSON（键排序）字符串排序 |
+| `edges` | 由本 Work 各 Book 的 `base_edition`（带 `relation` 与 `book_id`／`hypothetical_id` 的项）与 `related_books`（带 `relation` 的对象项）生成：`base_edition` 项 → `{from: ref, to: 本 Book, rel?: relation, ref_type?, confidence?}`；`related_books` 项 → `{a: 本 Book, b: ref, rel?: relation, ref_type?}`。按各边 JSON（键排序）字符串排序 |
 
-`derived_from` 边不论 `ref_type` 都收进 `edges`。没有一条边时不出文件，该 Work 也没有 `_lineage_graph_ref`。
+`base_edition` 边不论 `ref_type` 都收进 `edges`。没有一条边时不出文件，该 Work 也没有 `_lineage_graph_ref`。
 例（`lineage/d59dh3vo9af4.json` 的边）：`{"confidence":"consensus","from":"96mid1ogzk","ref_type":"book","rel":"影印","to":"96mmyltp1c"}`；（`lineage/d59df01avcw0.json`）：`{"a":"96kzirvbwg","b":"96kzj1joqo","rel":"兄弟本"}`。
 
 ---
@@ -540,7 +540,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 | `--hub-check` | 某类改枢纽名牵动的产物文件超过 `HUB_CHECK_MAX`（6） |
 
 **只报不挡**（写进 `report.json`，不影响退出码）：
-1. 悬空引用 `dangling`：`Book.work_id`、`Book.contained_in`、`Book.lineage.derived_from`、`Work.authors.entity_id`、`Work.contained_in`、`Work.related_works`、`Work.indexed_by.source_bid`、`Collection.contained_in` 及各旧反向字段，只报本仓记录引出的。
+1. 悬空引用 `dangling`：`Book.work_id`、`Book.contained_in`、`Book.base_edition`、`Work.authors.entity_id`、`Work.contained_in`、`Work.related_works`、`Work.indexed_by.source_bid`、`Collection.contained_in` 及各旧反向字段，只报本仓记录引出的。
 2. `notes`：`report.json` 另有 `text_index`（接入统计、丢掉的 Work 清单）与 `dangling_text_ids`（book-text 里解析不了的悬空 id，不致命）。11-03 全量 build 的 `notes` 为空（10-09 曾有旧注 295 条、「`_has_collated` 僅憑源裡舊值」65 条；`Entity._works` 缺 role 时仍会记「以「撰」補」）。
 
 **`--hub-check`**：Collection、Work、Entity 各取本仓入度最大的枢纽，在内存里给名字加后缀重算全部产物，数变了几个文件；结果进 `report.json` 的 `hub_check: [{type, id, indegree, changed, files（前 10）, ok}]`。正式库 10-09：`8rlcsybg2hhl`（入度 17,540）、`d59frnrt4lxc`（29,218）、`hixhd2h9bdqq`（380）各牵动 2 档。
@@ -578,7 +578,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 | 2 | ~~年份取法不一~~ 已统一（2026-11-03，S2 报告 §5.1 J）：`index/` 的 `sort_year`、卡片 `y`、`_books` 排序都先取 `dating.year`、再 `year_range[0]`。仅剩细节差：`sort_year` 要求 `year_range` 恰两项，卡片 `y` 不要求 | 数据里 `year` 与 `year_range` 并存 0 条，无实际差异 |
 | 3 | ~~有无全文／影像取法不一~~ 已统一（工作包 C，`--text-index`）：`index/` 的 `has_text`／`has_collated` 与 entry 的 `_has_text`／`_has_collated` 同为 book-text 口径（Work 并其 Book、`merged_into` 解析）；`has_image`／`_has_image` 都只看 `resources[].types`，源档不再有 `_has_*`、旧单值 `type`（均 0 条）。**残留**：bim `entry_extractor` 与 `storage.ts` 写 index 时没有 book-text，Work 的 `has_text`／`has_collated` 与 build 不同，见 S5-G | bim／TS 本地写出的 Work index 与 build 产物在这两个字段上会不同 |
 | 4 | **`promoted_to` 范围不一**：entry 里只有 Work、Book 出 `promoted_to`；`index/` 四类都出 | 已升格草稿 Collection（目前草稿库无 Collection）、Entity 的页面拿不到正式 id，要读 `index/` |
-| 5 | **`_lineage_graph_ref` 可能指向不存在的文件**：Book 只要所属 Work 下任一 Book 的 `lineage.derived_from`／`related_to` 非空就出；Work 的版本图要求至少一项是对象且带 `ref`／`book_id`，否则不出文件。正式库 11-03 实测 226 处引用（对应 8 个 `lineage/*.json`）全部有对应文件 | 读者打开 `lineage/` 文件要容忍 404 |
+| 5 | **`_lineage_graph_ref` 可能指向不存在的文件**：Book 只要所属 Work 下任一 Book 的 `base_edition`／`related_books` 带 `relation` 的项非空就出；Work 的版本图要求至少一项带 `relation` 与 id，否则不出文件。正式库 11-03 实测 226 处引用（对应 8 个 `lineage/*.json`）全部有对应文件 | 读者打开 `lineage/` 文件要容忍 404 |
 | 6 | **`_hubs.json` 的 `t` 可能是 `"b"`**：代码按类型首字母取 `t`；现行入度只计 Work、Collection、Entity，Book 不会成为枢纽，11-03 实测 143 个枢纽，`t` 只有 `c`（78）、`w`（52）、`e`（13） | 读者应把 `t` 当开放值 |
 | 7 | **新建 `index/` 文件尾无换行**：输出目录里还没有该分片时按缩进 2、无尾换行写出（如新的 `--out` 目录）；仓内已有分片沿用其原格式 | 与全库「文件尾一个换行」约定不一 |
 | 8 | **place 级别「都」在 `PLACE_RANK` 里缺失**：`level` 枚举有 `都`，`PLACE_RANK` 没有，按 9（最高）计，永远不会被选为「最低一级」的默认候选；`監` 在表内 | 涉及「都」的同名地名默认候选可能不标 |

@@ -619,32 +619,6 @@
         "basis": {
           "type": "string"
         },
-        "based_on": {
-          "type": "object",
-          "required": [
-            "relation"
-          ],
-          "properties": {
-            "era": {
-              "type": "string"
-            },
-            "reign": {
-              "type": "string"
-            },
-            "year": {
-              "type": "integer"
-            },
-            "relation": {
-              "enum": [
-                "翻刻",
-                "影印",
-                "傳鈔",
-                "配補"
-              ]
-            }
-          },
-          "additionalProperties": false
-        },
         "later_repair": {
           "type": "object",
           "properties": {
