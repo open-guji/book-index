@@ -29,6 +29,7 @@
 | `description` | Description | 可选 | 介绍与出处（`sources`） | |
 | `merged_in[]`／`merged_into`／`merge_history[]` | array／string／array | 可选 | 并条账与墓碑，见下 | |
 | `retired`、`retired_reason` | boolean／string | 可选 | 退役 | |
+| `relations[]` | array<PersonRelation> | 可选 | 亲属／师承关系（2026-11-02 新增，见下） | `[{"type":"父","entity_id":"hixhd2h9bf1f"}]` |
 | `suppressed_fields` | array<string> | 可选 | 人工确认 CBDB 值有误而清空的字段名 | `["cbdb_id"]` |
 | `review`、`todo`、`ai_note` | object／array／string | 可选 | 审核状态、待办、备注 | |
 | `revision`、`revised_at`、`updated_at` | string | 见[通用字段](_common.md) | 版本与改动时间 | `"1.1.0"` |
@@ -38,6 +39,11 @@ people 特有的规矩：
 - 名下作品不写，build 生成 `_works`；朝代名由 build 解析为 `_dynasty_id`（规范名唯一命中且不歧义）或 `_dynasty_candidates`（歧义名的候选 id），见 [derived.md](../derived.md)。
 - **`suppressed_fields`**（2026-09-26 用户裁，甲案）：人工核过、确认 CBDB 该字段之值有误而清空的，把字段名列进 `suppressed_fields`；补空槽的 enrich 脚本（`cbdb-sync/apply_enrich.py`）逢清单里的字段即绕开，不再拿 CBDB 之值回填。原行为只认「字段现在是否空」，人清空一次、下一轮 enrich 就自动填回去，俞安期、謝顯两例皆如此每跑一次就再犯一次。**只影响列名的字段**，其余空槽仍照常补。
 - 并条：留存方写 `merged_in[]`，被并方只留 stub（墓碑）并写 `merged_into`，**并条时不删档**（墓碑会在合并稳定后被定期整体清理，见 [common.md〈并条账〉](../common.md#七并条账)）（2026-10-09 目录经理定，overview#409；`.claude/qa/entity_merge.py` 已改为写墓碑）。网站按被并方记录的 `merged_into` 308 跳到留存方；build 现仍把墓碑列入 `index/`。早期（2026-09-09）的并条账在 `merge_history[]`；此前 entity_merge.py 删档的并条只在留存方 `merged_in` 里有账。
+- **`relations[]`**（2026-11-02 新增，可选，仅 people）：记本条与另一 people 条的亲属、师承关系，也是区分同名人物的佐证。每项 `{type, entity_id, basis?, sources?[]}`：
+  - `type` 是「**本条是对方的什么**」，枚举 12 值：`父`、`子`、`祖`（祖父）、`孫`、`曾祖`、`曾孫`、`兄`、`弟`、`叔伯`（父之兄弟）、`姪`、`師`、`弟子`（含门人、受业）。例：方中履条写 `{"type":"子","entity_id":<方以智>}`，意为「方中履是方以智的子」。
+  - `entity_id` 指向另一 people 条（不得指自己、不得指墓碑）；**双向对称写入**：甲条有 `{子, 乙}`，则乙条必有 `{父, 甲}`（逆称：父↔子、祖↔孙、曾祖↔曾孙、兄↔弟、叔伯↔姪、師↔弟子）。不写姻亲（妻、婿、岳父等）与姐妹，需要时另议。
+  - `basis` 一句话写依据（如「《明史》卷二百五十五本传：子某，自有传」）；`sources[]` 用通用 Source 形状（`name`、`type`、`details`）。**`sources` 必填**，指到我们已整理的具体文本（书名＋卷／篇＋原句片段，如 `{"name":"明史","type":"text","details":"列傳〈方孝孺〉：父克勤，洪武中循吏"}`）；**关系只录库内已整理文本里明载者，不从 CBDB 等外部库导入**（2026-11-02 用户定）。
+  - **只连双方都能唯一确定的**：两端都已是库内唯一的人物条，且依据能指到具体文本；同名拿不准的不连，列清单待裁。检查脚本 `.claude/qa/check_relations.py`（对称、目标存在且未被并、逆称一致）。
 - 退役：写 `retired: true` 与 `retired_reason`，记录保留。
 
 例（正式库，馬令 `hixhd2h9bv8d`，节录）：

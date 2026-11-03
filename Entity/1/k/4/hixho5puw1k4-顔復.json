@@ -21,7 +21,7 @@
     "cbdb_source": "name_match+dy_filter+unique|A12複評2026-11-01:alt"
   },
   "ai_note": "2026-09-26 D9-链接清零：Entity.works[] 移除對 《膺潜庵咏物詩》(d59f6ejly29x) 之舊邊——現查該書 authors[] 已無「顔復」其名（書已改繫他人或原繫本屬誤植），單向死鏈，依 rule D9-oneway-刪舊邊 清理。",
-  "revision": "1.0.1",
+  "revision": "1.1.0",
   "revised_at": "2026-11-01",
   "dynasty": "趙宋",
   "dynasty_basis": "synonym:period=song",
@@ -34,6 +34,25 @@
       "by": "Elias",
       "rule": "異寫同名重出并入（Mirren 口徑：硬證據者）",
       "why": "朝代/生卒不衝突，且保留者有 cbdb 119501"
+    }
+  ],
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhinc9ovsz",
+      "basis": "著錄／正史本傳明載，兩端均為庫內唯一確定的人物條",
+      "sources": [
+        {
+          "name": "宋史",
+          "type": "text",
+          "details": "列傳〈顏復〉：子四十八世孫也。父太初，以名"
+        },
+        {
+          "name": "宋史",
+          "type": "text",
+          "details": "列傳〈顏太初〉：曜聯英》二十卷。子復，嘉祐"
+        }
+      ]
     }
   ]
 }
