@@ -67,7 +67,8 @@ CREATE TABLE entity_relation (
     -- in_dynasty←dynasty_ids | parent←parent_id | predecessor←predecessors | superior←superiors | owner←owner_ids/owners | in_group←group_ids | institution←institution_ids | person←relations[]（亲属师承，kind=type，note=basis，sources 进 extra）
     --   institution 兼收 office.institution_ref 与 seal.institution_ids；in_dynasty 兼收 reign.dynasty_id
   dst text NOT NULL, seq int NOT NULL DEFAULT 0,
-  role text, year int, start_year int, end_year int, kind text, note text, extra jsonb,
+  role text, year int, start_year int, end_year int, kind text, note text, sources jsonb, extra jsonb,
+  -- person 关系双向都存（互为逆称，与文件一致），不在库里派生反向
   PRIMARY KEY (src, rel, dst, seq)
 );
 CREATE INDEX ON entity_relation (dst, rel);
@@ -187,7 +188,7 @@ CREATE TABLE record_todo (owner_id text, seq int, what text, by text, date text,
 CREATE TABLE member_of (
   member_id text NOT NULL, member_type char(1) NOT NULL,  -- B / W / C
   collection_id text NOT NULL, seq int NOT NULL,
-  volume_index jsonb, grp text, details text, sub_items jsonb,
+  volume_index jsonb, grp text, details text, orig_order int, sub_items jsonb,  -- orig_order 从 details「叢編原序 N」抽出
   PRIMARY KEY (member_id, collection_id, seq)
 );
 CREATE INDEX ON member_of (collection_id);
@@ -199,9 +200,7 @@ CREATE TABLE related_collection (src text NOT NULL, dst text NOT NULL, PRIMARY K
 CREATE TABLE merged_into (dead_id text PRIMARY KEY, live_id text NOT NULL, record_type char(1) NOT NULL);
 CREATE INDEX ON merged_into (live_id);
 -- book-text 专名号反查（D5 才灌）：实体 × 书 × 章 × 次数
--- item_id 可为 Book 或 Collection id；entity_id 存 book-text 里的原始 id（可能已并条），不加外键，派生时按 merged_into 解析
-CREATE TABLE mention (entity_id text NOT NULL, item_id text NOT NULL, chapter text NOT NULL, n int NOT NULL, PRIMARY KEY (entity_id, item_id, chapter));
-CREATE INDEX ON mention (item_id);
+-- 专名出处见 book_text.sql 的物化视图 bt_mention
 -- book-text 各表见 book_text.sql（bt_ 前缀与 fragment*）
 
 -- ============ 检索索引 ============
