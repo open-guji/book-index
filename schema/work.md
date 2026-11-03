@@ -52,7 +52,7 @@
 | `current_location`、`page_count`、`zhsy_retrieved_at` | — | **不写** | 已删 | 2026-11-02 实测 0 条，已从 JSON Schema 删除（写了会报 ERROR） | — | — | |
 | `merged_in`、`merged_from`、`merged_into`、`merge_history`、`merged_basis` | — | 可选 | 原生 | 并条账（`merged_basis` 只在草稿库墓碑上，正式库 0 条） | 见 [common.md〈并条账〉](common.md#七并条账) | bim、录入 | |
 | `ai_note`、`todo`、`review` | — | 可选 | 原生 | 共通字段 | 见 common.md〈共通管理字段〉 | 录入 | |
-| `revision`、`revised_at`、`updated_at` | string | `revision` 正式库必填 | 原生 | 共通字段 | 见 common.md | bim | `"1.0.0"` |
+| `revision`、`revised_at` | string | `revision` 正式库必填 | 原生 | 共通字段 | 见 common.md | bim | `"1.0.0"` |
 | `_has_text`、`_has_collated` | boolean | **不写** | 已删 | 有全文／有整理本；实测 0 条，已从 JSON Schema 删除；产物由 build 从 resources＋book-text 推（check_v2 V01 报） | 见 [legacy.md](legacy.md) | build | |
 | 其余 `_` 起首 | — | **源档不写** | 派生 | `_books`、`_edition_count`、`_related`、`_catalogs`、`_authors`、`_collections`、`_classifications` 等 | 见 [derived.md](derived.md) | build | |
 | ~~`books`~~ | — | **不写** | — | 版本列表：由 `Book.work_id` 反查 | — | — | |

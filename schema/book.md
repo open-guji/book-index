@@ -46,7 +46,7 @@
 | `merged_into` | string | 墓碑 | 原生 | 本条已并入哪一个 Book | 记录 id。**只在墓碑上**；墓碑是过渡状态，稳定后由 `purge-tombstones` 整体删，**正式库现存 0 条**（见 CHANGELOG）；墓碑存续期间只留 `schema_version／id／type／title／work_id／merged_into／revision／revised_at`；网站 `/item/<id>` 308 到 keeper | bim、录入 | |
 | `appendix` | array<object> | 可选 | 原生 | 附录说明 | `[{title, text}]` | 录入 | |
 | `ai_note`、`todo`、`review` | — | 可选 | 原生 | 共通字段 | 见 common.md | 录入 | |
-| `revision`、`revised_at`、`updated_at` | string | `revision` 正式库必填 | 原生 | 共通字段 | 见 common.md | bim | |
+| `revision`、`revised_at` | string | `revision` 正式库必填 | 原生 | 共通字段 | 见 common.md | bim | |
 | `_has_text`、`_has_collated` | boolean | 可选 | 已删 | 有全文／有整理本；源档不再写，产物 `_has_text`／`_has_collated` 由 build 从 resources＋book-text 推（check_v2 V01 报） | 见 [legacy.md](legacy.md) | build | |
 | 其余 `_` 起首 | — | **源档不写** | 派生 | `_work`、`_siblings`、`_collections`、`_related`、`_lineage_refs`、`_derived_by`、`_has_image` 等 | 见 [derived.md](derived.md) | build | |
 

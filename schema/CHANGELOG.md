@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-11-03　删除 `updated_at`（S3-A6；四类记录 schema 与 common 同删）
+
+- 无写入方、无读者的时间戳：Book 19,358、Work 72,430、Collection 57、Entity 68,158 条存量已由各家数据批改删尽（#2192／#2193／#2194），本次从 `common.md §八`、四个记录 schema、文档里去掉该键；`revision`／`revised_at` 不动。
+- 此后记录再带 `updated_at` 会报 unknown-field。`DateTime` 定义保留（promotions.schema.json 仍引用）。
+
 ## 2026-11-03　补登派生字段 `_concretes` 与 place 卡 `dynasties`（S5-A；不改数据、不改代码）
 
 - build 已在产出、但文档与 schema 一直没有的两处纯增量：place 跨朝条的 `_concretes`（朝代条按 `concept_id` 反查，实测 10,819 条 entity）；place 卡（`_children`／`_concretes` 的元素）的 `dynasties`（朝代名数组）。
