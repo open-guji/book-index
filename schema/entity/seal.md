@@ -20,7 +20,7 @@
 | `seal_kind` | string | **必填** | 原生 | 印章类别 | `官印`｜`私印`｜`鑒藏印`｜`齋館印`｜`其他`（鑒藏印即收藏／鑒賞印，不另设「收藏印」） | 录入 | `"官印"` |
 | `dynasty_ids` | array<id> | **必填** | 原生 | 启用时所属朝代 | dynasty id 数组，默认一朝一条；不写旧式 `dynasty`／`period` 字符串 | 录入 | `["hixi1ubjrxga"]`（清） |
 | `description` | object | **必填** | 原生 | 介绍与出处 | 同通则，`sources` 非空；来源不实的字段一律留空，不编造 | 录入 | `{"text":"…","sources":[{"title":"…"}]}` |
-| `start`、`end` | integer | 可选 | 原生 | 启用／停用年 | 公元年，无 0 年，`start ≤ end`；不确定不写，说明进 `description.text` | 录入 | |
+| `dates` | object | 可选 | 原生 | 启用／停用年 | `{start?, end?, basis?}`：公元年，无 0 年，`start ≤ end`；不确定不写，说明进 `description.text`；顶层 `start`／`end` 为旧写法（WARN） | 录入 | |
 | `seal_style` | string | 可选 | 原生 | 朱白 | `朱文`｜`白文`｜`朱白相間` | 录入 | `"朱文"` |
 | `seal_form` | string | 可选 | 原生 | 印形 | `方`｜`圓`｜`橢圓`｜`長方`｜`異形` | 录入 | `"方"` |
 | `usage_scope` | string | 可选 | 原生 | 用途／钤用范围 | 一句话 | 录入 | `"鈐於文淵閣本《四庫全書》各冊首卷第一頁"` |
@@ -52,7 +52,7 @@
 | 码 | 适用 | 查什么 | 级别 |
 |---|---|---|---|
 | S01 | seal | `primary_name`、`seal_text` 非空；`seal_kind` 在 5 值内；`description.sources` 非空 | ERROR |
-| S02 | seal | `dynasty_ids` 非空且指 dynasty；`start`／`end` 为整数且 `start ≤ end`；`seal_style`／`seal_form` 在枚举内 | ERROR |
+| S02 | seal | `dynasty_ids` 非空且指 dynasty；`dates.start`／`end` 为整数且 `start ≤ end`；`seal_style`／`seal_form` 在枚举内 | ERROR |
 | S03 | seal | `owner_ids`／`institution_ids` 为 id 数组且指向存在的 Entity，不得指 seal／dynasty（ERROR）；指墓碑（WARN） | ERROR／WARN |
 | S04 | seal | `appears_in` ≤20 条、`ref_type` ∈ Book／Work、`id` 在库内存在、不重复 | ERROR |
 | S05 | seal | `images` 每项 `file`＋`credit`＋`license`（闭集）＋`source_url`、≤8、`file` 路径规范；`owner_ids` 只能指 people／collective／office，`institution_ids` 只能指 collective；出现其他子类型专属字段（含 `dates`、`dynasty`、`period`） | ERROR |

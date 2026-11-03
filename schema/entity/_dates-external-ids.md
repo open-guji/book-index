@@ -10,9 +10,11 @@
 | `people` | `birth`、`death`、`floruit`、`basis` | 可选 | 见下表 |
 | `dynasty` | `start`、`end`、`basis` | 中国朝代必填 `start`（有 `period` 而缺 `start` 为 D3 WARN）；域外可缺 | 公元年，公元前负数，无 0 年，闭区间；仍存续者不写 `end`（正式库「中華民國」「中華人民共和國」省略；草稿库此 2 条写 `null`，读者两种都认） |
 | `reign` | `start`、`end`、`basis` | `start` 必填 | 改元当年记为起年 |
-| `office` | — | **不得有 `dates`**（D3） | 起讫在 `start`／`end` |
+| `office` | — | **不得有 `dates`**（D3） | 官职条无起讫数据（O09 保留顶层 `start`／`end`，现 0 条） |
 | `place` | — | **不得有 `dates`**（D3） | 起讫在 `history[]` 各项 |
-| `collective` | — | 不用（官署起讫在 `start`／`end`） | |
+| `collective`（官署） | `start`、`end`、`basis` | 可选；具体条才有（概念、合称不得有） | 2026-11-03 起官署起讫收入 `dates`（原顶层 `start`／`end`） |
+| `seal` | `start`、`end`、`basis` | 可选 | 同上 |
+| `publisher` | `start`、`end`、`basis` | 可选 | 同上（原顶层 `start`／`end`／`dates_basis`） |
 
 `dates` 各键：
 
