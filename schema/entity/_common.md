@@ -57,6 +57,5 @@
 | `review` | object | 可选（全部） | 原生 | 审核状态 | `{status, by?, date?}`，`status` ∈ `unreviewed`｜`reviewed`｜`disputed` | 录入 | `{"status":"unreviewed"}` |
 | `revision` | string | **正式库必填**（全部） | 原生 | 记录内容版本 | `"主.次.补"`，新条 `"1.0.0"`；口径见 [common.md〈revision〉](../common.md#revision-口径)。Entity 也必填（overview#468），正式库已全补；草稿库 people 3 条缺（`1jb8icg27zjsx` 章淵、`1jb8icg2u5edf` 褚遂良、`1jb8icg2z572a` 沈瀛），升格时由 bim 补 | 录入、bim | `"1.1.0"` |
 | `revised_at` | string | 可选（与 `revision` 同写） | 原生 | `revision` 最近一次改动日 | `YYYY-MM-DD` | 录入、bim | `"2026-10-07"` |
-| `updated_at` | string | **不得有**（2026-11-03 阶段 4） | 原生 | 记录最近改动时刻（旧） | 已从全部 Entity 删除（S3-A6，不 bump `revision`），`entity.schema.json` 已不登记此键（出现即未知键 ERROR）；Work 等其它类型随各自数据清完后由 S3 处理 | — | — |
 
 各子类型的专有字段见[dynasty](dynasty.md)[collective](collective.md)；不在本表与各子类型表里的键，源档不写（见[禁字段与派生](_forbidden-derived.md)）。

@@ -37,5 +37,4 @@
 ## 四、停写与待定
 
 - `review`：Entity 里 121,416 条恒为 `{"status":"unreviewed"}`，用户 2026-11-02 定**只停新写、存量不动**。可信度靠 `description.sources`、A/B/C 档、`ai_note` 表达。
-- `updated_at`：Entity 存量 68,158 条已于 2026-11-03 删除（S3-A6，不 bump `revision`），新写入一律不写；schema 里暂留可选，等四类数据清完后由 S3 删键。
 - 已删 0 条预留字段：`salary`、`succeeds`、`kind_also`、`seal_script`、`material`、`size`、`dates.chinese`、`birth_year`、`death_year`。真要用时再加。
