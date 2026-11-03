@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-11-03　Book `zhsy_id` 并入 `external_ids`（第 7 组 R3；S3；已通知网站）
+
+- Book 新增可选对象 `external_ids`（目前只许 `zhsy_id`，与 Entity 的 `external_ids` 同名同义：外部编号），顶层 `zhsy_id` 删除；1,324 档的值原样搬入，键序其余不动。
+- 读者核查：bim、网站、搜索、build 均不读 `zhsy_id`（网站 data-contract.mjs 字段表登记了类型，由 A41 自行移除）。
+
 ## 2026-11-03　资源整理步 R0：`resources[].label` 与站点登记（第 7 组；S3；只放宽、加 WARN，不改数据）
 
 - `Resource` 加可选 `label`；读者（book-index-ui）已兼容（bim #296）：带 `label` 而无 `group` 的资源按「只有一条的组」显示。

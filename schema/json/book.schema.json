@@ -580,8 +580,16 @@
         ]
       }
     },
-    "zhsy_id": {
-      "type": "string"
+    "external_ids": {
+      "type": "object",
+      "properties": {
+        "zhsy_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
     },
     "metadata": {
       "type": "object"
