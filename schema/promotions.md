@@ -14,7 +14,7 @@
 | 键序 | `promotions` 内按草稿 id 字典序 |
 | 旧整档 | 根目录 `promotions.json` 已于 2026-10-08 切成分片后删除，不双写（book-index#43） |
 
-实测（10-08）：1,296 片，共 59,693 项（Book 33,583、Work 24,508、Entity 1,602）。
+实测（11-03，main `288d9075320`）：1,296 片，共 542,614 项（Book 362,946、Work 172,310、Entity 4,513、Collection 2,845）；分片键与草稿 id 末 2 位不符 0 项；项字段只有 `production_id`／`type`／`promoted_at`。（10-08 旧数：59,693 项。）
 
 ## 二、项
 
