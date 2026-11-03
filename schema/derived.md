@@ -97,7 +97,6 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `HUB` | `200` | build_derived.py | 枢纽阈值：入度 **大于** 200 者为枢纽（`--hub` 可改） |
 | `PAGE` | `200` | build_derived.py | `members/`、`catalog/`、`related/` 每页项数 |
 | `MEMBER_HEAD` | `20` | build_derived.py | 丛编 entry 里 `_members` 只带第 1 页的前 20 项 |
-| `SIBLINGS_MAX` | `40` | build_derived.py | Book `_siblings` 上限 |
 | `HUB_CHECK_MAX` | `6` | build_derived.py | `--hub-check`：改一个枢纽名，牵动的产物文件数上限 |
 | `DEFAULT_ROLE` | `"撰"` | build_derived.py | Entity `_works[].role` 缺省时补的值 |
 | `CONTRACT` | `3` | build_derived.py | 契约版本，写进 `report.json` 的 `contract` |
@@ -114,7 +113,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 **枢纽**：入度 > `HUB` 的记录是枢纽。入度计法：Work ＝ 其下 Book 数＋参与的规范关系边数（`related_works` 规范化后，每条边两端各计 1）＋（志书）著录成员数；Entity ＝ 以其为 `authors[].entity_id` 的 Work 数；Collection ＝ 成员数＋参与的关系边数。Book 不计入度。入度按 build 看到的全部记录算（草稿库 build 时含参照仓记录，所以草稿库的 `_hubs.json` 里可以有正式 id）。
 枢纽在**会引用它的卡片里**只写 `{"id": …, "h": 1}`，再加该处的边属性（`role`、`vol`、`section`、`relation`、`direction` 等）；名称到 `_hubs.json` 查。例（`988fyztvri` 的 `_collections`）：`{"h":1,"id":"8rlb6yi1ecqo","sub":["補傳","臨濟宗旨"],"vol":1052}`。
 用枢纽写法的地方：Book `_work`、`_collections`、Collection `_children`、Work `_related` 里的 Work／Collection 卡片、Book／Collection `_related` 里的 Collection 卡片、`_catalogs`、`_authors`、`catalog/` 页、专名派生字段里的各种卡片。
-**不用**枢纽写法（总写完整卡片）的地方：`_books`、`_siblings`、`_members` 与 `members/` 页、Entity `_works`、Book／Collection `_related` 里的 Book 卡片、`_derived_by`、`_lineage_refs`、`lineage/` 的 `nodes`。正式库 10-09：枢纽 59 个（Work 49、Collection 6、Entity 4）。
+**不用**枢纽写法（总写完整卡片）的地方：`_books`、`_members` 与 `members/` 页、Entity `_works`、Book／Collection `_related` 里的 Book 卡片、`_derived_by`、`_lineage_refs`、`lineage/` 的 `nodes`。正式库 10-09：枢纽 59 个（Work 49、Collection 6、Entity 4）。
 
 **`promoted_to` 解析**：升格对照从本仓与各 `--ref-root` 读，本仓优先；每项的值是字符串，或对象里依次取 `production_id`、`to`、`official_id`、`id`。
 
@@ -146,7 +145,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 
 ### 4.2 Book 卡（`book_card`）
 
-用于：Work `_books`、Book `_siblings`、Collection `_members`（另加 `t`、`section` 与边属性）、Book／Collection `_related`（另加 `t`、`relation`、`direction`）、`lineage/` 的 `nodes`。Book 卡**从不**写成枢纽形。
+用于：Work `_books`、Collection `_members`（另加 `t`、`section` 与边属性）、Book／Collection `_related`（另加 `t`、`relation`、`direction`）、`lineage/` 的 `nodes`。Book 卡**从不**写成枢纽形。
 
 | 短键 | 类型 | 源字段 | 规则 |
 |---|---|---|---|
@@ -168,7 +167,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 
 `resources` 的类型判定（`img`、`txt`、`_has_image`、`_has_text` 共用）：取每项 `types`（字符串数组）的全部值（旧单值 `resources[].type` 数据中已 0 条，build 已不再兼容）。
 
-例（`96kzk3xvk0` 的 `_derived_by` 指向的程甲本，作为 `_siblings` 元素）：`{"dating":"清 乾隆","edition":"程甲本","from":["96kzk3xvk0","96kzl60tts"],"holder":"多家收藏","id":"96kzkdm8e8","img":true,"juan":120,"nres":7,"pub":"1791","title":"新鐫全部繡像紅樓夢","txt":true,"y":1791}`
+例（`96kzk3xvk0` 的 `_derived_by` 指向的程甲本，作为 Work `_books` 元素）：`{"dating":"清 乾隆","edition":"程甲本","from":["96kzk3xvk0","96kzl60tts"],"holder":"多家收藏","id":"96kzkdm8e8","img":true,"juan":120,"nres":7,"pub":"1791","title":"新鐫全部繡像紅樓夢","txt":true,"y":1791}`
 
 ### 4.3 Entity 卡（`ent_card`，用于 Work `_authors`）
 
@@ -234,9 +233,6 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | 字段 | 类型／精确形状 | 出现 | 由哪些源字段算出 | 产物 | 自 |
 |---|---|---|---|---|---|
 | `_work` | Work 卡，枢纽为 `{id, h:1}` | `work_id` 解得到 Work（含参照仓）时 | `work_id` | entry | v1 |
-| `_siblings` | array<Book 卡>，至多 40 | 与 `_work` 同时出现（可为 `[]`） | 同一 Work 的其他 Book，排序同 `_books`，取前 40 | entry | v1 |
-| `_siblings_more` | `true` | 其他版本超过 40 时 | | entry | v1 |
-| `_siblings_total` | integer | 同上 | 其他版本总数（不含本条） | entry | v1 |
 | `_collections` | 同 Work `_collections` | 总是 | 同 Work | entry | v1 |
 | `_related` | array<（Book 卡或 Collection 卡）＋`{t, relation:"related", direction}`> | 有对称关联时才有 | 本库（含参照仓）所有 Book、Collection 的 `related_books`、`related_collections` 里的 id（字符串、非自身、对方是 Book 或 Collection）两侧并集。`t`＝`"book"`／`"collection"`；`direction`＝`"out"` 本条源档写了这一项，`"in"` 只有对方写了（两侧都写时两边都是 `"out"`）。按对方 id 排序；不分页 | entry | **v3** |
 | `_lineage_refs` | object `{book_id: {title?, edition?}}` | 有可解析的引用时 | `lineage.derived_from[]` 与 `lineage.related_to[]` 各项的 `ref`（旧写 `book_id`），对方须是 Book（不看 `ref_type`）；值取对方 `title`、`edition` | entry | v1 |
@@ -247,7 +243,6 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `_lineage_graph_ref` | string `"lineage/<work_id>.json"` | 所属 Work 下任一 Book 的 `lineage.derived_from` 或 `related_to` 非空时（本条自己没有也出） | 见〈十二〉第 5 条 | entry | v1 |
 | `promoted_to` | string | 草稿记录在升格对照里时 | 升格对照 | entry | v1 |
 
-例：`988fxodt6s`（周曰校重刊本）`"_siblings_more":true,"_siblings_total":49`，其 `_work` 的 `nb` 为 50。
 `96kzk3xvk0` 的 `_derived_by`：`[{"edition":"程甲本","id":"96kzkdm8e8","rel":"底本","title":"新鐫全部繡像紅樓夢"}]`。
 `96kzirvbwg` 的 `_lineage_refs`：`{"96kzj1joqo":{"edition":"己卯本","title":"脂硯齋重評石頭記"}}`。
 
@@ -436,7 +431,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 
 **墓碑条**：`index/` 含被并方（记录上有 `merged_into` 的墓碑，10-09 为 Work 395、Entity 2，此后已大批清理；2026-11-01 起墓碑会被 `.claude/qa/purge-tombstones` 定期整体清掉，清掉的不再进 index），按普通条目列出，条目里不带 `merged_into`；**检索端自行过滤**。网站对旧 id 的跳转读的是条目记录上的 `merged_into`（kaiyuanguji-web `item-redirect.ts`，308 到留存方），build 不因此把墓碑排除出 `index/`（目录经理 2026-10-09 定，overview#409）。
 
-**Book 墓碑**（带 `merged_into` 的 Book，book-index#274 起）：`index/` 同样照列；但**不计入** Work 的 `_books`／`_edition_count`、同 Work 其他 Book 的 `_siblings`、卡片 `nb`，墓碑自身 entry 的 `_siblings` 为空，保留 `merged_into` 供 308 读取（ai-team#3，2026-10-13 Morgan 定）。
+**Book 墓碑**（带 `merged_into` 的 Book，book-index#274 起）：`index/` 同样照列；但**不计入** Work 的 `_books`／`_edition_count`、卡片 `nb`，保留 `merged_into` 供 308 读取（ai-team#3，2026-10-13 Morgan 定）。
 
 **Collection 墓碑**（带 `merged_into` 的 Collection，2026-10-25 起）：`index/collections.json` 同样照列；成员侧 `contained_in` 已改指 keeper，墓碑自身没有成员，entry 保留 `merged_into` 供 308 读取。
 
@@ -538,7 +533,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 |---|---|
 | 条数守恒 | 本仓源记录数 ＝ `entry/` 数；`index/` 条目数 ＝ `entry/` 数 |
 | 派生值自洽 | `_edition_count ＝ len(_books)`；成员各页合计 ＝ `_member_count`；`_members` ＝ 第 1 页前 20 项；`_related` 分页合计 ＝ `_related_total`；`catalog/` 各页合计 ＝ `_member_catalog.total` |
-| 卡片可解析 | `_related`、`_collections`、`_children`、`_siblings`、`_books`、`_works`（按 `work_id`）、`_catalogs`（按 `bid`）、`_work`、带 `id` 的 `_authors`、各 `members/`／`catalog/` 页里每张卡片的 id 都能解到记录；带 `h:1` 的都在 `_hubs.json` |
+| 卡片可解析 | `_related`、`_collections`、`_children`、`_books`、`_works`（按 `work_id`）、`_catalogs`（按 `bid`）、`_work`、带 `id` 的 `_authors`、各 `members/`／`catalog/` 页里每张卡片的 id 都能解到记录；带 `h:1` 的都在 `_hubs.json` |
 | 读档问题 | 读不了的文件、无 `id`、`type` 与所在目录不符、同 id 重复 |
 | 分类档校验 | 成员档名 ＝ 其 `node`；节点存在且未 `retired`；`exclusive` 分类法一部只出现一次；成员行是本仓或参照仓的 Work |
 | 源档里的 `_` 字段 | 源档出现任何 `_` 起首字段（派生字段只由 build 生成；2026-10-11 起没有任何豁免，旧派生字段的容忍已删） |
@@ -563,6 +558,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 | 1 | 2026-10-07 | 基础契约（overview#458）：`entry/`、`members/`、`catalog/`、`related/`、`lineage/`、`_hubs.json`、`classific.json`、`index/`；Work／Book／Collection／Entity 的基础派生字段 |
 | 2 | 2026-10-07 | 纯增量：专名派生字段（dynasty、reign、office、官署、place 各字段，people 与 Work 的 `_dynasty_id`／`_dynasty_candidates`）与 `dynasty_reign_keys.json`、`office_keys.json`、`place_keys.json`（overview#464、#458） |
 | 3 | 2026-10-08 | 纯增量：Book、Collection 加 `_related`（`related_books`／`related_collections` 两侧并集）（overview#458） |
+| 4 | 2026-11-03 | **非增量**：Book 刪 `_siblings`／`_siblings_more`／`_siblings_total`（占 Book entry 约三成；同版本列表读 Work 的 `_books`，或读 Book 的 `_work.id` 后取 Work entry）；`CONTRACT` 升为 4（S5-H）。网站侧改 `ops/data-contract.mjs` 与测试夹具由 A41 跟进 |
 | 3（补登） | 2026-11-03 | 契约 3 之后上线、当时未登记的纯增量：place 条加 `_concretes`；place 卡加 `dynasties`。未升 `CONTRACT`（升版要改 `build_derived.py`，另行排期）；补登依据 S5 审查（总目/schema审查/S5） |
 
 **改契约的规矩**：任何增删、改名、改形状、改分页大小，**先经协调者通知网站侧（A41／A42），并在 Jira GUJI 卡留痕，等对方回复后再合**（overview 仓已淘汰，原渠道 overview#458 不再用）；只新增可选字段也算改契约，同样要先通知。改动时：`CONTRACT` 加一、本档〈十一〉表加一行、记入 [CHANGELOG.md](CHANGELOG.md)，并在同一个提交里用 `build/make_contract_sample.py` 重生 `build/contract-sample/`。
@@ -579,7 +575,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 | # | 现状 | 影响 |
 |---|---|---|
 | 1 | **朝代：两个字段，有意不同**（目录经理 10-09 定，原讨论在已淘汰的 overview#496）：`index/` 的 `dynasty` 是**撰人朝代**（第一个有朝代的作者优先，再顶层）；卡片 `dyn`、`_hubs.json` 的 `dyn`、Work 的 `_dynasty_id` 是**成书朝代**（顶层 `dynasty` 优先，再第一个有朝代的作者）。正式库 10-09 实测 216 部 Work 两者不同：多为作者朝代更细（元末明初／明）或成书与撰人本异（今本竹書紀年 南朝梁／明），故不统一。bim `entry_extractor`、ui `storage.ts` 同此取法 | 搜索列表显示撰人朝代，页面显示成书朝代；读者勿当作同一字段 |
-| 2 | ~~年份取法不一~~ 已统一（2026-11-03，S2 报告 §5.1 J）：`index/` 的 `sort_year`、卡片 `y`、`_books`／`_siblings` 排序都先取 `dating.year`、再 `year_range[0]`。仅剩细节差：`sort_year` 要求 `year_range` 恰两项，卡片 `y` 不要求 | 数据里 `year` 与 `year_range` 并存 0 条，无实际差异 |
+| 2 | ~~年份取法不一~~ 已统一（2026-11-03，S2 报告 §5.1 J）：`index/` 的 `sort_year`、卡片 `y`、`_books` 排序都先取 `dating.year`、再 `year_range[0]`。仅剩细节差：`sort_year` 要求 `year_range` 恰两项，卡片 `y` 不要求 | 数据里 `year` 与 `year_range` 并存 0 条，无实际差异 |
 | 3 | ~~有无全文／影像取法不一~~ 已统一（工作包 C，`--text-index`）：`index/` 的 `has_text`／`has_collated` 与 entry 的 `_has_text`／`_has_collated` 同为 book-text 口径（Work 并其 Book、`merged_into` 解析）；`has_image`／`_has_image` 都只看 `resources[].types`，源档不再有 `_has_*`、旧单值 `type`（均 0 条）。**残留**：bim `entry_extractor` 与 `storage.ts` 写 index 时没有 book-text，Work 的 `has_text`／`has_collated` 与 build 不同，见 S5-G | bim／TS 本地写出的 Work index 与 build 产物在这两个字段上会不同 |
 | 4 | **`promoted_to` 范围不一**：entry 里只有 Work、Book 出 `promoted_to`；`index/` 四类都出 | 已升格草稿 Collection（目前草稿库无 Collection）、Entity 的页面拿不到正式 id，要读 `index/` |
 | 5 | **`_lineage_graph_ref` 可能指向不存在的文件**：Book 只要所属 Work 下任一 Book 的 `lineage.derived_from`／`related_to` 非空就出；Work 的版本图要求至少一项是对象且带 `ref`／`book_id`，否则不出文件。正式库 11-03 实测 226 处引用（对应 8 个 `lineage/*.json`）全部有对应文件 | 读者打开 `lineage/` 文件要容忍 404 |

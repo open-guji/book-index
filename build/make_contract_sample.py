@@ -41,7 +41,6 @@ RULES = [
     ('Work：作者繫 Entity 且帶 dates', lambda d: d['type'] == 'work' and any(a.get('dates') for a in d.get('_authors') or []), 1),
     ('Work：被志書著錄（_catalogs，含樞紐 h:1）', lambda d: d['type'] == 'work' and any(c.get('h') for c in d.get('_catalogs') or []), 1),
     ('Work：有整理本（_has_collated）', lambda d: d['type'] == 'work' and d.get('_has_collated'), 1),
-    ('Book：_siblings 超 40（_siblings_more／_siblings_total）', lambda d: d['type'] == 'book' and d.get('_siblings_more'), 1),
     ('Book：有源流（_lineage_refs）', lambda d: d['type'] == 'book' and d.get('_lineage_refs'), 1),
     ('Book：被別本用作底本（_derived_by）', lambda d: d['type'] == 'book' and d.get('_derived_by'), 1),
     ('Book：在叢編裡（_collections 帶 vol／sub）', lambda d: d['type'] == 'book' and any('sub' in c for c in d.get('_collections') or []), 1),

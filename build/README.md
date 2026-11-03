@@ -21,7 +21,7 @@ python3 build/build_derived.py --check-only --hub-check --text-index "$BOOK_TEXT
 
 派生欄（F2-3 §二，卡片短鍵取 F4-2）：
 - Work：`_books`（按 `dating` 年代、無年代按 id）、`_edition_count`、`_authors`（與 `authors[]` 同序）、`_related`（`{id, title, relation, direction, note?}`：`relation` 取本記錄視角的詞，`direction` 為 `out`（本記錄存儲）／`in`（對方存儲）；超 200 分頁）、`_catalogs`、`_collections`、`_member_catalog`（志書）、`_has_*`、`_lineage_graph_ref`、`_classifications`（有 `classification/` 才產出）、`promoted_to`（草稿記錄，由 `promotions.json`）。
-- Book：`_work`、`_siblings`（≤40，超出 `_siblings_more`／`_siblings_total`）、`_collections`、`_lineage_refs`、`_derived_by`、`_has_*`。
+- Book：`_work`、`_collections`、`_lineage_refs`、`_derived_by`、`_has_*`。
 - Collection：`_members`（前 20）＋`_member_pages`、`_member_count`、`_member_type`、`_children`。
 - Entity：`_works`（`{work_id, role, title, …}`，全內嵌；role 取 `Work.authors[].role`，缺則「撰」並計數）。
 - 專名（`names.py`，SCHEMA〈九〉末幾行）：dynasty `_children`／`_ancestors`／`_reigns`；reign `_dynasty`／`_ruler`／`_index_in_reign`／`_same_name`；office `_children`／`_compounds`；官署 `_children`／`_subordinates`／`_members`／`_offices`；place `_children`／`_span`；people 與 Work `_dynasty_id`／`_dynasty_candidates`。另出 `dynasty_reign_keys.json`、`office_keys.json`、`place_keys.json`（全量時才出；草稿庫帶 `--ref-root` 才齊）。`report.json` 的 `contract`＝2。
