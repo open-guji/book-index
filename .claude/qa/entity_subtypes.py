@@ -883,6 +883,8 @@ def _check_publisher(rec, reg):
 
 def _check_place(rec, reg):
     out = []
+    if rec.get("merged_into"):   # 墓碑只留 merged_into 規定欄位，不查 place 欄位
+        return out
     if not nonempty_str(rec.get("primary_name")):
         out.append(("P01", ERROR, "primary_name", "缺"))
     hist = rec.get("history")
