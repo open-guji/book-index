@@ -1,0 +1,72 @@
+name: derive-slim（生成搜索重建用的小表）
+
+# 搜索（Meili）增量重建需要 works 的 `_classifications`、`_edition_count` 两个派生字段，它们来自 build_derived.py。
+# build_derived 峰值内存约 4–5G，放在 2 核 7.5G 的自托管 runner（us-render）上会和其它会话抢内存、被节流甚至拖垮整机
+# （2026-11-02 搜索停更 40 小时的原因之一）。本仓是公开仓，GitHub 托管 runner（16G）免费，所以在这里算：
+#   book-index <commit> ＋ book-text <commit>（只取 index/texts） → build_derived → 抽出小表 → 发布成 release 附件
+#   `derived-slim` / `slim-<book-index 前12位>-<book-text 前12位>.json.gz`（几 MB），overview 的 reindex-search.yml 按这两个提交号下载。
+# 本机只做「下载小表 ＋ 把小表合回源档」（derived-slim-apply.py，流式、内存几十 MB）。
+on:
+  workflow_dispatch:
+    inputs:
+      book_index_ref:
+        description: 'book-index 的 commit（完整 40 位；空＝触发所在分支的 HEAD）'
+        type: string
+        default: ''
+      book_text_ref:
+        description: 'book-text 的 commit（完整 40 位；空＝main）'
+        type: string
+        default: ''
+  pull_request:
+    paths:
+      - '.github/workflows/derive-slim.yml'
+      - 'build/derived_slim_extract.py'
+
+permissions:
+  contents: write
+
+jobs:
+  slim:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.book_index_ref || github.sha }}
+          path: bi
+      - uses: actions/checkout@v4
+        with:
+          repository: open-guji/book-text
+          ref: ${{ inputs.book_text_ref || 'main' }}
+          path: bt
+          sparse-checkout: index/texts
+          sparse-checkout-cone-mode: true
+      - name: build_derived（与 overview 的 render 同一条命令）
+        run: |
+          cd bi
+          /usr/bin/time -v python3 build/build_derived.py --out "$RUNNER_TEMP/derived-full" --text-index "$GITHUB_WORKSPACE/bt/index/texts" 2> "$RUNNER_TEMP/derive.time" | tail -5
+          grep -E "Maximum resident|Elapsed" "$RUNNER_TEMP/derive.time"
+      - name: 抽小表
+        id: slim
+        run: |
+          BI=$(git -C bi rev-parse HEAD); TX=$(git -C bt rev-parse HEAD)
+          NAME="slim-${BI:0:12}-${TX:0:12}.json.gz"
+          python3 bi/build/derived_slim_extract.py "$RUNNER_TEMP/derived-full" "$RUNNER_TEMP/$NAME"
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "path=$RUNNER_TEMP/$NAME" >> "$GITHUB_OUTPUT"
+          echo "book-index=$BI book-text=$TX → $NAME" >> "$GITHUB_STEP_SUMMARY"
+      - name: 发布到 release derived-slim（PR 上不发布）
+        if: ${{ github.event_name != 'pull_request' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NAME: ${{ steps.slim.outputs.name }}
+          FILE: ${{ steps.slim.outputs.path }}
+        run: |
+          set -e
+          gh release view derived-slim -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
+            || gh release create derived-slim -R "$GITHUB_REPOSITORY" --title "derived-slim" --notes "搜索重建用的小表（derive-slim.yml 生成，按 book-index／book-text 提交号命名，只留最近 40 份）" --latest=false
+          gh release upload derived-slim "$FILE" -R "$GITHUB_REPOSITORY" --clobber
+          # 只留最近 40 份，旧的删
+          gh api "repos/$GITHUB_REPOSITORY/releases/tags/derived-slim" --jq '.assets|sort_by(.created_at)|reverse|.[40:]|.[].id' \
+            | while read -r id; do gh api -X DELETE "repos/$GITHUB_REPOSITORY/releases/assets/$id" --silent; done
+          echo "已发布 $NAME" >> "$GITHUB_STEP_SUMMARY"
