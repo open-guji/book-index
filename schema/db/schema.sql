@@ -124,16 +124,15 @@ CREATE TABLE book_location_history (owner_id text REFERENCES book(id) ON DELETE 
 -- ============ 主表：Collection ============
 CREATE TABLE collection (
   id text PRIMARY KEY, repo text NOT NULL,
-  subtype coll_subtype NOT NULL, title text NOT NULL, edition text, publisher text, publish_year text, holder text, work_id text,
+  subtype coll_subtype NOT NULL, title text NOT NULL, edition text, work_id text,
   count_juan int, count_ce int, count_zhong int, count_han int, count_source text,
   juan_number int, juan_unit text, juan_description text, juan_source text, measure_info text, page_count jsonb, review_status text,
-  total_works int, total_volumes int, pub_year text, pub_year_iso text, pub_place text, pub_publisher text, pub_details text,
-  dating jsonb, current_location jsonb, description_text text, sections text[],
+  pub_year text, pub_year_iso text, pub_place text, pub_publisher text, pub_details text,
+  dating jsonb, current_location jsonb, description_text text,
   ai_note text, schema_version int NOT NULL, revision text, revised_at date, updated_at text,
   extra jsonb
 );
 CREATE TABLE collection_title_alt (owner_id text REFERENCES collection(id) ON DELETE CASCADE, seq int, title text NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
-CREATE TABLE collection_editor (owner_id text REFERENCES collection(id) ON DELETE CASCADE, seq int, name text NOT NULL, role text NOT NULL, dynasty text, extra jsonb, PRIMARY KEY (owner_id, seq));
 CREATE TABLE collection_content (owner_id text REFERENCES collection(id) ON DELETE CASCADE, seq int, type text, title text, scope text, note text, position text, work_id text, book_id text, collection_id text, related_work_id text, own_work_id text, categorization text, extra jsonb, PRIMARY KEY (owner_id, seq));
 
 -- ============ 三类共用明细表（owner_type + owner_id；不设外键，由触发/检查保证） ============

@@ -82,6 +82,9 @@ book-text 与 book-index 同一套 id，进同一个库，表名加 `bt_` 前缀
 - `target_coarse` 保留，取值只有 `part_of_work`（篇名暂挂上位书，A33 书名细配的标记）。book-text 专名 `type` 用 `people` 复数，与 Entity `subtype` 一致，不改。
 意见原文：ai-team `domain/专名/schema审查/S6-book-text专名-A12意见.md`。
 
+## 随 S1 数据批改（#2193）同步（2026-11-03）
+`collection` 删 `publisher`、`publish_year`（已并入 `publication_info`，即 `pub_*` 列）、`holder`（并入 `current_location`）、`total_works`、`total_volumes`、`sections`；删 `collection_editor` 表（`editors` 已并入 `authors`，走 `authorship`）。
+
 ## 如何防止与 `schema/json` 漂移
 D2 起由 bim 里的一份拆表映射（字段名 → 表／列）驱动建库与还原，并加一条 CI 检查：`schema/json` 里出现映射里没有的字段时报错，逼人要么登记列、要么确认放 `extra`。DDL 以后由映射生成，本目录 `schema.sql` 届时改为生成物。
 
