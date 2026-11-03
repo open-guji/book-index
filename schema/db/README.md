@@ -102,6 +102,9 @@ book-text 与 book-index 同一套 id，进同一个库，表名加 `bt_` 前缀
 
 还没做：并条账台账装载（`merged_into.live_id` 现取墓碑直写去向，未解链末）、book-text 各表、写出端键序、把映射挪进 bim 并加「schema 有而映射无」的 CI 检查。
 
+## 随阶段 3、4 收紧同步（2026-11-03）
+四张主表删 `updated_at`（#2195 已从 schema 删键，四类存量清零）；`book` 删 `section`（并入 `contained_in[]`，即 `member_of.section`）与 `current_location`（并入 `provenance` 首项），见 #2200。
+
 ## 如何防止与 `schema/json` 漂移
 D2 起由 bim 里的一份拆表映射（字段名 → 表／列）驱动建库与还原，并加一条 CI 检查：`schema/json` 里出现映射里没有的字段时报错，逼人要么登记列、要么确认放 `extra`。DDL 以后由映射生成，本目录 `schema.sql` 届时改为生成物。
 

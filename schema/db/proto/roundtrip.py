@@ -63,7 +63,7 @@ def common_kids(ot):
 
 
 COMMON_COLS = {'id': 'id', 'title': 'title', 'ai_note': 'ai_note', 'schema_version': 'schema_version', 'revision': 'revision',
-               'revised_at': 'revised_at', 'updated_at': 'updated_at', 'measure_info': 'measure_info'}
+               'revised_at': 'revised_at', 'measure_info': 'measure_info'}
 JUAN = {'number': 'juan_number', 'unit': 'juan_unit', 'description': 'juan_description', 'source': 'juan_source'}
 
 MAPS = {
@@ -106,8 +106,7 @@ MAPS = {
     },
     'Book': {
         'table': 'book', 'owner_type': 'B', 'fixed': {'type': 'book'},
-        'cols': dict(COMMON_COLS, work_id='work_id', edition='edition', edition_type='edition_type', section='section',
-                     zhsy_id='zhsy_id'),
+        'cols': dict(COMMON_COLS, work_id='work_id', edition='edition', edition_type='edition_type', zhsy_id='zhsy_id'),
         'flat': {
             'juan_count': JUAN,
             'publication_info': {'year': 'pub_year', 'year_iso': 'pub_year_iso', 'place': 'pub_place',
@@ -123,8 +122,7 @@ MAPS = {
             'lineage': {},
         },
         'flatrest': {'lineage': 'lineage'},
-        'jsonb': {'volume_count': 'volume_count', 'page_count': 'page_count', 'current_location': 'current_location',
-                  'metadata': 'metadata', 'appendix': 'appendix'},
+        'jsonb': {'volume_count': 'volume_count', 'page_count': 'page_count', 'metadata': 'metadata', 'appendix': 'appendix'},
         'kids': dict(common_kids('B'), **{
             'additional_titles': K('book_title_alt', {'@': 'title'}),
             'provenance': K('book_provenance', {'institution': 'institution', 'call_number': 'call_number', 'notes': 'notes',
@@ -149,7 +147,7 @@ MAPS = {
         'cols': {'id': 'id', 'subtype': 'subtype', 'primary_name': 'primary_name', 'dynasty': 'dynasty',
                  'dynasty_basis': 'dynasty_basis', 'period': 'period', 'period_basis': 'period_basis', 'name_basis': 'name_basis',
                  'ai_note': 'ai_note', 'schema_version': 'schema_version', 'revision': 'revision', 'revised_at': 'revised_at',
-                 'updated_at': 'updated_at', 'retired': 'retired', 'retired_reason': 'retired_reason'},
+                 'retired': 'retired', 'retired_reason': 'retired_reason'},
         'flat': {'description': {'text': 'description_text'}, 'review': {'status': 'review_status'}},
         'jsonb': {},
         'side': {

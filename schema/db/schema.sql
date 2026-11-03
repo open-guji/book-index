@@ -33,7 +33,7 @@ CREATE TABLE entity (
   review_status text,
   description_text text,
   name_basis text, ai_note text,
-  schema_version int NOT NULL, revision text, revised_at date, updated_at text,
+  schema_version int NOT NULL, revision text, revised_at date,
   retired boolean, retired_reason text,
   extra jsonb                              -- 长尾字段
 );
@@ -87,7 +87,7 @@ CREATE TABLE work (
   authenticity text, authenticity_basis text,
   preferred_book text, review_status text,
   title_emendation jsonb, version_graph jsonb, collection_scale jsonb, publication_info jsonb, appendix jsonb,
-  ai_note text, schema_version int NOT NULL, revision text, revised_at date, updated_at text,
+  ai_note text, schema_version int NOT NULL, revision text, revised_at date,
   extra jsonb
 );
 CREATE TABLE work_title_alt (owner_id text REFERENCES work(id) ON DELETE CASCADE, seq int, title text NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
@@ -97,15 +97,15 @@ CREATE TABLE work_additional (owner_id text REFERENCES work(id) ON DELETE CASCAD
 CREATE TABLE book (
   id text PRIMARY KEY, repo text NOT NULL,
   work_id text NOT NULL,                  -- edition_of：Book → Work（FK 在后）
-  title text NOT NULL, edition text, edition_type edition_type, section text,
+  title text NOT NULL, edition text, edition_type edition_type,
   juan_number int, juan_unit text, juan_description text, juan_source text, measure_info text,
   volume_count jsonb, page_count jsonb,
   pub_year text, pub_year_iso text, pub_place text, pub_publisher text, pub_details text, pub_source text,
   dating_certainty text, dating_source text, dating_basis text, dating_era text, dating_reign text, dating_year int, dating_year_range int[] CHECK (array_length(dating_year_range,1) = 2), dating_based_on jsonb, dating_later_repair jsonb,
   physical_leaf_style text, physical_binding text, physical_dimensions text, physical_condition text, physical_source text,
   review_status text, lineage jsonb,                          -- 去掉 derived_from／related_to 之后的其余键；边进 book_relation
-  current_location jsonb, description_text text, metadata jsonb, zhsy_id text,
-  ai_note text, schema_version int NOT NULL, revision text, revised_at date, updated_at text,
+  description_text text, metadata jsonb, zhsy_id text,
+  ai_note text, schema_version int NOT NULL, revision text, revised_at date,
   appendix jsonb, extra jsonb
 );
 CREATE TABLE book_title_alt (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, title text NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
@@ -131,7 +131,7 @@ CREATE TABLE collection (
   juan_number int, juan_unit text, juan_description text, juan_source text, measure_info text, page_count jsonb, review_status text,
   pub_year text, pub_year_iso text, pub_place text, pub_publisher text, pub_details text,
   dating jsonb, current_location jsonb, description_text text,
-  ai_note text, schema_version int NOT NULL, revision text, revised_at date, updated_at text,
+  ai_note text, schema_version int NOT NULL, revision text, revised_at date,
   extra jsonb
 );
 CREATE TABLE collection_title_alt (owner_id text REFERENCES collection(id) ON DELETE CASCADE, seq int, title text NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
