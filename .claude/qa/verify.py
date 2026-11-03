@@ -23,17 +23,6 @@ S5（overview#189）另加：通用 `todo`／`review`（審核狀態）形狀校
 import argparse, collections, glob, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 
-def _note_merged(d, acc):
-    """收一条记录上的并条账 id：merged_in[].id、merged_from[]、merge_history[].merged_from。"""
-    for m in d.get('merged_in') or []:
-        acc.add(m.get('id') if isinstance(m, dict) else m)
-    mf = d.get('merged_from')
-    acc.update(mf if isinstance(mf, list) else [mf])
-    for h in d.get('merge_history') or []:
-        if isinstance(h, dict):
-            x = h.get('merged_from')
-            acc.update(x if isinstance(x, list) else [x])
-
 def idx(fam):
     """{id: index 條目}。2026-11-03 起倉內不再提交 index/ 分片，改由記錄經 build_derived.index_entry 現算
     （與 build 產物同口徑；不含 book-text 的 has_text／has_collated 與 promoted_to，本檔不核這幾欄）。"""
@@ -299,13 +288,11 @@ def main():
             bad_be.append(bid)
     stale_related = []
     bad_tomb_target, bad_tomb_unindexed = [], []   # 墓碑：目標須存在且自身非墓碑（防懸空／鏈式）；墓碑檔須在 index/works 有條目
-    bad_merged_in = []   # 被併旧 id 的档若还在，须指回本 Work（墓碑可被定期清理，见 .claude/qa/purge-tombstones）
-    recorded = set()     # 并条账里记过的 id（merged_in／merged_from／merge_history 与清理台账），消失的 id 须在其中
+    recorded = set()     # 并条账（.claude/qa/purge-tombstones/ledger/*.tsv 首列旧号）里记过的 id，消失的 id 须在其中
     for wid, ie in IW.items():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(wid); continue
         d = json.load(open(p))
-        _note_merged(d, recorded)
         for f in ('period', 'loss_status', 'title', 'subtype'):
             x, y = ie.get(f), d.get(f)
             if x is None and y is None: continue
@@ -324,15 +311,6 @@ def main():
             try: td = json.load(open(os.path.join(ROOT, tp))) if tp else None
             except Exception: td = None
             if not td or td.get('merged_into'): bad_tomb_target.append((wid, d['merged_into']))
-        for m in (d.get('merged_in') or []):
-            mid = m.get('id') if isinstance(m, dict) else None
-            # 只查 2026-10-14 起 mergework 写入的条目（at 字段）；更早的 merged_in 多为 draft 旧 id／Book id，正式库本无其档
-            if not mid or str(m.get('at') or '') < '2026-10-14': continue
-            mp = IW.get(mid, {}).get('path')
-            try: md = json.load(open(os.path.join(ROOT, mp))) if mp else None
-            except Exception: md = None
-            # 2026-11-01 起墓碑会被定期清掉（purge-tombstones）：被併者的档不在了不算错，只在档还在时要求它指回本 Work
-            if md and md.get('merged_into') != wid: bad_merged_in.append((wid, mid))
         for r in (d.get('related_works') or []):
             if r.get('id') and r['id'] not in ALL: dangle_w.append((wid, 'related_works', r['id']))
             if r.get('id') and r.get('title') is not None:
@@ -356,7 +334,6 @@ def main():
         p = os.path.join(ROOT, ie['path'])
         if not os.path.exists(p): missing.append(eid); continue
         d = json.load(open(p))
-        _note_merged(d, recorded)
         dts = d.get('dates') if isinstance(d.get('dates'), dict) else {}
         for f in ('primary_name', 'dynasty', 'birth_year', 'death_year', 'period'):
             # B2 後源檔無 birth_year／death_year：index 的同名鍵由 dates.birth／dates.death 推出（整數才有）
@@ -406,8 +383,6 @@ def main():
     print(f'works 索引漂移        {len(drift_w)}')
     print(f'entities 索引漂移     {len(drift_e)}')
     print(f'work 側懸空引用       {len(dangle_w)}')
-    print(f'被併旧 id 無墓碑（merged_in[] 之 id 須有 merged_into 指回本 Work 之墓碑檔） {len(bad_merged_in)}')
-    for r in bad_merged_in[:10]: print('  無墓碑', r)
     # 基線對比（GUJI-126 #326 缺陷：23 個被併 Work 被直接刪檔，線上 404）：相對基線（--base，默認 origin/main）
     # 之全部 Work／Entity id，凡不再有任何檔（墓碑亦是檔，留在原路徑）者即「消失」，一律 FAIL。
     # 同時印出 Work 活條目數之增減分解（新增、轉墓碑、消失），數目對不上必有消失 id。
@@ -505,7 +480,7 @@ def main():
     # 2026-09-07：`entity.works 重複項` 自即日納入 --strict 之成敗（清零後方納，免得未清前卡住各道）。
     # 此病 lane-B 所發（坑 69）：本檔 entity 側原以 set 收 works，同一 work_id 列兩次一入集合即消失
     # ——**檢查所用的容器把要檢查的病吃掉了**，而閘天天綠。清得 24 處（22 整項全同、2 有無 role 之別）。
-    bad = (_ledger_bad or missing or bad_merged_in or vanished or bad_tomb_target or bad_tomb_unindexed or drift_w or drift_e or bad_cls_members or bad_prov or bad_dates or bad_extids or bad_count
+    bad = (_ledger_bad or missing or vanished or bad_tomb_target or bad_tomb_unindexed or drift_w or drift_e or bad_cls_members or bad_prov or bad_dates or bad_extids or bad_count
            or bad_subtype or bad_et or bad_pd or bad_be or bad_todo or bad_review
            or (a.strict and (dangle_w or _cv2_rows)))
     print('FAIL' if bad else 'OK')

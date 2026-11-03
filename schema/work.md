@@ -50,7 +50,7 @@
 | `collection_scale` | object | 可选 | 原生 | 丛书类作品的规模（作为本库著录进度尺） | `{stated, books, source, indexed_in_库, note}`：`stated` 原文、`books` 所辑书数、`indexed_in_库` 库中已著录数（4 条） | 录入 | `{"stated":"五百九十三種七百三十八卷","books":593,…}` |
 | `appendix` | array<object> | 可选 | 原生 | 附录说明 | `[{title, text}]`（1 条） | 录入 | |
 | `current_location`、`page_count`、`zhsy_retrieved_at` | — | **不写** | 已删 | 2026-11-02 实测 0 条，已从 JSON Schema 删除（写了会报 ERROR） | — | — | |
-| `merged_in`、`merged_from`、`merged_into`、`merge_history`、`merged_basis` | — | 可选 | 原生 | 并条账（`merged_basis` 只在草稿库墓碑上，正式库 0 条） | 见 [common.md〈并条账〉](common.md#七并条账) | bim、录入 | |
+| `merged_into`、`merged_basis` | — | 墓碑 | 原生 | 并条账，只在墓碑上（`merged_in`／`merged_from`／`merge_history` 已于 2026-11-03 删除） | 见 [common.md〈并条账〉](common.md#七并条账) | bim、录入 | |
 | `ai_note`、`todo`、`review` | — | 可选 | 原生 | 共通字段 | 见 common.md〈共通管理字段〉 | 录入 | |
 | `revision`、`revised_at` | string | `revision` 正式库必填 | 原生 | 共通字段 | 见 common.md | bim | `"1.0.0"` |
 | `_has_text`、`_has_collated` | boolean | **不写** | 已删 | 有全文／有整理本；实测 0 条，已从 JSON Schema 删除；产物由 build 从 resources＋book-text 推（check_v2 V01 报） | 见 [legacy.md](legacy.md) | build | |

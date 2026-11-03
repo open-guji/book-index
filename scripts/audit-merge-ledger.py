@@ -5,11 +5,11 @@
     python3 scripts/audit-merge-ledger.py --ledger <merges.json> --base origin/main [--draft ../book-index-draft]
 
 检查项（任一 ERROR 即退出码 1）：
-  T 墓碑：被并者只剩 schema 允许的最小字段，merged_into 指向 keeper，keeper 不是墓碑，且有 merged_from/merged_in 历史
+  T 墓碑：被并者只剩 schema 允许的最小字段，merged_into 指向 keeper，keeper 不是墓碑
   L 无损：被并者的 contained_in／resources／indexed_by／authors 名，并后在 keeper 里仍找得到；
          Collection 组另查：并前 contained_in 指被并者的成员（Book／Work／Collection），并后都指 keeper
   P 升格表：base→并后 promotions 里 production_id 的变化必须全部是 被并者→keeper，不得有别的变动
-  R 引用：除墓碑自身 id、merged_*、index 外，活跃记录里不得再出现被并 ID
+  R 引用：除墓碑自身 id、merged_into、index 外，活跃记录里不得再出现被并 ID
   D 草稿库（给 --draft 才查）：草稿库里指向被并 ID 的 work_id／merged_into／related_works／分类成员（须另开草稿库 PR 改指 keeper）
   Q 质量统计（WARN）：Work 组首位责任者不同、题名不同的组数；Book 组 edition／dating／title 不同的组数
 """
@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TOMB_OK = {'schema_version', 'type', 'subtype', 'id', 'title', 'primary_name', 'work_id',
-           'revision', 'revised_at', 'updated_at', 'merged_into'}
+           'revision', 'revised_at', 'updated_at', 'merged_into', 'merged_basis'}
 CLS = {'work': 'Work', 'book': 'Book', 'people': 'Entity', 'collection': 'Collection'}
 
 
@@ -71,14 +71,11 @@ def main():
         keeper = json.loads((ROOT / path_of[s['keeper']]).read_text(encoding='utf-8'))
         kb = base[path_of[s['keeper']]]
         if keeper.get('merged_into'): bad('T', f"{s['cluster_id']} keeper 是墓碑")
-        hist = keeper.get('merged_from') or keeper.get('merged_in') or []
-        hist_ids = {h.get('id') if isinstance(h, dict) else h for h in hist}
         for l in s['losers']:
             tomb = json.loads((ROOT / path_of[l]).read_text(encoding='utf-8'))
             lb = base[path_of[l]]
             if tomb.get('merged_into') != s['keeper']: bad('T', f"{l} merged_into 不对")
             if set(tomb) - TOMB_OK: bad('T', f"{l} 墓碑多余字段 {sorted(set(tomb) - TOMB_OK)}")
-            if l not in hist_ids: bad('T', f"{l} 未入 keeper 并条历史")
             if s['type'] == 'book':
                 kc = [(w.get('id') if isinstance(w, dict) else w) for w in keeper.get('contained_in') or []]
                 for w in lb.get('contained_in') or []:
@@ -136,8 +133,7 @@ def main():
                              input='\n'.join(targets) + '\n', cwd=ROOT, text=True, capture_output=True).stdout.splitlines()
     for f in listing:
         for p, v in refs_in(json.loads((ROOT / f).read_text(encoding='utf-8')), targets):
-            if p == ('id',) or p == ('merged_into',) or p[0] in ('merged_from', 'merged_in'): continue
-            if p[0] == 'indexed_by' and p[-1] == 'merged_from': continue  # 著录条目的来历标记（历史并条账），不改指
+            if p == ('id',) or p == ('merged_into',): continue
             bad('R', f'{f[-70:]} {"/".join(p)}={v}')
 
     # D 草稿库

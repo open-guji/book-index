@@ -77,18 +77,10 @@ def main():
                 require(obj['id'] not in text_ids, f"Retired text-bearing ID: {obj['id']}")
                 counts['tombstones'] += 1
             elif obj.get('merged_into'):
-                # keeper 后来被并：只要求它是合规墓碑、链尾为活条，且链尾记了并入历史
-                live = read(find(keeper_final, family))
-                hist = live.get('merged_from', []) if step['type'] == 'book' else live.get('merged_in', [])
-                hist_ids = {item.get('id') if isinstance(item, dict) else item for item in hist}
-                require(obj['id'] in hist_ids or obj.get('merged_into') != keeper_final,
-                        f"Later-merged keeper missing from final keeper history: {obj['id']}")
+                # keeper 后来被并：只要求它是合规墓碑、链尾为活条（并条账在墓碑上，keeper 不再记 merged_in）
                 require(obj['id'] not in text_ids, f"Retired text-bearing ID: {obj['id']}")
                 counts['keepers_later_merged'] += 1
             else:
-                history = obj.get('merged_from', []) if step['type'] == 'book' else obj.get('merged_in', [])
-                history_ids = {item.get('id') if isinstance(item, dict) else item for item in history}
-                require(set(step['losers']) <= history_ids, f"Missing merge history: {obj['id']}")
                 counts['keepers'] += 1
     # rg selects candidate files from every live source family, not from the changed-file list.
     with tempfile.TemporaryDirectory() as temp:
@@ -108,7 +100,7 @@ def main():
         family = relative.split('/')[0]
         if family in backrefs.TYPES and not obj.get('merged_into'):
             for where, target, _ in backrefs.refs_of(family, obj):
-                if 'merged_in' not in where and target in mapping:
+                if not where.endswith('merged_into') and target in mapping:
                     bad.append((relative, where, target))
         if family == 'classification':
             require(not any(row[0] in mapping for row in obj.get('members', [])),

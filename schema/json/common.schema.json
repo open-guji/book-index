@@ -293,9 +293,6 @@
         "misattached_note": {
           "type": "string"
         },
-        "merged_from": {
-          "x-legacy": "keep"
-        },
         "text": {
           "x-legacy": "keep"
         },
@@ -666,78 +663,6 @@
       },
       "additionalProperties": false
     },
-    "MergedInItem": {
-      "type": "object",
-      "required": [
-        "id"
-      ],
-      "properties": {
-        "id": {
-          "$ref": "#/$defs/Id"
-        },
-        "title": {
-          "type": "string"
-        },
-        "at": {
-          "type": "string"
-        },
-        "by": {
-          "type": "string"
-        },
-        "rule": {
-          "type": "string"
-        },
-        "why": {
-          "type": "string"
-        },
-        "author": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "title_info": {
-          "type": "string"
-        },
-        "indexed_by_moved": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "books_moved": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "measure_info": {
-          "type": "string"
-        },
-        "note": {
-          "type": "string"
-        },
-        "reason": {
-          "type": "string"
-        },
-        "via": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
-    "MergedIn": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/MergedInItem"
-      }
-    },
-    "MergedFrom": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/Id"
-      }
-    },
     "Todo": {
       "type": "array",
       "items": {
@@ -800,6 +725,27 @@
         },
         "additionalProperties": false
       }
+    },
+    "MergedBasis": {
+      "type": "object",
+      "description": "并条留痕，只在墓碑上：这一条为什么、按什么规则、何时、由谁并进 merged_into。清墓碑时随旧号一起写进 ledger。",
+      "properties": {
+        "rule": {
+          "type": "string"
+        },
+        "at": {
+          "type": "string"
+        },
+        "by": {
+          "type": "string"
+        },
+        "why": {
+          "type": "string"
+        },
+        "author_as_written": {},
+        "indexed_by": {}
+      },
+      "additionalProperties": false
     }
   }
 }

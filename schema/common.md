@@ -87,7 +87,7 @@ Work、Book、Collection 的 `authors[]` 同形。Work 的 `authors[]` 是责任
 | `attested_status_note` | string | 可选 | 原生 | 何以不上升为本记录的 `loss_status` | 自由文本 | 录入 | |
 | `misattached` | boolean | 可选 | 原生 | 本节不是本书的著录（同题异书误并） | 只写 `true` | 录入 | `true` |
 | `misattached_note` | string | 条件：`misattached` 为真时必填 | 原生 | 何以判为错挂，逐条可验 | 自由文本 | 录入 | |
-| 其余键 | — | — | 旧（暂留） | `merged_from`、`text`、`self_note`、`commentaries`、`comment`、`category`、`additional_comment`、`link_basis`、`ai_note` | 保留不删（多为志书原文证据），见 [legacy.md](legacy.md) | — | |
+| 其余键 | — | — | 旧（暂留） | `text`、`self_note`、`commentaries`、`comment`、`category`、`additional_comment`、`link_basis`、`ai_note` | 保留不删（多为志书原文证据），见 [legacy.md](legacy.md) | — | |
 
 **`attested_status`**：《經義考》逐书判其存佚（「次列題注曰存曰闕曰佚曰未見」），是本库少见的成批存佚依据。**但不得据此直接改本记录的 `loss_status`**——四库御製題自云「所注闕佚未見者，今四庫所録往往其書尚存」，即朱彝尊判为佚、为未见者，修四库时往往尚存。其判是十七世纪一人的见闻，所以只记为「某书如此判」并系于该源之下。`not_seen`（未见）尤其不可转为 `lost`：那是「著者没见过此书」，与「此书已亡」不同轴。
 
@@ -276,19 +276,18 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 
 ## 七、并条账
 
-两条记录被认定为同一部（重出）时并成一条：保留者（keeper）记事件，被并者留墓碑。
+两条记录被认定为同一部（重出）时并成一条：保留者（keeper）不记事件，被并者改写成墓碑。**并条必须留下旧号到新号的账**：墓碑文件本身，或清墓碑后的台账。
 
-**墓碑是过渡状态，会被定期整体清掉**（2026-11-01 用户定：先尽量多录书、再并条，并条会产生大量墓碑；还没有外部引用我们的 id，合并稳定后删墓碑）。清理后：被并方的文件不再存在，旧 id 只留在 keeper 的 `merged_in`／`merged_from`，以及 `.claude/qa/purge-tombstones/ledger/*.tsv`（旧 id → 终点 id 对照）；网站对旧 id 不再 308（404）。做法与保留条件见 `.claude/qa/purge-tombstones/README.md`。所以新写的引用一律指 keeper，不要指墓碑。
+**墓碑是过渡状态，会被定期整体清掉**（2026-11-01 用户定：先尽量多录书、再并条，并条会产生大量墓碑；还没有外部引用我们的 id，合并稳定后删墓碑）。清理后：被并方的文件不再存在，旧 id 只留在 `.claude/qa/purge-tombstones/ledger/*.tsv`（旧 id → 终点 id 对照，连同墓碑上的 `merged_basis`）；网站对旧 id 不再 308（404）。做法与保留条件见 `.claude/qa/purge-tombstones/README.md`。所以新写的引用一律指 keeper，不要指墓碑。
+
+**2026-11-03 起记录里不再有并条历史**（用户定，可做可不做第 5 组）：keeper 上的 `merged_in`／`merged_from`／`merge_history` 与 `indexed_by[].merged_from` 已全部删除，写了报 ERROR。删前的账导出在 `ledger/history-20261103.tsv`（正式库 58,785 行）与 `ledger/history-draft-20261103.tsv`（草稿库 1,141 行），每行一个「旧号 → 留存号」，带原有的时间、执行者、规则、理由。
 
 | 字段 | 类型 | 在哪 | 性质 | 含义 | 取值 |
 |---|---|---|---|---|---|
-| `merged_in` | array<object> | keeper（Work、Entity） | 原生 | 并条事件日志（事件，不是关系，不可派生） | 每项 `{id, title, at, by, rule, why}`；可另带 `author`、`title_info`、`indexed_by_moved[]`、`books_moved[]`、`measure_info`、`note`、`reason`、`via`（墓碑链收口时，被并者原先并入的那一条的 id；Work 309 项）。早期的字符串项已清，现存 0 |
-| `merged_into` | string | 墓碑（Work、Book、Entity、Collection） | 原生 | 并入了哪一条 | 记录 id。**只在墓碑上** |
-| `merged_from` | array<string> | keeper（Work、Book、Collection） | 原生 | 并入本条的记录 id | id 数组（字符串旧写已于 2026-10-09 改为数组，现存 0） |
-| `merge_history` | array<object> | keeper（Work、Entity） | 原生 | 早期的并条账 | Work：`{date, merged_from, title, reason}`；Entity 见 [entity/_common.md](entity/_common.md) |
-| `merged_basis` | object | 草稿库 Work 墓碑 | 原生 | 并条留痕：保留方在正式库、按「只追加」不改时，被并方把自己的著录与作者异写留在墓碑上 | `{rule, at, by, author_as_written, indexed_by}`，`rule` 为并条口径名（如「叢書去重」「跨部查重」），`at` 为时间，`by` 为执行方；`author_as_written`、`indexed_by` 照被并方原值搬来，不设格式。**只在墓碑上** | 并条脚本 | |
+| `merged_into` | string | 墓碑（Work、Book、Entity、Collection） | 原生 | 并入了哪一条 | 记录 id。**只在墓碑上**；须指现行记录，不成链 |
+| `merged_basis` | object | 墓碑（四类） | 原生 | 这次并条的账：按什么规则、何时、谁、为什么 | `{rule, at, by, why}`，都是字符串；`rule` 规则名，`at` 时间（ISO 8601 或 `YYYY-MM-DD`），`by` 执行者代号（道名等），`why` 逐条理由。草稿库早期墓碑另有 `author_as_written`、`indexed_by`（照被并方原值搬来，不设格式）。**只在墓碑上**；`mergework.py`、`entity_merge.py` 写，清墓碑时进台账 |
 
-`merged_in[]` 主要键：`id` 被并者 id；`title` 被并时的题名；`at` 时间（ISO 8601）；`by` 执行者代号（道名、`S`、`coordinator` 等）；`rule` 规则名；`why` 逐条理由。
+墓碑只留：`schema_version`、`id`、`type`、`subtype`（Entity、Collection）、`title`（Entity 为 `primary_name`）、`work_id`（Book）、`merged_into`、`merged_basis`、`revision`、`revised_at`。
 
 ---
 
@@ -324,7 +323,7 @@ Work、Book、Collection、Entity 都有。
 
 | | 字段 |
 |---|---|
-| **算**（变了要 bump，并刷新 `revised_at`） | 题名族 `title`、`additional_titles`、`original_title`、`title_basis`、`title_emendation`；`authors`；年代 `dynasty*`、`period*`、`period_upper*`；描述 `description`、`ai_note`、`juan_count`、`measure_info`、`measures`、`subtype`、`publication_info`、`appendix`、`collection_scale`、`current_location`、`page_count`；存佚真伪 `loss_status*`、`authenticity*`；资源与谱系 `resources`、`resource_groups`、`version_graph`、`additional_works`、`sources`；著录 `indexed_by`、`emendated_by`；存储侧关系 `related_works`、`contained_in`；并条账 `merged_in`、`merged_from`、`merged_into`、`merge_history`。Book 另有 `work_id`、`contained_in`、`section`、`lineage`、`base_edition`、馆藏、影像、册数 |
+| **算**（变了要 bump，并刷新 `revised_at`） | 题名族 `title`、`additional_titles`、`original_title`、`title_basis`、`title_emendation`；`authors`；年代 `dynasty*`、`period*`、`period_upper*`；描述 `description`、`ai_note`、`juan_count`、`measure_info`、`measures`、`subtype`、`publication_info`、`appendix`、`collection_scale`、`current_location`、`page_count`；存佚真伪 `loss_status*`、`authenticity*`；资源与谱系 `resources`、`resource_groups`、`version_graph`、`additional_works`、`sources`；著录 `indexed_by`、`emendated_by`；存储侧关系 `related_works`、`contained_in`；并条账 `merged_into`、`merged_basis`。Book 另有 `work_id`、`contained_in`、`section`、`lineage`、`base_edition`、馆藏、影像、册数 |
 | **不算**（变了不 bump，也不刷新 `revised_at`） | 分类归属（`classification/` 类档）；一切 `_` 字段与旧 `has_*`；旧 `books`、`contained_works`、`promoted_to`、`promoted_at`；管理字段 `revision`、`revised_at`、`schema_version`、`id`、`type`、`path` |
 
 - **未登记的新字段按「算」处理**。要加「不算」的字段，须登记进 bim `book_index_manager/revision_fields.py` 的 `NO_BUMP_FIELDS`，并在卡里说明。bim `save_item` 存档时调用它判断要不要 bump。

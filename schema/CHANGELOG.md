@@ -4,6 +4,13 @@
 
 ---
 
+## 2026-11-03　删并条历史字段，并条账只留在墓碑与台账（可做可不做第 5 组，用户定）
+
+- 四类记录删 `merged_in`、`merged_from`、`merge_history`，`indexed_by[]` 删 `merged_from`（x-legacy keep 分支一并去掉）；`MergedIn`／`MergedFrom`／`MergedInItem`（common）与 `MergeHistoryItem`／`EntityMergedInItem`（entity）定义删除。此后再写报 unknown-field（ERROR）。网站、搜索只读 `merged_into`，不受影响。
+- 存量：正式库 31,903 个文件、58,785 项（Work merged_in 25,984、merged_from 18,417、indexed_by.merged_from 595、merge_history 178；Book merged_from 7,396；Collection merged_from 12；Entity merged_in 1,981、merge_history 4,222），草稿库 Book merged_from 915 个文件 1,141 项。删前逐项导出到 `.claude/qa/purge-tombstones/ledger/history-20261103.tsv`、`history-draft-20261103.tsv`（脚本 `.claude/qa/merge-history/strip.py`）。
+- 墓碑照留（过渡，定期清）。`merged_basis`（原只在 Work、草稿库墓碑上）改为四类墓碑通用：`{rule, at, by, why}`（定义移到 `common.schema.json#/$defs/MergedBasis`，草稿库旧键 `author_as_written`、`indexed_by` 仍认）。`mergework.py` 改为被并者写墓碑（原来删档、在 keeper 写 `merged_in`），`entity_merge.py` 改写 `merged_basis`；两者都把原指被并者的墓碑改指 keeper。`purge.py` 清墓碑时把 `merged_basis` 写进台账。
+- 读者同步：`verify.py` 去掉「被併旧 id 無墓碑」一项（消失的 id 只认台账）；`dedup-census.py` 去掉 H 类；`check-duplicate-audit.py`、`audit-merge-ledger.py` 不再要求 keeper 记历史；`backrefs.py` 去掉 `--unexecuted`；bim `promotion.py` 的 E07 并条证据改读台账。
+
 ## 2026-11-03　共用对象收紧：IndexEntry 去掉旧分支 `ai_note`（S3 阶段 4；不改数据）
 
 - `indexed_by[]`／`emendated_by[]` 里的 `ai_note`（原 x-legacy WARN）全库实测 0 条，删该分支；此后再写会报 unknown-field（ERROR）。

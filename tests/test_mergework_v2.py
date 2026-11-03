@@ -87,7 +87,9 @@ def test_apply_new_format_only(tmp_path):
     root = str(tmp_path)
     make(root)
     assert run(tmp_path, '--apply') == 0
-    assert not os.path.exists(p(root, 'Work', D))
+    t = get(root, 'Work', D)                         # 被併者成墓碑，賬記在 merged_basis
+    assert t['merged_into'] == K and t['merged_basis']['rule'] == '版本條改建Book'
+    assert set(t) <= set(mergework.TOMBSTONE_KEYS)
     k = get(root, 'Work', K)
     rels = {(r['id'], r['relation']): r.get('note') for r in k['related_works']}
     # 被併者出邊搬到 keeper；自指（K↔D 的 related）去掉；related 只在小 id 側
@@ -105,7 +107,7 @@ def test_apply_new_format_only(tmp_path):
     assert len(k['indexed_by']) == 2 and k['contained_in'] == [{'id': C1, 'volume_index': 2}]
     assert k['period'] == 'ming' and k['_has_text'] is True
     assert k['additional_titles'] == ['新刊列國志傳']
-    assert k['merged_in'][0]['id'] == D and k['merged_in'][0]['rule'] == '版本條改建Book'
+    assert 'merged_in' not in k
     # 不寫舊格式
     for f in ('books', '_edition_count', 'classification'):
         assert f not in k
@@ -121,7 +123,7 @@ def test_apply_new_format_only(tmp_path):
     put(root, 'Work', k)
     assert check_v2.main(['--root', root, '--summary']) == 0
     back = backrefs.scan(root)
-    assert D not in back or all(w.endswith('merged_in') for w, _, _ in back[D])
+    assert D not in back or all(w.endswith('merged_into') for w, _, _ in back[D])
     assert revisions_unchanged(root)
 
 
