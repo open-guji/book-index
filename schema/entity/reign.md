@@ -19,7 +19,7 @@
 | `ruler` | object | **必填** | 原生 | 颁行者 | `{name, entity_id?}` | 录入 | `{"name":"朱翊鈞"}` |
 | `ruler.name` | string | **必填** | 原生 | 帝王名 | 非空 | 录入 | `"朱翊鈞"` |
 | `ruler.entity_id` | string | 可选 | 原生 | 帝王的人物条 | 须指向 `people`；库中无该帝王条时只写名（两库现无此键） | 录入 | |
-| `dates` | object | **必填**（`start` 必填） | 原生 | 起讫 | `{start, end?, basis, chinese?}`，见[dates 按子类型放行](_dates-external-ids.md#dates-按子类型放行)；须落在所属朝代 `dates` 内（容差 5 年，越界 WARN） | 录入 | `{"start":1573,"end":1620,"basis":"通行紀年；與CBDB、DILA相符"}` |
+| `dates` | object | **必填**（`start` 必填） | 原生 | 起讫 | `{start, end?, basis}`，见[dates 按子类型放行](_dates-external-ids.md#dates-按子类型放行)；须落在所属朝代 `dates` 内（容差 5 年，越界 WARN） | 录入 | `{"start":1573,"end":1620,"basis":"通行紀年；與CBDB、DILA相符"}` |
 
 - `(primary_name, dynasty_id, dates.start)` 全库唯一；同朝同名年号区间不重叠（R1）。
 - `index_in_reign`、干支不写（build 派生 `_index_in_reign`）。

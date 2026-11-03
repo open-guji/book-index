@@ -2,22 +2,22 @@
 
 体例见 [README.md〈八、字段表体例〉](README.md#八字段表体例)。共用对象（Description、Source、`revision` 口径、朝代规范名、`period`、`ai_note`）见 [common.md](common.md)；派生字段的形状见 [derived.md](derived.md)；旧写法的兼容读法与删除计划见 [legacy.md](legacy.md)。
 
-**本档是总览与索引**（2026-10-16 起）；各子类型的字段表、规则、示例、校验码分文件放在 [`entity/`](entity/) 目录。查字段：先看下面的〈子类型一览〉进对应文件；通用字段、别名、日期、外部 id 见〈通用部分〉。实测数字取自两库 10-08 普查（正式库 `book-index`、草稿库 `book-index-draft`）。
+**本档是总览与索引**（2026-10-16 起）；各子类型的字段表、规则、示例、校验码分文件放在 [`entity/`](entity/) 目录。查字段：先看下面的〈子类型一览〉进对应文件；通用字段、别名、日期、外部 id 见〈通用部分〉。条数一列为 2026-11-03 对正式库的实测（草稿库一列仍为 10-08 普查）；其余实测数字取自两库 10-08 普查（正式库 `book-index`、草稿库 `book-index-draft`）。
 
 ## 一、总说
 
 Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：人物，以及朝代、年号、官职、官署、地名等专名。id 的类型位为 4（见 [README.md〈四、ID〉](README.md#四id)），文件在 `Entity/{c1}/{c2}/{c3}/{id}-{名}.json`。
 
-| subtype | 是什么 | 正式库 10-08 | 草稿库 10-08 | 例 |
+| subtype | 是什么 | 正式库 2026-11-03 实测 | 草稿库 10-08 | 例 |
 |---|---|---|---|---|
-| [`people`](entity/people.md) | 人物（作者、注家、编者等） | 31,483 | 728 | 蘇軾 `hixhd2h9bdqq` |
-| [`collective`](entity/collective.md) | 机构、官署、局所、书院等非个人主体；`collective_kind=官署` 的是官署（见[collective](entity/collective.md)） | 51（其中官署 13） | 127（全为官署） | 郵傳部 `hixhd2h9bv4m`；禮部（概念）`hixi1ubqbwv2` |
-| [`dynasty`](entity/dynasty.md) | 朝代／政权 | 139 | 139 | 趙宋 `hixi1ubjrxgo`、北宋 `hixi1ubk35zj` |
-| [`reign`](entity/reign.md) | 年号 | 734 | 734 | 萬曆 `hixi1ubqbwu9` |
-| [`office`](entity/office.md) | 官职（概念条＋每朝具体条两层） | 0 | 1,839 | 知縣（概念）`1jb8ajoi8crnk`、知縣（趙宋）`1jb8ajoiggxs0` |
-| [`place`](entity/place.md) | 地名（两层：跨朝条一地一条＋沿革；朝代条某朝某名某级一条） | 0 | 921 | 河南府 `1jb8kgdh3pseq`、開封府 `1jb8lqn358dfk` |
-| [`seal`](entity/seal.md) | 印章（官印、私印、鑒藏印、齋館印；见[seal](entity/seal.md)） | 见[seal](entity/seal.md)示例 | 0 | 文淵閣寶 |
-| [`publisher`](entity/publisher.md) | 出版社／刻书机构（家刻、坊刻、寺觀、藩府、现代出版社；官署与书院**不在此**，仍是 collective；见[publisher](entity/publisher.md)） | 0（GUJI-539 试建中） | 0 | 汲古閣、中華書局 |
+| [`people`](entity/people.md) | 人物（作者、注家、编者等） | 111,480 | 728 | 蘇軾 `hixhd2h9bdqq` |
+| [`collective`](entity/collective.md) | 机构、官署、局所、书院等非个人主体；`collective_kind=官署` 的是官署（见[collective](entity/collective.md)） | 745（其中官署 694） | 127（全为官署） | 郵傳部 `hixhd2h9bv4m`；禮部（概念）`hixi1ubqbwv2` |
+| [`dynasty`](entity/dynasty.md) | 朝代／政权 | 321 | 139 | 趙宋 `hixi1ubjrxgo`、北宋 `hixi1ubk35zj` |
+| [`reign`](entity/reign.md) | 年号 | 985 | 734 | 萬曆 `hixi1ubqbwu9` |
+| [`office`](entity/office.md) | 官职（概念条＋每朝具体条两层） | 2,441 | 1,839 | 知縣（概念）`1jb8ajoi8crnk`、知縣（趙宋）`1jb8ajoiggxs0` |
+| [`place`](entity/place.md) | 地名（两层：跨朝条一地一条＋沿革；朝代条某朝某名某级一条） | 35,106 | 921 | 河南府 `1jb8kgdh3pseq`、開封府 `1jb8lqn358dfk` |
+| [`seal`](entity/seal.md) | 印章（官印、私印、鑒藏印、齋館印；见[seal](entity/seal.md)） | 100 | 0 | 文淵閣寶 |
+| [`publisher`](entity/publisher.md) | 出版社／刻书机构（家刻、坊刻、寺觀、藩府、现代出版社；官署与书院**不在此**，仍是 collective；见[publisher](entity/publisher.md)） | 268 | 0 | 汲古閣、中華書局 |
 
 **Entity 档只存这个人（这个专名）自己的信息。**「他写了哪些书」不存在 Entity 里：Entity↔Work 关系的唯一存储侧是 `Work.authors[].entity_id`（见 [common.md〈authors〉](common.md)），build 反查后在产物里生成 `_works`（每项带 `work_id`、`role`，`role` 取自 Work 一侧，缺则补「撰」）。源档不写 `works`（V11）。
 
@@ -64,7 +64,8 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 | 文件 | 内容 |
 |---|---|
 | [entity/_common.md](entity/_common.md) | 通用字段表（`id`／`subtype`／`primary_name`／`alt_names`／`dynasty`／`dates`／`external_ids`／`description`／并条与退役／管理字段等） |
-| [entity/_alt-names.md](entity/_alt-names.md) | `alt_names`：AltName 对象、`type` 25 值枚举、`ambiguous` 规则 |
+| [entity/_alt-names.md](entity/_alt-names.md) | `alt_names`：AltName 对象、`type` 27 值枚举、`ambiguous` 规则 |
+| [entity/_field-dictionary.md](entity/_field-dictionary.md) | 字段词典：同义异名、异义同名对照，`ai_note`／`cbdb_match`／`retired` 等易误读字段，停写与待定项 |
 | [entity/_dates-external-ids.md](entity/_dates-external-ids.md) | `dates` 按子类型放行的键；`external_ids` 各子键（CBDB、Wikidata、VIAF、ISBN 前缀） |
 | [entity/_forbidden-derived.md](entity/_forbidden-derived.md) | 源档不许写的字段；build 派生字段（只在 `_build/entry/`） |
 | [entity/_checks.md](entity/_checks.md) | 全部校验码总表（E／D／R／A／O／P／I／S／K／V）与 verify 的另查项 |
@@ -72,7 +73,7 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 ## 三、通用部分概要
 
 - **必填**：`id`、`type`（恒 `"entity"`）、`subtype`、`schema_version`（`1`）、`primary_name`；正式库另必填 `revision`。
-- **`alt_names`**：对象数组 `{name, type, ambiguous?, note?}`；`type` 25 值（字、号、諡號、簡稱、合稱、舊稱……）；单独不能定位到本条的名写 `ambiguous: true`。详见 [entity/_alt-names.md](entity/_alt-names.md)。
+- **`alt_names`**：对象数组 `{name, type, ambiguous?, note?}`；`type` 27 值（字、号、諡號、簡稱、合稱、舊稱……）；单独不能定位到本条的名写 `ambiguous: true`。详见 [entity/_alt-names.md](entity/_alt-names.md)。
 - **`dates`**：people 用 `birth`／`death`／`floruit`；dynasty、reign 用 `start`／`end`；office、place、seal、publisher、官署不用 `dates`（起讫在 `start`／`end` 或沿革项）。详见 [entity/_dates-external-ids.md](entity/_dates-external-ids.md)。
 - **`external_ids`**：people 可有 `cbdb_id`／`wikidata_id`／`viaf_id` 等；专名子类型与 seal、官署只许 `wikidata_id`；publisher 另许 `isbn_publisher_code`。
 - **并条与退役**：留存方写 `merged_in[]`，被并方只留墓碑并写 `merged_into`（并条时不删档，墓碑之后会被定期整体清理，见 [common.md〈并条账〉](common.md#七并条账)）；退役写 `retired: true` 与 `retired_reason`。

@@ -21,7 +21,6 @@
 | `basis` | string | 条件：具体条**必填** | 原生 | 本条依据 | 自由文本（O02） | 录入 | `"《明史·職官志》"` |
 | `office_class` | string | 可选；具体条（概念不得有） | 原生 | 官类 | 15 值：`職事官`｜`差遣`｜`散官`｜`階官`｜`加官`｜`貼職`｜`寄祿官`｜`祠祿官`｜`勳`｜`爵`｜`本官`｜`試秩`｜`憲官`｜`兼職差遣`｜`未詳`（O03）。草稿库 10-08 用到：`職事官` 1,064、`差遣` 98、`貼職` 51、`寄祿官` 40、`散官` 10、`加官` 6 | 录入 | `"差遣"` |
 | `rank` | object | 可选；具体条（概念不得有） | 原生 | 品秩 | `{text, basis}`，自写 | 录入 | `{"text":"正七品","basis":"《明史·職官志》"}` |
-| `salary` | object | 可选；具体条（概念不得有） | 原生 | 俸禄 | `{text, basis}`，自写（现无数据） | 录入 | |
 | `start`、`end` | integer | 可选；具体条 | 原生 | 起讫 | 整数公历年，`start ≤ end`（O09） | 录入 | |
 | `institution_ref` | string | 可选；具体条 | 原生 | 所属官署 | 官署条 id（`collective_kind=官署`）。指具体条须与本条 `dynasty_ids` 相交；指概念条须 `ai_note` 标「待補」（否则 WARN）；官名含部名而指合称 WARN；id 不在本库 WARN。不得写 `COL:<名>` 占位（ERROR，新官署先建条）（I12） | 录入 | `"1jb8bl20kqn7k"` |
 | `base_office_id` | string | 条件：固定复合条**必填** | 原生 | 复合条的基官 | 指同朝**具体** office 条，不自指、无环；与本条 `dynasty_ids` 须相交；指向概念条而 `ai_note` 未说明为 WARN（O05）。反查由 build 派生 `_compounds` | 录入 | `"1jb8awb7yk5q8"` |
@@ -30,7 +29,6 @@
 | `qualifier.name` | string | **必填** | 原生 | 限定成分本字 | 非空 | 录入 | `"稽勳清吏司"` |
 | `qualifier.target` | string | 可选 | 原生 | 限定成分对应的条目 id | 草稿库 230 项全写 `null`（未指条目），读者按缺省读 | 录入 | `null` |
 | `qualifier.note` | string | 可选 | 原生 | 说明 | 自由文本。现值：`官署條待立` 115、`殿閣，官署條待立` 36、`官署條不立` 26、`職事名目` 24、`幕府，官署條不立` 14、`地名條待立` 7、`行政層級，官署條不立` 4、`官署條見 institution_ref` 2、`加官前綴` 2 | 录入 | `"官署條待立"` |
-| `succeeds` | string | 不填 | 原生 | 前代概念或具体条 id | 只留字段位，第一期不填 | — | |
 
 - 概念条不得有 `dynasty_ids`、`rank`、`salary`、`office_class`、`base_office_id`、`parent_id`（O02／O04）；概念条宜写 `description`。
 - 同一概念下同朝具体条（`dynasty_ids` 完全相同）多于一条 WARN（O11）。
@@ -91,7 +89,7 @@
 | O09 | office | `start`／`end` 为整数且 `start ≤ end` | ERROR |
 | O10 | office | `簡稱` 长度 ≤2，须确认不与他概念重名 | WARN |
 | O11 | office | 同一概念下同朝具体条重复 | WARN |
-| O12 | 专名子类型、官署 | `alt_names[].type` 在 25 值枚举内 | ERROR |
+| O12 | 专名子类型、官署 | `alt_names[].type` 在 27 值枚举内 | ERROR |
 | I12 | office | `institution_ref`：`COL:<名>` 占位（ERROR）；须指官署条（ERROR）；指具体条须与官职朝代相交（ERROR）；指概念条须 `ai_note` 标「待補」（WARN）；官名含部名而指合称（WARN）；id 不在本库（WARN） | ERROR／WARN |
 
 另适用全 Entity 通用码 E1、A1、O12（专名子类型）与 V01／V11／V15／V16，见 [校验码总表](_checks.md)。

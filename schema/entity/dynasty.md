@@ -16,7 +16,7 @@
 |---|---|---|---|---|---|---|---|
 | `primary_name` | string | **必填** | 原生 | 规范朝代名 | 必须**逐字**在 [common.md〈朝代规范名〉](../common.md) 的规范名表（含域外朝代表）里，全库唯一（D1）；条目化后枚举改由 build 从条目生成，不得再手写第二份 | 录入 | `"北宋"` |
 | `parent_id` | string | 可选 | 原生 | 上级朝代 | dynasty id；单父，上溯深度 ≤3（如 春秋吳→春秋→東周→先秦），无环；子朝代 `dates` 落在上级之内（容差 1 年，越界 WARN）（D2）。子列表由 build 派生 `_children` | 录入 | `"hixi1ubjrxgo"`（北宋→趙宋） |
-| `dates` | object | 条件：中国朝代必填 `start` | 原生 | 起讫 | `{start, end?, basis, chinese?}`，见[dates 按子类型放行](_dates-external-ids.md#dates-按子类型放行) | 录入 | `{"start":960,"end":1127,"basis":"趙匡胤 960 稱帝，止於靖康"}` |
+| `dates` | object | 条件：中国朝代必填 `start` | 原生 | 起讫 | `{start, end?, basis}`，见[dates 按子类型放行](_dates-external-ids.md#dates-按子类型放行) | 录入 | `{"start":960,"end":1127,"basis":"趙匡胤 960 稱帝，止於靖康"}` |
 | `period` | string | 可选（中国朝代宜填） | 原生 | 默认时代轴 | 现有 period slug（D3）；只作默认值，**不反写** `Work.period` | 录入 | `"song"` |
 
 另可写通用字段 `alt_names`、`description`、`ai_note`、`review`、`revision`、`revised_at`、`updated_at`。10-08：两库各 139 条（草稿库的 139 条已全部升格，正式库 id `hixi1…`），有 `dates` 136、`parent_id` 68、`period` 124；无 `dates` 的 3 条是「上古」「上古傳說」「日本」。

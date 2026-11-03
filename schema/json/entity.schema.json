@@ -214,20 +214,6 @@
     "end": {
       "type": "integer"
     },
-    "succeeds": {
-      "anyOf": [
-        {
-          "$ref": "common.schema.json#/$defs/Id"
-        },
-        {
-          "type": "array",
-          "items": {
-            "$ref": "common.schema.json#/$defs/Id"
-          }
-        }
-      ],
-      "description": "只留字段位，第一期不填"
-    },
     "dynasty_id": {
       "$ref": "common.schema.json#/$defs/Id"
     },
@@ -272,9 +258,6 @@
       ]
     },
     "rank": {
-      "$ref": "#/$defs/TextBasis"
-    },
-    "salary": {
       "$ref": "#/$defs/TextBasis"
     },
     "institution_ref": {
@@ -359,7 +342,9 @@
               "省",
               "縣",
               "廳",
-              "都"
+              "都",
+              "山",
+              "水"
             ]
           },
           "parent_id": {
@@ -419,7 +404,8 @@
           "kind": {
             "enum": [
               "析出",
-              "並入"
+              "並入",
+              "改置"
             ]
           },
           "year": {
@@ -452,9 +438,6 @@
         "朱白相間"
       ]
     },
-    "seal_script": {
-      "$ref": "common.schema.json#/$defs/NonEmptyString"
-    },
     "seal_form": {
       "enum": [
         "方",
@@ -463,12 +446,6 @@
         "長方",
         "異形"
       ]
-    },
-    "material": {
-      "$ref": "common.schema.json#/$defs/NonEmptyString"
-    },
-    "size": {
-      "$ref": "common.schema.json#/$defs/NonEmptyString"
     },
     "usage_scope": {
       "$ref": "common.schema.json#/$defs/NonEmptyString"
@@ -563,20 +540,6 @@
         "未分"
       ]
     },
-    "kind_also": {
-      "type": "array",
-      "items": {
-        "enum": [
-          "家刻",
-          "坊刻",
-          "寺觀",
-          "藩府",
-          "現代出版社",
-          "未分"
-        ]
-      },
-      "minItems": 1
-    },
     "dates_basis": {
       "$ref": "common.schema.json#/$defs/NonEmptyString"
     },
@@ -644,6 +607,18 @@
         "停業",
         "未詳"
       ]
+    },
+    "place_level": {
+      "enum": [
+        "concept",
+        "concrete",
+        "region"
+      ],
+      "description": "地名层级：concept 跨朝条（缺省）｜concrete 朝代条｜region 区域条（P12，见 place.md）"
+    },
+    "concept_id": {
+      "$ref": "common.schema.json#/$defs/Id",
+      "description": "朝代条所属的跨朝条 id（P14，只许 place 朝代条）"
     }
   },
   "additionalProperties": false,
@@ -657,7 +632,12 @@
         },
         "required": [
           "subtype"
-        ]
+        ],
+        "not": {
+          "required": [
+            "merged_into"
+          ]
+        }
       },
       "then": {
         "allOf": [
@@ -716,11 +696,6 @@
                 },
                 {
                   "required": [
-                    "succeeds"
-                  ]
-                },
-                {
-                  "required": [
                     "dynasty_id"
                   ]
                 },
@@ -742,11 +717,6 @@
                 {
                   "required": [
                     "rank"
-                  ]
-                },
-                {
-                  "required": [
-                    "salary"
                   ]
                 },
                 {
@@ -782,11 +752,6 @@
                 {
                   "required": [
                     "publisher_kind"
-                  ]
-                },
-                {
-                  "required": [
-                    "kind_also"
                   ]
                 },
                 {
@@ -853,7 +818,12 @@
         },
         "required": [
           "subtype"
-        ]
+        ],
+        "not": {
+          "required": [
+            "merged_into"
+          ]
+        }
       },
       "then": {
         "allOf": [
@@ -962,11 +932,6 @@
                 },
                 {
                   "required": [
-                    "succeeds"
-                  ]
-                },
-                {
-                  "required": [
                     "dynasty_id"
                   ]
                 },
@@ -988,11 +953,6 @@
                 {
                   "required": [
                     "rank"
-                  ]
-                },
-                {
-                  "required": [
-                    "salary"
                   ]
                 },
                 {
@@ -1028,11 +988,6 @@
                 {
                   "required": [
                     "publisher_kind"
-                  ]
-                },
-                {
-                  "required": [
-                    "kind_also"
                   ]
                 },
                 {
@@ -1110,7 +1065,12 @@
         },
         "required": [
           "subtype"
-        ]
+        ],
+        "not": {
+          "required": [
+            "merged_into"
+          ]
+        }
       },
       "then": {
         "allOf": [
@@ -1229,11 +1189,6 @@
                 },
                 {
                   "required": [
-                    "succeeds"
-                  ]
-                },
-                {
-                  "required": [
                     "office_level"
                   ]
                 },
@@ -1245,11 +1200,6 @@
                 {
                   "required": [
                     "rank"
-                  ]
-                },
-                {
-                  "required": [
-                    "salary"
                   ]
                 },
                 {
@@ -1285,11 +1235,6 @@
                 {
                   "required": [
                     "publisher_kind"
-                  ]
-                },
-                {
-                  "required": [
-                    "kind_also"
                   ]
                 },
                 {
@@ -1374,7 +1319,12 @@
         },
         "required": [
           "subtype"
-        ]
+        ],
+        "not": {
+          "required": [
+            "merged_into"
+          ]
+        }
       },
       "then": {
         "allOf": [
@@ -1498,11 +1448,6 @@
                 },
                 {
                   "required": [
-                    "kind_also"
-                  ]
-                },
-                {
-                  "required": [
                     "dates_basis"
                   ]
                 },
@@ -1576,17 +1521,12 @@
                   },
                   {
                     "required": [
-                      "salary"
-                    ]
-                  },
-                  {
-                    "required": [
                       "base_office_id"
                     ]
                   }
                 ]
               },
-              "x-not-message": "官职概念条不得有 dynasty_ids／rank／salary／office_class／base_office_id／parent_id（O02／O04）"
+              "x-not-message": "官职概念条不得有 dynasty_ids／rank／office_class／base_office_id／parent_id（O02／O04）"
             }
           },
           {
@@ -1632,7 +1572,12 @@
         },
         "required": [
           "subtype"
-        ]
+        ],
+        "not": {
+          "required": [
+            "merged_into"
+          ]
+        }
       },
       "then": {
         "allOf": [
@@ -1731,11 +1676,6 @@
                 },
                 {
                   "required": [
-                    "dynasty_ids"
-                  ]
-                },
-                {
-                  "required": [
                     "function"
                   ]
                 },
@@ -1752,11 +1692,6 @@
                 {
                   "required": [
                     "end"
-                  ]
-                },
-                {
-                  "required": [
-                    "succeeds"
                   ]
                 },
                 {
@@ -1786,11 +1721,6 @@
                 },
                 {
                   "required": [
-                    "salary"
-                  ]
-                },
-                {
-                  "required": [
                     "institution_ref"
                   ]
                 },
@@ -1807,11 +1737,6 @@
                 {
                   "required": [
                     "publisher_kind"
-                  ]
-                },
-                {
-                  "required": [
-                    "kind_also"
                   ]
                 },
                 {
@@ -1849,9 +1774,72 @@
             }
           },
           {
-            "required": [
-              "history"
-            ]
+            "if": {
+              "properties": {
+                "place_level": {
+                  "const": "region"
+                }
+              },
+              "required": [
+                "place_level"
+              ]
+            },
+            "then": {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "dynasty_ids"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "concept_id"
+                    ]
+                  }
+                ]
+              },
+              "x-not-message": "区域条不得有 dynasty_ids／concept_id（P13、P14）"
+            },
+            "else": {
+              "required": [
+                "history"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "place_level": {
+                  "const": "concrete"
+                }
+              },
+              "required": [
+                "place_level"
+              ]
+            },
+            "then": {
+              "required": [
+                "dynasty_ids"
+              ]
+            },
+            "else": {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "dynasty_ids"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "concept_id"
+                    ]
+                  }
+                ]
+              },
+              "x-not-message": "跨朝条不得有顶层 dynasty_ids／concept_id（P13、P14）"
+            }
           }
         ]
       }
@@ -1865,7 +1853,12 @@
         },
         "required": [
           "subtype"
-        ]
+        ],
+        "not": {
+          "required": [
+            "merged_into"
+          ]
+        }
       },
       "then": {
         "if": {
@@ -1955,11 +1948,6 @@
                   },
                   {
                     "required": [
-                      "salary"
-                    ]
-                  },
-                  {
-                    "required": [
                       "institution_ref"
                     ]
                   },
@@ -1991,11 +1979,6 @@
                   {
                     "required": [
                       "publisher_kind"
-                    ]
-                  },
-                  {
-                    "required": [
-                      "kind_also"
                     ]
                   },
                   {
@@ -2244,11 +2227,6 @@
               },
               {
                 "required": [
-                  "dynasty_ids"
-                ]
-              },
-              {
-                "required": [
                   "function"
                 ]
               },
@@ -2265,11 +2243,6 @@
               {
                 "required": [
                   "end"
-                ]
-              },
-              {
-                "required": [
-                  "succeeds"
                 ]
               },
               {
@@ -2295,11 +2268,6 @@
               {
                 "required": [
                   "rank"
-                ]
-              },
-              {
-                "required": [
-                  "salary"
                 ]
               },
               {
@@ -2334,7 +2302,7 @@
               }
             ]
           },
-          "x-not-message": "非官署 collective 只许通用字段、朝代／时代字段与 collective_kind"
+          "x-not-message": "非官署 collective 只许通用字段、朝代／时代字段（dynasty／period 或 dynasty_ids）与 collective_kind"
         }
       }
     },
@@ -2364,7 +2332,12 @@
         },
         "required": [
           "subtype"
-        ]
+        ],
+        "not": {
+          "required": [
+            "merged_into"
+          ]
+        }
       },
       "then": {
         "allOf": [
@@ -2468,11 +2441,6 @@
                 },
                 {
                   "required": [
-                    "succeeds"
-                  ]
-                },
-                {
-                  "required": [
                     "office_level"
                   ]
                 },
@@ -2484,11 +2452,6 @@
                 {
                   "required": [
                     "rank"
-                  ]
-                },
-                {
-                  "required": [
-                    "salary"
                   ]
                 },
                 {
@@ -2539,11 +2502,6 @@
                 {
                   "required": [
                     "publisher_kind"
-                  ]
-                },
-                {
-                  "required": [
-                    "kind_also"
                   ]
                 },
                 {
@@ -2599,7 +2557,12 @@
         },
         "required": [
           "subtype"
-        ]
+        ],
+        "not": {
+          "required": [
+            "merged_into"
+          ]
+        }
       },
       "then": {
         "allOf": [
@@ -2693,11 +2656,6 @@
                 },
                 {
                   "required": [
-                    "succeeds"
-                  ]
-                },
-                {
-                  "required": [
                     "dynasty_id"
                   ]
                 },
@@ -2719,11 +2677,6 @@
                 {
                   "required": [
                     "rank"
-                  ]
-                },
-                {
-                  "required": [
-                    "salary"
                   ]
                 },
                 {
@@ -2778,22 +2731,7 @@
                 },
                 {
                   "required": [
-                    "seal_script"
-                  ]
-                },
-                {
-                  "required": [
                     "seal_form"
-                  ]
-                },
-                {
-                  "required": [
-                    "material"
-                  ]
-                },
-                {
-                  "required": [
-                    "size"
                   ]
                 },
                 {
@@ -2866,11 +2804,22 @@
           }
         ]
       }
+    },
+    {
+      "if": {
+        "required": [
+          "merged_into"
+        ]
+      },
+      "then": {
+        "maxProperties": 8,
+        "x-not-message": "墓碑桩只留 schema_version／id／type／subtype／primary_name／merged_into／revision／revised_at（entity.md 并条）"
+      }
     }
   ],
   "$defs": {
     "AltName": {
-      "description": "别名。type 枚举 25 值（schema/entity/_alt-names.md）；people 的表外旧值报 WARN；缺 type 为旧写法（WARN）。",
+      "description": "别名。type 枚举 27 值（schema/entity/_alt-names.md）；people 的表外旧值报 WARN；缺 type 为旧写法（WARN）。",
       "type": "object",
       "required": [
         "name"
@@ -2906,7 +2855,9 @@
             "異稱",
             "今名",
             "堂號",
-            "牌記名"
+            "牌記名",
+            "初名",
+            "綽號"
           ],
           "x-legacy-values": [
             "著錄形",
@@ -2980,7 +2931,7 @@
       }
     },
     "AltNamesStrict": {
-      "description": "专名子类型与官署：type 必填且必须在 25 值内（O12）",
+      "description": "专名子类型与官署：type 必填且必须在 27 值内（O12）",
       "type": "array",
       "items": {
         "type": "object",
@@ -3015,7 +2966,9 @@
               "異稱",
               "今名",
               "堂號",
-              "牌記名"
+              "牌記名",
+              "初名",
+              "綽號"
             ]
           }
         }
@@ -3157,9 +3110,6 @@
           ]
         },
         "basis": {
-          "type": "string"
-        },
-        "chinese": {
           "type": "string"
         }
       },

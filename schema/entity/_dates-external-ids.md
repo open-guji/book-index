@@ -7,9 +7,9 @@
 ## `dates` 按子类型放行
 | subtype | 放行的键 | 必填 | 说明 |
 |---|---|---|---|
-| `people` | `birth`、`death`、`floruit`、`basis`、`chinese` | 可选 | 见下表 |
-| `dynasty` | `start`、`end`、`basis`、`chinese` | 中国朝代必填 `start`（有 `period` 而缺 `start` 为 D3 WARN）；域外可缺 | 公元年，公元前负数，无 0 年，闭区间；仍存续者不写 `end`（正式库「中華民國」「中華人民共和國」省略；草稿库此 2 条写 `null`，读者两种都认） |
-| `reign` | `start`、`end`、`basis`、`chinese` | `start` 必填 | 改元当年记为起年 |
+| `people` | `birth`、`death`、`floruit`、`basis` | 可选 | 见下表 |
+| `dynasty` | `start`、`end`、`basis` | 中国朝代必填 `start`（有 `period` 而缺 `start` 为 D3 WARN）；域外可缺 | 公元年，公元前负数，无 0 年，闭区间；仍存续者不写 `end`（正式库「中華民國」「中華人民共和國」省略；草稿库此 2 条写 `null`，读者两种都认） |
+| `reign` | `start`、`end`、`basis` | `start` 必填 | 改元当年记为起年 |
 | `office` | — | **不得有 `dates`**（D3） | 起讫在 `start`／`end` |
 | `place` | — | **不得有 `dates`**（D3） | 起讫在 `history[]` 各项 |
 | `collective` | — | 不用（官署起讫在 `start`／`end`） | |
@@ -24,7 +24,6 @@
 | `dates.start` | integer | 条件：dynasty（中国朝代）、reign 必填 | 原生 | 起年 | 公历年，无 0 年 | 录入 | `960` |
 | `dates.end` | integer | 可选；dynasty、reign | 原生 | 止年 | 同上，`start ≤ end` | 录入 | `1127` |
 | `dates.basis` | string | 条件：有年值时写 | 原生 | 年值的来源 | 自由文本，非枚举。people 现值 `"現行字段"`（机械迁移自 `birth_year`／`death_year`，正式库 6,889）、`"cbdb:index_year"`（336）、`"cbdb"`（正式库 249、草稿库 253） | 录入、迁移 | `"趙匡胤 960 稱帝，止於靖康"` |
-| `dates.chinese` | string | 可选 | 原生 | 原文纪年 | 如「嘉靖二年—萬曆元年」；无原文材料时省略（两库现无） | 录入 | |
 
 people 的 `dates` 规则：
 

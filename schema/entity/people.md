@@ -17,7 +17,7 @@
 | 字段 | 类型 | 必填 | 含义 | 例 |
 |---|---|---|---|---|
 | `primary_name` | string | **必填** | 最通行的名字 | `"蘇軾"` |
-| `alt_names[]` | array<AltName> | 可选 | 字、号、谥号、别名等，类型枚举见[alt_names 类型枚举](_alt-names.md#alt_namestype-枚举25-值) | `[{"name":"子瞻","type":"字"}]` |
+| `alt_names[]` | array<AltName> | 可选 | 字、号、谥号、别名等，类型枚举见[alt_names 类型枚举](_alt-names.md#alt_namestype-枚举27-值) | `[{"name":"子瞻","type":"字"}]` |
 | `dynasty`、`dynasty_basis` | string | 可选 | 所属朝代（规范名）及依据 | `"北宋"` |
 | `period`、`period_basis` | string | 可选 | 时代轴 slug 及依据 | `"song"` |
 | `dates` | object | 可选 | 生卒或活动年，键见[dates 按子类型放行](_dates-external-ids.md#dates-按子类型放行) | `{"birth":1036,"death":1101,"basis":"cbdb"}` |
