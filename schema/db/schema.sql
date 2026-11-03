@@ -188,7 +188,8 @@ CREATE TABLE record_todo (owner_id text, seq int, what text, by text, date text,
 CREATE TABLE member_of (
   member_id text NOT NULL, member_type char(1) NOT NULL,  -- B / W / C
   collection_id text NOT NULL, seq int NOT NULL,
-  volume_index jsonb, grp text, details text, orig_order int, sub_items jsonb,  -- orig_order 从 details「叢編原序 N」抽出
+  volume_index jsonb, grp text, details text, section text, orig_order int,  -- section：S2-I 从 Book 顶层挪入 contained_in[] 项
+  sub_items jsonb,  -- orig_order 从 details「叢編原序 N」抽出
   PRIMARY KEY (member_id, collection_id, seq)
 );
 CREATE INDEX ON member_of (collection_id);
