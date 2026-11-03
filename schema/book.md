@@ -36,7 +36,7 @@
 | `indexed_by` | array<IndexEntry> | 可选 | 原生 | 按版本著录的书目（如通俗小说书目） | 见 common.md〈IndexEntry〉 | 录入 | |
 | `resources` | array<Resource> | 可选 | 原生 | 外部资源 | 见 common.md；`id` 可取 `wikisource`（维基文库页面，`types:["text"]`） | 录入 | |
 | `resource_groups` | object | 可选 | 原生 | 资源组说明 | 见 common.md | 录入 | |
-| `related_books` | array<string> | 可选 | 原生 | 对称关联的其他 Book（存 id 较小一侧） | Book id 数组 | 录入（V07 把关） | `["96l2nocd1c"]` |
+| `related_books` | array<string｜object> | 可选 | 原生 | 非源流的关联（合刊、兄弟本、同版……），无向 | 项为 Book id 字符串（旧写，存 id 较小一侧）或对象 `{book_id, relation?, confidence?, evidence?}`（新写，逐步吸收 `lineage.related_to`；每对只存一侧，「同版」存副本一侧指向代表本）。迁移完成后只收对象 | 录入（V07 把关） | `[{"book_id":"96mid1ogzk","relation":"同版"}]` |
 | `zhsy_id` | string | 可选 | 原生 | 中華再造善本编号 | 原文照录 | 录入 | |
 | `metadata` | object | 可选 | 原生 | 来源系统原始字段透传，不规范化 | 实测键：`npm_acckey`、`nlc_bid`、`nlc_call_number`、`harvard_drs`、`hollis_id`、`harvard_call_number`。故宫统一编号 `npm_item_id` 已并入 `provenance[].call_number`，不再在此重复 | 录入 | `{"npm_acckey":"…"}` |
 | `sources` | array<Source> | 可选 | 原生 | 数据来源 | 见 common.md | 录入 | |
@@ -155,23 +155,30 @@
 
 ## 六、`base_edition`
 
+所出之本（有向：本书←它）。2026-11 起这是 Book 上「所出之本」的**唯一**字段，逐步吸收 `lineage.derived_from` 与 `dating.based_on`（设计见 schema 审查 06 稿；迁移完成前两处旧写法仍在，读者两处都认）。
+
 ```json
 "base_edition": [
-  {"role": "底本", "name": "宋淳熙三年閩山阮氏種德堂巾箱本", "source": "dating.based_on+edition切分"},
+  {"role": "底本", "relation": "翻刻", "name": "宋淳熙三年閩山阮氏種德堂巾箱本", "source": "dating.based_on+edition切分"},
+  {"role": "底本", "relation": "過錄", "hypothetical_id": "h_zhi_sisi_dingben", "confidence": "consensus", "evidence": "题「脂砚斋凡四阅评过 / 庚辰秋月定本」", "source": "lineage.derived_from"},
   {"role": "配補", "book_id": "9897xxxxxxxx", "name": "…", "note": "…", "source": "lineage.derived_from"}
 ]
 ```
 
 | 字段 | 类型 | 必填 | 含义 | 取值 |
 |---|---|---|---|---|
-| `role` | string | 必填 | 关系 | `底本`｜`配補`｜`參校` |
-| `name` | string | 必填 | 底本之名 | 非空 |
+| `role` | string | 必填 | 这个来源在本书里的用途 | `底本`｜`配補`｜`參校` |
+| `relation` | string | 可选 | 怎么出来的，原文照录 | 自由文本（翻刻、影印、傳鈔、過錄、校改、刪節……）；与 `role` 是两个轴 |
 | `book_id` | string | 可选 | 指库中已有 Book | 须存在，不得指本书自身 |
-| `work_id` | string | 可选 | 只知其书未知其本时指 Work | 须存在；与 `book_id` 至多填一项 |
-| `note` | string | 可选 | 佐证或按语 | 自由文本 |
+| `work_id` | string | 可选 | 只知其书未知其本时指 Work | 须存在 |
+| `hypothetical_id` | string | 可选 | 假想祖本（已佚者），对应 Work `version_graph.hypothetical_nodes[].id` | `h_` 起首 |
+| `name` | string | 条件必填 | 来源之名 | 三个 id 都没有时必填；有 id 时可省（读者取被指 Book 的 edition／title，免得过期） |
+| `confidence` | string | 可选 | 把握 | `certain`｜`consensus`｜`probable`｜`disputed` |
+| `evidence` | string | 可选 | 依据（文献、论断） | 自由文本 |
+| `note` | string | 可选 | 按语 | 自由文本 |
 | `source` | string | 必填 | 本项据何而来 | 实测：`dating.based_on+edition切分`、`lineage.derived_from` |
 
-「谁以我为底本」不写，由 build 生成 `_derived_by`。
+`book_id`、`work_id`、`hypothetical_id` 至多填一项。「谁以我为底本」不写，由 build 生成 `_derived_by`。
 
 ---
 
