@@ -1034,7 +1034,10 @@ def write_products(out_dir, prods):
 
 
 def index_drift(root, shards):
-    """倉內現有 index/ 與重生值之差（逐欄計數）：舊索引漂移，重生後即消。"""
+    """倉內現有 index/ 與重生值之差（逐欄計數）。2026-11-03 起倉內不再提交 index/ 分片（網站與 bim 讀 build 產物），
+    倉內沒有 index/works 目錄時回 {}（無參照可比）。"""
+    if not os.path.isdir(os.path.join(root, 'index', 'works')):
+        return {}
     c = collections.Counter()
     for rel, new in shards.items():
         p = os.path.join(root, rel)
@@ -1183,8 +1186,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
         report['write'] = sink.finish() if stream else write_products(out_dir, prods)
         report['write']['index_files_written'] = write_index(out_dir, shards)
         report['write']['seal_files_written'], report['write']['seal_files_removed'] = SI.write(out_dir, seal_files)
-        if write_repo_index:
-            report['write']['repo_index_files_written'] = write_index(root, shards)
+        if write_repo_index:                  # 只寫印章反查表；index 分片已不進倉（2026-11-03）
             report['write']['repo_seal_files_written'], report['write']['repo_seal_files_removed'] = SI.write(root, seal_files)
         with open(os.path.join(out_dir, 'report.json'), 'w', encoding='utf-8') as f:
             json.dump({k: v for k, v in report.items() if k != 'write'}, f, ensure_ascii=False, indent=1, sort_keys=True)
@@ -1217,7 +1219,7 @@ def main(argv=None):
                     help='book-text 的 index/texts 目錄；`_has_text`／`_has_collated` 與 index 的 has_text／has_collated '
                          '由 resources＋book-text 推（源裡舊值不再算）')
     ap.add_argument('--write-index', action='store_true',
-                    help='另把 index/ 寫回倉內（沿用各分片縮排；預設只寫 <out>/index/）')
+                    help='另把印章反查表 index/seals* 寫回倉內（index 分片 2026-11-03 起不再進倉，只寫 <out>/index/）')
     a = ap.parse_args(argv)
     ti = TX.load(a.text_index)
     report, _ = run(a.root, a.ref_root, a.out, a.check_only, a.hub_check, a.hub,

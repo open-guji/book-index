@@ -35,8 +35,20 @@ def _note_merged(d, acc):
             acc.update(x if isinstance(x, list) else [x])
 
 def idx(fam):
+    """{id: index 條目}。2026-11-03 起倉內不再提交 index/ 分片，改由記錄經 build_derived.index_entry 現算
+    （與 build 產物同口徑；不含 book-text 的 has_text／has_collated 與 promoted_to，本檔不核這幾欄）。"""
+    import sys as _sys
+    _sys.path.insert(0, os.path.join(ROOT, 'build'))
+    import build_derived as _bd
+    typ = {'works': 'Work', 'books': 'Book', 'entities': 'Entity', 'collections': 'Collection'}[fam]
     out = {}
-    for f in glob.glob(os.path.join(ROOT, 'index', fam, '*.json')): out.update(json.load(open(f)))
+    for dp, _dn, fns in os.walk(os.path.join(ROOT, typ)):
+        for fn in fns:
+            if not fn.endswith('.json'): continue
+            p = os.path.join(dp, fn)
+            d = json.load(open(p, encoding='utf-8'))
+            if isinstance(d, dict) and d.get('id'):
+                out[d['id']] = _bd.index_entry(d, typ, os.path.relpath(p, ROOT).replace(os.sep, '/'))
     return out
 
 def classification_members_problems(root, work_ids, ref_work_ids=frozenset()):
@@ -251,7 +263,7 @@ def main():
     ap.add_argument('--base', default='origin/main', help='基線 ref（默認 origin/main）；解析不到則略過「消失 id」檢查')
     a = ap.parse_args()
     IW, IB, IE = idx('works'), idx('books'), idx('entities')
-    IC = json.load(open(os.path.join(ROOT, 'index', 'collections.json')))
+    IC = idx('collections')
     ALL = set(IW) | set(IB) | set(IE) | set(IC)
     drift_w, dangle_w, missing = [], [], []
     bad_prov = []
