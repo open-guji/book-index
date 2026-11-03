@@ -38,12 +38,12 @@ import sealindex as SI  # noqa: E402
 HUB = 200          # 被內聯引用超過此數者為樞紐：卡片只寫 id＋h:1，名稱進 _hubs.json（F4-2 §一 4）
 PAGE = 200         # 分頁大小（F2-3 §二 Collection）
 MEMBER_HEAD = 20   # 叢編記錄本身只帶前 20 項成員摘要（F2-3 §二）
-SIBLINGS_MAX = 40  # Book._siblings 上限（F2-3 §二）
 HUB_CHECK_MAX = 6  # 改樞紐名，牽動產物檔數上限（F4-4：2～4 檔）
 
 DEFAULT_ROLE = '撰'
-CONTRACT = 3       # _build/ 契約版本：2＝F6-5b 加專名派生欄與 dynasty_reign_keys／office_keys（overview#458，純增量）；
-                   # 3＝Book／Collection 加 `_related`（related_books／related_collections 兩側並集，純增量）
+CONTRACT = 4       # _build/ 契約版本：2＝F6-5b 加專名派生欄與 dynasty_reign_keys／office_keys（overview#458，純增量）；
+                   # 3＝Book／Collection 加 `_related`（related_books／related_collections 兩側並集，純增量）；
+                   # 4＝Book 刪 `_siblings`／`_siblings_more`／`_siblings_total`（2026-11-03，非增量；S5-H）
 
 
 # ---------- 小工具 ----------
@@ -213,7 +213,7 @@ class Build:
             wid = b.get('work_id')
             if isinstance(wid, str) and wid:
                 if wid in R['Work']:
-                    if not b.get('merged_into'):      # Book 墓碑不計入版本：不進 _books／_siblings／_edition_count／nb
+                    if not b.get('merged_into'):      # Book 墓碑不計入版本：不進 _books／_edition_count／nb
                         self.books_of[wid].add(bid)
                 else:
                     self._dangle('Book.work_id', bid, wid)
@@ -549,12 +549,6 @@ class Build:
         wid = b.get('work_id')
         if wid in R['Work']:
             v['_work'] = self.card(wid, self.work_card)
-            sib = [] if b.get('merged_into') else sorted(     # 墓碑自身不列同 Work 版本
-                (x for x in self.books_of.get(wid, ()) if x != bid), key=lambda x: book_key(R['Book'][x]))
-            v['_siblings'] = [self.book_card(x) for x in sib[:SIBLINGS_MAX]]
-            if len(sib) > SIBLINGS_MAX:
-                v['_siblings_more'] = True
-                v['_siblings_total'] = len(sib)
         v['_collections'] = self.collections_of(b)
         if self.sym_view.get(bid):
             v['_related'] = self.sym_related(bid)
@@ -973,7 +967,7 @@ def check_entries(b, prods, hubs, errs):
             tot = sum(len(prods.get(f'catalog/{i}/{n}.json', [])) for n in range(1, v['_member_catalog']['pages'] + 1))
             if tot != v['_member_catalog']['total']:
                 errs.append(f'{i}: 志書成員分頁合計≠total')
-        for f in ('_related', '_collections', '_children', '_siblings', '_books'):
+        for f in ('_related', '_collections', '_children', '_books'):
             chk_cards(i, v.get(f) or [])
         chk_cards(i, v.get('_works') or [], 'work_id')
         chk_cards(i, v.get('_catalogs') or [], 'bid')

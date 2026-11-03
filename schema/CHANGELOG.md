@@ -15,6 +15,12 @@
 - 无写入方、无读者的时间戳：Book 19,358、Work 72,430、Collection 57、Entity 68,158 条存量已由各家数据批改删尽（#2192／#2193／#2194），本次从 `common.md §八`、四个记录 schema、文档里去掉该键；`revision`／`revised_at` 不动。
 - 此后记录再带 `updated_at` 会报 unknown-field。`DateTime` 定义保留（promotions.schema.json 仍引用）。
 
+## 2026-11-03　Book 删 `_siblings*`，契约升 4（S5-H/I/N；A41 已核无页面读）
+
+- Book entry 删除 `_siblings`／`_siblings_more`／`_siblings_total`（261.6 万张重复卡片，约占 Book entry 的 30.8%）；同版本列表读 Work 的 `_books`（I：`_books` 成为同版本卡片的唯一一份）。
+- `CONTRACT` 3→4（非增量改动）。`_edition_count` 保留（A42 的 indexer 只读它，另有 95% 覆盖闸）。
+- 网站 `ops/data-contract.mjs` 与测试夹具由 A41 在合并后跟进。
+
 ## 2026-11-03　仓内不再提交 `index/`（S5-D；产物删除，读者读 build 产物）
 
 - 删除 `index/works|books|entities|collections.json` 与印章表 `index/seals.json`、`index/seals/`；`index/` 只作为 build 产物（`<out>/index/`、COS）存在。`index.schema.json` 的形状不变。
