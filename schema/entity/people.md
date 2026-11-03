@@ -32,7 +32,7 @@
 | `relations[]` | array<PersonRelation> | 可选 | 亲属／师承关系（2026-11-02 新增，见下） | `[{"type":"父","entity_id":"hixhd2h9bf1f"}]` |
 | `suppressed_fields` | array<string> | 可选 | 人工确认 CBDB 值有误而清空的字段名 | `["cbdb_id"]` |
 | `review`、`todo`、`ai_note` | object／array／string | 可选 | 审核状态、待办、备注 | |
-| `revision`、`revised_at`、`updated_at` | string | 见[通用字段](_common.md) | 版本与改动时间 | `"1.1.0"` |
+| `revision`、`revised_at` | string | 见[通用字段](_common.md) | 版本与改动时间 | `"1.1.0"` |
 
 people 特有的规矩：
 
