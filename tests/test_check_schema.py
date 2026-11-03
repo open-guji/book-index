@@ -106,3 +106,14 @@ def test_legacy_keep_is_info():
     v.validate({"text": "原文"}, {"$ref": "common.schema.json#/$defs/IndexEntry"}, "common.schema.json", "", out)
     assert ("INFO", "legacy-keep", "text") in [(lv, code, path) for lv, code, path, _ in out]
     assert not [x for x in out if x[0] == "WARN" and x[2] == "text"]
+
+
+# S3-A8：语义 WARN
+def test_semantic_warns():
+    cs = _load() if "_load" in globals() else None
+    import importlib.util, os
+    spec = importlib.util.spec_from_file_location("cs", os.path.join(os.path.dirname(__file__), "..", "schema", "check_schema.py"))
+    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    rec = {"period": "song", "dynasty": "宋", "resources": [{"group": "g"}], "indexed_by": [{"source": "x", "title_info": "t"}]}
+    codes = sorted(c for _, c, _, _ in m.semantic_warns("work", rec))
+    assert codes == ["dynasty-no-basis", "group-undefined", "index-entry-missing", "period-no-basis"]

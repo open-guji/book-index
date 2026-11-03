@@ -291,12 +291,6 @@
     "appendix": {
       "$ref": "common.schema.json#/$defs/AppendixItems"
     },
-    "current_location": {
-      "x-legacy": true
-    },
-    "page_count": {
-      "x-legacy": true
-    },
     "merged_in": {
       "$ref": "common.schema.json#/$defs/MergedIn"
     },
@@ -343,20 +337,6 @@
         },
         "additionalProperties": false
       }
-    },
-    "zhsy_retrieved_at": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "_has_text": {
-      "type": "boolean",
-      "x-legacy": true
-    },
-    "_has_collated": {
-      "type": "boolean",
-      "x-legacy": true
     }
   },
   "patternProperties": {
@@ -367,6 +347,18 @@
   },
   "additionalProperties": false,
   "allOf": [
+    {
+      "if": {
+        "required": [
+          "period"
+        ]
+      },
+      "then": {
+        "required": [
+          "period_basis"
+        ]
+      }
+    },
     {
       "if": {
         "required": [

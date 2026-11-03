@@ -77,7 +77,6 @@ for (g, docs), eid in zip(ok, ids):
     if g['uris']:
         rec['description'] = {'sources': [{'name': '中國古籍總目', 'type': 'url', 'details': 'http://data.library.sh.cn/entity/person/' + u} for u in g['uris']]}
     rec['ai_note'] = note
-    rec['review'] = {'status': 'unreviewed'}
     rec['revision'] = '1.0.0'; rec['revised_at'] = TODAY
     rel = mintid.path_for(eid, g['name'], 'Entity') if a.apply else None
     if a.apply:

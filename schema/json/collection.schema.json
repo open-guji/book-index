@@ -61,35 +61,6 @@
     "authors": {
       "$ref": "common.schema.json#/$defs/Authors"
     },
-    "editors": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "name",
-          "role"
-        ],
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "role": {
-            "type": "string",
-            "minLength": 1
-          },
-          "dynasty": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "publisher": {
-      "type": "string"
-    },
-    "publish_year": {
-      "type": "string"
-    },
     "publication_info": {
       "$ref": "common.schema.json#/$defs/PublicationInfo"
     },
@@ -101,9 +72,6 @@
     },
     "current_location": {
       "$ref": "common.schema.json#/$defs/Location"
-    },
-    "holder": {
-      "type": "string"
     },
     "count": {
       "anyOf": [
@@ -223,29 +191,6 @@
       },
       "x-not-message": "卷数用汉字数字写（如「十卷」「一百零五卷」），不写阿拉伯数字，也不夹「０」"
     },
-    "total_works": {
-      "type": "integer",
-      "minimum": 0
-    },
-    "total_volumes": {
-      "type": "integer",
-      "minimum": 0
-    },
-    "sections": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      }
-    },
     "contains": {
       "type": "array",
       "items": {
@@ -321,10 +266,6 @@
               }
             },
             "additionalProperties": false
-          },
-          {
-            "$ref": "common.schema.json#/$defs/Id",
-            "x-legacy": true
           }
         ]
       }
@@ -350,14 +291,7 @@
     "sources": {
       "type": "array",
       "items": {
-        "anyOf": [
-          {
-            "$ref": "common.schema.json#/$defs/Source"
-          },
-          {
-            "type": "string"
-          }
-        ]
+        "$ref": "common.schema.json#/$defs/Source"
       }
     },
     "merged_into": {

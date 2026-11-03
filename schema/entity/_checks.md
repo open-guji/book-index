@@ -28,7 +28,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | O09 | office | `start`／`end` 为整数且 `start ≤ end` | ERROR |
 | O10 | office | `簡稱` 长度 ≤2，须确认不与他概念重名 | WARN |
 | O11 | office | 同一概念下同朝具体条重复 | WARN |
-| O12 | 专名子类型、官署 | `alt_names[].type` 在 25 值枚举内 | ERROR |
+| O12 | 专名子类型、官署 | `alt_names[].type` 在 27 值枚举内 | ERROR |
 | P01 | place | `primary_name` 非空；`history` 为非空数组；各项为对象、`level` 在 14 值内、`name` 非空 | ERROR |
 | P02 | place | 各项 `start`／`end` 为整数、`start ≤ end`、`end ≤ 1912`；各项时段不重叠 | ERROR |
 | P03 | place | `history[].parent_id` 存在且为 place、不自引、上级链无环（ERROR）；`parent_id` 与 `parent_text` 并存（WARN） | ERROR／WARN |
@@ -50,7 +50,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | I06 | 官署 | 具体条 `start`／`end` 为整数、无 0 年、`start ≤ end`（ERROR）；越出所属朝代 5 年（WARN） | ERROR／WARN |
 | I07 | 官署 | 同一概念下同朝（合并条按展开的朝代算）只一条具体条 | WARN |
 | I08 | 官署 | 外部 id 与禁字段（同 E1）；官职专有字段 | ERROR |
-| I09 | 官署 | `location_id` 出现（ERROR）；`succeeds` 出现（WARN） | ERROR／WARN |
+| I09 | 官署 | `location_id` 出现（ERROR） | ERROR／WARN |
 | I10 | 官署 | 同名且朝代重叠的具体条，疑重复 | WARN |
 | I11 | 官署 | 派生字段入源档 | ERROR |
 | I12 | office | `institution_ref`：`COL:<名>` 占位（ERROR）；须指官署条（ERROR）；指具体条须与官职朝代相交（ERROR）；指概念条须 `ai_note` 标「待補」（WARN）；官名含部名而指合称（WARN）；id 不在本库（WARN） | ERROR／WARN |
@@ -60,7 +60,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | S04 | seal | `appears_in` ≤20 条、`ref_type` ∈ Book／Work、`id` 在库内存在、不重复 | ERROR |
 | S05 | seal | `images` 每项 `file`＋`credit`＋`license`（闭集）＋`source_url`、≤8、`file` 路径规范；`owner_ids` 只能指 people／collective／office，`institution_ids` 只能指 collective；出现其他子类型专属字段（含 `dates`、`dynasty`、`period`） | ERROR |
 | S06 | seal | `images[].file` 在 book-index-asset 中不存在（本地有 `BOOK_INDEX_ASSET_ROOT` 或并列的 `../book-index-asset` 才核；没有该仓就跳过，CI／verify 不硬依赖另一仓） | ERROR |
-| K01 | publisher | `publisher_kind` 在 6 值内；`kind_also`／`status` 在枚举内；`primary_name` 非空；`description.sources` 非空 | ERROR |
+| K01 | publisher | `publisher_kind` 在 6 值内；`status` 在枚举内；`primary_name` 非空；`description.sources` 非空 | ERROR |
 | K02 | publisher | 古代类 `dynasty_ids` 非空且各指 dynasty；`現代出版社`不得写 `dynasty_ids` | ERROR |
 | K03 | publisher | `start`／`end` 为非 0 整数且 `start ≤ end` | ERROR |
 | K04 | publisher | `locations[]` 形状；`place_id` 须指 place（ERROR）、指墓碑（WARN） | ERROR／WARN |

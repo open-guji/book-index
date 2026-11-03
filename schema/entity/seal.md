@@ -22,10 +22,7 @@
 | `description` | object | **必填** | 原生 | 介绍与出处 | 同通则，`sources` 非空；来源不实的字段一律留空，不编造 | 录入 | `{"text":"…","sources":[{"title":"…"}]}` |
 | `start`、`end` | integer | 可选 | 原生 | 启用／停用年 | 公元年，无 0 年，`start ≤ end`；不确定不写，说明进 `description.text` | 录入 | |
 | `seal_style` | string | 可选 | 原生 | 朱白 | `朱文`｜`白文`｜`朱白相間` | 录入 | `"朱文"` |
-| `seal_script` | string | 可选 | 原生 | 印面字体 | 篆／隸／楷等，短文本 | 录入 | `"篆書"` |
 | `seal_form` | string | 可选 | 原生 | 印形 | `方`｜`圓`｜`橢圓`｜`長方`｜`異形` | 录入 | `"方"` |
-| `material` | string | 可选 | 原生 | 质地 | 短文本 | 录入 | `"玉"`（示意） |
-| `size` | string | 可选 | 原生 | 尺寸 | 文本，如「長×寬 mm」 | 录入 | `"50×50 mm"`（示意） |
 | `usage_scope` | string | 可选 | 原生 | 用途／钤用范围 | 一句话 | 录入 | `"鈐於文淵閣本《四庫全書》各冊首卷第一頁"` |
 | `owner_ids` | array<id> | 可选 | 原生 | 印主 | 指向 people／collective／office 的 Entity id，**不写裸名字**；年号不是印主（乾隆印主指清高宗本人那条 people） | 录入 | |
 | `institution_ids` | array<id> | 可选 | 原生 | 所属机构 | 指向 collective（如文渊阁）的 Entity id | 录入 | `["hixi6zykf4e8"]` |

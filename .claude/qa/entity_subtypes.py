@@ -78,6 +78,7 @@ ALT_TYPES = {
     "字", "號", "諡號", "賜號", "別名", "常用名", "簡體", "行第", "廟號", "訛名", "異體", "封爵", "俗姓",
     "簡稱", "合稱", "避諱", "別稱", "雅稱", "全稱", "異寫", "舊稱", "異稱", "今名",
     "堂號", "牌記名",   # publisher 用（GUJI-539 v3）
+    "初名", "綽號",   # 人物（2026-11-03 並入：原在表外，各 2／3 條）
 }
 ALT_TYPES_NEW_ONLY = ALT_TYPES  # 新子類型暫與全表同；人物之長尾罕見值不在此限（由 qa_entity 判 WARN）
 
@@ -623,8 +624,6 @@ def _check_institution(rec, reg):
     # I09
     if "location_id" in rec:
         out.append(("I09", ERROR, "location_id", "第一期禁出現（place 無條目）"))
-    if "succeeds" in rec:
-        out.append(("I09", WARN, "succeeds", "第一期只留字段位，不填"))
     return out
 
 
@@ -883,6 +882,8 @@ def _check_publisher(rec, reg):
 
 def _check_place(rec, reg):
     out = []
+    if rec.get("merged_into"):   # 墓碑只留 merged_into 規定欄位，不查 place 欄位
+        return out
     if not nonempty_str(rec.get("primary_name")):
         out.append(("P01", ERROR, "primary_name", "缺"))
     hist = rec.get("history")

@@ -35,12 +35,18 @@ def _dates(d):
 
 
 def _start(d):
+    # 起讫年归 dates.start／dates.end；官署、出版者的旧写法在顶层 start／end（S4-3 过渡期两处都认，
+    # 数据收进 dates 后可删后一支）。
     s = _dates(d).get('start')
+    if not isinstance(s, int):
+        s = d.get('start')
     return s if isinstance(s, int) else None
 
 
 def _end(d):
     e = _dates(d).get('end')
+    if not isinstance(e, int):
+        e = d.get('end')
     return e if isinstance(e, int) else None
 
 

@@ -14,11 +14,11 @@
 | 禮部 `hixi5dv8bb4b` | [Entity/b/4/b/hixi5dv8bb4b-禮部.json](../../Entity/b/4/b/hixi5dv8bb4b-禮部.json) | [index/entities/1.json](../../index/entities/1.json) | 官署**具体条**（禮部，某一朝）：`parent_id` 指向上面的概念条，带 `dynasty_ids` |
 | 六部 `hixi1ubqbwuz` | [Entity/w/u/z/hixi1ubqbwuz-六部.json](../../Entity/w/u/z/hixi1ubqbwuz-六部.json) | [index/entities/f.json](../../index/entities/f.json) | 官署**合称条**（六部）：合称不是单个官署，仍 `collective_kind=官署` |
 
-`collective` 是非个人主体。官署不另立 subtype，仍是 `collective`，以 `collective_kind` 区分；**只有 `collective_kind=官署` 受本节官署规则约束**，其余取值与缺 `collective_kind` 的旧条（缺省即 `未分`，正式库 38 条，如宗人府 `hixhd2h9bq2d`、郵傳部 `hixhd2h9bv4m`）照通用字段写，可带 `dynasty`／`dynasty_basis`／`period`／`period_basis`。
+`collective` 是非个人主体。官署不另立 subtype，仍是 `collective`，以 `collective_kind` 区分；**只有 `collective_kind=官署` 受本节官署规则约束**，其余取值与缺 `collective_kind` 的旧条（缺省即 `未分`，正式库 2026-11-03 实测 26 条，如宗人府 `hixhd2h9bq2d`、郵傳部 `hixhd2h9bv4m`）照通用字段写，可带 `dynasty`／`dynasty_basis`／`period`／`period_basis`。
 
 | 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |
 |---|---|---|---|---|---|---|---|
-| `collective_kind` | string | 条件：官署**必填**；其余可选 | 原生 | 机构类别 | `官署`｜`書院學校`｜`館局`｜`民間`｜`未分`；缺省即 `未分`（I01） | 录入 | `"官署"` |
+| `collective_kind` | string | 条件：官署**必填**；其余可选 | 原生 | 机构类别 | `官署`｜`書院學校`｜`館局`｜`民間`｜`未分`；缺省即 `未分`（I01）。正式库 2026-11-03 实测：官署 694、館局 20、民間 5，缺 `collective_kind` 的 26 条；`書院學校`、`未分` 暂无数据 | 录入 | `"官署"` |
 | `institution_level` | string | 条件：官署**必填** | 原生 | 层级 | `concept`（概念）｜`concrete`（每朝具体）｜`group`（合称，如六部、东宫）（I01） | 录入 | `"concrete"` |
 | `parent_id` | string | 条件：具体条有概念时填；概念、合称**不得有** | 原生 | 所属概念条 | 官署概念条 id（与 office 同义：具体→概念；概念只一级）（I03） | 录入 | `"hixi1ubqbwv2"` |
 | `dynasty_ids` | array<string> | 条件：具体条**必填**；概念、合称不得有 | 原生 | 所属朝代 | dynasty id 数组；默认一朝一条，**各字段完全一致**才许多值合并（`ai_note` 标【合併條】） | 录入 | `["hixi1ubjrxgo"]` |
@@ -28,7 +28,6 @@
 | `superiors` | array<object> | 可选；具体条（概念、合称不得有） | 原生 | 上级官署 | 每项 `{id, start?, end?, note?}`，`id` 指同朝**具体**官署条，不自指、无环；只写下级→上级（下属由 build 派生 `_subordinates`）；隶属有变用 `start`／`end` 分段（I04） | 录入 | `[{"id":"hixi1ubqbwv7","start":1082}]` |
 | `group_ids` | array<string> | 可选；概念或具体条（合称不得有，合称不嵌套） | 原生 | 所属合称 | 合称条 id；成员→合称单向。跨朝不变挂概念条，随朝而变挂具体条；具体条与其概念条重复挂同一合称 WARN（I05） | 录入 | `["hixi1ubqbwuz"]`（六部） |
 | `description` | Description | 条件：概念、合称**必填** | 原生 | 介绍 | 同通用 | 录入 | |
-| `succeeds` | array<string> | 不填 | 原生 | 承继 | 第一期只留字段位；承继写 `description`；出现即 WARN（I09） | — | |
 | `location_id` | — | **不得有** | — | 所在地 | 第一期禁出现（I09） | — | |
 
 - 官署条不得有官职专有字段（`office_level`、`office_class`、`rank`、`salary`、`base_office_id`、`qualifier`、`institution_ref`）（I08）；不设 `rank`、`institution_class`；`external_ids` 只许 `wikidata_id`（I08）。
@@ -83,8 +82,12 @@
 | I06 | 官署 | 具体条 `start`／`end` 为整数、无 0 年、`start ≤ end`（ERROR）；越出所属朝代 5 年（WARN） | ERROR／WARN |
 | I07 | 官署 | 同一概念下同朝（合并条按展开的朝代算）只一条具体条 | WARN |
 | I08 | 官署 | 外部 id 与禁字段（同 E1）；官职专有字段 | ERROR |
-| I09 | 官署 | `location_id` 出现（ERROR）；`succeeds` 出现（WARN） | ERROR／WARN |
+| I09 | 官署 | `location_id` 出现（ERROR） | ERROR／WARN |
 | I10 | 官署 | 同名且朝代重叠的具体条，疑重复 | WARN |
 | I11 | 官署 | 派生字段入源档 | ERROR |
 
 另适用全 Entity 通用码 E1、A1、O12（专名子类型）与 V01／V11／V15／V16，见 [校验码总表](_checks.md)。
+
+## 补记（2026-11-03）
+- **非官署 collective 可带 `dynasty_ids`**：正式库有 14 条館局本来就带朝代，schema 对非官署 collective 放行（官署的概念条、合称条仍禁 `dynasty_ids`）。
+- 官署与出版者的顶层 `start`／`end`（官署 27／13 条、publisher 17 条）暂仍是正式写法；`build/names.py` 已于 #2185 起两处（`dates` 与顶层）都认。是否统一收进 `dates` 待定，见 PR 说明。

@@ -1,10 +1,10 @@
 # 构建产物与派生字段（`_build/`、`index/`）
 
-> 状态：网站确认中（overview#496 请网站经理核）
+> 状态：网站确认中（overview 仓已淘汰；改动经协调者转 A41／A42，在 Jira GUJI 卡留痕）
 
 本档是构建产物的**唯一权威说明**：每个 `_` 派生字段、每种卡片、每个产物文件的形状、来源与出现条件。
 以 `build/build_derived.py`、`build/names.py`、`build/v2common.py` 的**现行实现**（契约 3）为准；文档与代码不一致时文档追代码，代码自相矛盾处照现状写，列在〈十二、待 build 统一〉。
-例子取自 `build/contract-sample/`（进 git 的契约样例包）与正式库 10-09 全量 build 实测。
+例子取自 `build/contract-sample/`（进 git 的契约样例包）与正式库全量 build 实测（统计数标明日期：10-09 旧数，11-03 为 main `288d9075320` 实跑，不含 book-text 部分）。
 
 源档格式见 [README.md](README.md) 与各记录档；源档里仍有的旧派生字段见 [legacy.md](legacy.md)。
 
@@ -83,7 +83,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `dynasty_reign_keys.json`、`office_keys.json`、`place_keys.json` | 总是（全量 build）；草稿库带 `--ref-root` 时才含正式库的专名，才是全量 | 见〈九〉 | v2 |
 | `report.json` | 不带 `--check-only` 时 | 计数与自校验结果；**不属契约**，只供排查，见〈十〉 | — |
 
-正式库 10-09 实测：`entry/` 206,496 档（Work 119,527、Book 54,477、Collection 85、Entity 32,407），产物文件共 207,521 个（不计 `index/`）；`members/` 191 页、`catalog/` 797 页、`related/` 24 页、`lineage/` 8 档；枢纽 59 个。
+正式库 11-03 实测（main `288d9075320`）：`entry/` 807,887 档（Work 249,778、Book 402,956、Collection 3,707、Entity 151,446），产物文件共 813,442 个（含 `index/`）；`members/` 4,011 页、`catalog/` 1,507 页、`related/` 24 页、`lineage/` 8 档；枢纽 143 个（Collection 78、Work 52、Entity 13）；全量 build 约 5.5 分钟（4 核）。（10-09 旧数：206,496 档、枢纽 59 个。）
 
 仓根的 `index.json`（`{"books":{},"collections":{},"works":{}}`）不是 build 产出的。
 
@@ -138,7 +138,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `au` | array<string> | `authors[].name` | 取 `authors` 前 3 项中的 `name`（先截前 3 项再滤掉无名者，故至多 3 个） |
 | `cls` | string | `classification/` 成员档 | 该 Work 第一条分类行的节点 id（如 `"zm0524"`）。分类行顺序：`primary` 分类法在前，其余按分类法 id；同一分类法内按成员档文件名、档内行序。**无 `classification/` 目录时**退回旧字段 `Work.classification`，值为数组 `[l1, l2 或 null]` |
 | `nb` | integer | `Book.work_id` 反查 | 该 Work 的 Book 数；0 不出 |
-| `img` | `true` | `resources[].types`／`type`、其 Book 的 `resources`、源 `_has_image` | Work 自身或其任一 Book 的 resources 含 `image`，或源档 `_has_image` 为真 |
+| `img` | `true` | `resources[].types`、其 Book 的 `resources` | Work 自身或其任一 Book 的 resources 含 `image` |
 | `txt` | `true` | 同上、`_has_text` 的口径（见〈三〉） | 同上，看 `text` 与 book-text |
 
 例（`988fyztvri` 的 `_work`）：`{"au":["釋惠洪"],"cls":"zm0524","dyn":"南宋","id":"d59f2hte73sw","img":true,"juan":1,"nb":1,"title":"禪林僧寶傳","txt":true}`
@@ -154,10 +154,10 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `edition` | string | `edition` | |
 | `etype` | string | `edition_type` | |
 | `dating` | string | `dating.era`、`dating.reign` | `era` 与 `reign` 中是非空字符串（或整数）者，按此顺序用一个半角空格连接，如 `"清 乾隆"`；只有一项就是那一项（如 `"乾隆"`、`"清"`） |
-| `y` | integer | `dating.year_range`、`dating.year` | **先取 `year_range[0]`**（数组非空且首项为整数），否则取 `year`（整数）；都没有不出 |
+| `y` | integer | `dating.year`、`dating.year_range` | **先取 `year`**（整数，非布尔），否则取 `year_range[0]`（数组非空且首项为整数）；都没有不出。与 `index/` 的 `sort_year` 同序（2026-11-03 统一，原先相反） |
 | `holder` | string | `current_location` | 是对象取 `name`，没有 `name` 取 `text`；是字符串取本身 |
 | `juan` | number | `juan_count` | 同 Work 卡 |
-| `img` | `true` | `resources`、源 `_has_image` | 本 Book 的 resources 含 `image`，或源档 `_has_image` 为真 |
+| `img` | `true` | `resources` | 本 Book 的 resources 含 `image` |
 | `txt` | `true` | `resources`、book-text（同 `_has_text`） | 同上，看 `text` |
 | `nres` | integer | `resources` | `resources` 项数；0 不出 |
 | `pub` | string｜integer | `publication_info.year` | `publication_info` 是对象、其 `year` 是字符串或整数时原样取 |
@@ -165,7 +165,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `from` | array<string> | `lineage.derived_from[]` | `ref_type` 缺省或为 `"book"` 的项的 `ref`（旧写 `book_id`），去重、按 id 排序 |
 | `alias` | string | `lineage.alias` | 是字符串才取 |
 
-`resources` 的类型判定（`img`、`txt`、`_has_image`、`_has_text` 共用）：取每项 `types`（字符串数组）的全部值，再加上旧单值 `type`（原样当一个类型值）。
+`resources` 的类型判定（`img`、`txt`、`_has_image`、`_has_text` 共用）：取每项 `types`（字符串数组）的全部值（旧单值 `resources[].type` 数据中已 0 条，build 已不再兼容）。
 
 例（`96kzk3xvk0` 的 `_derived_by` 指向的程甲本，作为 `_siblings` 元素）：`{"dating":"清 乾隆","edition":"程甲本","from":["96kzk3xvk0","96kzl60tts"],"holder":"多家收藏","id":"96kzkdm8e8","img":true,"juan":120,"nres":7,"pub":"1791","title":"新鐫全部繡像紅樓夢","txt":true,"y":1791}`
 
@@ -189,7 +189,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | dynasty 卡 | `{id, name, start?, end?}` | `name`＝`primary_name`；`start`／`end`＝`dates.start`／`dates.end`（整数才取） |
 | reign 卡 | `{id, name, start?, end?, ruler?, dynasty?}` | `ruler`＝`ruler.name`；`dynasty`＝`dynasty_id` 所指朝代条的 `primary_name` |
 | office 卡 | `{id, name, level?, dynasties?}` | `level`＝`office_level`，没有则 `institution_level`（官署条也用此卡）；`dynasties`＝`dynasty_ids` 各条的 `primary_name`（解不出名的跳过） |
-| place 卡 | `{id, name, start?, end?}` | `start`／`end`＝该地各 `history[]` 段的最小 `start`、最大 `end`（同 `_span`） |
+| place 卡 | `{id, name, start?, end?, dynasties?}` | `start`／`end`＝该地各 `history[]` 段的最小 `start`、最大 `end`（同 `_span`）；`dynasties`＝`dynasty_ids` 各条的 `primary_name`（解不出名的跳过，朝代条才有） |
 | people 卡 | `{id, name, dyn?}` | `dyn`＝`dynasty` |
 
 例（`hixi1ubk35z8` 三國吳的 `_reigns` 首项）：`{"dynasty":"三國吳","end":229,"id":"hixi1ubl0vmo","name":"黃武","ruler":"孫權","start":222}`
@@ -206,7 +206,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 
 | 字段 | 类型／精确形状 | 出现 | 由哪些源字段算出 | 产物 | 自 |
 |---|---|---|---|---|---|
-| `_books` | array<Book 卡> | 总是 | `Book.work_id` 反查（并旧 `Work.books`）。排序：有年代者在前，按 Book 卡 `y` 的取法（`year_range[0]` 优先，否则 `year`）升序；年代相同或都无年代按 id | entry | v1 |
+| `_books` | array<Book 卡> | 总是 | `Book.work_id` 反查（并旧 `Work.books`）。排序：有年代者在前，按 Book 卡 `y` 的取法（`year` 优先，否则 `year_range[0]`）升序；年代相同或都无年代按 id | entry | v1 |
 | `_edition_count` | integer | 总是 | `len(_books)` | entry | v1 |
 | `_authors` | array<`{name?, role?, dyn?, id?, h?, dates?}`> | 总是 | 与 `authors[]` 同序，非对象项跳过。每项基础为 `{name: authors[].name, role: authors[].role, dyn: authors[].dynasty}`（空者省略；**role 缺不补**）；`entity_id` 解得到 Entity 时先放 Entity 卡（或枢纽 `{id, h:1}`），再用基础值覆盖其 `name`、`dyn` | entry | v1 |
 | `_catalogs` | array<`{bid, title?, dyn?, section?}`>，枢纽志书为 `{bid, h:1, section?}` | 总是 | 按 `indexed_by[]` 顺序，取 `source_bid` 解得到 Work 者，同一 `source_bid` 只取第一次出现。`title`＝志书题名；`dyn`＝志书的 Work 卡 `dyn` 取法；`section`＝该 `indexed_by` 项的 `section`（非空字符串） | entry | v1 |
@@ -216,7 +216,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `_collections` | array<Collection 卡＋`{vol?, sub?, group?, ord?}`>，枢纽为 `{id, h:1, …}` | 总是 | 先按本条 `contained_in[]` 顺序（对方须是 Collection，同一丛编只取一次），边属性取该项：`vol`＝`volume_index`、`sub`＝`sub_items`、`group`＝`group`、`ord`＝`details` 里「叢編原序 N」的 N（整数）；再把只见于丛编侧旧字段的丛编按 id 补在后面 | entry | v1 |
 | `_classifications` | array<`{scheme, node, path, l1, l2, l3, l4, source?}`> | 有 `classification/` 且该 Work 有成员行时 | 分类成员档 `[work_id, source]`。`path`＝节点到根的标签链（根在前）；`l1`–`l4`＝`path` 补 `""` 到 4 项；`source`＝成员行第二项。顺序同 Work 卡 `cls` | entry | v1 |
 | `_member_catalog` | `{total, pages}` | 本 Work 是志书（有别的 Work 的 `indexed_by[].source_bid` 指它）时 | 著录成员数、页数 | entry；成员在 `catalog/<id>/<n>.json` | v1 |
-| `_has_image` | `true` | 为真才有 | Work 或其任一 Book 的 resources 含 `image`；或源档 `_has_image`／`has_image` 为真 | entry | v1 |
+| `_has_image` | `true` | 为真才有 | Work 或其任一 Book 的 resources 含 `image` | entry | v1 |
 | `_has_text` | `true` | 为真才有 | Work 或其任一 Book 的 resources 含 `text`；**或** book-text 的 `index/texts` 里有该 Work 或其任一 Book 的 id，且至少一个版本 `quality` 不是 `none`／`placeholder`（id 沿 `merged_into` 解析）。build 必给参数 `--text-index <book-text>/index/texts`（#144 起不给直接报错） | entry | v1 |
 | `_has_collated` | `true` | 为真才有 | book-text 里该 Work（或其任一 Book）有 `kind` 为 `collated`／`self_collated` 且 `quality` 不是 `none`／`placeholder` 的版本（id 沿 `merged_into` 解析） | entry | v1 |
 | `_lineage_graph_ref` | string，形如 `"lineage/<work_id>.json"` | 本 Work 产出了 `lineage/` 文件时 | 见〈六·版本图〉 | entry | v1 |
@@ -240,7 +240,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `_related` | array<（Book 卡或 Collection 卡）＋`{t, relation:"related", direction}`> | 有对称关联时才有 | 本库（含参照仓）所有 Book、Collection 的 `related_books`、`related_collections` 里的 id（字符串、非自身、对方是 Book 或 Collection）两侧并集。`t`＝`"book"`／`"collection"`；`direction`＝`"out"` 本条源档写了这一项，`"in"` 只有对方写了（两侧都写时两边都是 `"out"`）。按对方 id 排序；不分页 | entry | **v3** |
 | `_lineage_refs` | object `{book_id: {title?, edition?}}` | 有可解析的引用时 | `lineage.derived_from[]` 与 `lineage.related_to[]` 各项的 `ref`（旧写 `book_id`），对方须是 Book（不看 `ref_type`）；值取对方 `title`、`edition` | entry | v1 |
 | `_derived_by` | array<`{id, title?, edition?, rel?}`> | 有别本以本条为底本时 | 别的 Book 的 `lineage.derived_from[]` 中 `ref_type` 缺省或为 `"book"`、`ref`（或 `book_id`）指向本条者；`rel`＝该项 `relation`。按对方 id 排序 | entry | v1 |
-| `_has_image` | `true` | 为真才有 | 本条 resources 含 `image`，或源档 `_has_image`／`has_image` 为真 | entry | v1 |
+| `_has_image` | `true` | 为真才有 | 本条 resources 含 `image` | entry | v1 |
 | `_has_text` | `true` | 为真才有 | 本条 resources 含 `text`，或 book-text 里有本条 id 的可用版本（口径同 Work） | entry | v1 |
 | `_has_collated` | `true` | 为真才有 | 同 Work：book-text 里本条 id 有可用的 `collated`／`self_collated` 版本 | entry | v1 |
 | `_lineage_graph_ref` | string `"lineage/<work_id>.json"` | 所属 Work 下任一 Book 的 `lineage.derived_from` 或 `related_to` 非空时（本条自己没有也出） | 见〈十二〉第 5 条 | entry | v1 |
@@ -261,9 +261,9 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `_children` | array<Collection 卡>，枢纽为 `{id, h:1}` | 有子丛编时 | 别的 Collection 的 `contained_in[]` 指向本条（`contained_in` 项是字符串或 `{id,…}` 都认），按 id 排序 | entry | v1 |
 | `_related` | 同 Book `_related` | 有对称关联时 | 同 Book | entry | **v3** |
 | `_has_image`／`_has_text` | `true` | 为真才有 | 本条 resources；`_has_text` 另由 book-text 推（口径同 Work） | entry | v1 |
-| `_has_collated` | `true` | 为真才有 | 只看源档旧值（Collection 无整理本） | entry | v1 |
+| `_has_collated` | `true` | 为真才有 | 恒无（Collection 无整理本；book-text 里没有丛编 id） | entry | v1 |
 
-正式库 10-09：85 个丛编中 9 个无成员（`_member_pages: 0`、无 `_member_type`）。
+正式库 11-03：3,707 个丛编中 21 个无成员（`_member_pages: 0`、无 `_member_type`）。
 例：`8rlcsybg2hhd` 的 `_children`：`[{"id":"8rlcsybg2hhe","title":"二十四史"},{"h":1,"id":"8rlcsybg2hhf"},{"id":"8rlcsybg2hhg","title":"武英殿十三經注疏"}]`；`8rlb6yi1ecqo` 的 `_related`：`[{"direction":"out","id":"8rlcsybg2hi6","relation":"related","t":"collection","title":"四庫全書珍本（臺灣商務再續本）"}]`。
 Collection 的 `_related` 只来自 `related_books`／`related_collections`；Work 的 `related_works` 指向丛编的边（如 `collected_in`）只出现在 Work 一侧的 `_related`。
 
@@ -325,6 +325,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 | 字段 | 类型／精确形状 | 出现 | 由哪些源字段算出 | 产物 | 自 |
 |---|---|---|---|---|---|
 | `_children` | array<place 卡> | 有下辖时 | 别的 place 的 `history[].parent_id` 反查；按 id。卡片带下级自己的 `start`／`end` | entry | v2 |
+| `_concretes` | array<place 卡> | 跨朝条（`place_level:"concept"`）下有朝代条时 | 别的 place 的 `concept_id` 指向本条者；按起年（无起年在后）、再按 id 排序；卡片带 `dynasties` | entry | v2 |
 | `_span` | `{start?, end?}` | 有任一段起讫年时 | 各 `history[]` 段整数 `start` 的最小值、整数 `end` 的最大值 | entry | v2 |
 
 例（草稿 `1jb8kgdh3pse8` 浙江省）：`"_span":{"end":1912,"start":1366}`，`_children` 首项 `{"end":1912,"id":"1jb8kgdh3psel","name":"杭州","start":621}`。
@@ -337,7 +338,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 | `_dynasty_candidates` | array<string> | 条件 | 同上 | entry | v2 |
 
 例：`hixhd2h9bdye`（歐陽修，`dynasty:"北宋"`）→ `"_dynasty_id":"hixi1ubk35zj"`。`dynasty_reign_keys` 里 `宋` 一键下有 `南朝宋`、`宋（輔公祏）`、`趙宋`、`北宋` 等多个带 `ambiguous` 的候选，写 `宋` 的人物只得 `_dynasty_candidates`。
-正式库 10-09：people 有 `_dynasty_id` 21,261 条、`_dynasty_candidates` 2,509 条；Work 69,950 条、6,474 条。
+正式库 11-03：people 有 `_dynasty_id` 101,308 条、`_dynasty_candidates` 2,518 条；Work 163,749 条、9,086 条。
 
 ---
 
@@ -402,7 +403,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 
 ## 八、`index/`
 
-检索用扁平摘要，网站搜索与 bim 列表读它。字段规则逐字照 bim `entry_extractor.py`（`build_index_entry`／`build_entity_index_entry`），另加 `has_collated`。`index/` 的键不加下划线：整个文件都是派生产物。
+检索用扁平摘要，网站搜索与 bim 列表读它。字段规则照 bim `entry_extractor.py`（`build_index_entry`／`build_entity_index_entry`），**不给 `--text-index` 时与之逐条一致**（11-03 在全部 80.6 万条源记录上对拍：键、值、键序 0 差异）；与 bim、TS 的已知分歧见下〈三端分歧〉。`index/` 的键不加下划线：整个文件都是派生产物。
 
 **分片**：
 
@@ -418,9 +419,21 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 
 **格式**：沿用目标文件现有的缩进（看第二行的前导空格，默认 2）与「文件尾有无换行」；目标文件不存在时缩进 2、**文件尾无换行**（见〈十二〉第 7 条）。只写有变的文件。默认写 `<out>/index/`；`--write-index` 另写回仓内 `index/`。仓内 `index/` 提交在 git 里，现有分片都是缩进 2、文件尾一个换行。
 
+**三端分歧（build `index_entry` ／ bim `build_index_entry` ／ TS `ui/src/core/storage.ts`，11-03 核）**
+
+| 项 | build | bim Python | TS | 影响 |
+|---|---|---|---|---|
+| Work 的 `has_text`／`has_collated` | 给 `--text-index` 时并入其下 Book 与 book-text（`merged_into` 解析） | 只看本条 `resources`；`has_collated` 不产出 | 同 bim | 本地写出的 Work index 与 build 产物在这两个字段上不同；**线上以 build 为准**，bim／TS 写的只是本地副本 |
+| `promoted_to` | 只取升格对照 `promotions/` | 档上 `_promoted_to` 优先，其次调用方传入的升格对照 | 只取档上 `_promoted_to`，没有升格对照入参 | 档上已无 `_promoted_to`（0 条），三端等价；bim／TS 的档上读法是迁移期遗留 |
+| 键序 | `id,title,type,path,author,era,sort_year,holder,dynasty,role,…` | 同 build | 先 `id,title,type,path,era,sort_year` 再 `author,holder,…,dynasty,role` | TS 写出的分片键序不同，JSON 语义相同 |
+| 类型宽严 | `edition`／`period`／`subtype`／`loss_status`／`original_title`／`measure_info` 真值原样；`sort_year` 要求 int 非 bool | 同 build | 这几个字段只收 string；`sort_year` 收任意 number | 现数据里这些字段全是 string／int，无实际差异 |
+| Entity | 同 bim | `build_entity_index_entry` | `buildEntityIndexEntry` 仅供对拍，不是写路径 | TS 不写 `index/entities/` |
+
+黄金样例 `tests/golden/entries.json` 只覆盖「单条记录 → index 条目」，**不带 text-index**，所以对拍抓不到第一行；要核对须用带 book-text 的环境全量 build 后比较 `has_text`。
+
 **条数守恒**：`index/` 条目总数必须等于 `entry/` 数，否则失败。
 
-**墓碑条**：`index/` 含被并方（记录上有 `merged_into` 的墓碑，现 Work 395、Entity 2；2026-11-01 起墓碑会被 `.claude/qa/purge-tombstones` 定期整体清掉，清掉的不再进 index），按普通条目列出，条目里不带 `merged_into`；**检索端自行过滤**。网站对旧 id 的跳转读的是条目记录上的 `merged_into`（kaiyuanguji-web `item-redirect.ts`，308 到留存方），build 不因此把墓碑排除出 `index/`（目录经理 2026-10-09 定，overview#409）。
+**墓碑条**：`index/` 含被并方（记录上有 `merged_into` 的墓碑，10-09 为 Work 395、Entity 2，此后已大批清理；2026-11-01 起墓碑会被 `.claude/qa/purge-tombstones` 定期整体清掉，清掉的不再进 index），按普通条目列出，条目里不带 `merged_into`；**检索端自行过滤**。网站对旧 id 的跳转读的是条目记录上的 `merged_into`（kaiyuanguji-web `item-redirect.ts`，308 到留存方），build 不因此把墓碑排除出 `index/`（目录经理 2026-10-09 定，overview#409）。
 
 **Book 墓碑**（带 `merged_into` 的 Book，book-index#274 起）：`index/` 同样照列；但**不计入** Work 的 `_books`／`_edition_count`、同 Work 其他 Book 的 `_siblings`、卡片 `nb`，墓碑自身 entry 的 `_siblings` 为空，保留 `merged_into` 供 308 读取（ai-team#3，2026-10-13 Morgan 定）。
 
@@ -445,7 +458,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 | `additional_titles` | 可选 | `additional_titles` | 字符串数组；对象项取其 `book_title` |
 | `attached_texts` | 可选 | `attached_texts` | 同上 |
 | `has_text` | 可选（`true`） | `resources`、book-text | **与 entry 的 `_has_text` 同口径**（Work 并其 Book，加 book-text，见〈三〉）。 |
-| `has_image` | 可选（`true`） | `resources` | 同上，看 `image`（旧 `type` 为 `image` 或 `text+image`） |
+| `has_image` | 可选（`true`） | `resources` | 同上，看 `image`（只认 `types` 数组） |
 | `has_collated` | 可选（`true`） | book-text（旧：`_has_collated`、`has_collated`） | 与 entry 的 `_has_collated` 同口径 |
 | `edition`、`subtype`、`period`、`loss_status`、`original_title`、`work_id` | 可选 | 同名 | 真值原样 |
 | `promoted_to` | 可选 | 源档 `_promoted_to`、`promoted_to`、升格对照 | 按此先后取第一个非空者；四类记录都出 |
@@ -512,7 +525,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 
 **place_keys 候选**（收 place）：键源按先后为 `primary_name` → 别名（全稱除外）→ 沿革（各 `history[]` 段的当时名 `name`，`via:"沿革"`）→ 去通名（前面各名以 `PLACE_SUFFIX` 结尾且至少 3 字者去末字，`via:"去通名"`）。候选 `{id, subtype:"place", primary_name, via, level?, start?, end?, modern?, segments?, ambiguous?, default?}`：`level`＝最后一段的 `level`；`start`／`end`＝各段最小起年、最大讫年；`modern`＝`modern.text`；`segments`＝以沿革名（及其去通名形）命中时，该名对应的各段 `{name_then, start?, end?, level?, parent_id?, parent?, dynasties?}`。排序：只靠去通名命中者在后，其余按 `start`、id。
 **`default`**：一个键有 2 个以上候选时至多标一个——① 恰有一个候选是 `primary_name` 命中，标它；② 否则取 `PLACE_RANK` 最低的候选 L（最低级不止一个则不标），仅当其余候选都在 L 的沿革上级链闭包里时标 L；③ 其余不标。
-正式库 10-09 还没有 place 条，`place_keys.json` 的 `keys` 为空。
+正式库 11-03：place 条已有，`place_keys.json` 收 35,106 个 place、13,309 个键（多候选键 12,147，标 `default` 的 8,731）；`dynasty_reign_keys.json` 1,547 键（朝代 321、年号 985）；`office_keys.json` 2,465 键（office 2,441、官署 694）。
 
 ---
 
@@ -532,7 +545,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 
 **只报不挡**（写进 `report.json`，不影响退出码）：
 1. 悬空引用 `dangling`：`Book.work_id`、`Book.contained_in`、`Book.lineage.derived_from`、`Work.authors.entity_id`、`Work.contained_in`、`Work.related_works`、`Work.indexed_by.source_bid`、`Collection.contained_in` 及各旧反向字段，只报本仓记录引出的。
-2. `notes`：`report.json` 另有 `text_index`（接入统计、丢掉的 Work 清单）与 `dangling_text_ids`（book-text 里解析不了的悬空 id，不致命）。旧注（正式库 10-09：295 条）、「`_has_collated` 僅憑源裡舊值」（65 条）、「Entity._works 缺 role（以「撰」補）」。
+2. `notes`：`report.json` 另有 `text_index`（接入统计、丢掉的 Work 清单）与 `dangling_text_ids`（book-text 里解析不了的悬空 id，不致命）。11-03 全量 build 的 `notes` 为空（10-09 曾有旧注 295 条、「`_has_collated` 僅憑源裡舊值」65 条；`Entity._works` 缺 role 时仍会记「以「撰」補」）。
 3. `index.drift_vs_repo_index`：仓内现有 `index/` 与重生值逐字段之差（草稿库数据 PR 不带 `index/`，差得多是预期）。
 
 **`--hub-check`**：Collection、Work、Entity 各取本仓入度最大的枢纽，在内存里给名字加后缀重算全部产物，数变了几个文件；结果进 `report.json` 的 `hub_check: [{type, id, indegree, changed, files（前 10）, ok}]`。正式库 10-09：`8rlcsybg2hhl`（入度 17,540）、`d59frnrt4lxc`（29,218）、`hixhd2h9bdqq`（380）各牵动 2 档。
@@ -550,8 +563,9 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 | 1 | 2026-10-07 | 基础契约（overview#458）：`entry/`、`members/`、`catalog/`、`related/`、`lineage/`、`_hubs.json`、`classific.json`、`index/`；Work／Book／Collection／Entity 的基础派生字段 |
 | 2 | 2026-10-07 | 纯增量：专名派生字段（dynasty、reign、office、官署、place 各字段，people 与 Work 的 `_dynasty_id`／`_dynasty_candidates`）与 `dynasty_reign_keys.json`、`office_keys.json`、`place_keys.json`（overview#464、#458） |
 | 3 | 2026-10-08 | 纯增量：Book、Collection 加 `_related`（`related_books`／`related_collections` 两侧并集）（overview#458） |
+| 3（补登） | 2026-11-03 | 契约 3 之后上线、当时未登记的纯增量：place 条加 `_concretes`；place 卡加 `dynasties`。未升 `CONTRACT`（升版要改 `build_derived.py`，另行排期）；补登依据 S5 审查（总目/schema审查/S5） |
 
-**改契约的规矩**：任何增删、改名、改形状、改分页大小，**先在 overview#458 留言通知网站经理，等对方回复后再合**；只新增可选字段也算改契约，同样要先通知。改动时：`CONTRACT` 加一、本档〈十一〉表加一行、记入 [CHANGELOG.md](CHANGELOG.md)，并在同一个提交里用 `build/make_contract_sample.py` 重生 `build/contract-sample/`。
+**改契约的规矩**：任何增删、改名、改形状、改分页大小，**先经协调者通知网站侧（A41／A42），并在 Jira GUJI 卡留痕，等对方回复后再合**（overview 仓已淘汰，原渠道 overview#458 不再用）；只新增可选字段也算改契约，同样要先通知。改动时：`CONTRACT` 加一、本档〈十一〉表加一行、记入 [CHANGELOG.md](CHANGELOG.md)，并在同一个提交里用 `build/make_contract_sample.py` 重生 `build/contract-sample/`。
 `report.json` 的内容、`notes` 的措辞不属契约。
 
 **样例包** `build/contract-sample/`（进 git）：正式库 29 条＋草稿库 8 条的 `entry/`、对应 `index/` 行、各自一页 `members/`／`catalog/`／`related/`、`lineage/`、`_hubs.json`、`classific.json`；覆盖丛书、合集、混合丛编、子丛编、志书、跨作品关系（含分页）、分类有无、枢纽、源流、草稿指正式、专名派生。每条入选理由见 `MANIFEST.json`。规则固定、可重跑。
@@ -564,16 +578,16 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 
 | # | 现状 | 影响 |
 |---|---|---|
-| 1 | **朝代：两个字段，有意不同**（overview#496 §六-1，目录经理 10-09 定）：`index/` 的 `dynasty` 是**撰人朝代**（第一个有朝代的作者优先，再顶层）；卡片 `dyn`、`_hubs.json` 的 `dyn`、Work 的 `_dynasty_id` 是**成书朝代**（顶层 `dynasty` 优先，再第一个有朝代的作者）。正式库 10-09 实测 216 部 Work 两者不同：多为作者朝代更细（元末明初／明）或成书与撰人本异（今本竹書紀年 南朝梁／明），故不统一。bim `entry_extractor`、ui `storage.ts` 同此取法 | 搜索列表显示撰人朝代，页面显示成书朝代；读者勿当作同一字段 |
-| 2 | **年份取法不一**：`index/` 的 `sort_year` 取 `dating.year` 优先、再 `year_range[0]`（且要求 `year_range` 恰两项）；卡片 `y` 与 `_books`／`_siblings` 排序取 `year_range[0]` 优先、再 `year` | 两者都有的 Book，列表排序年与卡片年不同 |
-| 3 | **有无全文／影像取法不一**：`index/` 的 `has_text`／`has_image` 只看本条 `resources`（认旧 `type:"text+image"`），不看源档 `_has_text`，Work 也不并其 Book；entry 的 `_has_text`／`_has_image` 与卡片 `txt`／`img` 看源档旧值、Work 并其 Book，但旧单值 `type` 只按原值比，`"text+image"` 不算 `text` 也不算 `image`。正式库 10-09：Work 条目 `has_text` 11,511 vs `_has_text` 12,003（**已由 `--text-index` 统一**，工作包 C；`has_text` 与 `_has_text` 同为 book-text 口径，`has_collated` 同）；`has_image` 18,926 vs `_has_image` 20,540 | 搜索筛「有全文」与页面徽标不一致 |
+| 1 | **朝代：两个字段，有意不同**（目录经理 10-09 定，原讨论在已淘汰的 overview#496）：`index/` 的 `dynasty` 是**撰人朝代**（第一个有朝代的作者优先，再顶层）；卡片 `dyn`、`_hubs.json` 的 `dyn`、Work 的 `_dynasty_id` 是**成书朝代**（顶层 `dynasty` 优先，再第一个有朝代的作者）。正式库 10-09 实测 216 部 Work 两者不同：多为作者朝代更细（元末明初／明）或成书与撰人本异（今本竹書紀年 南朝梁／明），故不统一。bim `entry_extractor`、ui `storage.ts` 同此取法 | 搜索列表显示撰人朝代，页面显示成书朝代；读者勿当作同一字段 |
+| 2 | ~~年份取法不一~~ 已统一（2026-11-03，S2 报告 §5.1 J）：`index/` 的 `sort_year`、卡片 `y`、`_books`／`_siblings` 排序都先取 `dating.year`、再 `year_range[0]`。仅剩细节差：`sort_year` 要求 `year_range` 恰两项，卡片 `y` 不要求 | 数据里 `year` 与 `year_range` 并存 0 条，无实际差异 |
+| 3 | ~~有无全文／影像取法不一~~ 已统一（工作包 C，`--text-index`）：`index/` 的 `has_text`／`has_collated` 与 entry 的 `_has_text`／`_has_collated` 同为 book-text 口径（Work 并其 Book、`merged_into` 解析）；`has_image`／`_has_image` 都只看 `resources[].types`，源档不再有 `_has_*`、旧单值 `type`（均 0 条）。**残留**：bim `entry_extractor` 与 `storage.ts` 写 index 时没有 book-text，Work 的 `has_text`／`has_collated` 与 build 不同，见 S5-G | bim／TS 本地写出的 Work index 与 build 产物在这两个字段上会不同 |
 | 4 | **`promoted_to` 范围不一**：entry 里只有 Work、Book 出 `promoted_to`；`index/` 四类都出 | 已升格草稿 Collection（目前草稿库无 Collection）、Entity 的页面拿不到正式 id，要读 `index/` |
-| 5 | **`_lineage_graph_ref` 可能指向不存在的文件**：Book 只要所属 Work 下任一 Book 的 `lineage.derived_from`／`related_to` 非空就出；Work 的版本图要求至少一项是对象且带 `ref`／`book_id`，否则不出文件。正式库 10-09 实测 180 处引用全部有对应文件 | 读者打开 `lineage/` 文件要容忍 404 |
-| 6 | **`_hubs.json` 的 `t` 可能是 `"b"`**：代码按类型首字母取 `t`；现行入度只计 Work、Collection、Entity，Book 不会成为枢纽，实测只有 `w`／`c`／`e` | 读者应把 `t` 当开放值 |
+| 5 | **`_lineage_graph_ref` 可能指向不存在的文件**：Book 只要所属 Work 下任一 Book 的 `lineage.derived_from`／`related_to` 非空就出；Work 的版本图要求至少一项是对象且带 `ref`／`book_id`，否则不出文件。正式库 11-03 实测 226 处引用（对应 8 个 `lineage/*.json`）全部有对应文件 | 读者打开 `lineage/` 文件要容忍 404 |
+| 6 | **`_hubs.json` 的 `t` 可能是 `"b"`**：代码按类型首字母取 `t`；现行入度只计 Work、Collection、Entity，Book 不会成为枢纽，11-03 实测 143 个枢纽，`t` 只有 `c`（78）、`w`（52）、`e`（13） | 读者应把 `t` 当开放值 |
 | 7 | **新建 `index/` 文件尾无换行**：输出目录里还没有该分片时按缩进 2、无尾换行写出（如新的 `--out` 目录）；仓内已有分片沿用其原格式 | 与全库「文件尾一个换行」约定不一 |
 | 8 | **place 级别「都」在 `PLACE_RANK` 里缺失**：`level` 枚举有 `都`，`PLACE_RANK` 没有，按 9（最高）计，永远不会被选为「最低一级」的默认候选；`監` 在表内 | 涉及「都」的同名地名默认候选可能不标 |
-| 9 | **holder 取法不一**：卡片 `holder` 对象取 `name`、无则 `text`；`index/` 只取 `name` | 只写 `current_location.text` 的 Book 搜索列表无馆藏 |
-| 10 | **校验口径**：`.claude/qa/verify.py` 的 `MEMBER_TYPES` 含 `"Collection"`，build 只产出 `"Work"`／`"Book"`／`"mixed"`；verify 还允许源档写 `_edition_count`（只核值），build 现一律拒绝源档里的 `_` 字段 | 两个校验器对同一份数据结论不同 |
+| 9 | **holder 取法不一**：卡片 `holder` 对象取 `name`、无则 `text`；`index/` 只取 `name` | 只写 `current_location.text` 的 Book 搜索列表无馆藏 ；11-03 实测：`current_location` 为对象的 Book 114 条、Collection 26 条，**0 条只有 `text` 无 `name`**，现无实际影响 |
+| 10 | ~~校验口径~~ 已失效（11-03 核）：`.claude/qa/verify.py` 已无 `MEMBER_TYPES`；与 `_edition_count` 相关的口径差未复核 | — |
 | 11 | **Work 卡 `cls` 有两种类型**：有 `classification/` 时是节点 id 字符串，没有时退回 `[l1, l2]` 数组（正式库、草稿库都已有 `classification/`，实际只出字符串） | 读者按字符串读即可 |
 
 ---

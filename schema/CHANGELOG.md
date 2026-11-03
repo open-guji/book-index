@@ -4,6 +4,18 @@
 
 ---
 
+## 2026-11-03　补登派生字段 `_concretes` 与 place 卡 `dynasties`（S5-A；不改数据、不改代码）
+
+- build 已在产出、但文档与 schema 一直没有的两处纯增量：place 跨朝条的 `_concretes`（朝代条按 `concept_id` 反查，实测 10,819 条 entity）；place 卡（`_children`／`_concretes` 的元素）的 `dynasties`（朝代名数组）。
+- `derived.md〈四·4.5〉〈五·5.9〉〈十一〉` 与 `derived-entry.schema.json`（`PlaceCard.dynasties`、place 子类型的 `_concretes`、顶层 `_` 白名单）同步；契约样例加一条跨朝条。`check_schema --build` 因此不再对这两处报 ERROR（此前约 4.6 万条）。
+- `CONTRACT` 保持 3：升版要改 `build_derived.py`，该文件本轮归 S2，另行排期。
+
+## 2026-11-01　people 加可选字段 `relations[]`（亲属师承关系；A12，已通知 A11／A33／A42）
+
+- `entity.schema.json` 加 `relations`（项 `PersonRelation`：`type` 12 值枚举、`entity_id`、`basis`、`sources[]`），非 people 子类型一律禁用；`people.md`、`_common.md` 同步。
+- 双向对称写入，只连双方都唯一确定者；依据只来自库内已整理的文本（四庫提要等著录、正史列传），`sources` 必填并指到具体文本；不从 CBDB 导入。
+- 不改既有字段；build 暂不派生，网站暂不显示。
+
 ## 2026-11-01　并条墓碑改为定期整体清理（用户定；不改字段）
 
 - 墓碑（`merged_into`）从「永久不删」改成过渡状态：并条后先留墓碑，稳定后用 `.claude/qa/purge-tombstones/purge.py` 整体删。首批清掉 28,733 个（Work 20,854、Book 6,068、Entity 1,799、Collection 12）。

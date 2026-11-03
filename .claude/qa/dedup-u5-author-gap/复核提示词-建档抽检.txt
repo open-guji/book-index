@@ -1,0 +1,7 @@
+你是古籍目录学审核员（只读，不改仓库）。全程中文。背景：库里一批 Work 的首位责任者没有作者实体，我们要给每个「名字＋朝代」新建一个人物实体并把这些作者位指过去（将来合并比拆分容易，所以宁可多建）。请审核待建的组。
+输入 /tmp/claude-0/-home-user/d7f122ca-9551-55fa-9062-6f9fcaa98335/scratchpad/pack5/{FILE}（jsonl，每行一组）：name、dynasty、nslots、slots（题名、责任方式、朝代、原文著录 author_info）、namesake_exists（库里已有同名人物，仅供参考）。
+对每组判：
+ (1) person：name 是否是一个可作人物实体主名的真实人名（含僧道、帝王谥号、字号在内的人称）？OK / BAD（机构、书名片段、粘连责任方式、残缺、多人合称、某氏之类仅姓氏）。
+ (2) same：组内多个 slots 是否可能是同一个人？SAME（合理）/ DIFF（明显不同人，如时代相距太远、领域与身份矛盾、硃卷考生与别的著作）/ NA（只有一个 slot）。
+ 可用 WebSearch 查证存疑者，但以快速为主。
+输出 /tmp/claude-0/-home-user/d7f122ca-9551-55fa-9062-6f9fcaa98335/scratchpad/verdicts5/{FILE}，每组一行：{"name":..,"dynasty":..,"person":"OK|BAD","same":"SAME|DIFF|NA","reason":"一句话"}，行数须等于输入行数（wc -l 核对）。最后回复只给：组数、person BAD 数、same DIFF 数，并列出 BAD/DIFF 的名字。

@@ -35,11 +35,11 @@ Work、Book、Collection 的 `authors[]` 同形。Work 的 `authors[]` 是责任
 | `role_basis` | string | 可选 | 原生 | 责任方式判定的依据 | 自由文本 | 录入 | |
 | `original_name` | string | 可选 | 原生 | 著录原文之名（`name` 已规范化时保留原文） | 自由文本 | 录入 | `"脂砚斋 等 评"` |
 | `note` | string | 可选 | 原生 | 关于本责任者的说明 | 自由文本 | 录入 | `"副總纂"` |
-| 其余键 | — | — | 旧（暂留） | `cbdb_id`、`cbdb_match`、`cbdb_source`（应在 Entity 的 `external_ids`）；`title_or_office`、`courtesy_name`、`alt_names`、`entity_basis`、`sources`、`birthplace`、`ai_note`、`alias`、`additional_names`、`official`、`name_note` | 见 [legacy.md](legacy.md) | — | |
+| ~~其余键~~ | — | **不写** | — | 旧键 `cbdb_id`、`cbdb_match`、`cbdb_source`、`title_or_office`、`courtesy_name`、`alt_names`、`entity_basis`、`sources`、`birthplace`、`ai_note`、`alias`、`additional_names`、`official`、`name_note`：现存 0，已从 JSON Schema 删除（出现即报 `unknown-field`）；人物信息归 Entity | 见 [legacy.md](legacy.md) | — | |
 
 **role 取值**：开放词表，录志书原文的责任方式，不设闭集（实测正式库 470 种、草稿库 281 种）。规则：
 
-- 必填，非空字符串，**一律汉字**；不得写英文（`"author"` 等，现存 16 条，列入修正方案）。
+- 必填，非空字符串，**一律汉字**；不得写英文（`"author"` 等；2026-11-03 实测 0 条，schema 的 `pattern` 已拦）。
 - 有专门含义的三个值：
   - `撰`：最常见的著作方式。build 遇缺 `role` 时也以 `撰` 补（只用于展示兜底，源档仍须写）。
   - `舊題撰`：传统题署的撰人，实际撰人存疑或另有其人；与实际撰人并列。见 [work.md〈authenticity〉](work.md#authenticity真伪)。
@@ -112,14 +112,14 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 | `types` | array<string> | 必填 | 原生 | 资源内容类型，可多值 | `image`（影像）｜`text`（文本）｜`physical`（实物馆藏记录）｜`catalog`（书目入口）｜`annotated`（带注释的整理本） | 录入 | `["image"]` |
 | `details` | string | 可选 | 原生 | 说明（卷册范围、来源、可达性） | 自由文本 | 录入 | `"頁名取自舊叢編對照表，未驗證"` |
 | `group` | string | 可选 | 原生 | 资源组键：同一 `group` 值＝同一份内容的不同存储位置（镜像） | 记录内自定的键，指向 `resource_groups` 的键 | 录入 | `"renmin-1975-bw"` |
-| `group_role` | string | 条件：有 `group` 时必填 | 原生 | 本条在组内的角色 | `origin`（原始来源）｜`mirror`（我们做的备份镜像）｜`derivative`（据原始来源加工的衍生件）｜`source`（旧写法，等同 `origin`，1 条） | 录入 | `"origin"` |
+| `group_role` | string | 条件：有 `group` 时必填 | 原生 | 本条在组内的角色 | `origin`（原始来源）｜`mirror`（我们做的备份镜像）｜`derivative`（据原始来源加工的衍生件）（`source` 旧写法已清，现存 0，不再接受） | 录入 | `"origin"` |
 | `metadata` | object | 可选 | 原生 | 来源站点的原始字段透传，不规范化 | 键随站点而异，见下 | 录入 | `{"nlc_fid":"…"}` |
 | `volumes` | array<object>｜object | 可选 | 原生 | 分册入口 | 数组项 `{volume, url?, imagecount?, file?, wiki_url?, tw_url?, status?, group?, group_id?, description?, label?, pages?}`；对象形是「按规律生成分册地址」的描述（`url_template`、`start`、`end`、`step` 等） | 录入 | |
 | `expected_volumes` | integer | 可选 | 原生 | 应有册数（`volumes` 不全时用于标进度） | 正整数 | 录入 | `26` |
 | `root_type` | string | 可选 | 原生 | 资源根类型（标记「书目入口」型资源） | `catalog` | 录入 | `"catalog"` |
 | `color_mode` | string | 可选 | 原生 | 影像色彩 | `color`｜`bw` | 录入 | `"color"` |
 | `note`、`source_label` | string | 可选 | 原生 | 说明、来源标签（各 1 条） | 自由文本 | 录入 | |
-| `type` | string | — | 旧（暂留） | 单值的内容类型（`types` 的前身） | `image`｜`text`｜`physical` | — | 读者按 `types ?? [type]` 读，见 [legacy.md](legacy.md) |
+| ~~`type`~~ | — | **不写** | — | 单值内容类型（`types` 的前身）：现存 0，已从 JSON Schema 删除，读者只读 `types` | — | — | |
 | ~~`group_label`~~ | — | **不写** | — | 组标签：已改写在 `resource_groups[<组>].label`（现存 0，读者已不读） | — | — | |
 
 **`metadata` 常见键**（透传，不校验内容）：国图 `nlc_fid`／`nlc_bid`／`nlc_book_id`／`nlc_volume_id`／`nlc_aid`；故宫 `acckey`／`item_id`／`call_number`；国书数据库 `kokusho_bid`／`iiif_manifest`／`holder`；识典等文本站 `check_type`（`粗校`｜`AI整理`｜`精校`）／`paragraph_count`／`total_page`／`version`／`has_translation`；其余 `edition`、`publisher`、`year`、`format`（`PDF`｜`DjVu`）、`volume`、`note`、`digital_pages`、`access_code`（网盘提取码）、`commons_category`、`holding`、`shanben_no`、`completeness`、`page_range` 等。新站点要加键不必改格式文档，但同一站点同一含义的键要沿用已有名。
@@ -177,11 +177,11 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 
 读者：字符串当作名称显示；对象取 `title ?? name` 显示、有 `url`／`details` 时作链接。
 
-正式库实测（元素数）：Work 字符串 93,290、对象 665；Book 530／34；Collection 35／23；Entity 8／5,771（含 `description.sources` 的 Source 对象）。
+正式库实测（2026-11-03，含 `description.sources` 字符串／对象元素的记录数）：Work 65,000／649；Book 29,827／24；Collection 22／20；Entity 25／82,675（Entity 的对象是 Source 对象，Work、Book、Collection 的对象是引文对象）。
 
 ### Source（`sources[]` 与他处的出处对象）
 
-记录顶层的 `sources[]`（数据来源，多见于 Book：正式库 33,891 条，草稿库 68,118 条）、`authors[].source` 等用此形。
+记录顶层的 `sources[]`（数据来源，几乎全在 Book：2026-11-03 正式库 Book 384,502 条、Collection 3,627 条，Work 仅 5 条空数组；草稿库已清空）、`authors[].source` 等用此形。
 
 | 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |
 |---|---|---|---|---|---|---|---|
@@ -229,7 +229,7 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 | `source` | string | 可选 | 出处代号 | 自由文本 |
 
 - `number` 与 `unit` 同层：**读 `number` 时必须同时读 `unit`，不可预设「卷」**（《羋子》「十八篇」曾被显示成「十八卷」）。`unit` 缺时宁可不显示单位字样。
-- 现状：Book 有 `unit`（正式库 21,530 条，其中 `册` 4 条为异体旧写）；Work 尚未回填（0 条）。
+- 现状（2026-11-03）：Book 有 `unit` 270,874 条（`册` 旧写已清，现存 0）；Work 的 `juan_count` 只有 155 条带 `unit`，Work 的单位实际记在 `measures[0].unit`（60,334 条），两处如何收成一套待定。
 - 汉志一类著录的「篇」也放在 `juan_count.number`，靠 `unit` 区分。
 
 **`measures`**：同一部书同时有不止一个计量维度时用（如通俗小说「六卷十六回」，卷是文本分卷、回是章节结构）。`juan_count` 是其中作为主计量的那一个，不另立一套。`measures[].unit` 实测还有 `頁`、`段`、`幅`、`條`、`折`、`石`、`字`、`葉`、`卷首` 等少量值，不在上面的闭集内。已知 `measures[0].unit` 不能盲信：正式库曾查出 995 条与 `measure_info` 原文不一致（多在「國立故宮博物院善本舊籍」批次，整批错填成「冊」），回填 `juan_count.unit` 一律以 `measure_info` 原文重新抽取为准。
@@ -281,9 +281,9 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 
 | 字段 | 类型 | 在哪 | 性质 | 含义 | 取值 |
 |---|---|---|---|---|---|
-| `merged_in` | array<object> | keeper（Work、Entity） | 原生 | 并条事件日志（事件，不是关系，不可派生） | 每项 `{id, title, at, by, rule, why}`；可另带 `author`、`title_info`、`indexed_by_moved[]`、`books_moved[]`、`measure_info`、`note`、`reason`。早期有 34 项只写了被并者 id 字符串 |
+| `merged_in` | array<object> | keeper（Work、Entity） | 原生 | 并条事件日志（事件，不是关系，不可派生） | 每项 `{id, title, at, by, rule, why}`；可另带 `author`、`title_info`、`indexed_by_moved[]`、`books_moved[]`、`measure_info`、`note`、`reason`、`via`（墓碑链收口时，被并者原先并入的那一条的 id；Work 309 项）。早期的字符串项已清，现存 0 |
 | `merged_into` | string | 墓碑（Work、Book、Entity、Collection） | 原生 | 并入了哪一条 | 记录 id。**只在墓碑上** |
-| `merged_from` | array<string> | keeper（Work、Book、Collection） | 原生 | 并入本条的记录 id | id 数组（原 1 条字符串旧写已于 2026-10-09 改为数组） |
+| `merged_from` | array<string> | keeper（Work、Book、Collection） | 原生 | 并入本条的记录 id | id 数组（字符串旧写已于 2026-10-09 改为数组，现存 0） |
 | `merge_history` | array<object> | keeper（Work、Entity） | 原生 | 早期的并条账 | Work：`{date, merged_from, title, reason}`；Entity 见 [entity/_common.md](entity/_common.md) |
 | `merged_basis` | object | 草稿库 Work 墓碑 | 原生 | 并条留痕：保留方在正式库、按「只追加」不改时，被并方把自己的著录与作者异写留在墓碑上 | `{rule, at, by, author_as_written, indexed_by}`，`rule` 为并条口径名（如「叢書去重」「跨部查重」），`at` 为时间，`by` 为执行方；`author_as_written`、`indexed_by` 照被并方原值搬来，不设格式。**只在墓碑上** | 并条脚本 | |
 
@@ -318,6 +318,8 @@ Work、Book、Collection、Entity 都有。
 
 面向读者的正文一律写进 `description.text`，出处写进 `description.sources`。前端不渲染 `ai_note`。
 
+**机器校验（`check_schema.py` 的 `semantic_warns`，2026-11-03 起，先只报 WARN）**：有 `period`／`dynasty` 而无 `period_basis`／`dynasty_basis`（Work、Entity）；`resources[].group` 不在 `resource_groups` 里；`indexed_by`／`emendated_by` 元素缺 `title_info` 或 `summary`。存量清完后再升为 ERROR。
+
 ### revision 口径
 
 **`revision` 管的是「这部作品『是什么』的陈述」有没有变。** 人或脚本对作品下的判断与事实变了算；派生的副产品（反向链、聚合、计数、分类归属）与管理字段不算。
@@ -351,7 +353,7 @@ Work、Book、Collection、Entity 都有。
 |---|---|---|---|
 | `dynasty` | Work 顶层、`authors[].dynasty`、Entity | **直接显示给读者**的朝代名 | 规范朝代名（下表首列） |
 | `period` | Work、Entity | 本库判定的**时代轴**：粗粒度、无歧义，供选集合 | 12 值枚举，见下 |
-| `period_upper` | Work | 时代上限：本书不得晚于此 | 同 `period` 词表 |
+| `period_upper` | Work | 时代上限：本书不得晚于此（校验用，可与 `period` 并存） | 同 `period` 词表 |
 
 判法（怎么定 `dynasty`、`period`、`period_upper`，以及 `dynasty_basis`／`period_basis` 该写什么）见 [cataloging-rules.md〈时代与朝代的判法〉](cataloging-rules.md)。
 
@@ -381,13 +383,13 @@ five-dynasties  song  liao-jin-yuan  ming  qing  modern
 - **`period` 只可分组，不可排序**：段与段在时间上有重叠（`song` 与 `liao-jin-yuan` 全重叠 319 年），需时序者另用数值年。
 - 与 `dynasty` 分立：`dynasty` 是显示用的朝代名；`period` 是本库之判。`period` 不是 `dynasty` 的函数（舊題撰人、跨代人物、伪托作品三类正当地不同）。
 - 一律标**成书时代**（实际撰人之时），不标舊題撰人之时。
-- 判不出留空（不写 `null` 占位为宜；现存 8 条 `null`）。
+- 判不出留空，不写 `null` 占位（现存 0）。
 
 | 字段 | 类型 | 必填 | 含义 | 取值 |
 |---|---|---|---|---|
 | `period` | string | 可选 | 时代轴 | 上表 12 值 |
 | `period_basis` | string | 条件：有 `period` 时必填 | 判定依据，逐条可读；与 `dynasty` 相异者必记其由；以「撰人已定代 X」为据者，须写明该撰人之代从哪里来（CBDB／史传／著录／推定） | 自由文本（常见起首：`據 authors[0].dynasty「…」`、`catalog_bound`、`duandai`） |
-| `period_upper` | string | 可选 | 时代上限：只给上限，不给下限；只标在 `period` 为空或存疑者 | 12 值之一 |
+| `period_upper` | string | 可选 | 时代上限：只给上限，不给下限；`period` 已定者也可并存，作校验用（2026-11-03 实测 44,053 条中 23,082 条与 `period` 并存；`period` 若晚于 `period_upper` 属冲突） | 12 值之一 |
 | `period_upper_basis` | string | 条件：有 `period_upper` 时必填 | 据何而定（含该志的上限），逐条可验 | 自由文本（常见起首：`catalog_bound：…`、`edition_bound`、`excavation_bound`、`collection_bound`） |
 
 不设 `period_lower`。
