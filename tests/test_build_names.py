@@ -203,3 +203,13 @@ def test_place_concrete_tier(tmp_path):
     assert {c['id']: c.get('place_level') for c in k} == {'e00000pc01': None, 'e00000pc02': 'concrete',
                                                           'e00000pc03': 'concrete'}
     assert [c['id'] for c in k if c.get('default')] == ['e00000pc01']
+
+
+def test_start_end_accept_flat_legacy_keys():
+    """S4-3：官署、出版者旧写法的顶层 start／end 与 dates.start／end 两处都认；dates 优先。"""
+    import names
+    assert names._start({'dates': {'start': 960}, 'start': 1}) == 960
+    assert names._start({'start': 1082}) == 1082
+    assert names._end({'end': 1127}) == 1127
+    assert names._start({}) is None
+    assert names._end({'dates': {'end': None}, 'end': 'x'}) is None
