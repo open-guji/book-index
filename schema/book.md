@@ -21,9 +21,9 @@
 | `publication_info` | object | 可选 | 原生 | 出版信息（Book 只有 `details`／`publisher`／`place`／`source`；年代已并入 `dating`，S2-L） | 见 common.md | 录入 | `{"details":"刊刻者：京師嫏嬛別館"}` |
 | `contained_in` | array<object> | 可选 | 原生 | 收在哪些丛编（**Book∈Collection 的唯一存储侧**） | 每项 `{id, volume_index?, details?, sub_items?}`，见 [§三](#三contained_in) | 录入 | `[{"id":"8rl…","volume_index":[7,8],"sub_items":["周易略例"]}]` |
 | `authors` | array<Author> | 可选 | 原生 | 版本层的责任者（刻者、批点者、序跋者等） | 见 common.md；**`role` 必填** | 录入 | |
-| `juan_count` | object | 可选 | 原生 | 本版本的主计量 | `{number, unit?, description?, source?}` | 录入 | `{"number":10,"unit":"卷"}` |
-| `measures`、`measure_info` | — | 可选 | 原生 | 多维计量、计量显示文本 | 见 common.md〈计量〉 | 录入 | |
-| `volume_count` | object | 可选 | 原生 | 册数 | `{number, description?}` | 录入 | `{"number":32,"description":"32冊"}` |
+| ~~`juan_count`~~ | | | | 已删（S2-N 计量合一）：数与单位在 `measures[]`，卷数由 build 取 `measures` 里第一个 `unit=卷` 的项派生 | | | |
+| `measures`、`measure_info` | — | 可选 | 原生 | `measures` 是计量的**唯一结构化真源**（`[{number, unit}]`，主计量排第一）；`measure_info` 是总目原文，保留 | 见 common.md〈计量〉 | 录入 | `[{"number":10,"unit":"卷"}]` |
+| ~~`volume_count`~~ | | | | 已删（S2-N），并入 `measures`（`unit=冊`） | | | |
 | `page_count` | object | 可选 | 原生 | 页数 | `{number, description?, source?}` | 录入 | |
 | `provenance` | array<object> | 可选 | 原生 | 馆藏：现藏机构＋索书号＋藏印 | 见 [§四](#provenance馆藏) | 录入 | |
 | `physical_description` | object | 可选 | 原生 | 版本学著录：行款、装帧、尺寸、品相 | 见 [§五](#physical_description) | 录入 | |

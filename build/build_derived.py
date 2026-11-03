@@ -67,6 +67,19 @@ def num(x):
     return x if isinstance(x, (int, float)) and not isinstance(x, bool) and x else None
 
 
+def juan_of(r):
+    """卷数：先 juan_count，缺则 measures[] 里第一个 unit=='卷' 的项（計量合一，S2-N／S1-B1；与 bim entry_extractor._extract_juan_count、ui storage.ts 同序）。"""
+    n = num(r.get('juan_count'))
+    if n is not None:
+        return n
+    for m in r.get('measures') or []:
+        if isinstance(m, dict) and m.get('unit') == '卷':
+            n = num(m)
+            if n is not None:
+                return n
+    return None
+
+
 def types_of(resources):
     out = set()
     for r in resources or []:
@@ -368,7 +381,7 @@ class Build:
         return clean({
             'id': bid, 'title': b.get('title'), 'edition': b.get('edition'), 'etype': b.get('edition_type'),
             'dating': dating_text(b), 'y': sort_year(b), 'holder': holder_of(b),
-            'juan': num(b.get('juan_count')),
+            'juan': juan_of(b),
             'img': self.has(b, 'image'), 'txt': self.has(b, 'text'),
             'nres': len(b.get('resources') or []),
             'pub': pub_text(b),
@@ -379,7 +392,7 @@ class Build:
     def work_card(self, wid):
         w = self.R['Work'][wid]
         return clean({
-            'id': wid, 'title': w.get('title'), 'dyn': first_dynasty(w), 'juan': num(w.get('juan_count')),
+            'id': wid, 'title': w.get('title'), 'dyn': first_dynasty(w), 'juan': juan_of(w),
             'au': [a.get('name') for a in (w.get('authors') or [])[:3] if isinstance(a, dict) and a.get('name')],
             'cls': self.cls_of(wid), 'nb': len(self.books_of.get(wid, ())),
             'img': self.work_has(wid, 'image'),
@@ -754,8 +767,7 @@ def index_entry(d, typ, rel_path, promoted_to=None, build=None):
         e['dynasty'] = dyn
     if a0['role']:
         e['role'] = a0['role']
-    jc = d.get('juan_count')
-    jn = (jc.get('number', 0) or 0) if isinstance(jc, dict) else int(jc) if isinstance(jc, (int, float)) else 0
+    jn = int(juan_of(d) or 0)
     if jn:
         e['juan_count'] = jn
     if d.get('measure_info'):

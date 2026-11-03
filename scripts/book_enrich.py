@@ -47,7 +47,9 @@ def build_desc(b, coll_title):
     et = b.get('edition_type')
     pd = b.get('physical_description') or {}
     prov = [p for p in (b.get('provenance') or []) if p.get('institution')]
-    jc, vc = b.get('juan_count') or {}, b.get('volume_count') or {}
+    ms = [m for m in (b.get('measures') or []) if isinstance(m, dict)]
+    jc = next((m for m in ms if m.get('unit') == '卷'), None) or {}
+    vc = next((m for m in ms if m.get('unit') == '冊'), None) or {}
     ci = b.get('contained_in') or []
     core = 0  # 版本名之外的信息量
     parts = []
