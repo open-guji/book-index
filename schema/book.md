@@ -188,7 +188,7 @@
 | 字段 | 类型 | 含义 | 取值 |
 |---|---|---|---|
 | `category` | string | 版本类别 | 自由文本（实测：刻本、石刻、抄本、评本、拓本、影印、排印、簡本、石印本……） |
-| ~~`year`、`year_range`、`year_text`、`year_uncertain`~~ | | 已删（S2-L），并入 `dating`。原 `year_uncertain: true` 而 `dating.certainty` 非 `uncertain` 者，原值记在 `ai_note` | |
+| ~~`year`、`year_range`、`year_text`、`year_uncertain`~~ | | 已删（S2-L），并入 `dating`。原 `year_uncertain: true` 并入 `dating.year_uncertain` | |
 | `status` | string | 存佚 | `extant`｜`fragment`｜`lost` |
 | `extant_juan` | string | 现存卷回 | 自由文本 |
 | `alias` | array<string> | 简称、俗称（如「甲戌本」） | |

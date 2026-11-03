@@ -226,20 +226,26 @@ def title_of(rid, IW, IC):
 BASE_EDITION_ROLES = {'底本', '配補', '參校'}
 
 def base_edition_ok(be, self_id, book_ids, work_ids):
-    """Book.base_edition：陣列，每項 role 落三詞表、name／source 非空字符串，
-    book_id／work_id 若填須存在且 book_id 不得指向本書自身（S2c，overview#190）。"""
+    """Book.base_edition：陣列，每項 role 落三詞表、source 非空；book_id／work_id／hypothetical_id 至多一個，
+    三者皆無時 name 必填；book_id／work_id 若填須存在且 book_id 不得指向本書自身（版本關係 06 稿，與 bim schema_fields 同口徑）。"""
     if not isinstance(be, list): return False
     for item in be:
         if not isinstance(item, dict): return False
         if item.get('role') not in BASE_EDITION_ROLES: return False
-        if not isinstance(item.get('name'), str) or not item.get('name').strip(): return False
         if not isinstance(item.get('source'), str) or not item.get('source').strip(): return False
+        ids = [k for k in ('book_id', 'work_id', 'hypothetical_id') if item.get(k) is not None]
+        if len(ids) > 1: return False
+        name = item.get('name')
+        if name is not None and (not isinstance(name, str) or not name.strip()): return False
+        if not ids and name is None: return False
         bid = item.get('book_id')
         if bid is not None:
             if not isinstance(bid, str) or bid == self_id or bid not in book_ids: return False
         wid = item.get('work_id')
         if wid is not None:
             if not isinstance(wid, str) or wid not in work_ids: return False
+        hid = item.get('hypothetical_id')
+        if hid is not None and not (isinstance(hid, str) and hid.startswith('h_')): return False
     return True
 
 def _CODES_SUBTYPE(cv2):
