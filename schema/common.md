@@ -70,7 +70,7 @@ Work、Book、Collection 的 `authors[]` 同形。Work 的 `authors[]` 是责任
 | `source` | string | 必填 | 原生 | 著录本书的目录书／志书／考证书之名 | 书名 | 录入 | `"隋書經籍志"` |
 | `source_bid` | string | 条件：该目录书在库中有 Work 时必填 | 原生 | 该目录书的 Work id | Work id，须存在 | 录入 | `"d59f2mp0flz6"` |
 | `title_info` | string | 必填 | 原生 | 该目录中的著录标题原文 | 原文照录 | 录入 | `"毛詩義問十卷魏太子文學劉楨撰"` |
-| `summary` | string | 必填 | 原生 | 该目录中的著录／解题全文 | 原文照录 | 录入 | |
+| `summary` | string | Work 必填，Book 不写 | 原生 | 该目录中的著录／解题全文 | 原文照录；Book 层的 summary 已于 2026-11-03 删尽（#2190），再写会报 WARN `book-index-summary` | 录入 | |
 | `section` | string | 可选 | 原生 | 该目录中的类目 | 原文类目，层级以 `/` 分隔 | 录入 | `"經部/易類"` |
 | `section_basis` | string | 可选 | 原生 | `section` 的推得依据 | 自由文本 | 录入 | |
 | `author_info` | string | 可选 | 原生 | 该目录中的撰人著录原文 | 原文照录 | 录入 | `"字貴與，樂平人"` |
@@ -315,7 +315,7 @@ Work、Book、Collection、Entity 都有。
 
 面向读者的正文一律写进 `description.text`，出处写进 `description.sources`。前端不渲染 `ai_note`。
 
-**机器校验（`check_schema.py` 的 `semantic_warns`，2026-11-03 起，先只报 WARN）**：有 `period`／`dynasty` 而无 `period_basis`／`dynasty_basis`（Work、Entity）；`resources[].group` 不在 `resource_groups` 里；`indexed_by`／`emendated_by` 元素缺 `title_info` 或 `summary`。存量清完后再升为 ERROR。
+**机器校验（`check_schema.py` 的 `semantic_warns`，2026-11-03 起，先只报 WARN）**：有 `period`／`dynasty` 而无 `period_basis`／`dynasty_basis`（Work、Entity）；`resources[].group` 不在 `resource_groups` 里；`indexed_by`／`emendated_by` 元素缺 `title_info`，或 Work 上缺 `summary`；Book 上出现 `summary`（`book-index-summary`）。存量清完后再升为 ERROR。
 
 ### revision 口径
 

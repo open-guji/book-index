@@ -147,3 +147,14 @@ def test_entity_stage4_legacy_forms_rejected():
     assert bad(external_ids={})
     assert bad(alt_names=[{"name": "x"}])     # 别名缺 type
     assert bad(alt_names=["x"])               # 裸字符串别名
+
+
+def test_book_index_summary():
+    import importlib.util, os
+    spec = importlib.util.spec_from_file_location("cs2", os.path.join(os.path.dirname(__file__), "..", "schema", "check_schema.py"))
+    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    ok = {"indexed_by": [{"source": "x", "title_info": "t"}]}
+    assert m.semantic_warns("book", ok) == []
+    assert [c for _, c, _, _ in m.semantic_warns("work", ok)] == ["index-entry-missing"]
+    bad = {"indexed_by": [{"source": "x", "title_info": "t", "summary": "s"}]}
+    assert [c for _, c, _, _ in m.semantic_warns("book", bad)] == ["book-index-summary"]
