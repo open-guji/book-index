@@ -14,7 +14,7 @@ git 里的 JSON 仍是唯一真源。数据库由 bim 从 JSON 生成（D2），
 ## 设计原则
 1. **每类记录一张主表**：`work`、`book`、`collection`、`entity`；Entity 另有 8 张子类表（`person` `collective` `publisher` `dynasty` `reign` `office` `place` `seal`），主键即 `entity.id`。
 2. **数组对象 → 明细表**（`owner_id + seq` 保序）：别名、馆藏（`book_provenance`）、底本、附刻、地名沿革、图片等，只属一条主记录。
-3. **多类共用的对象 → 共用明细表**：`authorship`（责任者）、`index_entry`（`indexed_by` / `emendated_by`，`kind` 区分）、`resource` / `resource_group`、`source_ref`、`merge_event`（`merged_in` / `merged_from` / `merge_history`）。以 `owner_id + owner_type(W/B/C)` 指向主记录。
+3. **多类共用的对象 → 共用明细表**：`authorship`（责任者）、`index_entry`（`indexed_by` / `emendated_by`，`kind` 区分）、`resource` / `resource_group`、`source_ref`。以 `owner_id + owner_type(W/B/C)` 指向主记录。
 4. **跨记录引用 → 关系表，每种关系只存一遍**：`authorship.entity_id`（作者）、`book.work_id`（版本→作品）、`member_of`（入丛书，带册次）、`work_relation`（注疏续作等）、`entity_relation`（朝代／上下级／前身／印主等）、`merged_into`（并条账：旧 id→现行）、`bt_mention`（book-text 专名出处，物化视图，见 book_text.sql）。正反向都靠索引查询。
 5. **无损**：已知字段有类型化列；未登记的键进该行 `extra jsonb`。字段形状不规则的（如 `volume_index` 有整数／数组／字符串三种形）原样放 `jsonb`。**还原门禁**：从表拼回的 JSON 与原文件做规范化比较（键排序、数组按 `seq`）必须 100% 相同，否则 D2 不通过。
 6. **类型与枚举**：年份、卷数、册数为数值；`edition_type`、`loss_status`、`attested_status`、各 `subtype` 为 Postgres 枚举（取值同 `schema/json`）。朝代名、`period`、`role` 等开放词表保持文本，不建枚举。
@@ -28,7 +28,7 @@ git 里的 JSON 仍是唯一真源。数据库由 bim 从 JSON 生成（D2），
 | `indexed_by[]` / `emendated_by[]` | `index_entry` |
 | `resources[]` / `resource_groups` | `resource` / `resource_group`（`group`→`grp`；`volumes`、`metadata` 为 jsonb） |
 | `sources[]` | `source_ref`（字符串旧写法进 `raw`） |
-| `merged_in` / `merged_from` / `merge_history` / `merged_into` | `merge_event`、`merged_into` |
+| `merged_into` ＋ `merged_basis`（墓碑上） | `merged_into`（一行含去向与 rule/at/by/why） |
 | Work `related_works[]` | `work_relation` |
 | `contained_in[]`（Work/Book/Collection） | `member_of` |
 | Book `provenance[]` | `book_provenance`（`seals` 数组、`seal_marks` jsonb） |
@@ -62,7 +62,7 @@ book-text 与 book-index 同一套 id，进同一个库，表名加 `bt_` 前缀
 ## 据 S3（共用对象）、S4（Entity）审查的修订（2026-11-02）
 - **草稿库**：现存几乎全是 `{schema_version,id,type,title}` 空壳。空壳（无实质字段、也无 `merged_into`）不灌；**并条账一条不丢**：现存墓碑照灌（主表一行＋`merged_into` 表一行）；11-01 起正式库墓碑已大批清掉（#2124、#2126），旧 id 只剩台账 `.claude/qa/purge-tombstones/ledger/*.tsv`，装载时一起装进 `merged_into`（11-03 A12 修正，见下节）；`revision` 改为可空（草稿多数没有）。
 - `updated_at` 改 `text`：数据里有只写日期、带 `Z`、带偏移三种写法，存 timestamptz 会破坏还原。
-- `merge_event` 加 `primary_name`（Entity 并条记录的名字）；`work`、`collection` 补 `juan_source`；`book`、`collection` 补 `review_status`。
+- （已撤，见 11-03 第 5 组）`merge_event` 加 `primary_name`；`work`、`collection` 补 `juan_source`；`book`、`collection` 补 `review_status`。
 - `entity_todo` 并入 `record_todo`，`entity_description_source` 并入 `description_source`（四类共用）。
 - Entity：`relations[]` 进 `entity_relation(rel='person')`（`kind`=亲属师承类型，`note`=依据）；`entity_relation` 加 `start_year`／`end_year`；`reign.dynasty_id` 改走 `in_dynasty`，`office.institution_ref` 改走 `institution`（与 seal 一致）；起讫年统一只在 `entity_dates`；`status` 移到 `publisher`；`place_history.dynasty_ids` 改为关系表 `place_history_dynasty`（可按朝代反查地名）；去掉 `raw_string`（实测 0 条）。
 - `index_entry.source_bid` 实测全部指 Work、悬空 0，外键可直接 VALIDATE。
@@ -117,3 +117,8 @@ D2 起由 bim 里的一份拆表映射（字段名 → 表／列）驱动建库�
 
 ## 下一步（D2）
 bim 加 `book-index db build`：JSON → 行 → COPY；还原门禁；按 `git diff` 增量。全量目标 ≤ 3 分钟。
+
+## 11-03 可做可不做第 5 组：并条历史字段删除（用户定）
+
+- 记录里删掉 `merged_in`／`merged_from`／`merge_history`／`indexed_by[].merged_from`，`merge_event` 表随之删掉。删前的账导出成台账 `.claude/qa/purge-tombstones/ledger/history-20261103.tsv`（正式库）、`history-draft-20261103.tsv`（草稿库），装载时进 `merged_into` 表。
+- 墓碑照留（过渡，定期清）。并条工具今后把账写在墓碑的 `merged_basis`（`{rule, at, by, why}`）上；装载时与 `merged_into` 合成 `merged_into` 表一行，还原时再拆开。清墓碑时这几项写进 purge 台账。

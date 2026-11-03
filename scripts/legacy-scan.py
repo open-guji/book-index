@@ -24,6 +24,7 @@ LEGACY_KEYS = (
     'collections', 'aliases', 'ai_note_fix', 'ai_note2', 'ai_note_periodfix', 'book_contained_in',
     'parent_works', 'parent_work', 'promoted_at',
     'has_text', 'has_image', 'related_to',
+    'merged_in', 'merged_from', 'merge_history',   # 2026-11-03 删（并条账只在墓碑与 ledger）
 )
 # 仅非 Entity 才算旧键（Entity 地名的 history[] 沿革是正当字段）；volume_count 已並入 measures（S2-N），Book 也算旧键
 NON_ENTITY_LEGACY = ('history', 'volume_count')

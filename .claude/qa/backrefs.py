@@ -26,7 +26,7 @@
   Book.lineage                       承襲（derived_from[].ref、related_to[].book_id）
   Collection.contains                結構組成（work_id／book_id／collection_id）
   Book.related_books／Collection.related_*  對稱關係（存小 id 側）
-  Work／Entity.merged_in／merged_from／merged_into  併條之賬（墓誌，不算懸空）
+  <類>.merged_into                    墓碑 → 留存者（併條之賬，不算懸空）
   classification/<法>/members        分類成員行
 
 舊格式欄（`LEGACY`）若仍在源檔（迁移後新進之舊格式批），照列並標「舊格式」——
@@ -40,7 +40,7 @@ import json, os, glob, argparse, collections
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 TYPES = ('Work', 'Book', 'Collection', 'Entity')
 LEGACY = ('Work.books', 'Entity.works', 'Collection.books', 'Collection.contained_works')
-MERGE_LOG = 'merged_in'
+MERGE_LOG = 'merged_into'
 
 
 def record_paths(root, typ):
@@ -106,10 +106,8 @@ def refs_of(t, d):
     for fld in ('related_books', 'related_collections'):
         for x in (d.get(fld) or []):
             add('%s.%s' % (t, fld), _ref(x, 'id', 'work_id'), None)
-    for fld in ('merged_in', 'merged_from', 'merged_into'):
-        v = d.get(fld) or []
-        for m in (v if isinstance(v, list) else [v]):
-            add(MERGE_LOG if t == 'Work' else '%s.merged_in' % t, _ref(m, 'id'), fld)
+    if d.get('merged_into'):
+        add('%s.%s' % (t, MERGE_LOG), d['merged_into'], 'merged_into')
     # 舊格式殘留（只列不改）
     if t == 'Work':
         for b in (d.get('books') or []):
@@ -167,9 +165,6 @@ def main(argv=None):
         '稽核「殭屍」：一條**既有 `merged_into`（自稱已被併走）又載著內容**（authors／indexed_by／description）。'
         '成因是併條所留之墓碑被後來之入庫誤認作待補活條而回填復活。'
         '處分視所填者而定：仍是同書則併，已是別書則去其 merged_into 令各自獨立。')
-    ap.add_argument('--unexecuted', action='store_true', help=
-        '稽核「宣告了而未執行的併」：keeper 之 merged_from／merged_in 指著一條**仍是完整記錄**者。'
-        '**墓碑不算**（僅 id／title／merged_into 數欄、無著錄）。')
     a = ap.parse_args(argv)
     ROOT = os.path.abspath(a.root)
     works = {d['id']: d for t, _, d in iter_records(ROOT) if t == 'Work'}
@@ -183,25 +178,6 @@ def main(argv=None):
             print('   %s %-16s -> %s（著錄 %d 節）' % (i, t, m, n))
         return 0
 
-    if a.unexecuted:
-        def is_tomb(d):
-            return bool(d.get('merged_into')) and len(d.keys()) <= 8 and not d.get('indexed_by')
-        real, tombs = [], 0
-        for me, d in works.items():
-            for key in ('merged_from', 'merged_in'):
-                for m in (d.get(key) or []):
-                    t = _ref(m, 'id')
-                    if not t or t not in works or t == me:
-                        continue
-                    if is_tomb(works[t]):
-                        tombs += 1
-                    else:
-                        real.append((me, d.get('title'), key, t, len(works[t].get('indexed_by') or [])))
-        print('宣告已併而所併之條仍是完整記錄：%d 處（另有 %d 處所併者是墓碑，合乎庫例）' % (len(real), tombs))
-        for me, ti, key, t, n in sorted(real, key=lambda x: x[1] or ''):
-            print('   keeper=%s %-16s %s -> %s（尚有著錄 %d 節）' % (me, ti, key, t, n))
-        return 0
-
     back = scan(ROOT)
     if a.audit:
         u = universe(ROOT)
@@ -211,7 +187,7 @@ def main(argv=None):
         for k, v in back.items():
             if k in u:
                 continue
-            live = [x for x in v if not x[0].endswith('merged_in')]   # 併條賬本就指著已廢之 id
+            live = [x for x in v if not x[0].endswith(MERGE_LOG)]   # 墓碑本就指著已廢之 id
             if live:
                 bad[k] = live
         n = sum(len(v) for v in bad.values())

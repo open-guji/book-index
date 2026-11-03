@@ -75,20 +75,11 @@
     "description": {
       "$ref": "#/$defs/EntityDescription"
     },
-    "merge_history": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/MergeHistoryItem"
-      }
-    },
-    "merged_in": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/EntityMergedInItem"
-      }
-    },
     "merged_into": {
       "$ref": "common.schema.json#/$defs/Id"
+    },
+    "merged_basis": {
+      "$ref": "common.schema.json#/$defs/MergedBasis"
     },
     "retired": {
       "const": true
@@ -833,11 +824,6 @@
                 },
                 {
                   "required": [
-                    "merge_history"
-                  ]
-                },
-                {
-                  "required": [
                     "suppressed_fields"
                   ]
                 },
@@ -1081,11 +1067,6 @@
                 {
                   "required": [
                     "name_basis"
-                  ]
-                },
-                {
-                  "required": [
-                    "merge_history"
                   ]
                 },
                 {
@@ -1344,11 +1325,6 @@
                 },
                 {
                   "required": [
-                    "merge_history"
-                  ]
-                },
-                {
-                  "required": [
                     "suppressed_fields"
                   ]
                 },
@@ -1593,11 +1569,6 @@
                 {
                   "required": [
                     "dates"
-                  ]
-                },
-                {
-                  "required": [
-                    "merge_history"
                   ]
                 },
                 {
@@ -1860,11 +1831,6 @@
                   {
                     "required": [
                       "name_basis"
-                    ]
-                  },
-                  {
-                    "required": [
-                      "merge_history"
                     ]
                   },
                   {
@@ -2153,11 +2119,6 @@
               },
               {
                 "required": [
-                  "merge_history"
-                ]
-              },
-              {
-                "required": [
                   "suppressed_fields"
                 ]
               },
@@ -2348,11 +2309,6 @@
                 {
                   "required": [
                     "name_basis"
-                  ]
-                },
-                {
-                  "required": [
-                    "merge_history"
                   ]
                 },
                 {
@@ -2563,11 +2519,6 @@
                 {
                   "required": [
                     "title_or_office"
-                  ]
-                },
-                {
-                  "required": [
-                    "merge_history"
                   ]
                 },
                 {
@@ -3021,53 +2972,6 @@
         "wikidata_id": {
           "type": "string",
           "pattern": "^Q[0-9]+$"
-        }
-      },
-      "additionalProperties": false
-    },
-    "MergeHistoryItem": {
-      "type": "object",
-      "required": [
-        "primary_name",
-        "date",
-        "reason"
-      ],
-      "properties": {
-        "primary_name": {
-          "type": "string"
-        },
-        "date": {
-          "$ref": "common.schema.json#/$defs/Date"
-        },
-        "reason": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
-    "EntityMergedInItem": {
-      "type": "object",
-      "required": [
-        "id"
-      ],
-      "properties": {
-        "id": {
-          "$ref": "common.schema.json#/$defs/Id"
-        },
-        "primary_name": {
-          "type": "string"
-        },
-        "at": {
-          "type": "string"
-        },
-        "by": {
-          "type": "string"
-        },
-        "rule": {
-          "type": "string"
-        },
-        "why": {
-          "type": "string"
         }
       },
       "additionalProperties": false

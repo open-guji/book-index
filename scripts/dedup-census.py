@@ -15,7 +15,6 @@
   R  related 备注「待並條」的 Work 与链接数。
 二、并条善后（方案部分 7b／7c，任一非零即该修）
   T  墓碑链（merged_into 指向墓碑）、merged_into 悬空、成环。
-  H  keeper 未在 merged_in／merged_from 记该墓碑（多为立规前的旧并；只出数，不计入 --strict）。
   L  活记录引用墓碑（backrefs.refs_of 各处，不含并条账）；分类成员行、promotions 指向墓碑或不存在。
   D  草稿库（--draft）任一字段值恰等于正式库墓碑 id 者（键 id 除外，同 fix_draft.py 口径）。
 
@@ -89,7 +88,6 @@ def bulei_of_nodes(root):
 def census(root, draft=None, whitelist=None):
     counts = collections.Counter()
     meta = {}            # id -> (type, merged_into or None)
-    hist = collections.defaultdict(set)   # keeper -> merged_in/merged_from ids
     refs = []            # (from_id, where, target)
     works, books, persons, author_refs = {}, [], [], collections.Counter()
     pending, judged = [], []
@@ -97,13 +95,10 @@ def census(root, draft=None, whitelist=None):
         rid, into = d['id'], d.get('merged_into')
         meta[rid] = (t, into)
         counts['%s.%s' % (t, 'tomb' if into else 'live')] += 1
-        for k in ('merged_in', 'merged_from'):
-            for m in d.get(k) or []:
-                hist[rid].add(backrefs._ref(m, 'id'))
         if into:
             continue
         for where, tgt, det in backrefs.refs_of(t, d):
-            if not where.endswith('merged_in'):
+            if not where.endswith('merged_into'):
                 refs.append((rid, where, tgt))
         if t == 'Work':
             if '敦煌遺書' in (d.get('ai_note') or ''):
@@ -268,7 +263,7 @@ def census(root, draft=None, whitelist=None):
 
     # ── T 墓碑
     tomb = {i: m[1] for i, m in meta.items() if m[1]}
-    trep, hrep = collections.Counter(), collections.Counter()
+    trep = collections.Counter()
     trows = []
     for i, into in tomb.items():
         end, seen = into, {i}
@@ -284,11 +279,7 @@ def census(root, draft=None, whitelist=None):
         elif end != into:
             trep['墓碑链（应改指链末）'] += 1
             trows.append(('链', meta[i][0], i, into, end))
-        elif meta[i][0] in ('Work', 'Book', 'Entity') and i not in hist.get(end, ()):
-            hrep[meta[i][0]] += 1
-            trows.append(('无历史', meta[i][0], i, into, end))
     rep['T 墓碑'] = dict(trep)
-    rep['H keeper 未记并入历史（多为立规前旧并，看数不拦）'] = dict(hrep)
     detail['墓碑'] = (('类别', '类型', '墓碑', 'merged_into', '链末'), sorted(trows))
 
     # ── L 引用墓碑

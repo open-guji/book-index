@@ -38,8 +38,8 @@ RES = {'id': 'rid', 'name': 'name', 'short_name': 'short_name', 'url': 'url', 't
        'metadata': 'metadata'}
 MEMBER = {'id': 'collection_id', 'volume_index': 'volume_index', 'group': 'grp', 'details': 'details', 'section': 'section',
           'sub_items': 'sub_items'}
-MERGED_IN = {'id': 'other_id', 'title': 'title', 'primary_name': 'primary_name', 'at': 'at', 'by': 'by', 'rule': 'rule',
-             'why': 'why', 'title_info': 'title_info', 'author': 'author', 'via': 'via', 'note': 'note', 'reason': 'reason'}
+# 墓碑的 merged_into＋merged_basis 合成一行 merged_into 表（doc() 先合、restore 再拆）
+TOMB = {'into': 'direct_into', 'rule': 'rule', 'at': 'at', 'by': 'by', 'why': 'why'}
 
 
 def common_kids(ot):
@@ -52,12 +52,8 @@ def common_kids(ot):
         'resource_groups': K('resource_group', {'label': 'label', 'description': 'description'}, mode='dict', dictkey='key'),
         'contained_in': K('member_of', MEMBER, {'member_type': ot}, owner='member_id'),
         'measures': K('measure', {'number': 'number', 'unit': 'unit', 'note': 'note'}),
-        'merged_in': K('merge_event', MERGED_IN, {'kind': 'merged_in'}),
-        'merged_from': K('merge_event', {'@': 'other_id'}, {'kind': 'merged_from'}),
-        'merge_history': K('merge_event', {'merged_from': 'other_id', 'title': 'title', 'date': 'date', 'reason': 'reason'},
-                           {'kind': 'merge_history'}),
         'todo': K('record_todo', {'what': 'what', 'by': 'by', 'date': 'date'}),
-        'merged_into': K('merged_into', {'@': 'direct_into'}, {'record_type': ot, 'src': 'tombstone'}, owner='dead_id', mode='one'),
+        'merged_into': K('merged_into', TOMB, {'record_type': ot, 'src': 'tombstone'}, owner='dead_id', mode='one'),
         'description.sources': K('description_source', {'@': 'source'}),
     }
 
@@ -197,12 +193,8 @@ MAPS = {
             'group_ids': K('entity_relation', {'@': 'dst'}, {'rel': 'in_group', 'src_key': 'group_ids'}, owner='src'),
             'relations': K('entity_relation', {'entity_id': 'dst', 'type': 'kind', 'basis': 'note', 'sources': 'sources'},
                            {'rel': 'person', 'src_key': 'relations'}, owner='src'),
-            'merged_in': K('merge_event', MERGED_IN, {'kind': 'merged_in'}),
-            'merge_history': K('merge_event', {'merged_from': 'other_id', 'primary_name': 'primary_name', 'title': 'title',
-                                               'date': 'date', 'reason': 'reason'}, {'kind': 'merge_history'}),
             'todo': K('record_todo', {'what': 'what', 'by': 'by', 'date': 'date'}),
-            'merged_into': K('merged_into', {'@': 'direct_into'}, {'record_type': 'E', 'src': 'tombstone'}, owner='dead_id',
-                             mode='one'),
+            'merged_into': K('merged_into', TOMB, {'record_type': 'E', 'src': 'tombstone'}, owner='dead_id', mode='one'),
             'description.sources': K('description_source', {'@': 'source'}),
         },
     },
@@ -289,6 +281,9 @@ class Loader:
 
     def doc(self, d):
         m, tab = self.m, self.m['table']
+        if isinstance(d.get('merged_into'), str) and isinstance(d.get('merged_basis', {}), dict):
+            d = dict(d)
+            d['merged_into'] = dict({'into': d.pop('merged_into')}, **(d.pop('merged_basis', None) or {}))
         tcols = self.types[tab]
         extra, row, later = {}, {}, []
         side = m.get('side', {}).get(d.get('subtype'))
@@ -381,7 +376,7 @@ class Loader:
             if s['mode'] == 'dict':
                 row[s['dictkey']] = pos
             if s['table'] == 'merged_into':
-                row['live_id'] = it   # 原型：链末解析留给正式装载
+                row['live_id'] = it['into']   # 原型：链末解析留给正式装载
             row.update(s['fixed'])
             if extra:
                 if 'extra' not in tcols:
@@ -500,6 +495,11 @@ def restore_all(cur, m):
                 d.setdefault(a, {})[b] = v
             else:
                 d[key] = v
+        if isinstance(d.get('merged_into'), dict):
+            mb = d.pop('merged_into')
+            d['merged_into'] = mb.pop('into')
+            if mb:
+                d['merged_basis'] = mb
         for k in extra.get('_null', []):
             d[k] = None
         for k, v in extra.get('_empty', []):

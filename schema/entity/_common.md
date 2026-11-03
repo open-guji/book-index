@@ -39,15 +39,6 @@
 | `dates` | object | 条件：people、dynasty、reign 可写；office、place **不得有** | 原生 | 结构化起讫／生卒 | 按子类型放行的键见[dates 与 external_ids](_dates-external-ids.md) | 录入 | `{"birth":1036,"death":1101,"floruit":null,"basis":"現行字段"}` |
 | `external_ids` | object | 可选（全部）；专名只许 `wikidata_id` | 原生 | 外部库 id | 子键见[external_ids 子键](_dates-external-ids.md#external_ids-子键) | 录入、bim | `{"cbdb_id":3767,"wikidata_id":"Q36020"}` |
 | `description` | Description | 可选；官职概念条、官署概念条与合称条**必填** | 原生 | 介绍与出处 | 形状同 [common.md〈Description〉](../common.md)，但 Entity 的 `text` 可省（正式库 people 5,886 条 `description` 里只有 213 条有 `text`，其余只记出处），`sources` 必有；Entity 的出处一律记 `description.sources` | 录入 | `{"text":"都開封。","sources":[]}` |
-| `merge_history` | array<object> | 可选；people | 原生 | 早期并条账（2026-09-09 一次写入） | 每项 `{primary_name, date, reason}`（正式库 4,409 条） | 迁移 | `[{"primary_name":"曾仲質","date":"2026-09-09","reason":"draft/production 同人同书重出（CBDB auto_create 批次遗留，纯冗余无增量），2026-09-09 併條"}]` |
-| `merged_in` | array<object> | 可选；留存方（keeper） | 原生 | 并入本条的他条 | 每项 `{id, primary_name, at, by, rule, why, via?}`（`title` 键已于 2026-11-03 清掉，不再允许）（正式库 people 313 条／324 项，collective 1 条） | 录入 | 见[people](people.md)馬令例 |
-| `merge_history[].primary_name` | string | **必填** | 原生 | 并入前的名 | 自由文本 | 迁移 | `"曾仲質"` |
-| `merge_history[].date` | string | **必填** | 原生 | 并条日 | `YYYY-MM-DD` | 迁移 | `"2026-09-09"` |
-| `merge_history[].reason` | string | **必填** | 原生 | 并条原因 | 自由文本 | 迁移 | |
-| `merged_in[].id` | string | **必填** | 原生 | 被并方 id | entity id | 录入 | `"hixhd2h9bmfu"` |
-| `merged_in[].primary_name` | string | 可选 | 原生 | 被并方名 | 自由文本 | 录入 | `"馬令"` |
-| `merged_in[].at`、`by`、`rule`、`why` | string | 可选 | 原生 | 并入日、经手人、裁定依据、理由 | 自由文本（`at` 为 `YYYY-MM-DD`） | 录入 | 见[people](people.md)馬令例 |
-| `merged_into` | string | 可选；被并方 | 原生 | 本条已并入的条目 id | entity id；被并条只留 `schema_version`、`id`、`type`、`subtype`、`primary_name`、`merged_into`、`revision`、`revised_at`（正式库 2 条）。**并条一律写墓碑、不删档**（2026-10-09 起） | 录入 | `"hixhd2h9biza"`（成無巳 `hixhd2h9blyf`） |
 | `retired` | boolean | 可选 | 原生 | 本条已退役 | 只写 `true`（正式库 5 条） | 录入 | `true` |
 | `retired_reason` | string | 条件：`retired` 时必填 | 原生 | 退役原因 | 自由文本 | 录入 | `"N3 壞名 entity 歸正（2026-08-24 南北朝斷代與壞名專項）：…"`（廋信 `hixhd2h9bq93`） |
 | `suppressed_fields` | array<string> | 可选；people | 原生 | 人工确认 CBDB 值有误而清空的字段名 | 字段名（顶层键名，或 `external_ids` 的子键名）；正式库 6 条（2026-11-03 实测）：`["cbdb_id"]`、`["cbdb_id","wikidata_id"]`、`["dates"]`。见[people](people.md) | 录入 | `["cbdb_id"]` |

@@ -7,8 +7,9 @@
 保留（不删）三类，原因写进 <out>/保留.tsv：
   T 全文挂在墓碑 id 下：book-text 的 index/texts 键，或 Work/ Book/ 下有该 id 的目录。须先在 book-text 改名到留存 id。
   C 墓碑上带的著录/资源（indexed_by、resources、related_works、sources、additional_titles）在留存条（链末）里找不到。
-  R 活记录里有字符串值恰等于墓碑 id（并条账 merged_in／merged_from／merge_history／merged_basis 与文本说明除外）。
-被保留的墓碑下一轮清理再试。--apply 会先把「旧 id → 终点」写进 ledger/purge-<日期>.tsv（要提交，verify.py 靠它认并掉的 id）。
+  R 活记录里有字符串值恰等于墓碑 id（merged_basis 与文本说明除外）。
+被保留的墓碑下一轮清理再试。--apply 会先把「旧 id → 终点」连同墓碑上的 merged_basis（rule／at／by／why）写进 ledger/purge-<日期>.tsv
+（要提交；2026-11-03 起这是被并旧号唯一的账，verify.py 靠它认并掉的 id）。
 --apply 之后：从 index/ 里摘掉被删 id 的条目（不要整体重建，会带进无关漂移），再跑 dedup-census --strict、verify.py。
 """
 import argparse, collections, glob, json, os, re, sys
@@ -16,7 +17,7 @@ import argparse, collections, glob, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 TYPES = ('Work', 'Book', 'Entity', 'Collection')
 # 这些字段里的 id 只是并条留痕/说明，不算引用
-HIST_KEYS = {'merged_in', 'merged_from', 'merge_history', 'merged_basis', 'ai_note', 'note', 'why', 'reason',
+HIST_KEYS = {'merged_basis', 'ai_note', 'note', 'why', 'reason',
              'name_basis', 'dynasty_basis', 'period_basis', 'role_basis', 'basis', 'description', 'loss_status_note',
              'alt_names'}
 CONTENT_FIELDS = ('indexed_by', 'resources', 'resource_groups', 'related_works', 'sources', 'additional_titles', 'emendated_by')
@@ -175,7 +176,7 @@ def main():
         while os.path.exists(lp):   # 同一天清第二次：不覆盖已有台账，加序号
             lp = os.path.join(led, '%s-%d.tsv' % (base, n)); n += 1
         with open(lp, 'w', encoding='utf-8') as f:
-            f.write('id\ttype\ttitle\tmerged_into\tfinal_keeper\n')
+            f.write('id\ttype\ttitle\tmerged_into\tfinal_keeper\trule\tat\tby\twhy\n')
             for i in delete:
                 t, rel, d = tomb[i]
                 ti = (d.get('title') or d.get('primary_name') or '').replace('\t', ' ').replace('\n', ' ')
@@ -185,7 +186,10 @@ def main():
                     if not n or n not in recs:
                         break
                     k = n
-                f.write('\t'.join([i, t, ti, d['merged_into'], recs[k][2]['id'] if not recs[k][2].get('merged_into') else d['merged_into']]) + '\n')
+                mb = d.get('merged_basis') or {}
+                cl = lambda v: str(v or '').replace('\t', ' ').replace('\n', ' ')
+                f.write('\t'.join([i, t, ti, d['merged_into'], recs[k][2]['id'] if not recs[k][2].get('merged_into') else d['merged_into']]
+                                   + [cl(mb.get(x)) for x in ('rule', 'at', 'by', 'why')]) + '\n')
         for i in delete:
             os.remove(os.path.join(ROOT, tomb[i][1]))
         print('已删', len(delete))

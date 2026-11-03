@@ -28,13 +28,14 @@
   5 他條著錄之 source_bid／in_note_of（被併者是志書時）、Book.base_edition.work_id、
     Collection.contains[].work_id 改指 keeper
   6 分類成員行（classification/<法>/members）改指 keeper
-  7 keeper 之 `merged_in` **填欄位**，不只寫散文（坑 64）
+  7 被併者改寫成墓碑：`merged_into` 指 keeper，`merged_basis` 記 `{rule, at, by, why}`（2026-11-03 起
+    keeper 不再寫 `merged_in`；墓碑由 purge-tombstones 定期清，清時旧号進 ledger）。原指被併者之墓碑改指 keeper
   8 被併者獨有之其餘欄位（contained_in／period／resources …）搬入 keeper；
     兩邊皆有且值不同者**不搬**，只印出報告，須人斷孰是
   9 keeper 之 related_works 刪自指項
  10 被併者撰人帶 entity_id 而 keeper 沒有者：**報**（人物頁的作品列表由 authors 反查，
     併後該人少此條；若是同一撰人之異寫，應先把 entity_id 補進 keeper），不擋
- 11 刪被併者之檔。之後跑 `build/build_derived.py --write-index`（索引、派生欄由它生成）
+ 11 之後跑 `build/build_derived.py`（派生欄由它生成）
 """
 import json, os, sys, glob, argparse, datetime, collections
 
@@ -48,12 +49,12 @@ import v2common as V                 # noqa: E402
 # 兩側皆真即真的准留源欄（SCHEMA〈十〉例外）
 BOOL_OR_FIELDS = {'_has_text', '_has_collated'}
 # 已各有專屬善後步驟或明訂不由本工具自動搬的欄：
-#   id/type/title/path/revision/revised_at 結構性；indexed_by/merged_in/additional_titles 各有步驟；
+#   id/type/title/path/revision/revised_at 結構性；indexed_by/additional_titles 各有步驟；
 #   authors 屬 B 字段族，併條不動撰人著錄本身；description/ai_note 併後語意須人改；
 #   related_works 由步驟 2 按規範方向搬；merged_into 是墓碑欄
 MERGE_SKIP_FIELDS = {
     'id', 'type', 'title', 'path', 'revision', 'revised_at', 'schema_version', 'updated_at',
-    'indexed_by', 'merged_in', 'merged_into', 'additional_titles',
+    'indexed_by', 'merged_into', 'merged_basis', 'additional_titles',
     'authors', 'description', 'ai_note', 'related_works',
 }
 # 舊格式欄：源檔不該有，有也不搬（check_v2 該擋）
@@ -79,6 +80,20 @@ def load(p):
 def save(p, d, fmt):
     with open(p, 'w', encoding='utf-8') as f:
         f.write(V.dump(d, fmt))
+
+
+TOMBSTONE_KEYS = ('schema_version', 'id', 'type', 'title', 'merged_into', 'merged_basis', 'revision', 'revised_at')
+
+
+def tombstone(dd, keeper_id, basis):
+    """被併者之墓碑：只留 TOMBSTONE_KEYS（schema/common.md〈七〉）。"""
+    t = {'schema_version': dd.get('schema_version', 1), 'id': dd['id'], 'type': dd.get('type', 'work'),
+         'title': dd.get('title'), 'merged_into': keeper_id,
+         'merged_basis': {k: v for k, v in basis.items() if v}}
+    if dd.get('revision'):
+        t['revision'] = dd['revision']
+    t['revised_at'] = basis['at'][:10]
+    return t
 
 
 def addnote(d, note):
@@ -317,7 +332,7 @@ def main(argv=None):
     ap.add_argument('--why', required=True)
     ap.add_argument('--by', default='lane-B')
     ap.add_argument('--root', default=ROOT, help='數據倉根（預設本倉）')
-    ap.add_argument('--at', help='merged_in.at 之時間（預設現在；測試用）')
+    ap.add_argument('--at', help='merged_basis.at 之時間（預設現在；測試用）')
     ap.add_argument('--apply', action='store_true', help='真寫；不加即乾跑')
     a = ap.parse_args(argv)
     ROOT = root = os.path.abspath(a.root)
@@ -375,13 +390,16 @@ def main(argv=None):
     # 4/5 存儲側引用改指
     ref_fix = collections.defaultdict(set)      # (type, id) -> {drop}
     handled = {'Work.related_works', 'Work.authors.entity_id'}
+    tomb_fix = set()
     unhandled = []
     for d in drops:
         for where, src, det in back.get(d, []):
             if where in handled or src in gone:
                 continue
-            if where.endswith('merged_in'):
-                plan['他條之併條賬指著被併者（墓誌，不改）'].append((src, where, det))
+            if where.endswith(backrefs.MERGE_LOG):
+                plan['舊墓碑指著被併者（改指 keeper）'].append((src, where, det))
+                if where.startswith('Work.'):
+                    tomb_fix.add(src)
                 continue
             if where.split('.')[0] in backrefs.TYPES and where in backrefs.LEGACY:
                 plan['**舊格式欄指著被併者（不改寫；先遷移）**'].append((src, where))
@@ -471,11 +489,6 @@ def main(argv=None):
         keeper.pop('related_works', None)
     for k in ('books', '_edition_count'):        # 舊格式殘留，順手不留
         keeper.pop(k, None)
-    mi = list(keeper.get('merged_in') or [])
-    for d, p, dd, _ in dps:
-        mi.append({'id': d, 'title': dd.get('title'), 'at': now,
-                   'by': a.by, 'rule': a.rule, 'why': a.why})
-    keeper['merged_in'] = mi
     addnote(keeper, '%s %s 併條（rule=%s）：併 %s 入本條。%s' % (
         now[:10], a.by, a.rule, '、'.join('%s《%s》' % (d, dd.get('title')) for d, _, dd, _ in dps), a.why))
     save(kp, keeper, kfmt)
@@ -509,13 +522,21 @@ def main(argv=None):
                 fh.write(members_dump(node, rows))
         else:
             os.remove(p)
-    # 刪檔
-    for d, p, dd, _ in dps:
-        os.remove(p)
+    # 舊墓碑改指 keeper（墓碑不成鏈）
+    for src in sorted(tomb_fix):
+        p = find('Work', src, root)
+        if p:
+            td, tfmt = load(p)
+            if td.get('merged_into') in drops:
+                td['merged_into'] = a.keeper
+                save(p, td, tfmt)
+    # 被併者寫成墓碑
+    for d, p, dd, dfmt in dps:
+        save(p, tombstone(dd, a.keeper, {'rule': a.rule, 'at': now, 'by': a.by, 'why': a.why}), dfmt)
     print('\n已併：%s <- %s' % (a.keeper, ','.join(drops)))
-    print('善後：著錄 %d 節、他條關係 %d 條記錄、存儲側引用改指 %d 條記錄、分類檔 %d、刪檔 %d'
-          % (len(add_nodes), n_rel, n_ref, len(cls_writes), len(dps)))
-    print('下一步：python3 build/build_derived.py --write-index（重生 index/ 與派生欄），'
+    print('善後：著錄 %d 節、他條關係 %d 條記錄、存儲側引用改指 %d 條記錄、分類檔 %d、舊墓碑改指 %d、寫墓碑 %d'
+          % (len(add_nodes), n_rel, n_ref, len(cls_writes), len(tomb_fix), len(dps)))
+    print('下一步：python3 build/build_derived.py（重生派生欄），'
           'python3 .claude/qa/check_v2.py --paths <改動之檔>')
     return 0
 

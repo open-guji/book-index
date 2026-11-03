@@ -32,21 +32,19 @@ promote + merged_from/_promoted_to，见 C-entity-併條执行 先例），而�
      不做模糊/异体归并——那是 qa_entity.py 的 NAM02 或人工核查该做的事）。
   6. `keeper.external_ids` 补 `loser` 有而 `keeper` 缺的键（不覆盖 keeper
      已有值）。
-  7. `keeper` 加一条 `merged_in` 记录（字段形状仿 `Work.merged_in` 既有先例：
-     `id`／`primary_name`／`at`／`by`／`rule`／`why`）。若 `loser` 自己也带着
-     更早的 `merged_in`（链式并条：A 先并入 loser，今 loser 再并入 keeper），
-     一并搬到 keeper，不许丢账。
+  7. 并条账只写在墓碑上：`merged_basis` = `{rule, at, by, why}`（2026-11-03 用户定删
+     keeper 上的 `merged_in`／`merge_history`）。原先指着 loser 的墓碑（A 先并入 loser）
+     改指 keeper，免成墓碑链。
   8. `loser` 改写为墓碑（tombstone）：只留 `schema_version`／`id`／`type`／`subtype`／
-     `primary_name`／`merged_into`／`revision`／`revised_at`（schema/entity/_common.md〈merged_into〉）。
+     `primary_name`／`merged_into`／`merged_basis`／`revision`／`revised_at`（schema/common.md〈七〉）。
+     墓碑定期由 `.claude/qa/purge-tombstones/purge.py` 清掉，清时旧号与 merged_basis 写进 ledger。
      **不删档**（2026-10-09 目录经理定，overview#409）：墓碑可逆，旧 id 仍能解析到 keeper。
   9. **不在这里跑 build/verify**——批量跑完这一批之后手动跑
      `python3 build/build_derived.py --write-index` 与
      `python3 .claude/qa/verify.py`，再 `pushmain.sh`。
 
 这不是 `book-index-manager` 的 `promote` 那条路（那条路是 draft→production，
-写 `promotions.json`），也不改 SCHEMA.md——「production 内部并 Entity」这个
-形状目前没有正式 schema 定义，`merged_in` 只是抄 Work 那边已有的先例，
-是否要写进 SCHEMA.md 由协调者另定。
+写 `promotions.json`）。
 
 只测过 Entity；不要拿去并 Work／Book／Collection，那几类各有自己的併条工具
 （`mergework.py` 等）。
@@ -121,10 +119,10 @@ def verify_ground_truth(entity_id: str, works: list) -> list[str]:
 
 
 TOMBSTONE_KEYS = ('schema_version', 'id', 'type', 'subtype', 'primary_name',
-                  'merged_into', 'revision', 'revised_at')
+                  'merged_into', 'merged_basis', 'revision', 'revised_at')
 
 
-def tombstone(loser: dict, keeper_id: str, date: str) -> dict:
+def tombstone(loser: dict, keeper_id: str, date: str, basis: dict | None = None) -> dict:
     """被并方的墓碑：只留 TOMBSTONE_KEYS（schema/entity/_common.md〈merged_into〉）。"""
     t = {'schema_version': loser.get('schema_version', 1), 'id': loser['id'],
          'type': loser.get('type', 'entity')}
@@ -132,6 +130,8 @@ def tombstone(loser: dict, keeper_id: str, date: str) -> dict:
         t['subtype'] = loser['subtype']
     t['primary_name'] = loser.get('primary_name')
     t['merged_into'] = keeper_id
+    if basis:
+        t['merged_basis'] = {k: v for k, v in basis.items() if v}
     t['revision'] = loser.get('revision') or '1.0.0'
     t['revised_at'] = date
     return t
@@ -189,30 +189,22 @@ def merge(loser_id: str, keeper_id: str, *, reason: str, rule: str = '',
         keeper['external_ids'] = kext
     summary['filled_external_ids'] = filled_ext
 
-    # merged_in 记录（仿 Work.merged_in 先例）——链式并条一并搬过去
-    # 幂等：上次中途失败（keeper 已写、墓碑未写）后重跑，不重复记账
-    have = {m.get('id') for m in (keeper.get('merged_in') or []) if isinstance(m, dict)}
-    chained = [r for r in (loser.get('merged_in') or []) if not (isinstance(r, dict) and r.get('id') in have)]
-    for rec in chained:
-        keeper.setdefault('merged_in', []).append(rec)
-        have.add(rec.get('id') if isinstance(rec, dict) else None)
-    summary['chained_merged_in'] = len(chained)
-    if loser_id not in have:
-        keeper.setdefault('merged_in', []).append({
-            'id': loser_id,
-            'primary_name': loser.get('primary_name'),
-            'at': date,
-            'by': by,
-            'rule': rule,
-            'why': reason,
-        })
+    # 并条账写在墓碑上（merged_basis），不再写 keeper.merged_in（11-03 用户定删并条历史字段）。
+    # 链式并条由墓碑链表达：loser 自己的墓碑们仍指着 loser，build／清墓碑时沿链走到 keeper。
+    basis = {'rule': rule, 'at': date, 'by': by, 'why': reason}
+    summary['merged_basis'] = basis
+    # 原先并入 loser 的墓碑，改指 keeper（墓碑不成链）
+    out = subprocess.run(['grep', '-lr', f'"merged_into": "{loser_id}"', os.path.join(jio.ROOT, 'Entity')],
+                         capture_output=True, text=True).stdout.split()
+    chained = [os.path.relpath(p, jio.ROOT) for p in out if p]
+    summary['repointed_tombstones'] = [os.path.basename(r).split('-')[0] for r in chained]
 
     summary['dry'] = dry
     if dry:
         return summary
 
     # 落盘顺序：改繫的 Work → keeper → loser 墓碑。各档原子写（jio.save）；中途失败可原样重跑补完
-    # （改繫已完成的不会再命中，keeper.merged_in 去重，最后写墓碑）。
+    # （改繫已完成的不会再命中，最后写墓碑）。
     # 落盘：Work 改繫
     for rel, d, fmt in refs:
         for a in (d.get('authors') or []):
@@ -235,9 +227,14 @@ def merge(loser_id: str, keeper_id: str, *, reason: str, rule: str = '',
 
     # 落盘：keeper
     jio.save(keeper_rel, keeper, kfmt)
+    for rel in chained:
+        t, tfmt = jio.load(rel)
+        if t.get('merged_into') == loser_id:
+            t['merged_into'] = keeper_id
+            jio.save(rel, t, tfmt)
 
     # loser 改写为墓碑（不删档）
-    jio.save(loser_rel, tombstone(loser, keeper_id, date), lfmt)
+    jio.save(loser_rel, tombstone(loser, keeper_id, date, basis), lfmt)
     summary['tombstoned'] = True
     return summary
 
@@ -256,8 +253,8 @@ def _print_summary(s: dict) -> None:
               "请先用 check_v2.py 查（migrate_v2.py 已于 2026-10-11 删除）")
     print(f"alt_names 并入新增 {len(s['added_alt_names'])} 条")
     print(f"external_ids 补缺：{s['filled_external_ids']}")
-    if s['chained_merged_in']:
-        print(f"链式并条：loser 自带 merged_in {s['chained_merged_in']} 条一并搬入 keeper")
+    if s.get('repointed_tombstones'):
+        print(f"原指 loser 的墓碑改指 keeper：{s['repointed_tombstones']}")
     if s['dry']:
         print('--dry：不落盘')
     else:
@@ -272,7 +269,7 @@ def main():
     ap.add_argument('--reason', required=True)
     ap.add_argument('--rule', default='')
     ap.add_argument('--date', default=None)
-    ap.add_argument('--by', default='D4-Entity清账', help='merged_in.by，写并条的道名')
+    ap.add_argument('--by', default='D4-Entity清账', help='merged_basis.by，写并条的道名')
     ap.add_argument('--dry', action='store_true')
     args = ap.parse_args()
     s = merge(args.loser_id, args.keeper_id, reason=args.reason, rule=args.rule,

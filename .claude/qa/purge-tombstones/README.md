@@ -10,7 +10,7 @@
 
 1. 拉最新 main，新开分支；`book-text` 也要最新（读它的 `index/texts` 和目录）。
 2. 干跑：`python3 .claude/qa/purge-tombstones/purge.py --book-text ../book-text --out /tmp/purge`，看 `保留.tsv`／`删除.tsv`。
-3. 真删：加 `--apply`。它会先写 `ledger/purge-<日期>.tsv`（旧 id → 终点），再删文件，并只从 `index/` 里摘掉这些 id 的条目（不整体重建 index，免得带进无关漂移）。
+3. 真删：加 `--apply`。它会先写 `ledger/purge-<日期>.tsv`（旧 id → 终点，连同墓碑 `merged_basis` 的 rule／at／by／why），再删文件。
 4. 跑门禁：`python3 scripts/dedup-census.py --strict --out /tmp/c`、`python3 .claude/qa/verify.py`（看「消失」「墓碑」几行为 0）、`tests/`。提交台账、PR 描述附 `保留.tsv`。
 
 ## 脚本保留什么（不删）
@@ -22,6 +22,15 @@
 
 ## 清掉之后
 
-- 旧 id 只留在留存条的 `merged_in`／`merged_from` 和 `ledger/`；网站对旧 id 不再 308，直接 404。
+- 旧 id 只留在 `ledger/`（11-03 起记录里不再有 `merged_in`／`merged_from`／`merge_history`，删前的账导出在 `ledger/history-20261103.tsv`、草稿库的在 `ledger/history-draft-20261103.tsv`）；网站对旧 id 不再 308，直接 404。
 - 草稿库若还有指向已清墓碑的 id（census `--draft` 的 D），按 `fix_draft.py` 跟一个草稿库 PR。
-- 并条脚本的新批次照旧先留墓碑，不受影响。
+- 并条脚本（`mergework.py`、`entity_merge.py`）的新批次照旧先留墓碑，账写在墓碑的 `merged_basis` 上，清时进 `ledger/`。
+
+## ledger 各文件
+
+| 文件 | 列 | 来历 |
+|---|---|---|
+| `purge-<日期>.tsv` | id、type、title、merged_into、final_keeper（11-03 起加 rule、at、by、why） | 每次清墓碑 |
+| `history-20261103.tsv`、`history-draft-20261103.tsv` | old_id、keeper、type、field、title、at、by、rule、why、extra | 删并条历史字段前一次性导出（`.claude/qa/merge-history/strip.py`） |
+
+首列都是旧号。`verify.py`、`check-duplicate-audit.py` 靠首列认「消失的 id 是并掉的」。

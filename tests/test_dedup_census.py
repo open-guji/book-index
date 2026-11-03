@@ -33,7 +33,7 @@ def fixture(tmp):
         {'id': 'w00b', 'title': '戊', 'merged_into': 'w009'},                            # 墓碑链
     ]:
         put(root, 'Work', d)
-    put(root, 'Work', {'id': 'w00c', 'title': '己', 'merged_in': [{'id': 'w00d'}]})
+    put(root, 'Work', {'id': 'w00c', 'title': '己'})
     put(root, 'Work', {'id': 'w00d', 'title': '己', 'merged_into': 'w00c'})
     for d in [
         {'id': 'b001', 'work_id': 'w001', 'edition': '清刻本'},
@@ -63,7 +63,7 @@ def test_census(tmp_path):
     assert (w['组'], w['同首位组'], w['一侧有一侧无组'], w['全无组'], w['不同组']) == (4, 1, 1, 1, 1)
     assert w['已判组'] == 1 and w['經部·同首位组'] == 1
     assert rep['T 墓碑'] == {'墓碑链（应改指链末）': 1}
-    assert rep['H keeper 未记并入历史（多为立规前旧并，看数不拦）'] == {'Work': 1}
+    assert not any(k.startswith('H ') for k in rep)
     assert rep['L 引用墓碑'] == {'Book.work_id': 1, '分类成员→墓碑': 1, 'promotions→墓碑': 1}
     assert rep['B 同 Work 重复 Book']['同 Work 同版本名组'] == 1
     assert rep['E 人物重名']['同名组'] == 1

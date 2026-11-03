@@ -174,13 +174,6 @@ CREATE INDEX ON resource (rid);
 -- 计量 measures[]（Work 约 6 万、Book 351、Collection 1）
 CREATE TABLE measure (owner_id text NOT NULL, seq int NOT NULL, number int, unit text, note text, extra jsonb, PRIMARY KEY (owner_id, seq));
 CREATE TABLE source_ref (owner_id text NOT NULL, seq int NOT NULL, sid text, name text, type text, details text, position text, version text, processor_version text, raw jsonb, extra jsonb, PRIMARY KEY (owner_id, seq)); -- sources[]（对象；字符串旧写法进 raw）
--- 并条历史
-CREATE TABLE merge_event (
-  owner_id text NOT NULL, kind text NOT NULL,   -- merged_in | merged_from | merge_history
-  seq int NOT NULL, other_id text, title text, primary_name text, at text, by text, rule text, why text, title_info text, author text, via text, note text, reason text, date text, extra jsonb,
-  PRIMARY KEY (owner_id, kind, seq)
-);
-CREATE INDEX ON merge_event (other_id);
 -- todo[]：四类共用（现只有 Entity 37 条）
 CREATE TABLE record_todo (owner_id text, seq int, what text, by text, date text, extra jsonb, PRIMARY KEY (owner_id, seq));
 
@@ -200,8 +193,11 @@ CREATE TABLE related_book (src text NOT NULL, seq int NOT NULL, dst text NOT NUL
 CREATE TABLE related_collection (src text NOT NULL, seq int NOT NULL, dst text NOT NULL, PRIMARY KEY (src, seq));
 -- 并条账：被并者 → 现行（entity/work/book/collection 共用）。两个来源一起装：
 --   现存墓碑文件（src='tombstone'）＋已清墓碑的台账 .claude/qa/purge-tombstones/ledger/*.tsv（src=台账文件名）。
--- live_id 是链末的现行记录（装载时沿链解到底），direct_into 是墓碑上原写的 merged_into。
-CREATE TABLE merged_into (dead_id text PRIMARY KEY, live_id text NOT NULL, direct_into text, record_type char(1) NOT NULL, title text, src text NOT NULL);
+-- live_id 是链末的现行记录（装载时沿链解到底），direct_into 是墓碑上原写的 merged_into；
+-- rule/at/by/why 取墓碑的 merged_basis（台账来源取同名列）。11-03 起记录里不再有 merged_in/merged_from/merge_history，
+-- 删前的账在台账 history-20261103.tsv（old_id→keeper），装载时也进本表。
+CREATE TABLE merged_into (dead_id text PRIMARY KEY, live_id text NOT NULL, direct_into text, record_type char(1) NOT NULL, title text, src text NOT NULL,
+  rule text, at text, by text, why text, extra jsonb);
 CREATE INDEX ON merged_into (live_id);
 -- book-text 专名号反查（D5 才灌）：实体 × 书 × 章 × 次数
 -- 专名出处见 book_text.sql 的物化视图 bt_mention

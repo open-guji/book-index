@@ -8,9 +8,27 @@ ROOT = Path(__file__).resolve().parents[1]
 def record(family, rid, allow_purged=False):
     paths = list((ROOT / family / Path(*rid[-3:])).glob(rid + '-*.json'))
     if allow_purged and not paths:
-        return None   # 墓碑已被定期清理（.claude/qa/purge-tombstones），旧 id 记在留存条的并条账里
+        return None   # 墓碑已被定期清理（.claude/qa/purge-tombstones），旧 id 记在并条账 ledger 里
     assert len(paths) == 1, rid
     return json.loads(paths[0].read_text(encoding='utf-8'))
+
+
+_LEDGER = None
+
+
+def ledger_pairs():
+    """并条账 {旧号: {留存号…}}：.claude/qa/purge-tombstones/ledger/*.tsv 前两列（history 的 keeper、purge 的 merged_into）。"""
+    global _LEDGER
+    if _LEDGER is None:
+        _LEDGER = {}
+        for f in (ROOT / '.claude/qa/purge-tombstones/ledger').glob('*.tsv'):
+            lines = f.read_text(encoding='utf-8').splitlines()
+            head = lines[0].split('\t')
+            col = head.index('keeper') if 'keeper' in head else head.index('merged_into')
+            for line in lines[1:]:
+                row = line.split('\t')
+                _LEDGER.setdefault(row[0], set()).add(row[col])
+    return _LEDGER
 
 
 def test_merge_ids_remain_resolvable_and_keep_history():
@@ -23,17 +41,13 @@ def test_merge_ids_remain_resolvable_and_keep_history():
             continue
         if keeper.get('merged_into'):
             continue   # keeper 后来被并，墓碑还没清
-        assert not keeper.get('merged_into')
-        history = keeper.get('merged_in', []) if family != 'Book' else keeper.get('merged_from', [])
-        history_ids = {entry['id'] if isinstance(entry, dict) else entry for entry in history}
         for rid in merge['losers']:
             tomb = record(family, rid, allow_purged=True)
             if tomb is not None:   # 墓碑还在就仍须合规；已清理的不查
                 assert tomb['merged_into'] == keeper['id']
                 assert not any(key in tomb for key in ('authors', 'resources', 'indexed_by', 'contained_in'))
-            led = ROOT / '.claude/qa/purge-tombstones/ledger'
-            purged = any(rid in f.read_text(encoding='utf-8') for f in led.glob('*.tsv')) if led.is_dir() else False
-            assert rid in history_ids or purged
+            else:                  # 墓碑清了：并条账里须记着旧号
+                assert rid in ledger_pairs(), rid
 
 
 def test_commentary_and_original_authors_keep_their_distinct_roles():
@@ -75,7 +89,7 @@ def test_same_rubbing_with_unresolved_work_model_is_preserved():
 
 def test_nine_chapters_keeps_digitization_and_physical_description():
     book = record('Book', '988g4v5jid')
-    assert '988g481zb6' in book['merged_from']
+    assert book['id'] in ledger_pairs()['988g481zb6']
     assert book['metadata']['npm_acckey']
     assert any('image' in resource.get('types', []) for resource in book['resources'])
     assert book['physical_description']['condition'] == '存卷一－五'

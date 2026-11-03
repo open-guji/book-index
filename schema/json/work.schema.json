@@ -127,8 +127,12 @@
       "type": "string",
       "not": {
         "anyOf": [
-          {"pattern": "^[0-9０-９]+(（[^）]*）)?[卷篇冊册回種部集章]$"},
-          {"pattern": "[一二三四五六七八九十百千萬][0０][一二三四五六七八九十]"}
+          {
+            "pattern": "^[0-9０-９]+(（[^）]*）)?[卷篇冊册回種部集章]$"
+          },
+          {
+            "pattern": "[一二三四五六七八九十百千萬][0０][一二三四五六七八九十]"
+          }
         ]
       },
       "x-not-message": "卷数用汉字数字写（如「十卷」「一百零五卷」），不写阿拉伯数字，也不夹「０」"
@@ -296,52 +300,11 @@
     "appendix": {
       "$ref": "common.schema.json#/$defs/AppendixItems"
     },
-    "merged_in": {
-      "$ref": "common.schema.json#/$defs/MergedIn"
-    },
-    "merged_from": {
-      "$ref": "common.schema.json#/$defs/MergedFrom"
-    },
     "merged_into": {
       "$ref": "common.schema.json#/$defs/Id"
     },
     "merged_basis": {
-      "type": "object",
-      "properties": {
-        "rule": {
-          "type": "string"
-        },
-        "at": {
-          "type": "string"
-        },
-        "by": {
-          "type": "string"
-        },
-        "author_as_written": {},
-        "indexed_by": {}
-      },
-      "additionalProperties": false
-    },
-    "merge_history": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string"
-          },
-          "merged_from": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "reason": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      }
+      "$ref": "common.schema.json#/$defs/MergedBasis"
     }
   },
   "patternProperties": {

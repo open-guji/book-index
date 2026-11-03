@@ -27,7 +27,7 @@
 
 | 写法 | 现状（正式库） | 理由与口径 |
 |---|---|---|
-| `indexed_by[]` 的 `merged_from` 596、`text`／`self_note`／`commentaries` 各 592、`comment` 405（另 Book 1）、`category` 321、`additional_comment` 71、`link_basis` 71 | check_schema INFO `legacy-keep` 共 3,240（2026-11-03）。WARN 现为 531，全在 Entity（`external_ids` 等），不是这些旧写法 | 志书原文与并条证据，删了丢证据。Schema 里标 `x-legacy:"keep"`（overview#496）；新录入同类信息写 [common.md〈IndexEntry〉](common.md#二indexentryindexed_byemendated_by-的元素) 正式键 |
+| `indexed_by[]` 的 `text`／`self_note`／`commentaries` 各 592、`comment` 405（另 Book 1）、`category` 321、`additional_comment` 71、`link_basis` 71 | check_schema INFO `legacy-keep` 共 3,240（2026-11-03）。WARN 现为 531，全在 Entity（`external_ids` 等），不是这些旧写法 | 志书原文与并条证据，删了丢证据。Schema 里标 `x-legacy:"keep"`（overview#496）；新录入同类信息写 [common.md〈IndexEntry〉](common.md#二indexentryindexed_byemendated_by-的元素) 正式键 |
 | 草稿库缺 `revision` | 草稿库 Work／Book 全部 | 草稿库正当状态，升格时 bim 补 `"1.0.0"`（[common.md〈revision 口径〉](common.md#revision-口径)） |
 | `dynasty` 跨朝代值（宋末元初、元末明初、遼金元等） | 10-09 共 862 处（未重测） | 带真实信息，准许存量；随人物细化逐条改，无截止日（overview#496 C1・R5） |
 | `classific.json`（仓根旧分类词表） | 正式库有、草稿库无 | 2026-10-12 裁决：**保留**，由 build 从 `classification/zongmu/tree.json` 生成；读者 web 3 个脚本、bim 4 处仍读，改读 tree 前不删。读者全改完另立条再删 |

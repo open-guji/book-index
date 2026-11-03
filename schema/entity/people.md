@@ -9,7 +9,6 @@
 | 示例 | 源档 | 演示什么 |
 |---|---|---|
 | 蘇軾 `hixhd2h9bdqq` | [Entity/d/q/q/hixhd2h9bdqq-蘇軾.json](../../Entity/d/q/q/hixhd2h9bdqq-蘇軾.json) | 字、号等 `alt_names`、`external_ids`（CBDB／Wikidata 等）、籍贯、`dates` 的完整典型人物条 |
-| 強仕 `hixi23un53pm` | [Entity/3/p/m/hixi23un53pm-強仕.json](../../Entity/3/p/m/hixi23un53pm-強仕.json) | 并条的**留存方**：`merged_in[]` 记录被并入的条（含并入时间、规则、理由） |
 | 張金瀾 `hixhd2h9bqib` | [Entity/q/i/b/hixhd2h9bqib-張金瀾.json](../../Entity/q/i/b/hixhd2h9bqib-張金瀾.json) | `native_place_entity_id` 指向 place 条（山陰縣 `hixi5xctqcxs`）的籍贯写法 |
 
 通用字段全部可用（见[通用字段](_common.md)）。people 实际用到的字段一览（每行的完整取值、统计数见[通用字段](_common.md)对应行；`people` 没有专属于它的子类型字段，下面都是[通用字段](_common.md)里的通用字段）：
@@ -27,7 +26,7 @@
 | `name_basis` | string | 可选 | 名字依据（正名经过） | |
 | `external_ids` | object | 可选 | CBDB、Wikidata、VIAF，子键见[external_ids 子键](_dates-external-ids.md#external_ids-子键) | `{"cbdb_id":3767,"wikidata_id":"Q36020"}` |
 | `description` | Description | 可选 | 介绍与出处（`sources`） | |
-| `merged_in[]`／`merged_into`／`merge_history[]` | array／string／array | 可选 | 并条账与墓碑，见下 | |
+| `merged_into`／`merged_basis` | string／object | 墓碑 | 并条账，只在墓碑上，见下 | |
 | `retired`、`retired_reason` | boolean／string | 可选 | 退役 | |
 | `relations[]` | array<PersonRelation> | 可选 | 亲属／师承关系（2026-11-02 新增，见下） | `[{"type":"父","entity_id":"hixhd2h9bf1f"}]` |
 | `suppressed_fields` | array<string> | 可选 | 人工确认 CBDB 值有误而清空的字段名 | `["cbdb_id"]` |
@@ -38,7 +37,7 @@ people 特有的规矩：
 
 - 名下作品不写，build 生成 `_works`；朝代名由 build 解析为 `_dynasty_id`（规范名唯一命中且不歧义）或 `_dynasty_candidates`（歧义名的候选 id），见 [derived.md](../derived.md)。
 - **`suppressed_fields`**（2026-09-26 用户裁，甲案）：人工核过、确认 CBDB 该字段之值有误而清空的，把字段名列进 `suppressed_fields`；补空槽的 enrich 脚本（`cbdb-sync/apply_enrich.py`）逢清单里的字段即绕开，不再拿 CBDB 之值回填。原行为只认「字段现在是否空」，人清空一次、下一轮 enrich 就自动填回去，俞安期、謝顯两例皆如此每跑一次就再犯一次。**只影响列名的字段**，其余空槽仍照常补。
-- 并条：留存方写 `merged_in[]`，被并方只留 stub（墓碑）并写 `merged_into`，**并条时不删档**（墓碑会在合并稳定后被定期整体清理，见 [common.md〈并条账〉](../common.md#七并条账)）（2026-10-09 目录经理定，overview#409；`.claude/qa/entity_merge.py` 已改为写墓碑）。网站按被并方记录的 `merged_into` 308 跳到留存方；build 现仍把墓碑列入 `index/`。早期（2026-09-09）的并条账在 `merge_history[]`；此前 entity_merge.py 删档的并条只在留存方 `merged_in` 里有账。
+- 并条：被并方只留 stub（墓碑）并写 `merged_into` 与 `merged_basis`（`{rule, at, by, why}`），**并条时不删档**（墓碑会在合并稳定后被定期整体清理，见 [common.md〈并条账〉](../common.md#七并条账)）（2026-10-09 目录经理定，overview#409；`.claude/qa/entity_merge.py` 已改为写墓碑）。网站按被并方记录的 `merged_into` 308 跳到留存方；build 现仍把墓碑列入 `index/`。留存方的 `merged_in[]`／`merge_history[]` 已于 2026-11-03 删除，旧账在 `.claude/qa/purge-tombstones/ledger/history-20261103.tsv`。
 - **`relations[]`**（2026-11-02 新增，可选，仅 people）：记本条与另一 people 条的亲属、师承关系，也是区分同名人物的佐证。每项 `{type, entity_id, basis?, sources?[]}`：
   - `type` 是「**本条是对方的什么**」，枚举 12 值：`父`、`子`、`祖`（祖父）、`孫`、`曾祖`、`曾孫`、`兄`、`弟`、`叔伯`（父之兄弟）、`姪`、`師`、`弟子`（含门人、受业）。例：方中履条写 `{"type":"子","entity_id":<方以智>}`，意为「方中履是方以智的子」。
   - `entity_id` 指向另一 people 条（不得指自己、不得指墓碑）；**双向对称写入**：甲条有 `{子, 乙}`，则乙条必有 `{父, 甲}`（逆称：父↔子、祖↔孙、曾祖↔曾孙、兄↔弟、叔伯↔姪、師↔弟子）。不写姻亲（妻、婿、岳父等）与姐妹，需要时另议。
@@ -59,16 +58,6 @@ people 特有的规矩：
   "period": "song",
   "revision": "1.1.0",
   "revised_at": "2026-10-07",
-  "merged_in": [
-    {
-      "id": "hixhd2h9bmfu",
-      "primary_name": "馬令",
-      "at": "2026-10-08",
-      "by": "D4-Entity清账",
-      "rule": "M1 裁定（10-07）：keeper 取 B，朝代定宋",
-      "why": "P4b（批3c，M1 裁）：总目宋馬令名下著作与两条皆合；A 误标朝代且所繫 cbdb 为他人，不带入"
-    }
-  ],
   "dynasty": "宋",
   "dynasty_basis": "中國古籍總目（上圖聯合目錄）責任者著錄「宋」；P4b 批3c 目錄經理裁定（2026-10-07）",
   "suppressed_fields": [
