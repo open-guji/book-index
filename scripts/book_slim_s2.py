@@ -3,7 +3,7 @@
 
 只做三类机械清理，不改任何语义：
   A  provenance[]：call_number=="" / notes=="" / seals==[] 不写（institution、source 保留）
-  E  edition=="" 不写；edition 与 edition_type 完全相同者不写 edition（信息在 edition_type）
+  E  edition=="" 不写（与 edition_type 重复者暂不动，见代码注释）
   C  ai_note 中「…自動錄入；源記錄：<id>」行，且 <id> 恰為某 sources[].id 者刪該行（其余行照留；空了整體不寫）
   D  indexed_by[]（source=="中國古籍總目"）的 summary 不寫（title_info／source／source_bid 保留）
   F  metadata.npm_item_id 与某 provenance[].call_number 相同者删去该键（metadata 空了整体不写）
@@ -31,8 +31,7 @@ def slim(d):
     ed = d.get('edition')
     if ed == '':
         del d['edition']; ch['E_empty_edition'] += 1
-    elif isinstance(ed, str) and ed == d.get('edition_type'):
-        del d['edition']; ch['E_edition_eq_type'] += 1
+    # edition == edition_type 者暫不動：index/books 的 edition 字段會隨之變，需先重建 index/（另批）
     md = d.get('metadata')
     if isinstance(md, dict) and isinstance(md.get('npm_item_id'), str):
         cns = {x.get('call_number') for x in (pv or []) if isinstance(x, dict)}
