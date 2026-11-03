@@ -4,6 +4,13 @@
 
 ---
 
+## 2026-11-03　资源整理步 R0：`resources[].label` 与站点登记（第 7 组；S3；只放宽、加 WARN，不改数据）
+
+- `Resource` 加可选 `label`；读者（book-index-ui）已兼容（bim #296）：带 `label` 而无 `group` 的资源按「只有一条的组」显示。
+- 新增 `schema/resource-sites.json`：32 个常用站点代号→通用 `short_name`，覆盖现有 `short_name` 的 99.9%（99,672／99,725）。
+- `check_schema` 新增 WARN：`single-member-group`（组里只有 1 条资源，应改写成 `label`；Work 55,252、Book 18,920）、`short-name-redundant`（与登记相同，不必写；约 9.9 万）。数据清完后升 ERROR。
+- 方案与步骤见 `07-资源整理.md`（项目文件夹 总目/schema审查/）。
+
 ## 2026-11-03　删空或预留字段（第 8 组；S3）
 
 - 从 JSON Schema 与文档删：Book／Collection 的 `todo`、`review`，Work 的 `todo`（全库 0 条）；Book 的 `zhsy_retrieved_at`、`authors[].cbdb_retrieved_at`（0 条）；Book `appendix`（仅《新鐫全部繡像紅樓夢程甲本》1 条，原文并入该条 `ai_note` 末尾，原档存 `.claude/qa/schema-s3-group8-1103/BEFORE-*`）。Work `review`（49 条）与 Entity `todo`／`review` 存量不动。

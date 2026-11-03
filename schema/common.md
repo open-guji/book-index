@@ -107,7 +107,8 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 |---|---|---|---|---|---|---|---|
 | `id` | string | 必填 | 原生 | 资源标识；常用站点名作 id（同一记录内不必唯一） | 自由文本，ASCII 小写与连字符为宜 | 录入 | `"wikisource"` |
 | `name` | string | 必填 | 原生 | 站点或资源名，供显示 | 自由文本 | 录入 | `"維基文庫"` |
-| `short_name` | string | 可选 | 原生 | 短名，供窄处显示 | 自由文本 | 录入 | `"國圖"` |
+| `short_name` | string | 可选 | 原生 | 短名，供窄处显示 | 自由文本；**与站点登记 [resource-sites.json](resource-sites.json) 相同的不写**（build 产物里补回），只写与登记不同的变体 | 录入 | `"國圖"` |
+| `label` | string | 可选 | 原生 | 这条资源自己的小标题（原「只有它一条的资源组」的标题） | 自由文本；有 `label` 的不要再写 `group`／`group_role`，读者按「只有一条的组」显示 | 录入 | `"國圖藏本：清[1644-1911]"` |
 | `url` | string | 条件：可在线访问者必填 | 原生 | 入口地址 | URL | 录入 | |
 | `types` | array<string> | 必填 | 原生 | 资源内容类型，可多值 | `image`（影像）｜`text`（文本）｜`physical`（实物馆藏记录）｜`catalog`（书目入口）｜`annotated`（带注释的整理本） | 录入 | `["image"]` |
 | `details` | string | 可选 | 原生 | 说明（卷册范围、来源、可达性） | 自由文本 | 录入 | `"頁名取自舊叢編對照表，未驗證"` |

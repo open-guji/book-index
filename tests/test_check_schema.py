@@ -116,7 +116,7 @@ def test_semantic_warns():
     m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
     rec = {"period": "song", "dynasty": "宋", "resources": [{"group": "g"}], "indexed_by": [{"source": "x", "title_info": "t"}]}
     codes = sorted(c for _, c, _, _ in m.semantic_warns("work", rec))
-    assert codes == ["dynasty-no-basis", "group-undefined", "index-entry-missing", "period-no-basis"]
+    assert codes == ["dynasty-no-basis", "group-undefined", "index-entry-missing", "period-no-basis", "single-member-group"]
 
 
 def test_entity_stage4_legacy_forms_rejected():
@@ -168,3 +168,14 @@ def test_entity_alt_type_legacy_values_closed():
     assert {"名", "本名", "小字", "法號"} <= set(t["enum"])
     assert "x-legacy-values" not in t
     assert "著錄形" not in t["enum"]
+
+
+def test_resource_warns():
+    import importlib.util, os
+    spec = importlib.util.spec_from_file_location("cs3", os.path.join(os.path.dirname(__file__), "..", "schema", "check_schema.py"))
+    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    rec = {"resource_groups": {"g": {"label": "x"}},
+           "resources": [{"id": "nlc", "name": "n", "short_name": "國圖", "group": "g", "group_role": "origin"},
+                         {"id": "nlc", "name": "n", "short_name": "別名"}]}
+    codes = sorted(c for _, c, _, _ in m.semantic_warns("work", rec))
+    assert codes == ["short-name-redundant", "single-member-group"]
