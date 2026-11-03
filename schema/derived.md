@@ -85,7 +85,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 
 正式库 11-03 实测（main `288d9075320`）：`entry/` 807,887 档（Work 249,778、Book 402,956、Collection 3,707、Entity 151,446），产物文件共 813,442 个（含 `index/`）；`members/` 4,011 页、`catalog/` 1,507 页、`related/` 24 页、`lineage/` 8 档；枢纽 143 个（Collection 78、Work 52、Entity 13）；全量 build 约 5.5 分钟（4 核）。（10-09 旧数：206,496 档、枢纽 59 个。）
 
-仓根的 `index.json`（`{"books":{},"collections":{},"works":{}}`）不是 build 产出的。
+仓根的 `index.json`（空壳）与仓根 `classific.json`（旧副本）已于 2026-11-03 删除；读者读 build 产物里的 `classific.json`。
 
 ---
 
