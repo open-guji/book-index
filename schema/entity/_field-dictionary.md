@@ -9,8 +9,8 @@
 | 概念 | 叫法与适用类型 | 说明 |
 |---|---|---|
 | 所属朝代 | people（及旧 collective）：`dynasty`（规范名字符串）＋`dynasty_basis`＋`period`＋`period_basis`；office／官署／place／publisher／seal：`dynasty_ids`（dynasty 条 id 数组）；reign：`dynasty_id`（单个 id）；place 沿革：`history[].dynasty_ids` | `dynasty` 是**软引用**：people 里「宋」「元末明初」等总称、过渡称对不上单个 dynasty 条（用户 2026-10-30 定允许记「宋」）；`dynasty_ids` 是**硬引用** |
-| 起讫年 | people：`dates.birth／death／floruit`；dynasty／reign：`dates.start／end`；官署、publisher：顶层 `start`／`end`（`build/names.py` 两处都认）；place：`history[].start／end` | 是否把官署和 publisher 的顶层起讫收进 `dates`，待定（见 S4 意见） |
-| 依据说明 | `dynasty_basis`、`period_basis`、`native_place_basis`、`name_basis`、`dates.basis`、`dates_basis`（publisher 顶层）、`rank.basis`、`basis`（office／官署的职掌依据） | 都是「这个值凭什么」，各管各的字段 |
+| 起讫年 | people：`dates.birth／death／floruit`；dynasty／reign：`dates.start／end`；官署、seal、publisher：`dates.start／end／basis`（2026-11-03 起，原顶层 `start`／`end`／`dates_basis`；顶层为旧写法，报 WARN）；place：`history[].start／end` | 已统一，见 S4 PR |
+| 依据说明 | `dynasty_basis`、`period_basis`、`native_place_basis`、`name_basis`、`dates.basis`、`dates.basis`（已含原 publisher 顶层 `dates_basis`）、`rank.basis`、`basis`（office／官署的职掌依据） | 都是「这个值凭什么」，各管各的字段 |
 | 上级／所属 | dynasty：`parent_id`＝上位政权；office／官署：`parent_id`＝概念条；place 朝代条：`concept_id`＝跨朝条；place 沿革 `history[].parent_id`＝行政上级；官署隶属：`superiors[]`；成员→合称：`group_ids`；office→官署：`institution_ref`；seal→机构：`institution_ids` | 几种「上」不同，不能互相替代 |
 | 概念／具体层 | office：`office_level`；官署：`institution_level`（另有 `group`）；place：`place_level`（`concept`／`concrete`／`region`） | `region` 是区域条，不是层级 |
 
@@ -37,5 +37,5 @@
 ## 四、停写与待定
 
 - `review`：Entity 里 121,416 条恒为 `{"status":"unreviewed"}`，用户 2026-11-02 定**只停新写、存量不动**。可信度靠 `description.sources`、A/B/C 档、`ai_note` 表达。
-- `updated_at`：Entity 约 6.75 万条带，S3 已决定停写（`revision_fields.py`、`promotion.py`）；存量删除待停写合并后另排期，不在本次。
+- `updated_at`：Entity 存量 68,158 条已于 2026-11-03 删除（S3-A6，不 bump `revision`），新写入一律不写；schema 里暂留可选，等四类数据清完后由 S3 删键。
 - 已删 0 条预留字段：`salary`、`succeeds`、`kind_also`、`seal_script`、`material`、`size`、`dates.chinese`、`birth_year`、`death_year`。真要用时再加。

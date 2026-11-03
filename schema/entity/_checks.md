@@ -47,7 +47,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | I03 | 官署 | 具体条 `parent_id` 指官署概念条；概念条、合称条不得有 `parent_id` | ERROR |
 | I04 | 官署 | `superiors` 为数组，各项指同朝官署具体条、不自指、无环、`start`／`end` 为整数且 `start ≤ end`（ERROR）；上级与本条朝代不相交（WARN） | ERROR／WARN |
 | I05 | 官署 | `group_ids` 指合称条（ERROR）；具体条与其概念条重复挂同一合称（WARN） | ERROR／WARN |
-| I06 | 官署 | 具体条 `start`／`end` 为整数、无 0 年、`start ≤ end`（ERROR）；越出所属朝代 5 年（WARN） | ERROR／WARN |
+| I06 | 官署 | 具体条 `dates.start`／`end` 为整数、无 0 年、`start ≤ end`（ERROR）；越出所属朝代 5 年（WARN） | ERROR／WARN |
 | I07 | 官署 | 同一概念下同朝（合并条按展开的朝代算）只一条具体条 | WARN |
 | I08 | 官署 | 外部 id 与禁字段（同 E1）；官职专有字段 | ERROR |
 | I09 | 官署 | `location_id` 出现（ERROR） | ERROR／WARN |
@@ -55,19 +55,19 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | I11 | 官署 | 派生字段入源档 | ERROR |
 | I12 | office | `institution_ref`：`COL:<名>` 占位（ERROR）；须指官署条（ERROR）；指具体条须与官职朝代相交（ERROR）；指概念条须 `ai_note` 标「待補」（WARN）；官名含部名而指合称（WARN）；id 不在本库（WARN） | ERROR／WARN |
 | S01 | seal | `primary_name`、`seal_text` 非空；`seal_kind` 在 5 值内；`description.sources` 非空 | ERROR |
-| S02 | seal | `dynasty_ids` 非空且指 dynasty；`start`／`end` 为整数且 `start ≤ end`；`seal_style`／`seal_form` 在枚举内 | ERROR |
+| S02 | seal | `dynasty_ids` 非空且指 dynasty；`dates.start`／`end` 为整数且 `start ≤ end`；`seal_style`／`seal_form` 在枚举内 | ERROR |
 | S03 | seal | `owner_ids`／`institution_ids` 为 id 数组且指向存在的 Entity，不得指 seal／dynasty（ERROR）；指墓碑（WARN） | ERROR／WARN |
 | S04 | seal | `appears_in` ≤20 条、`ref_type` ∈ Book／Work、`id` 在库内存在、不重复 | ERROR |
 | S05 | seal | `images` 每项 `file`＋`credit`＋`license`（闭集）＋`source_url`、≤8、`file` 路径规范；`owner_ids` 只能指 people／collective／office，`institution_ids` 只能指 collective；出现其他子类型专属字段（含 `dates`、`dynasty`、`period`） | ERROR |
 | S06 | seal | `images[].file` 在 book-index-asset 中不存在（本地有 `BOOK_INDEX_ASSET_ROOT` 或并列的 `../book-index-asset` 才核；没有该仓就跳过，CI／verify 不硬依赖另一仓） | ERROR |
 | K01 | publisher | `publisher_kind` 在 6 值内；`status` 在枚举内；`primary_name` 非空；`description.sources` 非空 | ERROR |
 | K02 | publisher | 古代类 `dynasty_ids` 非空且各指 dynasty；`現代出版社`不得写 `dynasty_ids` | ERROR |
-| K03 | publisher | `start`／`end` 为非 0 整数且 `start ≤ end` | ERROR |
+| K03 | publisher | `dates.start`／`end` 为非 0 整数且 `start ≤ end` | ERROR |
 | K04 | publisher | `locations[]` 形状；`place_id` 须指 place（ERROR）、指墓碑（WARN） | ERROR／WARN |
 | K05 | publisher | `owners[]={id, role}`，`id` 指 people／collective；`parent_id` 指 publisher／collective、不自指、publisher 链无环（ERROR）；指墓碑（WARN） | ERROR／WARN |
 | K06 | publisher | 禁字段（见[publisher](publisher.md)） | ERROR |
 | K07 | publisher | `external_ids` 只许 `wikidata_id`／`isbn_publisher_code` | ERROR |
-| K08 | publisher | 写了 `start`／`end` 而缺 `dates_basis` | WARN |
+| K08 | publisher | 写了 `dates.start`／`end` 而缺 `dates.basis` | WARN |
 | K09 | publisher | 同名＋同类别＋同朝代集重复，疑重复建档 | WARN |
 | V01 | 全部 | 源档出现 `_` 起首字段；专名四子类型另查无下划线的派生名（见[禁字段](_forbidden-derived.md#源档不写)）；`_has_text`／`_has_collated` 豁免已收回 | ERROR |
 | V11 | 全部 | 源档有 `works` | ERROR |

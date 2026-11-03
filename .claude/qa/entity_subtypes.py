@@ -35,7 +35,7 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
        N03  指向的地名是墓碑（有 merged_into）：只警告，提示跟 merged_into          WARN
   S01–S06  印章（seal，GUJI-538）：
        S01  seal_text（印文）非空、seal_kind 在枚舉內、primary_name 非空、description.sources 非空   ERROR
-       S02  dynasty_ids 非空且各指 dynasty；start／end 為整數且 start ≤ end；                      ERROR
+       S02  dynasty_ids 非空且各指 dynasty；dates.start／end（頂層為舊寫法，WARN）為整數且 start ≤ end；                      ERROR
             seal_style／seal_form 若有須在枚舉內                                                 ERROR
        S03  owner_ids／institution_ids 各指本庫存在的 Entity（people／collective／office／reign 之外
             不得指 seal 與 dynasty）；指墓碑 WARN                                               ERROR／WARN
@@ -46,7 +46,7 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
        K01  publisher_kind 在 6 值內（家刻｜坊刻｜寺觀｜藩府｜現代出版社｜未分）、kind_also／status 枚舉、
             primary_name 非空、description.sources 非空                                          ERROR
        K02  古代類 dynasty_ids 必填且各指 dynasty；現代出版社不得寫 dynasty_ids                       ERROR
-       K03  start／end 為非 0 整數且 start ≤ end                                                  ERROR
+       K03  dates.start／end（頂層為舊寫法，WARN）為非 0 整數且 start ≤ end                                                  ERROR
        K04  locations[]：{place_id?, name, start?, end?, note?}，place_id 須指 place；墓碑 WARN      ERROR／WARN
        K05  owners[]={id, role}（id 指 people／collective）；parent_id 指 publisher／collective、
             不自指、publisher 上級鏈無環；指墓碑 WARN                                             ERROR／WARN
@@ -82,15 +82,16 @@ ALT_TYPES = {
 }
 ALT_TYPES_NEW_ONLY = ALT_TYPES  # 新子類型暫與全表同；人物之長尾罕見值不在此限（由 qa_entity 判 WARN）
 
-# 各子類型可用 dates 鍵（清單 §三·3）；office／place 不用 dates
+# 各子類型可用 dates 鍵（清單 §三·3）；office／place 不用 dates；官署、seal、publisher 自 2026-11-03 起用 dates{start,end,basis}
 DATES_KEYS = {
     "people": {"birth", "death", "floruit", "chinese", "basis"},
     "dynasty": {"start", "end", "basis", "chinese"},
     "reign": {"start", "end", "basis", "chinese"},
     "office": set(),
     "place": set(),
-    "seal": set(),
-    "publisher": set(),
+    "collective": {"start", "end", "basis"},   # 官署（2026-11-03 起收進 dates，原為頂層 start／end）
+    "seal": {"start", "end", "basis"},
+    "publisher": {"start", "end", "basis"},   # 原頂層 start／end／dates_basis
 }
 # 源檔不許寫之派生／反向欄（無底線者；`_` 起首者由 check_v2 V01 報）
 DERIVED_NAMES = ("children", "reigns", "index_in_reign", "successors", "people", "holders",
@@ -106,7 +107,7 @@ CONCEPT_FORBIDDEN = ("dynasty_ids", "rank", "salary", "office_class", "base_offi
 # 官署（collective_kind=官署）
 COLLECTIVE_KINDS = {"官署", "書院學校", "館局", "民間", "未分"}
 INST_LEVELS = {"concept", "concrete", "group"}
-INST_CONCRETE_ONLY = ("dynasty_ids", "function", "superiors", "start", "end", "basis")
+INST_CONCRETE_ONLY = ("dynasty_ids", "function", "superiors", "start", "end", "basis", "dates")
 INST_OFFICE_FIELDS = ("office_level", "office_class", "rank", "salary", "base_office_id", "qualifier",
                       "institution_ref")
 INST_DERIVED = ("subordinates", "members", "offices", "_subordinates", "_members", "_children", "_offices")
@@ -244,6 +245,20 @@ class Registry:
 
 # ----------------------------------------------------------------------------- 局部檢查
 
+def _se(rec):
+    """官署／seal／publisher 之起訖：優先 dates.start／end，後備頂層 start／end（舊寫法）。"""
+    dt = rec.get("dates") if isinstance(rec.get("dates"), dict) else {}
+    s = dt.get("start") if "start" in dt else rec.get("start")
+    e = dt.get("end") if "end" in dt else rec.get("end")
+    return s, e
+
+
+def _legacy_flat_dates(rec):
+    """頂層 start／end／dates_basis 為舊寫法（2026-11-03 起收進 dates），報 WARN。"""
+    return [("D3", WARN, k, "頂層 %s 為舊寫法，請寫入 dates.%s" % (k, "basis" if k == "dates_basis" else k))
+            for k in ("start", "end", "dates_basis") if k in rec]
+
+
 def _dates_problems(rec, st):
     out = []
     dt = rec.get("dates")
@@ -252,8 +267,8 @@ def _dates_problems(rec, st):
     if not isinstance(dt, dict):
         return [("D3", ERROR, "dates", "非物件")]
     allowed = DATES_KEYS.get(st, set())
-    if st in ("office", "place", "seal", "publisher"):
-        return [("D3", ERROR, "dates", "%s 不用 dates（起訖在 start／end 或沿革項）" % st)]
+    if st in ("office", "place"):
+        return [("D3", ERROR, "dates", "%s 不用 dates（起訖在沿革項）" % st)]
     for k in dt:
         if k not in allowed:
             out.append(("D3", ERROR, "dates." + k, "%s 不放行此鍵" % st))
@@ -532,6 +547,14 @@ def _check_institution(rec, reg):
     for k in INST_DERIVED:
         if k in rec and not k.startswith("_"):
             out.append(("I11", ERROR, k, "派生欄不入源檔"))
+    _dtr = rec.get("dates")
+    if _dtr is not None and not isinstance(_dtr, dict):
+        out.append(("D3", ERROR, "dates", "非物件"))
+    elif isinstance(_dtr, dict):
+        for k in _dtr:
+            if k not in DATES_KEYS["collective"]:
+                out.append(("D3", ERROR, "dates." + k, "官署不放行此鍵"))
+    out += _legacy_flat_dates(rec)
     pid = rec.get("parent_id")
     if lvl in ("concept", "group"):
         for k in INST_CONCRETE_ONLY:
@@ -595,7 +618,7 @@ def _check_institution(rec, reg):
                 seen.add(x)
                 stack.extend(y.get("id") for y in (reg.rec[x].get("superiors") or []) if isinstance(y, dict))
         # I06 起訖
-        s, e = rec.get("start"), rec.get("end")
+        s, e = _se(rec)
         for k, v in (("start", s), ("end", e)):
             if v is not None and not is_int(v):
                 out.append(("I06", ERROR, k, "非整數：%r" % (v,)))
@@ -656,7 +679,7 @@ SEAL_FORBIDDEN = ("dynasty", "dynasty_basis", "period", "period_basis", "native_
                   "native_place_entity_id", "title_or_office", "name_basis", "collective_kind",
                   "institution_level", "superiors", "group_ids", "parent_id", "function", "basis", "succeeds",
                   "dynasty_id", "ruler", "office_level", "office_class", "rank", "salary", "institution_ref",
-                  "base_office_id", "qualifier", "history", "modern", "predecessors", "dates")
+                  "base_office_id", "qualifier", "history", "modern", "predecessors")
 
 
 def _check_seal(rec, reg):
@@ -665,6 +688,7 @@ def _check_seal(rec, reg):
         out.append(("S01", ERROR, "primary_name", "缺"))
     if not nonempty_str(rec.get("seal_text")):
         out.append(("S01", ERROR, "seal_text", "印文必填且非空"))
+    out += _legacy_flat_dates(rec)
     if rec.get("seal_kind") not in SEAL_KINDS:
         out.append(("S01", ERROR, "seal_kind", "不在枚舉：%r" % (rec.get("seal_kind"),)))
     desc = rec.get("description")
@@ -681,7 +705,7 @@ def _check_seal(rec, reg):
     for d in dids:
         if reg.sub.get(d) != "dynasty":
             out.append(("S02", ERROR, "dynasty_ids", "不存在或非 dynasty：%r" % (d,)))
-    s, e = rec.get("start"), rec.get("end")
+    s, e = _se(rec)
     for k, v in (("start", s), ("end", e)):
         if v is not None and not is_int(v):
             out.append(("S02", ERROR, k, "非整數：%r" % (v,)))
@@ -759,7 +783,7 @@ PUBLISHER_FORBIDDEN = ("dynasty", "dynasty_basis", "period", "period_basis", "na
                        "native_place_entity_id", "title_or_office", "collective_kind",
                        "institution_level", "superiors", "group_ids", "function", "basis", "succeeds",
                        "dynasty_id", "ruler", "office_level", "office_class", "rank", "salary", "institution_ref",
-                       "base_office_id", "qualifier", "history", "modern", "dates",
+                       "base_office_id", "qualifier", "history", "modern",
                        "seal_text", "seal_kind", "owner_ids", "institution_ids", "appears_in", "images",
                        "predecessors", "publisher_sub", "legal_name", "representative", "books", "subordinates")
 
@@ -797,7 +821,7 @@ def _check_publisher(rec, reg):
                 if reg.sub.get(d) != "dynasty":
                     out.append(("K02", ERROR, "dynasty_ids", "不存在或非 dynasty：%r" % (d,)))
     # K03 start/end
-    s, e = rec.get("start"), rec.get("end")
+    s, e = _se(rec)
     for k, v in (("start", s), ("end", e)):
         if v is not None and not is_int(v):
             out.append(("K03", ERROR, k, "非整數：%r" % (v,)))
@@ -875,8 +899,10 @@ def _check_publisher(rec, reg):
         if k in rec:
             out.append(("K06", ERROR, k, "publisher 不用此欄"))
     # K08
-    if (s is not None or e is not None) and not nonempty_str(rec.get("dates_basis")):
-        out.append(("K08", WARN, "dates_basis", "寫了 start／end 而缺 dates_basis"))
+    _dt = rec.get("dates") if isinstance(rec.get("dates"), dict) else {}
+    if (s is not None or e is not None) and not (nonempty_str(_dt.get("basis")) or nonempty_str(rec.get("dates_basis"))):
+        out.append(("K08", WARN, "dates.basis", "寫了 start／end 而缺 dates.basis"))
+    out += _legacy_flat_dates(rec)
     return out
 
 

@@ -60,8 +60,7 @@
     "status": "unreviewed"
   },
   "revision": "1.0.0",
-  "revised_at": "2026-10-07",
-  "updated_at": "2026-10-07T00:00:00+00:00"
+  "revised_at": "2026-10-07"
 }
 ```
 

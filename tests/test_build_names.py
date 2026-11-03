@@ -205,11 +205,11 @@ def test_place_concrete_tier(tmp_path):
     assert [c['id'] for c in k if c.get('default')] == ['e00000pc01']
 
 
-def test_start_end_accept_flat_legacy_keys():
-    """S4-3：官署、出版者旧写法的顶层 start／end 与 dates.start／end 两处都认；dates 优先。"""
+def test_start_end_read_dates_only():
+    """S4-3：起讫年只读 dates.start／end（官署、出版者、印章已收入 dates，顶层旧写法不再认）。"""
     import names
     assert names._start({'dates': {'start': 960}, 'start': 1}) == 960
-    assert names._start({'start': 1082}) == 1082
-    assert names._end({'end': 1127}) == 1127
+    assert names._start({'start': 1082}) is None
+    assert names._end({'dates': {'end': 1127}}) == 1127
     assert names._start({}) is None
     assert names._end({'dates': {'end': None}, 'end': 'x'}) is None

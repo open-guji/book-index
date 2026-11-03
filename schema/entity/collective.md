@@ -24,7 +24,7 @@
 | `dynasty_ids` | array<string> | 条件：具体条**必填**；概念、合称不得有 | 原生 | 所属朝代 | dynasty id 数组；默认一朝一条，**各字段完全一致**才许多值合并（`ai_note` 标【合併條】） | 录入 | `["hixi1ubjrxgo"]` |
 | `function` | string | 条件：具体条**必填**；概念、合称不得有 | 原生 | 本朝职掌 | 自写，一句即可 | 录入 | `"掌禮樂、祭祀、朝會、貢舉等政令；…"` |
 | `basis` | string | 条件：具体条**必填**；概念、合称不得有 | 原生 | 依据 | 自由文本，不得含「待核」（I02） | 录入 | `"《宋史·職官志》"` |
-| `start`、`end` | integer | 可选；具体条（概念、合称不得有） | 原生 | 起讫 | 整数公历年，无 0 年，`start ≤ end`；有把握才填；越出所属朝代 5 年 WARN（I06） | 录入 | `1082` |
+| `dates` | object | 可选；具体条（概念、合称不得有） | 原生 | 起讫 | `{start?, end?, basis?}`，整数公历年，无 0 年，`start ≤ end`；有把握才填；越出所属朝代 5 年 WARN（I06）。**2026-11-03 起写入 `dates`；顶层 `start`／`end` 为旧写法，报 WARN（D3）** | 录入 | `{"start": 1082}` |
 | `superiors` | array<object> | 可选；具体条（概念、合称不得有） | 原生 | 上级官署 | 每项 `{id, start?, end?, note?}`，`id` 指同朝**具体**官署条，不自指、无环；只写下级→上级（下属由 build 派生 `_subordinates`）；隶属有变用 `start`／`end` 分段（I04） | 录入 | `[{"id":"hixi1ubqbwv7","start":1082}]` |
 | `group_ids` | array<string> | 可选；概念或具体条（合称不得有，合称不嵌套） | 原生 | 所属合称 | 合称条 id；成员→合称单向。跨朝不变挂概念条，随朝而变挂具体条；具体条与其概念条重复挂同一合称 WARN（I05） | 录入 | `["hixi1ubqbwuz"]`（六部） |
 | `description` | Description | 条件：概念、合称**必填** | 原生 | 介绍 | 同通用 | 录入 | |
@@ -63,8 +63,7 @@
     "status": "unreviewed"
   },
   "revision": "1.0.1",
-  "revised_at": "2026-10-07",
-  "updated_at": "2026-10-07T00:00:00+00:00"
+  "revised_at": "2026-10-07"
 }
 ```
 
@@ -79,7 +78,7 @@
 | I03 | 官署 | 具体条 `parent_id` 指官署概念条；概念条、合称条不得有 `parent_id` | ERROR |
 | I04 | 官署 | `superiors` 为数组，各项指同朝官署具体条、不自指、无环、`start`／`end` 为整数且 `start ≤ end`（ERROR）；上级与本条朝代不相交（WARN） | ERROR／WARN |
 | I05 | 官署 | `group_ids` 指合称条（ERROR）；具体条与其概念条重复挂同一合称（WARN） | ERROR／WARN |
-| I06 | 官署 | 具体条 `start`／`end` 为整数、无 0 年、`start ≤ end`（ERROR）；越出所属朝代 5 年（WARN） | ERROR／WARN |
+| I06 | 官署 | 具体条 `dates.start`／`end` 为整数、无 0 年、`start ≤ end`（ERROR）；越出所属朝代 5 年（WARN） | ERROR／WARN |
 | I07 | 官署 | 同一概念下同朝（合并条按展开的朝代算）只一条具体条 | WARN |
 | I08 | 官署 | 外部 id 与禁字段（同 E1）；官职专有字段 | ERROR |
 | I09 | 官署 | `location_id` 出现（ERROR） | ERROR／WARN |
@@ -90,4 +89,4 @@
 
 ## 补记（2026-11-03）
 - **非官署 collective 可带 `dynasty_ids`**：正式库有 14 条館局本来就带朝代，schema 对非官署 collective 放行（官署的概念条、合称条仍禁 `dynasty_ids`）。
-- 官署与出版者的顶层 `start`／`end`（官署 27／13 条、publisher 17 条）暂仍是正式写法；`build/names.py` 已于 #2185 起两处（`dates` 与顶层）都认。是否统一收进 `dates` 待定，见 PR 说明。
+- 官署与出版者（及印章）的起讫已于 2026-11-03 由顶层 `start`／`end`（官署 27／13 条、publisher 17 条）统一收进 `dates{start,end,basis}`，与 dynasty／reign 一致；`build/names.py` 只读 `dates`。

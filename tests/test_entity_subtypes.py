@@ -469,7 +469,15 @@ def test_i05_i06_i08_i09_i11():
     assert has(inst("x", "concrete", external_ids={"cbdb_id": 1}), "I08")
     assert has(inst("x", "concrete", rank={"text": "正三品"}), "I08")
     assert has(inst("x", "concrete", location_id="pl"), "I09")
-    assert has(inst("x", "concrete", succeeds=["y"]), "I09", es.WARN)
+    # 2026-11-03：`succeeds` 字段位已删，不再報 I09
+    assert not has(inst("x", "concrete", succeeds=["y"]), "I09", es.WARN)
+    # 2026-11-03：官署起訖收進 dates{start,end,basis}；頂層 start／end 為舊寫法（WARN）
+    assert has(inst("x", "concrete", dates={"start": 900, "end": 800}), "I06")
+    assert has(inst("x", "concrete", dates={"start": 500}), "I06", es.WARN)
+    assert not has(inst("x", "concrete", dates={"start": 618, "end": 907}), "I06")
+    assert has(inst("x", "concrete", dates={"start": 618, "foo": 1}), "D3", es.ERROR)
+    assert has(inst("x", "concrete", start=618), "D3", es.WARN)
+    assert has(inst("x", "concept", dates={"start": 618}), "I02")
     assert has(inst("x", "concrete", members=["y"]), "I11")
 
 

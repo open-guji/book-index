@@ -209,10 +209,14 @@
       "$ref": "common.schema.json#/$defs/NonEmptyString"
     },
     "start": {
-      "type": "integer"
+      "type": "integer",
+      "x-legacy": true,
+      "description": "顶层起讫（旧）：官署、seal、publisher 已收进 dates.start（2026-11-03），出现报 WARN"
     },
     "end": {
-      "type": "integer"
+      "type": "integer",
+      "x-legacy": true,
+      "description": "顶层起讫（旧）：官署、seal、publisher 已收进 dates.end（2026-11-03），出现报 WARN"
     },
     "dynasty_id": {
       "$ref": "common.schema.json#/$defs/Id"
@@ -541,7 +545,9 @@
       ]
     },
     "dates_basis": {
-      "$ref": "common.schema.json#/$defs/NonEmptyString"
+      "$ref": "common.schema.json#/$defs/NonEmptyString",
+      "x-legacy": true,
+      "description": "顶层起讫依据（旧）：已收进 dates.basis（2026-11-03），出现报 WARN"
     },
     "locations": {
       "type": "array",
@@ -1903,11 +1909,6 @@
                   },
                   {
                     "required": [
-                      "dates"
-                    ]
-                  },
-                  {
-                    "required": [
                       "merge_history"
                     ]
                   },
@@ -2003,7 +2004,7 @@
                   }
                 ]
               },
-              "x-not-message": "官署条不得有官职专有字段、dates 等（I08）"
+              "x-not-message": "官署条不得有官职专有字段等（I08）；起讫写 dates{start,end,basis}"
             },
             {
               "properties": {
@@ -2118,10 +2119,15 @@
                           "required": [
                             "end"
                           ]
+                        },
+                        {
+                          "required": [
+                            "dates"
+                          ]
                         }
                       ]
                     },
-                    "x-not-message": "官署概念条、合称条不得有 dynasty_ids／function／basis／superiors／start／end／parent_id（I02／I03）"
+                    "x-not-message": "官署概念条、合称条不得有 dynasty_ids／function／basis／superiors／start／end／dates／parent_id（I02／I03）"
                   },
                   {
                     "required": [
@@ -2486,11 +2492,6 @@
                 },
                 {
                   "required": [
-                    "dates"
-                  ]
-                },
-                {
-                  "required": [
                     "dynasty_id"
                   ]
                 },
@@ -2707,11 +2708,6 @@
                 {
                   "required": [
                     "predecessors"
-                  ]
-                },
-                {
-                  "required": [
-                    "dates"
                   ]
                 },
                 {
