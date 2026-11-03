@@ -286,7 +286,7 @@ def test_text_index_index_and_entry_same_rule(repo):
 
 
 def test_book_tombstone_excluded_from_work_editions_but_kept_in_index(repo):
-    """被并 Book 墓碑（merged_into）不進 Work._books／_edition_count、不進同 Work 其他 Book 的 _siblings；
+    """被并 Book 墓碑（merged_into）不進 Work._books／_edition_count、；Book 不再有 _siblings（契約 4）；
     自身 entry 保留 merged_into（308 讀它），index/ 照列（檢索端自行過濾）。"""
     S.put(repo, 'Book', {'id': 'b0000000009', 'type': 'book', 'title': '甲書重複本', 'work_id': S.W1,
                          'merged_into': S.B1, 'revision': '2.0.0'})
@@ -294,9 +294,9 @@ def test_book_tombstone_excluded_from_work_editions_but_kept_in_index(repo):
     w = P[f'entry/{S.W1}.json']
     assert 'b0000000009' not in [c['id'] for c in w['_books']]
     assert w['_edition_count'] == len(w['_books']) == 2
-    assert 'b0000000009' not in [c['id'] for c in P[f'entry/{S.B1}.json'].get('_siblings', [])]
+    assert '_siblings' not in P[f'entry/{S.B1}.json']
     stub = P['entry/b0000000009.json']
-    assert stub['merged_into'] == S.B1 and not stub.get('_siblings')
+    assert stub['merged_into'] == S.B1 and '_siblings' not in stub
     assert r['self_check_error_count'] == 0
 
 
