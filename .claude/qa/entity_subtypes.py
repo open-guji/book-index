@@ -108,7 +108,7 @@ CONCEPT_FORBIDDEN = ("dynasty_ids", "rank", "salary", "office_class", "base_offi
 # 官署（collective_kind=官署）
 COLLECTIVE_KINDS = {"官署", "書院學校", "館局", "民間", "未分"}
 INST_LEVELS = {"concept", "concrete", "group"}
-INST_CONCRETE_ONLY = ("dynasty_ids", "function", "superiors", "start", "end", "basis", "dates")
+INST_CONCRETE_ONLY = ("dynasty_ids", "function", "superiors", "start", "end", "function_basis", "dates")
 INST_OFFICE_FIELDS = ("office_level", "office_class", "rank", "salary", "base_office_id", "qualifier",
                       "institution_ref")
 INST_DERIVED = ("subordinates", "members", "offices", "_subordinates", "_members", "_children", "_offices")
@@ -450,7 +450,7 @@ def _check_office(rec, reg):
     for d in dids:
         if reg.sub.get(d) != "dynasty":
             out.append(("O02", ERROR, "dynasty_ids", "不存在或非 dynasty：%r" % (d,)))
-    for k in ("function", "basis"):
+    for k in ("function", "function_basis"):
         if not nonempty_str(rec.get(k)):
             out.append(("O02", ERROR, k, "具體條必填"))
     oc = rec.get("office_class")
@@ -571,11 +571,11 @@ def _check_institution(rec, reg):
         for d in dids:
             if reg.sub.get(d) != "dynasty":
                 out.append(("I02", ERROR, "dynasty_ids", "不存在或非 dynasty：%r" % (d,)))
-        for k in ("function", "basis"):
+        for k in ("function", "function_basis"):
             if not nonempty_str(rec.get(k)):
                 out.append(("I02", ERROR, k, "具體條必填"))
-        if "待核" in (rec.get("basis") or ""):
-            out.append(("I02", ERROR, "basis", "不得含「待核」"))
+        if "待核" in (rec.get("function_basis") or ""):
+            out.append(("I02", ERROR, "function_basis", "不得含「待核」"))
         if pid is not None and not (reg.is_inst(pid) and reg.rec[pid].get("institution_level") == "concept"):
             out.append(("I03", ERROR, "parent_id", "須指向官署概念條：%r" % (pid,)))
         # I04 superiors
@@ -672,7 +672,7 @@ SEAL_FORMS = ("方", "圓", "橢圓", "長方", "異形")
 SEAL_REF_MAX = 20
 SEAL_FORBIDDEN = ("dynasty", "dynasty_basis", "period", "period_basis", "native_place", "native_place_basis",
                   "native_place_entity_id", "title_or_office", "name_basis", "collective_kind",
-                  "institution_level", "superiors", "group_ids", "parent_id", "function", "basis", "succeeds",
+                  "institution_level", "superiors", "group_ids", "parent_id", "function", "function_basis", "succeeds",
                   "dynasty_id", "ruler", "office_level", "office_class", "rank", "salary", "institution_ref",
                   "base_office_id", "qualifier", "history", "modern", "predecessors")
 
@@ -776,7 +776,7 @@ PUBLISHER_LOC_KEYS = {"place_id", "name", "start", "end", "note"}
 PUBLISHER_OWNER_ROLES_HINT = ("主人", "創辦", "主持", "經營", "督刻")   # 開放詞表，不在內只提示不報
 PUBLISHER_FORBIDDEN = ("dynasty", "dynasty_basis", "period", "period_basis", "native_place", "native_place_basis",
                        "native_place_entity_id", "title_or_office", "collective_kind",
-                       "institution_level", "superiors", "group_ids", "function", "basis", "succeeds",
+                       "institution_level", "superiors", "group_ids", "function", "function_basis", "succeeds",
                        "dynasty_id", "ruler", "office_level", "office_class", "rank", "salary", "institution_ref",
                        "base_office_id", "qualifier", "history", "modern",
                        "seal_text", "seal_kind", "owner_ids", "institution_ids", "appears_in", "images",

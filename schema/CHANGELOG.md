@@ -4,6 +4,13 @@
 
 ---
 
+## 2026-11-03　office／官署顶层 `basis` 改名 `function_basis`（可做可不做第 9 组，用户定）
+
+- 异义同名：office、官署顶层 `basis` 是职掌（`function`）的依据，与 `dates.basis`（年值依据）、`rank.basis`（品秩依据）同名。改名 `function_basis`，其余同义异名只进字段词典，不改数据。
+- 存量：正式库 2,641 个文件（office 1,999、官署 642），纯改键名，值不动。
+- 同改：`entity.schema.json`、`entity_subtypes.py`（O02／I02 及 seal／publisher 禁字段表）、office.md／collective.md／_checks.md、`schema/db` 的列名与 roundtrip 映射。
+- 读者核查：bim、网站（kaiyuanguji-web）、build 均不读此键。
+
 ## 2026-11-03　删并条历史字段，并条账只留在墓碑与台账（可做可不做第 5 组，用户定）
 
 - 四类记录删 `merged_in`、`merged_from`、`merge_history`，`indexed_by[]` 删 `merged_from`（x-legacy keep 分支一并去掉）；`MergedIn`／`MergedFrom`／`MergedInItem`（common）与 `MergeHistoryItem`／`EntityMergedInItem`（entity）定义删除。此后再写报 unknown-field（ERROR）。网站、搜索只读 `merged_into`，不受影响。

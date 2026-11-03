@@ -44,13 +44,13 @@ CREATE TABLE entity_dates (owner_id text PRIMARY KEY REFERENCES entity(id) ON DE
 
 -- Entity 子类表（主键即 entity.id）
 CREATE TABLE person    (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, title_or_office text, native_place text, native_place_basis text, native_place_entity_id text);
-CREATE TABLE collective(id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, collective_kind text, institution_level text, function text, basis text);  -- 起讫年见 entity_dates  -- parent_id 进 entity_relation(rel='parent')
+CREATE TABLE collective(id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, collective_kind text, institution_level text, function text, function_basis text);  -- 起讫年见 entity_dates  -- parent_id 进 entity_relation(rel='parent')
 CREATE TABLE publisher (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, publisher_kind text, status text);  -- 起讫年见 entity_dates
 CREATE TABLE dynasty   (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE);  -- 起止年见 entity_dates；parent_id 进 entity_relation(rel='parent')
 CREATE TABLE reign     (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, ruler_name text,  -- dynasty_id 进 entity_relation(rel='in_dynasty')
    ruler_entity_id text);  -- 起止年见 entity_dates
 CREATE TABLE office    (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, office_level text, office_class text, function text,  -- institution_ref 进 entity_relation(rel='institution')
-   basis text, rank_text text, rank_basis text, base_office_id text, qualifier_kind text, qualifier_name text, qualifier_note text, qualifier_target text);
+   function_basis text, rank_text text, rank_basis text, base_office_id text, qualifier_kind text, qualifier_name text, qualifier_note text, qualifier_target text);
 CREATE TABLE place     (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, concept_id text, place_level text, modern_text text, modern_relation text, modern_adcode text, modern_note text);
 CREATE TABLE seal      (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, seal_text text, seal_kind text, seal_style text, seal_form text, usage_scope text);
 CREATE TABLE place_history (owner_id text REFERENCES entity(id) ON DELETE CASCADE, seq int, name text NOT NULL, level text, start_year int, end_year int, note text, parent_id text, extra jsonb, PRIMARY KEY (owner_id, seq));

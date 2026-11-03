@@ -18,7 +18,7 @@
 | `parent_id` | string | 条件：具体条有概念时填；**概念条不得有**（概念只一级） | 原生 | 所属概念条 | office 概念条 id（O04） | 录入 | `"1jb8ajoi8crnk"` |
 | `dynasty_ids` | array<string> | 条件：具体条**必填**；概念不得有 | 原生 | 所属朝代 | dynasty id 数组（宋默认「趙宋」，北南宋有变才拆）（O02） | 录入 | `["1jb89swq2uvb4"]` |
 | `function` | string | 条件：具体条**必填** | 原生 | 本朝职掌 | 自写（O02） | 录入 | `"一縣之長官，掌一縣之賦役、刑獄、教化與勸農。"` |
-| `basis` | string | 条件：具体条**必填** | 原生 | 本条依据 | 自由文本（O02） | 录入 | `"《明史·職官志》"` |
+| `function_basis` | string | 条件：具体条**必填** | 原生 | 职掌（`function`）的依据（原名 `basis`，2026-11-03 改名） | 自由文本（O02） | 录入 | `"《明史·職官志》"` |
 | `office_class` | string | 可选；具体条（概念不得有） | 原生 | 官类 | 15 值：`職事官`｜`差遣`｜`散官`｜`階官`｜`加官`｜`貼職`｜`寄祿官`｜`祠祿官`｜`勳`｜`爵`｜`本官`｜`試秩`｜`憲官`｜`兼職差遣`｜`未詳`（O03）。草稿库 10-08 用到：`職事官` 1,064、`差遣` 98、`貼職` 51、`寄祿官` 40、`散官` 10、`加官` 6 | 录入 | `"差遣"` |
 | `rank` | object | 可选；具体条（概念不得有） | 原生 | 品秩 | `{text, basis}`，自写 | 录入 | `{"text":"正七品","basis":"《明史·職官志》"}` |
 | `institution_ref` | string | 可选；具体条 | 原生 | 所属官署 | 官署条 id（`collective_kind=官署`）。指具体条须与本条 `dynasty_ids` 相交；指概念条须 `ai_note` 标「待補」（否则 WARN）；官名含部名而指合称 WARN；id 不在本库 WARN。不得写 `COL:<名>` 占位（ERROR，新官署先建条）（I12） | 录入 | `"1jb8bl20kqn7k"` |
@@ -52,9 +52,9 @@
   "office_class": "職事官",
   "rank": {
     "text": "正七品",
-    "basis": "《明史·職官志》"
+    "function_basis": "《明史·職官志》"
   },
-  "basis": "《明史·職官志》",
+  "function_basis": "《明史·職官志》",
   "review": {
     "status": "unreviewed"
   },
@@ -80,7 +80,7 @@
 |---|---|---|---|
 | D3 | dynasty、reign、office、place | `dates` 键按 subtype 放行（office／place 有 `dates` 即错）；`start`／`end` 为整数、无 0 年、`start ≤ end`；dynasty 的 `period` 是现有 slug（ERROR）；有 `period` 而缺 `start`（WARN） | ERROR／WARN |
 | O01 | office | `office_level` ∈ `concept`／`concrete` | ERROR |
-| O02 | office | 具体条 `dynasty_ids` 非空且指 dynasty、`function`／`basis` 非空；概念条禁字段 | ERROR |
+| O02 | office | 具体条 `dynasty_ids` 非空且指 dynasty、`function`／`function_basis` 非空；概念条禁字段 | ERROR |
 | O03 | office | `office_class` 在 15 值内 | ERROR |
 | O04 | office | `parent_id` 指 office 概念条；概念条不得有 `parent_id` | ERROR |
 | O05 | office | `base_office_id` 存在、是 office、不自指、无环、与本条 `dynasty_ids` 相交；有 `base_office_id` 则必有 `qualifier`；`qualifier.kind` 在 4 值内、`name` 非空（以上 ERROR）；`base_office_id` 指概念条而 `ai_note` 未说明（WARN） | ERROR／WARN |

@@ -175,8 +175,9 @@
     "function": {
       "$ref": "common.schema.json#/$defs/NonEmptyString"
     },
-    "basis": {
-      "$ref": "common.schema.json#/$defs/NonEmptyString"
+    "function_basis": {
+      "$ref": "common.schema.json#/$defs/NonEmptyString",
+      "description": "本朝职掌（function）的依据；原名 basis，2026-11-03 改名以免与 dates.basis／rank.basis 混淆"
     },
     "dynasty_id": {
       "$ref": "common.schema.json#/$defs/Id"
@@ -633,7 +634,7 @@
                 },
                 {
                   "required": [
-                    "basis"
+                    "function_basis"
                   ]
                 },
                 {
@@ -864,7 +865,7 @@
                 },
                 {
                   "required": [
-                    "basis"
+                    "function_basis"
                   ]
                 },
                 {
@@ -1116,7 +1117,7 @@
                 },
                 {
                   "required": [
-                    "basis"
+                    "function_basis"
                   ]
                 },
                 {
@@ -1481,7 +1482,7 @@
               "required": [
                 "dynasty_ids",
                 "function",
-                "basis"
+                "function_basis"
               ]
             }
           },
@@ -1613,7 +1614,7 @@
                 },
                 {
                   "required": [
-                    "basis"
+                    "function_basis"
                   ]
                 },
                 {
@@ -1977,10 +1978,10 @@
                 "required": [
                   "dynasty_ids",
                   "function",
-                  "basis"
+                  "function_basis"
                 ],
                 "properties": {
-                  "basis": {
+                  "function_basis": {
                     "type": "string",
                     "pattern": "^(?!.*待核)"
                   }
@@ -2028,7 +2029,7 @@
                         },
                         {
                           "required": [
-                            "basis"
+                            "function_basis"
                           ]
                         },
                         {
@@ -2154,7 +2155,7 @@
               },
               {
                 "required": [
-                  "basis"
+                  "function_basis"
                 ]
               },
               {
@@ -2353,7 +2354,7 @@
                 },
                 {
                   "required": [
-                    "basis"
+                    "function_basis"
                   ]
                 },
                 {
@@ -2558,7 +2559,7 @@
                 },
                 {
                   "required": [
-                    "basis"
+                    "function_basis"
                   ]
                 },
                 {
