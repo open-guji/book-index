@@ -8,20 +8,6 @@
     "text": "清華大學出版社2011—2014年出版，王承略、劉心明主編，全套27卷31冊，約960萬字。收錄二十五史中原有的7部藝文志或經籍志，及宋代至民國學者對歷代史志目錄的考證、注釋與補遺之作，并清代至民國間補撰的各朝藝文志或經籍志，共計83種，每種均作標點校勘。是史志目錄首次大規模的匯輯整理，為考察典籍成書、著者、卷帙、真偽、流傳提供最基本依據。",
     "sources": []
   },
-  "editors": [
-    {
-      "name": "王承略",
-      "role": "主編"
-    },
-    {
-      "name": "劉心明",
-      "role": "主編"
-    }
-  ],
-  "publisher": "清華大學出版社",
-  "publish_year": "2011-2014",
-  "total_volumes": 31,
-  "total_works": 83,
   "resources": [
     {
       "id": "douban",
@@ -32,7 +18,6 @@
       ]
     }
   ],
-  "updated_at": "2026-08-31T00:00:00+00:00",
   "ai_note": "2026-08-31 缺項覆核：對照全套81種目錄，發現「Collection 全量入 production：六十三條」（2026-08-26）一批漏收5項——第26卷（補晉書藝文志·秦榮光，先前全庫未建，今新建 work `d59f5ilweo6h` 並新建撰人 entity `hixhdc8zm9to`）、第43卷（隋代藝文志·李正奮，先前全庫未建，今新建 work `d59fxe4tgstm`，撰人沿用既有 entity `hixhd2h9biw3`）為真缺，第44卷（隋書經籍志考證·章宗源，`d59f2ntopu68`）、第51卷（補五代史藝文志·顧懷三／顧櫰三，`d59f2msyrtoh`）、第56卷（宋史藝文志補·倪燦，`d59f2mp38qv4`）三種其實已在庫中，僅未列入本 Collection 之 contained_works，今一併補齊，並在該三條各補 contained_in 回指。至此 81 種全數收錄完畢（前言另稱收書83或84部，蓋兼計附錄殘稿本等而言，本庫以此81種可考定卷次者為準）。\n\n2026-09-28 qa-sweep/S5b：contained_works[].title 同步为目标现名（overview#198，括注撰人消歧之展示题按目录总管裁定不动），d59f23o7ygw2「漢書藝文志」→「漢書·藝文志」；d59f28nmafwh「隋書經籍志」→「隋書·經籍志」；d59f2gcburcx「舊唐書經籍志」→「舊唐書·經籍志」；d59f2hl0cmio「新唐書藝文志」→「新唐書·藝文志」；d59f2gdp696q「宋史藝文志」→「宋史·藝文志」；d59f2mox0000「明史藝文志（張廷玉）」→「明史·藝文志」；d59f2mp0flz4「清史稿藝文志」→「清史稿·藝文志」。",
   "revision": "1.0.1",
   "count": {
@@ -42,5 +27,19 @@
     "han": null,
     "source": "**发现既有字段亦误记**：total_works=83（与 description「共計83種」一致，采）；total_volumes=27，但 description 明记「全套27卷31冊」——27实为卷数、31才是册数，total_volumes 字段本身填反；本次仅在新 count 字段填 juan=27／ce=31（据 description 明文订正），既有 total_volumes 已由本卡（overview#171）订正为 31（原 27 系卷冊互填反，见上）"
   },
-  "revised_at": "2026-10-07"
+  "revised_at": "2026-10-07",
+  "publication_info": {
+    "publisher": "清華大學出版社",
+    "year": "2011-2014"
+  },
+  "authors": [
+    {
+      "name": "王承略",
+      "role": "主編"
+    },
+    {
+      "name": "劉心明",
+      "role": "主編"
+    }
+  ]
 }
