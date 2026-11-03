@@ -65,17 +65,27 @@ CREATE TABLE bt_section_work (item_id text, key text, file text, seq int, i int,
 CREATE INDEX ON bt_section_work (work_id);
 
 -- ============ 专名（original 的 NNN.entity.json entities[]） ============
--- 每处专名一行；mention 表（实体×书×章×次数）由它聚合而来
+-- 每处专名一行；对上的目标另放 bt_entity_span_target（一处可对多条：matched_multi、decomposition.parts）
 CREATE TABLE bt_entity_span (
   item_id text, key text, n int, eid text,                 -- eid 为文件内编号（e01384）
   type text NOT NULL, text text NOT NULL,
   anchor_start text, anchor_end text, start_offset int, end_offset int,
   status text,                                             -- matched / matched_multi / ambiguous / new_candidate
-  entity_id text, canonical_name text, source text,
-  candidates jsonb, extra jsonb,
+  canonical_name text, target_coarse text, target_level text, target_note text,  -- coarse 如 part_of_work；level 如 concept
+  group_id text, group_text text, group_kind text,         -- 复合专名（如「大理寺評事」）
+  source text, candidates jsonb, extra jsonb,
   PRIMARY KEY (item_id, key, n, eid)
 );
-CREATE INDEX ON bt_entity_span (entity_id) WHERE entity_id IS NOT NULL;
+-- 目标：单目标也写一行，聚合只认这张表。target_id 不一定是 Entity（type=work 时是 Work id），不加外键
+CREATE TABLE bt_entity_span_target (
+  item_id text, key text, n int, eid text, seq int,
+  target_id text NOT NULL, canonical_name text,
+  via text NOT NULL CHECK (via IN ('target','multi','part')),  -- target.entity_id / target.targets[] / decomposition.parts[]
+  extra jsonb,
+  PRIMARY KEY (item_id, key, n, eid, seq),
+  FOREIGN KEY (item_id, key, n, eid) REFERENCES bt_entity_span ON DELETE CASCADE
+);
+CREATE INDEX ON bt_entity_span_target (target_id);
 
 -- ============ 辑佚（Work/<id>/fragments/<书名>.json） ============
 CREATE TABLE fragment (
@@ -110,9 +120,10 @@ CREATE TABLE fragment_citation (work_id text, title text, pseq int, seq int, raw
 CREATE TABLE bt_file (item_id text, path text, kind text NOT NULL,  -- sources / extra / fig / other
   PRIMARY KEY (item_id, path));
 
--- ============ 视图：与 schema.sql 的 mention、book_text 对接 ============
--- mention（实体×书×章×次数）改为由 bt_entity_span 聚合；schema.sql 里的 mention 表仍留给
--- A12 出处反查（mentions/v2）的其他来源（丛书按章聚合等），D5 时二者合并口径。
-CREATE VIEW bt_mention AS
-  SELECT entity_id, item_id, n AS chapter, count(*) AS n FROM bt_entity_span
-  WHERE entity_id IS NOT NULL GROUP BY 1,2,3;
+-- ============ 专名计数（物化视图，建库后 REFRESH） ============
+-- 实体（或作品）× 文本条目 × 章 × 次数。丛书按章聚合由本视图 join member_of 得出，不另存。
+-- schema.sql 的 mention 表留给 D5 写派生结果；章标识口径（n 与章文件键 004）D5 时统一。
+CREATE MATERIALIZED VIEW bt_mention AS
+  SELECT t.target_id, t.item_id, t.n AS chapter, count(*) AS n
+  FROM bt_entity_span_target t GROUP BY 1,2,3;
+CREATE INDEX ON bt_mention (target_id);

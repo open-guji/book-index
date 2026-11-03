@@ -4,7 +4,7 @@
 > 状态：**草案，待 A12、A33、A42 评审**；本目录只含表结构与说明，不改任何数据、不改 JSON schema。
 
 ## 定位
-git 里的 JSON 仍是唯一真源。数据库由 bim 从 JSON 生成（D2），随时可重建；派生文件（D3）与检索从库出。三个文件按序执行：[schema.sql](schema.sql)（建表与索引，需 `pg_trgm`）→ COPY 灌库 → [constraints.sql](constraints.sql)（外键，`NOT VALID`）→ [checks.sql](checks.sql)（悬空与口径检查，应全为 0 行）→ 清干净后逐条 `VALIDATE CONSTRAINT`。已在 PostgreSQL 16 试建通过。
+git 里的 JSON 仍是唯一真源。数据库由 bim 从 JSON 生成（D2），随时可重建；派生文件（D3）与检索从库出。三个文件按序执行：[schema.sql](schema.sql)（建表与索引，需 `pg_trgm`）→ COPY 灌库 → [constraints.sql](constraints.sql)（外键，`NOT VALID`）→ [checks.sql](checks.sql)（悬空与口径检查，应全为 0 行）→ 清干净后逐条 `VALIDATE CONSTRAINT`。已在 PostgreSQL 16 试建通过。明细表对主表的外键是内联硬约束，COPY 顺序须先主表、后明细表；`bt_mention` 是物化视图，灌完后 `REFRESH MATERIALIZED VIEW bt_mention`。
 
 ## 关系图
 ![book-index 各表关系](er-book-index.svg)
@@ -49,7 +49,7 @@ book-text 与 book-index 同一套 id，进同一个库，表名加 `bt_` 前缀
 | 条目与版本 | `bt_item`、`bt_version`、`bt_juan_group` | `manifest.json`、`<版本>/index.json` 顶层 |
 | 章 | `bt_chapter`（含有哪些层、三线版本号、校对中）、`bt_heading`、`bt_page_break`、`bt_layer`、`bt_change` | `index.json` 的 `chapters[]`、`pages.tsv`、各伴生层文件头、`CHANGES.md` |
 | 整理本结构与链接 | `bt_section`、`bt_section_work` | 整理本 `NNN.json` 的 `sections[]`（`work_id`／`work_ids`／`book_id`／`collection_id`／`target_bid`） |
-| 专名 | `bt_entity_span`，视图 `bt_mention` | original 的 `NNN.entity.json` `entities[]` |
+| 专名 | `bt_entity_span`、`bt_entity_span_target`（一处对多目标），物化视图 `bt_mention` | original 的 `NNN.entity.json` `entities[]` |
 | 辑佚 | `fragment`、`fragment_based_on`、`fragment_collector`、`fragment_collector_section`、`fragment_piece`（佚文正文，可检索）、`fragment_piece_collector`、`fragment_citation` | `fragments/<书名>.json` |
 | 其他文件 | `bt_file` | `sources/`、`extra/`、`fig/`：只登记路径 |
 
