@@ -75,9 +75,7 @@ def types_of(resources):
         ts = r.get('types')
         if isinstance(ts, list):
             out.update(t for t in ts if isinstance(t, str))
-        if isinstance(r.get('type'), str):
-            out.add(r['type'])
-    return out
+    return out        # 旧单值 resources[].type 已于数据中清零（2026-11-03 实测 0 条），不再兼容
 
 
 def sort_year(b):
