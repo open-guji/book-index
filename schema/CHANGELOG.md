@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-11-03　共用对象收紧：IndexEntry 去掉旧分支 `ai_note`（S3 阶段 4；不改数据）
+
+- `indexed_by[]`／`emendated_by[]` 里的 `ai_note`（原 x-legacy WARN）全库实测 0 条，删该分支；此后再写会报 unknown-field（ERROR）。
+- 其余 WARN 仍有存量，**不能升 ERROR**：`index-entry-missing` Book 385,295＋Work 436、`period-no-basis` Entity 21,300、`dynasty-no-basis` Entity 12,090＋Work 5,347、`group-undefined` Work 690＋Book 65、Entity `alt_names[].type` 旧写法 53。`legacy-keep` 的 INFO 项按 legacy.md 长期保留。
+
 ## 2026-11-03　删除 `updated_at`（S3-A6；四类记录 schema 与 common 同删）
 
 - 无写入方、无读者的时间戳：Book 19,358、Work 72,430、Collection 57、Entity 68,158 条存量已由各家数据批改删尽（#2192／#2193／#2194），本次从 `common.md §八`、四个记录 schema、文档里去掉该键；`revision`／`revised_at` 不动。
