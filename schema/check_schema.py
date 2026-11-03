@@ -261,9 +261,11 @@ def semantic_warns(kind, rec):
         if isinstance(es, list):
             for i, e in enumerate(es):
                 if isinstance(e, dict):
-                    for k in ("title_info", "summary"):
+                    for k in (("title_info",) if kind == "book" else ("title_info", "summary")):
                         if not e.get(k):
                             out.append(("WARN", "index-entry-missing", f"{fld}[{i}].{k}", f"{k} 缺或为空（common.md 写必填）"))
+                    if kind == "book" and e.get("summary"):
+                        out.append(("WARN", "book-index-summary", f"{fld}[{i}].summary", "Book 的 indexed_by 不写 summary（解题全文归 Work，common.md）"))
     return out
 
 
