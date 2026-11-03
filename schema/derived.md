@@ -189,7 +189,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | dynasty 卡 | `{id, name, start?, end?}` | `name`＝`primary_name`；`start`／`end`＝`dates.start`／`dates.end`（整数才取） |
 | reign 卡 | `{id, name, start?, end?, ruler?, dynasty?}` | `ruler`＝`ruler.name`；`dynasty`＝`dynasty_id` 所指朝代条的 `primary_name` |
 | office 卡 | `{id, name, level?, dynasties?}` | `level`＝`office_level`，没有则 `institution_level`（官署条也用此卡）；`dynasties`＝`dynasty_ids` 各条的 `primary_name`（解不出名的跳过） |
-| place 卡 | `{id, name, start?, end?}` | `start`／`end`＝该地各 `history[]` 段的最小 `start`、最大 `end`（同 `_span`） |
+| place 卡 | `{id, name, start?, end?, dynasties?}` | `start`／`end`＝该地各 `history[]` 段的最小 `start`、最大 `end`（同 `_span`）；`dynasties`＝`dynasty_ids` 各条的 `primary_name`（解不出名的跳过，朝代条才有） |
 | people 卡 | `{id, name, dyn?}` | `dyn`＝`dynasty` |
 
 例（`hixi1ubk35z8` 三國吳的 `_reigns` 首项）：`{"dynasty":"三國吳","end":229,"id":"hixi1ubl0vmo","name":"黃武","ruler":"孫權","start":222}`
@@ -325,6 +325,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 | 字段 | 类型／精确形状 | 出现 | 由哪些源字段算出 | 产物 | 自 |
 |---|---|---|---|---|---|
 | `_children` | array<place 卡> | 有下辖时 | 别的 place 的 `history[].parent_id` 反查；按 id。卡片带下级自己的 `start`／`end` | entry | v2 |
+| `_concretes` | array<place 卡> | 跨朝条（`place_level:"concept"`）下有朝代条时 | 别的 place 的 `concept_id` 指向本条者；按起年（无起年在后）、再按 id 排序；卡片带 `dynasties` | entry | v2 |
 | `_span` | `{start?, end?}` | 有任一段起讫年时 | 各 `history[]` 段整数 `start` 的最小值、整数 `end` 的最大值 | entry | v2 |
 
 例（草稿 `1jb8kgdh3pse8` 浙江省）：`"_span":{"end":1912,"start":1366}`，`_children` 首项 `{"end":1912,"id":"1jb8kgdh3psel","name":"杭州","start":621}`。
@@ -550,6 +551,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 | 1 | 2026-10-07 | 基础契约（overview#458）：`entry/`、`members/`、`catalog/`、`related/`、`lineage/`、`_hubs.json`、`classific.json`、`index/`；Work／Book／Collection／Entity 的基础派生字段 |
 | 2 | 2026-10-07 | 纯增量：专名派生字段（dynasty、reign、office、官署、place 各字段，people 与 Work 的 `_dynasty_id`／`_dynasty_candidates`）与 `dynasty_reign_keys.json`、`office_keys.json`、`place_keys.json`（overview#464、#458） |
 | 3 | 2026-10-08 | 纯增量：Book、Collection 加 `_related`（`related_books`／`related_collections` 两侧并集）（overview#458） |
+| 3（补登） | 2026-11-03 | 契约 3 之后上线、当时未登记的纯增量：place 条加 `_concretes`；place 卡加 `dynasties`。未升 `CONTRACT`（升版要改 `build_derived.py`，另行排期）；补登依据 S5 审查（总目/schema审查/S5） |
 
 **改契约的规矩**：任何增删、改名、改形状、改分页大小，**先在 overview#458 留言通知网站经理，等对方回复后再合**；只新增可选字段也算改契约，同样要先通知。改动时：`CONTRACT` 加一、本档〈十一〉表加一行、记入 [CHANGELOG.md](CHANGELOG.md)，并在同一个提交里用 `build/make_contract_sample.py` 重生 `build/contract-sample/`。
 `report.json` 的内容、`notes` 的措辞不属契约。

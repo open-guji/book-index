@@ -58,6 +58,7 @@ RULES = [
     ('Entity：朝代，有上級與年號（_ancestors／_reigns）', lambda d: d.get('subtype') == 'dynasty' and d.get('_ancestors') and d.get('_reigns'), 1),
     ('Entity：朝代，有子朝代（_children）', lambda d: d.get('subtype') == 'dynasty' and d.get('_children'), 1),
     ('Entity：年號，有同名（_dynasty／_index_in_reign／_same_name）', lambda d: d.get('subtype') == 'reign' and d.get('_same_name'), 1),
+    ('Entity：地名跨朝條，有朝代條（_concretes）', lambda d: d.get('subtype') == 'place' and d.get('_concretes'), 1),
     ('Entity：官署，有下級或合稱成員（_subordinates／_members）', lambda d: d.get('collective_kind') == '官署' and (d.get('_subordinates') or d.get('_members')), 1),
 ]
 DRAFT_RULES = [
