@@ -51,7 +51,10 @@ def test_commentary_and_original_authors_keep_their_distinct_roles():
 def test_macau_author_does_not_acquire_the_unrelated_ming_person():
     work = record('Work', 'd59f2mdml0qo')
     zhang = [a for a in work['authors'] if a['name'] == '張汝霖']
-    assert zhang and all(a['dynasty'] == '清' and not a.get('entity_id') for a in zhang)
+    # 11-02 口径：查不到佐证就新建人物；现挂清代新建实体，不得挂到明代同名的两条
+    assert zhang and all(a['dynasty'] == '清' and a.get('entity_id') not in ('hixhd2h9bnuk', 'hixhd2h9bcy1') for a in zhang)
+    ent = record('Entity', zhang[0]['entity_id']) if zhang[0].get('entity_id') else None
+    assert ent is None or ent.get('dynasty') == '清'
     assert work['period'] == 'qing'
     gone = record('Work', 'd59fy2deo4jk', allow_purged=True)
     assert gone is None or gone['merged_into'] == work['id']
