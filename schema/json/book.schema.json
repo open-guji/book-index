@@ -283,7 +283,6 @@
         "type": "object",
         "required": [
           "role",
-          "name",
           "source"
         ],
         "properties": {
@@ -293,6 +292,10 @@
               "配補",
               "參校"
             ]
+          },
+          "relation": {
+            "type": "string",
+            "minLength": 1
           },
           "name": {
             "type": "string",
@@ -304,6 +307,22 @@
           "work_id": {
             "$ref": "common.schema.json#/$defs/Id"
           },
+          "hypothetical_id": {
+            "type": "string",
+            "pattern": "^h_"
+          },
+          "confidence": {
+            "enum": [
+              "certain",
+              "consensus",
+              "probable",
+              "disputed"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          },
           "note": {
             "type": "string"
           },
@@ -313,13 +332,51 @@
           }
         },
         "additionalProperties": false,
+        "anyOf": [
+          {
+            "required": [
+              "name"
+            ]
+          },
+          {
+            "required": [
+              "book_id"
+            ]
+          },
+          {
+            "required": [
+              "work_id"
+            ]
+          },
+          {
+            "required": [
+              "hypothetical_id"
+            ]
+          }
+        ],
         "not": {
-          "required": [
-            "book_id",
-            "work_id"
+          "anyOf": [
+            {
+              "required": [
+                "book_id",
+                "work_id"
+              ]
+            },
+            {
+              "required": [
+                "book_id",
+                "hypothetical_id"
+              ]
+            },
+            {
+              "required": [
+                "work_id",
+                "hypothetical_id"
+              ]
+            }
           ]
         },
-        "x-not-message": "book_id 与 work_id 至多填一项"
+        "x-not-message": "book_id、work_id、hypothetical_id 至多填一项；三者都没有时 name 必填"
       }
     },
     "lineage": {
@@ -494,7 +551,39 @@
     "related_books": {
       "type": "array",
       "items": {
-        "$ref": "common.schema.json#/$defs/Id"
+        "oneOf": [
+          {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          {
+            "type": "object",
+            "required": [
+              "book_id"
+            ],
+            "properties": {
+              "book_id": {
+                "$ref": "common.schema.json#/$defs/Id"
+              },
+              "relation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "confidence": {
+                "enum": [
+                  "certain",
+                  "consensus",
+                  "probable",
+                  "disputed"
+                ]
+              },
+              "evidence": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
       }
     },
     "zhsy_id": {
