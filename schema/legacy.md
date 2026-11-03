@@ -20,8 +20,6 @@
 | Entity `birth_year`、`death_year`（含 `null`） | `dates`（book-index#139） |
 | `authors[].role` 写英文 `author`；`authors[]` 里的 `cbdb_*`、`title_or_office`、`courtesy_name`、`alt_names`、`entity_basis`、`sources`、`birthplace`、`alias`、`additional_names`、`official`、`name_note` | 志书原文 role（缺省 `撰`）；人物信息归 Entity，依据入 `note`／`ai_note` |
 | `resources[].type`（单值）、`resources[].group_label` | `types[]`（闭集 `image`／`text`／`physical`／`catalog`／`annotated`）；`resource_groups[].label` |
-| Collection `contained_in[]` 字符串形；`related_collections: []` 空占位 | 对象形 `{id,…}`；不写 |
-| Work 层 `current_location`、`page_count` 空值占位 | 不写（Book／Collection 层是正当字段，非旧写法） |
 
 以上「已删」项的计数 2026-10-12 重扫均为 0（扫描脚本见 B1a PR 说明）；仍写旧值的是 §三 列的代码，不是数据。
 
