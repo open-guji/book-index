@@ -47,4 +47,8 @@
 
 **2026-11-03 补**：下列 schema 里 0 条数据的旧分支已删（Author 14 个旧键、`Author.source` 字符串、`Resource.type`、`group_role:source`、`JuanUnit` 册、`NullablePeriod` 的 `null`、`MergedFrom`／`MergedInItem` 字符串项、`ManagementProps`）；再出现即 `unknown-field`／枚举错。`dynasty` 非规范值现状：Work 6,089 条（`宋` 3,789、`民國` 1,034、`漢` 539、`遼金元` 237）、Entity 1,768 条；`authors[].dynasty` 非规范 Work 6,619 项、Book 15,710 项，空串 Work 23,358 项、Book 4,033 项。
 
+**Book.lineage.related_to[]**：仍有 11 条用旧写 `book_id`（`derived_from` 已是 0），待 S2 随 Book 数据一遍清。
+
+**`review` 缺省**：缺省即 `unreviewed`，新记录不再显式写 `{"status":"unreviewed"}`（2026-11-03，去重录入脚本已删这一行）；存量 Entity 12.1 万条、Work 49 条是否删，待用户定。
+
 **复现**：`python3 schema/check_schema.py --json 报告.json --quiet-warn`；`python3 .claude/qa/check_v2.py --summary`；草稿库加 `--root ../book-index-draft --draft`。

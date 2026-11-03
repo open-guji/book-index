@@ -54,7 +54,7 @@ for g,eid in zip(plan.NEW,ids):
     if g['native']: rec['native_place']=g['native']
     if g['alts']: rec['alt_names']=[{'name':n,'type':t} for n,t in g['alts']]
     rec['ai_note']='%s 自 %s 拆出（去重方案：混了同名人的作者實體）。依據：%s 所繫作品 %d 部（含相應 Book 作者位）。'%(TODAY,g['old'],g['note'],len(g['works']))
-    rec['review']={'status':'unreviewed'}; rec['revision']='1.0.0'; rec['revised_at']=TODAY
+    rec['revision']='1.0.0'; rec['revised_at']=TODAY
     n=0
     for w in g['works']: n+=repoint(w,g['old'],eid)
     if APPLY:
