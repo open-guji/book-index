@@ -14,7 +14,7 @@ def clean(d, typ):
     for k in [k for k, v in d.items() if v in ('', [], {}) and not isinstance(v, (int, float, bool))]:
         if k in ('review',): continue
         del d[k]; ch.append('empty:' + k)
-    if 'updated_at' in d: del d['updated_at']; ch.append('updated_at')
+    if '--updated-at' in sys.argv and 'updated_at' in d: del d['updated_at']; ch.append('updated_at')
     if typ == 'Collection':
         pi = d.get('publication_info')
         for top, sub in (('publisher', 'publisher'), ('publish_year', 'year')):

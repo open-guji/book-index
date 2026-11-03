@@ -7,9 +7,9 @@
 ## AltName 对象
 | 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |
 |---|---|---|---|---|---|---|---|
-| `alt_names[]` | AltName | — | 原生 | 一个别名 | 对象。正式库 people 有 47 项是裸字符串（旧，如僧肇 `hixhd2h9bixi` 的 `["僧", "蕭維禎"]`），读者按 `{name: 该串}` 读 | 录入 | |
+| `alt_names[]` | AltName | — | 原生 | 一个别名 | 对象；裸字符串写法（旧）已清零，2026-11-03 阶段 4 起不合法 | 录入 | |
 | `alt_names[].name` | string | **必填** | 原生 | 别名本字 | 非空（A1） | 录入 | `"子瞻"` |
-| `alt_names[].type` | string | **必填**（新写） | 原生 | 别名类别 | [alt_names 类型枚举](_alt-names.md#alt_namestype-枚举27-值)27 值；专名子类型与官署里不在表内即 ERROR（O12）。正式库 people 有 2,613 项缺 `type`（旧） | 录入 | `"字"` |
+| `alt_names[].type` | string | **必填**（新写） | 原生 | 别名类别 | [alt_names 类型枚举](_alt-names.md#alt_namestype-枚举27-值)27 值；专名子类型与官署里不在表内即 ERROR（O12）。缺 `type`（旧写法）已清零，2026-11-03 阶段 4 起 schema 要求必填 | 录入 | `"字"` |
 | `alt_names[].ambiguous` | boolean | 可选 | 原生 | 此名单独不能定位到本条 | 只写 `true`，缺省即 false；规则见[ambiguous 规则](_alt-names.md#ambiguous-规则) | 录入 | `true` |
 | `alt_names[].note` | string | 可选；people | 原生 | 此别名的来历说明 | 自由文本（正式库 22 项，多为「著錄形」之说明） | 录入 | `"《補晉書藝文志》諸本著錄之形，官銜「豫章太守」在名前。存之以覆按著錄原文。"`（`hixhjtdlfbb6`） |
 

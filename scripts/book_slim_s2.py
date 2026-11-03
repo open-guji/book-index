@@ -3,11 +3,13 @@
 
 只做三类机械清理，不改任何语义：
   A  provenance[]：call_number=="" / notes=="" / seals==[] 不写（institution、source 保留）
-  E  edition=="" 不写（与 edition_type 重复者暂不动，见代码注释）
+  E  edition=="" 不写；edition 与 edition_type 完全相同者也不写
   C  ai_note 中「…自動錄入；源記錄：<id>」行，且 <id> 恰為某 sources[].id 者刪該行（其余行照留；空了整體不寫）
   D  indexed_by[]（source=="中國古籍總目"）的 summary 不寫（title_info／source／source_bid 保留）
   U  顶层 updated_at 不写（S3-A6：不动 revision／revised_at，不 bump）
   S  值为 src_manual 的 source 键不写：location_history[]／current_location／juan_count／page_count／publication_info（S3-A7）
+  M  current_location 并入 provenance 首项（institution＝name，description／起止年进 notes，source＝"current_location"），删 current_location
+  T  顶层 section 复制进每个 contained_in[] 项后删顶层（无 contained_in 者保留顶层）
   F  metadata.npm_item_id 与某 provenance[].call_number 相同者删去该键（metadata 空了整体不写）
 幂等。默认只统计；--apply 才写。写盘格式与 bim 一致（indent=2、ensure_ascii=False）。
 用法：python3 scripts/book_slim_s2.py [--root .] [--apply]
@@ -33,7 +35,8 @@ def slim(d):
     ed = d.get('edition')
     if ed == '':
         del d['edition']; ch['E_empty_edition'] += 1
-    # edition == edition_type 者暫不動：index/books 的 edition 字段會隨之變，需先重建 index/（另批）
+    elif isinstance(ed, str) and ed == d.get('edition_type'):
+        del d['edition']; ch['E_edition_eq_type'] += 1
     md = d.get('metadata')
     if isinstance(md, dict) and isinstance(md.get('npm_item_id'), str):
         cns = {x.get('call_number') for x in (pv or []) if isinstance(x, dict)}
@@ -41,6 +44,40 @@ def slim(d):
             del md['npm_item_id']; ch['F_npm_item_id'] += 1
             if not md:
                 del d['metadata']; ch['F_metadata_empty'] += 1
+    # M
+    cl = d.get('current_location')
+    if isinstance(cl, dict) and isinstance(cl.get('name'), str) and cl['name']:
+        notes = [x for x in (cl.get('description'), '、'.join(v for v in (cl.get('start_date'), cl.get('end_date')) if v) or None) if x]
+        pv = d.get('provenance')
+        if not isinstance(pv, list):
+            pv = []
+        hit = next((x for x in pv if isinstance(x, dict) and x.get('institution') == cl['name']), None)
+        if hit is not None:
+            pv.remove(hit)
+            if notes and not hit.get('notes'):
+                hit['notes'] = '；'.join(notes)
+            pv.insert(0, hit); ch['M_merged_same'] += 1
+        else:
+            e = {'institution': cl['name']}
+            if notes:
+                e['notes'] = '；'.join(notes)
+            e['source'] = 'current_location'
+            pv.insert(0, e); ch['M_added'] += 1
+        d['provenance'] = pv
+        del d['current_location']
+    elif isinstance(cl, dict) and not cl.get('name'):
+        # 無機構名者（2 條）：說明併入 ai_note，不丟
+        txt = '；'.join(x for x in (cl.get('description'),) if x)
+        if txt:
+            d['ai_note'] = (d['ai_note'] + '\n' if d.get('ai_note') else '') + '原 current_location 說明：' + txt
+        del d['current_location']; ch['M_no_name'] += 1
+    # T
+    sec = d.get('section')
+    ci = d.get('contained_in')
+    if isinstance(sec, str) and sec and isinstance(ci, list) and ci and all(isinstance(x, dict) for x in ci):
+        for x in ci:
+            x.setdefault('section', sec)
+        del d['section']; ch['T_section'] += 1
     # C
     ai = d.get('ai_note')
     if isinstance(ai, str) and '自動錄入；源記錄：' in ai:

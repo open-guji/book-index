@@ -188,7 +188,7 @@ def test_a1():
     assert ("A1", "ERROR") not in gcodes(u1, dyn("b", "北宋"))
 
 
-# ---- O01–O05, O09–O12
+# ---- O01–O05, O10–O12
 def test_office_codes():
     assert has(office("o", office_level="x"), "O01")
     assert not has(office("o"), "O01")
@@ -225,10 +225,6 @@ def test_office_codes():
     tocon = conc("c1", ["s"], parent_id="o1", base_office_id="o1", qualifier={"kind": "mode", "name": "x"})
     assert has(tocon, "O05", es.WARN, c)                                                                     # 指概念：WARN
     assert not has(dict(tocon, ai_note="暫指概念"), "O05", es.WARN, c)
-    # O09
-    assert has(conc("o2", ["s"], parent_id="o1", start=1100, end=1000), "O09", es.ERROR, c)
-    assert has(conc("o2", ["s"], parent_id="o1", start="1100"), "O09", es.ERROR, c)
-    assert not has(conc("o2", ["s"], parent_id="o1", start=960, end=1127), "O09", es.ERROR, c)
     # O10
     assert has(conc("o2", ["s"], parent_id="o1", alt_names=[{"name": "令", "type": "簡稱"}]), "O10", es.WARN, c)
     assert not has(conc("o2", ["s"], parent_id="o1", alt_names=[{"name": "縣太爺", "type": "簡稱"}]), "O10", es.WARN, c)
@@ -469,7 +465,15 @@ def test_i05_i06_i08_i09_i11():
     assert has(inst("x", "concrete", external_ids={"cbdb_id": 1}), "I08")
     assert has(inst("x", "concrete", rank={"text": "正三品"}), "I08")
     assert has(inst("x", "concrete", location_id="pl"), "I09")
-    assert has(inst("x", "concrete", succeeds=["y"]), "I09", es.WARN)
+    # 2026-11-03：`succeeds` 字段位已删，不再報 I09
+    assert not has(inst("x", "concrete", succeeds=["y"]), "I09", es.WARN)
+    # 2026-11-03：官署起訖收進 dates{start,end,basis}；頂層 start／end 為舊寫法（WARN）
+    assert has(inst("x", "concrete", dates={"start": 900, "end": 800}), "I06")
+    assert has(inst("x", "concrete", dates={"start": 500}), "I06", es.WARN)
+    assert not has(inst("x", "concrete", dates={"start": 618, "end": 907}), "I06")
+    assert has(inst("x", "concrete", dates={"start": 618, "foo": 1}), "D3", es.ERROR)
+    assert has(inst("x", "concrete", start=618), "D3", es.ERROR)    # 階段 4：頂層 start 已不合法
+    assert has(inst("x", "concept", dates={"start": 618}), "I02")
     assert has(inst("x", "concrete", members=["y"]), "I11")
 
 

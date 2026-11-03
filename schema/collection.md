@@ -34,7 +34,7 @@
 | `merged_from` | array<string> | 可选 | 原生 | 并入本丛编的丛编 id（keeper） | id 数组 | 并条脚本 | |
 | `resources` | array<Resource> | 可选 | 原生 | 外部资源 | 见 common.md | 录入 | |
 | `sources`、`ai_note`、`todo`、`review` | — | 可选 | 原生 | 共通字段 | 见 common.md | 录入 | |
-| `revision`、`revised_at`、`updated_at` | string | `revision` 必填 | 原生 | 共通字段 | 见 common.md | bim | `"1.0.0"` |
+| `revision`、`revised_at` | string | `revision` 必填 | 原生 | 共通字段 | 见 common.md | bim | `"1.0.0"` |
 | 一切 `_` 起首 | — | **源档不写** | 派生 | `_members`、`_member_pages`、`_member_count`、`_member_type`、`_children`、`_related`、`_has_image` 等 | 见 [derived.md](derived.md) | build | |
 | ~~`books`~~、~~`contained_works`~~ | — | **不写** | — | 成员列表：由成员的 `contained_in` 反查 | — | — | |
 | ~~`classification`~~ | — | **不写** | — | Collection 不分类 | — | — | |

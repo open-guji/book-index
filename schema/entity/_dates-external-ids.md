@@ -10,9 +10,11 @@
 | `people` | `birth`、`death`、`floruit`、`basis` | 可选 | 见下表 |
 | `dynasty` | `start`、`end`、`basis` | 中国朝代必填 `start`（有 `period` 而缺 `start` 为 D3 WARN）；域外可缺 | 公元年，公元前负数，无 0 年，闭区间；仍存续者不写 `end`（正式库「中華民國」「中華人民共和國」省略；草稿库此 2 条写 `null`，读者两种都认） |
 | `reign` | `start`、`end`、`basis` | `start` 必填 | 改元当年记为起年 |
-| `office` | — | **不得有 `dates`**（D3） | 起讫在 `start`／`end` |
+| `office` | — | **不得有 `dates`**（D3） | 官职条无起讫数据（顶层 `start`／`end` 阶段 4 起不合法） |
 | `place` | — | **不得有 `dates`**（D3） | 起讫在 `history[]` 各项 |
-| `collective` | — | 不用（官署起讫在 `start`／`end`） | |
+| `collective`（官署） | `start`、`end`、`basis` | 可选；具体条才有（概念、合称不得有） | 2026-11-03 起官署起讫收入 `dates`（原顶层 `start`／`end`） |
+| `seal` | `start`、`end`、`basis` | 可选 | 同上 |
+| `publisher` | `start`、`end`、`basis` | 可选 | 同上（原顶层 `start`／`end`／`dates_basis`） |
 
 `dates` 各键：
 
@@ -40,7 +42,7 @@ people 的 `dates` 规则：
 | `external_ids.cbdb_match` | string | 条件：有 `cbdb_id` 或核过 CBDB 时写 | 原生 | 匹配方式 | 开放词表。现值（正式库）：`auto` 5,825、`auto_2026-09-06` 3,246、`manual` 2,559、`auto_create` 1,831、`auto_create_p4` 720（草稿库 725）、`auto_placeholder_upgrade` 48、`auto_dy_ambig_year` 35、`none` 24、`manual_remap` 23、`auto_dy_unique` 22、`auto_altname_upgrade` 10、`manual (C5 batch17)` 5、`manual ; dynasty_fix: 南朝宋→宋 per CBDB dy=…` 4、`restored` 1。`none` 表示核过而 CBDB 无此人或只有误配，此时不写 `cbdb_id`，理由写在 `cbdb_source` | 录入、bim | `"manual"` |
 | `external_ids.cbdb_source` | string | 条件：同 `cbdb_match` | 原生 | 匹配依据 | 自由文本 | 录入、bim | `"name_exact+dy_match+work_recall_0.56+unique"`；`"none: 僧肇[晉]→CBDB[明]，僧肇(384-414)是東晉僧，非明人"` |
 | `external_ids.cbdb_id_alt` | array<integer> | 可选；people | 原生 | CBDB 为同一人另收的 id | 并条时被并方的 `cbdb_id`（正式库 45 条） | 录入 | `[66803]`（劉俊 `hixhd2h9bib6`） |
-| `external_ids.cbdb_note` | string | 可选；people | 旧（暂留） | 匹配疑点备注 | 正式库 1 条（梁正 `hixhd2h9bi3z`：`"疑為同名異人誤配——見下 ai_note"`）；待并入 `ai_note` | 录入 | |
+| `external_ids.cbdb_note` | — | 已删（2026-11-03 阶段 4） | — | 匹配疑点备注（旧） | 存量已并入 `ai_note`，不再登记 | — | |
 | `external_ids.wikidata_id` | string | 可选（全部） | 原生 | Wikidata Q 号 | `^Q\d+$`（正式库 people 11,516） | bim | `"Q36020"` |
 | `external_ids.isbn_publisher_code` | string | 可选；仅 publisher（現代出版社） | 原生 | 出版社 ISBN 前缀 | 非空字符串（K07）；专名其他子类型不许 | 录入 | `"7-101"` |
 | `external_ids.viaf_id` | string | 可选；people | 原生 | VIAF id | 纯数字字符串（正式库 2,054） | bim | `"96591338"` |
@@ -48,4 +50,4 @@ people 的 `dates` 规则：
 - `wikidata_id`／`viaf_id` 的取法（overview#159）：只给有 `cbdb_id` 的 people 补，经 Wikidata 属性 **P497**（CBDB ID）反查；用 Wikidata 官方 SPARQL 端点一次性批量取全部 `?item wdt:P497 ?cbdb`（及 `wdt:P214` VIAF），不逐条请求，脚本 `.claude/qa/s4/sync_wikidata_ids.py`。按 `cbdb_id` 精确对；一个 `cbdb_id` 对多个 Q 的不写（列入冲突清单，人工另核）；已有 `wikidata_id` 的不覆盖，与新取值不一致的列入冲突清单。两者缺省表示未取得或未对上。
 - 校验（`verify.py`）：`wikidata_id` 须匹配 `^Q\d+$`；`viaf_id` 须为纯数字字符串。
 - CBDB 相关信息（`cbdb_id`／`cbdb_match`／`cbdb_source`）只存在 Entity 的 `external_ids`，不存在 Work 的 `authors[]` 里。
-- 空对象 `{}`：正式库 people 12,199 条、collective 41 条的 `external_ids` 是空对象（旧）。按总则 11 新写不写空对象，读者按缺省读。
+- 空对象 `{}`：已清零（#2191），2026-11-03 阶段 4 起 `external_ids` 须至少有一个键（`minProperties: 1`），无外部 id 就不写该键。

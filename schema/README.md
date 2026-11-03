@@ -74,8 +74,8 @@
 | `promotions/<草稿 id 末 2 位>.json` | 草稿 id → 正式 id 对照（仅正式库） | 源 | 只经 bim `PromotionsStore` |
 | `resource.json`、`resource-site.json`、`resource-catalog.json`、`resource-collection.json` | 资源站点目录（不是记录） | 源 | 人工 |
 | `recommended.json` | 网站首页推荐（不是记录） | 源 | 人工 |
-| `classific.json` | 旧分类词表，由 `classification/zongmu/tree.json` 生成，退役中 | 产物 | build |
-| `index/**`、`index.json` | 检索用扁平摘要 | 产物（提交在仓里，但不手改） | build |
+| `classific.json` | 旧分类词表，由 `classification/zongmu/tree.json` 生成，退役中 | 产物（只在 build 产物里；仓根提交的副本已于 2026-11-03 删除） | build |
+| `index/**` | 检索用扁平摘要 | 产物（提交在仓里，但不手改；仓根 `index.json` 空壳已于 2026-11-03 删除） | build |
 | `_build/**` | 页面就绪条目与分页大列表 | 产物（不进 git） | build |
 
 **路径分片**：`{c1}/{c2}/{c3}` 是 id 的末三个字符，按原序（如 `d59fryqsp3bb` → `Work/3/b/b/`；bim `storage.shard_dirs`）。文件名 `<id>-<题名>.json` 里的题名只是附注，**名以记录内的字段为准**；改名后文件名可以不跟着改，找记录一律按 id。

@@ -27,9 +27,6 @@
     "revised_at": {
       "$ref": "common.schema.json#/$defs/Date"
     },
-    "updated_at": {
-      "$ref": "common.schema.json#/$defs/DateTime"
-    },
     "ai_note": {
       "type": "string"
     },
@@ -51,6 +48,7 @@
     },
     "additional_titles": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "string"
       }
@@ -59,7 +57,8 @@
       "$ref": "common.schema.json#/$defs/Description"
     },
     "authors": {
-      "$ref": "common.schema.json#/$defs/Authors"
+      "$ref": "common.schema.json#/$defs/Authors",
+      "minItems": 1
     },
     "publication_info": {
       "$ref": "common.schema.json#/$defs/PublicationInfo"
@@ -275,21 +274,25 @@
     },
     "related_books": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "$ref": "common.schema.json#/$defs/Id"
       }
     },
     "related_collections": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "$ref": "common.schema.json#/$defs/Id"
       }
     },
     "resources": {
-      "$ref": "common.schema.json#/$defs/Resources"
+      "$ref": "common.schema.json#/$defs/Resources",
+      "minItems": 1
     },
     "sources": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "$ref": "common.schema.json#/$defs/Source"
       }

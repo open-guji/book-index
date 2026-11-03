@@ -68,7 +68,6 @@
   }
  ],
  "measure_info": "十卷",
- "updated_at": "2026-08-20T00:00:00-07:00",
  "period": "nanbeichao",
  "period_basis": "據 authors[0].dynasty「南朝陳」（2026-08-13 南北朝探勘第二輪：Entity遭CBDB誤配（pending_accept），primary_name遭覆蓋，卸除污染並保守回復姓氏，真實朝代仍待查）",
  "ai_note": "2026-08-20 磁鐵拆解專項（全域，卷數定其一）：「《喪服義》十卷」一節原繫於磁鐵條（`1evc5pcwxavwg`），庫中同題之 work 不止一個，然唯本條之卷數與之合，且本條非磁鐵，故歸本條並補其著錄。\n\nN9（2026-08-24）：撰人由「陳謝喬」正為「謝嶠」，據隋志原文，見 authors[].name_basis。\n\n2026-09-05 《補陳書藝文志》整理：收《補陳書藝文志》一節。本志作「謝嶠　喪服義十卷」。庫中二條同源（皆隋志「十卷陳國子祭酒謝嶠撰」），取題名規範者；另一條 d59f286ljlkx 題名黏撰人，屬庫中重出，另案\n\n2026-09-07 lane-F 併條（rule=I-題黏撰人致同書誤建）：併 d59f286ljlkx《喪服義》 入本條。同書誤建之重出。d955dd8d73^ 之樹上，被併者 d59f286ljlkx 之題作「喪服義謝嶠撰」（其 additional_titles 尚存此形），題後黏著撰人，故與正題之 d59f28538b2b 兩存而不相見；2026-09-07 lane-D「題之歸一」析出撰人後，二者之題、卷（十卷）、撰人（謝嶠）俱同，且**二條所繫之隋志節字字全同**（「《喪服義》十卷陳國子祭酒謝嶠撰。」），非二書。存 d59f28538b2b（著錄三節：國史經籍志、隋志、補陳書藝文志），併入 d59f286ljlkx 之隋志與經義考二節。**併前先解一件**：二條所繫之「謝嶠」entity 本是二條（hixhd2h9bmt5／hixhd2h9bkcb，名同代同官同，實一人二條），故 mergework 拒併（「keeper 之 authors 不含…，逕併必生單向邊」——此攔得好）。今取 hixhd2h9bkcb 為正而改繫 keeper，然後方併。**併後另以人手搬 keeper 所無而被併者有之欄**（emendated_by／additional_titles／original_title／period_upper）。\n\n2026-09-07 lane-F（v2 收束道）併條善後之第八件：`mergework.py` 之七件只管 id 之指向（索引項、entity 反邊、著錄、他條 related_works、Book、Collection、merged_in），**不搬被併者獨有之欄位**。今自被併之 d59f286ljlkx 搬入本條所無者：emendated_by、additional_titles、original_title、period_upper(+basis)。所搬皆本條原無之欄，一概不覆本條既有之值（如卷數、loss_status、period 諸欄若兩造有異，一律從 keeper，異同已記於本條 merged_in）。已具狀協調者補此第八件。",

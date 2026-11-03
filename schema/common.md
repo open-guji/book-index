@@ -70,7 +70,7 @@ Work、Book、Collection 的 `authors[]` 同形。Work 的 `authors[]` 是责任
 | `source` | string | 必填 | 原生 | 著录本书的目录书／志书／考证书之名 | 书名 | 录入 | `"隋書經籍志"` |
 | `source_bid` | string | 条件：该目录书在库中有 Work 时必填 | 原生 | 该目录书的 Work id | Work id，须存在 | 录入 | `"d59f2mp0flz6"` |
 | `title_info` | string | 必填 | 原生 | 该目录中的著录标题原文 | 原文照录 | 录入 | `"毛詩義問十卷魏太子文學劉楨撰"` |
-| `summary` | string | 必填 | 原生 | 该目录中的著录／解题全文 | 原文照录 | 录入 | |
+| `summary` | string | Work 必填，Book 不写 | 原生 | 该目录中的著录／解题全文 | 原文照录；Book 层的 summary 已于 2026-11-03 删尽（#2190），再写会报 WARN `book-index-summary` | 录入 | |
 | `section` | string | 可选 | 原生 | 该目录中的类目 | 原文类目，层级以 `/` 分隔 | 录入 | `"經部/易類"` |
 | `section_basis` | string | 可选 | 原生 | `section` 的推得依据 | 自由文本 | 录入 | |
 | `author_info` | string | 可选 | 原生 | 该目录中的撰人著录原文 | 原文照录 | 录入 | `"字貴與，樂平人"` |
@@ -302,14 +302,11 @@ Work、Book、Collection、Entity 都有。
 | `schema_version` | integer | 必填 | 原生 | 记录格式大版本 | 恒为 `1` | bim | `1` |
 | `revision` | string | 正式库必填 | 原生 | 记录内容的版本 | `"主.次.补"`，三段非负整数；新记录 `"1.0.0"`；口径见下 | bim | `"1.1.0"` |
 | `revised_at` | string | 有 `revision` 时必填 | 原生 | 最后一次改版的日期 | `YYYY-MM-DD` | bim | `"2026-10-08"` |
-| `updated_at` | string | 可选 | 原生 | 最后一次被人碰的时间 | ISO 8601（实测有带时区、带 `Z`、只写日期三种） | bim | `"2026-08-24T00:00:00+00:00"` |
 | `ai_note` | string | 可选 | 原生 | 整理者写给整理者的注，不面向读者 | 自由文本，见下 | 录入 | |
 | `todo` | array<object> | 可选 | 原生 | 条目级待核清单 | `[{what, by?, date?}]`，`what` 非空；做完即移除该项，不留「已办」标记 | 录入 | |
 | `review` | object | 可选 | 原生 | 人工审核状态 | `{status, by?, date?}`；`status` ∈ `unreviewed`｜`reviewed`｜`disputed`；缺即 `unreviewed` | 录入 | `{"status":"unreviewed"}` |
 | `zhsy_retrieved_at`、`authors[].cbdb_retrieved_at` | string | 可选 | 原生 | 外部对齐的取得时间 | ISO 8601；新增对齐时必填（现存 0 条） | 录入 | |
 | `_` 起首一切 | — | 源档不写 | 派生 | 见 [derived.md](derived.md) | 无例外（`_has_text`、`_has_collated` 豁免已收回，见 [CHANGELOG.md](CHANGELOG.md)） | build | |
-
-**`updated_at`**：现值自 git 该档最后一次提交回填，**不一律填「现在」**，假时间比没有更坏。
 
 **`ai_note`**：
 - 记资料来源与可信度，例：「據網路檢索資料建檔，未核原書」。
@@ -318,7 +315,7 @@ Work、Book、Collection、Entity 都有。
 
 面向读者的正文一律写进 `description.text`，出处写进 `description.sources`。前端不渲染 `ai_note`。
 
-**机器校验（`check_schema.py` 的 `semantic_warns`，2026-11-03 起，先只报 WARN）**：有 `period`／`dynasty` 而无 `period_basis`／`dynasty_basis`（Work、Entity）；`resources[].group` 不在 `resource_groups` 里；`indexed_by`／`emendated_by` 元素缺 `title_info` 或 `summary`。存量清完后再升为 ERROR。
+**机器校验（`check_schema.py` 的 `semantic_warns`，2026-11-03 起，先只报 WARN）**：有 `period`／`dynasty` 而无 `period_basis`／`dynasty_basis`（Work、Entity）；`resources[].group` 不在 `resource_groups` 里；`indexed_by`／`emendated_by` 元素缺 `title_info`，或 Work 上缺 `summary`；Book 上出现 `summary`（`book-index-summary`）。存量清完后再升为 ERROR。
 
 ### revision 口径
 
@@ -327,7 +324,7 @@ Work、Book、Collection、Entity 都有。
 | | 字段 |
 |---|---|
 | **算**（变了要 bump，并刷新 `revised_at`） | 题名族 `title`、`additional_titles`、`original_title`、`title_basis`、`title_emendation`；`authors`；年代 `dynasty*`、`period*`、`period_upper*`；描述 `description`、`ai_note`、`juan_count`、`measure_info`、`measures`、`subtype`、`publication_info`、`appendix`、`collection_scale`、`current_location`、`page_count`；存佚真伪 `loss_status*`、`authenticity*`；资源与谱系 `resources`、`resource_groups`、`version_graph`、`additional_works`、`sources`；著录 `indexed_by`、`emendated_by`；存储侧关系 `related_works`、`contained_in`；并条账 `merged_in`、`merged_from`、`merged_into`、`merge_history`。Book 另有 `work_id`、`contained_in`、`section`、`lineage`、`base_edition`、馆藏、影像、册数 |
-| **不算**（变了不 bump，也不刷新 `revised_at`） | 分类归属（`classification/` 类档）；一切 `_` 字段与旧 `has_*`；旧 `books`、`contained_works`、`promoted_to`、`promoted_at`；管理字段 `updated_at`、`revision`、`revised_at`、`schema_version`、`id`、`type`、`path` |
+| **不算**（变了不 bump，也不刷新 `revised_at`） | 分类归属（`classification/` 类档）；一切 `_` 字段与旧 `has_*`；旧 `books`、`contained_works`、`promoted_to`、`promoted_at`；管理字段 `revision`、`revised_at`、`schema_version`、`id`、`type`、`path` |
 
 - **未登记的新字段按「算」处理**。要加「不算」的字段，须登记进 bim `book_index_manager/revision_fields.py` 的 `NO_BUMP_FIELDS`，并在卡里说明。bim `save_item` 存档时调用它判断要不要 bump。
 - 级别（bim `save_item(..., bump=…)`，缺省 `patch`）：

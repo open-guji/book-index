@@ -22,8 +22,7 @@
 |---|---|---|---|---|---|---|---|
 | `publisher_kind` | string | **必填** | 原生 | 主类别 | `家刻`｜`坊刻`｜`寺觀`｜`藩府`｜`現代出版社`｜`未分`（K01） | 录入 | `"家刻"` |
 | `dynasty_ids` | array<id> | 条件：古代类**必填**；`現代出版社`**不得写** | 原生 | 活动所跨朝代 | dynasty id；跨朝单条仅限同一私人／书坊主体连续经营跨朝（如掃葉山房明清）（K02） | 录入 | `["hixi1ubjrxfw"]` |
-| `start`、`end` | integer | 可选 | 原生 | 起止年 | 公历年，无 0 年，`start ≤ end`；有把握才填；仍存续者不写 `end`；現代出版社 `start` 可早于 1900（K03） | 录入 | `1912` |
-| `dates_basis` | string | 条件：写了 `start`／`end` 时必填 | 原生 | 起止年依据 | 自由文本（K08，WARN） | 录入 | `"《書林清話》"` |
+| `dates` | object | 可选 | 原生 | 起止年与依据 | `{start?, end?, basis?}`：公历年，无 0 年，`start ≤ end`；有把握才填；仍存续者不写 `end`；現代出版社 `start` 可早于 1900（K03）；写了起止年须有 `dates.basis`（K08，WARN，自由文本）。**2026-11-03 起写入 `dates`；顶层 `start`／`end`／`dates_basis` 已不合法（schema 报未知键、D3 ERROR；2026-11-03 阶段 4）** | 录入 | `{"start": 1912, "basis": "《書林清話》"}` |
 | `locations` | array<object> | 可选 | 原生 | 所在地（可多段） | 迁移（建陽→南京）用多段表达（K04） | 录入 | |
 | `locations[].name` | string | **必填** | 原生 | 地名 | 非空；无地名条时只写这个 | 录入 | `"常熟"` |
 | `locations[].place_id` | string | 可选 | 原生 | 地名条 id | 须指 `subtype=place`（K04） | 录入 | |
@@ -51,12 +50,12 @@
 |---|---|---|---|
 | K01 | publisher | `publisher_kind` 在 6 值内；`status` 在枚举内；`primary_name` 非空；`description.sources` 非空 | ERROR |
 | K02 | publisher | 古代类 `dynasty_ids` 非空且各指 dynasty；`現代出版社`不得写 `dynasty_ids` | ERROR |
-| K03 | publisher | `start`／`end` 为非 0 整数且 `start ≤ end` | ERROR |
+| K03 | publisher | `dates.start`／`end` 为非 0 整数且 `start ≤ end` | ERROR |
 | K04 | publisher | `locations[]` 形状；`place_id` 须指 place（ERROR）、指墓碑（WARN） | ERROR／WARN |
 | K05 | publisher | `owners[]={id, role}`，`id` 指 people／collective；`parent_id` 指 publisher／collective、不自指、publisher 链无环（ERROR）；指墓碑（WARN） | ERROR／WARN |
 | K06 | publisher | 禁字段（见[publisher](publisher.md)） | ERROR |
 | K07 | publisher | `external_ids` 只许 `wikidata_id`／`isbn_publisher_code` | ERROR |
-| K08 | publisher | 写了 `start`／`end` 而缺 `dates_basis` | WARN |
+| K08 | publisher | 写了 `dates.start`／`end` 而缺 `dates.basis` | WARN |
 | K09 | publisher | 同名＋同类别＋同朝代集重复，疑重复建档 | WARN |
 
 另适用全 Entity 通用码 E1、A1、O12（专名子类型）与 V01／V11／V15／V16，见 [校验码总表](_checks.md)。
