@@ -39,7 +39,7 @@ git 里的 JSON 仍是唯一真源。数据库由 bim 从 JSON 生成（D2），
 | Work `version_graph`、`title_emendation`、`collection_scale` | 各 jsonb 列（共 10 条以内的长尾，不拆表） |
 
 ## 评审后的修订（A12，2026-11-02）
-外键移出 schema.sql；`floruit` 拆两列；`entity_external_id` 加 `seq`（`cbdb_id_alt` 为数组）；`alt_names` 纯字符串那 1 条用 `raw_string` 标记（或由 A12 修数据）；补列：office/collective 的 `function` `basis` `institution_ref`、collective/publisher 的 `start_year`、place 的 `concept_id`、`place_history.dynasty_ids`；`parent_id`（office/collective/dynasty）进 `entity_relation(rel='parent')`，`rel` 为封闭词表，`dynasty_of` 改名 `in_dynasty`；去掉各主表 `merged_into` 列（只留 `merged_into` 表）；dynasty/reign 起止年只留 `entity_dates`；所有明细表都有 `extra jsonb`；`mention.book_id` 改 `item_id` 且无外键、`entity_id` 存原始 id；checks 增加 owner_type 一致与 id 跨类唯一。
+外键移出 schema.sql；`floruit` 拆两列；`entity_external_id` 加 `seq`（`cbdb_id_alt` 为数组）；补列：office/collective 的 `function` `basis` `institution_ref`、collective/publisher 的 `start_year`、place 的 `concept_id`、`place_history.dynasty_ids`；`parent_id`（office/collective/dynasty）进 `entity_relation(rel='parent')`，`rel` 为封闭词表，`dynasty_of` 改名 `in_dynasty`；去掉各主表 `merged_into` 列（只留 `merged_into` 表）；dynasty/reign 起止年只留 `entity_dates`；所有明细表都有 `extra jsonb`；`mention.book_id` 改 `item_id` 且无外键、`entity_id` 存原始 id；checks 增加 owner_type 一致与 id 跨类唯一。
 
 ## book-text 的表（[book_text.sql](book_text.sql)）
 book-text 与 book-index 同一套 id，进同一个库，表名加 `bt_` 前缀（辑佚为 `fragment*`），共 19 张：
@@ -58,6 +58,15 @@ book-text 与 book-index 同一套 id，进同一个库，表名加 `bt_` 前缀
 
 ## 据 S2（Book 审查）的修订（2026-11-02）
 `juan_number` 改 int（三张主表）；`dating_based_on`、`dating_later_repair` 改 jsonb（实为对象）；`volume_count` 与 `page_count` 统一为 jsonb；`dating_year_range` 加二元 CHECK；新增 `measure`（`measures[]`，三类共用）、`book_seal_mark`（印记 → seal 实体）、`book_relation`（`lineage.derived_from`／`related_to` 的 Book→Book 边）。报告：`/mnt/project-files/总目/schema审查/S2-Book.md`。列名前缀（`pub_*` 对 `publication_info`）等命名问题留待总报告统一定。
+
+## 据 S3（共用对象）、S4（Entity）审查的修订（2026-11-02）
+- **草稿库**：现存几乎全是 `{schema_version,id,type,title}` 空壳。灌库时只灌有实质字段的记录与墓碑（进 `merged_into` 表），空壳不灌；`revision` 改为可空（草稿多数没有）。
+- `updated_at` 改 `text`：数据里有只写日期、带 `Z`、带偏移三种写法，存 timestamptz 会破坏还原。
+- `merge_event` 加 `primary_name`（Entity 并条记录的名字）；`work`、`collection` 补 `juan_source`；`book`、`collection` 补 `review_status`。
+- `entity_todo` 并入 `record_todo`，`entity_description_source` 并入 `description_source`（四类共用）。
+- Entity：`relations[]` 进 `entity_relation(rel='person')`（`kind`=亲属师承类型，`note`=依据）；`entity_relation` 加 `start_year`／`end_year`；`reign.dynasty_id` 改走 `in_dynasty`，`office.institution_ref` 改走 `institution`（与 seal 一致）；起讫年统一只在 `entity_dates`；`status` 移到 `publisher`；`place_history.dynasty_ids` 改为关系表 `place_history_dynasty`（可按朝代反查地名）；去掉 `raw_string`（实测 0 条）。
+- `index_entry.source_bid` 实测全部指 Work、悬空 0，外键可直接 VALIDATE。
+报告：`/mnt/project-files/总目/schema审查/S3-共用对象与旧字段.md`、`S4-Entity.md`。
 
 ## 如何防止与 `schema/json` 漂移
 D2 起由 bim 里的一份拆表映射（字段名 → 表／列）驱动建库与还原，并加一条 CI 检查：`schema/json` 里出现映射里没有的字段时报错，逼人要么登记列、要么确认放 `extra`。DDL 以后由映射生成，本目录 `schema.sql` 届时改为生成物。

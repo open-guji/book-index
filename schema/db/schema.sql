@@ -33,36 +33,41 @@ CREATE TABLE entity (
   review_status text,
   description_text text,
   name_basis text, ai_note text,
-  schema_version int NOT NULL, revision text NOT NULL, revised_at date, updated_at timestamptz,
-  retired boolean, retired_reason text, status text,
+  schema_version int NOT NULL, revision text, revised_at date, updated_at text,
+  retired boolean, retired_reason text,
   extra jsonb                              -- 长尾字段
 );
-CREATE TABLE entity_description_source (owner_id text REFERENCES entity(id) ON DELETE CASCADE, seq int, source jsonb NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq)); -- 字符串或对象，原样
-CREATE TABLE entity_alt_name (owner_id text REFERENCES entity(id) ON DELETE CASCADE, seq int, name text NOT NULL, type text, ambiguous boolean, note text, raw_string boolean, extra jsonb, PRIMARY KEY (owner_id, seq)); -- raw_string=true：数据里 1 条纯字符串写法
+CREATE TABLE entity_alt_name (owner_id text REFERENCES entity(id) ON DELETE CASCADE, seq int, name text NOT NULL, type text, ambiguous boolean, note text, extra jsonb, PRIMARY KEY (owner_id, seq));
 CREATE TABLE entity_external_id (owner_id text REFERENCES entity(id) ON DELETE CASCADE, key text, seq int NOT NULL DEFAULT 0, value text, PRIMARY KEY (owner_id, key, seq)); -- cbdb_id/wikidata_id/viaf_id/cbdb_match/cbdb_source；cbdb_id_alt 为数组，一值一行
 CREATE TABLE entity_dates (owner_id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, birth int, death int, floruit_start int, floruit_end int, start_year int, end_year int, basis text, extra jsonb);
-CREATE TABLE entity_todo (owner_id text REFERENCES entity(id) ON DELETE CASCADE, seq int, what text, by text, date text, extra jsonb, PRIMARY KEY (owner_id, seq));
 
 -- Entity 子类表（主键即 entity.id）
 CREATE TABLE person    (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, title_or_office text, native_place text, native_place_basis text, native_place_entity_id text);
-CREATE TABLE collective(id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, collective_kind text, institution_level text, function text, basis text, start_year int);  -- parent_id 进 entity_relation(rel='parent')
-CREATE TABLE publisher (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, publisher_kind text, start_year int);
+CREATE TABLE collective(id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, collective_kind text, institution_level text, function text, basis text);  -- 起讫年见 entity_dates  -- parent_id 进 entity_relation(rel='parent')
+CREATE TABLE publisher (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, publisher_kind text, status text);  -- 起讫年见 entity_dates
 CREATE TABLE dynasty   (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE);  -- 起止年见 entity_dates；parent_id 进 entity_relation(rel='parent')
-CREATE TABLE reign     (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, dynasty_id text, ruler_name text, ruler_entity_id text);  -- 起止年见 entity_dates
-CREATE TABLE office    (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, office_level text, office_class text, institution_ref text, function text, basis text, rank_text text, rank_basis text, base_office_id text, qualifier_kind text, qualifier_name text, qualifier_note text, qualifier_target text);
+CREATE TABLE reign     (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, ruler_name text,  -- dynasty_id 进 entity_relation(rel='in_dynasty')
+   ruler_entity_id text);  -- 起止年见 entity_dates
+CREATE TABLE office    (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, office_level text, office_class text, function text,  -- institution_ref 进 entity_relation(rel='institution')
+   basis text, rank_text text, rank_basis text, base_office_id text, qualifier_kind text, qualifier_name text, qualifier_note text, qualifier_target text);
 CREATE TABLE place     (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, concept_id text, place_level text, modern_text text, modern_relation text, modern_adcode text, modern_note text);
 CREATE TABLE seal      (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, seal_text text, seal_kind text, seal_style text, seal_form text, usage_scope text);
-CREATE TABLE place_history (owner_id text REFERENCES entity(id) ON DELETE CASCADE, seq int, name text NOT NULL, level text, start_year int, end_year int, note text, parent_id text, dynasty_ids text[], extra jsonb, PRIMARY KEY (owner_id, seq));
+CREATE TABLE place_history (owner_id text REFERENCES entity(id) ON DELETE CASCADE, seq int, name text NOT NULL, level text, start_year int, end_year int, note text, parent_id text, extra jsonb, PRIMARY KEY (owner_id, seq));
+-- 沿革段的朝代 history[].dynasty_ids[]，可按朝代反查地名
+CREATE TABLE place_history_dynasty (owner_id text, hseq int, seq int, dynasty_id text NOT NULL, PRIMARY KEY (owner_id, hseq, seq),
+  FOREIGN KEY (owner_id, hseq) REFERENCES place_history ON DELETE CASCADE);
+CREATE INDEX ON place_history_dynasty (dynasty_id);
 CREATE TABLE entity_image (owner_id text REFERENCES entity(id) ON DELETE CASCADE, seq int, file text, credit text, license text, source_url text, note text, extra jsonb, PRIMARY KEY (owner_id, seq));
 CREATE TABLE entity_location (owner_id text REFERENCES entity(id) ON DELETE CASCADE, seq int, name text, place_id text, note text, extra jsonb, PRIMARY KEY (owner_id, seq));
 
 -- Entity 关系表（每种关系只存一遍）
 CREATE TABLE entity_relation (
   src text NOT NULL REFERENCES entity(id) ON DELETE CASCADE,
-  rel text NOT NULL CHECK (rel IN ('in_dynasty','parent','predecessor','superior','owner','in_group','institution')),
-    -- in_dynasty←dynasty_ids | parent←parent_id | predecessor←predecessors | superior←superiors | owner←owner_ids/owners | in_group←group_ids | institution←institution_ids
+  rel text NOT NULL CHECK (rel IN ('in_dynasty','parent','predecessor','superior','owner','in_group','institution','person')),
+    -- in_dynasty←dynasty_ids | parent←parent_id | predecessor←predecessors | superior←superiors | owner←owner_ids/owners | in_group←group_ids | institution←institution_ids | person←relations[]（亲属师承，kind=type，note=basis，sources 进 extra）
+    --   institution 兼收 office.institution_ref 与 seal.institution_ids；in_dynasty 兼收 reign.dynasty_id
   dst text NOT NULL, seq int NOT NULL DEFAULT 0,
-  role text, year int, kind text, note text, extra jsonb,
+  role text, year int, start_year int, end_year int, kind text, note text, extra jsonb,
   PRIMARY KEY (src, rel, dst, seq)
 );
 CREATE INDEX ON entity_relation (dst, rel);
@@ -74,12 +79,12 @@ CREATE TABLE work (
   title text NOT NULL, subtype work_subtype, original_title text, title_basis text,
   dynasty text, dynasty_basis text, period text, period_basis text, period_upper text, period_upper_basis text,
   description_text text,
-  juan_number int, juan_unit text, juan_description text, measure_info text,
+  juan_number int, juan_unit text, juan_description text, juan_source text, measure_info text,
   loss_status loss_status, loss_status_basis text, loss_status_note text,
   authenticity text, authenticity_basis text,
   preferred_book text, review_status text,
   title_emendation jsonb, version_graph jsonb, collection_scale jsonb, publication_info jsonb, appendix jsonb,
-  ai_note text, schema_version int NOT NULL, revision text NOT NULL, revised_at date, updated_at timestamptz,
+  ai_note text, schema_version int NOT NULL, revision text, revised_at date, updated_at text,
   extra jsonb
 );
 CREATE TABLE work_title_alt (owner_id text REFERENCES work(id) ON DELETE CASCADE, seq int, title text NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
@@ -95,9 +100,9 @@ CREATE TABLE book (
   pub_year text, pub_year_iso text, pub_place text, pub_publisher text, pub_details text, pub_source text,
   dating_certainty text, dating_source text, dating_basis text, dating_era text, dating_reign text, dating_year int, dating_year_range int[] CHECK (array_length(dating_year_range,1) = 2), dating_based_on jsonb, dating_later_repair jsonb,
   physical_leaf_style text, physical_binding text, physical_dimensions text, physical_condition text, physical_source text,
-  lineage jsonb,                          -- 去掉 derived_from／related_to 之后的其余键；边进 book_relation
+  review_status text, lineage jsonb,                          -- 去掉 derived_from／related_to 之后的其余键；边进 book_relation
   current_location jsonb, description_text text, metadata jsonb, zhsy_id text,
-  ai_note text, schema_version int NOT NULL, revision text NOT NULL, revised_at date, updated_at timestamptz,
+  ai_note text, schema_version int NOT NULL, revision text, revised_at date, updated_at text,
   appendix jsonb, extra jsonb
 );
 CREATE TABLE book_title_alt (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, title text NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
@@ -120,10 +125,10 @@ CREATE TABLE collection (
   id text PRIMARY KEY, repo text NOT NULL,
   subtype coll_subtype NOT NULL, title text NOT NULL, edition text, publisher text, publish_year text, holder text, work_id text,
   count_juan int, count_ce int, count_zhong int, count_han int, count_source text,
-  juan_number int, juan_unit text, juan_description text, measure_info text, page_count jsonb,
+  juan_number int, juan_unit text, juan_description text, juan_source text, measure_info text, page_count jsonb, review_status text,
   total_works int, total_volumes int, pub_year text, pub_year_iso text, pub_place text, pub_publisher text, pub_details text,
   dating jsonb, current_location jsonb, description_text text, sections text[],
-  ai_note text, schema_version int NOT NULL, revision text NOT NULL, revised_at date, updated_at timestamptz,
+  ai_note text, schema_version int NOT NULL, revision text, revised_at date, updated_at text,
   extra jsonb
 );
 CREATE TABLE collection_title_alt (owner_id text REFERENCES collection(id) ON DELETE CASCADE, seq int, title text NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
@@ -131,6 +136,7 @@ CREATE TABLE collection_editor (owner_id text REFERENCES collection(id) ON DELET
 CREATE TABLE collection_content (owner_id text REFERENCES collection(id) ON DELETE CASCADE, seq int, type text, title text, scope text, note text, position text, work_id text, book_id text, collection_id text, related_work_id text, own_work_id text, categorization text, extra jsonb, PRIMARY KEY (owner_id, seq));
 
 -- ============ 三类共用明细表（owner_type + owner_id；不设外键，由触发/检查保证） ============
+-- description.sources[]：四类共用（含 Entity），字符串或对象原样
 CREATE TABLE description_source (owner_id text, seq int, source jsonb NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
 -- 责任者 authorship：Work/Book/Collection → 人物或出版者
 CREATE TABLE authorship (
@@ -169,10 +175,11 @@ CREATE TABLE source_ref (owner_id text NOT NULL, seq int NOT NULL, sid text, nam
 -- 并条历史
 CREATE TABLE merge_event (
   owner_id text NOT NULL, kind text NOT NULL,   -- merged_in | merged_from | merge_history
-  seq int NOT NULL, other_id text, title text, at text, by text, rule text, why text, title_info text, author text, via text, note text, reason text, date text, extra jsonb,
+  seq int NOT NULL, other_id text, title text, primary_name text, at text, by text, rule text, why text, title_info text, author text, via text, note text, reason text, date text, extra jsonb,
   PRIMARY KEY (owner_id, kind, seq)
 );
 CREATE INDEX ON merge_event (other_id);
+-- todo[]：四类共用（现只有 Entity 37 条）
 CREATE TABLE record_todo (owner_id text, seq int, what text, by text, date text, extra jsonb, PRIMARY KEY (owner_id, seq));
 
 -- ============ 关系表 ============
