@@ -16,9 +16,11 @@ from psycopg.types.json import Jsonb
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 
-def K(table, m, fixed=None, owner='owner_id', mode='list', dictkey=None):
-    """明细映射。mode：list＝数组每项一行（seq＝位置）；one＝单值一行；dict＝对象每个键一行（dictkey 存键）。"""
-    return {'table': table, 'map': m, 'fixed': fixed or {}, 'owner': owner, 'mode': mode, 'dictkey': dictkey}
+def K(table, m, fixed=None, owner='owner_id', mode='list', dictkey=None, sub=None, parent=None):
+    """明细映射。mode：list＝数组每项一行（seq＝位置）；one＝单值一行；dict＝对象每个键一行（dictkey 存键）。
+    sub：项里的数组再拆一层（如 provenance[].seal_marks），parent 是子表里记上层位置的列。"""
+    return {'table': table, 'map': m, 'fixed': fixed or {}, 'owner': owner, 'mode': mode, 'dictkey': dictkey,
+            'sub': sub or {}, 'parent': parent}
 
 
 AUTH = {'name': 'name', 'role': 'role', 'entity_id': 'entity_id', 'dynasty': 'dynasty', 'dynasty_basis': 'dynasty_basis',
@@ -102,6 +104,46 @@ MAPS = {
             'related_works': K('work_relation', {'id': 'dst', 'relation': 'relation', 'note': 'note'}, owner='src'),
         }),
     },
+    'Book': {
+        'table': 'book', 'owner_type': 'B', 'fixed': {'type': 'book'},
+        'cols': dict(COMMON_COLS, work_id='work_id', edition='edition', edition_type='edition_type', section='section',
+                     zhsy_id='zhsy_id'),
+        'flat': {
+            'juan_count': JUAN,
+            'publication_info': {'year': 'pub_year', 'year_iso': 'pub_year_iso', 'place': 'pub_place',
+                                 'publisher': 'pub_publisher', 'details': 'pub_details', 'source': 'pub_source'},
+            'dating': {'certainty': 'dating_certainty', 'source': 'dating_source', 'basis': 'dating_basis', 'era': 'dating_era',
+                       'reign': 'dating_reign', 'year': 'dating_year', 'year_range': 'dating_year_range',
+                       'based_on': 'dating_based_on', 'later_repair': 'dating_later_repair'},
+            'physical_description': {'leaf_style': 'physical_leaf_style', 'binding': 'physical_binding',
+                                     'dimensions': 'physical_dimensions', 'condition': 'physical_condition',
+                                     'source': 'physical_source'},
+            'description': {'text': 'description_text'},
+            'review': {'status': 'review_status'},
+            'lineage': {},
+        },
+        'flatrest': {'lineage': 'lineage'},
+        'jsonb': {'volume_count': 'volume_count', 'page_count': 'page_count', 'current_location': 'current_location',
+                  'metadata': 'metadata', 'appendix': 'appendix'},
+        'kids': dict(common_kids('B'), **{
+            'additional_titles': K('book_title_alt', {'@': 'title'}),
+            'provenance': K('book_provenance', {'institution': 'institution', 'call_number': 'call_number', 'notes': 'notes',
+                                                'source': 'source', 'seals': 'seals'},
+                            sub={'seal_marks': K('book_seal_mark', {'seal_id': 'seal_id', 'position': 'position', 'note': 'note',
+                                                                    'source': 'source'}, parent='prov_seq')}),
+            'base_edition': K('book_base_edition', {'role': 'role', 'name': 'name', 'source': 'source', 'book_id': 'book_id',
+                                                    'note': 'note'}),
+            'attached_texts': K('book_attached_text', {'book_title': 'book_title'}),
+            'location_history': K('book_location_history', {'location': 'location', 'name': 'name', 'item_id': 'item_id',
+                                                            'url': 'url', 'note': 'note', 'description': 'description',
+                                                            'source': 'source', 'acckey': 'acckey'}),
+            'related_books': K('related_book', {'@': 'dst'}, owner='src'),
+            'lineage.derived_from': K('book_relation', {'ref': 'dst', 'relation': 'relation', 'confidence': 'confidence',
+                                                        'evidence': 'evidence'}, {'kind': 'derived_from'}, owner='src'),
+            'lineage.related_to': K('book_relation', {'ref': 'dst', 'relation': 'relation', 'confidence': 'confidence',
+                                                      'evidence': 'evidence'}, {'kind': 'related_to'}, owner='src'),
+        }),
+    },
 }
 
 
@@ -133,6 +175,8 @@ def fits(v, ty, enums):
         return True
     if ty == '_text':
         return isinstance(v, list) and bool(v) and all(isinstance(x, str) for x in v)
+    if ty == '_int4':
+        return isinstance(v, list) and len(v) == 2 and all(isinstance(x, int) and not isinstance(x, bool) for x in v)
     if ty in enums:
         return isinstance(v, str) and v in enums[ty]
     return False
@@ -200,6 +244,13 @@ class Loader:
                     else:
                         rest[kk] = vv
                 row.update(shred(rest, m['flat'][k], tcols, self.enums, sub))
+                rc = m.get('flatrest', {}).get(k)
+                if rc:
+                    spill = {kk: vv for kk, vv in sub.items() if kk not in ('_present', '_null', '_empty')}
+                    if spill:
+                        row[rc] = Jsonb(spill)
+                        for kk in spill:
+                            del sub[kk]
                 extra[k] = sub
             elif k in m['kids'] and self.kid_ok(k, v):
                 later.append((k, v))
@@ -228,10 +279,21 @@ class Loader:
             items = list(v.items())
         else:
             items = list(enumerate(v))
+        self.put(s, oid, items, tcols)
+
+    def put(self, s, oid, items, tcols, parent=None):
         for pos, it in items:
             extra = {}
+            subs = []
+            if s['sub'] and isinstance(it, dict):
+                for sk in s['sub']:
+                    if isinstance(it.get(sk), list) and it[sk]:
+                        subs.append((sk, it[sk]))
+                it = {k: v for k, v in it.items() if k not in dict(subs)}
             row = shred(it, s['map'], tcols, self.enums, extra)
             row[s['owner']] = oid
+            if parent is not None:
+                row[s['parent']] = parent
             if 'owner_type' in tcols:
                 row['owner_type'] = self.m['owner_type']
             if s['mode'] == 'list' and 'seq' in tcols:
@@ -246,6 +308,9 @@ class Loader:
                     raise SystemExit('%s 没有 extra 列，装不下：%s %s' % (s['table'], oid, extra))
                 row['extra'] = Jsonb(extra)
             self.add(s['table'], row)
+            for sk, sv in subs:
+                ss = s['sub'][sk]
+                self.put(ss, oid, list(enumerate(sv)), self.types[ss['table']], parent=pos)
 
     def flush(self, cur):
         order = [self.m['table']] + [t for t in self.rows if t != self.m['table']]
@@ -291,10 +356,21 @@ def restore_all(cur, m):
         cond = ' AND '.join("%s='%s'" % (k, v) for k, v in s['fixed'].items() if k != 'src')
         if 'owner_type' in [c for c in coltypes_cache[s['table']]]:
             cond = (cond + ' AND ' if cond else '') + "owner_type='%s'" % m['owner_type']
+        subs = {}
+        for sk, ss in s['sub'].items():
+            g = collections.defaultdict(list)
+            for r in fetch(cur, ss['table']):
+                g[(r[ss['owner']], r[ss['parent']])].append((r['seq'], unshred(r, ss['map'], r.get('extra') or {})))
+            subs[sk] = g
         by = collections.defaultdict(list)
         for r in fetch(cur, s['table'], cond or None):
             pos = r.get('seq') if s['mode'] == 'list' else r.get(s['dictkey']) if s['mode'] == 'dict' else 0
-            by[r[s['owner']]].append((pos, unshred(r, s['map'], r.get('extra') or {})))
+            it = unshred(r, s['map'], r.get('extra') or {})
+            for sk, g in subs.items():
+                got = g.get((r[s['owner']], pos))
+                if got and isinstance(it, dict):
+                    it[sk] = [x for _, x in sorted(got, key=lambda y: y[0])]
+            by[r[s['owner']]].append((pos, it))
         kids[key] = by
     out = {}
     for row in fetch(cur, m['table']):
@@ -310,6 +386,9 @@ def restore_all(cur, m):
         for k, sub in m['flat'].items():
             if k in extra:
                 d[k] = unshred(row, sub, extra[k])
+                rc = m.get('flatrest', {}).get(k)
+                if rc and row.get(rc):
+                    d[k].update(row[rc])
         for key, s in m['kids'].items():
             items = kids[key].get(row['id'])
             if not items:
