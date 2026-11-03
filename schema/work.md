@@ -29,7 +29,7 @@
 | `period_upper_basis` | string | 条件：有 `period_upper` 时必填 | 原生 | 上限依据 | 自由文本 | 录入 | `"catalog_bound：…"` |
 | `description` | Description | 可选 | 原生 | 面向读者的介绍 | 见 common.md | 录入 | |
 | `juan_count` | object | 可选 | 原生 | 主计量 | `{number, unit?, description?}`，见 common.md〈计量〉 | 录入 | `{"number":10}` |
-| `measures` | array<object> | 可选 | 原生 | 多维计量 | `[{number, unit, note?}]` | 录入 | `[{"number":10,"unit":"卷"}]` |
+| `measures` | array<object> | 可选 | 原生 | 多维计量（**计量真源**：2026-11-03 起 `juan_count` 并入此处，过渡期两者并存，读者缺 `juan_count` 时取第一个 `unit==卷` 的项；`number=0` 仅表「不分卷」，不作占位） | `[{number, unit, note?}]` | 录入 | `[{"number":10,"unit":"卷"}]` |
 | `measure_info` | string | 可选 | 原生 | 计量显示文本 | 自由文本 | 录入 | `"十卷"` |
 | `additional_works` | array<object> | 可选 | 原生 | 主体之外各自计卷的部分 | `[{book_title, n_juan?}]` | 录入 | `[{"book_title":"附錄","n_juan":1}]` |
 | `publication_info` | object | 可选 | 原生 | 成书／刊行信息 | 见 common.md〈publication_info〉 | 录入 | `{"year":"明"}` |
