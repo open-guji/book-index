@@ -2,7 +2,7 @@
 
 一部作品的一个具体版本、藏本或数字化本。**Book 是「它属于哪部作品」「它收在哪个丛编」这两条关系的唯一存储侧**：Work 页的版本列表、丛编页的成员列表都由 build 从 Book 反查。
 
-字段表体例见 [README.md §八](README.md#八字段表体例)；共用对象见 [common.md](common.md)。实测为 2026-10-08 两库全量普查（正式库 Book 54,477 条，草稿库 68,144 条）。
+字段表体例见 [README.md §八](README.md#八字段表体例)；共用对象见 [common.md](common.md)。实测为 2026-11-03 正式库全量普查（Book 402,956 条；草稿库已清空，只剩指向正式库的引用桩）。各字段条数不在本档写死，用 `schema/check_schema.py --json` 或 `profile.py` 现查。
 
 ---
 
@@ -15,12 +15,12 @@
 | `schema_version` | integer | 必填 | 原生 | 记录格式版本 | 恒为 `1` | bim | `1` |
 | `title` | string | 必填 | 原生 | 版本题名 | 自由文本，繁体 | 录入 | `"周易正義"` |
 | `work_id` | string | 必填 | 原生 | 所属作品（**Work↔Book 的唯一存储侧**） | Work id；草稿 Book 可指正式 Work | 录入 | `"1evl7l48e27ls"` |
-| `edition` | string | 可选 | 原生 | 版本名（文献学意义上「这是哪一个本子」） | 自由文本；不写成 `version` | 录入 | `"清乾隆間寫文淵閣四庫全書本"` |
+| `edition` | string | 可选 | 原生 | 版本名（文献学意义上「这是哪一个本子」） | 自由文本；不写成 `version`。**空串不写；与 `edition_type` 完全相同（如只有「稿本」）也不写** | 录入 | `"清乾隆間寫文淵閣四庫全書本"` |
 | `edition_type` | string | 可选 | 原生 | 版本类型 | 13 值闭集，见 [§二](#edition_type)；推不出不写 | 录入 | `"刻本"` |
 | `dating` | object | 可选 | 原生 | 刊刻／抄写年代 | 见 [common.md〈dating〉](common.md#六dating-与-publication_info) | 录入 | `{"era":"宋","reign":"紹熙","year":1193,"certainty":"inferred","source":"edition","basis":"…"}` |
 | `publication_info` | object | 可选 | 原生 | 出版信息 | 见 common.md | 录入 | `{"year":"清乾隆間"}` |
 | `contained_in` | array<object> | 可选 | 原生 | 收在哪些丛编（**Book∈Collection 的唯一存储侧**） | 每项 `{id, volume_index?, details?, sub_items?}`，见 [§三](#三contained_in) | 录入 | `[{"id":"8rl…","volume_index":[7,8],"sub_items":["周易略例"]}]` |
-| `section` | string | 可选 | 原生 | 该版本在所属丛编中的部类（是 `contained_in` 的属性，不是分类） | 丛编自身的部类名，原文照录 | 录入 | `"經部/易類"` |
+| `section` | string | 可选 | 原生 | 该版本在所属丛编中的部类（语义上是 `contained_in` 的属性，不是分类）。**已知局限**：一本书在多个丛编里时（现 3,280 本）无法知道它属于哪一个；拟挪入 `contained_in[]` 项，见 schema 审查 S2 报告 §5.1 I | 丛编自身的部类名，原文照录 | 录入 | `"經部/易類"` |
 | `authors` | array<Author> | 可选 | 原生 | 版本层的责任者（刻者、批点者、序跋者等） | 见 common.md；**`role` 必填** | 录入 | |
 | `juan_count` | object | 可选 | 原生 | 本版本的主计量 | `{number, unit?, description?, source?}` | 录入 | `{"number":10,"unit":"卷"}` |
 | `measures`、`measure_info` | — | 可选 | 原生 | 多维计量、计量显示文本 | 见 common.md〈计量〉 | 录入 | |
@@ -31,7 +31,7 @@
 | `base_edition` | array<object> | 可选 | 原生 | 底本／配补／参校（只在后出者一侧） | 见 [§六](#base_edition) | 录入 | |
 | `lineage` | object | 可选 | 原生 | 版本源流（只在后出者一侧） | 见 [§七](#lineage) | 录入 | |
 | `current_location` | Location | 可选 | 原生 | 现藏地 | 见 common.md〈Location〉 | 录入 | `{"name":"西安碑林"}` |
-| `location_history` | array<object> | 可选 | 原生 | 递藏史、知见藏本 | 每项 `{location?, name?, item_id?, url?, description?, note?, source?, acckey?}` | 录入 | |
+| `location_history` | array<object> | 可选 | 原生 | 递藏史、知见藏本。**两种形状，不要混写**：①知见藏本＝`{location, item_id?, url?, note?, source?, acckey?}`（130 项，《中國通俗小說書目》类著录）；②递藏事件＝`{name, description?, note?, source?}`（61 项） | 每项键见左；详情页两种都显示 | 录入 | |
 | `attached_texts` | array<object> | 可选 | 原生 | 本版本附带的其他文本 | `[{book_title}]` | 录入 | `[{"book_title":"周易略例"}]` |
 | `description` | Description | 可选 | 原生 | 介绍 | 见 common.md | 录入 | |
 | `additional_titles` | array<string> | 可选 | 原生 | 版本异名 | 字符串数组 | 录入 | |
@@ -40,10 +40,10 @@
 | `resource_groups` | object | 可选 | 原生 | 资源组说明 | 见 common.md | 录入 | |
 | `related_books` | array<string> | 可选 | 原生 | 对称关联的其他 Book（存 id 较小一侧） | Book id 数组 | 录入（V07 把关） | `["96l2nocd1c"]` |
 | `zhsy_id` | string | 可选 | 原生 | 中華再造善本编号 | 原文照录 | 录入 | |
-| `metadata` | object | 可选 | 原生 | 来源系统原始字段透传，不规范化 | 实测键：`npm_item_id`（故宫统一编号）、`npm_acckey`、`nlc_bid`、`nlc_call_number` | 录入 | `{"npm_item_id":"平圖021465"}` |
+| `metadata` | object | 可选 | 原生 | 来源系统原始字段透传，不规范化 | 实测键：`npm_acckey`、`nlc_bid`、`nlc_call_number`、`harvard_drs`、`hollis_id`、`harvard_call_number`。故宫统一编号 `npm_item_id` 已并入 `provenance[].call_number`，不再在此重复 | 录入 | `{"npm_acckey":"…"}` |
 | `sources` | array<Source> | 可选 | 原生 | 数据来源 | 见 common.md | 录入 | |
 | `merged_from` | array<string> | 可选 | 原生 | 并入本条的 Book id | id 数组 | bim | |
-| `merged_into` | string | 墓碑 | 原生 | 本条已并入哪一个 Book | 记录 id。**只在墓碑上**；墓碑只留 `schema_version／id／type／title／work_id／merged_into／revision／revised_at`，形同 Work 墓碑；网站 `/item/<id>` 308 到 keeper | bim、录入 | |
+| `merged_into` | string | 墓碑 | 原生 | 本条已并入哪一个 Book | 记录 id。**只在墓碑上**；墓碑是过渡状态，稳定后由 `purge-tombstones` 整体删，**正式库现存 0 条**（见 CHANGELOG）；墓碑存续期间只留 `schema_version／id／type／title／work_id／merged_into／revision／revised_at`；网站 `/item/<id>` 308 到 keeper | bim、录入 | |
 | `appendix` | array<object> | 可选 | 原生 | 附录说明 | `[{title, text}]` | 录入 | |
 | `ai_note`、`todo`、`review` | — | 可选 | 原生 | 共通字段 | 见 common.md | 录入 | |
 | `revision`、`revised_at`、`updated_at` | string | `revision` 正式库必填 | 原生 | 共通字段 | 见 common.md | bim | |
@@ -93,7 +93,7 @@
 | `印刷本` | 现代出版社出版、非铅印的印本（胶印、平版、数码印刷）；与 `鉛印本` 之别在印刷技法非活铅字排版 |
 | `其他` | 以上皆不合者 |
 
-出土简帛整理本、碑刻残石、只有一个「清」字之类无法判别者留空，不强塞入某一类。正式库实测：刻本 26,532、抄本 12,950、稿本 2,328、鉛印本 1,933、石印本 769、活字本 747、印刷本 288、套印本 158、影印本 86、拓本 44，其余为 `其他`。
+出土简帛整理本、碑刻残石、只有一个「清」字之类无法判别者留空，不强塞入某一类。2026-11-03 正式库实测（共 241,658 条有值）：刻本 142,807、抄本 49,489、活字本 13,318、鉛印本 12,445、稿本 10,525、石印本 7,383、影印本 4,312、套印本 756、印刷本 288、油印本 178、拓本 117、其他 31、曬印本 9。另有约 5.4 万本 `edition` 非空而未填 `edition_type`，属录入覆盖率问题。
 
 ---
 
@@ -104,6 +104,7 @@
 | `id` | string | 必填 | 丛编 id | Collection id | `"8rlcsybg2hhl"` |
 | `volume_index` | integer｜array<integer>｜string | 可选 | 册次 | 整数、整数数组或原文字符串 | `[1, 2]` |
 | `details` | string | 可选 | 说明 | 自由文本；`叢編原序 N` 表示本书在丛编原书中的次序（build 据以排序） | |
+| `section` | string | 可选 | 本书在**这个丛编**里的部类（S2-I 新增，取代顶层 `section`；两处并存时本项优先；现存数据仍在顶层，待批量迁移） | 丛编自身的部类名，原文照录 | `"經部/易類"` |
 | `sub_items` | array<string> | 可选 | 本书在**这个丛编**里附带的子目 | 非空字符串数组 | `["周易略例"]` |
 
 `section`（部类）写在 Book 顶层，不在 `contained_in` 项里。丛编增减成员只改成员的 `contained_in`，不改丛编档，也不 bump 丛编的 `revision`。
@@ -114,24 +115,25 @@
 
 ```json
 "provenance": [
-  {"institution": "國立故宮博物院", "call_number": "故善012603", "seals": [], "notes": "", "source": "metadata.npm_item_id"}
+  {"institution": "國立故宮博物院", "call_number": "故善012603", "source": "metadata.npm_item_id"}
 ]
 ```
 
 | 字段 | 类型 | 必填 | 含义 | 取值 |
 |---|---|---|---|---|
 | `institution` | string | 必填 | 现藏机构 | 非空，繁体机构名 |
-| `call_number` | string | 必填 | 索书号 | 字符串，可为空串 |
-| `seals` | array<string> | 必填 | 藏印 | 可为空数组 |
+| `call_number` | string | 可选 | 索书号 | 非空字符串；未知则不写（不写空串） |
+| `seals` | array<string> | 可选 | 藏印（著录原文） | 非空数组；无则不写 |
 | `seal_marks` | array<object> | 可选 | 已识别并指向印章条的钤印，见下 | 非空数组，≤100 项 |
-| `notes` | string | 必填 | 说明 | 可为空串 |
-| `source` | string | 必填 | 本项据现行哪个字段、哪批数据回填，供覆核回查 | 如 `metadata.npm_item_id` |
+| `notes` | string | 可选 | 说明 | 非空字符串；无则不写 |
+| `source` | string | 必填 | 本项据现行哪个字段、哪批数据回填，供覆核回查 | 如 `metadata.npm_item_id`；总目导入的写 `中國古籍總目 item/<16 位 id>`（现 87.9 万项） |
 
 - 一书多藏本各一项。
 - `seals`（字符串）＝著录原文，只读存档；`seal_marks`＝已识别并指向印章条的钤印。同一印两处都有是正常的，不算重复。
 - `seal_marks[]` 项：`seal_id`（必填，指向 `subtype=seal` 的 Entity；不得指墓碑，墓碑须改指 `merged_into`）、`position`（可选，≤30 字，如「首卷第一頁」「卷末」）、`note`（可选）、`source`（可选，这本上有此印的依据，缺省继承本项 `source`）。同一 `provenance` 项内 `seal_id` 不得重复。校验码 B-S01…B-S05 见 `check_v2.py`；印章条被合并时，`seal_marks[].seal_id` 随之改指（`entity_merge.py`）。
 - 与 `current_location`（现藏地）、`location_history`（递藏史）并存，不取代它们。
-- 故宫 17,540 条由 `metadata.npm_item_id`（故宫统一编号即索书号）机械回填，`seals` 按典藏号与故宫资料对照填入。草稿库 9 万余项来自《中國古籍總目》馆藏著录，`call_number` 皆为空串。
+- 故宫 17,539 项由故宫统一编号（即索书号）机械回填，`seals` 按典藏号与故宫资料对照填入；回填后 `metadata.npm_item_id` 与 `call_number` 重复，已从 `metadata` 删去。总目导入的 87.9 万项馆藏著录没有索书号，只有 `institution` 与 `source`（占有 `provenance` 的 Book 的 86%）。
+- **命名提醒**：本字段实为「现藏机构＋索书号」，文献学意义上的递藏传承（provenance）是 `location_history`。名字暂不改，见 S2 报告 §4。
 
 ---
 
