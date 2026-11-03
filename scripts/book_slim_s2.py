@@ -6,6 +6,8 @@
   E  edition=="" 不写（与 edition_type 重复者暂不动，见代码注释）
   C  ai_note 中「…自動錄入；源記錄：<id>」行，且 <id> 恰為某 sources[].id 者刪該行（其余行照留；空了整體不寫）
   D  indexed_by[]（source=="中國古籍總目"）的 summary 不寫（title_info／source／source_bid 保留）
+  U  顶层 updated_at 不写（S3-A6：不动 revision／revised_at，不 bump）
+  S  值为 src_manual 的 source 键不写：location_history[]／current_location／juan_count／page_count／publication_info（S3-A7）
   F  metadata.npm_item_id 与某 provenance[].call_number 相同者删去该键（metadata 空了整体不写）
 幂等。默认只统计；--apply 才写。写盘格式与 bim 一致（indent=2、ensure_ascii=False）。
 用法：python3 scripts/book_slim_s2.py [--root .] [--apply]
@@ -60,6 +62,31 @@ def slim(d):
     for e in d.get('indexed_by') or []:
         if isinstance(e, dict) and e.get('source') == '中國古籍總目' and 'summary' in e:
             del e['summary']; ch['D_summary'] += 1
+    # U
+    if 'updated_at' in d:
+        del d['updated_at']; ch['U_updated_at'] += 1
+    # S
+    for k in ('current_location', 'juan_count', 'page_count', 'publication_info'):
+        o = d.get(k)
+        if isinstance(o, dict) and o.get('source') == 'src_manual':
+            del o['source']; ch['S_' + k] += 1
+            if not o:
+                del d[k]; ch['S_empty_' + k] += 1
+    lh = d.get('location_history')
+    if isinstance(lh, list):
+        keep = []
+        for it in lh:
+            if isinstance(it, dict) and it.get('source') == 'src_manual':
+                del it['source']; ch['S_location_history'] += 1
+                if not it:
+                    ch['S_empty_location_history_item'] += 1
+                    continue
+            keep.append(it)
+        if keep != lh:
+            if keep:
+                d['location_history'] = keep
+            else:
+                del d['location_history']
     return ch
 
 
