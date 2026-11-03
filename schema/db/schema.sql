@@ -188,14 +188,14 @@ CREATE TABLE member_of (
   member_id text NOT NULL, member_type char(1) NOT NULL,  -- B / W / C
   collection_id text NOT NULL, seq int NOT NULL,
   volume_index jsonb, grp text, details text, section text, orig_order int,  -- section：S2-I 从 Book 顶层挪入 contained_in[] 项
-  sub_items jsonb,  -- orig_order 从 details「叢編原序 N」抽出
+  sub_items jsonb, extra jsonb,  -- orig_order 从 details「叢編原序 N」抽出
   PRIMARY KEY (member_id, collection_id, seq)
 );
 CREATE INDEX ON member_of (collection_id);
 CREATE TABLE work_relation (src text NOT NULL, dst text NOT NULL, relation text NOT NULL, seq int NOT NULL DEFAULT 0, note text, extra jsonb, PRIMARY KEY (src, relation, dst, seq));
 CREATE INDEX ON work_relation (dst, relation);
-CREATE TABLE related_book (src text NOT NULL, dst text NOT NULL, PRIMARY KEY (src, dst));
-CREATE TABLE related_collection (src text NOT NULL, dst text NOT NULL, PRIMARY KEY (src, dst));
+CREATE TABLE related_book (src text NOT NULL, seq int NOT NULL, dst text NOT NULL, PRIMARY KEY (src, seq));  -- 按文件里的列表存，两侧各存各的（还原要保留顺序）
+CREATE TABLE related_collection (src text NOT NULL, seq int NOT NULL, dst text NOT NULL, PRIMARY KEY (src, seq));
 -- 并条账：被并者 → 现行（entity/work/book/collection 共用）。两个来源一起装：
 --   现存墓碑文件（src='tombstone'）＋已清墓碑的台账 .claude/qa/purge-tombstones/ledger/*.tsv（src=台账文件名）。
 -- live_id 是链末的现行记录（装载时沿链解到底），direct_into 是墓碑上原写的 merged_into。
