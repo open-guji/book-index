@@ -211,6 +211,11 @@ def check_record(kind, rec):
         if not isinstance(v, list):
             continue
         for i, it in enumerate(v):
+            if kind == "Book" and isinstance(it, dict) and isinstance(it.get("book_id"), str):
+                # 對象項（版本關係 06 稿）：{book_id, relation?, confidence?, evidence?}；帶 relation 者可存任一側（每對只存一側）
+                if "relation" not in it and rid > it["book_id"]:
+                    out.append(("V07", "%s[%d]" % (fld, i), "%s：%s > %s，應存於 %s 一側" % (fld, rid, it["book_id"], it["book_id"])))
+                continue
             tgt = it if isinstance(it, str) else rel_target(it)
             if not isinstance(it, str):
                 out.append(("V14", "%s[%d]" % (fld, i), json.dumps(it, ensure_ascii=False)[:80]))

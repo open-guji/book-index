@@ -102,7 +102,7 @@ def migrate(d, ch):
         v = ln.pop('year_uncertain', None)
         if v is not None:
             if v is True and dt.get('certainty') != 'uncertain':
-                note(d, '原 lineage.year_uncertain：true'); ch['ln_uncertain_noted'] += 1
+                dt['year_uncertain'] = True; ch['ln_uncertain_to_dating'] += 1
             elif v is False: ch['ln_uncertain_false'] += 1
         changed = True
         if not ln: del d['lineage']

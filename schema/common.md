@@ -251,6 +251,7 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 | `year` | integer | 可选 | 原生 | 公历年 | 整数，公元前为负 | 录入 | `1193` |
 | `year_range` | array<integer> | 可选 | 原生 | 年代区间 | `[起, 止]`，起 ≤ 止；与 `year` 不并存 | 录入 | `[1736, 1795]` |
 | `text` | string | 可选 | 原生 | 著录的年代原文（S2-L 新增，Book 取代 `publication_info.year` 与 `lineage.year_text`） | 自由文本（「清」「清乾隆时期」「北宋慶曆元年至嘉祐元年（1041–1061）」）。机器解析不了的年代只留在这里，不进 `year`／`year_range` | 录入 | `"清乾隆時期"` |
+| `year_uncertain` | boolean | 可选 | 原生 | 年份存疑（朝代可靠、具体年份不可靠；Book 取代原 `lineage.year_uncertain`） | `true` 才写 | 录入 | `true` |
 | `certainty` | string | 必填（有 `dating` 时） | 原生 | 确定程度 | `attested`（原书或著录明载）｜`inferred`（据版本名等推定）｜`uncertain`（存疑） | 录入 | `"inferred"` |
 | `source` | string | 必填（有 `dating` 时） | 原生 | 依据来自哪里 | `edition`（据版本名）｜`catalog`（据书目著录） | 录入 | `"edition"` |
 | `basis` | string | 必填（有 `dating` 时） | 原生 | 判定依据，逐条可读 | 自由文本 | 录入 | |

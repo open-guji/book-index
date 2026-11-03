@@ -105,7 +105,7 @@ def refs_of(t, d):
                 add('Collection.contains', c.get(k), c.get('type'))
     for fld in ('related_books', 'related_collections'):
         for x in (d.get(fld) or []):
-            add('%s.%s' % (t, fld), _ref(x, 'id', 'work_id'), None)
+            add('%s.%s' % (t, fld), _ref(x, 'id', 'work_id', 'book_id'), None)
     if d.get('merged_into'):
         add('%s.%s' % (t, MERGE_LOG), d['merged_into'], 'merged_into')
     # 舊格式殘留（只列不改）

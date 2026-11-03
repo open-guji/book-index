@@ -80,6 +80,42 @@ def juan_of(r):
     return None
 
 
+def derived_items(b):
+    """Book 的「所出之本」邊（有向）：lineage.derived_from（舊）＋ base_edition 中帶 relation 且有 book_id／hypothetical_id 的項（新，
+    版本關係 06 稿）。無 relation 的 base_edition 項是純著錄、不成邊（與舊產物逐字節一致）。同一 (ref, ref_type) 舊寫法優先。
+    回傳 [{ref, ref_type, relation, confidence}]。"""
+    out, seen = [], set()
+    lin = b.get('lineage') if isinstance(b.get('lineage'), dict) else {}
+    for x in lin.get('derived_from') or []:
+        if isinstance(x, dict) and (x.get('ref') or x.get('book_id')):
+            ref = x.get('ref') or x.get('book_id')
+            out.append({'ref': ref, 'ref_type': x.get('ref_type'), 'relation': x.get('relation'),
+                        'confidence': x.get('confidence')})
+            seen.add((ref, x.get('ref_type') or 'book'))
+    for x in b.get('base_edition') or []:
+        if not isinstance(x, dict) or not x.get('relation'):
+            continue
+        ref, rt = (x['hypothetical_id'], 'hypothetical') if x.get('hypothetical_id') else (x.get('book_id'), 'book')
+        if ref and (ref, rt) not in seen:
+            out.append({'ref': ref, 'ref_type': rt, 'relation': x['relation'], 'confidence': x.get('confidence')})
+            seen.add((ref, rt))
+    return out
+
+
+def related_items(b):
+    """Book 的「非源流關聯」邊（無向）：lineage.related_to（舊）＋ related_books 中帶 relation 的對象項（新）。
+    純 id 字符串與無 relation 的對象只進 sym_view，不成圖邊。回傳 [{ref, ref_type, relation}]。"""
+    out = []
+    lin = b.get('lineage') if isinstance(b.get('lineage'), dict) else {}
+    for x in lin.get('related_to') or []:
+        if isinstance(x, dict) and (x.get('ref') or x.get('book_id')):
+            out.append({'ref': x.get('ref') or x.get('book_id'), 'ref_type': x.get('ref_type'), 'relation': x.get('relation')})
+    for x in b.get('related_books') or []:
+        if isinstance(x, dict) and x.get('book_id') and x.get('relation'):
+            out.append({'ref': x['book_id'], 'ref_type': None, 'relation': x['relation']})
+    return out
+
+
 def types_of(resources):
     out = set()
     for r in resources or []:
@@ -223,15 +259,13 @@ class Build:
                     self.members[cid].setdefault(('Book', bid), {}).update(attrs)
                 elif cid:
                     self._dangle('Book.contained_in', bid, cid)
-            lin = b.get('lineage')
-            if isinstance(lin, dict):
-                for x in lin.get('derived_from') or []:
-                    if isinstance(x, dict) and x.get('ref_type', 'book') == 'book':
-                        tgt = x.get('ref') or x.get('book_id')
-                        if tgt in R['Book']:
-                            self.derived_by[tgt].append((bid, x.get('relation')))
-                        elif tgt:
-                            self._dangle('Book.lineage.derived_from', bid, tgt)
+            for x in derived_items(b):
+                if (x['ref_type'] or 'book') == 'book':
+                    tgt = x['ref']
+                    if tgt in R['Book']:
+                        self.derived_by[tgt].append((bid, x['relation']))
+                    elif tgt:
+                        self._dangle('Book.lineage.derived_from', bid, tgt)
         for wid, w in R['Work'].items():
             for a in w.get('authors') or []:
                 if isinstance(a, dict) and isinstance(a.get('entity_id'), str) and a['entity_id']:
@@ -304,6 +338,8 @@ class Build:
             for i, r in sorted(self.R[t].items()):
                 for f in ('related_books', 'related_collections'):
                     for o in r.get(f) or []:
+                        if isinstance(o, dict):
+                            o = o.get('book_id')          # 對象項（06 稿）：{book_id, relation?, …}
                         if isinstance(o, str) and o != i and self.kind_of(o) in ('Book', 'Collection'):
                             self.sym_view[i][o] = 'out'
                             self.sym_view[o].setdefault(i, 'in')
@@ -376,8 +412,7 @@ class Build:
     def book_card(self, bid):
         b = self.R['Book'][bid]
         lin = b.get('lineage') if isinstance(b.get('lineage'), dict) else {}
-        frm = sorted({x.get('ref') or x.get('book_id') for x in lin.get('derived_from') or []
-                      if isinstance(x, dict) and x.get('ref_type', 'book') == 'book' and (x.get('ref') or x.get('book_id'))})
+        frm = sorted({x['ref'] for x in derived_items(b) if (x['ref_type'] or 'book') == 'book'})
         return clean({
             'id': bid, 'title': b.get('title'), 'edition': b.get('edition'), 'etype': b.get('edition_type'),
             'dating': dating_text(b), 'y': sort_year(b), 'holder': holder_of(b),
@@ -518,17 +553,13 @@ class Build:
         R = self.R
         edges = []
         for b in books:
-            lin = R['Book'][b].get('lineage')
-            if not isinstance(lin, dict):
-                continue
-            for x in lin.get('derived_from') or []:
-                if isinstance(x, dict) and (x.get('ref') or x.get('book_id')):
-                    edges.append(clean({'from': x.get('ref') or x.get('book_id'), 'to': b, 'rel': x.get('relation'),
-                                        'ref_type': x.get('ref_type'), 'confidence': x.get('confidence')}, keep=('from', 'to')))
-            for x in lin.get('related_to') or []:
-                if isinstance(x, dict) and (x.get('ref') or x.get('book_id')):
-                    edges.append(clean({'a': b, 'b': x.get('ref') or x.get('book_id'), 'rel': x.get('relation'),
-                                        'ref_type': x.get('ref_type')}, keep=('a', 'b')))
+            bk = R['Book'][b]
+            for x in derived_items(bk):
+                edges.append(clean({'from': x['ref'], 'to': b, 'rel': x['relation'],
+                                    'ref_type': x['ref_type'], 'confidence': x['confidence']}, keep=('from', 'to')))
+            for x in related_items(bk):
+                edges.append(clean({'a': b, 'b': x['ref'], 'rel': x['relation'],
+                                    'ref_type': x['ref_type']}, keep=('a', 'b')))
         if not edges:
             return None
         nodes = [self.book_card(b) for b in books]
@@ -553,12 +584,10 @@ class Build:
         if self.sym_view.get(bid):
             v['_related'] = self.sym_related(bid)
         refs = {}
-        lin = b.get('lineage')
-        if isinstance(lin, dict):
-            for x in (lin.get('derived_from') or []) + (lin.get('related_to') or []):
-                t = (x.get('ref') or x.get('book_id')) if isinstance(x, dict) else None
-                if t in R['Book']:
-                    refs[t] = clean({'title': R['Book'][t].get('title'), 'edition': R['Book'][t].get('edition')}, keep=())
+        for x in derived_items(b) + related_items(b):
+            t = x['ref']
+            if t in R['Book']:
+                refs[t] = clean({'title': R['Book'][t].get('title'), 'edition': R['Book'][t].get('edition')}, keep=())
         if refs:
             v['_lineage_refs'] = refs
         der = sorted(self.derived_by.get(bid, ()), key=lambda x: x[0])
@@ -577,8 +606,7 @@ class Build:
             self._lin_cache = {}
         if wid not in self._lin_cache:
             self._lin_cache[wid] = any(
-                isinstance(self.R['Book'][b].get('lineage'), dict) and (
-                    self.R['Book'][b]['lineage'].get('derived_from') or self.R['Book'][b]['lineage'].get('related_to'))
+                derived_items(self.R['Book'][b]) or related_items(self.R['Book'][b])
                 for b in self.books_of.get(wid, ()))
         return self._lin_cache[wid]
 
