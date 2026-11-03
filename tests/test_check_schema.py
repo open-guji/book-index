@@ -158,3 +158,13 @@ def test_book_index_summary():
     assert [c for _, c, _, _ in m.semantic_warns("work", ok)] == ["index-entry-missing"]
     bad = {"indexed_by": [{"source": "x", "title_info": "t", "summary": "s"}]}
     assert [c for _, c, _, _ in m.semantic_warns("book", bad)] == ["book-index-summary"]
+
+
+def test_entity_alt_type_legacy_values_closed():
+    """2026-11-03：alt_names.type 的旧值清零后，枚举含 名／本名／小字／法號，其余旧写法（如 著錄形）不再合法。"""
+    sch = json.load(open(check_schema.JSON_DIR + "/entity.schema.json", encoding="utf-8")) \
+        if isinstance(check_schema.JSON_DIR, str) else json.loads((check_schema.JSON_DIR / "entity.schema.json").read_text(encoding="utf-8"))
+    t = sch["$defs"]["AltName"]["properties"]["type"]
+    assert {"名", "本名", "小字", "法號"} <= set(t["enum"])
+    assert "x-legacy-values" not in t
+    assert "著錄形" not in t["enum"]
