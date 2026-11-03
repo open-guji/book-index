@@ -165,7 +165,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `from` | array<string> | `lineage.derived_from[]` | `ref_type` 缺省或为 `"book"` 的项的 `ref`（旧写 `book_id`），去重、按 id 排序 |
 | `alias` | string | `lineage.alias` | 是字符串才取 |
 
-`resources` 的类型判定（`img`、`txt`、`_has_image`、`_has_text` 共用）：取每项 `types`（字符串数组）的全部值（旧单值 `resources[].type` 数据中已 0 条，代码里仍有兼容分支，待删，见 S5-C）。
+`resources` 的类型判定（`img`、`txt`、`_has_image`、`_has_text` 共用）：取每项 `types`（字符串数组）的全部值（旧单值 `resources[].type` 数据中已 0 条，build 已不再兼容）。
 
 例（`96kzk3xvk0` 的 `_derived_by` 指向的程甲本，作为 `_siblings` 元素）：`{"dating":"清 乾隆","edition":"程甲本","from":["96kzk3xvk0","96kzl60tts"],"holder":"多家收藏","id":"96kzkdm8e8","img":true,"juan":120,"nres":7,"pub":"1791","title":"新鐫全部繡像紅樓夢","txt":true,"y":1791}`
 
