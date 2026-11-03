@@ -117,3 +117,14 @@ def test_semantic_warns():
     rec = {"period": "song", "dynasty": "宋", "resources": [{"group": "g"}], "indexed_by": [{"source": "x", "title_info": "t"}]}
     codes = sorted(c for _, c, _, _ in m.semantic_warns("work", rec))
     assert codes == ["dynasty-no-basis", "group-undefined", "index-entry-missing", "period-no-basis"]
+
+
+def test_book_index_summary():
+    import importlib.util, os
+    spec = importlib.util.spec_from_file_location("cs2", os.path.join(os.path.dirname(__file__), "..", "schema", "check_schema.py"))
+    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    ok = {"indexed_by": [{"source": "x", "title_info": "t"}]}
+    assert m.semantic_warns("book", ok) == []
+    assert [c for _, c, _, _ in m.semantic_warns("work", ok)] == ["index-entry-missing"]
+    bad = {"indexed_by": [{"source": "x", "title_info": "t", "summary": "s"}]}
+    assert [c for _, c, _, _ in m.semantic_warns("book", bad)] == ["book-index-summary"]
