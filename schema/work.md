@@ -24,7 +24,7 @@
 | `dynasty` | string | 可选 | 原生 | 作品成书朝代（显示用） | 规范朝代名，见 [common.md〈朝代与时代轴〉](common.md#九朝代与时代轴) | 录入 | `"北宋"` |
 | `dynasty_basis` | string | 条件：有 `dynasty` 时宜写 | 原生 | 朝代判定依据 | 自由文本，宜以代码起首（同上） | 录入 | `"author_propagation"` |
 | `period` | string | 可选 | 原生 | 时代轴 | 12 值，见 common.md | 录入 | `"song"` |
-| `period_basis` | string | 条件：有 `period` 时必填 | 原生 | 判定依据 | 自由文本。校验器已校：有 `period` 无本字段报 WARN（存量约 268 条待补，补完改 ERROR） | 录入 | `"據 authors[0].dynasty「北宋」"` |
+| `period_basis` | string | 条件：有 `period` 时必填 | 原生 | 判定依据 | 自由文本。校验器已校：有 `period` 无本字段报 ERROR（2026-11-03 存量 268 条已补齐） | 录入 | `"據 authors[0].dynasty「北宋」"` |
 | `period_upper` | string | 可选 | 原生 | 时代上限 | 12 值 | 录入 | `"song"` |
 | `period_upper_basis` | string | 条件：有 `period_upper` 时必填 | 原生 | 上限依据 | 自由文本 | 录入 | `"catalog_bound：…"` |
 | `description` | Description | 可选 | 原生 | 面向读者的介绍 | 见 common.md | 录入 | |
