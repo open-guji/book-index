@@ -117,7 +117,7 @@ def contained(x):
     i = V.ref_id(x)
     attrs = {}
     if isinstance(x, dict):
-        for k_src, k_out in (('volume_index', 'vol'), ('sub_items', 'sub'), ('group', 'group')):
+        for k_src, k_out in (('volume_index', 'vol'), ('sub_items', 'sub'), ('group', 'group'), ('section', 'section')):  # section：S2-I，項內部類優先於 Book.section
             if x.get(k_src) not in (None, '', []):
                 attrs[k_out] = x[k_src]
         m = re.search(r'叢編原序\s*(\d+)', x.get('details') or '') if isinstance(x.get('details'), str) else None

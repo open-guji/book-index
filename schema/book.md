@@ -104,6 +104,7 @@
 | `id` | string | 必填 | 丛编 id | Collection id | `"8rlcsybg2hhl"` |
 | `volume_index` | integer｜array<integer>｜string | 可选 | 册次 | 整数、整数数组或原文字符串 | `[1, 2]` |
 | `details` | string | 可选 | 说明 | 自由文本；`叢編原序 N` 表示本书在丛编原书中的次序（build 据以排序） | |
+| `section` | string | 可选 | 本书在**这个丛编**里的部类（S2-I 新增，取代顶层 `section`；两处并存时本项优先；现存数据仍在顶层，待批量迁移） | 丛编自身的部类名，原文照录 | `"經部/易類"` |
 | `sub_items` | array<string> | 可选 | 本书在**这个丛编**里附带的子目 | 非空字符串数组 | `["周易略例"]` |
 
 `section`（部类）写在 Book 顶层，不在 `contained_in` 项里。丛编增减成员只改成员的 `contained_in`，不改丛编档，也不 bump 丛编的 `revision`。
