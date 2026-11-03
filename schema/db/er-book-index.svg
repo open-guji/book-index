@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 780" role="img" aria-label="Work、Book、Collection、Entity 四张主表与明细表、关系表的连接关系"><style>text{fill:#23252b;font-size:12.5px;font-family:"Noto Sans SC","PingFang SC",sans-serif}
+.t{font-weight:700;font-size:14px}.m{fill:#6a6e78;font-size:11.5px}
+.main{fill:#e3edf6;stroke:#2f5d8a;stroke-width:1.6}
+.sub{fill:#e2f0e8;stroke:#3f7a5a;stroke-width:1.2}
+.det{fill:#eeeff2;stroke:#6b7280;stroke-width:1.2}
+.rel{fill:#f8e9e0;stroke:#b4552b;stroke-width:1.4}
+.e{stroke:#9aa0ac;stroke-width:1.5;fill:none}
+.er{stroke:#b4552b;stroke-width:1.6;fill:none}
+.h{font-size:15px;font-weight:700;fill:#6a6e78}.lab2{fill:#6a6e78;font-size:11.5px}h2{font-size:1.15rem;margin:0 0 10px}
+.lab{fill:#b4552b;font-size:11.5px;font-weight:600}
+</style><rect width="100%" height="100%" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9aa0ac"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#b4552b"/></marker></defs>
+
+<!-- Entity block (left) -->
+<rect class="main" x="30" y="60" width="210" height="64" rx="4"/>
+<text class="t" x="44" y="84">entity</text><text class="m" x="44" y="104">公共列：名、朝代、period、审核</text>
+<rect class="sub" x="30" y="146" width="210" height="112" rx="4"/>
+<text class="t" x="44" y="168">子类表（主键＝entity.id）</text>
+<text class="m" x="44" y="190">person · collective · publisher</text>
+<text class="m" x="44" y="210">dynasty · reign · office</text>
+<text class="m" x="44" y="230">place · seal</text>
+<line class="e" x1="135" y1="124" x2="135" y2="146" marker-end="url(#a)"/>
+<rect class="det" x="30" y="282" width="210" height="130" rx="4"/>
+<text class="t" x="44" y="304">Entity 明细表</text>
+<text class="m" x="44" y="326">entity_alt_name 别名</text>
+<text class="m" x="44" y="346">entity_external_id · entity_dates</text>
+<text class="m" x="44" y="366">place_history 地名沿革</text>
+<text class="m" x="44" y="386">entity_image · entity_location …</text>
+<line class="e" x1="135" y1="258" x2="135" y2="282" marker-end="url(#a)"/>
+<rect class="rel" x="30" y="460" width="210" height="62" rx="4"/>
+<text class="t" x="44" y="482">entity_relation</text><text class="m" x="44" y="502">in_dynasty · parent · 前身 · 上级 …</text>
+<path class="er" d="M30 490 H14 V92 H30" marker-end="url(#ar)"/>
+<text class="lab" x="22" y="300" transform="rotate(-90 22 300)">实体之间</text>
+
+<!-- Work -->
+<rect class="main" x="430" y="60" width="240" height="64" rx="4"/>
+<text class="t" x="444" y="84">work 作品</text><text class="m" x="444" y="104">题名、朝代、period、存佚</text>
+<!-- Book -->
+<rect class="main" x="430" y="270" width="240" height="64" rx="4"/>
+<text class="t" x="444" y="294">book 版本</text><text class="m" x="444" y="314">版本、年代、物理描述（展平列）</text>
+<line class="e" x1="550" y1="270" x2="550" y2="124" marker-end="url(#a)"/>
+<text class="lab" x="558" y="204">edition_of（book.work_id）</text>
+<!-- Collection -->
+<rect class="main" x="830" y="270" width="240" height="64" rx="4"/>
+<text class="t" x="844" y="294">collection 丛编</text><text class="m" x="844" y="314">册数、成员概况</text>
+<!-- member_of -->
+<rect class="rel" x="700" y="190" width="170" height="44" rx="4"/>
+<text class="t" x="712" y="210">member_of</text><text class="m" x="712" y="226">入丛书，带册次</text>
+<path class="e" d="M610 270 V212 H700"/><path class="e" d="M870 212 H950 V270" marker-end="url(#a)"/>
+<!-- work_relation -->
+<rect class="rel" x="720" y="62" width="170" height="44" rx="4"/>
+<text class="t" x="732" y="82">work_relation</text><text class="m" x="732" y="98">注疏、续作等</text>
+<path class="e" d="M670 84 H720"/><path class="e" d="M890 84 H910 V30 H600 V60" marker-end="url(#a)"/>
+
+<!-- authorship -->
+<rect class="det" x="290" y="400" width="240" height="64" rx="4"/>
+<text class="t" x="304" y="424">authorship 责任者</text><text class="m" x="304" y="444">owner_id + W/B/C；entity_id</text>
+<path class="e" d="M410 400 V352 H430"/>
+<path class="e" d="M290 440 H262 V120 H240" marker-end="url(#a)"/>
+<text class="lab" x="268" y="392">entity_id → entity</text>
+<!-- index_entry -->
+<rect class="det" x="560" y="400" width="240" height="64" rx="4"/>
+<text class="t" x="574" y="424">index_entry 著录</text><text class="m" x="574" y="444">indexed_by / emendated_by</text>
+<path class="e" d="M680 400 V352 H640 V334"/>
+<text class="lab" x="574" y="486">source_bid → work（目录书）</text>
+<!-- Book details -->
+<rect class="det" x="430" y="540" width="240" height="108" rx="4"/>
+<text class="t" x="444" y="562">Book / Work / Collection 专属明细</text>
+<text class="m" x="444" y="584">book_provenance 馆藏与印记</text>
+<text class="m" x="444" y="604">book_base_edition · book_attached_text</text>
+<text class="m" x="444" y="624">work_title_alt · collection_content …</text>
+<!-- shared details -->
+<rect class="det" x="760" y="540" width="310" height="108" rx="4"/>
+<text class="t" x="774" y="562">三类共用明细（owner_id + owner_type）</text>
+<text class="m" x="774" y="584">resource · resource_group 资源</text>
+<text class="m" x="774" y="604">source_ref 出处 · description_source</text>
+<text class="m" x="774" y="624">merge_event 并条历史 · record_todo</text>
+
+<!-- merged_into / mention / book_text -->
+<rect class="rel" x="290" y="680" width="240" height="64" rx="4"/>
+<text class="t" x="304" y="704">merged_into 墓碑</text><text class="m" x="304" y="724">旧 id → 现行 id（四类记录通用）</text>
+<rect class="rel" x="560" y="680" width="240" height="64" rx="4"/>
+<text class="t" x="574" y="704">mention（D5）</text><text class="m" x="574" y="724">实体 × 书 / 丛书 × 章 × 次数</text>
+<rect class="rel" x="830" y="680" width="240" height="64" rx="4"/>
+<text class="t" x="844" y="704">book-text 各表</text><text class="m" x="844" y="724">见下图（bt_*、fragment*）</text>
+<text class="m" x="30" y="560">mention.entity_id 存原始 id，</text>
+<text class="m" x="30" y="578">不加外键，派生时按 merged_into 解析；</text>
+<text class="m" x="30" y="596">item_id 可为 Book 或 Collection。</text>
+<text class="m" x="30" y="650">主键与唯一约束从第一天起是硬的；</text>
+<text class="m" x="30" y="668">外键在 COPY 之后加（NOT VALID），</text>
+<text class="m" x="30" y="686">悬空清单清完再 VALIDATE。</text>
+</svg>
