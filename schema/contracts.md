@@ -8,7 +8,7 @@
 |---|---|---|---|---|---|
 | C1 | 源记录 schema（Work/Book/Collection/Entity） | book-index、book-index-draft | build_derived、bim Python/ui、web 脚本 | `schema/*.md`、`schema/json/*.schema.json`（book-index） | `check_schema.py`、`check_v2.py` |
 | C2 | build 产物 `_build/`（契约版本 `CONTRACT`，现 3） | `build_derived.py` | web `derived.mjs`、索引器（`BOOK_INDEX_DERIVED_DIR`＋`SOURCE_COMMIT`） | `schema/derived.md`、`schema/json/derived-entry.schema.json` | `build_derived.py --check-only`；索引器准入（退出码 5） |
-| C3 | `index/` 分片（entities/works/books/collections） | `build_derived.py --write-index` | bim 存储、web 搜索与首页、ui | 同 C2＋bim `entry_extractor.py` 口径 | `drift_vs_repo_index` 为空；**B6 对拍** |
+| C3 | `index/` 分片（entities/works/books/collections） | `build_derived.py`（写 `<out>/index/`，仓内不提交） | web 搜索与首页、ui（bim `GithubStorage` 已废弃） | 同 C2＋bim `entry_extractor.py` 口径 | `build` 条数守恒；**B6 对拍** |
 | C4 | 文本格式（manifest、`index/texts`、版本 `index.json`、章 md/json、char/cord/punct/entity/norm/decision） | book-text | `--text-index`、web 打包、ui `TextReader` | guji-format `spec/00–08`、`schemas/` | `validate_text_format.py --strict`、`validate-collated.py`、guji-format `check-schemas.py` |
 | C5 | npm 包 `book-index-ui` 版本 | bim `publish-ui.yml` | web `nextjs/package.json` | 版本号＋CHANGELOG | `curl /api/version` 的 `bimUi`＝最新已发版 |
 | C6 | 网站契约字段表 | web `ops/data-contract.mjs` | verify.yml `contract`、data.yml `package` | 同文件 | `npm run test:contract`（e2e）、`ops/tests/data-contract.test.mjs` |

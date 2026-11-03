@@ -83,34 +83,6 @@ def test_fix_membership_adds_book_entry_idempotently(monkeypatch):
         shutil.rmtree(tmp, ignore_errors=True)
 
 
-def test_patch_jio_root_alone_leaves_real_repo_index_untouched(monkeypatch):
-    """协调者裁（回 pit-jio与reindex的ROOT不同源）之验收测：只 patch jio.ROOT
-    一处到临时目录，真仓库的 index/ 应一个字节都不受影响——用真 git 仓的
-    `git status --porcelain index/` 核验，不能只信任内存里的推断。"""
-    real_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    assert os.path.isdir(os.path.join(real_root, ".git")), "须在真 book-index 仓下跑"
-
-    tmp = tempfile.mkdtemp()
-    try:
-        d0 = os.path.join(tmp, "Book", "z", "z", "z")
-        os.makedirs(d0)
-        os.makedirs(os.path.join(tmp, "index", "books"))
-        json.dump({"id": "zzzzzzzzzz", "type": "book", "title": "占位"},
-                  open(os.path.join(d0, "zzzzzzzzzz-占位.json"), "w", encoding="utf-8"),
-                  ensure_ascii=False)
-        open(os.path.join(tmp, "index", "books", reindex.shard("zzzzzzzzzz") + ".json"),
-             "w", encoding="utf-8").write("{}")
-
-        monkeypatch.setattr(reindex.jio, "ROOT", tmp)
-        reindex.fix_membership(run=True)
-    finally:
-        shutil.rmtree(tmp, ignore_errors=True)
-
-    out = subprocess.run(["git", "status", "--porcelain", "index/"],
-                          cwd=real_root, capture_output=True, text=True, check=True)
-    assert out.stdout == "", f"真倉 index/ 被動了：\n{out.stdout}"
-
-
 if __name__ == "__main__":
     test_rec_re_accepts_book_10_char_id()
     test_expect_book_sort_year_falls_back_to_year_range()

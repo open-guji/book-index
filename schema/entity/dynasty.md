@@ -4,13 +4,13 @@
 
 ## 真实示例
 
-下列路径都是本仓真实文件（`tests/test_entity_examples.py` 逐条核实存在）；「index」列是派生分片索引，键即该条 id。分片编号会随重建变动，以测试核实为准。
+下列路径都是本仓真实文件（`tests/test_entity_examples.py` 逐条核实存在）。
 
-| 示例 | 源档 | index | 演示什么 |
-|---|---|---|---|
-| 趙宋 `hixi1ubjrxgo` | [Entity/x/g/o/hixi1ubjrxgo-趙宋.json](../../Entity/x/g/o/hixi1ubjrxgo-趙宋.json) | [index/entities/c.json](../../index/entities/c.json) | 总称朝代（趙宋），无 `parent_id`，`alt_names` 含別稱 |
-| 北宋 `hixi1ubk35zj` | [Entity/5/z/j/hixi1ubk35zj-北宋.json](../../Entity/5/z/j/hixi1ubk35zj-北宋.json) | [index/entities/1.json](../../index/entities/1.json) | 子政权（北宋）：`parent_id` 指向趙宋，演示上下级写法 |
-| 清 `hixi1ubjrxga` | [Entity/x/g/a/hixi1ubjrxga-清.json](../../Entity/x/g/a/hixi1ubjrxga-清.json) | [index/entities/e.json](../../index/entities/e.json) | 清：顶层朝代，起讫与 `basis` 的写法 |
+| 示例 | 源档 | 演示什么 |
+|---|---|---|
+| 趙宋 `hixi1ubjrxgo` | [Entity/x/g/o/hixi1ubjrxgo-趙宋.json](../../Entity/x/g/o/hixi1ubjrxgo-趙宋.json) | 总称朝代（趙宋），无 `parent_id`，`alt_names` 含別稱 |
+| 北宋 `hixi1ubk35zj` | [Entity/5/z/j/hixi1ubk35zj-北宋.json](../../Entity/5/z/j/hixi1ubk35zj-北宋.json) | 子政权（北宋）：`parent_id` 指向趙宋，演示上下级写法 |
+| 清 `hixi1ubjrxga` | [Entity/x/g/a/hixi1ubjrxga-清.json](../../Entity/x/g/a/hixi1ubjrxga-清.json) | 清：顶层朝代，起讫与 `basis` 的写法 |
 
 | 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |
 |---|---|---|---|---|---|---|---|

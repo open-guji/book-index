@@ -1033,27 +1033,6 @@ def write_products(out_dir, prods):
     return sink.finish()
 
 
-def index_drift(root, shards):
-    """倉內現有 index/ 與重生值之差（逐欄計數）。2026-11-03 起倉內不再提交 index/ 分片（網站與 bim 讀 build 產物），
-    倉內沒有 index/works 目錄時回 {}（無參照可比）。"""
-    if not os.path.isdir(os.path.join(root, 'index', 'works')):
-        return {}
-    c = collections.Counter()
-    for rel, new in shards.items():
-        p = os.path.join(root, rel)
-        old = json.load(open(p, encoding='utf-8')) if os.path.exists(p) else {}
-        for k in set(old) | set(new):
-            if k not in new:
-                c['舊 index 有、記錄無'] += 1
-            elif k not in old:
-                c['記錄有、舊 index 無'] += 1
-            else:
-                for f in set(old[k]) | set(new[k]):
-                    if old[k].get(f) != new[k].get(f):
-                        c[f'欄 {f}'] += 1
-    return dict(sorted(c.items()))
-
-
 def text_index_report(b, recs):
     """book-text 文本索引的接入報告；未給 text_index 時只標 enabled=False。
     counts＝推得的 `_has_text`／`_has_collated` 條數。"""
@@ -1162,17 +1141,15 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
     report['fatal'] = fatal   # 之後 index 校驗還會往裡加
     shards = build_index(recs, load_promotions_all(root, ref_roots), b)
     n_idx = sum(len(v) for v in shards.values())
-    report['index'] = {'files': len(shards), 'entries': n_idx, 'drift_vs_repo_index': index_drift(root, shards)}
+    report['index'] = {'files': len(shards), 'entries': n_idx}
     if n_idx != report['entries']:
         fatal.append(f'index 條數不守恒：記錄 {report["entries"]}，index {n_idx}')
     _mem('build_index')
     seal_m, seal_p, seal_st = SI.derive(((i, b.R['Book'][i]) for i in sorted(b.own['Book'])), b.R['Entity'])
     seal_files = SI.files(seal_m, seal_p)
-    seal_drift = SI.drift(root, seal_files)
     report['index']['seals'] = {
         'seals': len(seal_m), 'books_marked': sum(x['count'] for x in seal_m.values()), 'pages': len(seal_p),
         'ignored_marks': seal_st['ignored_marks'],
-        'drift_vs_repo_index': {'count': len(seal_drift), 'sample': seal_drift[:20]},
         'reconcile_appears_in': SI.reconcile(b.R['Entity'], seal_m, seal_p),
     }
     for sid, x in seal_m.items():       # 自洽：count＝各頁 Book id 之和，頁內升序、不重
@@ -1186,8 +1163,8 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
         report['write'] = sink.finish() if stream else write_products(out_dir, prods)
         report['write']['index_files_written'] = write_index(out_dir, shards)
         report['write']['seal_files_written'], report['write']['seal_files_removed'] = SI.write(out_dir, seal_files)
-        if write_repo_index:                  # 只寫印章反查表；index 分片已不進倉（2026-11-03）
-            report['write']['repo_seal_files_written'], report['write']['repo_seal_files_removed'] = SI.write(root, seal_files)
+        if write_repo_index:                  # 已廢：index/（含印章表）2026-11-03 起不進倉，只寫 <out>/index/
+            print('警告：--write-index 已廢（倉內不再提交 index/），本次只寫 <out>/index/', file=sys.stderr)
         with open(os.path.join(out_dir, 'report.json'), 'w', encoding='utf-8') as f:
             json.dump({k: v for k, v in report.items() if k != 'write'}, f, ensure_ascii=False, indent=1, sort_keys=True)
             f.write('\n')
@@ -1219,7 +1196,7 @@ def main(argv=None):
                     help='book-text 的 index/texts 目錄；`_has_text`／`_has_collated` 與 index 的 has_text／has_collated '
                          '由 resources＋book-text 推（源裡舊值不再算）')
     ap.add_argument('--write-index', action='store_true',
-                    help='另把印章反查表 index/seals* 寫回倉內（index 分片 2026-11-03 起不再進倉，只寫 <out>/index/）')
+                    help='【已廢，不再寫倉內】index/ 2026-11-03 起不進倉，只寫 <out>/index/；保留此旗標只為舊腳本不報錯')
     a = ap.parse_args(argv)
     ti = TX.load(a.text_index)
     report, _ = run(a.root, a.ref_root, a.out, a.check_only, a.hub_check, a.hub,

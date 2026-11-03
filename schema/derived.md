@@ -80,12 +80,13 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `_hubs.json` | 总是 | `{id: {t, title?, dyn?}}`，见〈七〉 | v1 |
 | `classific.json` | 有 `classification/` 且有 `primary` 分类法时 | 旧格式分类词表（数组），见〈七〉 | v1 |
 | `index/works/<0-f>.json`、`index/books/<0-f>.json`、`index/entities/<0-f>.json`、`index/collections.json` | 总是 | `{id: 条目}`，见〈八〉 | v1 |
+| `index/seals.json`、`index/seals/<seal_id>/<n>.json` | 总是 | 印章反查表，见 8.3 | v1 |
 | `dynasty_reign_keys.json`、`office_keys.json`、`place_keys.json` | 总是（全量 build）；草稿库带 `--ref-root` 时才含正式库的专名，才是全量 | 见〈九〉 | v2 |
 | `report.json` | 不带 `--check-only` 时 | 计数与自校验结果；**不属契约**，只供排查，见〈十〉 | — |
 
 正式库 11-03 实测（main `288d9075320`）：`entry/` 807,887 档（Work 249,778、Book 402,956、Collection 3,707、Entity 151,446），产物文件共 813,442 个（含 `index/`）；`members/` 4,011 页、`catalog/` 1,507 页、`related/` 24 页、`lineage/` 8 档；枢纽 143 个（Collection 78、Work 52、Entity 13）；全量 build 约 5.5 分钟（4 核）。（10-09 旧数：206,496 档、枢纽 59 个。）
 
-仓根的 `index.json`（空壳）与仓根 `classific.json`（旧副本）已于 2026-11-03 删除；读者读 build 产物里的 `classific.json`。
+仓根的 `index.json`（空壳）与仓根 `classific.json`（旧副本）已于 2026-11-03 删除；仓内 `index/`（分片与印章表）同日也不再提交，读者一律读 build 产物（`_build/` 或 COS）。bim 的 `GithubStorage`（读源仓 `index/`）已废弃。
 
 ---
 
@@ -417,7 +418,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 `h` 是 id 的哈希：`h = 0`，对 id 每个字符 `h = (h*31 + ord(c)) & 0xFFFFFFFF`，最后 `h % 16`，写成小写十六进制一位（`0`–`f`）。与 bim `storage.shard_of` 相同。
 每个文件是 `{id: 条目}`，键按 id 排序；条目内的键序按下表（不排序）。
 
-**格式**：沿用目标文件现有的缩进（看第二行的前导空格，默认 2）与「文件尾有无换行」；目标文件不存在时缩进 2、**文件尾无换行**（见〈十二〉第 7 条）。只写有变的文件。默认写 `<out>/index/`；`--write-index` 另写回仓内 `index/`。仓内 `index/` 提交在 git 里，现有分片都是缩进 2、文件尾一个换行。
+**格式**：沿用目标文件现有的缩进（看第二行的前导空格，默认 2）与「文件尾有无换行」；目标文件不存在时缩进 2、**文件尾无换行**（见〈十二〉第 7 条）。只写有变的文件。只写 `<out>/index/`；仓内不再提交 `index/`，`--write-index` 已废（保留旗标只为旧脚本不报错）。
 
 **三端分歧（build `index_entry` ／ bim `build_index_entry` ／ TS `ui/src/core/storage.ts`，11-03 核）**
 
@@ -495,8 +496,8 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 
 - **计数口径**：`count` ＝不同 Book 数；同一 Book 的多个馆藏本都有此印只算 1。`seal_id` 沿 `merged_into` 归到现行印章条（墓碑不单列）；成环、不存在、不是 seal 的引用不计（`check_v2` 的 B-S01 另报）；带 `merged_into` 的 Book 不计。只含本库 Book，草稿库 Book 升格后再计入。
 - **用法**：印章条页面读 `seals.json` 的 `count`，列表读第 1 页，翻页读后续页；不要把整表塞进印章条 JSON（文淵閣寶这类通例印可达数千册）。
-- **不是 `{id: 条目}` 形**：不进 `index.schema.json`，`check_schema --build` 跳过这两处；由 build 自校验（`count` ＝各页之和、页内升序不重）与 `verify.py`（重算后与仓内文件比对，漂移计入 FAIL）把关。
-- **写入**：默认写 `<out>/index/`，`--write-index` 另写回仓内；只写有变的文件，缩小后多出的旧页删除（`index/seals/` 下空目录一并删）。文件缩进 2、尾一换行。
+- **不是 `{id: 条目}` 形**：不进 `index.schema.json`，`check_schema --build` 跳过这两处；由 build 自校验（`count` ＝各页之和、页内升序不重）把关（`verify.py` 不再与仓内文件比对，仓内已无此表）。
+- **写入**：只写 `<out>/index/`（仓内不再提交，`--write-index` 已废）；只写有变的文件，缩小后多出的旧页删除（`index/seals/` 下空目录一并删）。文件缩进 2、尾一换行。
 - **与手写 `appears_in` 对账**：`report.json` 的 `index.seals.reconcile_appears_in` 列每枚印章手写 `appears_in`（Book 项）与派生表的差（`not_in_derived`）。P5 之前两者不必相等（`appears_in` 是代表例，`seal_marks` 逐步回填），只报不拦；P4 回填后据此核对，并把这条对账从只报不拦转为硬检查（手写代表例须全在派生表里）；P5 再把 `appears_in` 改为禁手写。
 
 ## 九、匹配键表
@@ -546,11 +547,10 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 **只报不挡**（写进 `report.json`，不影响退出码）：
 1. 悬空引用 `dangling`：`Book.work_id`、`Book.contained_in`、`Book.lineage.derived_from`、`Work.authors.entity_id`、`Work.contained_in`、`Work.related_works`、`Work.indexed_by.source_bid`、`Collection.contained_in` 及各旧反向字段，只报本仓记录引出的。
 2. `notes`：`report.json` 另有 `text_index`（接入统计、丢掉的 Work 清单）与 `dangling_text_ids`（book-text 里解析不了的悬空 id，不致命）。11-03 全量 build 的 `notes` 为空（10-09 曾有旧注 295 条、「`_has_collated` 僅憑源裡舊值」65 条；`Entity._works` 缺 role 时仍会记「以「撰」補」）。
-3. `index.drift_vs_repo_index`：仓内现有 `index/` 与重生值逐字段之差（草稿库数据 PR 不带 `index/`，差得多是预期）。
 
 **`--hub-check`**：Collection、Work、Entity 各取本仓入度最大的枢纽，在内存里给名字加后缀重算全部产物，数变了几个文件；结果进 `report.json` 的 `hub_check: [{type, id, indegree, changed, files（前 10）, ok}]`。正式库 10-09：`8rlcsybg2hhl`（入度 17,540）、`d59frnrt4lxc`（29,218）、`hixhd2h9bdqq`（380）各牵动 2 档。
 
-**`report.json` 的键**：`contract`、`root`、`records`、`entries`、`files_total`、`pages`、`hubs`、`hub_threshold`、`sidecars_ignored`、`load_problems`、`dangling`（每类 `{count, sample（前 50）}`）、`source_fields`（只剩 `unknown_underscore_fields`／`unknown_underscore_where`）、`notes`、`self_check_errors`（前 200）、`self_check_error_count`、`classification`、`hub_check`（有时）、`fatal`、`index`（`{files, entries, drift_vs_repo_index}`）。不属契约，可随时增减。
+**`report.json` 的键**：`contract`、`root`、`records`、`entries`、`files_total`、`pages`、`hubs`、`hub_threshold`、`sidecars_ignored`、`load_problems`、`dangling`（每类 `{count, sample（前 50）}`）、`source_fields`（只剩 `unknown_underscore_fields`／`unknown_underscore_where`）、`notes`、`self_check_errors`（前 200）、`self_check_error_count`、`classification`、`hub_check`（有时）、`fatal`、`index`（`{files, entries, seals}`）。不属契约，可随时增减。
 
 ---
 

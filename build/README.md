@@ -29,7 +29,7 @@ python3 build/build_derived.py --check-only --hub-check --text-index "$BOOK_TEXT
 
 過渡期（M3 前）：`Work.books`、`Entity.works`、`Collection.books`／`contained_works` 與成員側**取併集**，故遷移前後產物的關係集合相同；M3 刪掉舊欄後這一段自然空轉。
 
-`index/`（原 `reindex.py`、bim `entry_extractor.py` 併入）：逐字照 `entry_extractor` 的欄位規則，另帶 `has_collated`；分片同 `shard_of`（h=h*31+ord(c) mod 16），鍵按 id 排序。預設寫 `<out>/index/`，`--write-index` 另寫回倉內 `index/`（沿用各分片的縮排與尾換行，只寫有變的檔）。報告 `index.drift_vs_repo_index` 列倉內舊索引與重生值之差（舊索引漂移；草稿庫因數據 PR 不帶 `index/`，差得多是預期）。
+`index/`（原 `reindex.py`、bim `entry_extractor.py` 併入）：逐字照 `entry_extractor` 的欄位規則，另帶 `has_collated`；分片同 `shard_of`（h=h*31+ord(c) mod 16），鍵按 id 排序。只寫 `<out>/index/`；倉內不再提交 `index/`（2026-11-03），`--write-index` 已廢。
 
 校驗（失敗退出碼 1）：條數守恒（源記錄數＝`entry/` 數）、派生值自洽（`_edition_count`＝`len(_books)`、分頁合計＝總數、`_members` 是第 1 頁前段）、卡片 id 皆可解析、`h:1` 皆在 `_hubs.json`、源檔含非舊有的 `_` 欄。報而不擋：懸空引用。（舊 `_` 欄與舊反向欄的容忍已於 2026-10-11 刪除：源檔任何 `_` 欄即擋；`--strict` 現為空操作。）
 
