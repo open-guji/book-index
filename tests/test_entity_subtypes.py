@@ -35,7 +35,7 @@ def office(i, **kw):
 
 
 def conc(i, dids, **kw):
-    return office(i, office_level="concrete", dynasty_ids=dids, function="掌一縣", basis="職官志", **kw)
+    return office(i, office_level="concrete", dynasty_ids=dids, function="掌一縣", function_basis="職官志", **kw)
 
 
 def place(i, **kw):
@@ -407,7 +407,7 @@ def inst(i, lvl, **kw):
     if lvl in ("concept", "group"):
         r["description"] = "x"
     else:
-        r.update(dynasty_ids=["t"], function="掌銓選", basis="《新唐書·百官志》")
+        r.update(dynasty_ids=["t"], function="掌銓選", function_basis="《新唐書·百官志》")
     r.update(kw)
     return r
 
@@ -434,7 +434,7 @@ def test_i01_i02_i03():
     c = inst("x", "concrete")
     del c["function"]
     assert has(c, "I02")
-    assert has(inst("x", "concrete", basis="待核"), "I02")
+    assert has(inst("x", "concrete", function_basis="待核"), "I02")
     assert has(inst("x", "concrete", dynasty_ids=["nope"]), "I02")
     assert has(inst("x", "concept", parent_id="ic"), "I03", es.ERROR, IC)
     assert has(inst("x", "concrete", parent_id="ig"), "I03", es.ERROR, IG)
