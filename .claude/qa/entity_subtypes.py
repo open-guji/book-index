@@ -18,7 +18,7 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
        ruler.entity_id 若有則為 people                                                ERROR／WARN
   A1   alt_names：type 在枚舉內、ambiguous 為 bool；帶 ambiguous 之名全庫至少 2 條聲稱
        （否則 WARN）；無 ambiguous 之 dynasty 別名在 dynasty 內全局唯一（ERROR）        ERROR／WARN
-  O01–O05、O09–O12  官職，見各函數註；O06（CBDB 碼防重）已刪；O07 併入 V01；O08 併入 E1。
+  O01–O05、O10–O12  官職，見各函數註；O06（CBDB 碼防重）已刪；O07 併入 V01；O08 併入 E1。
   P01–P11  地名，見各函數註；P05 併入 V01、P08 coords 單獨出碼；P10 沿革段之上級於該段年份內須存在（WARN）；P11 沿革段年份須為所掛朝代起訖覆蓋（WARN）。
   P12–P14  地名兩層（跨朝條 concept／朝代條 concrete）另加區域條 region（兩淮、中原、西域等泛稱，無朝代無政區級，history 可省，不得作政區條之上級）：P12 place_level 枚舉；P13 朝代條頂層 dynasty_ids 必填、
        各段不換名不換級、段之朝代不出頂層所掛；P14 上級同層（朝代條之上級須朝代條且朝代相交，跨朝條之上級須跨朝條）、
@@ -35,7 +35,7 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
        N03  指向的地名是墓碑（有 merged_into）：只警告，提示跟 merged_into          WARN
   S01–S06  印章（seal，GUJI-538）：
        S01  seal_text（印文）非空、seal_kind 在枚舉內、primary_name 非空、description.sources 非空   ERROR
-       S02  dynasty_ids 非空且各指 dynasty；dates.start／end（頂層為舊寫法，WARN）為整數且 start ≤ end；                      ERROR
+       S02  dynasty_ids 非空且各指 dynasty；dates.start／end（頂層已不合法，ERROR）為整數且 start ≤ end；                      ERROR
             seal_style／seal_form 若有須在枚舉內                                                 ERROR
        S03  owner_ids／institution_ids 各指本庫存在的 Entity（people／collective／office／reign 之外
             不得指 seal 與 dynasty）；指墓碑 WARN                                               ERROR／WARN
@@ -46,7 +46,7 @@ check_v2.py 與 verify.py **共用這一份**（不得各寫一份）。
        K01  publisher_kind 在 6 值內（家刻｜坊刻｜寺觀｜藩府｜現代出版社｜未分）、kind_also／status 枚舉、
             primary_name 非空、description.sources 非空                                          ERROR
        K02  古代類 dynasty_ids 必填且各指 dynasty；現代出版社不得寫 dynasty_ids                       ERROR
-       K03  dates.start／end（頂層為舊寫法，WARN）為非 0 整數且 start ≤ end                                                  ERROR
+       K03  dates.start／end（頂層已不合法，ERROR）為非 0 整數且 start ≤ end                                                  ERROR
        K04  locations[]：{place_id?, name, start?, end?, note?}，place_id 須指 place；墓碑 WARN      ERROR／WARN
        K05  owners[]={id, role}（id 指 people／collective）；parent_id 指 publisher／collective、
             不自指、publisher 上級鏈無環；指墓碑 WARN                                             ERROR／WARN
@@ -254,8 +254,8 @@ def _se(rec):
 
 
 def _legacy_flat_dates(rec):
-    """頂層 start／end／dates_basis 為舊寫法（2026-11-03 起收進 dates），報 WARN。"""
-    return [("D3", WARN, k, "頂層 %s 為舊寫法，請寫入 dates.%s" % (k, "basis" if k == "dates_basis" else k))
+    """頂層 start／end／dates_basis 不再合法（2026-11-03 收進 dates；階段 4 同日升 ERROR）。"""
+    return [("D3", ERROR, k, "頂層 %s 已不合法，請寫入 dates.%s" % (k, "basis" if k == "dates_basis" else k))
             for k in ("start", "end", "dates_basis") if k in rec]
 
 
@@ -458,12 +458,6 @@ def _check_office(rec, reg):
     if pid is not None and (reg.sub.get(pid) != "office" or
                             (reg.rec.get(pid) or {}).get("office_level") != "concept"):
         out.append(("O04", ERROR, "parent_id", "須指向 office 概念條：%r" % (pid,)))
-    s, e = rec.get("start"), rec.get("end")
-    for k, v in (("start", s), ("end", e)):
-        if v is not None and not is_int(v):
-            out.append(("O09", ERROR, k, "非整數：%r" % (v,)))
-    if is_int(s) and is_int(e) and s > e:
-        out.append(("O09", ERROR, "start/end", "start > end：%s > %s" % (s, e)))
     bid = rec.get("base_office_id")
     q = rec.get("qualifier")
     if bid is not None:

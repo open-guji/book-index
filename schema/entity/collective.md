@@ -24,7 +24,7 @@
 | `dynasty_ids` | array<string> | 条件：具体条**必填**；概念、合称不得有 | 原生 | 所属朝代 | dynasty id 数组；默认一朝一条，**各字段完全一致**才许多值合并（`ai_note` 标【合併條】） | 录入 | `["hixi1ubjrxgo"]` |
 | `function` | string | 条件：具体条**必填**；概念、合称不得有 | 原生 | 本朝职掌 | 自写，一句即可 | 录入 | `"掌禮樂、祭祀、朝會、貢舉等政令；…"` |
 | `basis` | string | 条件：具体条**必填**；概念、合称不得有 | 原生 | 依据 | 自由文本，不得含「待核」（I02） | 录入 | `"《宋史·職官志》"` |
-| `dates` | object | 可选；具体条（概念、合称不得有） | 原生 | 起讫 | `{start?, end?, basis?}`，整数公历年，无 0 年，`start ≤ end`；有把握才填；越出所属朝代 5 年 WARN（I06）。**2026-11-03 起写入 `dates`；顶层 `start`／`end` 为旧写法，报 WARN（D3）** | 录入 | `{"start": 1082}` |
+| `dates` | object | 可选；具体条（概念、合称不得有） | 原生 | 起讫 | `{start?, end?, basis?}`，整数公历年，无 0 年，`start ≤ end`；有把握才填；越出所属朝代 5 年 WARN（I06）。**2026-11-03 起写入 `dates`；顶层 `start`／`end` 已不合法（schema 报未知键、D3 ERROR；2026-11-03 阶段 4）** | 录入 | `{"start": 1082}` |
 | `superiors` | array<object> | 可选；具体条（概念、合称不得有） | 原生 | 上级官署 | 每项 `{id, start?, end?, note?}`，`id` 指同朝**具体**官署条，不自指、无环；只写下级→上级（下属由 build 派生 `_subordinates`）；隶属有变用 `start`／`end` 分段（I04） | 录入 | `[{"id":"hixi1ubqbwv7","start":1082}]` |
 | `group_ids` | array<string> | 可选；概念或具体条（合称不得有，合称不嵌套） | 原生 | 所属合称 | 合称条 id；成员→合称单向。跨朝不变挂概念条，随朝而变挂具体条；具体条与其概念条重复挂同一合称 WARN（I05） | 录入 | `["hixi1ubqbwuz"]`（六部） |
 | `description` | Description | 条件：概念、合称**必填** | 原生 | 介绍 | 同通用 | 录入 | |

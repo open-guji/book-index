@@ -119,6 +119,36 @@ def test_semantic_warns():
     assert codes == ["dynasty-no-basis", "group-undefined", "index-entry-missing", "period-no-basis"]
 
 
+def test_entity_stage4_legacy_forms_rejected():
+    """S4 阶段 4（2026-11-03）：Entity 里已清零的旧写法不再合法：顶层 start／end／dates_basis、updated_at、
+    官署的 dynasty／period 及 basis、null 占位、空 external_ids、缺 type 的别名。"""
+    sample = ROOT / "Entity/j/n/s"
+    files = sorted(sample.glob("hixi5dv8mjns-*.json"))
+    if not files:   # 稀疏检出不含 Entity 时跳过
+        import pytest
+        pytest.skip("no Entity checkout")
+    base = json.loads(files[0].read_text(encoding="utf-8"))   # 官署具体条，起讫在 dates
+    schema = json.loads((check_schema.JSON_DIR / "entity.schema.json").read_text(encoding="utf-8")) \
+        if hasattr(check_schema.JSON_DIR, "read_text") else json.load(open(check_schema.JSON_DIR + "/entity.schema.json", encoding="utf-8"))
+
+    def bad(**kw):
+        r = dict(base)
+        r.update(kw)
+        out = []
+        check_schema.Validator(check_schema.JSON_DIR).validate(r, schema, "entity.schema.json", "", out)
+        return [x for x in out if x[0] == "ERROR"]
+    assert not bad()
+    assert bad(start=1)                       # 顶层 start 已不是合法键
+    assert bad(end=1)
+    assert bad(dates_basis="x")
+    assert bad(updated_at="2026-11-03T00:00:00+00:00")
+    assert bad(dynasty="清")                  # 官署不写旧式朝代字符串
+    assert bad(period_basis="x")
+    assert bad(external_ids={})
+    assert bad(alt_names=[{"name": "x"}])     # 别名缺 type
+    assert bad(alt_names=["x"])               # 裸字符串别名
+
+
 def test_book_index_summary():
     import importlib.util, os
     spec = importlib.util.spec_from_file_location("cs2", os.path.join(os.path.dirname(__file__), "..", "schema", "check_schema.py"))
