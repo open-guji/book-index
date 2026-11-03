@@ -83,10 +83,11 @@ def types_of(resources):
 def sort_year(b):
     d = b.get('dating')
     if isinstance(d, dict):
+        # 與 bim entry_extractor._extract_dating、ui storage.ts datingProjection 同序：先 year，後 year_range[0]
+        if isinstance(d.get('year'), int) and not isinstance(d.get('year'), bool):
+            return d['year']
         if isinstance(d.get('year_range'), list) and d['year_range'] and isinstance(d['year_range'][0], int):
             return d['year_range'][0]
-        if isinstance(d.get('year'), int):
-            return d['year']
     return None
 
 
