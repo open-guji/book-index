@@ -250,6 +250,7 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 | `reign` | string | 可选 | 原生 | 年号 | 年号原文；未知可为空串 | 录入 | `"乾隆"` |
 | `year` | integer | 可选 | 原生 | 公历年 | 整数，公元前为负 | 录入 | `1193` |
 | `year_range` | array<integer> | 可选 | 原生 | 年代区间 | `[起, 止]`，起 ≤ 止；与 `year` 不并存 | 录入 | `[1736, 1795]` |
+| `text` | string | 可选 | 原生 | 著录的年代原文（S2-L 新增，Book 取代 `publication_info.year` 与 `lineage.year_text`） | 自由文本（「清」「清乾隆时期」「北宋慶曆元年至嘉祐元年（1041–1061）」）。机器解析不了的年代只留在这里，不进 `year`／`year_range` | 录入 | `"清乾隆時期"` |
 | `certainty` | string | 必填（有 `dating` 时） | 原生 | 确定程度 | `attested`（原书或著录明载）｜`inferred`（据版本名等推定）｜`uncertain`（存疑） | 录入 | `"inferred"` |
 | `source` | string | 必填（有 `dating` 时） | 原生 | 依据来自哪里 | `edition`（据版本名）｜`catalog`（据书目著录） | 录入 | `"edition"` |
 | `basis` | string | 必填（有 `dating` 时） | 原生 | 判定依据，逐条可读 | 自由文本 | 录入 | |
@@ -262,14 +263,14 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 
 | 字段 | 类型 | 必填 | 含义 | 取值 |
 |---|---|---|---|---|
-| `year` | string | 可选 | 出版／刊刻时间的原文 | 自由文本（朝代名、年号纪年、公历年、区间都有） |
-| `year_iso` | string | 可选 | 公历年 | 数字字符串 |
+| `year` | string | 可选 | 出版／刊刻时间的原文 | 自由文本（朝代名、年号纪年、公历年、区间都有）。**Book 已删**，并入 `dating`（`year`／`year_range`／`text`）；Work、Collection 仍用 |
+| `year_iso` | string | 可选 | 公历年 | 数字字符串。**Book 已删**；Work、Collection 仍用 |
 | `details` | string | 可选 | 说明 | 自由文本 |
 | `publisher` | string | 可选 | 出版者 | 自由文本 |
 | `place` | string | 可选 | 出版地 | 自由文本 |
 | `source` | string | 可选 | 出处代号 | 自由文本 |
 
-`publication_info.year` 是自由文本，界面不据它排序；排序用 `dating`。
+`publication_info.year` 是自由文本，界面不据它排序；排序用 `dating`。Book 的年代只写 `dating`（S2-L）：数字年 → `dating.year`，`1264-1941` 式区间 → `dating.year_range`，其余文本 → `dating.text`；机器转入的 `certainty: inferred`（文本类 `uncertain`）、`source: catalog`。
 
 ---
 

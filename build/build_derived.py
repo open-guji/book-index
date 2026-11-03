@@ -110,6 +110,24 @@ def dating_text(b):
     return ''
 
 
+def pub_text(b):
+    """卡片 pub：publication_info.year；Book 的年代並入 dating（S2-L）後取 dating.text／year／year_range（與遷移前等價）。"""
+    pi = b.get('publication_info')
+    if isinstance(pi, dict) and isinstance(pi.get('year'), (str, int)) and pi.get('year') != '':
+        return pi['year']
+    d = b.get('dating')
+    if isinstance(d, dict):
+        if isinstance(d.get('text'), str) and d['text']:
+            return d['text']
+        y = d.get('year')
+        if isinstance(y, int) and not isinstance(y, bool):
+            return str(y)
+        r = d.get('year_range')
+        if isinstance(r, list) and len(r) == 2 and all(isinstance(x, int) for x in r):
+            return '%d-%d' % (r[0], r[1])
+    return None
+
+
 def first_dynasty(w):
     if isinstance(w.get('dynasty'), str) and w['dynasty']:
         return w['dynasty']
@@ -347,14 +365,13 @@ class Build:
         lin = b.get('lineage') if isinstance(b.get('lineage'), dict) else {}
         frm = sorted({x.get('ref') or x.get('book_id') for x in lin.get('derived_from') or []
                       if isinstance(x, dict) and x.get('ref_type', 'book') == 'book' and (x.get('ref') or x.get('book_id'))})
-        pub = b.get('publication_info')
         return clean({
             'id': bid, 'title': b.get('title'), 'edition': b.get('edition'), 'etype': b.get('edition_type'),
             'dating': dating_text(b), 'y': sort_year(b), 'holder': holder_of(b),
             'juan': num(b.get('juan_count')),
             'img': self.has(b, 'image'), 'txt': self.has(b, 'text'),
             'nres': len(b.get('resources') or []),
-            'pub': pub.get('year') if isinstance(pub, dict) and isinstance(pub.get('year'), (str, int)) else None,
+            'pub': pub_text(b),
             'meas': b.get('measure_info') if isinstance(b.get('measure_info'), str) else None,
             'from': frm, 'alias': lin.get('alias') if isinstance(lin.get('alias'), str) else None,
         })

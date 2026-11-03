@@ -68,7 +68,22 @@
       "$ref": "common.schema.json#/$defs/Dating"
     },
     "publication_info": {
-      "$ref": "common.schema.json#/$defs/PublicationInfo"
+      "type": "object",
+      "properties": {
+        "details": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "place": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     },
     "contained_in": {
       "type": "array",
@@ -331,21 +346,6 @@
       "properties": {
         "category": {
           "type": "string"
-        },
-        "year": {
-          "type": "integer"
-        },
-        "year_range": {
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
-        },
-        "year_text": {
-          "type": "string"
-        },
-        "year_uncertain": {
-          "type": "boolean"
         },
         "status": {
           "enum": [
