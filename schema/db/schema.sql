@@ -74,7 +74,7 @@ CREATE TABLE work (
   title text NOT NULL, subtype work_subtype, original_title text, title_basis text,
   dynasty text, dynasty_basis text, period text, period_basis text, period_upper text, period_upper_basis text,
   description_text text,
-  juan_number numeric, juan_unit text, juan_description text, measure_info text,
+  juan_number int, juan_unit text, juan_description text, measure_info text,
   loss_status loss_status, loss_status_basis text, loss_status_note text,
   authenticity text, authenticity_basis text,
   preferred_book text, review_status text,
@@ -90,18 +90,27 @@ CREATE TABLE book (
   id text PRIMARY KEY, repo text NOT NULL,
   work_id text NOT NULL,                  -- edition_of：Book → Work（FK 在后）
   title text NOT NULL, edition text, edition_type edition_type, section text,
-  juan_number numeric, juan_unit text, juan_description text, juan_source text, measure_info text,
-  volume_count_number int, volume_count_description text, page_count jsonb,
+  juan_number int, juan_unit text, juan_description text, juan_source text, measure_info text,
+  volume_count jsonb, page_count jsonb,
   pub_year text, pub_year_iso text, pub_place text, pub_publisher text, pub_details text, pub_source text,
-  dating_certainty text, dating_source text, dating_basis text, dating_era text, dating_reign text, dating_year int, dating_year_range int[], dating_based_on text, dating_later_repair text,
+  dating_certainty text, dating_source text, dating_basis text, dating_era text, dating_reign text, dating_year int, dating_year_range int[] CHECK (array_length(dating_year_range,1) = 2), dating_based_on jsonb, dating_later_repair jsonb,
   physical_leaf_style text, physical_binding text, physical_dimensions text, physical_condition text, physical_source text,
-  lineage jsonb, current_location jsonb, description_text text, metadata jsonb, zhsy_id text,
+  lineage jsonb,                          -- 去掉 derived_from／related_to 之后的其余键；边进 book_relation
+  current_location jsonb, description_text text, metadata jsonb, zhsy_id text,
   ai_note text, schema_version int NOT NULL, revision text NOT NULL, revised_at date, updated_at timestamptz,
   appendix jsonb, extra jsonb
 );
 CREATE TABLE book_title_alt (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, title text NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
 -- 馆藏（provenance）：一册多馆，另有印记
-CREATE TABLE book_provenance (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, institution text NOT NULL, call_number text, notes text, source text, seals text[], seal_marks jsonb, extra jsonb, PRIMARY KEY (owner_id, seq));
+CREATE TABLE book_provenance (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, institution text NOT NULL, call_number text, notes text, source text, seals text[], extra jsonb, PRIMARY KEY (owner_id, seq));
+-- 印记 provenance[].seal_marks[]：Book → Entity(seal)
+CREATE TABLE book_seal_mark (owner_id text, prov_seq int, seq int, seal_id text, position text, note text, source text, extra jsonb,
+  PRIMARY KEY (owner_id, prov_seq, seq), FOREIGN KEY (owner_id, prov_seq) REFERENCES book_provenance ON DELETE CASCADE);
+CREATE INDEX ON book_seal_mark (seal_id);
+-- 版本源流 lineage.derived_from[] / related_to[]：Book → Book 有向边
+CREATE TABLE book_relation (src text NOT NULL REFERENCES book(id) ON DELETE CASCADE, kind text NOT NULL CHECK (kind IN ('derived_from','related_to')),
+  seq int NOT NULL, dst text, relation text, confidence text, evidence text, extra jsonb, PRIMARY KEY (src, kind, seq));
+CREATE INDEX ON book_relation (dst);
 CREATE TABLE book_base_edition (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, role text, name text, source text, book_id text, note text, extra jsonb, PRIMARY KEY (owner_id, seq));
 CREATE TABLE book_attached_text (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, book_title text NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
 CREATE TABLE book_location_history (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, location text, name text, item_id text, url text, note text, description text, source text, acckey text, extra jsonb, PRIMARY KEY (owner_id, seq));
@@ -111,7 +120,7 @@ CREATE TABLE collection (
   id text PRIMARY KEY, repo text NOT NULL,
   subtype coll_subtype NOT NULL, title text NOT NULL, edition text, publisher text, publish_year text, holder text, work_id text,
   count_juan int, count_ce int, count_zhong int, count_han int, count_source text,
-  juan_number numeric, juan_unit text, juan_description text, measure_info text, page_count jsonb,
+  juan_number int, juan_unit text, juan_description text, measure_info text, page_count jsonb,
   total_works int, total_volumes int, pub_year text, pub_year_iso text, pub_place text, pub_publisher text, pub_details text,
   dating jsonb, current_location jsonb, description_text text, sections text[],
   ai_note text, schema_version int NOT NULL, revision text NOT NULL, revised_at date, updated_at timestamptz,
@@ -154,6 +163,8 @@ CREATE TABLE resource (
   PRIMARY KEY (owner_id, seq)
 );
 CREATE INDEX ON resource (rid);
+-- 计量 measures[]（Work 约 6 万、Book 351、Collection 1）
+CREATE TABLE measure (owner_id text NOT NULL, seq int NOT NULL, number int, unit text, note text, extra jsonb, PRIMARY KEY (owner_id, seq));
 CREATE TABLE source_ref (owner_id text NOT NULL, seq int NOT NULL, sid text, name text, type text, details text, position text, version text, processor_version text, raw jsonb, extra jsonb, PRIMARY KEY (owner_id, seq)); -- sources[]（对象；字符串旧写法进 raw）
 -- 并条历史
 CREATE TABLE merge_event (

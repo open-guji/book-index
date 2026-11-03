@@ -56,6 +56,9 @@ book-text 与 book-index 同一套 id，进同一个库，表名加 `bt_` 前缀
 不进库：正文 `NNN.md`、char 每格字、cord 像素框、punct 每个标点、norm 条目、图片、抓取素材。库里只记「有没有、什么版本、链到哪」。正文要不要进库做全文检索，单独定（影响库大小与 Neon 费用）。
 原 `book_text` 表取消，由 `bt_version` 代替；`mention` 表保留给 A12 出处反查的其他来源，D5 与 `bt_mention` 合并口径。
 
+## 据 S2（Book 审查）的修订（2026-11-02）
+`juan_number` 改 int（三张主表）；`dating_based_on`、`dating_later_repair` 改 jsonb（实为对象）；`volume_count` 与 `page_count` 统一为 jsonb；`dating_year_range` 加二元 CHECK；新增 `measure`（`measures[]`，三类共用）、`book_seal_mark`（印记 → seal 实体）、`book_relation`（`lineage.derived_from`／`related_to` 的 Book→Book 边）。报告：`/mnt/project-files/总目/schema审查/S2-Book.md`。列名前缀（`pub_*` 对 `publication_info`）等命名问题留待总报告统一定。
+
 ## 如何防止与 `schema/json` 漂移
 D2 起由 bim 里的一份拆表映射（字段名 → 表／列）驱动建库与还原，并加一条 CI 检查：`schema/json` 里出现映射里没有的字段时报错，逼人要么登记列、要么确认放 `extra`。DDL 以后由映射生成，本目录 `schema.sql` 届时改为生成物。
 
