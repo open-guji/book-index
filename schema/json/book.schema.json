@@ -126,9 +126,6 @@
     "authors": {
       "$ref": "common.schema.json#/$defs/Authors"
     },
-    "juan_count": {
-      "$ref": "common.schema.json#/$defs/JuanCount"
-    },
     "measures": {
       "$ref": "common.schema.json#/$defs/Measures"
     },
@@ -145,22 +142,6 @@
         ]
       },
       "x-not-message": "卷数用汉字数字写（如「十卷」「一百零五卷」），不写阿拉伯数字，也不夹「０」"
-    },
-    "volume_count": {
-      "type": "object",
-      "required": [
-        "number"
-      ],
-      "properties": {
-        "number": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "description": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
     },
     "page_count": {
       "$ref": "common.schema.json#/$defs/PageCount"

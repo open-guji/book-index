@@ -77,7 +77,7 @@ def expect_book(d):
         out[k] = nz(v)
     # juan_count.number==0（「選印冊數待考」一類）既有 280 條索引樣本無一寫 0，
     # 顯係上游以真值判斷而非 is not None；從眾略去 0，免與既有慣例不一致。
-    out['juan_count'] = jc.get('number') or None
+    out['juan_count'] = (jc.get('number') or next((m.get('number') for m in (d.get('measures') or []) if m.get('unit') == '卷'), None)) or None
     out['has_image'] = True if img else None
     return out
 def expect_collection(d):

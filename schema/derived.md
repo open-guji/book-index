@@ -135,7 +135,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `id` | string | `id` | 必有 |
 | `title` | string | `title` | |
 | `dyn` | string | `dynasty`、`authors[].dynasty` | 顶层 `dynasty` 非空则取它；否则取 `authors[]` 中**第一个**有非空 `dynasty` 的作者的值（不限第 1 位） |
-| `juan` | number | `juan_count` | `juan_count` 是对象取 `.number`，是数字取本身；非数字、布尔、0 都不出 |
+| `juan` | number | `juan_count`，缺则 `measures` 里第一个 `unit=卷` 的项 | `juan_count` 是对象取 `.number`，是数字取本身；缺则取该 `measures` 项的 `number`；非数字、布尔、0 都不出（`juan_of()`） |
 | `au` | array<string> | `authors[].name` | 取 `authors` 前 3 项中的 `name`（先截前 3 项再滤掉无名者，故至多 3 个） |
 | `cls` | string | `classification/` 成员档 | 该 Work 第一条分类行的节点 id（如 `"zm0524"`）。分类行顺序：`primary` 分类法在前，其余按分类法 id；同一分类法内按成员档文件名、档内行序。**无 `classification/` 目录时**退回旧字段 `Work.classification`，值为数组 `[l1, l2 或 null]` |
 | `nb` | integer | `Book.work_id` 反查 | 该 Work 的 Book 数；0 不出 |
@@ -157,7 +157,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `dating` | string | `dating.era`、`dating.reign` | `era` 与 `reign` 中是非空字符串（或整数）者，按此顺序用一个半角空格连接，如 `"清 乾隆"`；只有一项就是那一项（如 `"乾隆"`、`"清"`） |
 | `y` | integer | `dating.year`、`dating.year_range` | **先取 `year`**（整数，非布尔），否则取 `year_range[0]`（数组非空且首项为整数）；都没有不出。与 `index/` 的 `sort_year` 同序（2026-11-03 统一，原先相反） |
 | `holder` | string | `current_location` | 是对象取 `name`，没有 `name` 取 `text`；是字符串取本身 |
-| `juan` | number | `juan_count` | 同 Work 卡 |
+| `juan` | number | `juan_count`，缺则 `measures` 里第一个 `unit=卷` 的项（`juan_of()`） | 同 Work 卡 |
 | `img` | `true` | `resources` | 本 Book 的 resources 含 `image` |
 | `txt` | `true` | `resources`、book-text（同 `_has_text`） | 同上，看 `text` |
 | `nres` | integer | `resources` | `resources` 项数；0 不出 |
@@ -454,7 +454,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 | `holder` | 可选 | `current_location` | 是对象取 `name`（不看 `text`）；是字符串取本身 |
 | `dynasty` | 可选 | `authors[].dynasty`、`dynasty` | **撰人朝代**：`authors[]` 中**第一个**有非空 `dynasty` 的作者的值（不限第 1 位），没有再取顶层 `dynasty`。与卡片 `dyn`（成书朝代，顶层优先）语义不同，不统一，见〈十二〉第 1 条 |
 | `role` | 可选 | `authors[0].role` | |
-| `juan_count` | 可选 | `juan_count` | 对象取 `.number`，数字取整；0 不出 |
+| `juan_count` | 可选 | `juan_count`，缺则 `measures` 卷项 | 对象取 `.number`，数字取整；缺则取 `measures` 里第一个 `unit=卷` 的项；0 不出 |
 | `measure_info` | 可选 | `measure_info` | 真值原样 |
 | `additional_titles` | 可选 | `additional_titles` | 字符串数组；对象项取其 `book_title` |
 | `attached_texts` | 可选 | `attached_texts` | 同上 |
