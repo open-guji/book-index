@@ -108,7 +108,6 @@
     }
   ],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "六十卷一百二十回",
     "alias": [
@@ -117,23 +116,6 @@
       "毛宗岗評本",
       "四大奇書第一種"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9cj8ck",
-        "ref_type": "book",
-        "relation": "校改",
-        "confidence": "consensus",
-        "evidence": "金文京 2004：毛評本祖於李卓吾評本（吳觀明本一類），但具體經由李漁評本過渡"
-      },
-      {
-        "ref": "988g9cj8cr",
-        "ref_type": "book",
-        "relation": "底本",
-        "confidence": "consensus",
-        "evidence": "金文京 2004：細看其書，文章跟吳觀明本等四系李卓吾評本幾乎相同"
-      }
-    ],
-    "related_to": [],
     "note": "今通行本祖刻；李漁序；杭永年评定；下游为第一才子书、汉宋奇书等。"
   },
   "additional_titles": [
@@ -151,17 +133,24 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988g9cj8ck",
+      "relation": "校改",
       "name": "李笠翁批閱三國志（李漁評本）",
-      "source": "lineage.derived_from",
-      "note": "金文京 2004：毛評本祖於李卓吾評本（吳觀明本一類），但具體經由李漁評本過渡"
+      "book_id": "988g9cj8ck",
+      "confidence": "consensus",
+      "evidence": "金文京 2004：毛評本祖於李卓吾評本（吳觀明本一類），但具體經由李漁評本過渡",
+      "note": "金文京 2004：毛評本祖於李卓吾評本（吳觀明本一類），但具體經由李漁評本過渡",
+      "source": "lineage.derived_from"
     },
     {
       "role": "底本",
-      "book_id": "988g9cj8cr",
+      "relation": "底本",
       "name": "李卓吾先生批評三國志（吳觀明本）",
-      "source": "lineage.derived_from",
-      "note": "金文京 2004：細看其書，文章跟吳觀明本等四系李卓吾評本幾乎相同"
+      "book_id": "988g9cj8cr",
+      "confidence": "consensus",
+      "evidence": "金文京 2004：細看其書，文章跟吳觀明本等四系李卓吾評本幾乎相同",
+      "note": "金文京 2004：細看其書，文章跟吳觀明本等四系李卓吾評本幾乎相同",
+      "source": "lineage.derived_from"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

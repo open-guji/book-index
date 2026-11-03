@@ -79,7 +79,6 @@
       "description": "1975 年於上海古籍書店收購之舊書中發現前 40 回原稿，今歸上海圖書館典藏"
     }
   ],
-  "related_books": [],
   "resources": [
     {
       "id": "physical-shanghai-library",
@@ -98,22 +97,12 @@
   ],
   "measure_info": "原八十回（今存前四十回原稿）",
   "lineage": {
-    "category": "抄本",
     "status": "fragment",
     "extant_juan": "前 40 回原稿（上海圖書館）",
     "alias": [
       "戚序本",
       "上圖本",
       "張開模藏本"
-    ],
-    "derived_from": [
-      {
-        "ref": "h_qixu_zuben",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "consensus",
-        "evidence": "戚序本系統三支之一（張開模藏本）"
-      }
     ]
   },
   "edition": "戚張本",
@@ -128,6 +117,17 @@
       "institution": "上海圖書館（前 40 回原稿）",
       "notes": "1975 年於上海古籍書店之收購舊書中發現前 40 回原稿，現藏上海圖書館。後 40 回原稿散佚不明。；1975",
       "source": "current_location"
+    }
+  ],
+  "edition_type": "抄本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_qixu_zuben",
+      "confidence": "consensus",
+      "evidence": "戚序本系統三支之一（張開模藏本）",
+      "source": "lineage.derived_from"
     }
   ]
 }

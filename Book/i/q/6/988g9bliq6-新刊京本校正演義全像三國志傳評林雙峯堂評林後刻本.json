@@ -39,23 +39,12 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "fragment",
     "extant_juan": "二十卷，存卷一至八、十三至十八",
     "alias": [
       "京本校正三國志傳評林",
       "余象斗京本"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9bwr9e",
-        "ref_type": "book",
-        "relation": "校改",
-        "confidence": "consensus",
-        "evidence": "金文京 2004：余象斗在萬曆二十年余象斗本後再度受周曰校等江南本影響的修改本"
-      }
-    ],
-    "related_to": [],
     "note": "建陽本靠攏江南本的過渡形態。"
   },
   "additional_titles": [
@@ -69,5 +58,16 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "校改",
+      "book_id": "988g9bwr9e",
+      "confidence": "consensus",
+      "evidence": "金文京 2004：余象斗在萬曆二十年余象斗本後再度受周曰校等江南本影響的修改本",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

@@ -61,9 +61,18 @@
   },
   "location_history": [],
   "related_books": [
-    "96kzj1joqo",
-    "96kzjb81kw",
-    "96kzjukr9c"
+    {
+      "book_id": "96kzj1joqo",
+      "relation": "兄弟本",
+      "confidence": "probable",
+      "evidence": "与己卯本部分抄手笔迹相同、题字相同；学界一说庚辰本以己卯本为底本，一说二者同源于「脂砚斋凡四阅评过」系列定本"
+    },
+    {
+      "book_id": "96kzjb81kw"
+    },
+    {
+      "book_id": "96kzjukr9c"
+    }
   ],
   "resources": [
     {
@@ -134,26 +143,8 @@
   ],
   "measure_info": "八十回八册",
   "lineage": {
-    "category": "抄本",
     "status": "fragment",
-    "extant_juan": "第1-80回（缺64、67回；现存78回）",
-    "derived_from": [
-      {
-        "ref": "h_zhi_sisi_dingben",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "consensus",
-        "evidence": "题「脂砚斋凡四阅评过 / 庚辰秋月定本」"
-      }
-    ],
-    "related_to": [
-      {
-        "book_id": "96kzj1joqo",
-        "relation": "兄弟本",
-        "confidence": "probable",
-        "evidence": "与己卯本部分抄手笔迹相同、题字相同；学界一说庚辰本以己卯本为底本，一说二者同源于「脂砚斋凡四阅评过」系列定本"
-      }
-    ]
+    "extant_juan": "第1-80回（缺64、67回；现存78回）"
   },
   "indexed_by": [
     {
@@ -188,6 +179,17 @@
     {
       "institution": "北京大学图书馆",
       "source": "current_location"
+    }
+  ],
+  "edition_type": "抄本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_zhi_sisi_dingben",
+      "confidence": "consensus",
+      "evidence": "题「脂砚斋凡四阅评过 / 庚辰秋月定本」",
+      "source": "lineage.derived_from"
     }
   ]
 }

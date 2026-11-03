@@ -62,7 +62,6 @@
     }
   ],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "二十卷一百回",
     "alias": [
@@ -70,19 +69,20 @@
       "閩齋本",
       "建陽楊閩齋本"
     ],
-    "derived_from": [
-      {
-        "ref": "h_jiajing_shanjie",
-        "ref_type": "hypothetical",
-        "relation": "翻刻",
-        "confidence": "consensus",
-        "evidence": "黃永年：第二支祖本嘉靖後期刪節本→ 楊閩齋本（萬曆建陽）"
-      }
-    ],
-    "related_to": [],
     "note": "建陽坊刻删节本代表；楊春元（楊閩齋）所刊。"
   },
   "ai_note": "舒穆撰章詳細記錄此本各卷卷首題署、刊記、末題之差異：「鼎京本/京本/原本/唐僧/新刻」等多種題名混用，且「清白堂」「楊閩齋」「閩建書林楊氏」交互出現。內阁文庫藏。半叶 15 行行 27 字。",
   "revision": "1.0.1",
-  "revised_at": "2026-10-25"
+  "revised_at": "2026-10-25",
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "翻刻",
+      "hypothetical_id": "h_jiajing_shanjie",
+      "confidence": "consensus",
+      "evidence": "黃永年：第二支祖本嘉靖後期刪節本→ 楊閩齋本（萬曆建陽）",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

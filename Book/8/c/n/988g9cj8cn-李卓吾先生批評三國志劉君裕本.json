@@ -44,23 +44,12 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "一百二十回",
     "alias": [
       "劉君裕本",
       "李卓吾評本（劉君裕刻圖）"
     ],
-    "derived_from": [
-      {
-        "ref": "h_sixi_zuben",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "consensus",
-        "evidence": "金文京 2004：四系（江南本，有關索故事）"
-      }
-    ],
-    "related_to": [],
     "note": "240则首次归并为120回的关键版本；下游为吴观明本及一系列翻刻本。"
   },
   "revision": "1.0.0",
@@ -71,5 +60,16 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_sixi_zuben",
+      "confidence": "consensus",
+      "evidence": "金文京 2004：四系（江南本，有關索故事）",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

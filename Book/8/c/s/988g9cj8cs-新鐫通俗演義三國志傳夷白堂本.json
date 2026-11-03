@@ -39,23 +39,12 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "fragment",
     "extant_juan": "二十四卷一百二十回，存卷二、四、五至十一、十四至二十四",
     "alias": [
       "夷白堂本",
       "楊爾曾本"
     ],
-    "derived_from": [
-      {
-        "ref": "h_sixi_zuben",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "consensus",
-        "evidence": "金文京 2004：四系（江南本，有關索故事）"
-      }
-    ],
-    "related_to": [],
     "note": "二十四卷120回小型巾箱节本；文字接近周曰校本。"
   },
   "revision": "1.0.0",
@@ -66,5 +55,16 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_sixi_zuben",
+      "confidence": "consensus",
+      "evidence": "金文京 2004：四系（江南本，有關索故事）",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

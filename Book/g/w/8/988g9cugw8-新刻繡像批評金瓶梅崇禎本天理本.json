@@ -38,23 +38,12 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "二十卷一百回",
     "alias": [
       "天理本",
       "天理圖書館本"
     ],
-    "derived_from": [
-      {
-        "ref": "988g9cugw6",
-        "ref_type": "book",
-        "relation": "翻刻",
-        "confidence": "probable",
-        "evidence": "黃霖：天理本與北大本同屬 10 行 22 字一支，版式相近"
-      }
-    ],
-    "related_to": [],
     "note": "北大本支同系日本藏本。"
   },
   "ai_note": "魏珂列為北大本支系「10 行 22 字+眉批 4 字一行」三本之一（北大本/天大本/上圖甲本）。天理本與北大本格式相同但有個別文字不同，**不能稱為同版**（魏珂）。",
@@ -70,10 +59,14 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988g9cugw6",
+      "relation": "翻刻",
       "name": "新刻繡像批評金瓶梅（崇禎本北大本／10行22字本）",
-      "source": "lineage.derived_from",
-      "note": "黃霖：天理本與北大本同屬 10 行 22 字一支，版式相近"
+      "book_id": "988g9cugw6",
+      "confidence": "probable",
+      "evidence": "黃霖：天理本與北大本同屬 10 行 22 字一支，版式相近",
+      "note": "黃霖：天理本與北大本同屬 10 行 22 字一支，版式相近",
+      "source": "lineage.derived_from"
     }
-  ]
+  ],
+  "edition_type": "刻本"
 }

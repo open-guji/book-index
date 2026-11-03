@@ -69,23 +69,12 @@
     }
   ],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "十卷二百四十段，存八卷（缺卷三、卷十）",
     "alias": [
       "葉逢春本",
       "建陽葉逢春刊本"
     ],
-    "derived_from": [
-      {
-        "ref": "h_yuanben_sanguo",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "disputed",
-        "evidence": "金文京 2004：與張尚德本「來源自同一祖本卻具有不同特色」；通俗化娛樂化傾向繼承羅貫中原本一支"
-      }
-    ],
-    "related_to": [],
     "note": "二系祖證，建陽繁本系統的源頭，現存唯一海外孤本（西班牙）。"
   },
   "revision": "1.0.1",
@@ -96,5 +85,16 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_yuanben_sanguo",
+      "confidence": "disputed",
+      "evidence": "金文京 2004：與張尚德本「來源自同一祖本卻具有不同特色」；通俗化娛樂化傾向繼承羅貫中原本一支",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

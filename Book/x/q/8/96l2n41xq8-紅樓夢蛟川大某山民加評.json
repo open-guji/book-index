@@ -58,25 +58,7 @@
   ],
   "measure_info": "一百二十回",
   "lineage": {
-    "category": "評本",
-    "status": "extant",
-    "derived_from": [
-      {
-        "ref": "96kzmrrqbk",
-        "ref_type": "book",
-        "relation": "據以評",
-        "confidence": "consensus",
-        "evidence": "孫楷第注「此書比王評本多……餘同王本」 在王評基礎上加評"
-      }
-    ],
-    "related_to": [
-      {
-        "book_id": "96l2nocd1c",
-        "relation": "合刊",
-        "confidence": "consensus",
-        "evidence": "收入萬有文庫本《增評補圖石頭記》三家評合刊"
-      }
-    ]
+    "status": "extant"
   },
   "indexed_by": [
     {
@@ -101,22 +83,30 @@
   "revision": "1.1.0",
   "revised_at": "2026-10-13",
   "related_books": [
-    "96l2nocd1c"
+    {
+      "book_id": "96l2nocd1c",
+      "relation": "合刊",
+      "confidence": "consensus",
+      "evidence": "收入萬有文庫本《增評補圖石頭記》三家評合刊"
+    }
   ],
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "96kzkdm8e8",
       "name": "程甲本",
+      "book_id": "96kzkdm8e8",
       "source": "lineage.derived_from"
     },
     {
       "role": "底本",
-      "book_id": "96kzmrrqbk",
+      "relation": "據以評",
       "name": "王希廉評",
-      "source": "lineage.derived_from",
-      "note": "孫楷第注「此書比王評本多……餘同王本」 在王評基礎上加評"
+      "book_id": "96kzmrrqbk",
+      "confidence": "consensus",
+      "evidence": "孫楷第注「此書比王評本多……餘同王本」 在王評基礎上加評",
+      "note": "孫楷第注「此書比王評本多……餘同王本」 在王評基礎上加評",
+      "source": "lineage.derived_from"
     }
   ],
-  "ai_note": "2026-10-13 #499 版本图第 1 项：删 lineage.derived_from 中指向程甲本（96kzkdm8e8）的一条边——该边无 evidence，且与指向王希廉評（96kzmrrqbk，evidence：孫楷第「此書比王評本多……餘同王本」）的边语义重叠；王希廉評本身 derived_from 程甲本，故经王評仍可达程甲，图上信息不丢。\n原 lineage.year_text：清光緒十年（1884）三家評合刊推算"
+  "ai_note": "2026-10-13 #499 版本图第 1 项：删 lineage.derived_from 中指向程甲本（96kzkdm8e8）的一条边——该边无 evidence，且与指向王希廉評（96kzmrrqbk，evidence：孫楷第「此書比王評本多……餘同王本」）的边语义重叠；王希廉評本身 derived_from 程甲本，故经王評仍可达程甲，图上信息不丢。\n原 lineage.year_text：清光緒十年（1884）三家評合刊推算\n原 lineage.category：評本"
 }

@@ -52,29 +52,11 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "二十卷一百回，附插圖一百幅",
     "alias": [
       "鍾批本",
       "鍾伯敬批評封神演義"
-    ],
-    "derived_from": [
-      {
-        "ref": "988g9cugwd",
-        "ref_type": "book",
-        "relation": "校改",
-        "confidence": "consensus",
-        "evidence": "明末刊本，承舒載陽本而加批評和插圖"
-      }
-    ],
-    "related_to": [
-      {
-        "book_id": "988g9cugwd",
-        "relation": "同源",
-        "confidence": "consensus",
-        "evidence": "韦凤娟：舒载阳本即「新刻钟伯敬先生批评封神演义」，二者实为同一刊本不同记录"
-      }
     ],
     "note": "实即舒载阳本的「钟伯敬批评」称呼系记录；李云翔疑为真正批评者。"
   },
@@ -84,10 +66,22 @@
   "base_edition": [
     {
       "role": "底本",
-      "book_id": "988g9cugwd",
+      "relation": "校改",
       "name": "新刻鍾伯敬先生批評封神演義（舒載陽本／天啟間金閶舒文淵刊本）",
-      "source": "lineage.derived_from",
-      "note": "明末刊本，承舒載陽本而加批評和插圖"
+      "book_id": "988g9cugwd",
+      "confidence": "consensus",
+      "evidence": "明末刊本，承舒載陽本而加批評和插圖",
+      "note": "明末刊本，承舒載陽本而加批評和插圖",
+      "source": "lineage.derived_from"
     }
-  ]
+  ],
+  "related_books": [
+    {
+      "book_id": "988g9cugwd",
+      "relation": "同源",
+      "confidence": "consensus",
+      "evidence": "韦凤娟：舒载阳本即「新刻钟伯敬先生批评封神演义」，二者实为同一刊本不同记录"
+    }
+  ],
+  "edition_type": "刻本"
 }

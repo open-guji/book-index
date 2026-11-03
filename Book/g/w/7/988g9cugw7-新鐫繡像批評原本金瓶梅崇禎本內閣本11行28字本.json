@@ -39,7 +39,6 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "二十卷一百回，全",
     "alias": [
@@ -47,16 +46,6 @@
       "崇禎內閣本",
       "新鐫繡像批評原本金瓶梅"
     ],
-    "derived_from": [
-      {
-        "ref": "h_chongzhen_zuben",
-        "ref_type": "hypothetical",
-        "relation": "翻刻",
-        "confidence": "consensus",
-        "evidence": "黃霖：崇禎本系第二支，據崇禎原刊本另一支翻刻"
-      }
-    ],
-    "related_to": [],
     "note": "崇祯本内阁本支祖；本衙藏本扉页瓶插梅花图；眉批 3 字一行；东大本同版；首图本翻刻。"
   },
   "ai_note": "「本衙藏本」扉葉下瓶插梅花圖為崇禎本中現存最完整的扉葉構件（魏珂特別點出）。東大本（東京大學東洋文化研究所雙紅堂文庫）+ 內閣本「研究者公認為與內閣本同一版本」（魏珂）。首圖本回道人題詞為呂洞賓《漁父詞》16-17 首（王汝梅 1992《吉林大學學報》考），**駁劉輝 1986 舊論「李漁化名回道人故為崇禎本評改者」**。",
@@ -68,5 +57,16 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "翻刻",
+      "hypothetical_id": "h_chongzhen_zuben",
+      "confidence": "consensus",
+      "evidence": "黃霖：崇禎本系第二支，據崇禎原刊本另一支翻刻",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

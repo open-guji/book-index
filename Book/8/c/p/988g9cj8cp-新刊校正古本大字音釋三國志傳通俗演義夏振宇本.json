@@ -39,23 +39,12 @@
   ],
   "resources": [],
   "lineage": {
-    "category": "刻本",
     "status": "extant",
     "extant_juan": "十二卷，全",
     "alias": [
       "夏振宇本",
       "前溪堂本"
     ],
-    "derived_from": [
-      {
-        "ref": "h_sixi_zuben",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "consensus",
-        "evidence": "金文京 2004：四系（江南本，有關索故事）"
-      }
-    ],
-    "related_to": [],
     "note": "與周曰校本文字互有出入，无直接承袭关系，並列為四系甲十二卷本兩個來源。"
   },
   "revision": "1.0.0",
@@ -66,5 +55,16 @@
     "dimensions": "",
     "condition": "",
     "source": "description 原文抽取"
-  }
+  },
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_sixi_zuben",
+      "confidence": "consensus",
+      "evidence": "金文京 2004：四系（江南本，有關索故事）",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

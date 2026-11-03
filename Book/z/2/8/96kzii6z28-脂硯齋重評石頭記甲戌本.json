@@ -70,14 +70,30 @@
     }
   ],
   "related_books": [
-    "96kzirvbwg",
-    "96kzj1joqo",
-    "96kzjb81kw",
-    "96kzjkwef4",
-    "96kzjukr9c",
-    "96kzkwnpj4",
-    "96kzkdm8e8",
-    "96kzkmzcow"
+    {
+      "book_id": "96kzirvbwg"
+    },
+    {
+      "book_id": "96kzj1joqo"
+    },
+    {
+      "book_id": "96kzjb81kw"
+    },
+    {
+      "book_id": "96kzjkwef4"
+    },
+    {
+      "book_id": "96kzjukr9c"
+    },
+    {
+      "book_id": "96kzkwnpj4"
+    },
+    {
+      "book_id": "96kzkdm8e8"
+    },
+    {
+      "book_id": "96kzkmzcow"
+    }
   ],
   "resources": [
     {
@@ -178,18 +194,8 @@
   ],
   "measure_info": "十六回四册",
   "lineage": {
-    "category": "抄本",
     "status": "fragment",
-    "extant_juan": "第1-8、13-16、25-28回（共16回）",
-    "derived_from": [
-      {
-        "ref": "h_zhi_dingben_1754",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "consensus",
-        "evidence": "卷首题「脂砚斋甲戌抄阅再评」，被认为是最接近作者初稿的早期定本"
-      }
-    ]
+    "extant_juan": "第1-8、13-16、25-28回（共16回）"
   },
   "indexed_by": [
     {
@@ -211,5 +217,16 @@
       "source": "current_location"
     }
   ],
-  "ai_note": "原 lineage.year_text：清乾隆十九年甲戌（1754）抄定\n原 juan_count.number（無單位）：0\n原 juan_count.description：现存16回，共四册（第1-8回，13-16回，25-28回）"
+  "ai_note": "原 lineage.year_text：清乾隆十九年甲戌（1754）抄定\n原 juan_count.number（無單位）：0\n原 juan_count.description：现存16回，共四册（第1-8回，13-16回，25-28回）",
+  "edition_type": "抄本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_zhi_dingben_1754",
+      "confidence": "consensus",
+      "evidence": "卷首题「脂砚斋甲戌抄阅再评」，被认为是最接近作者初稿的早期定本",
+      "source": "lineage.derived_from"
+    }
+  ]
 }

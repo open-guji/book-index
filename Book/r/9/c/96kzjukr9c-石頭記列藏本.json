@@ -69,7 +69,9 @@
     }
   ],
   "related_books": [
-    "96kzk3xvk0"
+    {
+      "book_id": "96kzk3xvk0"
+    }
   ],
   "resources": [
     {
@@ -108,18 +110,8 @@
   ],
   "measure_info": "七十八回三十五册",
   "lineage": {
-    "category": "抄本",
     "status": "extant",
-    "extant_juan": "78回（缺第5、6回，第79、80合为一回）",
-    "derived_from": [
-      {
-        "ref": "h_zhi_dingben_1754",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "probable",
-        "evidence": "脂评本系统晚出过录本，文字较少受程高本影响；1962年由苏联汉学家李福清公布"
-      }
-    ]
+    "extant_juan": "78回（缺第5、6回，第79、80合为一回）"
   },
   "edition": "列藏本",
   "revision": "1.0.19",
@@ -138,6 +130,17 @@
     {
       "institution": "俄罗斯科学院东方文献研究所（原列宁格勒东方学研究所）",
       "source": "current_location"
+    }
+  ],
+  "edition_type": "抄本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_zhi_dingben_1754",
+      "confidence": "probable",
+      "evidence": "脂评本系统晚出过录本，文字较少受程高本影响；1962年由苏联汉学家李福清公布",
+      "source": "lineage.derived_from"
     }
   ]
 }

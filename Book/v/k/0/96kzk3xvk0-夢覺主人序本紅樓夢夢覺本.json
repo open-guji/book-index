@@ -55,21 +55,11 @@
     }
   ],
   "lineage": {
-    "category": "抄本",
     "status": "extant",
     "extant_juan": "80回",
     "alias": [
       "甲辰本",
       "脂晋本"
-    ],
-    "derived_from": [
-      {
-        "ref": "h_zhi_dingben_1754",
-        "ref_type": "hypothetical",
-        "relation": "過錄",
-        "confidence": "probable",
-        "evidence": "首次以「红楼梦」为正书名（前此抄本多题「石头记」），文字大量刪削脂批，回目接近后出程甲本，为脂评本向程高本过渡的关键节点"
-      }
     ]
   },
   "edition": "夢覺本",
@@ -85,6 +75,17 @@
     {
       "institution": "中國國家圖書館",
       "source": "current_location"
+    }
+  ],
+  "edition_type": "抄本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "過錄",
+      "hypothetical_id": "h_zhi_dingben_1754",
+      "confidence": "probable",
+      "evidence": "首次以「红楼梦」为正书名（前此抄本多题「石头记」），文字大量刪削脂批，回目接近后出程甲本，为脂评本向程高本过渡的关键节点",
+      "source": "lineage.derived_from"
     }
   ]
 }

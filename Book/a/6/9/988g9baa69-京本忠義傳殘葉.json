@@ -42,22 +42,11 @@
   ],
   "measure_info": "存 2 葉",
   "lineage": {
-    "category": "刻本",
     "status": "fragment",
     "extant_juan": "僅存兩張殘葉",
     "alias": [
       "京本忠義傳"
     ],
-    "derived_from": [
-      {
-        "ref": "h_jianben_zuben",
-        "ref_type": "hypothetical",
-        "relation": "刪節",
-        "confidence": "consensus",
-        "evidence": "據鄧雷課程：建陽早期嘗試性刪節本，比容與堂本字數少 10% 左右"
-      }
-    ],
-    "related_to": [],
     "note": "簡本系統早期實物殘證，建陽試刪本。"
   },
   "ai_note": "鄧雷《水滸傳版本知見録》對應章節（人民文學社版本源流課程，課程主頁 https://special.rhky.com/mobile/mooc/tocourse/204391782）：\n- 一、書名：京本忠義傳※ → https://special.rhky.com/mobile/mooc/tocard/157715906?courseId=204391782",
@@ -68,6 +57,17 @@
       "institution": "上海图书馆",
       "notes": "存 2 纸残叶",
       "source": "current_location"
+    }
+  ],
+  "edition_type": "刻本",
+  "base_edition": [
+    {
+      "role": "底本",
+      "relation": "刪節",
+      "hypothetical_id": "h_jianben_zuben",
+      "confidence": "consensus",
+      "evidence": "據鄧雷課程：建陽早期嘗試性刪節本，比容與堂本字數少 10% 左右",
+      "source": "lineage.derived_from"
     }
   ]
 }
