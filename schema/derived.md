@@ -403,7 +403,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 
 ## 八、`index/`
 
-检索用扁平摘要，网站搜索与 bim 列表读它。字段规则逐字照 bim `entry_extractor.py`（`build_index_entry`／`build_entity_index_entry`），另加 `has_collated`。`index/` 的键不加下划线：整个文件都是派生产物。
+检索用扁平摘要，网站搜索与 bim 列表读它。字段规则照 bim `entry_extractor.py`（`build_index_entry`／`build_entity_index_entry`），**不给 `--text-index` 时与之逐条一致**（11-03 在全部 80.6 万条源记录上对拍：键、值、键序 0 差异）；与 bim、TS 的已知分歧见下〈三端分歧〉。`index/` 的键不加下划线：整个文件都是派生产物。
 
 **分片**：
 
@@ -418,6 +418,18 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 每个文件是 `{id: 条目}`，键按 id 排序；条目内的键序按下表（不排序）。
 
 **格式**：沿用目标文件现有的缩进（看第二行的前导空格，默认 2）与「文件尾有无换行」；目标文件不存在时缩进 2、**文件尾无换行**（见〈十二〉第 7 条）。只写有变的文件。默认写 `<out>/index/`；`--write-index` 另写回仓内 `index/`。仓内 `index/` 提交在 git 里，现有分片都是缩进 2、文件尾一个换行。
+
+**三端分歧（build `index_entry` ／ bim `build_index_entry` ／ TS `ui/src/core/storage.ts`，11-03 核）**
+
+| 项 | build | bim Python | TS | 影响 |
+|---|---|---|---|---|
+| Work 的 `has_text`／`has_collated` | 给 `--text-index` 时并入其下 Book 与 book-text（`merged_into` 解析） | 只看本条 `resources`；`has_collated` 不产出 | 同 bim | 本地写出的 Work index 与 build 产物在这两个字段上不同；**线上以 build 为准**，bim／TS 写的只是本地副本 |
+| `promoted_to` | 只取升格对照 `promotions/` | 档上 `_promoted_to` 优先，其次调用方传入的升格对照 | 只取档上 `_promoted_to`，没有升格对照入参 | 档上已无 `_promoted_to`（0 条），三端等价；bim／TS 的档上读法是迁移期遗留 |
+| 键序 | `id,title,type,path,author,era,sort_year,holder,dynasty,role,…` | 同 build | 先 `id,title,type,path,era,sort_year` 再 `author,holder,…,dynasty,role` | TS 写出的分片键序不同，JSON 语义相同 |
+| 类型宽严 | `edition`／`period`／`subtype`／`loss_status`／`original_title`／`measure_info` 真值原样；`sort_year` 要求 int 非 bool | 同 build | 这几个字段只收 string；`sort_year` 收任意 number | 现数据里这些字段全是 string／int，无实际差异 |
+| Entity | 同 bim | `build_entity_index_entry` | `buildEntityIndexEntry` 仅供对拍，不是写路径 | TS 不写 `index/entities/` |
+
+黄金样例 `tests/golden/entries.json` 只覆盖「单条记录 → index 条目」，**不带 text-index**，所以对拍抓不到第一行；要核对须用带 book-text 的环境全量 build 后比较 `has_text`。
 
 **条数守恒**：`index/` 条目总数必须等于 `entry/` 数，否则失败。
 
