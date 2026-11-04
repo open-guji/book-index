@@ -11,7 +11,7 @@
 | 所属朝代 | people（及旧 collective）：`dynasty`（规范名字符串）＋`dynasty_basis`＋`period`＋`period_basis`；office／官署／place／publisher／seal：`dynasty_ids`（dynasty 条 id 数组）；reign：`dynasty_id`（单个 id）；place 沿革：`history[].dynasty_ids` | `dynasty` 是**软引用**：people 里「宋」「元末明初」等总称、过渡称对不上单个 dynasty 条（用户 2026-10-30 定允许记「宋」）；`dynasty_ids` 是**硬引用** |
 | 起讫年 | people：`dates.birth／death／floruit`；dynasty／reign：`dates.start／end`；官署、seal、publisher：`dates.start／end／basis`（2026-11-03 起，原顶层 `start`／`end`／`dates_basis`；顶层已不合法，ERROR）；place：`history[].start／end` | 已统一，见 S4 PR |
 | 依据说明 | `dynasty_basis`、`period_basis`、`native_place_basis`、`name_basis`、`dates.basis`、`dates.basis`（已含原 publisher 顶层 `dates_basis`）、`rank.basis`、`function_basis`（office／官署的职掌依据） | 都是「这个值凭什么」，各管各的字段 |
-| 上级／所属 | dynasty：`parent_id`＝上位政权；office／官署：`parent_id`＝概念条；place 朝代条：`concept_id`＝跨朝条；place 沿革 `history[].parent_id`＝行政上级；官署隶属：`superiors[]`；成员→合称：`group_ids`；office→官署：`institution_ref`；seal→机构：`institution_ids` | 几种「上」不同，不能互相替代 |
+| 上级／所属 | dynasty：`parent_id`＝上位政权；office／官署／place 朝代条：`concept_id`＝所属概念条（具体→概念；place 为跨朝条）；place 沿革 `history[].parent_id`＝行政上级；官署隶属：`superiors[]`；成员→合称：`group_ids`；office→官署：`institution_ref`；seal→机构：`institution_ids` | 几种「上」不同，不能互相替代 |
 | 概念／具体层 | office：`office_level`；官署：`institution_level`（另有 `group`）；place：`place_level`（`concept`／`concrete`／`region`） | `region` 是区域条，不是层级 |
 
 ## 二、异义同名

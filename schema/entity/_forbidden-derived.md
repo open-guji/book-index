@@ -27,9 +27,9 @@
 | people | `_dynasty_id`／`_dynasty_candidates` | `dynasty` 名在朝代键表里唯一且不歧义命中 → `_dynasty_id`；否则有候选 → `_dynasty_candidates` |
 | dynasty | `_children`、`_ancestors`、`_reigns` | `parent_id` 反查；上溯至多 3 级；reign 的 `dynasty_id` 反查 |
 | reign | `_dynasty`、`_ruler`、`_index_in_reign`、`_same_name` | `dynasty_id`；`ruler.entity_id`；同朝同帝王年号按起年排序的序号；同名年号 |
-| office | `_children`、`_compounds` | 具体条 `parent_id` 反查；`base_office_id` 反查 |
+| office | `_children`、`_compounds` | 具体条 `concept_id` 反查；`base_office_id` 反查 |
 | place | `_children`、`_span` | 沿革项 `parent_id` 反查；各段起讫 |
-| 官署 | `_children`、`_subordinates`、`_members`、`_offices` | `parent_id`、`superiors`、`group_ids`、office 的 `institution_ref` 反查 |
+| 官署 | `_children`、`_subordinates`、`_members`、`_offices` | 具体条 `concept_id`、`superiors`、`group_ids`、office 的 `institution_ref` 反查 |
 | publisher | `_books`、`_subordinates` | `Work／Book／Collection.authors[].entity_id` 反查；下属 publisher 的 `parent_id` 反查 |
 
 已升格的草稿条以正式条为准：不进反查、不进键表，一切 id 引用先经 `promotions/` 换成正式 id。卡片形状与键表（`dynasty_reign_keys.json`、`office_keys.json`、`place_keys.json`）见 [derived.md](../derived.md)。
