@@ -203,9 +203,13 @@ def contained(x):
         for k_src, k_out in (('volume_index', 'vol'), ('sub_items', 'sub'), ('group', 'group'), ('section', 'section')):  # section：S2-I，項內部類優先於 Book.section
             if x.get(k_src) not in (None, '', []):
                 attrs[k_out] = x[k_src]
-        m = re.search(r'叢編原序\s*(\d+)', x.get('details') or '') if isinstance(x.get('details'), str) else None
-        if m:                          # 叢編側原序號（遷移 M1 記入 details；目錄總管 10-07：build 據以排序）
-            attrs['ord'] = int(m.group(1))
+        o = x.get('order')
+        if isinstance(o, int) and not isinstance(o, bool) and o >= 1:      # 正式字段 contained_in[].order（S5-O，2026-11-04）
+            attrs['ord'] = o
+        else:                          # 過渡期兩認：舊寫法 details「叢編原序 N」（數據遷完後刪此分支）
+            m = re.search(r'叢編原序\s*(\d+)', x.get('details') or '') if isinstance(x.get('details'), str) else None
+            if m:
+                attrs['ord'] = int(m.group(1))
     return i, attrs
 
 

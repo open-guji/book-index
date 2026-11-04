@@ -57,6 +57,11 @@
 - 无写入方、无读者的时间戳：Book 19,358、Work 72,430、Collection 57、Entity 68,158 条存量已由各家数据批改删尽（#2192／#2193／#2194），本次从 `common.md §八`、四个记录 schema、文档里去掉该键；`revision`／`revised_at` 不动。
 - 此后记录再带 `updated_at` 会报 unknown-field。`DateTime` 定义保留（promotions.schema.json 仍引用）。
 
+## 2026-11-04　`contained_in[].order`（叢編原序）成为正式字段（S5-O；第 1 步：放宽＋两认）
+
+- Work、Book 的 `contained_in[]` 项新增 `order`（整数 ≥1），取代 `details: "叢編原序 N"`。build 优先读 `order`，没有再回退旧正则（过渡期两认）；派生输出的 `ord` 不变，网站、搜索、bim ui 不用改。
+- 数据迁移（68 条 Work，全是 `details` 恰为「叢編原序 N」）与收紧（build 删回退、文档删旧写法）另两步，各自 PR。DB 草案 `member_of.orig_order` 与 `order` 对映。
+
 ## 2026-11-03　Book 删 `_siblings*`，契约升 4（S5-H/I/N；A41 已核无页面读）
 
 - Book entry 删除 `_siblings`／`_siblings_more`／`_siblings_total`（261.6 万张重复卡片，约占 Book entry 的 30.8%）；同版本列表读 Work 的 `_books`（I：`_books` 成为同版本卡片的唯一一份）。
