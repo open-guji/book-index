@@ -169,6 +169,7 @@ CREATE TABLE resource (
   PRIMARY KEY (owner_id, seq)
 );
 CREATE INDEX ON resource (rid);
+-- short_name 只存与 schema/resource-sites.json 登记不同的变体（R2 起与登记相同的不写，build 产物由登记补回）
 -- 计量 measures[]（Work 约 6 万、Book 351、Collection 1）
 CREATE TABLE measure (owner_id text NOT NULL, seq int NOT NULL, number int, unit text, note text, extra jsonb, PRIMARY KEY (owner_id, seq));
 CREATE TABLE source_ref (owner_id text NOT NULL, seq int NOT NULL, sid text, name text, type text, details text, position text, version text, processor_version text, raw jsonb, extra jsonb, PRIMARY KEY (owner_id, seq)); -- sources[]（对象；字符串旧写法进 raw）
