@@ -4,6 +4,13 @@
 
 ---
 
+## 2026-11-04　Book 的 `attached_texts` 并入 `additional_titles`（第 12 组；S2-T）
+
+- `Book.additional_titles` 的项：字符串＝异名；对象 `{book_title, type:"附刻"}`＝附刻之书。`Book.attached_texts` 删除（303 本已迁，25 本两者并存均保留）。
+- `index/` 条目不变：仍分别出 `additional_titles`（异名）与 `attached_texts`（附刻），迁移前后 1197 本逐字相同。
+- 读者：build（`_titles_split`）、bim（`split_extra_titles`／`splitExtraTitles`）已同口径；网站 item-seo 的 Book JSON-LD `alternateName` 需滤掉 `type:"附刻"`（A41）。
+- 脚本 `scripts/book_attached_texts.py`，回滚原值 `.claude/qa/attached-texts-rollback.tsv`。
+
 ## 2026-11-04　Work 存佚证据并成 `loss_status_evidence`（第 12 组；S1）
 
 - Work 的 `loss_status_basis`（判定依据）与 `loss_status_note`（说明）并成一个对象 `loss_status_evidence: {basis?, note?}`（至少一项），旧两键删除；迁移 3,477 档，文字原样搬入。

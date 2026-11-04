@@ -1,4 +1,4 @@
-"""第12组 S2-T：_titles_split 新旧写法拆出同样的两个列表。"""
+"""第12组 S2-T：_titles_split 按 type 拆出异名与附刻。"""
 import pathlib
 import sys
 
@@ -7,12 +7,7 @@ sys.path.insert(0, str(ROOT / 'build'))
 import build_derived as BD  # noqa: E402
 
 
-def test_old_shape():
-    d = {'additional_titles': ['甲', {'book_title': '乙'}], 'attached_texts': [{'book_title': '丙'}, {'book_title': '丁'}]}
-    assert BD._titles_split(d) == (['甲', '乙'], ['丙', '丁'])
-
-
-def test_new_shape_equals_old():
+def test_split_by_type():
     d = {'additional_titles': ['甲', {'book_title': '丙', 'type': '附刻'}, {'book_title': '丁', 'type': '附刻'}]}
     assert BD._titles_split(d) == (['甲'], ['丙', '丁'])
 

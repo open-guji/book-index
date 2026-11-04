@@ -452,7 +452,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 | `juan_count` | 可选 | `juan_count`，缺则 `measures` 卷项 | 对象取 `.number`，数字取整；缺则取 `measures` 里第一个 `unit=卷` 的项；0 不出 |
 | `measure_info` | 可选 | `measure_info` | 真值原样 |
 | `additional_titles` | 可选 | `additional_titles` | 字符串数组；字符串项与不带 `type:"附刻"` 的对象项（取其 `book_title`） |
-| `attached_texts` | 可选 | `attached_texts`、`additional_titles` | 附刻之书的 `book_title` 数组：旧字段 `attached_texts` 全部项，加 `additional_titles` 里 `type:"附刻"` 的对象项（第 12 组 S2-T；index 条目形状不变） |
+| `attached_texts` | 可选 | `attached_texts`、`additional_titles` | 附刻之书的 `book_title` 数组：`additional_titles` 里 `type:"附刻"` 的对象项（第 12 组 S2-T；Book 源档已无 `attached_texts`，index 条目形状不变） |
 | `has_text` | 可选（`true`） | `resources`、book-text | **与 entry 的 `_has_text` 同口径**（Work 并其 Book，加 book-text，见〈三〉）。 |
 | `has_image` | 可选（`true`） | `resources` | 同上，看 `image`（只认 `types` 数组） |
 | `has_collated` | 可选（`true`） | book-text（旧：`_has_collated`、`has_collated`） | 与 entry 的 `_has_collated` 同口径 |
