@@ -269,7 +269,7 @@ def semantic_warns(kind, rec):
         for i, r in enumerate(rs):
             g = r.get("group") if isinstance(r, dict) else None
             if g is not None and g not in groups:
-                out.append(("WARN", "group-undefined", f"resources[{i}].group", f"组键 {g!r} 不在 resource_groups 里"))
+                out.append(("ERROR", "group-undefined", f"resources[{i}].group", f"组键 {g!r} 不在 resource_groups 里"))
     if isinstance(rs, list):
         sites = _resource_sites()
         members = collections.Counter(r.get("group") for r in rs if isinstance(r, dict) and r.get("group"))
@@ -277,10 +277,10 @@ def semantic_warns(kind, rec):
             if not isinstance(r, dict):
                 continue
             if r.get("group") and members[r["group"]] == 1:
-                out.append(("WARN", "single-member-group", f"resources[{i}].group", "组里只有这一条：改写成这条资源的 label（不要 group／group_role）"))
+                out.append(("ERROR", "single-member-group", f"resources[{i}].group", "组里只有这一条：改写成这条资源的 label（不要 group／group_role）"))
             sn = r.get("short_name")
             if sn is not None and sites.get(r.get("id")) == sn:
-                out.append(("WARN", "short-name-redundant", f"resources[{i}].short_name", f"与站点登记（schema/resource-sites.json）相同，不必写：{sn}"))
+                out.append(("ERROR", "short-name-redundant", f"resources[{i}].short_name", f"与站点登记（schema/resource-sites.json）相同，不必写：{sn}"))
     for fld in ("indexed_by", "emendated_by"):
         es = rec.get(fld)
         if isinstance(es, list):
