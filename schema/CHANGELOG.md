@@ -4,6 +4,16 @@
 
 ---
 
+## 2026-11-03　Book 版本关系重设计（第 6 组；S2；#2212、#2216、#2219 与本步）
+
+- **删**：`lineage.derived_from`、`lineage.related_to`、`lineage.category`、`dating.based_on`。`lineage` 只剩 `status`、`extant_juan`、`alias`、`note`。
+- **`base_edition`**（所出之本，有向）项加 `relation`（怎么出来的）、`confidence`、`evidence`、`hypothetical_id`；`name` 改为三个 id 都没有时必填。带 `relation` 与 `book_id`／`hypothetical_id` 的项同时是版本图的边。
+- **`related_books`** 项改为对象 `{book_id, relation?, confidence?, evidence?}`（不再收 id 字符串）；带 `relation` 的项是版本图的无向边；「同版」存副本一侧。
+- **`dating.year_uncertain`**（布尔）新增，取代原 `lineage.year_uncertain`。
+- `lineage.category` 并入 `edition_type`（词表内且原来为空的 125 本）；其余原文在 `ai_note`。`dating.based_on` 的 `relation` 并入底本项；无 `base_edition` 的 20 本合成底本名（7 个朝代栏误切的记作「底本未詳」）。
+- 数据迁移 483 本，脚本 `scripts/book_version_relations.py`，回滚原值 `.claude/qa/version-relations-rollback.tsv`。派生产物名与形状不变（只新增边）。
+- 读者：build（`derived_items`／`related_items`）、book-index-manager（Python `schema_fields`、UI `lineage-graph.ts` 等）。
+
 ## 2026-11-03　资源整理步 R0：`resources[].label` 与站点登记（第 7 组；S3；只放宽、加 WARN，不改数据）
 
 - `Resource` 加可选 `label`；读者（book-index-ui）已兼容（bim #296）：带 `label` 而无 `group` 的资源按「只有一条的组」显示。

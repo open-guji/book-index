@@ -23,7 +23,6 @@
   Work.related_works                 規範方向之關係（跨 Work／Collection 二 id 空間——坑 61）
   *.indexed_by／emendated_by          著錄 → 志書（source_bid、in_note_of）
   Book.base_edition                  底本（book_id／work_id）
-  Book.lineage                       承襲（derived_from[].ref、related_to[].book_id）
   Collection.contains                結構組成（work_id／book_id／collection_id）
   Book.related_books／Collection.related_*  對稱關係（存小 id 側）
   <類>.merged_into                    墓碑 → 留存者（併條之賬，不算懸空）
@@ -93,12 +92,6 @@ def refs_of(t, d):
         if isinstance(be, dict):
             add('Book.base_edition', be.get('book_id'), be.get('role'))
             add('Book.base_edition', be.get('work_id'), be.get('role'))
-    lin = d.get('lineage') if isinstance(d.get('lineage'), dict) else {}
-    for x in (lin.get('derived_from') or []):
-        if isinstance(x, dict) and x.get('ref_type', 'book') == 'book':
-            add('Book.lineage', x.get('ref'), x.get('relation'))
-    for x in (lin.get('related_to') or []):
-        add('Book.lineage', _ref(x, 'book_id'), None)
     for c in (d.get('contains') or []):
         if isinstance(c, dict):
             for k in ('work_id', 'book_id', 'collection_id'):
