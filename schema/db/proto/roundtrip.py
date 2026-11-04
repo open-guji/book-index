@@ -119,7 +119,7 @@ MAPS = {
         'flatrest': {'lineage': 'lineage'},
         'jsonb': {'page_count': 'page_count', 'metadata': 'metadata'},
         'kids': dict(common_kids('B'), **{
-            'additional_titles': K('book_title_alt', {'@': 'title'}),
+            'additional_titles': K('book_title_alt', {'@': 'title', 'book_title': 'title', 'type': 'kind'}),
             'provenance': K('book_provenance', {'institution': 'institution', 'call_number': 'call_number', 'notes': 'notes',
                                                 'source': 'source', 'seals': 'seals'},
                             sub={'seal_marks': K('book_seal_mark', {'seal_id': 'seal_id', 'position': 'position', 'note': 'note',
@@ -127,7 +127,6 @@ MAPS = {
             'base_edition': K('book_base_edition', {'role': 'role', 'relation': 'relation', 'name': 'name', 'source': 'source',
                                                     'book_id': 'book_id', 'work_id': 'work_id', 'hypothetical_id': 'hypothetical_id',
                                                     'confidence': 'confidence', 'evidence': 'evidence', 'note': 'note'}),
-            'attached_texts': K('book_attached_text', {'book_title': 'book_title'}),
             'location_history': K('book_location_history', {'location': 'location', 'name': 'name', 'item_id': 'item_id',
                                                             'url': 'url', 'note': 'note', 'description': 'description',
                                                             'source': 'source', 'acckey': 'acckey'}),
@@ -241,7 +240,11 @@ def val(v, ty):
 def shred(obj, keymap, types, enums, extra):
     """按 keymap 把对象拆成 {列: 值}；装不下的进 extra。keymap 里 '@' 表示「项本身整个进这一列」。"""
     row = {}
-    if '@' in keymap:
+    if '@' in keymap and isinstance(obj, dict) and len(keymap) > 1:
+        # 混合项：标量项走 '@'，对象项按其余键拆（如 Book additional_titles 的 {book_title, type: 附刻}）
+        extra['_obj'] = True
+        keymap = {k: v for k, v in keymap.items() if k != '@'}
+    elif '@' in keymap:
         col = keymap['@']
         if fits(obj, types[col], enums):
             row[col] = val(obj, types[col])
@@ -400,7 +403,9 @@ class Loader:
 def unshred(row, keymap, extra):
     if '@' in extra:
         return extra['@']
-    if '@' in keymap:
+    if extra.get('_obj'):
+        keymap = {k: v for k, v in keymap.items() if k != '@'}
+    elif '@' in keymap:
         return row[keymap['@']]
     o = {}
     for k, col in keymap.items():
@@ -414,7 +419,7 @@ def unshred(row, keymap, extra):
     for k, v in extra.get('_empty', []):
         o[k] = v
     for k, v in extra.items():
-        if k not in ('_null', '_empty', '_present'):
+        if k not in ('_null', '_empty', '_present', '_obj'):
             o[k] = v
     return o
 

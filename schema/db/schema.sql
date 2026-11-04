@@ -108,7 +108,7 @@ CREATE TABLE book (
   ai_note text, schema_version int NOT NULL, revision text, revised_at date,
   extra jsonb
 );
-CREATE TABLE book_title_alt (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, title text NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
+CREATE TABLE book_title_alt (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, title text NOT NULL, kind text, extra jsonb, PRIMARY KEY (owner_id, seq));  -- kind＝'附刻'：附刻之书（第 12 组 attached_texts 并入，#2234）；null＝异名
 -- 馆藏（provenance）：一册多馆，另有印记
 CREATE TABLE book_provenance (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, institution text NOT NULL, call_number text, notes text, source text, seals text[], extra jsonb, PRIMARY KEY (owner_id, seq));
 -- 印记 provenance[].seal_marks[]：Book → Entity(seal)
@@ -119,7 +119,6 @@ CREATE INDEX ON book_seal_mark (seal_id);
 CREATE TABLE book_base_edition (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, role text NOT NULL, relation text, name text, source text NOT NULL,
   book_id text, work_id text, hypothetical_id text, confidence text, evidence text, note text, extra jsonb, PRIMARY KEY (owner_id, seq));
 CREATE INDEX ON book_base_edition (book_id);
-CREATE TABLE book_attached_text (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, book_title text NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
 CREATE TABLE book_location_history (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, location text, name text, item_id text, url text, note text, description text, source text, acckey text, extra jsonb, PRIMARY KEY (owner_id, seq));
 
 -- ============ 主表：Collection ============

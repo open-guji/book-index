@@ -105,6 +105,14 @@ book-text 与 book-index 同一套 id，进同一个库，表名加 `bt_` 前缀
 ## 随阶段 3、4 收紧同步（2026-11-03）
 四张主表删 `updated_at`（#2195 已从 schema 删键，四类存量清零）；`book` 删 `section`（并入 `contained_in[]`，即 `member_of.section`）与 `current_location`（并入 `provenance` 首项），见 #2200。
 
+## 随「可做可不做」第 3–12 组同步（2026-11-03／04）
+- **Book**：删 `juan_*`、`volume_count`（计量只在 `measure`）、`pub_year*`（并入 dating）、`review_status`、`appendix`、`dating_based_on`；加 `dating_year_uncertain`、`dating_text`；删 `book_relation`、`book_attached_text`；`book_base_edition` 加 `relation`／`book_id`／`work_id`／`hypothetical_id`／`confidence`／`evidence`；`related_book` 收对象项（`relation`、`confidence`、`evidence`）；`zhsy_id` 列改由 `external_ids.zhsy_id` 映射；`book_title_alt` 加 `kind`（`附刻`＝附刻之书，原 `attached_texts`）。
+- **Work**：删 `juan_*`；`loss_status_basis`／`loss_status_note` 映射自 `loss_status_evidence`。**Collection**：删 `review_status`。
+- **Entity**：`office`／`collective` 加 `concept_id`（原 `parent_id`，`entity_relation(rel='parent')` 只留 dynasty、publisher）；`person` 加 `cbdb_match`、`cbdb_source`（原在 `external_ids`，现为 `external_ids_meta`）；`function_basis`。
+- `member_of.orig_order` 对应 `contained_in[].order`；`resource` 加 `label`。合并史：`merge_event` 删，墓碑的 `merged_basis` 并入 `merged_into` 表。
+- book-text（第 11 组）：`bt_layer` 删 `stats`；`bt_section` 删 `work_id`／`has_work_id_key`，链接只在 `bt_section_work`（`work_ids[]`），加 `has_work_ids`（`[]`＝明确未链）与 `evidence`；`bt_version` 修一处注释吞列的笔误（`source` 等五列原被注释掉）。
+- 还原器支持「标量或对象」混合项（`additional_titles`）。实测（book-index main 2026-11-04 `2efacf3`）：Book 402,956、Work 249,774、Collection 3,707、Entity 151,188 条，还原不一致全部 0。
+
 ## 如何防止与 `schema/json` 漂移
 D2 起由 bim 里的一份拆表映射（字段名 → 表／列）驱动建库与还原，并加一条 CI 检查：`schema/json` 里出现映射里没有的字段时报错，逼人要么登记列、要么确认放 `extra`。DDL 以后由映射生成，本目录 `schema.sql` 届时改为生成物。
 

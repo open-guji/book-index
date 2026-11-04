@@ -15,7 +15,8 @@ CREATE TABLE bt_item (
 CREATE TABLE bt_version (
   item_id text NOT NULL REFERENCES bt_item ON DELETE CASCADE, key text NOT NULL, seq int NOT NULL,  -- seq=0 即 default
   kind text,                             -- manifest 原值：transcription / collated / self_collated；original 另看 is_original
-  label text, edition_label text, note text, fetched_at text,  -- fetched_at 兼收 scraped_at source text, source_name text, source_url text, license text, quality text,
+  label text, edition_label text, note text, fetched_at text,  -- scraped_at 已并入 fetched_at（第 11 组）
+  source text, source_name text, source_url text, license text, quality text,
   chapters_total int, script text, is_original boolean,
   version_label text, revision text, revised_at date, guji_markdown text, heading_levels text[],
   line_is_column boolean, catalog_type text, total_entries int, matched_entries int,  -- 目录书型整理本
@@ -43,10 +44,10 @@ CREATE TABLE bt_heading (item_id text, key text, n int, seq int, level int NOT N
 -- pages.tsv：行号 → 原书页（kanripo 等）
 CREATE TABLE bt_page_break (item_id text, key text, file text, line_no int, pb text NOT NULL,  -- file 存不带扩展名的章键（001），与 bt_chapter.file 可 join
   PRIMARY KEY (item_id, key, file, line_no));
--- original 各伴生层的文件头：版本、对着哪版文本、生成者、统计
+-- original 各伴生层的文件头：版本、对着哪版文本、生成者
 CREATE TABLE bt_layer (
   item_id text, key text, n int, layer text NOT NULL,   -- punct / entity / norm / decision / fig / char
-  version text, text_version text, schema text, creator text, base_edition text, stats jsonb, review jsonb, extra jsonb,
+  version text, text_version text, schema text, creator text, base_edition text, review jsonb, extra jsonb,  -- stats 已停用（第 11 组）
   -- schema 收 $schema（norm 写作 schema）；creator／base_edition 只有 punct、entity 有；review 为验收记录（date、signed_by、sample…）
   PRIMARY KEY (item_id, key, n, layer), FOREIGN KEY (item_id, key, n) REFERENCES bt_chapter ON DELETE CASCADE
 );
@@ -59,13 +60,13 @@ CREATE TABLE bt_section (
   item_id text, key text, file text, seq int,
   level int, type text, title text, content_len int,   -- 正文不存，只存长度
   book_title text, author text, author_info text, author_type text, dynasty text, edition text, n_juan int, juan text, page text, section_kind text,
-  work_id text, has_work_id_key boolean,               -- 区分「work_id: null（明确未链）」与「无此键」
+  has_work_ids boolean,                 -- 有 work_ids 键（[]＝明确未链）；链到的 Work 全在 bt_section_work（第 11 组起只写 work_ids 列表）
   book_id text, collection_id text, target_bid text,  -- target_bid 实为 Work id
+  evidence jsonb,                       -- 整理证据（原下划线前缀字段，第 11 组收进 evidence）
   extra jsonb,
   PRIMARY KEY (item_id, key, file, seq)
 );
-CREATE INDEX ON bt_section (work_id) WHERE work_id IS NOT NULL;
-CREATE TABLE bt_section_work (item_id text, key text, file text, seq int, i int, work_id text NOT NULL,  -- work_ids[] 多值
+CREATE TABLE bt_section_work (item_id text, key text, file text, seq int, i int, work_id text NOT NULL,  -- work_ids[]，i＝数组位置
   PRIMARY KEY (item_id, key, file, seq, i));
 CREATE INDEX ON bt_section_work (work_id);
 
