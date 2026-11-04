@@ -11,7 +11,7 @@
 | 仙鶴堂 `hixhd2h9bope` | [Entity/o/p/e/hixhd2h9bope-仙鶴堂.json](../../Entity/o/p/e/hixhd2h9bope-仙鶴堂.json) | 无 `collective_kind` 的一般机构（日本刻书堂号），只有最基本字段 |
 | 文淵閣 `hixi6zykf4e8` | [Entity/4/e/8/hixi6zykf4e8-文淵閣.json](../../Entity/4/e/8/hixi6zykf4e8-文淵閣.json) | `collective_kind=館局` 的例（文淵閣），也是印章条 `institution_ids` 的指向对象 |
 | 禮部 `hixi1ubqbwv2` | [Entity/w/v/2/hixi1ubqbwv2-禮部.json](../../Entity/w/v/2/hixi1ubqbwv2-禮部.json) | 官署**概念条**（禮部，跨朝）：不属于任何一朝，`collective_kind=官署` |
-| 禮部 `hixi5dv8bb4b` | [Entity/b/4/b/hixi5dv8bb4b-禮部.json](../../Entity/b/4/b/hixi5dv8bb4b-禮部.json) | 官署**具体条**（禮部，某一朝）：`parent_id` 指向上面的概念条，带 `dynasty_ids` |
+| 禮部 `hixi5dv8bb4b` | [Entity/b/4/b/hixi5dv8bb4b-禮部.json](../../Entity/b/4/b/hixi5dv8bb4b-禮部.json) | 官署**具体条**（禮部，某一朝）：`concept_id` 指向上面的概念条，带 `dynasty_ids` |
 | 六部 `hixi1ubqbwuz` | [Entity/w/u/z/hixi1ubqbwuz-六部.json](../../Entity/w/u/z/hixi1ubqbwuz-六部.json) | 官署**合称条**（六部）：合称不是单个官署，仍 `collective_kind=官署` |
 
 `collective` 是非个人主体。官署不另立 subtype，仍是 `collective`，以 `collective_kind` 区分；**只有 `collective_kind=官署` 受本节官署规则约束**，其余取值与缺 `collective_kind` 的旧条（缺省即 `未分`，正式库 2026-11-03 实测 26 条，如宗人府 `hixhd2h9bq2d`、郵傳部 `hixhd2h9bv4m`）照通用字段写，可带 `dynasty`／`dynasty_basis`／`period`／`period_basis`。
@@ -20,7 +20,7 @@
 |---|---|---|---|---|---|---|---|
 | `collective_kind` | string | 条件：官署**必填**；其余可选 | 原生 | 机构类别 | `官署`｜`書院學校`｜`館局`｜`民間`｜`未分`；缺省即 `未分`（I01）。正式库 2026-11-03 实测：官署 694、館局 20、民間 5，缺 `collective_kind` 的 26 条；`書院學校`、`未分` 暂无数据 | 录入 | `"官署"` |
 | `institution_level` | string | 条件：官署**必填** | 原生 | 层级 | `concept`（概念）｜`concrete`（每朝具体）｜`group`（合称，如六部、东宫）（I01） | 录入 | `"concrete"` |
-| `parent_id` | string | 条件：具体条有概念时填；概念、合称**不得有** | 原生 | 所属概念条 | 官署概念条 id（与 office 同义：具体→概念；概念只一级）（I03） | 录入 | `"hixi1ubqbwv2"` |
+| `concept_id` | string | 条件：具体条有概念时填；概念、合称**不得有**；2026-11-04 起由 `parent_id` 改名 | 原生 | 所属概念条 | 官署概念条 id（与 office 同义：具体→概念；概念只一级）（I03） | 录入 | `"hixi1ubqbwv2"` |
 | `dynasty_ids` | array<string> | 条件：具体条**必填**；概念、合称不得有 | 原生 | 所属朝代 | dynasty id 数组；默认一朝一条，**各字段完全一致**才许多值合并（`ai_note` 标【合併條】） | 录入 | `["hixi1ubjrxgo"]` |
 | `function` | string | 条件：具体条**必填**；概念、合称不得有 | 原生 | 本朝职掌 | 自写，一句即可 | 录入 | `"掌禮樂、祭祀、朝會、貢舉等政令；…"` |
 | `function_basis` | string | 条件：具体条**必填**；概念、合称不得有 | 原生 | 职掌（`function`）的依据（原名 `basis`，2026-11-03 改名） | 自由文本，不得含「待核」（I02） | 录入 | `"《宋史·職官志》"` |
@@ -47,7 +47,7 @@
   "collective_kind": "官署",
   "institution_level": "concrete",
   "primary_name": "禮部",
-  "parent_id": "hixi1ubqbwv2",
+  "concept_id": "hixi1ubqbwv2",
   "dynasty_ids": [
     "hixi1ubjrxgo"
   ],
@@ -75,7 +75,7 @@
 |---|---|---|---|
 | I01 | collective | `collective_kind` 在 5 值内；官署的 `institution_level` 在 3 值内 | ERROR |
 | I02 | 官署 | 具体条 `dynasty_ids`（非空、指 dynasty）／`function`／`function_basis` 必填、`function_basis` 不含「待核」；概念条与合称条禁 `dynasty_ids`、`function`、`superiors`、`start`、`end`、`function_basis`；合称条不得有 `group_ids`；概念条与合称条 `description` 必填 | ERROR |
-| I03 | 官署 | 具体条 `parent_id` 指官署概念条；概念条、合称条不得有 `parent_id` | ERROR |
+| I03 | 官署 | 具体条 `concept_id` 指官署概念条；概念条、合称条不得有 `concept_id`；官署条不得再写旧名 `parent_id` | ERROR |
 | I04 | 官署 | `superiors` 为数组，各项指同朝官署具体条、不自指、无环、`start`／`end` 为整数且 `start ≤ end`（ERROR）；上级与本条朝代不相交（WARN） | ERROR／WARN |
 | I05 | 官署 | `group_ids` 指合称条（ERROR）；具体条与其概念条重复挂同一合称（WARN） | ERROR／WARN |
 | I06 | 官署 | 具体条 `dates.start`／`end` 为整数、无 0 年、`start ≤ end`（ERROR）；越出所属朝代 5 年（WARN） | ERROR／WARN |

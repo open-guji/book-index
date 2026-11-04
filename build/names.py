@@ -88,7 +88,7 @@ class Names:
         for i, d in sorted(E.items()):
             st = d.get('subtype')
             if st in ('dynasty', 'office') or is_institution(d):
-                p = rid(d.get('parent_id'))
+                p = rid(d.get('parent_id') if st == 'dynasty' else d.get('concept_id'))   # office／官署 2026-11-04 起 concept_id
                 if p in E and p != i:
                     self.children[p].add(i)
             if st == 'reign':
@@ -302,7 +302,9 @@ class Names:
         if dy:
             c['dynasty_ids'] = dy
             c['dynasties'] = [self.name(x) for x in dy]
-        for k in ('parent_id', 'base_office_id', 'institution_ref'):
+        if d.get('concept_id'):
+            c['parent_id'] = self.rid(d['concept_id'])   # 候选键名沿用 parent_id（derived 契约不变）；源字段 2026-11-04 改名 concept_id
+        for k in ('base_office_id', 'institution_ref'):
             if d.get(k):
                 c[k] = self.rid(d[k])
         if isinstance(d.get('qualifier'), dict):

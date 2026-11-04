@@ -4,6 +4,14 @@
 
 ---
 
+## 2026-11-04　office／官署的 parent_id 改名 concept_id（可做可不做第 12 组②，用户定）
+
+- office 具体条、官署(collective) 具体条的顶层 `parent_id`（指所属概念条）改名 `concept_id`，与 place 朝代条的 `concept_id`（指跨朝条）同名同义：具体→概念。dynasty、publisher 的 `parent_id` 是真上下级，place 沿革 `history[].parent_id` 是行政上级，都不动。
+- 存量：正式库 office 1,042、官署 114 个文件，原位改名（键序不变）；脚本 `.claude/qa/schema-review/rename_office_parent_to_concept.py`（幂等）。草稿库无存量。
+- schema：`concept_id` 说明泛化；office、官署条不得再写 `parent_id`；概念条（及合称条）不得有 `concept_id`；people／reign／seal／dynasty／publisher／非官署 collective 不得有 `concept_id`。
+- 校验 O04／I03／O11／I07 改读 `concept_id`；build `names.py` 的 `_children` 反查改读它。
+- **派生契约不变**：`office_keys` 候选键名仍叫 `parent_id`（值取自 `concept_id`），`_children` 形状不变，`CONTRACT` 不升。读者：仅 build；网站、bim UI 不读该字段（已核）。
+
 ## 2026-11-04　Work 存佚证据并成 `loss_status_evidence`（第 12 组；S1）
 
 - Work 的 `loss_status_basis`（判定依据）与 `loss_status_note`（说明）并成一个对象 `loss_status_evidence: {basis?, note?}`（至少一项），旧两键删除；迁移 3,477 档，文字原样搬入。

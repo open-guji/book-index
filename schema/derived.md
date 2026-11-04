@@ -277,7 +277,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 
 | 字段 | 类型／精确形状 | 出现 | 由哪些源字段算出 | 产物 | 自 |
 |---|---|---|---|---|---|
-| `_children` | array<dynasty 卡> | 有子朝代时 | 别的 dynasty（以及 office、官署——同一张反查表）的 `parent_id` 指向本条；排序：有 `dates.start` 者在前、按 start、再按 id | entry | v2 |
+| `_children` | array<dynasty 卡> | 有子朝代时 | 别的 dynasty 的 `parent_id`（以及 office、官署的 `concept_id`——同一张反查表）指向本条；排序：有 `dates.start` 者在前、按 start、再按 id | entry | v2 |
 | `_ancestors` | array<dynasty 卡>，至多 3 项 | 有上级时 | 沿 `parent_id` 上溯，由近到远，遇环停止 | entry | v2 |
 | `_reigns` | array<reign 卡> | 有年号时 | reign 的 `dynasty_id` 指向本条；排序同 `_children` | entry | v2 |
 
@@ -298,7 +298,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 
 | 字段 | 类型／精确形状 | 出现 | 由哪些源字段算出 | 产物 | 自 |
 |---|---|---|---|---|---|
-| `_children` | array<office 卡> | 概念条下有具体条时 | 具体条的 `parent_id` 反查；按 id 排序 | entry | v2 |
+| `_children` | array<office 卡> | 概念条下有具体条时 | 具体条的 `concept_id` 反查；按 id 排序 | entry | v2 |
 | `_compounds` | array<office 卡> | 有复合条时 | 以本条为 `base_office_id` 的复合条；按 id 排序 | entry | v2 |
 
 `_holders`（任职人物）不产出：库中还没有人物→官职数据。
@@ -308,7 +308,7 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 
 | 字段 | 类型／精确形状 | 出现 | 由哪些源字段算出 | 产物 | 自 |
 |---|---|---|---|---|---|
-| `_children` | array<office 卡> | 有时 | 具体官署条的 `parent_id` 反查（概念→具体）；按 id | entry | v2 |
+| `_children` | array<office 卡> | 有时 | 具体官署条的 `concept_id` 反查（概念→具体）；按 id | entry | v2 |
 | `_subordinates` | array<office 卡> | 有时 | 别的官署条 `superiors[].id` 反查（下级）；按 id | entry | v2 |
 | `_members` | array<office 卡> | 有时 | 别的官署条 `group_ids[]` 反查（合称的成员）；按 id | entry | v2 |
 | `_offices` | array<office 卡> | 有时 | office 条的 `institution_ref` 反查（所属官职）；按 id | entry | v2 |
@@ -516,7 +516,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 **dynasty_reign_keys 候选**（收 `subtype` 为 `dynasty`、`reign` 者）：`{id, subtype, primary_name, via, ambiguous?, start?, end?}`，`start`／`end` 取 `dates`；reign 另有 `dynasty_id`、`dynasty`（朝代名）、`ruler?`（`ruler.name`）；dynasty 另有 `parent_id?`。排序：dynasty 在前，再按 `start`（无者当 0）、id。
 例：`"康熙":[{"dynasty":"清","dynasty_id":"hixi1ubjrxga","end":1722,"id":"hixi1ubqbwun","primary_name":"康熙","ruler":"愛新覺羅玄燁","start":1662,"subtype":"reign","via":"primary_name"}]`
 
-**office_keys 候选**（收 office 与官署）：`{id, subtype: "office"|"官署", level?, primary_name, via, ambiguous?, dynasty_ids?, dynasties?, parent_id?, base_office_id?, institution_ref?, qualifier?, office_class?, rank?}`。`level` 取 `office_level`／`institution_level`；`dynasties` 是 `dynasty_ids` 各条的名；`qualifier` 原样（其 `target` 换成正式 id）；`rank` 取 `rank.text`。排序：office 在前，再按 `LEVEL_ORDER`、id。
+**office_keys 候选**（收 office 与官署）：`{id, subtype: "office"|"官署", level?, primary_name, via, ambiguous?, dynasty_ids?, dynasties?, parent_id?（取自源字段 `concept_id`；候选键名沿用 `parent_id`，契约不变）, base_office_id?, institution_ref?, qualifier?, office_class?, rank?}`。`level` 取 `office_level`／`institution_level`；`dynasties` 是 `dynasty_ids` 各条的名；`qualifier` 原样（其 `target` 换成正式 id）；`rank` 取 `rank.text`。排序：office 在前，再按 `LEVEL_ORDER`、id。
 例：`"三省":[{"id":"hixi1ubqbwv0","level":"group","primary_name":"三省","subtype":"官署","via":"primary_name"}]`
 
 **place_keys 候选**（收 place）：键源按先后为 `primary_name` → 别名（全稱除外）→ 沿革（各 `history[]` 段的当时名 `name`，`via:"沿革"`）→ 去通名（前面各名以 `PLACE_SUFFIX` 结尾且至少 3 字者去末字，`via:"去通名"`）。候选 `{id, subtype:"place", primary_name, via, level?, start?, end?, modern?, segments?, ambiguous?, default?}`：`level`＝最后一段的 `level`；`start`／`end`＝各段最小起年、最大讫年；`modern`＝`modern.text`；`segments`＝以沿革名（及其去通名形）命中时，该名对应的各段 `{name_then, start?, end?, level?, parent_id?, parent?, dynasties?}`。排序：只靠去通名命中者在后，其余按 `start`、id。

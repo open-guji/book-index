@@ -80,7 +80,7 @@ def test_clean_samples():
     assert codes(reign("r1", "建和", "n", 960, 970)) == []
     c = office("o1")
     assert codes(c) == []
-    assert codes(conc("o2", ["s"], parent_id="o1"), c) == []
+    assert codes(conc("o2", ["s"], concept_id="o1"), c) == []
     assert codes(place("pl1"), ) == [] or codes(place("pl1")) == [("P04", "ERROR")]  # 'dynasty_ids': ['s'] 存在
     assert codes(people("p2")) == []  # 非新子类型不受影响
 
@@ -193,44 +193,44 @@ def test_office_codes():
     assert has(office("o", office_level="x"), "O01")
     assert not has(office("o"), "O01")
     c = office("o1")
-    assert not has(conc("o2", ["s"], parent_id="o1"), "O02", es.ERROR, c)
-    assert has(conc("o2", [], parent_id="o1"), "O02", es.ERROR, c)
-    assert has(conc("o2", ["nope"], parent_id="o1"), "O02", es.ERROR, c)
-    miss = conc("o2", ["s"], parent_id="o1")
+    assert not has(conc("o2", ["s"], concept_id="o1"), "O02", es.ERROR, c)
+    assert has(conc("o2", [], concept_id="o1"), "O02", es.ERROR, c)
+    assert has(conc("o2", ["nope"], concept_id="o1"), "O02", es.ERROR, c)
+    miss = conc("o2", ["s"], concept_id="o1")
     miss.pop("function")
     assert has(miss, "O02", es.ERROR, c)
     assert has(office("o", dynasty_ids=["s"]), "O02")            # 概念條禁字段
     assert has(office("o", rank={"text": "七品", "basis": "x"}), "O02")
-    assert has(conc("o2", ["s"], parent_id="o1", office_class="亂寫"), "O03", es.ERROR, c)
-    assert not has(conc("o2", ["s"], parent_id="o1", office_class="差遣"), "O03", es.ERROR, c)
-    assert has(conc("o2", ["s"], parent_id="nope"), "O04")
-    assert has(conc("o2", ["s"], parent_id="s"), "O04")           # 指向非 office
-    assert has(office("o", parent_id="o1"), "O04", es.ERROR, c)    # 概念不得有 parent_id
+    assert has(conc("o2", ["s"], concept_id="o1", office_class="亂寫"), "O03", es.ERROR, c)
+    assert not has(conc("o2", ["s"], concept_id="o1", office_class="差遣"), "O03", es.ERROR, c)
+    assert has(conc("o2", ["s"], concept_id="nope"), "O04")
+    assert has(conc("o2", ["s"], concept_id="s"), "O04")           # 指向非 office
+    assert has(office("o", concept_id="o1"), "O04", es.ERROR, c)    # 概念不得有 concept_id
     # O05
-    base = conc("b1", ["s"], parent_id="o1")
-    cmp_ = conc("c1", ["s"], parent_id="o1", base_office_id="b1", qualifier={"kind": "institution", "name": "資政殿"})
+    base = conc("b1", ["s"], concept_id="o1")
+    cmp_ = conc("c1", ["s"], concept_id="o1", base_office_id="b1", qualifier={"kind": "institution", "name": "資政殿"})
     assert not has(cmp_, "O05", es.ERROR, c, base)
-    assert has(conc("c1", ["s"], parent_id="o1", base_office_id="b1"), "O05", es.ERROR, c, base)         # 缺 qualifier
-    assert has(conc("c1", ["n"], parent_id="o1", base_office_id="c1",
+    assert has(conc("c1", ["s"], concept_id="o1", base_office_id="b1"), "O05", es.ERROR, c, base)         # 缺 qualifier
+    assert has(conc("c1", ["n"], concept_id="o1", base_office_id="c1",
                     qualifier={"kind": "mode", "name": "x"}), "O05", es.ERROR, c)                          # 自指
-    assert has(conc("c1", ["n"], parent_id="o1", base_office_id="nope",
+    assert has(conc("c1", ["n"], concept_id="o1", base_office_id="nope",
                     qualifier={"kind": "mode", "name": "x"}), "O05", es.ERROR, c)
-    assert has(conc("c1", ["n"], parent_id="o1", base_office_id="b1",
+    assert has(conc("c1", ["n"], concept_id="o1", base_office_id="b1",
                     qualifier={"kind": "亂", "name": "x"}), "O05", es.ERROR, c, base)                      # kind
-    assert has(conc("c1", ["t"], parent_id="o1", base_office_id="b1",
+    assert has(conc("c1", ["t"], concept_id="o1", base_office_id="b1",
                     qualifier={"kind": "mode", "name": "x"}), "O05", es.ERROR, c, base)                    # 朝不相交
     b2 = conc("b2", ["s"], base_office_id="c2", qualifier={"kind": "mode", "name": "x"})
     c2 = conc("c2", ["s"], base_office_id="b2", qualifier={"kind": "mode", "name": "x"})
     assert has(b2, "O05", es.ERROR, c2)                                                                      # 成環
-    tocon = conc("c1", ["s"], parent_id="o1", base_office_id="o1", qualifier={"kind": "mode", "name": "x"})
+    tocon = conc("c1", ["s"], concept_id="o1", base_office_id="o1", qualifier={"kind": "mode", "name": "x"})
     assert has(tocon, "O05", es.WARN, c)                                                                     # 指概念：WARN
     assert not has(dict(tocon, ai_note="暫指概念"), "O05", es.WARN, c)
     # O10
-    assert has(conc("o2", ["s"], parent_id="o1", alt_names=[{"name": "令", "type": "簡稱"}]), "O10", es.WARN, c)
-    assert not has(conc("o2", ["s"], parent_id="o1", alt_names=[{"name": "縣太爺", "type": "簡稱"}]), "O10", es.WARN, c)
+    assert has(conc("o2", ["s"], concept_id="o1", alt_names=[{"name": "令", "type": "簡稱"}]), "O10", es.WARN, c)
+    assert not has(conc("o2", ["s"], concept_id="o1", alt_names=[{"name": "縣太爺", "type": "簡稱"}]), "O10", es.WARN, c)
     # O11
-    assert ("O11", "WARN") in gcodes(c, conc("o2", ["s"], parent_id="o1"), conc("o3", ["s"], parent_id="o1"))
-    assert ("O11", "WARN") not in gcodes(c, conc("o2", ["s"], parent_id="o1"), conc("o3", ["t"], parent_id="o1"))
+    assert ("O11", "WARN") in gcodes(c, conc("o2", ["s"], concept_id="o1"), conc("o3", ["s"], concept_id="o1"))
+    assert ("O11", "WARN") not in gcodes(c, conc("o2", ["s"], concept_id="o1"), conc("o3", ["t"], concept_id="o1"))
     # O12
     assert has(office("o", alt_names=[{"name": "令", "type": "亂寫"}]), "O12")
     assert not has(office("o", alt_names=[{"name": "令", "type": "異寫"}]), "O12")
@@ -418,7 +418,7 @@ IG = inst("ig", "group", primary_name="六部")
 
 def test_inst_clean_and_legacy():
     assert codes(IC) == [] and codes(IG) == []
-    assert codes(inst("i1", "concrete", parent_id="ic", group_ids=["ig"]), IC, IG) == []
+    assert codes(inst("i1", "concrete", concept_id="ic", group_ids=["ig"]), IC, IG) == []
     old = {"id": "c0", "type": "entity", "subtype": "collective", "primary_name": "郵傳部"}
     assert not es.applies(old) and codes(old) == []  # 舊 collective 不受約束
     assert codes(dict(old, collective_kind="書院學校")) == []
@@ -436,9 +436,9 @@ def test_i01_i02_i03():
     assert has(c, "I02")
     assert has(inst("x", "concrete", function_basis="待核"), "I02")
     assert has(inst("x", "concrete", dynasty_ids=["nope"]), "I02")
-    assert has(inst("x", "concept", parent_id="ic"), "I03", es.ERROR, IC)
-    assert has(inst("x", "concrete", parent_id="ig"), "I03", es.ERROR, IG)
-    assert not has(inst("x", "concrete", parent_id="ic"), "I03", es.ERROR, IC)
+    assert has(inst("x", "concept", concept_id="ic"), "I03", es.ERROR, IC)
+    assert has(inst("x", "concrete", concept_id="ig"), "I03", es.ERROR, IG)
+    assert not has(inst("x", "concrete", concept_id="ic"), "I03", es.ERROR, IC)
 
 
 def test_i04_superiors():
@@ -457,7 +457,7 @@ def test_i04_superiors():
 def test_i05_i06_i08_i09_i11():
     assert has(inst("x", "concrete", group_ids=["ic"]), "I05", es.ERROR, IC)
     c2 = inst("c2", "concept", group_ids=["ig"])
-    assert has(inst("x", "concrete", parent_id="c2", group_ids=["ig"]), "I05", es.WARN, c2, IG)
+    assert has(inst("x", "concrete", concept_id="c2", group_ids=["ig"]), "I05", es.WARN, c2, IG)
     assert has(inst("x", "concrete", start=0), "I06")
     assert has(inst("x", "concrete", start=900, end=800), "I06")
     assert has(inst("x", "concrete", start=500), "I06", es.WARN)
@@ -478,11 +478,11 @@ def test_i05_i06_i08_i09_i11():
 
 
 def test_i07_i10_global():
-    a = inst("a", "concrete", parent_id="ic")
-    b = inst("b", "concrete", parent_id="ic", dynasty_ids=["t", "s"])
+    a = inst("a", "concrete", concept_id="ic")
+    b = inst("b", "concrete", concept_id="ic", dynasty_ids=["t", "s"])
     g = gcodes(IC, a, b, *BASE)
     assert ("I07", "WARN") in g and ("I10", "WARN") in g
-    assert ("I07", "WARN") not in gcodes(IC, a, inst("c", "concrete", parent_id="ic", dynasty_ids=["s"]), *BASE)
+    assert ("I07", "WARN") not in gcodes(IC, a, inst("c", "concrete", concept_id="ic", dynasty_ids=["s"]), *BASE)
 
 
 def test_i12_institution_ref():
