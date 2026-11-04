@@ -31,6 +31,22 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import v2common as V  # noqa: E402
+
+
+_SITES = None
+
+
+def _resource_sites():
+    """schema/resource-sites.json：站點代號 → short_name（登記表，缺則空）。"""
+    global _SITES
+    if _SITES is None:
+        f = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'schema', 'resource-sites.json')
+        try:
+            with open(f, encoding='utf-8') as fh:
+                _SITES = {k: v['short_name'] for k, v in json.load(fh)['sites'].items() if v.get('short_name')}
+        except OSError:
+            _SITES = {}
+    return _SITES
 import names as N  # noqa: E402
 import textindex as TX  # noqa: E402
 import sealindex as SI  # noqa: E402
@@ -647,7 +663,16 @@ class Build:
 
     def strip(self, d, typ):
         """產物以源記錄為底；舊 `_` 派生欄一律丟掉重算（以生成值為準，SCHEMA 既有規矩）。"""
-        return {k: x for k, x in d.items() if not k.startswith('_')}
+        out = {k: x for k, x in d.items() if not k.startswith('_')}
+        res = out.get('resources')
+        if isinstance(res, list) and any(isinstance(r, dict) and not r.get('short_name') for r in res):
+            # 源記錄不再存與站點登記相同的 short_name（資源整理 R2）；產物按登記補回，下游讀法不變
+            sites = _resource_sites()
+            out['resources'] = [
+                ({**r, 'short_name': sites[r['id']]}
+                 if isinstance(r, dict) and not r.get('short_name') and r.get('id') in sites else r)
+                for r in res]
+        return out
 
     # ---------- 全量 ----------
     def iter_groups(self, ids=None):
