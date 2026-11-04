@@ -99,8 +99,8 @@
 |---|---|---|---|---|---|
 | `id` | string | 必填 | 丛编 id | Collection id | `"8rlcsybg2hhl"` |
 | `volume_index` | integer｜array<integer>｜string | 可选 | 册次 | 整数、整数数组或原文字符串 | `[1, 2]` |
-| `order` | integer（≥1） | 可选 | 本书在丛编原书中的次序（build 据以排序，派生为 `ord`） | 正整数；取代旧写法 `details: "叢編原序 N"`（过渡期 build 两认，数据迁完后只认本字段） | `15` |
-| `details` | string | 可选 | 说明 | 自由文本（旧写法 `叢編原序 N` 见 `order`） | |
+| `order` | integer（≥1） | 可选 | 本书在丛编原书中的次序（build 据以排序，派生为 `ord`） | 正整数；取代旧写法 `details: "叢編原序 N"`（数据已于 2026-11-04 迁完，build 只认本字段） | `15` |
+| `details` | string | 可选 | 说明 | 自由文本（不再承载原序，原序见 `order`） | |
 | `section` | string | 可选 | 本书在**这个丛编**里的部类（已取代原顶层 `section`，顶层已删除） | 丛编自身的部类名，原文照录 | `"經部/易類"` |
 | `sub_items` | array<string> | 可选 | 本书在**这个丛编**里附带的子目 | 非空字符串数组 | `["周易略例"]` |
 

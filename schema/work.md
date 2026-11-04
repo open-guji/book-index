@@ -40,7 +40,7 @@
 | `authenticity_basis` | string | 条件：有 `authenticity` 时必填 | 原生 | 判伪依据（引提要或解题原文，逐条可验） | 自由文本 | 录入 | |
 | `indexed_by` | array<IndexEntry> | 可选 | 原生 | 被目录书／志书著录（本侧是被著录的一侧） | 见 [common.md〈IndexEntry〉](common.md#二indexentryindexed_by--emendated_by-的元素)；`source_bid` 须指向存在的志书 Work；顺序有意义，不可按内容去重 | 录入 | |
 | `emendated_by` | array<IndexEntry> | 可选 | 原生 | 被考证／校勘类著作订正 | 同上 | 录入 | |
-| `contained_in` | array<object> | 可选 | 原生 | 本作品收入哪些丛编（成员一侧；**Work∈Collection 的唯一存储侧**） | 每项 `{id, volume_index?, group?, details?}`，见 [§四](#四contained_in) | 录入 | `[{"id":"8rlcsybg2hhh","volume_index":"第6卷","details":"叢編原序 15"}]` |
+| `contained_in` | array<object> | 可选 | 原生 | 本作品收入哪些丛编（成员一侧；**Work∈Collection 的唯一存储侧**） | 每项 `{id, volume_index?, order?, group?, details?}`，见 [§四](#四contained_in) | 录入 | `[{"id":"8rlcsybg2hhh","volume_index":"第6卷","order":15}]` |
 | `related_works` | array<object> | 可选 | 原生 | 与其他记录的关系（规范方向一侧） | 每项 `{id, relation, note?}`；`relation` 只用 [§五](#五关联词表) 的「源档可写」词；**不写 `title`** | 录入 | `[{"id":"d59f2mp0flz4","relation":"contains_text_of"}]` |
 | `preferred_book` | string | 可选 | 原生 | 推荐版本 | 本 Work 名下一个 Book 的 id（现存 0 条） | 录入 | |
 | `version_graph` | object | 可选 | 原生 | 人工策展的版本传承图配置 | 见 [§六](#六version_graph) | 录入 | |
@@ -167,8 +167,8 @@
 | `id` | string | 必填 | 丛编 id | Collection id | `"8rlcsybg2hhh"` |
 | `volume_index` | integer｜array<integer>｜string | 可选 | 本作品在该丛编里的册次／卷次 | 整数、整数数组，或原文字符串（如 `"第6卷"`） | `3` |
 | `group` | string | 可选 | 本作品在该丛编里所属的组 | 丛编内自定的组键（实测：`hanzhi_yiwenzhi`、`non_hanzhi`） | `"hanzhi_yiwenzhi"` |
-| `order` | integer（≥1） | 可选 | 本作品在丛编原书中的次序，build 据以给成员排序（派生为 `ord`） | 正整数；取代旧写法 `details: "叢編原序 N"`（过渡期 build 两认，数据迁完后只认本字段） | `15` |
-| `details` | string | 可选 | 说明文字 | 自由文本（旧写法 `叢編原序 N` 见 `order`） | |
+| `order` | integer（≥1） | 可选 | 本作品在丛编原书中的次序，build 据以给成员排序（派生为 `ord`） | 正整数；取代旧写法 `details: "叢編原序 N"`（数据已于 2026-11-04 迁完，build 只认本字段） | `15` |
+| `details` | string | 可选 | 说明文字 | 自由文本（不再承载原序，原序见 `order`） | |
 
 Book 的 `contained_in` 多一个 `sub_items`，见 [book.md](book.md)。
 
