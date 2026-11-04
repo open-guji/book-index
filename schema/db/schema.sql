@@ -83,7 +83,7 @@ CREATE TABLE work (
   dynasty text, dynasty_basis text, period text, period_basis text, period_upper text, period_upper_basis text,
   description_text text,
   measure_info text,                      -- 卷数只在 measure 表（第 3 组删 Work 顶层 juan_count）
-  loss_status loss_status, loss_status_basis text, loss_status_note text,
+  loss_status loss_status, loss_status_basis text, loss_status_note text,   -- loss_status_evidence.basis／note（第 12 组合并成对象，#2228）
   authenticity text, authenticity_basis text,
   preferred_book text, review_status text,
   title_emendation jsonb, version_graph jsonb, collection_scale jsonb, publication_info jsonb, appendix jsonb,
@@ -181,8 +181,8 @@ CREATE TABLE record_todo (owner_id text, seq int, what text, by text, date text,
 CREATE TABLE member_of (
   member_id text NOT NULL, member_type char(1) NOT NULL,  -- B / W / C
   collection_id text NOT NULL, seq int NOT NULL,
-  volume_index jsonb, grp text, details text, section text, orig_order int,  -- section：S2-I 从 Book 顶层挪入 contained_in[] 项
-  sub_items jsonb, extra jsonb,  -- orig_order 从 details「叢編原序 N」抽出
+  volume_index jsonb, grp text, details text, section text, orig_order int,  -- section：S2-I 从 Book 顶层挪入 contained_in[] 项；orig_order＝contained_in[].order
+  sub_items jsonb, extra jsonb,  -- order 第 12 组由 details「叢編原序 N」抽成正式字段（#2227）
   PRIMARY KEY (member_id, collection_id, seq)
 );
 CREATE INDEX ON member_of (collection_id);

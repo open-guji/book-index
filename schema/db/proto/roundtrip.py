@@ -37,7 +37,7 @@ RES = {'id': 'rid', 'name': 'name', 'label': 'label', 'short_name': 'short_name'
        'expected_volumes': 'expected_volumes', 'note': 'note', 'source_label': 'source_label', 'volumes': 'volumes',
        'metadata': 'metadata'}
 MEMBER = {'id': 'collection_id', 'volume_index': 'volume_index', 'group': 'grp', 'details': 'details', 'section': 'section',
-          'sub_items': 'sub_items'}
+          'order': 'orig_order', 'sub_items': 'sub_items'}
 # 墓碑的 merged_into＋merged_basis 合成一行 merged_into 表（doc() 先合、restore 再拆）
 TOMB = {'into': 'direct_into', 'rule': 'rule', 'at': 'at', 'by': 'by', 'why': 'why'}
 
@@ -88,9 +88,10 @@ MAPS = {
         'cols': dict(COMMON_COLS, subtype='subtype', original_title='original_title', title_basis='title_basis',
                      dynasty='dynasty', dynasty_basis='dynasty_basis', period='period', period_basis='period_basis',
                      period_upper='period_upper', period_upper_basis='period_upper_basis', loss_status='loss_status',
-                     loss_status_basis='loss_status_basis', loss_status_note='loss_status_note', authenticity='authenticity',
+                     authenticity='authenticity',
                      authenticity_basis='authenticity_basis', preferred_book='preferred_book'),
-        'flat': {'description': {'text': 'description_text'}, 'review': {'status': 'review_status'}},
+        'flat': {'description': {'text': 'description_text'}, 'review': {'status': 'review_status'},
+                 'loss_status_evidence': {'basis': 'loss_status_basis', 'note': 'loss_status_note'}},
         'jsonb': {'title_emendation': 'title_emendation', 'version_graph': 'version_graph', 'collection_scale': 'collection_scale',
                   'publication_info': 'publication_info', 'appendix': 'appendix'},
         'kids': dict(common_kids('W'), **{
