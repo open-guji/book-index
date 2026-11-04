@@ -102,7 +102,7 @@ MAPS = {
     },
     'Book': {
         'table': 'book', 'owner_type': 'B', 'fixed': {'type': 'book'},
-        'cols': dict(COMMON_COLS, work_id='work_id', edition='edition', edition_type='edition_type', zhsy_id='zhsy_id'),
+        'cols': dict(COMMON_COLS, work_id='work_id', edition='edition', edition_type='edition_type'),
         'flat': {
             'publication_info': {'place': 'pub_place', 'publisher': 'pub_publisher', 'details': 'pub_details',
                                  'source': 'pub_source'},
@@ -113,6 +113,7 @@ MAPS = {
                                      'dimensions': 'physical_dimensions', 'condition': 'physical_condition',
                                      'source': 'physical_source'},
             'description': {'text': 'description_text'},
+            'external_ids': {'zhsy_id': 'zhsy_id'},
             'lineage': {},
         },
         'flatrest': {'lineage': 'lineage'},

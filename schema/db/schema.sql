@@ -104,7 +104,7 @@ CREATE TABLE book (
   dating_year_uncertain boolean, dating_text text, dating_later_repair jsonb,   -- dating.based_on 已并入 book_base_edition（第 6 组）
   physical_leaf_style text, physical_binding text, physical_dimensions text, physical_condition text, physical_source text,
   lineage jsonb,                          -- 只剩 status／extant_juan／alias／note（第 6 组）
-  description_text text, metadata jsonb, zhsy_id text,
+  description_text text, metadata jsonb, zhsy_id text,   -- external_ids.zhsy_id（第 7 组 R3 由顶层并入）
   ai_note text, schema_version int NOT NULL, revision text, revised_at date,
   extra jsonb
 );
