@@ -72,7 +72,6 @@ MAPS = {
             'publication_info': {'year': 'pub_year', 'year_iso': 'pub_year_iso', 'place': 'pub_place',
                                  'publisher': 'pub_publisher', 'details': 'pub_details'},
             'description': {'text': 'description_text'},
-            'review': {'status': 'review_status'},
         },
         'jsonb': {'page_count': 'page_count', 'dating': 'dating', 'current_location': 'current_location'},
         'kids': dict(common_kids('C'), **{
@@ -91,7 +90,7 @@ MAPS = {
                      period_upper='period_upper', period_upper_basis='period_upper_basis', loss_status='loss_status',
                      loss_status_basis='loss_status_basis', loss_status_note='loss_status_note', authenticity='authenticity',
                      authenticity_basis='authenticity_basis', preferred_book='preferred_book'),
-        'flat': {'juan_count': JUAN, 'description': {'text': 'description_text'}, 'review': {'status': 'review_status'}},
+        'flat': {'description': {'text': 'description_text'}, 'review': {'status': 'review_status'}},
         'jsonb': {'title_emendation': 'title_emendation', 'version_graph': 'version_graph', 'collection_scale': 'collection_scale',
                   'publication_info': 'publication_info', 'appendix': 'appendix'},
         'kids': dict(common_kids('W'), **{

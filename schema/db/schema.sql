@@ -82,7 +82,7 @@ CREATE TABLE work (
   title text NOT NULL, subtype work_subtype, original_title text, title_basis text,
   dynasty text, dynasty_basis text, period text, period_basis text, period_upper text, period_upper_basis text,
   description_text text,
-  juan_number int, juan_unit text, juan_description text, juan_source text, measure_info text,
+  measure_info text,                      -- 卷数只在 measure 表（第 3 组删 Work 顶层 juan_count）
   loss_status loss_status, loss_status_basis text, loss_status_note text,
   authenticity text, authenticity_basis text,
   preferred_book text, review_status text,
@@ -127,7 +127,7 @@ CREATE TABLE collection (
   id text PRIMARY KEY, repo text NOT NULL,
   subtype coll_subtype NOT NULL, title text NOT NULL, edition text, work_id text,
   count_juan int, count_ce int, count_zhong int, count_han int, count_source text,
-  juan_number int, juan_unit text, juan_description text, juan_source text, measure_info text, page_count jsonb, review_status text,
+  juan_number int, juan_unit text, juan_description text, juan_source text, measure_info text, page_count jsonb,   -- review 第 8 组已删
   pub_year text, pub_year_iso text, pub_place text, pub_publisher text, pub_details text,
   dating jsonb, current_location jsonb, description_text text,
   ai_note text, schema_version int NOT NULL, revision text, revised_at date,
