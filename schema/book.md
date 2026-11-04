@@ -37,7 +37,7 @@
 | `resources` | array<Resource> | 可选 | 原生 | 外部资源 | 见 common.md；`id` 可取 `wikisource`（维基文库页面，`types:["text"]`） | 录入 | |
 | `resource_groups` | object | 可选 | 原生 | 资源组说明 | 见 common.md | 录入 | |
 | `related_books` | array<object> | 可选 | 原生 | 非源流的关联（合刊、兄弟本、同版……），无向 | 项为对象 `{book_id, relation?, confidence?, evidence?}`（原字符串写法与 `lineage.related_to` 已并入）；每对只存一侧，「同版」存副本一侧指向代表本。带 `relation` 的项同时是版本图的无向边 | 录入（V07 把关） | `[{"book_id":"96mid1ogzk","relation":"同版"}]` |
-| `zhsy_id` | string | 可选 | 原生 | 中華再造善本编号 | 原文照录 | 录入 | |
+| `external_ids` | object | 可选 | 原生 | 外部编号（目前只有 `zhsy_id`：中華再造善本编号） | `{"zhsy_id": "ZHSY000352"}`，原文照录；顶层 `zhsy_id` 已于 2026-11-03 并入此处（1,324 档） | 录入 | |
 | `metadata` | object | 可选 | 原生 | 来源系统原始字段透传，不规范化 | 实测键：`npm_acckey`、`nlc_bid`、`nlc_call_number`、`harvard_drs`、`hollis_id`、`harvard_call_number`。故宫统一编号 `npm_item_id` 已并入 `provenance[].call_number`，不再在此重复 | 录入 | `{"npm_acckey":"…"}` |
 | `sources` | array<Source> | 可选 | 原生 | 数据来源 | 见 common.md | 录入 | |
 | `merged_into` | string | 墓碑 | 原生 | 本条已并入哪一个 Book | 记录 id。**只在墓碑上**；墓碑是过渡状态，稳定后由 `purge-tombstones` 整体删，**正式库现存 0 条**（见 CHANGELOG）；墓碑存续期间只留 `schema_version／id／type／title／work_id／merged_into／merged_basis／revision／revised_at`；网站 `/item/<id>` 308 到 keeper | bim、录入 | |

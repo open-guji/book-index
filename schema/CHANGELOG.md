@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-11-03　Book `zhsy_id` 并入 `external_ids`（第 7 组 R3；S3；已通知网站）
+
+- Book 新增可选对象 `external_ids`（目前只许 `zhsy_id`，与 Entity 的 `external_ids` 同名同义：外部编号），顶层 `zhsy_id` 删除；1,324 档的值原样搬入，键序其余不动。
+- 读者核查：bim、网站、搜索、build 均不读 `zhsy_id`（网站 data-contract.mjs 字段表登记了类型，由 A41 自行移除）。
+
 ## 2026-11-03　Book 版本关系重设计（第 6 组；S2；#2212、#2216、#2219 与本步）
 
 - **删**：`lineage.derived_from`、`lineage.related_to`、`lineage.category`、`dating.based_on`。`lineage` 只剩 `status`、`extant_juan`、`alias`、`note`。
