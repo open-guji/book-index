@@ -256,10 +256,9 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 | `certainty` | string | 必填（有 `dating` 时） | 原生 | 确定程度 | `attested`（原书或著录明载）｜`inferred`（据版本名等推定）｜`uncertain`（存疑） | 录入 | `"inferred"` |
 | `source` | string | 必填（有 `dating` 时） | 原生 | 依据来自哪里 | `edition`（据版本名）｜`catalog`（据书目著录） | 录入 | `"edition"` |
 | `basis` | string | 必填（有 `dating` 时） | 原生 | 判定依据，逐条可读 | 自由文本 | 录入 | |
-| `based_on` | object | 可选 | 原生 | 所据底本的年代（翻刻、影印、传钞、配补之本） | `{era, reign, year?, relation}`；`relation` ∈ `翻刻`｜`影印`｜`傳鈔`｜`配補` | 录入 | `{"era":"宋","reign":"淳熙","relation":"翻刻"}` |
 | `later_repair` | object | 可选 | 原生 | 后修补版的朝代 | `{era}` | 录入 | `{"era":"明"}` |
 
-底本关系的结构化记录已改在 `Book.base_edition`（见 [book.md](book.md)），`dating.based_on` 照留。
+底本关系的结构化记录在 `Book.base_edition`（见 [book.md](book.md)）；原 `dating.based_on` 已并入并删除（2026-11-03）。
 
 ### `publication_info`（Work、Book、Collection）
 

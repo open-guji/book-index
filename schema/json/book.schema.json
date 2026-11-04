@@ -376,9 +376,6 @@
     "lineage": {
       "type": "object",
       "properties": {
-        "category": {
-          "type": "string"
-        },
         "status": {
           "enum": [
             "extant",
@@ -397,81 +394,6 @@
         },
         "note": {
           "type": "string"
-        },
-        "derived_from": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "ref",
-              "ref_type",
-              "relation"
-            ],
-            "properties": {
-              "ref": {
-                "type": "string"
-              },
-              "ref_type": {
-                "enum": [
-                  "book",
-                  "hypothetical"
-                ]
-              },
-              "relation": {
-                "type": "string"
-              },
-              "confidence": {
-                "enum": [
-                  "certain",
-                  "consensus",
-                  "probable",
-                  "disputed"
-                ]
-              },
-              "evidence": {
-                "type": "string"
-              }
-            },
-            "additionalProperties": false
-          }
-        },
-        "related_to": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "relation"
-            ],
-            "properties": {
-              "book_id": {
-                "$ref": "common.schema.json#/$defs/Id"
-              },
-              "ref": {
-                "type": "string"
-              },
-              "ref_type": {
-                "enum": [
-                  "book",
-                  "hypothetical"
-                ]
-              },
-              "relation": {
-                "type": "string"
-              },
-              "confidence": {
-                "enum": [
-                  "certain",
-                  "consensus",
-                  "probable",
-                  "disputed"
-                ]
-              },
-              "evidence": {
-                "type": "string"
-              }
-            },
-            "additionalProperties": false
-          }
         }
       },
       "additionalProperties": false
@@ -545,39 +467,32 @@
     "related_books": {
       "type": "array",
       "items": {
-        "oneOf": [
-          {
+        "type": "object",
+        "required": [
+          "book_id"
+        ],
+        "properties": {
+          "book_id": {
             "$ref": "common.schema.json#/$defs/Id"
           },
-          {
-            "type": "object",
-            "required": [
-              "book_id"
-            ],
-            "properties": {
-              "book_id": {
-                "$ref": "common.schema.json#/$defs/Id"
-              },
-              "relation": {
-                "type": "string",
-                "minLength": 1
-              },
-              "confidence": {
-                "enum": [
-                  "certain",
-                  "consensus",
-                  "probable",
-                  "disputed"
-                ]
-              },
-              "evidence": {
-                "type": "string",
-                "minLength": 1
-              }
-            },
-            "additionalProperties": false
+          "relation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "confidence": {
+            "enum": [
+              "certain",
+              "consensus",
+              "probable",
+              "disputed"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
           }
-        ]
+        },
+        "additionalProperties": false
       }
     },
     "external_ids": {

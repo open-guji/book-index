@@ -36,7 +36,7 @@
 | `indexed_by` | array<IndexEntry> | 可选 | 原生 | 按版本著录的书目（如通俗小说书目） | 见 common.md〈IndexEntry〉 | 录入 | |
 | `resources` | array<Resource> | 可选 | 原生 | 外部资源 | 见 common.md；`id` 可取 `wikisource`（维基文库页面，`types:["text"]`） | 录入 | |
 | `resource_groups` | object | 可选 | 原生 | 资源组说明 | 见 common.md | 录入 | |
-| `related_books` | array<string｜object> | 可选 | 原生 | 非源流的关联（合刊、兄弟本、同版……），无向 | 项为 Book id 字符串（旧写，存 id 较小一侧）或对象 `{book_id, relation?, confidence?, evidence?}`（新写，逐步吸收 `lineage.related_to`；每对只存一侧，「同版」存副本一侧指向代表本）。迁移完成后只收对象 | 录入（V07 把关） | `[{"book_id":"96mid1ogzk","relation":"同版"}]` |
+| `related_books` | array<object> | 可选 | 原生 | 非源流的关联（合刊、兄弟本、同版……），无向 | 项为对象 `{book_id, relation?, confidence?, evidence?}`（原字符串写法与 `lineage.related_to` 已并入）；每对只存一侧，「同版」存副本一侧指向代表本。带 `relation` 的项同时是版本图的无向边 | 录入（V07 把关） | `[{"book_id":"96mid1ogzk","relation":"同版"}]` |
 | `external_ids` | object | 可选 | 原生 | 外部编号（目前只有 `zhsy_id`：中華再造善本编号） | `{"zhsy_id": "ZHSY000352"}`，原文照录；顶层 `zhsy_id` 已于 2026-11-03 并入此处（1,324 档） | 录入 | |
 | `metadata` | object | 可选 | 原生 | 来源系统原始字段透传，不规范化 | 实测键：`npm_acckey`、`nlc_bid`、`nlc_call_number`、`harvard_drs`、`hollis_id`、`harvard_call_number`。故宫统一编号 `npm_item_id` 已并入 `provenance[].call_number`，不再在此重复 | 录入 | `{"npm_acckey":"…"}` |
 | `sources` | array<Source> | 可选 | 原生 | 数据来源 | 见 common.md | 录入 | |
@@ -154,7 +154,7 @@
 
 ## 六、`base_edition`
 
-所出之本（有向：本书←它）。2026-11 起这是 Book 上「所出之本」的**唯一**字段，逐步吸收 `lineage.derived_from` 与 `dating.based_on`（设计见 schema 审查 06 稿；迁移完成前两处旧写法仍在，读者两处都认）。
+所出之本（有向：本书←它）。2026-11 起这是 Book 上「所出之本」的**唯一**字段（原 `lineage.derived_from` 与 `dating.based_on` 已并入并删除；设计见 schema 审查 06 稿）。`relation` 加 `book_id`／`hypothetical_id` 的项同时是版本图的有向边；只有名字或没有 `relation` 的项是纯著录，不成边。
 
 ```json
 "base_edition": [
@@ -187,19 +187,12 @@
 
 | 字段 | 类型 | 含义 | 取值 |
 |---|---|---|---|
-| `category` | string | 版本类别 | 自由文本（实测：刻本、石刻、抄本、评本、拓本、影印、排印、簡本、石印本……） |
 | ~~`year`、`year_range`、`year_text`、`year_uncertain`~~ | | 已删（S2-L），并入 `dating`。原 `year_uncertain: true` 并入 `dating.year_uncertain` | |
 | `status` | string | 存佚 | `extant`｜`fragment`｜`lost` |
 | `extant_juan` | string | 现存卷回 | 自由文本 |
 | `alias` | array<string> | 简称、俗称（如「甲戌本」） | |
 | `note` | string | 说明 | |
-| `derived_from` | array<object> | 所出之本 | 每项 `{ref, ref_type, relation, confidence, evidence?}`，见下 |
-| `related_to` | array<object> | 非源流的关联（合刊、兄弟本、同源……） | 每项 `{book_id?, ref?, ref_type?, relation, confidence?, evidence?}` |
 
-`derived_from[]`：
-- `ref`：`ref_type` 为 `book` 时是库中 Book id；为 `hypothetical` 时是假想底本代号（`h_` 起首，见 Work 的 `version_graph.hypothetical_nodes`）。
-- `relation`：自由文本（实测：翻刻、過錄、校改、據以評、刪節、參校、刪改、合刊、底本……）。
-- `confidence`：`certain`｜`consensus`｜`probable`｜`disputed`。
-- `evidence`：依据。
+「所出之本」见 §六 `base_edition`；非源流关联见 `related_books`；原 `category`（版本类别）并入 `edition_type`（对不上词表的原文在 `ai_note`）。
 
-`related_to[]` 之 `relation: "同版"`：同一版（同一套版片所印）的另一部实体书。Book 仍一部一条；非代表的各部写一条指向代表本（资料最全、通常有影印者），代表本不写。网站作品页版本表据此把同版各部收在代表行下（bim `groupSameEdition`）。例：故宫藏三部殿本《欽定四庫全書總目》→ `96mid1ogzk`。
+`related_books[]` 项 `relation: "同版"`：同一版（同一套版片所印）的另一部实体书。Book 仍一部一条；非代表的各部写一条指向代表本（资料最全、通常有影印者），代表本不写。网站作品页版本表据此把同版各部收在代表行下（bim `groupSameEdition`）。例：故宫藏三部殿本《欽定四庫全書總目》→ `96mid1ogzk`。

@@ -62,7 +62,7 @@ def make(root):
     })
     put(root, 'Book', {
         'id': B2, 'type': 'book', 'title': '甲書明本', 'work_id': W1, 'revision': '1.0.0',
-        'dating': {'year': 1500}, 'lineage': {'derived_from': [{'ref': B1, 'ref_type': 'book', 'relation': '翻刻'}]},
+        'dating': {'year': 1500}, 'base_edition': [{'role': '底本', 'relation': '翻刻', 'book_id': B1, 'source': 'test'}],
     })
     put(root, 'Book', {'id': B3, 'type': 'book', 'title': '乙書刊本', 'work_id': W2, 'revision': '1.0.0',
         'contained_in': [{'id': C1}]})
