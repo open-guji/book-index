@@ -11,5 +11,5 @@ SELECT 'authorship.owner_type 不符', a.owner_id FROM authorship a WHERE NOT ((
 -- 正式 id 与草稿 id 不得相同（硬门禁）
 SELECT 'id 跨类重复', id FROM (SELECT id FROM work UNION ALL SELECT id FROM book UNION ALL SELECT id FROM collection UNION ALL SELECT id FROM entity) t GROUP BY id HAVING count(*)>1;
 -- book-text 悬空（只报，不加外键）
-SELECT 'bt_section.work_id 悬空', s.item_id, s.work_id FROM bt_section s WHERE s.work_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work w WHERE w.id=s.work_id);
+SELECT 'bt_section_work.work_id 悬空', s.item_id, s.work_id FROM bt_section_work s WHERE NOT EXISTS (SELECT 1 FROM work w WHERE w.id=s.work_id);
 SELECT 'bt_entity_span_target 悬空', t.item_id, t.target_id FROM bt_entity_span_target t WHERE NOT EXISTS (SELECT 1 FROM entity e WHERE e.id=t.target_id) AND NOT EXISTS (SELECT 1 FROM work w WHERE w.id=t.target_id);

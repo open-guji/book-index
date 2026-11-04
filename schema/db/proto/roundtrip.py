@@ -32,12 +32,12 @@ IDX = {'source': 'source', 'source_bid': 'source_bid', 'title_info': 'title_info
        'attested_status_note': 'attested_status_note', 'misattached': 'misattached', 'misattached_note': 'misattached_note'}
 SRC = {'id': 'sid', 'name': 'name', 'type': 'type', 'details': 'details', 'position': 'position', 'version': 'version',
        'processor_version': 'processor_version'}
-RES = {'id': 'rid', 'name': 'name', 'short_name': 'short_name', 'url': 'url', 'types': 'types', 'details': 'details',
+RES = {'id': 'rid', 'name': 'name', 'label': 'label', 'short_name': 'short_name', 'url': 'url', 'types': 'types', 'details': 'details',
        'group': 'grp', 'group_role': 'group_role', 'root_type': 'root_type', 'color_mode': 'color_mode',
        'expected_volumes': 'expected_volumes', 'note': 'note', 'source_label': 'source_label', 'volumes': 'volumes',
        'metadata': 'metadata'}
 MEMBER = {'id': 'collection_id', 'volume_index': 'volume_index', 'group': 'grp', 'details': 'details', 'section': 'section',
-          'sub_items': 'sub_items'}
+          'order': 'orig_order', 'sub_items': 'sub_items'}
 # 墓碑的 merged_into＋merged_basis 合成一行 merged_into 表（doc() 先合、restore 再拆）
 TOMB = {'into': 'direct_into', 'rule': 'rule', 'at': 'at', 'by': 'by', 'why': 'why'}
 
@@ -72,7 +72,6 @@ MAPS = {
             'publication_info': {'year': 'pub_year', 'year_iso': 'pub_year_iso', 'place': 'pub_place',
                                  'publisher': 'pub_publisher', 'details': 'pub_details'},
             'description': {'text': 'description_text'},
-            'review': {'status': 'review_status'},
         },
         'jsonb': {'page_count': 'page_count', 'dating': 'dating', 'current_location': 'current_location'},
         'kids': dict(common_kids('C'), **{
@@ -89,9 +88,10 @@ MAPS = {
         'cols': dict(COMMON_COLS, subtype='subtype', original_title='original_title', title_basis='title_basis',
                      dynasty='dynasty', dynasty_basis='dynasty_basis', period='period', period_basis='period_basis',
                      period_upper='period_upper', period_upper_basis='period_upper_basis', loss_status='loss_status',
-                     loss_status_basis='loss_status_basis', loss_status_note='loss_status_note', authenticity='authenticity',
+                     authenticity='authenticity',
                      authenticity_basis='authenticity_basis', preferred_book='preferred_book'),
-        'flat': {'juan_count': JUAN, 'description': {'text': 'description_text'}, 'review': {'status': 'review_status'}},
+        'flat': {'description': {'text': 'description_text'}, 'review': {'status': 'review_status'},
+                 'loss_status_evidence': {'basis': 'loss_status_basis', 'note': 'loss_status_note'}},
         'jsonb': {'title_emendation': 'title_emendation', 'version_graph': 'version_graph', 'collection_scale': 'collection_scale',
                   'publication_info': 'publication_info', 'appendix': 'appendix'},
         'kids': dict(common_kids('W'), **{
@@ -102,40 +102,36 @@ MAPS = {
     },
     'Book': {
         'table': 'book', 'owner_type': 'B', 'fixed': {'type': 'book'},
-        'cols': dict(COMMON_COLS, work_id='work_id', edition='edition', edition_type='edition_type', zhsy_id='zhsy_id'),
+        'cols': dict(COMMON_COLS, work_id='work_id', edition='edition', edition_type='edition_type'),
         'flat': {
-            'juan_count': JUAN,
-            'publication_info': {'year': 'pub_year', 'year_iso': 'pub_year_iso', 'place': 'pub_place',
-                                 'publisher': 'pub_publisher', 'details': 'pub_details', 'source': 'pub_source'},
+            'publication_info': {'place': 'pub_place', 'publisher': 'pub_publisher', 'details': 'pub_details',
+                                 'source': 'pub_source'},
             'dating': {'certainty': 'dating_certainty', 'source': 'dating_source', 'basis': 'dating_basis', 'era': 'dating_era',
                        'reign': 'dating_reign', 'year': 'dating_year', 'year_range': 'dating_year_range',
-                       'based_on': 'dating_based_on', 'later_repair': 'dating_later_repair'},
+                       'year_uncertain': 'dating_year_uncertain', 'text': 'dating_text', 'later_repair': 'dating_later_repair'},
             'physical_description': {'leaf_style': 'physical_leaf_style', 'binding': 'physical_binding',
                                      'dimensions': 'physical_dimensions', 'condition': 'physical_condition',
                                      'source': 'physical_source'},
             'description': {'text': 'description_text'},
-            'review': {'status': 'review_status'},
+            'external_ids': {'zhsy_id': 'zhsy_id'},
             'lineage': {},
         },
         'flatrest': {'lineage': 'lineage'},
-        'jsonb': {'volume_count': 'volume_count', 'page_count': 'page_count', 'metadata': 'metadata', 'appendix': 'appendix'},
+        'jsonb': {'page_count': 'page_count', 'metadata': 'metadata'},
         'kids': dict(common_kids('B'), **{
-            'additional_titles': K('book_title_alt', {'@': 'title'}),
+            'additional_titles': K('book_title_alt', {'@': 'title', 'book_title': 'title', 'type': 'kind'}),
             'provenance': K('book_provenance', {'institution': 'institution', 'call_number': 'call_number', 'notes': 'notes',
                                                 'source': 'source', 'seals': 'seals'},
                             sub={'seal_marks': K('book_seal_mark', {'seal_id': 'seal_id', 'position': 'position', 'note': 'note',
                                                                     'source': 'source'}, parent='prov_seq')}),
-            'base_edition': K('book_base_edition', {'role': 'role', 'name': 'name', 'source': 'source', 'book_id': 'book_id',
-                                                    'note': 'note'}),
-            'attached_texts': K('book_attached_text', {'book_title': 'book_title'}),
+            'base_edition': K('book_base_edition', {'role': 'role', 'relation': 'relation', 'name': 'name', 'source': 'source',
+                                                    'book_id': 'book_id', 'work_id': 'work_id', 'hypothetical_id': 'hypothetical_id',
+                                                    'confidence': 'confidence', 'evidence': 'evidence', 'note': 'note'}),
             'location_history': K('book_location_history', {'location': 'location', 'name': 'name', 'item_id': 'item_id',
                                                             'url': 'url', 'note': 'note', 'description': 'description',
                                                             'source': 'source', 'acckey': 'acckey'}),
-            'related_books': K('related_book', {'@': 'dst'}, owner='src'),
-            'lineage.derived_from': K('book_relation', {'ref': 'dst', 'relation': 'relation', 'confidence': 'confidence',
-                                                        'evidence': 'evidence'}, {'kind': 'derived_from'}, owner='src'),
-            'lineage.related_to': K('book_relation', {'ref': 'dst', 'relation': 'relation', 'confidence': 'confidence',
-                                                      'evidence': 'evidence'}, {'kind': 'related_to'}, owner='src'),
+            'related_books': K('related_book', {'book_id': 'dst', 'relation': 'relation', 'confidence': 'confidence',
+                                                'evidence': 'evidence'}, owner='src'),
         }),
     },
     'Entity': {
@@ -244,7 +240,11 @@ def val(v, ty):
 def shred(obj, keymap, types, enums, extra):
     """按 keymap 把对象拆成 {列: 值}；装不下的进 extra。keymap 里 '@' 表示「项本身整个进这一列」。"""
     row = {}
-    if '@' in keymap:
+    if '@' in keymap and isinstance(obj, dict) and len(keymap) > 1:
+        # 混合项：标量项走 '@'，对象项按其余键拆（如 Book additional_titles 的 {book_title, type: 附刻}）
+        extra['_obj'] = True
+        keymap = {k: v for k, v in keymap.items() if k != '@'}
+    elif '@' in keymap:
         col = keymap['@']
         if fits(obj, types[col], enums):
             row[col] = val(obj, types[col])
@@ -403,7 +403,9 @@ class Loader:
 def unshred(row, keymap, extra):
     if '@' in extra:
         return extra['@']
-    if '@' in keymap:
+    if extra.get('_obj'):
+        keymap = {k: v for k, v in keymap.items() if k != '@'}
+    elif '@' in keymap:
         return row[keymap['@']]
     o = {}
     for k, col in keymap.items():
@@ -417,7 +419,7 @@ def unshred(row, keymap, extra):
     for k, v in extra.get('_empty', []):
         o[k] = v
     for k, v in extra.items():
-        if k not in ('_null', '_empty', '_present'):
+        if k not in ('_null', '_empty', '_present', '_obj'):
             o[k] = v
     return o
 
