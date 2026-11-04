@@ -4,20 +4,18 @@
 
 ---
 
-<<<<<<< HEAD
 ## 2026-11-04　people 的 cbdb_match／cbdb_source 挪出 external_ids（可做可不做第 12 组，用户定）
 
 - `external_ids` 只留真标识（`cbdb_id`、`cbdb_id_alt`、`wikidata_id`、`viaf_id`）；匹配过程元数据挪到顶层 `external_ids_meta: {cbdb_match, cbdb_source}`，只许 people，紧跟 `external_ids`。
 - 存量：正式库 35,270 个 people 文件。`external_ids` 搬空的删键。
 - 同改：`entity.schema.json`、`entity_merge.py`（并条时元数据跟 cbdb_id 走）、字段文档、`schema/db`（`person` 加 `cbdb_match`／`cbdb_source` 两列，`entity_external_id` 不再有这两个 key）。
 - 读者：仅 bim UI `EntityPage`（`cbdb_match==='auto'` 时显示「自动匹配」备注），另开 bim PR 两处都认；A12 的历史一次性脚本不改。
-=======
+
 ## 2026-11-04　资源整理收口（第 7 组 R2／R7；S3）
 
 - 数据：删与站点登记（`schema/resource-sites.json`）相同的 `resources[].short_name`（Work 61,128 项、Book＋Collection 38,543 项；变体保留）；build 产物按登记补回 `short_name`，网站、搜索读产物，读法不变（A41 已确认）。
 - 收紧：`single-member-group`、`short-name-redundant`、`group-undefined` 由 WARN 升 **ERROR**（全库存量均为 0）。写法：单资源用 `label`；`group` 只给真镜像（≥2 成员）并登记在 `resource_groups`；`short_name` 只在与登记不同时才写。
 - 不做（待用户另定）：`resources[].id` 改名 `site`、`root_type: catalog` 与 `types:["catalog"]` 合并、`volumes` 形状统一。
->>>>>>> origin/main
 
 ## 2026-11-03　Book `zhsy_id` 并入 `external_ids`（第 7 组 R3；S3；已通知网站）
 
