@@ -161,11 +161,14 @@
         "undetermined"
       ]
     },
-    "loss_status_basis": {
-      "type": "string"
-    },
-    "loss_status_note": {
-      "type": "string"
+    "loss_status_evidence": {
+      "type": "object",
+      "properties": {
+        "basis": {"type": "string"},
+        "note": {"type": "string"}
+      },
+      "additionalProperties": false,
+      "minProperties": 1
     },
     "authenticity": {
       "const": "forged"

@@ -12,6 +12,12 @@
 - 校验 O04／I03／O11／I07 改读 `concept_id`；build `names.py` 的 `_children` 反查改读它。
 - **派生契约不变**：`office_keys` 候选键名仍叫 `parent_id`（值取自 `concept_id`），`_children` 形状不变，`CONTRACT` 不升。读者：仅 build；网站、bim UI 不读该字段（已核）。
 
+## 2026-11-04　Work 存佚证据并成 `loss_status_evidence`（第 12 组；S1）
+
+- Work 的 `loss_status_basis`（判定依据）与 `loss_status_note`（说明）并成一个对象 `loss_status_evidence: {basis?, note?}`（至少一项），旧两键删除；迁移 3,477 档，文字原样搬入。
+- 读者核查：build、bim、网站均不读这两个键；仅 `schema/db`（schema.sql 的 `loss_status_basis`／`loss_status_note` 两列、`proto/roundtrip.py` 映射）需同步，由总控处理。
+- 脚本 `scripts/migrate_loss_status_evidence.py`，回滚原值 `.claude/qa/loss-status-evidence-rollback.tsv`。
+
 ## 2026-11-04　people 的 cbdb_match／cbdb_source 挪出 external_ids（可做可不做第 12 组，用户定）
 
 - `external_ids` 只留真标识（`cbdb_id`、`cbdb_id_alt`、`wikidata_id`、`viaf_id`）；匹配过程元数据挪到顶层 `external_ids_meta: {cbdb_match, cbdb_source}`，只许 people，紧跟 `external_ids`。
@@ -77,6 +83,10 @@
 
 - 无写入方、无读者的时间戳：Book 19,358、Work 72,430、Collection 57、Entity 68,158 条存量已由各家数据批改删尽（#2192／#2193／#2194），本次从 `common.md §八`、四个记录 schema、文档里去掉该键；`revision`／`revised_at` 不动。
 - 此后记录再带 `updated_at` 会报 unknown-field。`DateTime` 定义保留（promotions.schema.json 仍引用）。
+
+## 2026-11-04　叢編原序第 2、3 步：数据迁完，build 只认 `order`（S5-O）
+
+- 68 条 Work 的 `details: "叢編原序 N"` 已迁为 `order: N`（#2230）；build 删除对旧 `details` 正则的回退（本步），旧写法此后不再被读。派生 `ord` 值不变。
 
 ## 2026-11-04　`contained_in[].order`（叢編原序）成为正式字段（S5-O；第 1 步：放宽＋两认）
 

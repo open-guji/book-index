@@ -323,10 +323,9 @@ def test_stream_removes_stale_and_check_only_writes_nothing(repo, tmp_path):
 
 
 def test_contained_order_field_and_legacy_details():
-    """S5-O：叢編原序優先讀 contained_in[].order，沒有再回退舊寫法 details「叢編原序 N」（過渡期兩認）。"""
+    """S5-O：叢編原序只認 contained_in[].order；舊寫法 details「叢編原序 N」已不再讀（2026-11-04 數據遷完）。"""
     assert BD.contained({'id': 'c1', 'order': 15}) == ('c1', {'ord': 15})
-    assert BD.contained({'id': 'c1', 'details': '叢編原序 15'}) == ('c1', {'ord': 15})
-    assert BD.contained({'id': 'c1', 'order': 3, 'details': '叢編原序 15'}) == ('c1', {'ord': 3})   # order 優先
+    assert BD.contained({'id': 'c1', 'details': '叢編原序 15'}) == ('c1', {})                         # 舊寫法不再讀
     assert BD.contained({'id': 'c1', 'order': 0}) == ('c1', {})                                       # <1 不收
     assert BD.contained({'id': 'c1', 'order': True}) == ('c1', {})                                    # bool 不收
     assert BD.contained({'id': 'c1', 'volume_index': 2}) == ('c1', {'vol': 2})

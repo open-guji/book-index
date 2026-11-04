@@ -38,7 +38,7 @@
 | ~~`books`~~、~~`contained_works`~~ | — | **不写** | — | 成员列表：由成员的 `contained_in` 反查 | — | — | |
 | ~~`classification`~~ | — | **不写** | — | Collection 不分类 | — | — | |
 
-**成员关系的数据跟着成员走**：册次（`volume_index`）、该书在本丛编里附带的子目（`sub_items`）、原序（`order`；旧写法 `details` 里的 `叢編原序 N`）写在成员的 `contained_in[]` 项里；部类写在 `Book.section`。丛编增减成员**不改**丛编档，也不 bump 丛编的 `revision`。
+**成员关系的数据跟着成员走**：册次（`volume_index`）、该书在本丛编里附带的子目（`sub_items`）、原序（`order`）写在成员的 `contained_in[]` 项里；部类写在 `Book.section`。丛编增减成员**不改**丛编档，也不 bump 丛编的 `revision`。
 
 ---
 
