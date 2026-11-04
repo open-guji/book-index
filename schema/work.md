@@ -34,8 +34,7 @@
 | `additional_works` | array<object> | 可选 | 原生 | 主体之外各自计卷的部分 | `[{book_title, n_juan?}]` | 录入 | `[{"book_title":"附錄","n_juan":1}]` |
 | `publication_info` | object | 可选 | 原生 | 成书／刊行信息 | 见 common.md〈publication_info〉 | 录入 | `{"year":"明"}` |
 | `loss_status` | string | 可选 | 原生 | 存佚：本书之文今日尚存几何 | `lost`｜`partially_extant`｜`extant`｜`undetermined`，见 [§二](#loss_status存佚) | 录入 | `"lost"` |
-| `loss_status_basis` | string | 可选 | 原生 | 存佚判定依据 | 自由文本 | 录入 | |
-| `loss_status_note` | string | 可选 | 原生 | 存佚说明（如查无辑本的过程） | 自由文本 | 录入 | |
+| `loss_status_evidence` | object | 可选 | 原生 | 存佚证据（2026-11-04 起取代 `loss_status_basis`／`loss_status_note`） | `{basis?, note?}`：`basis` 判定依据（自由文本）、`note` 说明（如查无辑本的过程）；至少一项 | 录入 | `{"basis":"《隋志》不著录，久佚"}` |
 | `authenticity` | string | 可选 | 原生 | 真伪：只在确定是伪书时写 | 唯一值 `forged` | 录入 | `"forged"` |
 | `authenticity_basis` | string | 条件：有 `authenticity` 时必填 | 原生 | 判伪依据（引提要或解题原文，逐条可验） | 自由文本 | 录入 | |
 | `indexed_by` | array<IndexEntry> | 可选 | 原生 | 被目录书／志书著录（本侧是被著录的一侧） | 见 [common.md〈IndexEntry〉](common.md#二indexentryindexed_by--emendated_by-的元素)；`source_bid` 须指向存在的志书 Work；顺序有意义，不可按内容去重 | 录入 | |

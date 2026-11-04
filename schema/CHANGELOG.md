@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-11-04　Work 存佚证据并成 `loss_status_evidence`（第 12 组；S1）
+
+- Work 的 `loss_status_basis`（判定依据）与 `loss_status_note`（说明）并成一个对象 `loss_status_evidence: {basis?, note?}`（至少一项），旧两键删除；迁移 3,477 档，文字原样搬入。
+- 读者核查：build、bim、网站均不读这两个键；仅 `schema/db`（schema.sql 的 `loss_status_basis`／`loss_status_note` 两列、`proto/roundtrip.py` 映射）需同步，由总控处理。
+- 脚本 `scripts/migrate_loss_status_evidence.py`，回滚原值 `.claude/qa/loss-status-evidence-rollback.tsv`。
+
 ## 2026-11-03　Book `zhsy_id` 并入 `external_ids`（第 7 组 R3；S3；已通知网站）
 
 - Book 新增可选对象 `external_ids`（目前只许 `zhsy_id`，与 Entity 的 `external_ids` 同名同义：外部编号），顶层 `zhsy_id` 删除；1,324 档的值原样搬入，键序其余不动。
