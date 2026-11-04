@@ -257,11 +257,7 @@ _SITES = None
 def semantic_warns(kind, rec):
     """文档写了、JSON Schema 难表达的规则（S3-A8）：先只报 WARN，不计 ERROR。"""
     out = []
-    if kind in ("work", "entity"):
-        if rec.get("period") and not rec.get("period_basis"):
-            out.append(("WARN", "period-no-basis", "period_basis", "有 period 而无 period_basis"))
-        if rec.get("dynasty") and not rec.get("dynasty_basis"):
-            out.append(("WARN", "dynasty-no-basis", "dynasty_basis", "有 dynasty 而无 dynasty_basis"))
+    # 「缺依据」不再统计（用户 2026-11-03 定，第 13 组）：*_basis 只在值是判断出来的时候写，推得出来的不写。
     rs = rec.get("resources")
     if isinstance(rs, list):
         groups = rec.get("resource_groups")
@@ -281,16 +277,7 @@ def semantic_warns(kind, rec):
             sn = r.get("short_name")
             if sn is not None and sites.get(r.get("id")) == sn:
                 out.append(("ERROR", "short-name-redundant", f"resources[{i}].short_name", f"与站点登记（schema/resource-sites.json）相同，不必写：{sn}"))
-    for fld in ("indexed_by", "emendated_by"):
-        es = rec.get(fld)
-        if isinstance(es, list):
-            for i, e in enumerate(es):
-                if isinstance(e, dict):
-                    for k in (("title_info",) if kind == "book" else ("title_info", "summary")):
-                        if not e.get(k):
-                            out.append(("WARN", "index-entry-missing", f"{fld}[{i}].{k}", f"{k} 缺或为空（common.md 写必填）"))
-                    if kind == "book" and e.get("summary"):
-                        out.append(("WARN", "book-index-summary", f"{fld}[{i}].summary", "Book 的 indexed_by 不写 summary（解题全文归 Work，common.md）"))
+    # indexed_by／emendated_by：title_info、summary 原目录有才写，缺不报；Book 上可写该版本自己的 summary（第 13 组，2026-11-03）
     return out
 
 
