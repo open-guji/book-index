@@ -98,15 +98,15 @@ CREATE TABLE book (
   id text PRIMARY KEY, repo text NOT NULL,
   work_id text NOT NULL,                  -- edition_of：Book → Work（FK 在后）
   title text NOT NULL, edition text, edition_type edition_type,
-  juan_number int, juan_unit text, juan_description text, juan_source text, measure_info text,
-  volume_count jsonb, page_count jsonb,
-  pub_year text, pub_year_iso text, pub_place text, pub_publisher text, pub_details text, pub_source text,
-  dating_certainty text, dating_source text, dating_basis text, dating_era text, dating_reign text, dating_year int, dating_year_range int[] CHECK (array_length(dating_year_range,1) = 2), dating_based_on jsonb, dating_later_repair jsonb,
+  measure_info text, page_count jsonb,                         -- 卷册计量全在 measure 表（11-03 第 3 组删 juan_count／volume_count）
+  pub_place text, pub_publisher text, pub_details text, pub_source text,   -- publication_info 的 year／year_iso 已并入 dating（第 1 组）
+  dating_certainty text, dating_source text, dating_basis text, dating_era text, dating_reign text, dating_year int, dating_year_range int[] CHECK (array_length(dating_year_range,1) = 2),
+  dating_year_uncertain boolean, dating_text text, dating_later_repair jsonb,   -- dating.based_on 已并入 book_base_edition（第 6 组）
   physical_leaf_style text, physical_binding text, physical_dimensions text, physical_condition text, physical_source text,
-  review_status text, lineage jsonb,                          -- 去掉 derived_from／related_to 之后的其余键；边进 book_relation
+  lineage jsonb,                          -- 只剩 status／extant_juan／alias／note（第 6 组）
   description_text text, metadata jsonb, zhsy_id text,
   ai_note text, schema_version int NOT NULL, revision text, revised_at date,
-  appendix jsonb, extra jsonb
+  extra jsonb
 );
 CREATE TABLE book_title_alt (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, title text NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
 -- 馆藏（provenance）：一册多馆，另有印记
@@ -115,11 +115,10 @@ CREATE TABLE book_provenance (owner_id text REFERENCES book(id) ON DELETE CASCAD
 CREATE TABLE book_seal_mark (owner_id text, prov_seq int, seq int, seal_id text, position text, note text, source text, extra jsonb,
   PRIMARY KEY (owner_id, prov_seq, seq), FOREIGN KEY (owner_id, prov_seq) REFERENCES book_provenance ON DELETE CASCADE);
 CREATE INDEX ON book_seal_mark (seal_id);
--- 版本源流 lineage.derived_from[] / related_to[]：Book → Book 有向边
-CREATE TABLE book_relation (src text NOT NULL REFERENCES book(id) ON DELETE CASCADE, kind text NOT NULL CHECK (kind IN ('derived_from','related_to')),
-  seq int NOT NULL, dst text, relation text, confidence text, evidence text, extra jsonb, PRIMARY KEY (src, kind, seq));
-CREATE INDEX ON book_relation (dst);
-CREATE TABLE book_base_edition (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, role text, name text, source text, book_id text, note text, extra jsonb, PRIMARY KEY (owner_id, seq));
+-- 所出之本 base_edition[]（第 6 组起吸收 lineage.derived_from 与 dating.based_on）：Book → Book／Work／假想节点
+CREATE TABLE book_base_edition (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, role text NOT NULL, relation text, name text, source text NOT NULL,
+  book_id text, work_id text, hypothetical_id text, confidence text, evidence text, note text, extra jsonb, PRIMARY KEY (owner_id, seq));
+CREATE INDEX ON book_base_edition (book_id);
 CREATE TABLE book_attached_text (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, book_title text NOT NULL, extra jsonb, PRIMARY KEY (owner_id, seq));
 CREATE TABLE book_location_history (owner_id text REFERENCES book(id) ON DELETE CASCADE, seq int, location text, name text, item_id text, url text, note text, description text, source text, acckey text, extra jsonb, PRIMARY KEY (owner_id, seq));
 
@@ -165,7 +164,7 @@ CREATE INDEX ON index_entry (source_bid);
 CREATE TABLE resource_group (owner_id text NOT NULL, key text NOT NULL, label text, description text, extra jsonb, PRIMARY KEY (owner_id, key));
 CREATE TABLE resource (
   owner_id text NOT NULL, owner_type char(1) NOT NULL, seq int NOT NULL,
-  rid text, name text, short_name text, url text, types text[], details text, grp text, group_role text,
+  rid text, name text, label text, short_name text, url text, types text[], details text, grp text, group_role text,
   root_type text, color_mode text, expected_volumes int, note text, source_label text,
   volumes jsonb, metadata jsonb, extra jsonb,
   PRIMARY KEY (owner_id, seq)
@@ -189,7 +188,7 @@ CREATE TABLE member_of (
 CREATE INDEX ON member_of (collection_id);
 CREATE TABLE work_relation (src text NOT NULL, dst text NOT NULL, relation text NOT NULL, seq int NOT NULL DEFAULT 0, note text, extra jsonb, PRIMARY KEY (src, relation, dst, seq));
 CREATE INDEX ON work_relation (dst, relation);
-CREATE TABLE related_book (src text NOT NULL, seq int NOT NULL, dst text NOT NULL, PRIMARY KEY (src, seq));  -- 按文件里的列表存，两侧各存各的（还原要保留顺序）
+CREATE TABLE related_book (src text NOT NULL, seq int NOT NULL, dst text NOT NULL, relation text, confidence text, evidence text, extra jsonb, PRIMARY KEY (src, seq));  -- 按文件里的列表存，两侧各存各的（还原要保留顺序）；Book 项是对象 {book_id, relation?, confidence?, evidence?}（第 6 组），Collection 项仍是 id 字符串
 CREATE TABLE related_collection (src text NOT NULL, seq int NOT NULL, dst text NOT NULL, PRIMARY KEY (src, seq));
 -- 并条账：被并者 → 现行（entity/work/book/collection 共用）。两个来源一起装：
 --   现存墓碑文件（src='tombstone'）＋已清墓碑的台账 .claude/qa/purge-tombstones/ledger/*.tsv（src=台账文件名）。
