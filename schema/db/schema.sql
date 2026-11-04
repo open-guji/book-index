@@ -44,12 +44,12 @@ CREATE TABLE entity_dates (owner_id text PRIMARY KEY REFERENCES entity(id) ON DE
 
 -- Entity 子类表（主键即 entity.id）
 CREATE TABLE person    (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, title_or_office text, native_place text, native_place_basis text, native_place_entity_id text, cbdb_match text, cbdb_source text);
-CREATE TABLE collective(id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, collective_kind text, institution_level text, function text, function_basis text);  -- 起讫年见 entity_dates  -- parent_id 进 entity_relation(rel='parent')
+CREATE TABLE collective(id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, concept_id text, collective_kind text, institution_level text, function text, function_basis text);  -- 起讫年见 entity_dates  -- concept_id（官署具体条→概念条，原 parent_id）
 CREATE TABLE publisher (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, publisher_kind text, status text);  -- 起讫年见 entity_dates
 CREATE TABLE dynasty   (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE);  -- 起止年见 entity_dates；parent_id 进 entity_relation(rel='parent')
 CREATE TABLE reign     (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, ruler_name text,  -- dynasty_id 进 entity_relation(rel='in_dynasty')
    ruler_entity_id text);  -- 起止年见 entity_dates
-CREATE TABLE office    (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, office_level text, office_class text, function text,  -- institution_ref 进 entity_relation(rel='institution')
+CREATE TABLE office    (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, concept_id text, office_level text, office_class text, function text,  -- institution_ref 进 entity_relation(rel='institution')
    function_basis text, rank_text text, rank_basis text, base_office_id text, qualifier_kind text, qualifier_name text, qualifier_note text, qualifier_target text);
 CREATE TABLE place     (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, concept_id text, place_level text, modern_text text, modern_relation text, modern_adcode text, modern_note text);
 CREATE TABLE seal      (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, seal_text text, seal_kind text, seal_style text, seal_form text, usage_scope text);
@@ -65,7 +65,7 @@ CREATE TABLE entity_location (owner_id text REFERENCES entity(id) ON DELETE CASC
 CREATE TABLE entity_relation (
   src text NOT NULL REFERENCES entity(id) ON DELETE CASCADE,
   rel text NOT NULL CHECK (rel IN ('in_dynasty','parent','predecessor','superior','owner','in_group','institution','person')),
-    -- in_dynasty←dynasty_ids | parent←parent_id | predecessor←predecessors | superior←superiors | owner←owner_ids/owners | in_group←group_ids | institution←institution_ids | person←relations[]（亲属师承，kind=type，note=basis，sources 进 extra）
+    -- in_dynasty←dynasty_ids | parent←parent_id（仅 dynasty／publisher；office／官署的概念条指向改存 concept_id 列）| predecessor←predecessors | superior←superiors | owner←owner_ids/owners | in_group←group_ids | institution←institution_ids | person←relations[]（亲属师承，kind=type，note=basis，sources 进 extra）
     --   institution 兼收 office.institution_ref 与 seal.institution_ids；in_dynasty 兼收 reign.dynasty_id
   dst text NOT NULL, seq int NOT NULL DEFAULT 0,
   src_key text NOT NULL,   -- 来自文件里哪个键（dynasty_ids／dynasty_id／owners／owner_ids…），同一 rel 有多个来源键，还原要靠它

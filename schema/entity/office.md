@@ -9,13 +9,13 @@
 | 示例 | 源档 | 演示什么 |
 |---|---|---|
 | 尚書 `hixi4udstrm6` | [Entity/r/m/6/hixi4udstrm6-尚書.json](../../Entity/r/m/6/hixi4udstrm6-尚書.json) | 官职**概念条**（尚書，跨朝）：无朝代、无品秩，只写 `description` |
-| 尚書 `hixi5v2mknbd` | [Entity/n/b/d/hixi5v2mknbd-尚書.json](../../Entity/n/b/d/hixi5v2mknbd-尚書.json) | 官职**具体条**（尚書，清）：`parent_id` 指概念条，带 `dynasty_ids`、`rank`（從一品）、`institution_ref`（指六部合称条） |
+| 尚書 `hixi5v2mknbd` | [Entity/n/b/d/hixi5v2mknbd-尚書.json](../../Entity/n/b/d/hixi5v2mknbd-尚書.json) | 官职**具体条**（尚書，清）：`concept_id` 指概念条，带 `dynasty_ids`、`rank`（從一品）、`institution_ref`（指六部合称条） |
 | 集賢殿修撰 `hixi5vx2u32n` | [Entity/3/2/n/hixi5vx2u32n-集賢殿修撰.json](../../Entity/3/2/n/hixi5vx2u32n-集賢殿修撰.json) | **固定复合条**（集賢殿修撰）：`base_office_id` 指基官（修撰），`qualifier` 记限定成分（`kind=institution`） |
 
 | 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |
 |---|---|---|---|---|---|---|---|
 | `office_level` | string | **必填** | 原生 | 层级 | `concept`｜`concrete`（O01） | 录入 | `"concrete"` |
-| `parent_id` | string | 条件：具体条有概念时填；**概念条不得有**（概念只一级） | 原生 | 所属概念条 | office 概念条 id（O04） | 录入 | `"1jb8ajoi8crnk"` |
+| `concept_id` | string | 条件：具体条有概念时填；**概念条不得有**（概念只一级）；2026-11-04 起由 `parent_id` 改名，与 place 朝代条同名同义（具体→概念） | 原生 | 所属概念条 | office 概念条 id（O04） | 录入 | `"1jb8ajoi8crnk"` |
 | `dynasty_ids` | array<string> | 条件：具体条**必填**；概念不得有 | 原生 | 所属朝代 | dynasty id 数组（宋默认「趙宋」，北南宋有变才拆）（O02） | 录入 | `["1jb89swq2uvb4"]` |
 | `function` | string | 条件：具体条**必填** | 原生 | 本朝职掌 | 自写（O02） | 录入 | `"一縣之長官，掌一縣之賦役、刑獄、教化與勸農。"` |
 | `function_basis` | string | 条件：具体条**必填** | 原生 | 职掌（`function`）的依据（原名 `basis`，2026-11-03 改名） | 自由文本（O02） | 录入 | `"《明史·職官志》"` |
@@ -29,7 +29,7 @@
 | `qualifier.target` | string | 可选 | 原生 | 限定成分对应的条目 id | 草稿库 230 项全写 `null`（未指条目），读者按缺省读 | 录入 | `null` |
 | `qualifier.note` | string | 可选 | 原生 | 说明 | 自由文本。现值：`官署條待立` 115、`殿閣，官署條待立` 36、`官署條不立` 26、`職事名目` 24、`幕府，官署條不立` 14、`地名條待立` 7、`行政層級，官署條不立` 4、`官署條見 institution_ref` 2、`加官前綴` 2 | 录入 | `"官署條待立"` |
 
-- 概念条不得有 `dynasty_ids`、`rank`、`salary`、`office_class`、`base_office_id`、`parent_id`（O02／O04）；概念条宜写 `description`。
+- 概念条不得有 `dynasty_ids`、`rank`、`salary`、`office_class`、`base_office_id`、`concept_id`（O02／O04）；概念条宜写 `description`。
 - 同一概念下同朝具体条（`dynasty_ids` 完全相同）多于一条 WARN（O11）。
 - `_children`（概念→具体）、`_compounds`（`base_office_id` 反查）由 build 派生。
 - 10-08：只在草稿库，1,839 条（concrete 1,511、concept 328；复合条 230、有 `institution_ref` 368）。草稿库 office 的 `dynasty_ids` 指草稿 dynasty id（`1jb89…`），build 经 `promotions/` 换成正式 id。
@@ -44,7 +44,7 @@
   "subtype": "office",
   "office_level": "concrete",
   "primary_name": "知縣",
-  "parent_id": "1jb8ajoi8crnk",
+  "concept_id": "1jb8ajoi8crnk",
   "dynasty_ids": [
     "1jb89swq01qf4"
   ],
@@ -82,7 +82,7 @@
 | O01 | office | `office_level` ∈ `concept`／`concrete` | ERROR |
 | O02 | office | 具体条 `dynasty_ids` 非空且指 dynasty、`function`／`function_basis` 非空；概念条禁字段 | ERROR |
 | O03 | office | `office_class` 在 15 值内 | ERROR |
-| O04 | office | `parent_id` 指 office 概念条；概念条不得有 `parent_id` | ERROR |
+| O04 | office | `concept_id` 指 office 概念条；概念条不得有 `concept_id`；具体条不得再写旧名 `parent_id` | ERROR |
 | O05 | office | `base_office_id` 存在、是 office、不自指、无环、与本条 `dynasty_ids` 相交；有 `base_office_id` 则必有 `qualifier`；`qualifier.kind` 在 4 值内、`name` 非空（以上 ERROR）；`base_office_id` 指概念条而 `ai_note` 未说明（WARN） | ERROR／WARN |
 | O10 | office | `簡稱` 长度 ≤2，须确认不与他概念重名 | WARN |
 | O11 | office | 同一概念下同朝具体条重复 | WARN |

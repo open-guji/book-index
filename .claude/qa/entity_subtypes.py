@@ -104,7 +104,7 @@ OFFICE_LEVELS = {"concept", "concrete"}
 OFFICE_CLASSES = {"職事官", "差遣", "散官", "階官", "加官", "貼職", "寄祿官", "祠祿官", "勳", "爵",
                   "本官", "試秩", "憲官", "兼職差遣", "未詳"}
 QUALIFIER_KINDS = {"institution", "place", "mode", "mode+institution"}
-CONCEPT_FORBIDDEN = ("dynasty_ids", "rank", "salary", "office_class", "base_office_id", "parent_id")
+CONCEPT_FORBIDDEN = ("dynasty_ids", "rank", "salary", "office_class", "base_office_id", "concept_id")
 # 官署（collective_kind=官署）
 COLLECTIVE_KINDS = {"官署", "書院學校", "館局", "民間", "未分"}
 INST_LEVELS = {"concept", "concrete", "group"}
@@ -436,11 +436,11 @@ def _check_office(rec, reg):
     if lvl not in OFFICE_LEVELS:
         out.append(("O01", ERROR, "office_level", "須為 concept／concrete：%r" % (lvl,)))
         return out
-    pid = rec.get("parent_id")
+    pid = rec.get("concept_id")
     if lvl == "concept":
         for k in CONCEPT_FORBIDDEN:
             if k in rec:
-                out.append(("O02" if k != "parent_id" else "O04", ERROR, k, "概念條不得有"))
+                out.append(("O02" if k != "concept_id" else "O04", ERROR, k, "概念條不得有"))
         return out
     # 具體條
     dids = rec.get("dynasty_ids")
@@ -458,7 +458,7 @@ def _check_office(rec, reg):
         out.append(("O03", ERROR, "office_class", "不在枚舉：%r" % (oc,)))
     if pid is not None and (reg.sub.get(pid) != "office" or
                             (reg.rec.get(pid) or {}).get("office_level") != "concept"):
-        out.append(("O04", ERROR, "parent_id", "須指向 office 概念條：%r" % (pid,)))
+        out.append(("O04", ERROR, "concept_id", "須指向 office 概念條：%r" % (pid,)))
     bid = rec.get("base_office_id")
     q = rec.get("qualifier")
     if bid is not None:
@@ -550,13 +550,13 @@ def _check_institution(rec, reg):
             if k not in DATES_KEYS["collective"]:
                 out.append(("D3", ERROR, "dates." + k, "官署不放行此鍵"))
     out += _legacy_flat_dates(rec)
-    pid = rec.get("parent_id")
+    pid = rec.get("concept_id")
     if lvl in ("concept", "group"):
         for k in INST_CONCRETE_ONLY:
             if k in rec:
                 out.append(("I02", ERROR, k, "%s 條不得有" % ("概念" if lvl == "concept" else "合稱")))
         if pid is not None:
-            out.append(("I03", ERROR, "parent_id", "概念條、合稱條不得有"))
+            out.append(("I03", ERROR, "concept_id", "概念條、合稱條不得有"))
         if lvl == "group" and "group_ids" in rec:
             out.append(("I02", ERROR, "group_ids", "合稱條不得有（合稱不嵌套）"))
         if not (nonempty_str(rec.get("description")) or
@@ -577,7 +577,7 @@ def _check_institution(rec, reg):
         if "待核" in (rec.get("function_basis") or ""):
             out.append(("I02", ERROR, "function_basis", "不得含「待核」"))
         if pid is not None and not (reg.is_inst(pid) and reg.rec[pid].get("institution_level") == "concept"):
-            out.append(("I03", ERROR, "parent_id", "須指向官署概念條：%r" % (pid,)))
+            out.append(("I03", ERROR, "concept_id", "須指向官署概念條：%r" % (pid,)))
         # I04 superiors
         sup = rec.get("superiors")
         if sup is not None:
@@ -672,7 +672,7 @@ SEAL_FORMS = ("方", "圓", "橢圓", "長方", "異形")
 SEAL_REF_MAX = 20
 SEAL_FORBIDDEN = ("dynasty", "dynasty_basis", "period", "period_basis", "native_place", "native_place_basis",
                   "native_place_entity_id", "title_or_office", "name_basis", "collective_kind",
-                  "institution_level", "superiors", "group_ids", "parent_id", "function", "function_basis", "succeeds",
+                  "institution_level", "superiors", "group_ids", "parent_id", "concept_id", "function", "function_basis", "succeeds",
                   "dynasty_id", "ruler", "office_level", "office_class", "rank", "salary", "institution_ref",
                   "base_office_id", "qualifier", "history", "modern", "predecessors")
 
@@ -1165,8 +1165,8 @@ def check_global(reg, canonical=None):
     # O11：同概念下同朝具體條 dynasty_ids 完全相同
     seen = {}
     for i, r in reg.of("office"):
-        if r.get("office_level") == "concrete" and r.get("parent_id"):
-            k = (r["parent_id"], tuple(sorted(r.get("dynasty_ids") or [])))
+        if r.get("office_level") == "concrete" and r.get("concept_id"):
+            k = (r["concept_id"], tuple(sorted(r.get("dynasty_ids") or [])))
             seen.setdefault(k, []).append(i)
     for k, ids in seen.items():
         if len(ids) > 1 and k[1]:
@@ -1178,8 +1178,8 @@ def check_global(reg, canonical=None):
         if not (reg.is_inst(i) and r.get("institution_level") == "concrete"):
             continue
         for d in r.get("dynasty_ids") or []:
-            if r.get("parent_id"):
-                by_concept.setdefault((r["parent_id"], d), set()).add(i)
+            if r.get("concept_id"):
+                by_concept.setdefault((r["concept_id"], d), set()).add(i)
             by_name.setdefault((r.get("primary_name"), d), set()).add(i)
     flagged = set()
     for k, ids in by_concept.items():

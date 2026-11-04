@@ -23,7 +23,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | O01 | office | `office_level` ∈ `concept`／`concrete` | ERROR |
 | O02 | office | 具体条 `dynasty_ids` 非空且指 dynasty、`function`／`function_basis` 非空；概念条禁字段 | ERROR |
 | O03 | office | `office_class` 在 15 值内 | ERROR |
-| O04 | office | `parent_id` 指 office 概念条；概念条不得有 `parent_id` | ERROR |
+| O04 | office | `concept_id` 指 office 概念条；概念条不得有 `concept_id` | ERROR |
 | O05 | office | `base_office_id` 存在、是 office、不自指、无环、与本条 `dynasty_ids` 相交；有 `base_office_id` 则必有 `qualifier`；`qualifier.kind` 在 4 值内、`name` 非空（以上 ERROR）；`base_office_id` 指概念条而 `ai_note` 未说明（WARN） | ERROR／WARN |
 | O10 | office | `簡稱` 长度 ≤2，须确认不与他概念重名 | WARN |
 | O11 | office | 同一概念下同朝具体条重复 | WARN |
@@ -43,7 +43,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | P14 | place | 上级同层：朝代条段的 `parent_id` 须指朝代条且朝代相交，跨朝条段的 `parent_id` 须指跨朝条；`concept_id` 只许朝代条、须指跨朝条 | ERROR |
 | I01 | collective | `collective_kind` 在 5 值内；官署的 `institution_level` 在 3 值内 | ERROR |
 | I02 | 官署 | 具体条 `dynasty_ids`（非空、指 dynasty）／`function`／`function_basis` 必填、`function_basis` 不含「待核」；概念条与合称条禁 `dynasty_ids`、`function`、`superiors`、`start`、`end`、`basis`；合称条不得有 `group_ids`；概念条与合称条 `description` 必填 | ERROR |
-| I03 | 官署 | 具体条 `parent_id` 指官署概念条；概念条、合称条不得有 `parent_id` | ERROR |
+| I03 | 官署 | 具体条 `concept_id` 指官署概念条；概念条、合称条不得有 `concept_id` | ERROR |
 | I04 | 官署 | `superiors` 为数组，各项指同朝官署具体条、不自指、无环、`start`／`end` 为整数且 `start ≤ end`（ERROR）；上级与本条朝代不相交（WARN） | ERROR／WARN |
 | I05 | 官署 | `group_ids` 指合称条（ERROR）；具体条与其概念条重复挂同一合称（WARN） | ERROR／WARN |
 | I06 | 官署 | 具体条 `dates.start`／`end` 为整数、无 0 年、`start ≤ end`（ERROR）；越出所属朝代 5 年（WARN） | ERROR／WARN |

@@ -581,7 +581,7 @@
     },
     "concept_id": {
       "$ref": "common.schema.json#/$defs/Id",
-      "description": "朝代条所属的跨朝条 id（P14，只许 place 朝代条）"
+      "description": "具体条所属的概念条 id：place 朝代条→跨朝条（P14，只许 place 朝代条）；office 具体条→office 概念条（O04）；官署具体条→官署概念条（I03）。原 office／官署的 parent_id 于 2026-11-04 并入此名"
     }
   },
   "additionalProperties": false,
@@ -735,6 +735,11 @@
                 {
                   "required": [
                     "status"
+                  ]
+                },
+                {
+                  "required": [
+                    "concept_id"
                   ]
                 }
               ]
@@ -966,6 +971,11 @@
                 {
                   "required": [
                     "status"
+                  ]
+                },
+                {
+                  "required": [
+                    "concept_id"
                   ]
                 }
               ]
@@ -1209,6 +1219,11 @@
                   "required": [
                     "status"
                   ]
+                },
+                {
+                  "required": [
+                    "concept_id"
+                  ]
                 }
               ]
             },
@@ -1413,6 +1428,11 @@
                   "required": [
                     "status"
                   ]
+                },
+                {
+                  "required": [
+                    "parent_id"
+                  ]
                 }
               ]
             },
@@ -1449,7 +1469,7 @@
                 "anyOf": [
                   {
                     "required": [
-                      "parent_id"
+                      "concept_id"
                     ]
                   },
                   {
@@ -1474,7 +1494,7 @@
                   }
                 ]
               },
-              "x-not-message": "官职概念条不得有 dynasty_ids／rank／office_class／base_office_id／parent_id（O02／O04）"
+              "x-not-message": "官职概念条不得有 dynasty_ids／rank／office_class／base_office_id／concept_id（O02／O04）"
             }
           },
           {
@@ -1953,6 +1973,11 @@
                     "required": [
                       "period_basis"
                     ]
+                  },
+                  {
+                    "required": [
+                      "parent_id"
+                    ]
                   }
                 ]
               },
@@ -2024,7 +2049,7 @@
                         },
                         {
                           "required": [
-                            "parent_id"
+                            "concept_id"
                           ]
                         },
                         {
@@ -2059,7 +2084,7 @@
                         }
                       ]
                     },
-                    "x-not-message": "官署概念条、合称条不得有 dynasty_ids／function／basis／superiors／start／end／dates／parent_id（I02／I03）"
+                    "x-not-message": "官署概念条、合称条不得有 dynasty_ids／function／basis／superiors／start／end／dates／concept_id（I02／I03）"
                   },
                   {
                     "required": [
@@ -2231,6 +2256,11 @@
               {
                 "required": [
                   "predecessors"
+                ]
+              },
+              {
+                "required": [
+                  "concept_id"
                 ]
               }
             ]
@@ -2428,6 +2458,11 @@
                 {
                   "required": [
                     "status"
+                  ]
+                },
+                {
+                  "required": [
+                    "concept_id"
                   ]
                 }
               ]
@@ -2653,6 +2688,11 @@
                 {
                   "required": [
                     "images"
+                  ]
+                },
+                {
+                  "required": [
+                    "concept_id"
                   ]
                 }
               ]
