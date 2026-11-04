@@ -4,6 +4,13 @@
 
 ---
 
+## 2026-11-04　people 的 cbdb_match／cbdb_source 挪出 external_ids（可做可不做第 12 组，用户定）
+
+- `external_ids` 只留真标识（`cbdb_id`、`cbdb_id_alt`、`wikidata_id`、`viaf_id`）；匹配过程元数据挪到顶层 `external_ids_meta: {cbdb_match, cbdb_source}`，只许 people，紧跟 `external_ids`。
+- 存量：正式库 35,270 个 people 文件。`external_ids` 搬空的删键。
+- 同改：`entity.schema.json`、`entity_merge.py`（并条时元数据跟 cbdb_id 走）、字段文档、`schema/db`（`person` 加 `cbdb_match`／`cbdb_source` 两列，`entity_external_id` 不再有这两个 key）。
+- 读者：仅 bim UI `EntityPage`（`cbdb_match==='auto'` 时显示「自动匹配」备注），另开 bim PR 两处都认；A12 的历史一次性脚本不改。
+
 ## 2026-11-03　Book `zhsy_id` 并入 `external_ids`（第 7 组 R3；S3；已通知网站）
 
 - Book 新增可选对象 `external_ids`（目前只许 `zhsy_id`，与 Entity 的 `external_ids` 同名同义：外部编号），顶层 `zhsy_id` 删除；1,324 档的值原样搬入，键序其余不动。

@@ -38,12 +38,12 @@ CREATE TABLE entity (
   extra jsonb                              -- 长尾字段
 );
 CREATE TABLE entity_alt_name (owner_id text REFERENCES entity(id) ON DELETE CASCADE, seq int, name text NOT NULL, type text, ambiguous boolean, note text, extra jsonb, PRIMARY KEY (owner_id, seq));
-CREATE TABLE entity_external_id (owner_id text REFERENCES entity(id) ON DELETE CASCADE, key text, value jsonb NOT NULL, PRIMARY KEY (owner_id, key)); -- cbdb_id/wikidata_id/viaf_id/cbdb_match/cbdb_source/cbdb_id_alt；值原样（cbdb_id 是整数、cbdb_id_alt 是数组），查时用 value = '123'::jsonb
+CREATE TABLE entity_external_id (owner_id text REFERENCES entity(id) ON DELETE CASCADE, key text, value jsonb NOT NULL, PRIMARY KEY (owner_id, key)); -- cbdb_id/wikidata_id/viaf_id/cbdb_id_alt（cbdb_match/cbdb_source 已挪到顶层 external_ids_meta，列在 person）；值原样（cbdb_id 是整数、cbdb_id_alt 是数组），查时用 value = '123'::jsonb
 CREATE INDEX ON entity_external_id (key, value);
 CREATE TABLE entity_dates (owner_id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, birth int, death int, floruit_start int, floruit_end int, start_year int, end_year int, basis text, extra jsonb);
 
 -- Entity 子类表（主键即 entity.id）
-CREATE TABLE person    (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, title_or_office text, native_place text, native_place_basis text, native_place_entity_id text);
+CREATE TABLE person    (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, title_or_office text, native_place text, native_place_basis text, native_place_entity_id text, cbdb_match text, cbdb_source text);
 CREATE TABLE collective(id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, collective_kind text, institution_level text, function text, function_basis text);  -- 起讫年见 entity_dates  -- parent_id 进 entity_relation(rel='parent')
 CREATE TABLE publisher (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE, publisher_kind text, status text);  -- 起讫年见 entity_dates
 CREATE TABLE dynasty   (id text PRIMARY KEY REFERENCES entity(id) ON DELETE CASCADE);  -- 起止年见 entity_dates；parent_id 进 entity_relation(rel='parent')
