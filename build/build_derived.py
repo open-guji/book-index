@@ -741,6 +741,25 @@ def _titles(raw):
     return out
 
 
+ATTACHED_TYPE = '附刻'
+
+
+def _titles_split(d):
+    """Book 的「異名」與「附刻之書」分開（第 12 組 S2-T：attached_texts 併入 additional_titles）。
+    additional_titles 的項是字符串（異名）或 {book_title, type:'附刻'}（附刻之書）；舊寫法 attached_texts 的項一律是附刻。
+    返回 (異名列表, 附刻列表)，各自保序、不去重（與舊產物逐字節一致）。與 bim entry_extractor.split_extra_titles 同口徑。"""
+    attached = _titles(d.get('attached_texts', []))
+    aliases = []
+    raw = d.get('additional_titles', [])
+    for t in raw if isinstance(raw, list) else []:
+        if isinstance(t, dict) and t.get('type') == ATTACHED_TYPE:
+            if t.get('book_title'):
+                attached.append(t['book_title'])
+        else:
+            aliases.extend(_titles([t]))
+    return aliases, attached
+
+
 def _res_flags(d):
     txt = img = False
     for r in d.get('resources') or [] if isinstance(d.get('resources'), list) else []:
@@ -817,10 +836,11 @@ def index_entry(d, typ, rel_path, promoted_to=None, build=None):
         e['juan_count'] = jn
     if d.get('measure_info'):
         e['measure_info'] = d['measure_info']
-    for k in ('additional_titles', 'attached_texts'):
-        t = _titles(d.get(k, []))
-        if t:
-            e[k] = t
+    aliases, attached = _titles_split(d)
+    if aliases:
+        e['additional_titles'] = aliases
+    if attached:
+        e['attached_texts'] = attached
     txt, img = _res_flags(d)
     col = False                       # 源檔不再帶整理本標記；僅由 book-text 推（build.ts 給了才有）
     if build is not None and build.ti is not None:
