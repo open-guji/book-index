@@ -452,7 +452,30 @@
     "additional_titles": {
       "type": "array",
       "items": {
-        "type": "string"
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object",
+            "required": [
+              "book_title",
+              "type"
+            ],
+            "properties": {
+              "book_title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "enum": [
+                  "附刻"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
       }
     },
     "indexed_by": {

@@ -30,9 +30,9 @@
 | `base_edition` | array<object> | 可选 | 原生 | 底本／配补／参校（只在后出者一侧） | 见 [§六](#base_edition) | 录入 | |
 | `lineage` | object | 可选 | 原生 | 版本源流（只在后出者一侧） | 见 [§七](#lineage) | 录入 | |
 | `location_history` | array<object> | 可选 | 原生 | 递藏史、知见藏本。**两种形状，不要混写**：①知见藏本＝`{location, item_id?, url?, note?, source?, acckey?}`（130 项，《中國通俗小說書目》类著录）；②递藏事件＝`{name, description?, note?, source?}`（61 项） | 每项键见左；详情页两种都显示 | 录入 | |
-| `attached_texts` | array<object> | 可选 | 原生 | 本版本附带的其他文本 | `[{book_title}]` | 录入 | `[{"book_title":"周易略例"}]` |
+| `attached_texts` | array<object> | 可选（**旧写法，迁移中**） | 原生 | 本版本附带的其他文本；第 12 组 S2-T 起并入 `additional_titles`（`type:"附刻"`），迁移完成后删除 | `[{book_title}]` | 录入 | `[{"book_title":"周易略例"}]` |
 | `description` | Description | 可选 | 原生 | 介绍 | 见 common.md | 录入 | |
-| `additional_titles` | array<string> | 可选 | 原生 | 版本异名 | 字符串数组 | 录入 | |
+| `additional_titles` | array<string｜object> | 可选 | 原生 | 版本异名（字符串）与附刻之书（对象 `{book_title, type:"附刻"}`，原 `attached_texts`） | 项是字符串＝异名；或对象 `{book_title, type}`，`type` 现只有 `附刻`（本版本附带刻印的其他书） | 录入 | |
 | `indexed_by` | array<IndexEntry> | 可选 | 原生 | 按版本著录的书目（如通俗小说书目） | 见 common.md〈IndexEntry〉 | 录入 | |
 | `resources` | array<Resource> | 可选 | 原生 | 外部资源 | 见 common.md；`id` 可取 `wikisource`（维基文库页面，`types:["text"]`） | 录入 | |
 | `resource_groups` | object | 可选 | 原生 | 资源组说明 | 见 common.md | 录入 | |
