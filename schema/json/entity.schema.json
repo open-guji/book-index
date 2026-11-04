@@ -72,6 +72,22 @@
     "external_ids": {
       "$ref": "#/$defs/ExternalIds"
     },
+    "external_ids_meta": {
+      "type": "object",
+      "description": "CBDB 匹配过程元数据（原 external_ids.cbdb_match／cbdb_source，2026-11-04 挪出；external_ids 只留真标识）",
+      "properties": {
+        "cbdb_match": {
+          "type": "string",
+          "description": "匹配方式（开放词表，见 _dates-external-ids.md）"
+        },
+        "cbdb_source": {
+          "type": "string",
+          "description": "匹配依据（自由文本）"
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
+    },
     "description": {
       "$ref": "#/$defs/EntityDescription"
     },
@@ -2695,6 +2711,21 @@
         "maxProperties": 8,
         "x-not-message": "墓碑桩只留 schema_version／id／type／subtype／primary_name／merged_into／revision／revised_at（entity.md 并条）"
       }
+    },
+    {
+      "if": {
+        "required": [
+          "external_ids_meta"
+        ]
+      },
+      "then": {
+        "properties": {
+          "subtype": {
+            "const": "people"
+          }
+        },
+        "x-not-message": "external_ids_meta 只许 people"
+      }
     }
   ],
   "$defs": {
@@ -2918,12 +2949,6 @@
       "properties": {
         "cbdb_id": {
           "type": "integer"
-        },
-        "cbdb_match": {
-          "type": "string"
-        },
-        "cbdb_source": {
-          "type": "string"
         },
         "cbdb_id_alt": {
           "type": "array",
