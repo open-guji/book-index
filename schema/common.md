@@ -127,7 +127,7 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 
 ### `resource_groups`（记录顶层）
 
-多个 resource 描述同一份内容的不同存储位置时，用 `group` 把它们关联起来，并在记录顶层的 `resource_groups` 里给每组一个小标题和说明。Work、Book 都可有此字段。
+**只有两条及以上资源描述同一份内容的不同存储位置（镜像）时**，才用 `group` 把它们关联起来，并在记录顶层的 `resource_groups` 里给这一组一个小标题和说明。Work、Book 都可有此字段。只有一条资源的“组”不要建：直接在这条资源上写 `label`（见上表），不写 `group`／`group_role`。
 
 | 字段 | 类型 | 必填 | 性质 | 含义 | 取值 | 谁写 | 例 |
 |---|---|---|---|---|---|---|---|
@@ -137,8 +137,8 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 
 - 同一 `group` 值＝同一份内容的不同存储位置：下载下来内容字节等价（或仅水印、格式细微差别）。
 - 不同 `group` 值＝不同变体（如人文社 1975 黑白本 vs 中華再造善本彩色本；完整本 vs 缺页本）。
-- 无 `group`＝独立资源（如识典、CText 这类独立整理本文本）。
-- 显示：按 `group` 分桶，无 group 的每条单独成桶；桶头用 `resource_groups[gk].label`＋`description`；桶内列站点名、URL、提取码，`origin` 加角标。
+- 无 `group`＝独立资源（如识典、CText 这类独立整理本文本）；要给它一个小标题就写它自己的 `label`。
+- 显示：按 `group` 分桶，无 group 的每条单独成桶；桶头用 `resource_groups[gk].label`＋`description`（单条资源的桶头用它自己的 `label`）；桶内列站点名、URL、提取码，`origin` 加角标。
 
 ```json
 {
@@ -315,7 +315,9 @@ Work、Book、Collection、Entity 都有。
 
 面向读者的正文一律写进 `description.text`，出处写进 `description.sources`。前端不渲染 `ai_note`。
 
-**机器校验（`check_schema.py` 的 `semantic_warns`，2026-11-03 起，先只报 WARN）**：有 `period`／`dynasty` 而无 `period_basis`／`dynasty_basis`（Work、Entity）；`resources[].group` 不在 `resource_groups` 里；`indexed_by`／`emendated_by` 元素缺 `title_info`，或 Work 上缺 `summary`；Book 上出现 `summary`（`book-index-summary`）。存量清完后再升为 ERROR。
+**机器校验（`check_schema.py` 的 `semantic_warns`，2026-11-03 起）**：
+- 报 **ERROR**（存量已清零，2026-11-04 升级）：`resources[].group` 不在 `resource_groups` 里（`group-undefined`）；`group` 只有一条资源用（`single-member-group`，应改写成 `label`）；`short_name` 与站点登记相同（`short-name-redundant`）。
+- 仍只报 WARN（有存量）：有 `period`／`dynasty` 而无 `period_basis`／`dynasty_basis`（Work、Entity）；`indexed_by`／`emendated_by` 元素缺 `title_info`，或 Work 上缺 `summary`；Book 上出现 `summary`（`book-index-summary`）。存量清完后再升为 ERROR。
 
 ### revision 口径
 

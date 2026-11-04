@@ -20,6 +20,7 @@
 | Entity `birth_year`、`death_year`（含 `null`） | `dates`（book-index#139） |
 | `authors[].role` 写英文 `author`；`authors[]` 里的 `cbdb_*`、`title_or_office`、`courtesy_name`、`alt_names`、`entity_basis`、`sources`、`birthplace`、`alias`、`additional_names`、`official`、`name_note` | 志书原文 role（缺省 `撰`）；人物信息归 Entity，依据入 `note`／`ai_note` |
 | `resources[].type`（单值）、`resources[].group_label` | `types[]`（闭集 `image`／`text`／`physical`／`catalog`／`annotated`）；`resource_groups[].label` |
+| 只有一条资源的 `group`＋`group_role: origin`＋`resource_groups` 项（2026-11-03 前 Work 55,252、Book 18,920 项）；与站点登记相同的 `resources[].short_name`（约 9.97 万项）；Book 顶层 `zhsy_id`（1,324 档） | `resources[].label`；`short_name` 缺则按 `schema/resource-sites.json` 补（build 产物补回）；`external_ids.zhsy_id`（2026-11-04 清零，check_schema 报 ERROR） |
 
 以上「已删」项的计数 2026-10-12 重扫均为 0（扫描脚本见 B1a PR 说明）；仍写旧值的是 §三 列的代码，不是数据。
 
