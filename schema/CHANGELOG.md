@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-11-04　资源整理收口（第 7 组 R2／R7；S3）
+
+- 数据：删与站点登记（`schema/resource-sites.json`）相同的 `resources[].short_name`（Work 61,128 项、Book＋Collection 38,543 项；变体保留）；build 产物按登记补回 `short_name`，网站、搜索读产物，读法不变（A41 已确认）。
+- 收紧：`single-member-group`、`short-name-redundant`、`group-undefined` 由 WARN 升 **ERROR**（全库存量均为 0）。写法：单资源用 `label`；`group` 只给真镜像（≥2 成员）并登记在 `resource_groups`；`short_name` 只在与登记不同时才写。
+- 不做（待用户另定）：`resources[].id` 改名 `site`、`root_type: catalog` 与 `types:["catalog"]` 合并、`volumes` 形状统一。
+
 ## 2026-11-03　Book `zhsy_id` 并入 `external_ids`（第 7 组 R3；S3；已通知网站）
 
 - Book 新增可选对象 `external_ids`（目前只许 `zhsy_id`，与 Entity 的 `external_ids` 同名同义：外部编号），顶层 `zhsy_id` 删除；1,324 档的值原样搬入，键序其余不动。
