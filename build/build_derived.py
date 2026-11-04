@@ -206,10 +206,6 @@ def contained(x):
         o = x.get('order')
         if isinstance(o, int) and not isinstance(o, bool) and o >= 1:      # 正式字段 contained_in[].order（S5-O，2026-11-04）
             attrs['ord'] = o
-        else:                          # 過渡期兩認：舊寫法 details「叢編原序 N」（數據遷完後刪此分支）
-            m = re.search(r'叢編原序\s*(\d+)', x.get('details') or '') if isinstance(x.get('details'), str) else None
-            if m:
-                attrs['ord'] = int(m.group(1))
     return i, attrs
 
 

@@ -70,6 +70,10 @@
 - 无写入方、无读者的时间戳：Book 19,358、Work 72,430、Collection 57、Entity 68,158 条存量已由各家数据批改删尽（#2192／#2193／#2194），本次从 `common.md §八`、四个记录 schema、文档里去掉该键；`revision`／`revised_at` 不动。
 - 此后记录再带 `updated_at` 会报 unknown-field。`DateTime` 定义保留（promotions.schema.json 仍引用）。
 
+## 2026-11-04　叢編原序第 2、3 步：数据迁完，build 只认 `order`（S5-O）
+
+- 68 条 Work 的 `details: "叢編原序 N"` 已迁为 `order: N`（#2230）；build 删除对旧 `details` 正则的回退（本步），旧写法此后不再被读。派生 `ord` 值不变。
+
 ## 2026-11-04　`contained_in[].order`（叢編原序）成为正式字段（S5-O；第 1 步：放宽＋两认）
 
 - Work、Book 的 `contained_in[]` 项新增 `order`（整数 ≥1），取代 `details: "叢編原序 N"`。build 优先读 `order`，没有再回退旧正则（过渡期两认）；派生输出的 `ord` 不变，网站、搜索、bim ui 不用改。
