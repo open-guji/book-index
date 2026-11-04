@@ -742,9 +742,9 @@ ATTACHED_TYPE = '附刻'
 
 def _titles_split(d):
     """Book 的「異名」與「附刻之書」分開（第 12 組 S2-T：attached_texts 併入 additional_titles）。
-    additional_titles 的項是字符串（異名）或 {book_title, type:'附刻'}（附刻之書）；舊寫法 attached_texts 的項一律是附刻。
+    additional_titles 的項是字符串（異名）或 {book_title, type:'附刻'}（附刻之書）。
     返回 (異名列表, 附刻列表)，各自保序、不去重（與舊產物逐字節一致）。與 bim entry_extractor.split_extra_titles 同口徑。"""
-    attached = _titles(d.get('attached_texts', []))
+    attached = []
     aliases = []
     raw = d.get('additional_titles', [])
     for t in raw if isinstance(raw, list) else []:

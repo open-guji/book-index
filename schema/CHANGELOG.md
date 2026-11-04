@@ -4,6 +4,13 @@
 
 ---
 
+## 2026-11-04　Book 的 `attached_texts` 并入 `additional_titles`（第 12 组；S2-T）
+
+- `Book.additional_titles` 的项：字符串＝异名；对象 `{book_title, type:"附刻"}`＝附刻之书。`Book.attached_texts` 删除（303 本已迁，25 本两者并存均保留）。
+- `index/` 条目不变：仍分别出 `additional_titles`（异名）与 `attached_texts`（附刻），迁移前后 1197 本逐字相同。
+- 读者：build（`_titles_split`）、bim（`split_extra_titles`／`splitExtraTitles`）已同口径；网站 item-seo 的 Book JSON-LD `alternateName` 需滤掉 `type:"附刻"`（A41）。
+- 脚本 `scripts/book_attached_texts.py`，回滚原值 `.claude/qa/attached-texts-rollback.tsv`。
+
 ## 2026-11-04　office／官署的 parent_id 改名 concept_id（可做可不做第 12 组②，用户定）
 
 - office 具体条、官署(collective) 具体条的顶层 `parent_id`（指所属概念条）改名 `concept_id`，与 place 朝代条的 `concept_id`（指跨朝条）同名同义：具体→概念。dynasty、publisher 的 `parent_id` 是真上下级，place 沿革 `history[].parent_id` 是行政上级，都不动。
