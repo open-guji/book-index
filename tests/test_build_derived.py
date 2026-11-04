@@ -286,7 +286,7 @@ def test_text_index_index_and_entry_same_rule(repo):
 
 
 def test_book_tombstone_excluded_from_work_editions_but_kept_in_index(repo):
-    """被并 Book 墓碑（merged_into）不進 Work._books／_edition_count、；Book 不再有 _siblings（契約 4）；
+    """被并 Book 墓碑（merged_into）不進 Work._books／_edition_count；Book 不再有 _siblings（契約 4）；
     自身 entry 保留 merged_into（308 讀它），index/ 照列（檢索端自行過濾）。"""
     S.put(repo, 'Book', {'id': 'b0000000009', 'type': 'book', 'title': '甲書重複本', 'work_id': S.W1,
                          'merged_into': S.B1, 'revision': '2.0.0'})
@@ -320,3 +320,13 @@ def test_stream_removes_stale_and_check_only_writes_nothing(repo, tmp_path):
     assert not os.path.exists(os.path.join(out, 'entry', f'{S.B3}.json')) and r['write']['removed'] >= 1
     r, _ = run(repo, out_dir=str(tmp_path / 'none'), check_only=True, stream=True)
     assert not os.path.exists(str(tmp_path / 'none')) and 'write' not in r
+
+
+def test_contained_order_field_and_legacy_details():
+    """S5-O：叢編原序優先讀 contained_in[].order，沒有再回退舊寫法 details「叢編原序 N」（過渡期兩認）。"""
+    assert BD.contained({'id': 'c1', 'order': 15}) == ('c1', {'ord': 15})
+    assert BD.contained({'id': 'c1', 'details': '叢編原序 15'}) == ('c1', {'ord': 15})
+    assert BD.contained({'id': 'c1', 'order': 3, 'details': '叢編原序 15'}) == ('c1', {'ord': 3})   # order 優先
+    assert BD.contained({'id': 'c1', 'order': 0}) == ('c1', {})                                       # <1 不收
+    assert BD.contained({'id': 'c1', 'order': True}) == ('c1', {})                                    # bool 不收
+    assert BD.contained({'id': 'c1', 'volume_index': 2}) == ('c1', {'vol': 2})

@@ -10,6 +10,19 @@
 - 读者核查：build、bim、网站均不读这两个键；仅 `schema/db`（schema.sql 的 `loss_status_basis`／`loss_status_note` 两列、`proto/roundtrip.py` 映射）需同步，由总控处理。
 - 脚本 `scripts/migrate_loss_status_evidence.py`，回滚原值 `.claude/qa/loss-status-evidence-rollback.tsv`。
 
+## 2026-11-04　people 的 cbdb_match／cbdb_source 挪出 external_ids（可做可不做第 12 组，用户定）
+
+- `external_ids` 只留真标识（`cbdb_id`、`cbdb_id_alt`、`wikidata_id`、`viaf_id`）；匹配过程元数据挪到顶层 `external_ids_meta: {cbdb_match, cbdb_source}`，只许 people，紧跟 `external_ids`。
+- 存量：正式库 35,270 个 people 文件。`external_ids` 搬空的删键。
+- 同改：`entity.schema.json`、`entity_merge.py`（并条时元数据跟 cbdb_id 走）、字段文档、`schema/db`（`person` 加 `cbdb_match`／`cbdb_source` 两列，`entity_external_id` 不再有这两个 key）。
+- 读者：仅 bim UI `EntityPage`（`cbdb_match==='auto'` 时显示「自动匹配」备注），另开 bim PR 两处都认；A12 的历史一次性脚本不改。
+
+## 2026-11-04　资源整理收口（第 7 组 R2／R7；S3）
+
+- 数据：删与站点登记（`schema/resource-sites.json`）相同的 `resources[].short_name`（Work 61,128 项、Book＋Collection 38,543 项；变体保留）；build 产物按登记补回 `short_name`，网站、搜索读产物，读法不变（A41 已确认）。
+- 收紧：`single-member-group`、`short-name-redundant`、`group-undefined` 由 WARN 升 **ERROR**（全库存量均为 0）。写法：单资源用 `label`；`group` 只给真镜像（≥2 成员）并登记在 `resource_groups`；`short_name` 只在与登记不同时才写。
+- 不做（待用户另定）：`resources[].id` 改名 `site`、`root_type: catalog` 与 `types:["catalog"]` 合并、`volumes` 形状统一。
+
 ## 2026-11-03　Book `zhsy_id` 并入 `external_ids`（第 7 组 R3；S3；已通知网站）
 
 - Book 新增可选对象 `external_ids`（目前只许 `zhsy_id`，与 Entity 的 `external_ids` 同名同义：外部编号），顶层 `zhsy_id` 删除；1,324 档的值原样搬入，键序其余不动。
@@ -62,6 +75,11 @@
 
 - 无写入方、无读者的时间戳：Book 19,358、Work 72,430、Collection 57、Entity 68,158 条存量已由各家数据批改删尽（#2192／#2193／#2194），本次从 `common.md §八`、四个记录 schema、文档里去掉该键；`revision`／`revised_at` 不动。
 - 此后记录再带 `updated_at` 会报 unknown-field。`DateTime` 定义保留（promotions.schema.json 仍引用）。
+
+## 2026-11-04　`contained_in[].order`（叢編原序）成为正式字段（S5-O；第 1 步：放宽＋两认）
+
+- Work、Book 的 `contained_in[]` 项新增 `order`（整数 ≥1），取代 `details: "叢編原序 N"`。build 优先读 `order`，没有再回退旧正则（过渡期两认）；派生输出的 `ord` 不变，网站、搜索、bim ui 不用改。
+- 数据迁移（68 条 Work，全是 `details` 恰为「叢編原序 N」）与收紧（build 删回退、文档删旧写法）另两步，各自 PR。DB 草案 `member_of.orig_order` 与 `order` 对映。
 
 ## 2026-11-03　Book 删 `_siblings*`，契约升 4（S5-H/I/N；A41 已核无页面读）
 

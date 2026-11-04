@@ -64,7 +64,7 @@ people 特有的规矩：
 }
 ```
 
-正式库蘇軾 `hixhd2h9bdqq` 是带 CBDB／Wikidata／VIAF 与 `dates` 的完整例：`external_ids` 为 `{"cbdb_id": 3767, "cbdb_match": "manual", "cbdb_source": "name_exact+dy_match+work_recall_0.56+unique", "wikidata_id": "Q36020", "viaf_id": "96591338"}`，`dates` 为 `{"birth": 1036, "death": 1101, "floruit": null, "basis": "現行字段"}`，`description.sources` 为 `[{"name": "中國古籍總目", "type": "url", "details": "http://data.library.sh.cn/entity/person/fia6wo2nwkdcrjll"}]`。
+正式库蘇軾 `hixhd2h9bdqq` 是带 CBDB／Wikidata／VIAF 与 `dates` 的完整例：`external_ids` 为 `{"cbdb_id": 3767, "wikidata_id": "Q36020", "viaf_id": "96591338"}`，`dates` 为 `{"birth": 1036, "death": 1101, "floruit": null, "basis": "現行字段"}`，`description.sources` 为 `[{"name": "中國古籍總目", "type": "url", "details": "http://data.library.sh.cn/entity/person/fia6wo2nwkdcrjll"}]`。
 
 ## 校验码
 

@@ -148,7 +148,8 @@ MAPS = {
         'jsonb': {},
         'side': {
             'people': ('person', {'title_or_office': 'title_or_office', 'native_place': 'native_place',
-                                  'native_place_basis': 'native_place_basis', 'native_place_entity_id': 'native_place_entity_id'}, {}),
+                                  'native_place_basis': 'native_place_basis', 'native_place_entity_id': 'native_place_entity_id'},
+                       {'external_ids_meta': {'cbdb_match': 'cbdb_match', 'cbdb_source': 'cbdb_source'}}),
             'collective': ('collective', {'collective_kind': 'collective_kind', 'institution_level': 'institution_level',
                                           'function': 'function', 'function_basis': 'function_basis'}, {}),
             'publisher': ('publisher', {'publisher_kind': 'publisher_kind', 'status': 'status'}, {}),

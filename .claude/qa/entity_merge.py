@@ -187,6 +187,12 @@ def merge(loser_id: str, keeper_id: str, *, reason: str, rule: str = '',
             filled_ext.append(k)
     if lext:
         keeper['external_ids'] = kext
+    # CBDB 匹配元数据（external_ids_meta）跟着 cbdb_id 走：keeper 的 cbdb_id 取自 loser 时才带过来
+    lmeta = loser.get('external_ids_meta') or {}
+    if lmeta and 'cbdb_id' in filled_ext:
+        kmeta = keeper.setdefault('external_ids_meta', {})
+        for k, v in lmeta.items():
+            kmeta.setdefault(k, v)
     summary['filled_external_ids'] = filled_ext
 
     # 并条账写在墓碑上（merged_basis），不再写 keeper.merged_in（11-03 用户定删并条历史字段）。

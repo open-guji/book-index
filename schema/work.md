@@ -166,7 +166,8 @@
 | `id` | string | 必填 | 丛编 id | Collection id | `"8rlcsybg2hhh"` |
 | `volume_index` | integer｜array<integer>｜string | 可选 | 本作品在该丛编里的册次／卷次 | 整数、整数数组，或原文字符串（如 `"第6卷"`） | `3` |
 | `group` | string | 可选 | 本作品在该丛编里所属的组 | 丛编内自定的组键（实测：`hanzhi_yiwenzhi`、`non_hanzhi`） | `"hanzhi_yiwenzhi"` |
-| `details` | string | 可选 | 说明文字 | 自由文本；**`叢編原序 N`**（N 为整数）表示本作品在丛编原书中的次序，build 据以给成员排序 | `"叢編原序 15"` |
+| `order` | integer（≥1） | 可选 | 本作品在丛编原书中的次序，build 据以给成员排序（派生为 `ord`） | 正整数；取代旧写法 `details: "叢編原序 N"`（过渡期 build 两认，数据迁完后只认本字段） | `15` |
+| `details` | string | 可选 | 说明文字 | 自由文本（旧写法 `叢編原序 N` 见 `order`） | |
 
 Book 的 `contained_in` 多一个 `sub_items`，见 [book.md](book.md)。
 
