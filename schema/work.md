@@ -22,9 +22,9 @@
 | `title_emendation` | object | 可选 | 原生 | 题名订补（志书原文有缺字、衍字时） | `{raw, emended?, fill?, status, basis}`；`status` ∈ `已補`｜`去衍空`｜`闕疑`；`fill` 为补入的字（可为 `null`） | 录入 | `{"raw":"康泓道人單道開傳","emended":"單道開傳","status":"已補","basis":"…"}` |
 | `authors` | array<Author> | 条件：有责任者时必填 | 原生 | 责任者 | 见 [common.md〈Author〉](common.md#一authorauthors-的元素)；**`role` 必填** | 录入 | `[{"name":"蘇軾","role":"撰","dynasty":"北宋"}]` |
 | `dynasty` | string | 可选 | 原生 | 作品成书朝代（显示用） | 规范朝代名，见 [common.md〈朝代与时代轴〉](common.md#九朝代与时代轴) | 录入 | `"北宋"` |
-| `dynasty_basis` | string | 条件：有 `dynasty` 时必填 | 原生 | 朝代判定依据 | 自由文本，宜以代码起首（同上）。校验器已校：缺则 ERROR（2026-11-03 存量已补齐；约 90 条以「存疑：」或「库内原有，未经本期复核」起首，待复核） | 录入 | `"author_propagation"` |
+| `dynasty_basis` | string | 可选 | 原生 | 朝代判定依据 | 自由文本，宜以代码起首（同上）。只在朝代是判断出来的时候写，推得出来的不写；不再校验缺失（2026-11-03 用户定） | 录入 | `"author_propagation"` |
 | `period` | string | 可选 | 原生 | 时代轴 | 12 值，见 common.md | 录入 | `"song"` |
-| `period_basis` | string | 条件：有 `period` 时必填 | 原生 | 判定依据 | 自由文本。校验器已校：有 `period` 无本字段报 ERROR（2026-11-03 存量 268 条已补齐） | 录入 | `"據 authors[0].dynasty「北宋」"` |
+| `period_basis` | string | 可选 | 原生 | 判定依据 | 自由文本。只在时代是判断出来的时候写，推得出来的不写；不再校验缺失（2026-11-03 用户定） | 录入 | `"據 authors[0].dynasty「北宋」"` |
 | `period_upper` | string | 可选 | 原生 | 时代上限 | 12 值 | 录入 | `"song"` |
 | `period_upper_basis` | string | 条件：有 `period_upper` 时必填 | 原生 | 上限依据 | 自由文本 | 录入 | `"catalog_bound：…"` |
 | `description` | Description | 可选 | 原生 | 面向读者的介绍 | 见 common.md | 录入 | |

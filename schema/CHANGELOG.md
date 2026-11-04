@@ -4,6 +4,13 @@
 
 ---
 
+## 2026-11-04　不再统计「缺依据」（可做可不做第 13 组，用户定）
+- `period_basis`／`dynasty_basis` 改为可选：只在值是判断出来的时候写（几说取一、推测、与常规推法相异），能从现有字段推出的不写。删 Work schema 的两条 if/then 必填与 `check_schema` 的 `period-no-basis`／`dynasty-no-basis` WARN（Entity 21,300／12,088 条）。存量不补、不删。
+- `indexed_by`／`emendated_by` 的 `title_info`、`summary` 改「有就写」，删 `index-entry-missing` WARN（约 450 条，原目录本无）。
+- Book 的 `indexed_by[].summary` 可写该版本自己的著录（如《中國通俗小說書目》逐版本条，104 条）；照抄 Work 同目录解题的 6 条删掉。删 `book-index-summary` WARN。
+- 人物 `description.sources` 为空（230 条）不统计。
+- 全库 `check_schema`：ERROR 0，WARN 由 33,950 降到 0。
+
 ## 2026-11-04　Book 的 `attached_texts` 并入 `additional_titles`（第 12 组；S2-T）
 
 - `Book.additional_titles` 的项：字符串＝异名；对象 `{book_title, type:"附刻"}`＝附刻之书。`Book.attached_texts` 删除（303 本已迁，25 本两者并存均保留）。

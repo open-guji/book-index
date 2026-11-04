@@ -69,8 +69,8 @@ Work、Book、Collection 的 `authors[]` 同形。Work 的 `authors[]` 是责任
 |---|---|---|---|---|---|---|---|
 | `source` | string | 必填 | 原生 | 著录本书的目录书／志书／考证书之名 | 书名 | 录入 | `"隋書經籍志"` |
 | `source_bid` | string | 条件：该目录书在库中有 Work 时必填 | 原生 | 该目录书的 Work id | Work id，须存在 | 录入 | `"d59f2mp0flz6"` |
-| `title_info` | string | 必填 | 原生 | 该目录中的著录标题原文 | 原文照录 | 录入 | `"毛詩義問十卷魏太子文學劉楨撰"` |
-| `summary` | string | Work 必填，Book 不写 | 原生 | 该目录中的著录／解题全文 | 原文照录；Book 层的 summary 已于 2026-11-03 删尽（#2190），再写会报 WARN `book-index-summary` | 录入 | |
+| `title_info` | string | 有就写（原目录没有的不补） | 原生 | 该目录中的著录标题原文 | 原文照录 | 录入 | `"毛詩義問十卷魏太子文學劉楨撰"` |
+| `summary` | string | 有就写 | 原生 | 该目录中的著录／解题全文 | 原文照录。Book 上只写该版本自己的著录（如《中國通俗小說書目》逐版本的条目），不照抄 Work 上同一目录的解题（2026-11-03 第 13 组：删 6 条照抄的，留 104 条版本解题） | 录入 | |
 | `section` | string | 可选 | 原生 | 该目录中的类目 | 原文类目，层级以 `/` 分隔 | 录入 | `"經部/易類"` |
 | `section_basis` | string | 可选 | 原生 | `section` 的推得依据 | 自由文本 | 录入 | |
 | `author_info` | string | 可选 | 原生 | 该目录中的撰人著录原文 | 原文照录 | 录入 | `"字貴與，樂平人"` |
@@ -317,7 +317,7 @@ Work、Book、Collection、Entity 都有。
 
 **机器校验（`check_schema.py` 的 `semantic_warns`，2026-11-03 起）**：
 - 报 **ERROR**（存量已清零，2026-11-04 升级）：`resources[].group` 不在 `resource_groups` 里（`group-undefined`）；`group` 只有一条资源用（`single-member-group`，应改写成 `label`）；`short_name` 与站点登记相同（`short-name-redundant`）。
-- 仍只报 WARN（有存量）：有 `period`／`dynasty` 而无 `period_basis`／`dynasty_basis`（Work、Entity）；`indexed_by`／`emendated_by` 元素缺 `title_info`，或 Work 上缺 `summary`；Book 上出现 `summary`（`book-index-summary`）。存量清完后再升为 ERROR。
+- 「缺依据」不统计（用户 2026-11-03 定，第 13 组）：`*_basis` 只在值是**判断出来的**时候写（几说取一、推测、与常规推法相异），能从现有字段直接推出的（如时代轴据朝代归并、朝代据责任者著录）不写；存量不补也不删。`indexed_by`／`emendated_by` 的 `title_info`、`summary` 原目录有才写，缺不报。Book 上可写该版本自己的 `summary`，不再报 `book-index-summary`。
 
 ### revision 口径
 
@@ -387,7 +387,7 @@ five-dynasties  song  liao-jin-yuan  ming  qing  modern
 | 字段 | 类型 | 必填 | 含义 | 取值 |
 |---|---|---|---|---|
 | `period` | string | 可选 | 时代轴 | 上表 12 值 |
-| `period_basis` | string | 条件：有 `period` 时必填 | 判定依据，逐条可读；与 `dynasty` 相异者必记其由；以「撰人已定代 X」为据者，须写明该撰人之代从哪里来（CBDB／史传／著录／推定） | 自由文本（常见起首：`據 authors[0].dynasty「…」`、`catalog_bound`、`duandai`） |
+| `period_basis` | string | 可选：值是判断出来的时候写（推得出来的不写） | 判定依据，逐条可读；与 `dynasty` 相异者必记其由；以「撰人已定代 X」为据者，须写明该撰人之代从哪里来（CBDB／史传／著录／推定） | 自由文本（常见起首：`據 authors[0].dynasty「…」`、`catalog_bound`、`duandai`） |
 | `period_upper` | string | 可选 | 时代上限：只给上限，不给下限；`period` 已定者也可并存，作校验用（2026-11-03 实测 44,053 条中 23,082 条与 `period` 并存；`period` 若晚于 `period_upper` 属冲突） | 12 值之一 |
 | `period_upper_basis` | string | 条件：有 `period_upper` 时必填 | 据何而定（含该志的上限），逐条可验 | 自由文本（常见起首：`catalog_bound：…`、`edition_bound`、`excavation_bound`、`collection_bound`） |
 
@@ -398,7 +398,7 @@ five-dynasties  song  liao-jin-yuan  ming  qing  modern
 | 字段 | 类型 | 必填 | 含义 | 取值 |
 |---|---|---|---|---|
 | `dynasty` | string | 可选 | 朝代名 | **规范朝代名**（下表首列，或〈域外朝代〉表首列）。现存仍有歧义与非规范写法（`宋`、`魏`、`漢`、`國朝`、`當代`、空串等），列入修正方案，见 [legacy.md](legacy.md) |
-| `dynasty_basis` | string | 条件：有 `dynasty` 时宜写 | 判定依据 | 自由文本；宜以下列代码之一起首：`synonym`（同义归并）｜`entity_death_year`／`entity_birth_year`（据作者生卒年）｜`catalog_bound`（著录志为上限）｜`duandai`（断代志可径定）｜`author_propagation`（同作者他书已判值传播）｜`manual`（人工覆核）；代码后可接 `:` 与说明 |
+| `dynasty_basis` | string | 可选：值是判断出来的时候写（推得出来的不写） | 判定依据 | 自由文本；宜以下列代码之一起首：`synonym`（同义归并）｜`entity_death_year`／`entity_birth_year`（据作者生卒年）｜`catalog_bound`（著录志为上限）｜`duandai`（断代志可径定）｜`author_propagation`（同作者他书已判值传播）｜`manual`（人工覆核）；代码后可接 `:` 与说明 |
 
 **规范化原则**：
 
