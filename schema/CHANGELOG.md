@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-11-04　Work 存佚证据并成 `loss_status_evidence`（第 12 组；S1）
+
+- Work 的 `loss_status_basis`（判定依据）与 `loss_status_note`（说明）并成一个对象 `loss_status_evidence: {basis?, note?}`（至少一项），旧两键删除；迁移 3,477 档，文字原样搬入。
+- 读者核查：build、bim、网站均不读这两个键；仅 `schema/db`（schema.sql 的 `loss_status_basis`／`loss_status_note` 两列、`proto/roundtrip.py` 映射）需同步，由总控处理。
+- 脚本 `scripts/migrate_loss_status_evidence.py`，回滚原值 `.claude/qa/loss-status-evidence-rollback.tsv`。
+
 ## 2026-11-04　people 的 cbdb_match／cbdb_source 挪出 external_ids（可做可不做第 12 组，用户定）
 
 - `external_ids` 只留真标识（`cbdb_id`、`cbdb_id_alt`、`wikidata_id`、`viaf_id`）；匹配过程元数据挪到顶层 `external_ids_meta: {cbdb_match, cbdb_source}`，只许 people，紧跟 `external_ids`。
