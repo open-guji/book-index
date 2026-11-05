@@ -28,10 +28,10 @@
 | `locations[].place_id` | string | 可选 | 原生 | 地名条 id | 须指 `subtype=place`（K04） | 录入 | |
 | `locations[].start`、`end` | integer | 可选 | 原生 | 该段起止年 | 同上 | 录入 | |
 | `locations[].note` | string | 可选 | 原生 | 说明 | 自由文本 | 录入 | |
-| `owners` | array<object> | 可选 | 原生 | 主持者／东家 | `{id, role, start?, end?, note?}`（K05） | 录入 | |
+| `owners` | array<object> | 可选 | 原生 | 主持者／东家 | `{id, role, note?}`（K05） | 录入 | |
 | `owners[].id` | string | **必填** | 原生 | 人或机构条 id | 指 people 或 collective | 录入 | |
 | `owners[].role` | string | **必填** | 原生 | 角色 | 开放词表，常用：主人／創辦／主持／經營／督刻 | 录入 | `"主人"` |
-| `owners[].start`、`end`、`note` | integer／string | 可选 | 原生 | 任期、说明 | 同上 | 录入 | |
+| `owners[].note` | string | 可选 | 原生 | 说明 | 自由文本 | 录入 | |
 | `parent_id` | string | 可选 | 原生 | 上级主体 | publisher 或 collective；只写下→上，下属由 build 派生；不自指、publisher 链无环（K05） | 录入 | |
 | `status` | string | 可选 | 原生 | 存续状态 | `存續`｜`撤併`｜`停業`｜`未詳`；`end` 与 `status` 都缺按存续读 | 录入 | `"存續"` |
 | `description` | object | **必填** | 原生 | 介绍与出处 | 同通则，`sources` 非空（K01） | 录入 | |

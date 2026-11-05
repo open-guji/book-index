@@ -259,7 +259,6 @@ def test_place_codes():
     a = place("a", history=[h(1131, 1276, parent_id="b")])
     b = place("b", history=[h(1131, 1276, parent_id="a")])
     assert has(a, "P03", es.ERROR, b)                                             # 成環
-    assert has(place("pl", history=[h(1131, 1276, parent_id="up", parent_text="兩浙路")]), "P03", es.WARN, up)
     # P04
     assert has(place("pl", history=[h(1131, 1276, dynasty_ids=["nope"])]), "P04")
     # P06

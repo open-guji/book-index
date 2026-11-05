@@ -30,7 +30,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | O12 | 专名子类型、官署 | `alt_names[].type` 在 27 值枚举内 | ERROR |
 | P01 | place | `primary_name` 非空；`history` 为非空数组；各项为对象、`level` 在 14 值内、`name` 非空 | ERROR |
 | P02 | place | 各项 `start`／`end` 为整数、`start ≤ end`、`end ≤ 1912`；各项时段不重叠 | ERROR |
-| P03 | place | `history[].parent_id` 存在且为 place、不自引、上级链无环（ERROR）；`parent_id` 与 `parent_text` 并存（WARN） | ERROR／WARN |
+| P03 | place | `history[].parent_id` 存在且为 place、不自引、上级链无环 | ERROR |
 | P04 | place | `history[].dynasty_ids` 存在且为 dynasty | ERROR |
 | P06 | place | `modern` 为对象、`relation` 必填且在 5 值内、`adcode` 为六位数字 | ERROR |
 | P07 | place | `predecessors[].id` 存在且为 place、`kind` ∈ `析出`／`並入`／`改置` | ERROR |
