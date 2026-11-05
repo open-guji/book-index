@@ -11,10 +11,10 @@ git 里的 JSON 是唯一真源。库由 bim 从 JSON 生成，随时可重建�
 
 | 文件 | 来源 | 内容 |
 |---|---|---|
-| [schema.sql](schema.sql) | `python -m book_index_manager.db ddl` | 34 张表、枚举、索引（需 `pg_trgm`） |
+| [schema.sql](schema.sql) | `python -m book_index_manager.db ddl` | 47 张表：目录 34 张＋book-text 13 张（`bt_*`、`fragment*`），枚举、索引（需 `pg_trgm`） |
 | [constraints.sql](constraints.sql) | `… ddl --constraints` | 外键，全部 `NOT VALID` |
-| [checks.sql](checks.sql) | `… ddl --checks` | 悬空、owner_type、id 跨类重复检查，应全为 0 行 |
-| [book_text.sql](book_text.sql) | 手写（第 4 步并进映射） | book-text 20 张表＋物化视图 `bt_mention` |
+| [checks.sql](checks.sql) | `… ddl --checks` | 悬空、owner_type、id 跨类重复检查，应全为 0 行（book-text 指向目录的几条除外，见下） |
+| [book_text.sql](book_text.sql) | 手写草案 | book-text 尚未进库的部分（sections、专名、伴生层、CHANGES、pages.tsv）＋物化视图 `bt_mention` |
 | [checks_book_text.sql](checks_book_text.sql) | 手写 | book-text 悬空检查（只报不拦） |
 
 顺序：`schema.sql` → 灌库 → `constraints.sql` → `checks.sql` 全 0 行 → 逐条 `VALIDATE CONSTRAINT`。
@@ -71,7 +71,13 @@ python3 build/build_derived.py --from-db "$DSN" --text-index ../book-text/index/
 
 ## 下一步
 1. 上线流程（derive-slim、网站 render）改走 `--from-db`，稳定后退役按文件读的那一路。
-2. book-text 进库（`book_text.sql` 并进映射，导入还原实测）。
+2. book-text 第二批进库：`book_text.sql` 里剩下的 sections、专名、伴生层、CHANGES、pages.tsv。
+
+## book-text（第一批，2026-11-05）
+
+`build --text-root ../book-text` 把 manifest.json、各版本 index.json、辑佚 fragments/*.json 一起灌进库（每次整批重灌），`--verify` 还原比对：8,689＋11,288＋1,248 份 0 不一致。正文和 char／cord 逐格数据不进库。
+
+book-text 指向目录的引用只出悬空检查、不加外键。当时有 26 处悬空：11 处是已并条的旧号（id_map 能解到现行记录），4 处 `work_id` 填的是 Book id，11 处目录里查不到。清单见项目文件 `catalog-db/book-text-dangling-20261105.tsv`。每夜任务暂不带 book-text，清完再加。
 
 ## 沿革
 D1 草案（11-02）到 v2 之间各轮评审与修订（A12、A33、S1–S6、可做可不做第 3–13 组）的逐条记录见本文件 git 历史（2026-11-04 及以前的版本）与 [CHANGELOG](../CHANGELOG.md)。v2 相对 D1：去掉 `repo` 列与 `dynasty`、`record_todo`、`entity_image`、`entity_location`、`entity_appears_in`、`work_additional` 表；四张异名表并成 `alt_name`；`related_book`／`related_collection` 并成 `related_record`；`merged_into` 改名 `id_map`；审计字段收进 `notes`；原型 `proto/roundtrip.py` 由 bim 取代。

@@ -17,6 +17,16 @@ ALTER TABLE entity_dates ADD CONSTRAINT entity_dates_owner_id_fk FOREIGN KEY (ow
 ALTER TABLE place_history ADD CONSTRAINT place_history_owner_id_fk FOREIGN KEY (owner_id) REFERENCES entity (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
 ALTER TABLE place_history_dynasty ADD CONSTRAINT place_history_dynasty_owner_id_hseq_fk FOREIGN KEY (owner_id, hseq) REFERENCES place_history (owner_id, seq) ON DELETE CASCADE DEFERRABLE NOT VALID;
 ALTER TABLE entity_relation ADD CONSTRAINT entity_relation_src_fk FOREIGN KEY (src) REFERENCES entity (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE bt_manifest_version ADD CONSTRAINT bt_manifest_version_item_id_fk FOREIGN KEY (item_id) REFERENCES bt_item (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE bt_chapter ADD CONSTRAINT bt_chapter_version_id_fk FOREIGN KEY (version_id) REFERENCES bt_version (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE bt_heading ADD CONSTRAINT bt_heading_version_id_ch_seq_fk FOREIGN KEY (version_id, ch_seq) REFERENCES bt_chapter (version_id, seq) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE bt_other_source ADD CONSTRAINT bt_other_source_version_id_fk FOREIGN KEY (version_id) REFERENCES bt_version (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE fragment_based_on ADD CONSTRAINT fragment_based_on_fragment_id_fk FOREIGN KEY (fragment_id) REFERENCES fragment (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE fragment_collector ADD CONSTRAINT fragment_collector_fragment_id_fk FOREIGN KEY (fragment_id) REFERENCES fragment (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE fragment_collector_section ADD CONSTRAINT fragment_collector_section_fragment_id_cseq_fk FOREIGN KEY (fragment_id, cseq) REFERENCES fragment_collector (fragment_id, seq) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE fragment_piece ADD CONSTRAINT fragment_piece_fragment_id_fk FOREIGN KEY (fragment_id) REFERENCES fragment (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE fragment_piece_collector ADD CONSTRAINT fragment_piece_collector_fragment_id_pseq_fk FOREIGN KEY (fragment_id, pseq) REFERENCES fragment_piece (fragment_id, seq) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE fragment_citation ADD CONSTRAINT fragment_citation_fragment_id_pseq_fk FOREIGN KEY (fragment_id, pseq) REFERENCES fragment_piece (fragment_id, seq) ON DELETE CASCADE DEFERRABLE NOT VALID;
 -- 跨记录引用（目标唯一的才加外键；悬空清单见 checks.sql）
 ALTER TABLE book ADD CONSTRAINT book_work_id_ref FOREIGN KEY (work_id) REFERENCES work (id) DEFERRABLE NOT VALID;
 ALTER TABLE collection ADD CONSTRAINT collection_work_id_ref FOREIGN KEY (work_id) REFERENCES work (id) DEFERRABLE NOT VALID;

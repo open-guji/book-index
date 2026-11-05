@@ -13,6 +13,13 @@ SELECT 'entity_relation.dst 悬空' chk, r.src, r.dst FROM entity_relation r WHE
 SELECT 'work_relation.dst 悬空' chk, r.src, r.dst FROM work_relation r WHERE r.dst IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.dst) AND NOT EXISTS (SELECT 1 FROM collection x WHERE x.id = r.dst);
 SELECT 'related_record.dst 悬空' chk, r.src, r.dst FROM related_record r WHERE r.dst IS NOT NULL AND NOT EXISTS (SELECT 1 FROM book x WHERE x.id = r.dst) AND NOT EXISTS (SELECT 1 FROM collection x WHERE x.id = r.dst);
 SELECT 'id_map.live_id 悬空' chk, r.old_id, r.live_id FROM id_map r WHERE r.live_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.live_id) AND NOT EXISTS (SELECT 1 FROM book x WHERE x.id = r.live_id) AND NOT EXISTS (SELECT 1 FROM collection x WHERE x.id = r.live_id) AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.live_id);
+-- book-text 指向目录（只在给了 --text-root 时有数据）
+SELECT 'bt_item.id 悬空' chk, r.id, r.id FROM bt_item r WHERE r.id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.id) AND NOT EXISTS (SELECT 1 FROM book x WHERE x.id = r.id);
+SELECT 'bt_version.work_id 悬空' chk, r.id, r.work_id FROM bt_version r WHERE r.work_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.work_id);
+SELECT 'bt_version.book_id 悬空' chk, r.id, r.book_id FROM bt_version r WHERE r.book_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM book x WHERE x.id = r.book_id);
+SELECT 'fragment.work_id 悬空' chk, r.id, r.work_id FROM fragment r WHERE r.work_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.work_id);
+SELECT 'fragment_based_on.source_bid 悬空' chk, r.fragment_id, r.source_bid FROM fragment_based_on r WHERE r.source_bid IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.source_bid) AND NOT EXISTS (SELECT 1 FROM book x WHERE x.id = r.source_bid) AND NOT EXISTS (SELECT 1 FROM collection x WHERE x.id = r.source_bid);
+SELECT 'fragment_collector.collector_work_id 悬空' chk, r.fragment_id, r.collector_work_id FROM fragment_collector r WHERE r.collector_work_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.collector_work_id) AND NOT EXISTS (SELECT 1 FROM book x WHERE x.id = r.collector_work_id) AND NOT EXISTS (SELECT 1 FROM collection x WHERE x.id = r.collector_work_id);
 -- 旧号要解得到现行记录，终点不能还是墓碑
 SELECT 'id_map.live_id 解不到' chk, m.old_id, m.src, m.direct_into FROM id_map m WHERE m.live_id IS NULL;
 SELECT 'id_map.live_id 仍是墓碑' chk, m.old_id, m.live_id FROM id_map m WHERE m.live_id IN (SELECT old_id FROM id_map WHERE src = 'tombstone');
