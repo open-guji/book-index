@@ -14,11 +14,12 @@ CREATE TYPE coll_subtype AS ENUM ('work_collection', 'book_collection');
 CREATE TYPE entity_subtype AS ENUM ('people', 'collective', 'dynasty', 'reign', 'office', 'place', 'seal', 'publisher');
 CREATE TYPE attested_status AS ENUM ('extant', 'lost', 'partial', 'not_seen');
 
--- 每次建库一行：git 提交与时间
+-- 建库记录：库里现在对应的 git 提交；ddl_sha 变了要全量重建
 CREATE TABLE build_meta (
   git_commit text NOT NULL,
   built_at text NOT NULL,
-  schema_version int NOT NULL,
+  ddl_sha text NOT NULL,
+  mode text NOT NULL,
   PRIMARY KEY (git_commit)
 );
 
@@ -329,7 +330,7 @@ CREATE TABLE id_map (
   live_id text,
   title text,
   extra jsonb,
-  PRIMARY KEY (old_id, kind, src)
+  PRIMARY KEY (old_id, kind, src, direct_into)
 );
 
 -- 共用：Book、Collection、Entity、Work
