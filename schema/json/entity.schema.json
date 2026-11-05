@@ -116,9 +116,6 @@
     "todo": {
       "$ref": "common.schema.json#/$defs/Todo"
     },
-    "review": {
-      "$ref": "common.schema.json#/$defs/Review"
-    },
     "revision": {
       "$ref": "common.schema.json#/$defs/Revision"
     },
@@ -153,9 +150,6 @@
             "$ref": "common.schema.json#/$defs/Id"
           },
           "start": {
-            "type": "integer"
-          },
-          "end": {
             "type": "integer"
           },
           "note": {
@@ -315,9 +309,6 @@
           },
           "parent_id": {
             "$ref": "common.schema.json#/$defs/Id"
-          },
-          "parent_text": {
-            "type": "string"
           },
           "note": {
             "type": "string"
@@ -549,12 +540,6 @@
           },
           "role": {
             "$ref": "common.schema.json#/$defs/NonEmptyString"
-          },
-          "start": {
-            "type": "integer"
-          },
-          "end": {
-            "type": "integer"
           },
           "note": {
             "type": "string"

@@ -30,7 +30,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | O12 | 专名子类型、官署 | `alt_names[].type` 在 27 值枚举内 | ERROR |
 | P01 | place | `primary_name` 非空；`history` 为非空数组；各项为对象、`level` 在 14 值内、`name` 非空 | ERROR |
 | P02 | place | 各项 `start`／`end` 为整数、`start ≤ end`、`end ≤ 1912`；各项时段不重叠 | ERROR |
-| P03 | place | `history[].parent_id` 存在且为 place、不自引、上级链无环（ERROR）；`parent_id` 与 `parent_text` 并存（WARN） | ERROR／WARN |
+| P03 | place | `history[].parent_id` 存在且为 place、不自引、上级链无环 | ERROR |
 | P04 | place | `history[].dynasty_ids` 存在且为 dynasty | ERROR |
 | P06 | place | `modern` 为对象、`relation` 必填且在 5 值内、`adcode` 为六位数字 | ERROR |
 | P07 | place | `predecessors[].id` 存在且为 place、`kind` ∈ `析出`／`並入`／`改置` | ERROR |
@@ -83,7 +83,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 |---|---|---|
 | `dates` 合法性 | 见[dates 按子类型放行](_dates-external-ids.md#dates-按子类型放行)末 | 一律计 |
 | `external_ids` 合法性 | `wikidata_id`、`viaf_id` 形状，见[external_ids 子键](_dates-external-ids.md#external_ids-子键) | 一律计 |
-| `todo`、`review` 形状 | 见[通用字段](_common.md) | 一律计 |
+| `todo` 形状 | 见[通用字段](_common.md) | 一律计 |
 | entities 索引漂移 | `index/` 里的 `primary_name`、`dynasty`、`birth_year`、`death_year`、`period` 与源档不一致（`birth_year`／`death_year` 比的是源档 `dates.birth`／`dates.death`） | 一律计 |
 | `Work.authors[].entity_id` 悬空 | 指向不存在的 Entity | `--strict` 时计 |
 | 专名校验码与 V 系列 | 同上表，与 check_v2 共用实现（verify 不带 `--ref-root`） | 专名码的 ERROR 一律计；V 系列 ERROR `--strict` 时计；WARN／INFO 只报数 |

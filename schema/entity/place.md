@@ -72,7 +72,6 @@
 | `history[].name` | string | **必填** | 原生 | 本段当时之名 | 非空（P01） | 录入 | `"汴州"` |
 | `history[].level` | string | **必填** | 原生 | 政区层级（山川条为自然地理类别） | 14 值：`國`｜`郡`｜`州`｜`府`｜`軍`｜`監`｜`路`｜`道`｜`省`｜`縣`｜`廳`｜`都`｜`山`｜`水`（P01）；`山`、`水` 只用于山川条（山、岭、河、江、湖、海），见下〈山川条〉。草稿库 10-08 用到：`縣` 2,776、`州` 1,726、`府` 472、`路` 318、`軍` 112、`郡` 85、`省` 68、`道` 16、`監` 8、`都` 7、`廳` 2 | 录入 | `"府"` |
 | `history[].parent_id` | string | 可选 | 原生 | 本段上级 | place id，须存在、不自引、无环（P03）；上级在本段年份内须有沿革段覆盖（端点相接算覆盖），否则 WARN，应在空档处拆段、该段上级留空（P10） | 录入 | `"1jb8kox0psbuo"` |
-| `history[].parent_text` | string | 可选 | 原生 | 上级未建条时的上级名 | 与 `parent_id` 并存 WARN，入库前清掉 `parent_text`（P03）；草稿库现无 | 录入 | |
 | `history[].note` | string | 可选 | 原生 | 本段依据 | 自由文本（草稿库 5,590 项全有） | 录入 | `"《宋史》卷八十五〈地理志一〉：…"` |
 | `modern` | object | 可选 | 原生 | 今地对照 | `{text, adcode?, relation, note?}`（P06） | 录入 | `{"text":"河南省開封市（府治在今老城區）","adcode":"410200","relation":"治所今在"}` |
 | `modern.text` | string | 条件：有 `modern` 时必填 | 原生 | 今地 | 自由文本 | 录入 | `"河南省洛陽市"` |
@@ -158,7 +157,7 @@
 | D3 | dynasty、reign、office、place | `dates` 键按 subtype 放行（office／place 有 `dates` 即错）；`start`／`end` 为整数、无 0 年、`start ≤ end`；dynasty 的 `period` 是现有 slug（ERROR）；有 `period` 而缺 `start`（WARN） | ERROR／WARN |
 | P01 | place | `primary_name` 非空；`history` 为非空数组；各项为对象、`level` 在 14 值内、`name` 非空 | ERROR |
 | P02 | place | 各项 `start`／`end` 为整数、`start ≤ end`、`end ≤ 1912`；各项时段不重叠 | ERROR |
-| P03 | place | `history[].parent_id` 存在且为 place、不自引、上级链无环（ERROR）；`parent_id` 与 `parent_text` 并存（WARN） | ERROR／WARN |
+| P03 | place | `history[].parent_id` 存在且为 place、不自引、上级链无环 | ERROR |
 | P04 | place | `history[].dynasty_ids` 存在且为 dynasty | ERROR |
 | P06 | place | `modern` 为对象、`relation` 必填且在 5 值内、`adcode` 为六位数字 | ERROR |
 | P07 | place | `predecessors[].id` 存在且为 place、`kind` ∈ `析出`／`並入`／`改置` | ERROR |

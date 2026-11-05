@@ -190,7 +190,6 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 | `name` | string | 必填 | 原生 | 来源名称 | 自由文本 | 录入 | `"中國古籍總目（上圖聯合目錄）"` |
 | `type` | string | 可选 | 原生 | 来源形态 | 实测只有 `url`；另可为 `bookID` | 录入 | `"url"` |
 | `details` | string | 可选 | 原生 | 地址或细节 | 自由文本／URL | 录入 | `"https://gj.library.sh.cn/unionCatalogue/…"` |
-| `position` | string | 可选 | 原生 | 在来源中的位置 | 自由文本 | 录入 | |
 | `version` | string | 可选 | 原生 | **处理程序**的版本号（与书的版本无关） | 自由文本 | 录入 | `"1.0"` |
 | `processor_version` | string | 可选 | 原生 | 处理程序版本 | 自由文本 | 录入 | `"script-v1"` |
 
@@ -213,7 +212,7 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 
 | 字段 | 类型 | 在哪 | 含义 | 取值 |
 |---|---|---|---|---|
-| `juan_count` | object | Work、Book、Collection | 主计量：一个数＋单位 | `{number, unit?, description?, source?}`，见下 |
+| `juan_count` | object | 只 Collection（Work、Book 已并入 `measures`） | 卷数 | `{number, description?}`，见下 |
 | `measures` | array<object> | Work、Book、Collection | 多维计量，按原书顺序 | `[{number, unit, note?}]` |
 | `measure_info` | string | Work、Book、Collection | 人可读的计量拼接，供界面直接显示 | 自由文本，如 `"四卷二十回"`、`"八集四十回（每集五回）"`；卷数用汉字数字（`"一百零五卷"`，不写 `"105卷"`，不夹「０」），schema 有闸 |
 | `page_count` | object | Work、Book、Collection | 页数 | `{number, description?, source?}` |
@@ -225,13 +224,9 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 | 字段 | 类型 | 必填 | 含义 | 取值 |
 |---|---|---|---|---|
 | `number` | integer | 必填 | 这个数 | 非负整数；`0` 只用于「不分卷」（这部书没有卷这个维度） |
-| `unit` | string | 可选 | 这个数的单位 | 18 个量词的闭集：`卷`｜`冊`｜`篇`｜`回`｜`集`｜`編`｜`種`｜`則`｜`部`｜`章`｜`函`｜`首`｜`筆`｜`期`｜`節`｜`帙`｜`弄`｜`件`；「不分卷」不填 |
 | `description` | string | 可选 | 计量的原文或说明 | 自由文本 |
-| `source` | string | 可选 | 出处代号 | 自由文本 |
 
-- `number` 与 `unit` 同层：**读 `number` 时必须同时读 `unit`，不可预设「卷」**（《羋子》「十八篇」曾被显示成「十八卷」）。`unit` 缺时宁可不显示单位字样。
-- 现状（2026-11-03）：Book 有 `unit` 270,874 条（`册` 旧写已清，现存 0）；Work 的 `juan_count` 只有 155 条带 `unit`，Work 的单位实际记在 `measures[0].unit`（60,334 条），两处如何收成一套待定。
-- 汉志一类著录的「篇」也放在 `juan_count.number`，靠 `unit` 区分。
+- 现状（2026-11-05）：只剩 Collection 14 条，均为 `{number, description}`。Work、Book 的数与单位都在 `measures[]`（读 `number` 必须同时读 `unit`，不可预设「卷」；《羋子》「十八篇」曾被显示成「十八卷」）。`juan_count.unit`／`source` 全库 0 条，2026-11-05 删。
 
 **`measures`**：同一部书同时有不止一个计量维度时用（如通俗小说「六卷十六回」，卷是文本分卷、回是章节结构）。`juan_count` 是其中作为主计量的那一个，不另立一套。`measures[].unit` 实测还有 `頁`、`段`、`幅`、`條`、`折`、`石`、`字`、`葉`、`卷首` 等少量值，不在上面的闭集内。已知 `measures[0].unit` 不能盲信：正式库曾查出 995 条与 `measure_info` 原文不一致（多在「國立故宮博物院善本舊籍」批次，整批错填成「冊」），回填 `juan_count.unit` 一律以 `measure_info` 原文重新抽取为准。
 
@@ -269,7 +264,6 @@ Work、Book、Collection 都可有 `resources[]`：这部书在外部站点上�
 | `details` | string | 可选 | 说明 | 自由文本 |
 | `publisher` | string | 可选 | 出版者 | 自由文本 |
 | `place` | string | 可选 | 出版地 | 自由文本 |
-| `source` | string | 可选 | 出处代号 | 自由文本 |
 
 `publication_info.year` 是自由文本，界面不据它排序；排序用 `dating`。Book 的年代只写 `dating`（S2-L）：数字年 → `dating.year`，`1264-1941` 式区间 → `dating.year_range`，其余文本 → `dating.text`；机器转入的 `certainty: inferred`（文本类 `uncertain`）、`source: catalog`。
 
@@ -305,7 +299,6 @@ Work、Book、Collection、Entity 都有。
 | `revised_at` | string | 有 `revision` 时必填 | 原生 | 最后一次改版的日期 | `YYYY-MM-DD` | bim | `"2026-10-08"` |
 | `ai_note` | string | 可选 | 原生 | 整理者写给整理者的注，不面向读者 | 自由文本，见下 | 录入 | |
 | `todo` | array<object> | 可选（Entity 专用；Work／Book／Collection 已删） | 原生 | 条目级待核清单 | `[{what, by?, date?}]`，`what` 非空；做完即移除该项，不留「已办」标记 | 录入 | |
-| `review` | object | 可选（Work 49 条、Entity 存量；Book／Collection 已删） | 原生 | 人工审核状态 | `{status, by?, date?}`；`status` ∈ `unreviewed`｜`reviewed`｜`disputed`；缺即 `unreviewed` | 录入 | `{"status":"unreviewed"}` |
 | `_` 起首一切 | — | 源档不写 | 派生 | 见 [derived.md](derived.md) | 无例外（`_has_text`、`_has_collated` 豁免已收回，见 [CHANGELOG.md](CHANGELOG.md)） | build | |
 
 **`ai_note`**：

@@ -135,7 +135,6 @@ CODES = {
     "B-S02": ("Book seal_marks 同項 seal_id 重複", "專名"),
     "B-S03": ("Book seal_marks 指向墓碑", "專名"),
     "B-S04": ("Book seal_marks 印章止年早於書之年份", "專名"),
-    "B-S05": ("Book seal_marks.position 過長（≤30）", "專名"),
     "K01": ("publisher 類別／狀態／來源", "專名"), "K02": ("publisher dynasty_ids（古代必填、現代禁）", "專名"),
     "K03": ("publisher start／end", "專名"), "K04": ("publisher locations", "專名"),
     "K05": ("publisher owners／parent_id", "專名"), "K06": ("publisher 禁欄", "專名"),
@@ -258,7 +257,7 @@ def check_record(kind, rec):
 
 
 def check_seal_marks(rec, registry):
-    """Book.provenance[].seal_marks 之引用檢查（B-S01…B-S05）；回 [(code, level, field, detail)]。"""
+    """Book.provenance[].seal_marks 之引用檢查（B-S01…B-S04）；回 [(code, level, field, detail)]。"""
     out = []
     year = (rec.get("dating") or {}).get("year")
     for pi, pv in enumerate(rec.get("provenance") or []):
@@ -271,8 +270,6 @@ def check_seal_marks(rec, registry):
                 continue
             f = "provenance[%d].seal_marks[%d]" % (pi, mi)
             sid = m.get("seal_id")
-            if isinstance(m.get("position"), str) and len(m["position"]) > 30:
-                out.append(("B-S05", es.ERROR, f + ".position", "超過 30 字（%d）" % len(m["position"])))
             if sid in seen:
                 out.append(("B-S02", es.ERROR, f + ".seal_id", "同一 provenance 項內重複：%s" % sid))
             seen.add(sid)

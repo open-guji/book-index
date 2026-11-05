@@ -41,7 +41,6 @@
 | `emendated_by` | array<IndexEntry> | 可选 | 原生 | 被考证／校勘类著作订正 | 同上 | 录入 | |
 | `contained_in` | array<object> | 可选 | 原生 | 本作品收入哪些丛编（成员一侧；**Work∈Collection 的唯一存储侧**） | 每项 `{id, volume_index?, order?, group?, details?}`，见 [§四](#四contained_in) | 录入 | `[{"id":"8rlcsybg2hhh","volume_index":"第6卷","order":15}]` |
 | `related_works` | array<object> | 可选 | 原生 | 与其他记录的关系（规范方向一侧） | 每项 `{id, relation, note?}`；`relation` 只用 [§五](#五关联词表) 的「源档可写」词；**不写 `title`** | 录入 | `[{"id":"d59f2mp0flz4","relation":"contains_text_of"}]` |
-| `preferred_book` | string | 可选 | 原生 | 推荐版本 | 本 Work 名下一个 Book 的 id（现存 0 条） | 录入 | |
 | `version_graph` | object | 可选 | 原生 | 人工策展的版本传承图配置 | 见 [§六](#六version_graph) | 录入 | |
 | `resources` | array<Resource> | 可选 | 原生 | 外部资源 | 见 common.md〈Resource〉 | 录入 | |
 | `resource_groups` | object | 可选 | 原生 | 资源组说明 | 见 common.md | 录入 | |
@@ -50,7 +49,7 @@
 | `appendix` | array<object> | 可选 | 原生 | 附录说明 | `[{title, text}]`（1 条） | 录入 | |
 | `current_location`、`page_count`、`zhsy_retrieved_at` | — | **不写** | 已删 | 2026-11-02 实测 0 条，已从 JSON Schema 删除（写了会报 ERROR） | — | — | |
 | `merged_into`、`merged_basis` | — | 墓碑 | 原生 | 并条账，只在墓碑上（`merged_in`／`merged_from`／`merge_history` 已于 2026-11-03 删除） | 见 [common.md〈并条账〉](common.md#七并条账) | bim、录入 | |
-| `ai_note`、`review` | — | 可选 | 原生 | 共通字段 | 见 common.md〈共通管理字段〉 | 录入 | |
+| `ai_note` | — | 可选 | 原生 | 共通字段 | 见 common.md〈共通管理字段〉 | 录入 | |
 | `revision`、`revised_at` | string | `revision` 正式库必填 | 原生 | 共通字段 | 见 common.md | bim | `"1.0.0"` |
 | `_has_text`、`_has_collated` | boolean | **不写** | 已删 | 有全文／有整理本；实测 0 条，已从 JSON Schema 删除；产物由 build 从 resources＋book-text 推（check_v2 V01 报） | 见 [legacy.md](legacy.md) | build | |
 | 其余 `_` 起首 | — | **源档不写** | 派生 | `_books`、`_edition_count`、`_related`、`_catalogs`、`_authors`、`_collections`、`_classifications` 等 | 见 [derived.md](derived.md) | build | |

@@ -947,8 +947,6 @@ def _check_place(rec, reg):
                 out.append(("P03", ERROR, f + ".parent_id", "自引用"))
             elif reg.sub.get(hp) != "place":
                 out.append(("P03", ERROR, f + ".parent_id", "不存在或非 place：%r" % (hp,)))
-            if "parent_text" in h:
-                out.append(("P03", WARN, f, "parent_id 與 parent_text 並存，入庫前清掉 parent_text"))
             if reg.sub.get(hp) == "place" and hp != rec["id"]:
                 gaps = _uncovered(s, e, reg.rec.get(hp, {}).get("history") or [])
                 if gaps:

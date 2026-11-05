@@ -197,19 +197,9 @@ def todo_ok(v):
             if fv is not None and not isinstance(fv, str): return False
     return True
 
-REVIEW_STATUS = {'unreviewed', 'reviewed', 'disputed'}
-
 def review_ok(v):
-    """通用審核狀態 `review`（由 v2 `confirm` 改造）：無此欄即過。
-    物件 `{status, by, date}`，`status` 落於三值域，`by`／`date` 選填皆為字符串。
-    只定義形狀，本卡不批量回填（現行無條目有此欄，基線 0）。"""
-    if v is None: return True
-    if not isinstance(v, dict): return False
-    if v.get('status') not in REVIEW_STATUS: return False
-    for f in ('by', 'date'):
-        fv = v.get(f)
-        if fv is not None and not isinstance(fv, str): return False
-    return True
+    """`review` 已於 2026-11-05 自四類記錄刪除（存量全是 unreviewed 佔位）：有此欄即不合。"""
+    return v is None
 
 SIMP_HINT_CHARS = set('国学图书馆')  # 本庫以繁體為主，這批字一見即是簡體（機構名 stale_ref 推廣用）
 
@@ -440,7 +430,7 @@ def main():
     for r in bad_count[:10]: print('  count 壞', r)
     print(f'todo 形狀不合           {len(bad_todo)}')
     for r in bad_todo[:10]: print('  todo 壞', r)
-    print(f'review 形狀不合         {len(bad_review)}')
+    print(f'review 殘留（已刪欄）   {len(bad_review)}')
     for r in bad_review[:10]: print('  review 壞', r)
     # S5（overview#189）stale_ref 推廣：下三項是既有欄位之內容漂移／機構名簡繁不一，
     # 屬歷史遺留（本卡「不改任何已有字段的值」），故只報數、落 known-issues，不入 FAIL 之列，

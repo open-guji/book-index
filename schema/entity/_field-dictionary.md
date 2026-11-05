@@ -22,7 +22,7 @@
 | `level` | `history[].level`＝行政级别（縣、府、州、山、水等）；`*_level`＝概念／具体层 |
 | `type` | `alt_names[].type`＝别名类别；`relations[].type`＝本条是对方的什么（如父、師）；顶层 `type` 恒为 `entity`；`sources[].type` |
 | `kind` | `predecessors[].kind`＝承继方式（析出／並入／改置，数据现只有改置）；`qualifier.kind`＝institution／place／mode |
-| `status` | publisher 顶层 `status`＝存续状态；`review.status`＝审核（Entity 已停写，见第四节） |
+| `status` | publisher 顶层 `status`＝存续状态；`review` 已于 2026-11-05 删除，见第四节 |
 | `name` | `alt_names[].name`、`history[].name`、`ruler.name`、`qualifier.name`、`locations[].name` 各自含义不同 |
 | `title_or_office` | people，**文本**：著录所见官职或头衔；不是 office 实体引用 |
 
@@ -35,5 +35,5 @@
 
 ## 四、停写与待定
 
-- `review`：Entity 里 121,416 条恒为 `{"status":"unreviewed"}`，用户 2026-11-02 定**只停新写、存量不动**。可信度靠 `description.sources`、A/B/C 档、`ai_note` 表达。
+- `review`：原 121,416 条恒为 `{"status":"unreviewed"}`（没有一条审过），用户 2026-11-05 定连存量一并删除（目录库 v2 设计）。可信度靠 `description.sources`、A/B/C 档、`ai_note` 表达。
 - 已删 0 条预留字段：`salary`、`succeeds`、`kind_also`、`seal_script`、`material`、`size`、`dates.chinese`、`birth_year`、`death_year`。真要用时再加。

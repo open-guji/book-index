@@ -28,7 +28,6 @@
 | `work_id` | string | 可选 | 原生 | 本丛编整体对应的伞状作品（8 条） | Work id | 录入 | 《十三經注疏》 |
 | `contained_in` | array<object> | 可选 | 原生 | 本丛编（子丛编）收在哪个上级丛编 | 每项 `{id}`；**对象形**，与 Book、Work 一致（字符串旧写法已清零，Schema 不再接受） | 录入 | `[{"id":"8rlcsybg2hih"}]` |
 | `indexed_by` | array<IndexEntry> | 可选 | 原生 | 被目录书著录 | 见 common.md | 录入 | |
-| `related_books` | array<string> | 可选 | 原生 | 对称关联的 Book（存 id 较小一侧） | Book id 字符串数组 | 录入（V07 把关） | |
 | `related_collections` | array<string> | 可选 | 原生 | 对称关联的丛编（存 id 较小一侧） | Collection id 字符串数组；只能写丛编 id | 录入（V07 把关） | `["8rlcsybg2hi6"]` |
 | `merged_into` | string | 墓碑 | 原生 | 本丛编已并入哪一个丛编 | Collection id。**只在墓碑上**；墓碑只留 `schema_version／id／type／subtype／title／merged_into／merged_basis／revision／revised_at`，形同 Book 墓碑；成员侧 `contained_in` 一律改指 keeper，不得指墓碑；网站 `/item/<id>` 308 到 keeper | 并条脚本 | |
 | `resources` | array<Resource> | 可选 | 原生 | 外部资源 | 见 common.md | 录入 | |
