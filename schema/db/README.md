@@ -50,10 +50,19 @@ python -m book_index_manager.db coverage --schema ../book-index/schema/json   # 
 
 库 1.32 GB（含 trigram 索引）。`checks.sql` 27 条全 0 行，29 个外键全部 VALIDATE 通过。
 
+## 建库
+
+```bash
+python -m book_index_manager.db build --root ../book-index --dsn "host=… dbname=gj" [--full] [--verify]
+```
+
+`build_meta` 记上次建到的提交与表结构指纹；指纹没变就只把 `git diff` 里改动的记录删了重灌（外键 `DEFERRABLE`，一个事务）。`id_map` 四个来源：记录里的墓碑、`.claude/qa/purge-tombstones/ledger/*.tsv`（清墓碑、并条历史、草稿墓碑改指）、`promotions/*.json`（草稿 id → 正式 id），`live_id` 沿链解到现行记录。细节见 bim `book_index_manager/db/README.md`。
+
+实测（2026-11-05）：#2239 时全量 201 秒；增量到 #2241（Entity 12.1 万、Work 49 个 id 改动）71 秒，`--verify` 四类 807,787 条还原 0 不一致；`id_map` 610,211 行全部解到现行记录，`checks.sql` 28 条全 0 行。
+
 ## 下一步
-1. 按 `git diff` 增量建库；`id_map` 装墓碑、`.claude/qa/purge-tombstones/ledger/*.tsv` 台账（含 `draft-retarget-*`）与草稿库 `promotions.json`，`live_id` 沿链解到现行记录。
-2. 库产出与 `build/build_derived.py` 逐字节一致的 `_build/`，并跑一致后请网站串切换、退役 `build_derived.py`。
-3. book-text 进库（`book_text.sql` 并进映射，导入还原实测）。
+1. 库产出与 `build/build_derived.py` 逐字节一致的 `_build/`，并跑一致后请网站串切换、退役 `build_derived.py`。
+2. book-text 进库（`book_text.sql` 并进映射，导入还原实测）。
 
 ## 沿革
 D1 草案（11-02）到 v2 之间各轮评审与修订（A12、A33、S1–S6、可做可不做第 3–13 组）的逐条记录见本文件 git 历史（2026-11-04 及以前的版本）与 [CHANGELOG](../CHANGELOG.md)。v2 相对 D1：去掉 `repo` 列与 `dynasty`、`record_todo`、`entity_image`、`entity_location`、`entity_appears_in`、`work_additional` 表；四张异名表并成 `alt_name`；`related_book`／`related_collection` 并成 `related_record`；`merged_into` 改名 `id_map`；审计字段收进 `notes`；原型 `proto/roundtrip.py` 由 bim 取代。
