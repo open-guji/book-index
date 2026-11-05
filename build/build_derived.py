@@ -1137,11 +1137,22 @@ def _mem(tag):
         print(f'MEM {tag} {resource.getrusage(resource.RUSAGE_SELF).ru_maxrss // 1024} MB', file=sys.stderr)
 
 
+def load_db(dsn):
+    """四類記錄改從目錄庫讀（bim `book_index_manager.db`，庫由 `db build` 從本倉建）。回傳形同 V.load_repo；
+    庫裡沒有旁檔，sidecars 為空。"""
+    from book_index_manager.db.build import read_records
+    recs = {t: {} for t in V.TYPES}
+    for t, got in read_records(dsn).items():
+        for i, (rel, d) in got.items():
+            recs[t][i] = V.Record(t, rel.replace('/', os.sep), d, None, None)
+    return recs, [], []
+
+
 def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, hub=HUB, quiet=False,
-        write_repo_index=False, text_index=None, stream=False):
+        write_repo_index=False, text_index=None, stream=False, from_db=None):
     """stream=True：逐 id 生成、校驗、寫盤，不攒全庫產物字典（CI 內存峰值降一大截）；輸出與 stream=False 逐字節相同，
     返回的 prods 為 None。--hub-check 要全量重算比對，仍走非流式。"""
-    recs, sidecars, problems = V.load_repo(root)
+    recs, sidecars, problems = load_db(from_db) if from_db else V.load_repo(root)
     _mem('load_repo')
     ref = None
     for rr in ref_roots:
@@ -1281,10 +1292,12 @@ def main(argv=None):
                          '由 resources＋book-text 推（源裡舊值不再算）')
     ap.add_argument('--write-index', action='store_true',
                     help='【已廢，不再寫倉內】index/ 2026-11-03 起不進倉，只寫 <out>/index/；保留此旗標只為舊腳本不報錯')
+    ap.add_argument('--from-db', metavar='DSN',
+                    help='四類記錄從目錄庫讀（先 `python -m book_index_manager.db build`）；分類、升格表等仍讀 --root')
     a = ap.parse_args(argv)
     ti = TX.load(a.text_index)
     report, _ = run(a.root, a.ref_root, a.out, a.check_only, a.hub_check, a.hub,
-                    write_repo_index=a.write_index, text_index=ti, stream=True)
+                    write_repo_index=a.write_index, text_index=ti, stream=True, from_db=a.from_db)
     if report['fatal']:
         print('FAIL: ' + '；'.join(report['fatal']), file=sys.stderr)
         return 1

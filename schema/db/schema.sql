@@ -39,6 +39,7 @@ CREATE TABLE work (
   authenticity text,
   additional_works jsonb,
   description_text text,
+  file_name text,
   notes jsonb,
   extra jsonb,
   PRIMARY KEY (id)
@@ -71,6 +72,7 @@ CREATE TABLE book (
   physical_condition text,
   description_text text,
   zhsy_id text,
+  file_name text,
   notes jsonb,
   extra jsonb,
   PRIMARY KEY (id)
@@ -96,6 +98,7 @@ CREATE TABLE collection (
   pub_publisher text,
   pub_details text,
   description_text text,
+  file_name text,
   notes jsonb,
   extra jsonb,
   PRIMARY KEY (id)
@@ -115,6 +118,7 @@ CREATE TABLE entity (
   todo jsonb,
   appears_in jsonb,
   description_text text,
+  file_name text,
   notes jsonb,
   extra jsonb,
   PRIMARY KEY (id)
