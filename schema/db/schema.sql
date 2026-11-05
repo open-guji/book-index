@@ -20,6 +20,7 @@ CREATE TABLE build_meta (
   built_at text NOT NULL,
   ddl_sha text NOT NULL,
   mode text NOT NULL,
+  text_commit text,
   PRIMARY KEY (git_commit)
 );
 
@@ -197,6 +198,97 @@ CREATE TABLE reign (
   id text NOT NULL,
   ruler_name text,
   ruler_entity_id text,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE bt_item (
+  id text NOT NULL,
+  notes jsonb,
+  extra jsonb,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE bt_version (
+  id text NOT NULL,
+  work_id text,
+  book_id text,
+  title text,
+  entry_type text,
+  schema_version int,
+  revision text,
+  revised_at text,
+  version_label text,
+  edition_note text,
+  fetched_at text,
+  updated_at text,
+  guji_markdown text,
+  line_is_column boolean,
+  total_chapters int,
+  total_entries int,
+  matched_entries int,
+  books_linked int,
+  books_listed int,
+  dropped_refs int,
+  placeholder_chars int,
+  collated_edition_type text,
+  edition text,
+  author text,
+  compiler text,
+  compiler_role text,
+  annotator text,
+  annotator_role text,
+  table_notation text,
+  heading_levels text[],
+  juan_groups jsonb,
+  variants jsonb,
+  unknown_templates jsonb,
+  fetch_stats jsonb,
+  coverage jsonb,
+  refs jsonb,
+  volume_structure jsonb,
+  source_name text,
+  source_url text,
+  source_license text,
+  source_base_edition text,
+  source_commit text,
+  source_dump_date text,
+  source_page_title text,
+  source_revid int,
+  source_siku_class text,
+  source_catalog_line jsonb,
+  source_upstream jsonb,
+  source_type text,
+  quality_grade text,
+  quality_scope text,
+  quality_issues jsonb,
+  notes jsonb,
+  extra jsonb,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE fragment (
+  id text NOT NULL,
+  work_id text,
+  title text,
+  frag_type text,
+  schema_version int,
+  schema_ref text,
+  loss_status loss_status,
+  provenance text,
+  statement text,
+  updated_at text,
+  text_condition text,
+  cited_in_summary jsonb,
+  collection_attested jsonb,
+  other_statements jsonb,
+  related_titles jsonb,
+  coverage_level text,
+  coverage_note text,
+  fragments_attested int,
+  fragments_recorded int,
+  text_available boolean,
+  notes jsonb,
+  extra jsonb,
   PRIMARY KEY (id)
 );
 
@@ -511,6 +603,173 @@ CREATE TABLE entity_relation (
   PRIMARY KEY (src, rel, src_key, seq)
 );
 
+CREATE TABLE bt_manifest_version (
+  item_id text NOT NULL,
+  seq int NOT NULL,
+  key text,
+  kind text,
+  label text,
+  edition_label text,
+  is_original boolean,
+  license text,
+  quality text,
+  script text,
+  source text,
+  source_name text,
+  source_url text,
+  chapters_total int,
+  note text,
+  extra jsonb,
+  PRIMARY KEY (item_id, seq)
+);
+
+CREATE TABLE bt_chapter (
+  version_id text NOT NULL,
+  seq int NOT NULL,
+  n int,
+  file text,
+  title text,
+  has_json boolean,
+  md_len int,
+  page_title text,
+  revid int,
+  juan text,
+  volume int,
+  pdf_pages text,
+  has_table boolean,
+  pages text,
+  proofing boolean,
+  text_version text,
+  punct_version text,
+  entity_version text,
+  char_file text,
+  cord_file text,
+  punct_file text,
+  entity_file text,
+  norm_file text,
+  fig_file text,
+  extra jsonb,
+  PRIMARY KEY (version_id, seq)
+);
+
+CREATE TABLE bt_heading (
+  version_id text NOT NULL,
+  ch_seq int NOT NULL,
+  seq int NOT NULL,
+  level int,
+  label text,
+  anchor text,
+  extra jsonb,
+  PRIMARY KEY (version_id, ch_seq, seq)
+);
+
+CREATE TABLE bt_other_source (
+  version_id text NOT NULL,
+  seq int NOT NULL,
+  src_id text,
+  name text,
+  url text,
+  notes jsonb,
+  extra jsonb,
+  PRIMARY KEY (version_id, seq)
+);
+
+CREATE TABLE fragment_based_on (
+  fragment_id text NOT NULL,
+  seq int NOT NULL,
+  source text,
+  source_bid text,
+  field text,
+  notes jsonb,
+  extra jsonb,
+  PRIMARY KEY (fragment_id, seq)
+);
+
+CREATE TABLE fragment_collector (
+  fragment_id text NOT NULL,
+  seq int NOT NULL,
+  collector text,
+  work text,
+  collector_work_id text,
+  work_alias text,
+  count int,
+  count_unit text,
+  statement text,
+  statement_label text,
+  note text,
+  location jsonb,
+  juans jsonb,
+  edition text,
+  measure text,
+  appendix_count int,
+  verified_against text,
+  verify_result text,
+  attested_count int,
+  attested_count_basis jsonb,
+  notes jsonb,
+  extra jsonb,
+  PRIMARY KEY (fragment_id, seq)
+);
+
+CREATE TABLE fragment_collector_section (
+  fragment_id text NOT NULL,
+  cseq int NOT NULL,
+  seq int NOT NULL,
+  file text,
+  idx int,
+  juan_no int,
+  lei text,
+  part text,
+  section_title text,
+  extra jsonb,
+  PRIMARY KEY (fragment_id, cseq, seq)
+);
+
+CREATE TABLE fragment_piece (
+  fragment_id text NOT NULL,
+  seq int NOT NULL,
+  num int,
+  heading text,
+  piece_title text,
+  text text,
+  text_status text,
+  text_from text,
+  attested_by text,
+  confidence text,
+  note text,
+  editor_note text,
+  extra jsonb,
+  PRIMARY KEY (fragment_id, seq)
+);
+
+CREATE TABLE fragment_piece_collector (
+  fragment_id text NOT NULL,
+  pseq int NOT NULL,
+  seq int NOT NULL,
+  collector text,
+  work text,
+  collector_work_id text,
+  juan text,
+  extra jsonb,
+  PRIMARY KEY (fragment_id, pseq, seq)
+);
+
+CREATE TABLE fragment_citation (
+  fragment_id text NOT NULL,
+  pseq int NOT NULL,
+  seq int NOT NULL,
+  raw text,
+  book text,
+  juan text,
+  title text,
+  section text,
+  detail text,
+  work_id text,
+  note text,
+  extra jsonb,
+  PRIMARY KEY (fragment_id, pseq, seq)
+);
+
 CREATE INDEX ON work USING gin (title gin_trgm_ops);
 CREATE INDEX ON book USING gin (title gin_trgm_ops);
 CREATE INDEX ON collection USING gin (title gin_trgm_ops);
@@ -533,3 +792,7 @@ CREATE INDEX ON entity_relation (dst, rel);
 CREATE INDEX ON entity_external_id (key, value);
 CREATE INDEX ON place_history_dynasty (dynasty_id);
 CREATE INDEX ON id_map (live_id);
+CREATE INDEX ON bt_version (work_id);
+CREATE INDEX ON bt_version (book_id);
+CREATE INDEX ON fragment (work_id);
+CREATE INDEX ON fragment_piece USING gin (text gin_trgm_ops);

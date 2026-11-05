@@ -1,46 +1,11 @@
--- book-text 仓的规范化表（D1 草案补充，GUJI-755）
--- 来源：open-guji/book-text 的 manifest.json、<版本>/index.json、pages.tsv、整理本 NNN.json、
---       original 的 NNN.{punct,entity,norm,decision}.json 文件头与专名、fragments/*.json、CHANGES.md。
+-- book-text 仓的规范化表：尚未并进映射的部分（手写草案，GUJI-755 第 4 步第二批）。
+-- 已进库（2026-11-05，bim #309，表在 schema.sql 的 bt_*、fragment*）：manifest.json、各版本 index.json
+--   （章 bt_chapter、标题层级 bt_heading、other_sources；juan_groups 进 bt_version 的 jsonb 列）、辑佚 fragments/*.json。
+-- 下面这些还没进：pages.tsv、original 伴生层文件头、CHANGES.md、整理本 NNN.json sections、专名 NNN.entity.json、
+--   bt_file、bt_mention。并进映射时主键改用 bim 的写法（version_id＝「条目id/版本key」，章用 bt_chapter 的 seq）。
 -- 不进库（留在 git／COS，库里只记「有没有、什么版本」）：正文 NNN.md 全文、char 每格字、cord 像素框、
 --       punct 每个标点、norm 条目、fig 图片、sources/ 抓取素材。正文是否进库做全文检索另定。
--- 表名一律 bt_ 前缀；item_id 是 book-index 的 Work 或 Book id（与 book-index 同一套 id）。
 
--- ============ 条目与版本 ============
-CREATE TABLE bt_item (
-  item_id text PRIMARY KEY, item_type char(1) NOT NULL,  -- W / B
-  path text NOT NULL,                                     -- Work/c1/c2/c3/<id>
-  has_manifest boolean NOT NULL, extra jsonb
-);
--- manifest.versions[] ＋ 该版本目录 index.json 的顶层字段
-CREATE TABLE bt_version (
-  item_id text NOT NULL REFERENCES bt_item ON DELETE CASCADE, key text NOT NULL, seq int NOT NULL,  -- seq=0 即 default
-  kind text,                             -- manifest 原值：transcription / collated / self_collated；original 另看 is_original
-  label text, edition_label text, note text, fetched_at text,  -- scraped_at 已并入 fetched_at（第 11 组）
-  source text, source_name text, source_url text, license text, quality text,
-  chapters_total int, script text, is_original boolean,
-  version_label text, revision text, revised_at date, guji_markdown text, heading_levels text[],
-  line_is_column boolean, catalog_type text, total_entries int, matched_entries int,  -- 目录书型整理本
-  source_meta jsonb, edition_note text, ref_sources jsonb, extra jsonb,
-  PRIMARY KEY (item_id, key)
-);
-CREATE TABLE bt_juan_group (item_id text, key text, seq int, parent_seq int, label text NOT NULL, files text[], extra jsonb,  -- children[] 展开，parent_seq 指上级
-  PRIMARY KEY (item_id, key, seq), FOREIGN KEY (item_id, key) REFERENCES bt_version ON DELETE CASCADE);
-
--- ============ 章 ============
-CREATE TABLE bt_chapter (
-  item_id text, key text, n int, file text NOT NULL, title text,
-  has_json boolean, pages text, proofing boolean,
-  md_len int, page_title text, revid text, juan text, volume text, pdf_pages text, has_table boolean,
-  -- original 里 n＝册号
-  layers text[],                         -- 有哪些层：char cord punct entity norm decision fig pending（由 *_file 推得）
-  text_version text, punct_version text, entity_version text,
-  extra jsonb,
-  PRIMARY KEY (item_id, key, n), UNIQUE (item_id, key, file),
-  FOREIGN KEY (item_id, key) REFERENCES bt_version ON DELETE CASCADE
-);
--- 章目录缓存 headings[]（original）
-CREATE TABLE bt_heading (item_id text, key text, n int, seq int, level int NOT NULL, label text, anchor text, toc boolean,
-  PRIMARY KEY (item_id, key, n, seq), FOREIGN KEY (item_id, key, n) REFERENCES bt_chapter ON DELETE CASCADE);
 -- pages.tsv：行号 → 原书页（kanripo 等）
 CREATE TABLE bt_page_break (item_id text, key text, file text, line_no int, pb text NOT NULL,  -- file 存不带扩展名的章键（001），与 bt_chapter.file 可 join
   PRIMARY KEY (item_id, key, file, line_no));
@@ -93,37 +58,6 @@ CREATE TABLE bt_entity_span_target (
   FOREIGN KEY (item_id, key, n, eid) REFERENCES bt_entity_span ON DELETE CASCADE
 );
 CREATE INDEX ON bt_entity_span_target (target_id);
-
--- ============ 辑佚（Work/<id>/fragments/<书名>.json） ============
-CREATE TABLE fragment (
-  work_id text NOT NULL, title text NOT NULL, path text NOT NULL UNIQUE,
-  schema_version int, coverage_level text, coverage_note text,
-  fragments_attested int, fragments_attested_note text, fragments_recorded int, text_available boolean,
-  loss_status text, statement text, statement_note text, provenance text, provenance_note text,
-  cited_in_summary jsonb, cited_in_summary_note text, ai_note text, extra jsonb,
-  PRIMARY KEY (work_id, title)
-);
-CREATE TABLE fragment_based_on (work_id text, title text, seq int, source text, source_bid text, field text, extra jsonb,
-  PRIMARY KEY (work_id, title, seq), FOREIGN KEY (work_id, title) REFERENCES fragment ON DELETE CASCADE);
-CREATE TABLE fragment_collector (
-  work_id text, title text, seq int, collector text, work text, collector_work_id text,
-  count int, count_unit text, statement text, statement_label text, note text, basis text, location jsonb,
-  verified_against text, verify_result text, verify_note text, attested_count int, attested_count_basis text, extra jsonb,
-  PRIMARY KEY (work_id, title, seq), FOREIGN KEY (work_id, title) REFERENCES fragment ON DELETE CASCADE);
-CREATE TABLE fragment_collector_section (
-  work_id text, title text, cseq int, seq int, file text, idx int, section_title text, part text, juan_no int, lei text, extra jsonb,
-  PRIMARY KEY (work_id, title, cseq, seq));
--- 佚文条目
-CREATE TABLE fragment_piece (
-  work_id text, title text, idx int, seq int,           -- idx＝数组位置（主键）；seq 为数据里的编号（4 份与位置不符）
-  heading text, piece_title text, text text, text_status text,
-  attested_by text, confidence text, note text, editor_note text, extra jsonb,
-  PRIMARY KEY (work_id, title, idx), FOREIGN KEY (work_id, title) REFERENCES fragment ON DELETE CASCADE);
-CREATE INDEX ON fragment_piece USING gin (text gin_trgm_ops);
-CREATE TABLE fragment_piece_collector (work_id text, title text, pidx int, seq int, collector text, work text, collector_work_id text,
-  PRIMARY KEY (work_id, title, pidx, seq));
-CREATE TABLE fragment_citation (work_id text, title text, pidx int, seq int, raw text, cited_title text, note text, extra jsonb,
-  PRIMARY KEY (work_id, title, pidx, seq));
 
 -- ============ 抓取素材与其他文件：只登记，不入内容 ============
 CREATE TABLE bt_file (item_id text, path text, kind text NOT NULL,  -- sources / extra / fig / proof / other
