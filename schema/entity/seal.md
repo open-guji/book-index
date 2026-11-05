@@ -42,7 +42,7 @@
 
 **与 Book、asset 仓的关系（查印章从这里开始）**：
 - **印章条本身**（本节）只记这一种印：印文、类别、朝代、印主、印影。
-- **某书有哪些印**不写在印章条，写在具体馆藏本上：`Book.provenance[].seal_marks[]`，每项 `{seal_id, position?, note?, source?}`，`seal_id` 指向本节的印章条（见 [book.md〈四、provenance〉](../book.md#四provenance馆藏)）；旧 `provenance[].seals`（字符串数组）保留为著录原文。校验码 B-S01…B-S05 在 `check_v2.py` Book 段。
+- **某书有哪些印**不写在印章条，写在具体馆藏本上：`Book.provenance[].seal_marks[]`，每项 `{seal_id, note?}`，`seal_id` 指向本节的印章条（见 [book.md〈四、provenance〉](../book.md#四provenance馆藏)）；旧 `provenance[].seals`（字符串数组）保留为著录原文。校验码 B-S01…B-S04 在 `check_v2.py` Book 段。
 - 印章条的 `appears_in` 只是代表例（≤20）；全量待 `seal_marks` 回填后由 build 派生，不手写。
 - **印影图**放在 **open-guji/book-index-asset** 仓，本仓只存 `images[]` 元数据；S06 校验文件是否存在（本地无该仓则跳过）。
 - 并条：印章条被合并时，`entity_merge.py` 同步改繫全库 `seal_marks[].seal_id`。

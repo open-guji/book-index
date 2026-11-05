@@ -77,12 +77,12 @@ Entity 是与书目（Work／Book／Collection）平级的抽象概念记录：�
 - **`dates`**：people 用 `birth`／`death`／`floruit`；dynasty、reign 用 `start`／`end`；官署、seal、publisher 自 2026-11-03 起也用 `dates{start,end,basis}`（原顶层 `start`／`end`）；office、place 不用 `dates`（起讫在沿革项）。详见 [entity/_dates-external-ids.md](entity/_dates-external-ids.md)。
 - **`external_ids`**：people 可有 `cbdb_id`／`wikidata_id`／`viaf_id` 等；专名子类型与 seal、官署只许 `wikidata_id`；publisher 另许 `isbn_publisher_code`。
 - **并条与退役**：留存方不记，被并方只留墓碑并写 `merged_into`、`merged_basis`（`merged_in`／`merge_history` 已于 2026-11-03 删除；并条时不删档，墓碑之后会被定期整体清理，见 [common.md〈并条账〉](common.md#七并条账)）。（原「退役」`retired`／`retired_reason` 已于 2026-11-03 取消：5 条坏名退役条已删档，账见 `.claude/qa/schema-s3-group8-1103/`。）
-- **管理字段**：`ai_note`、`todo`、`review`、`revision`、`revised_at`（`updated_at` 已于 2026-11-03 删除，见 [CHANGELOG.md](CHANGELOG.md)）。
+- **管理字段**：`ai_note`、`todo`、`revision`、`revised_at`（`updated_at` 已于 2026-11-03 删除，见 [CHANGELOG.md](CHANGELOG.md)）。
 - **禁字段与派生**：源档不写 `_` 起首字段、`works`、反向列表等；见 [entity/_forbidden-derived.md](entity/_forbidden-derived.md)。
 
 ## 四、校验码索引
 
-校验实现在 `.claude/qa/entity_subtypes.py`（`check_v2.py` 与 `verify.py` 共用）；Book 侧印章引用码 B-S01…B-S05 在 `check_v2.py` Book 段（见 [book.md〈四、provenance〉](book.md#四provenance馆藏)）。
+校验实现在 `.claude/qa/entity_subtypes.py`（`check_v2.py` 与 `verify.py` 共用）；Book 侧印章引用码 B-S01…B-S04 在 `check_v2.py` Book 段（见 [book.md〈四、provenance〉](book.md#四provenance馆藏)）。
 
 | 码 | 适用 | 在哪个文件 |
 |---|---|---|

@@ -126,7 +126,7 @@
 
 - 一书多藏本各一项。
 - `seals`（字符串）＝著录原文，只读存档；`seal_marks`＝已识别并指向印章条的钤印。同一印两处都有是正常的，不算重复。
-- `seal_marks[]` 项：`seal_id`（必填，指向 `subtype=seal` 的 Entity；不得指墓碑，墓碑须改指 `merged_into`）、`position`（可选，≤30 字，如「首卷第一頁」「卷末」）、`note`（可选）、`source`（可选，这本上有此印的依据，缺省继承本项 `source`）。同一 `provenance` 项内 `seal_id` 不得重复。校验码 B-S01…B-S05 见 `check_v2.py`；印章条被合并时，`seal_marks[].seal_id` 随之改指（`entity_merge.py`）。
+- `seal_marks[]` 项：`seal_id`（必填，指向 `subtype=seal` 的 Entity；不得指墓碑，墓碑须改指 `merged_into`）、`note`（可选）。同一 `provenance` 项内 `seal_id` 不得重复。校验码 B-S01…B-S04 见 `check_v2.py`；印章条被合并时，`seal_marks[].seal_id` 随之改指（`entity_merge.py`）。
 - 现藏地即 `provenance[0].institution`（Book 已无 `current_location`，S2 第三批迁入）；与 `location_history`（递藏史）并存。
 - 故宫 17,539 项由故宫统一编号（即索书号）机械回填，`seals` 按典藏号与故宫资料对照填入；回填后 `metadata.npm_item_id` 与 `call_number` 重复，已从 `metadata` 删去。总目导入的 87.9 万项馆藏著录没有索书号，只有 `institution` 与 `source`（占有 `provenance` 的 Book 的 86%）。
 - **命名提醒**：本字段实为「现藏机构＋索书号」，文献学意义上的递藏传承（provenance）是 `location_history`。名字暂不改，见 S2 报告 §4。

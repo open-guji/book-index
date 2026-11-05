@@ -24,6 +24,8 @@ def ledger_pairs():
         for f in (ROOT / '.claude/qa/purge-tombstones/ledger').glob('*.tsv'):
             lines = f.read_text(encoding='utf-8').splitlines()
             head = lines[0].split('\t')
+            if 'keeper' not in head and 'merged_into' not in head:
+                continue   # 如 draft-retarget-*.tsv：草稿库墓碑改指，不是正式库并条
             col = head.index('keeper') if 'keeper' in head else head.index('merged_into')
             for line in lines[1:]:
                 row = line.split('\t')

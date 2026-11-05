@@ -19,7 +19,7 @@
 | `dates` | object | 条件：中国朝代必填 `start` | 原生 | 起讫 | `{start, end?, basis}`，见[dates 按子类型放行](_dates-external-ids.md#dates-按子类型放行) | 录入 | `{"start":960,"end":1127,"basis":"趙匡胤 960 稱帝，止於靖康"}` |
 | `period` | string | 可选（中国朝代宜填） | 原生 | 默认时代轴 | 现有 period slug（D3）；只作默认值，**不反写** `Work.period` | 录入 | `"song"` |
 
-另可写通用字段 `alt_names`、`description`、`ai_note`、`review`、`revision`、`revised_at`。10-08：两库各 139 条（草稿库的 139 条已全部升格，正式库 id `hixi1…`），有 `dates` 136、`parent_id` 68、`period` 124；无 `dates` 的 3 条是「上古」「上古傳說」「日本」。
+另可写通用字段 `alt_names`、`description`、`ai_note`、`revision`、`revised_at`。10-08：两库各 139 条（草稿库的 139 条已全部升格，正式库 id `hixi1…`），有 `dates` 136、`parent_id` 68、`period` 124；无 `dates` 的 3 条是「上古」「上古傳說」「日本」。
 
 例（正式库，北宋 `hixi1ubk35zj`）：
 
@@ -47,9 +47,6 @@
   "description": {
     "text": "都開封。",
     "sources": []
-  },
-  "review": {
-    "status": "unreviewed"
   },
   "revision": "1.0.1",
   "revised_at": "2026-10-07"

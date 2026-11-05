@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-11-05　删 `review` 占位与全库 0 条的字段（目录库 v2 设计，用户定）
+- 删 `review`：Entity 121,416 条、Work 49 条，全是 `{"status":"unreviewed"}`，没有一条审过；连同 `common.schema.json` 的 `$defs/Review`。Book／Collection 早已删（第 8 组）。`verify.py` 改为见到 `review` 即报残留。网站卡底 `CardFoot` 本就不显示「未審核」，无可见变化。
+- 从 schema 删全库 0 条的字段：Work `preferred_book`；Book `provenance[].seal_marks[]` 的 `position`、`source`（连同 B-S05 校验）；`PublicationInfo.source`；`JuanCount.unit`、`source`（`juan_count` 只剩 Collection 14 条）；`Source.position`；官署 `superiors[].end`。
+- 数据文件原样保留缩进与结尾换行，只删这一个键。`schema/db/` 的表结构随目录库 v2 一起改，不在这次。
+
 ## 2026-11-04　不再统计「缺依据」（可做可不做第 13 组，用户定）
 - `period_basis`／`dynasty_basis` 改为可选：只在值是判断出来的时候写（几说取一、推测、与常规推法相异），能从现有字段推出的不写。删 Work schema 的两条 if/then 必填与 `check_schema` 的 `period-no-basis`／`dynasty-no-basis` WARN（Entity 21,300／12,088 条）。存量不补、不删。
 - `indexed_by`／`emendated_by` 的 `title_info`、`summary` 改「有就写」，删 `index-entry-missing` WARN（约 450 条，原目录本无）。

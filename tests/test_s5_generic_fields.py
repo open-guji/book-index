@@ -40,30 +40,15 @@ def test_todo_ok_rejects_non_string_by():
     assert not verify.todo_ok([{"what": "x", "by": 1}])
 
 
-# ---- review ----
+# ---- review（2026-11-05 已删欄）----
 
 def test_review_ok_accepts_absent():
     assert verify.review_ok(None)
 
 
-def test_review_ok_accepts_minimal():
-    assert verify.review_ok({"status": "unreviewed"})
-
-
-def test_review_ok_accepts_full():
-    assert verify.review_ok({"status": "disputed", "by": "目錄總管", "date": "2026-09-28"})
-
-
-def test_review_ok_rejects_out_of_domain_status():
-    assert not verify.review_ok({"status": "confirmed"})
-
-
-def test_review_ok_rejects_non_dict():
-    assert not verify.review_ok(["unreviewed"])
-
-
-def test_review_ok_rejects_non_string_by():
-    assert not verify.review_ok({"status": "reviewed", "by": 1})
+def test_review_ok_rejects_any_value():
+    assert not verify.review_ok({"status": "unreviewed"})
+    assert not verify.review_ok({"status": "reviewed", "by": "目錄總管"})
 
 
 # ---- institution 简繁 ----
@@ -109,11 +94,11 @@ def test_all_records_todo_review_shape_ok():
     bad_todo = [f for f, d in rows if not verify.todo_ok(d.get("todo"))]
     bad_review = [f for f, d in rows if not verify.review_ok(d.get("review"))]
     assert bad_todo == [], f"todo 形狀不合：{bad_todo[:5]}"
-    assert bad_review == [], f"review 形狀不合：{bad_review[:5]}"
+    assert bad_review == [], f"review 殘留：{bad_review[:5]}"
 
 
 def test_schema_md_documents_new_common_fields():
     # 2026-10-08 起格式定义在 schema/（overview#496）：共通欄在 common.md，派生欄在 derived.md
     section = "".join((ROOT / "schema" / f).read_text(encoding="utf-8") for f in ("common.md", "derived.md"))
-    for token in ("todo", "review", "_edition_count", "_member_count", "unreviewed", "disputed"):
+    for token in ("todo", "_edition_count", "_member_count"):
         assert token in section, f"通用欄位一節缺 {token}"

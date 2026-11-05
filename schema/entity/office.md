@@ -55,9 +55,6 @@
     "function_basis": "《明史·職官志》"
   },
   "function_basis": "《明史·職官志》",
-  "review": {
-    "status": "unreviewed"
-  },
   "revision": "1.0.0",
   "revised_at": "2026-10-07"
 }

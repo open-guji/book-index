@@ -73,9 +73,6 @@
             "null"
           ]
         },
-        "position": {
-          "type": "string"
-        },
         "version": {
           "type": "string"
         },
@@ -494,13 +491,7 @@
           "type": "integer",
           "minimum": 0
         },
-        "unit": {
-          "$ref": "#/$defs/JuanUnit"
-        },
         "description": {
-          "type": "string"
-        },
-        "source": {
           "type": "string"
         }
       },
@@ -565,9 +556,6 @@
           "type": "string"
         },
         "place": {
-          "type": "string"
-        },
-        "source": {
           "type": "string"
         }
       },
@@ -659,28 +647,6 @@
         },
         "additionalProperties": false
       }
-    },
-    "Review": {
-      "type": "object",
-      "required": [
-        "status"
-      ],
-      "properties": {
-        "status": {
-          "enum": [
-            "unreviewed",
-            "reviewed",
-            "disputed"
-          ]
-        },
-        "by": {
-          "type": "string"
-        },
-        "date": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
     },
     "AppendixItems": {
       "type": "array",

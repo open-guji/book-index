@@ -43,7 +43,6 @@
 | `relations` | array<PersonRelation> | 可选；people | 原生 | 亲属／师承关系，双向对称写入 | 每项 `{type, entity_id, basis?, sources?[]}`；`type` 12 值：父／子／祖／孫／曾祖／曾孫／兄／弟／叔伯／姪／師／弟子；见[people](people.md) | 录入 | `[{"type":"父","entity_id":"hixhd2h9bf1f"}]` |
 | `ai_note` | string | 可选（全部） | 原生 | 录入备注 | 自由文本，见 [common.md〈ai_note〉](../common.md) | 录入 | |
 | `todo` | array<object> | 可选（全部） | 原生 | 待办 | 每项 `{what, by?, date?}`，`what` 非空；正式库 people 37 条（2026-11-03 实测），其余类型无 | 录入 | |
-| `review` | object | 可选（全部） | 原生 | 审核状态 | `{status, by?, date?}`，`status` ∈ `unreviewed`｜`reviewed`｜`disputed` | 录入 | `{"status":"unreviewed"}` |
 | `revision` | string | **正式库必填**（全部） | 原生 | 记录内容版本 | `"主.次.补"`，新条 `"1.0.0"`；口径见 [common.md〈revision〉](../common.md#revision-口径)。Entity 也必填（overview#468），正式库已全补；草稿库 people 3 条缺（`1jb8icg27zjsx` 章淵、`1jb8icg2u5edf` 褚遂良、`1jb8icg2z572a` 沈瀛），升格时由 bim 补 | 录入、bim | `"1.1.0"` |
 | `revised_at` | string | 可选（与 `revision` 同写） | 原生 | `revision` 最近一次改动日 | `YYYY-MM-DD` | 录入、bim | `"2026-10-07"` |
 
