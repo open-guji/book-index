@@ -1,8 +1,8 @@
 name: db-nightly（目录库：建库、检查、从库产出 _build/ 与从文件产出逐字节比对）
 
 # GUJI-755。上线流程仍从文件产出 _build/（用户 2026-11-05 定先不切）；这里每夜确认「随时可切」：
-#   1. bim 从本仓全量建库（Postgres 服务容器，免费），--verify 还原比对四类记录 0 不一致；
-#   2. schema/db/checks.sql 每条 0 行（悬空引用、id_map 解不到等）；
+#   1. bim 从本仓＋book-text 全量建库（Postgres 服务容器，免费），--verify 还原比对目录四类与 book-text 五类记录 0 不一致；
+#   2. schema/db/checks.sql 每条 0 行（悬空引用含 book-text 指向目录的、id_map 解不到等）；
 #   3. build_derived 从文件、从库各产出一遍 _build/，每个文件 sha1 相同。
 # 任何一步不过就红。只读，不发布、不写仓。
 on:
@@ -41,13 +41,17 @@ jobs:
         with:
           repository: open-guji/book-text
           path: bt
-          sparse-checkout: index/texts
-          sparse-checkout-cone-mode: true
+          # 元数据 json（manifest、版本 index.json、整理本 NNN.json、专名层、辑佚）＋ index/texts；正文 .md 不取
+          sparse-checkout: |
+            /*
+            !*.md
+            !/scripts/
+          sparse-checkout-cone-mode: false
       - name: 装 psycopg
         run: pip install "psycopg[binary]"
       - name: 全量建库并还原比对
         working-directory: bim
-        run: python3 -m book_index_manager.db build --root "$GITHUB_WORKSPACE/bi" --dsn "$DSN" --full --verify | tee "$RUNNER_TEMP/build.log"
+        run: python3 -m book_index_manager.db build --root "$GITHUB_WORKSPACE/bi" --text-root "$GITHUB_WORKSPACE/bt" --dsn "$DSN" --full --verify | tee "$RUNNER_TEMP/build.log"
       - name: checks.sql 每条 0 行
         working-directory: bim
         run: |

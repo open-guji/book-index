@@ -70,14 +70,13 @@ python3 build/build_derived.py --from-db "$DSN" --text-index ../book-text/index/
 
 ## 下一步
 1. 上线流程暂不切（用户 11-05 定），由每夜任务 `.github/workflows/db-nightly.yml` 比对从库与从文件的 `_build/`；稳定后再定切换。
-2. book-text 悬空清完后，每夜任务带上 `--text-root`。
-3. `book_text.sql` 剩下的伴生层文件头、CHANGES、pages.tsv、bt_file 价值低，需要时再做。
+2. `book_text.sql` 剩下的伴生层文件头、CHANGES、pages.tsv、bt_file 价值低，需要时再做。
 
 ## book-text（第一批，2026-11-05）
 
 `build --text-root ../book-text` 把 manifest.json、各版本 index.json、辑佚 fragments/*.json 一起灌进库（每次整批重灌），`--verify` 还原比对：8,689＋11,288＋1,248 份 0 不一致。正文和 char／cord 逐格数据不进库。
 
-book-text 指向目录的引用只出悬空检查、不加外键。当时有 26 处悬空：11 处是已并条的旧号（id_map 能解到现行记录），4 处 `work_id` 填的是 Book id，11 处目录里查不到。清单见项目文件 `catalog-db/book-text-dangling-20261105.tsv`。每夜任务暂不带 book-text，清完再加。
+book-text 指向目录的引用只出悬空检查、不加外键。当时有 26 处悬空：11 处是已并条的旧号（id_map 能解到现行记录），4 处 `work_id` 填的是 Book id，11 处目录里查不到。清单见项目文件 `catalog-db/book-text-dangling-20261105.tsv`。这 26 处由 A33 改完（book-text dev 8d98fce6），整理本 30 处由 book-text#400 清掉；11-05 起每夜任务带 `--text-root` 一起建库、检查。
 
 ## 沿革
 D1 草案（11-02）到 v2 之间各轮评审与修订（A12、A33、S1–S6、可做可不做第 3–13 组）的逐条记录见本文件 git 历史（2026-11-04 及以前的版本）与 [CHANGELOG](../CHANGELOG.md)。v2 相对 D1：去掉 `repo` 列与 `dynasty`、`record_todo`、`entity_image`、`entity_location`、`entity_appears_in`、`work_additional` 表；四张异名表并成 `alt_name`；`related_book`／`related_collection` 并成 `related_record`；`merged_into` 改名 `id_map`；审计字段收进 `notes`；原型 `proto/roundtrip.py` 由 bim 取代。
