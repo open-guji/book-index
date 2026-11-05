@@ -292,6 +292,46 @@ CREATE TABLE fragment (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE bt_collated (
+  id text NOT NULL,
+  title text,
+  meta_work_id text,
+  meta_type text,
+  meta_schema_version int,
+  meta_page_title text,
+  meta_source_url text,
+  meta_source text,
+  meta_source_juan text,
+  meta_chapter text,
+  meta_bian text,
+  meta_lei text,
+  meta_part text,
+  meta_page text,
+  meta_collated_edition_type text,
+  meta_updated_at text,
+  meta_related_works jsonb,
+  notes jsonb,
+  extra jsonb,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE bt_entity_layer (
+  id text NOT NULL,
+  schema text,
+  book_id text,
+  volume int,
+  version text,
+  text_version text,
+  review jsonb,
+  meta_title text,
+  creator text,
+  base_edition text,
+  meta_description text,
+  notes jsonb,
+  extra jsonb,
+  PRIMARY KEY (id)
+);
+
 -- 共用：Book、Collection、Work
 CREATE TABLE authorship (
   owner_id text NOT NULL,
@@ -770,6 +810,110 @@ CREATE TABLE fragment_citation (
   PRIMARY KEY (fragment_id, pseq, seq)
 );
 
+CREATE TABLE bt_section (
+  file_id text NOT NULL,
+  seq int NOT NULL,
+  level int,
+  sec_type text,
+  title text,
+  content text,
+  content_from text,
+  book_title text,
+  original_title text,
+  author text,
+  author_info text,
+  author_role text,
+  author_type text,
+  dynasty text,
+  dynasty_tag text,
+  edition text,
+  n_juan int,
+  juan text,
+  juan_count int,
+  page text,
+  summary text,
+  note text,
+  comment text,
+  additional_comment text,
+  section_kind text,
+  sub_cat text,
+  tag text,
+  target_bid text,
+  target_source text,
+  target_type text,
+  book_id text,
+  collection_id text,
+  is_jiyi boolean,
+  lei text,
+  part text,
+  bian text,
+  juan_no int,
+  zhi_no int,
+  measure int,
+  header_line text,
+  footnotes text,
+  headings int,
+  idx int,
+  zi_idx int,
+  text_status text,
+  pian jsonb,
+  coverage jsonb,
+  fragments jsonb,
+  metadata jsonb,
+  title_emendation jsonb,
+  collectors_tally jsonb,
+  juans jsonb,
+  other_records jsonb,
+  notes jsonb,
+  extra jsonb,
+  PRIMARY KEY (file_id, seq)
+);
+
+CREATE TABLE bt_section_work (
+  file_id text NOT NULL,
+  sec_seq int NOT NULL,
+  seq int NOT NULL,
+  work_id text,
+  extra jsonb,
+  PRIMARY KEY (file_id, sec_seq, seq)
+);
+
+CREATE TABLE bt_section_alt_title (
+  file_id text NOT NULL,
+  sec_seq int NOT NULL,
+  seq int NOT NULL,
+  book_title text,
+  n_juan int,
+  extra jsonb,
+  PRIMARY KEY (file_id, sec_seq, seq)
+);
+
+CREATE TABLE bt_entity_span (
+  layer_id text NOT NULL,
+  seq int NOT NULL,
+  eid text,
+  span_type text,
+  text text,
+  source text,
+  anchor_start text,
+  anchor_end text,
+  start_offset int,
+  end_offset int,
+  status text,
+  target_id text,
+  canonical_name text,
+  target_coarse text,
+  target_level text,
+  target_note text,
+  target_multi jsonb,
+  candidates jsonb,
+  group_id text,
+  group_kind text,
+  group_text text,
+  extra jsonb,
+  PRIMARY KEY (layer_id, seq)
+);
+
 CREATE INDEX ON work USING gin (title gin_trgm_ops);
 CREATE INDEX ON book USING gin (title gin_trgm_ops);
 CREATE INDEX ON collection USING gin (title gin_trgm_ops);
@@ -796,3 +940,7 @@ CREATE INDEX ON bt_version (work_id);
 CREATE INDEX ON bt_version (book_id);
 CREATE INDEX ON fragment (work_id);
 CREATE INDEX ON fragment_piece USING gin (text gin_trgm_ops);
+CREATE INDEX ON bt_section_work (work_id);
+CREATE INDEX ON bt_section (target_bid);
+CREATE INDEX ON bt_entity_span (target_id);
+CREATE VIEW bt_mention AS SELECT target_id, split_part(layer_id, '/', 1) AS item_id, layer_id, count(*) AS n FROM (SELECT layer_id, target_id FROM bt_entity_span WHERE target_id IS NOT NULL UNION ALL SELECT layer_id, t->>'entity_id' FROM bt_entity_span, jsonb_array_elements(target_multi) t WHERE jsonb_typeof(target_multi) = 'array' AND t->>'entity_id' IS NOT NULL) x GROUP BY 1, 2, 3;

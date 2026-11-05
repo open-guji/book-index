@@ -20,6 +20,8 @@ SELECT 'bt_version.book_id 悬空' chk, r.id, r.book_id FROM bt_version r WHERE 
 SELECT 'fragment.work_id 悬空' chk, r.id, r.work_id FROM fragment r WHERE r.work_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.work_id);
 SELECT 'fragment_based_on.source_bid 悬空' chk, r.fragment_id, r.source_bid FROM fragment_based_on r WHERE r.source_bid IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.source_bid) AND NOT EXISTS (SELECT 1 FROM book x WHERE x.id = r.source_bid) AND NOT EXISTS (SELECT 1 FROM collection x WHERE x.id = r.source_bid);
 SELECT 'fragment_collector.collector_work_id 悬空' chk, r.fragment_id, r.collector_work_id FROM fragment_collector r WHERE r.collector_work_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.collector_work_id) AND NOT EXISTS (SELECT 1 FROM book x WHERE x.id = r.collector_work_id) AND NOT EXISTS (SELECT 1 FROM collection x WHERE x.id = r.collector_work_id);
+SELECT 'bt_section_work.work_id 悬空' chk, r.file_id, r.work_id FROM bt_section_work r WHERE r.work_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.work_id);
+SELECT 'bt_entity_span.target_id 悬空' chk, r.layer_id, r.target_id FROM bt_entity_span r WHERE r.target_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.target_id) AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.target_id);
 -- 旧号要解得到现行记录，终点不能还是墓碑
 SELECT 'id_map.live_id 解不到' chk, m.old_id, m.src, m.direct_into FROM id_map m WHERE m.live_id IS NULL;
 SELECT 'id_map.live_id 仍是墓碑' chk, m.old_id, m.live_id FROM id_map m WHERE m.live_id IN (SELECT old_id FROM id_map WHERE src = 'tombstone');
