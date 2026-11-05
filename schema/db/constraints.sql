@@ -27,6 +27,10 @@ ALTER TABLE fragment_collector_section ADD CONSTRAINT fragment_collector_section
 ALTER TABLE fragment_piece ADD CONSTRAINT fragment_piece_fragment_id_fk FOREIGN KEY (fragment_id) REFERENCES fragment (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
 ALTER TABLE fragment_piece_collector ADD CONSTRAINT fragment_piece_collector_fragment_id_pseq_fk FOREIGN KEY (fragment_id, pseq) REFERENCES fragment_piece (fragment_id, seq) ON DELETE CASCADE DEFERRABLE NOT VALID;
 ALTER TABLE fragment_citation ADD CONSTRAINT fragment_citation_fragment_id_pseq_fk FOREIGN KEY (fragment_id, pseq) REFERENCES fragment_piece (fragment_id, seq) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE bt_section ADD CONSTRAINT bt_section_file_id_fk FOREIGN KEY (file_id) REFERENCES bt_collated (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE bt_section_work ADD CONSTRAINT bt_section_work_file_id_sec_seq_fk FOREIGN KEY (file_id, sec_seq) REFERENCES bt_section (file_id, seq) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE bt_section_alt_title ADD CONSTRAINT bt_section_alt_title_file_id_sec_seq_fk FOREIGN KEY (file_id, sec_seq) REFERENCES bt_section (file_id, seq) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE bt_entity_span ADD CONSTRAINT bt_entity_span_layer_id_fk FOREIGN KEY (layer_id) REFERENCES bt_entity_layer (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
 -- 跨记录引用（目标唯一的才加外键；悬空清单见 checks.sql）
 ALTER TABLE book ADD CONSTRAINT book_work_id_ref FOREIGN KEY (work_id) REFERENCES work (id) DEFERRABLE NOT VALID;
 ALTER TABLE collection ADD CONSTRAINT collection_work_id_ref FOREIGN KEY (work_id) REFERENCES work (id) DEFERRABLE NOT VALID;

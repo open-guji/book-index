@@ -11,11 +11,10 @@ git 里的 JSON 是唯一真源。库由 bim 从 JSON 生成，随时可重建�
 
 | 文件 | 来源 | 内容 |
 |---|---|---|
-| [schema.sql](schema.sql) | `python -m book_index_manager.db ddl` | 47 张表：目录 34 张＋book-text 13 张（`bt_*`、`fragment*`），枚举、索引（需 `pg_trgm`） |
+| [schema.sql](schema.sql) | `python -m book_index_manager.db ddl` | 53 张表：目录 34 张＋book-text 19 张（`bt_*`、`fragment*`），枚举、索引（需 `pg_trgm`）、视图 `bt_mention` |
 | [constraints.sql](constraints.sql) | `… ddl --constraints` | 外键，全部 `NOT VALID` |
 | [checks.sql](checks.sql) | `… ddl --checks` | 悬空、owner_type、id 跨类重复检查，应全为 0 行（book-text 指向目录的几条除外，见下） |
-| [book_text.sql](book_text.sql) | 手写草案 | book-text 尚未进库的部分（sections、专名、伴生层、CHANGES、pages.tsv）＋物化视图 `bt_mention` |
-| [checks_book_text.sql](checks_book_text.sql) | 手写 | book-text 悬空检查（只报不拦） |
+| [book_text.sql](book_text.sql) | 手写草案 | book-text 尚未进库的部分（伴生层文件头、CHANGES、pages.tsv、bt_file） |
 
 顺序：`schema.sql` → 灌库 → `constraints.sql` → `checks.sql` 全 0 行 → 逐条 `VALIDATE CONSTRAINT`。
 
@@ -70,8 +69,9 @@ python3 build/build_derived.py --from-db "$DSN" --text-index ../book-text/index/
 `--from-db` 时四类记录从库还原（主表 `file_name` 记源文件名，供 index 里的路径），分类、升格表、book-text 仍从文件读。实测（2026-11-05，#2242）：从库与从文件产出的 `_build/` 813,486 个文件 sha1 全同（含 `report.json`）；从库 5 分钟、从文件 4 分 16 秒。
 
 ## 下一步
-1. 上线流程（derive-slim、网站 render）改走 `--from-db`，稳定后退役按文件读的那一路。
-2. book-text 第二批进库：`book_text.sql` 里剩下的 sections、专名、伴生层、CHANGES、pages.tsv。
+1. 上线流程暂不切（用户 11-05 定），由每夜任务 `.github/workflows/db-nightly.yml` 比对从库与从文件的 `_build/`；稳定后再定切换。
+2. book-text 悬空清完后，每夜任务带上 `--text-root`。
+3. `book_text.sql` 剩下的伴生层文件头、CHANGES、pages.tsv、bt_file 价值低，需要时再做。
 
 ## book-text（第一批，2026-11-05）
 
@@ -81,3 +81,9 @@ book-text 指向目录的引用只出悬空检查、不加外键。当时有 26 
 
 ## 沿革
 D1 草案（11-02）到 v2 之间各轮评审与修订（A12、A33、S1–S6、可做可不做第 3–13 组）的逐条记录见本文件 git 历史（2026-11-04 及以前的版本）与 [CHANGELOG](../CHANGELOG.md)。v2 相对 D1：去掉 `repo` 列与 `dynasty`、`record_todo`、`entity_image`、`entity_location`、`entity_appears_in`、`work_additional` 表；四张异名表并成 `alt_name`；`related_book`／`related_collection` 并成 `related_record`；`merged_into` 改名 `id_map`；审计字段收进 `notes`；原型 `proto/roundtrip.py` 由 bim 取代。
+
+## book-text（第二批，2026-11-05，bim #310）
+
+整理本 `<key>/NNN.json` 进 `bt_collated`／`bt_section`（`work_ids` 进 `bt_section_work`，`additional_titles` 进 `bt_section_alt_title`）；original 专名 `NNN.entity.json` 进 `bt_entity_layer`／`bt_entity_span`（`target.entity_id` 拆成 `target_id`，多目标留 `target_multi` jsonb）。视图 `bt_mention`（目标 × 文本条目 × 层 × 次数，含 `target_multi`）供出处反查。
+
+实测：1,786 个整理本文件 150,313 节、99 个专名层 227,537 处，`--verify` 0 不一致；全量建库含 book-text 264 秒。`bt_mention` 74,849 行，30,032 个不同目标。悬空：`bt_section_work.work_id` 30 处（旧账串在清），专名目标 0 处。
