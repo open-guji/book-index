@@ -60,8 +60,17 @@ python -m book_index_manager.db build --root ../book-index --dsn "host=… dbnam
 
 实测（2026-11-05）：#2239 时全量 201 秒；增量到 #2241（Entity 12.1 万、Work 49 个 id 改动）71 秒，`--verify` 四类 807,787 条还原 0 不一致；`id_map` 610,211 行全部解到现行记录，`checks.sql` 28 条全 0 行。
 
+## 从库产出 `_build/`
+
+```bash
+python -m book_index_manager.db build --root . --dsn "$DSN"
+python3 build/build_derived.py --from-db "$DSN" --text-index ../book-text/index/texts
+```
+
+`--from-db` 时四类记录从库还原（主表 `file_name` 记源文件名，供 index 里的路径），分类、升格表、book-text 仍从文件读。实测（2026-11-05，#2242）：从库与从文件产出的 `_build/` 813,486 个文件 sha1 全同（含 `report.json`）；从库 5 分钟、从文件 4 分 16 秒。
+
 ## 下一步
-1. 库产出与 `build/build_derived.py` 逐字节一致的 `_build/`，并跑一致后请网站串切换、退役 `build_derived.py`。
+1. 上线流程（derive-slim、网站 render）改走 `--from-db`，稳定后退役按文件读的那一路。
 2. book-text 进库（`book_text.sql` 并进映射，导入还原实测）。
 
 ## 沿革
