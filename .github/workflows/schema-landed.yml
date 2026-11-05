@@ -25,3 +25,6 @@ jobs:
           mkdir -p "$RUNNER_TEMP/v4"
           OUT="$RUNNER_TEMP/v4" bash scripts/schema-landed-check.sh readers
           cat "$RUNNER_TEMP/v4"/V4-readers.log || true
+      - name: 目录库映射覆盖（schema 有、映射没有 → 红；映射在 bim book_index_manager/db/mapping.py）
+        working-directory: book-index-manager
+        run: python3 -m book_index_manager.db coverage --schema ../book-index/schema/json
