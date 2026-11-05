@@ -1,0 +1,87 @@
+name: db-nightly（目录库：建库、检查、从库产出 _build/ 与从文件产出逐字节比对）
+
+# GUJI-755。上线流程仍从文件产出 _build/（用户 2026-11-05 定先不切）；这里每夜确认「随时可切」：
+#   1. bim 从本仓全量建库（Postgres 服务容器，免费），--verify 还原比对四类记录 0 不一致；
+#   2. schema/db/checks.sql 每条 0 行（悬空引用、id_map 解不到等）；
+#   3. build_derived 从文件、从库各产出一遍 _build/，每个文件 sha1 相同。
+# 任何一步不过就红。只读，不发布、不写仓。
+on:
+  schedule:
+    - cron: '0 12 * * *'      # 洛杉矶 04:00（夏令时 05:00）
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/db-nightly.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  db:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    services:
+      pg:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: pg
+          POSTGRES_DB: gj
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 20
+          --shm-size 1g
+    env:
+      DSN: host=localhost port=5432 user=postgres password=pg dbname=gj
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: bi }
+      - uses: actions/checkout@v4
+        with: { repository: open-guji/book-index-manager, path: bim }
+      - uses: actions/checkout@v4
+        with:
+          repository: open-guji/book-text
+          path: bt
+          sparse-checkout: index/texts
+          sparse-checkout-cone-mode: true
+      - name: 装 psycopg
+        run: pip install "psycopg[binary]"
+      - name: 全量建库并还原比对
+        working-directory: bim
+        run: python3 -m book_index_manager.db build --root "$GITHUB_WORKSPACE/bi" --dsn "$DSN" --full --verify | tee "$RUNNER_TEMP/build.log"
+      - name: checks.sql 每条 0 行
+        working-directory: bim
+        run: |
+          python3 - <<'EOF'
+          import os, sys, psycopg
+          sys.path.insert(0, '.')
+          from book_index_manager.db.ddl import checks_sql
+          bad = 0
+          with psycopg.connect(os.environ['DSN']) as conn, conn.cursor() as cur:
+              for q in checks_sql().splitlines():
+                  if not q.startswith('SELECT'):
+                      continue
+                  cur.execute('SELECT count(*) FROM (%s) t' % q.rstrip(';'))
+                  n = cur.fetchone()[0]
+                  if n:
+                      bad += 1
+                      print('::error::%s → %d 行' % (q[:80], n))
+          print('checks 不过 %d 条' % bad)
+          sys.exit(1 if bad else 0)
+          EOF
+      - name: 从文件、从库各产出一遍 _build/，逐文件比对
+        working-directory: bi
+        run: |
+          set -e
+          TI="$GITHUB_WORKSPACE/bt/index/texts"
+          sha() { (cd "$1" && find . -type f -print0 | sort -z | xargs -0 -n 2000 sha1sum) > "$2"; }
+          python3 build/build_derived.py --out "$RUNNER_TEMP/a" --text-index "$TI" | tail -3
+          sha "$RUNNER_TEMP/a" "$RUNNER_TEMP/a.sha"; rm -rf "$RUNNER_TEMP/a"
+          PYTHONPATH="$GITHUB_WORKSPACE/bim" python3 build/build_derived.py --from-db "$DSN" --out "$RUNNER_TEMP/b" --text-index "$TI" | tail -3
+          sha "$RUNNER_TEMP/b" "$RUNNER_TEMP/b.sha"
+          echo "从文件 $(wc -l < "$RUNNER_TEMP/a.sha") 个文件，从库 $(wc -l < "$RUNNER_TEMP/b.sha") 个文件" | tee -a "$GITHUB_STEP_SUMMARY"
+          if ! diff "$RUNNER_TEMP/a.sha" "$RUNNER_TEMP/b.sha" > "$RUNNER_TEMP/diff.txt"; then
+            echo "::error::从库产出与从文件产出不一致：$(grep -c '^[<>]' "$RUNNER_TEMP/diff.txt") 行差异"
+            head -40 "$RUNNER_TEMP/diff.txt"
+            exit 1
+          fi
+          echo "逐字节一致" >> "$GITHUB_STEP_SUMMARY"
