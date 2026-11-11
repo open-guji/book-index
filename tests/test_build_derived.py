@@ -358,3 +358,18 @@ def test_book_groups_over_threshold(repo, tmp_path, monkeypatch):
     pg = json.load(open(os.path.join(out, 'books', S.W1, S.C1, '1.json'), encoding='utf-8'))
     assert [c['id'] for c in pg] == [S.B1]
     assert 'books' not in os.listdir(out) or not os.path.exists(os.path.join(out, 'books', S.W2))
+
+
+def test_sym_related_specific_word_not_downgraded(repo, tmp_path):
+    """A 存對象項「同卷」、B 用純 id 指回 A：兩側都保留「同卷」，不被降級為 related。"""
+    d = S.read(repo, 'Book', S.B1)
+    d['related_books'] = [{'book_id': S.B3, 'relation': '同卷'}]
+    S.put(repo, 'Book', d)
+    d = S.read(repo, 'Book', S.B3)
+    d['related_books'] = [S.B1]
+    S.put(repo, 'Book', d)
+    out = str(tmp_path / 'out')
+    r, _ = run(repo, out_dir=out)
+    b1, b3 = entry(out, S.B1), entry(out, S.B3)
+    assert [c['relation'] for c in b1['_related']] == ['同卷']
+    assert [c['relation'] for c in b3['_related']] == ['同卷']

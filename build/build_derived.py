@@ -351,8 +351,16 @@ class Build:
                             rel = o.get('relation') if isinstance(o.get('relation'), str) and o['relation'] else rel
                             o = o.get('book_id')          # 對象項（06 稿）：{book_id, relation?, …}
                         if isinstance(o, str) and o != i and self.kind_of(o) in ('Book', 'Collection'):
-                            self.sym_view[i][o] = ('out', rel)       # 對稱關係：兩側同詞（如「同卷」「綴合」）
-                            self.sym_view[o].setdefault(i, ('in', rel))
+                            # 對稱關係：兩側同詞（如「同卷」「綴合」）；已有具體詞時不被另一側的純 id 降級為 related
+                            cur = self.sym_view[i].get(o)
+                            if rel == 'related' and cur and cur[1] != 'related':
+                                rel = cur[1]
+                            self.sym_view[i][o] = ('out', rel)
+                            back = self.sym_view[o].get(i)
+                            if back is None:
+                                self.sym_view[o][i] = ('in', rel)
+                            elif back[1] == 'related' and rel != 'related':
+                                self.sym_view[o][i] = (back[0], rel)
 
     # ---------- book-text 文本索引（工作包 C） ----------
     def _text_index(self, text_index):
