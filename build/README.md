@@ -20,7 +20,7 @@ python3 build/build_derived.py --check-only --hub-check --text-index "$BOOK_TEXT
 產物：`entry/<id>.json`（源記錄＋`_` 派生欄；源裡的舊 `_` 欄丟掉重算）、`members/<cid>/<n>.json`、`catalog/<志書>/<n>.json`、`related/<wid>/<n>.json`（每頁 200）、`lineage/<wid>.json`、`_hubs.json`、`report.json`。
 
 派生欄（F2-3 §二，卡片短鍵取 F4-2）：
-- Work：`_books`（按 `dating` 年代、無年代按 id）、`_edition_count`、`_authors`（與 `authors[]` 同序）、`_related`（`{id, title, relation, direction, note?}`：`relation` 取本記錄視角的詞，`direction` 為 `out`（本記錄存儲）／`in`（對方存儲）；超 200 分頁）、`_catalogs`、`_collections`、`_member_catalog`（志書）、`_has_*`、`_lineage_graph_ref`、`_classifications`（有 `classification/` 才產出）、`promoted_to`（草稿記錄，由 `promotions.json`）。
+- Work：`_books`（按 `dating` 年代、無年代按 id；卡片 `coll`＝該 Book 第一個可解析的 `contained_in` 叢編 id，網站按叢編／藏地分組折疊用）、`_edition_count`、`_authors`（與 `authors[]` 同序）、`_related`（`{id, title, relation, direction, note?}`：`relation` 取本記錄視角的詞，`direction` 為 `out`（本記錄存儲）／`in`（對方存儲）；超 200 分頁）、`_catalogs`、`_collections`、`_member_catalog`（志書）、`_has_*`、`_lineage_graph_ref`、`_classifications`（有 `classification/` 才產出）、`promoted_to`（草稿記錄，由 `promotions.json`）。
 - Book：`_work`、`_collections`、`_lineage_refs`、`_derived_by`、`_has_*`。
 - Collection：`_members`（前 20）＋`_member_pages`、`_member_count`、`_member_type`、`_children`。
 - Entity：`_works`（`{work_id, role, title, …}`，全內嵌；role 取 `Work.authors[].role`，缺則「撰」並計數）。

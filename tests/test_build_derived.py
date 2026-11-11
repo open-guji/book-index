@@ -66,6 +66,7 @@ def test_reverse_derived_from_canonical_side(repo):
     w1 = P[f'entry/{S.W1}.json']
     assert [b['id'] for b in w1['_books']] == [S.B1, S.B2]          # 按年代
     assert w1['_edition_count'] == 2
+    assert [b.get('coll') for b in w1['_books']] == [S.C1, None]   # coll：第一個可解析的 contained_in 叢編
     rel = {(x['id'], x['relation'], x['direction']) for x in w1['_related']}
     assert (S.W2, 'has_part', 'in') in rel                          # 兩側都寫 → 去重後一條
     assert (S.W3, 'studied_by', 'in') in rel                        # 只有反向形 → 照樣展開
@@ -329,3 +330,31 @@ def test_contained_order_field_and_legacy_details():
     assert BD.contained({'id': 'c1', 'order': 0}) == ('c1', {})                                       # <1 不收
     assert BD.contained({'id': 'c1', 'order': True}) == ('c1', {})                                    # bool 不收
     assert BD.contained({'id': 'c1', 'volume_index': 2}) == ('c1', {'vol': 2})
+
+
+def test_sym_related_keeps_relation(repo, tmp_path):
+    """對象項帶 relation（如「同卷」）時，兩側 `_related` 都帶原詞，不再一律寫 related（A42 2026-11-11）。"""
+    d = S.read(repo, 'Book', S.B1)
+    d['related_books'] = [{'book_id': S.B3, 'relation': '同卷'}]
+    S.put(repo, 'Book', d)
+    out = str(tmp_path / 'out')
+    r, _ = run(repo, out_dir=out)
+    assert r['fatal'] == []
+    b1, b3 = entry(out, S.B1), entry(out, S.B3)
+    assert [(c['id'], c['relation'], c['direction']) for c in b1['_related']] == [(S.B3, '同卷', 'out')]
+    assert [(c['id'], c['relation'], c['direction']) for c in b3['_related']] == [(S.B1, '同卷', 'in')]
+
+
+def test_book_groups_over_threshold(repo, tmp_path, monkeypatch):
+    """版本數超過 BOOK_GROUP：`_books` 照舊全量，另出 `_book_groups` 摘要與 books/<wid>/<g>/<n>.json 分頁。"""
+    monkeypatch.setattr(BD, 'BOOK_GROUP', 1)
+    out = str(tmp_path / 'out')
+    r, _ = run(repo, out_dir=out)
+    assert r['fatal'] == []
+    w1 = entry(out, S.W1)
+    assert len(w1['_books']) == w1['_edition_count'] == 2
+    assert [(g['g'], g['n'], g['pages']) for g in w1['_book_groups']] == [(S.C1, 1, 1), ('_none', 1, 1)]
+    assert w1['_book_groups'][0]['id'] == S.C1 and 'id' not in w1['_book_groups'][1]
+    pg = json.load(open(os.path.join(out, 'books', S.W1, S.C1, '1.json'), encoding='utf-8'))
+    assert [c['id'] for c in pg] == [S.B1]
+    assert 'books' not in os.listdir(out) or not os.path.exists(os.path.join(out, 'books', S.W2))

@@ -14,6 +14,7 @@
     _build/members/<cid>/<n>.json   叢編成員分頁（n 從 1 起，每頁 PAGE 項）
     _build/catalog/<wid>/<n>.json   志書著錄成員分頁
     _build/related/<wid>/<n>.json   關聯超過 PAGE 者之餘頁
+    _build/books/<wid>/<g>/<n>.json 版本超過 BOOK_GROUP 之 Work：按叢編分組的版本卡片分頁（g＝叢編 id，無叢編者為 _none）
     _build/lineage/<wid>.json       作品下版本圖（有承襲資料者）
     _build/_hubs.json               樞紐名稱表
     _build/report.json              校驗報告（確定性，無時間戳）
@@ -54,12 +55,15 @@ import sealindex as SI  # noqa: E402
 HUB = 200          # 被內聯引用超過此數者為樞紐：卡片只寫 id＋h:1，名稱進 _hubs.json（F4-2 §一 4）
 PAGE = 200         # 分頁大小（F2-3 §二 Collection）
 MEMBER_HEAD = 20   # 叢編記錄本身只帶前 20 項成員摘要（F2-3 §二）
+BOOK_GROUP = 200   # Work 版本數超過此數：另出按叢編（Book 卡片 coll）分組的摘要 `_book_groups` 與分組分頁 books/（A41／A42 2026-11-11）
 HUB_CHECK_MAX = 6  # 改樞紐名，牽動產物檔數上限（F4-4：2～4 檔）
 
 DEFAULT_ROLE = '撰'
-CONTRACT = 4       # _build/ 契約版本：2＝F6-5b 加專名派生欄與 dynasty_reign_keys／office_keys（overview#458，純增量）；
+CONTRACT = 5       # _build/ 契約版本：2＝F6-5b 加專名派生欄與 dynasty_reign_keys／office_keys（overview#458，純增量）；
                    # 3＝Book／Collection 加 `_related`（related_books／related_collections 兩側並集，純增量）；
                    # 4＝Book 刪 `_siblings`／`_siblings_more`／`_siblings_total`（2026-11-03，非增量；S5-H）
+                   # 5＝Book 卡片加 `coll`；Work 版本超 BOOK_GROUP 者加 `_book_groups` 與 books/ 分頁；
+                   #   Book／Collection `_related` 帶原 relation 詞（如「同卷」，原一律 related）（2026-11-11，A41／A42）
 
 
 # ---------- 小工具 ----------
@@ -342,11 +346,13 @@ class Build:
             for i, r in sorted(self.R[t].items()):
                 for f in ('related_books', 'related_collections'):
                     for o in r.get(f) or []:
+                        rel = 'related'
                         if isinstance(o, dict):
+                            rel = o.get('relation') if isinstance(o.get('relation'), str) and o['relation'] else rel
                             o = o.get('book_id')          # 對象項（06 稿）：{book_id, relation?, …}
                         if isinstance(o, str) and o != i and self.kind_of(o) in ('Book', 'Collection'):
-                            self.sym_view[i][o] = 'out'
-                            self.sym_view[o].setdefault(i, 'in')
+                            self.sym_view[i][o] = ('out', rel)       # 對稱關係：兩側同詞（如「同卷」「綴合」）
+                            self.sym_view[o].setdefault(i, ('in', rel))
 
     # ---------- book-text 文本索引（工作包 C） ----------
     def _text_index(self, text_index):
@@ -426,7 +432,16 @@ class Build:
             'pub': pub_text(b),
             'meas': b.get('measure_info') if isinstance(b.get('measure_info'), str) else None,
             'from': frm, 'alias': lin.get('alias') if isinstance(lin.get('alias'), str) else None,
+            'coll': self.coll_of(b),
         })
+
+    def coll_of(self, b):
+        """Book 卡片短鍵 coll：contained_in 中第一個可解析的 Collection id（網站版本表按叢編／藏地分組折疊用，A41 2026-11-11）。"""
+        for x in b.get('contained_in') or []:
+            cid = contained(x)[0]
+            if cid in self.R['Collection']:
+                return cid
+        return None
 
     def work_card(self, wid):
         w = self.R['Work'][wid]
@@ -463,10 +478,10 @@ class Build:
     def sym_related(self, i):
         """Book／Collection 的 `_related`：對稱關係兩側並集，按 id 排序；卡片帶 `t` 與 `direction`。"""
         out = []
-        for o, direction in sorted(self.sym_view.get(i, {}).items()):
+        for o, (direction, rel) in sorted(self.sym_view.get(i, {}).items()):
             t = self.kind_of(o)
             base = self.book_card(o) if t == 'Book' else self.card(o, self.coll_card)
-            out.append(dict(base, t=t.lower(), relation='related', direction=direction))
+            out.append(dict(base, t=t.lower(), relation=rel, direction=direction))
         return out
 
     # ---------- 各類產物 ----------
@@ -492,6 +507,9 @@ class Build:
         books = sorted(self.books_of.get(wid, ()), key=lambda b: book_key(R['Book'][b]))
         v['_books'] = [self.book_card(b) for b in books]
         v['_edition_count'] = len(books)
+        book_pages = {}
+        if len(books) > BOOK_GROUP:
+            v['_book_groups'], book_pages = self.book_groups(v['_books'])
         auth = []
         for a in w.get('authors') or []:
             if not isinstance(a, dict):
@@ -551,7 +569,20 @@ class Build:
         lineage = self.lineage_graph(wid, books)
         if lineage:
             v['_lineage_graph_ref'] = f'lineage/{wid}.json'
-        return v, {'related': pages, 'catalog': cat_pages, 'lineage': lineage}
+        return v, {'related': pages, 'catalog': cat_pages, 'lineage': lineage, 'books': book_pages}
+
+    def book_groups(self, cards):
+        """按 Book 卡片 coll 分組：摘要 [{叢編卡片…, g, n, pages}]（件數多者在前；無叢編者 g＝_none、排最後），
+        與 {g: [頁…]}（每頁 PAGE 張卡片，組內沿用 _books 的年代序）。"""
+        grp = collections.OrderedDict()
+        for c in cards:
+            grp.setdefault(c.get('coll') or '_none', []).append(c)
+        summary, pages = [], {}
+        for g, cs in sorted(grp.items(), key=lambda kv: (kv[0] == '_none', -len(kv[1]), kv[0])):
+            pages[g] = [cs[i:i + PAGE] for i in range(0, len(cs), PAGE)]
+            head = self.card(g, self.coll_card) if g != '_none' else {}
+            summary.append(dict(head, g=g, n=len(cs), pages=len(pages[g])))
+        return summary, pages
 
     def lineage_graph(self, wid, books):
         R = self.R
@@ -691,6 +722,9 @@ class Build:
                     out[f'catalog/{i}/{n}.json'] = pg
                 for n, pg in enumerate(extra.get('members') or [], start=1):
                     out[f'members/{i}/{n}.json'] = pg
+                for g, pgs in (extra.get('books') or {}).items():
+                    for n, pg in enumerate(pgs, start=1):
+                        out[f'books/{i}/{g}/{n}.json'] = pg
                 if extra.get('lineage'):
                     out[f'lineage/{i}.json'] = extra['lineage']
                 yield out
@@ -1009,6 +1043,17 @@ def check_entries(b, prods, hubs, errs):
         i = k[6:-5]
         if '_books' in v and v['_edition_count'] != len(v['_books']):
             errs.append(f'{i}: _edition_count≠len(_books)')
+        if '_book_groups' in v:
+            tot = 0
+            for gs in v['_book_groups']:
+                pg = [prods.get(f'books/{i}/{gs["g"]}/{n}.json', []) for n in range(1, gs['pages'] + 1)]
+                if sum(len(p) for p in pg) != gs['n']:
+                    errs.append(f'{i}: 版本分組 {gs["g"]} 分頁合計≠n')
+                tot += gs['n']
+                for p in pg:
+                    chk_cards(i, p)
+            if tot != v['_edition_count']:
+                errs.append(f'{i}: 版本分組合計≠_edition_count')
         if '_member_count' in v:
             pages = [prods.get(f'members/{i}/{n}.json', []) for n in range(1, v['_member_pages'] + 1)]
             if sum(len(p) for p in pages) != v['_member_count']:
@@ -1070,7 +1115,7 @@ class ProductSink:
         self.want = set()
         self.written = self.unchanged = 0
         self.files = self.entries = 0
-        self.pages = {s: 0 for s in ('members', 'catalog', 'related', 'lineage')}
+        self.pages = {s: 0 for s in ('members', 'catalog', 'related', 'lineage', 'books')}
 
     def put(self, rel, obj):
         self.files += 1
@@ -1097,7 +1142,7 @@ class ProductSink:
 
     def finish(self):
         removed = 0
-        for sub in ('entry', 'members', 'catalog', 'related', 'lineage'):
+        for sub in ('entry', 'members', 'catalog', 'related', 'lineage', 'books'):
             base = os.path.join(self.out_dir, sub)
             for dp, dns, fns in os.walk(base, topdown=False):
                 for fn in fns:
@@ -1207,7 +1252,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
         'records': {t: len(recs[t]) for t in V.TYPES},
         'entries': sink.entries if stream else sum(1 for k in prods if k.startswith('entry/')),
         'files_total': sink.files if stream else len(prods),
-        'pages': dict(sink.pages) if stream else {s: sum(1 for k in prods if k.startswith(s + '/')) for s in ('members', 'catalog', 'related', 'lineage')},
+        'pages': dict(sink.pages) if stream else {s: sum(1 for k in prods if k.startswith(s + '/')) for s in ('members', 'catalog', 'related', 'lineage', 'books')},
         'hubs': len(b.hubs), 'hub_threshold': hub,
         'sidecars_ignored': sidecars,
         'load_problems': problems,
