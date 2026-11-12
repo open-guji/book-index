@@ -2,17 +2,6 @@
   "schema_version": 1,
   "id": "phrn9treft",
   "type": "book",
-  "dating": {
-    "era": "清",
-    "reign": "光緒",
-    "year_range": [
-      1875,
-      1908
-    ],
-    "certainty": "inferred",
-    "source": "edition",
-    "basis": "題名「清光緒間廣雅書局刊《八史經籍志》合刻本」"
-  },
   "title": "補三史藝文志",
   "work_id": "d59f2mp1zsoy",
   "authors": [
@@ -22,7 +11,7 @@
       "entity_id": "hixhd2h9bcm2"
     }
   ],
-  "edition": "清光緒間廣雅書局刊《八史經籍志》合刻本",
+  "edition": "",
   "resources": [
     {
       "id": "ctext",
@@ -40,10 +29,9 @@
       "調研 agent 交叉核實，2026-08-31"
     ]
   },
-  "ai_note": "2026-08-31：ctext頁面OCR誤字「金門誥」已辨明實為「金門詔」之訛，未另建同名異人entity，仍歸屬金門詔（entity hixhd2h9bcm2）。\n原頂層 section（無所屬叢編，無處可掛）：史部·目錄類",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-31",
-  "edition_type": "刻本",
+  "ai_note": "2026-08-31：ctext頁面OCR誤字「金門誥」已辨明實為「金門詔」之訛，未另建同名異人entity，仍歸屬金門詔（entity hixhd2h9bcm2）。\n原頂層 section（無所屬叢編，無處可掛）：史部·目錄類\n拆分（2026-11-12，隐性错并拆分）：E／F／G 道聚簇把同一子目在不同叢書實例（不同實體版本）的總目記錄並成一條（原 phrn9treft，涉 5 個叢書實例、拆為 5 條），按源記錄所屬叢書實例（總目 series_id）拆開；本條屬叢書實例 ukg5qtxxllb2sqyf，叢書版本項：清光緒二十五年文瀾書局石印本。按丛书头挂入对应 Collection。原 id 保留於本條。原 edition「清光緒間廣雅書局刊《八史經籍志》合刻本」及 edition_type,dating 取自聚簇代表記錄，已去，版本見上。",
+  "revision": "2.0.0",
+  "revised_at": "2026-11-12",
   "indexed_by": [
     {
       "source": "中國古籍總目",
@@ -77,30 +65,11 @@
       "name": "中國古籍總目（上圖聯合目錄）",
       "type": "url",
       "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/iq1fl0k24u7ys2da&from=evidence"
-    },
+    }
+  ],
+  "contained_in": [
     {
-      "id": "yzgwxrv0fc2fve0y",
-      "name": "中國古籍總目（上圖聯合目錄）",
-      "type": "url",
-      "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/yzgwxrv0fc2fve0y&from=evidence"
-    },
-    {
-      "id": "a0u47lvjvcngu4p7",
-      "name": "中國古籍總目（上圖聯合目錄）",
-      "type": "url",
-      "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/a0u47lvjvcngu4p7&from=evidence"
-    },
-    {
-      "id": "86lz6dukpaoqv041",
-      "name": "中國古籍總目（上圖聯合目錄）",
-      "type": "url",
-      "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/86lz6dukpaoqv041&from=evidence"
-    },
-    {
-      "id": "e21mtxy6bx0lk6p4",
-      "name": "中國古籍總目（上圖聯合目錄）",
-      "type": "url",
-      "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/e21mtxy6bx0lk6p4&from=evidence"
+      "id": "8rldw0uchdng"
     }
   ]
 }
