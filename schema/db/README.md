@@ -11,7 +11,7 @@ git 里的 JSON 是唯一真源。库由 bim 从 JSON 生成，随时可重建�
 
 | 文件 | 来源 | 内容 |
 |---|---|---|
-| [schema.sql](schema.sql) | `python -m book_index_manager.db ddl` | 53 张表：目录 34 张＋book-text 19 张（`bt_*`、`fragment*`），枚举、索引（需 `pg_trgm`）、视图 `bt_mention` |
+| [schema.sql](schema.sql) | `python -m book_index_manager.db ddl` | 55 张表：目录 36 张＋book-text 19 张（`bt_*`、`fragment*`），枚举、索引（需 `pg_trgm`）、视图 `bt_mention` |
 | [constraints.sql](constraints.sql) | `… ddl --constraints` | 外键，全部 `NOT VALID` |
 | [checks.sql](checks.sql) | `… ddl --checks` | 悬空、owner_type、id 跨类重复检查，应全为 0 行（book-text 指向目录的几条除外，见下） |
 | [book_text.sql](book_text.sql) | 手写草案 | book-text 尚未进库的部分（伴生层文件头、CHANGES、pages.tsv、bt_file） |
@@ -24,9 +24,9 @@ python -m book_index_manager.db roundtrip --root ../book-index --dsn "host=… d
 python -m book_index_manager.db coverage --schema ../book-index/schema/json   # schema 有、映射没有 → ERROR
 ```
 
-## 表（34 张）
+## 表（36 张）
 - **主表 4**：`work`、`book`、`collection`、`entity`。
-- **Entity 子类与明细 12**：`person`、`place`、`office`、`collective`、`reign`、`publisher`、`seal`（主键即 entity.id；朝代没有自己的列，不设子类表）；`entity_dates`、`entity_external_id`、`entity_relation`（朝代、上级、前身、印主、合称、亲属师承等，`rel`＋`src_key` 区分）、`place_history`、`place_history_dynasty`。
+- **Entity 子类与明细 14**：`person`、`place`、`office`、`collective`、`reign`、`publisher`、`seal`（主键即 entity.id；朝代没有自己的列，不设子类表）；`entity_dates`、`entity_external_id`、`entity_relation`（朝代、上级、前身、印主、合称、亲属师承等，`rel`＋`src_key` 区分）、`place_history`、`place_history_dynasty`、`person_office`（人物任官 offices[]）、`person_office_source`（其出处）。
 - **Book／Collection 明细 5**：`book_provenance`、`book_seal_mark`、`book_base_edition`、`book_location_history`、`collection_content`。
 - **四类共用 8**（带 `owner_type` W/B/C/E）：`alt_name`（四类异名，`kind`：null＝异名、`附刻`、实体别名类型）、`authorship`、`index_entry`（`kind` I／E）、`resource`、`resource_group`、`measure`、`source_ref`、`description_source`。
 - **关系 4**：`member_of`、`work_relation`、`related_record`（Book→Book、Collection→Collection）、`id_map`（旧 id → 现行 id；`kind` merged／promoted，`src` tombstone／台账名）。
