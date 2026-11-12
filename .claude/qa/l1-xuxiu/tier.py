@@ -31,6 +31,8 @@ for r in rows:
     else:
         g=[x for x in c if good(r,W[x])]
         tier='B'; why=f'多候选{len(c)}'+(f'，其中可用1' if len(g)==1 else '')
+        if len(g)==1 and sig(r,W[g[0]])['juan']=='eq':
+            tier='A2'; why=f'多候选{len(c)}，唯一朝代／部类相合且卷数相合'; r['pick']=g[0]
     r['tier']=tier; r['why']=why
 cnt=collections.Counter(r['tier'] for r in rows); print(cnt)
 cnt2=collections.Counter((r['sort'].split('/')[0],r['tier']) for r in rows)

@@ -11,7 +11,7 @@ for p in glob.iglob(a.root+'/Work/*/*/*/*.json'):
     paths[os.path.basename(p).split('-')[0]]=p
 by=collections.defaultdict(list)
 for r in rows:
-    if r['tier'] in a.tiers.split(','): by[r['cands'][0]].append(r)
+    if r['tier'] in a.tiers.split(','): by[r.get('pick') or r['cands'][0]].append(r)
 def entry(r):
     e={'source':SRC,'source_bid':BID,'title_info':r['name'].strip(),'section':r['sort']}
     m=re.match(r'^(\d+)-+(\d+)$',r['page'].strip())
@@ -29,7 +29,8 @@ for wid,rs in sorted(by.items()):
     if any(e.get('source')==SRC for e in ib): skipped['already']+=1; continue
     for r in rs: ib.append(entry(r))
     if len(rs)>1: multi+=1
-    note=f'{TODAY} L1：據《續修四庫全書總目提要》（東方文化事業總委員會稿本）題名唯一同題，補 indexed_by（匹配檔 A；書名未帶作者，以朝代、卷數、部類複核）。'
+    how='題名唯一同題' if all(x['tier']=='A' for x in rs) else '同題多候選中朝代、卷數、部類唯一相合'
+    note=f'{TODAY} L1：據《續修四庫全書總目提要》（東方文化事業總委員會稿本）{how}，補 indexed_by（匹配檔 {rs[0]["tier"]}；書名未帶作者，以朝代、卷數、部類複核）。'
     d['ai_note']=(d['ai_note']+'\n\n'+note) if d.get('ai_note') else note
     v=d.get('revision','1.0.0').split('.'); d['revision']=f'{v[0]}.{int(v[1])+1}.0'; d['revised_at']=TODAY
     n+=1

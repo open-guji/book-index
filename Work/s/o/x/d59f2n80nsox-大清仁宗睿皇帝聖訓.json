@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故殿037046-037155）。阶段 5 兜底建立。\n\n2026-08-22 B3 併池（藏本條重出）：1evkq1sxgcd1c 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 1→2）併入本條。\n\n2026-09-06 qa-sweep/qing·C 類（entity 之 period 與 work 相牴）：撰人「宣宗」原誤繫明宣宗朱瞻基（entity `hixhd2h9bgh5`，1398–1435），廟號兩朝同名致誤——本書（period=qing）之「宣宗」實為清宣宗（道光帝），改繫 `hixhd2h9brxx`。原值：authors[0].entity_id=「hixhd2h9bgh5」，可逆。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故殿037046-037155）。阶段 5 兜底建立。\n\n2026-08-22 B3 併池（藏本條重出）：1evkq1sxgcd1c 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 1→2）併入本條。\n\n2026-09-06 qa-sweep/qing·C 類（entity 之 period 與 work 相牴）：撰人「宣宗」原誤繫明宣宗朱瞻基（entity `hixhd2h9bgh5`，1398–1435），廟號兩朝同名致誤——本書（period=qing）之「宣宗」實為清宣宗（道光帝），改繫 `hixhd2h9brxx`。原值：authors[0].entity_id=「hixhd2h9bgh5」，可逆。\n\n2026-11-12 L1：據《續修四庫全書總目提要》（東方文化事業總委員會稿本）同題多候選中朝代、卷數、部類唯一相合，補 indexed_by（匹配檔 A2；書名未帶作者，以朝代、卷數、部類複核）。",
   "measures": [
     {
       "unit": "卷",
@@ -32,13 +32,23 @@
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
   "period_upper": "qing",
   "period_upper_basis": "edition_bound：所掛版本中最早者為「清道光四年武英殿刊本」——版本之年不早於成書之年，故不晚於 qing",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-06",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-12",
   "related_works": [
     {
       "id": "d59fyv59osn4",
       "relation": "related",
       "note": "史部E另立（anon）：總目記錄「大清仁宗睿皇帝聖訓」（無作者）與既有 Work 題名相同或相近而不可證同書（无作者疑同书（题名同、卷数相符，无作者可证，另立＋related）），判為不同著作（不並）；互為相關。"
+    }
+  ],
+  "indexed_by": [
+    {
+      "source": "續修四庫全書總目提要",
+      "source_bid": "d59f2ogb4bgi",
+      "title_info": "大清仁宗睿皇帝聖訓一百十卷",
+      "section": "史部/詔令奏議類/詔令之屬",
+      "volume": "第6冊",
+      "page": "116"
     }
   ]
 }
