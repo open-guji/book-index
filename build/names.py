@@ -77,6 +77,42 @@ class Names:
     def rid(self, x):
         return self.P.get(x, x) if isinstance(x, str) else x
 
+    def live(self, x):
+        """rid 之後沿 merged_into 走到存活條；斷鏈、成環→None。"""
+        x, seen = self.rid(x), set()
+        while x in self.E and x not in seen:
+            m = self.E[x].get('merged_into')
+            if not m:
+                return x
+            seen.add(x)
+            x = self.rid(m)
+        return None
+
+    def tenures(self, d):
+        """people.offices[] 中計入反查與索引的項：不含贈官（posthumous）、不就（declined）。"""
+        return [(n, o) for n, o in enumerate(d.get('offices') or [])
+                if isinstance(o, dict) and not o.get('posthumous') and not o.get('declined')]
+
+    def office_index(self, d):
+        """人物 index 的 office_ids／office_place_ids（給搜索過濾）：官職解到存活條，並展開其跨朝上位條
+        （concept_id 鏈）；地名只取 place_id。去重、排序；沒有就回 {}。"""
+        offs, places = set(), set()
+        for _n, o in self.tenures(d):
+            x, seen = self.live(o.get('office_id')), set()
+            while x and x not in seen:
+                offs.add(x)
+                seen.add(x)
+                x = self.live(self.E[x].get('concept_id'))
+            pl = self.live(o.get('place_id'))
+            if pl:
+                places.add(pl)
+        out = {}
+        if offs:
+            out['office_ids'] = sorted(offs)
+        if places:
+            out['office_place_ids'] = sorted(places)
+        return out
+
     def _index(self):
         E, rid = self.E, self.rid
         self.children = collections.defaultdict(set)      # dynasty／office／官署 parent_id 反查；place 沿革上級
@@ -120,11 +156,9 @@ class Names:
                 c = rid(d.get('concept_id'))
                 if c in E and c != i:
                     self.concretes[c].add(i)
-            if st == 'people':
-                for n, o in enumerate(d.get('offices') or []):
-                    if not isinstance(o, dict) or o.get('posthumous') or o.get('declined'):
-                        continue
-                    oid, pid = rid(o.get('office_id')), rid(o.get('place_id'))
+            if st == 'people' and not d.get('merged_into'):
+                for n, o in self.tenures(d):
+                    oid, pid = self.live(o.get('office_id')), self.live(o.get('place_id'))
                     if oid in E:
                         self.holders[oid].append((i, n, o))
                     if pid in E:

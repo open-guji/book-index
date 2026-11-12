@@ -833,6 +833,8 @@ def index_entry(d, typ, rel_path, promoted_to=None, build=None):
             e['period'] = d['period']
         if pt:
             e['promoted_to'] = pt
+        if build is not None and e['subtype'] == 'people' and d.get('offices') and not d.get('merged_into'):
+            e.update(build.names.office_index(d))   # 只有 build 才帶（要解並條、展開上位官職），bim entry_extractor 不出
         return e
     au = d.get('authors', [])
     a0 = {'name': '', 'dynasty': '', 'role': ''}
