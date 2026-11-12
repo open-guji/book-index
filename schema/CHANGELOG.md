@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-11-12　people 新增 `offices[]`（任官记录）
+- people 可选 `offices[]`，每项 `{office_id, text, kind?, posthumous?, declined?, place_id?, institution_id?, start?, end?, date_text?, basis?, sources[]}`，`sources` 用 `Citation`；只录古籍传记明文，按传文先后排列；反向（历任者）由 build 派生，源档不存。`kind` 只记任命方式（兼／權／試／判／守／行／知／充），赠官追封用 `posthumous:true`，未就用 `declined:true`。
+- 新检查 `.claude/qa/check_offices.py`（F01–F07）；`entity.schema.json` 加 `$defs/PersonOffice`，非 people 子类不得有 `offices`（官署的 `offices` 反向列表本就禁写，I11 不变）。
+- 依据：A12 方案与 A11／A33／A42 评审（ai-team `domain/专名/规划/任官关系-统一方案-2026-11-12.md`）。目录库 `person_office` 两表与 bim 映射由 A11 先合。存量 0 条，本 PR 不写数据。
+
 ## 2026-11-12　Entity 墓碑许写 `merged_basis`（L0 收口）
 - `entity.schema.json` 墓碑桩 `maxProperties` 8→9：`entity.md`〈并条与退役〉本就规定被并方写 `merged_into`、`merged_basis`，第 8 组（#2215）定上限时漏算 `merged_basis`，致 11-08 起 Entity 并条（#2250、#2255、#2256）的墓碑全库校验报错。
 - 顺手清 11-08 新建条带回的旧账：`review` 占位 641 条（#2252，11-05 已定删）、`qualifier.target: null` 23 条（#2251／#2270，改为省略）。全库 Entity `check_schema` ERROR 670→0。
