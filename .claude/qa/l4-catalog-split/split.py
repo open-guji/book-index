@@ -27,6 +27,9 @@ BOOKS = {
     "junzhai": ("郡齋讀書志", "d59f2hpm3myp", "song", "m/y/p/d59f2hpm3myp/default"),
     "suichu": ("遂初堂書目", "d59f2hs9m96q", "song", "9/6/q/d59f2hs9m96q/kanripo"),
     "wenyuan": ("文淵閣書目", "d59f2njb2w3m", "ming", "w/3/m/d59f2njb2w3m/default"),
+    "rbfz": ("日本訪書志", "d59f2nfr3h8g", "qing", "h/8/g/d59f2nfr3h8g/default"),
+    "rbfzb": ("日本訪書志補", "d59f2msvng8y", "qing", "g/8/y/d59f2msvng8y/default"),
+    "tongzhi": ("通志藝文略", "d59gc4hif56o", "song", "q/8/1/d59f2hrrtq81/default"),
 }
 FOLD = str.maketrans({"爲": "為", "録": "錄", "説": "說", "裏": "裡", "並": "并", "歴": "歷", "厯": "歷",
                       "註": "注", "於": "于", "羣": "群", "衆": "眾", "着": "著", "後": "后", "傳": "傳"})
@@ -132,6 +135,65 @@ def parse_listbook(key):
     return out
 
 
+def parse_tongzhi():
+    """通志卷六十三～七十（藝文略第一～八，Kanripo 竖排）：先把折行拼回，再按「題名＋卷數＋<注>」切条；
+    「右X<…>」行给其前各条标小类 X。注文里常含撰人（朝代官职＋人名＋撰/注），供作者核对。"""
+    d = os.path.join(BT, BOOKS["tongzhi"][3])
+    out = []
+    for n in range(73, 81):
+        raw = open(os.path.join(d, "%03d.md" % n), encoding="utf-8").read().split("\n")
+        buf, pending = "", []
+        def flush():
+            nonlocal buf, pending
+            t = re.sub(r"[|\u3000 ]", "", buf)
+            t = t.replace("><", "")
+            for m in re.finditer(r"([^<>卷巻]{1,22}?[一二三四五六七八九十百千]+[卷巻])(?:<([^>]*)>)?", t):
+                tt, note = m.group(1), m.group(2) or ""
+                mm = re.match(r"^(.*?)([一二三四五六七八九十百千]+[卷巻])$", tt)
+                title, juan = mm.group(1), mm.group(2)
+                if title and len(title) >= 2:
+                    pending.append(dict(sec="", title=title, juan=juan, head=tt, summary="", author_raw=note.replace("|", ""),
+                                        author="", note=note.replace("|", ""), file="%03d.md" % n))
+            buf = ""
+        for ln in raw:
+            if not ln.strip() or ln.startswith("##") or ln.startswith("欽定四庫全書"):
+                continue
+            if ln.startswith("\u3000\u3000\u3000右"):
+                flush()
+                lab = re.sub(r"<[^>]*>", "", ln.strip("\u3000 ")).lstrip("右")
+                for e in pending:
+                    e["sec"] = lab
+                out.extend(pending)
+                pending = []
+                continue
+            if ln.startswith("\u3000"):
+                flush()  # 按语、标题行：不入条
+                continue
+            buf += ln
+        flush()
+        out.extend(pending)
+    return out
+
+
+def parse_headings(key):
+    """日本訪書志（補）：`## 《題》卷數（版本说明）` 一条一标题，正文是提要。"""
+    d = os.path.join(BT, BOOKS[key][3])
+    out = []
+    for fn in sorted(f for f in os.listdir(d) if re.fullmatch(r"\d{3}\.md", f)):
+        cur = None
+        for ln in open(os.path.join(d, fn), encoding="utf-8").read().split("\n"):
+            m = re.match(r"^## 《([^》]+)》(.*)$", ln.rstrip())
+            if m:
+                cur = dict(sec="", title=m.group(1), juan=re.sub(r"[（(<].*$", "", m.group(2)), head=ln[3:].strip(),
+                           summary=[], author_raw="", author="", file=fn)
+                out.append(cur)
+            elif cur is not None and ln.strip() and not ln.startswith("##"):
+                cur["summary"].append(ln.strip())
+    for e in out:
+        e["summary"] = "\n".join(e["summary"])
+    return out
+
+
 def match(e, idx, by, era):
     k = norm(e["title"])
     if len(k) < 2:
@@ -140,6 +202,16 @@ def match(e, idx, by, era):
     allc = by.get(k, [])
     if not allc:
         return "N", []
+    if e.get("note"):
+        a = e["note"]
+        hit = [w for w in cands if any(len(n) >= 2 and n in a for n in idx[w]["a"])]
+        if len(hit) == 1:
+            return "A", hit
+        if len(hit) > 1:
+            return "C", hit
+        if len(k) < 4 or not cands:
+            return "C", allc[:6]
+        return "C", cands[:6]
     if e["author"]:
         a = e["author"]
         hit = [w for w in cands if any(len(n) >= 2 and (n in a or a in n) for n in idx[w]["a"])]
@@ -161,7 +233,7 @@ def main():
     key = sys.argv[1]
     apply = "--apply" in sys.argv
     src, sbid, era, _ = BOOKS[key]
-    ents = parse_junzhai() if key == "junzhai" else parse_listbook(key)
+    ents = parse_junzhai() if key == "junzhai" else parse_tongzhi() if key == "tongzhi" else parse_headings(key) if key in ("rbfz", "rbfzb") else parse_listbook(key)
     idx, by = load_idx()
     cnt = collections.Counter()
     rows = []
