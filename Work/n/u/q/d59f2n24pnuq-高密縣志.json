@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志000688-000691），無同名 Work 故新建。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-11-12 L1：據《續修四庫全書總目提要》（東方文化事業總委員會稿本）同題多候選中朝代、卷數、部類唯一相合，補 indexed_by（匹配檔 A2；書名未帶作者，以朝代、卷數、部類複核）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故志000688-000691），無同名 Work 故新建。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-11-12 L1：據《續修四庫全書總目提要》（東方文化事業總委員會稿本）同題多候選中朝代、卷數、部類唯一相合，補 indexed_by（匹配檔 A2；書名未帶作者，以朝代、卷數、部類複核）。\n\n2026-11-12 L5 馆藏挂接：存疑档中候选可定的行，复核者逐条选同书（题名全等、责任者相合，抽检异书 0），按确定档规则补挂（影像）。",
   "measures": [
     {
       "unit": "卷",
@@ -30,7 +30,7 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "revised_at": "2026-11-12",
   "resources": [
     {
@@ -40,6 +40,35 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E9%AB%98%E5%AF%86%E7%B8%A3%E5%BF%97_-_%E6%B0%91%E5%9C%8B%E4%BA%8C%E5%8D%81%E5%9B%9B%E5%B9%B4_%281935%29.pdf"
+    },
+    {
+      "id": "loc",
+      "label": "美國國會圖書館藏本：[China] : [publisher not identified], Qing Qianlong 19 nian [1754] 1754",
+      "name": "美國國會圖書館數字館藏",
+      "url": "https://www.loc.gov/item/2011457277/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2011457277",
+        "iiif_manifest": "https://www.loc.gov/item/2011457277/manifest.json",
+        "edition": "[China] : [publisher not identified], Qing Qianlong 19 nian [1754] 1754"
+      }
+    },
+    {
+      "id": "sbb",
+      "label": "柏林國家圖書館藏本：刻本;[China] 乾隆十九年 (=1754)",
+      "name": "柏林國家圖書館數字館藏",
+      "url": "https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN1047232006",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "sbb_record": "PPN1047232006",
+        "iiif_manifest": "https://content.staatsbibliothek-berlin.de/dc/PPN1047232006/manifest",
+        "shelfmark": "Libri sin. N.S. 155",
+        "edition": "刻本;[China] 乾隆十九年 (=1754)"
+      }
     }
   ],
   "indexed_by": [

@@ -51,6 +51,20 @@
         "text",
         "image"
       ]
+    },
+    {
+      "id": "loc",
+      "label": "美國國會圖書館藏本：鈔本 1764",
+      "name": "美國國會圖書館數字館藏",
+      "url": "https://www.loc.gov/item/2014514515/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2014514515",
+        "iiif_manifest": "https://www.loc.gov/item/2014514515/manifest.json",
+        "edition": "鈔本 1764"
+      }
     }
   ],
   "measures": [
@@ -60,7 +74,7 @@
     }
   ],
   "measure_info": "三十卷",
-  "ai_note": "作者「清清高宗乾隆御撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkacfnm0p34 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3bdev1znr4()（不同作者，故新建獨立 Work）。\n\n2026-08-20 題名簡繁歧出歸併專項：庫中別有題作《御製文初集》之 work（`1evkpxta36j28`），與本條題名之差唯一字，而該字為簡體轉繁時之歧出（同一簡字對數繁字，轉換取字不一）。二者撰人相容、卷數不衝突、所出之志互異，實一書之重出，今併，異題入 additional_titles。\n\n2026-09-06 qa-sweep/qing·F 類：撰人名由「清高宗乾隆」正為「高宗乾隆」。剝朝代前綴，「高宗乾隆」即 entity 之 primary_name（按：此 entity 疑與「清高宗」hixhd2h9bhwp 為同一人之重出，另記 known-issues）。；3c 責任者名勘誤（2026-10-25）：authors[0]「高宗乾隆」→「清高宗」",
+  "ai_note": "作者「清清高宗乾隆御撰」補自《國立故宮博物院善本舊籍》目錄。 | 從 1evkacfnm0p34 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3bdev1znr4()（不同作者，故新建獨立 Work）。\n\n2026-08-20 題名簡繁歧出歸併專項：庫中別有題作《御製文初集》之 work（`1evkpxta36j28`），與本條題名之差唯一字，而該字為簡體轉繁時之歧出（同一簡字對數繁字，轉換取字不一）。二者撰人相容、卷數不衝突、所出之志互異，實一書之重出，今併，異題入 additional_titles。\n\n2026-09-06 qa-sweep/qing·F 類：撰人名由「清高宗乾隆」正為「高宗乾隆」。剝朝代前綴，「高宗乾隆」即 entity 之 primary_name（按：此 entity 疑與「清高宗」hixhd2h9bhwp 為同一人之重出，另記 known-issues）。；3c 責任者名勘誤（2026-10-25）：authors[0]「高宗乾隆」→「清高宗」\n\n2026-11-12 L5 馆藏挂接：存疑档中候选可定的行，复核者逐条选同书（题名全等、责任者相合，抽检异书 0），按确定档规则补挂（影像）。",
   "description": {
     "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故殿000324-000339）。清乾隆間武英殿刊本。",
     "sources": [
@@ -71,6 +85,6 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.2.1",
-  "revised_at": "2026-10-25"
+  "revision": "1.3.0",
+  "revised_at": "2026-11-12"
 }

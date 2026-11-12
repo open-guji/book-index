@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-11-12 L5 馆藏挂接：存疑档中候选可定的行，复核者逐条选同书（题名全等、责任者相合，抽检异书 0），按确定档规则补挂（影像）。",
   "measures": [
     {
       "unit": "冊",
@@ -30,8 +30,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.3.0",
-  "revised_at": "2026-10-26",
+  "revision": "1.4.0",
+  "revised_at": "2026-11-12",
   "resources": [
     {
       "name": "维基共享资源",
@@ -260,6 +260,51 @@
       "metadata": {
         "waseda_id": "he21_02761",
         "edition": "[京都] : 中野太良左衛門, 慶安5[1652] : ※"
+      }
+    },
+    {
+      "id": "keio",
+      "label": "慶應藏本：室町末近世初写",
+      "name": "慶應義塾図書館 漢籍コレクション",
+      "url": "https://dcollections.lib.keio.ac.jp/ja/kanseki/110X-242-1",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "keio_record": "keioobjecthub-14276",
+        "call_no": "110X-242-1",
+        "edition": "室町末近世初写",
+        "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/110X-242-1/manifest.json"
+      }
+    },
+    {
+      "id": "keio",
+      "label": "慶應藏本：難波宗建 延享2年令写(1745)",
+      "name": "慶應義塾図書館 漢籍コレクション",
+      "url": "https://dcollections.lib.keio.ac.jp/ja/kanseki/110X-492-1",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "keio_record": "keioobjecthub-14277",
+        "call_no": "110X-492-1",
+        "edition": "難波宗建 延享2年令写(1745)",
+        "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/110X-492-1/manifest.json"
+      }
+    },
+    {
+      "id": "keio",
+      "label": "慶應藏本：江戸前期写",
+      "name": "慶應義塾図書館 漢籍コレクション",
+      "url": "https://dcollections.lib.keio.ac.jp/ja/kanseki/110X-319-1",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "keio_record": "keioobjecthub-14278",
+        "call_no": "110X-319-1",
+        "edition": "江戸前期写",
+        "iiif_manifest": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/KAN/110X-319-1/manifest.json"
       }
     }
   ],
