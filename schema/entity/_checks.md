@@ -88,3 +88,18 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | `Work.authors[].entity_id` 悬空 | 指向不存在的 Entity | `--strict` 时计 |
 | 专名校验码与 V 系列 | 同上表，与 check_v2 共用实现（verify 不带 `--ref-root`） | 专名码的 ERROR 一律计；V 系列 ERROR `--strict` 时计；WARN／INFO 只报数 |
 | 朝代与生卒世纪明显不合 | people 的 `dynasty` 与 `birth_year`／`death_year`／`dates.birth`／`dates.death` 在宽容 ±40 年外不合（源档只读 `dates.*`，`birth_year`／`death_year` 指 `index/` 里的同名键）；史学惯例常以主要活动或卒年所属朝代标注 | 只报数，不计 |
+
+## people 任官 `offices[]`（F 系列，2026-11-12）
+
+不在 `entity_subtypes.py` 里，另由 `.claude/qa/check_offices.py` 跨记录检查（同 `check_relations.py`），印「扫 N 檔、含 offices M 檔」。
+
+| 码 | 规则 | 级别 |
+|---|---|---|
+| F01 | 只许 people 有 `offices`；非空数组；每项 `office_id`、`text`、`sources` 非空，`sources` 项是带 `title` 的引文对象 | ERROR |
+| F02 | `office_id` 指 office、`place_id` 指 place、`institution_id` 指官署，均存在且未并／未退役 | ERROR |
+| F02b | `institution_id` 与该官职的 `institution_ref` 相同（多余） | WARN |
+| F03 | 无未知键；`kind` 在 兼／權／試／判／守／行／知／充 内；`posthumous`／`declined` 只许 `true`；`start`／`end` 非 0 整数且 start≤end | ERROR |
+| F04 | 任职年落在生卒外（无生卒时用 floruit±40）；`posthumous` 项不查 | WARN |
+| F05 | 官职所属朝代与人物 `dynasty` 不相容 | WARN |
+| F06 | 同人同 `office_id` 同 `start` 重复 | WARN |
+| F07 | `start` 早于前面某项（项序按传文先后，与年份打架时提示） | WARN |

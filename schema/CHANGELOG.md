@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-11-12　people 新增 `offices[]`（任官记录）
+- people 可选 `offices[]`，每项 `{office_id, text, kind?, posthumous?, declined?, place_id?, institution_id?, start?, end?, date_text?, basis?, sources[]}`，`sources` 用 `Citation`；只录古籍传记明文，按传文先后排列；反向（历任者）由 build 派生，源档不存。`kind` 只记任命方式（兼／權／試／判／守／行／知／充），赠官追封用 `posthumous:true`，未就用 `declined:true`。
+- 新检查 `.claude/qa/check_offices.py`（F01–F07）；`entity.schema.json` 加 `$defs/PersonOffice`，非 people 子类不得有 `offices`（官署的 `offices` 反向列表本就禁写，I11 不变）。
+- 依据：A12 方案与 A11／A33／A42 评审（ai-team `domain/专名/规划/任官关系-统一方案-2026-11-12.md`）。目录库 `person_office` 两表与 bim 映射由 A11 先合。存量 0 条，本 PR 不写数据。
+
 ## 2026-11-05　删 `review` 占位与全库 0 条的字段（目录库 v2 设计，用户定）
 - 删 `review`：Entity 121,416 条、Work 49 条，全是 `{"status":"unreviewed"}`，没有一条审过；连同 `common.schema.json` 的 `$defs/Review`。Book／Collection 早已删（第 8 组）。`verify.py` 改为见到 `review` 即报残留。网站卡底 `CardFoot` 本就不显示「未審核」，无可见变化。
 - 从 schema 删全库 0 条的字段：Work `preferred_book`；Book `provenance[].seal_marks[]` 的 `position`、`source`（连同 B-S05 校验）；`PublicationInfo.source`；`JuanCount.unit`、`source`（`juan_count` 只剩 Collection 14 条）；`Source.position`；官署 `superiors[].end`；Book `publication_info.source`；Collection `related_books`；地名 `history[].parent_text`（连同 P03 的并存 WARN）；出版者 `owners[].start`、`end`。

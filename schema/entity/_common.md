@@ -41,6 +41,7 @@
 | `description` | Description | 可选；官职概念条、官署概念条与合称条**必填** | 原生 | 介绍与出处 | 形状同 [common.md〈Description〉](../common.md)，但 Entity 的 `text` 可省（正式库 people 5,886 条 `description` 里只有 213 条有 `text`，其余只记出处），`sources` 必有；Entity 的出处一律记 `description.sources` | 录入 | `{"text":"都開封。","sources":[]}` |
 | `suppressed_fields` | array<string> | 可选；people | 原生 | 人工确认 CBDB 值有误而清空的字段名 | 字段名（顶层键名，或 `external_ids` 的子键名）；正式库 6 条（2026-11-03 实测）：`["cbdb_id"]`、`["cbdb_id","wikidata_id"]`、`["dates"]`。见[people](people.md) | 录入 | `["cbdb_id"]` |
 | `relations` | array<PersonRelation> | 可选；people | 原生 | 亲属／师承关系，双向对称写入 | 每项 `{type, entity_id, basis?, sources?[]}`；`type` 12 值：父／子／祖／孫／曾祖／曾孫／兄／弟／叔伯／姪／師／弟子；见[people](people.md) | 录入 | `[{"type":"父","entity_id":"hixhd2h9bf1f"}]` |
+| `offices` | array<PersonOffice> | 可选；people | 原生 | 任官记录，按传文先后 | 每项 `{office_id, text, kind?, posthumous?, declined?, place_id?, institution_id?, start?, end?, date_text?, basis?, sources[]}`；`kind` 只记任命方式：兼／權／試／判／守／行／知／充；见[people](people.md) | 录入 | `[{"office_id":"hixi…","text":"知揚州","sources":[{"title":"《宋史》卷三百二十七·王安石傳"}]}]` |
 | `ai_note` | string | 可选（全部） | 原生 | 录入备注 | 自由文本，见 [common.md〈ai_note〉](../common.md) | 录入 | |
 | `todo` | array<object> | 可选（全部） | 原生 | 待办 | 每项 `{what, by?, date?}`，`what` 非空；正式库 people 37 条（2026-11-03 实测），其余类型无 | 录入 | |
 | `revision` | string | **正式库必填**（全部） | 原生 | 记录内容版本 | `"主.次.补"`，新条 `"1.0.0"`；口径见 [common.md〈revision〉](../common.md#revision-口径)。Entity 也必填（overview#468），正式库已全补；草稿库 people 3 条缺（`1jb8icg27zjsx` 章淵、`1jb8icg2u5edf` 褚遂良、`1jb8icg2z572a` 沈瀛），升格时由 bim 补 | 录入、bim | `"1.1.0"` |

@@ -110,6 +110,13 @@
         "$ref": "#/$defs/PersonRelation"
       }
     },
+    "offices": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/PersonOffice"
+      }
+    },
     "ai_note": {
       "type": "string"
     },
@@ -835,6 +842,11 @@
                 },
                 {
                   "required": [
+                    "offices"
+                  ]
+                },
+                {
+                  "required": [
                     "collective_kind"
                   ]
                 },
@@ -1083,6 +1095,11 @@
                 {
                   "required": [
                     "relations"
+                  ]
+                },
+                {
+                  "required": [
+                    "offices"
                   ]
                 },
                 {
@@ -1346,6 +1363,11 @@
                 },
                 {
                   "required": [
+                    "offices"
+                  ]
+                },
+                {
+                  "required": [
                     "collective_kind"
                   ]
                 },
@@ -1595,6 +1617,11 @@
                 {
                   "required": [
                     "relations"
+                  ]
+                },
+                {
+                  "required": [
+                    "offices"
                   ]
                 },
                 {
@@ -1857,6 +1884,11 @@
                   {
                     "required": [
                       "relations"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "offices"
                     ]
                   },
                   {
@@ -2150,6 +2182,11 @@
               },
               {
                 "required": [
+                  "offices"
+                ]
+              },
+              {
+                "required": [
                   "institution_level"
                 ]
               },
@@ -2328,6 +2365,11 @@
                 {
                   "required": [
                     "relations"
+                  ]
+                },
+                {
+                  "required": [
+                    "offices"
                   ]
                 },
                 {
@@ -2543,6 +2585,11 @@
                 {
                   "required": [
                     "relations"
+                  ]
+                },
+                {
+                  "required": [
+                    "offices"
                   ]
                 },
                 {
@@ -2900,6 +2947,67 @@
           "minItems": 1,
           "items": {
             "$ref": "common.schema.json#/$defs/Source"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "PersonOffice": {
+      "description": "people 的任官记录项（2026-11-12 新增，仅 people；A11 评审定稿）：只录古籍传记明文所载，按传文先后排列、不重排；反向（历任者、某地历任长官）由 build 派生，源档不存。",
+      "type": "object",
+      "required": [
+        "office_id",
+        "text",
+        "sources"
+      ],
+      "properties": {
+        "office_id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "text": {
+          "$ref": "common.schema.json#/$defs/NonEmptyString"
+        },
+        "kind": {
+          "enum": [
+            "兼",
+            "權",
+            "試",
+            "判",
+            "守",
+            "行",
+            "知",
+            "充"
+          ]
+        },
+        "posthumous": {
+          "const": true
+        },
+        "declined": {
+          "const": true
+        },
+        "place_id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "institution_id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "date_text": {
+          "type": "string"
+        },
+        "basis": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "common.schema.json#/$defs/Citation"
           }
         }
       },
