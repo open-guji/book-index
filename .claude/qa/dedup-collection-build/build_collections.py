@@ -199,18 +199,12 @@ def main():
     for p in plan:
         for bid in p['books']:
             add[bid].append(p['id'])
-    import build_derived as BD
-    idx = {}
     for p in plan:
         fp = ROOT / p['path']
         if fp.exists():
             die('新档已存在：' + p['path'])
         fp.parent.mkdir(parents=True, exist_ok=True)
         fp.write_text(jdump(p['record']), encoding='utf-8')
-    coll_idx = json.loads((ROOT / 'index/collections.json').read_text(encoding='utf-8'))
-    for p in plan:
-        coll_idx[p['id']] = BD.index_entry(p['record'], 'Collection', p['path'])
-    idx['index/collections.json'] = dict(sorted(coll_idx.items()))
     for bid, cids in add.items():
         b = json.loads(paths[bid].read_text(encoding='utf-8'))
         ci = b.get('contained_in') or []
@@ -221,11 +215,6 @@ def main():
         b['revision'] = f'{int(rv[0]) + 1}.0.0'
         b['revised_at'] = TODAY
         paths[bid].write_text(jdump(b), encoding='utf-8')
-        rel = f"index/books/{BD.shard_of(bid):x}.json"
-        if rel not in idx:
-            idx[rel] = json.loads((ROOT / rel).read_text(encoding='utf-8'))
-        idx[rel][bid] = BD.index_entry(b, 'Book', str(paths[bid].relative_to(ROOT)))
-    BD.write_index(str(ROOT), {k: dict(sorted(v.items())) for k, v in idx.items()})
     print('已写：Collection', len(plan), '改 Book', len(add))
 
 

@@ -18,14 +18,14 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-09-06 qa-sweep/qing·A 類（基準句與實錄相牴）：period_basis 所引之值與 authors[0].dynasty 之實錄不符，今隨實錄改，period 不動。據：本條 authors[0].dynasty_basis 自書「synonym:清末->清」——朝代名同義正規化改了 dynasty 而未回改 period_basis；「清末」與「清」所指同一代，斷代（period=qing）不因之而異。原值：period_basis=「據 authors[0].dynasty「清末」」。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-09-06 qa-sweep/qing·A 類（基準句與實錄相牴）：period_basis 所引之值與 authors[0].dynasty 之實錄不符，今隨實錄改，period 不動。據：本條 authors[0].dynasty_basis 自書「synonym:清末->清」——朝代名同義正規化改了 dynasty 而未回改 period_basis；「清末」與「清」所指同一代，斷代（period=qing）不因之而異。原值：period_basis=「據 authors[0].dynasty「清末」」。\n\n2026-10-24 國圖數字方志／趙城金藏重配：按確定檔補掛國圖影像資源（獨立抽檢錯掛 0）。\n\n2026-11-12 L1：據《續修四庫全書總目提要》（東方文化事業總委員會稿本）題名唯一同題，補 indexed_by（匹配檔 A；書名未帶作者，以朝代、卷數、部類複核）。",
   "id": "d59f2mzyoc1u",
   "period": "qing",
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-12",
   "resources": [
     {
       "name": "维基共享资源",
@@ -57,6 +57,14 @@
       "author_info": "清周芳煦纂",
       "section": "史部/方志類/地志之屬",
       "summary": "共 2 個版本：一九七八年中央民族學院圖書館油印本（復旦大學圖書館）；清光緒三十三年纂抄本（北京大學圖書館、湖北省圖書館、南京圖書館、國家圖書館）"
+    },
+    {
+      "source": "續修四庫全書總目提要",
+      "source_bid": "d59f2ogb4bgi",
+      "title_info": "新平縣鄉土志",
+      "section": "方志部/新疆",
+      "volume": "第24冊",
+      "page": "248"
     }
   ]
 }

@@ -23,7 +23,21 @@
   ],
   "period": "qin-han",
   "period_basis": "據 dynasty「西漢」自動歸併",
+  "description": {
+    "sources": [
+      {
+        "title": "《欽定四庫全書總目》卷十一·《尚書正義》提要",
+        "source_bid": "d59dh3vo9af4",
+        "details": "舊本題漢孔安國傳。"
+      },
+      {
+        "title": "《欽定四庫全書總目》卷三十二·《古文孝經孔氏傳》提要",
+        "source_bid": "d59dh3vo9af4",
+        "details": "舊本題漢孔安國傳，日本信陽太宰純音。"
+      }
+    ]
+  },
   "ai_note": "2026-08-19 人物繫連補記：庫中有 3 書之 authors[].entity_id 指向本條而本條之 works 未載（《論語孔氏訓解》《論語孔氏注》《尚書注疏》），是單向之繫，今補其反向。\n\n2026-08-24 兩漢升格前清賬（撰人繫連補全）：works 補繫 1 條。\n2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-08-25 雙向補繫：下列 work 之 authors[].entity_id 已指本條而本條 works 未回指（validate 之 E08 同步把墓碑之 entity 繫連帶入 production 所致）——`d59f24mgmm10`《古論語訓》。\n\n2026-09-09 A-并条 併條善後：所繫 d59f24mgbdhd 已併入 d59f21ep59mo，反邊改指。",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-07"
+  "revision": "1.0.1",
+  "revised_at": "2026-11-11"
 }
