@@ -61,7 +61,7 @@
     }
   },
   "patternProperties": {
-    "^_(?!(ancestors|authors|books|catalogs|children|classifications|collections|compounds|concretes|derived_by|dynasty|dynasty_candidates|dynasty_id|edition_count|has_collated|has_image|has_text|index_in_reign|lineage_graph_ref|lineage_refs|member_catalog|member_count|member_pages|member_type|members|offices|reigns|related|related_pages|related_total|ruler|same_name|siblings|siblings_more|siblings_total|span|subordinates|work|works)$)": false
+    "^_(?!(ancestors|authors|books|catalogs|children|classifications|collections|compounds|concretes|derived_by|dynasty|dynasty_candidates|dynasty_id|edition_count|has_collated|has_image|has_text|holders|holders_total|index_in_reign|lineage_graph_ref|lineage_refs|member_catalog|member_count|member_pages|member_type|members|offices|officials|officials_total|reigns|related|related_pages|related_total|ruler|same_name|siblings|siblings_more|siblings_total|span|subordinates|work|works)$)": false
   },
   "allOf": [
     {
@@ -389,10 +389,22 @@
                   "items": {
                     "$ref": "#/$defs/OfficeCard"
                   }
+                },
+                "_holders": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/TenureCard"
+                  },
+                  "description": "历任者：people.offices[] 以本条为 office_id 的项（不含赠官、不就），按任职年排，至多 300"
+                },
+                "_holders_total": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "反查总项数（卡片超 300 截断时大于卡数）"
                 }
               },
               "patternProperties": {
-                "^_(?!(children|compounds|works)$)": false
+                "^_(?!(children|compounds|holders|holders_total|works)$)": false
               }
             }
           },
@@ -425,10 +437,22 @@
                   },
                   "minItems": 1,
                   "description": "跨朝条上，以 concept_id 指向本条的朝代条，按起年排"
+                },
+                "_officials": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/TenureCard"
+                  },
+                  "description": "在此地任官者：people.offices[] 以本条为 place_id 的项（不含赠官、不就），按任职年排，至多 300"
+                },
+                "_officials_total": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "反查总项数（卡片超 300 截断时大于卡数）"
                 }
               },
               "patternProperties": {
-                "^_(?!(children|concretes|span|works)$)": false
+                "^_(?!(children|concretes|officials|officials_total|span|works)$)": false
               }
             }
           },
@@ -1475,6 +1499,76 @@
         },
         "end": {
           "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TenureCard": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "description": "任官反查卡：人物卡（id、name、dyn，枢纽只有 id＋h）加该任官项的原文与年份；_holders 带 place，_officials 带 office",
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/Id"
+        },
+        "h": {
+          "const": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dyn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "office": {
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "common.schema.json#/$defs/Id"
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "place": {
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "common.schema.json#/$defs/Id"
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false

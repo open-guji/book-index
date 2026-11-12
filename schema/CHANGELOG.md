@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-11-12　build 派生任官反查 `_holders`／`_officials`
+- office 条产物加 `_holders`（历任者），place 条加 `_officials`（在此地任官者），都由 people `offices[]` 反查，不含 `posthumous`、`declined` 的项。卡片为新 `$defs/TenureCard`：人物卡（id、name、dyn；枢纽只有 id＋h）加该项的 `text`、`kind`、`start`、`end`，`_holders` 带 `place`、`_officials` 带 `office`（各 `{id,name}`）。按任职年排、无年份的殿后，每条至多 300 张，总数在 `_holders_total`／`_officials_total`。
+- 源档不写这些键。代码在 `build/names.py`，从文件、从库（`--from-db`）两条路同出。
+- 实测（book-index main，宋史任官全量后）：1,132 个官职有 `_holders`（最多 知州 286 项，条目 29 KB），523 个地名有 `_officials`（最多 兩浙路 24 项）；1,655 个条目按 derived-entry schema 校验 0 错。
+- 依据：用户 11-12 定「先做反查数据」；A12 任官统一方案 §四。
+
 ## 2026-11-12　people 新增 `offices[]`（任官记录）
 - people 可选 `offices[]`，每项 `{office_id, text, kind?, posthumous?, declined?, place_id?, institution_id?, start?, end?, date_text?, basis?, sources[]}`，`sources` 用 `Citation`；只录古籍传记明文，按传文先后排列；反向（历任者）由 build 派生，源档不存。`kind` 只记任命方式（兼／權／試／判／守／行／知／充），赠官追封用 `posthumous:true`，未就用 `declined:true`。
 - 新检查 `.claude/qa/check_offices.py`（F01–F07）；`entity.schema.json` 加 `$defs/PersonOffice`，非 people 子类不得有 `offices`（官署的 `offices` 反向列表本就禁写，I11 不变）。
