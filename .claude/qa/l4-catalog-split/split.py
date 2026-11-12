@@ -29,6 +29,7 @@ BOOKS = {
     "wenyuan": ("文淵閣書目", "d59f2njb2w3m", "ming", "w/3/m/d59f2njb2w3m/default"),
     "rbfz": ("日本訪書志", "d59f2nfr3h8g", "qing", "h/8/g/d59f2nfr3h8g/default"),
     "rbfzb": ("日本訪書志補", "d59f2msvng8y", "qing", "g/8/y/d59f2msvng8y/default"),
+    "tongkao": ("文獻通考經籍考", "d59fazcc5q80", "liao-jin-yuan", "KR2m0009"),
     "tongzhi": ("通志藝文略", "d59gc4hif56o", "song", "q/8/1/d59f2hrrtq81/default"),
 }
 FOLD = str.maketrans({"爲": "為", "録": "錄", "説": "說", "裏": "裡", "並": "并", "歴": "歷", "厯": "歷",
@@ -194,6 +195,54 @@ def parse_headings(key):
     return out
 
 
+KR = os.environ.get("KR", "/tmp/claude-0/kr")
+
+
+def parse_tongkao():
+    """文獻通考卷一七四～二四九（經籍考，Kanripo 原仓 kanripo/KR2m0009，文淵閣本）。
+    顶格行（非 `(` 非 `<pb`）＝条首（书名＋卷数，常冠撰人名）；其后 `　` 缩进行＝晁氏曰／陳氏曰／本传等引文，并入 summary。"""
+    out = []
+    sec = ""
+    SKIP = re.compile(r"^(西漢志|漢志|隋志|唐志|宋[^，。]{0,6}志|中興志|三朝志|兩朝志|四朝志|國史志|崇文|欽定四庫|文獻通考卷|經籍考|鄱陽|總叙|總序)")
+    for n in range(174, 250):
+        fp = os.path.join(KR, "KR2m0009", "KR2m0009_%03d.txt" % n)
+        if not os.path.exists(fp):
+            continue
+        cur = None
+        for ln in open(fp, encoding="utf-8").read().split("\n"):
+            if ln.startswith("#") or ln.startswith("<pb"):
+                continue
+            ln = ln.rstrip("¶").rstrip()
+            if not ln:
+                continue
+            if ln.startswith("\u3000\u3000") and not ln.startswith("\u3000\u3000\u3000"):
+                h = re.sub(r"\(.*?\)", "", ln.strip("\u3000 "))
+                if re.fullmatch(r"[經史子集]", h):
+                    sec = h
+                    cur = None
+                    continue
+            if ln.startswith("\u3000"):
+                if cur is not None:
+                    cur["summary"].append(ln.strip("\u3000 "))
+                continue
+            if ln.startswith("(") or SKIP.match(ln):
+                continue
+            t = re.sub(r"\([^)]*\)", "", ln)
+            if len(t) > 36 or "，" in t or "。" in t:
+                if cur is not None:
+                    cur["summary"].append(ln)
+                continue
+            m = re.match(r"^(.*?)([一二三四五六七八九十百千]+[卷篇])?$", t)
+            title, juan = m.group(1), m.group(2) or ""
+            if len(title) < 2:
+                continue
+            cur = dict(sec="", title=title, juan=juan, head=t, summary=[], author_raw="", author="", file="%03d" % n)
+            out.append(cur)
+    for e in out:
+        e["summary"] = "\n".join(e["summary"])
+    return out
+
+
 def match(e, idx, by, era):
     k = norm(e["title"])
     if len(k) < 2:
@@ -233,7 +282,7 @@ def main():
     key = sys.argv[1]
     apply = "--apply" in sys.argv
     src, sbid, era, _ = BOOKS[key]
-    ents = parse_junzhai() if key == "junzhai" else parse_tongzhi() if key == "tongzhi" else parse_headings(key) if key in ("rbfz", "rbfzb") else parse_listbook(key)
+    ents = parse_junzhai() if key == "junzhai" else parse_tongzhi() if key == "tongzhi" else parse_tongkao() if key == "tongkao" else parse_headings(key) if key in ("rbfz", "rbfzb") else parse_listbook(key)
     idx, by = load_idx()
     cnt = collections.Counter()
     rows = []
