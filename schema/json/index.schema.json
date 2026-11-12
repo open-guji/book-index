@@ -145,6 +145,24 @@
         "period": {},
         "promoted_to": {
           "$ref": "common.schema.json#/$defs/Id"
+        },
+        "office_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "description": "people 所任官职 id（build 才有）：offices[] 去掉赠官、不就，解到存活条并展开 concept_id 上位条；搜索过滤用"
+        },
+        "office_place_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/Id"
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "description": "people 任官所在地名 id（build 才有）：只取 offices[].place_id，口径同 office_ids"
         }
       },
       "additionalProperties": false,

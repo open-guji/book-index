@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-11-12　人物 index 加 `office_ids`／`office_place_ids`（搜索过滤）
+- people 的 index 分片条目加 `office_ids`（所任官职，解到存活条并沿 `concept_id` 展开跨朝上位条，按「知州」能查到各朝）、`office_place_ids`（只取 `offices[].place_id`）；都去重排序，不含赠官、不就，口径同 `_holders`。没有任官的人不写这两个键。
+- 只有 build（`build_derived.py`）才出：要解并条、展开上位官职，单条记录做不到，所以 bim `entry_extractor` 与 ui `storage.ts` 不跟（同 `has_collated` 先例）。
+- 实测：3,638 人有 `office_ids`，953 人有 `office_place_ids`。用途：A42 的 Meili filter，不进全文召回。
+
 ## 2026-11-12　build 派生任官反查 `_holders`／`_officials`
 - office 条产物加 `_holders`（历任者），place 条加 `_officials`（在此地任官者），都由 people `offices[]` 反查，不含 `posthumous`、`declined` 的项。卡片为新 `$defs/TenureCard`：人物卡（id、name、dyn；枢纽只有 id＋h）加该项的 `text`、`kind`、`start`、`end`，`_holders` 带 `place`、`_officials` 带 `office`（各 `{id,name}`）。按任职年排、无年份的殿后，每条至多 300 张，总数在 `_holders_total`／`_officials_total`。
 - 源档不写这些键。代码在 `build/names.py`，从文件、从库（`--from-db`）两条路同出。
