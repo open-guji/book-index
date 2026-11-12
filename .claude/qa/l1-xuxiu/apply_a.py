@@ -5,7 +5,8 @@ import json,pickle,re,sys,argparse,glob,os,collections
 ap=argparse.ArgumentParser(); ap.add_argument('--apply',action='store_true'); ap.add_argument('--limit',type=int,default=0)
 ap.add_argument('--root',default='/home/user/book-index'); ap.add_argument('--tiers',default='A'); a=ap.parse_args()
 SRC='續修四庫全書總目提要'; BID='d59f2ogb4bgi'; TODAY='2026-11-12'
-rows=pickle.load(open('rows_t.pkl','rb'))
+import os
+rows=pickle.load(open(os.environ.get('ROWS','rows_t.pkl'),'rb'))
 paths={}
 for p in glob.iglob(a.root+'/Work/*/*/*/*.json'):
     paths[os.path.basename(p).split('-')[0]]=p
@@ -29,7 +30,8 @@ for wid,rs in sorted(by.items()):
     if any(e.get('source')==SRC for e in ib): skipped['already']+=1; continue
     for r in rs: ib.append(entry(r))
     if len(rs)>1: multi+=1
-    how='題名唯一同題' if all(x['tier']=='A' for x in rs) else '同題多候選中朝代、卷數、部類唯一相合'
+    HOW={'A':'題名唯一同題','A2':'同題多候選中朝代、卷數、部類唯一相合','A3':'題名唯一同題且別集類年代類目與 Work 時代相合','A4':'題名為「撰人名＋已有題名」'}
+    how='；'.join(sorted({HOW[x['tier']] for x in rs}))
     note=f'{TODAY} L1：據《續修四庫全書總目提要》（東方文化事業總委員會稿本）{how}，補 indexed_by（匹配檔 {rs[0]["tier"]}；書名未帶作者，以朝代、卷數、部類複核）。'
     d['ai_note']=(d['ai_note']+'\n\n'+note) if d.get('ai_note') else note
     v=d.get('revision','1.0.0').split('.'); d['revision']=f'{v[0]}.{int(v[1])+1}.0'; d['revised_at']=TODAY
