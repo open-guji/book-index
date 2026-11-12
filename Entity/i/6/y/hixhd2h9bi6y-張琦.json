@@ -12,7 +12,7 @@
   "id": "hixhd2h9bi6y",
   "primary_name": "張琦",
   "dynasty": "明",
-  "native_place_basis": "CBDB 130525 index_addr（2026-11-02 隨改繫更正，原慈溪出自舊繫 198510）",
+  "native_place_basis": "據《明詩綜》卷32小傳「琦字君玉鄞縣人」",
   "period_basis": "據 dynasty「明」自動歸併",
   "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=198510 補入空槽——籍貫「慈溪」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ei7dm9x、d59f6ei8mkg3。\n\n2026-10-09 #489 CBDB 改繫：原 pending_accept cbdb_id=198510 與本條所繫作品不合，改繫 130525（張琦 字君玉、號白齋，與《白齋集》等合）。\n\n2026-11-02 核 Wikidata：原 wikidata_id=Q18118444 對應的 CBDB 號與本條現繫 cbdb_id=130525 不同（#489／X1／X3 改繫 CBDB 時未同步），改為 P497 反查唯一對應 Q45530056（標籤張琦/張琦/张琦）。隨 CBDB 改繫更正：撤出自舊繫 198510 的生年 1422、行第「二」、字「宋卿」，改為 CBDB 130525／Wikidata 的字君玉、號白齋；籍貫原「慈溪」改「鄞縣」並撤 native_place_entity_id（待重新匹配地名條）。",
   "period": "ming",
@@ -28,8 +28,8 @@
   ],
   "subtype": "people",
   "schema_version": 1,
-  "revision": "1.1.2",
-  "revised_at": "2026-11-11",
+  "revision": "1.1.3",
+  "revised_at": "2026-11-12",
   "description": {
     "sources": [
       {
@@ -41,6 +41,10 @@
         "title": "《欽定四庫全書總目》卷一百七十六·《白齋竹里集》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明張琦撰。"
+      },
+      {
+        "name": "《明詩綜》",
+        "details": "卷32，小傳：琦字君玉鄞縣人"
       }
     ]
   }
