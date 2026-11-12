@@ -17,6 +17,8 @@ ALTER TABLE entity_dates ADD CONSTRAINT entity_dates_owner_id_fk FOREIGN KEY (ow
 ALTER TABLE place_history ADD CONSTRAINT place_history_owner_id_fk FOREIGN KEY (owner_id) REFERENCES entity (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
 ALTER TABLE place_history_dynasty ADD CONSTRAINT place_history_dynasty_owner_id_hseq_fk FOREIGN KEY (owner_id, hseq) REFERENCES place_history (owner_id, seq) ON DELETE CASCADE DEFERRABLE NOT VALID;
 ALTER TABLE entity_relation ADD CONSTRAINT entity_relation_src_fk FOREIGN KEY (src) REFERENCES entity (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE person_office ADD CONSTRAINT person_office_owner_id_fk FOREIGN KEY (owner_id) REFERENCES entity (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
+ALTER TABLE person_office_source ADD CONSTRAINT person_office_source_owner_id_oseq_fk FOREIGN KEY (owner_id, oseq) REFERENCES person_office (owner_id, seq) ON DELETE CASCADE DEFERRABLE NOT VALID;
 ALTER TABLE bt_manifest_version ADD CONSTRAINT bt_manifest_version_item_id_fk FOREIGN KEY (item_id) REFERENCES bt_item (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
 ALTER TABLE bt_chapter ADD CONSTRAINT bt_chapter_version_id_fk FOREIGN KEY (version_id) REFERENCES bt_version (id) ON DELETE CASCADE DEFERRABLE NOT VALID;
 ALTER TABLE bt_heading ADD CONSTRAINT bt_heading_version_id_ch_seq_fk FOREIGN KEY (version_id, ch_seq) REFERENCES bt_chapter (version_id, seq) ON DELETE CASCADE DEFERRABLE NOT VALID;
@@ -42,4 +44,7 @@ ALTER TABLE book_base_edition ADD CONSTRAINT book_base_edition_book_id_ref FOREI
 ALTER TABLE person ADD CONSTRAINT person_native_place_entity_id_ref FOREIGN KEY (native_place_entity_id) REFERENCES entity (id) DEFERRABLE NOT VALID;
 ALTER TABLE office ADD CONSTRAINT office_base_office_id_ref FOREIGN KEY (base_office_id) REFERENCES entity (id) DEFERRABLE NOT VALID;
 ALTER TABLE place_history_dynasty ADD CONSTRAINT place_history_dynasty_dynasty_id_ref FOREIGN KEY (dynasty_id) REFERENCES entity (id) DEFERRABLE NOT VALID;
+ALTER TABLE person_office ADD CONSTRAINT person_office_office_id_ref FOREIGN KEY (office_id) REFERENCES entity (id) DEFERRABLE NOT VALID;
+ALTER TABLE person_office ADD CONSTRAINT person_office_place_id_ref FOREIGN KEY (place_id) REFERENCES entity (id) DEFERRABLE NOT VALID;
+ALTER TABLE person_office ADD CONSTRAINT person_office_institution_id_ref FOREIGN KEY (institution_id) REFERENCES entity (id) DEFERRABLE NOT VALID;
 ALTER TABLE entity_relation ADD CONSTRAINT entity_relation_dst_ref FOREIGN KEY (dst) REFERENCES entity (id) DEFERRABLE NOT VALID;

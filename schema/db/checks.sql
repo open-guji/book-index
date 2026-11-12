@@ -9,6 +9,10 @@ SELECT 'book_base_edition.book_id 悬空' chk, r.owner_id, r.book_id FROM book_b
 SELECT 'person.native_place_entity_id 悬空' chk, r.id, r.native_place_entity_id FROM person r WHERE r.native_place_entity_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.native_place_entity_id);
 SELECT 'office.base_office_id 悬空' chk, r.id, r.base_office_id FROM office r WHERE r.base_office_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.base_office_id);
 SELECT 'place_history_dynasty.dynasty_id 悬空' chk, r.owner_id, r.dynasty_id FROM place_history_dynasty r WHERE r.dynasty_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.dynasty_id);
+SELECT 'person_office.office_id 悬空' chk, r.owner_id, r.office_id FROM person_office r WHERE r.office_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.office_id);
+SELECT 'person_office.place_id 悬空' chk, r.owner_id, r.place_id FROM person_office r WHERE r.place_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.place_id);
+SELECT 'person_office.institution_id 悬空' chk, r.owner_id, r.institution_id FROM person_office r WHERE r.institution_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.institution_id);
+SELECT 'person_office_source.source_bid 悬空' chk, r.owner_id, r.source_bid FROM person_office_source r WHERE r.source_bid IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.source_bid) AND NOT EXISTS (SELECT 1 FROM book x WHERE x.id = r.source_bid);
 SELECT 'entity_relation.dst 悬空' chk, r.src, r.dst FROM entity_relation r WHERE r.dst IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.dst);
 SELECT 'work_relation.dst 悬空' chk, r.src, r.dst FROM work_relation r WHERE r.dst IS NOT NULL AND NOT EXISTS (SELECT 1 FROM work x WHERE x.id = r.dst) AND NOT EXISTS (SELECT 1 FROM collection x WHERE x.id = r.dst);
 SELECT 'related_record.dst 悬空' chk, r.src, r.dst FROM related_record r WHERE r.dst IS NOT NULL AND NOT EXISTS (SELECT 1 FROM book x WHERE x.id = r.dst) AND NOT EXISTS (SELECT 1 FROM collection x WHERE x.id = r.dst);

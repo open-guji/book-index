@@ -643,6 +643,36 @@ CREATE TABLE entity_relation (
   PRIMARY KEY (src, rel, src_key, seq)
 );
 
+CREATE TABLE person_office (
+  owner_id text NOT NULL,
+  seq int NOT NULL,
+  office_id text,
+  text text,
+  kind text,
+  posthumous boolean,
+  declined boolean,
+  place_id text,
+  institution_id text,
+  start_year int,
+  end_year int,
+  date_text text,
+  notes jsonb,
+  extra jsonb,
+  PRIMARY KEY (owner_id, seq)
+);
+
+CREATE TABLE person_office_source (
+  owner_id text NOT NULL,
+  oseq int NOT NULL,
+  seq int NOT NULL,
+  title text,
+  url text,
+  details text,
+  source_bid text,
+  extra jsonb,
+  PRIMARY KEY (owner_id, oseq, seq)
+);
+
 CREATE TABLE bt_manifest_version (
   item_id text NOT NULL,
   seq int NOT NULL,
@@ -935,6 +965,9 @@ CREATE INDEX ON related_record (dst);
 CREATE INDEX ON entity_relation (dst, rel);
 CREATE INDEX ON entity_external_id (key, value);
 CREATE INDEX ON place_history_dynasty (dynasty_id);
+CREATE INDEX ON person_office (office_id);
+CREATE INDEX ON person_office (place_id);
+CREATE INDEX ON person_office_source (source_bid);
 CREATE INDEX ON id_map (live_id);
 CREATE INDEX ON bt_version (work_id);
 CREATE INDEX ON bt_version (book_id);
