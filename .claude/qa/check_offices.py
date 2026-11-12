@@ -23,9 +23,11 @@ dyn_name = {i: d.get('primary_name') for i, d in recs.items() if d.get('subtype'
 def live(i): o = recs.get(i); return o if o and not o.get('merged_into') and not o.get('retired') else None
 def yrs(o):
     return {dyn_name.get(x) for x in o.get('dynasty_ids') or [] if dyn_name.get(x)}
+def _n(x): return x[1:] if len(x) == 2 and x[0] in '北南東西趙' else x   # 北宋／南宋／趙宋→宋，東漢／西漢→漢
 def compat(pd, ods):
     if not pd or not ods: return True
-    return any(a[:1] == pd[:1] or a in pd or pd in a for a in ods)
+    p = _n(pd)
+    return any(_n(a) == p or a in pd or pd in a for a in ods)
 E = []; W = []; nfile = nitem = 0
 for i, d in recs.items():
     ol = d.get('offices')
