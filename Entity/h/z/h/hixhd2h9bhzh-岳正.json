@@ -37,6 +37,33 @@
       }
     ]
   },
+  "offices": [
+    {
+      "office_id": "hixi5v2mvvur",
+      "text": "編修",
+      "start": 1448,
+      "end": 1448,
+      "date_text": "正統十三年",
+      "sources": [
+        {
+          "title": "《明史》卷一百七十六·岳正傳",
+          "source_bid": "d59f2mc8bta8",
+          "details": "正統十三年會試第一，賜進士及第，授編修，進左贊善。"
+        }
+      ]
+    },
+    {
+      "office_id": "hixia8oxubyb",
+      "text": "修撰",
+      "sources": [
+        {
+          "title": "《明史》卷一百七十六·岳正傳",
+          "source_bid": "d59f2mc8bta8",
+          "details": "天順初，改修撰，教小內侍書。"
+        }
+      ]
+    }
+  ],
   "ai_note": "姓名訂正：原作「嶽正」，係簡繁轉換工具將姓氏過度轉換所致（此姓繁體正作今形，轉之則非姓）。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=34513（「岳正」明，1418–1472）。判準 score=73.0：name 命中、同期候選 3 個、著作重合 0.6。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=34513 補入空槽——別名 4 條（三、季方、文肅、秀方）；籍貫「漷縣」。既有之值一概未動。",
   "period": "ming",
   "period_basis": "據 dynasty「明」自動歸併",
@@ -65,6 +92,6 @@
     "death": 1472,
     "basis": "現行字段"
   },
-  "revision": "1.1.2",
+  "revision": "1.1.3",
   "revised_at": "2026-11-12"
 }
