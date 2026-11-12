@@ -72,8 +72,7 @@ def main():
                 for x in k.get('provenance') or []:
                     if x in (d.get('provenance') or []) and g['tag_provenance'] not in (x.get('notes') or ''):
                         x['notes'] = ((x.get('notes') or '') + ('；' if x.get('notes') else '') + g['tag_provenance'] + d['edition'])
-            k.setdefault('merged_from', [])
-            if l not in k['merged_from']: k['merged_from'].append(l)
+            # merged_from 已列入旧键（legacy-scan 不过），并条关系只记在墓碑 merged_into 与台账 merges.json
             t = {'schema_version': d.get('schema_version', 1), 'id': l, 'type': 'book', 'title': d.get('title'),
                  'work_id': d.get('work_id'), 'revision': d.get('revision') or '1.0.0', 'merged_into': g['keeper'], 'revised_at': TODAY}
             if a.apply: save(lr, t)
