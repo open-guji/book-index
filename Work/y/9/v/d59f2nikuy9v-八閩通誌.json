@@ -36,7 +36,7 @@
       "四庫全書存目叢書"
     ]
   },
-  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1evdicoyvzfnk(黃仲昭)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/ming L 類誤繫解之：撰人「陳道」之 entity 繫連解除（原繫 hixhd2h9bg5m）。據見 authors[].name_basis。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。",
+  "ai_note": "本 Work 條目從《四庫全書存目叢書》目錄錄入。 索引中尚有同名異書：1evdicoyvzfnk(黃仲昭)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/ming L 類誤繫解之：撰人「陳道」之 entity 繫連解除（原繫 hixhd2h9bg5m）。據見 authors[].name_basis。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-11-12 L5 馆藏挂接：存疑档中候选可定的行，复核者逐条选同书（题名全等、责任者相合，抽检异书 0），按确定档规则补挂（影像）。",
   "measures": [
     {
       "unit": "卷",
@@ -49,8 +49,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-24",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-12",
   "resources": [
     {
       "id": "nlc",
@@ -76,6 +76,21 @@
       "metadata": {
         "nlc_fid": "411999018710",
         "edition": "明弘治[1488-1505]"
+      }
+    },
+    {
+      "id": "kyoto-rmda",
+      "label": "京大藏本：弘治4 刊本",
+      "name": "京都大学貴重資料デジタルアーカイブ",
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/item/rb00008734",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kyoto_record": "RB00008734",
+        "call_no": "5-86/ハ/1貴",
+        "edition": "弘治4 刊本",
+        "iiif_manifest": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00008734/manifest.json"
       }
     }
   ]
