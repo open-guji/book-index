@@ -10,6 +10,8 @@
       place     _children（沿革項 parent_id 反查）、_span
       官署      _children（概念→具體）、_subordinates（superiors 反查）、_members（group_ids 反查）、
                 _offices（office.institution_ref 反查）
+      office    _holders（people.offices[] 反查：历任者，不含赠官、不就；超 HOLDERS_MAX 截断，总数在 _holders_total）
+      place     _officials（people.offices[].place_id 反查：在此地任官者，同上）
       people／Work  _dynasty_id（朝代名唯一命中）／_dynasty_candidates（歧義名的候選 id）
     產物
       dynasty_reign_keys.json、office_keys.json、place_keys.json（地名：鍵源另有沿革當時名、去通名；
@@ -26,6 +28,7 @@ KEYS_VERSION = 1
 LEVEL_ORDER = {'concept': 0, 'group': 1, 'concrete': 2}
 PLACE_SUFFIX = ('縣', '州', '府', '軍', '路', '道', '省', '廳')   # 去通名（基名至少 2 字）
 # 地名默認候選：同名多候選時取最低一級的實地（place_keys-交接 §四）
+HOLDERS_MAX = 300   # _holders／_officials 每条最多卡数（按任职年排，先列有年份的）
 PLACE_RANK = {'縣': 1, '廳': 1, '州': 2, '軍': 2, '監': 2, '府': 3, '郡': 3, '路': 4, '道': 4, '省': 5, '國': 5}
 
 
@@ -83,6 +86,8 @@ class Names:
         self.subordinates = collections.defaultdict(set)  # 官署 superiors 反查
         self.members = collections.defaultdict(set)       # 官署 group_ids 反查
         self.offices = collections.defaultdict(set)       # office.institution_ref 反查
+        self.holders = collections.defaultdict(list)      # people.offices[].office_id 反查 -> [(人, 项序, 项)]
+        self.officials = collections.defaultdict(list)    # people.offices[].place_id 反查
         self.by_ruler = collections.defaultdict(list)     # (dynasty_id, ruler 名) -> [reign]
         self.by_name = collections.defaultdict(list)      # 年號名 -> [reign]
         for i, d in sorted(E.items()):
@@ -115,6 +120,15 @@ class Names:
                 c = rid(d.get('concept_id'))
                 if c in E and c != i:
                     self.concretes[c].add(i)
+            if st == 'people':
+                for n, o in enumerate(d.get('offices') or []):
+                    if not isinstance(o, dict) or o.get('posthumous') or o.get('declined'):
+                        continue
+                    oid, pid = rid(o.get('office_id')), rid(o.get('place_id'))
+                    if oid in E:
+                        self.holders[oid].append((i, n, o))
+                    if pid in E:
+                        self.officials[pid].append((i, n, o))
             if is_institution(d):
                 for s in d.get('superiors') or []:
                     sid = rid(s.get('id')) if isinstance(s, dict) else None
@@ -164,6 +178,19 @@ class Names:
     def people_card(self, i):
         d = self.E[i]
         return _clean({'id': i, 'name': d.get('primary_name'), 'dyn': d.get('dynasty')})
+
+    def tenure_cards(self, items, show):
+        """任官反查卡：人卡＋原文、任职年、kind，show 里的 office／place 附 {id,name}。按任职年排，无年份的殿后。"""
+        items = sorted(items, key=lambda t: (not isinstance(t[2].get('start'), int), t[2].get('start') or 0, t[0], t[1]))
+        out = []
+        for pid, _n, o in items[:HOLDERS_MAX]:
+            extra = {'text': o.get('text'), 'kind': o.get('kind'), 'start': o.get('start'), 'end': o.get('end')}
+            for k in show:
+                x = self.rid(o.get(k + '_id'))
+                if x in self.E:
+                    extra[k] = _clean({'id': x, 'name': self.name(x)})
+            out.append(self.card(pid, self.people_card, **extra))
+        return out
 
     def cards(self, ids, maker, key=None):
         ids = sorted(ids, key=key or (lambda x: x))
@@ -224,6 +251,10 @@ class Names:
             co = self.compounds.get(eid)
             if co:
                 v['_compounds'] = self.cards(co, self.office_card)
+            ho = self.holders.get(eid)
+            if ho:
+                v['_holders'] = self.tenure_cards(ho, ('place',))
+                v['_holders_total'] = len(ho)
         elif st == 'place':
             ch = self.children.get(eid)
             if ch:
@@ -234,6 +265,10 @@ class Names:
             sp = self.span(d)
             if sp:
                 v['_span'] = sp
+            of = self.officials.get(eid)
+            if of:
+                v['_officials'] = self.tenure_cards(of, ('office',))
+                v['_officials_total'] = len(of)
         elif is_institution(d):
             for key, src in (('_children', self.children), ('_subordinates', self.subordinates),
                              ('_members', self.members)):
