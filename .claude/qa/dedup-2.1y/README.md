@@ -52,3 +52,10 @@ check_v2 ERROR 0；check-classification 0；audit-merge-ledger T/L/P/R/D 全 0�
 - 并 11 组：萬濟國、釋佛陀跋陀羅、釋慧思（陳＝南朝陳）、釋通問、那夏禮、羅柏村、杜布西、田類斯、王元暉、釋圓覺、釋弘歇。证据多为「同书／同经／同师语录」或确知史实；外国传教士几组只凭同国别＋同类著作，把握中，若日后发现异人可按作者位拆出。台账 `r5/merges.json`。
 - 存疑 7 组登记不并：周震、林瀾、涵谷子、釋廣伸、釋成時、釋通際、金九淵（朝代标注不一但无同书／同师证据）。
 - 做法提示：U3-a 类新建人物的同名组，常见「同一人因作者位朝代标注不同被拆成两条」，判时可先看所挂作品是否同书、同经、同师。
+
+## 第六轮（2026-11-12，L0 收口，`r6/`）
+- 基线 main `13fea63e365`（因 A12 #2271 改了 3 条 Entity，在 `85ff5c59e05` 上重 apply）：同名组 5,378，未全员登记 176 组。子 agent 按卷宗判（提示词同前），再盲检含「同人」簇的组：全同 32、部分同 7、全异 63、存疑 74（同簇未经盲检确认的一律降存疑）。
+- 并 36 组，被并 45 条，补字段 17 组，台账 `r6/merges.json`、`r6/batch.json`；分立／存疑 354 条续登 `dedup-judged/2.1续.tsv`（「L0 收口 同名人物组第六轮」段）。
+- 張師顏：原选 keeper 的被并方 hixhd2h9bni5 被 book-text 四库总目专名层引用，改以它为 keeper（规则：并条时选被 book-text 引用的一侧作 keeper）。
+- 待核未动（只登记）：华岳《嘯霞漫稿》应改挂清华岳 hixigi3qt5hp；顧斌《火器圖》应挂 hixiklzfge80；陳鑑《勾溪集》《介庵集》不应挂 hixhd2h9bmce；黃輝《秋圃詩鈔》不应挂 hixhgyrw4yeg；李盘别名「小有(字)」应删；王震《白龍山人題畫詩》朝代应为民国；李晔然／李煜然题名切错；hixikflqct8g「揚嗣唐」应为楊嗣復；CBDB 疑误配：郭鍾岳 hixhd2h9btrb（cbdb 87535）、朱大啟、李思孝。
+- 门禁：check_v2 ERROR 0、check_promo_dup 0、check-classification 0、check-duplicate-audit PASS、audit-merge-ledger T/L/P/R/D 全 0；普查同名组 5,378 全员已登记。
