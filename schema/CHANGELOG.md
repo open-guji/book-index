@@ -4,6 +4,10 @@
 
 ---
 
+## 2026-11-12　Entity 墓碑许写 `merged_basis`（L0 收口）
+- `entity.schema.json` 墓碑桩 `maxProperties` 8→9：`entity.md`〈并条与退役〉本就规定被并方写 `merged_into`、`merged_basis`，第 8 组（#2215）定上限时漏算 `merged_basis`，致 11-08 起 Entity 并条（#2250、#2255、#2256）的墓碑全库校验报错。
+- 顺手清 11-08 新建条带回的旧账：`review` 占位 641 条（#2252，11-05 已定删）、`qualifier.target: null` 23 条（#2251／#2270，改为省略）。全库 Entity `check_schema` ERROR 670→0。
+
 ## 2026-11-05　删 `review` 占位与全库 0 条的字段（目录库 v2 设计，用户定）
 - 删 `review`：Entity 121,416 条、Work 49 条，全是 `{"status":"unreviewed"}`，没有一条审过；连同 `common.schema.json` 的 `$defs/Review`。Book／Collection 早已删（第 8 组）。`verify.py` 改为见到 `review` 即报残留。网站卡底 `CardFoot` 本就不显示「未審核」，无可见变化。
 - 从 schema 删全库 0 条的字段：Work `preferred_book`；Book `provenance[].seal_marks[]` 的 `position`、`source`（连同 B-S05 校验）；`PublicationInfo.source`；`JuanCount.unit`、`source`（`juan_count` 只剩 Collection 14 条）；`Source.position`；官署 `superiors[].end`；Book `publication_info.source`；Collection `related_books`；地名 `history[].parent_text`（连同 P03 的并存 WARN）；出版者 `owners[].start`、`end`。
