@@ -17,7 +17,8 @@ def dyn(rg):
     return None,None
 res=json.load(open(sys.argv[1])); apply='--apply' in sys.argv
 lim=int(sys.argv[sys.argv.index('--limit')+1]) if '--limit' in sys.argv else 10**9
-C=[r for r in res if r['cls']=='C库内无']
+NEW=('D1新修次','D4无年号且摘要有他年号→新修次')
+C=[r for r in res if r['cls']=='C库内无' or r.get('d') in NEW]
 cnt=collections.Counter(key(r['bookName']) for r in C)
 todo=[r for r in C if cnt[key(r['bookName'])]==1][:lim]
 print('C',len(C),'总目内重名跳过',len(C)-len([r for r in C if cnt[key(r['bookName'])]==1]),'待建',len(todo))
@@ -32,7 +33,7 @@ for r,i in zip(todo,ids):
     e={'source':SRC,'title_info':r['bookName'],'section':r['sort']}
     if r.get('page'): e['page']=r['page']
     d['indexed_by']=[e]
-    d['ai_note']=f'L3 方志專項（2026-11-12）據《中國地方志總目提要》（1996）新建：正式庫無同題方志 Work；總目僅著錄題名與地區（{r["sort"]}），無責任者、卷數，未核他目；題名年號取總目題名前綴。'
+    d['ai_note']=f'L3 方志專項（2026-11-12）據《中國地方志總目提要》（1996）新建：'+('正式庫無同題方志 Work' if r['cls'].startswith('C') else '正式庫同題方志 Work 皆為他年號／他修次')+f'；總目僅著錄題名與地區（{r["sort"]}），無責任者、卷數，未核他目；題名年號取總目題名前綴。'
     d['revision']='1.0.0'; d['revised_at']=today
     if apply:
         p_=mintid.path_for(i,f'{rg}{b}'); os.makedirs(os.path.dirname(p_),exist_ok=True)

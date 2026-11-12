@@ -8,9 +8,9 @@ today=datetime.date.today().isoformat(); n=skip=0
 paths={}
 for f in glob.glob('Work/*/*/*/*.json'): paths.setdefault(os.path.basename(f).split('-')[0],[]).append(f)
 for r in res:
-    if r['cls']!='A唯一对唯一': continue
+    if r['cls']!='A唯一对唯一' and r.get('d')!='D2提及年号唯一': continue
     if n>=lim: break
-    wid=r['ids'][0]; fs=paths.get(wid,[])
+    wid=r['ids'][0] if r['cls'].startswith('A') else r['target']; fs=paths.get(wid,[])
     if len(fs)!=1: print('?',wid,fs); continue
     d=json.load(open(fs[0]))
     if any(i.get('source')==SRC for i in d.get('indexed_by',[])): skip+=1; continue
