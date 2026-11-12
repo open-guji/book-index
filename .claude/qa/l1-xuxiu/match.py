@@ -5,7 +5,10 @@ SRC='續修四庫全書總目提要'
 idx=collections.defaultdict(set)
 for i,w in W.items():
     for t in [w['t'],w['ot']]+w['at']:
-        if t: idx[norm_t(t)].add(i)
+        if t:
+            idx[norm_t(t)].add(i)
+            t2=re.sub(r'（[^（）]*）|\([^()]*\)|〔[^〔〕]*〕|【[^【】]*】|\[[^\[\]]*\]','',t)
+            if t2!=t and t2: idx[norm_t(t2)].add(i)
 NUM='零〇一二三四五六七八九十百千萬兩'
 def cn(s):
     s=s.replace('兩','二').replace('〇','零')
@@ -29,7 +32,10 @@ def parse(name):
     juan=None
     if m.group(1).endswith('卷') and m.group(1)[0] in NUM: juan=cn(m.group(1)[:-1])
     elif m.group(1)=='不分卷': juan=0
-    return main,juan,bool(rest.strip()),rest
+    rs=rest.strip()
+    SUPP=('附','續','续','補','补','卷首','首','外集','考異','二集','三集','別集','遺','拾遺','總綱','目錄','卷末','末','校','訂','又','外編','餘','續編','後編','附錄','年譜')
+    comp=bool(rs) and not rs.startswith(SUPP) and not re.match(r'^[首末卷附]',rs)
+    return main,juan,comp,rest
 rows=[]
 d=json.load(open('/home/user/book_index_json/tiyao_data/續四庫總目1931.json'))
 for k,x in enumerate(d):

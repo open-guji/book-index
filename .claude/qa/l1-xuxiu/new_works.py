@@ -9,10 +9,11 @@ import mintid
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from build_idx import norm_t
 SRC='續修四庫全書總目提要'; BID='d59f2ogb4bgi'; TODAY='2026-11-12'
-rows=pickle.load(open('/home/user/lane/l1/rows_t.pkl','rb')); ks=pickle.load(open('/home/user/lane/l1/'+a.ks,'rb'))
+rows=pickle.load(open(os.environ.get('ROWS','/home/user/lane/l1/rows_t.pkl'),'rb')); ks=pickle.load(open('/home/user/lane/l1/'+a.ks,'rb'))
 sel=[rows[k] for k in ks if '敦煌' not in rows[k]['name']]
+NOTES=pickle.load(open('/home/user/lane/l1/cand_notes.pkl','rb')) if os.path.exists('/home/user/lane/l1/cand_notes.pkl') else {}
 grp=collections.OrderedDict()
-for r in sel: grp.setdefault(norm_t(r['main']),[]).append(r)
+for r in sel: grp.setdefault((norm_t(r['main']),r['juan']),[]).append(r)
 def entry(r):
     e={'source':SRC,'source_bid':BID,'title_info':r['name'].strip(),'section':r['sort']}
     m=re.match(r'^(\d+)-+(\d+)$',r['page'].strip())
@@ -39,7 +40,7 @@ for gid,rs in zip(ids,groups):
             dyn,per=PER[k]; d['dynasty']=dyn; d['dynasty_basis']=f'catalog_section：續修四庫全書總目提要類目「{r["sort"]}」'
             d['period']=per; d['period_basis']=f'據續修四庫全書總目提要類目「{r["sort"]}」'
     d['indexed_by']=[entry(x) for x in rs]
-    d['ai_note']=f'{TODAY} L1：據《續修四庫全書總目提要》著錄新建（全庫無同題 Work，近似題名相似度＜0.8）；源目錄未著撰人，責任者待補。同題而異書者將來可拆，同書而異題者將來可並。'
+    d['ai_note']=f'{TODAY} L1：據《續修四庫全書總目提要》著錄新建（全庫無同題 Work）；源目錄未著撰人，責任者待補。同題而異書者將來可拆，同書而異題者將來可並。'+(' '+' '.join(NOTES[x['k']] for x in rs if x['k'] in NOTES) if any(x['k'] in NOTES for x in rs) else '')
     d['revision']='1.0.0'; d['revised_at']=TODAY
     p=mintid.path_for(gid,title,'Work')
     out.append((p,d))
