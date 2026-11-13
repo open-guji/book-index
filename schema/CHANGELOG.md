@@ -4,6 +4,9 @@
 
 ---
 
+## 2026-11-13　人物 index 的 `office_ids`／`office_place_ids` 不收 `kind: 檢校`
+- 檢校官是加銜、不是實任，搜索过滤不收（A42 要求）；`_holders`／`_officials` 反查照列，卡片带 `kind`。库里若有「檢校X」专条，以其 office_id 写成普通项的照常计入。
+
 ## 2026-11-12　人物 index 加 `office_ids`／`office_place_ids`（搜索过滤）
 - people 的 index 分片条目加 `office_ids`（所任官职，解到存活条并沿 `concept_id` 展开跨朝上位条，按「知州」能查到各朝）、`office_place_ids`（只取 `offices[].place_id`）；都去重排序，不含赠官、不就，口径同 `_holders`。没有任官的人不写这两个键。
 - 只有 build（`build_derived.py`）才出：要解并条、展开上位官职，单条记录做不到，所以 bim `entry_extractor` 与 ui `storage.ts` 不跟（同 `has_collated` 先例）。

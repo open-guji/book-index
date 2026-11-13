@@ -95,9 +95,11 @@ class Names:
 
     def office_index(self, d):
         """人物 index 的 office_ids／office_place_ids（給搜索過濾）：官職解到存活條，並展開其跨朝上位條
-        （concept_id 鏈）；地名只取 place_id。去重、排序；沒有就回 {}。"""
+        （concept_id 鏈）；地名只取 place_id。kind＝檢校的項不收。去重、排序；沒有就回 {}。"""
         offs, places = set(), set()
         for _n, o in self.tenures(d):
+            if o.get('kind') == '檢校':     # 檢校官是加銜不是實任：反查照列，搜索過濾不收（A42 11-13）
+                continue
             x, seen = self.live(o.get('office_id')), set()
             while x and x not in seen:
                 offs.add(x)
