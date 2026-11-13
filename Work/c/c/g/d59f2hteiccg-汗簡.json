@@ -288,6 +288,54 @@
         "edition": "光緖16(1890)"
       },
       "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA001787/tagged/0089003.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：東大総藏本：光緒十一年 吳縣朱記榮槐廬家塾 據康熙四十二年錢唐汪立名一隅草堂刊本重校刊 光緒十一年",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA001787/tagged/0089003.dat",
+        "institution": "東大総",
+        "edition": "光緒十一年 吳縣朱記榮槐廬家塾 據康熙四十二年錢唐汪立名一隅草堂刊本重校刊 光緒十一年",
+        "extent": "七卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FANAIKAKU/tagged/1046026.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：公文書館藏本：淸康熙四十二年序 刊 淸康熙四十二年",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FANAIKAKU/tagged/1046026.dat",
+        "institution": "公文書館",
+        "edition": "淸康熙四十二年序 刊 淸康熙四十二年",
+        "extent": "七卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FASEIKADO/tagged/0188010.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：静嘉堂文庫藏本：寫",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FASEIKADO/tagged/0188010.dat",
+        "institution": "静嘉堂文庫",
+        "edition": "寫",
+        "extent": "七卷"
+      }
     }
   ],
   "measures": [
@@ -309,7 +357,7 @@
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
   "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvxq6ukg0 與 11q37oti7lfcw 同指文淵閣寫本一實物，今併於後者。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…後流登州，道卒。則不得為周人。」今存。本書收入《國立故宮博物院善本舊…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-27 A11-去重方案3a 併條善後：所關聯之 d59fxwgdimma 已併入 d59f2nbani0w，關係改指（按規範方向落筆）。\n\n2026-11-01 U2b 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 bim docs/馆藏资源挂接/报告/U2b-增量重挂-20261101.md。\n\n2026-11-12 L5 馆藏挂接：现库重跑匹配的第二批（机械复核未过但两位独立复核均判同书；影像）。\n\n2026-11-13 R4 甘肃省图挂接：存疑档经独立复核后补挂 甘肅省圖 1 条（影像；仅书目元数据与详情页链接，未下载影像）。依据——「汗简七卷」（1963137601921327106）：题名全等，著者唯一相合。",
-  "revision": "1.7.0",
+  "revision": "1.8.0",
   "revised_at": "2026-11-13",
   "loss_status": "extant",
   "loss_status_evidence": {

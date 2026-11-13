@@ -142,6 +142,54 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA001379/tagged/1112002.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：東北大藏本：用靜嘉堂文庫藏本印相影照片 嘉堂文庫藏",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA001379/tagged/1112002.dat",
+        "institution": "東北大",
+        "edition": "用靜嘉堂文庫藏本印相影照片 嘉堂文庫藏",
+        "extent": "四十卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FAKOKKAI/tagged/0185032.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：国会藏本：臺北國立中央圖書館 明鈔本膠片",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FAKOKKAI/tagged/0185032.dat",
+        "institution": "国会",
+        "edition": "臺北國立中央圖書館 明鈔本膠片",
+        "extent": "四十二卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FASEIKADO/tagged/0296009.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：静嘉堂文庫藏本：寫",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FASEIKADO/tagged/0296009.dat",
+        "institution": "静嘉堂文庫",
+        "edition": "寫",
+        "extent": "8册"
+      }
     }
   ],
   "measures": [
@@ -162,7 +210,7 @@
   "period": "song",
   "period_basis": "据唯一 author.dynasty「南宋」自动归并",
   "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw6m7l98g 與 11q37pp1movls 同指文淵閣寫本一實物，今併於後者。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…所作已罕流傳，惟此書尚有寫本。」今存。本書收入《國立故宮博物院善本舊…」），而 loss_status 未填，今據以補為 extant。\n\n總目分類：史部／方志類／地志之屬（與正式庫分類並存，未改 Work 分類）\n\n總目版本待定（庫中現僅有文淵閣本）：總目著錄版本標籤空，未入 Book（4epsnnner0tcyfj2、1pjjc5340vyw5dau、gbgxpqpkcoi7gb3s）\n\n總目版本「四庫全書本」，同庫內Book 988g36a9lh（欽定四庫全書·文淵閣本）：未新建 Book（l6sm5d1zlbwafutb）\n\n2026-10-26 A7 馆藏挂接：按确定档补挂 國圖 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A7-缺Work复核与补挂-20261026.md。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第二轮：獨撰子目补撰人后同题同首位 A 档机械并）：併 d59f2hllw001《湻熙三山志》 入本條。同题同首位责任者：《湻熙三山志》梁克家(南宋,?卷,0版本)／《淳熙三山志》梁克家(南宋,42卷,10版本)；题名归一后相同（简繁异体），首位责任者同名、朝代兼容、卷数上限差≤1或一侧缺、无丛编分体子目缺卷、著作领域不冲突\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
-  "revision": "1.4.0",
+  "revision": "1.5.0",
   "revised_at": "2026-11-13",
   "loss_status": "extant",
   "loss_status_evidence": {

@@ -18,6 +18,24 @@
     ]
   },
   "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 24 取自 `measure_info`「二十四冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-11-12 L1：據《續修四庫全書總目提要》（東方文化事業總委員會稿本）題名唯一同題且別集類年代類目與 Work 時代相合，補 indexed_by（匹配檔 A3；書名未帶作者，以朝代、卷數、部類複核）。",
+  "resources": [
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA003283/tagged/0502321.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：山口大藏本：坿 坿 坿 坿 坿 坿 坿 光緒十四年 淛江書局 刋本 光緒十四年",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA003283/tagged/0502321.dat",
+        "institution": "山口大",
+        "edition": "坿 坿 坿 坿 坿 坿 坿 光緒十四年 淛江書局 刋本 光緒十四年",
+        "extent": "四十六卷"
+      }
+    }
+  ],
   "measures": [
     {
       "unit": "冊",
@@ -30,8 +48,8 @@
   "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
-  "revision": "1.1.0",
-  "revised_at": "2026-11-12",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-13",
   "indexed_by": [
     {
       "source": "續修四庫全書總目提要",
