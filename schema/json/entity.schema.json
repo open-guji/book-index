@@ -311,7 +311,9 @@
               "廳",
               "都",
               "山",
-              "水"
+              "水",
+              "邑",
+              "建築"
             ]
           },
           "parent_id": {
@@ -574,6 +576,34 @@
     "concept_id": {
       "$ref": "common.schema.json#/$defs/Id",
       "description": "具体条所属的概念条 id：place 朝代条→跨朝条（P14，只许 place 朝代条）；office 具体条→office 概念条（O04）；官署具体条→官署概念条（I03）。原 office／官署的 parent_id 于 2026-11-04 并入此名"
+    },
+    "geo_kind": {
+      "enum": [
+        "山岳",
+        "河流",
+        "湖澤",
+        "海洋",
+        "泉井"
+      ]
+    },
+    "generic": {
+      "const": true
+    },
+    "polity_dynasty_id": {
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "site_kind": {
+      "enum": [
+        "寺觀",
+        "祠廟",
+        "書院",
+        "殿閣",
+        "園林",
+        "陵墓",
+        "藏書樓",
+        "塔"
+      ],
+      "description": "level=建築 条的子类（封闭枚举，P17）"
     }
   },
   "additionalProperties": false,
@@ -1753,6 +1783,34 @@
               "properties": {
                 "place_level": {
                   "const": "region"
+                },
+                "geo_kind": {
+                  "enum": [
+                    "山岳",
+                    "河流",
+                    "湖澤",
+                    "海洋",
+                    "泉井"
+                  ]
+                },
+                "generic": {
+                  "const": true
+                },
+                "polity_dynasty_id": {
+                  "$ref": "common.schema.json#/$defs/Id"
+                },
+                "site_kind": {
+                  "enum": [
+                    "寺觀",
+                    "祠廟",
+                    "書院",
+                    "殿閣",
+                    "園林",
+                    "陵墓",
+                    "藏書樓",
+                    "塔"
+                  ],
+                  "description": "level=建築 条的子类（封闭枚举，P17）"
                 }
               },
               "required": [
@@ -1787,6 +1845,34 @@
               "properties": {
                 "place_level": {
                   "const": "concrete"
+                },
+                "geo_kind": {
+                  "enum": [
+                    "山岳",
+                    "河流",
+                    "湖澤",
+                    "海洋",
+                    "泉井"
+                  ]
+                },
+                "generic": {
+                  "const": true
+                },
+                "polity_dynasty_id": {
+                  "$ref": "common.schema.json#/$defs/Id"
+                },
+                "site_kind": {
+                  "enum": [
+                    "寺觀",
+                    "祠廟",
+                    "書院",
+                    "殿閣",
+                    "園林",
+                    "陵墓",
+                    "藏書樓",
+                    "塔"
+                  ],
+                  "description": "level=建築 条的子类（封闭枚举，P17）"
                 }
               },
               "required": [

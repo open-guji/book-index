@@ -583,3 +583,14 @@ def test_place_geo_kind_and_polity():
     assert not has(place("pl", polity_dynasty_id="d"), "P16", es.ERROR, d)
     assert has(place("pl", polity_dynasty_id="nope"), "P16")
     assert not has(place("pl", history=[{"name": "齊", "level": "邑"}]), "P01")   # level 邑
+
+
+def test_place_site_kind():
+    # P17：建築條（寺觀祠廟書院殿閣園林陵墓塔）site_kind（2026-11-13）
+    bd = lambda **k: place("pl", history=[{"name": "靈隱寺", "level": "建築"}], **k)
+    assert not has(bd(site_kind="寺觀"), "P17")
+    assert not has(bd(site_kind="寺觀"), "P01")
+    assert has(bd(site_kind="亂"), "P17")
+    assert has(bd(), "P17")                                    # level=建築 須有 site_kind
+    assert has(bd(site_kind="寺觀", place_level="region"), "P17")   # 只許跨朝條
+    assert has(place("pl", history=[{"name": "泰山", "level": "山"}], site_kind="寺觀"), "P17")   # 各段須為建築
