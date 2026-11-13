@@ -64,7 +64,7 @@
     ]
   },
   "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ltaos0fpg2yxahy7、85h4rb2ggciaaa6k、ae5d31vh0hfxx2hh、h3axphurvojgmvjy、z1vkybxv84phg0cd、2b55iyksu26clm0a\n責任者 role 異常未寫入：倪國璉釐正\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-07.tsv；原 hold 原因：auto-split:存疑未并（tier=存疑，按新档建，无候选））\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 內閣文庫 3 条、國書 3 条、NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 C3-韓國KORCIS 馆藏挂接：按确定档补挂 韓國國中 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3-KORCIS挂接-20261026.md。\n\n2026-10-27 A11-去重文淵閣Work 併條（rule=文淵閣／薈要同题 Book 挂多个 Work 清理：同一部书（题名异写或加欽定/御定等前缀、责任者相同或一侧缺），两路子 agent 独立判定一致或高置信抽检通过）：併 d59f2ntxghds《康濟錄》 入本條。臺北故宮《文淵閣四庫全書》／《摛藻堂四庫全書薈要》同一子目的旧 Book（988）与总目 Book（993/994）分挂 d59f2ntxghds《康濟錄》、d59fyfeqlbsx《欽定康濟錄》；判定：欽定康濟錄六卷即陸曾禹原撰、倪國璉檢擇之書，同書\n\n2026-11-12 L5 馆藏挂接：现库重跑匹配的第二批（机械复核未过但两位独立复核均判同书；影像）。",
-  "revision": "1.6.0",
+  "revision": "1.7.0",
   "revised_at": "2026-11-13",
   "resources": [
     {
@@ -276,6 +276,21 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "nlk",
+      "label": "韓國KORCIS書目著錄（僅目錄，無影像）：건국대학교 상허기념도서관·同治 3(1864)",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "url": "https://www.nl.go.kr/korcis/openapi/detail.do?rec_key=301953619",
+      "types": [
+        "catalog"
+      ],
+      "metadata": {
+        "korcis_rec_key": "301953619",
+        "holder": "건국대학교 상허기념도서관",
+        "edition": "同治 3(1864)"
+      },
+      "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
     }
   ],
   "measures": [
