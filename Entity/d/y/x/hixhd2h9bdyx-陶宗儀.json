@@ -16,7 +16,7 @@
   "dynasty": "元末明初",
   "native_place_basis": "CBDB 29854 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-08-25 遼金元 L5：dynasty 由「明」歸一為「元末明初」。判據見 dynasty_basis。其名下 work 之 authors[].dynasty 同步。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=29854 補入空槽——籍貫「黃巖州」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eiouwp1、d59f6ephkykl。\n\n2026-10-27 A12（GUJI-252，A33 第13至20册人物清單）：加別名「陶宗僟」（訛名）。\nA12 b14（2026-10-30）據《四庫全書總目》第80册補別名「陶南村」。",
+  "ai_note": "2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-08-25 遼金元 L5：dynasty 由「明」歸一為「元末明初」。判據見 dynasty_basis。其名下 work 之 authors[].dynasty 同步。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=29854 補入空槽——籍貫「黃巖州」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eiouwp1、d59f6ephkykl。\n\n2026-10-27 A12（GUJI-252，A33 第13至20册人物清單）：加別名「陶宗僟」（訛名）。\nA12 b14（2026-10-30）據《四庫全書總目》第80册補別名「陶南村」。\n\n2026-11-13 P5：據《浙江通志》卷181小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period": "ming",
   "alt_names": [
     {
@@ -48,8 +48,8 @@
     "death": 1409,
     "basis": "現行字段"
   },
-  "revision": "1.3.2",
-  "revised_at": "2026-11-12",
+  "revision": "1.3.3",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -75,6 +75,11 @@
       {
         "name": "《明史·陶宗儀傳》",
         "details": "卷285，傳首：陶宗儀，字九成，黃岩人。"
+      },
+      {
+        "title": "《浙江通志》卷181",
+        "source_bid": "d59f2n6dz6ki",
+        "details": "陶宗儀：嘉靖浙江通志字九成黄巖人少舉進士不第即棄去務古學於書無所不窺出游浙東"
       }
     ]
   }

@@ -22,7 +22,7 @@
     "basis": "《萬姓統譜》卷82：「弘治九年進士自户部郎中任」，據年號紀年推算（活動年，非生卒）"
   },
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 7 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=132244 補入空槽——籍貫「江都」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6elj8qv8、d59f6elojs3p、d59f6ejfe2v9、d59f6et848oz、d59f6eqm5t6r、d59f6eqlukn5、d59f6en9o7i8。",
+  "ai_note": "2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 7 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=132244 補入空槽——籍貫「江都」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6elj8qv8、d59f6elojs3p、d59f6ejfe2v9、d59f6et848oz、d59f6eqm5t6r、d59f6eqlukn5、d59f6en9o7i8。\n\n2026-11-13 P5：據《浙江通志》卷155小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period": "ming",
   "schema_version": 1,
   "alt_names": [
@@ -40,8 +40,8 @@
     }
   ],
   "subtype": "people",
-  "revision": "1.1.2",
-  "revised_at": "2026-11-11",
+  "revision": "1.1.3",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -58,6 +58,11 @@
         "title": "《欽定四庫全書總目》卷一百九十二·《金華文統》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明趙鶴編。"
+      },
+      {
+        "title": "《浙江通志》卷155",
+        "source_bid": "d59f2n6dz6ki",
+        "details": "趙鶴：嘉靖浙江通志字叔鳴江都人𢎞治九年進士自户部郎中任金華知府養士治民政教兼舉"
       }
     ]
   }

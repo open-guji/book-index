@@ -13,7 +13,7 @@
     "cbdb_match": "auto_2026-09-06",
     "cbdb_source": "score=70.0 via=name(命中「于恕」) cand=1 work_recall=0.0 cbdb=于恕/宋"
   },
-  "ai_note": "姓名訂正：原作「於恕」，係簡繁轉換工具將姓氏過度轉換所致（此姓繁體正作今形，轉之則非姓）。\n2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=38184（「于恕」宋，?–?）。判準 score=70.0：name 命中、同期候選 1 個、著作重合 0.0。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=38184 補入空槽——別名 1 條（忠甫）；籍貫「諸城」。既有之值一概未動。",
+  "ai_note": "姓名訂正：原作「於恕」，係簡繁轉換工具將姓氏過度轉換所致（此姓繁體正作今形，轉之則非姓）。\n2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=38184（「于恕」宋，?–?）。判準 score=70.0：name 命中、同期候選 1 個、著作重合 0.0。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=38184 補入空槽——別名 1 條（忠甫）；籍貫「諸城」。既有之值一概未動。\n\n2026-11-13 P5：據《浙江通志》卷195小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period": "song",
   "period_basis": "dynasty「宋」有歧義（可解為 nanbeichao、song），而所繫之 work 之代唯 song 一解與之相合，故定之。（2026-08-24 補）",
   "alt_names": [
@@ -31,10 +31,15 @@
         "title": "《欽定四庫全書總目》卷一百二十四·《心傳錄》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "宋于恕編。"
+      },
+      {
+        "title": "《浙江通志》卷195",
+        "source_bid": "d59f2n6dz6ki",
+        "details": "于恕：太平縣志字忠甫諸城人紹興中以父定遠為州判官寓居邑之桃夏中特科厯官靖安尉昌"
       }
     ]
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-11-11",
+  "revision": "1.0.2",
+  "revised_at": "2026-11-13",
   "dynasty_basis": "synonym:period=song"
 }
