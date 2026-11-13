@@ -38,6 +38,54 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA002010/tagged/900658507.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：一橋大藏本：畫苑補益本",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA002010/tagged/900658507.dat",
+        "institution": "一橋大",
+        "edition": "畫苑補益本",
+        "extent": "一卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA019705/tagged/0357022.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：京大人文研 東方藏本：畫苑補益本",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA019705/tagged/0357022.dat",
+        "institution": "京大人文研 東方",
+        "edition": "畫苑補益本",
+        "extent": "一卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FATOYO/tagged/103070053.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：東洋文庫藏本：元帝",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FATOYO/tagged/103070053.dat",
+        "institution": "東洋文庫",
+        "edition": "元帝",
+        "extent": "一卷"
+      }
     }
   ],
   "measures": [
@@ -50,6 +98,6 @@
   "period": "nanbeichao",
   "period_basis": "據 authors[0].dynasty「南朝梁」（規則1 粗粒度自消歧；2026-08-21 補派生專項）",
   "ai_note": "2026-08-21 舊題撰人專項：著錄語作「舊本題梁孝元皇帝撰。案是書《宋·藝文志》始著錄。其文凡鄙，不類六朝」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\nN6 壞名正名（2026-08-24，補 description 途中撞出）：authors 之名有形訛／異體／號諡誤入，今正之，判據記於 authors[].name_basis。",
-  "revision": "1.1.0",
-  "revised_at": "2026-11-02"
+  "revision": "1.2.0",
+  "revised_at": "2026-11-13"
 }

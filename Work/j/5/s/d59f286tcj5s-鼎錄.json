@@ -189,6 +189,38 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA002010/tagged/900071606.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：一橋大藏本",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA002010/tagged/900071606.dat",
+        "institution": "一橋大",
+        "edition": "",
+        "extent": "一卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FANAIKAKU/tagged/3256004.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：公文書館藏本：明 刊",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FANAIKAKU/tagged/3256004.dat",
+        "institution": "公文書館",
+        "edition": "明 刊",
+        "extent": ""
+      }
     }
   ],
   "measures": [
@@ -201,6 +233,6 @@
   "ai_note": "從 1evcsw9zn3l6o 合併。原註：作者「梁虞荔撰」補自《國立故宮博物院善本舊籍》目錄。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwq7cd4ow 與 11q37rbwyq8lc 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題梁虞荔撰。考《陳書•列傳》，荔字山披，會稽餘姚人。釋褐為」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n總目分類：子部／小說類／叢編之屬\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 3 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。\n\n2026-10-26 A5续 馆藏挂接：按确定档补挂 京大人文研東方 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A5续-全国漢籍東方學デジタル圖書館挂接-20261026.md。",
   "period": "nanbeichao",
   "period_basis": "據 authors[0].dynasty「南朝陳」（規則1 粗粒度自消歧；2026-08-21 補派生專項）",
-  "revision": "1.5.0",
+  "revision": "1.6.0",
   "revised_at": "2026-11-13"
 }

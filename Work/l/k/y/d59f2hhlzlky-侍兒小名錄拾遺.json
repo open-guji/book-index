@@ -89,6 +89,54 @@
         "edition": "木板本 [1616-1911]"
       },
       "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA001710/tagged/0001463.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：群馬大藏本",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA001710/tagged/0001463.dat",
+        "institution": "群馬大",
+        "edition": "",
+        "extent": "一卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA019705/tagged/0759044.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：京大人文研 東方藏本",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA019705/tagged/0759044.dat",
+        "institution": "京大人文研 東方",
+        "edition": "",
+        "extent": "一卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FAKUNAICHO/tagged/0112103.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：宮内庁書陵部藏本：宋 張邦幾",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FAKUNAICHO/tagged/0112103.dat",
+        "institution": "宮内庁書陵部",
+        "edition": "宋 張邦幾",
+        "extent": ""
+      }
     }
   ],
   "measures": [
@@ -109,6 +157,6 @@
     ]
   },
   "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G6 撰人名污染正名：撰人「晉陽張邦幾」正為「張邦幾」。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案 新-异人登记-史：同题首位责任者不同，经逐组核为同书（误字／异体／字号谥号／占位名／题名误切／旧题与实撰／序者刊者校者误题为撰者／官修书署名不同）者按 3a B 档并）：併 d59f2hgcq6tf《侍兒小名錄拾遺》 入本條。《侍兒小名錄拾遺》（張邦基／張邦幾）：《侍兒小名錄拾遺》一卷：國史經籍志作張邦基，四庫總目作張邦幾（原條 missing_reason 已記「work=晉陽張邦幾」），同書一卷",
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-11-13"
 }
