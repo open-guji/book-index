@@ -15,7 +15,7 @@
   "dynasty": "明",
   "native_place_basis": "CBDB 202967 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=202967 補入空槽——籍貫「閩縣」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eh2hj48、d59f6ehrrr44。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=202967 補入空槽——籍貫「閩縣」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eh2hj48、d59f6ehrrr44。\n\n2026-11-13 P4（省通志人物志）：《廣西通志》卷67·名宦作「陳進」，字「徳輝」、籍貫「閩縣」與本條相符，核為同一人異寫，加別名並補出處。",
   "period": "ming",
   "alt_names": [
     {
@@ -25,6 +25,10 @@
     {
       "name": "德輝",
       "type": "字"
+    },
+    {
+      "name": "陳進",
+      "type": "訛名"
     }
   ],
   "subtype": "people",
@@ -33,8 +37,8 @@
     "birth": 1503,
     "basis": "現行字段"
   },
-  "revision": "1.1.1",
-  "revised_at": "2026-11-11",
+  "revision": "1.1.2",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -46,6 +50,11 @@
         "title": "《欽定四庫全書總目》卷一百九十二·《廣中五先生詩選》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明陳暹編。"
+      },
+      {
+        "title": "《廣西通志》卷67·名宦",
+        "source_bid": "d59f2mdbyy9s",
+        "details": "陳進字徳輝閩縣人嘉靖間為參政恬淡有守曾攝藩事司庫以羨餘進暹署字封識貯存為司公費及陞去以前金贐卒不受<舊志>"
       }
     ]
   }
