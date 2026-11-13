@@ -103,13 +103,14 @@ FORBIDDEN_PREFIXES = ("cbdb_", "dila_", "chgis")
 OFFICE_LEVELS = {"concept", "concrete"}
 OFFICE_CLASSES = {"職事官", "差遣", "散官", "階官", "加官", "貼職", "寄祿官", "祠祿官", "勳", "爵",
                   "本官", "試秩", "憲官", "兼職差遣", "未詳"}
+OFFICE_SCOPES = {"地方官"}   # O13；取值可擴（京官、武職等），校驗按此表
 QUALIFIER_KINDS = {"institution", "place", "mode", "mode+institution"}
-CONCEPT_FORBIDDEN = ("dynasty_ids", "rank", "salary", "office_class", "base_office_id", "concept_id")
+CONCEPT_FORBIDDEN = ("dynasty_ids", "rank", "salary", "office_class", "office_scope", "base_office_id", "concept_id")
 # 官署（collective_kind=官署）
 COLLECTIVE_KINDS = {"官署", "書院學校", "館局", "民間", "未分"}
 INST_LEVELS = {"concept", "concrete", "group"}
 INST_CONCRETE_ONLY = ("dynasty_ids", "function", "superiors", "start", "end", "function_basis", "dates")
-INST_OFFICE_FIELDS = ("office_level", "office_class", "rank", "salary", "base_office_id", "qualifier",
+INST_OFFICE_FIELDS = ("office_level", "office_class", "office_scope", "rank", "salary", "base_office_id", "qualifier",
                       "institution_ref")
 INST_DERIVED = ("subordinates", "members", "offices", "_subordinates", "_members", "_children", "_offices")
 INST_WARN_RANGE = 5
@@ -459,6 +460,12 @@ def _check_office(rec, reg):
     oc = rec.get("office_class")
     if oc is not None and oc not in OFFICE_CLASSES:
         out.append(("O03", ERROR, "office_class", "不在枚舉：%r" % (oc,)))
+    sc = rec.get("office_scope")
+    if sc is not None:
+        if sc not in OFFICE_SCOPES:
+            out.append(("O13", ERROR, "office_scope", "不在枚舉：%r" % (sc,)))
+        elif sc == "地方官" and rec.get("institution_ref") is not None:
+            out.append(("O13", WARN, "institution_ref", "地方官不掛官署（口徑 C），institution_ref 宜刪"))
     if pid is not None and (reg.sub.get(pid) != "office" or
                             (reg.rec.get(pid) or {}).get("office_level") != "concept"):
         out.append(("O04", ERROR, "concept_id", "須指向 office 概念條：%r" % (pid,)))
@@ -676,7 +683,7 @@ SEAL_REF_MAX = 20
 SEAL_FORBIDDEN = ("dynasty", "dynasty_basis", "period", "period_basis", "native_place", "native_place_basis",
                   "native_place_entity_id", "title_or_office", "name_basis", "collective_kind",
                   "institution_level", "superiors", "group_ids", "parent_id", "concept_id", "function", "function_basis", "succeeds",
-                  "dynasty_id", "ruler", "office_level", "office_class", "rank", "salary", "institution_ref",
+                  "dynasty_id", "ruler", "office_level", "office_class", "office_scope", "rank", "salary", "institution_ref",
                   "base_office_id", "qualifier", "history", "modern", "predecessors")
 
 
@@ -780,7 +787,7 @@ PUBLISHER_OWNER_ROLES_HINT = ("主人", "創辦", "主持", "經營", "督刻") 
 PUBLISHER_FORBIDDEN = ("dynasty", "dynasty_basis", "period", "period_basis", "native_place", "native_place_basis",
                        "native_place_entity_id", "title_or_office", "collective_kind",
                        "institution_level", "superiors", "group_ids", "function", "function_basis", "succeeds",
-                       "dynasty_id", "ruler", "office_level", "office_class", "rank", "salary", "institution_ref",
+                       "dynasty_id", "ruler", "office_level", "office_class", "office_scope", "rank", "salary", "institution_ref",
                        "base_office_id", "qualifier", "history", "modern",
                        "seal_text", "seal_kind", "owner_ids", "institution_ids", "appears_in", "images",
                        "predecessors", "publisher_sub", "legal_name", "representative", "books", "subordinates")

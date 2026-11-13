@@ -20,6 +20,7 @@
 | `function` | string | 条件：具体条**必填** | 原生 | 本朝职掌 | 自写（O02） | 录入 | `"一縣之長官，掌一縣之賦役、刑獄、教化與勸農。"` |
 | `function_basis` | string | 条件：具体条**必填** | 原生 | 职掌（`function`）的依据（原名 `basis`，2026-11-03 改名） | 自由文本（O02） | 录入 | `"《明史·職官志》"` |
 | `office_class` | string | 可选；具体条（概念不得有） | 原生 | 官类 | 15 值：`職事官`｜`差遣`｜`散官`｜`階官`｜`加官`｜`貼職`｜`寄祿官`｜`祠祿官`｜`勳`｜`爵`｜`本官`｜`試秩`｜`憲官`｜`兼職差遣`｜`未詳`（O03）。草稿库 10-08 用到：`職事官` 1,064、`差遣` 98、`貼職` 51、`寄祿官` 40、`散官` 10、`加官` 6 | 录入 | `"差遣"` |
+| `office_scope` | string | 可选；具体条（概念不得有） | 原生 | 官职范围 | 枚举表 `OFFICE_SCOPES`，现只有 `地方官`（知縣、知府、巡撫、布政使等，所属政区靠人物 `offices[].place_id`，不挂官署）；缺省＝不标。取值可扩（将来或加京官、武职），校验按枚举表（O13） | 录入 | `"地方官"` |
 | `rank` | object | 可选；具体条（概念不得有） | 原生 | 品秩 | `{text, basis}`，自写 | 录入 | `{"text":"正七品","basis":"《明史·職官志》"}` |
 | `institution_ref` | string | 可选；具体条 | 原生 | 所属官署 | 官署条 id（`collective_kind=官署`）。指具体条须与本条 `dynasty_ids` 相交；指概念条须 `ai_note` 标「待補」（否则 WARN）；官名含部名而指合称 WARN；id 不在本库 WARN。不得写 `COL:<名>` 占位（ERROR，新官署先建条）（I12） | 录入 | `"1jb8bl20kqn7k"` |
 | `base_office_id` | string | 条件：固定复合条**必填** | 原生 | 复合条的基官 | 指同朝**具体** office 条，不自指、无环；与本条 `dynasty_ids` 须相交；指向概念条而 `ai_note` 未说明为 WARN（O05）。反查由 build 派生 `_compounds` | 录入 | `"1jb8awb7yk5q8"` |
@@ -84,6 +85,7 @@
 | O10 | office | `簡稱` 长度 ≤2，须确认不与他概念重名 | WARN |
 | O11 | office | 同一概念下同朝具体条重复 | WARN |
 | O12 | 专名子类型、官署 | `alt_names[].type` 在 27 值枚举内 | ERROR |
+| O13 | office | `office_scope` 在枚举内（ERROR）；`地方官` 条仍写 `institution_ref`（WARN） | ERROR／WARN |
 | I12 | office | `institution_ref`：`COL:<名>` 占位（ERROR）；须指官署条（ERROR）；指具体条须与官职朝代相交（ERROR）；指概念条须 `ai_note` 标「待補」（WARN）；官名含部名而指合称（WARN）；id 不在本库（WARN） | ERROR／WARN |
 
 另适用全 Entity 通用码 E1、A1、O12（专名子类型）与 V01／V11／V15／V16，见 [校验码总表](_checks.md)。
