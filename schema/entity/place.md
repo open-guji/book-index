@@ -150,6 +150,16 @@
 - 与政区同名者（太湖縣、華山縣）分条，由匹配端按上下文取舍。
 - 建档门槛：A33 库无地名中出现 ≥2 处；不对 CBDB、不存 `cbdb_*`。
 
+## 古国古邑条与山川子类（2026-11-13 定，A11／A33／A42 已无异议）
+
+**古国古邑**（齊、魯、楚、燕、蜀、衛、鄒、郢、鎬京等春秋战国以前的国、都、邑）建为**跨朝条**，与同名朝代条（秦、春秋齊）并存，靠上下文区分：
+
+- `history` 一段 `{name, level: "國"｜"邑", start?, end?, dynasty_ids: [春秋／戰國等朝代], note}`；`level` 增 `邑`（古邑古城），古国用既有 `國`；不挂 `parent_id`。
+- 可选 `polity_dynasty_id`（P16）：指同名朝代／政权条，只许跨朝条；古国条不标 `default`（匹配端按语境在国／朝代／县之间取舍）。
+- `alt_names` 带「X國」等异写（`異寫`／`簡稱`）。
+
+**山川子类**：可选 `geo_kind`（P15）∈ `山岳`（须 level=山）｜`河流`｜`湖澤`｜`海洋`｜`泉井`（须 level=水），只许跨朝条；存量山川条可暂无，逐步补。可选 `generic: true` 标单字泛称（河、江、淮、洛、湖），须同时有 `geo_kind`，不标 `default`。山川条 `history[].parent_id` 可选指所在州府跨朝条，**仅作消歧**（西山、南山、梁山），不改变山川不挂政区上级的原则。
+
 ## 校验码
 
 | 码 | 适用 | 查什么 | 级别 |
@@ -168,5 +178,7 @@
 | P12 | place | `place_level` ∈ `concept`／`concrete`（缺省 concept） | ERROR |
 | P13 | place | 朝代条：顶层 `dynasty_ids` 非空且都是 dynasty；各段 `name` 同 `primary_name`、`level` 一致；段的 `dynasty_ids` 不出顶层所挂。跨朝条不得有顶层 `dynasty_ids` | ERROR |
 | P14 | place | 上级同层：朝代条段的 `parent_id` 须指朝代条且朝代相交，跨朝条段的 `parent_id` 须指跨朝条；`concept_id` 只许朝代条、须指跨朝条 | ERROR |
+| P15 | place | `geo_kind` 在 5 值内、只许跨朝条、各段 level 与之相配（山岳＝山，余＝水）；`generic` 只许 `true` 且须有 `geo_kind` | ERROR |
+| P16 | place | `polity_dynasty_id` 须指 dynasty 条、只许跨朝条 | ERROR |
 
 另适用全 Entity 通用码 E1、A1、O12（专名子类型）与 V01／V11／V15／V16，见 [校验码总表](_checks.md)。
