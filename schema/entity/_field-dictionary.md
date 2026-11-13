@@ -21,7 +21,7 @@
 | `basis` | 顶层已无此键（office／官署的职掌依据 2026-11-03 起叫 `function_basis`）；`dates.basis`＝年值依据；`rank.basis`＝品秩依据；`offices[].basis`＝任职年的推断依据（原文纪年写 `date_text`） |
 | `level` | `history[].level`＝行政级别（縣、府、州、山、水等）；`*_level`＝概念／具体层 |
 | `type` | `alt_names[].type`＝别名类别；`relations[].type`＝本条是对方的什么（如父、師）；顶层 `type` 恒为 `entity`；`sources[].type` |
-| `kind` | `predecessors[].kind`＝承继方式（析出／並入／改置，数据现只有改置）；`qualifier.kind`＝institution／place／mode；people `offices[].kind`＝任命方式（兼／權／試／判／守／行／知／充） |
+| `kind` | `predecessors[].kind`＝承继方式（析出／並入／改置，数据现只有改置）；`qualifier.kind`＝institution／place／mode；people `offices[].kind`＝任命方式（兼／權／試／判／守／行／知／充／檢校） |
 | `offices` | people `offices[]`＝任官记录（源档，2026-11-12）；官署的 `offices`／`_offices` 是禁写的反向列表（I11） |
 | `status` | publisher 顶层 `status`＝存续状态；`review` 已于 2026-11-05 删除，见第四节 |
 | `name` | `alt_names[].name`、`history[].name`、`ruler.name`、`qualifier.name`、`locations[].name` 各自含义不同 |
