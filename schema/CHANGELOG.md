@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-11-13　地名顶层键 `geo_kind`／`generic`／`polity_dynasty_id`／`site_kind` 补进 JSON schema
+- 四键 place.md 与 P15–P17 检查早已写定，数据里也有（geo_kind 4,560 条、generic 38、polity_dynasty_id 28），但 `entity.schema.json` 没列，check_schema 报 unknown-field。现补 properties：`geo_kind` ∈ 山岳／河流／湖澤／海洋／泉井；`generic` 只许 true；`polity_dynasty_id` 为 Id；`site_kind` ∈ 寺觀／祠廟／書院／殿閣／園林／陵墓／藏書樓／塔。只许 place，其余子类禁用。
+- 目录库：bim `mapping.py` 在 `place` 表加四列，`polity_dynasty_id` 加悬空检查与外键（bim#351）；`schema/db/*.sql` 重新生成。
+- 依据：A12 请求（#2404 只补了 level 枚举）。office_scope（#2446）同批进目录库映射（bim）。
+
 ## 2026-11-13　office 加 `office_scope`（现只有「地方官」）、校验码 O13
 - 官职口径 C（用户 11-13 定）：知縣、知府、知州、巡撫、總督、布政使、按察使等地方官不挂官署，在具体条标 `office_scope: "地方官"`，所属政区由人物 `offices[].place_id` 表达，不加 `place_ref`。`office_class` 是官类（職事官／差遣…），知縣本身就是職事官，所以另开字段，不往 15 值里塞。
 - 字段可选，只许具体条；概念条与官署条不得有（同 `office_class` 的禁用表）；取值走 `entity_subtypes.OFFICE_SCOPES`，将来加京官、武职等只改这张表和 JSON schema 枚举。O13：值不在枚举 ERROR；`地方官` 条仍有 `institution_ref` WARN。

@@ -44,6 +44,7 @@ ALTER TABLE book_base_edition ADD CONSTRAINT book_base_edition_book_id_ref FOREI
 ALTER TABLE person ADD CONSTRAINT person_native_place_entity_id_ref FOREIGN KEY (native_place_entity_id) REFERENCES entity (id) DEFERRABLE NOT VALID;
 ALTER TABLE office ADD CONSTRAINT office_base_office_id_ref FOREIGN KEY (base_office_id) REFERENCES entity (id) DEFERRABLE NOT VALID;
 ALTER TABLE place_history_dynasty ADD CONSTRAINT place_history_dynasty_dynasty_id_ref FOREIGN KEY (dynasty_id) REFERENCES entity (id) DEFERRABLE NOT VALID;
+ALTER TABLE place ADD CONSTRAINT place_polity_dynasty_id_ref FOREIGN KEY (polity_dynasty_id) REFERENCES entity (id) DEFERRABLE NOT VALID;
 ALTER TABLE person_office ADD CONSTRAINT person_office_office_id_ref FOREIGN KEY (office_id) REFERENCES entity (id) DEFERRABLE NOT VALID;
 ALTER TABLE person_office ADD CONSTRAINT person_office_place_id_ref FOREIGN KEY (place_id) REFERENCES entity (id) DEFERRABLE NOT VALID;
 ALTER TABLE person_office ADD CONSTRAINT person_office_institution_id_ref FOREIGN KEY (institution_id) REFERENCES entity (id) DEFERRABLE NOT VALID;
