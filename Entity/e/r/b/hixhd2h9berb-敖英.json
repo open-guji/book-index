@@ -15,7 +15,7 @@
   "dynasty": "明",
   "native_place_basis": "CBDB 130301 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 新收 1 部 work 之繫（其 authors 作「名＋字」連書之形，本是一人）。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 8 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=130301 補入空槽——籍貫「清江」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6el8moee、d59f6eo1rke9、d59f6enonll1、d59f6eg79ssn、d59f6eqynawx、d59f6elmd4as、d59f6encskxs、d59f6eqy0tts。",
+  "ai_note": "2026-08-24 新收 1 部 work 之繫（其 authors 作「名＋字」連書之形，本是一人）。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 8 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=130301 補入空槽——籍貫「清江」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6el8moee、d59f6eo1rke9、d59f6enonll1、d59f6eg79ssn、d59f6eqynawx、d59f6elmd4as、d59f6encskxs、d59f6eqy0tts。\n\n2026-11-13 P5：據《列朝詩集》卷33小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period": "ming",
   "schema_version": 1,
   "alt_names": [
@@ -37,8 +37,8 @@
     }
   ],
   "subtype": "people",
-  "revision": "1.1.1",
-  "revised_at": "2026-11-11",
+  "revision": "1.1.2",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -60,6 +60,11 @@
         "title": "《欽定四庫全書總目》卷一百二十七·《綠雪亭雜言》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明敖英撰。"
+      },
+      {
+        "title": "《列朝詩集》卷33",
+        "source_bid": "d59f2mxg5iiq",
+        "details": "英，字子發。清江人。正德辛己進士。"
       }
     ]
   }
