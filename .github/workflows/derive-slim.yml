@@ -52,21 +52,29 @@ jobs:
           BI=$(git -C bi rev-parse HEAD); TX=$(git -C bt rev-parse HEAD)
           NAME="slim-${BI:0:12}-${TX:0:12}.json.gz"
           python3 bi/build/derived_slim_extract.py "$RUNNER_TEMP/derived-full" "$RUNNER_TEMP/$NAME"
+          # 检索索引分片：源仓 index/ 在 schema-v2 之后不再是真源，搜索索引器（indexer/lib/derived-core.mjs 的 indexDirFor）
+          # 读 build 产物的 index/。11-03 起源仓里没有 index/，只带小表会让 render 读到 0 条文档、增量一直挂，所以一并发布。
+          IDXNAME="index-${BI:0:12}-${TX:0:12}.tar.gz"
+          test -d "$RUNNER_TEMP/derived-full/index" || { echo "::error::build 产物里没有 index/"; exit 1; }
+          tar czf "$RUNNER_TEMP/$IDXNAME" -C "$RUNNER_TEMP/derived-full" index
           echo "name=$NAME" >> "$GITHUB_OUTPUT"
           echo "path=$RUNNER_TEMP/$NAME" >> "$GITHUB_OUTPUT"
-          echo "book-index=$BI book-text=$TX → $NAME" >> "$GITHUB_STEP_SUMMARY"
+          echo "idxname=$IDXNAME" >> "$GITHUB_OUTPUT"
+          echo "idxpath=$RUNNER_TEMP/$IDXNAME" >> "$GITHUB_OUTPUT"
+          echo "book-index=$BI book-text=$TX → $NAME + $IDXNAME（$(du -h "$RUNNER_TEMP/$IDXNAME" | cut -f1)）" >> "$GITHUB_STEP_SUMMARY"
       - name: 发布到 release derived-slim（PR 上不发布）
         if: ${{ github.event_name != 'pull_request' }}
         env:
           GH_TOKEN: ${{ github.token }}
           NAME: ${{ steps.slim.outputs.name }}
           FILE: ${{ steps.slim.outputs.path }}
+          IDXFILE: ${{ steps.slim.outputs.idxpath }}
         run: |
           set -e
           gh release view derived-slim -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
-            || gh release create derived-slim -R "$GITHUB_REPOSITORY" --title "derived-slim" --notes "搜索重建用的小表（derive-slim.yml 生成，按 book-index／book-text 提交号命名，只留最近 40 份）" --latest=false
-          gh release upload derived-slim "$FILE" -R "$GITHUB_REPOSITORY" --clobber
-          # 只留最近 40 份，旧的删
-          gh api "repos/$GITHUB_REPOSITORY/releases/tags/derived-slim" --jq '.assets|sort_by(.created_at)|reverse|.[40:]|.[].id' \
+            || gh release create derived-slim -R "$GITHUB_REPOSITORY" --title "derived-slim" --notes "搜索重建用的小表 slim-* 与检索索引分片 index-*（derive-slim.yml 生成，按 book-index／book-text 提交号命名，各留最近 40 份）" --latest=false
+          gh release upload derived-slim "$FILE" "$IDXFILE" -R "$GITHUB_REPOSITORY" --clobber
+          # 两类附件各一份一对，共留最近 80 个，旧的删
+          gh api "repos/$GITHUB_REPOSITORY/releases/tags/derived-slim" --jq '.assets|sort_by(.created_at)|reverse|.[80:]|.[].id' \
             | while read -r id; do gh api -X DELETE "repos/$GITHUB_REPOSITORY/releases/assets/$id" --silent; done
-          echo "已发布 $NAME" >> "$GITHUB_STEP_SUMMARY"
+          echo "已发布 $NAME 和 $(basename "$IDXFILE")" >> "$GITHUB_STEP_SUMMARY"
