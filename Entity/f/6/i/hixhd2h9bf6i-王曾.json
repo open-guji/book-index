@@ -36,10 +36,10 @@
   "dynasty_basis": "cbdb:birth/death_name=北宋",
   "period": "song",
   "period_basis": "据 dynasty「北宋」自动归并",
-  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=1901 補入空槽——籍貫「開封」。既有之值一概未動。",
+  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=1901 補入空槽——籍貫「開封」。既有之值一概未動。\n\n2026-11-13 P5：《隆平集》卷5籍貫作「青州益都」與原值「開封」不一致（字孝先相合），不覆蓋，作另說記入 native_place_basis 並加出處。",
   "native_place": "開封",
   "native_place_entity_id": "hixi4ui65ddv",
-  "native_place_basis": "CBDB 1901 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 1901 index_addr（2026-09-06 CBDB enrich）；另說：《隆平集》卷5作「青州益都人」，傳文未言郡望抑居地；原值不改",
   "dates": {
     "birth": 978,
     "death": 1038,
@@ -55,6 +55,11 @@
       {
         "name": "《宋史·王曾傳》",
         "details": "卷310，傳首：王曾，字孝先，青州益都人。"
+      },
+      {
+        "title": "《隆平集》卷5",
+        "source_bid": "d59f2hpsyuwx",
+        "details": "王曾，字孝先，青州益都人。咸平中登進士甲科，所試《有物混成賦》，天下以為賦格。累擢知制誥、翰林學士。大中祥符九年，參知政事。時王欽若方挾祥瑞，迎合人主意，陰排異……"
       }
     ]
   },
@@ -189,8 +194,8 @@
       ]
     }
   ],
-  "revision": "1.0.5",
-  "revised_at": "2026-11-12",
+  "revision": "1.0.6",
+  "revised_at": "2026-11-13",
   "relations": [
     {
       "type": "兄",

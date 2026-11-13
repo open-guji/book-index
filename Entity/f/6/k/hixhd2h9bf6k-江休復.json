@@ -22,17 +22,17 @@
   "dynasty_basis": "cbdb:birth/death_name=北宋",
   "period": "song",
   "period_basis": "据 dynasty「北宋」自动归并",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10170 補入空槽——籍貫「陳留」。既有之值一概未動。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10170 補入空槽——籍貫「陳留」。既有之值一概未動。\n\n2026-11-13 P5：據《山東通志》卷27小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。\n\n2026-11-13 P5：《隆平集》卷15籍貫作「雍丘」與原值「陳留」不一致（字鄰幾相合），不覆蓋，作另說記入 native_place_basis 並加出處。",
   "native_place": "陳留",
   "native_place_entity_id": "hixi6kezo9he",
-  "native_place_basis": "據《宋史·江休復傳》卷443傳首「開封陳留人」",
+  "native_place_basis": "據《宋史·江休復傳》卷443傳首「開封陳留人」；另說：《隆平集》卷15作「雍丘人」，「雍丘」為古郡名，疑為郡望；原值不改",
   "dates": {
     "birth": 1005,
     "death": 1060,
     "basis": "現行字段"
   },
-  "revision": "1.0.5",
-  "revised_at": "2026-11-12",
+  "revision": "1.0.7",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -48,6 +48,16 @@
       {
         "name": "《宋史·江休復傳》",
         "details": "卷443，傳首：江休復，字鄰幾，開封陳留人。"
+      },
+      {
+        "title": "《山東通志》卷27",
+        "source_bid": "d59f2nuuuvi9",
+        "details": "江休復：字鄰幾陳留人仁宗時知奉符縣為政簡易民便之"
+      },
+      {
+        "title": "《隆平集》卷15",
+        "source_bid": "d59f2hpsyuwx",
+        "details": "江休復，字鄰幾，雍丘人。天聖二年，登進士第，又舉書判拔萃中，先因獻所著書，特除集賢校理，赴進奏院祠神會落職，久之，復舊，擢修起居注，積官刑部郎中，卒，年五十六。……"
       }
     ]
   },

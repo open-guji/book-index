@@ -13,11 +13,20 @@
   "period_basis": "所繫 2 部 work 之 period 一致作「ming」，故從之",
   "native_place": "慈谿",
   "native_place_basis": "《萬姓統譜》卷101著錄「慈谿人」（著作佐證）",
-  "ai_note": "2026-08-24 新建 entity（甲等第一批）：本人之名見於 work 之 authors[]，而庫中無其人。取「首字在百家姓、名長二至四字、庫中兩見以上」者為甲等——兩見以上則非偶然之殘句，此判所以立，正為防 SKILL〈史料圈套〉所記之舊禍：本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、之以為嬰……）而竟為之建 entity。\n\n本人所繫之 work 2 部：《洪範敷言》、《大學補略》。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 3 條。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ehw52pz、d59f6ep45r7o、d59f6epbc7pf。\n\n2026-09-07 lane-B 併條善後：所繫 d59f6epbc7pf 已併入 d59f2pr8gphc，反邊改指。",
+  "description": {
+    "sources": [
+      {
+        "title": "《浙江通志》卷175",
+        "source_bid": "d59f2n6dz6ki",
+        "details": "傅淳：明一統志字伯厚慈谿人父時偕以道學鳴於鄉淳能傳其學鄉人稱為退宻先生有洪範敷"
+      }
+    ]
+  },
+  "ai_note": "2026-08-24 新建 entity（甲等第一批）：本人之名見於 work 之 authors[]，而庫中無其人。取「首字在百家姓、名長二至四字、庫中兩見以上」者為甲等——兩見以上則非偶然之殘句，此判所以立，正為防 SKILL〈史料圈套〉所記之舊禍：本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、之以為嬰……）而竟為之建 entity。\n\n本人所繫之 work 2 部：《洪範敷言》、《大學補略》。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 3 條。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ehw52pz、d59f6ep45r7o、d59f6epbc7pf。\n\n2026-09-07 lane-B 併條善後：所繫 d59f6epbc7pf 已併入 d59f2pr8gphc，反邊改指。\n\n2026-11-13 P5：據《浙江通志》卷175小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period": "ming",
   "schema_version": 1,
   "subtype": "people",
-  "revision": "1.0.2",
-  "revised_at": "2026-11-02",
+  "revision": "1.0.3",
+  "revised_at": "2026-11-13",
   "native_place_entity_id": "hixicl88ye47"
 }

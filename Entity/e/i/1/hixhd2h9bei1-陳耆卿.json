@@ -16,7 +16,7 @@
   "dynasty": "南宋",
   "native_place_basis": "CBDB 10881 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "据 dynasty「南宋」自动归并",
-  "ai_note": "2026-08-19 同題異撰人專項（附）：。\n2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10881 補入空槽——籍貫「臨海」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6epzzymb。",
+  "ai_note": "2026-08-19 同題異撰人專項（附）：。\n2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10881 補入空槽——籍貫「臨海」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6epzzymb。\n\n2026-11-13 P5：據《浙江通志》卷176小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period": "song",
   "alt_names": [
     {
@@ -39,8 +39,8 @@
     "death": 1236,
     "basis": "現行字段"
   },
-  "revision": "1.2.1",
-  "revised_at": "2026-11-11",
+  "revision": "1.2.2",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -52,6 +52,11 @@
         "title": "《欽定四庫全書總目》卷一百六十三·《篔窻集》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "宋陳耆卿撰。"
+      },
+      {
+        "title": "《浙江通志》卷176",
+        "source_bid": "d59f2n6dz6ki",
+        "details": "陳耆卿：赤城新志字壽老臨海人嘉定七年進士官至國子司業博學能文逺叅洙泗近探伊洛"
       }
     ]
   },

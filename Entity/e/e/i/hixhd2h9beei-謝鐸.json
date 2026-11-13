@@ -15,7 +15,7 @@
   "dynasty": "明",
   "native_place_basis": "CBDB 67166 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 12 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=67166 補入空槽——籍貫「太平」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eslbx1c、d59f6eme58na、d59f6esh9tz8、d59f6eme58n7、d59f6emegh6q、d59f6erwo64l、d59f6eslbx1f、d59f6esln5l0、d59f6ejuophh、d59f6ete1r0j、d59f6ek6jq4i、d59f6escl9u0。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 12 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=67166 補入空槽——籍貫「太平」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eslbx1c、d59f6eme58na、d59f6esh9tz8、d59f6eme58n7、d59f6emegh6q、d59f6erwo64l、d59f6eslbx1f、d59f6esln5l0、d59f6ejuophh、d59f6ete1r0j、d59f6ek6jq4i、d59f6escl9u0。\n\n2026-11-13 P5：據《浙江通志》卷176小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period": "ming",
   "alt_names": [
     {
@@ -42,8 +42,8 @@
     "death": 1510,
     "basis": "現行字段"
   },
-  "revision": "1.1.1",
-  "revised_at": "2026-11-11",
+  "revision": "1.1.2",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -65,6 +65,11 @@
         "title": "《欽定四庫全書總目》卷七十三·《赤城新志》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明謝鐸撰。"
+      },
+      {
+        "title": "《浙江通志》卷176",
+        "source_bid": "d59f2n6dz6ki",
+        "details": "謝鐸：續文獻通考字鳴治太平人天順甲戌進士選庶吉士授編修成化中預修英廟實録校通鑑"
       }
     ]
   }

@@ -11,7 +11,9 @@
   "primary_name": "謝天錫",
   "dynasty": "元",
   "period_basis": "據 dynasty「元」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eqn3ite。",
+  "native_place": "吳縣",
+  "native_place_basis": "《浙江通志》卷150小傳：「謝天錫：萬厯嘉興府志字純父吳縣人」（字號旁證）",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eqn3ite。\n\n2026-11-13 P5：據《浙江通志》卷150小傳補籍貫（旁證：字號；全庫同名同代候選1人）。",
   "period": "liao-jin-yuan",
   "schema_version": 1,
   "alt_names": [
@@ -26,6 +28,16 @@
     "death": 1301,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07"
+  "description": {
+    "sources": [
+      {
+        "title": "《浙江通志》卷150",
+        "source_bid": "d59f2n6dz6ki",
+        "details": "謝天錫：萬厯嘉興府志字純父吳縣人為嘉興簿明初羽檄交馳傳使所經科索繁重天錫優柔"
+      }
+    ]
+  },
+  "revision": "1.0.1",
+  "revised_at": "2026-11-13",
+  "native_place_entity_id": "hixicl87e77x"
 }

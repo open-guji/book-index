@@ -14,17 +14,29 @@
   "primary_name": "聞人詮",
   "dynasty": "明",
   "native_place_basis": "CBDB 132127 index_addr（2026-09-06 CBDB enrich）",
+  "dates": {
+    "floruit": [
+      1556,
+      1556
+    ],
+    "basis": "《浙江通志》卷169小傳：「嘉靖丙辰進士」，據年號干支紀年推算（科年，活動年非生卒）"
+  },
   "description": {
     "sources": [
       {
         "title": "《欽定四庫全書總目》卷七十四·《南畿志》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明聞人詮撰。"
+      },
+      {
+        "title": "《浙江通志》卷169",
+        "source_bid": "d59f2n6dz6ki",
+        "details": "聞人詮：紹興府志字邦正餘姚人嘉靖丙辰進士為寶應令邑南有泛光湖延袤三百餘里風濤"
       }
     ]
   },
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-09-06 CBDB 同步 L1 落盘：合併重出條目 hixhgyrw4x5n「聞人銓」（二者同占 cbdb_id=132127，時代相容、僧俗一致，判為同一人）。併入 work 1 條、別名 0 條；改 Work.authors 引用 1 處。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=132127 補入空槽——籍貫「餘姚」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eqeo45j。",
+  "ai_note": "2026-09-06 CBDB 同步 L1 落盘：合併重出條目 hixhgyrw4x5n「聞人銓」（二者同占 cbdb_id=132127，時代相容、僧俗一致，判為同一人）。併入 work 1 條、別名 0 條；改 Work.authors 引用 1 處。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=132127 補入空槽——籍貫「餘姚」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eqeo45j。\n\n2026-11-13 P5：據《浙江通志》卷169小傳補活動年（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period": "ming",
   "schema_version": 1,
   "alt_names": [
@@ -38,6 +50,6 @@
     }
   ],
   "subtype": "people",
-  "revision": "1.1.1",
-  "revised_at": "2026-11-11"
+  "revision": "1.1.2",
+  "revised_at": "2026-11-13"
 }

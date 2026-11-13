@@ -36,20 +36,20 @@
     "cbdb_match": "manual",
     "cbdb_source": "manual+pid_12319_余靖_dy15"
   },
-  "ai_note": "合併重複人物 Entity 1j96hesxo4xz4（原名「餘靖」）：該記錄係簡繁轉換工具將姓氏過度轉換而衍生之同人重複條目，朝代與所繫作品皆合，今併入本條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=12319 補入空槽——籍貫「曲江」。既有之值一概未動。",
+  "ai_note": "合併重複人物 Entity 1j96hesxo4xz4（原名「餘靖」）：該記錄係簡繁轉換工具將姓氏過度轉換而衍生之同人重複條目，朝代與所繫作品皆合，今併入本條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=12319 補入空槽——籍貫「曲江」。既有之值一概未動。\n\n2026-11-13 P5：《隆平集》卷14籍貫作「韶州」與原值「曲江」不一致（字安道相合），不覆蓋，作另說記入 native_place_basis 並加出處。",
   "dynasty_basis": "cbdb:birth/death_name=北宋",
   "period": "song",
   "period_basis": "据 dynasty「北宋」自动归并",
   "native_place": "曲江",
   "native_place_entity_id": "hixi636gu2oa",
-  "native_place_basis": "據《宋史·余靖傳》卷320傳首「韶州曲江人」",
+  "native_place_basis": "據《宋史·余靖傳》卷320傳首「韶州曲江人」；另說：《隆平集》卷14作「韶州人」，傳文未言郡望抑居地，傳文有「稍遷秘書丞、集賢校理」；原值不改",
   "dates": {
     "birth": 1000,
     "death": 1064,
     "basis": "現行字段"
   },
-  "revision": "1.1.6",
-  "revised_at": "2026-11-12",
+  "revision": "1.1.7",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -65,6 +65,11 @@
       {
         "name": "《宋史·余靖傳》",
         "details": "卷320，傳首：余靖，字安道，韶州曲江人。"
+      },
+      {
+        "title": "《隆平集》卷14",
+        "source_bid": "d59f2hpsyuwx",
+        "details": "余靖，字安道，韶州人。天聖二年，登進士第，又中書判拔萃科，授將作監丞，稍遷秘書丞、集賢校理。范仲淹言事，忤宰相，貶饒州，靖上言恐鉗天下口，落職筠州管榷。以母憂，……"
       }
     ]
   },

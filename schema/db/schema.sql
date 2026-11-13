@@ -160,6 +160,7 @@ CREATE TABLE office (
   concept_id text,
   office_level text,
   office_class text,
+  office_scope text,
   function text,
   base_office_id text,
   rank_text text,

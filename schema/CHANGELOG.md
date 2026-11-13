@@ -7,7 +7,18 @@
 ## 2026-11-13　地名顶层键 `geo_kind`／`generic`／`polity_dynasty_id`／`site_kind` 补进 JSON schema
 - 四键 place.md 与 P15–P17 检查早已写定，数据里也有（geo_kind 4,560 条、generic 38、polity_dynasty_id 28），但 `entity.schema.json` 没列，check_schema 报 unknown-field。现补 properties：`geo_kind` ∈ 山岳／河流／湖澤／海洋／泉井；`generic` 只许 true；`polity_dynasty_id` 为 Id；`site_kind` ∈ 寺觀／祠廟／書院／殿閣／園林／陵墓／藏書樓／塔。只许 place，其余子类禁用。
 - 目录库：bim `mapping.py` 在 `place` 表加四列，`polity_dynasty_id` 加悬空检查与外键（bim#351）；`schema/db/*.sql` 重新生成。
-- 依据：A12 请求（#2404 只补了 level 枚举）。
+- 依据：A12 请求（#2404 只补了 level 枚举）。office_scope（#2446）同批进目录库映射（bim）。
+
+## 2026-11-13　office 加 `office_scope`（现只有「地方官」）、校验码 O13
+- 官职口径 C（用户 11-13 定）：知縣、知府、知州、巡撫、總督、布政使、按察使等地方官不挂官署，在具体条标 `office_scope: "地方官"`，所属政区由人物 `offices[].place_id` 表达，不加 `place_ref`。`office_class` 是官类（職事官／差遣…），知縣本身就是職事官，所以另开字段，不往 15 值里塞。
+- 字段可选，只许具体条；概念条与官署条不得有（同 `office_class` 的禁用表）；取值走 `entity_subtypes.OFFICE_SCOPES`，将来加京官、武职等只改这张表和 JSON schema 枚举。O13：值不在枚举 ERROR；`地方官` 条仍有 `institution_ref` WARN。
+- 同改：`entity.schema.json`（properties 加 `office_scope`，各子类型禁用表同步）、`entity_subtypes.py`、`check_v2.py`、`build/names.py`（office_keys 候选带 `office_scope`，A33 抽取器读它）、`office.md`、`_checks.md`。bim `mapping.py` 的映射由 A11 补（A11 已同意）。
+- A11、A33、A42 均无异议（A42 检索暂不用）。
+
+## 2026-11-13　place 加「建築」条（寺观祠庙书院殿阁园林陵墓塔）：`history[].level` 增「建築」、`site_kind`、校验码 P17
+- 处所类地名建为跨朝条：`history` 一段 `{name, level:"建築"}`，可不挂朝代；`parent_id` 可指所在县消歧；`site_kind`（封闭枚举：寺觀／祠廟／書院／殿閣／園林／陵墓／藏書樓／塔）必写，只许跨朝条。官署館局仍归 office。
+- JSON schema 只补 `level` 枚举的「邑」「建築」；`geo_kind`／`generic`／`polity_dynasty_id`／`site_kind` 四个顶层键尚未进 JSON schema（进了会触发 schema-landed 的目录库映射覆盖闸，需 A11 先在 book-index-manager 的 mapping.py 加映射），已通知 A11。build 的 place_keys 候选带 `site_kind`。
+- A11、A33、A42 均无异议；依据：A33 b27 殿本地名剩余清单寺观 390 键（殿阁口径方案 A）。
 
 ## 2026-11-13　人物 `offices[].kind` 加枚举值「檢校」
 - 枚举由 兼／權／試／判／守／行／知／充 增为 …／檢校。唐宋以後史书常见「檢校X」带衔；库有专条（檢校太師等）仍挂专条，没有就挂基官并写 `kind:"檢校"`、`text` 保留原文。
