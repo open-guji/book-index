@@ -38,7 +38,7 @@
     ]
   },
   "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…史藝文志補》一志著錄，別無他證。今存版本 1 種，各見所繫之 Boo…」），而 loss_status 未填，今據以補為 extant。",
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-11-13",
   "loss_status": "extant",
   "loss_status_evidence": {
@@ -88,6 +88,38 @@
         "edition": "其他 1934"
       },
       "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA002655/tagged/BB01525562.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：京大法藏本：[宋 陸游 撰]",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA002655/tagged/BB01525562.dat",
+        "institution": "京大法",
+        "edition": "[宋 陸游 撰]",
+        "extent": ""
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA006565/tagged/0018017.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：法政大 多摩藏本",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA006565/tagged/0018017.dat",
+        "institution": "法政大 多摩",
+        "edition": "",
+        "extent": "十八卷"
+      }
     }
   ]
 }

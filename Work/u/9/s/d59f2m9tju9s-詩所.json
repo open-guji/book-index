@@ -106,6 +106,54 @@
         "edition": "筆寫本"
       },
       "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA002735/tagged/2000445.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：京大人文研 本館藏本：光地",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA002735/tagged/2000445.dat",
+        "institution": "京大人文研 本館",
+        "edition": "光地",
+        "extent": "八卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA003283/tagged/0030118.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：山口大藏本：刋本 康煕五十七年序",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA003283/tagged/0030118.dat",
+        "institution": "山口大",
+        "edition": "刋本 康煕五十七年序",
+        "extent": "八卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FAKOKKAI/tagged/0809043.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：国会藏本：光地",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FAKOKKAI/tagged/0809043.dat",
+        "institution": "国会",
+        "edition": "光地",
+        "extent": "八卷"
+      }
     }
   ],
   "ai_note": "清史稿藝文志匹配：書名「詩所」為短名（2字），已通過作者驗證。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhvnhme680 與 11q37o4cl179c 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重方案3a 併條（rule=去重方案部分3a第三轮：补撰人与国書子目对后同题同首位（含混合组内同首位子簇） B 档逐组复核并）：併 d59fyq7syq68《詩所》、d59fyqwas4qq《詩所》 入本條。同题同首位责任者：《詩所》李光地(清,8卷,10版本)／《詩所》李光地(清,8卷,1版本,繼承叢書撰者)／《詩所》李光地(清,8卷,1版本,繼承叢書撰者)；B 档逐组复核判同一作品（flags=generic_title）",
@@ -127,6 +175,6 @@
       "清史稿藝文志"
     ]
   },
-  "revision": "1.2.0",
+  "revision": "1.3.0",
   "revised_at": "2026-11-13"
 }
