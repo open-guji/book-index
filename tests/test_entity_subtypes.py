@@ -567,3 +567,19 @@ def test_dyn_overlap_by_name_across_repos():
     rec = {"id": "off", "institution_ref": "inst"}
     assert es._institution_ref_problems(rec, reg, ["d_ming"]) == []
     assert [c for c, *_ in es._institution_ref_problems(rec, reg, ["p_qing"])] == ["I12"]
+
+
+def test_place_geo_kind_and_polity():
+    # P15／P16：山川子类 geo_kind、泛称 generic、古国 polity_dynasty_id（2026-11-13）
+    d = dyn("d", "春秋齊", -770, -476)
+    mt = lambda **k: place("pl", history=[{"name": "泰山", "level": "山"}], **k)
+    assert not has(mt(geo_kind="山岳"), "P15")
+    assert has(mt(geo_kind="亂"), "P15")
+    assert has(mt(geo_kind="河流"), "P15")                      # 河流須 level=水
+    assert has(mt(geo_kind="山岳", generic=False), "P15")       # generic 只許 true
+    assert not has(mt(geo_kind="山岳", generic=True), "P15")
+    assert has(mt(generic=True), "P15")                         # generic 須同時有 geo_kind
+    assert has(mt(geo_kind="山岳", place_level="region"), "P15")  # 只許跨朝條
+    assert not has(place("pl", polity_dynasty_id="d"), "P16", es.ERROR, d)
+    assert has(place("pl", polity_dynasty_id="nope"), "P16")
+    assert not has(place("pl", history=[{"name": "齊", "level": "邑"}]), "P01")   # level 邑

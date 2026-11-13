@@ -116,7 +116,9 @@ INST_WARN_RANGE = 5
 # O14 第二步（替換 PR draft#97 合入後，S 10-07 收緊）：凍結名單清空，`COL:` 占位一律 ERROR。
 COL_PLACEHOLDERS = frozenset()
 PLACE_LEVELS = {"國", "郡", "州", "府", "軍", "監", "路", "道", "省", "縣", "廳", "都",
-                "山", "水"}   # 山、水＝自然地理（山川）條，非政區，history 只記通名類別（2026-10-30）
+                "山", "水",
+                "邑"}   # 山、水＝自然地理（山川）條，非政區，history 只記通名類別（2026-10-30）；邑＝古邑古城（2026-11-13）
+GEO_KINDS = {"山岳": "山", "河流": "水", "湖澤": "水", "海洋": "水", "泉井": "水"}   # place.geo_kind → 須配的 history.level（2026-11-13）
 MODERN_RELATIONS = {"同名同地", "治所今在", "轄域約當", "沿用其名而異地", "無對應"}
 PRED_KINDS = {"析出", "並入", "改置"}
 PLACE_TIERS = {"concept", "concrete", "region"}   # place_level：跨朝條／朝代條／區域條；缺省＝concept
@@ -1038,6 +1040,23 @@ def _check_place_tier(rec, reg, hist):
             r = reg.rec.get(c)
             if reg.sub.get(c) != "place" or place_tier(r) != "concept":
                 out.append(("P14", ERROR, "concept_id", "須指跨朝條（place_level=concept）：%r" % (c,)))
+    gk = rec.get("geo_kind")
+    if gk is not None:
+        if gk not in GEO_KINDS:
+            out.append(("P15", ERROR, "geo_kind", "須為 %s：%r" % ("／".join(GEO_KINDS), gk)))
+        else:
+            if tier != "concept":
+                out.append(("P15", ERROR, "geo_kind", "只許跨朝條"))
+            bad = [h.get("level") for h in hist if isinstance(h, dict) and h.get("level") != GEO_KINDS[gk]]
+            if bad:
+                out.append(("P15", ERROR, "history", "geo_kind=%s 的各段 level 須為 %s：%r" % (gk, GEO_KINDS[gk], bad)))
+    elif any(isinstance(h, dict) and h.get("level") in ("山", "水") for h in hist):
+        pass   # 存量山川條可無 geo_kind（逐步補）
+    if "generic" in rec and not (rec["generic"] is True and gk):
+        out.append(("P15", ERROR, "generic", "只許在有 geo_kind 的條上寫 true"))
+    pd = rec.get("polity_dynasty_id")
+    if pd is not None and (reg.sub.get(pd) != "dynasty" or tier != "concept"):
+        out.append(("P16", ERROR, "polity_dynasty_id", "須指 dynasty 條、且只許跨朝條：%r" % (pd,)))
     for i, h in enumerate(hist):
         hp = h.get("parent_id") if isinstance(h, dict) else None
         if hp is None or hp == rec["id"] or reg.sub.get(hp) != "place":

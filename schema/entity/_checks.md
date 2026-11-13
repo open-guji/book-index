@@ -41,6 +41,8 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | P12 | place | `place_level` ∈ `concept`／`concrete`／`region`（缺省 concept） | ERROR |
 | P13 | place | 朝代条：顶层 `dynasty_ids` 非空且都是 dynasty；各段 `name` 同 `primary_name`、`level` 一致；段的 `dynasty_ids` 不出顶层所挂。跨朝条不得有顶层 `dynasty_ids` | ERROR |
 | P14 | place | 上级同层：朝代条段的 `parent_id` 须指朝代条且朝代相交，跨朝条段的 `parent_id` 须指跨朝条；`concept_id` 只许朝代条、须指跨朝条 | ERROR |
+| P15 | place | `geo_kind` 在 5 值内、只许跨朝条、各段 level 与之相配；`generic` 只许 true 且须有 geo_kind | ERROR |
+| P16 | place | `polity_dynasty_id` 须指 dynasty 条、只许跨朝条 | ERROR |
 | I01 | collective | `collective_kind` 在 5 值内；官署的 `institution_level` 在 3 值内 | ERROR |
 | I02 | 官署 | 具体条 `dynasty_ids`（非空、指 dynasty）／`function`／`function_basis` 必填、`function_basis` 不含「待核」；概念条与合称条禁 `dynasty_ids`、`function`、`superiors`、`start`、`end`、`basis`；合称条不得有 `group_ids`；概念条与合称条 `description` 必填 | ERROR |
 | I03 | 官署 | 具体条 `concept_id` 指官署概念条；概念条、合称条不得有 `concept_id` | ERROR |
