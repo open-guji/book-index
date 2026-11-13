@@ -15,7 +15,7 @@
   "dynasty": "明",
   "native_place_basis": "CBDB 128775 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=128775 補入空槽——籍貫「無錫」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ekukzyf。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=128775 補入空槽——籍貫「無錫」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ekukzyf。\n\n2026-11-13 P4（省通志人物志）：據《江南通志》卷142·人物志補出處（旁證：字號、籍貫、著作；全庫同名同代候選1人）。",
   "period": "ming",
   "alt_names": [
     {
@@ -42,14 +42,19 @@
     "death": 1586,
     "basis": "現行字段"
   },
-  "revision": "1.0.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.0.1",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/0xfixldhvdspi1bb"
+      },
+      {
+        "title": "《江南通志》卷142·人物志",
+        "source_bid": "d59f2n6dz6kh",
+        "details": "周子義字以方無錫人嘉靖乙丑進士選庶吉士厯南國子監司業南雍諸生素窳惰不振子義教飭有方輔臣張居正奪情南都九列俱具疏請留子義以正論告祭酒故成均獨無疏居正沒始遷禮部侍郎……"
       }
     ]
   }
