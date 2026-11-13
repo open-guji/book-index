@@ -16,7 +16,7 @@
   "dynasty": "南宋",
   "native_place_basis": "CBDB 13807 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "据 dynasty「南宋」自动归并",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=13807 補入空槽——籍貫「烏程」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6egbn4ec。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=13807 補入空槽——籍貫「烏程」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6egbn4ec。\n\n2026-11-13 P4（山西通志試點）：據《江西通志》卷60·名宦補出處（旁證：字號；全庫同名同代候選1人）。",
   "period": "song",
   "alt_names": [
     {
@@ -45,8 +45,8 @@
     ],
     "basis": "cbdb:index_year"
   },
-  "revision": "1.1.4",
-  "revised_at": "2026-11-12",
+  "revision": "1.1.5",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -62,6 +62,11 @@
       {
         "name": "《宋史·程公許傳》",
         "details": "卷415，傳首：程公許，字季與，一字希穎，敘州宣化人。"
+      },
+      {
+        "title": "《江西通志》卷60·名宦",
+        "source_bid": "d59f2mda3j0g",
+        "details": "程公許字季與一字希潁敘州宣化人嘉定進士淳祐間知袁州請蠲和糴之半改命郡吏部總所綱運而厚其資免募平民民甚便之新濂溪祠南軒書院聘宿儒胡安之為諸生講說杜範薦於朝召拜宗正……"
       }
     ]
   },
