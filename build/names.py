@@ -409,6 +409,9 @@ class Names:
              'end': max((h['end'] for h in hist if isinstance(h.get('end'), int)), default=None),
              'modern': (d.get('modern') or {}).get('text') if isinstance(d.get('modern'), dict) else None,
              'segments': segs}
+        for k in ('geo_kind', 'polity_dynasty_id', 'generic'):
+            if d.get(k):
+                c[k] = d[k]
         if amb:
             c['ambiguous'] = True
         return _clean(c)
@@ -445,7 +448,8 @@ class Names:
                     stack.extend(up.get(x, ()))
             anc[i] = seen
         for v in out.values():
-            cs = [c for c in v if c.get('place_level') not in ('concrete', 'region')]   # 朝代條按朝代挑、區域條泛稱，皆不標 default
+            cs = [c for c in v if c.get('place_level') not in ('concrete', 'region')
+                  and not c.get('polity_dynasty_id') and not c.get('generic')]   # 朝代條按朝代挑、區域條泛稱、古國條與泛稱山川，皆不標 default
             if len(cs) == 1 and len(v) > 1:
                 cs[0]['default'] = True                                 # 只一條跨朝條，其餘皆朝代條
             else:
