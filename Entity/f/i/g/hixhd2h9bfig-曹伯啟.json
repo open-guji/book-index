@@ -14,7 +14,7 @@
   "dynasty": "元",
   "native_place_basis": "《元史》卷176著錄「濟寧碭山人」（同名同代唯一傳首）",
   "period_basis": "據 dynasty「元」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=35398 補入空槽——籍貫「碭山」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eomd88w。\n\n2026-10-21 重出审计 PEOPLE-0012：并入 hixi8u605tng；保留墓碑，迁移存储侧引用。原字段异说与逐组依据见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json。\n\n2026-11-13 P7：籍貫依據由 CBDB 換為《元史》卷176本傳（同名同代唯一傳首，籍貫值未變）。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=35398 補入空槽——籍貫「碭山」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eomd88w。\n\n2026-10-21 重出审计 PEOPLE-0012：并入 hixi8u605tng；保留墓碑，迁移存储侧引用。原字段异说与逐组依据见 .claude/qa/reports/duplicate-audit-2026-10-21/merges.json。\n\n2026-11-13 P7：籍貫依據由 CBDB 換為《元史》卷176本傳（同名同代唯一傳首，籍貫值未變）。\n\n2026-11-13 P4（省通志人物志）：據《江南通志》卷144·人物志補出處（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period": "liao-jin-yuan",
   "alt_names": [
     {
@@ -42,7 +42,7 @@
     "death": 1333,
     "basis": "現行字段"
   },
-  "revision": "1.2.5",
+  "revision": "1.2.6",
   "revised_at": "2026-11-13",
   "description": {
     "sources": [
@@ -64,6 +64,11 @@
         "title": "《元史》卷176",
         "source_bid": "d59f2njivtog",
         "details": "曹伯啟字士開，濟寧碭山人"
+      },
+      {
+        "title": "《江南通志》卷144·人物志",
+        "source_bid": "d59f2n6dz6kh",
+        "details": "曹伯啓字士開碭山人至元間薦授西臺御史遷刑部侍郎持法平允權貴不得奪後為御史臺侍御史奉命同刋定大元通制上言五刑者刑異五等黥杖徒役於千里之外百無一生還者是一人身被五刑……"
       }
     ]
   },
