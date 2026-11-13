@@ -8,7 +8,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-24 兩漢H1追訂（使用者定準）：「結構與原書不一致即獨立 Work」——本條為坊刻彙注編本，獨立作品。撰人揚雄解繫（原典撰人非編者，編者不詳），period 改 song，補 contains_text_of →《法言》。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 7 取自 `measure_info`「七冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-24 兩漢H1追訂（使用者定準）：「結構與原書不一致即獨立 Work」——本條為坊刻彙注編本，獨立作品。撰人揚雄解繫（原典撰人非編者，編者不詳），period 改 song，補 contains_text_of →《法言》。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 7 取自 `measure_info`「七冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-11-13 L0 併條（rule=L0 第四轮 近似题名（一侧／两侧无撰人）：子 agent 判 A，机械剔除撰人不一、前判存疑与仅凭书目著录题名卷数者，盲检 34/40 SAME（6 UNSURE 一类已整体剔除））：併 d59fy113dwci《新纂門目五臣音註揚子法言》、d59fy1iznpj6《新纂門目五臣音註揚子法言》 入本條。N332:同一坊刻彙注編本，兩條皆有六子書本、十卷；註/注異體；keeper 取已定準之條（撰人揚雄應解繫） / N333:兩側皆含世德堂六子書本，同為坊刻五臣音注編本",
   "measures": [
     {
       "unit": "冊",
@@ -26,5 +26,250 @@
     }
   ],
   "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revised_at": "2026-08-25",
+  "dynasty": "漢",
+  "dynasty_basis": "author_propagation",
+  "resources": [
+    {
+      "id": "nlc",
+      "label": "國圖藏本：崇川余氏   宋[960-1279]",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=412004000714",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "412004000714",
+        "edition": "崇川余氏   宋[960-1279]"
+      }
+    },
+    {
+      "id": "nlc",
+      "label": "國圖藏本：明嘉靖12年[1533]",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999013705",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999013705",
+        "edition": "明嘉靖12年[1533]"
+      }
+    },
+    {
+      "id": "nlc",
+      "label": "國圖藏本：明嘉靖十二年[1533]",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999000129",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999000129",
+        "edition": "明嘉靖十二年[1533]"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "label": "內閣文庫藏本：万治2年刊本（跋刊）（298-0059，6冊）",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "url": "https://www.digital.archives.go.jp/file/1076113",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076113",
+        "request_no": "２９８－００５９",
+        "edition": "刊本（跋刊）::万治:020000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4913767/manifest.json",
+        "extent": "6冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "label": "內閣文庫藏本：明刊本 世徳堂（子001-0009，3冊）",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "url": "https://www.digital.archives.go.jp/file/1076517",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1076517",
+        "request_no": "子００１－０００９",
+        "edition": "刊本:明:::世徳堂",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4755863/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "label": "內閣文庫藏本：万治2年刊本（跋刊）（298-0057，2冊）",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "url": "https://www.digital.archives.go.jp/file/3611455",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "3611455",
+        "request_no": "２９８－００５７",
+        "edition": "刊本（跋刊）::万治:020000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/3670411/manifest.json",
+        "extent": "2冊"
+      }
+    },
+    {
+      "id": "kokusho",
+      "label": "國書·岩国徴古藏刊",
+      "name": "國書データベース（國文學研究資料館）",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100155509",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100155509",
+        "holder": "岩国徴古",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100155509/manifest"
+      }
+    },
+    {
+      "id": "kokusho",
+      "label": "國書·京都府歴彩藏刊",
+      "name": "國書データベース（國文學研究資料館）",
+      "url": "https://kokusho.nijl.ac.jp/biblio/100339745",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kokusho_bid": "100339745",
+        "holder": "京都府歴彩",
+        "edition": "刊",
+        "iiif_manifest": "https://kokusho.nijl.ac.jp/biblio/100339745/manifest"
+      }
+    },
+    {
+      "id": "waseda",
+      "label": "早稲田藏本：[京都] : 中野小左衛門, 万治2[1659]跋",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro13/ro13_03088/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro13_03088",
+        "edition": "[京都] : 中野小左衛門, 万治2[1659]跋"
+      }
+    },
+    {
+      "id": "waseda",
+      "label": "早稲田藏本：[京都] : 中野小左衛門, 万治2[1659]跋",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro13/ro13_03481/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro13_03481",
+        "edition": "[京都] : 中野小左衛門, 万治2[1659]跋"
+      }
+    },
+    {
+      "id": "waseda",
+      "label": "早稲田藏本：姑蘇 : 聚文堂, 嘉慶9[1804]",
+      "name": "早稲田大学図書館 古典籍総合データベース",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ro13/ro13_00130_0033/index.html",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "waseda_id": "ro13_00130",
+        "edition": "姑蘇 : 聚文堂, 嘉慶9[1804]"
+      }
+    },
+    {
+      "id": "loc",
+      "label": "美國國會圖書館藏本：[China : publisher not identified, Ming dai, between 1368 and 1644] 1368",
+      "name": "美國國會圖書館數字館藏",
+      "url": "https://www.loc.gov/item/2012402967/",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "loc_record": "2012402967",
+        "iiif_manifest": "https://www.loc.gov/item/2012402967/manifest.json",
+        "edition": "[China : publisher not identified, Ming dai, between 1368 and 1644] 1368"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "label": "臺灣國家圖書館藏本：明桐蔭書屋覆吳郡顧氏世德堂六子本",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05412",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05412",
+        "call_number": "301 05412",
+        "edition": "明桐蔭書屋覆吳郡顧氏世德堂六子本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "label": "臺灣國家圖書館藏本：明桐蔭書屋覆翻刻吳郡顧氏世德堂六子本",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05413",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05413",
+        "call_number": "301 05413",
+        "edition": "明桐蔭書屋覆翻刻吳郡顧氏世德堂六子本"
+      }
+    },
+    {
+      "id": "ncl-tw",
+      "label": "臺灣國家圖書館藏本：清嘉慶九年(1804)姑蘇王氏聚文堂刊本",
+      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
+      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/05414",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "ncltw_bookno": "05414",
+        "call_number": "301 05414",
+        "edition": "清嘉慶九年(1804)姑蘇王氏聚文堂刊本"
+      }
+    }
+  ],
+  "indexed_by": [
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "新纂門目五臣音註揚子法言十卷",
+      "author_info": "漢揚雄撰;晉李軌、唐柳宗元、宋宋咸、宋吳祕、宋司馬光注",
+      "section": "子部/儒家類/儒學之屬/兩漢至唐",
+      "summary": "共 6 個版本：明刻本（國家圖書館）；宋崇川余氏刻本（國家圖書館）；六子全書本（馆藏未载）；六子書本（馆藏未载）；十子全書本（北京大學圖書館、吉林省圖書館、遼寧省圖書館）；清嘉慶九年寶慶經綸堂刻本（吉林省圖書館、南京圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "新纂門目五臣音注揚子法言十卷",
+      "author_info": "漢揚雄撰",
+      "section": "子部/總類/叢編之屬",
+      "summary": "共 4 個版本：（馆藏未载）；（遼寧省圖書館、吉林省圖書館）；（天津圖書館、甘肅省圖書館、國家圖書館、安徽省圖書館、福建省圖書館、山東大學圖書館、四川省圖書館、南京圖書館、上海圖書館、湖南省圖書館、遼寧省圖書館、河南省圖書館、北京大學圖書館）；（天津圖書館）"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "新纂門目五臣音註揚子法言十卷",
+      "author_info": "",
+      "section": "子部/總類/叢編之屬",
+      "summary": "共 5 個版本：（甘肅省圖書館、四川省圖書館、中共中央黨校圖書館、湖南省圖書館、北京大學圖書館、四川師範大學圖書館、安慶市圖書館）；（復旦大學圖書館、山東省圖書館、國家圖書館、天津圖書館、遼寧省圖書館、上海圖書館、中國科學院圖書館、浙江圖書館、吉林省圖書館、南京圖書館、四川省圖書館、北京大學圖書館）；（四川省圖書館、天津圖書館、江西省圖書館、上海圖書館、國家圖書館、中山大學圖書館）；（吉林大學圖書館、國家圖書館）；（南開大學圖書館、中共北京市委圖書館、重慶市北碚區圖書館、上海師範大學圖書館、國家圖書館、山西省圖書館、甘肅省圖書館、吉林大學圖書館、中國人民大學圖書館、長春市圖書館、國家博物館、蘇州市文管會）"
+    }
+  ],
+  "additional_titles": [
+    "新纂門目五臣音註揚子法言"
+  ]
 }

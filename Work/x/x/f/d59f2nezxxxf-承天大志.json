@@ -38,6 +38,14 @@
       "title_info": "嘉靖承天大志",
       "section": "湖北省/荆州地區",
       "page": "17--42"
+    },
+    {
+      "source": "中國古籍總目",
+      "source_bid": "d59frnrt4lxc",
+      "title_info": "承天大志□卷",
+      "author_info": "",
+      "section": "史部/政書類/通制之屬",
+      "summary": "共 1 個版本：明内府抄本（北平圖書館（藏臺圖））"
     }
   ],
   "description": {
@@ -51,6 +59,10 @@
     {
       "unit": "卷",
       "number": 40
+    },
+    {
+      "unit": "卷",
+      "number": 1
     }
   ],
   "measure_info": "四十卷",
@@ -58,14 +70,12 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目分類：史部／方志類／地志之屬（與正式庫分類並存，未改 Work 分類）",
+  "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n總目分類：史部／方志類／地志之屬（與正式庫分類並存，未改 Work 分類）\n\n2026-11-13 L0 併條（rule=L0 第四轮 近似题名（一侧／两侧无撰人）：子 agent 判 A，机械剔除撰人不一、前判存疑与仅凭书目著录题名卷数者，盲检 34/40 SAME（6 UNSURE 一类已整体剔除））：併 d59f2pt7msxu《承天大誌》、d59fyv7lce82《承天大志》 入本條。N369:嘉靖內府寫本殘一卷，即嘉靖徐階等所修四十卷本 / N370:志／誌異體；兩條同為明嘉靖內府寫本，藏地北平圖書館（臺圖）即故宮平圖009559",
   "revision": "1.1.0",
   "revised_at": "2026-11-12",
-  "related_works": [
-    {
-      "id": "d59fyv7lce82",
-      "relation": "related",
-      "note": "史部E另立（anon）：總目記錄「承天大志」（無作者）與既有 Work 題名相同或相近而不可證同書（记录无作者、目标 Work 有作者且卷数不符／缺：不能证同作者，默认另立＋related），判為不同著作（不並）；互為相關。"
-    }
+  "period_upper": "ming",
+  "period_upper_basis": "edition_bound：所掛版本中最早者為「明嘉靖間內府朱絲欄寫本」——版本之年不早於成書之年，故不晚於 ming",
+  "additional_titles": [
+    "承天大誌"
   ]
 }
