@@ -52,8 +52,27 @@
   "period": "song",
   "period_basis": "据 dynasty「北宋」自动归并",
   "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 7 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-04 坑32 修復批次：補繫《蘇軾集》（work d59f2q0anoqq），依別集類「人名+集」書名體例。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=3767 補入空槽——籍貫「眉山」。既有之值一概未動。\n\n2026-09-06 qa-sweep/song·所繫之 `d59f2hsgspoh`《東坡集四十卷後集》併入 `d59f2htn8zk3`，回指隨之改繫（重複者去之）。\nA12 b09（2026-10-29）據《四庫全書總目》第55、57册補異體「蘓軾」、諡號「蘇文忠」。\nA12 b10（2026-10-30）據《四庫全書總目》第62册補別名「東坡先生」。\nA12 b12（2026-10-30）據《四庫全書總目》第72册補別名「胡侯」、「蘇子平」。",
-  "revision": "1.4.4",
+  "revision": "1.4.5",
   "revised_at": "2026-11-12",
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9bene",
+      "basis": "《宋史》兩端本傳互載，兩端均已錨定本傳",
+      "sources": [
+        {
+          "name": "宋史",
+          "type": "text",
+          "details": "卷四百四十三列傳〈蘇洵〉：、嘉祐間，與其二子軾、轍皆至京師"
+        },
+        {
+          "name": "宋史",
+          "type": "text",
+          "details": "卷三百三十八列傳〈蘇軾〉：眉山人。生十年，父洵遊學四方，母程氏親授以書，聞古今"
+        }
+      ]
+    }
+  ],
   "native_place": "眉山",
   "native_place_entity_id": "hixi61e92jnk",
   "native_place_basis": "據《宋史·蘇軾傳》卷338傳首「眉州眉山人」",
