@@ -1,25 +1,15 @@
 {
   "schema_version": 1,
-  "type": "work",
   "id": "d59gcvfqghoy",
+  "type": "work",
   "title": "燕峰文鈔",
-  "authors": [
-    {
-      "name": "費宻",
-      "role": "撰",
-      "dynasty": "清"
-    }
-  ],
-  "period": "qing",
-  "period_basis": "據 authors[0].dynasty「清」",
-  "measures": [
-    {
-      "unit": "卷",
-      "number": 1
-    }
-  ],
-  "measure_info": "一卷",
-  "ai_note": "2026-11-13 A11：據殿本《四庫全書總目》著錄條目新建（A33 殿本專名層 b39 清單；庫中無同題Work，無包含關係近似條目）。撰人、朝代取自提要首句；撰人未建Entity，待A12補。同題另有他人所撰Work，另立。",
+  "merged_into": "d59f2mivflds",
+  "merged_basis": {
+    "rule": "L0 D待并：book-text 引用已同步改指 keeper 后并",
+    "at": "2026-11-13T16:20:08Z",
+    "by": "L0",
+    "why": "原登 D待并（判同书、兩側被 book-text 引用）；book-text 引用與文本已由 A33 改歸 keeper（dev 5a32c3b2）。燕峯文鈔／燕峰文鈔"
+  },
   "revision": "1.0.0",
   "revised_at": "2026-11-13"
 }

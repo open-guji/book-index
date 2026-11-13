@@ -1,95 +1,15 @@
 {
   "schema_version": 1,
-  "type": "work",
   "id": "d59f2hlk0kqq",
+  "type": "work",
   "title": "閒窗括異志",
-  "authors": [
-    {
-      "name": "魯應龍",
-      "role": "撰",
-      "dynasty": "趙宋",
-      "entity_id": "hixhd2h9bf83",
-      "dynasty_basis": "synonym:period=song"
-    }
-  ],
-  "indexed_by": [
-    {
-      "source": "宋史藝文志補",
-      "source_bid": "d59f2mp38qv4",
-      "title_info": "閒窗括異志一卷",
-      "summary": "閒窗括異志一卷\n魯應龍撰。"
-    },
-    {
-      "source": "欽定四庫全書總目",
-      "source_bid": "d59dh3vo9af4",
-      "title_info": "《閑窗括異志》·一卷",
-      "note": "2026-08-26 雙向鏈回補：本志整理本繫本條而 work 側未記，今補。",
-      "summary": "宋魯應龍撰。自署東湖，蓋嘉興人。書中稱淳祐甲申館於沈氏，則理宗時也。其書皆言神怪之事，而多藉以明因果。前半帙皆所聞見，後半帙則雜采古事以足之。大半與唐、五代小說相出入。"
-    },
-    {
-      "source": "續修四庫全書",
-      "source_bid": "d59f2og4vksh",
-      "title_info": "《閑窗括異志》一卷",
-      "summary": "《閑窗括異志》一卷。宋魯應龍撰。影印明刻鹽邑志林本。",
-      "note": "2026-08-26 雙向鏈回補：本志整理本繫本條而 work 側未記，今補。"
-    }
-  ],
-  "measures": [
-    {
-      "unit": "卷",
-      "number": 1
-    }
-  ],
-  "measure_info": "一卷",
-  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（一卷），今據以補。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n\n\n2026-09-06 Z 類訂正（協調者代辦，坑 40／55；本桶之道已收工）：原 `period_upper_basis` 取《藝文志補》為 catalog_bound 之界，然**此類志是清末民初人對前代書目之回溯重建，成書在清而非其所補之代**；以志名所繫之朝代立界，等於把該志「所補者為某代」之範圍主張，當作獨立之斷代證據——循環論據（同坑 22）。原值 period_upper=song，原 basis「catalog_bound：所繫諸志中最緊者為《宋史藝文志補》（清人補），故不晚於 so」。今改依《欽定四庫全書總目》→ qing。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
-  "period_upper": "qing",
-  "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《欽定四庫全書總目》（清乾隆間），故不晚於 qing",
-  "period": "song",
-  "period_basis": "撰人朝代作「宋」，歧（劉宋｜趙宋）；而其書見《宋史藝文志補》——清人補宋史藝文志，專收宋人著述，劉宋之書無由入之。以庫中自驗：該志已定 period 者 96.0% 為 song，其撰人明標「南朝宋」者僅 2 條而趙宋 543 條。本條不兼繫宋前之志（所繫：宋史藝文志補），雙重證據成立，故判趙宋。（2026-08-24 A4）",
-  "description": {
-    "text": "魯應龍（宋）撰。一卷。見著錄於《宋史藝文志補》。其著錄之文，《宋史藝文志補》作「閒窗括異志一卷」。本書惟《宋史藝文志補》一志著錄，別無他證。",
-    "sources": [
-      "宋史藝文志補"
-    ]
+  "merged_into": "d59fxwyjs0zk",
+  "merged_basis": {
+    "rule": "L0 D待并：book-text 引用已同步改指 keeper 后并",
+    "at": "2026-11-13T16:19:56Z",
+    "by": "L0",
+    "why": "原登 D待并（判同书、兩側被 book-text 引用）；book-text 引用與文本已由 A33 改歸 keeper（dev 5a32c3b2）。N108:閒窗括異志／閑窻括異志僅繁簡異體之差，同撰人同 Entity，卷數無矛盾；兩側皆為 book-text 所引，暫不並，待文本側改引後再並"
   },
   "revision": "1.2.0",
-  "revised_at": "2026-10-26",
-  "resources": [
-    {
-      "name": "维基共享资源",
-      "types": [
-        "image"
-      ],
-      "id": "commons",
-      "url": "https://commons.wikimedia.org/wiki/File:NCL-08528_%E9%96%92%E7%AA%97%E6%8B%AC%E7%95%B0%E5%BF%97.pdf"
-    },
-    {
-      "id": "ioc-shanben",
-      "label": "東文研藏本：《舊小說》所收本",
-      "name": "東京大學東洋文化研究所 漢籍善本全文影像資料庫",
-      "url": "https://shanben.ioc.u-tokyo.ac.jp/main_p.php?nu=C6324200&order=rn_no&no=01372",
-      "types": [
-        "image"
-      ],
-      "metadata": {
-        "ioc_nu": "C6324200",
-        "call_no": "雙紅堂-小說-150",
-        "edition": ""
-      }
-    },
-    {
-      "id": "ncl-tw",
-      "label": "臺灣國家圖書館藏本：明鈔本",
-      "name": "古籍與特藏文獻資源（臺灣國家圖書館）",
-      "url": "https://rbook.ncl.edu.tw/NCLSearch/Search/OtherSearch/1/Identifier_BookNo/08528",
-      "types": [
-        "image"
-      ],
-      "metadata": {
-        "ncltw_bookno": "08528",
-        "call_number": "310.22 08528",
-        "edition": "明鈔本"
-      }
-    }
-  ]
+  "revised_at": "2026-11-13"
 }
