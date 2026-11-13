@@ -132,6 +132,54 @@
         "call_number": "310.23 08631",
         "edition": "明天啟間刊本"
       }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA011962/tagged/D8621501.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：東大東文研藏本：天啟四年序 王氏三桂堂 刊本 天啟四年序",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA011962/tagged/D8621501.dat",
+        "institution": "東大東文研",
+        "edition": "天啟四年序 王氏三桂堂 刊本 天啟四年序",
+        "extent": "三十六卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FAKOKKAI/tagged/0673081.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：国会藏本",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FAKOKKAI/tagged/0673081.dat",
+        "institution": "国会",
+        "edition": "",
+        "extent": "四十卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FATORITSU/taggedTokubetsu/0113008.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：東京都立 中央藏本：明 刊 淸 修",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FATORITSU/taggedTokubetsu/0113008.dat",
+        "institution": "東京都立 中央",
+        "edition": "明 刊 淸 修",
+        "extent": ""
+      }
     }
   ],
   "period": "ming",
@@ -141,8 +189,8 @@
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
   "ai_note": "2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzkq2w0`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-09-06 qa-sweep/ming M 類（loss_status 空白而 description 稱今存）：loss_status（原空白）→「extant」。據見 loss_status_basis。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 3 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
-  "revision": "1.3.0",
-  "revised_at": "2026-10-26",
+  "revision": "1.4.0",
+  "revised_at": "2026-11-13",
   "loss_status": "extant",
   "loss_status_evidence": {
     "basis": "2026-09-06 qa-sweep/ming M 類（loss_status 空白而 description 稱今存）：description 自陳「今存三本」（金陵兼善堂本、衍慶堂二刻本、三桂堂王振華刊本），現存且不止一本。原值：loss_status=None（空白）。"
