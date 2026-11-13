@@ -1,28 +1,15 @@
 {
   "schema_version": 1,
+  "id": "d59f2ptjhtkx",
   "type": "work",
   "title": "王冑集",
-  "indexed_by": [
-    {
-      "source": "新唐書藝文志",
-      "source_bid": "d59f2hl0cmio",
-      "title_info": "王冑集",
-      "summary": "王冑集十卷"
-    }
-  ],
-  "id": "d59f2ptjhtkx",
-  "period_upper": "sui-tang",
-  "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《新唐書藝文志》（宋歐陽修等（1060），著錄唐代著述），故不晚於 sui-tang",
-  "authors": [
-    {
-      "name": "王冑",
-      "role": "撰",
-      "entity_id": "hixhihto9ibp"
-    }
-  ],
-  "ai_note": "2026-08-25 無斷代批次收尾（坑32）：本條所繫著錄止於題與卷數，不著撰人，故 authors 明寫空陣列——空陣列即「已考而無撰人」，與「缺鍵＝未考／未填」相別（SCHEMA〈無撰人 Work 非缺陷〉，全庫兩萬七千餘條無撰人，志書體例本不著）。**此謂「本條之著錄不著撰人」，非謂其書必無撰人可考**——他日若得他源之證（本傳、提要、輯本序之屬），仍當補之。\n\n2026-09-04 逐條核查訂正：「坑32」批次誤判本條為不著撰人。按別集類「人名＋集」之目錄體例，書名即已指明撰人，據體例補入撰人「王冑」。依據為書名體例，非著錄明文。",
-  "period": "sui-tang",
-  "period_basis": "撰人朝代闕，據其 Entity hixhihto9ibp「王胄」dynasty「隋」period sui-tang（其 dynasty 出處：未記）（A11 2026-11-02 補）",
+  "merged_into": "d59f2q6pc268",
+  "merged_basis": {
+    "rule": "L0 第三轮 近似题名（繁简异体／刊刻前缀）同撰人：子 agent 判 A，盲检 28/30 SAME（2 UNSURE 属 B 档，B 档整体不并）",
+    "at": "2026-11-13T11:56:44Z",
+    "by": "L0",
+    "why": "N80:王胄集／王冑集僅繁簡異體之差，同撰人同 Entity，卷數無矛盾"
+  },
   "revision": "1.1.0",
-  "revised_at": "2026-11-02"
+  "revised_at": "2026-11-13"
 }
