@@ -130,6 +130,22 @@
         "call_number": "101.2 00074",
         "edition": "明萬曆戊午(46年, 1618)原刊本"
       }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA019705/taggedSonmoku/0070009.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：京大人文研 東方藏本：無錫市圖書館藏明萬曆刻本 明萬曆刻本",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA019705/taggedSonmoku/0070009.dat",
+        "institution": "京大人文研 東方",
+        "edition": "無錫市圖書館藏明萬曆刻本 明萬曆刻本",
+        "extent": "十四卷"
+      }
     }
   ],
   "measures": [
@@ -158,8 +174,8 @@
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
   "ai_note": "[ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-10-26 A11-去重上图-并 併條（rule=去重细拆上图-并 B 档：总目同一 work＋题名归一同／异写＋首位责任者同一＋卷数朝代相容）：併 d59f2ncpuj9d《周易旁注㑹通》 入本條。上图藏书 work_uri 周易旁注会通|明姚文蔚撰 与《中國古籍總目》同一 work（instanceOf），经总目 instance 落到本组各 Work；《周易旁注會通》姚文蔚(明,14卷)／《周易旁注㑹通》姚文蔚(明,-卷)；全国漢籍 DB 同一记录（题名＋责任者）对到本组各 Work；《周易旁注㑹通》姚文蔚／《周易旁注會通》姚文蔚：题名只差异体／俗字／冠称，首位责任者同一，卷数相同或差≤1／一侧缺\n\n2026-10-27 A11-去重方案3a 併條（rule=去重第二轮细拆 新-异人登记-經未：同题首位责任者异写／误字／占位名或编撰分署，原文自证同书，逐对判并（双盲：判定与复核分由不同子 agent））：併 d59fxwp7lg5d《周易旁注會通》 入本條。《周易旁注會通》：复核推翻——总目条原责任者串「朱升旁注、姚文蔚會通」，朱升为底本旁注者、姚文蔚为实际编撰者，且皆明萬曆刻、無錫市圖書館藏本与存目丛书底本互证，同书；keeper d59f2nhqw64g（四库总目／明志／存目著录全），正名姚文蔚",
-  "revision": "1.2.0",
-  "revised_at": "2026-10-27",
+  "revision": "1.3.0",
+  "revised_at": "2026-11-13",
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《經義考》（清朱彝尊（1700）），故不晚於 qing",
   "additional_titles": [

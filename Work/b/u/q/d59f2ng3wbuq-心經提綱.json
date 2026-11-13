@@ -66,8 +66,8 @@
   "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967afjbhiyo`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fyzqttjpc《心經提綱》、d59fyzqwmolc《心經提綱》 入本條。同題：單行本《心經提綱》李贄（明）；《心經提綱》（d59fyzqttjpc）为叢書子目，所屬叢書《卓吾先生李氏叢書十二種》（8rldou29nlky）撰者李贄（明）；卷數同；單行本 Work 已有同叢書版本 Book「卓吾先生李氏叢書本」；《心經提綱》（d59fyzqwmolc）为叢書子目，所屬叢書《卓吾先生李氏叢書十二種》（8rldou29nlkz）撰者李贄（明）；卷數同；單行本 Work 已有同叢書版本 Book「卓吾先生李氏叢書本」",
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-26",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-13",
   "resources": [
     {
       "name": "维基共享资源",
@@ -76,6 +76,54 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:NCL-15377-0001_%E5%BF%83%E7%B6%93%E6%8F%90%E7%B6%B1.pdf"
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA001379/tagged/1508114.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：東北大藏本：明 李贄",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA001379/tagged/1508114.dat",
+        "institution": "東北大",
+        "edition": "明 李贄",
+        "extent": ""
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA019705/taggedCard2/9068193.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：京大人文研 東方藏本：卍續藏",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA019705/taggedCard2/9068193.dat",
+        "institution": "京大人文研 東方",
+        "edition": "卍續藏",
+        "extent": "一卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FATOYO/tagged/105147062.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：東洋文庫藏本：明 李贄",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FATOYO/tagged/105147062.dat",
+        "institution": "東洋文庫",
+        "edition": "明 李贄",
+        "extent": ""
+      }
     }
   ]
 }
