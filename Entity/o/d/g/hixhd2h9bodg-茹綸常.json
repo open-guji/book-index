@@ -4,6 +4,16 @@
   "type": "entity",
   "subtype": "people",
   "primary_name": "茹綸常",
+  "alt_names": [
+    {
+      "name": "文靜",
+      "type": "字"
+    },
+    {
+      "name": "容齋",
+      "type": "號"
+    }
+  ],
   "dynasty": "清",
   "dynasty_basis": "author_propagation:所繫 2 部 work 之 authors[].dynasty 一致作「清」",
   "external_ids": {
@@ -16,21 +26,26 @@
   },
   "period": "qing",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-08-24 新建 entity（甲等第一批）：本人之名見於 work 之 authors[]，而庫中無其人。取「首字在百家姓、名長二至四字、庫中兩見以上」者為甲等——兩見以上則非偶然之殘句，此判所以立，正為防 SKILL〈史料圈套〉所記之舊禍：本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、之以為嬰……）而竟為之建 entity。\n\n本人所繫之 work 2 部：《容齋文鈔》、《容齋詩集附古香詞補遺》。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=84743（「茹綸常」清，1734–?）。判準 score=70.0：name 命中、同期候選 1 個、著作重合 0.0。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=84743 補入空槽——生年 1734；籍貫「介休」。既有之值一概未動。",
+  "ai_note": "2026-08-24 新建 entity（甲等第一批）：本人之名見於 work 之 authors[]，而庫中無其人。取「首字在百家姓、名長二至四字、庫中兩見以上」者為甲等——兩見以上則非偶然之殘句，此判所以立，正為防 SKILL〈史料圈套〉所記之舊禍：本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、之以為嬰……）而竟為之建 entity。\n\n本人所繫之 work 2 部：《容齋文鈔》、《容齋詩集附古香詞補遺》。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=84743（「茹綸常」清，1734–?）。判準 score=70.0：name 命中、同期候選 1 個、著作重合 0.0。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=84743 補入空槽——生年 1734；籍貫「介休」。既有之值一概未動。\n\n2026-11-13 P5：據《晚晴簃詩匯》卷98小傳補字號（旁證：著作；全庫同名同代候選1人）。",
   "native_place": "介休",
   "native_place_basis": "CBDB 84743 index_addr（2026-09-06 CBDB enrich）",
   "dates": {
     "birth": 1734,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.1.1",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/i0xpcfthc17odk2a"
+      },
+      {
+        "title": "《晚晴簃詩匯》卷98",
+        "source_bid": "d59f2pxigide",
+        "details": "茹綸常，字文靜，號容齋，一號簇蠶山樵，介休人。監生。有《容齋詩集》。"
       }
     ]
   }

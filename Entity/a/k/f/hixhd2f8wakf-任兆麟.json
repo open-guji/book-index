@@ -16,7 +16,7 @@
   "dynasty": "清",
   "native_place_basis": "CBDB 54055 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-08-25 works 死鏈清理：所指 work 檔兩倉皆無（歷次併條/刪條之積欠），去之：1evr5e3meogtw。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條；去其指向不存在之 work 的懸空繫連 1 條（原值：[{\"work_id\": \"1ex3x09p93vv6\", \"role\": \"撰\"}]）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=54055 補入空槽——籍貫「震澤」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ssrrv84。",
+  "ai_note": "2026-08-25 works 死鏈清理：所指 work 檔兩倉皆無（歷次併條/刪條之積欠），去之：1evr5e3meogtw。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條；去其指向不存在之 work 的懸空繫連 1 條（原值：[{\"work_id\": \"1ex3x09p93vv6\", \"role\": \"撰\"}]）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=54055 補入空槽——籍貫「震澤」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ssrrv84。\n\n2026-11-13 P5：據《晚晴簃詩匯》卷115小傳補出處（旁證：字號、籍貫、著作；全庫同名同代候選1人）。",
   "period": "qing",
   "alt_names": [
     {
@@ -58,14 +58,19 @@
     "death": 1796,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.1.1",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/2jojnt76o1e37rsq"
+      },
+      {
+        "title": "《晚晴簃詩匯》卷115",
+        "source_bid": "d59f2pxigide",
+        "details": "任兆麟，字文田，號心齋，震澤人。諸生，嘉慶丙辰舉孝廉方正。有《竹居集》、《心齋集》。"
       }
     ]
   }

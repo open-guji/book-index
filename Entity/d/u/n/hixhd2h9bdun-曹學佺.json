@@ -14,7 +14,7 @@
   "primary_name": "曹學佺",
   "dynasty": "明",
   "native_place_basis": "CBDB 124553 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-07-26：合併重複人物 Entity 1j96hl61l6d4w。曹學佺明末人。\n2026-08-24 補繫 entity：新收 5 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 11 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=124553 補入空槽——籍貫「侯官」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eiixedg、d59f6eqi3q4n、d59f6ei3y0av、d59f6en0xkav、d59f6egaperl、d59f6epvxvk6、d59f6ehipvd2、d59f6eqfal8k、d59f6ei4khdt、d59f6epapqmc、d59f6eqflts1。",
+  "ai_note": "2026-07-26：合併重複人物 Entity 1j96hl61l6d4w。曹學佺明末人。\n2026-08-24 補繫 entity：新收 5 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 11 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=124553 補入空槽——籍貫「侯官」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eiixedg、d59f6eqi3q4n、d59f6ei3y0av、d59f6en0xkav、d59f6egaperl、d59f6epvxvk6、d59f6ehipvd2、d59f6eqfal8k、d59f6ei4khdt、d59f6epapqmc、d59f6eqflts1。\n\n2026-11-13 P5：據《列朝詩集》卷15小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period_basis": "據 dynasty「明」自動歸併",
   "period": "ming",
   "alt_names": [
@@ -103,8 +103,8 @@
     "death": 1646,
     "basis": "現行字段"
   },
-  "revision": "1.1.5",
-  "revised_at": "2026-11-12",
+  "revision": "1.1.6",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -130,6 +130,11 @@
       {
         "name": "《明史·曹學佺傳》",
         "details": "卷288，傳首：曹學佺，字能始，侯官人。"
+      },
+      {
+        "title": "《列朝詩集》卷15",
+        "source_bid": "d59f2mxg5iiq",
+        "details": "學佺，字能始，侯官人。萬曆乙未進士，除戶部主事，量移南大理寺凡七年。兩考轉南戶部郎，前後十二年。參議于蜀，參政按察使于浙，左遷又參議副使于廣西。天啟中除名爲民。……"
       }
     ]
   },
