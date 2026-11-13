@@ -38,8 +38,8 @@
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《清史稿藝文志》（清史稿修於民初，著錄清代藏書），故不晚於 qing",
   "ai_note": "2026-08-31 HBCC對比第十四輪任務二：HBCC候選「經史百家簡編」查無庫中對應獨立記錄。回查book-text之《清史稿藝文志》整理本（source_bid d59f2mp0flz4）原文，見「經史百家雜鈔二十卷。經史百家簡編二卷。鳴原堂論文二卷。曾國籓編。」——本庫既有記錄僅取節首書《經史百家雜鈔》（d59f2nqvw6ps）立target，其summary雖存全句而《經史百家簡編》未獨立索引，析出新建。未覆核原書。\n\n2026-09-06 qa-sweep/undated：撰人欄異體歸正：「曾國籓」→「曾國藩」（「籓」→「藩」）。\n\n2026-09-06 qa-sweep/undated：斷代（保守）：period 由缺值補作 qing。據：撰人「曾國藩」（entity `hixhd2h9bhmm`）period 已定為 qing；本條見於斷代志《清史稿藝文志》，體例只錄qing代人之著述，二證相合。（單證不補，此有二證方補，見 qa-sweep 規程「斷代只做最保守的一種」。）",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-13",
   "dynasty": "清",
   "dynasty_basis": "author_propagation:唯一作者朝代（或多撰人朝代相同）",
   "period": "qing",
@@ -52,6 +52,21 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E5%8F%A2%E6%9B%B8%E9%9B%86%E6%88%90%E7%BA%8C%E7%B7%A8%EF%BC%88%E5%8F%B0%EF%BC%89011.pdf"
+    },
+    {
+      "id": "nlk",
+      "label": "韓國KORCIS書目著錄（僅目錄，無影像）：경기대학교 도서관·[刊寫年未詳]",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "url": "https://www.nl.go.kr/korcis/openapi/detail.do?rec_key=301476937",
+      "types": [
+        "catalog"
+      ],
+      "metadata": {
+        "korcis_rec_key": "301476937",
+        "holder": "경기대학교 도서관",
+        "edition": "[刊寫年未詳]"
+      },
+      "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
     }
   ]
 }
