@@ -19,6 +19,56 @@
     ]
   },
   "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3d5oj7nf9c(敕撰)（不同作者，故新建獨立 Work）。\n\n2026-08-20 磁鐵拆解專項（八，題核心＋內文撰人）：整理本「聖諭廣訓」等 1 節原繫他條——其節題與本條之題核心相同，而**內文所書之撰人「聖祖」與本條相合**（前此諸批只比題名，凡撰人在內文不在題者皆漏），今改繫本條並歸其著錄。\n\n2026-08-23 B1 同名異書併池：併入 `1ev3d5oj7nf9c`（聖諭廣訓）。2026-08-23 B10（同題一方無撰人·卷數差一）：併入 `1ev3d5oj7nf9c`（欽定四庫全書總目，1卷，不著撰人）。題名全同、著錄異源，卷數僅差一，屬計卷之出入（并序、并目錄）而非二書。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 2 取自 `measure_info`「二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。；3c 責任者名勘誤（2026-10-25）：authors[0]「聖祖」→「清聖祖」\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-B：同题、卷数相同、一侧无责任者，逐条子 agent 核得实质证据（同源／版本馆藏／原文自证／题含作者名号／同一辑佚本）后 B 档并）：併 d59fyfe2k1z5《聖諭廣訓》 入本條。同題同卷：有責任者《聖諭廣訓》（清聖祖）；《聖諭廣訓》（d59fyfe2k1z5，無責任者）：版本馆藏——文淵閣四庫子目「聖諭廣訓一卷」，保留條題下欽定四庫全書總目「聖諭廣訓一卷」且已掛「欽定四庫全書·文淵閣本」Book，卷數、版本皆同",
+  "resources": [
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA001648/tagged/0090002.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：茨城大藏本：淸 聖祖 淸 刊",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA001648/tagged/0090002.dat",
+        "institution": "茨城大",
+        "edition": "淸 聖祖 淸 刊",
+        "extent": ""
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA007284/taggedYagi/0180008.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：椙山女藏本：淸 聖祖 淸 世宗 淸 刊 左寶翰樓",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA007284/taggedYagi/0180008.dat",
+        "institution": "椙山女",
+        "edition": "淸 聖祖 淸 世宗 淸 刊 左寶翰樓",
+        "extent": ""
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FANAIKAKU/tagged/2156006.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：公文書館藏本：淸 聖祖 淸 世宗 淸 刊（滿漢文） 三槐堂",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FANAIKAKU/tagged/2156006.dat",
+        "institution": "公文書館",
+        "edition": "淸 聖祖 淸 世宗 淸 刊（滿漢文） 三槐堂",
+        "extent": ""
+      }
+    }
+  ],
   "measures": [
     {
       "unit": "冊",
@@ -71,6 +121,6 @@
       "summary": "共 1 個版本：（臺北“故宮博物院”）"
     }
   ],
-  "revision": "1.1.0",
-  "revised_at": "2026-10-26"
+  "revision": "1.2.0",
+  "revised_at": "2026-11-13"
 }
