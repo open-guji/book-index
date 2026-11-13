@@ -221,6 +221,21 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "nlk",
+      "label": "韓國KORCIS書目著錄（僅目錄，無影像）：성균관대학교 존경각·淸光緖23(1897)刊",
+      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
+      "url": "https://www.nl.go.kr/korcis/openapi/detail.do?rec_key=302854799",
+      "types": [
+        "catalog"
+      ],
+      "metadata": {
+        "korcis_rec_key": "302854799",
+        "holder": "성균관대학교 존경각",
+        "edition": "淸光緖23(1897)刊"
+      },
+      "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
     }
   ],
   "ai_note": "清史稿藝文志匹配：書名「繹史」為短名（2字），已通過作者驗證。 | 從 1evkpulflu0w0 合併。原註：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 贈善022784-022806）。阶段 5 兜底建立。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw1vcesqo 與 11q37p94tadj4 同指文淵閣寫本一實物，今併於後者。\n\n2026-09-06 qa-sweep/qing·G 類重出併條（坑28）：`d59f2myvywoy`（\"繹史一百六十卷目錄一卷世系圖一卷年表\"） 併入本條——皆同一撰人（entity_id 相同）之同書異刻／異目著錄，剝去卷數殘綴後題名相同（「奏議一卷首」「附錄」「續集」「補遺」「卷首」之屬皆版本著錄語綴於題末，非別書）。indexed_by／resources 已去重併入，Books 已改指本條，被併者之記錄檔與索引項刪去，其 entity.works 之對應項移除。\n\n2026-10-15 R3 馆藏挂接：按确定档补挂 內閣文庫 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-内閣NDL存疑升档-20261026.md。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3韩越续 馆藏挂接：按确定档补挂 韓國國中 2 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/C3韩越续-KORCIS存疑與越南余量-20261026.md。\n\n2026-11-12 L5 馆藏挂接：补挂奥地利国家图书馆 158 条（影像；A8 暂缓项，data.onb.ac.at 阅览页与 IIIF manifest 逐条核验 200 且含记录号）。",
@@ -241,6 +256,6 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.7.0",
+  "revision": "1.8.0",
   "revised_at": "2026-11-13"
 }
