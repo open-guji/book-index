@@ -16,7 +16,7 @@
   "dynasty": "南宋",
   "native_place_basis": "CBDB 11898 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "据 dynasty「南宋」自动归并",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=11898 補入空槽——籍貫「崇安」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6el49csn、d59f6el49csk。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=11898 補入空槽——籍貫「崇安」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6el49csn、d59f6el49csk。\n\n2026-11-13 P5：據《宋詩紀事》卷64小傳補出處（旁證：著作；全庫同名同代候選1人）。",
   "period": "song",
   "alt_names": [
     {
@@ -45,8 +45,8 @@
     ],
     "basis": "cbdb:index_year"
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-11-11",
+  "revision": "1.0.2",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -63,6 +63,11 @@
         "title": "《欽定四庫全書總目》卷一百三十七·《類編古今事林羣書一覽》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "舊本題宋祝穆撰。"
+      },
+      {
+        "title": "《宋詩紀事》卷64",
+        "source_bid": "d59f2modnabk",
+        "details": "穆字和父曽祖確歙之名士于朱文公為外祖父康國始從文公居崇安穆少與弟舉同事文公于雲谷得其緒論嘗著事文類聚方輿勝覽行世"
       }
     ]
   }

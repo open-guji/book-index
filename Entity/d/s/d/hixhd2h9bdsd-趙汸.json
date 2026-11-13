@@ -16,7 +16,7 @@
   "dynasty": "元",
   "native_place_basis": "CBDB 10818 index_addr（2026-09-06 CBDB enrich）",
   "period_basis": "據 dynasty「元」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 5 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10818 補入空槽——籍貫「休寧」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ej37too、d59f6ekxe4u8、d59f6ekx2wav、d59f6elp696v、d59f6ejo4q2r。\n\n2026-09-06 qa-sweep/liaojinyuan：d59f2j4zvy0w 自本條 works 撤出——已判為重出，併入他條，見各該條之 merged_in。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 5 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10818 補入空槽——籍貫「休寧」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ej37too、d59f6ekxe4u8、d59f6ekx2wav、d59f6elp696v、d59f6ejo4q2r。\n\n2026-09-06 qa-sweep/liaojinyuan：d59f2j4zvy0w 自本條 works 撤出——已判為重出，併入他條，見各該條之 merged_in。\n\n2026-11-13 P5：據《明詩綜》卷6小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period": "liao-jin-yuan",
   "alt_names": [
     {
@@ -39,8 +39,8 @@
     "death": 1369,
     "basis": "現行字段"
   },
-  "revision": "1.2.1",
-  "revised_at": "2026-11-11",
+  "revision": "1.2.2",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -62,6 +62,11 @@
         "title": "《欽定四庫全書總目》卷二十八·《春秋師說》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "元趙汸撰。"
+      },
+      {
+        "title": "《明詩綜》卷6",
+        "source_bid": "d59f2mo3cge9",
+        "details": "汸字子常休寧人隠居東山元季輔元帥汪同起兵保鄉井授江南行樞密院都事丙申内附洪武二年召修元史書成不願仕還有東山集<汪仲魯云子常詩因感發而形之詠歌雖不専乎是然長篇短哦……"
       }
     ]
   },
