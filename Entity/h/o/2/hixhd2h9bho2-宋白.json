@@ -34,17 +34,17 @@
   "dynasty_basis": "cbdb:birth/death_name=北宋",
   "period": "song",
   "period_basis": "据 dynasty「北宋」自动归并",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=15396 補入空槽——籍貫「管城」。既有之值一概未動。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=15396 補入空槽——籍貫「管城」。既有之值一概未動。\n\n2026-11-13 P5：《隆平集》卷13籍貫作「開封」與原值「管城」不一致（字素臣相合），不覆蓋，作另說記入 native_place_basis 並加出處。",
   "native_place": "管城",
   "native_place_entity_id": "hixi636g7ll9",
-  "native_place_basis": "CBDB 15396 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 15396 index_addr（2026-09-06 CBDB enrich）；另說：《隆平集》卷13作「開封人」，傳文未言郡望抑居地；原值不改",
   "dates": {
     "birth": 936,
     "death": 1012,
     "basis": "現行字段"
   },
-  "revision": "1.1.4",
-  "revised_at": "2026-11-12",
+  "revision": "1.1.5",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -55,6 +55,11 @@
       {
         "name": "《宋史·宋白傳》",
         "details": "卷439，傳首：宋白，字太素，大名人。"
+      },
+      {
+        "title": "《隆平集》卷13",
+        "source_bid": "d59f2hpsyuwx",
+        "details": "宋白，字素臣，開封人。十二善屬文。建隆二年，登進士第，又舉拔萃科，中高等，釋褐，授著作佐郎，賜襲衣、犀帶，求補外，授嘉州玉津令，久之，從太宗征太原，劉繼元降，白……"
       }
     ]
   },

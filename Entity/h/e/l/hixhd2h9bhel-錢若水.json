@@ -35,10 +35,10 @@
   "dynasty_basis": "cbdb:birth/death_name=北宋",
   "period": "song",
   "period_basis": "据 dynasty「北宋」自动归并",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=8005 補入空槽——籍貫「新安」。既有之值一概未動。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=8005 補入空槽——籍貫「新安」。既有之值一概未動。\n\n2026-11-13 P5：《隆平集》卷9籍貫作「河南」與原值「新安」不一致（字淡成相合），不覆蓋，作另說記入 native_place_basis 並加出處。",
   "native_place": "新安",
   "native_place_entity_id": "hixi6kqhw6bk",
-  "native_place_basis": "據《宋史·錢若水傳》卷266傳首「河南新安人」",
+  "native_place_basis": "據《宋史·錢若水傳》卷266傳首「河南新安人」；另說：《隆平集》卷9作「河南人」，「河南」為古郡名，疑為郡望；原值不改",
   "dates": {
     "birth": 960,
     "death": 1003,
@@ -49,6 +49,11 @@
       {
         "name": "《宋史·錢若水傳》",
         "details": "卷266，傳首：錢若水，字澹成，一字長卿，河南新安人。"
+      },
+      {
+        "title": "《隆平集》卷9",
+        "source_bid": "d59f2hpsyuwx",
+        "details": "錢若水，字淡成，又字長卿，河南人。十歲能屬文，華山陳摶一見，以為有仙風道骨。雍熙中，登進士第。至道初，同知樞密院。真宗即位，屢求解機務，不允，以親年高為請，益堅……"
       }
     ]
   },
@@ -121,6 +126,6 @@
       ]
     }
   ],
-  "revision": "1.0.4",
-  "revised_at": "2026-11-12"
+  "revision": "1.0.5",
+  "revised_at": "2026-11-13"
 }
