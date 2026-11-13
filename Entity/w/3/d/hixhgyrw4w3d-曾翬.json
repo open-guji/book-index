@@ -31,10 +31,10 @@
     "cbdb_match": "auto_create",
     "cbdb_source": "name_match+dy_filter+unique|A12複評2026-11-01:work"
   },
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=66962 補入空槽——卒年 1491。既有之值一概未動。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=66962 補入空槽——籍貫「泰和」。既有之值一概未動。\n\n2026-09-06 千頃堂斷代訂正：所繫《龍坡集》之斷代原誤——千頃堂小注之「泰和」乃地名，前此誤認作年號。今 work 訂為 ming，本條之代隨之：dynasty「金」→「明」、period「None」→「ming」。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=66962 補入空槽——卒年 1491。既有之值一概未動。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=66962 補入空槽——籍貫「泰和」。既有之值一概未動。\n\n2026-09-06 千頃堂斷代訂正：所繫《龍坡集》之斷代原誤——千頃堂小注之「泰和」乃地名，前此誤認作年號。今 work 訂為 ming，本條之代隨之：dynasty「金」→「明」、period「None」→「ming」。\n\n2026-11-13 P7：籍貫依據由 CBDB 換為《明史》卷159本傳（同名同代唯一傳首，籍貫值未變）。",
   "native_place": "泰和",
   "native_place_entity_id": "hixi5wnd9m2p",
-  "native_place_basis": "CBDB 66962 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《明史》卷159著錄「泰和人」（同名同代唯一傳首）",
   "period": "ming",
   "period_basis": "從所繫 work《龍坡集》之斷代訂正（2026-09-06 千頃堂斷代訂正）",
   "dynasty_basis": "從所繫 work《龍坡集》之斷代訂正（2026-09-06 千頃堂斷代訂正）",
@@ -42,6 +42,15 @@
     "death": 1491,
     "basis": "現行字段"
   },
-  "revision": "1.1.1",
-  "revised_at": "2026-11-01"
+  "description": {
+    "sources": [
+      {
+        "title": "《明史》卷159",
+        "source_bid": "d59f2mc8bta8",
+        "details": "曾翬，字時升，泰和人"
+      }
+    ]
+  },
+  "revision": "1.1.2",
+  "revised_at": "2026-11-13"
 }

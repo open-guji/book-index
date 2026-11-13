@@ -385,6 +385,8 @@ class Names:
             c['qualifier'] = q
         if d.get('office_class'):
             c['office_class'] = d['office_class']
+        if d.get('office_scope'):
+            c['office_scope'] = d['office_scope']
         if isinstance(d.get('rank'), dict) and d['rank'].get('text'):
             c['rank'] = d['rank']['text']
         return _clean(c)

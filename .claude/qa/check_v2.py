@@ -115,7 +115,7 @@ CODES = {
     "R1": ("reign 所屬朝代／帝王／唯一／區間", "專名"),
     "A1": ("alt_names／ambiguous", "專名"),
     "O01": ("office_level", "專名"), "O02": ("office 必填／概念條禁欄", "專名"),
-    "O03": ("office_class", "專名"), "O04": ("office parent_id", "專名"),
+    "O03": ("office_class", "專名"), "O13": ("office_scope", "專名"), "O04": ("office parent_id", "專名"),
     "O05": ("office 複合 base／qualifier", "專名"), "O09": ("office start／end", "專名"),
     "O10": ("office 簡稱 ≤2", "專名"), "O11": ("office 同概念同朝重複", "專名"),
     "O12": ("alt_names.type 枚舉", "專名"),

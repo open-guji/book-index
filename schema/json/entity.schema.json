@@ -233,6 +233,11 @@
         "未詳"
       ]
     },
+    "office_scope": {
+      "enum": [
+        "地方官"
+      ]
+    },
     "rank": {
       "$ref": "#/$defs/TextBasis"
     },
@@ -383,6 +388,37 @@
         },
         "additionalProperties": false
       }
+    },
+    "geo_kind": {
+      "description": "山川子類（P15，2026-11-13）：只許跨朝條；山岳配 level=山，餘配 level=水。",
+      "enum": [
+        "山岳",
+        "河流",
+        "湖澤",
+        "海洋",
+        "泉井"
+      ]
+    },
+    "generic": {
+      "description": "單字泛稱山川（河、江、淮…）；只許 true，須有 geo_kind（P15）。",
+      "const": true
+    },
+    "polity_dynasty_id": {
+      "description": "古國條指同名朝代／政權條（P16），只許跨朝條。",
+      "$ref": "common.schema.json#/$defs/Id"
+    },
+    "site_kind": {
+      "description": "建築條子類（P17，2026-11-13）：level=建築 的跨朝條必寫。",
+      "enum": [
+        "寺觀",
+        "祠廟",
+        "書院",
+        "殿閣",
+        "園林",
+        "陵墓",
+        "藏書樓",
+        "塔"
+      ]
     },
     "seal_text": {
       "$ref": "common.schema.json#/$defs/NonEmptyString",
@@ -673,6 +709,11 @@
                 },
                 {
                   "required": [
+                    "office_scope"
+                  ]
+                },
+                {
+                  "required": [
                     "rank"
                   ]
                 },
@@ -699,6 +740,26 @@
                 {
                   "required": [
                     "modern"
+                  ]
+                },
+                {
+                  "required": [
+                    "geo_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "generic"
+                  ]
+                },
+                {
+                  "required": [
+                    "polity_dynasty_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "site_kind"
                   ]
                 },
                 {
@@ -849,6 +910,26 @@
                 },
                 {
                   "required": [
+                    "geo_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "generic"
+                  ]
+                },
+                {
+                  "required": [
+                    "polity_dynasty_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "site_kind"
+                  ]
+                },
+                {
+                  "required": [
                     "collective_kind"
                   ]
                 },
@@ -910,6 +991,11 @@
                 {
                   "required": [
                     "office_class"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_scope"
                   ]
                 },
                 {
@@ -1106,6 +1192,26 @@
                 },
                 {
                   "required": [
+                    "geo_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "generic"
+                  ]
+                },
+                {
+                  "required": [
+                    "polity_dynasty_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "site_kind"
+                  ]
+                },
+                {
+                  "required": [
                     "collective_kind"
                   ]
                 },
@@ -1162,6 +1268,11 @@
                 {
                   "required": [
                     "office_class"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_scope"
                   ]
                 },
                 {
@@ -1370,6 +1481,26 @@
                 },
                 {
                   "required": [
+                    "geo_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "generic"
+                  ]
+                },
+                {
+                  "required": [
+                    "polity_dynasty_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "site_kind"
+                  ]
+                },
+                {
+                  "required": [
                     "collective_kind"
                   ]
                 },
@@ -1489,6 +1620,11 @@
                   {
                     "required": [
                       "office_class"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "office_scope"
                     ]
                   },
                   {
@@ -1689,6 +1825,11 @@
                 {
                   "required": [
                     "office_class"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_scope"
                   ]
                 },
                 {
@@ -1895,6 +2036,26 @@
                   },
                   {
                     "required": [
+                      "geo_kind"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "generic"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "polity_dynasty_id"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "site_kind"
+                    ]
+                  },
+                  {
+                    "required": [
                       "dynasty_id"
                     ]
                   },
@@ -1911,6 +2072,11 @@
                   {
                     "required": [
                       "office_class"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "office_scope"
                     ]
                   },
                   {
@@ -2189,6 +2355,26 @@
               },
               {
                 "required": [
+                  "geo_kind"
+                ]
+              },
+              {
+                "required": [
+                  "generic"
+                ]
+              },
+              {
+                "required": [
+                  "polity_dynasty_id"
+                ]
+              },
+              {
+                "required": [
+                  "site_kind"
+                ]
+              },
+              {
+                "required": [
                   "institution_level"
                 ]
               },
@@ -2245,6 +2431,11 @@
               {
                 "required": [
                   "office_class"
+                ]
+              },
+              {
+                "required": [
+                  "office_scope"
                 ]
               },
               {
@@ -2376,6 +2567,26 @@
                 },
                 {
                   "required": [
+                    "geo_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "generic"
+                  ]
+                },
+                {
+                  "required": [
+                    "polity_dynasty_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "site_kind"
+                  ]
+                },
+                {
+                  "required": [
                     "collective_kind"
                   ]
                 },
@@ -2417,6 +2628,11 @@
                 {
                   "required": [
                     "office_class"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_scope"
                   ]
                 },
                 {
@@ -2596,6 +2812,26 @@
                 },
                 {
                   "required": [
+                    "geo_kind"
+                  ]
+                },
+                {
+                  "required": [
+                    "generic"
+                  ]
+                },
+                {
+                  "required": [
+                    "polity_dynasty_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "site_kind"
+                  ]
+                },
+                {
+                  "required": [
                     "collective_kind"
                   ]
                 },
@@ -2642,6 +2878,11 @@
                 {
                   "required": [
                     "office_class"
+                  ]
+                },
+                {
+                  "required": [
+                    "office_scope"
                   ]
                 },
                 {

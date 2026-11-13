@@ -13,9 +13,9 @@
   "id": "hixhd2h9bdv4",
   "primary_name": "陳仁錫",
   "dynasty": "明",
-  "native_place_basis": "CBDB 29575 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《明史》卷288著錄「長洲人」（同名同代唯一傳首）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 5 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 15 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=29575 補入空槽——籍貫「長洲」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6emntlhe、d59f6er2e5fl、d59f6eiv3nk4、d59f6eiiaxad、d59f6enr5hxj、d59f6er2pdz4、d59f6erbr9q8、d59f6elpsq9v、d59f6elqf7d2、d59f6ehj13wo、d59f6eiusf0m、d59f6epcwef8、d59f6epcl5vq、d59f6epcl5vr、d59f6elpsq9y。",
+  "ai_note": "2026-08-24 補繫 entity：新收 5 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 15 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=29575 補入空槽——籍貫「長洲」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6emntlhe、d59f6er2e5fl、d59f6eiv3nk4、d59f6eiiaxad、d59f6enr5hxj、d59f6er2pdz4、d59f6erbr9q8、d59f6elpsq9v、d59f6elqf7d2、d59f6ehj13wo、d59f6eiusf0m、d59f6epcwef8、d59f6epcl5vq、d59f6epcl5vr、d59f6elpsq9y。\n\n2026-11-13 P7：籍貫依據由 CBDB 換為《明史》卷288本傳（同名同代唯一傳首，籍貫值未變）。",
   "period": "ming",
   "alt_names": [
     {
@@ -42,8 +42,8 @@
     "death": 1634,
     "basis": "現行字段"
   },
-  "revision": "1.1.4",
-  "revised_at": "2026-11-12",
+  "revision": "1.1.5",
+  "revised_at": "2026-11-13",
   "description": {
     "sources": [
       {
@@ -69,6 +69,11 @@
       {
         "name": "《明史·陳仁錫傳》",
         "details": "卷288，傳首：陳仁錫，字明卿，長洲人。"
+      },
+      {
+        "title": "《明史》卷288",
+        "source_bid": "d59f2mc8bta8",
+        "details": "陳仁錫，字明卿，長洲人"
       }
     ]
   },

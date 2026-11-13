@@ -9,6 +9,7 @@ SELECT 'book_base_edition.book_id 悬空' chk, r.owner_id, r.book_id FROM book_b
 SELECT 'person.native_place_entity_id 悬空' chk, r.id, r.native_place_entity_id FROM person r WHERE r.native_place_entity_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.native_place_entity_id);
 SELECT 'office.base_office_id 悬空' chk, r.id, r.base_office_id FROM office r WHERE r.base_office_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.base_office_id);
 SELECT 'place_history_dynasty.dynasty_id 悬空' chk, r.owner_id, r.dynasty_id FROM place_history_dynasty r WHERE r.dynasty_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.dynasty_id);
+SELECT 'place.polity_dynasty_id 悬空' chk, r.id, r.polity_dynasty_id FROM place r WHERE r.polity_dynasty_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.polity_dynasty_id);
 SELECT 'person_office.office_id 悬空' chk, r.owner_id, r.office_id FROM person_office r WHERE r.office_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.office_id);
 SELECT 'person_office.place_id 悬空' chk, r.owner_id, r.place_id FROM person_office r WHERE r.place_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.place_id);
 SELECT 'person_office.institution_id 悬空' chk, r.owner_id, r.institution_id FROM person_office r WHERE r.institution_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM entity x WHERE x.id = r.institution_id);
