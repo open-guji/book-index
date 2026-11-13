@@ -25,6 +25,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | O03 | office | `office_class` 在 15 值内 | ERROR |
 | O04 | office | `concept_id` 指 office 概念条；概念条不得有 `concept_id` | ERROR |
 | O05 | office | `base_office_id` 存在、是 office、不自指、无环、与本条 `dynasty_ids` 相交；有 `base_office_id` 则必有 `qualifier`；`qualifier.kind` 在 4 值内、`name` 非空（以上 ERROR）；`base_office_id` 指概念条而 `ai_note` 未说明（WARN） | ERROR／WARN |
+| O13 | office | `office_scope` 在枚举内（现只有 `地方官`）；概念条不得有；`地方官` 条仍写 `institution_ref` 为 WARN | ERROR／WARN |
 | O10 | office | `簡稱` 长度 ≤2，须确认不与他概念重名 | WARN |
 | O11 | office | 同一概念下同朝具体条重复 | WARN |
 | O12 | 专名子类型、官署 | `alt_names[].type` 在 27 值枚举内 | ERROR |
