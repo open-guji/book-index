@@ -28,8 +28,22 @@
   "period": "song",
   "period_basis": "据 dynasty「南宋」自动归并",
   "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=7252 補入空槽——籍貫「崇安」。既有之值一概未動。\n\n2026-09-06 qa-sweep/song·所繫之 `d59f2hpqs743`《知言六卷附錄》併入 `d59f2htysrnk`，回指隨之改繫（重複者去之）。",
-  "revision": "1.1.1",
-  "revised_at": "2026-11-11",
+  "revision": "1.1.2",
+  "revised_at": "2026-11-13",
+  "relations": [
+    {
+      "type": "子",
+      "entity_id": "hixhd2h9be1x",
+      "basis": "《宋史》附傳標題明載；傳主按本傳錨定，附傳者按姓名與字相合（字「仁仲」）唯一錨定",
+      "sources": [
+        {
+          "name": "宋史",
+          "type": "text",
+          "details": "卷四百三十五列傳〈胡安國〉附〈子 宏〉：宏，字仁仲，幼事楊時、侯仲良，而卒傳其父之學。"
+        }
+      ]
+    }
+  ],
   "native_place": "崇安",
   "native_place_entity_id": "hixi5wnd9m2y",
   "native_place_basis": "CBDB 7252 index_addr（2026-09-06 CBDB enrich）",
