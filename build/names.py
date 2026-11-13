@@ -409,7 +409,7 @@ class Names:
              'end': max((h['end'] for h in hist if isinstance(h.get('end'), int)), default=None),
              'modern': (d.get('modern') or {}).get('text') if isinstance(d.get('modern'), dict) else None,
              'segments': segs}
-        for k in ('geo_kind', 'polity_dynasty_id', 'generic'):
+        for k in ('geo_kind', 'polity_dynasty_id', 'generic', 'site_kind'):
             if d.get(k):
                 c[k] = d[k]
         if c['level'] in ('國', '邑') and any(self.name(x) in ('先秦', '西周', '東周', '春秋', '戰國') for x in _ids(hist[-1].get('dynasty_ids'))):

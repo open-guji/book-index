@@ -160,12 +160,21 @@
 
 **山川子类**：可选 `geo_kind`（P15）∈ `山岳`（须 level=山）｜`河流`｜`湖澤`｜`海洋`｜`泉井`（须 level=水），只许跨朝条；存量山川条可暂无，逐步补。可选 `generic: true` 标单字泛称（河、江、淮、洛、湖），须同时有 `geo_kind`，不标 `default`。山川条 `history[].parent_id` 可选指所在州府跨朝条，**仅作消歧**（西山、南山、梁山），不改变山川不挂政区上级的原则。
 
+## 建築条（寺观祠庙书院殿阁园林陵墓塔，2026-11-13 定，A11／A33／A42 无异议）
+
+**处所类**地名：寺观、祠庙、书院、地名性或建筑性的殿阁（作处所的太極殿、文淵閣）、私家藏书楼、园林、陵墓、塔。建为**跨朝条**：
+
+- `history` 一段 `{name, level: "建築", note?, parent_id?}`；`level` 增 `建築`，不挂 `start`／`end`、`dynasty_ids`（可不挂朝代）。`parent_id` 可指所在县（跨朝条）作同名消歧。
+- 必写 `site_kind`（P17，封闭枚举）∈ `寺觀`｜`祠廟`｜`書院`｜`殿閣`｜`園林`｜`陵墓`｜`藏書樓`｜`塔`，只许跨朝条。`modern` 可选，`relation` 取 `同名同地`。
+- 官署和館局（翰林院、武英殿修書處、內閣）仍归 office／collective，不进 place；「文淵閣大學士」这类殿阁加官职的整串不拆。
+- 与政区同形者（竟陵、廣陵、晉陵等陵字县名）不是陵墓，不建此类。
+
 ## 校验码
 
 | 码 | 适用 | 查什么 | 级别 |
 |---|---|---|---|
 | D3 | dynasty、reign、office、place | `dates` 键按 subtype 放行（office／place 有 `dates` 即错）；`start`／`end` 为整数、无 0 年、`start ≤ end`；dynasty 的 `period` 是现有 slug（ERROR）；有 `period` 而缺 `start`（WARN） | ERROR／WARN |
-| P01 | place | `primary_name` 非空；`history` 为非空数组；各项为对象、`level` 在 14 值内、`name` 非空 | ERROR |
+| P01 | place | `primary_name` 非空；`history` 为非空数组；各项为对象、`level` 在 16 值内、`name` 非空 | ERROR |
 | P02 | place | 各项 `start`／`end` 为整数、`start ≤ end`、`end ≤ 1912`；各项时段不重叠 | ERROR |
 | P03 | place | `history[].parent_id` 存在且为 place、不自引、上级链无环 | ERROR |
 | P04 | place | `history[].dynasty_ids` 存在且为 dynasty | ERROR |

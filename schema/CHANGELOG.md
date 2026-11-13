@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-11-13　place 加「建築」条（寺观祠庙书院殿阁园林陵墓塔）：`history[].level` 增「建築」、`site_kind`、校验码 P17
+- 处所类地名建为跨朝条：`history` 一段 `{name, level:"建築"}`，可不挂朝代；`parent_id` 可指所在县消歧；`site_kind`（封闭枚举：寺觀／祠廟／書院／殿閣／園林／陵墓／藏書樓／塔）必写，只许跨朝条。官署館局仍归 office。
+- JSON schema 只补 `level` 枚举的「邑」「建築」；`geo_kind`／`generic`／`polity_dynasty_id`／`site_kind` 四个顶层键尚未进 JSON schema（进了会触发 schema-landed 的目录库映射覆盖闸，需 A11 先在 book-index-manager 的 mapping.py 加映射），已通知 A11。build 的 place_keys 候选带 `site_kind`。
+- A11、A33、A42 均无异议；依据：A33 b27 殿本地名剩余清单寺观 390 键（殿阁口径方案 A）。
+
 ## 2026-11-13　人物 `offices[].kind` 加枚举值「檢校」
 - 枚举由 兼／權／試／判／守／行／知／充 增为 …／檢校。唐宋以後史书常见「檢校X」带衔；库有专条（檢校太師等）仍挂专条，没有就挂基官并写 `kind:"檢校"`、`text` 保留原文。
 - 只新增枚举值，旧数据不变；`check_offices.py`（F03）与 schema 文档同步。A11、A33 无异议（A33 抽取器不抽 kind），A42 已通知。
