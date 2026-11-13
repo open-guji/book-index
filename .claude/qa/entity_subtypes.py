@@ -785,6 +785,8 @@ PUBLISHER_FORBIDDEN = ("dynasty", "dynasty_basis", "period", "period_basis", "na
 
 def _check_publisher(rec, reg):
     """publisher（出版社／刻書機構，GUJI-539 v3）。K01–K08；K09 在 check_global。"""
+    if rec.get("merged_into"):   # 墓碑只留 merged_into 規定欄位，不查 publisher 欄位
+        return []
     out = []
     if not nonempty_str(rec.get("primary_name")):
         out.append(("K01", ERROR, "primary_name", "缺"))
