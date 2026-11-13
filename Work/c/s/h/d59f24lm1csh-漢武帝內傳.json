@@ -188,6 +188,54 @@
         "edition": "民國57年[1968]刊"
       },
       "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA001787/tagged/0375024.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：東大総藏本：舊本題漢 班固 撰內傳 日本 太神貫道 訂內傳 舊本題漢 伶玄 撰外傳 延享四年 京都田中市兵衞 刊本 道",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA001787/tagged/0375024.dat",
+        "institution": "東大総",
+        "edition": "舊本題漢 班固 撰內傳 日本 太神貫道 訂內傳 舊本題漢 伶玄 撰外傳 延享四年 京都田中市兵衞 刊本 道",
+        "extent": "一卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FANAIKAKU/tagged/3285017.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：公文書館藏本：刊 延享四年",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FANAIKAKU/tagged/3285017.dat",
+        "institution": "公文書館",
+        "edition": "刊 延享四年",
+        "extent": "1册"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FASEIKADO/tagged/0593002.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：静嘉堂文庫藏本：寫",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FASEIKADO/tagged/0593002.dat",
+        "institution": "静嘉堂文庫",
+        "edition": "寫",
+        "extent": "一卷"
+      }
     }
   ],
   "measures": [
@@ -206,7 +254,7 @@
   "period": "qin-han",
   "period_basis": "據 authors[0].dynasty「東漢」（原作籠統「漢」，2026-08-11 據所繫 Entity 之精確朝代同步訂正）",
   "ai_note": "2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhx1t7ovls 與 11q37sbk4th4w 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-21 舊題撰人專項：著錄語作「舊本題漢班固撰。《隋志》著錄二卷，不注撰人，《宋志》亦注曰不知」，所題之人即本條 authors[0]，故其 role 由「撰」改標「舊題撰」。**這不是說本書是偽書**——舊題撰人說的是撰人之題不確，真偽另由 `authenticity` 承載，見 SCHEMA〈authenticity〉。\n\n2026-10-26 A11-去重方案3b-近題前後綴 併條（rule=去重方案3b-近題前後綴：同 Entity 近題（朝代冠稱／叢書刻名前綴／書集錄字有無）同首位責任者，A檔並）：併 d59fxrwy5v5s《武帝内傳》 入本條。近題同首位責任者：《漢武帝內傳》班固／《武帝内傳》班固；漢武帝內傳一卷與武帝内傳一卷相合\n\n2026-10-26 A9 馆藏挂接：按确定档补挂 東文研 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A9-日本诸馆C1挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 2 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。",
-  "revision": "1.4.0",
+  "revision": "1.5.0",
   "revised_at": "2026-11-13",
   "dynasty": "漢",
   "dynasty_basis": "author_propagation",

@@ -226,6 +226,54 @@
         "edition": "1980"
       },
       "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA001787/tagged/0124021.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：東大総藏本：嘉永三年 元冲 木活字印本 嘉永三年",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA001787/tagged/0124021.dat",
+        "institution": "東大総",
+        "edition": "嘉永三年 元冲 木活字印本 嘉永三年",
+        "extent": "二十四卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA006215/tagged/2081012.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：二松學舍藏本：寬文九年 唐本屋淸兵衞小松太郎兵衞 刊本",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA006215/tagged/2081012.dat",
+        "institution": "二松學舍",
+        "edition": "寬文九年 唐本屋淸兵衞小松太郎兵衞 刊本",
+        "extent": "二十四卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA007739/tagged/01088005.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：立命館大學藏本：卽 宋 范祖禹 （撰） 呂祖謙 （注） 嘉永六年 刊本,（官版） 嘉永六年",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA007739/tagged/01088005.dat",
+        "institution": "立命館大學",
+        "edition": "卽 宋 范祖禹 （撰） 呂祖謙 （注） 嘉永六年 刊本,（官版） 嘉永六年",
+        "extent": "二十四卷"
+      }
     }
   ],
   "measures": [
@@ -252,7 +300,7 @@
   "period": "song",
   "period_basis": "据唯一 author.dynasty「北宋」自动归并",
   "ai_note": "2026-08-19 卷數欄全庫比對：本條 juan_count 原作 24，與著錄原文（國史經籍志：「唐鑑」）所載之 12 卷不合，今據原文訂正。 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhwdu39ybk 與 11q37qc7bd4ow 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-21 B1 同名異書併池：併入 `1evr5e3mkaqpy`（唐鑑）。《唐鑑》范祖禹撰：整理本另立之無撰人條，其節正文明書撰人「范祖禹」，與本條同卷（12卷）同書，今併。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n2026-08-25 宋代G7：本條之 description 非人所撰，是據所繫著錄之引文機械組織而成（撰人、卷數、諸志卷數異同、敘錄要點、存佚），不臆造一字，未覆核原書。\n2026-08-25 合流按：本檔兩車道並行各改（G3/G5b/G6/G7 批 與 J11 desc 批），場級合併：description 兩方皆為機械生成者取 G7 版（含敘錄引文與卷數異同），ai_note 兩存。\n\n2026-09-06 qa-sweep/song·loss_status 逕補（坑 43 M 類 blank）：description.text 已明云「今存」（「…斷，為卷十二，元祐初表上於朝。」今存。《國史經籍志》收錄。…」），而 loss_status 未填，今據以補為 extant。\n\n2026-10-14 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。",
-  "revision": "1.3.0",
+  "revision": "1.4.0",
   "revised_at": "2026-11-13",
   "loss_status": "extant",
   "loss_status_evidence": {
