@@ -15,7 +15,7 @@
   "dynasty": "明",
   "native_place_basis": "《明史》卷243著錄「吉水人」（同名同代唯一傳首）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 4 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 7 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=34747 補入空槽——籍貫「吉水」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ehi3e9s、d59f6ehiemth、d59f6ehiemtd、d59f6ess74zq、d59f6eo72lmp、d59f6ehipvd0、d59f6ehiemtf。\n\n2026-11-13 P7：籍貫依據由 CBDB 換為《明史》卷243本傳（同名同代唯一傳首，籍貫值未變）。",
+  "ai_note": "2026-08-24 補繫 entity：新收 4 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 7 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=34747 補入空槽——籍貫「吉水」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ehi3e9s、d59f6ehiemth、d59f6ehiemtd、d59f6ess74zq、d59f6eo72lmp、d59f6ehipvd0、d59f6ehiemtf。\n\n2026-11-13 P7：籍貫依據由 CBDB 換為《明史》卷243本傳（同名同代唯一傳首，籍貫值未變）。\n\n2026-11-13 P5：據《明儒學案》江右王門學案八小傳補字號（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period": "ming",
   "alt_names": [
     {
@@ -45,6 +45,10 @@
     {
       "name": "爾瞻",
       "type": "字"
+    },
+    {
+      "name": "南臬",
+      "type": "號"
     }
   ],
   "subtype": "people",
@@ -54,7 +58,7 @@
     "death": 1624,
     "basis": "現行字段"
   },
-  "revision": "1.2.5",
+  "revision": "1.2.6",
   "revised_at": "2026-11-13",
   "description": {
     "sources": [
@@ -81,6 +85,11 @@
         "title": "《明史》卷243",
         "source_bid": "d59f2mc8bta8",
         "details": "鄒元標，字爾瞻，吉水人"
+      },
+      {
+        "title": "《明儒學案》江右王門學案八",
+        "source_bid": "d59f2mcmzytc",
+        "details": "鄒元標字爾瞻，別號南臬，豫（？）之吉水人。萬曆丁丑進士。其年十月，江陵奪情，先生言：「伏讀聖諭：‘朕學尚未成，志尚未定，先生而去，墮其前功。’ 夫帝王以仁義為學……"
       }
     ]
   },

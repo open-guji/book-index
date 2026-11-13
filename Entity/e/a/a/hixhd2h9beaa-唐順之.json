@@ -16,7 +16,7 @@
   "dynasty": "明",
   "native_place_basis": "《明史》卷205著錄「武進人」（同名同代唯一傳首）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 8 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=34219 補入空槽——籍貫「武進」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6emrvojl、d59f6eilfaps、d59f6emvxrlz、d59f6ejx6ltz、d59f6ek83wu9、d59f6ei0tmv9、d59f6ejzoi6c、d59f6ei0tmva。\n\n2026-11-13 P5：據《列朝詩集》卷1小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。\n\n2026-11-13 P7：籍貫依據由 CBDB 換為《明史》卷205本傳（同名同代唯一傳首，籍貫值未變）。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 8 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=34219 補入空槽——籍貫「武進」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6emrvojl、d59f6eilfaps、d59f6emvxrlz、d59f6ejx6ltz、d59f6ek83wu9、d59f6ei0tmv9、d59f6ejzoi6c、d59f6ei0tmva。\n\n2026-11-13 P5：據《列朝詩集》卷1小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。\n\n2026-11-13 P7：籍貫依據由 CBDB 換為《明史》卷205本傳（同名同代唯一傳首，籍貫值未變）。\n\n2026-11-13 P5：據《明儒學案》南中王門學案二小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period": "ming",
   "alt_names": [
     {
@@ -55,7 +55,7 @@
     "death": 1560,
     "basis": "現行字段"
   },
-  "revision": "1.1.8",
+  "revision": "1.1.9",
   "revised_at": "2026-11-13",
   "description": {
     "sources": [
@@ -97,6 +97,11 @@
         "title": "《明史》卷205",
         "source_bid": "d59f2mc8bta8",
         "details": "唐順之，字應德，武進人"
+      },
+      {
+        "title": "《明儒學案》南中王門學案二",
+        "source_bid": "d59f2mcmzytc",
+        "details": "唐順之字應德，號荊川，武進人也。嘉靖己丑會試第一。授武選主事。丁內艱。起補稽勳，調考功，以校對《實錄》，改翰林編修。不欲與羅峰為緣，告歸。羅峰恨之，用吏部原職致……"
       }
     ]
   },

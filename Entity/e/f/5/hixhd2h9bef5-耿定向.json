@@ -16,7 +16,7 @@
   "dynasty": "明",
   "native_place_basis": "《明史》卷221著錄「黃安人」（同名同代唯一傳首）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 11 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=124891 補入空槽——籍貫「黃安」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ep3uio8、d59f6eo8bjsx、d59f6ekpl79c、d59f6ep4gzr5、d59f6ekpwfsx、d59f6enlj85g、d59f6ep3uio6、d59f6ep45r7k、d59f6eso51xg、d59f6epf3285、d59f6etaawhw。\n\n2026-11-13 P7：籍貫依據由 CBDB 換為《明史》卷221本傳（同名同代唯一傳首，籍貫值未變）。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 11 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=124891 補入空槽——籍貫「黃安」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ep3uio8、d59f6eo8bjsx、d59f6ekpl79c、d59f6ep4gzr5、d59f6ekpwfsx、d59f6enlj85g、d59f6ep3uio6、d59f6ep45r7k、d59f6eso51xg、d59f6epf3285、d59f6etaawhw。\n\n2026-11-13 P7：籍貫依據由 CBDB 換為《明史》卷221本傳（同名同代唯一傳首，籍貫值未變）。\n\n2026-11-13 P5：據《明儒學案》泰州學案四小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。",
   "period": "ming",
   "alt_names": [
     {
@@ -63,7 +63,7 @@
     "death": 1596,
     "basis": "現行字段"
   },
-  "revision": "1.2.7",
+  "revision": "1.2.8",
   "revised_at": "2026-11-13",
   "description": {
     "sources": [
@@ -95,6 +95,11 @@
         "title": "《明史》卷221",
         "source_bid": "d59f2mc8bta8",
         "details": "耿定向，字在倫，黃安人"
+      },
+      {
+        "title": "《明儒學案》泰州學案四",
+        "source_bid": "d59f2mcmzytc",
+        "details": "耿定向字在倫，號天臺，楚之黃安人。嘉靖丙辰進士。擢監察御史，以大理寺丞謫州判。累遷至太仆寺少卿、右僉都御史。丁憂。起巡撫福建。又丁憂。起協理僉都御史，晉左副都，……"
       }
     ]
   },
