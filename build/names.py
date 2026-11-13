@@ -412,6 +412,8 @@ class Names:
         for k in ('geo_kind', 'polity_dynasty_id', 'generic'):
             if d.get(k):
                 c[k] = d[k]
+        if c['level'] in ('國', '邑') and any(self.name(x) in ('先秦', '西周', '東周', '春秋', '戰國') for x in _ids(hist[-1].get('dynasty_ids'))):
+            c['ancient'] = True                                         # 古國古邑：不標 default
         if amb:
             c['ambiguous'] = True
         return _clean(c)
@@ -449,7 +451,7 @@ class Names:
             anc[i] = seen
         for v in out.values():
             cs = [c for c in v if c.get('place_level') not in ('concrete', 'region')
-                  and not c.get('polity_dynasty_id') and not c.get('generic')]   # 朝代條按朝代挑、區域條泛稱、古國條與泛稱山川，皆不標 default
+                  and not c.get('polity_dynasty_id') and not c.get('generic') and not c.get('ancient')]   # 朝代條按朝代挑、區域條泛稱、古國條與泛稱山川，皆不標 default
             if len(cs) == 1 and len(v) > 1:
                 cs[0]['default'] = True                                 # 只一條跨朝條，其餘皆朝代條
             else:
