@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-11-13　地名顶层键 `geo_kind`／`generic`／`polity_dynasty_id`／`site_kind` 补进 JSON schema
+- 四键 place.md 与 P15–P17 检查早已写定，数据里也有（geo_kind 4,560 条、generic 38、polity_dynasty_id 28），但 `entity.schema.json` 没列，check_schema 报 unknown-field。现补 properties：`geo_kind` ∈ 山岳／河流／湖澤／海洋／泉井；`generic` 只许 true；`polity_dynasty_id` 为 Id；`site_kind` ∈ 寺觀／祠廟／書院／殿閣／園林／陵墓／藏書樓／塔。只许 place，其余子类禁用。
+- 目录库：bim `mapping.py` 在 `place` 表加四列，`polity_dynasty_id` 加悬空检查与外键（bim#351）；`schema/db/*.sql` 重新生成。
+- 依据：A12 请求（#2404 只补了 level 枚举）。
+
 ## 2026-11-13　人物 `offices[].kind` 加枚举值「檢校」
 - 枚举由 兼／權／試／判／守／行／知／充 增为 …／檢校。唐宋以後史书常见「檢校X」带衔；库有专条（檢校太師等）仍挂专条，没有就挂基官并写 `kind:"檢校"`、`text` 保留原文。
 - 只新增枚举值，旧数据不变；`check_offices.py`（F03）与 schema 文档同步。A11、A33 无异议（A33 抽取器不抽 kind），A42 已通知。
