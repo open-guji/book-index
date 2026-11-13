@@ -100,7 +100,7 @@ find Entity -name '*.json' | python3 <book-index>/.claude/qa/check_v2.py --root 
 | F01 | 只许 people 有 `offices`；非空数组；每项 `office_id`、`text`、`sources` 非空，`sources` 项是带 `title` 的引文对象 | ERROR |
 | F02 | `office_id` 指 office、`place_id` 指 place、`institution_id` 指官署，均存在且未并／未退役 | ERROR |
 | F02b | `institution_id` 与该官职的 `institution_ref` 相同（多余） | WARN |
-| F03 | 无未知键；`kind` 在 兼／權／試／判／守／行／知／充 内；`posthumous`／`declined` 只许 `true`；`start`／`end` 非 0 整数且 start≤end | ERROR |
+| F03 | 无未知键；`kind` 在 兼／權／試／判／守／行／知／充／檢校 内；`posthumous`／`declined` 只许 `true`；`start`／`end` 非 0 整数且 start≤end | ERROR |
 | F04 | 任职年落在生卒外（无生卒时用 floruit±40）；`posthumous` 项不查 | WARN |
 | F05 | 官职所属朝代与人物 `dynasty` 不相容 | WARN |
 | F06 | 同人同 `office_id` 同 `start` 重复 | WARN |

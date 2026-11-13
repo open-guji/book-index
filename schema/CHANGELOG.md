@@ -4,6 +4,13 @@
 
 ---
 
+## 2026-11-13　人物 `offices[].kind` 加枚举值「檢校」
+- 枚举由 兼／權／試／判／守／行／知／充 增为 …／檢校。唐宋以後史书常见「檢校X」带衔；库有专条（檢校太師等）仍挂专条，没有就挂基官并写 `kind:"檢校"`、`text` 保留原文。
+- 只新增枚举值，旧数据不变；`check_offices.py`（F03）与 schema 文档同步。A11、A33 无异议（A33 抽取器不抽 kind），A42 已通知。
+- 依据：A12 P1d 唐代任官重跑（#2378）。
+
+---
+
 ## 2026-11-12　人物 index 加 `office_ids`／`office_place_ids`（搜索过滤）
 - people 的 index 分片条目加 `office_ids`（所任官职，解到存活条并沿 `concept_id` 展开跨朝上位条，按「知州」能查到各朝）、`office_place_ids`（只取 `offices[].place_id`）；都去重排序，不含赠官、不就，口径同 `_holders`。没有任官的人不写这两个键。
 - 只有 build（`build_derived.py`）才出：要解并条、展开上位官职，单条记录做不到，所以 bim `entry_extractor` 与 ui `storage.ts` 不跟（同 `has_collated` 先例）。

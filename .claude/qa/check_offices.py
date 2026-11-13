@@ -9,7 +9,7 @@ WARN： F02b institution_id 与 office 的 institution_ref 相同（多余）；
 印出「扫 N 檔、含 offices M 檔、任官项 K」，防扫 0 文件假绿。有 ERROR 退出码 1。"""
 import json, os, sys
 ROOT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')
-KIND = {'兼', '權', '試', '判', '守', '行', '知', '充'}
+KIND = {'兼', '權', '試', '判', '守', '行', '知', '充', '檢校'}
 KEYS = {'office_id', 'text', 'kind', 'posthumous', 'declined', 'place_id', 'institution_id', 'start', 'end', 'date_text', 'basis', 'sources'}
 recs = {}; scanned = 0
 for r, _, fs in os.walk(os.path.join(ROOT, 'Entity')):
