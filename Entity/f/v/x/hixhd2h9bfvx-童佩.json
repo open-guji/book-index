@@ -7,14 +7,14 @@
     "cbdb_match": "auto",
     "cbdb_source": "name_exact+dy_match+unique"
   },
-  "native_place": "龍游",
-  "native_place_entity_id": "hixi6kydy4n8",
+  "native_place": "溫州",
+  "native_place_entity_id": "hixicl899mhs",
   "id": "hixhd2h9bfvx",
   "primary_name": "童佩",
   "dynasty": "明",
-  "native_place_basis": "CBDB 561132 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《畫史會要》卷5著錄「溫州人」（字號相合）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=561132 補入空槽——籍貫「龍游」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eluhaf9、d59f6eivew3o。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=561132 補入空槽——籍貫「龍游」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eluhaf9、d59f6eivew3o。\n\n2026-11-14 P7 自查：籍貫由「龍游」（CBDB 依據）改為古籍所記「溫州」（《畫史會要》卷5，字號相合；二者不同地）。",
   "period": "ming",
   "schema_version": 1,
   "alt_names": [
@@ -24,8 +24,8 @@
     }
   ],
   "subtype": "people",
-  "revision": "1.1.1",
-  "revised_at": "2026-11-11",
+  "revision": "1.1.2",
+  "revised_at": "2026-11-14",
   "description": {
     "sources": [
       {
@@ -37,6 +37,11 @@
         "title": "《欽定四庫全書總目》卷一百七十八·《童子鳴集》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明童佩撰。"
+      },
+      {
+        "title": "《畫史會要》卷5",
+        "source_bid": "d59f2nj8w8hw",
+        "details": "字子鳴温州人花鳥與吕紀彷彿所著有佩茰雜"
       }
     ]
   }

@@ -8,13 +8,13 @@
     "cbdb_match": "auto",
     "cbdb_source": "name_exact+dy_match+work_recall_1.00+ambiguous_3"
   },
-  "native_place": "陵水",
+  "native_place": "東光",
   "id": "hixhd2h9be4f",
   "primary_name": "廖紀",
   "dynasty": "明",
-  "native_place_basis": "CBDB 68320 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《明史》卷202著錄「東光人」（字號相合）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=68320 補入空槽——籍貫「陵水」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eqt1150、d59f6ekyybk8。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=68320 補入空槽——籍貫「陵水」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eqt1150、d59f6ekyybk8。\n\n2026-11-14 P7 自查：籍貫由「陵水」（CBDB 依據）改為古籍所記「東光」（《明史》卷202，字號相合；二者不同地）。",
   "period": "ming",
   "alt_names": [
     {
@@ -52,8 +52,8 @@
     "death": 1532,
     "basis": "現行字段"
   },
-  "revision": "1.1.2",
-  "revised_at": "2026-11-12",
+  "revision": "1.1.3",
+  "revised_at": "2026-11-14",
   "description": {
     "sources": [
       {
@@ -70,6 +70,11 @@
         "title": "《欽定四庫全書總目》巻三十七·《中庸管窺》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明廖紀撰。"
+      },
+      {
+        "title": "《明史》卷202",
+        "source_bid": "d59f2mc8bta8",
+        "details": "，字時陳，東光人"
       }
     ]
   },
@@ -86,5 +91,5 @@
       ]
     }
   ],
-  "native_place_entity_id": "hixicl899mmr"
+  "native_place_entity_id": "hixicl87pfx0"
 }
