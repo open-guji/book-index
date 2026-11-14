@@ -39,6 +39,7 @@ def main():
     path = os.path.join(ROOT, 'resource-site.json')
     data = json.load(open(path, encoding='utf-8'))
     prefixes = [(p, s['id']) for s in data['resources'] for p in ALIASES.get(s['id'], [s['id']])]
+    prefixes.sort(key=lambda t: -len(t[0]))  # 最长前缀优先（bnf-catalogue 不被 bnf 吞掉）
 
     def site_of(rid):
         for p, sid in prefixes:

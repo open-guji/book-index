@@ -74,8 +74,8 @@
   "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzkeucj`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-10-25 A11-去重方案4 併條（rule=去重方案部分4a-α：叢書子目（總目未著撰人）按所屬叢書撰者推定責任者，與同題單行本 Work 首位責任者同人，A 档机械并）：併 d59fyiu52qkh《古文韻語》、d59fyivd375t《古文韻語》、d59fyxb6n9c1《古文韻語》、d59fyzbikwsh《古文韻語》 入本條。同題：單行本《古文韻語》楊慎（明）；《古文韻語》（d59fyiu52qkh）为叢書子目，所屬叢書《楊升庵雜著十二種》（8rldod6hdgxv）撰者楊慎（明）；卷數差1；《古文韻語》（d59fyivd375t）为叢書子目，所屬叢書《總纂升菴合集七十種》（8rldod6hzy12）撰者楊慎（明）；卷數同；《古文韻語》（d59fyxb6n9c1）为叢書子目，所屬叢書《楊升庵雜著十一種》（8rldorn8yebl）撰者楊慎（明）；卷數差1；《古文韻語》（d59fyzbikwsh）为叢書子目，所屬叢書《楊升菴雜著十四種》（8rldotmtf5z8）撰者楊慎（明）；卷數差1",
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-25",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-14",
   "resources": [
     {
       "id": "commons",
@@ -91,6 +91,38 @@
         "publisher": "商務印書館",
         "year": "1960",
         "note": "本链接为扫描册 1；不代表全书齐备。"
+      }
+    },
+    {
+      "id": "bnf-catalogue",
+      "name": "法國國家圖書館總目錄",
+      "url": "https://catalogue.bnf.fr/ark:/12148/cb44597309c",
+      "types": [
+        "catalog"
+      ],
+      "label": "法國國家圖書館（BnF）著錄（僅目錄，無影像）：函海 第十六 函",
+      "details": "法國國家圖書館（BnF）總目錄書目記錄（僅書目，不標有影像）",
+      "metadata": {
+        "bnf_record": "FRBNF445973090000001",
+        "shelfmark": "CHINOIS-9100 (11)",
+        "edition": "",
+        "series": "函海 第十六 函"
+      }
+    },
+    {
+      "id": "bnf-catalogue",
+      "name": "法國國家圖書館總目錄",
+      "url": "https://catalogue.bnf.fr/ark:/12148/cb446229740",
+      "types": [
+        "catalog"
+      ],
+      "label": "法國國家圖書館（BnF）著錄（僅目錄，無影像）：函海 第十六函",
+      "details": "法國國家圖書館（BnF）總目錄書目記錄（僅書目，不標有影像）",
+      "metadata": {
+        "bnf_record": "FRBNF446229740000007",
+        "shelfmark": "CHINOIS-9100 (11)",
+        "edition": "",
+        "series": "函海 第十六函"
       }
     }
   ]
