@@ -115,7 +115,7 @@
     }
   ],
   "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：gumn6pb2nbujbz81、20vx3ojdnupei4o0、q6ce1wd6435b5hkl、de5qhdwmsrf8ae64、x1ekzwbznpr3knar、uh7w1sqoy61tl0s1、fjvnq2jn8k1wxa8r\nE6 第 406 批新建（hold 清零：史部E判定表 J-yiyi-另立-05.tsv；原 hold 原因：auto-split:存疑未并（候选核对：auto-split:同名未并（题名仅包含／近似而非异体，另立＋related）））\n\n国图數字古籍重配挂接\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 NDL 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A2-日本三馆重跑-20261026.md。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-B：同题、卷数相同、一侧无责任者，逐条子 agent 核得实质证据（同源／版本馆藏／原文自证／题含作者名号／同一辑佚本）后 B 档并）：併 d59f2q6vktfl《考古圖》 入本條。同題同卷：有責任者《考古圖》（呂大臨）；《考古圖》（d59f2q6vktfl，無責任者）：自证——無責側直齋「汲郡呂大臨與叔撰」十卷、存目叢書「華東師範大學圖書館藏明初刻本」，與有責側呂大臨十卷明初刻本(華東師範大學圖書館)合\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。\n\n2026-10-27 A11-去重新-待並條 併條（rule=去重新-待並條：史部E存疑另立留下的待並條链接逐条复核，同一责任者＋题名异写／省称＋卷数相合者并（B 档，子 agent 初判＋本串复核＋独立抽检））：併 d59f2hjdz8xv《呂大臨考古圖》 入本條。待並條逐条定论同书：《考古圖》呂大臨／《呂大臨考古圖》呂大臨；同作者呂大臨，A「呂大臨考古圖」加撰人名前綴，與B考古圖同為十卷，B著錄更多題名更標準\n\n2026-10-27 A11-去重文淵閣Work 併條（rule=文淵閣／薈要同题 Book 挂多个 Work 清理：同一部书（题名异写或加欽定/御定等前缀、责任者相同或一侧缺），两路子 agent 独立判定一致或高置信抽检通过）：併 d59f2hqot2bk《亦政堂重修考古圖》 入本條。臺北故宮《文淵閣四庫全書》／《摛藻堂四庫全書薈要》同一子目的旧 Book（988）与总目 Book（993/994）分挂 d59f2hqot2bk《亦政堂重修考古圖》、d59fyff3e22q《考古圖》；判定：亦政堂重修考古圖只是呂大臨考古圖的一個刻本名，兩Work同為呂大臨考古圖十卷。",
-  "revision": "1.8.0",
+  "revision": "1.9.0",
   "revised_at": "2026-11-13",
   "related_works": [
     {
@@ -317,6 +317,54 @@
       "types": [
         "text"
       ]
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FAKOKKAI/tagged/0430037.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：国会藏本：明 刊 元",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FAKOKKAI/tagged/0430037.dat",
+        "institution": "国会",
+        "edition": "明 刊 元",
+        "extent": "十卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FASAKAI/tagged/1462788.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：堺市立 中央藏本：坿 亦政堂 乾隆十七年（一七五二） 乾隆十七年",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FASAKAI/tagged/1462788.dat",
+        "institution": "堺市立 中央",
+        "edition": "坿 亦政堂 乾隆十七年（一七五二） 乾隆十七年",
+        "extent": ""
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FASEIKADO/tagged/0492009.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：静嘉堂文庫藏本：明初 刊 元",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FASEIKADO/tagged/0492009.dat",
+        "institution": "静嘉堂文庫",
+        "edition": "明初 刊 元",
+        "extent": "十卷"
+      }
     }
   ],
   "measure_info": "十卷",
