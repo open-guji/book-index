@@ -12,14 +12,14 @@
   "id": "hixhd2h9bete",
   "primary_name": "張元素",
   "dynasty": "金",
-  "native_place_basis": "CBDB 10009 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《金史》卷131著錄「易州人」（字號相合；與庫值同地）",
   "period_basis": "據 dynasty「金」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10009 補入空槽——籍貫「易縣」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ej79wqp、d59f6ej79wqu。\n\n2026-09-07 lane-B 併條善後：所繫 d59f2ggnm6f6 已併入 d59f2giyyjgi，而本 entity 之繫係該批入庫誤加，今撤其項而不改指（改指即把誤繫轉嫁 keeper）。撤去 1 項。\n\nA12 非作者人物 正史列傳 M11（遼金）：補別名 潔古（2026-10-26）。\nA12 b08（2026-10-29）據《四庫全書總目》第48册補異體「㓗古」。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=10009 補入空槽——籍貫「易縣」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ej79wqp、d59f6ej79wqu。\n\n2026-09-07 lane-B 併條善後：所繫 d59f2ggnm6f6 已併入 d59f2giyyjgi，而本 entity 之繫係該批入庫誤加，今撤其項而不改指（改指即把誤繫轉嫁 keeper）。撤去 1 項。\n\nA12 非作者人物 正史列傳 M11（遼金）：補別名 潔古（2026-10-26）。\nA12 b08（2026-10-29）據《四庫全書總目》第48册補異體「㓗古」。\n\n2026-11-14 P7 自查：籍貫依據由 CBDB 換為《金史》卷131（字號相合，古籍作「易州人」，與庫值同地）。",
   "period": "liao-jin-yuan",
   "schema_version": 1,
   "subtype": "people",
-  "revision": "1.2.2",
-  "revised_at": "2026-11-13",
+  "revision": "1.2.3",
+  "revised_at": "2026-11-14",
   "alt_names": [
     {
       "name": "潔古",
@@ -45,6 +45,11 @@
       {
         "name": "《金史·張元素傳》",
         "details": "卷131，傳首：張元素，字潔古，易州人。"
+      },
+      {
+        "title": "《金史》卷131",
+        "source_bid": "d59f2gpg4t8g",
+        "details": "，字潔古，易州人"
       }
     ]
   },

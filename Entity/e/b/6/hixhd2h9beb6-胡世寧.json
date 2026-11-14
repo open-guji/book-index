@@ -8,14 +8,14 @@
     "cbdb_match": "manual",
     "cbdb_source": "name_exact+dy_match+work_recall_0.50+unique"
   },
-  "native_place": "昌化",
-  "native_place_entity_id": "hixi6kydy4ne",
+  "native_place": "仁和",
+  "native_place_entity_id": "hixicl88ye2w",
   "id": "hixhd2h9beb6",
   "primary_name": "胡世寧",
   "dynasty": "明",
-  "native_place_basis": "CBDB 68242 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《明史》卷199著錄「仁和人」（字號相合）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 6 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=68242 補入空槽——籍貫「昌化」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6elhzsoy、d59f6elim9s6、d59f6elek6ps、d59f6elhdbly、d59f6erhdjid、d59f6ehy0hzc。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 6 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=68242 補入空槽——籍貫「昌化」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6elhzsoy、d59f6elim9s6、d59f6elek6ps、d59f6elhdbly、d59f6erhdjid、d59f6ehy0hzc。\n\n2026-11-14 P7 自查：籍貫由「昌化」（CBDB 依據）改為古籍所記「仁和」（《明史》卷199，字號相合；二者不同地）。",
   "period": "ming",
   "alt_names": [
     {
@@ -72,6 +72,11 @@
       {
         "name": "《明史·胡世寧傳》",
         "details": "卷199，傳首：胡世寧，字永清，仁和人。"
+      },
+      {
+        "title": "《明史》卷199",
+        "source_bid": "d59f2mc8bta8",
+        "details": "，字永清，仁和人"
       }
     ]
   },
@@ -189,6 +194,6 @@
       ]
     }
   ],
-  "revision": "1.0.4",
-  "revised_at": "2026-11-12"
+  "revision": "1.0.5",
+  "revised_at": "2026-11-14"
 }

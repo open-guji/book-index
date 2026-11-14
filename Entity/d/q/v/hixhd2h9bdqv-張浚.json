@@ -9,15 +9,15 @@
     "cbdb_match": "manual",
     "cbdb_source": "manual+pid_211_張浚_dy15"
   },
-  "native_place": "衡陽",
-  "native_place_entity_id": "hixi6kqhkxsb",
+  "native_place": "綿竹",
+  "native_place_entity_id": "hixicl85u0lp",
   "dynasty_basis": "cbdb:death_name=南宋(跨)",
   "id": "hixhd2h9bdqv",
   "primary_name": "張浚",
   "dynasty": "南宋",
-  "native_place_basis": "CBDB 211 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《宋史》卷361著錄「漢州綿竹人」（字號相合）",
   "period_basis": "据 dynasty「南宋」自动归并",
-  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 3 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=211 補入空槽——籍貫「衡陽」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eift0xy。",
+  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 3 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=211 補入空槽——籍貫「衡陽」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eift0xy。\n\n2026-11-14 P7 自查：籍貫由「衡陽」（CBDB 依據）改為古籍所記「漢州綿竹」（《宋史》卷361，字號相合；二者不同地）。",
   "period": "song",
   "alt_names": [
     {
@@ -40,8 +40,8 @@
     "death": 1164,
     "basis": "現行字段"
   },
-  "revision": "1.1.6",
-  "revised_at": "2026-11-13",
+  "revision": "1.1.7",
+  "revised_at": "2026-11-14",
   "relations": [
     {
       "type": "父",
@@ -71,6 +71,11 @@
       {
         "name": "《宋史·張浚傳》",
         "details": "卷361，傳首：張浚，字德遠，漢州綿竹人，唐宰相九齡弟九皋之後。"
+      },
+      {
+        "title": "《宋史》卷361",
+        "source_bid": "d59f2gonq7sy",
+        "details": "，字德遠，漢州綿竹人，唐宰相九齡弟九皋之後"
       }
     ]
   },

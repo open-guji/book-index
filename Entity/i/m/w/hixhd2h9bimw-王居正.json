@@ -26,10 +26,10 @@
   "dynasty_basis": "cbdb:death_name=南宋(跨)",
   "period": "song",
   "period_basis": "据 dynasty「南宋」自动归并",
-  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 7 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=22000 補入空槽——籍貫「江都」。既有之值一概未動。",
+  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 7 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=22000 補入空槽——籍貫「江都」。既有之值一概未動。\n\n2026-11-14 P7 自查：古籍作「揚州人」，為庫值「江都」之上級，值保留，依據注明。",
   "native_place": "江都",
   "native_place_entity_id": "hixi4ui65ddt",
-  "native_place_basis": "CBDB 22000 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《宋史》卷381著錄「揚州人」（字號相合；庫值「江都」為其屬縣，縣級細分未見古籍直書，沿 CBDB 待印證）",
   "dates": {
     "birth": 1087,
     "death": 1151,
@@ -40,6 +40,11 @@
       {
         "name": "《宋史·王居正傳》",
         "details": "卷381，傳首：王居正，字剛中，揚州人。"
+      },
+      {
+        "title": "《宋史》卷381",
+        "source_bid": "d59f2gonq7sy",
+        "details": "，字剛中，揚州人"
       }
     ]
   },
@@ -89,6 +94,6 @@
       ]
     }
   ],
-  "revision": "1.0.2",
-  "revised_at": "2026-11-11"
+  "revision": "1.0.3",
+  "revised_at": "2026-11-14"
 }

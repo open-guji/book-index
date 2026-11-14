@@ -14,7 +14,7 @@
   },
   "period": "song",
   "period_basis": "所繫 2 部 work 之 period 一致作「song」，故從之",
-  "ai_note": "2026-08-24 新建 entity（甲等第一批）：本人之名見於 work 之 authors[]，而庫中無其人。取「首字在百家姓、名長二至四字、庫中兩見以上」者為甲等——兩見以上則非偶然之殘句，此判所以立，正為防 SKILL〈史料圈套〉所記之舊禍：本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、之以為嬰……）而竟為之建 entity。\n\n本人所繫之 work 2 部：《等尚書集解》、《總戎集》。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=935（「顧臨」宋，?–?）。判準 score=70.0：name 命中、同期候選 1 個、著作重合 0.0。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=935 補入空槽——別名 1 條（子敦）；朝代「宋」；籍貫「餘姚」。既有之值一概未動。",
+  "ai_note": "2026-08-24 新建 entity（甲等第一批）：本人之名見於 work 之 authors[]，而庫中無其人。取「首字在百家姓、名長二至四字、庫中兩見以上」者為甲等——兩見以上則非偶然之殘句，此判所以立，正為防 SKILL〈史料圈套〉所記之舊禍：本庫曾有 13 個「作者」實是夾注碎片（外黃人、里翟弟子、之以為嬰……）而竟為之建 entity。\n\n本人所繫之 work 2 部：《等尚書集解》、《總戎集》。\n\n2026-09-06 CBDB 全量重繫：繫 cbdb_id=935（「顧臨」宋，?–?）。判準 score=70.0：name 命中、同期候選 1 個、著作重合 0.0。生卒／別名等未逕填，留待 enrich 補。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=935 補入空槽——別名 1 條（子敦）；朝代「宋」；籍貫「餘姚」。既有之值一概未動。\n\n2026-11-14 P7 自查：籍貫由「餘姚」（CBDB 依據）改為古籍所記「會稽」（《宋元學案》卷2，字號相合；二者不同地）。",
   "alt_names": [
     {
       "name": "子敦",
@@ -23,9 +23,9 @@
   ],
   "dynasty": "趙宋",
   "dynasty_basis": "synonym:period=song",
-  "native_place": "餘姚",
-  "native_place_entity_id": "hixi5whkfuo4",
-  "native_place_basis": "CBDB 935 index_addr（2026-09-06 CBDB enrich）",
+  "native_place": "會稽",
+  "native_place_entity_id": "hixicl857jic",
+  "native_place_basis": "《宋元學案》卷2著錄「會稽人」（字號相合）",
   "dates": {
     "floruit": [
       1053,
@@ -38,6 +38,11 @@
       {
         "name": "《宋史·顧臨傳》",
         "details": "卷344，傳首：顧臨，字子敦，會稽人。"
+      },
+      {
+        "title": "《宋元學案》卷2",
+        "source_bid": "d59f2ms6zpc3",
+        "details": "，字子敦，會稽人"
       }
     ]
   },
@@ -101,6 +106,6 @@
       ]
     }
   ],
-  "revision": "1.0.3",
-  "revised_at": "2026-11-11"
+  "revision": "1.0.4",
+  "revised_at": "2026-11-14"
 }
