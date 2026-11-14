@@ -98,7 +98,7 @@
     ]
   },
   "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：ujwhz7epu7jkidke\nE6 第 523 批新建（hold 清零：jyiyi；原 hold 原因：）\n經部查重並條（A檔：同題同作者同朝代，卷數差≤1）（源 Work 1exp1yfpa330g《石經考》已並入；其作者寫法：顧炎武）\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-α2：同一首位 Entity、同題同署名組（多為同一作者自著叢書各版次之子目），叢書首位撰者為本人、同叢書無同題兩條、全組已知卷數全同，A 档机械并）：併 d59fywb864n4《石經考》、d59fz3dhwa9s《石經考》 入本條。同題同署名同 Entity：保留《石經考》顧炎武（清）；《石經考》（d59fywb864n4）为叢書子目，所屬叢書《亭林遺書十種》（8rldoqo1y5fl）撰者顧炎武；《石經考》（d59fz3dhwa9s）为叢書子目，所屬叢書《亭林先生遺書彙輯二十三種附錄三種》（8rldoxp088hw）、《亭林先生遺書彙輯二十三種附錄三種》（8rldoxp088hv）撰者顧炎武；全组卷數1\n\n2026-10-26 A11-去重方案4 併條（rule=去重方案部分4a-B：同题、卷数相同、一侧无责任者，逐条子 agent 核得实质证据（同源／版本馆藏／原文自证／题含作者名号／同一辑佚本）后 B 档并）：併 d59fyu8fw740《石經考》 入本條。同題同卷：有責任者《石經考》（顧炎武）；《石經考》（d59fyu8fw740，無責任者）：子目同书——簇11-011：所屬《顧亭林先生遺書十種補遺十一種》為顧炎武著作集，子目「石經考一卷」；保留條顧炎武撰一卷，且有「〔亭林遺書十種〕1卷」Book\n\n2026-10-27 A11-去重文淵閣Work 併條（rule=文淵閣／薈要同题 Book 挂多个 Work 清理：同一部书（题名异写或加欽定/御定等前缀、责任者相同或一侧缺），两路子 agent 独立判定一致或高置信抽检通过）：併 d59f2meluu4h《顧氏石經考》 入本條。臺北故宮《文淵閣四庫全書》／《摛藻堂四庫全書薈要》同一子目的旧 Book（988）与总目 Book（993/994）分挂 d59f2meluu4h《顧氏石經考》、d59fy3pq9nuo《石經考》；判定：顧炎武《石經考》一卷兩條應並；萬斯同本已正確掛萬氏條不動",
-  "revision": "1.6.0",
+  "revision": "1.7.0",
   "revised_at": "2026-11-13",
   "resources": [
     {
@@ -219,6 +219,54 @@
         "edition": "民國56年[1967]刊"
       },
       "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA004049/tagged/5036048.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：神外大藏本：景借月山房彙鈔本 景借月山房",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA004049/tagged/5036048.dat",
+        "institution": "神外大",
+        "edition": "景借月山房彙鈔本 景借月山房",
+        "extent": "一卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA019705/tagged/0878033.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：京大人文研 東方藏本：嘉慶十三年 刊 嘉慶十三年",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA019705/tagged/0878033.dat",
+        "institution": "京大人文研 東方",
+        "edition": "嘉慶十三年 刊 嘉慶十三年",
+        "extent": "一卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FAKOKKAI/tagged/0025019.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：国会藏本：淸 刊",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FAKOKKAI/tagged/0025019.dat",
+        "institution": "国会",
+        "edition": "淸 刊",
+        "extent": "一卷"
+      }
     }
   ],
   "measures": [
