@@ -42,7 +42,7 @@
   "period_upper": "qing",
   "period_upper_basis": "catalog_bound：唯一著錄源《千頃堂書目》成書於清初（黃虞稷 1629-1691），故不晚於 qing；書內小注無朝代線索，period 留 null 不猜",
   "id": "d59f6erwcxkx",
-  "revision": "1.5.0",
+  "revision": "1.6.0",
   "revised_at": "2026-11-13",
   "resources": [
     {
@@ -165,6 +165,54 @@
         "edition": "筆寫本"
       },
       "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FAKOKKAI/tagged/0336029.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：国会藏本：江戶 刊",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FAKOKKAI/tagged/0336029.dat",
+        "institution": "国会",
+        "edition": "江戶 刊",
+        "extent": "四卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FATORITSU/taggedInoue/0000375.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：東京都立 中央藏本：刊",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FATORITSU/taggedInoue/0000375.dat",
+        "institution": "東京都立 中央",
+        "edition": "刊",
+        "extent": "4册"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FATOYO/tagged/103023004.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：東洋文庫藏本：江戶 刊本",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FATOYO/tagged/103023004.dat",
+        "institution": "東洋文庫",
+        "edition": "江戶 刊本",
+        "extent": "四卷"
+      }
     }
   ],
   "ai_note": "2026-10-14 R3 馆藏挂接：按确定档补挂 內閣文庫 2 条（影像）。依据见 overview 馆藏资源挂接/计划/R3-首批核对报告-Rowan.md。"

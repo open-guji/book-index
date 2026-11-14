@@ -18,6 +18,56 @@
     ]
   },
   "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 6 取自 `measure_info`「六冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "resources": [
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA003454/tagged/0178006.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：九大藏本：文久二年 山城屋佐兵衞 刊",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA003454/tagged/0178006.dat",
+        "institution": "九大",
+        "edition": "文久二年 山城屋佐兵衞 刊",
+        "extent": "十三卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FA003647/tagged/020356.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：鹿大藏本：文久二年 學半樓 刊本",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FA003647/tagged/020356.dat",
+        "institution": "鹿大",
+        "edition": "文久二年 學半樓 刊本",
+        "extent": ""
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FANAIKAKU/tagged/6614019.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：公文書館藏本：伊藤馨（鳳山） 文久二年 刊",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FANAIKAKU/tagged/6614019.dat",
+        "institution": "公文書館",
+        "edition": "伊藤馨（鳳山） 文久二年 刊",
+        "extent": "十三卷"
+      }
+    }
+  ],
   "measures": [
     {
       "unit": "冊",
@@ -35,6 +85,6 @@
   ],
   "period_upper": "qing",
   "period_upper_basis": "edition_bound：所掛版本中最早者為「日本文久元年學半樓原刊本」——版本之年不早於成書之年，故不晚於 qing",
-  "revision": "1.0.0",
-  "revised_at": "2026-08-25"
+  "revision": "1.1.0",
+  "revised_at": "2026-11-13"
 }
