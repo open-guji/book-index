@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""CBETA 经录（T55 n2146/2148/2151/2152）→ 条目 → 匹配 Work → indexed_by。
-用法：cbeta_split.py <2146|2148|2151|2152> [--apply]   环境变量 CB=CBETA xml-p5 的 T55 目录。
+"""CBETA 经录（T55 n2146/2147/2148/2151/2152）→ 条目 → 匹配 Work → indexed_by。
+用法：cbeta_split.py <2146|2147|2148|2151|2152> [--apply]   环境变量 CB=CBETA xml-p5 的 T55 目录。
 条目来自 CBETA 语义标记：cb:jl_title（经题）、cb:jl_juan（卷数）、cb:jl_byline（译者／朝代）。
 匹配：题名（去「佛說」前缀、简繁异写折叠）同＋译者名与候选 Work 作者名有 2 字相连重合，时代不晚于志书 → A；
       无译者可核时题名唯一且 Work 已有≥2 处著录 → B；其余不写。"""
@@ -10,6 +10,7 @@ spec = importlib.util.spec_from_file_location("sp", os.path.join(here, "split.py
 CB = os.environ.get("CB", "/tmp/claude-0/cbeta/xml-p5/T/T55")
 BOOKS = {
     "2146": ("眾經目錄", "d59fyt4wtfk0"),      # 隋法經
+    "2147": ("眾經目錄", "d59fyjszljb6"),      # 隋彥琮
     "2148": ("眾經目錄", "d59fyiq2zpxc"),      # 唐靜泰
     "2151": ("古今譯經圖紀", "d59f28lx3xfn"),
     "2152": ("續古今譯經圖紀", "d59f28k1dfk2"),
@@ -27,7 +28,7 @@ def parse(n):
     b = t[t.index("<body>"):]
     b = re.sub(r"<anchor[^>]*/>|<lb[^>]*/>|<pb[^>]*/>|<space[^>]*/>|<milestone[^>]*/>", "", b)
     out = []
-    if n in ("2146", "2148"):
+    if n in ("2146", "2147", "2148"):
         sec = ""
         for m in re.finditer(r"(<cb:mulu[^>]*>([^<]*)</cb:mulu>)|(<item [^>]*>(.*?)</item>)", b, re.S):
             if m.group(1):
