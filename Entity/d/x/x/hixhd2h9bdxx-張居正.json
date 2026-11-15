@@ -13,9 +13,9 @@
   "id": "hixhd2h9bdxx",
   "primary_name": "張居正",
   "dynasty": "明",
-  "native_place_basis": "CBDB 69011 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《罪惟錄》卷11著錄「江陵人」（字相合；與庫值「荊州衛」同地：荊州衛治江陵縣城，衛籍與縣籍同地）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB 同步 L1 落盘：合併重出條目 hixhgyrw4vqn「張江陵」（二者同占 cbdb_id=69011，時代相容、僧俗一致，判為同一人）。併入 work 1 條、別名 0 條；改 Work.authors 引用 1 處。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 5 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=69011 補入空槽——籍貫「荊州衛」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eps711d、d59f6ersm32e、d59f6eiqqby9、d59f6ehawxs7、d59f68d9joqs。",
+  "ai_note": "2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB 同步 L1 落盘：合併重出條目 hixhgyrw4vqn「張江陵」（二者同占 cbdb_id=69011，時代相容、僧俗一致，判為同一人）。併入 work 1 條、別名 0 條；改 Work.authors 引用 1 處。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 5 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=69011 補入空槽——籍貫「荊州衛」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eps711d、d59f6ersm32e、d59f6eiqqby9、d59f6ehawxs7、d59f68d9joqs。\n\n2026-11-15 P8 自查：籍貫依據由 CBDB 換為《罪惟錄》卷11本傳（kanripo 本）（字相合，書作「江陵人」，與庫值「荊州衛」同地：荊州衛治江陵縣城，衛籍與縣籍同地；籍貫值未變）。",
   "period": "ming",
   "alt_names": [
     {
@@ -82,8 +82,8 @@
     "death": 1582,
     "basis": "現行字段"
   },
-  "revision": "1.1.2",
-  "revised_at": "2026-11-12",
+  "revision": "1.1.3",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
@@ -109,6 +109,11 @@
       {
         "name": "《明史·張居正傳》",
         "details": "卷213，傳首：張居正，字叔大，江陵人。"
+      },
+      {
+        "title": "《罪惟錄》卷11",
+        "source_bid": "d59f2mrxml1d",
+        "details": "張居正字時大號太嶽湖廣江陵人"
       }
     ]
   },

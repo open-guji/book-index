@@ -47,17 +47,17 @@
   },
   "period": "sui-tang",
   "period_basis": "據 dynasty「唐」自動歸併",
-  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 2 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 斷代收窄：本 entity 新收 2 部 work 之繫（撰人自著錄語／宋志頂真格抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=32889 補入空槽——籍貫「固始」。既有之值一概未動。\n\n2026-10-26 A12 L6 帝王稱號（晉書載記）：別名「元子」與 hixi4w9wfcxo 姚泓 同名，標 ambiguous。",
+  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 2 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 斷代收窄：本 entity 新收 2 部 work 之繫（撰人自著錄語／宋志頂真格抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=32889 補入空槽——籍貫「固始」。既有之值一概未動。\n\n2026-10-26 A12 L6 帝王稱號（晉書載記）：別名「元子」與 hixi4w9wfcxo 姚泓 同名，標 ambiguous。\n\n2026-11-15 P8 自查：《史傳三編》卷五十四本傳作「瀼州人」（字相合），與庫值「固始」不同地，按真矛盾處理：籍貫值不改，作另說記入 native_place_basis 並加出處。",
   "native_place": "固始",
   "native_place_entity_id": "hixi636g7ll5",
-  "native_place_basis": "CBDB 32889 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 32889 index_addr（2026-09-06 CBDB enrich）；另說：《史傳三編》卷五十四作「瀼州人」（字相合），與庫值「固始」不同地；原值不改",
   "dates": {
     "birth": 719,
     "death": 772,
     "basis": "現行字段"
   },
-  "revision": "1.1.2",
-  "revised_at": "2026-11-11",
+  "revision": "1.1.3",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
@@ -74,6 +74,11 @@
         "title": "《欽定四庫全書總目》卷一百八十六·《篋中集》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "唐元結編。"
+      },
+      {
+        "title": "《史傳三編》卷五十四",
+        "source_bid": "d59geaglo3r4",
+        "details": "元結字次山瀼州人"
       }
     ]
   }

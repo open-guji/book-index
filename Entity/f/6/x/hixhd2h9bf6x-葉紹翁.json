@@ -14,9 +14,9 @@
   "id": "hixhd2h9bf6x",
   "primary_name": "葉紹翁",
   "dynasty": "南宋",
-  "native_place_basis": "CBDB 22701 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 22701 index_addr（2026-09-06 CBDB enrich）；另說：《御選宋金元明四朝詩》御選宋詩姓名爵里二作「建安人」，與庫值不同地（字相合）；原值不改",
   "period_basis": "据 dynasty「南宋」自动归并",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=22701 補入空槽——籍貫「龍泉」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eosaqkm。\n\n2026-11-15 據 Wikidata Q10916434 補生卒（P569／P570，僅取精度至年者；暫以 Wikidata 為據，日後換古籍出處）。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=22701 補入空槽——籍貫「龍泉」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eosaqkm。\n\n2026-11-15 據 Wikidata Q10916434 補生卒（P569／P570，僅取精度至年者；暫以 Wikidata 為據，日後換古籍出處）。\n\n2026-11-15 P8 自查自決：《御選宋金元明四朝詩》御選宋詩姓名爵里二籍貫作「建安」與庫值「龍泉」不一致（字嗣宗相合），不覆蓋，作另說記入 native_place_basis 並加出處。",
   "dates": {
     "birth": 1100,
     "death": 1151,
@@ -35,7 +35,7 @@
   ],
   "subtype": "people",
   "schema_version": 1,
-  "revision": "1.1.2",
+  "revision": "1.1.3",
   "revised_at": "2026-11-15",
   "description": {
     "sources": [
@@ -48,6 +48,11 @@
         "title": "《欽定四庫全書總目》卷一百四十一·《四朝聞見錄》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "宋葉紹翁撰。"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選宋詩姓名爵里二",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字嗣宗建安人嘗著四朝聞見錄及靖逸小集"
       }
     ]
   },
