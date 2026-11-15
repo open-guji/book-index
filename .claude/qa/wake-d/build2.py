@@ -15,12 +15,6 @@ def jd(d): return json.dumps(d, ensure_ascii=False, indent=2) + '\n'
 N = []
 def add(**k): N.append(k)
 
-add(key='sunzi', work='d59f2pusfzsy', title='孫子詳解', edition='日本文久二年山城屋佐兵衞等刊本', reign='文久', year=1862,
-    pub='山城屋佐兵衞、河內屋喜兵衞、勝村治右衞門', meas=(13, '卷'),
-    basis='CiNii BD05336525、BD04637606 著錄出版者山城屋佐兵衞等、文久2 [1862]',
-    desc='伊藤鳳山（馨）撰，永嶋謙、有泉純同校，松岡權閱；別題「蒙官許孫子詳解」。', also=['988g6j33t9（日本文久元年學半樓原刊本，總目著錄；本條為文久二年書肆刊本，是否同版未能核定，另立互記）'],
-    hold=[('一橋大學附屬圖書館', 'Ng:181', CI + 'BD05336525'), ('天理大學附屬天理圖書館', '399//21', CI + 'BD04637606')],
-    ncids=['BD05336525', 'BD04637606'], ndls=[])
 add(key='weiwu', work='d59f2ew0o268', title='魏武帝註孫子', edition='日本天保四年昌平坂學問所官板山城屋佐兵衞發行本', reign='天保', year=1833,
     pub='昌平坂學問所、山城屋佐兵衞', meas=(3, '卷'),
     basis='CiNii BB19346464 著錄出版者昌平坂學問所、山城屋佐兵衞（發弘）、天保4 [1833]',
