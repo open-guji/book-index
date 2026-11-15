@@ -373,3 +373,19 @@ def test_sym_related_specific_word_not_downgraded(repo, tmp_path):
     b1, b3 = entry(out, S.B1), entry(out, S.B3)
     assert [c['relation'] for c in b1['_related']] == ['同卷']
     assert [c['relation'] for c in b3['_related']] == ['同卷']
+
+
+def test_contents_from_collected_in_sorted_by_volume_and_order(repo):
+    """單篇 Work 的 collected_in（可帶 volume_index／order）→ 總集 Work 的 `_contents` 與 contents/ 分頁。"""
+    for wid, vol, order in ((S.W2, 160, 5), (S.W3, 159, 2), (S.W4, None, None)):
+        d = S.read(repo, 'Work', wid)
+        item = {'id': S.W5, 'relation': 'collected_in'}
+        if vol is not None:
+            item.update(volume_index=vol, order=order)
+        d.setdefault('related_works', []).append(item)
+        S.put(repo, 'Work', d)
+    r, P = run(repo, check_only=True)
+    assert not r['fatal']
+    assert P[f'entry/{S.W5}.json']['_contents'] == {'total': 3, 'pages': 1}
+    page = P[f'contents/{S.W5}/1.json']
+    assert [(c['id'], c.get('vol'), c.get('ord')) for c in page] == [(S.W3, 159, 2), (S.W2, 160, 5), (S.W4, None, None)]

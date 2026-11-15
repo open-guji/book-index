@@ -146,6 +146,24 @@
               }
             },
             "additionalProperties": false
+          },
+          "_contents": {
+            "type": "object",
+            "required": [
+              "total",
+              "pages"
+            ],
+            "properties": {
+              "total": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "pages": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "additionalProperties": false
           }
         },
         "patternProperties": {

@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-11-15　`related_works` 的 `collected_in` 可带 `volume_index`／`order`；build 加 `_contents` 与 `contents/` 分页
+- 单篇诗文挂所在总集／别集（用户 11-15 定「方案 A」，不另建篇目 Collection）：沿用 `collected_in`，项上可带卷次 `volume_index`（形同 contained_in）与卷内次序 `order`；别的关系词不得带（JSON schema if/then 拦）。
+- build：被 `collected_in` 指向的 Work 出 `_contents {total, pages}`，篇目在 `contents/<id>/<n>.json`（Work 卡＋`vol`／`ord`，按卷次、次序排，每页 200）；`CONTRACT` 5→6（纯增量）。
+- 目录库：bim `work_relation` 加 `volume_index`、`orig_order`（bim#357）。
+
 ## 2026-11-14　Work `subtype` 加 `ci`／`qu`／`fu`，新增 `incipit`（首句）
 - 单篇诗文收录（用户 11-14 定）：单篇分五类 `poem` 诗、`ci` 词、`qu` 散曲、`fu` 赋（含騷）、`article` 文，不再分下一层；新增可选 `incipit` 记首句，与题名、首位作者一起作去重键。方案见 ai-team `domain/目录与资源/设计/2026-11-单篇诗文收录方案.md`。
 - 存量改类 203 条：题名为赋、楚辭篇章（九歌、九章、離騷、招魂、九辯等）的 article 110 条改 `fu`；題名以「詩」「歌」结尾（不含序、記、啟等）的 article 89 条改 `poem`；敦煌「曲子」4 条改 `ci`。

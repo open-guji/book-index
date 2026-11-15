@@ -41,7 +41,7 @@
 | `indexed_by` | array<IndexEntry> | 可选 | 原生 | 被目录书／志书著录（本侧是被著录的一侧） | 见 [common.md〈IndexEntry〉](common.md#二indexentryindexed_by--emendated_by-的元素)；`source_bid` 须指向存在的志书 Work；顺序有意义，不可按内容去重 | 录入 | |
 | `emendated_by` | array<IndexEntry> | 可选 | 原生 | 被考证／校勘类著作订正 | 同上 | 录入 | |
 | `contained_in` | array<object> | 可选 | 原生 | 本作品收入哪些丛编（成员一侧；**Work∈Collection 的唯一存储侧**） | 每项 `{id, volume_index?, order?, group?, details?}`，见 [§四](#四contained_in) | 录入 | `[{"id":"8rlcsybg2hhh","volume_index":"第6卷","order":15}]` |
-| `related_works` | array<object> | 可选 | 原生 | 与其他记录的关系（规范方向一侧） | 每项 `{id, relation, note?}`；`relation` 只用 [§五](#五关联词表) 的「源档可写」词；**不写 `title`** | 录入 | `[{"id":"d59f2mp0flz4","relation":"contains_text_of"}]` |
+| `related_works` | array<object> | 可选 | 原生 | 与其他记录的关系（规范方向一侧） | 每项 `{id, relation, note?, volume_index?, order?}`（后两项只许 `collected_in`）；`relation` 只用 [§五](#五关联词表) 的「源档可写」词；**不写 `title`** | 录入 | `[{"id":"d59f2mp0flz4","relation":"contains_text_of"}]` |
 | `version_graph` | object | 可选 | 原生 | 人工策展的版本传承图配置 | 见 [§六](#六version_graph) | 录入 | |
 | `resources` | array<Resource> | 可选 | 原生 | 外部资源 | 见 common.md〈Resource〉 | 录入 | |
 | `resource_groups` | object | 可选 | 原生 | 资源组说明 | 见 common.md | 录入 | |
@@ -179,7 +179,9 @@ Book 的 `contained_in` 多一个 `sub_items`，见 [book.md](book.md)。
 
 ## 五、关联词表
 
-`related_works[]` 的每一项 `{id, relation, note?}`：`id` 是对方记录（Work，`collected_in` 时也可是 Collection）。
+`related_works[]` 的每一项 `{id, relation, note?, volume_index?, order?}`：`id` 是对方记录（Work，`collected_in` 时也可是 Collection）。
+
+`collected_in` 项可带位置（单篇诗文用，用户 2026-11-15 定「方案 A」）：`volume_index` 卷次（形同 `contained_in.volume_index`：整数、整数数组或原文字符串），`order` 卷内次序（正整数）。build 据此在被收入的总集／别集 Work 上生成篇目分页 `_contents`（见 [derived.md](derived.md)）。别的关系词不得带这两项（JSON schema 拦）。例：`{"id":"d59f2n69x3ia","relation":"collected_in","volume_index":160,"order":5}`＝收入《全唐詩》卷一百六十第五首。
 
 **存储方向决定源档写不写这个词。** 成对关系只在规范方向一侧写一次，反向词只出现在构建产物的 `_related` 里（`direction: "in"`）。对称关系存 id 较小的一侧。规划中的写入口 `bim link A B <relation>`（按规范方向与小 id 规则落笔）尚未实现；现在手写或脚本写，由 `check_v2.py` V04／V05／V07／V13 把关。
 
@@ -204,7 +206,7 @@ Book 的 `contained_in` 多一个 `sub_items`，见 [book.md](book.md)。
 
 | 词 | 含义 |
 |---|---|
-| `collected_in` | 收入某汇编（指 Work 或 Collection） |
+| `collected_in` | 收入某汇编（指 Work 或 Collection）；可带 `volume_index`／`order` 记卷次与次序 |
 | `derived_from` | 由某书辑出、改编而成 |
 | `excerpted_from` | 摘录自 |
 | `source_of` | 为某书之所本 |

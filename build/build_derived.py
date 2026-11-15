@@ -13,6 +13,7 @@
     _build/entry/<id>.json          源記錄＋全部 `_` 派生欄（舊 `_` 欄一律以重算值為準）
     _build/members/<cid>/<n>.json   叢編成員分頁（n 從 1 起，每頁 PAGE 項）
     _build/catalog/<wid>/<n>.json   志書著錄成員分頁
+    _build/contents/<wid>/<n>.json  總集／別集篇目分頁（單篇 Work 之 collected_in 反查，按卷次、次序排）
     _build/related/<wid>/<n>.json   關聯超過 PAGE 者之餘頁
     _build/books/<wid>/<g>/<n>.json 版本超過 BOOK_GROUP 之 Work：按叢編分組的版本卡片分頁（g＝叢編 id，無叢編者為 _none）
     _build/lineage/<wid>.json       作品下版本圖（有承襲資料者）
@@ -59,11 +60,12 @@ BOOK_GROUP = 200   # Work 版本數超過此數：另出按叢編（Book 卡片 
 HUB_CHECK_MAX = 6  # 改樞紐名，牽動產物檔數上限（F4-4：2～4 檔）
 
 DEFAULT_ROLE = '撰'
-CONTRACT = 5       # _build/ 契約版本：2＝F6-5b 加專名派生欄與 dynasty_reign_keys／office_keys（overview#458，純增量）；
+CONTRACT = 6       # _build/ 契約版本：2＝F6-5b 加專名派生欄與 dynasty_reign_keys／office_keys（overview#458，純增量）；
                    # 3＝Book／Collection 加 `_related`（related_books／related_collections 兩側並集，純增量）；
                    # 4＝Book 刪 `_siblings`／`_siblings_more`／`_siblings_total`（2026-11-03，非增量；S5-H）
                    # 5＝Book 卡片加 `coll`；Work 版本超 BOOK_GROUP 者加 `_book_groups` 與 books/ 分頁；
                    #   Book／Collection `_related` 帶原 relation 詞（如「同卷」，原一律 related）（2026-11-11，A41／A42）
+                   # 6＝Work 加 `_contents` 與 contents/ 分頁（collected_in 反查的總集篇目，純增量；2026-11-15 單篇詩文方案 A）
 
 
 # ---------- 小工具 ----------
@@ -112,6 +114,19 @@ def derived_items(b):
             out.append({'ref': ref, 'ref_type': rt, 'relation': x['relation'], 'confidence': x.get('confidence')})
             seen.add((ref, rt))
     return out
+
+
+def vol_key(v):
+    """篇目排序用的卷次鍵：整數在前（數組取最小），字串其次，缺卷殿後。"""
+    if isinstance(v, list):
+        v = min((x for x in v if isinstance(x, int)), default=None)
+    if isinstance(v, bool):
+        v = None
+    if isinstance(v, int):
+        return (0, v, '')
+    if isinstance(v, str) and v:
+        return (1, 0, v)
+    return (2, 0, '')
 
 
 def related_items(b):
@@ -249,6 +264,7 @@ class Build:
         self.members = collections.defaultdict(dict)      # cid -> {(t,id): attrs}
         self.children = collections.defaultdict(set)
         self.catalog = collections.defaultdict(dict)      # 志書 wid -> {wid: entry}
+        self.contents = collections.defaultdict(dict)     # 總集 wid -> {單篇 wid: (volume_index, order)}
         self.derived_by = collections.defaultdict(list)   # bid -> [(bid, relation)]
         self.edges = {}                                   # 規範邊 -> [notes]
         self.indeg = collections.Counter()
@@ -298,6 +314,8 @@ class Build:
                     continue
                 key = V.canon_edge(wid, tgt, r.get('relation'))
                 self.edges.setdefault(key, []).append((key[0] == wid, r.get('note')))
+                if r.get('relation') == 'collected_in' and tgt in R['Work'] and tgt != wid:
+                    self.contents[tgt].setdefault(wid, (r.get('volume_index'), r.get('order')))
             for ib in w.get('indexed_by') or []:
                 if isinstance(ib, dict) and isinstance(ib.get('source_bid'), str) and ib['source_bid']:
                     sb = ib['source_bid']
@@ -571,13 +589,23 @@ class Build:
             ents.sort(key=lambda c: (c.get('section') or '', c['id']))
             cat_pages = [ents[i:i + PAGE] for i in range(0, len(ents), PAGE)]
             v['_member_catalog'] = {'total': len(ents), 'pages': len(cat_pages)}
+        con_pages = []
+        if self.contents.get(wid):
+            ents = []
+            for mid, (vol, order) in self.contents[wid].items():
+                c = self.any_card(mid)
+                c.update(clean({'vol': vol, 'ord': order}, keep=()))
+                ents.append(c)
+            ents.sort(key=lambda c: (vol_key(c.get('vol')), c.get('ord') or 10 ** 9, c['id']))
+            con_pages = [ents[i:i + PAGE] for i in range(0, len(ents), PAGE)]
+            v['_contents'] = {'total': len(ents), 'pages': len(con_pages)}
         v.update(self.names.dynasty_ref(first_dynasty(w)))   # `_dynasty_id`／`_dynasty_candidates`（F6-5b）
         if self.promotions.get(wid):
             v['promoted_to'] = self.promotions[wid]      # SCHEMA〈九〉：草稿記錄回填 promoted_to
         lineage = self.lineage_graph(wid, books)
         if lineage:
             v['_lineage_graph_ref'] = f'lineage/{wid}.json'
-        return v, {'related': pages, 'catalog': cat_pages, 'lineage': lineage, 'books': book_pages}
+        return v, {'related': pages, 'catalog': cat_pages, 'contents': con_pages, 'lineage': lineage, 'books': book_pages}
 
     def book_groups(self, cards):
         """按 Book 卡片 coll 分組：摘要 [{叢編卡片…, g, n, pages}]（件數多者在前；無叢編者 g＝_none、排最後），
@@ -728,6 +756,8 @@ class Build:
                     out[f'related/{i}/{n}.json'] = pg
                 for n, pg in enumerate(extra.get('catalog') or [], start=1):
                     out[f'catalog/{i}/{n}.json'] = pg
+                for n, pg in enumerate(extra.get('contents') or [], start=1):
+                    out[f'contents/{i}/{n}.json'] = pg
                 for n, pg in enumerate(extra.get('members') or [], start=1):
                     out[f'members/{i}/{n}.json'] = pg
                 for g, pgs in (extra.get('books') or {}).items():
@@ -1083,6 +1113,12 @@ def check_entries(b, prods, hubs, errs):
             tot = sum(len(prods.get(f'catalog/{i}/{n}.json', [])) for n in range(1, v['_member_catalog']['pages'] + 1))
             if tot != v['_member_catalog']['total']:
                 errs.append(f'{i}: 志書成員分頁合計≠total')
+        if '_contents' in v:
+            for n in range(1, v['_contents']['pages'] + 1):
+                chk_cards(i, prods.get(f'contents/{i}/{n}.json', []))
+            tot = sum(len(prods.get(f'contents/{i}/{n}.json', [])) for n in range(1, v['_contents']['pages'] + 1))
+            if tot != v['_contents']['total']:
+                errs.append(f'{i}: 篇目分頁合計≠_contents.total')
         for f in ('_related', '_collections', '_children', '_books'):
             chk_cards(i, v.get(f) or [])
         chk_cards(i, v.get('_works') or [], 'work_id')
@@ -1125,7 +1161,7 @@ class ProductSink:
         self.want = set()
         self.written = self.unchanged = 0
         self.files = self.entries = 0
-        self.pages = {s: 0 for s in ('members', 'catalog', 'related', 'lineage', 'books')}
+        self.pages = {s: 0 for s in ('members', 'catalog', 'contents', 'related', 'lineage', 'books')}
 
     def put(self, rel, obj):
         self.files += 1
@@ -1152,7 +1188,7 @@ class ProductSink:
 
     def finish(self):
         removed = 0
-        for sub in ('entry', 'members', 'catalog', 'related', 'lineage', 'books'):
+        for sub in ('entry', 'members', 'catalog', 'contents', 'related', 'lineage', 'books'):
             base = os.path.join(self.out_dir, sub)
             for dp, dns, fns in os.walk(base, topdown=False):
                 for fn in fns:
@@ -1262,7 +1298,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
         'records': {t: len(recs[t]) for t in V.TYPES},
         'entries': sink.entries if stream else sum(1 for k in prods if k.startswith('entry/')),
         'files_total': sink.files if stream else len(prods),
-        'pages': dict(sink.pages) if stream else {s: sum(1 for k in prods if k.startswith(s + '/')) for s in ('members', 'catalog', 'related', 'lineage', 'books')},
+        'pages': dict(sink.pages) if stream else {s: sum(1 for k in prods if k.startswith(s + '/')) for s in ('members', 'catalog', 'contents', 'related', 'lineage', 'books')},
         'hubs': len(b.hubs), 'hub_threshold': hub,
         'sidecars_ignored': sidecars,
         'load_problems': problems,
