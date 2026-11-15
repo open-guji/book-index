@@ -54,7 +54,8 @@ def load_idx():
     for wid, v in idx.items():
         for t in [v["t"]] + list(v["at"] or []):
             if isinstance(t, str) and t:
-                by[norm(t)].append(wid)
+                if wid not in by[norm(t)]:
+                    by[norm(t)].append(wid)
     return idx, by
 
 
