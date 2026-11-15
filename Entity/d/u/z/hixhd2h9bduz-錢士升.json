@@ -14,9 +14,9 @@
   "id": "hixhd2h9bduz",
   "primary_name": "錢士升",
   "dynasty": "明",
-  "native_place_basis": "CBDB 86453 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《御選宋金元明四朝詩》御選明詩姓名爵里六著錄「嘉善人」（姓名爵里卷；同名同朝代、籍貫與庫內一致）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 6 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=86453 補入空槽——籍貫「嘉善」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ek41ts7、d59f6eorzi0w、d59f6ei1g3yc、d59f6eqe1n2d、d59f6er7dy4m、d59f6entne9s。\n\n2026-11-13 P5：據《浙江通志》卷158小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 6 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=86453 補入空槽——籍貫「嘉善」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ek41ts7、d59f6eorzi0w、d59f6ei1g3yc、d59f6eqe1n2d、d59f6er7dy4m、d59f6entne9s。\n\n2026-11-13 P5：據《浙江通志》卷158小傳補出處（旁證：字號、籍貫；全庫同名同代候選1人）。\n\n2026-11-15 P8：籍貫依據由 CBDB 換為《御選宋金元明四朝詩》御選明詩姓名爵里六（出處錨定：同名同朝代且籍貫與庫內縣州府一致；籍貫值未變）。字「抑之」依該書補入 alt_names。",
   "period": "ming",
   "alt_names": [
     {
@@ -43,8 +43,8 @@
     "death": 1652,
     "basis": "現行字段"
   },
-  "revision": "1.0.2",
-  "revised_at": "2026-11-13",
+  "revision": "1.0.3",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
@@ -71,6 +71,11 @@
         "title": "《浙江通志》卷158",
         "source_bid": "d59f2n6dz6ki",
         "details": "錢士升：嘉禾徴獻録字抑之嘉善人萬厯丙辰殿試第一授翰林修撰天啟初乞假歸進左中允"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選明詩姓名爵里六",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字抑之嘉善人萬厯丙辰賜進士第一累官太子太保文淵閣大學士"
       }
     ]
   }
