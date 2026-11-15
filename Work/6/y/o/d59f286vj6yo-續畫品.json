@@ -160,6 +160,14 @@
         "edition": "民國55年(1966)"
       },
       "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
+    },
+    {
+      "id": "wikisource",
+      "name": "維基文庫",
+      "url": "https://zh.wikisource.org/wiki/%E5%85%A8%E9%99%B3%E6%96%87/%E5%8D%B7%E5%8D%81%E4%BA%8C#%E7%BA%8C%E7%95%AB%E5%93%81",
+      "types": [
+        "text"
+      ]
     }
   ],
   "measures": [
@@ -173,8 +181,20 @@
   "period_basis": "據 authors[0].dynasty「南朝陳」",
   "revision": "1.6.0",
   "revised_at": "2026-11-13",
-  "ai_note": "2026-09-06 qa-sweep/nanbeichao：period_basis 所引之值陳舊——引 authors[0].dynasty 作「陳」，而該欄經 2026-08-24 N4 朝代名歸一後實作「南朝陳」，引值與實錄不符（scan A 類）。今更引值使相符。period 不動：「南朝陳」仍屬 nanbeichao，斷代未變。原句：「據 authors[0].dynasty「陳」」。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。\n\n2026-10-27 A11-去重文淵閣Work 併條（rule=文淵閣／薈要同题 Book 挂多个 Work 清理：同一部书（题名异写或加欽定/御定等前缀、责任者相同或一侧缺），两路子 agent 独立判定一致或高置信抽检通过）：併 d59f285jrvuo《續晝品》 入本條。臺北故宮《文淵閣四庫全書》／《摛藻堂四庫全書薈要》同一子目的旧 Book（988）与总目 Book（993/994）分挂 d59f285jrvuo《續晝品》、d59f286vj6yo《續畫品》；判定：「續晝品」為續畫品誤字，同為姚最一卷",
+  "ai_note": "2026-09-06 qa-sweep/nanbeichao：period_basis 所引之值陳舊——引 authors[0].dynasty 作「陳」，而該欄經 2026-08-24 N4 朝代名歸一後實作「南朝陳」，引值與實錄不符（scan A 類）。今更引值使相符。period 不動：「南朝陳」仍屬 nanbeichao，斷代未變。原句：「據 authors[0].dynasty「陳」」。\n\n2026-10-26 A8 馆藏挂接：按确定档补挂 巴伐利亞 1 条（影像）。依据见 book-index-manager docs/馆藏资源挂接/报告/A8-欧美六馆挂接-20261026.md。\n\n2026-10-26 C3-臺灣國圖 馆藏挂接：按确定档补挂 臺灣國圖 1 条（影像）。依据见 open-guji/book-index-manager docs/馆藏资源挂接/报告/C3-臺灣國圖挂接-20261026.md。\n\n2026-10-27 A11-去重文淵閣Work 併條（rule=文淵閣／薈要同题 Book 挂多个 Work 清理：同一部书（题名异写或加欽定/御定等前缀、责任者相同或一侧缺），两路子 agent 独立判定一致或高置信抽检通过）：併 d59f285jrvuo《續晝品》 入本條。臺北故宮《文淵閣四庫全書》／《摛藻堂四庫全書薈要》同一子目的旧 Book（988）与总目 Book（993/994）分挂 d59f285jrvuo《續晝品》、d59f286vj6yo《續畫品》；判定：「續晝品」為續畫品誤字，同為姚最一卷\n\n2026-11-15 L0 併條（rule=L0 第十八轮：单篇诗文与同题条两道独立复核皆同）：併 d59gdzkb63zr《續畫品》 入本條。單篇與同題條兩道獨立複核皆同：舊題陳吳興、姚最撰續畫品，B姚最續畫品即此\n\n2026-11-15 L0 第十八轮：併入單篇條 d59gdzkb63zr（撰人 姚最）。其原注：2026-11-15 A11 單篇詩文（車道 a11-pm-xtw）：據維基文庫《全陳文》卷12第8篇建條。原題下注時間「案，此續謝赫古畫品也，文稱湘東殿下，蓋梁武時所撰。」。",
   "additional_titles": [
     "續晝品"
+  ],
+  "subtype": "article",
+  "incipit": "夫丹青妙極",
+  "dynasty": "南朝陳",
+  "dynasty_basis": "據《全陳文》所收",
+  "related_works": [
+    {
+      "id": "d59gdzjpxyx5",
+      "relation": "collected_in",
+      "volume_index": 12,
+      "order": 8
+    }
   ]
 }
