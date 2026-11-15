@@ -4,7 +4,7 @@ import sys,json,re,os,collections
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from norm import split
 yr=re.compile(r'^(?:[元二三四五六七八九十廿卅百]+年)(?:[春夏秋冬]?[修刻抄稿鈔])?')
-V=str.maketrans('碍赣临乡县图记庙续纪总齐灵阳龙宁兴荣储湾沟岭罗蕲蒋汉与浒陕阴','礙贛臨鄉縣圖記廟續紀總齊靈陽龍寧興榮儲灣溝嶺羅蘄蔣漢與滸陝陰')
+V=str.maketrans('碍赣临乡县图记庙续纪总齐灵阳龙宁兴荣储湾沟岭罗蕲蒋汉与浒陕阴內巖谿畧台僊啓黃邱藁臯滎欒','礙贛臨鄉縣圖記廟續紀總齊靈陽龍寧興榮儲灣溝嶺羅蘄蔣漢與滸陝陰内岩溪略臺仙啟黄丘稿皋榮樂')
 def key(t):
     rg,b=split(t); return rg,yr.sub('',b.translate(V))
 def isfz(secs): return any(('方志' in s or '地理類' in s) for _,s in secs)
