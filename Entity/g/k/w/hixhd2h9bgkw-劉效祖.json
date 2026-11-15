@@ -12,9 +12,9 @@
   "id": "hixhd2h9bgkw",
   "primary_name": "劉效祖",
   "dynasty": "明",
-  "native_place_basis": "CBDB 132796 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 132796 index_addr（2026-09-06 CBDB enrich）；另說：《御選宋金元明四朝詩》御選明詩姓名爵里四作「濱州人」，書作濱州，庫值武驤左衛（衛所籍）；原值不改",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 9 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=132796 補入空槽——籍貫「武驤左衛」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eov3vgm、d59f6ephkykk、d59f6eov3vgk、d59f6eixabcw、d59f6elbftaa、d59f6elcdix1、d59f6elc2adj、d59f6eovf403、d59f6elc2adi。\nA12 b15（2026-10-30）據《四庫全書總目》第84册補別名「宛平劉效祖」。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 9 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=132796 補入空槽——籍貫「武驤左衛」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eov3vgm、d59f6ephkykk、d59f6eov3vgk、d59f6eixabcw、d59f6elbftaa、d59f6elcdix1、d59f6elc2adj、d59f6eovf403、d59f6elc2adi。\nA12 b15（2026-10-30）據《四庫全書總目》第84册補別名「宛平劉效祖」。\n\n2026-11-15 P8 自查自決：《御選宋金元明四朝詩》御選明詩姓名爵里四籍貫作「濱州」與庫值「武驤左衛」不一致（字仲修相合），不覆蓋，作另說記入 native_place_basis 並加出處。",
   "period": "ming",
   "alt_names": [
     {
@@ -41,14 +41,19 @@
     "death": 1589,
     "basis": "現行字段"
   },
-  "revision": "1.2.0",
-  "revised_at": "2026-10-30",
+  "revision": "1.2.1",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/6441bemexdhw43cp"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選明詩姓名爵里四",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字仲修濱州人嘉靖庚戌進士除衞輝推官授户部主事歴陜西按察副使有雲林槀"
       }
     ]
   }
