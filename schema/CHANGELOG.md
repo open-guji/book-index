@@ -4,6 +4,11 @@
 
 ---
 
+## 2026-11-14　Work `subtype` 加 `ci`／`qu`／`fu`，新增 `incipit`（首句）
+- 单篇诗文收录（用户 11-14 定）：单篇分五类 `poem` 诗、`ci` 词、`qu` 散曲、`fu` 赋（含騷）、`article` 文，不再分下一层；新增可选 `incipit` 记首句，与题名、首位作者一起作去重键。方案见 ai-team `domain/目录与资源/设计/2026-11-单篇诗文收录方案.md`。
+- 存量改类 203 条：题名为赋、楚辭篇章（九歌、九章、離騷、招魂、九辯等）的 article 110 条改 `fu`；題名以「詩」「歌」结尾（不含序、記、啟等）的 article 89 条改 `poem`；敦煌「曲子」4 条改 `ci`。
+- 目录库：bim `mapping.py` 枚举与 `work.incipit` 列（bim#356）；`schema/db/schema.sql` 重新生成。
+
 ## 2026-11-13　地名顶层键 `geo_kind`／`generic`／`polity_dynasty_id`／`site_kind` 补进 JSON schema
 - 四键 place.md 与 P15–P17 检查早已写定，数据里也有（geo_kind 4,560 条、generic 38、polity_dynasty_id 28），但 `entity.schema.json` 没列，check_schema 报 unknown-field。现补 properties：`geo_kind` ∈ 山岳／河流／湖澤／海洋／泉井；`generic` 只许 true；`polity_dynasty_id` 为 Id；`site_kind` ∈ 寺觀／祠廟／書院／殿閣／園林／陵墓／藏書樓／塔。只许 place，其余子类禁用。
 - 目录库：bim `mapping.py` 在 `place` 表加四列，`polity_dynasty_id` 加悬空检查与外键（bim#351）；`schema/db/*.sql` 重新生成。
