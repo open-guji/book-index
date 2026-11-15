@@ -30,6 +30,9 @@ BOOKS = {
     "rbfz": ("日本訪書志", "d59f2nfr3h8g", "qing", "h/8/g/d59f2nfr3h8g/default"),
     "rbfzb": ("日本訪書志補", "d59f2msvng8y", "qing", "g/8/y/d59f2msvng8y/default"),
     "tongkao": ("文獻通考經籍考", "d59fazcc5q80", "liao-jin-yuan", "KR2m0009"),
+    "zhizhai": ("直齋書錄解題", "d59f2htm01du", "song", ""),
+    "chongwen": ("崇文總目", "d59f2hqc0c1t", "song", ""),
+    "songshi": ("宋史藝文志", "d59f2gdp696q", "song", ""),
     "tongzhi": ("通志藝文略", "d59gc4hif56o", "song", "q/8/1/d59f2hrrtq81/default"),
 }
 FOLD = str.maketrans({"爲": "為", "録": "錄", "説": "說", "裏": "裡", "並": "并", "歴": "歷", "厯": "歷",
@@ -101,6 +104,31 @@ def parse_junzhai():
                 a = m.group(1)
         e["author_raw"] = a
         e["author"] = clean_author(a) if a else ""
+    return out
+
+
+def parse_zhizhai(fn="zhizhai.json"):
+    """直齋書錄解題：维基文库 dump 抽出的 JSON（卷一～二十二，条首《題》N卷 + 解題；解題开头即官职籍贯姓名字号撰）。
+    note＝解題前 40 字，供 match() 用「Work 撰人名出现在解題开头」判 A 档。"""
+    ents = json.load(open(os.environ.get("ZZ", SC + fn), encoding="utf-8"))
+    out = []
+    for e in ents:
+        m = re.match(r"^《([^》]+)》([^、，《]*)", e["head"])
+        if not m:
+            continue
+        out.append(dict(file=e["file"], sec=e["sec"], title=m.group(1), juan=m.group(2).strip(), head=e["head"],
+                        summary=e["summary"], author_raw="", author="", note=e["summary"][:40]))
+    return out
+
+
+def parse_songshi():
+    """宋史藝文志（维基文库 dump，卷202–209）：作者在条目**之前**（「某某《題》N卷又《題》N卷」），_a 为解析出的撰人。"""
+    ents = json.load(open(os.environ.get("ZS", SC + "songshi.json"), encoding="utf-8"))
+    out = []
+    for e in ents:
+        m = re.match(r"^《([^》]+)》(.*)$", e["head"])
+        out.append(dict(file=e["file"], sec=e["sec"], title=m.group(1), juan=m.group(2), head=e["head"], summary="",
+                        author_raw=e["_a"], author=clean_author(e["_a"]) if e["_a"] else "", note=""))
     return out
 
 
@@ -282,7 +310,7 @@ def main():
     key = sys.argv[1]
     apply = "--apply" in sys.argv
     src, sbid, era, _ = BOOKS[key]
-    ents = parse_junzhai() if key == "junzhai" else parse_tongzhi() if key == "tongzhi" else parse_tongkao() if key == "tongkao" else parse_headings(key) if key in ("rbfz", "rbfzb") else parse_listbook(key)
+    ents = parse_songshi() if key == "songshi" else parse_zhizhai("chongwen.json") if key == "chongwen" else parse_zhizhai() if key == "zhizhai" else parse_junzhai() if key == "junzhai" else parse_tongzhi() if key == "tongzhi" else parse_tongkao() if key == "tongkao" else parse_headings(key) if key in ("rbfz", "rbfzb") else parse_listbook(key)
     idx, by = load_idx()
     cnt = collections.Counter()
     rows = []
