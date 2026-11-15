@@ -36,12 +36,12 @@
     "cbdb_match": "auto",
     "cbdb_source": "name_exact+dy_match+work_recall_1.00+unique"
   },
-  "ai_note": "拆出同名異代之人物 1jae2gjvgb384（元胡渭）：本記錄原兼繫兩人之書。元胡渭。與清胡渭（1633-1714）同名異代。\n2026-08-24 同名消歧：新收 1 部 work 之繫——此輩 work 之 authors 有名而無 entity_id，庫中同名者不止一人，以撰人朝代／period／上限三者次第定之，所存唯本人。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=62662 補入空槽——籍貫「德清」。既有之值一概未動。",
+  "ai_note": "拆出同名異代之人物 1jae2gjvgb384（元胡渭）：本記錄原兼繫兩人之書。元胡渭。與清胡渭（1633-1714）同名異代。\n2026-08-24 同名消歧：新收 1 部 work 之繫——此輩 work 之 authors 有名而無 entity_id，庫中同名者不止一人，以撰人朝代／period／上限三者次第定之，所存唯本人。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=62662 補入空槽——籍貫「德清」。既有之值一概未動。\n\n2026-11-15 OCR先正事略：籍貫依據由 CBDB 換為《國朝先正事略補編》第44冊第23頁（字號相合，古籍作「浙江德清人」，與庫值同地）。",
   "period": "qing",
   "period_basis": "據 dynasty「清」自動歸併",
   "native_place": "德清",
   "native_place_entity_id": "hixi5whkfuoa",
-  "native_place_basis": "CBDB 62662 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《國朝先正事略補編》第44冊第23頁著錄「德清縣人」（字號相合；與庫值同地）",
   "dates": {
     "birth": 1633,
     "death": 1714,
@@ -67,11 +67,16 @@
       {
         "name": "《清史稿·胡渭傳》",
         "details": "卷481，傳首：胡渭，初名渭生，字朏明，德清人。"
+      },
+      {
+        "title": "《國朝先正事略補編》第44冊第23頁",
+        "source_bid": "d59f2ms7m6f6",
+        "details": "胡渭字朏明浙江德清人"
       }
     ]
   },
-  "revision": "1.0.3",
-  "revised_at": "2026-11-13",
+  "revision": "1.0.4",
+  "revised_at": "2026-11-15",
   "relations": [
     {
       "type": "父",
