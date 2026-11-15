@@ -13,9 +13,9 @@
   "id": "hixhd2h9bh5p",
   "primary_name": "馬玉麟",
   "dynasty": "元",
-  "native_place_basis": "CBDB 28696 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《御選宋金元明四朝詩》御選元詩姓名爵里二著錄「海陵人」（姓名爵里卷；字與庫內一致、籍貫一致）",
   "period_basis": "據 dynasty「元」自動歸併",
-  "ai_note": "2026-08-19 同題異撰人專項（附）：指向已併去之 work 而回溯不得（或新目標不反指本條）者 1 條，今去之。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=28696 補入空槽——籍貫「海陵」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eqyyjgi。",
+  "ai_note": "2026-08-19 同題異撰人專項（附）：指向已併去之 work 而回溯不得（或新目標不反指本條）者 1 條，今去之。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=28696 補入空槽——籍貫「海陵」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eqyyjgi。\n\n2026-11-15 P8：籍貫依據由 CBDB 換為《御選宋金元明四朝詩》御選元詩姓名爵里二（出處錨定：字與庫內一致且籍貫一致；籍貫值未變）。",
   "period": "liao-jin-yuan",
   "schema_version": 1,
   "alt_names": [
@@ -29,14 +29,19 @@
     }
   ],
   "subtype": "people",
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.1.1",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/a4mqg2wqcx07cnc8"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選元詩姓名爵里二",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字國瑞海陵人至正間為長洲尹歴官江浙行省參政"
       }
     ]
   }
