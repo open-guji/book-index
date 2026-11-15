@@ -13,7 +13,7 @@
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/ep31af6vjhoejd4f"
       },
-      "entity_id": "hixifzuyvogn"
+      "entity_id": "hixhd2h9boqz"
     }
   ],
   "indexed_by": [
@@ -26,7 +26,7 @@
       "summary": "共 2 個版本：清光緒三十三年北京北京學部編譯圖書局鉛印本（瀋陽市圖書館、上海圖書館）；清光緒三十二年北京北京學部編譯圖書局鉛印本（瀋陽市圖書館、國家圖書館）"
     }
   ],
-  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：44adpka535kpsw40、ubsjwcg8spmfd6g0\n主責任者「伊那楞木孫」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nauto-split:存疑未并\nE6 第 556 批新建（hold 清零：jyiyi；原 hold 原因：）\nauto-split:疑同未并（晋升复核：與 d59f2pwu40e9 疑同書，證據不足，另立互鏈）\n\n国图數字古籍重配挂接",
+  "ai_note": "G 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：44adpka535kpsw40、ubsjwcg8spmfd6g0\n主責任者「伊那楞木孫」朝代在各版本／contMap 與題名行之間不一致，未寫 dynasty／period\nauto-split:存疑未并\nE6 第 556 批新建（hold 清零：jyiyi；原 hold 原因：）\nauto-split:疑同未并（晋升复核：與 d59f2pwu40e9 疑同書，證據不足，另立互鏈）\n\n国图數字古籍重配挂接\n\n2026-11-15 L0 併條（rule=L0 第二十七轮：同题作品撰人名异写，两道独立复核皆同书）：併 d59f2pwu40e9《質學課本》 入本條。近似題名兩道獨立複核皆同：質學課本／質學課本\n\n2026-11-15 L0 第二十七轮：併入 d59f2pwu40e9《質學課本》（原題撰人：伊楞木孫撰）。同書之據：那字衍；均學部編譯圖書局光緒三十二年鉛印五卷；其原注：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 5 取自 `measure_info`「五冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
   "revision": "1.1.0",
   "revised_at": "2026-10-23",
   "resources": [
@@ -43,5 +43,20 @@
         "edition": "學部編譯圖書局   清光緒32年[1906]"
       }
     }
-  ]
+  ],
+  "measures": [
+    {
+      "unit": "冊",
+      "number": 5
+    }
+  ],
+  "measure_info": "五冊",
+  "period_upper": "qing",
+  "period_upper_basis": "edition_bound：所掛版本中最早者為「清光緒三十二年學部編譯圖書局鉛印本」——版本之年不早於成書之年，故不晚於 qing",
+  "description": {
+    "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故內000232-000236）。清光緒三十二年學部編譯圖書局鉛印本。",
+    "sources": [
+      "國立故宮博物院善本舊籍"
+    ]
+  }
 }
