@@ -300,6 +300,48 @@
         "edition": "",
         "series": "學津討原 第六集"
       }
+    },
+    {
+      "id": "harvard",
+      "label": "哈佛燕京藏本：China 1573",
+      "name": "哈佛大學圖書館 哈佛燕京圖書館",
+      "url": "https://nrs.harvard.edu/urn-3:FHCL:4609733",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "harvard_record": "990078803920203941",
+        "call_no": "T 2621 3147",
+        "edition": "China 1573"
+      }
+    },
+    {
+      "id": "harvard",
+      "label": "哈佛燕京藏本：China 1628",
+      "name": "哈佛大學圖書館 哈佛燕京圖書館",
+      "url": "https://nrs.harvard.edu/urn-3:FHCL:26016030",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "harvard_record": "990079025780203941",
+        "call_no": "FC5603",
+        "edition": "China 1628"
+      }
+    },
+    {
+      "id": "harvard",
+      "label": "哈佛燕京藏本：China 1465",
+      "name": "哈佛大學圖書館 哈佛燕京圖書館",
+      "url": "https://nrs.harvard.edu/urn-3:FHCL:23477513",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "harvard_record": "990080550770203941",
+        "call_no": "T 9100 0335 (3)",
+        "edition": "China 1465"
+      }
     }
   ],
   "measures": [
@@ -311,7 +353,7 @@
   "measure_info": "三卷",
   "period": "sui-tang",
   "period_basis": "據 authors[0].dynasty「唐」",
-  "ai_note": "合併：題名「溫大雅大唐創業起居注」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「溫大雅」已見本條 authors[]），裸題「大唐創業起居注」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw0ifl4hs 與 11q37p3osvpq8 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…三百五十七日之事者，其數相符。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 A11-去重方案3a-2丙 併條（rule=去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并）：併 d59f28llvdvo《太唐創業起居注》 入本條。差一字·經史：《大唐創業起居注》溫大雅(唐,3卷,6著录)／《太唐創業起居注》溫大雅(唐,3卷,1著录)；《太唐創業起居注》／《大唐創業起居注》：太大通用，卷同三卷，同為溫大雅撰",
+  "ai_note": "合併：題名「溫大雅大唐創業起居注」撰人折入題首（來源：新唐書藝文志），與本條同書（撰人「溫大雅」已見本條 authors[]），裸題「大唐創業起居注」全庫僅此一見，無同名之異書，逕併——撰人字首式重出候選（2026-08-07 深查，經人核可批次處理）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全] 2026-08-21 文淵閣四庫本雙錄歸併：所掛 Book 11qkhw0ifl4hs 與 11q37p3osvpq8 同指文淵閣寫本一實物，今併於後者。\n\n2026-08-24 隋唐 T5·description 機械撮述（著錄 ≥4 源批）：**本條之 desc 非人所撰，是據所繫著錄之引文機械組織而成**——撰人、卷數、諸志卷數之異同、敘錄之要點、存佚，皆取自 indexed_by，不臆造一字；敘錄之引文截其前二句（不逾一百五十字）。未覆核原書。生成之法見 `.claude/skills/curate-dynasty` 之記。何以機械撮之：本桶待補者七百餘條而材料大半止於著錄語，逐條手撰不可行，而放著不補則升格後 production 內盡是空條；**卷數之異同正是著錄條最有價值的信息**——諸志所著不同，即其書歷代殘闕之跡。\n\n2026-09-06 qa-sweep/suitang·M loss_status 補全（坑43）：description 已據著錄明書「今存」（「…三百五十七日之事者，其數相符。」今存。」），而 loss_status 未填——「一處已知而另一處未同步」（坑43，weijin 所立，M_PAST／M_NEG 已排除「存至某代而後亡」與「唯目賴以存」二型假陽性）。今據 desc 補 loss_status=extant。原值可逆：loss_status=None。\n\n2026-10-24 國圖數字古籍重配（存疑檔）：逐條人工式裁決後補掛國圖影像資源（子 agent 逐條核對；抽檢錯掛 0）。\n\n2026-10-26 R3 馆藏挂接：按确定档补挂 早稲田 1 条（影像）。依据见 overview 项目进展/馆藏资源挂接/计划/R3-8-早稲田批/早稲田批4_核对报告.md。\n\n2026-10-26 A11-去重方案3a-2丙 併條（rule=去重方案3a-2丙：题名差一字（异体／误字／同书异写）A 档并）：併 d59f28llvdvo《太唐創業起居注》 入本條。差一字·經史：《大唐創業起居注》溫大雅(唐,3卷,6著录)／《太唐創業起居注》溫大雅(唐,3卷,1著录)；《太唐創業起居注》／《大唐創業起居注》：太大通用，卷同三卷，同為溫大雅撰\n\nL5 哈佛燕京挂接",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
   "description": {
@@ -324,8 +366,8 @@
       "新唐書藝文志"
     ]
   },
-  "revision": "1.7.0",
-  "revised_at": "2026-11-14",
+  "revision": "1.8.0",
+  "revised_at": "2026-11-15",
   "loss_status": "extant",
   "additional_titles": [
     "太唐創業起居注"
