@@ -13,9 +13,9 @@
   "id": "hixhd2h9bfrg",
   "primary_name": "周廣",
   "dynasty": "明",
-  "native_place_basis": "CBDB 68082 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 68082 index_addr（2026-09-06 CBDB enrich）；另說：《御選宋金元明四朝詩》御選明詩姓名爵里二作「崑山人」，與庫值不同地（字相合）；原值不改",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=68082 補入空槽——籍貫「太倉州」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eod03y8。\n\n2026-09-06 qa-sweep/qing·C 類（批22系統性覆核「代相鄰者」磁鐵）：移出 `d59f2n13vnr5`——本人名下這些書之撰人實為一同名之清人，與本人生卒相隔逾百年，絕不相涉，各書之獨立佐證見其 ai_note。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n2026-08-24 新收 1 部 work 之繫——其 authors 有本人之名而未繫，本人之代與其書之代相鄰（一人歷易代），故歸之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=68082 補入空槽——籍貫「太倉州」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eod03y8。\n\n2026-09-06 qa-sweep/qing·C 類（批22系統性覆核「代相鄰者」磁鐵）：移出 `d59f2n13vnr5`——本人名下這些書之撰人實為一同名之清人，與本人生卒相隔逾百年，絕不相涉，各書之獨立佐證見其 ai_note。\n\n2026-11-15 P8 自查自決：《御選宋金元明四朝詩》御選明詩姓名爵里二籍貫作「崑山」與庫值「太倉州」不一致（字充之相合），不覆蓋，作另說記入 native_place_basis 並加出處。",
   "period": "ming",
   "alt_names": [
     {
@@ -41,13 +41,13 @@
   ],
   "subtype": "people",
   "schema_version": 1,
-  "revised_at": "2026-11-11",
+  "revised_at": "2026-11-15",
   "dates": {
     "birth": 1474,
     "death": 1531,
     "basis": "現行字段"
   },
-  "revision": "1.1.1",
+  "revision": "1.1.2",
   "description": {
     "sources": [
       {
@@ -59,6 +59,11 @@
         "title": "《欽定四庫全書總目》卷一百七十六·《玉巖集》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明周廣撰。"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選明詩姓名爵里二",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字充之崑山人𢎞治乙丑進士授監察御史謫懷逺驛丞移知建昌再謫竹寨驛復官仕至南刑部右侍郎贈右都御史有玉巖集"
       }
     ]
   }

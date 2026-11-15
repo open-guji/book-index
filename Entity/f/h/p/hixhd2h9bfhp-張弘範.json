@@ -14,9 +14,9 @@
   "id": "hixhd2h9bfhp",
   "primary_name": "張弘範",
   "dynasty": "元",
-  "native_place_basis": "CBDB 17111 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 17111 index_addr（2026-09-06 CBDB enrich）；另說：《御選宋金元明四朝詩》御選元詩姓名爵里一作「河内人」，與庫值不同地（字相合）；原值不改",
   "period_basis": "據 dynasty「元」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=17111 補入空槽——籍貫「定興」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eo6g4jn。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=17111 補入空槽——籍貫「定興」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eo6g4jn。\n\n2026-11-15 P8 自查自決：《御選宋金元明四朝詩》御選元詩姓名爵里一籍貫作「河内」與庫值「定興」不一致（字仲疇相合），不覆蓋，作另說記入 native_place_basis 並加出處。",
   "period": "liao-jin-yuan",
   "alt_names": [
     {
@@ -51,8 +51,8 @@
     "death": 1280,
     "basis": "現行字段"
   },
-  "revision": "1.1.2",
-  "revised_at": "2026-11-12",
+  "revision": "1.1.3",
+  "revised_at": "2026-11-15",
   "relations": [
     {
       "type": "父",
@@ -77,6 +77,11 @@
       {
         "name": "《元史·張弘範傳》",
         "details": "卷156，傳首：張弘範字仲疇，柔第九子也。"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選元詩姓名爵里一",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字仲疇河内人初授行軍司馬以功進順天路管民總管移守大名歴鎮國上將軍江東道宣慰使拜䝉古漢軍都元帥卒諡武略累贈太師開府儀同三司上柱國齊國公改諡忠武延祐中加封淮陽王諡獻……"
       }
     ]
   }
