@@ -36,14 +36,14 @@
       "宋史藝文志"
     ]
   },
-  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzn7z8m`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-09-05 撰人誤繫覈修（A·解繫）：解去所繫之 entity ['hixhd2h9benx']——所繫者名「王守仁」（陽明），與著錄原文之撰人「王雲」連姓名都對不上，是徹底之錯繫。period ming → song。宋志史部散文體「王雲《雞林志》三十卷」，撰人確為王雲，名字不誤。但所繫 entity hixhd2h9benx 之 name 是「王守仁」（明），根本不是王雲——這是同名/近名誤繫，且連名字都對不上（王雲 vs 王守仁）。王雲乃北宋人，崇寧間隨劉逵奉使高麗，歸而作《雞林志》三十卷。應解繫此 entity，authors 保留「王雲（宋）」，period 改 song。",
+  "ai_note": "2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-08-25 J21：authors[0].dynasty 缺值，據所繫 entity `1j967avzn7z8m`.dynasty「明」propagate 補齊；work.dynasty 同步。\n\n2026-09-05 撰人誤繫覈修（A·解繫）：解去所繫之 entity ['hixhd2h9benx']——所繫者名「王守仁」（陽明），與著錄原文之撰人「王雲」連姓名都對不上，是徹底之錯繫。period ming → song。宋志史部散文體「王雲《雞林志》三十卷」，撰人確為王雲，名字不誤。但所繫 entity hixhd2h9benx 之 name 是「王守仁」（明），根本不是王雲——這是同名/近名誤繫，且連名字都對不上（王雲 vs 王守仁）。王雲乃北宋人，崇寧間隨劉逵奉使高麗，歸而作《雞林志》三十卷。應解繫此 entity，authors 保留「王雲（宋）」，period 改 song。\n\n2026-11-15 L0 併條善後：所關聯之 d59fyfccfthd、d59fyfd0sbuo、d59fyv87708x、d59fz7g24fsw、d59fz7gbssn4 已併入 d59fyfc7r9c0，關係改指（按規範方向落筆）。",
   "dynasty": "明",
   "dynasty_basis": "據 authors[0].dynasty「明」（entity propagation，J21 S5 收尾）",
   "revision": "1.0.0",
   "revised_at": "2026-08-25",
   "related_works": [
     {
-      "id": "d59fyv87708x",
+      "id": "d59fyfc7r9c0",
       "relation": "related",
       "note": "史部E另立（anon）：總目記錄「鷄林志」（無作者）與既有 Work 題名相同或相近而不可證同書（记录无作者、目标 Work 有作者且卷数不符／缺：不能证同作者，默认另立＋related），判為不同著作（不並）；互為相關。"
     }

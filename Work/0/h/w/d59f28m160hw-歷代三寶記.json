@@ -1,77 +1,15 @@
 {
   "schema_version": 1,
+  "id": "d59f28m160hw",
   "type": "work",
   "title": "歷代三寶記",
-  "indexed_by": [
-    {
-      "source": "隋書經籍志",
-      "source_bid": "d59f28nmafwh",
-      "title_info": "《歷代三寶記》三卷",
-      "summary": "《歷代三寶記》三卷費長房撰。"
-    },
-    {
-      "source": "舊唐書經籍志",
-      "source_bid": "d59f2gcburcx",
-      "title_info": "《歷代三寶記》三卷",
-      "summary": "《歷代三寶記》三卷"
-    },
-    {
-      "source": "通志藝文略",
-      "source_bid": "d59gc4hif56o",
-      "title_info": "歴代三寶記三卷",
-      "author_info": "費長房撰",
-      "section": "傳記",
-      "juan_count": "三卷"
-    }
-  ],
-  "authors": [
-    {
-      "name": "費長房",
-      "role": "撰",
-      "entity_id": "hixhd2h9bkax"
-    }
-  ],
-  "id": "d59f28m160hw",
-  "emendated_by": [
-    {
-      "source": "隋書經籍志考證",
-      "source_bid": "d59f2mp0flz6",
-      "title_info": "《歷代三寶記》三卷",
-      "summary": "歷代三寶記三卷費長房撰\n《開元釋教録》:隋《開皇三寶錄》一十五卷,内題云《歷代三寶\n記》,開皇十七年,興善寺翻經學士成都費長房撰。\n《法苑珠林傳記篇》:《開皇三寶録》一部一十五卷,隋朝翻\n經學士成都費長房撰。\n《唐書·經籍志》道釋家:《歷代三寶記》三卷。不著撰人。\n《唐書·藝文志》釋氏類:費長房《歷代三寶記》三卷。長房,\n成都人,隋翻經學士。\n嘉興沈濤《銅熨斗齋隨筆》曰:“《隋志》子部雜家《歷代三寶\n記》三卷,費長房撰。今《釋藏》中有其書,藏本分十五卷,則\n《隋志》作三卷者誤。其第十五卷載表文一篇,云“始自姬周\n莊王甲午,佛誕西域,後漢明皇永平丁卯,經度東歲,迄今開\n皇太歲丁巳,歷一千二百八十一載。其間靈瑞,帝王名僧,代\n别顯彰,名《開皇三寶録》,凡十五卷云”。”"
-    }
-  ],
-  "measures": [
-    {
-      "unit": "卷",
-      "number": 3
-    }
-  ],
-  "measure_info": "三卷",
-  "period_upper": "sui-tang",
-  "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《隋書經籍志》（唐長孫無忌等，成於顯慶元年（656）），故不晚於 sui-tang",
-  "period": "sui-tang",
-  "period_basis": "知名人物：費長房，隋開皇中撰《歷代三寶記》（2026-08-24 R3二輪 引文定代）",
+  "merged_into": "d59f28jv4op1",
+  "merged_basis": {
+    "rule": "L0 第十四輪：以前標「存疑」未並之 Work 對，經兩道獨立逐對複核（第二道開庫原文核對）皆判同一部者並之",
+    "at": "2026-11-15T04:36:58Z",
+    "by": "L0",
+    "why": "兩道獨立複核皆判同一部：歷代三寶紀/記題名獨一，同費長房，隋志三卷屬著錄之誤"
+  },
   "revision": "2.1.0",
-  "revised_at": "2026-11-13",
-  "additional_titles": [
-    "歷代三寳記"
-  ],
-  "ai_note": "2026-08-25 無斷代批次合併（plan_4.json 判、主進程執行）：《歷代三寶記》：隋費長房撰之佛教目錄，題名獨一無二；國史條十五卷不著撰人，正其本數（跨庫併：源在 draft，目標在 production；依坑21 不補 promotions 映射——目標非自該源升格而來。）\n\n2026-08-25 補 `merged_from`：`1evgpkpa1itxc` 併入本條之際，merge_ib 未寫此欄（已記於 known-issues），今補——不補則來歷失載，且 E07 見同題二 id 而不知其為併。\n混记录拆分（2026-10-26，去重：ncltw／3a-2丙 混记录）：本条混挂不同编次，留「三卷本（隋唐志）」，其余拆出：「十五卷本（國史經籍志）」→d59f28jv4op1",
-  "resources": [
-    {
-      "id": "nlk",
-      "label": "韓國KORCIS書目著錄（僅目錄，無影像）：국립중앙도서관·1979",
-      "name": "韓國古文獻綜合目錄 KORCIS（韓國國立中央圖書館）",
-      "url": "https://www.nl.go.kr/korcis/openapi/detail.do?rec_key=101127550",
-      "types": [
-        "catalog"
-      ],
-      "metadata": {
-        "korcis_rec_key": "101127550",
-        "holder": "국립중앙도서관",
-        "edition": "1979"
-      },
-      "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
-    }
-  ]
+  "revised_at": "2026-11-15"
 }
