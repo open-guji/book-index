@@ -1,93 +1,15 @@
 {
   "schema_version": 1,
+  "id": "d59f2hg9akua",
   "type": "work",
   "title": "野人閑話",
-  "indexed_by": [
-    {
-      "source": "宋史藝文志",
-      "source_bid": "d59f2gdp696q",
-      "title_info": "《野人閑話》",
-      "summary": "又《野人閑話》五卷"
-    },
-    {
-      "source": "國史經籍志",
-      "source_bid": "d59f2nl40936",
-      "title_info": "《野人閑話》五卷",
-      "summary": "《野人閑話》五卷（宋景煥）",
-      "author_info": "宋景煥"
-    },
-    {
-      "source": "直齋書錄解題",
-      "source_bid": "d59f2htm01du",
-      "summary": "成都景煥撰。記孟蜀時事，乾德三年序。",
-      "title_info": "《野人閑話》五卷"
-    },
-    {
-      "source": "崇文總目",
-      "source_bid": "d59f2hqc0c1t",
-      "title_info": "野人閒話五卷",
-      "summary": "野人閒話五卷"
-    },
-    {
-      "source": "通志藝文略",
-      "source_bid": "d59gc4hif56o",
-      "title_info": "野人閑話五卷",
-      "author_info": "宋朝景煥撰",
-      "section": "軍律",
-      "juan_count": "五卷"
-    },
-    {
-      "source": "文獻通考經籍考",
-      "source_bid": "d59fazcc5q80",
-      "title_info": "野人閑話五卷",
-      "summary": "陳氏曰成都景煥撰記孟蜀時事乾徳三年序",
-      "juan_count": "五卷"
-    }
-  ],
-  "id": "d59f2hg9akua",
-  "measures": [
-    {
-      "unit": "卷",
-      "number": 5
-    }
-  ],
-  "measure_info": "五卷",
-  "ai_note": "2026-08-20 卷數補全專項：本條原無 juan_count，而所繫著錄之 title_info 以本書之題起首而綴卷數，全庫諸著錄所給之數一致（五卷），今據以補。\n\n2026-08-20 撰人補全專項：本條原無 authors，而所繫諸著錄之 author_info 一致作「宋景煥」，其文為裸名（去朝代與「撰」「編」「僧」「沙門」等職名之後為二至三字之人名，不含標點、數字、缺字），今據以補。四字以上者多為 OCR 之殘或二人連書，不在此批。\n\n2026-08-24 J11 description 撮自本條所繫之著錄：本欄之文由撰人、卷數、著錄諸志、志按所稱之佚文出處與輯家、存佚五節綴成，**每節皆據本條 indexed_by 之引文，不出其外，亦不臆造**。凡著錄所無者一字不書。此即 curate-dynasty S3〈借力志書〉之法——本時段有姚振宗《三國藝文志》與丁國鈞《補晉書藝文志》二部斷代志之整理本在庫，其按語備載卷數異同、佚文出處與輯家，正可為佚書之 desc 所本。**未覆核原書**。\n\n2026-11-01 去重-A9与国图线索 併條（rule=去重线索（A9／国图等）：同题、著者同人或一侧无著者而著录互证，逐对判＋独立复核并）：併 d59f2puaypkw《野人閒話》 入本條。題異體（閑／閒）、均五卷；宋志／國史志／直齋作景煥五卷，崇文總目同題五卷無著者；独立复核维持",
-  "authors": [
-    {
-      "name": "景煥",
-      "role": "撰",
-      "dynasty": "趙宋",
-      "entity_id": "hixhd2h9bqux",
-      "note": "據本 work 諸著錄之 author_info「宋景煥」補；著錄所給者為一，去朝代與職名後取之。",
-      "name_basis": "2026-08-24 新建 entity `1jcf51512962e` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。",
-      "dynasty_basis": "synonym:period=song"
-    }
-  ],
-  "dynasty": "趙宋",
-  "dynasty_basis": "author_propagation:authors 已判「趙宋」",
-  "period": "song",
-  "period_basis": "據 authors[0].dynasty「宋」",
-  "description": {
-    "text": "景煥（宋）撰。五卷。見著錄於《宋史藝文志》《國史經籍志》《直齋書錄解題》。其著錄之文，《國史經籍志》作「《野人閑話》五卷（宋景煥）」。《宋史藝文志》元脫脫等修；《國史經籍志》明焦竑撰——本書之目賴之以存。",
-    "sources": [
-      "宋史藝文志",
-      "國史經籍志",
-      "直齋書錄解題"
-    ]
+  "merged_into": "d59fybbwooow",
+  "merged_basis": {
+    "rule": "L0 第二十七轮：同题作品撰人名异写，两道独立复核皆同书",
+    "at": "2026-11-15T22:10:26Z",
+    "by": "L0",
+    "why": "近似題名兩道獨立複核皆同：野人閒話／野人閑話"
   },
   "revision": "1.1.0",
-  "revised_at": "2026-11-01",
-  "related_works": [
-    {
-      "id": "d59fybbwooow",
-      "relation": "related",
-      "note": "史部E另立（exact）：總目記錄「野人閒話」（景煥）與既有 Work 題名相同或相近而不可證同書（卷差>1（本条1卷，目标5卷）），判為不同著作（不並）；互為相關。"
-    }
-  ],
-  "period_upper": "song",
-  "period_upper_basis": "catalog_bound：所繫諸志中最緊者為《崇文總目》（宋王堯臣等（1041），北宋崇文院藏書），故不晚於 song",
-  "additional_titles": [
-    "野人閒話"
-  ]
+  "revised_at": "2026-11-15"
 }
