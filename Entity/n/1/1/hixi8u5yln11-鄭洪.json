@@ -4,10 +4,16 @@
   "type": "entity",
   "subtype": "people",
   "primary_name": "鄭洪",
+  "alt_names": [
+    {
+      "name": "君舉",
+      "type": "字"
+    }
+  ],
   "dynasty": "元",
   "dynasty_basis": "據《中國古籍總目》責任者著錄",
   "native_place": "永嘉",
-  "native_place_basis": "CBDB 111832 index_addr（2026-11-01 A 档补）",
+  "native_place_basis": "《御選宋金元明四朝詩》御選元詩姓名爵里二著錄「永嘉人」（姓名爵里卷；同名同朝代、籍貫與庫內一致）",
   "period": "liao-jin-yuan",
   "description": {
     "sources": [
@@ -15,10 +21,15 @@
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/02c5vilnye8zxump"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選元詩姓名爵里二",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字君舉號素軒永嘉人有集一巻"
       }
     ]
   },
-  "ai_note": "集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/02c5vilnye8zxump）新建；著錄 2 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-11-01 A 檔補字段：據所繫 cbdb_id=111832（有硬證：書名／生卒／別名對上）補入空槽——籍貫「永嘉」。既有之值一概未動。\n\n2026-11-01 A 檔補 Wikidata：經 Wikidata P497（CBDB ID）反查 cbdb_id=111832，唯一對應 Q45677273，且 Wikidata 標籤與本條名稱相符。",
+  "ai_note": "集部串（GUJI-239 作者实体补建）據《中國古籍總目》責任者（http://data.library.sh.cn/entity/person/02c5vilnye8zxump）新建；著錄 2 處，同 uri 視為同一人；未對接 CBDB。\n\n2026-11-01 A 檔補字段：據所繫 cbdb_id=111832（有硬證：書名／生卒／別名對上）補入空槽——籍貫「永嘉」。既有之值一概未動。\n\n2026-11-01 A 檔補 Wikidata：經 Wikidata P497（CBDB ID）反查 cbdb_id=111832，唯一對應 Q45677273，且 Wikidata 標籤與本條名稱相符。\n\n2026-11-15 P8：籍貫依據由 CBDB 換為《御選宋金元明四朝詩》御選元詩姓名爵里二（出處錨定：同名同朝代且籍貫與庫內縣州府一致；籍貫值未變）。字「君舉」依該書補入 alt_names。",
   "external_ids": {
     "cbdb_id": 111832,
     "wikidata_id": "Q45677273"
@@ -27,7 +38,7 @@
     "cbdb_match": "auto_v2",
     "cbdb_source": "v2:name+period+work"
   },
-  "revision": "1.0.3",
-  "revised_at": "2026-11-01",
+  "revision": "1.0.4",
+  "revised_at": "2026-11-15",
   "native_place_entity_id": "hixicl87e798"
 }
