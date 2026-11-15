@@ -12,9 +12,9 @@
   "id": "hixhd2h9biad",
   "primary_name": "蔡毅中",
   "dynasty": "明",
-  "native_place_basis": "CBDB 123900 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 123900 index_addr（2026-09-06 CBDB enrich）；另說：《御選宋金元明四朝詩》御選明詩姓名爵里五作「光山人」，與庫值不同地（字相合）；原值不改",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 6 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=123900 補入空槽——籍貫「萬年」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ek1jxfo、d59f6elc2add、d59f6ejlmtqa、d59f6ehu9ngj、d59f6eiuh6gy、d59f6elyjdhh。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 6 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=123900 補入空槽——籍貫「萬年」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ek1jxfo、d59f6elc2add、d59f6ejlmtqa、d59f6ehu9ngj、d59f6eiuh6gy、d59f6elyjdhh。\n\n2026-11-15 P8 自查自決：《御選宋金元明四朝詩》御選明詩姓名爵里五籍貫作「光山」與庫值「萬年」不一致（字𢎞甫相合），不覆蓋，作另說記入 native_place_basis 並加出處。",
   "period": "ming",
   "alt_names": [
     {
@@ -49,14 +49,19 @@
     "death": 1631,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.1.1",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/em12ybf212dulcyr"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選明詩姓名爵里五",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字𢎞甫光山人萬厯辛丑進士改庶吉士授檢討降麻城縣丞陞行人司副遷尚寶司丞冄降長蘆運判召還累官國子祭酒禮部右侍郎兼侍讀學士"
       }
     ]
   },

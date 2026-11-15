@@ -31,9 +31,9 @@
   "dynasty_basis": "cbdb:birth/death_name=北宋",
   "period": "song",
   "period_basis": "据 dynasty「北宋」自动归并",
-  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 3 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=3012 補入空槽——籍貫「彭州」。既有之值一概未動。\nA12 b12（2026-10-30）據《四庫全書總目》第68册補別名「文元公」。",
+  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 3 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=3012 補入空槽——籍貫「彭州」。既有之值一概未動。\nA12 b12（2026-10-30）據《四庫全書總目》第68册補別名「文元公」。\n\n2026-11-15 P8 自查自決：《御選宋金元明四朝詩》御選宋詩姓名爵里一籍貫作「清豐」與庫值「彭州」不一致（字明逺相合），不覆蓋，作另說記入 native_place_basis 並加出處。",
   "native_place": "彭州",
-  "native_place_basis": "CBDB 3012 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 3012 index_addr（2026-09-06 CBDB enrich）；另說：《御選宋金元明四朝詩》御選宋詩姓名爵里一作「清豐人」，與庫值不同地（字相合）；原值不改",
   "dates": {
     "birth": 951,
     "death": 1034,
@@ -59,6 +59,11 @@
       {
         "name": "《宋史·晁迥傳》",
         "details": "卷305，傳首：晁迥，字明遠，世為澶州清豐人，自其父佺，始徙家彭門。"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選宋詩姓名爵里一",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字明逺清豐人太平興國五年進士擢知制誥為翰林學士承㫖天禧中判西京留司御史臺以太子少保致仕加少傅卒諡文元著有道院別集十五巻法藏碎金錄十巻耄智餘言三巻昭德新編三巻理樞……"
       }
     ]
   },
@@ -230,8 +235,8 @@
       ]
     }
   ],
-  "revision": "1.1.6",
-  "revised_at": "2026-11-12",
+  "revision": "1.1.7",
+  "revised_at": "2026-11-15",
   "relations": [
     {
       "type": "父",
