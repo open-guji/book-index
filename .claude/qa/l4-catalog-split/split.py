@@ -289,6 +289,14 @@ def parse_tongkao():
     return out
 
 
+_AF = str.maketrans("範徳鹹薑脩餘邱", "范德咸姜修余丘")
+
+
+def _af(x):
+    """作者名异体折叠（只折这几个已核实的异体字，不做模糊）。"""
+    return x.translate(_AF)
+
+
 def match(e, idx, by, era):
     k = norm(e["title"])
     if len(k) < 2:
@@ -299,7 +307,7 @@ def match(e, idx, by, era):
         return "N", []
     if e.get("note"):
         a = e["note"]
-        hit = [w for w in cands if any(len(n) >= 2 and n in a for n in idx[w]["a"])]
+        hit = [w for w in cands if any(len(n) >= 2 and _af(n) in _af(a) for n in idx[w]["a"])]
         if len(hit) == 1:
             return "A", hit
         if len(hit) > 1:
@@ -309,7 +317,7 @@ def match(e, idx, by, era):
         return "C", cands[:6]
     if e["author"]:
         a = e["author"]
-        hit = [w for w in cands if any(len(n) >= 2 and (n in a or a in n) for n in idx[w]["a"])]
+        hit = [w for w in cands if any(len(n) >= 2 and (_af(n) in _af(a) or _af(a) in _af(n)) for n in idx[w]["a"])]
         if len(hit) == 1:
             return "A", hit
         if len(hit) > 1:
