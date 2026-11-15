@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 1 取自 `measure_info`「一冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\nL5 kyu存疑复核后挂接",
   "measures": [
     {
       "unit": "冊",
@@ -41,8 +41,8 @@
   "period_basis": "據 authors[0].dynasty「明」",
   "dynasty": "明",
   "dynasty_basis": "author_propagation",
-  "revision": "1.1.0",
-  "revised_at": "2026-11-13",
+  "revision": "1.2.0",
+  "revised_at": "2026-11-15",
   "resources": [
     {
       "name": "维基文库",
@@ -66,6 +66,20 @@
         "edition": "[丁未(?)]"
       },
       "details": "KORCIS 書目著錄，該館藏有此書，無原文影像；url 為 Open API 詳情（XML，非人讀頁）"
+    },
+    {
+      "id": "kyujanggak",
+      "label": "奎章閣藏本：木版本 刊年未詳",
+      "name": "首爾大學奎章閣韓國學研究院 古典籍",
+      "url": "https://kyudb.snu.ac.kr/book/view.do?book_cd=GC01567_00&target=master",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "kyu_record": "GC01567_00",
+        "call_no": "奎中1567",
+        "edition": "木版本 刊年未詳"
+      }
     }
   ]
 }
