@@ -22,7 +22,7 @@
 |---|---|---|---|---|---|---|---|
 | `dates.birth` | integer（`null` 为旧） | 可选；people | 原生 | 生年 | 公历年，公元前负数 | 录入、迁移 | `1036` |
 | `dates.death` | integer（`null` 为旧） | 可选；people | 原生 | 卒年 | 同上 | 录入、迁移 | `1101` |
-| `dates.floruit` | array<integer>（`null` 为旧） | 可选；people | 原生 | 活动年区间 `[起, 止]` | 二元整数组，起 ≤ 止；只在生卒双缺、且 CBDB 侧另有旁证（`index_year`，即 `BIOG_MAIN` 的活动年代参考值）时补，`basis` 记 `"cbdb:index_year"`；取不到旁证的不补、留 `dates` 缺省 | 迁移 | `[1019, 1019]`（馬玗 `hixhd2h9biiy`） |
+| `dates.floruit` | array<integer>（`null` 为旧） | 可选；people | 原生 | 活动年区间 `[起, 止]` | 二元整数组，起 ≤ 止；只在生卒双缺、且 CBDB 侧另有旁证（`index_year`，即 `BIOG_MAIN` 的活动年代参考值）时补，`basis` 记 `"cbdb:index_year"`；取不到旁证的不补、留 `dates` 缺省。另一来源（2026-11-15）：生卒双缺的清、明（版本年≥1500）人物，可据其名下 Work 的最早 Book 版本年 Y 推 `[Y-60, Y]`（下限不早于朝代起年），`basis` 必须以「據版本年推」开头（可机读，判重、并条拷 dates、F04 一律排除，不当同代佐证），形如「據版本年推：《书名》現存最早著錄版本年Y，約活動於…（推定，非生卒）」；标定精度约 88–90%，为弱证据；其余朝代版本年距作者过远，不做 | 迁移 | `[1019, 1019]`（馬玗 `hixhd2h9biiy`） |
 | `dates.start` | integer | 条件：dynasty（中国朝代）、reign 必填 | 原生 | 起年 | 公历年，无 0 年 | 录入 | `960` |
 | `dates.end` | integer | 可选；dynasty、reign | 原生 | 止年 | 同上，`start ≤ end` | 录入 | `1127` |
 | `dates.basis` | string | 条件：有年值时写 | 原生 | 年值的来源 | 自由文本，非枚举。people 现值 `"現行字段"`（机械迁移自 `birth_year`／`death_year`，正式库 6,889）、`"cbdb:index_year"`（336）、`"cbdb"`（正式库 249、草稿库 253） | 录入、迁移 | `"趙匡胤 960 稱帝，止於靖康"` |
