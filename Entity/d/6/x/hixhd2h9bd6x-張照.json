@@ -14,9 +14,9 @@
   "id": "hixhd2h9bd6x",
   "primary_name": "張照",
   "dynasty": "清",
-  "native_place_basis": "CBDB 58518 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《國朝先正事略》第14冊第81頁著錄「華亭縣人」（字號相合；與庫值「婁縣」同屬一府，二縣之別待考，沿 CBDB 值）",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=58518 補入空槽——籍貫「婁縣」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eq421oh。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=58518 補入空槽——籍貫「婁縣」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eq421oh。\n\n2026-11-15 OCR 先正事略：古籍作「江蘇華亭縣人」，與庫值「婁縣」同府異縣（可能為析縣或別稱），值保留，依據注明。",
   "period": "qing",
   "alt_names": [
     {
@@ -99,8 +99,8 @@
     "death": 1745,
     "basis": "現行字段"
   },
-  "revision": "1.1.3",
-  "revised_at": "2026-11-12",
+  "revision": "1.1.4",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
@@ -111,6 +111,11 @@
       {
         "name": "《清史稿·張照傳》",
         "details": "卷304，傳首：張照，字得天，江南婁縣人。"
+      },
+      {
+        "title": "《國朝先正事略》第14冊第81頁",
+        "source_bid": "d59f2ncz7jeq",
+        "details": "張照字得天號涇南江蘇華亭縣人"
       }
     ]
   },
