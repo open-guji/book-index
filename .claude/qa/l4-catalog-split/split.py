@@ -35,6 +35,7 @@ BOOKS = {
     "songshi": ("宋史藝文志", "d59f2gdp696q", "song", ""),
     "qiandingtang": ("千頃堂書目", "d59f2mel8d1c", "ming", ""),
     "mingshi": ("明史藝文志", "d59f2mox0000", "ming", ""),
+    "dawen": ("書目答問", "d59f2nfowtfm", "qing", ""),
     "tongzhi": ("通志藝文略", "d59gc4hif56o", "song", "q/8/1/d59f2hrrtq81/default"),
 }
 FOLD = str.maketrans({"爲": "為", "録": "錄", "説": "說", "裏": "裡", "並": "并", "歴": "歷", "厯": "歷",
@@ -180,6 +181,20 @@ def parse_listbook(key):
                     if p in ("欽定四庫全書", "遂初堂書目") or len(p) > 14:
                         continue
                     out.append(dict(sec=sec, title=p, juan="", head=p, summary="", author_raw="", author="", file=fn))
+    return out
+
+
+def parse_dawen():
+    """書目答問卷一至四：行首《題》N卷（作者。版本）。原文简体，经 opencc 转繁（映射表 DAWEN_MAP）。"""
+    raw = json.load(open(os.environ.get("DAWEN_RAW", "/tmp/claude-0/dawen_raw.json"), encoding="utf-8"))
+    mp = json.load(open(os.environ.get("DAWEN_MAP", "/tmp/claude-0/dawen_map.json"), encoding="utf-8"))
+    cv = lambda x: mp.get(x, x)
+    out = []
+    for e in raw:
+        t = cv(e["title"])
+        note = cv(re.split(r"[。）]", e["note"])[0])
+        out.append(dict(sec=cv(e["sec"]), title=t, juan=cv(e["juan"]), head=t + cv(e["juan"]), summary="",
+                        author_raw=note, author="", note=note, file="書目答問"))
     return out
 
 
@@ -337,7 +352,7 @@ def main():
     key = sys.argv[1]
     apply = "--apply" in sys.argv
     src, sbid, era, _ = BOOKS[key]
-    ents = parse_qdt() if key == "qiandingtang" else parse_songshi(key) if key in ("songshi", "mingshi") else parse_zhizhai("chongwen.json") if key == "chongwen" else parse_zhizhai() if key == "zhizhai" else parse_junzhai() if key == "junzhai" else parse_tongzhi() if key == "tongzhi" else parse_tongkao() if key == "tongkao" else parse_headings(key) if key in ("rbfz", "rbfzb") else parse_listbook(key)
+    ents = parse_dawen() if key == "dawen" else parse_qdt() if key == "qiandingtang" else parse_songshi(key) if key in ("songshi", "mingshi") else parse_zhizhai("chongwen.json") if key == "chongwen" else parse_zhizhai() if key == "zhizhai" else parse_junzhai() if key == "junzhai" else parse_tongzhi() if key == "tongzhi" else parse_tongkao() if key == "tongkao" else parse_headings(key) if key in ("rbfz", "rbfzb") else parse_listbook(key)
     idx, by = load_idx()
     cnt = collections.Counter()
     rows = []
