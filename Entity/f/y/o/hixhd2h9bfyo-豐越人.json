@@ -12,15 +12,21 @@
   "native_place_entity_id": "hixi4ui5u4ug",
   "id": "hixhd2h9bfyo",
   "primary_name": "豐越人",
+  "alt_names": [
+    {
+      "name": "正元",
+      "type": "字"
+    }
+  ],
   "dynasty": "明",
-  "native_place_basis": "CBDB 30214 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《御選宋金元明四朝詩》御選明詩姓名爵里六著錄「鄞縣人」（姓名爵里卷；同名同朝代、籍貫與庫內一致）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=30214 補入空槽——籍貫「鄞縣」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eqyc2df。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=30214 補入空槽——籍貫「鄞縣」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eqyc2df。\n\n2026-11-15 P8：籍貫依據由 CBDB 換為《御選宋金元明四朝詩》御選明詩姓名爵里六（出處錨定：同名同朝代且籍貫與庫內縣州府一致；籍貫值未變）。字「正元」依該書補入 alt_names。",
   "period": "ming",
   "schema_version": 1,
   "subtype": "people",
-  "revision": "1.1.1",
-  "revised_at": "2026-11-11",
+  "revision": "1.1.2",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
@@ -32,7 +38,19 @@
         "title": "《欽定四庫全書總目》卷一百八十·《豐正元集》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明豐越人撰。"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選明詩姓名爵里六",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字正元鄞縣人有天放野人集"
       }
     ]
+  },
+  "dates": {
+    "floruit": [
+      1567,
+      1627
+    ],
+    "basis": "據版本年推：《豐正元先生詩》現存最早著錄版本年1627，約活動於1567–1627間（推定，非生卒）"
   }
 }

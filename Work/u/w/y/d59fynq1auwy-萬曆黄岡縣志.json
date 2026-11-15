@@ -47,10 +47,39 @@
       "page": "17--28"
     }
   ],
-  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xbv1oveyszryob17、0y17ci1zy44sm0cm、bk5xq8grdorxlsuv\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-11-13 L0 併條（rule=L0 第三轮 Work 未判组：子 agent 逐组判 A/B，盲检 49/50 SAME（1 UNSURE 已降存疑））：併 d59gch0c81k8《[萬曆]黃岡縣志》 入本條。G520:同為萬曆黃岡縣志（茅瑞徵修，萬曆三十六年刻），湖北黃岡，庫中萬曆修次唯此一部",
+  "ai_note": "F 道（overview#576）據《中國古籍總目》（上圖聯合目錄）自動錄入；匹配檔=新；源記錄：xbv1oveyszryob17、0y17ci1zy44sm0cm、bk5xq8grdorxlsuv\n全版本無撰／著／作，Work.authors 取編／輯／纂／選之責任者\nauto-split:存疑未并\nE6 第 433 批新建（hold 清零：J-yiyi另立方志；原 hold 原因：tier=存疑）\n\n2026-11-13 L0 併條（rule=L0 第三轮 Work 未判组：子 agent 逐组判 A/B，盲检 49/50 SAME（1 UNSURE 已降存疑））：併 d59gch0c81k8《[萬曆]黃岡縣志》 入本條。G520:同為萬曆黃岡縣志（茅瑞徵修，萬曆三十六年刻），湖北黃岡，庫中萬曆修次唯此一部\n\n2026-11-15 L0 併條（rule=L0 第二十七轮：同题作品撰人名异写，两道独立复核皆同书）：併 d59f2nl4bhfn《黃岡縣志》 入本條。近似題名兩道獨立複核皆同：黃岡縣志／[萬曆]黄岡縣志\n\n2026-11-15 L0 第二十七轮：併入 d59f2nl4bhfn《黃岡縣志》（原題撰人：毛瑞徵等纂修）。同書之據：毛/茅音同；均萬曆三十六年刊本；其原注：本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：31hyr4yqtmgfk(劉恭冕)（不同作者，故新建獨立 Work）。 [ming-round1: author.dynasty 集合=['明'] → dynasty=明]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 3 取自 `measure_info`「三冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-13 #583 馆藏挂接：按确定档补挂 國圖 1 条（影像，待独立抽检）。依据见 overview 馆藏资源挂接/计划/#583-收口记录.md。",
   "revision": "1.0.0",
   "revised_at": "2026-10-19",
   "additional_titles": [
-    "[萬曆]黃岡縣志"
-  ]
+    "[萬曆]黃岡縣志",
+    "黃岡縣志"
+  ],
+  "measures": [
+    {
+      "unit": "冊",
+      "number": 3
+    }
+  ],
+  "measure_info": "三冊",
+  "resources": [
+    {
+      "id": "nlc",
+      "label": "國圖藏本：明萬曆[1573-1620]",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=0818",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "0818",
+        "edition": "明萬曆[1573-1620]"
+      }
+    }
+  ],
+  "description": {
+    "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 平圖008161-008164）。明萬曆戊申(三十六年)刊本。",
+    "sources": [
+      "國立故宮博物院善本舊籍"
+    ]
+  }
 }
