@@ -14,9 +14,9 @@
   "id": "hixhd2h9bewl",
   "primary_name": "王穉登",
   "dynasty": "明",
-  "native_place_basis": "CBDB 35040 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《御選宋金元明四朝詩》御選明詩姓名爵里四著錄「長洲人」（字與庫內一致；書作長洲，較庫值「蘇州府」更細；庫值未改）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 3 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=35040 補入空槽——籍貫「蘇州府」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6el079q9、d59f6eo64w04。\nA12 b15（2026-10-30）據《四庫全書總目》第84册補別名「王百穀」。",
+  "ai_note": "2026-08-24 補繫 entity：新收 3 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=35040 補入空槽——籍貫「蘇州府」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6el079q9、d59f6eo64w04。\nA12 b15（2026-10-30）據《四庫全書總目》第84册補別名「王百穀」。\n\n2026-11-15 P8 自查自決：籍貫依據由 CBDB 換為《御選宋金元明四朝詩》御選明詩姓名爵里四（字與庫內一致；書作長洲，較庫值「蘇州府」更細；庫值未改；籍貫值未變）。",
   "period": "ming",
   "alt_names": [
     {
@@ -55,8 +55,8 @@
     "death": 1612,
     "basis": "現行字段"
   },
-  "revision": "1.2.1",
-  "revised_at": "2026-11-11",
+  "revision": "1.2.2",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
@@ -83,6 +83,11 @@
         "title": "《欽定四庫全書總目》卷一百四十三·《吳社編》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明王穉登撰。"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選明詩姓名爵里四",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字百榖一字伯固長洲人太學生有晉陵金昌燕市客越青雀竹箭梅花什荆溪松檀諸集"
       }
     ]
   }

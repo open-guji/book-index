@@ -13,9 +13,9 @@
   "id": "hixhd2h9bg7r",
   "primary_name": "米萬鍾",
   "dynasty": "明",
-  "native_place_basis": "CBDB 66014 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 66014 index_addr（2026-09-06 CBDB enrich）；另說：《御選宋金元明四朝詩》御選明詩姓名爵里五作「宛平人」，書作宛平，庫值安化；其先安化人；原值不改",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=66014 補入空槽——籍貫「安化」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6egbn4ea、d59f6ehjnkzo。\n\n2026-11-15 據 Wikidata Q3307829 補生卒（P569／P570，僅取精度至年者；暫以 Wikidata 為據，日後換古籍出處）。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 2 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=66014 補入空槽——籍貫「安化」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6egbn4ea、d59f6ehjnkzo。\n\n2026-11-15 據 Wikidata Q3307829 補生卒（P569／P570，僅取精度至年者；暫以 Wikidata 為據，日後換古籍出處）。\n\n2026-11-15 P8 自查自決：《御選宋金元明四朝詩》御選明詩姓名爵里五籍貫作「宛平」與庫值「安化」不一致（字仲詔相合），不覆蓋，作另說記入 native_place_basis 並加出處。",
   "dates": {
     "birth": 1570,
     "death": 1628,
@@ -50,7 +50,7 @@
     }
   ],
   "subtype": "people",
-  "revision": "1.0.2",
+  "revision": "1.0.3",
   "revised_at": "2026-11-15",
   "description": {
     "sources": [
@@ -63,6 +63,11 @@
         "title": "《欽定四庫全書總目》卷一百九十三·《湛園雜咏》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明米萬鍾撰。"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選明詩姓名爵里五",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字仲詔宛平人萬厯乙未進士厯知永寧銅梁六合三縣入為大理右評事累官江西按察使有北征吟"
       }
     ]
   }

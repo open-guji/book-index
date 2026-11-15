@@ -16,7 +16,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3bcwvgml1c(歐陽修);1evgaarduudc0(王結)（不同作者，故新建獨立 Work）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 8 取自 `measure_info`「八冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。 索引中尚有同名異書：1ev3bcwvgml1c(歐陽修);1evgaarduudc0(王結)（不同作者，故新建獨立 Work）。 [sui-tang-round1: dynasty null->唐; 據唯一 author.dynasty「唐」補全]\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 8 取自 `measure_info`「八冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\nL5 哈佛燕京挂接",
   "measures": [
     {
       "unit": "冊",
@@ -29,8 +29,8 @@
   "period_basis": "據 authors[0].dynasty「唐」",
   "dynasty": "唐",
   "dynasty_basis": "author_propagation",
-  "revision": "1.3.0",
-  "revised_at": "2026-11-13",
+  "revision": "1.4.0",
+  "revised_at": "2026-11-15",
   "indexed_by": [
     {
       "source": "中國古籍總目",
@@ -103,6 +103,20 @@
         "institution": "東洋文庫",
         "edition": "唐 顏眞卿",
         "extent": "十六卷"
+      }
+    },
+    {
+      "id": "harvard",
+      "label": "哈佛燕京藏本：China Guang ya shu ju Guangxu jian [between 1875 and 1908]",
+      "name": "哈佛大學圖書館 哈佛燕京圖書館",
+      "url": "https://hdl.handle.net/2027/hvd.32044067793760",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "harvard_record": "990067886410203941",
+        "call_no": "9100 1471B (568-570)",
+        "edition": "China Guang ya shu ju Guangxu jian [between 1875 and 1908]"
       }
     }
   ]

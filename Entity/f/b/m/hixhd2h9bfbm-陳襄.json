@@ -30,12 +30,12 @@
   "dynasty_basis": "cbdb:birth/death_name=北宋",
   "period": "song",
   "period_basis": "据 dynasty「北宋」自动归并",
-  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 宋志頂真格（去括注本）：新收 1 部 work 之繫。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-04 坑32 修復批次：補繫《陳襄集》（work d59f2q5g2nsx），依別集類「人名+集」書名體例。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=7005 補入空槽——籍貫「宜興」。既有之值一概未動。\n\n2026-09-06 qa-sweep/song·所繫之 `d59f2hqs8oao`《古靈先生文集二十五卷年譜一卷附錄》併入 `d59f2hqe6zuq`，回指隨之改繫（重複者去之）。\nA12 b06（2026-10-29）據《欽定四庫全書總目》第39册補別稱「陳古靈」。",
-  "revision": "1.2.3",
-  "revised_at": "2026-11-11",
+  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 宋志頂真格（去括注本）：新收 1 部 work 之繫。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-04 坑32 修復批次：補繫《陳襄集》（work d59f2q5g2nsx），依別集類「人名+集」書名體例。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=7005 補入空槽——籍貫「宜興」。既有之值一概未動。\n\n2026-09-06 qa-sweep/song·所繫之 `d59f2hqs8oao`《古靈先生文集二十五卷年譜一卷附錄》併入 `d59f2hqe6zuq`，回指隨之改繫（重複者去之）。\nA12 b06（2026-10-29）據《欽定四庫全書總目》第39册補別稱「陳古靈」。\n\n2026-11-15 P8 自查：《史傳三編》卷三本傳作「福州侯官人」（字相合），與庫值「宜興」不同地，按真矛盾處理：籍貫值不改，作另說記入 native_place_basis 並加出處。\n\n2026-11-15 P8 自查自決：《御選宋金元明四朝詩》御選宋詩姓名爵里一籍貫作「侯官」（字述古相合），他書已記另說，今追記入 native_place_basis 並加出處；原值不改。",
+  "revision": "1.2.5",
+  "revised_at": "2026-11-15",
   "native_place": "宜興",
   "native_place_entity_id": "hixi5whkr37w",
-  "native_place_basis": "CBDB 7005 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 7005 index_addr（2026-09-06 CBDB enrich）；另說：《史傳三編》卷三作「福州侯官人」（字相合），與庫值「宜興」不同地；原值不改；又，《御選宋金元明四朝詩》御選宋詩姓名爵里一作「侯官人」（字相合），與庫值「宜興」不同地；原值不改",
   "dates": {
     "birth": 1017,
     "death": 1080,
@@ -56,6 +56,16 @@
       {
         "name": "《宋史·陳襄傳》",
         "details": "卷321，傳首：陳襄，字述古，福州侯官人。"
+      },
+      {
+        "title": "《史傳三編》卷三",
+        "source_bid": "d59geaglo3r4",
+        "details": "陳襄字述古福州侯官人"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選宋詩姓名爵里一",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字述古侯官人舉進士累知制誥歴樞密直學士兼侍讀判尚書都省有古靈集二十五巻"
       }
     ]
   },
