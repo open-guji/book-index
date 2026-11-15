@@ -15,9 +15,10 @@
 | `type` | string | 必填 | 原生 | 记录类型 | 恒为 `"work"` | bim | `"work"` |
 | `schema_version` | integer | 必填 | 原生 | 记录格式版本 | 恒为 `1` | bim | `1` |
 | `title` | string | 必填 | 原生 | 规范题名 | 繁体 | 录入 | `"周易"` |
-| `subtype` | string | 可选 | 原生 | 作品细类 | `book`（缺省，可省）｜`article`｜`poem`｜`chapter`，见 [§三](#三subtype) | 录入 | `"chapter"` |
+| `subtype` | string | 可选 | 原生 | 作品细类 | `book`（缺省，可省）｜`poem`｜`ci`｜`qu`｜`fu`｜`article`｜`chapter`，见 [§三](#三subtype) | 录入 | `"chapter"` |
 | `additional_titles` | array<string> | 可选 | 原生 | 同书异名 | 字符串数组 | 录入 | `["春秋左氏傳"]` |
 | `original_title` | string | 可选 | 原生 | 条目原题（与规范题不同时） | 原文照录 | 录入 | `"毛詩義問"` |
+| `incipit` | string | 可选 | 原生 | 首句（单篇诗文用）：与题名、首位作者一起作去重键，同题之作（無題、雜詩、古風其N）靠它区分 | 原文首句，繁体，不带标点结尾 | 录入 | `"八月湖水平"` |
 | `title_basis` | string | 可选 | 原生 | 改题的依据 | 自由文本 | 录入 | |
 | `title_emendation` | object | 可选 | 原生 | 题名订补（志书原文有缺字、衍字时） | `{raw, emended?, fill?, status, basis}`；`status` ∈ `已補`｜`去衍空`｜`闕疑`；`fill` 为补入的字（可为 `null`） | 录入 | `{"raw":"康泓道人單道開傳","emended":"單道開傳","status":"已補","basis":"…"}` |
 | `authors` | array<Author> | 条件：有责任者时必填 | 原生 | 责任者 | 见 [common.md〈Author〉](common.md#一authorauthors-的元素)；**`role` 必填** | 录入 | `[{"name":"蘇軾","role":"撰","dynasty":"北宋"}]` |
@@ -141,15 +142,19 @@
 | 值 | 含义 | 例 |
 |---|---|---|
 | `book`（缺省） | 独立成书的作品 | 《漢書》《論語》《紅樓夢》 |
-| `article` | 单篇文章 | 《陳情表》《岳陽樓記》 |
-| `poem` | 诗词 | 《春望》《水調歌頭·明月幾時有》 |
+| `poem` | 诗（shi poetry） | 《春望》《宿王昌齡隱居》 |
+| `ci` | 词（ci, song lyrics） | 《水調歌頭·明月幾時有》 |
+| `qu` | 散曲（sanqu） | 《天淨沙·秋思》 |
+| `fu` | 赋（fu, rhapsody），含楚辭体（騷） | 《秋聲賦》《幽通賦》 |
+| `article` | 文（prose）：单篇文章 | 《陳情表》《岳陽樓記》 |
 | `chapter` | 书中被单独拎出研究、索引的章节 | 《漢書·藝文志》《史記·太史公自序》 |
 
 判定：
 - 缺省即 `book`，可不写；志书录入的绝大多数是书。
 - 明确是书中一章且被单独索引（有 `related_works` 的 `part_of`）→ `chapter`。
 - 单位是「篇」且数为 1、或属集部别集的单篇文章 → `article`。
-- 单位是「首」或为诗词 → `poem`。
+- 单位是「首」或为诗 → `poem`；词 → `ci`；散曲小令、套数 → `qu`；赋、騷 → `fu`。
+- 单篇诗文（poem／ci／qu／fu／article）只按这五类分，不再分下一层文体（用户 2026-11-14 定）；不进四部分类。收录方案见 ai-team `domain/目录与资源/设计/2026-11-单篇诗文收录方案.md`。
 - `chapter` 按需创建：不要把《漢書》每一篇志都拆成 Work，只有被单独研究或作为目录书索引的才建（《漢書·藝文志》要被引作 `source`，所以单独建；《漢書·地理志》未被索引就不建）。
 
 实测正式库：缺省 116,544、`article` 2,525、`poem` 320、`chapter` 110、显式 `book` 28。

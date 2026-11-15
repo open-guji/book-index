@@ -9,7 +9,7 @@ CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
 CREATE TYPE edition_type AS ENUM ('刻本', '抄本', '稿本', '活字本', '石印本', '油印本', '曬印本', '鉛印本', '影印本', '套印本', '拓本', '印刷本', '其他');
 CREATE TYPE loss_status AS ENUM ('lost', 'partially_extant', 'extant', 'undetermined');
-CREATE TYPE work_subtype AS ENUM ('book', 'article', 'poem', 'chapter');
+CREATE TYPE work_subtype AS ENUM ('book', 'article', 'poem', 'ci', 'qu', 'fu', 'chapter');
 CREATE TYPE coll_subtype AS ENUM ('work_collection', 'book_collection');
 CREATE TYPE entity_subtype AS ENUM ('people', 'collective', 'dynasty', 'reign', 'office', 'place', 'seal', 'publisher');
 CREATE TYPE attested_status AS ENUM ('extant', 'lost', 'partial', 'not_seen');
@@ -33,6 +33,7 @@ CREATE TABLE work (
   revised_at date,
   subtype work_subtype,
   original_title text,
+  incipit text,
   dynasty text,
   period text,
   period_upper text,
