@@ -379,6 +379,8 @@ def test_contents_from_collected_in_sorted_by_volume_and_order(repo):
     """單篇 Work 的 collected_in（可帶 volume_index／order）→ 總集 Work 的 `_contents` 與 contents/ 分頁。"""
     for wid, vol, order in ((S.W2, 160, 5), (S.W3, 159, 2), (S.W4, None, None)):
         d = S.read(repo, 'Work', wid)
+        if wid == S.W3:
+            d['subtype'] = 'poem'
         item = {'id': S.W5, 'relation': 'collected_in'}
         if vol is not None:
             item.update(volume_index=vol, order=order)
@@ -389,3 +391,5 @@ def test_contents_from_collected_in_sorted_by_volume_and_order(repo):
     assert P[f'entry/{S.W5}.json']['_contents'] == {'total': 3, 'pages': 1}
     page = P[f'contents/{S.W5}/1.json']
     assert [(c['id'], c.get('vol'), c.get('ord')) for c in page] == [(S.W3, 159, 2), (S.W2, 160, 5), (S.W4, None, None)]
+    # 契約 6：Work 卡片帶 `st`（subtype，book 與缺省不寫）
+    assert [c.get('st') for c in page] == ['poem', None, None]

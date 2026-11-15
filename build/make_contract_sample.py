@@ -29,6 +29,7 @@ NAMED = [
     ('d59df01avcw0', 'Work：紅樓夢——版本多（_books）、跨作品關係多（_related，含 in/out）、有版本圖'),
     ('8rlcsybg2hhf', 'Collection：叢書（武英殿聚珍版叢書），成員分頁 _members／_member_pages'),
     ('d59f2mp0flz4', 'Work：志書，_member_catalog 分頁'),
+    ('d59f2n69x3ia', 'Work：總集（全唐詩），_contents 篇目分頁（collected_in 反查，帶 vol／ord）'),
     ('hixhd2h9bdye', 'Entity：樞紐人物（他處卡片只寫 {id, h:1}），_works 多'),
 ]
 
@@ -136,7 +137,7 @@ def main():
         shutil.rmtree(OUT)
     for i in sorted(chosen):
         copy(os.path.join(a.build, 'entry', i + '.json'), os.path.join(OUT, 'entry', i + '.json'))
-        for sub in ('members', 'catalog', 'related'):  # 各拷編號最小的一頁（related 的餘頁從 2 起）
+        for sub in ('members', 'catalog', 'related', 'contents'):  # 各拷編號最小的一頁（related 的餘頁從 2 起）
             d = os.path.join(a.build, sub, i)
             if os.path.isdir(d):
                 n = min(int(f[:-5]) for f in os.listdir(d) if f.endswith('.json'))

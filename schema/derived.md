@@ -136,6 +136,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `title` | string | `title` | |
 | `dyn` | string | `dynasty`、`authors[].dynasty` | 顶层 `dynasty` 非空则取它；否则取 `authors[]` 中**第一个**有非空 `dynasty` 的作者的值（不限第 1 位） |
 | `juan` | number | `juan_count`，缺则 `measures` 里第一个 `unit=卷` 的项 | `juan_count` 是对象取 `.number`，是数字取本身；缺则取该 `measures` 项的 `number`；非数字、布尔、0 都不出（`juan_of()`） |
+| `st` | string | `subtype` | 只在 `subtype` 非 `book`（`article`／`poem`／`ci`／`qu`／`fu`／`chapter`）时出；契约 6 起 |
 | `au` | array<string> | `authors[].name` | 取 `authors` 前 3 项中的 `name`（先截前 3 项再滤掉无名者，故至多 3 个） |
 | `cls` | string | `classification/` 成员档 | 该 Work 第一条分类行的节点 id（如 `"zm0524"`）。分类行顺序：`primary` 分类法在前，其余按分类法 id；同一分类法内按成员档文件名、档内行序。**无 `classification/` 目录时**退回旧字段 `Work.classification`，值为数组 `[l1, l2 或 null]` |
 | `nb` | integer | `Book.work_id` 反查 | 该 Work 的 Book 数；0 不出 |
@@ -565,7 +566,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 | 4 | 2026-11-03 | **非增量**：Book 刪 `_siblings`／`_siblings_more`／`_siblings_total`（占 Book entry 约三成；同版本列表读 Work 的 `_books`，或读 Book 的 `_work.id` 后取 Work entry）；`CONTRACT` 升为 4（S5-H）。网站侧改 `ops/data-contract.mjs` 与测试夹具由 A41 跟进 |
 | 3（补登） | 2026-11-03 | 契约 3 之后上线、当时未登记的纯增量：place 条加 `_concretes`；place 卡加 `dynasties`。未升 `CONTRACT`（升版要改 `build_derived.py`，另行排期）；补登依据 S5 审查（总目/schema审查/S5） |
 | 5 | 2026-11-11 | 纯增量：Book 卡加 `coll`；版本超 200 的 Work 加 `_book_groups` 与 `books/` 分页；Book／Collection `_related` 带原 relation 词（补登） |
-| 6 | 2026-11-15 | 纯增量：Work 加 `_contents` 与 `contents/<id>/<n>.json`（被 `collected_in` 指向的总集、别集、选本之篇目，带 `vol`／`ord`；单篇诗文方案 A） |
+| 6 | 2026-11-15 | 纯增量：Work 加 `_contents` 与 `contents/<id>/<n>.json`（被 `collected_in` 指向的总集、别集、选本之篇目，带 `vol`／`ord`）；Work 卡片加 `st`（subtype，book 不写）；单篇诗文方案 A |
 
 **改契约的规矩**：任何增删、改名、改形状、改分页大小，**先经协调者通知网站侧（A41／A42），并在 Jira GUJI 卡留痕，等对方回复后再合**（overview 仓已淘汰，原渠道 overview#458 不再用）；只新增可选字段也算改契约，同样要先通知。改动时：`CONTRACT` 加一、本档〈十一〉表加一行、记入 [CHANGELOG.md](CHANGELOG.md)，并在同一个提交里用 `build/make_contract_sample.py` 重生 `build/contract-sample/`。
 `report.json` 的内容、`notes` 的措辞不属契约。

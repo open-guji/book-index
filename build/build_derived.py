@@ -65,7 +65,8 @@ CONTRACT = 6       # _build/ 契約版本：2＝F6-5b 加專名派生欄與 dyna
                    # 4＝Book 刪 `_siblings`／`_siblings_more`／`_siblings_total`（2026-11-03，非增量；S5-H）
                    # 5＝Book 卡片加 `coll`；Work 版本超 BOOK_GROUP 者加 `_book_groups` 與 books/ 分頁；
                    #   Book／Collection `_related` 帶原 relation 詞（如「同卷」，原一律 related）（2026-11-11，A41／A42）
-                   # 6＝Work 加 `_contents` 與 contents/ 分頁（collected_in 反查的總集篇目，純增量；2026-11-15 單篇詩文方案 A）
+                   # 6＝Work 加 `_contents` 與 contents/ 分頁（collected_in 反查的總集篇目）；Work 卡片加 `st`（subtype，book 不寫）
+                   #   （純增量；2026-11-15 單篇詩文方案 A）
 
 
 # ---------- 小工具 ----------
@@ -473,6 +474,7 @@ class Build:
         w = self.R['Work'][wid]
         return clean({
             'id': wid, 'title': w.get('title'), 'dyn': first_dynasty(w), 'juan': juan_of(w),
+            'st': w.get('subtype') if w.get('subtype') not in (None, 'book') else None,
             'au': [a.get('name') for a in (w.get('authors') or [])[:3] if isinstance(a, dict) and a.get('name')],
             'cls': self.cls_of(wid), 'nb': len(self.books_of.get(wid, ())),
             'img': self.work_has(wid, 'image'),
