@@ -22,6 +22,24 @@ def resolve(raw):
         return None
     return None
 
+DYNRE = r"(宋朝|後魏|後周|偽唐|後漢|周|梁|唐|晉|宋|魏|吳|漢|隋|齊|陳|秦|本朝|國朝)"
+DYN2 = {"宋朝": "宋", "本朝": "宋", "國朝": "宋", "後魏": "北魏", "偽唐": "南唐", "後漢": "東漢"}
+ANON = {"", "不題", "或人", "闕名", "失名", "不著名氏", "未詳"}
+def newperson(raw):
+    """人物库里没有唯一同名者：返回 (name, dynasty, True)；无撰人返回 None 表佚名；无法可靠切分返回 False。"""
+    raw = raw.strip()
+    if raw in ANON: return None
+    m = re.match(r"^" + DYNRE + r"(?=[一-鿿]{2})", raw)
+    dyn = DYN2.get(m.group(1), m.group(1)) if m else None
+    a = raw[m.end():] if m else raw
+    a = re.sub(r"[等撰注編集纂述著]+$", "", a)
+    if not re.fullmatch(r"[一-鿿]{2,5}", a): return False
+    n = {2: 2, 3: 3, 4: 2, 5: 3}[len(a)] if len(a) in (2, 3, 4, 5) else 0
+    nm = a[:n]
+    if re.search(r"[府卿郎史使太守夫書監師君見氏母妃僧釋]", nm) or nm.endswith(("人", "子")) or nm in ("歐陽", "司馬", "諸葛", "令狐", "上官", "宇文", "慕容", "皇甫"): return False
+    if dyn in ("周","梁","宋","魏","吳","漢","齊","陳","秦","唐","隋","晉") and len(a) == 2: return False
+    return nm, dyn, True
+
 def main():
     apply = "--apply" in sys.argv
     idx, by = sp.load_idx(); ents = sp.parse_junzhai()
