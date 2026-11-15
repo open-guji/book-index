@@ -1,46 +1,15 @@
 {
   "schema_version": 1,
+  "id": "d59f2mykqd4w",
   "type": "work",
   "title": "日本教育法規",
-  "authors": [
-    {
-      "name": "盧靖",
-      "role": "等譯",
-      "dynasty": "清",
-      "entity_id": "hixhd2h9bsiq",
-      "name_basis": "2026-08-24 新建 entity `1jcf5151297qi` 並繫之——庫中舊無其人，說見該 entity 之 ai_note。"
-    }
-  ],
-  "description": {
-    "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故內001259-001308）。清光緒三十二年鉛印本。",
-    "sources": [
-      "國立故宮博物院善本舊籍"
-    ]
+  "merged_into": "d59fy1igm8ea",
+  "merged_basis": {
+    "rule": "L0 第十四輪：以前標「存疑」未並之 Work 對，經兩道獨立逐對複核（第二道開庫原文核對）皆判同一部者並之",
+    "at": "2026-11-15T04:15:37Z",
+    "by": "L0",
+    "why": "兩道獨立複核皆判同一部：同光緒三十二年直隸提學使署鉛印本；日本教育法規，同光緒三十二年直隸提學使署鉛印本"
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 10 取自 `measure_info`「十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
-  "measures": [
-    {
-      "unit": "冊",
-      "number": 10
-    },
-    {
-      "unit": "編",
-      "number": 27
-    }
-  ],
-  "measure_info": "十冊",
-  "id": "d59f2mykqd4w",
-  "period": "qing",
-  "period_basis": "據 authors[0].dynasty「清」",
-  "dynasty": "清",
-  "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
   "revision": "1.0.0",
-  "revised_at": "2026-08-25",
-  "related_works": [
-    {
-      "id": "d59fy1xbmzgg",
-      "relation": "related",
-      "note": "總目子部另立（auto-split:同名未并）"
-    }
-  ]
+  "revised_at": "2026-11-15"
 }

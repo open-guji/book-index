@@ -1,46 +1,15 @@
 {
   "schema_version": 1,
+  "id": "d59f2myq1edd",
   "type": "work",
   "title": "左恪靖侯奏稿",
-  "authors": [
-    {
-      "name": "左宗棠",
-      "role": "撰",
-      "dynasty": "清",
-      "entity_id": "hixhd2h9bcox"
-    }
-  ],
-  "description": {
-    "text": "本書收入《國立故宮博物院善本舊籍》（統一編號 故觀002945-002992）。清光緒十二年刊巾箱本。",
-    "sources": [
-      "國立故宮博物院善本舊籍"
-    ]
+  "merged_into": "d59fyt6ldgxt",
+  "merged_basis": {
+    "rule": "L0 第十四輪：以前標「存疑」未並之 Work 對，經兩道獨立逐對複核（第二道開庫原文核對）皆判同一部者並之",
+    "at": "2026-11-15T04:30:53Z",
+    "by": "L0",
+    "why": "兩道獨立複核皆判同一部：左宗棠奏稿，B題初編實含初續三編全帙，A光緒刻本僅冊數"
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 48 取自 `measure_info`「四十八冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
-  "measures": [
-    {
-      "unit": "冊",
-      "number": 48
-    }
-  ],
-  "measure_info": "四十八冊",
-  "id": "d59f2myq1edd",
-  "period": "qing",
-  "period_basis": "據 authors[0].dynasty「清」",
-  "dynasty": "清",
-  "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
   "revision": "1.0.0",
-  "revised_at": "2026-08-25",
-  "related_works": [
-    {
-      "id": "d59fyt6ldgxt",
-      "relation": "related",
-      "note": "存疑未并：A 左恪靖侯奏稿光緒十二年巾箱本無卷數，B 為初編三十八卷續編三編合，A 是否即初編難定（去重链接定论 2026-10-26 判 D 存疑，待核）"
-    },
-    {
-      "id": "d59fyt6lophc",
-      "relation": "related",
-      "note": "同題異書：A 左恪靖侯奏稿（光緒刊），B 左恪靖伯奏稿六十四卷同治七年刻，封爵不同為不同時期所編兩書（去重链接定论 2026-10-26 判 C 分立）"
-    }
-  ]
+  "revised_at": "2026-11-15"
 }

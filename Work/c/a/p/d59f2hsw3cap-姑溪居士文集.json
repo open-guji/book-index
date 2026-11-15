@@ -1,126 +1,15 @@
 {
   "schema_version": 1,
+  "id": "d59f2hsw3cap",
   "type": "work",
   "title": "姑溪居士文集",
-  "authors": [
-    {
-      "name": "李之儀",
-      "role": "撰",
-      "dynasty": "北宋",
-      "entity_id": "hixhd2h9bfcj",
-      "dynasty_basis": "entity_propagation_r2:1j967bgl89idn"
-    }
-  ],
-  "description": {
-    "text": "李之儀（北宋）撰。十二冊。別集之屬，所收為其人之詩文。本書收入《國立故宮博物院善本舊籍》（統一編號 平圖016045-016056）。明烏絲欄鈔刊本。",
-    "sources": [
-      "國立故宮博物院善本舊籍"
-    ]
+  "merged_into": "d59f2huk0wle",
+  "merged_basis": {
+    "rule": "L0 第十四輪：以前標「存疑」未並之 Work 對，經兩道獨立逐對複核（第二道開庫原文核對）皆判同一部者並之",
+    "at": "2026-11-15T04:09:25Z",
+    "by": "L0",
+    "why": "兩道獨立複核皆判同一部：李之儀姑溪居士文集即前集後集，故宮本僅冊數"
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-24 J11 版本著錄語補其體類（坑 #17）：本條原 description 只是版本著錄語，而 indexed_by 空（其所出之館藏／影印叢編目錄不入志書之列），無著錄可撮。今所補者三事，皆不出本條已有之資料：撰人與其代（取 authors）、卷冊之數（取 measure_info），與**從題名之形所推之體類**。**體類之說是「此體之書通例如此」，非「本書目次如此」**——未讀其書而斷其目次即是臆造，故措辭用「……之屬，其體例分……」。原版本著錄語留其後不動。**未覆核原書**。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 12 取自 `measure_info`「十二冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。",
-  "measures": [
-    {
-      "unit": "冊",
-      "number": 12
-    }
-  ],
-  "measure_info": "十二冊",
-  "id": "d59f2hsw3cap",
-  "dynasty": "北宋",
-  "dynasty_basis": "据唯一 author.dynasty「北宋」补全",
-  "period": "song",
-  "period_basis": "据唯一 author.dynasty「北宋」自动归并",
   "revision": "1.1.0",
-  "revised_at": "2026-10-07",
-  "resources": [
-    {
-      "id": "commons",
-      "name": "维基共享资源",
-      "url": "https://commons.wikimedia.org/wiki/File:NLC411-00361-66_%E5%A7%91%E6%BA%AA%E5%B1%85%E5%A3%AB%E6%96%87%E9%9B%86_%E7%AC%AC1%E5%86%8A.pdf",
-      "types": [
-        "image"
-      ],
-      "root_type": "catalog",
-      "metadata": {
-        "format": "PDF",
-        "edition": "刻本",
-        "note": "本链接为扫描册 第1冊；不代表全书齐备。"
-      }
-    },
-    {
-      "id": "nlc",
-      "label": "國圖藏本：清[1644-1911]",
-      "name": "中華古籍資源庫（國家圖書館）",
-      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999029182",
-      "types": [
-        "image"
-      ],
-      "metadata": {
-        "nlc_fid": "411999029182",
-        "edition": "清[1644-1911]"
-      }
-    },
-    {
-      "id": "nlc",
-      "label": "國圖藏本：明[1368-1644]",
-      "name": "中華古籍資源庫（國家圖書館）",
-      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999020070",
-      "types": [
-        "image"
-      ],
-      "metadata": {
-        "nlc_fid": "411999020070",
-        "edition": "明[1368-1644]"
-      }
-    },
-    {
-      "id": "nlc",
-      "label": "國圖藏本：清[1644-1911]",
-      "name": "中華古籍資源庫（國家圖書館）",
-      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999012699",
-      "types": [
-        "image"
-      ],
-      "metadata": {
-        "nlc_fid": "411999012699",
-        "edition": "清[1644-1911]"
-      }
-    },
-    {
-      "id": "nlc",
-      "label": "國圖藏本：清[1644-1911]",
-      "name": "中華古籍資源庫（國家圖書館）",
-      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999004754",
-      "types": [
-        "image"
-      ],
-      "metadata": {
-        "nlc_fid": "411999004754",
-        "edition": "清[1644-1911]"
-      }
-    },
-    {
-      "id": "nlc",
-      "label": "國圖藏本：清[1644-1911]",
-      "name": "中華古籍資源庫（國家圖書館）",
-      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999013292",
-      "types": [
-        "image"
-      ],
-      "metadata": {
-        "nlc_fid": "411999013292",
-        "edition": "清[1644-1911]"
-      }
-    }
-  ],
-  "indexed_by": [
-    {
-      "source": "中國古籍總目",
-      "source_bid": "d59frnrt4lxc",
-      "title_info": "姑溪居士文集十三卷後集十三卷",
-      "author_info": "宋李之儀撰",
-      "section": "集部/別集類/宋代之屬",
-      "summary": "共 9 個版本：清抄本（上海圖書館）；清抄本（國家圖書館）；明吳寛叢書堂黑格抄本（國家圖書館）；粤雅堂叢書本（馆藏未载）；清徐氏傳是樓抄本（上海圖書館）；清研經樓抄本（南京圖書館）；清寶米齋抄本（國家圖書館）；清抄本（北京大學圖書館、南京圖書館、上海圖書館、國家圖書館）；四庫全書本（馆藏未载）"
-    }
-  ]
+  "revised_at": "2026-11-15"
 }
