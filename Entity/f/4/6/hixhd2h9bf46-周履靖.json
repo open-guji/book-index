@@ -19,14 +19,14 @@
     }
   ],
   "dynasty": "明",
-  "native_place_basis": "CBDB 33213 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《御選宋金元明四朝詩》御選明詩姓名爵里六著錄「嘉興人」（姓名爵里卷；字與庫內一致、籍貫一致）",
   "period_basis": "據 dynasty「明」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 44 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=33213 補入空槽——籍貫「嘉興」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eij8mx2、d59f6enfwydj、d59f6epertoh、d59f6eqieyo3、d59f6er3yc5j、d59f6ejzzqpv、d59f6ek9o3k6、d59f6enfwydg、d59f6er3yc5g、d59f6epegl51、d59f6ehw52pu、d59f6ei4vpxd、d59f6ei56ygy、d59f6ejzzqpz、d59f6enfwydk、d59f6epf3284、d59f6ei56yh3、d59f6ejzzqps、d59f6esiu0ox、d59f6ek0az9d、d59f6enyn6yo、d59f6ejzzqpw、d59f6ei56ygw、d59f6ejzzqpx、d59f6epertog、d59f6es6nria、d59f6ei4vpxg、d59f6ei5i70j、d59f6eq6v6kj、d59f6enz9o1t、d59f6ek9o3k5、d59f6enfwydf、d59f6epfearl、d59f6ei5i70i、d59f6epertok、d59f6ei4vpxj、d59f6ei56yh0、d59f6ei56yh1、d59f6ek0az9c、d59f6etdqigw、d59f6ei56yh4、d59f6ejzzqpt、d59f6er3yc5e、d59f6ei4vpxe。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 44 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=33213 補入空槽——籍貫「嘉興」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eij8mx2、d59f6enfwydj、d59f6epertoh、d59f6eqieyo3、d59f6er3yc5j、d59f6ejzzqpv、d59f6ek9o3k6、d59f6enfwydg、d59f6er3yc5g、d59f6epegl51、d59f6ehw52pu、d59f6ei4vpxd、d59f6ei56ygy、d59f6ejzzqpz、d59f6enfwydk、d59f6epf3284、d59f6ei56yh3、d59f6ejzzqps、d59f6esiu0ox、d59f6ek0az9d、d59f6enyn6yo、d59f6ejzzqpw、d59f6ei56ygw、d59f6ejzzqpx、d59f6epertog、d59f6es6nria、d59f6ei4vpxg、d59f6ei5i70j、d59f6eq6v6kj、d59f6enz9o1t、d59f6ek9o3k5、d59f6enfwydf、d59f6epfearl、d59f6ei5i70i、d59f6epertok、d59f6ei4vpxj、d59f6ei56yh0、d59f6ei56yh1、d59f6ek0az9c、d59f6etdqigw、d59f6ei56yh4、d59f6ejzzqpt、d59f6er3yc5e、d59f6ei4vpxe。\n\n2026-11-15 P8：籍貫依據由 CBDB 換為《御選宋金元明四朝詩》御選明詩姓名爵里六（出處錨定：字與庫內一致且籍貫一致；籍貫值未變）。",
   "period": "ming",
   "schema_version": 1,
   "subtype": "people",
-  "revision": "1.1.1",
-  "revised_at": "2026-11-11",
+  "revision": "1.1.2",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
@@ -48,6 +48,11 @@
         "title": "《欽定四庫全書總目》卷一百九十二·《梅塢貽瓊》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明周履靖編，姚士粦刪定。"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選明詩姓名爵里六",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字逸之嘉興人有梅墟雜槀"
       }
     ]
   }

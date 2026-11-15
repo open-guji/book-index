@@ -14,9 +14,9 @@
   "id": "hixhd2h9bfix",
   "primary_name": "袁易",
   "dynasty": "元",
-  "native_place_basis": "CBDB 35238 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《御選宋金元明四朝詩》御選元詩姓名爵里一著錄「平江長洲人」（姓名爵里卷；字與庫內一致、籍貫一致）",
   "period_basis": "據 dynasty「元」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=35238 補入空槽——籍貫「平江州」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eiojo5e。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=35238 補入空槽——籍貫「平江州」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eiojo5e。\n\n2026-11-15 P8：籍貫依據由 CBDB 換為《御選宋金元明四朝詩》御選元詩姓名爵里一（出處錨定：字與庫內一致且籍貫一致；籍貫值未變）。",
   "period": "liao-jin-yuan",
   "alt_names": [
     {
@@ -35,14 +35,19 @@
     "death": 1306,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.1.1",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/05ytizj6ce5141qv"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選元詩姓名爵里一",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字通甫平江長洲人應辟為徽州路石洞書院山長有靜春堂詩集四巻"
       }
     ]
   }

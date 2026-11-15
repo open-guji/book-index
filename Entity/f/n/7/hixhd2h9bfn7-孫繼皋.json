@@ -8,6 +8,10 @@
     {
       "name": "以德",
       "type": "別名"
+    },
+    {
+      "name": "以徳",
+      "type": "字"
     }
   ],
   "dynasty": "明",
@@ -23,10 +27,10 @@
   "period_basis": "據 dynasty「明」自動歸併",
   "native_place": "無錫",
   "native_place_entity_id": "hixi4ui6glxg",
-  "native_place_basis": "CBDB 34739 index_addr（2026-09-06 CBDB enrich）",
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=34739 補入空槽——籍貫「無錫」。既有之值一概未動。\n\n2026-09-06 CBDB 同步 L1 落盘：合併重出條目 hixhd2h9bo0l「孫繼臯」（二者正名僅異體之別（「孫繼臯」／「孫繼皋」），今存正體，時代相容、僧俗一致，判為同一人）。併入 work 3 條、別名 0 條；改 Work.authors 引用 3 處。",
-  "revision": "1.1.1",
-  "revised_at": "2026-11-11",
+  "native_place_basis": "《御選宋金元明四朝詩》御選明詩姓名爵里五著錄「無錫人」（姓名爵里卷；同名同朝代、籍貫與庫內一致）",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=34739 補入空槽——籍貫「無錫」。既有之值一概未動。\n\n2026-09-06 CBDB 同步 L1 落盘：合併重出條目 hixhd2h9bo0l「孫繼臯」（二者正名僅異體之別（「孫繼臯」／「孫繼皋」），今存正體，時代相容、僧俗一致，判為同一人）。併入 work 3 條、別名 0 條；改 Work.authors 引用 3 處。\n\n2026-11-15 P8：籍貫依據由 CBDB 換為《御選宋金元明四朝詩》御選明詩姓名爵里五（出處錨定：同名同朝代且籍貫與庫內縣州府一致；籍貫值未變）。字「以徳」依該書補入 alt_names。",
+  "revision": "1.1.2",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
@@ -38,7 +42,19 @@
         "title": "《欽定四庫全書總目》卷一百七十二·《宗伯集》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "明孫繼臯撰。"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選明詩姓名爵里五",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字以徳無錫人萬厯甲戌賜進士第一厯官吏部左侍郎有柏潭集"
       }
     ]
+  },
+  "dates": {
+    "floruit": [
+      1513,
+      1573
+    ],
+    "basis": "據版本年推：《孫宗伯集》現存最早著錄版本年1573，約活動於1513–1573間（推定，非生卒）"
   }
 }
