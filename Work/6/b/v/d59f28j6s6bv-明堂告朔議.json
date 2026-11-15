@@ -11,7 +11,7 @@
       "role": "撰"
     }
   ],
-  "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書禮記類著錄「王氏（方慶）明堂告朔議」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「存」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。",
+  "ai_note": "本 work 據《經義考》（朱彝尊撰，欽定四庫全書文淵閣本，kanripo KR2n0011）新建——該書禮記類著錄「王氏（方慶）明堂告朔議」，不引前代志，而本庫先前無同題之 work。\n\n所記止於朱氏所有：題、撰人之名、所引之志（如有）、卷、頁，及其所輯諸家論斷（入 indexed_by[].summary，逾五百字者截之，全文在《經義考》整理本）。以下諸欄不繫，非漏，是無據或不屬本道：\n· `period`：曾試以論斷所引之年號定代，以庫中 Entity 為驗，準確率只 0.81——論斷屢引後人之語，其年號是引者之年非撰人之年。且 period 屬 C 車道。論斷既已在此，定代所須之據不待外求。\n· `loss_status`：朱氏判本書為「存」，其判入 indexed_by[].attested_status，不作本庫之判。\n· `authors[].role`：著錄之文不言其役。以題末之字推役是推，非據。\n· `authors[].entity_id`：《經義考》只給人名，繫人須另考。\n\n2026-11-15 L0 併條（rule=L0 第十七轮：单篇诗文与同题旧条两道独立复核皆同）：併 d59gdzjl9eoz《明堂告朔議》 入本條。單篇與同題舊條兩道獨立複核皆同：王綝字方慶，經義考著錄王方慶《明堂告朔議》一篇即全唐文王綝此議\n\n2026-11-15 L0 第十七轮：併入單篇條 d59gdzjl9eoz（撰人 王綝）。其原注：2026-11-15 A11 單篇詩文（車道 a11-pm-qtw）：據維基文庫《全唐文》卷169第15篇（頁「明堂告朔議 (王綝)」）建條。",
   "indexed_by": [
     {
       "source": "經義考",
@@ -31,5 +31,27 @@
   "period": "sui-tang",
   "period_basis": "知名人物：王方慶（?-702），唐武后朝宰相，嘗議明堂告朔之禮。（2026-08-24 R3二輪 引文定代）",
   "revision": "1.0.0",
-  "revised_at": "2026-08-24"
+  "revised_at": "2026-08-24",
+  "subtype": "article",
+  "incipit": "謹按明堂",
+  "dynasty": "唐",
+  "dynasty_basis": "據《全唐文》所收",
+  "resources": [
+    {
+      "id": "wikisource",
+      "name": "維基文庫",
+      "url": "https://zh.wikisource.org/wiki/%E6%98%8E%E5%A0%82%E5%91%8A%E6%9C%94%E8%AD%B0_%28%E7%8E%8B%E7%B6%9D%29",
+      "types": [
+        "text"
+      ]
+    }
+  ],
+  "related_works": [
+    {
+      "id": "d59f2nqla48x",
+      "relation": "collected_in",
+      "volume_index": 169,
+      "order": 15
+    }
+  ]
 }
