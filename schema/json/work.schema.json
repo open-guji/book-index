@@ -257,9 +257,48 @@
           },
           "note": {
             "type": "string"
+          },
+          "volume_index": {
+            "type": [
+              "integer",
+              "string",
+              "array"
+            ],
+            "items": {
+              "type": "integer"
+            }
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "relation": {
+              "not": {
+                "const": "collected_in"
+              }
+            }
+          }
+        },
+        "then": {
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "volume_index"
+                ]
+              },
+              {
+                "required": [
+                  "order"
+                ]
+              }
+            ]
+          }
+        }
       }
     },
     "version_graph": {

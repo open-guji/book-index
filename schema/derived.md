@@ -75,6 +75,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `entry/<id>.json` | 本仓每条记录一档（不为参照仓记录产出） | 源记录去掉所有 `_` 起首键与 `promoted_to`，再加〈五〉的派生字段；草稿 Work／Book 另有 `promoted_to` | v1 |
 | `members/<collection_id>/<n>.json` | 有成员的丛编；`n` 从 **1** 起 | 成员卡片数组，每页至多 200 项，见〈六〉 | v1 |
 | `catalog/<志书 work_id>/<n>.json` | 被别的 Work 以 `indexed_by[].source_bid` 指向的 Work（志书）；`n` 从 **1** 起 | 著录成员数组，每页至多 200 项，见〈六〉 | v1 |
+| `contents/<总集 work_id>/<n>.json` | 被别的 Work 以 `related_works[]` 的 `collected_in` 指向的 Work（总集、别集、选本）；`n` 从 **1** 起 | 篇目数组，每页至多 200 项，见〈六〉 | v6 |
 | `related/<work_id>/<n>.json` | Work 的 `_related` 超过 200 项时；`n` 从 **2** 起（第 1 页就是 entry 里的 `_related`） | Work `_related` 元素数组，每页至多 200 项 | v1 |
 | `lineage/<work_id>.json` | 该 Work 下有 Book 的 `base_edition`（带 `relation` 与 id 的项）或 `related_books`（带 `relation` 的对象项）成边时 | `{work_id, nodes, edges}`，见〈六〉 | v1 |
 | `_hubs.json` | 总是 | `{id: {t, title?, dyn?}}`，见〈七〉 | v1 |
@@ -99,7 +100,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `MEMBER_HEAD` | `20` | build_derived.py | 丛编 entry 里 `_members` 只带第 1 页的前 20 项 |
 | `HUB_CHECK_MAX` | `6` | build_derived.py | `--hub-check`：改一个枢纽名，牵动的产物文件数上限 |
 | `DEFAULT_ROLE` | `"撰"` | build_derived.py | Entity `_works[].role` 缺省时补的值 |
-| `CONTRACT` | `3` | build_derived.py | 契约版本，写进 `report.json` 的 `contract` |
+| `CONTRACT` | `6` | build_derived.py | 契约版本，写进 `report.json` 的 `contract` |
 | `KEYS_VERSION` | `1` | names.py | 三个键表的 `version` |
 | `NORMALIZE` | `{"尙":"尚","郞":"郎","戸":"戶","叅":"參","秘":"祕","歴":"曆","淸":"清"}` | names.py | 键表异体归一，三表共用，原样写进各表的 `normalize` |
 | `LEVEL_ORDER` | `concept` 0、`group` 1、`concrete` 2，其余 3 | names.py | `office_keys` 候选排序 |
@@ -135,6 +136,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `title` | string | `title` | |
 | `dyn` | string | `dynasty`、`authors[].dynasty` | 顶层 `dynasty` 非空则取它；否则取 `authors[]` 中**第一个**有非空 `dynasty` 的作者的值（不限第 1 位） |
 | `juan` | number | `juan_count`，缺则 `measures` 里第一个 `unit=卷` 的项 | `juan_count` 是对象取 `.number`，是数字取本身；缺则取该 `measures` 项的 `number`；非数字、布尔、0 都不出（`juan_of()`） |
+| `st` | string | `subtype` | 只在 `subtype` 非 `book`（`article`／`poem`／`ci`／`qu`／`fu`／`chapter`）时出；契约 6 起 |
 | `au` | array<string> | `authors[].name` | 取 `authors` 前 3 项中的 `name`（先截前 3 项再滤掉无名者，故至多 3 个） |
 | `cls` | string | `classification/` 成员档 | 该 Work 第一条分类行的节点 id（如 `"zm0524"`）。分类行顺序：`primary` 分类法在前，其余按分类法 id；同一分类法内按成员档文件名、档内行序。**无 `classification/` 目录时**退回旧字段 `Work.classification`，值为数组 `[l1, l2 或 null]` |
 | `nb` | integer | `Book.work_id` 反查 | 该 Work 的 Book 数；0 不出 |
@@ -198,7 +200,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 
 ## 五、派生字段全表
 
-列说明：**出现**——「总是」（值可能是空数组）／「为真才有」／条件；**产物**——都在 `entry/<id>.json`，另注分页文件；**自**——契约版本（v1 基础，v2 专名派生，v3 Book／Collection `_related`）。
+列说明：**出现**——「总是」（值可能是空数组）／「为真才有」／条件；**产物**——都在 `entry/<id>.json`，另注分页文件；**自**——契约版本（v1 基础，v2 专名派生，v3 Book／Collection `_related`，v6 篇目 `_contents`）。
 
 **过渡期取并集**：源档里还有旧反向字段（`Work.books`、`Entity.works`、`Collection.books`、`Collection.contained_works`）时，build 把它们与成员侧（`Book.work_id`、`Work.authors[].entity_id`、`*.contained_in`）取并集，所以迁移前后产物的关系集合相同。正式库 10-09 这些旧字段已全数删除，这一段空转。
 
@@ -216,6 +218,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `_collections` | array<Collection 卡＋`{vol?, sub?, group?, ord?}`>，枢纽为 `{id, h:1, …}` | 总是 | 先按本条 `contained_in[]` 顺序（对方须是 Collection，同一丛编只取一次），边属性取该项：`vol`＝`volume_index`、`sub`＝`sub_items`、`group`＝`group`、`ord`＝该项 `order`；再把只见于丛编侧旧字段的丛编按 id 补在后面 | entry | v1 |
 | `_classifications` | array<`{scheme, node, path, l1, l2, l3, l4, source?}`> | 有 `classification/` 且该 Work 有成员行时 | 分类成员档 `[work_id, source]`。`path`＝节点到根的标签链（根在前）；`l1`–`l4`＝`path` 补 `""` 到 4 项；`source`＝成员行第二项。顺序同 Work 卡 `cls` | entry | v1 |
 | `_member_catalog` | `{total, pages}` | 本 Work 是志书（有别的 Work 的 `indexed_by[].source_bid` 指它）时 | 著录成员数、页数 | entry；成员在 `catalog/<id>/<n>.json` | v1 |
+| `_contents` | `{total, pages}` | 本 Work 被别的 Work 以 `collected_in` 指向时（总集、别集、选本收的单篇） | 篇目数、页数 | entry；篇目在 `contents/<id>/<n>.json` | v6 |
 | `_has_image` | `true` | 为真才有 | Work 或其任一 Book 的 resources 含 `image` | entry | v1 |
 | `_has_text` | `true` | 为真才有 | Work 或其任一 Book 的 resources 含 `text`；**或** book-text 的 `index/texts` 里有该 Work 或其任一 Book 的 id，且至少一个版本 `quality` 不是 `none`／`placeholder`（id 沿 `merged_into` 解析）。build 必给参数 `--text-index <book-text>/index/texts`（#144 起不给直接报错） | entry | v1 |
 | `_has_collated` | `true` | 为真才有 | book-text 里该 Work（或其任一 Book）有 `kind` 为 `collated`／`self_collated` 且 `quality` 不是 `none`／`placeholder` 的版本（id 沿 `merged_into` 解析） | entry | v1 |
@@ -353,6 +356,8 @@ Collection 的 `_related` 只来自 `related_books`／`related_collections`；Wo
 例（`8rlb6yi1ecqo` 首页中的一项）：`{"dating":"清 乾隆","edition":"欽定四庫全書·文淵閣本","etype":"抄本","id":"988fyztvri","img":true,"nres":3,"section":"史部","sub":["補傳","臨濟宗旨"],"t":"book","title":"僧寶傳","txt":true,"vol":1052,"y":1736}`
 
 **`catalog/<志书 work_id>/<n>.json`**：著录成员数组，每页 200 项，`n` 从 1 起。
+
+**`contents/<总集 work_id>/<n>.json`**（2026-11-15 加，单篇诗文方案 A）：篇目数组，每页 200 项，`n` 从 1 起。每项是 Work 卡（枢纽为 `{id, h:1}`）＋边属性 `vol`（该单篇 `collected_in` 项的 `volume_index`）、`ord`（`order`），缺则省。排序：卷次（整数在前，数组取最小；字符串其次；无卷次殿后）→ `ord`（缺者殿后）→ id。这些 `collected_in` 边照旧也在双方的 `_related` 里（网站改读 `_contents` 后再议是否从总集侧 `_related` 里去掉）。
 
 | 键 | 类型 | 说明 |
 |---|---|---|
@@ -560,6 +565,8 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 | 3 | 2026-10-08 | 纯增量：Book、Collection 加 `_related`（`related_books`／`related_collections` 两侧并集）（overview#458） |
 | 4 | 2026-11-03 | **非增量**：Book 刪 `_siblings`／`_siblings_more`／`_siblings_total`（占 Book entry 约三成；同版本列表读 Work 的 `_books`，或读 Book 的 `_work.id` 后取 Work entry）；`CONTRACT` 升为 4（S5-H）。网站侧改 `ops/data-contract.mjs` 与测试夹具由 A41 跟进 |
 | 3（补登） | 2026-11-03 | 契约 3 之后上线、当时未登记的纯增量：place 条加 `_concretes`；place 卡加 `dynasties`。未升 `CONTRACT`（升版要改 `build_derived.py`，另行排期）；补登依据 S5 审查（总目/schema审查/S5） |
+| 5 | 2026-11-11 | 纯增量：Book 卡加 `coll`；版本超 200 的 Work 加 `_book_groups` 与 `books/` 分页；Book／Collection `_related` 带原 relation 词（补登） |
+| 6 | 2026-11-15 | 纯增量：Work 加 `_contents` 与 `contents/<id>/<n>.json`（被 `collected_in` 指向的总集、别集、选本之篇目，带 `vol`／`ord`）；Work 卡片加 `st`（subtype，book 不写）；单篇诗文方案 A |
 
 **改契约的规矩**：任何增删、改名、改形状、改分页大小，**先经协调者通知网站侧（A41／A42），并在 Jira GUJI 卡留痕，等对方回复后再合**（overview 仓已淘汰，原渠道 overview#458 不再用）；只新增可选字段也算改契约，同样要先通知。改动时：`CONTRACT` 加一、本档〈十一〉表加一行、记入 [CHANGELOG.md](CHANGELOG.md)，并在同一个提交里用 `build/make_contract_sample.py` 重生 `build/contract-sample/`。
 `report.json` 的内容、`notes` 的措辞不属契约。
