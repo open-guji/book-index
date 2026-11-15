@@ -33,6 +33,7 @@ BOOKS = {
     "zhizhai": ("直齋書錄解題", "d59f2htm01du", "song", ""),
     "chongwen": ("崇文總目", "d59f2hqc0c1t", "song", ""),
     "songshi": ("宋史藝文志", "d59f2gdp696q", "song", ""),
+    "qiandingtang": ("千頃堂書目", "d59f2mel8d1c", "ming", ""),
     "tongzhi": ("通志藝文略", "d59gc4hif56o", "song", "q/8/1/d59f2hrrtq81/default"),
 }
 FOLD = str.maketrans({"爲": "為", "録": "錄", "説": "說", "裏": "裡", "並": "并", "歴": "歷", "厯": "歷",
@@ -130,6 +131,22 @@ def parse_songshi():
         out.append(dict(file=e["file"], sec=e["sec"], title=m.group(1), juan=m.group(2), head=e["head"], summary="",
                         author_raw=e["_a"], author=clean_author(e["_a"]) if e["_a"] else "", note=""))
     return out
+
+
+def parse_qdt():
+    """千頃堂書目（维基文库四库本 dump）：条首 [[撰人+题名]]N卷，已用「库内 Work 撰人名＋题名」词典切好（title／author）。"""
+    ents = json.load(open(os.environ.get("ZQ", SC + "qiandingtang.json"), encoding="utf-8"))
+    idx = pickle.load(open(SC + "idx.pkl", "rb"))
+    keep = []
+    for e in ents:
+        # 千頃堂是明人著录：Work 时代早于宋者多是同名异人；「又＋短题」（续集、文通）太泛
+        if any(idx[w]["p"] in ("pre-qin", "qin-han", "three-kingdoms", "jin", "nanbeichao", "sui-tang", "five-dynasties") for w in e["ws"] if w in idx):
+            continue
+        if e["head"].startswith("《又") and len(e["title"]) < 4:
+            continue
+        keep.append(dict(file=e["file"], sec=e["sec"], title=e["title"], juan=e["juan"], head=e["head"], summary="",
+                         author_raw=e["author"], author=e["author"], note=""))
+    return keep
 
 
 def parse_listbook(key):
@@ -310,7 +327,7 @@ def main():
     key = sys.argv[1]
     apply = "--apply" in sys.argv
     src, sbid, era, _ = BOOKS[key]
-    ents = parse_songshi() if key == "songshi" else parse_zhizhai("chongwen.json") if key == "chongwen" else parse_zhizhai() if key == "zhizhai" else parse_junzhai() if key == "junzhai" else parse_tongzhi() if key == "tongzhi" else parse_tongkao() if key == "tongkao" else parse_headings(key) if key in ("rbfz", "rbfzb") else parse_listbook(key)
+    ents = parse_qdt() if key == "qiandingtang" else parse_songshi() if key == "songshi" else parse_zhizhai("chongwen.json") if key == "chongwen" else parse_zhizhai() if key == "zhizhai" else parse_junzhai() if key == "junzhai" else parse_tongzhi() if key == "tongzhi" else parse_tongkao() if key == "tongkao" else parse_headings(key) if key in ("rbfz", "rbfzb") else parse_listbook(key)
     idx, by = load_idx()
     cnt = collections.Counter()
     rows = []
