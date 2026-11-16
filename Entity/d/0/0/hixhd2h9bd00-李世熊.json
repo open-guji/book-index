@@ -14,9 +14,9 @@
   "id": "hixhd2h9bd00",
   "primary_name": "李世熊",
   "dynasty": "清",
-  "native_place_basis": "CBDB 77378 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《清史列傳》第9冊第690頁著錄「寧化縣人」（傳首名與籍貫相合；與庫值同地）",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=77378 補入空槽——籍貫「寧化」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eh34075。",
+  "ai_note": "2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=77378 補入空槽——籍貫「寧化」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6eh34075。\n\n2026-11-15 OCR清史列傳：籍貫依據由 CBDB 換為《清史列傳》第9冊第690頁（傳首名與籍貫相合，古籍作「寧化人」，與庫值同地）。",
   "period": "qing",
   "alt_names": [
     {
@@ -95,14 +95,18 @@
     "death": 1686,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.1.1",
+  "revised_at": "2026-11-16",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/y3py2103apggpj7m"
+      },
+      {
+        "title": "《清史列傳》第9冊第690頁",
+        "details": "李世熊字元仲福建寧化人"
       }
     ]
   }
