@@ -12,9 +12,9 @@
   "id": "hixhd2h9bd6n",
   "primary_name": "周在浚",
   "dynasty": "清",
-  "native_place_basis": "CBDB 83359 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《清史列傳》第9冊第742頁著錄「祥符縣人」（傳首名與籍貫相合；與庫值同地）",
   "period_basis": "據 dynasty「清」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條；去其指向不存在之 work 的懸空繫連 1 條（原值：[{\"work_id\": \"1ex3x09p93vv0\", \"role\": \"編\"}]）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=83359 補入空槽——籍貫「祥符」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ssrrv7y。",
+  "ai_note": "2026-08-24 補繫 entity：新收 1 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 1 條；去其指向不存在之 work 的懸空繫連 1 條（原值：[{\"work_id\": \"1ex3x09p93vv0\", \"role\": \"編\"}]）。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=83359 補入空槽——籍貫「祥符」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6ssrrv7y。\n\n2026-11-15 OCR清史列傳：籍貫依據由 CBDB 換為《清史列傳》第9冊第742頁（傳首名與籍貫相合，古籍作「祥符人」，與庫值同地）。",
   "period": "qing",
   "alt_names": [
     {
@@ -28,14 +28,18 @@
     "birth": 1640,
     "basis": "現行字段"
   },
-  "revision": "1.1.0",
-  "revised_at": "2026-10-07",
+  "revision": "1.1.1",
+  "revised_at": "2026-11-16",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/d2vax3zfscvfoipi"
+      },
+      {
+        "title": "《清史列傳》第9冊第742頁",
+        "details": "周在浚字雪客河南祥符人"
       }
     ]
   },
