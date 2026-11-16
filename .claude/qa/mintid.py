@@ -76,7 +76,55 @@ LANE_MACHINE = {
     "wake-h": 1917,  # A11 和刻本日本馆藏专项（2026-11-15）
     "a11-sjj-book-cn": 1915,  # A11 十三經縱向補全·中國傳世重要版本 Book 層（2026-11-15；1924 已被先唐文領用，改 1915）
     "fangzhi": 2019,   # 去重方案方志-并 拆混記錄新建（2026-10-26）     # 馆藏资源计划 A7 留下的 NDL 新书建条（A2 线程，2026-10-26）
+    # —— 以下 2026-11-16 自 ai-team「机器号分配表」并入：自此本表是唯一登记处 ——
+    "a11-bookpart": 1930,  # A11 Book 层分册（2026-11-13，6 条；与 wake-e 同号，已退役）
+    "a11-b35": 1955,   # A11 殿本总目 b35 被引书名新建 Work（2026-11-13）
+    "a11-pm-qts": 1922, "a11-pm-qtw": 1923, "a11-pm-xtw": 1924, "a11-pm-xuan": 1919,  # 单篇诗文分线（2026-11-15）
+    "a11-pm-sjy": 1918,   # 单篇诗文 宋金元别集（2026-11-15）；11-16 与朝鲜文集借号撞出 1,800 重号，已退役
+    "a11-pm-sjy2": 1916,  # 单篇诗文 四库本宋金元别集（2026-11-16）；与 wake-g 同号，只许 Work／Entity
+    "a11-pm-sc": 1901,    # 单篇诗文 宋以后名家别集／总集（2026-11-15）
+    "a11-pm-kr": 1910,    # 单篇诗文 朝鲜文集重铸与后续（2026-11-16）
+    "a12-o1": 1966, "a12-o2": 1967, "a12-o3": 1968, "a12-o4": 1969, "a12-o5": 1970, "a12-o6": 1971,
+    "a12-l1": 1972, "a12-l2": 1973, "a12-p2": 1974, "a12-p3": 1976, "a12-x1": 1978, "a12-x2": 1979,
+    "a12-p4": 1980, "a12-p5": 1981, "a12-p7": 1982, "a12-l5": 1983, "a12-p10": 1951,
+    "a12-2i": 1905, "a12-o7": 1959, "a12-b33": 1957, "a12-q3": 1958, "a12-l8": 1956, "a12-l5b": 1954,
+    "a12-l7": 1949, "a12-b28": 1953, "a12-l6": 1952,
+    "a12-o9": 1938, "a12-b55": 1938, "a12-o11": 1938,  # 与 wake-c 同号（Book／Entity 分开）；三条 Entity 线互相同号，只留 o11
+    "a12-b56": 1939, "a12-2h": 1937, "a12-b51": 1936,   # 与 wake-d／b／a 同号，只许 Entity
+    "a12-l9": 1901,   # 地名尾巴清扫（2026-11-15，192 条）；与 a11-pm-sc 同号，已退役
 }
+
+# ---- 登记规矩（2026-11-16 起强制，起因：朝鲜文集借用 a11-pm-sjy 车道号，与後村集并行铸号撞出 1,800 个重复 id）----
+# 1. 本表（LANE_MACHINE）是**唯一**登记处。新车道先在这里加一行、PR 合进 main，再开铸。
+#    脚本里临时写 `mintid.LANE_MACHINE['x']=n` 只有在 (x, n) 与本档一致时才放行，否则 mint() 直接中止。
+# 2. 一车道一串：别的串不许借用你的车道名。
+# 3. 同号只许「类型不相交」：id 里带类型位，同机器号的 Work 与 Book 永不相撞。
+#    同号的车道必须在 LANE_KINDS 里写明各自铸哪些类型，且互不重叠；退役车道（RETIRED）不再参与、也不许再铸。
+# 4. 最后一道网：CI（.github/workflows/id-unique.yml → scripts/check-dup-ids.py）对全库查重复 id 与本表冲突。
+LANE_KINDS = {
+    "wake-a": {"Book"}, "wake-b": {"Book"}, "wake-c": {"Book"}, "wake-d": {"Book"},
+    "wake-e": {"Book"}, "wake-f": {"Book"}, "wake-g": {"Book"}, "wake-h": {"Book"},
+    "a11-pm-sjy2": {"Work", "Entity"},
+    "a12-o11": {"Entity"}, "a12-b56": {"Entity"}, "a12-2h": {"Entity"}, "a12-b51": {"Entity"},
+}
+RETIRED = {
+    "a11-pm-sjy", "a11-bookpart", "a11-laozi", "a12-l9", "a12-o9", "a12-b55",
+}
+_REGISTERED = dict(LANE_MACHINE)   # 导入时的快照；运行时注入的车道以此为准核对
+
+
+def lane_conflicts():
+    """在役车道之间的冲突：同机器号且类型集合相交。回 [(lane1, lane2, machine, 相交类型)]。"""
+    allk = set(FAMILY)
+    act = [(l, m) for l, m in _REGISTERED.items() if l not in RETIRED]
+    out = []
+    for i, (l1, m1) in enumerate(act):
+        for l2, m2 in act[i + 1:]:
+            if m1 == m2:
+                inter = LANE_KINDS.get(l1, allk) & LANE_KINDS.get(l2, allk)
+                if inter:
+                    out.append((l1, l2, m1, sorted(inter)))
+    return out
 
 
 def b36(n):
@@ -142,6 +190,17 @@ def mint(kind="Work", lane="coordinator", n=1, status=0):
     machine = LANE_MACHINE.get(lane)
     if machine is None:
         raise SystemExit("未知車道 %r；可用：%s" % (lane, "、".join(LANE_MACHINE)))
+    if _REGISTERED.get(lane) != machine:
+        raise SystemExit("車道 %r（機器號 %r）未在 mintid.py 的 LANE_MACHINE 登記（或號與登記不符）。"
+                         "先在 mintid.py 加一行並合進 main，再鑄；別借用他串的車道。" % (lane, machine))
+    if lane in RETIRED:
+        raise SystemExit("車道 %r 已退役（RETIRED），不許再鑄；請另領新號。" % lane)
+    if kind not in LANE_KINDS.get(lane, set(FAMILY)):
+        raise SystemExit("車道 %r 只許鑄 %s，不許鑄 %s（同號他道在用）。" % (lane, "／".join(sorted(LANE_KINDS[lane])), kind))
+    clash = [c for c in lane_conflicts() if lane in c[:2] and kind in c[3]]
+    if clash:
+        raise SystemExit("車道 %r 與 %r 同用機器號 %d 且都可鑄 %s，會撞號；先在 LANE_KINDS／RETIRED 裡分開。"
+                         % (clash[0][0], clash[0][1], clash[0][2], kind))
     if not 0 <= machine < 2048:
         raise SystemExit("車道 %r 機器號 %r 超出 11 位（0～2047），會溢出進時戳位" % (lane, machine))
     used = _existing_ids()

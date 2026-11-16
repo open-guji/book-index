@@ -1,0 +1,16 @@
+name: id 唯一性（重复 id／车道登记冲突）
+# 2026-11-16 起：两串同机器号并行铸号，main 撞出 1,800 个重复 id，正式数据发布失败。
+# PR 与 push main 都跑；红了看日志里的 DUP 行，修法见 scripts/check-dup-ids.py 文首。
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  id-unique:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: 全库重复 id 与车道冲突
+        run: python3 scripts/check-dup-ids.py
