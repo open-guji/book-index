@@ -28,6 +28,7 @@
 | `period_basis` | string | 可选 | 原生 | 判定依据 | 自由文本。只在时代是判断出来的时候写，推得出来的不写；不再校验缺失（2026-11-03 用户定） | 录入 | `"據 authors[0].dynasty「北宋」"` |
 | `period_upper` | string | 可选 | 原生 | 时代上限 | 12 值 | 录入 | `"song"` |
 | `period_upper_basis` | string | 条件：有 `period_upper` 时必填 | 原生 | 上限依据 | 自由文本 | 录入 | `"catalog_bound：…"` |
+| `region` | string | 可选 | 原生 | 地区（方志类用：区分跨地同名县志）。层级以 `/` 分隔，照录《中國地方志總目提要》(1996) 的省／地区节点 | 非空字符串，原文照录，不做规范化；暂只方志 Work 写 | 录入 | `"浙江省/麗水地區"` |
 | `description` | Description | 可选 | 原生 | 面向读者的介绍 | 见 common.md | 录入 | |
 | ~~`juan_count`~~ | | | | 已删（S1-H 计量合一，2026-11-03）：数与单位在 `measures[]`，卷数由 build 取 `measures` 里第一个 `unit=卷` 的项派生 | | | |
 | `measures` | array<object> | 可选 | 原生 | 多维计量（**计量真源**：2026-11-03 起 `juan_count` 已并入此处并删除；读者取第一个 `unit==卷` 的项；`number=0` 仅表「不分卷」，不作占位） | `[{number, unit, note?}]` | 录入 | `[{"number":10,"unit":"卷"}]` |

@@ -4,6 +4,13 @@
 
 ---
 
+
+## 2026-11-16　Work 加可选字段 `region`（方志地区）
+
+- 动机：方志同名跨省极多（康熙清河縣志在河北邢台与江苏淮阴各一部），库内 Work 无地区信息，无法与《中國地方志總目提要》(1996) 配对。
+- `schema/json/work.schema.json` 加 optional string `region`（非空），层级以 `/` 分隔，照录总目 1996 的省／地区节点；`schema/work.md` 字段表同步；bim `db/mapping.py` 给它一列 `work.region`，`schema/db/schema.sql` 同步。
+- 数据：用 `indexed_by[source=中國地方志總目提要].section` 回填已挂 1996 条目的方志 Work（迁移性质，不改 revision／revised_at）。Book／Entity／Collection 不受影响。
+
 ## 2026-11-15　`related_works` 的 `collected_in` 可带 `volume_index`／`order`；build 加 `_contents` 与 `contents/` 分页
 - 单篇诗文挂所在总集／别集（用户 11-15 定「方案 A」，不另建篇目 Collection）：沿用 `collected_in`，项上可带卷次 `volume_index`（形同 contained_in）与卷内次序 `order`；别的关系词不得带（JSON schema if/then 拦）。
 - build：被 `collected_in` 指向的 Work 出 `_contents {total, pages}`，篇目在 `contents/<id>/<n>.json`（Work 卡＋`vol`／`ord`，按卷次、次序排，每页 200）；Work 卡片（`_works`、`_related`、`_members` 等处）加 `st`（subtype，book 与缺省不写），供人物页分开「著作」与「单篇」；`CONTRACT` 5→6（纯增量）。
