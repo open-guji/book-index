@@ -37,6 +37,7 @@ CREATE TABLE work (
   dynasty text,
   period text,
   period_upper text,
+  region text,
   loss_status loss_status,
   authenticity text,
   additional_works jsonb,
