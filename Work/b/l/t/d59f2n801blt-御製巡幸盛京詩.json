@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故殿035870）。阶段 5 兜底建立。\n\n2026-09-06 qa-sweep/qing·C 類（entity 之 period 與 work 相牴）：撰人「宣宗」原誤繫明宣宗朱瞻基（entity `hixhd2h9bgh5`，1398–1435），廟號兩朝同名致誤——本書（period=qing）之「宣宗」實為清宣宗（道光帝），改繫 `hixhd2h9brxx`。原值：authors[0].entity_id=「hixhd2h9bgh5」，可逆。",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入（catalog: 故殿035870）。阶段 5 兜底建立。\n\n2026-09-06 qa-sweep/qing·C 類（entity 之 period 與 work 相牴）：撰人「宣宗」原誤繫明宣宗朱瞻基（entity `hixhd2h9bgh5`，1398–1435），廟號兩朝同名致誤——本書（period=qing）之「宣宗」實為清宣宗（道光帝），改繫 `hixhd2h9brxx`。原值：authors[0].entity_id=「hixhd2h9bgh5」，可逆。\n\n2026-11-16 L5 哈佛燕京挂接（存疑复核）：补挂 1 条，两名审核各自独立判为同书方挂。",
   "measures": [
     {
       "unit": "卷",
@@ -30,6 +30,21 @@
   "period_basis": "據 authors[0].dynasty「清」",
   "dynasty": "清",
   "dynasty_basis": "qing_round1:period=qing 且非通用作者 dynasty 唯一为「清」",
-  "revision": "1.0.0",
-  "revised_at": "2026-09-06"
+  "revision": "1.1.0",
+  "revised_at": "2026-11-16",
+  "resources": [
+    {
+      "id": "harvard",
+      "label": "哈佛燕京藏本：No place, unknown, or undetermined 1800",
+      "name": "哈佛大學圖書館 哈佛燕京圖書館",
+      "url": "https://nrs.harvard.edu/urn-3:FHCL:22833434",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "harvard_record": "990072583490203941",
+        "edition": "No place, unknown, or undetermined 1800"
+      }
+    }
+  ]
 }
