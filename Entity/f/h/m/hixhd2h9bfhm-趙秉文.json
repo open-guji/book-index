@@ -13,9 +13,9 @@
   "id": "hixhd2h9bfhm",
   "primary_name": "趙秉文",
   "dynasty": "金",
-  "native_place_basis": "CBDB 28846 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "《御選宋金元明四朝詩》御選金詩姓名爵里著錄「滏陽人」（字與庫內一致；與庫值同地異稱（釜陽／滏陽異寫））",
   "period_basis": "據 dynasty「金」自動歸併",
-  "ai_note": "2026-08-24 補繫 entity：新收 4 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 3 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=28846 補入空槽——籍貫「釜陽」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6efpsidd、d59f6eggmx38、d59f6ehvtu6e。\n\n2026-09-06 qa-sweep/liaojinyuan：d59f2j55tgch 自本條 works 撤出——已判為重出，併入他條，見各該條之 merged_in。\n\nA12 非作者人物 正史列傳 M11（遼金）：補別名 周臣、天水郡侯（2026-10-26）。",
+  "ai_note": "2026-08-24 補繫 entity：新收 4 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 反向鏈修復：以 Work 側為準對齊反向鏈——補回 Work 側已繫而本條缺載之 work 3 條。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=28846 補入空槽——籍貫「釜陽」。既有之值一概未動。\n\n2026-09-06 qa-sweep/coordinator 人物↔作品雙向鏈補全：本記錄名下下列作品，其 authors[].entity_id 指向本記錄而本記錄之 works 未載（單向）。撰人名與本記錄之名／別名相合者方補，補入之 role 取作品側之 role。此是補反向，非新繫：作品側之繫連是否確當，另由各期車道之 C／F／L 類檢查覆核。 本次補：d59f6efpsidd、d59f6eggmx38、d59f6ehvtu6e。\n\n2026-09-06 qa-sweep/liaojinyuan：d59f2j55tgch 自本條 works 撤出——已判為重出，併入他條，見各該條之 merged_in。\n\nA12 非作者人物 正史列傳 M11（遼金）：補別名 周臣、天水郡侯（2026-10-26）。\n\n2026-11-15 P8 自查自決：籍貫依據由 CBDB 換為《御選宋金元明四朝詩》御選金詩姓名爵里（字與庫內一致；與庫值同地異稱（釜陽／滏陽異寫）；籍貫值未變）。",
   "period": "liao-jin-yuan",
   "subtype": "people",
   "schema_version": 1,
@@ -24,8 +24,8 @@
     "death": 1232,
     "basis": "現行字段"
   },
-  "revision": "1.1.3",
-  "revised_at": "2026-11-12",
+  "revision": "1.1.4",
+  "revised_at": "2026-11-15",
   "description": {
     "text": "字周臣，磁州滏陽人，大定二十五年進士。明昌六年上書論胥持國當罷，牽連王庭筠等；南渡後歷翰林侍講學士、禮部尚書、翰林學士兼益政院說書官；開興元年草改元詔，是年五月卒；仕五朝，官六卿，著《滏水集》等。",
     "sources": [
@@ -42,6 +42,11 @@
         "title": "《欽定四庫全書總目》卷一百六十六·《滏水集》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "金趙秉文撰。"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選金詩姓名爵里",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字周臣滏陽人自號閒閒大定二十五年進士應奉翰林文字歴拜禮部尚書兼侍讀同修國史知集賢院有滏水集三十巻"
       }
     ]
   },

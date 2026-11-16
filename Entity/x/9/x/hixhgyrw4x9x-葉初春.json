@@ -41,23 +41,28 @@
     "cbdb_match": "auto_create",
     "cbdb_source": "name_match+dy_filter+unique"
   },
-  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=124119 補入空槽——生年 1541；卒年 1618。既有之值一概未動。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=124119 補入空槽——籍貫「吳江」。既有之值一概未動。",
+  "ai_note": "2026-09-06 CBDB enrich：據所繫 cbdb_id=124119 補入空槽——生年 1541；卒年 1618。既有之值一概未動。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=124119 補入空槽——籍貫「吳江」。既有之值一概未動。\n\n2026-11-15 P8 自查自決：《御選宋金元明四朝詩》御選明詩姓名爵里五籍貫作「呉縣」與庫值「吳江」不一致（字處元相合），不覆蓋，作另說記入 native_place_basis 並加出處。",
   "native_place": "吳江",
   "native_place_entity_id": "hixi5whkr37t",
-  "native_place_basis": "CBDB 124119 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 124119 index_addr（2026-09-06 CBDB enrich）；另說：《御選宋金元明四朝詩》御選明詩姓名爵里五作「呉縣人」，吳江、吳縣為蘇州府異縣；原值不改",
   "dates": {
     "birth": 1541,
     "death": 1618,
     "basis": "現行字段"
   },
-  "revision": "1.1.1",
-  "revised_at": "2026-11-01",
+  "revision": "1.1.2",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
         "name": "中國古籍總目",
         "type": "url",
         "details": "http://data.library.sh.cn/entity/person/dysb5kraqv3cmxhc"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選明詩姓名爵里五",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字處元呉縣人萬厯庚辰進士除知順徳縣擢兵科給事中厯户禮二科左右給事建言為民天啟初追贈光禄寺少卿有呉西佚槀"
       }
     ]
   }

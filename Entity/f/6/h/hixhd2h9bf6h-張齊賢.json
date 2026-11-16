@@ -27,17 +27,17 @@
   "dynasty_basis": "cbdb:birth/death_name=北宋",
   "period": "song",
   "period_basis": "据 dynasty「北宋」自动归并",
-  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=183 補入空槽——籍貫「洛陽」。既有之值一概未動。",
+  "ai_note": "2026-08-24 宋志頂真格抽撰人：本 entity 收 1 部 work 之繫（其撰人自《宋史藝文志》頂真格之首名抽出，見各 work 之 authors[].name_basis）。\n2026-08-24 補繫 entity：新收 2 部 work 之繫——此輩 work 之 authors 舊有其名而無 entity_id，今以同名唯一（或別名唯一）補之。\n\n2026-09-06 CBDB enrich：據所繫 cbdb_id=183 補入空槽——籍貫「洛陽」。既有之值一概未動。\n\n2026-11-15 P8 自查：《宋名臣言行錄》前集卷一本傳作「曹州人」（字相合），與庫值「洛陽」不同地，按真矛盾處理：籍貫值不改，作另說記入 native_place_basis 並加出處。\n\n2026-11-15 P8 自查自決：《御選宋金元明四朝詩》御選宋詩姓名爵里一籍貫作「曹州寃勾」（字師亮相合），他書已記另說，今追記入 native_place_basis 並加出處；原值不改。",
   "native_place": "洛陽",
   "native_place_entity_id": "hixi4ui5u4ue",
-  "native_place_basis": "CBDB 183 index_addr（2026-09-06 CBDB enrich）",
+  "native_place_basis": "CBDB 183 index_addr（2026-09-06 CBDB enrich）；另說：《宋名臣言行錄》前集卷一作「曹州人」（字相合），與庫值「洛陽」不同地；原值不改；又，《御選宋金元明四朝詩》御選宋詩姓名爵里一作「曹州寃勾人」（字相合），書作「曹州寃勾人，徙家洛陽」，庫值洛陽即徙居地；本貫另說曹州寃勾",
   "dates": {
     "birth": 943,
     "death": 1014,
     "basis": "現行字段"
   },
-  "revision": "1.0.1",
-  "revised_at": "2026-11-11",
+  "revision": "1.0.3",
+  "revised_at": "2026-11-15",
   "description": {
     "sources": [
       {
@@ -49,6 +49,16 @@
         "title": "《欽定四庫全書總目》卷一百四十·《洛陽縉紳舊聞記》提要",
         "source_bid": "d59dh3vo9af4",
         "details": "宋張齊賢撰。"
+      },
+      {
+        "title": "《宋名臣言行錄》前集卷一",
+        "source_bid": "d59f2hun5a0x",
+        "details": "張齊賢傳首：字師亮曹州人"
+      },
+      {
+        "title": "《御選宋金元明四朝詩》御選宋詩姓名爵里一",
+        "source_bid": "d59f2nulhr7m",
+        "details": "字師亮曹州寃勾人徙家洛陽太祖幸西都以布衣獻䇿稱㫖太平興國中擢進士歴同中書門下平章事進左僕射以司空致仕卒贈司徒諡文定"
       }
     ]
   }

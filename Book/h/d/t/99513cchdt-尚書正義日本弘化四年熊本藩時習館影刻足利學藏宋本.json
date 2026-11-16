@@ -27,6 +27,17 @@
     {
       "institution": "北京大學圖書館",
       "source": "中國古籍總目 item/2jrpwws3epriy24w"
+    },
+    {
+      "institution": "國立國會圖書館",
+      "call_number": "240-16",
+      "notes": "20册；熊本藩時習館據足利學校藏宋刊本影鈔刊，弘化4（1847）",
+      "source": "NDL Search https://ndlsearch.ndl.go.jp/books/R100000002-I000007510329"
+    },
+    {
+      "institution": "國立故宮博物院",
+      "call_number": "贈善003041-003060",
+      "source": "metadata.npm_item_id"
     }
   ],
   "indexed_by": [
@@ -42,11 +53,17 @@
       "name": "中國古籍總目（上圖聯合目錄）",
       "type": "url",
       "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/g7i38ziz6qhwode2&from=evidence"
+    },
+    {
+      "id": "ndl-R100000002-I000007510329",
+      "name": "NDL Search",
+      "type": "url",
+      "details": "https://ndlsearch.ndl.go.jp/books/R100000002-I000007510329"
     }
   ],
-  "ai_note": "後印／補刻：\"足利學藏宋本\"",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-21",
+  "ai_note": "後印／補刻：\"足利學藏宋本\"\n日本館藏補掛（wake-a，2026-11-15）：據NDL Search核對 https://ndlsearch.ndl.go.jp/books/R100000002-I000007510329。題名、弘化四年（1847）、熊本藩時習館影刻足利學校藏宋本一致\n〔被併條 988g2qd5vm 原註〕日本館藏補掛（wake-a，2026-11-15）：據NDL Search核對 https://ndlsearch.ndl.go.jp/books/R100000002-I000007510329。題名、弘化四年（1847）、熊本藩時習館影刻宋單疏本一致（與 99513cchdt 為同一刊本的不同總目著錄）\n\n2026-11-15 L0 併條：併 988g2qd5vm 入本條（同一和刻版本重複著錄，L0 第三十輪；988g2qd5vm 原版本項「日本弘化丁未(四年)景刊南宋初兩浙東路茶鹽司本」）。",
+  "revision": "2.0.0",
+  "revised_at": "2026-11-15",
   "dating": {
     "text": "日本弘化四年",
     "certainty": "uncertain",
@@ -58,5 +75,41 @@
       "number": 20,
       "unit": "卷"
     }
-  ]
+  ],
+  "contained_in": [
+    {
+      "id": "8rlcsybg2hhl",
+      "section": "經部"
+    }
+  ],
+  "resources": [
+    {
+      "id": "npm-rarebooks",
+      "name": "國立故宮博物院善本古籍",
+      "url": "https://rarebooks-maps.npm.edu.tw/index.php?act=Archive/search/1-20/eyJwYWdlaW5nIjogIjEtMjAiLCAic2VhcmNoIjogW3siZmllbGQiOiAiQ21uTnVtYmVyIiwgInZhbHVlIjogIlx1OGQwOFx1NTU4NDAwMzA0MS0wMDMwNjAifV0sICJwcWZpbHRlciI6IFtdLCAidHBmaWx0ZXIiOiB7fX0%3D",
+      "types": [
+        "physical"
+      ],
+      "metadata": {
+        "item_id": "贈善003041-003060",
+        "acckey": "3ea064c1afef510620df891b077c8ce9"
+      }
+    }
+  ],
+  "description": {
+    "text": "《尚書正義》，日本弘化丁未(四年)景刊南宋初兩浙東路茶鹽司本。線裝。國立故宮博物院藏（索書號：贈善003041-003060）。收入《國立故宮博物院善本舊籍》。",
+    "sources": [
+      "據本條著錄字段（版本名、館藏、行款、冊卷數等）機械整理，未另據他書"
+    ]
+  },
+  "physical_description": {
+    "leaf_style": "",
+    "binding": "線裝",
+    "dimensions": "",
+    "condition": "",
+    "source": "library_data/臺灣故宮博物院善本古籍（依 provenance.call_number＝holding_id 對照，同號多書按書名/卷數挑選）"
+  },
+  "metadata": {
+    "npm_acckey": "3ea064c1afef510620df891b077c8ce9"
+  }
 }
