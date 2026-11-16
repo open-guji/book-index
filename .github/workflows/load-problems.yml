@@ -1,0 +1,30 @@
+name: 读档问题清单（只读）
+
+# build_derived 报「讀檔問題 N 項」时，列出具体是哪些文件和什么问题（读不了、无 id、type 不符、id 重复）。
+# 报告里只给计数，看不出是哪些文件，用这个手动跑一次。只读，不写仓库。
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: 列出读档问题
+        run: |
+          python3 - <<'PY'
+          import collections, re, sys
+          sys.path.insert(0, 'build')
+          import v2common as V
+          recs, sidecars, problems = V.load_repo('.')
+          print('记录', {t: len(recs[t]) for t in V.TYPES}, '读档问题', len(problems))
+          kind = collections.Counter(re.sub(r'[0-9a-z]{8,}', 'ID', p['problem'])[:60] for p in problems)
+          for k, n in kind.most_common(10): print(f'  {n:6d}  {k}')
+          dirs = collections.Counter('/'.join(p['path'].split('/')[:2]) for p in problems)
+          print('按目录：', dirs.most_common(8))
+          for p in problems[:40]: print(p['path'], '|', p['problem'][:120])
+          PY
