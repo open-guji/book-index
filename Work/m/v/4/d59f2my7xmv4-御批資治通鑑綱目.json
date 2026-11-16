@@ -17,7 +17,7 @@
       "國立故宮博物院善本舊籍"
     ]
   },
-  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-22 B3 併池（藏本條重出）：1evkpxz5urdvk 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 1→2）併入本條。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 50 取自 `measure_info`「五十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-15 lane-B 併條（rule=A）：併 d59f2merh3wh《御批通鑑綱目》 入本條。GUJI-405 题名变体(Selene/Sabine)",
+  "ai_note": "本 Work 條目從《國立故宮博物院善本舊籍》目錄錄入。\n\n2026-08-22 B3 併池（藏本條重出）：1evkpxz5urdvk 併入本條。二者同題，併者為《國立故宮博物院善本舊籍》錄入之藏本條而無撰人、無志書著錄。依 SCHEMA〈一條 Work 記錄代表什麼〉，一書數藏本當為一 Work 數 Book，非二 Work；藏本（Book 1→2）併入本條。\n\n2026-09-08 撤 `juan_count`（W-juan_count 徑取冊數（欄名是卷而值是冊））：其值 50 取自 `measure_info`「五十冊」——**是冊數，不是卷數**。`juan_count` 一欄之義是卷，冊與卷非一物（一冊可含數卷，一卷亦可分數冊），以冊充卷，下游凡按卷數計量者皆受其誤。撤之無所失：冊數在 `measures` 中以 `unit: 冊` 正記，**單位對的那一份還在，撤掉的只是單位錯的那一份**。**不代補卷數**——本條著錄只給了冊數，卷數本不可知；留空是「未著」，填一個數就成了「已考」，那是把不知道記成了知道。\n\n2026-10-15 lane-B 併條（rule=A）：併 d59f2merh3wh《御批通鑑綱目》 入本條。GUJI-405 题名变体(Selene/Sabine)\n\n2026-11-16 L5 哈佛燕京挂接（存疑复核）：补挂 1 条，两名审核各自独立判为同书方挂。",
   "measures": [
     {
       "unit": "冊",
@@ -56,8 +56,8 @@
   ],
   "period_upper": "qing",
   "period_upper_basis": "edition_bound：所掛版本中最早者為「清乾隆寫四庫全書薈要本」——版本之年不早於成書之年，故不晚於 qing",
-  "revision": "1.0.2",
-  "revised_at": "2026-10-15",
+  "revision": "1.1.0",
+  "revised_at": "2026-11-16",
   "resources": [
     {
       "name": "维基共享资源",
@@ -66,6 +66,19 @@
       ],
       "id": "commons",
       "url": "https://commons.wikimedia.org/wiki/File:%E6%96%87%E6%B7%B5%E9%96%A3%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8_0689%E5%86%8A.djvu"
+    },
+    {
+      "id": "harvard",
+      "label": "哈佛燕京藏本：China 1708",
+      "name": "哈佛大學圖書館 哈佛燕京圖書館",
+      "url": "https://nrs.harvard.edu/urn-3:FHCL:4871155",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "harvard_record": "990080920890203941",
+        "edition": "China 1708"
+      }
     }
   ],
   "additional_works": [
