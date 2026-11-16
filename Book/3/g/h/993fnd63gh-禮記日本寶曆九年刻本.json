@@ -36,6 +36,10 @@
     {
       "institution": "南京圖書館",
       "source": "中國古籍總目 item/xsl5a82y5gdkiboa"
+    },
+    {
+      "institution": "筑波大學附屬圖書館中央圖書館",
+      "source": "CiNii Books https://ci.nii.ac.jp/ncid/BA52219693（著錄年寬延二年[1749]，奧付無年號；同書肆同句讀本餘皆著錄寶曆九年，視為同版）"
     }
   ],
   "indexed_by": [
@@ -51,16 +55,24 @@
       "name": "中國古籍總目（上圖聯合目錄）",
       "type": "url",
       "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/5wn5apero684f6sp&from=evidence"
+    },
+    {
+      "id": "wakeb3-0",
+      "name": "CiNii Books",
+      "type": "url",
+      "details": "https://ci.nii.ac.jp/ncid/BA52219693"
     }
   ],
-  "ai_note": "責任者一致性：總目 contMap 與題名行 dclabel 在「name」上不一致，取 contMap；題名行：漢鄭玄注;日本賀島矩直句讀",
-  "revision": "1.0.0",
-  "revised_at": "2026-10-18",
+  "ai_note": "責任者一致性：總目 contMap 與題名行 dclabel 在「name」上不一致，取 contMap；題名行：漢鄭玄注;日本賀島矩直句讀\n和刻本第三輪 wake-b（2026-11-16）：補挂筑波大學附屬圖書館中央圖書館（CiNii BA52219693）；dating.year 原 833 誤，據寶曆九年更正為 1759。",
+  "revision": "1.0.1",
+  "revised_at": "2026-11-16",
   "dating": {
-    "year": 833,
+    "era": "日本",
+    "reign": "寶曆",
+    "year": 1759,
     "certainty": "inferred",
     "source": "catalog",
-    "basis": "目錄著錄年份（原 publication_info.year）"
+    "basis": "題名「日本寶曆九年刻本」；CiNii BA79013779 奧付明記「寶曆九年」，賀島矩直句讀、風月莊左衞門／丸屋市兵衞／今村八兵衞本"
   },
   "measures": [
     {
