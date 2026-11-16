@@ -38,6 +38,9 @@ for bid in sorted(ACC):
     ncids,note=ACC[bid]
     p=PM[bid];raw=git_show(p);b=json.loads(raw)
     assert json.dumps(b,ensure_ascii=False,indent=2)+'\n'==raw,('roundtrip',bid)
+    if bid=='988g8y6bcw':
+        b['provenance']=[x for x in b['provenance'] if 'BC05969794' not in x.get('source','')]
+        b['ai_note']+='\n和刻本第四輪（2026-11-16）複抽：BC05969794（武庫川女子大學，元文4[1739]中野總左衞門版）與寛保元年錦山房本非同版，已自本條 provenance 移除，未另立。'
     have=[core(x.get('institution','')) for x in b.get('provenance') or []]
     add=[];seen=set();srcs={}
     for n in ncids:
@@ -54,6 +57,9 @@ for bid in sorted(ACC):
     for k in add: b['provenance'].append({'institution':k,'source':'CiNii Books '+CN+srcs[k]})
     if bid=='993ekxf3eq':
         b['dating']={'era':'日本','reign':'寶曆','year':1761,'certainty':'inferred','source':'edition','basis':'題名「日本寶曆十一年東都書肆崇文堂刻本」；CiNii 刊記「寳暦十一年辛巳九月」互證（原誤作 835）'}
+    if bid=='988g0pbmrx':
+        b['edition_type']='影印本'
+        if b.get('description'): b['description']['text']+='日本館藏所據 CiNii 記錄為明治十六年印刷局據高山寺藏舊鈔本之影印（零本，卷二十七）。'
     v=b.get('revision','1.0.0').split('.');v[2]=str(int(v[2])+1);b['revision']='.'.join(v);b['revised_at']=TODAY
     line=('和刻本日本馆藏专项第四輪（%s，車道 wake-b-4，「存疑」再核）：據 CiNii Books 書誌（%s）核對題名、刊年、書肆與本條版本項一致，補掛日本館藏：%s；未核原書。%s'
           %(TODAY,'、'.join(CN+n for n in ncids),'、'.join(add),note))
