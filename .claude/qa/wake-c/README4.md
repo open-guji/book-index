@@ -7,3 +7,5 @@
 **孟子趙岐注延享四年**：庫內未見書肆明確者；993gjlqf40（中國總目，無書肆）無法確認同版，故另立並互注；延享四年刊記明載者為東都竹川藤兵衞等四書林本（BB16949077），前川六左衞門・須原茂兵衞組印次未明，分立。
 
 **台賬**：ledger4.tsv；腳本 build4_wake-c.py（資料取自第三輪 c3_rows.json／c3_det.json）。
+
+**複抽修訂（patch4_wake-c.py）**：趙註孟子東都組拆為兩條（共14條新建）；前川・須原組改inferred並納入BB13446896；孝經大義改inferred；與庫內991k9ne9e8／991mmu8ufb／991k9ne9ec／99ifez2z9e／993gjlqf40雙向互注（庫內側僅補ai_note、revision patch+1）。
