@@ -112,6 +112,8 @@ ID 是 64 位 snowflake，base36 小写编码，数值 `< 2^63`。
 
 0–3 用于书目实体，4–7 用于抽象概念。铸号用 bim `id_generator.py` 或 `.claude/qa/mintid.py`。
 
+**车道登记（2026-11-16 起强制）**：用 `mintid.py` 铸号，车道必须先登记在其 `LANE_MACHINE` 里（唯一登记处），不许借用别的串的车道。同一个机器号只许由铸不同类型的车道共用（见 `LANE_KINDS`），已退役的车道（`RETIRED`）不能再铸。CI `id-unique` 会查全库重复 id 和车道冲突。
+
 - 草稿记录可以引用正式 id（如草稿 Book 的 `work_id` 指正式 Work）；校验悬空引用时正式 id 不在草稿索引中属正常。
 - 「id 较小一侧」按字符串比较；同长度的 base36 小写 id，字符串序与数值序一致。
 - 升格的权威对照是 `promotions/`（见 [promotions.md](promotions.md)）；草稿记录里不写 `promoted_to`。
