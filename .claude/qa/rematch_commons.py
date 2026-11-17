@@ -27,7 +27,7 @@ import opencc
 ROOT = Path(__file__).resolve().parents[2]
 JP = opencc.OpenCC('jp2t')
 SIMP = opencc.OpenCC('t2s')
-RULE_VERSION = 3
+RULE_VERSION = 4
 NUMBER = r'[零〇一二三四五六七八九十百千萬万兩两壹貳贰叁肆伍陆陸柒捌玖拾佰仟\d]+'
 DYNASTY = r'(?:南朝宋|南朝梁|南朝陳|南朝齐|南朝|後漢|后汉|東漢|东汉|西漢|西汉|東晉|东晋|西晉|西晋|北宋|南宋|北魏|後魏|后魏|北齊|北齐|北周|五代|民國|民国|元代|明代|清代|宋代|唐代|漢|汉|魏|蜀|吳|吴|晉|晋|齊|齐|梁|陳|陈|隋|唐|宋|遼|辽|金|元|明|清|周|日|日本|朝鮮|朝鲜)'
 ROLES = r'(?:編纂|编纂|編輯|编辑|輯錄|辑录|編著|编著|纂修|重修|補注|补注|集解|註疏|注疏|義疏|义疏|箋注|笺注|校訂|校订|校勘|校刊|撰|著|編|编|輯|辑|纂|修|注|註|疏|校|訂|订|譯|译|述|集|評|评|繪|绘|錄|录|傳|传|等)'
@@ -188,7 +188,9 @@ def build_cache(source: Path, cache: Path, index: dict):
         return signature
     titles = set()
     for entry in index.values():
-        titles.update(norm(t) for t in [entry['title'], *(entry.get('additional_titles') or [])] if isinstance(t, str) and t)
+        for t in [entry['title'], *(entry.get('additional_titles') or [])]:
+            if isinstance(t, str) and t:
+                titles.update({norm(t), strip_count(norm(t))})
     counts = collections.Counter()
     cache.parent.mkdir(parents=True, exist_ok=True)
     with cache.open('w', encoding='utf-8', newline='\n') as output:
@@ -197,9 +199,7 @@ def build_cache(source: Path, cache: Path, index: dict):
                 for line in stream:
                     rec = json.loads(line)
                     counts['source_files_scanned'] += 1
-                    categories = rec.get('book_categories') or [rec.get('book', '')]
-                    keys = {norm(t) for t in categories if t}
-                    if keys & titles:
+                    if rec_keys(rec) & titles:
                         output.write(line.rstrip('\n') + '\n')
                         counts['candidate_files'] += 1
             print(f"Scanned {shard.name}: {counts['source_files_scanned']:,} files / {counts['candidate_files']:,} candidates", flush=True)
@@ -208,6 +208,30 @@ def build_cache(source: Path, cache: Path, index: dict):
     dump(signature_path, signature)
     dump(cache.with_suffix('.counts.json'), counts)
     return signature
+
+
+HAN = re.compile(r'[\u3400-\u9fff]')
+COUNT_TAIL = re.compile(r'(?:[零〇一二三四五六七八九十百千萬万兩两\d]+卷|不分卷|[零〇一二三四五六七八九十百千\d]+[種种册冊])(?:附.*)?$')
+
+
+@functools.lru_cache(maxsize=500000)
+def strip_count(key: str) -> str:
+    """二十卷 / 不分卷 / 九種 style tails on an already-normalised key."""
+    return COUNT_TAIL.sub('', key)
+
+
+def rec_keys(rec: dict) -> set:
+    """Title keys of a scan file: Chinese book categories, else (pinyin/English category) the file's own
+    Chinese title, else the Chinese part of the file name. Each key also without a count tail."""
+    cats = [c for c in (rec.get('book_categories') or [rec.get('book', '')]) if c and HAN.search(c)]
+    keys = {norm(c) for c in cats}
+    if rec.get('title') and HAN.search(rec['title']):
+        keys.add(file_title(rec['title']))
+    if not keys:
+        stem = re.sub(r'\.[A-Za-z0-9]+$', '', rec.get('file', ''))
+        keys.add(file_title(''.join(re.findall(r'[\u3400-\u9fff（）()]+', stem))))
+    keys |= {strip_count(k) for k in keys}
+    return {k for k in keys if len(k) >= 2}
 
 
 def rank(rec: dict):
@@ -220,16 +244,18 @@ def rank(rec: dict):
 
 def classify(work: dict, rec: dict) -> tuple[str, list[str]]:
     title_keys = {norm(t) for t in [work['title'], *(work.get('additional_titles') or [])] if isinstance(t, str)}
-    categories = {norm(t) for t in rec.get('book_categories') or [rec.get('book', '')] if t}
-    if len(categories) != 1:
+    zh_cats = {norm(t) for t in rec.get('book_categories') or [rec.get('book', '')] if t and HAN.search(t)}
+    if len(zh_cats) > 1:
         return 'multi_book_file', []
+    categories = rec_keys(rec)
+    title_keys |= {strip_count(k) for k in title_keys}
     if not title_keys & categories:
         return 'title_mismatch', []
     if rec.get('mime') not in {'application/pdf', 'image/vnd.djvu'}:
         return 'not_document_scan', []
     if re.fullmatch(r'[\s\[（(]*(?:卷首|序|序言|目錄|目录|跋|牌記|牌记|索引)[\s\]）)]*', str(rec.get('volume') or '')) or re.search(r'\s(?:卷首|目錄|目录)\.(?:pdf|djvu)$', rec['file'], re.I):
         return 'front_matter_only', []
-    if rec.get('title') and file_title(rec['title']) not in title_keys:
+    if rec.get('title') and file_title(rec['title']) not in title_keys and strip_count(file_title(rec['title'])) not in title_keys:
         return 'file_title_conflict', []
     if work.get('subtype', 'book') != 'book':
         return 'not_book_work', []
@@ -264,6 +290,7 @@ def plan(source: Path, cache: Path, report: Path):
         for t in [entry['title'], *(entry.get('additional_titles') or [])]:
             if isinstance(t, str) and t:
                 by_title[norm(t)].add(wid)
+                by_title[strip_count(norm(t))].add(wid)
     works, best, existing = {}, {}, set()
     # Works that already have a Commons resource on one of their Books also count as covered.
     book_covered = set()
@@ -296,7 +323,7 @@ def plan(source: Path, cache: Path, report: Path):
                 print(f'Matched {number:,} candidate files / {len(works):,} Works / {len(best):,} possible additions', flush=True)
             assert rec['pageid'] not in seen_pageids
             seen_pageids.add(rec['pageid'])
-            candidates = set().union(*(by_title[norm(t)] for t in rec.get('book_categories') or [rec.get('book', '')] if t))
+            candidates = set().union(*(by_title[k] for k in rec_keys(rec)))
             valid = []
             for wid in sorted(candidates):
                 work = load_work(wid)
