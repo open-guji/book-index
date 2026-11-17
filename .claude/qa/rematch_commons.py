@@ -27,7 +27,7 @@ import opencc
 ROOT = Path(__file__).resolve().parents[2]
 JP = opencc.OpenCC('jp2t')
 SIMP = opencc.OpenCC('t2s')
-RULE_VERSION = 2
+RULE_VERSION = 3
 NUMBER = r'[零〇一二三四五六七八九十百千萬万兩两壹貳贰叁肆伍陆陸柒捌玖拾佰仟\d]+'
 DYNASTY = r'(?:南朝宋|南朝梁|南朝陳|南朝齐|南朝|後漢|后汉|東漢|东汉|西漢|西汉|東晉|东晋|西晉|西晋|北宋|南宋|北魏|後魏|后魏|北齊|北齐|北周|五代|民國|民国|元代|明代|清代|宋代|唐代|漢|汉|魏|蜀|吳|吴|晉|晋|齊|齐|梁|陳|陈|隋|唐|宋|遼|辽|金|元|明|清|周|日|日本|朝鮮|朝鲜)'
 ROLES = r'(?:編纂|编纂|編輯|编辑|輯錄|辑录|編著|编著|纂修|重修|補注|补注|集解|註疏|注疏|義疏|义疏|箋注|笺注|校訂|校订|校勘|校刊|撰|著|編|编|輯|辑|纂|修|注|註|疏|校|訂|订|譯|译|述|集|評|评|繪|绘|錄|录|傳|传|等)'
@@ -51,6 +51,7 @@ def file_title(value: str) -> str:
     """Remove explicit volume/count suffixes only; never strip arbitrary subtitles."""
     zh = re.search(r'\{\{zh\s*\|([^{}]+)\}\}', value or '', re.I)
     value = plain(zh.group(1) if zh else value)
+    value = re.sub(r'\s*[（(]\s*' + NUMBER + r'\s*[）)]\s*$', '', value)  # 蘇溪漁隱讀書譜（一）
     value = re.sub(r'\s*[（(](?:四庫全書本|四库全书本|四部叢刊本|四部丛刊本)[）)]\s*$', '', value)
     value = re.sub(r'[\[【（(]?第' + NUMBER + r'[冊册卷部集][\]】）)]?\s*$', '', value)
     value = re.sub(r'(?:[\s\[【（(]*' + NUMBER + r'[卷冊册][\]】）)]*|不分卷|卷[上下中]|[上下中]冊|[上下中]册)\s*$', '', value)
@@ -157,13 +158,20 @@ def dump(path: Path, value, preserve_format=False):
 
 
 def load_index():
+    """Scan Work/<c1>/<c2>/<c3>/<id>-<title>.json directly (index/ is no longer committed)."""
     result, locations = {}, {}
-    for path in sorted((ROOT / 'index/works').glob('*.json')):
-        data = json.loads(path.read_text(encoding='utf-8'))
-        for wid, entry in data.items():
-            assert wid not in result, wid
-            result[wid] = entry
-            locations[wid] = path
+    for path in sorted((ROOT / 'Work').glob('*/*/*/*.json')):
+        try:
+            data = json.loads(path.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        if data.get('type') != 'work' or not data.get('id'):
+            continue
+        wid = data['id']
+        assert wid not in result, wid
+        result[wid] = {'title': data.get('title') or '', 'additional_titles': data.get('additional_titles') or [],
+                       'path': path.relative_to(ROOT).as_posix()}
+        locations[wid] = path
     assert result, 'Empty Work scan'
     return result, locations
 
@@ -206,6 +214,7 @@ def rank(rec: dict):
     # Prefer a declared single-volume file, then numbered first volume, then stable page ID.
     volume = str(rec.get('volume') or '')
     first = norm(volume) in {'1', '01', '001', '0001', '第1册', '第一册', '第一卷', '第1卷', '卷一', '卷1', '卷01', '卷001'}
+    first = first or bool(re.search(r'[（(]\s*[一1]\s*[）)]\s*\.[A-Za-z]+$', rec.get('file', '')))
     return (str(rec.get('volumes') or '') == '1', first, -len(rec['file']), -rec['pageid'])
 
 
@@ -256,6 +265,17 @@ def plan(source: Path, cache: Path, report: Path):
             if isinstance(t, str) and t:
                 by_title[norm(t)].add(wid)
     works, best, existing = {}, {}, set()
+    # Works that already have a Commons resource on one of their Books also count as covered.
+    book_covered = set()
+    for bpath in (ROOT / 'Book').glob('*/*/*/*.json'):
+        raw = bpath.read_text(encoding='utf-8')
+        if 'commons.wikimedia.org' in raw:
+            try:
+                book = json.loads(raw)
+            except Exception:
+                continue
+            if has_commons(book) and book.get('work_id'):
+                book_covered.add(book['work_id'])
     sha_owners = collections.defaultdict(set)
     counts = collections.Counter()
     pair_counts = collections.Counter()
@@ -283,7 +303,7 @@ def plan(source: Path, cache: Path, report: Path):
                 verdict, names = classify(work, rec)
                 pair_counts[verdict] += 1
                 work_verdicts[wid][verdict] += 1
-                if has_commons(work):
+                if has_commons(work) or wid in book_covered:
                     existing.add(wid)
                 if verdict == 'confirmed':
                     valid.append((wid, names))
