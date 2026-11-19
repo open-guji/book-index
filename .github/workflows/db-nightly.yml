@@ -19,7 +19,7 @@ permissions:
 jobs:
   db:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     services:
       pg:
         image: postgres:16
@@ -86,6 +86,42 @@ jobs:
           if ! diff "$RUNNER_TEMP/a.sha" "$RUNNER_TEMP/b.sha" > "$RUNNER_TEMP/diff.txt"; then
             echo "::error::从库产出与从文件产出不一致：$(grep -c '^[<>]' "$RUNNER_TEMP/diff.txt") 行差异"
             head -40 "$RUNNER_TEMP/diff.txt"
+            # 诊断：留下不一致的文件（从库一份；再从文件产出一遍取另一份），并查从文件两次产出是否本身不稳定
+            D="$RUNNER_TEMP/diag"; mkdir -p "$D/db" "$D/file"
+            grep '^[<>]' "$RUNNER_TEMP/diff.txt" | sed 's/^. [0-9a-f]*  //' | sort -u > "$D/paths.txt"
+            (cd "$RUNNER_TEMP/b" && head -200 "$D/paths.txt" | xargs -r cp --parents -t "$D/db" 2>/dev/null || true)
+            rm -rf "$RUNNER_TEMP/b"
+            python3 build/build_derived.py --out "$RUNNER_TEMP/a" --text-index "$TI" | tail -1
+            sha "$RUNNER_TEMP/a" "$RUNNER_TEMP/a2.sha"
+            echo "从文件两次产出差异：$(diff "$RUNNER_TEMP/a.sha" "$RUNNER_TEMP/a2.sha" | grep -c '^[<>]') 行（非 0 即产出本身不确定）" | tee -a "$GITHUB_STEP_SUMMARY"
+            (cd "$RUNNER_TEMP/a" && head -200 "$D/paths.txt" | xargs -r cp --parents -t "$D/file" 2>/dev/null || true)
+            python3 - "$D" <<'EOF'
+          import json, os, sys
+          D = sys.argv[1]
+          shown = 0
+          for p in open(os.path.join(D, 'paths.txt')).read().split():
+              fa, fb = os.path.join(D, 'file', p), os.path.join(D, 'db', p)
+              if not (os.path.exists(fa) and os.path.exists(fb)) or shown >= 6:
+                  continue
+              a, b = json.load(open(fa, encoding='utf-8')), json.load(open(fb, encoding='utf-8'))
+              if isinstance(a, dict) and isinstance(b, dict):
+                  ks = [k for k in sorted(set(a) | set(b)) if json.dumps(a.get(k), ensure_ascii=False) != json.dumps(b.get(k), ensure_ascii=False)]
+                  print('== %s：%d 个键不同，例 %s' % (p, len(ks), ks[:5]))
+                  for k in ks[:2]:
+                      print('  file:', json.dumps(a.get(k), ensure_ascii=False)[:600])
+                      print('  db  :', json.dumps(b.get(k), ensure_ascii=False)[:600])
+              else:
+                  print('== %s：非对象，长度 %s / %s' % (p, len(json.dumps(a)), len(json.dumps(b))))
+              shown += 1
+          EOF
             exit 1
           fi
           echo "逐字节一致" >> "$GITHUB_STEP_SUMMARY"
+      - name: 上传不一致样本
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: db-nightly-diag
+          path: ${{ runner.temp }}/diag
+          if-no-files-found: ignore
+          retention-days: 7

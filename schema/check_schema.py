@@ -454,6 +454,21 @@ def main_build(a):
 
 # ---------------------------------------------------------------- 主程序
 
+def path_errors(rel, rec):
+    """记录文件须在 `{类型}/{c1}/{c2}/{c3}/{id}-….json`，c1..c3 取 id 尾 3 字元（bim storage.shard_dirs）。
+    放错分片目录时 id 推不出路径：网站、目录库按 id 找文件都找不到（2026-11-19，道藏一批 257 个曾三级颠倒）。"""
+    i = rec.get("id")
+    parts = rel.replace(os.sep, "/").split("/")
+    if not isinstance(i, str) or not i:
+        return []
+    tail = i.rjust(3, "_")[-3:]
+    if len(parts) != 5 or parts[1:4] != [tail[0], tail[1], tail[2]]:
+        return [("ERROR", "shard-path", "id", "文件应在 %s/%s/%s/%s/ 下" % (parts[0], tail[0], tail[1], tail[2]))]
+    if not (parts[4] == i + ".json" or parts[4].startswith(i + "-")):
+        return [("ERROR", "shard-path", "id", "文件名须以 id 开头")]
+    return []
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--root", default=os.path.dirname(HERE), help="仓根（默认本仓）")
@@ -496,6 +511,7 @@ def main():
         out = []
         v.validate(rec, v.doc(SCHEMA_OF[kind]), SCHEMA_OF[kind], "", out)
         out.extend(semantic_warns(kind, rec))
+        out.extend(path_errors(rel, rec))
         if not a.draft:
             for k in ("revision", "revised_at"):
                 if k not in rec:
