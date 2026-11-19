@@ -79,6 +79,7 @@ python3 build/build_derived.py --check-only [--hub-check] --text-index "$BOOK_TE
 | `related/<work_id>/<n>.json` | Work 的 `_related` 超过 200 项时；`n` 从 **2** 起（第 1 页就是 entry 里的 `_related`） | Work `_related` 元素数组，每页至多 200 项 | v1 |
 | `lineage/<work_id>.json` | 该 Work 下有 Book 的 `base_edition`（带 `relation` 与 id 的项）或 `related_books`（带 `relation` 的对象项）成边时 | `{work_id, nodes, edges}`，见〈六〉 | v1 |
 | `_hubs.json` | 总是 | `{id: {t, title?, dyn?}}`，见〈七〉 | v1 |
+| `stats.json` | 全量 build 总是 | `{work, work_by_subtype: {subtype: n}, book, collection, entity}`：本仓**存活**记录数（不含 `merged_into` 墓碑；不含参照仓记录）；`work_by_subtype` 缺 subtype 的记入 `book`，各项之和＝`work`；键排序 | v7 |
 | `classific.json` | 有 `classification/` 且有 `primary` 分类法时 | 旧格式分类词表（数组），见〈七〉 | v1 |
 | `index/works/<0-f>.json`、`index/books/<0-f>.json`、`index/entities/<0-f>.json`、`index/collections.json` | 总是 | `{id: 条目}`，见〈八〉 | v1 |
 | `index/seals.json`、`index/seals/<seal_id>/<n>.json` | 总是 | 印章反查表，见 8.3 | v1 |
@@ -567,6 +568,7 @@ GUJI-542 P2。回答「某枚印章钤在哪些书上」。来源只有 `Book.pr
 | 3（补登） | 2026-11-03 | 契约 3 之后上线、当时未登记的纯增量：place 条加 `_concretes`；place 卡加 `dynasties`。未升 `CONTRACT`（升版要改 `build_derived.py`，另行排期）；补登依据 S5 审查（总目/schema审查/S5） |
 | 5 | 2026-11-11 | 纯增量：Book 卡加 `coll`；版本超 200 的 Work 加 `_book_groups` 与 `books/` 分页；Book／Collection `_related` 带原 relation 词（补登） |
 | 6 | 2026-11-15 | 纯增量：Work 加 `_contents` 与 `contents/<id>/<n>.json`（被 `collected_in` 指向的总集、别集、选本之篇目，带 `vol`／`ord`）；Work 卡片加 `st`（subtype，book 不写）；单篇诗文方案 A |
+| 7 | 2026-11-19 | 纯增量：`stats.json`（存活 Work／Book／Collection／Entity 计数与 Work 按 subtype 分；A41 首页总数用，GUJI-755） |
 
 **改契约的规矩**：任何增删、改名、改形状、改分页大小，**先经协调者通知网站侧（A41／A42），并在 Jira GUJI 卡留痕，等对方回复后再合**（overview 仓已淘汰，原渠道 overview#458 不再用）；只新增可选字段也算改契约，同样要先通知。改动时：`CONTRACT` 加一、本档〈十一〉表加一行、记入 [CHANGELOG.md](CHANGELOG.md)，并在同一个提交里用 `build/make_contract_sample.py` 重生 `build/contract-sample/`。
 `report.json` 的内容、`notes` 的措辞不属契约。

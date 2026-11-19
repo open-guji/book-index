@@ -393,3 +393,21 @@ def test_contents_from_collected_in_sorted_by_volume_and_order(repo):
     assert [(c['id'], c.get('vol'), c.get('ord')) for c in page] == [(S.W3, 159, 2), (S.W2, 160, 5), (S.W4, None, None)]
     # 契約 6：Work 卡片帶 `st`（subtype，book 與缺省不寫）
     assert [c.get('st') for c in page] == ['poem', None, None]
+
+
+def test_stats_counts_live_records_only(repo, tmp_path):
+    """stats.json：存活記錄計數，merged_into 墓碑不計；Work 按 subtype 分（缺省 book）；流式與非流式一致。"""
+    r0, P0 = run(repo, check_only=True)
+    base = P0['stats.json']
+    S.put(repo, 'Book', {'id': 'b0000000009', 'type': 'book', 'title': '甲書重複本', 'work_id': S.W1,
+                         'merged_into': S.B1, 'revision': '2.0.0'})
+    r, P = run(repo, check_only=True)
+    st = P['stats.json']
+    assert st == base
+    assert set(st) == {'work', 'work_by_subtype', 'book', 'collection', 'entity'}
+    assert st['work'] == sum(st['work_by_subtype'].values())
+    live_books = [k for k, v in P.items() if k.startswith('entry/b') and not v.get('merged_into')]
+    assert st['book'] == len(live_books)
+    a = str(tmp_path / 'a')
+    run(repo, out_dir=a, stream=True)
+    assert json.load(open(os.path.join(a, 'stats.json'), encoding='utf-8')) == st

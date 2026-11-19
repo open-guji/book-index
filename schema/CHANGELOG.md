@@ -5,6 +5,11 @@
 ---
 
 
+## 2026-11-19　build 加 `_build/stats.json`（契约 7）
+
+- 首页总数要「存活」记录数：`index/` 与网站 `meta.json` 照列 `merged_into` 墓碑（Work 含墓碑 91 万余），不宜直接当总数。build 新出 `stats.json`：`{work, work_by_subtype, book, collection, entity}`，只数本仓非墓碑记录，`work_by_subtype` 缺 subtype 记入 `book`。
+- `CONTRACT` 6→7（纯增量）。依据：A41 请求（GUJI-755）。`build/contract-sample/` 待下次全量重生时带上（`make_contract_sample.py` 已加拷贝）。
+
 ## 2026-11-16　Work 加可选字段 `region`（方志地区）
 
 - 动机：方志同名跨省极多（康熙清河縣志在河北邢台与江苏淮阴各一部），库内 Work 无地区信息，无法与《中國地方志總目提要》(1996) 配对。
