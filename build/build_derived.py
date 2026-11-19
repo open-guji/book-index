@@ -18,6 +18,8 @@
     _build/books/<wid>/<g>/<n>.json 版本超過 BOOK_GROUP 之 Work：按叢編分組的版本卡片分頁（g＝叢編 id，無叢編者為 _none）
     _build/lineage/<wid>.json       作品下版本圖（有承襲資料者）
     _build/_hubs.json               樞紐名稱表
+    _build/stats.json               存活記錄計數（不含 merged_into 墓碑；首頁總數用）：
+                                    {"work","work_by_subtype":{subtype:n},"book","collection","entity"}
     _build/report.json              校驗報告（確定性，無時間戳）
 
 性質：純函數、確定性（鍵排序、列表按固定鍵排序、緊湊 JSON），同源 → 逐字節同產物；
@@ -60,13 +62,14 @@ BOOK_GROUP = 200   # Work 版本數超過此數：另出按叢編（Book 卡片 
 HUB_CHECK_MAX = 6  # 改樞紐名，牽動產物檔數上限（F4-4：2～4 檔）
 
 DEFAULT_ROLE = '撰'
-CONTRACT = 6       # _build/ 契約版本：2＝F6-5b 加專名派生欄與 dynasty_reign_keys／office_keys（overview#458，純增量）；
+CONTRACT = 7       # _build/ 契約版本：2＝F6-5b 加專名派生欄與 dynasty_reign_keys／office_keys（overview#458，純增量）；
                    # 3＝Book／Collection 加 `_related`（related_books／related_collections 兩側並集，純增量）；
                    # 4＝Book 刪 `_siblings`／`_siblings_more`／`_siblings_total`（2026-11-03，非增量；S5-H）
                    # 5＝Book 卡片加 `coll`；Work 版本超 BOOK_GROUP 者加 `_book_groups` 與 books/ 分頁；
                    #   Book／Collection `_related` 帶原 relation 詞（如「同卷」，原一律 related）（2026-11-11，A41／A42）
                    # 6＝Work 加 `_contents` 與 contents/ 分頁（collected_in 反查的總集篇目）；Work 卡片加 `st`（subtype，book 不寫）
                    #   （純增量；2026-11-15 單篇詩文方案 A）
+                   # 7＝加 stats.json（存活記錄計數，不含 merged_into 墓碑；純增量；2026-11-19 A41 首頁總數）
 
 
 # ---------- 小工具 ----------
@@ -778,6 +781,13 @@ class Build:
                              'dyn': first_dynasty(x) if t == 'Work' else x.get('dynasty')}, keep=('t',))
         return hubs
 
+    def stats_product(self):
+        """stats.json：本倉存活（非 merged_into 墓碑）記錄計數；Work 另按 subtype 分（缺省記 book）。"""
+        live = {t: [self.R[t][i] for i in self.own[t] if not self.R[t][i].get('merged_into')] for t in V.TYPES}
+        by = collections.Counter(w.get('subtype') or 'book' for w in live['Work'])
+        return {'work': len(live['Work']), 'work_by_subtype': dict(sorted(by.items())),
+                'book': len(live['Book']), 'collection': len(live['Collection']), 'entity': len(live['Entity'])}
+
     def products(self, ids=None):
         """產生 {relpath: obj}。ids=None 為本倉全部。"""
         out = {}
@@ -785,6 +795,7 @@ class Build:
             out.update(g)
         out['_hubs.json'] = self.hubs_product()
         if ids is None:
+            out['stats.json'] = self.stats_product()
             out.update(self.names.products())
         return out
 
@@ -1274,6 +1285,7 @@ def run(root, ref_roots=(), out_dir=None, check_only=False, do_hub_check=False, 
                 sink.put(rel, obj)
             del g
         sink.put('_hubs.json', hubs)
+        sink.put('stats.json', b.stats_product())
         for rel, obj in b.names.products().items():
             sink.put(rel, obj)
         if legacy_vocab is not None:

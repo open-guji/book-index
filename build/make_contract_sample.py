@@ -10,7 +10,7 @@
     entry/<id>.json             抽中的頁面就緒條目（原樣拷貝）
     index/<同 _build/index 佈局>  只留抽中條目的索引行，分片名與 build 相同
     members|catalog|related/<id>/<n>.json、lineage/<id>.json   抽中條目編號最小的一頁
-    _hubs.json、classific.json   原樣拷貝
+    _hubs.json、classific.json、stats.json   原樣拷貝
     draft/entry/<id>.json        草稿庫樣例（Book 指正式 Work）
     MANIFEST.json                每條為何入選（覆蓋項）、來源 commit
 抽樣規則固定（按 id 排序取第一個符合者＋幾條指名的），同一份源重跑結果逐字節相同。
@@ -146,7 +146,9 @@ def main():
         if os.path.exists(p):
             copy(p, os.path.join(OUT, 'lineage', i + '.json'))
     sample_index(a.build, set(chosen), OUT)
-    for f in ('_hubs.json', 'classific.json'):
+    for f in ('_hubs.json', 'classific.json', 'stats.json'):
+        if f == 'stats.json' and not os.path.exists(os.path.join(a.build, f)):
+            continue
         copy(os.path.join(a.build, f), os.path.join(OUT, f))
 
     manifest = {'source': {'book-index': git_head(a.root)}, 'entries': {i: chosen[i] for i in sorted(chosen)},
