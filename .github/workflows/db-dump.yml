@@ -1,0 +1,73 @@
+name: db-dump（目录库：全量建库并 pg_dump，供服务器常驻库还原）
+
+# GUJI-775。服务器内存扛不住全量建库（3G 上限下堆峰值 3049MB 被杀），首次与表结构变更后的全量在这里建，
+# 导出成 artifact `catalog-dump`（catalog.dump = pg_dump -Fc；meta.txt = 两仓与 bim 的提交），Ops 下载还原。
+# 手动触发；只读，不发布、不写仓。
+on:
+  workflow_dispatch:
+    inputs:
+      pg_version:
+        description: 'Postgres 主版本（须与服务器一致，现为 18）'
+        default: '18'
+
+permissions:
+  contents: read
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    services:
+      pg:
+        image: postgres:${{ inputs.pg_version }}
+        env:
+          POSTGRES_PASSWORD: pg
+          POSTGRES_DB: gj
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 20
+          --shm-size 1g
+    env:
+      DSN: host=localhost port=5432 user=postgres password=pg dbname=gj
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: bi }
+      - uses: actions/checkout@v4
+        with: { repository: open-guji/book-index-manager, path: bim }
+      - uses: actions/checkout@v4
+        with:
+          repository: open-guji/book-text
+          path: bt
+          sparse-checkout: |
+            /*
+            !*.md
+            !/scripts/
+          sparse-checkout-cone-mode: false
+      - name: 装 psycopg
+        run: pip install "psycopg[binary]"
+      - name: 全量建库
+        working-directory: bim
+        run: python3 -m book_index_manager.db build --root "$GITHUB_WORKSPACE/bi" --text-root "$GITHUB_WORKSPACE/bt" --dsn "$DSN" --full | tail -15
+      - name: db check（每条 0 行才导出）
+        working-directory: bim
+        run: python3 -m book_index_manager.db check --dsn "$DSN"
+      - name: pg_dump
+        run: |
+          mkdir -p out
+          # 用与服务器同版本的 pg_dump（runner 自带的是 16）
+          docker run --rm --network host -e PGPASSWORD=pg -v "$PWD/out:/out" postgres:${{ inputs.pg_version }} \
+            pg_dump -h localhost -U postgres -d gj -Fc -Z 6 --no-owner --no-acl -f /out/catalog.dump
+          {
+            echo "book-index $(git -C bi rev-parse HEAD)"
+            echo "book-text $(git -C bt rev-parse HEAD)"
+            echo "book-index-manager $(git -C bim rev-parse HEAD)"
+            echo "pg_version ${{ inputs.pg_version }}"
+            echo "built_at $(date -u +%FT%TZ)"
+          } > out/meta.txt
+          cat out/meta.txt; ls -l out | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: catalog-dump
+          path: out
+          compression-level: 0      # dump 已压缩
+          retention-days: 3
