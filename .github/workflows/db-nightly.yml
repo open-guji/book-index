@@ -9,6 +9,10 @@ on:
   schedule:
     - cron: '0 12 * * *'      # 洛杉矶 04:00（夏令时 05:00）
   workflow_dispatch:
+    inputs:
+      pg_version:
+        description: 'Postgres 主版本（服务器常驻库为 18；默认 16）'
+        default: '16'
   pull_request:
     paths:
       - '.github/workflows/db-nightly.yml'
@@ -22,7 +26,7 @@ jobs:
     timeout-minutes: 120
     services:
       pg:
-        image: postgres:16
+        image: postgres:${{ inputs.pg_version || '16' }}
         env:
           POSTGRES_PASSWORD: pg
           POSTGRES_DB: gj
