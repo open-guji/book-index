@@ -42,6 +42,22 @@
     {
       "institution": "浙江圖書館",
       "source": "中國古籍總目 item/ylhf1xofzye7260t"
+    },
+    {
+      "institution": "國立故宮博物院",
+      "call_number": "平圖013567-013570",
+      "seals": [
+        "國立北平圖書館收藏朱方",
+        "陸沆私印白方",
+        "靖伯朱方"
+      ],
+      "source": "metadata.npm_item_id",
+      "seal_marks": [
+        {
+          "seal_id": "hixicswczf9f",
+          "note": "國立北平圖書館收藏朱方"
+        }
+      ]
     }
   ],
   "indexed_by": [
@@ -59,9 +75,9 @@
       "details": "https://gj.library.sh.cn/unionCatalogue/work/list#uri=http://data.library.sh.cn/gj/resource/instance/p7zfcvi2fssthqjg&from=evidence"
     }
   ],
-  "ai_note": "2026-10-26 A6续-上圖 馆藏挂接：按确定档补挂 上圖 1 条（书目页）。依据见 book-index-manager docs/馆藏资源挂接/报告/A6续-上图Book层挂接-20261026.md。\n\n2026-11-25 明别集项目：挂 Commons CADAL 北大本為原圖之根（明別集叢刊第一輯第一冊所收即此版本，序署萬曆四十四年、黃伯符刻黃仲開書，已對過序頁）。",
-  "revision": "1.2.0",
-  "revised_at": "2026-11-25",
+  "ai_note": "2026-10-26 A6续-上圖 馆藏挂接：按确定档补挂 上圖 1 条（书目页）。依据见 book-index-manager docs/馆藏资源挂接/报告/A6续-上图Book层挂接-20261026.md。\n\n2026-11-25 明别集项目：挂 Commons CADAL 北大本為原圖之根（明別集叢刊第一輯第一冊所收即此版本，序署萬曆四十四年、黃伯符刻黃仲開書，已對過序頁）。\n\n2026-11-27 明别集项目（用户 Sheldon 定：资源能确定版本的挂到版本级）：併入重複版本 988fzysgli（故宮藏「明萬曆四十四年歙邑朱時新等刊本」即本版本：同為萬曆四十四年歙邑朱氏刻，九行二十字、四周單邊，與 CADAL 北大本同版），帶入其館藏、版式、故宮善本資源；作品 d59f2nk861hf 下國圖（善本書號19380，明萬曆歙邑朱府刻本）、內閣文庫（明万暦44年刊本）、全國漢籍DB 国会／東京都立兩條（萬曆四十四年刊）下放到本版本；作品級重複的 Commons 連結刪去（本條已有）。",
+  "revision": "1.3.0",
+  "revised_at": "2026-11-27",
   "resources": [
     {
       "id": "commons",
@@ -138,6 +154,79 @@
         "edition": "明萬曆44年（1616）刻本",
         "extent": "4"
       }
+    },
+    {
+      "id": "npm-rarebooks",
+      "name": "國立故宮博物院善本古籍",
+      "url": "https://rarebooks-maps.npm.edu.tw/index.php?act=Archive/search/1-20/eyJwYWdlaW5nIjogIjEtMjAiLCAic2VhcmNoIjogW3siZmllbGQiOiAiQ21uTnVtYmVyIiwgInZhbHVlIjogIlx1NWU3M1x1NTcxNjAxMzU2Ny0wMTM1NzAifV0sICJwcWZpbHRlciI6IFtdLCAidHBmaWx0ZXIiOiB7fX0%3D",
+      "types": [
+        "physical"
+      ],
+      "metadata": {
+        "item_id": "平圖013567-013570",
+        "acckey": "7f9f474cd0730b8a067138b46c8bcff7"
+      }
+    },
+    {
+      "id": "nlc",
+      "label": "國圖藏本：明萬曆[1573-1620]",
+      "name": "中華古籍資源庫（國家圖書館）",
+      "url": "http://read.nlc.cn/allSearch/searchDetail?searchType=10024&showType=1&indexName=data_892&fid=411999032381",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "nlc_fid": "411999032381",
+        "edition": "明萬曆[1573-1620]"
+      }
+    },
+    {
+      "id": "nat-archives-jp",
+      "label": "內閣文庫藏本：明万暦44年刊本（序刊）（集016-0013，3冊）",
+      "name": "國立公文書館デジタルアーカイブ（內閣文庫）",
+      "url": "https://www.digital.archives.go.jp/file/1082996",
+      "types": [
+        "image"
+      ],
+      "metadata": {
+        "naikaku_file_id": "1082996",
+        "request_no": "集０１６－００１３",
+        "edition": "刊本（序刊）::明万暦:440000:",
+        "iiif_manifest": "https://www.digital.archives.go.jp/api/iiif/4407297/manifest.json",
+        "extent": "3冊"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FAKOKKAI/tagged/0550018.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：国会藏本：萬曆四十四年序 刊 萬曆四十四年",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FAKOKKAI/tagged/0550018.dat",
+        "institution": "国会",
+        "edition": "萬曆四十四年序 刊 萬曆四十四年",
+        "extent": "十卷"
+      }
+    },
+    {
+      "id": "kanseki",
+      "name": "全國漢籍データベース",
+      "url": "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?record=data/FATORITSU/taggedIchimura/0990011.dat&back=1",
+      "types": [
+        "catalog"
+      ],
+      "label": "全國漢籍DB著錄（僅目錄，無影像）：東京都立 中央藏本：刊 明萬曆四十四年序",
+      "details": "全國漢籍データベース書目記錄（著錄日本藏館與版本；無線上影像）",
+      "metadata": {
+        "kanseki_record": "data/FATORITSU/taggedIchimura/0990011.dat",
+        "institution": "東京都立 中央",
+        "edition": "刊 明萬曆四十四年序",
+        "extent": "6册"
+      }
     }
   ],
   "dating": {
@@ -150,6 +239,22 @@
     {
       "number": 10,
       "unit": "卷"
+    }
+  ],
+  "physical_description": {
+    "leaf_style": "九行，行二十字。；四周單欄，版心白口，單魚尾，中縫上記朱楓林集，中記卷之幾及葉次。",
+    "binding": "",
+    "dimensions": "版框高20.4公分，廣12.7公分",
+    "condition": "卷五第十四葉缺佚，以空白葉補之",
+    "source": "library_data/臺灣故宮博物院善本古籍（依 provenance.call_number＝holding_id 對照，同號多書按書名/卷數挑選）"
+  },
+  "metadata": {
+    "npm_acckey": "7f9f474cd0730b8a067138b46c8bcff7"
+  },
+  "contained_in": [
+    {
+      "id": "8rlcsybg2hhl",
+      "section": "集部"
     }
   ]
 }
